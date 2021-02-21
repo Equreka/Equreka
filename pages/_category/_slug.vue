@@ -1,11 +1,11 @@
 <template>
   <main role="main" class="page-single">
-    <header class="subject mathematics">
+    <div class="category mathematics">
       <div class="container">
         <h2 class="small">Mathematics</h2>
         <h1 class="title">{{ data.name }}</h1>
       </div>
-    </header>
+    </div>
     <div class="container">
       <!-- Eureka! -->
       <section class="eureka">
@@ -24,7 +24,7 @@
       </section>
       <!-- Downloads -->
       <section class="download">
-        <a class="btn btn-primary btn-download" download="mass-energy-equivalence.json"><i class="fa fa-download mr-3"></i>Download JSON</a>
+        <a class="btn btn-primary btn-download" :href="json" :download="data.slug + '.json'"><i class="fa fa-download mr-3"></i>Download JSON</a>
       </section>
       <!-- Code -->
       <section class="code text-light">
@@ -48,7 +48,7 @@
         </p>
       </section>
       <!-- References -->
-      <section class="references">
+      <section class="references d-none">
         <h4>References</h4>
         <ul>
           <li>
@@ -67,6 +67,12 @@
     data () {
       return {
         data: {},
+        json: null
+      }
+    },
+    head: {
+      bodyAttrs: {
+        class: 'page-single'
       }
     },
     components: {
@@ -99,7 +105,8 @@
 
       if(data) {
         return { 
-          data: data
+          data: data,
+          json: process.env.baseUrl + '/api/entries/' + slug
         }
       } else {
         redirect('../');

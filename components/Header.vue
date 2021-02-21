@@ -9,7 +9,7 @@
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="./">
-            <img src="assets/brand/logo.png" width="65" alt="Ecureka">
+            <img src="/assets/brand/logo.png" width="65" alt="Ecureka">
           </a>
           <div class="navbar-button">
             <div class="nav-item dropdown">
@@ -45,3 +45,9 @@
     </nav>
   </header>
 </template>
+
+<script>
+export default {
+  
+}
+</script>

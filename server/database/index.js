@@ -13,29 +13,28 @@ const sequelize = new Sequelize(DB_DATA, DB_USER, DB_PASS, {
 
 // Connection to DB
 sequelize.authenticate()
-  .then(
-    () => {
-      console.log('Connection has been established successfully');
-    }
-  )
-  .catch(
-    (error) => {
-      console.log('Unable to connect to the database:', error);
-    }
-  );  
+  .then(() => {
+    console.log('Connection has been established successfully');
+  })
+  .catch((error) => {
+    console.log('Unable to connect to the database:', error);
+  });  
 
 // Sync tables
 const modelEntry = require('../models/entry');
 const Entry = modelEntry(sequelize, Sequelize);
+const modelCategory = require('../models/category');
+const Category = modelCategory(sequelize, Sequelize);
 
 sequelize.sync({ force: false })
   .then(() => {
     console.log('Tables synced')
   });
 
-  
+global.sequelize = sequelize;
+
 module.exports = {
   sequelize,
+  Category,
   Entry
 }
-global.sequelize = sequelize;

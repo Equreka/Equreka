@@ -1,8 +1,8 @@
 <template> 
-  <main role="main" class="page-subject">
-    <header class="subject mathematics">
+  <main role="main" class="page-category">
+    <header class="category mathematics">
       <div class="container">
-        <h2 class="small">Subjects</h2>
+        <h2 class="small">Category</h2>
         <h1 class="title">Mathematics</h1>
       </div>
     </header>

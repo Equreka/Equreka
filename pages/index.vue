@@ -1,5 +1,5 @@
 <template>
-  <main role="main" class="subjects">
+  <main role="main" class="categories">
     <div class="container">
       <div class="row mathematics">
         <div class="col-12 col-lg-3">
@@ -9,7 +9,7 @@
           <div class="list">
             <a href="/category">Arithmetic</a>
             <a href="/category">Algebra</a>
-            <a href="/category">Geomtry</a>
+            <a href="/category">Geometry</a>
             <a href="/category">Analysis</a>
             <a href="/category">Calculus</a>
           </div>
@@ -48,7 +48,13 @@
 </template>
 
 <script>
-export default {}
+export default {
+  head: {
+  bodyAttrs: {
+    class: 'page-index'
+  }
+},
+}
 </script>
 
 <style>

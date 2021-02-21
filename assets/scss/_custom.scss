@@ -39,7 +39,6 @@ h1, h2, h3, h4, h5, h6
 // Header
 header {
   padding: 1rem 0;
-  margin-bottom: 2rem;
   .navbar {
     font-weight: 600;
     font-family: $font-family-heading-sans-serif;
@@ -69,10 +68,10 @@ header {
   }  
 }
 
-// Subjects
-.subjects {
+// Categories
+.categories {
   .row {
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
   .title {
     font-size: 1.5rem;
@@ -87,10 +86,13 @@ header {
     font-weight: 400;
     list-style: none;
     padding: 0;
+    margin: 0 -1rem;
     a {
       display: flex;
-      flex: 1 1 33.3333%;
-      padding: 0 1rem .5rem 1rem;
+      flex: 0 1 33.3333%;
+      padding: 0 1rem;
+      margin-bottom: 1rem;
+      transition: all 0.35s ease;
     }
   }
   
@@ -104,9 +106,9 @@ header {
   }
 }
 
-// Subject
-.subject { 
-  padding: 2.5rem 0;
+// Category
+.category { 
+  padding: 1.5rem 0;
   .title {
     margin: 0;
     font-size: 2rem;
@@ -181,8 +183,14 @@ header {
   }
 }
 
-// Page: Subject
-.page-subject {  
+.page-index {
+  header {
+    margin-bottom: 2rem;
+  }
+}
+
+// Page: Category
+.page-category {  
   .list {
     display: flex;
     flex-wrap: wrap;
