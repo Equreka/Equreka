@@ -1,0 +1,33 @@
+<template>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <ul class="nav">
+            <li class="nav-item"><a class="nav-link" href="#">&copy; 2017 Equreka</a></li>
+          </ul>        
+        </div>
+        <div class="col">
+          <ul class="nav justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener nofollow" href="https://fb.me/Equreka" title="Facebook"><i class="icon bi bi-facebook facebook"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener nofollow" href="https://twitter.com/Equreka" title="Twitter"><i class="icon bi bi-twitter twitter"></i></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener nofollow" href="https://discord.gg/NZypuxvAB6" title="Discord"><i class="icon bi bi-discord discord"></i></a>
+            </li>
+          </ul>
+        </div>
+        <div class="col">
+          <ul class="nav justify-content-end">
+            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Donate</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+</template>

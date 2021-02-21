@@ -1,0 +1,361 @@
+// HTML
+html {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+// Selection
+::selection { background: rgba($black, .15); }
+
+// Scroll
+* {
+  ::-webkit-scrollbar {
+    width: 5px;
+    background: $white;
+  }
+  
+  ::-webkit-scrollbar-button {
+    width: 0;
+    height: 0;
+    display: none;
+  }
+  
+  ::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+  
+  ::-webkit-scrollbar-track {
+    border-radius: 0;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #888; 
+  }
+}
+
+h1, h2, h3, h4, h5, h6
+.h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family: $font-family-heading-sans-serif;
+}
+// Header
+header {
+  padding: 1rem 0;
+  margin-bottom: 2rem;
+  .navbar {
+    font-weight: 600;
+    font-family: $font-family-heading-sans-serif;
+    @include media-breakpoint-down($navbar-expand) {
+      padding: 1rem 0;
+    }
+    .navbar-navigation {
+      display: flex;
+      align-items: center;
+    }
+    .navbar-collapse {
+      flex-grow: initial;
+    }
+    .nav-link {
+      box-shadow: none !important;
+      font-size: 1rem;
+    }
+    .form-search {
+      input {
+        min-width: 400px;
+        border-radius: 999rem;
+      }
+      @include media-breakpoint-down($navbar-expand) {
+        width: 100%;
+      }
+    }
+  }  
+}
+
+// Subjects
+.subjects {
+  .row {
+    margin-bottom: 2rem;
+  }
+  .title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
+  }
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 120%;
+    line-height: 2.5rem;
+    font-weight: 400;
+    list-style: none;
+    padding: 0;
+    a {
+      display: flex;
+      flex: 1 1 33.3333%;
+      padding: 0 1rem .5rem 1rem;
+    }
+  }
+  
+  @each $subject, $color in $subjects {
+    .#{$subject} {
+      .title,
+      a:hover {
+        color: $color;
+      }
+    }
+  }
+}
+
+// Subject
+.subject { 
+  padding: 2.5rem 0;
+  .title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+  .small {
+    margin: 0;
+    font-size: 90%;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  @each $subject, $color in $subjects {
+    &.#{$subject} {
+      background-color: $color;
+      .title {
+        color: color-yiq($color);
+      }
+      .small {
+        color: lighten($color, 30)
+      }
+    }
+  }
+}
+
+// Expression
+.expression {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1 1 100%;
+  order: 0;
+  margin-bottom: 2rem;
+  font-size: 120%;
+  .mjx-n {
+    margin-bottom: .5rem;
+  }
+  mjx-container,
+  mjx-math {
+    flex: 0 1 auto;
+    flex-wrap: wrap;
+    max-width: 100%;
+    display: flex;
+    outline: 0;
+    margin: 0 !important;
+    align-items: baseline;
+  }
+}
+
+// Deconstruction
+.deconstruction {
+  display: flex;
+  align-items: center;
+  @include media-breakpoint-down(sm) {
+    flex: 1 1 100%;
+    order: 1;
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      padding: 0;
+      span {
+        min-width: 2rem;
+        display: inline-block;
+        line-height: initial;
+        font-size: 1.5rem;
+        font-style: oblique;
+        font-family: $font-family-math;
+      }
+    }
+  }
+}
+
+// Page: Subject
+.page-subject {  
+  .list {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 120%;
+    line-height: 2.5rem;
+    font-weight: 400;
+    list-style: none;
+    margin: 0 -1rem;
+    padding: 0;
+    a {
+      display: flex;
+      flex: 1 1 33.3333%;
+      padding: 0 1rem .5rem 1rem;
+    }
+  }
+}
+
+// Page: Single
+.page-single {
+  main {
+    section {
+      margin: 2.5rem 0;
+    }
+  }
+}
+
+// Footer
+footer { 
+  padding: 2rem 0;
+  .col {
+    padding: 0;
+  }
+  .icon {
+    font-size: 125%;
+    line-height: 1;
+  }
+  .facebook {
+    color: #3F51B5;
+  }
+  .twitter {
+    color: #03A9F4;
+  }
+  .android {
+    color: #7CB342;
+  }
+  .apple {
+    color: #555555;
+  }
+  .discord {
+    color: #7289DA;
+  }
+  .windows {
+    color: #03A9F4;
+  }
+}
+
+
+// Math
+[data-eureka-type] {
+  transition: all .35s ease, font-size 0s;
+}
+[data-eureka-type="variable"] {
+  &.hover {
+    color: $red;
+  }
+}
+[data-eureka-type="constant"] {
+  &.hover {
+    color: $blue;
+  }
+}
+.math {
+  font-family: $font-family-math;
+  font-style: oblique;
+  font-weight: bold;
+  font-size: 120%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/*
+ *  The MathML will be hidden from view for visual users, but available to
+ *  assistive technology, like screen readers.
+ */
+mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px; left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  /*
+   *  Don't allow the assistive MathML become part of the selection
+   */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+mjx-assistive-mml[display="block"] {
+  width: 100% !important
+}
+
+// Color Scheme
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #181a1b;
+    color: #FFF;
+  }
+  ::selection {
+    background: rgba(255,255,255,0.125);
+  }
+  input {
+    background-color: lighten(#181a1b, 10) !important;
+    border-color: lighten(#181a1b, 10) !important;
+  }
+}
+
+// Responsive
+@media (max-width: 1000px) {
+  .subjects {
+    .title { 
+      font-size: 125%;
+    }
+    .list {
+      font-size: 90%;
+    }
+  }
+  footer {
+    .nav-link {
+      font-size: 90%;
+      padding: .5rem;
+    }
+    .icon {
+      font-size: 100%;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .subject {
+    text-align: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .subjects {
+    .title {
+      font-size: 110%;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .subjects {
+    .title {
+      margin: 1rem 0;
+    }
+    .list {
+      font-size: 95%;
+    }
+  }
+}
+
+@media (max-width: 576px ) {
+  .subject {
+    .title {
+      font-size: 150%;
+    }
+  }
+}
