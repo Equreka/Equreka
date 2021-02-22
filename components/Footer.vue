@@ -10,6 +10,9 @@
         <div class="col">
           <ul class="nav justify-content-center">
             <li class="nav-item">
+              <a class="nav-link" target="_blank" rel="noopener nofollow" href="https://github.com/Equreka" title="Github"><i class="icon bi bi-github github"></i></a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" target="_blank" rel="noopener nofollow" href="https://fb.me/Equreka" title="Facebook"><i class="icon bi bi-facebook facebook"></i></a>
             </li>
             <li class="nav-item">

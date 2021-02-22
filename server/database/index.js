@@ -20,11 +20,18 @@ sequelize.authenticate()
     console.log('Unable to connect to the database:', error);
   });  
 
-// Sync tables
+// Models
 const modelEntry = require('../models/entry');
 const Entry = modelEntry(sequelize, Sequelize);
+
 const modelCategory = require('../models/category');
 const Category = modelCategory(sequelize, Sequelize);
+
+const modelConstant = require('../models/constant');
+const Constant = modelConstant(sequelize, Sequelize);
+
+//Entry.belongsTo(Category);
+//Constant.belongsTo(Category);
 
 sequelize.sync({ force: false })
   .then(() => {
@@ -36,5 +43,6 @@ global.sequelize = sequelize;
 module.exports = {
   sequelize,
   Category,
+  Constant,
   Entry
 }

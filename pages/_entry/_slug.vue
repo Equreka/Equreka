@@ -2,8 +2,19 @@
   <main role="main" class="page-single">
     <div class="category mathematics">
       <div class="container">
-        <h2 class="small">Mathematics</h2>
-        <h1 class="title">{{ data.name }}</h1>
+        <div class="d-flex align-items-center justify-content-between">
+          <div class="info">
+            <h2 class="small">{{ category.name }}</h2>
+            <h1 class="title">{{ data.name }}</h1>
+          </div>
+          <b-dropdown variant="outline-light" no-caret right>
+            <template #button-content>
+              <i class="bi bi-three-dots-vertical"></i>
+            </template>
+            <h6 class="dropdown-header">Options</h6>
+            <b-dropdown-item :href="json" :download="data.slug + '.json'">Download JSON</b-dropdown-item>
+          </b-dropdown>
+        </div>
       </div>
     </div>
     <div class="container">
@@ -23,8 +34,11 @@
         </div>
       </section>
       <!-- Downloads -->
-      <section class="download">
-        <a class="btn btn-primary btn-download" :href="json" :download="data.slug + '.json'"><i class="fa fa-download mr-3"></i>Download JSON</a>
+      <section class="download d-none">
+        <a class="btn btn-primary btn-download" :href="json" :download="data.slug + '.json'">
+          <i class="bi bi-download mr-2"></i>
+          Download JSON
+        </a>
       </section>
       <!-- Code -->
       <section class="code text-light">
@@ -67,6 +81,7 @@
     data () {
       return {
         data: {},
+        category: null,
         json: null
       }
     },
@@ -99,13 +114,19 @@
     },
     async asyncData ({ params, redirect }) {
       const slug = params.slug;
+
       const data = await fetch(
         process.env.baseUrl + '/api/entries/' + slug
-      ).then((res) => res.json())
+      ).then((res) => res.json());
+
+      const category = await fetch(
+        process.env.baseUrl + '/api/categories/id/' + data.id_category
+      ).then((res) => res.json());
 
       if(data) {
         return { 
           data: data,
+          category: category,
           json: process.env.baseUrl + '/api/entries/' + slug
         }
       } else {

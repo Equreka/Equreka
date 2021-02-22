@@ -1,10 +1,10 @@
 const router = require('express').Router();
-const { Entry, Category } = require('../../database/index');
+const { Entry } = require('../../database/index');
 
 // Get all
 router.get('/', async (req, res) => {
-  const entries = await Entry.findAll();
-  res.json(entries);
+  const data = await Entry.findAll();
+  res.json(data);
 });
 
 // Get by slug
