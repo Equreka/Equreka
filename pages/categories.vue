@@ -7,15 +7,15 @@
         </div>
         <div class="col-12 col-lg-9">
           <div class="list">
-              <a href="/single/">Lorem</a>
-              <a href="/single/">Ipsum dolor</a>
-              <a href="/single/">Sit amet</a>
-              <a href="/single/">Consectetur adipiscing</a>
-              <a href="/single/">Fusce ut arcu</a>
-              <a href="/single/">Sapien feugiat</a>
-              <a href="/single/">Luctus et et magna</a>
-              <a href="/single/">Donec ac erat</a>
-              <a href="/single/">Id ante</a>
+              <a href="/category/">Lorem</a>
+              <a href="/category/">Ipsum dolor</a>
+              <a href="/category/">Sit amet</a>
+              <a href="/category/">Consectetur adipiscing</a>
+              <a href="/category/">Fusce ut arcu</a>
+              <a href="/category/">Sapien feugiat</a>
+              <a href="/category/">Luctus et et magna</a>
+              <a href="/category/">Donec ac erat</a>
+              <a href="/category/">Id ante</a>
             </div>
         </div>
       </div>
@@ -25,15 +25,15 @@
         </div>
         <div class="col-12 col-lg-9">
           <div class="list">
-            <a href="/single/">Lorem</a>
-            <a href="/single/">Ipsum dolor</a>
-            <a href="/single/">Sit amet</a>
-            <a href="/single/">Consectetur adipiscing</a>
-            <a href="/single/">Fusce ut arcu</a>
-            <a href="/single/">Sapien feugiat</a>
-            <a href="/single/">Luctus et et magna</a>
-            <a href="/single/">Donec ac erat</a>
-            <a href="/single/">Id ante</a>
+            <a href="/category/">Lorem</a>
+            <a href="/category/">Ipsum dolor</a>
+            <a href="/category/">Sit amet</a>
+            <a href="/category/">Consectetur adipiscing</a>
+            <a href="/category/">Fusce ut arcu</a>
+            <a href="/category/">Sapien feugiat</a>
+            <a href="/category/">Luctus et et magna</a>
+            <a href="/category/">Donec ac erat</a>
+            <a href="/category/">Id ante</a>
           </div>
         </div>
       </div>
@@ -43,15 +43,15 @@
         </div>
         <div class="col-12 col-lg-9">
           <div class="list">
-            <a href="/single/">Lorem</a>
-            <a href="/single/">Ipsum dolor</a>
-            <a href="/single/">Sit amet</a>
-            <a href="/single/">Consectetur adipiscing</a>
-            <a href="/single/">Fusce ut arcu</a>
-            <a href="/single/">Sapien feugiat</a>
-            <a href="/single/">Luctus et et magna</a>
-            <a href="/single/">Donec ac erat</a>
-            <a href="/single/">Id ante</a>
+            <a href="/category/">Lorem</a>
+            <a href="/category/">Ipsum dolor</a>
+            <a href="/category/">Sit amet</a>
+            <a href="/category/">Consectetur adipiscing</a>
+            <a href="/category/">Fusce ut arcu</a>
+            <a href="/category/">Sapien feugiat</a>
+            <a href="/category/">Luctus et et magna</a>
+            <a href="/category/">Donec ac erat</a>
+            <a href="/category/">Id ante</a>
           </div>
         </div>
       </div>

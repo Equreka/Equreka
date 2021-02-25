@@ -1,5 +1,8 @@
 $navbar-expand: md;
 
+$body-bg:    var(--body-bg);
+$body-color: var(--body-color);
+
 // Font
 $enable-responsive-font-sizes  : true;
 $font-family-math              : MJXc-TeX-math-I, MJXc-TeX-math-Ix, MJXc-TeX-math-Iw;
@@ -26,10 +29,3 @@ $speed-incoming: cubic-bezier(0.0, 0.0, 0.2, 1);
 
 // Transition
 $transition-all-ease: all .35s $speed-ease;
-
-// Dark Theme
-$dark-theme-color: rgba(#FFF, 0.85);
-$dark-theme-bg   : #121212;
-// Light Theme
-$light-theme-color: #212529;
-$light-theme-bg   : rgba(#FFF, 1.00);

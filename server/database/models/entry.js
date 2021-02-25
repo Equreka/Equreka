@@ -1,8 +1,6 @@
-const Sequelize = require('sequelize');
-const { Category } = require('../database/index');
-
+import models from '../index';
 module.exports = (sequelize, DataTypes) => {
-  return sequelize.define('constant', {
+  const Entry = sequelize.define('entry', {
     id: {
       type         : DataTypes.INTEGER,
       primaryKey   : true,
@@ -29,16 +27,14 @@ module.exports = (sequelize, DataTypes) => {
       type     : DataTypes.STRING,
       allowNull: false
     },
-    identifier: {
+    expression: {
       type     : DataTypes.STRING,
       allowNull: false
     },
     description: {
       type: DataTypes.STRING
-    },
-    value: {
-      type     : DataTypes.STRING,
-      allowNull: false
     }
-  })
+  });
+
+  return Entry;
 }

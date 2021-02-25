@@ -5,7 +5,7 @@ export default {
   serverMiddleware: [
     {
       path:    '/api',
-      handler: '@/server/api/index.js'
+      handler: '@/server/api.js'
     }
   ],
 
@@ -26,7 +26,7 @@ export default {
     ],
     script: [
       {
-        src: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'
+        src: 'https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-chtml-full.js'
       }
     ]
   },
@@ -47,7 +47,8 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-
+    // https://nuxtjs.org/blog/going-dark-with-nuxtjs-color-mode
+    '@nuxtjs/color-mode'
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules

@@ -1,15 +1,15 @@
 const router = require('express').Router();
-const { Constant } = require('../../database/index');
+const models = require('../../database');
 
 // Get all
 router.get('/', async (req, res) => {
-  const data = await Constant.findAll();
+  const data = await models.constant.findAll();
   res.json(data);
 });
 
 // Get by slug
 router.get('/:slug', async (req, res) => {
-  const data = await Constant.findOne({
+  const data = await models.constant.findOne({
     where: {
       slug: req.params.slug
     }
@@ -19,13 +19,13 @@ router.get('/:slug', async (req, res) => {
 
 // Create
 router.post('/', async (req, res) => {
-  const data = await Constant.create(req.body);
+  const data = await models.constant.create(req.body);
   res.json(data);
 })
 
 // Update
 router.put('/:constantId', async (req, res) => {
-  await Constant.update(req.body, {
+  await models.constant.update(req.body, {
     where: {
       id: req.params.constantId
     }
@@ -35,7 +35,7 @@ router.put('/:constantId', async (req, res) => {
 
 // Delete
 router.delete('/:constantId', async (req, res) => {
-  await Constant.destroy({
+  await models.constant.destroy({
     where: {
       id: req.params.constantId
     }

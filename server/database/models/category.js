@@ -1,7 +1,5 @@
-const Sequelize = require('sequelize');
-
 module.exports = (sequelize, DataTypes) => {
-  return sequelize.define('category', {
+  const Category = sequelize.define('category', {
     id: {
       type         : DataTypes.INTEGER,
       primaryKey   : true,
@@ -16,5 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       type     : DataTypes.STRING,
       allowNull: false
     }
-  })
+  });
+
+  return Category;
 }

@@ -1,6 +1,9 @@
 # Equreka
 Your open-source site for formulas, equations, and constants!
 
+## Help wanted!
+Join discord: 
+
 ## Build Setup
 
 ```bash
@@ -19,3 +22,17 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+
+## Todo
+
+## API
+- Entry
+  - Fetch all data (units, terms, category, etc.)
+
+### Database
+- Improve general structure
+
+### Scripts
+- Expression Parser
+- Description Parser (Or just use TeX in descriptions [?]) *
+- Hover system without jQuery

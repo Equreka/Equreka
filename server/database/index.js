@@ -1,4 +1,9 @@
 const Sequelize = require('sequelize');
+const fs = require('fs');
+const path = require('path');
+const modelsPath = __dirname + '/models';
+const basename = path.basename(__filename) + '/models';
+const models = {};
 
 const
   DB_HOST = 'localhost',
@@ -20,29 +25,28 @@ sequelize.authenticate()
     console.log('Unable to connect to the database:', error);
   });  
 
-// Models
-const modelEntry = require('../models/entry');
-const Entry = modelEntry(sequelize, Sequelize);
+// Getting models
+fs
+  .readdirSync(modelsPath)
+  .filter(file => {
+    return (file.indexOf('.') !== 0) && (file !== basename) && (file.slice(-3) === '.js');
+  })
+  .forEach(file => {
+    const model = require(path.join(modelsPath, file))(sequelize, Sequelize.DataTypes)
+    models[model.name] = model;
+  });
 
-const modelCategory = require('../models/category');
-const Category = modelCategory(sequelize, Sequelize);
-
-const modelConstant = require('../models/constant');
-const Constant = modelConstant(sequelize, Sequelize);
-
-//Entry.belongsTo(Category);
-//Constant.belongsTo(Category);
+Object.keys(models).forEach(modelName => {
+  if (models[modelName].associate) {
+    models[modelName].associate(models);
+  }
+});
 
 sequelize.sync({ force: false })
   .then(() => {
-    console.log('Tables synced')
+    console.log('Synced successfully')
   });
 
 global.sequelize = sequelize;
 
-module.exports = {
-  sequelize,
-  Category,
-  Constant,
-  Entry
-}
+module.exports = models;

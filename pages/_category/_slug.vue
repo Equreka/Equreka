@@ -1,6 +1,6 @@
 <template>
-  <main role="main" class="page-single">
-    <div class="category mathematics">
+  <main role="main">
+    <div class="category" :class="category.slug">
       <div class="container">
         <div class="d-flex align-items-center justify-content-between">
           <div class="info">
@@ -13,6 +13,7 @@
             </template>
             <h6 class="dropdown-header">Options</h6>
             <b-dropdown-item :href="json" :download="data.slug + '.json'">Download JSON</b-dropdown-item>
+            <b-dropdown-item :to="'/report/' + category.slug + '/' + data.slug">Report this page</b-dropdown-item>
           </b-dropdown>
         </div>
       </div>
@@ -33,29 +34,12 @@
           </ul>
         </div>
       </section>
-      <!-- Downloads -->
-      <section class="download d-none">
-        <a class="btn btn-primary btn-download" :href="json" :download="data.slug + '.json'">
-          <i class="bi bi-download mr-2"></i>
-          Download JSON
-        </a>
-      </section>
       <!-- Code -->
       <section class="code text-light">
-        <textarea class="form-control d-none" rows="4">
-          <math>
-            <mi>E</mi>
-            <mo>=</mo>
-            <mi>m</mi>
-            <msup>
-              <mi>c</mi>
-              <mn>2</mn>
-            </msup>
-          </math>
-        </textarea>
+        <textarea class="form-control" :value="data.expression" rows="1"></textarea>
       </section>
-      <!-- Information -->
-      <section class="information">
+      <!-- Description -->
+      <section class="description" v-if="data.description">
         <h4>Description</h4>
         <p class="text-justify">
           {{ data.description }}
@@ -81,7 +65,7 @@
     data () {
       return {
         data: {},
-        category: null,
+        category: {},
         json: null
       }
     },
@@ -96,41 +80,54 @@
       renderMathJax () {
         if(window.MathJax) {
           MathJax = {
+            jax: ["input/TeX","output/svg"],
+            loader: {
+              load: ['[tex]/html']
+            },
             tex: {
-              inlineMath: [['$', '$'], ['\\(', '\\)']]
+              inlineMath: [['$', '$'], ['\\(', '\\)']],
+              packages: {
+                '[+]': ['html']
+              }
             },
             svg: {
               fontCache: 'global'
             }
           }
         }
+      },
+      parser(data) {
+        data.terms.forEach(term => {
+          var termData = fetch(process.env.baseUrl + '/api/terms/' + term.id).then((res) => res.json());
+        });
+        return newExpress;
       }
     },
     mounted() {
       this.renderMathJax();
     },
-    activated() {
-      this.$fetch();
-    },
     async asyncData ({ params, redirect }) {
       const slug = params.slug;
-
       const data = await fetch(
         process.env.baseUrl + '/api/entries/' + slug
       ).then((res) => res.json());
 
-      const category = await fetch(
-        process.env.baseUrl + '/api/categories/id/' + data.id_category
-      ).then((res) => res.json());
-
       if(data) {
-        return { 
-          data: data,
-          category: category,
-          json: process.env.baseUrl + '/api/entries/' + slug
+        const category = await fetch(
+          process.env.baseUrl + '/api/categories/id/' + data.id_category
+        ).then((res) => res.json());
+
+        if(params.category == category.slug) {
+          return { 
+            data: data,
+            category: category,
+            json: process.env.baseUrl + '/api/entries/' + slug
+          }
+        } else {
+          redirect('/');
         }
       } else {
-        redirect('../');
+        redirect('/');
       }
     }
   }

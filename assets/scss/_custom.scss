@@ -1,10 +1,48 @@
+//
+@mixin theme-light() {
+  --body-bg: #EEE;
+  --body-color: #EEE;
+  --input-bg:  #FFF;
+  --input-border-color: #333;
+  --selection-bg: rgba($black, .15);
+}
+
+@mixin theme-dark() {
+  --body-bg: #181a1b;
+  --body-color: #EEE;
+  --input-bg:  lighten(#181a1b, 10);
+  --input-border-color: lighten(#181a1b, 05);
+  --selection-bg: rgba(255,255,255,0.125);
+}
+
+// Root
+:root {
+  @include theme-light();
+  // Color Scheme
+  @media (prefers-color-scheme: dark) {
+    @include theme-dark();
+  }
+}
+
 // HTML
 html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  &.light-mode {
+    @include theme-light();
+  }
+  &.dark-mode {
+    @include theme-dark();
+  }
 }
+
 // Selection
 ::selection { background: rgba($black, .15); }
+
+input {
+  background: var(--input-bg);
+  border-color: var(--input-border-color);
+}
 
 // Scroll
 * {
@@ -40,29 +78,47 @@ h1, h2, h3, h4, h5, h6
 header {
   padding: 1rem 0;
   .navbar {
-    font-weight: 600;
-    font-family: $font-family-heading-sans-serif;
-    @include media-breakpoint-down($navbar-expand) {
-      padding: 1rem 0;
-    }
-    .navbar-navigation {
+    .container {
       display: flex;
-      align-items: center;
-    }
-    .navbar-collapse {
-      flex-grow: initial;
-    }
-    .nav-link {
-      box-shadow: none !important;
-      font-size: 1rem;
-    }
-    .form-search {
-      input {
-        min-width: 400px;
-        border-radius: 999rem;
+      align-items    : stretch;
+      flex-wrap      : wrap;
+      // Divisions
+      .left,
+      .center,
+      .right {
+        display: flex;
+        flex   : 1;
       }
-      @include media-breakpoint-down($navbar-expand) {
+
+      .left,
+      .right {
+        @include media-breakpoint-down($navbar-expand) {
+          margin-bottom: 1rem;
+        }
+      }
+      
+      // Center
+      .center {
+        flex           : 1 1 auto;
+        justify-content: center;
+        align-self     : center;
+        @include media-breakpoint-down($navbar-expand) {
+          order: 2;
+          flex : 1 1 100%;
+        }
+      }
+
+      // Right
+      .right {
+        justify-content: flex-end;
+      }
+    }
+
+    .form-search {
+      width: 100%;
+      input {
         width: 100%;
+        border-radius: 999rem;
       }
     }
   }  
@@ -184,7 +240,7 @@ header {
 }
 
 .page-index {
-  header {
+  & > header {
     margin-bottom: 2rem;
   }
 }
@@ -297,21 +353,6 @@ mjx-assistive-mml {
 }
 mjx-assistive-mml[display="block"] {
   width: 100% !important
-}
-
-// Color Scheme
-@media (prefers-color-scheme: dark) {
-  body {
-    background: #181a1b;
-    color: #FFF;
-  }
-  ::selection {
-    background: rgba(255,255,255,0.125);
-  }
-  input {
-    background-color: lighten(#181a1b, 10) !important;
-    border-color: lighten(#181a1b, 10) !important;
-  }
 }
 
 // Responsive

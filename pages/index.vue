@@ -1,45 +1,17 @@
 <template>
   <main role="main" class="categories">
     <div class="container">
-      <div class="row mathematics">
+      <div class="row" v-for="category in categories" :key="category.slug" :class="category.slug">
         <div class="col-12 col-lg-3">
-          <h3 class="title">Mathematics</h3>
+          <h3 class="title">{{ category.name }}</h3>
         </div>
         <div class="col-12 col-lg-9">
           <div class="list">
-            <a href="/category">Arithmetic</a>
-            <a href="/category">Algebra</a>
-            <a href="/category">Geometry</a>
-            <a href="/category">Analysis</a>
-            <a href="/category">Calculus</a>
-          </div>
-        </div>
-      </div>
-      <div class="row physics">
-        <div class="col-12 col-lg-3">
-          <h3 class="title">Physics</h3>
-        </div>
-        <div class="col-12 col-lg-9">
-          <div class="list">
-            <a href="/category">Quantum mechanics</a>
-          </div>
-        </div>
-      </div>
-      <div class="row chemistry">
-        <div class="col-12 col-lg-3">
-          <h3 class="title">Chemistry</h3>
-        </div>
-        <div class="col-12 col-lg-9">
-          <div class="list">
-            <a href="/category">Lorem</a>
-            <a href="/category">Ipsum dolor</a>
-            <a href="/category">Sit amet</a>
-            <a href="/category">Consectetur adipiscing</a>
-            <a href="/category">Fusce ut arcu</a>
-            <a href="/category">Sapien feugiat</a>
-            <a href="/category">Luctus et et magna</a>
-            <a href="/category">Donec ac erat</a>
-            <a href="/category">Id ante</a>
+            <a :href="'/' + category.slug + '/'">Subcategory</a>
+            <a :href="'/' + category.slug + '/'">Subcategory</a>
+            <a :href="'/' + category.slug + '/'">Subcategory</a>
+            <a :href="'/' + category.slug + '/'">Subcategory</a>
+            <a :href="'/' + category.slug + '/'">Subcategory</a>
           </div>
         </div>
       </div>
@@ -49,11 +21,19 @@
 
 <script>
 export default {
+  data () {
+    return {
+      categories: []
+    }
+  },
+  async fetch () {
+    this.categories = await fetch(process.env.baseUrl + '/api/categories/').then(res => res.json());
+  },
   head: {
-  bodyAttrs: {
-    class: 'page-index'
-  }
-},
+    bodyAttrs: {
+      class: 'page-index'
+    }
+  },
 }
 </script>
 
