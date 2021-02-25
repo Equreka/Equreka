@@ -1,8 +1,11 @@
 # Equreka
 Your open-source site for formulas, equations, and constants!
 
-## Help wanted!
-Discord: https://discord.gg/NZypuxvAB6
+**Do you want to be a Github Sponsor?**
+https://github.com/sponsors/DerianAndre
+
+## Help wanted
+Join us at Discord: https://discord.gg/NZypuxvAB6
 
 ## Build Setup
 
