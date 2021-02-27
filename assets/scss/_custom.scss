@@ -11,7 +11,7 @@ html {
 }
 
 // Selection
-::selection { background: rgba($black, .15); }
+::selection { background: var(--selection-bg); }
 
 // Scroll
 * {
@@ -67,7 +67,8 @@ h1, h2, h3, h4, h5, h6
     font-weight: 400;
     list-style: none;
     padding: 0;
-    margin: 0 -1rem;
+    margin: 0 calc(var(--bs-gutter-x) / -2);
+    overflow: hidden;
     a {
       display: flex;
       flex: 0 1 33.3333%;
@@ -90,27 +91,20 @@ h1, h2, h3, h4, h5, h6
 // Category
 .category { 
   padding: 1.5rem 0;
-  .title {
-    margin: 0;
-    font-size: 2rem;
-    font-weight: bold;
-  }
-  .small {
+  background: var(--category-bg);
+  .category-name {
     margin: 0;
     font-size: 90%;
     text-transform: uppercase;
     font-weight: 600;
+    color: var(--category-color);
+    opacity: 0.85;
   }
-  @each $subject, $color in $subjects {
-    &.#{$subject} {
-      background-color: $color;
-      .title {
-        color: color-yiq($color);
-      }
-      .small {
-        color: lighten($color, 30)
-      }
-    }
+  .entry-name {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--category-color);
   }
 }
 
@@ -138,14 +132,8 @@ h1, h2, h3, h4, h5, h6
   }
 }
 
-// Deconstruction
-.deconstruction {
-  display: flex;
-  align-items: center;
-  @include media-breakpoint-down(sm) {
-    flex: 1 1 100%;
-    order: 1;
-  }
+// Terms
+.terms {
   ul {
     list-style: none;
     padding: 0;

@@ -2,8 +2,11 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const SchemaSubject = new Schema({
+  _id:         Number,
   name:        String,
   description: String,
 });
 
-module.exports = mongoose.model('Subject', SchemaSubject);
+const Subject = mongoose.model('Subject', SchemaSubject);
+
+module.exports = Subject

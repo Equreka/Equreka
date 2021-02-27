@@ -1,8 +1,13 @@
 const mongoose = require('mongoose');
+const slug = require('mongoose-slug-generator');
 const Schema = mongoose.Schema;
 
 const SchemaConstant = new Schema({
   name:        String,
+  slug: { 
+    type: String, 
+    slug: 'name' 
+  },
   symbol:      String,
   description: String,
   category:    [{ 

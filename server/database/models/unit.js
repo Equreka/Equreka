@@ -1,8 +1,15 @@
 const mongoose = require('mongoose');
+const slug = require('mongoose-slug-generator');
 const Schema = mongoose.Schema;
+
+mongoose.plugin(slug);
 
 const SchemaUnit = new Schema({
   name:        String,
+  slug: { 
+    type: String, 
+    slug: 'name' 
+  },
   symbol:      String,
   description: String,
   type:        {
@@ -11,4 +18,4 @@ const SchemaUnit = new Schema({
   }  
 });
 
-module.exports = mongoose.model('Unit', SchemaUnit);
+module.exports = Unit = mongoose.model('Unit', SchemaUnit);

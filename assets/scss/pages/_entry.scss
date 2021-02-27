@@ -1,0 +1,16 @@
+// Page: Entry
+.page-entry {
+  main {
+    section {
+      margin: 2.5rem 0;
+    }
+    .dropdown-options {
+      .dropdown-menu {
+        min-width: 200px;
+        .bi {
+          margin-right: 0.5rem;
+        }
+      }
+    }
+  }
+}

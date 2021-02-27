@@ -1,5 +1,5 @@
 <template>    
-  <header>
+  <header class="header">
     <nav class="navbar navbar-expand-md">
       <div class="container">
         <div class="left">

@@ -19,12 +19,15 @@ footer {
       line-height: 0;
     }
   }
+  .equreka {
+    @include media-breakpoint-down($navbar-expand) {
+      display: none;
+    }
+  }
   .social {
     justify-content: center;
     @include media-breakpoint-down($navbar-expand) {
-      margin-top: 1rem;
-      order: 2;
-      flex: 1 1 100%;
+      justify-content: flex-end;
     }
     .icon {
       font-size: 115%;
@@ -58,6 +61,10 @@ footer {
   }
   .links {
     justify-content: flex-end;
+    @include media-breakpoint-down($navbar-expand) {
+      justify-content: flex-start;
+      order: -1;
+    }
     a {
       &:hover {
         text-decoration: underline;

@@ -20,9 +20,15 @@ const SchemaEntry = new Schema({
     type: Schema.Types.ObjectId,
     ref:  'Subject'
   },
-  terms: [{
+  variables: [{
+    variable: {
+      type: Schema.Types.ObjectId,
+      ref:  'Variable'
+    }
+  }],
+  constants: [{
     type: Schema.Types.ObjectId,
-    ref: 'Term'
+    ref:  'Constant'
   }],
   units: [{
     type: Schema.Types.ObjectId,
@@ -36,7 +42,4 @@ const SchemaEntry = new Schema({
   }]
 });
 
-//Term.discriminator('Variable', SchemaVariable);
-//Term.discriminator('Constant', SchemaConstant);
-
-module.exports = mongoose.model('Enrty', SchemaEntry);
+module.exports = Entry = mongoose.model('Entry', SchemaEntry);

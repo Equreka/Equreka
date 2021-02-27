@@ -1,5 +1,5 @@
 // Header
-header {
+.header {
   padding: 1rem 0;
   .container {
     display    : flex;
@@ -37,17 +37,6 @@ header {
     justify-content: flex-end;
     .bi {
       font-size: 1.35rem;
-    }
-  }
-
-
-  
-  .dropdown-menu {
-    &.show {
-      animation: fade-in 0.5s ease;
-    }
-    .dropdown-header {
-      font-weight: 500;
     }
   }
 

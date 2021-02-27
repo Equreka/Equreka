@@ -10,7 +10,7 @@ export default {
   ],
 
   env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:300',
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -52,14 +52,23 @@ export default {
     '@nuxtjs/axios',
     '@nuxtjs/redirect-module',
     '@nuxtjs/pwa',
-    // https://go.nuxtjs.dev/bootstrap
-    'bootstrap-vue/nuxt',
     // https://i18n.nuxtjs.org/es
     'nuxt-i18n',
+    // https://go.nuxtjs.dev/bootstrap
+    'bootstrap-vue/nuxt',
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+  build: {
+    loaders: {
+      sass: {
+        implementation: require('sass')
+      },
+      scss: {
+        implementation: require('sass')
+      }
+    }
+  },
 
   // @nuxtjs/color-mode
   colorMode: {

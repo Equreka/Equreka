@@ -3,7 +3,7 @@ const Entry = require('../../database/models/entry');
 
 // GET - All
 router.get('/', async (req, res) => {
-  const data = await Entry.find();
+  const data = await Entry.find().populate('variables.variable.category').populate('category')
   res.json(data);
 });
 
@@ -11,7 +11,7 @@ router.get('/', async (req, res) => {
 router.get('/:slug', async (req, res) => {
   const data = await Entry.findOne({
     'slug': req.params.slug
-  });
+  }).populate('variables.variable').populate('category');
   res.json(data);
 });
 
