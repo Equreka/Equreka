@@ -1,0 +1,22 @@
+// Math
+[data-eureka-type] {
+  transition: all .35s ease, font-size 0s;
+}
+[data-eureka-type="variable"] {
+  &.hover {
+    color: $red;
+  }
+}
+[data-eureka-type="constant"] {
+  &.hover {
+    color: $blue;
+  }
+}
+.math {
+  font-family: $font-family-math;
+  font-style: oblique;
+  font-weight: bold;
+  font-size: 120%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

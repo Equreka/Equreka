@@ -1,0 +1,68 @@
+// Header
+header {
+  padding: 1rem 0;
+  .container {
+    display    : flex;
+    align-items: stretch;
+    flex-wrap  : wrap !important;
+  }
+  // Divisions
+  .left,
+  .center,
+  .right {
+    display: flex;
+    flex   : 1;
+  }
+
+  .left,
+  .right {
+    @include media-breakpoint-down($navbar-expand) {
+      margin-bottom: 1rem;
+    }
+  }
+  
+  // Center
+  .center {
+    flex           : 1 1 auto;
+    justify-content: center;
+    align-self     : center;
+    @include media-breakpoint-down($navbar-expand) {
+      order: 2;
+      flex : 1 0 100%;
+    }
+  }
+
+  // Right
+  .right {
+    justify-content: flex-end;
+    .bi {
+      font-size: 1.35rem;
+    }
+  }
+
+
+  
+  .dropdown-menu {
+    &.show {
+      animation: fade-in 0.5s ease;
+    }
+    .dropdown-header {
+      font-weight: 500;
+    }
+  }
+
+  .form-search {
+    width: 100%;
+    input {
+      width: 100%;
+      border-radius: 999rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+  }
+  .btn {
+    font-family: $font-family-heading-sans-serif;
+    font-weight: 600;
+    text-decoration: none;
+  } 
+}

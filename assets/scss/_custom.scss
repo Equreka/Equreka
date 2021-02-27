@@ -1,48 +1,17 @@
-//
-@mixin theme-light() {
-  --body-bg: #EEE;
-  --body-color: #EEE;
-  --input-bg:  #FFF;
-  --input-border-color: #333;
-  --selection-bg: rgba($black, .15);
-}
-
-@mixin theme-dark() {
-  --body-bg: #181a1b;
-  --body-color: #EEE;
-  --input-bg:  lighten(#181a1b, 10);
-  --input-border-color: lighten(#181a1b, 05);
-  --selection-bg: rgba(255,255,255,0.125);
-}
-
-// Root
-:root {
-  @include theme-light();
-  // Color Scheme
-  @media (prefers-color-scheme: dark) {
-    @include theme-dark();
-  }
-}
-
 // HTML
 html {
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
-  &.light-mode {
+  &.theme-light {
     @include theme-light();
   }
-  &.dark-mode {
+  &.theme-dark {
     @include theme-dark();
   }
 }
 
 // Selection
 ::selection { background: rgba($black, .15); }
-
-input {
-  background: var(--input-bg);
-  border-color: var(--input-border-color);
-}
 
 // Scroll
 * {
@@ -70,58 +39,14 @@ input {
   }
 }
 
+body {
+  background: var(--body-bg);
+  color: var(--body-color);
+}
+
 h1, h2, h3, h4, h5, h6
 .h1, .h2, .h3, .h4, .h5, .h6 {
   font-family: $font-family-heading-sans-serif;
-}
-// Header
-header {
-  padding: 1rem 0;
-  .navbar {
-    .container {
-      display: flex;
-      align-items    : stretch;
-      flex-wrap      : wrap;
-      // Divisions
-      .left,
-      .center,
-      .right {
-        display: flex;
-        flex   : 1;
-      }
-
-      .left,
-      .right {
-        @include media-breakpoint-down($navbar-expand) {
-          margin-bottom: 1rem;
-        }
-      }
-      
-      // Center
-      .center {
-        flex           : 1 1 auto;
-        justify-content: center;
-        align-self     : center;
-        @include media-breakpoint-down($navbar-expand) {
-          order: 2;
-          flex : 1 1 100%;
-        }
-      }
-
-      // Right
-      .right {
-        justify-content: flex-end;
-      }
-    }
-
-    .form-search {
-      width: 100%;
-      input {
-        width: 100%;
-        border-radius: 999rem;
-      }
-    }
-  }  
 }
 
 // Categories
@@ -239,172 +164,52 @@ header {
   }
 }
 
-.page-index {
-  & > header {
-    margin-bottom: 2rem;
-  }
+// Anchor
+a {
+  transition: all 0.35s ease;
 }
 
-// Page: Category
-.page-category {  
-  .list {
-    display: flex;
-    flex-wrap: wrap;
-    font-size: 120%;
-    line-height: 2.5rem;
-    font-weight: 400;
-    list-style: none;
-    margin: 0 -1rem;
-    padding: 0;
-    a {
-      display: flex;
-      flex: 1 1 33.3333%;
-      padding: 0 1rem .5rem 1rem;
+// Buttons
+.btn {
+  display: inline-flex;
+  align-items: center;
+  .bi {
+    line-height: 0;
+  }
+  &.btn-icon {
+    .bi {
+      margin-right: 0.75rem;
     }
   }
 }
 
-// Page: Single
-.page-single {
-  main {
-    section {
-      margin: 2.5rem 0;
-    }
-  }
-}
-
-// Footer
-footer { 
-  padding: 2rem 0;
-  .col {
-    padding: 0;
-  }
-  .icon {
-    font-size: 125%;
-    line-height: 1;
-  }
-  .facebook {
-    color: #3F51B5;
-  }
-  .twitter {
-    color: #03A9F4;
-  }
-  .android {
-    color: #7CB342;
-  }
-  .apple {
-    color: #555555;
-  }
-  .discord {
-    color: #7289DA;
-  }
-  .windows {
-    color: #03A9F4;
-  }
-}
-
-
-// Math
-[data-eureka-type] {
-  transition: all .35s ease, font-size 0s;
-}
-[data-eureka-type="variable"] {
-  &.hover {
-    color: $red;
-  }
-}
-[data-eureka-type="constant"] {
-  &.hover {
-    color: $blue;
-  }
-}
-.math {
-  font-family: $font-family-math;
-  font-style: oblique;
-  font-weight: bold;
-  font-size: 120%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-
-/*
- *  The MathML will be hidden from view for visual users, but available to
- *  assistive technology, like screen readers.
- */
-mjx-assistive-mml {
-  position: absolute !important;
-  top: 0px; left: 0px;
-  clip: rect(1px, 1px, 1px, 1px);
-  padding: 1px 0px 0px 0px !important;
-  border: 0px !important;
-  display: block !important;
-  width: auto !important;
-  overflow: hidden !important;
-  /*
-   *  Don't allow the assistive MathML become part of the selection
-   */
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-mjx-assistive-mml[display="block"] {
-  width: 100% !important
-}
-
-// Responsive
-@media (max-width: 1000px) {
-  .subjects {
-    .title { 
-      font-size: 125%;
-    }
-    .list {
-      font-size: 90%;
-    }
-  }
-  footer {
-    .nav-link {
-      font-size: 90%;
-      padding: .5rem;
-    }
-    .icon {
-      font-size: 100%;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  .subject {
+.subject {
+  @media (max-width: 768px) {
     text-align: center;
   }
 }
 
-@media (max-width: 700px) {
-  .subjects {
-    .title {
+.subjects {
+  .title {
+    @media (max-width: 1000px) {
+      font-size: 125%;
+    }
+    @media (max-width: 700px) {
       font-size: 110%;
     }
-  }
-}
-
-@media (max-width: 600px) {
-  .subjects {
-    .title {
+    @media (max-width: 600px) {
       margin: 1rem 0;
     }
-    .list {
-      font-size: 95%;
+    @media (max-width: 576px ) {
+      font-size: 150%;
     }
   }
-}
-
-@media (max-width: 576px ) {
-  .subject {
-    .title {
-      font-size: 150%;
+  .list {
+    @media (max-width: 1000px) {
+      font-size: 90%;
+    }
+    @media (max-width: 600px) {
+      font-size: 95%;
     }
   }
 }

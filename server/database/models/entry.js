@@ -1,40 +1,42 @@
-import models from '../index';
-module.exports = (sequelize, DataTypes) => {
-  const Entry = sequelize.define('entry', {
-    id: {
-      type         : DataTypes.INTEGER,
-      primaryKey   : true,
-      autoIncrement: true,
-      allowNull    : false
-    },
-    id_category: {
-      type      : DataTypes.INTEGER,
-      allowNull : false,
-    },
-    id_unit_main: {
-      type     : DataTypes.INTEGER,
-      allowNull: false
-    },
-    id_units: {
-      type     : DataTypes.INTEGER,
-      allowNull: false
-    },
-    name: {
-      type     : DataTypes.STRING,
-      allowNull: false
-    },
-    slug: {
-      type     : DataTypes.STRING,
-      allowNull: false
-    },
-    expression: {
-      type     : DataTypes.STRING,
-      allowNull: false
-    },
-    description: {
-      type: DataTypes.STRING
-    }
-  });
+const mongoose = require('mongoose');
+const slug = require('mongoose-slug-generator');
+const Schema = mongoose.Schema;
 
-  return Entry;
-}
+mongoose.plugin(slug);
+
+const SchemaEntry = new Schema({
+  name: String,
+  slug: { 
+    type: String, 
+    slug: 'name' 
+  },
+  expression: String,
+  description: String,
+  category: { 
+    type: Schema.Types.ObjectId,
+    ref:  'Category'
+  },
+  subject: {
+    type: Schema.Types.ObjectId,
+    ref:  'Subject'
+  },
+  terms: [{
+    type: Schema.Types.ObjectId,
+    ref: 'Term'
+  }],
+  units: [{
+    type: Schema.Types.ObjectId,
+    ref:  'Unit'
+  }],
+  references: [{
+    description: String,
+    bibcode:     String,
+    doi:         String,
+    link:        String
+  }]
+});
+
+//Term.discriminator('Variable', SchemaVariable);
+//Term.discriminator('Constant', SchemaConstant);
+
+module.exports = mongoose.model('Enrty', SchemaEntry);

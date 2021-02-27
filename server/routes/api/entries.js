@@ -1,53 +1,40 @@
 const router = require('express').Router();
-const models = require('../../database');
-const { Op } = require("sequelize");
+const Entry = require('../../database/models/entry');
 
 // GET - All
 router.get('/', async (req, res) => {
-  const data = await models.entry.findAll();
+  const data = await Entry.find();
   res.json(data);
 });
 
-// GET - By slug
+// GET - By Slug
 router.get('/:slug', async (req, res) => {
-  const data = await models.entry.findOne({
-    where: {
-      slug: req.params.slug
-    }
+  const data = await Entry.findOne({
+    'slug': req.params.slug
   });
   res.json(data);
 });
 
 // GET - Search
 router.get('/search/:search', async (req, res) => {
-  const data = await models.entry.findAll({
-    where: {
-      [Op.or]: [
-        {
-          name: {
-            [Op.substring]: req.params.search
-          }
-        },
-        {
-          description: {
-            [Op.substring]: req.params.search
-          }
-        }
-      ]
-    }
-  });
+  const data = await Entry.find({
+    $or: [ 
+      { 'name': req.params.search }, 
+      { 'description': req.params.search } 
+    ]
+  })
   res.json(data);
 });
 
 // POST - Create
-router.post('/', async (req, res) => {
-  const data = await models.entry.create(req.body);
+router.post('/create/', async (req, res) => {
+  const data = await Entry.create(req.body);
   res.json(data);
 })
 
-// PUT - Update
-router.put('/:entryId', async (req, res) => {
-  await models.entry.update(req.body, {
+// POST - Edit
+router.put('/update/:entryId', async (req, res) => {
+  await Entry.update(req.body, {
     where: {
       id: req.params.entryId
     }
@@ -56,8 +43,8 @@ router.put('/:entryId', async (req, res) => {
 })
 
 // DEL - Delete
-router.delete('/:entryId', async (req, res) => {
-  await models.entry.destroy({
+router.delete('/delete/:entryId', async (req, res) => {
+  await Entry.destroy({
     where: {
       id: req.params.entryId
     }

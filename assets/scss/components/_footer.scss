@@ -1,0 +1,67 @@
+// Footer
+footer {
+  margin-top: auto;
+  padding: 2rem 0;
+  .col {
+    padding: 0;
+    display: flex;
+    align-items: center;
+  }
+  .nav-link {
+    padding: .65rem;
+    display: inline-flex;
+    align-items: center;
+    @include media-breakpoint-down(md) {
+      font-size: 90%;
+      padding: .5rem;
+    }
+    .bi {
+      line-height: 0;
+    }
+  }
+  .social {
+    justify-content: center;
+    @include media-breakpoint-down($navbar-expand) {
+      margin-top: 1rem;
+      order: 2;
+      flex: 1 1 100%;
+    }
+    .icon {
+      font-size: 115%;
+      line-height: 1;
+      transition: all 0.35s ease;
+      @include media-breakpoint-down(md) {
+        font-size: 110%;
+      }
+      &.github:hover {
+        color: hsl(0, 0%, 40%);
+      }
+      &.facebook:hover {
+        color: hsl(231, 48%, 48%);
+      }
+      &.twitter:hover {
+        color: hsl(199, 98%, 48%);
+      }
+      &.android:hover {
+        color: hsl(89, 46%, 48%);
+      }
+      &.apple:hover {
+        color: hsl(0, 0%, 33%);
+      }
+      &.discord:hover {
+        color: hsl(227, 58%, 65%);
+      }
+      &.windows:hover {
+        color: hsl(199, 98%, 48%);
+      }
+    }
+  }
+  .links {
+    justify-content: flex-end;
+    a {
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

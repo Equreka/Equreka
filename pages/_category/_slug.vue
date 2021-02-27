@@ -70,6 +70,11 @@
       }
     },
     head: {
+      script: [
+        {
+          src: 'https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-chtml-full.js'
+        }
+      ],
       bodyAttrs: {
         class: 'page-single'
       }

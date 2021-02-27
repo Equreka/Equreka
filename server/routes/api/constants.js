@@ -1,31 +1,29 @@
 const router = require('express').Router();
-const models = require('../../database');
+const Constant = require('../../database/models/constant');
 
-// Get all
+// GET - All
 router.get('/', async (req, res) => {
-  const data = await models.constant.findAll();
+  const data = await Constant.find();
   res.json(data);
 });
 
-// Get by slug
+// GET - By Slug
 router.get('/:slug', async (req, res) => {
-  const data = await models.constant.findOne({
-    where: {
-      slug: req.params.slug
-    }
+  const data = await Constant.findOne({
+    'slug': req.params.slug
   });
   res.json(data);
 });
 
-// Create
-router.post('/', async (req, res) => {
-  const data = await models.constant.create(req.body);
+// POST - Create
+router.post('/create/', async (req, res) => {
+  const data = await Constant.create(req.body);
   res.json(data);
 })
 
-// Update
-router.put('/:constantId', async (req, res) => {
-  await models.constant.update(req.body, {
+// POST - Edit
+router.put('/update/:constantId', async (req, res) => {
+  await Constant.update(req.body, {
     where: {
       id: req.params.constantId
     }
@@ -33,9 +31,9 @@ router.put('/:constantId', async (req, res) => {
   res.json({ success: 'id: ' + req.params.constantId + ' modified successfully' })
 })
 
-// Delete
-router.delete('/:constantId', async (req, res) => {
-  await models.constant.destroy({
+// DEL - Delete
+router.delete('/delete/:constantId', async (req, res) => {
+  await Constant.destroy({
     where: {
       id: req.params.constantId
     }

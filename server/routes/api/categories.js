@@ -1,41 +1,37 @@
 const router = require('express').Router();
-const models = require('../../database');
+const Category = require('../../database/models/category');
 
-// Get all
+// GET - All
 router.get('/', async (req, res) => {
-  const data = await models.category.findAll();
+  const data = await Category.find();
   res.json(data);
 });
 
-// Get by id
-router.get('/id/:id', async (req, res) => {
-  const data = await models.category.findOne({
-    where: {
-      id: req.params.id
-    }
-  });
-  res.json(data);
-});
-
-// Get by slug
+// GET - By slug
 router.get('/:slug', async (req, res) => {
-  const data = await models.category.findOne({
-    where: {
-      slug: req.params.slug
-    }
+  const data = await Category.findOne({
+    'slug': req.params.slug
   });
   res.json(data);
 });
 
-// Create
-router.post('/', async (req, res) => {
-  const data = await models.category.create(req.body);
+// GET - By Id
+router.get('/id/:id', async (req, res) => {
+  const data = await Category.findOne({
+    '_id': req.params.id
+  });
+  res.json(data);
+});
+
+// POST - Add
+router.post('/add/', async (req, res) => {
+  const data = await Category.create(req.body);
   res.json(data);
 })
 
-// Update
-router.put('/:categoryId', async (req, res) => {
-  await models.category.update(req.body, {
+// POST - Update
+router.post('/edit/:categoryId', async (req, res) => {
+  await Category.update(req.body, {
     where: {
       id: req.params.categoryId
     }
@@ -44,13 +40,11 @@ router.put('/:categoryId', async (req, res) => {
 })
 
 // Delete
-router.delete('/:categoryId', async (req, res) => {
-  await models.category.destroy({
-    where: {
-      id: req.params.categoryId
-    }
+router.delete('/delete/:id', async (req, res) => {
+  await Category.remove({
+    _id: req.params.id
   });
-  res.json({ success: 'id: ' + req.params.categoryId + ' deleted successfully' })
+  res.json({ success: 'id: ' + req.params.id + ' deleted successfully' })
 })
 
 module.exports = router;

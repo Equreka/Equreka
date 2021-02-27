@@ -1,0 +1,26 @@
+/*
+ *  The MathML will be hidden from view for visual users, but available to
+ *  assistive technology, like screen readers.
+ */
+ mjx-assistive-mml {
+  position: absolute !important;
+  top: 0px; left: 0px;
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 1px 0px 0px 0px !important;
+  border: 0px !important;
+  display: block !important;
+  width: auto !important;
+  overflow: hidden !important;
+  /*
+   *  Don't allow the assistive MathML become part of the selection
+   */
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+mjx-assistive-mml[display="block"] {
+  width: 100% !important
+}

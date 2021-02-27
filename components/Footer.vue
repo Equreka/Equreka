@@ -1,14 +1,12 @@
 <template>
   <footer>
     <div class="container">
-      <div class="row">
-        <div class="col">
-          <ul class="nav">
-            <li class="nav-item"><a class="nav-link" href="#">&copy; 2017 Equreka</a></li>
-          </ul>        
+      <div class="row gx-0">
+        <div class="col equreka">
+          <small>Equreka</small>
         </div>
-        <div class="col">
-          <ul class="nav justify-content-center">
+        <div class="col social">
+          <ul class="nav">
             <li class="nav-item">
               <a class="nav-link" target="_blank" rel="noopener nofollow" href="https://github.com/Equreka" title="Github"><i class="icon bi bi-github github"></i></a>
             </li>
@@ -23,11 +21,11 @@
             </li>
           </ul>
         </div>
-        <div class="col">
-          <ul class="nav justify-content-end">
-            <li class="nav-item"><a class="nav-link" href="#">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-            <li class="nav-item"><a class="nav-link" href="#">Donate</a></li>
+        <div class="col links">
+          <ul class="nav">
+            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
+            <li class="nav-item"><a class="nav-link" href="/donate">Donate</a></li>
           </ul>
         </div>
       </div>

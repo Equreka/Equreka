@@ -5,12 +5,12 @@ export default {
   serverMiddleware: [
     {
       path:    '/api',
-      handler: '@/server/api.js'
+      handler: '@/server'
     }
   ],
 
   env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+    baseUrl: process.env.BASE_URL || 'http://localhost:300',
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -24,11 +24,6 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
     ],
-    script: [
-      {
-        src: 'https://cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-chtml-full.js'
-      }
-    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -63,6 +58,15 @@ export default {
     'nuxt-i18n',
   ],
 
+  // Build Configuration: https://go.nuxtjs.dev/config-build
+  build: {},
+
+  // @nuxtjs/color-mode
+  colorMode: {
+    classPrefix: 'theme-',
+    classSuffix: ''
+  },
+
   // i18n
   i18n: {},
 
@@ -73,6 +77,5 @@ export default {
     },
   },
 
-  // Build Configuration: https://go.nuxtjs.dev/config-build
-  build: {},
+
 }

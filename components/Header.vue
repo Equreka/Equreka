@@ -13,19 +13,19 @@
         </div>
         <div class="center">
           <b-form class="form-search">
-            <b-form-input id="search" type="text" placeholder="Search..." aria-label="Search" />
+            <b-form-input id="search" class="border-0" type="text" placeholder="Search..." aria-label="Search" />
           </b-form>
         </div>
         <div class="right">
-          <b-dropdown variant="link" v-model="$colorMode.preference" right>
+          <b-dropdown variant="link" v-model="$colorMode.preference" no-caret right>
             <template #button-content>
               <span></span>
-              <i class="bi bi-sun"></i>
+              <i class="bi bi-sun icon-theme"></i>
             </template>
             <b-dropdown-header>Theme</b-dropdown-header>
-            <b-dropdown-item v-for="(color, code) in themeColors" :key="code"  @click="$colorMode.preference = code">{{ color }}</b-dropdown-item>
+            <b-dropdown-item v-for="(color, code) in themeColors" :key="code"  @click="$colorMode.preference = code, themeChange()">{{ color }}</b-dropdown-item>
           </b-dropdown>
-          <b-dropdown variant="link" right>
+          <b-dropdown variant="link" no-caret right>
             <template #button-content>
               <i class="bi bi-globe"></i>
             </template>
@@ -47,11 +47,21 @@
           'es': 'Spansih'
         },
         themeColors: {
-          'system': 'Default',
+          'system': 'System default',
           'light': 'Light',
           'dark': 'Dark'
         },
         categories: {}
+      }
+    },
+    methods: {
+      themeChange() {
+        const root = document.documentElement;
+        console.log(root);
+        root.classList.add('theme-transition');
+        setTimeout(() => {
+          root.classList.remove('theme-transition');
+        }, 350);
       }
     },
     async fetch () {

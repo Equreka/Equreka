@@ -8,5 +8,6 @@
 // Bootstrap
 @import "bootstrap/scss/bootstrap";
 // Theming
-@import "custom-keyframes";
+@import 'components';
+@import 'pages';
 @import "custom";
