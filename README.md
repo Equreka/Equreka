@@ -1,4 +1,11 @@
-# Equreka
+![logo](./static/assets/brand/logo.png)
+
+# Equreka 
+[![Discord](https://img.shields.io/discord/812053915356364811?style=flat&logo=discord&label=Discord&labelColor=f2f2f2)](https://discord.gg/NZypuxvAB6)
+![Twitter Follow](https://img.shields.io/twitter/follow/Equreka?style=social)
+![GitHub](https://img.shields.io/github/license/Equreka/Equreka?color=green&label=License)
+
+
 Your open-source site for formulas, equations, and constants!
 
 **Do you want to be a Github Sponsor?**
@@ -17,7 +24,7 @@ $ npm install
 $ npm run dev
 
 # build for production and launch server
-$ npm run build
+$ npm run build 
 $ npm run start
 
 # generate static project
