@@ -1,0 +1,16 @@
+// Page error
+.page-error {
+  main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    .container {
+      text-align: center;
+      .brand {
+        display: block;
+        margin-bottom: 3rem;
+      }
+    }
+  }
+}

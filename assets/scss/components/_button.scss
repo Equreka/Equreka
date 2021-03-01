@@ -1,0 +1,13 @@
+// Buttons
+.btn {
+  display: inline-flex;
+  align-items: center;
+  .bi {
+    line-height: 0;
+  }
+  &.btn-icon {
+    .bi {
+      margin-right: 0.75rem;
+    }
+  }
+}

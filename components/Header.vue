@@ -3,18 +3,16 @@
     <nav class="navbar navbar-expand-md">
       <div class="container">
         <div class="left">
-          <a class="navbar-brand" href="/">
-            <img src="/assets/brand/logo.png" width="65" alt="Ecureka">
-          </a>
+          <NuxtLink class="navbar-brand" to="/">
+            <img src="/assets/brand/logo.png" width="50" alt="Equreka">
+          </NuxtLink>
           <b-dropdown variant="link" text="Categories" left>
             <b-dropdown-header>Categories</b-dropdown-header>
-            <b-dropdown-item v-for="category in categories" :key="category.name" :href="category.slug">{{ category.name }}</b-dropdown-item>
+            <b-dropdown-item v-for="category in categories" :key="category.name" :to="category.slug">{{ category.name }}</b-dropdown-item>
           </b-dropdown>
         </div>
         <div class="center">
-          <b-form class="form-search">
-            <b-form-input id="search" class="border-0" type="text" placeholder="Search..." aria-label="Search" />
-          </b-form>
+          <Search />
         </div>
         <div class="right">
           <b-dropdown variant="link" v-model="$colorMode.preference" no-caret right>

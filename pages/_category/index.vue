@@ -1,42 +1,26 @@
 <template> 
   <main role="main">
-    <header class="category" :class="data.slug">
+    <header class="category" :class="category.slug">
       <div class="container">
-        <h2 class="small">Category</h2>
-        <h1 class="title">{{ data.name }}</h1>
+        <h2 class="title-small">Category</h2>
+        <h1 class="title-large">{{ category.name }}</h1>
       </div>
     </header>
     <div class="container py-4">
-      <div class="list mb-4">
-        <a href="./test">Lorem</a>
-        <a href="./test">Ipsum dolor</a>
-        <a href="./test">Sit amet</a>
-        <a href="./test">Consectetur adipiscing</a>
-        <a href="./test">Fusce ut arcu</a>
-        <a href="./test">Sapien feugiat</a>
-        <a href="./test">Luctus et et magna</a>
-        <a href="./test">Donec ac erat</a>
-        <a href="./test">Id ante</a>
-        <a href="./test">Lorem</a>
-        <a href="./test">Ipsum dolor</a>
-        <a href="./test">Sit amet</a>
-        <a href="./test">Consectetur adipiscing</a>
-        <a href="./test">Fusce ut arcu</a>
-        <a href="./test">Sapien feugiat</a>
-        <a href="./test">Luctus et et magna</a>
-        <a href="./test">Donec ac erat</a>
-        <a href="./test">Id ante</a>
-        <a href="./test">Lorem</a>
-        <a href="./test">Ipsum dolor</a>
-        <a href="./test">Sit amet</a>
-        <a href="./test">Consectetur adipiscing</a>
-        <a href="./test">Fusce ut arcu</a>
-        <a href="./test">Sapien feugiat</a>
-        <a href="./test">Luctus et et magna</a>
-        <a href="./test">Donec ac erat</a>
-        <a href="./test">Id ante</a>
+      <p class="lead">
+        {{ category.description }}
+      </p>
+      <div class="list mb-4" v-if="entries">
+        <NuxtLink v-for="entry in entries" :key="entry._id" :to="category.slug + '/' + entry.slug">
+          {{ entry.name }}
+        </NuxtLink>
       </div>
-      <nav aria-label="Page navigation example d-none">
+      <div v-else>
+        <h2>
+        No entries :(
+        </h2>
+      </div>
+      <nav class="d-none" aria-label="Page navigation example">
         <ul class="pagination">
           <li class="page-item"><a class="page-link" href="/">Previous</a></li>
           <li class="page-item"><a class="page-link" href="/">1</a></li>
@@ -53,20 +37,31 @@
   export default {
     data() {
       return {
-        data: {},
+        category: {},
+        entries: false,
         subCategories: {}
       }
     },
     async asyncData ({ params, redirect }) {
-      console.log(params);
       const slug = params.category;
-      const data = await fetch(
+
+      const category = await fetch(
         process.env.baseUrl + '/api/categories/' + slug
       ).then((res) => res.json());
-      if(data) {
+
+      const entries = await fetch(
+        process.env.baseUrl + '/api/entries/category/' + slug
+      ).then((res) => res.json());
+
+      if(category && entries.length != 0) {
         return {
-          data: data,
-          subCategories: false
+          category: category,
+          entries: entries
+        }
+      } else if(category && entries.length === 0) {
+        return {
+          category: category,
+          entries: false
         }
       } else {
         redirect(process.env.baseUrl);

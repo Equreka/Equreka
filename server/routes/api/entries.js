@@ -1,9 +1,11 @@
 const router = require('express').Router();
+const mongoose = require('mongoose');
 const Entry = require('../../database/models/entry');
+const Category = require('../../database/models/category');
 
 // GET - All
 router.get('/', async (req, res) => {
-  const data = await Entry.find().populate('variables.variable.category').populate('category')
+  const data = await Entry.find().populate('variable');
   res.json(data);
 });
 
@@ -11,18 +13,42 @@ router.get('/', async (req, res) => {
 router.get('/:slug', async (req, res) => {
   const data = await Entry.findOne({
     'slug': req.params.slug
-  }).populate('variables.variable').populate('category');
+  })
+  .populate('category')
+  .populate({
+    path: 'variables',
+    populate: {
+      path: 'variable',
+      populate: {
+        path: 'unit'
+      }
+    }
+  });
+  res.json(data);
+});
+
+// GET - By Slug
+router.get('/category/:category', async (req, res) => {
+  // GET - By slug
+  const category = await Category.findOne({
+    'slug': req.params.category
+  });  
+  const data = await Entry.find({
+    'category._id': category._id 
+  });
   res.json(data);
 });
 
 // GET - Search
 router.get('/search/:search', async (req, res) => {
-  const data = await Entry.find({
-    $or: [ 
-      { 'name': req.params.search }, 
-      { 'description': req.params.search } 
-    ]
+  const data = await Entry.find({ 
+    'name': {
+      '$regex':   req.params.search,
+      '$options': 'i'
+    }
   })
+  .populate('category')
+  .limit(10);
   res.json(data);
 });
 

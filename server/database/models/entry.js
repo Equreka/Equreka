@@ -13,7 +13,7 @@ const SchemaEntry = new Schema({
   expression: String,
   description: String,
   category: { 
-    type: Schema.Types.ObjectId,
+    type: Number,
     ref:  'Category'
   },
   subject: {
@@ -27,8 +27,10 @@ const SchemaEntry = new Schema({
     }
   }],
   constants: [{
-    type: Schema.Types.ObjectId,
-    ref:  'Constant'
+    constant: {
+      type: Schema.Types.ObjectId,
+      ref:  'Constant'
+    }
   }],
   units: [{
     type: Schema.Types.ObjectId,
@@ -41,5 +43,7 @@ const SchemaEntry = new Schema({
     link:        String
   }]
 });
+
+SchemaEntry.index({ name: 'text'});
 
 module.exports = Entry = mongoose.model('Entry', SchemaEntry);

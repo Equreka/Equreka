@@ -19,7 +19,6 @@
     "core-js": "^3.8.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mathjax": "^3.1.2",
     "mongoose": "^5.11.18",
     "mongoose-slug-generator": "^1.0.4",
     "nuxt": "^2.14.12",
@@ -30,8 +29,11 @@
   "devDependencies": {
     "@nuxtjs/color-mode": "^2.0.3",
     "babel-eslint": "^10.1.0",
+    "mathjax-full": "^3.1.2",
+    "mathlive": "^0.59.0",
     "nodemon": "^2.0.7",
     "sass": "^1.32.7",
-    "sass-loader": "^10.1.0"
+    "sass-loader": "^10.1.0",
+    "vue-mathjax": "^0.0.11"
   }
 }

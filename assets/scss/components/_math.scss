@@ -1,17 +1,20 @@
 // Math
-[data-eureka-type] {
+.eqk-term {
   transition: all .35s ease, font-size 0s;
-}
-[data-eureka-type="variable"] {
   &.hover {
-    color: $red;
+    color: var(--term-color, green);
+    a {
+      color: var(--term-color, green);
+    }
+  }
+  &.variable {
+    --term-color: #{$red};
+  }
+  &.constant {
+    --term-color: #{$blue};
   }
 }
-[data-eureka-type="constant"] {
-  &.hover {
-    color: $blue;
-  }
-}
+
 .math {
   font-family: $font-family-math;
   font-style: oblique;
@@ -19,4 +22,15 @@
   font-size: 120%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.terms {
+  .symbol {
+    font-size: 135%;
+    font-style: oblique;
+    font-family: $font-family-math;
+    &.unit {
+      font-size: 100%;
+    }
+  }
 }

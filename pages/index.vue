@@ -2,16 +2,18 @@
   <main role="main" class="categories">
     <div class="container">
       <div class="row" v-for="category in categories" :key="category.slug" :class="category.slug">
-        <div class="col-12 col-lg-3">
-          <h3 class="title">{{ category.name }}</h3>
+        <div class="col-12 col-lg-3 mb-3">
+          <NuxtLink :to="category.slug">
+            <h3 class="title">{{ category.name }}</h3>
+          </NuxtLink>
         </div>
         <div class="col-12 col-lg-9">
           <div class="list">
-            <a :href="'/' + category.slug + '/'">Subcategory</a>
-            <a :href="'/' + category.slug + '/'">Subcategory</a>
-            <a :href="'/' + category.slug + '/'">Subcategory</a>
-            <a :href="'/' + category.slug + '/'">Subcategory</a>
-            <a :href="'/' + category.slug + '/'">Subcategory</a>
+            <NuxtLink :to="category.slug">Subcategory</NuxtLink>
+            <NuxtLink :to="category.slug">Subcategory</NuxtLink>
+            <NuxtLink :to="category.slug">Subcategory</NuxtLink>
+            <NuxtLink :to="category.slug">Subcategory</NuxtLink>
+            <NuxtLink :to="category.slug">Subcategory</NuxtLink>
           </div>
         </div>
       </div>

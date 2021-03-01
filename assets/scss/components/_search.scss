@@ -1,0 +1,30 @@
+.form-search {
+  width: 100%;
+  position: relative;
+  input {
+    width: 100%;
+    border-radius: 999rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  .results {
+    position: absolute;
+    margin-top: 1rem;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: hsl(220, 10%, var(--theme-lightness), 0.65);
+    box-shadow: inset 0 0 0 1px hsla(0, 0%, var(--theme-inverted-lightness), 0.05);
+    backdrop-filter: blur(15px);
+    border-radius: 0.25rem;
+    animation: fade-in 0.35s forwards;
+    z-index: 999;
+    .result {
+      a {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: var(--body-color);
+      }
+    }
+  }
+}

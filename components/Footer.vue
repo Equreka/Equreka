@@ -23,9 +23,9 @@
         </div>
         <div class="col links">
           <ul class="nav">
-            <li class="nav-item"><a class="nav-link" href="/about">About</a></li>
-            <li class="nav-item"><a class="nav-link" href="/contact">Contact</a></li>
-            <li class="nav-item"><a class="nav-link" href="/donate">Donate</a></li>
+            <li class="nav-item"><NuxtLink class="nav-link" to="/about">About</NuxtLink></li>
+            <li class="nav-item"><NuxtLink class="nav-link" to="/contact">Contact</NuxtLink></li>
+            <li class="nav-item"><NuxtLink class="nav-link" to="/donate">Donate</NuxtLink></li>
           </ul>
         </div>
       </div>

@@ -16,10 +16,10 @@ const SchemaVariable = new Schema({
     type: Schema.Types.ObjectId,
     ref:  'Category'
   },
-  unit: [{
+  unit: {
     type: Schema.Types.ObjectId,
     ref:  'Unit'
-  }]
+  }
 });
 
 module.exports = Variable = mongoose.model('Variable', SchemaVariable);
