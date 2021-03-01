@@ -55,7 +55,6 @@
     methods: {
       themeChange() {
         const root = document.documentElement;
-        console.log(root);
         root.classList.add('theme-transition');
         setTimeout(() => {
           root.classList.remove('theme-transition');

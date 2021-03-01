@@ -1,9 +1,9 @@
 {
-  "name": "nmequreka",
+  "name": "equreka",
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "api": "nodemon server/index.js",
+    "api": "nodemon server",
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",

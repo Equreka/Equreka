@@ -3,7 +3,67 @@
   main {
     section {
       margin: 2.5rem 0;
+
+      h3 {
+        font-weight: bold;
+        font-size: 1.25rem;
+      }
+      h4 {
+        font-weight: bold;
+        font-size: 1rem;
+      }
+
+      // Expression
+      &.expression {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex: 1 1 100%;
+        order: 0;
+        margin-bottom: 2rem;
+        font-size: 120%;
+        @supports (font-size: clamp(1.5rem, 5vw, 3rem)) {
+          font-size: clamp(1.5rem, 3vw, 3rem);
+        }
+        
+        mjx-container,
+        mjx-math {
+          margin:      0 !important;
+          max-width:   100%;
+          display:     flex;
+          flex:        0 1 auto;
+          flex-wrap:   wrap;
+          align-items: baseline;
+          line-height: 50%;
+          outline:     0;
+        }
+      }
+
+      // Terms
+      &.terms {
+        .table {
+          width: auto;
+          margin: 0 -0.5rem;
+          th {
+            font-size: 80%;
+            font-weight: bold;
+            font-family: $font-family-heading-sans-serif;
+            text-transform: uppercase;
+            opacity: 0.75;
+          }
+          tr {
+            vertical-align: middle;
+            a {
+              opacity: 0.65;
+            }
+          }
+        }
+        .table {
+          color: inherit
+        }
+      }
     }
+
     .dropdown-options {
       .dropdown-menu {
         min-width: 200px;

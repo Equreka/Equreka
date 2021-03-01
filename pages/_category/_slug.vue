@@ -31,12 +31,9 @@
       </div>
     </div>
     <div class="container">
-      <!-- Eureka! -->
-      <section class="eureka">
-        <!-- Expression -->
-        <div class="expression">
-          <div id="expression">$${{ parserLaTeX(data.expressionIntern) }}$$</div>
-        </div>
+      <!-- Eureka! Expression -->
+      <section class="expression">
+        <div>$${{ parserLaTeX(data.expressionIntern) }}$$</div>
       </section>
       <!-- Terms -->
       <section class="terms">
@@ -71,18 +68,19 @@
           </tbody>
         </table>
       </section>
-      <!-- Code -->
-      <section class="code">
-        <h3 class="mb-4">Code</h3>
-        <code>{{ data.expression }}</code>
-      </section>
       <!-- Description -->
       <section class="description" v-if="data.description">
         <h3 class="mb-4">Description</h3>
         <p class="text-justify">{{ parserLaTeX( data.description ) }}</p>
       </section>
+      <!-- Code -->
+      <section class="code">
+        <h3 class="mb-4">Code</h3>
+        <h4>LaTeX</h4>
+        <code>{{ data.expression }}</code>
+      </section>
       <!-- References -->
-      <section class="references" v-if="data.references[0]">
+      <section class="references" v-if="data.references.length > 0">
         <h3 class="mb-4">References</h3>
         <ul>
           <li v-for="reference in data.references" :key="reference.id">
@@ -98,55 +96,7 @@
 </template>
 
 <script>
-  const EQK_TERM_SELECTOR = '.eqk-term';
-  const equrekaHover2 = (event, action) => {
-    console.log(event.target);
-    console.log(event.target.classList.contains(EQK_TERM_SELECTOR.substring(1)));
-    if(event.target.classList.contains(EQK_TERM_SELECTOR.substring(1))) {
-      var symbol = event.target.classList[2];
-      
-      // Type of term
-      if(event.target.classList.contains('variable')) {
-        type = 'variable';
-      } else if(event.target.classList.contains('constant')) {
-        type ='constant';
-      }
-      
-      // If contains a type
-      if(type) {
-        const elements = document.querySelectorAll(`${EQK_TERM_SELECTOR}.${type}.${symbol}`);
-        Array.from(elements).forEach(function(element) {
-          element.classList[action]('hover');
-        });
-      }
-    }
-  }
-  const equrekaHover = (event, element, action) => {
-    var type = false
-    if(event.target == element) {
-      var symbol = event.target.classList[2];
-      
-      // Type of term
-      if(event.target.classList.contains('variable')) {
-        type = 'variable';
-      } else if(event.target.classList.contains('constant')) {
-        type ='constant';
-      }
-      
-      // If contains a type
-      if(type) {
-        const elements = document.querySelectorAll(`${EQK_TERM_SELECTOR}.${type}.${symbol}`);
-        Array.from(elements).forEach(function(element) {
-          element.classList[action]('hover');
-        });
-      }
-    }
-  }
-  const JSONify = (json) => {
-    let type = "data:text/json;charset=utf-8,";
-    return type + encodeURIComponent(JSON.stringify(json));
-  }
-
+  import Equreka from '@/constants'
   export default {
     data () {
       return {
@@ -172,60 +122,15 @@
     components: {
     },
     methods: {
-      initMathJax() {
-        window.MathJax = {
-          loader: {
-            load: ['[tex]/html']
-          },
-          tex: { 
-            inlineMath: [['$', '$']],
-            processEscapes: true,
-            packages: { '[+]': ['html'] }
-          },
-          svg: {
-            fontCache: 'global'
-          }
-        }
-      },
-      initEqureka() {
-        var elements = document.querySelectorAll(EQK_TERM_SELECTOR);
-        //var sel = document.getElementById('expression').firstChild;
-        //sel.addEventListener('mouseenter', (event) => { equrekaHover2(event, 'add') }, false);
-        Array.from(elements).forEach(function(element) {
-          element.addEventListener('pointerenter', (event) => { equrekaHover(event, element, 'add') }, false);
-          element.addEventListener('pointerleave', (event) => { equrekaHover(event, element, 'remove') }, false);
-        });
-      },
       parserLaTeX(data) {
-        let parsedData;
-        const classPrefix = EQK_TERM_SELECTOR.substring(1);
-        const regex = /\\(var|const)\{(.*?)\}/g;
-        parsedData = data.replace(regex, function(global, type, symbol) {
-          var type = (type === 'var') ? 'variable' : 'constant';
-          return `\\class{${classPrefix} ${type} ${symbol}}{${symbol}}`;
-        });
-        return parsedData;
-      },
-      parserCleaner(data, removeSigns = false) {
-        let parsedData;
-        const classPrefix = EQK_TERM_SELECTOR.substring(1);
-        const regex = /\\(var|const)\{(.*?)\}/g;
-        parsedData = data.replace(regex, function(global, type, symbol) {
-          return symbol;
-        });
-
-        if(removeSigns) {
-          parsedData = parsedData.replace(/\$(.*?)\$/g, '$1');
-        }
-
-        return parsedData;
+        return Equreka.parserLaTeX(data);
       }
     },
-    beforeMount(data) {
-      this.initMathJax();
+    beforeMount() {
+      Equreka.initMathJax();
     },
     mounted() {
-      this.initEqureka();
+      Equreka.initTermHover();
     },
     async asyncData ({ params, redirect }) {
       const slug = params.slug;
@@ -235,7 +140,7 @@
       if(data) { 
         return { 
           data: data,
-          json: JSONify(data)
+          json: Equreka.jsonDownload(data)
         }
       } else {
         redirect('/');

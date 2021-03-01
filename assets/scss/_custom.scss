@@ -115,52 +115,6 @@ h1, h2, h3, h4, h5, h6
   }
 }
 
-// Expression
-.expression {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 1 1 100%;
-  order: 0;
-  margin-bottom: 2rem;
-  font-size: 120%;
-  .mjx-n {
-    margin-bottom: .5rem;
-  }
-  mjx-container,
-  mjx-math {
-    flex: 0 1 auto;
-    flex-wrap: wrap;
-    max-width: 100%;
-    display: flex;
-    outline: 0;
-    margin: 0 !important;
-    align-items: baseline;
-  }
-}
-
-// Terms
-.terms {
-  .table {
-    width: auto;
-    th {
-      font-size: 80%;
-      font-weight: bold;
-      font-family: $font-family-heading-sans-serif;
-      text-transform: uppercase;
-      opacity: 0.75;
-    }
-    tr {
-      vertical-align: middle;
-      a {
-        opacity: 0.65;
-      }
-    }
-  }
-  .table {
-    color: inherit
-  }
-}
 
 // Code
 section.code {

@@ -1,13 +1,13 @@
 const express = require('express');
-const mongoose = require('mongoose');
+const db = require('./database')
 const app = express();
 
-// Connection
-mongoose.connect('mongodb://localhost/equreka', {useNewUrlParser: true, useUnifiedTopology: true});
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, '[Mongoose] Connection error:'));
+// Databes
+db.on('error', function() { 
+  console.error.bind(console, 'e [Mongoose] Connection error:')
+});
 db.once('open', function() {
-  console.log('[Mongoose] Connection has been established successfully');
+  console.log('i [Mongoose] Connection has been established successfully');
 });
 
 

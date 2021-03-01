@@ -5,7 +5,10 @@ const Schema = mongoose.Schema;
 mongoose.plugin(slug);
 
 const SchemaEntry = new Schema({
-  name: String,
+  name: {
+    type: String,
+    alias: 'title'
+  },
   slug: { 
     type: String, 
     slug: 'name' 
@@ -33,8 +36,10 @@ const SchemaEntry = new Schema({
     }
   }],
   units: [{
-    type: Schema.Types.ObjectId,
-    ref:  'Unit'
+    unit: {
+      type: Schema.Types.ObjectId,
+      ref:  'Unit'
+    }
   }],
   references: [{
     description: String,
@@ -44,6 +49,6 @@ const SchemaEntry = new Schema({
   }]
 });
 
-SchemaEntry.index({ name: 'text'});
+SchemaEntry.index({ name: 'text' });
 
 module.exports = Entry = mongoose.model('Entry', SchemaEntry);
