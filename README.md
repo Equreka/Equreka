@@ -11,8 +11,10 @@ Your open-source site for formulas, equations, and constants!
 **Do you want to be a Github Sponsor?**
 https://github.com/sponsors/DerianAndre
 
+
 ## Help wanted
 Join us at Discord: https://discord.gg/NZypuxvAB6
+
 
 ## Build Setup
 
@@ -33,9 +35,10 @@ $ npm run generate
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
+
 # To-do
 
-## API
+### API
 - Entry
   - Fetch all data (units, terms, category, etc.)
 
