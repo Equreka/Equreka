@@ -2,8 +2,8 @@
   <main role="main">
     <header class="category">
       <div class="container">
-        <h2 class="title-small">Category</h2>
-        <h1 class="title-large">{{ category.name }}</h1>
+        <h2 class="title-small">{{ $t('Category') }}</h2>
+        <h1 class="title-large">{{ $t(category.name) }}</h1>
       </div>
     </header>
     <div class="container py-4">

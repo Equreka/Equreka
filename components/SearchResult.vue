@@ -1,7 +1,7 @@
 <template>
   <div class="items" v-if="data.length >= 1">
     <h5 class="title">
-      {{ title }}
+      {{ $t(title) }}
       <small class="badge">{{data.length}}</small>
     </h5>
     <NuxtLink class="item" 
@@ -14,7 +14,7 @@
         {{ item.name }}
       </span>
       <span class="badge">
-        {{ item.category.name }}
+        {{ $t(item.category.name) }}
       </span>      
     </NuxtLink>
   </div>

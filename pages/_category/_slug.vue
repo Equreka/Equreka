@@ -6,10 +6,10 @@
       <div class="container">
         <div class="d-flex align-items-center justify-content-between">
           <div class="info">
-            <NuxtLink  class="title-small" :to="'/' + data.category.slug">
-              {{ data.category.name }}
+            <NuxtLink  class="title-small" :to="localePath('/' + data.category.slug)">
+              {{ $t(data.category.name) }}
             </NuxtLink>
-            <h1 class="title-large">{{ data.name }}</h1>
+            <h1 class="title-large">{{ $t(data.name) }}</h1>
           </div>
           <!-- Options -->
           <b-dropdown class="dropdown-options" variant="outline-light" no-caret right>
@@ -40,13 +40,13 @@
       </section>
       <!-- Terms -->
       <section class="terms">
-        <h3>Variables</h3>
+        <h3>{{ $t('Variables') }}</h3>
         <table class="table table-borderless">
           <thead>
             <tr>
-              <th scope="col">Symbol</th>
-              <th scope="col">Name</th>
-              <th scope="col" colspan="2">Unit</th>
+              <th scope="col">{{ $t('Symbol') }}</th>
+              <th scope="col">{{ $t('Name') }}</th>
+              <th scope="col" colspan="2">{{ $t('Unit') }}</th>
             </tr>
           </thead>
           <tbody>
@@ -55,7 +55,7 @@
                 {{ json.variable.symbol }}
               </td>
               <td class="variable name">
-                <NuxtLink :to="'/' + data.category.slug + '/variable/' + json.variable.slug">
+                <NuxtLink :to="localePath('/' + data.category.slug + '/variable/' + json.variable.slug)">
                   {{ json.variable.name }}
                 </NuxtLink>
               </td>
@@ -63,7 +63,7 @@
                 {{ json.variable.unit.symbol }}
               </td>              
               <td class="unit name">
-                <NuxtLink :to="'/' + data.category.slug + '/unit/' + json.variable.slug">
+                <NuxtLink :to="localePath('/' + data.category.slug + '/unit/' + json.variable.slug)">
                   {{ json.variable.unit.name }}
                 </NuxtLink>
               </td>              
@@ -73,23 +73,24 @@
       </section>
       <!-- Description -->
       <section class="description" v-if="data.description">
-        <h3 class="mb-4">Description</h3>
+        <h3 class="mb-4">{{ $t('Description') }}</h3>
         <p class="text-justify">{{ parserLaTeX( data.description ) }}</p>
       </section>
       <!-- Code -->
       <section class="codes">
-        <h3 class="mb-4">Code</h3>
+        <h3 class="mb-4">{{ $t('Code') }}</h3>
         <h4>LaTeX</h4>
         <div class="input-group">
-          <b-button variant="dark" @click="copyClipboard('#' + data.slug)" aria-label="Copy to clipboard">
+          <b-button variant="dark" @click="copyClipboard('#' + data.slug)" :aria-label="$t('Copy to clipboard')">
             <i class="bi bi-clipboard"></i>
+            <span class="visually-hidden">{{ $t('Copy to clipboard') }}</span>
           </b-button>
           <input :id="data.slug" class="form-control" :value="data.expression" />
         </div>
       </section>
       <!-- References -->
       <section class="references" v-if="data.references.length > 0">
-        <h3 class="mb-4">References</h3>
+        <h3 class="mb-4">{{ $t('References') }}</h3>
         <ul>
           <li v-for="reference in data.references" :key="reference.id">
             {{ reference.description }}

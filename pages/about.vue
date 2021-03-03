@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="container">
-      <h2>About</h2>
+      <h2>{{ $t('About') }}</h2>
       <p class="lead">Equreka is a 100% free and ad-free, open-source platform for everyone.</p>
       <p class="bold">Hopefully you will find this usefull and will inspire to learn more, create and contribute to human-kind.</p>
       <p>You can contribute in many ways, from sharing to contributing directly to the project in our Github.</p>
@@ -28,6 +28,7 @@ export default {
     return {
       projects: {
         'Github':          'https://github.com/',
+        'Wikimedia Foundation':       'https://wikimediafoundation.org/',
         'Node.js':         'https://nodejs.org/',
         'Vue.js':          'https://vuejs.org/',
         'Nuxt.js':         'https://nuxtjs.org/',
@@ -44,6 +45,6 @@ export default {
     bodyAttrs: {
       class: 'page-about'
     }
-  },
+  }
 }
 </script>

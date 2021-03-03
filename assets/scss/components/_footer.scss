@@ -29,33 +29,33 @@ footer {
     @include media-breakpoint-down($navbar-expand) {
       justify-content: flex-end;
     }
+    .github:hover {
+      color: hsl(0, 0%, 40%);
+    }
+    .facebook:hover {
+      color: hsl(231, 48%, 48%);
+    }
+    .twitter:hover {
+      color: hsl(199, 98%, 48%);
+    }
+    .android:hover {
+      color: hsl(89, 46%, 48%);
+    }
+    .apple:hover {
+      color: hsl(0, 0%, 33%);
+    }
+    .discord:hover {
+      color: hsl(227, 58%, 65%);
+    }
+    .windows:hover {
+      color: hsl(199, 98%, 48%);
+    }
     .icon {
       font-size: 115%;
       line-height: 1;
       transition: all 0.35s ease;
       @include media-breakpoint-down(md) {
         font-size: 110%;
-      }
-      &.github:hover {
-        color: hsl(0, 0%, 40%);
-      }
-      &.facebook:hover {
-        color: hsl(231, 48%, 48%);
-      }
-      &.twitter:hover {
-        color: hsl(199, 98%, 48%);
-      }
-      &.android:hover {
-        color: hsl(89, 46%, 48%);
-      }
-      &.apple:hover {
-        color: hsl(0, 0%, 33%);
-      }
-      &.discord:hover {
-        color: hsl(227, 58%, 65%);
-      }
-      &.windows:hover {
-        color: hsl(199, 98%, 48%);
       }
     }
   }

@@ -3,17 +3,13 @@
     <div class="container">
       <div class="row" v-for="category in categories" :key="category.slug" :class="category.slug">
         <div class="col-12 col-lg-3 mb-3">
-          <NuxtLink :to="category.slug">
-            <h3 class="title">{{ category.name }}</h3>
+          <NuxtLink :to="localePath('/' + category.slug)">
+            <h3 class="title">{{ $t(category.name) }}</h3>
           </NuxtLink>
         </div>
         <div class="col-12 col-lg-9">
           <div class="list">
-            <NuxtLink :to="category.slug">Subcategory</NuxtLink>
-            <NuxtLink :to="category.slug">Subcategory</NuxtLink>
-            <NuxtLink :to="category.slug">Subcategory</NuxtLink>
-            <NuxtLink :to="category.slug">Subcategory</NuxtLink>
-            <NuxtLink :to="category.slug">Subcategory</NuxtLink>
+            <NuxtLink :to="localePath(category.slug)">{{ $t(category.name) }} Subcategory</NuxtLink>
           </div>
         </div>
       </div>

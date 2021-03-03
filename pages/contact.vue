@@ -1,7 +1,7 @@
 <template>
   <main>
     <div class="container">
-      <h2>Contact</h2>
+      <h2>{{ $t('Contact') }}</h2>
     </div>
   </main>
 </template>

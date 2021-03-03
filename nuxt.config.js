@@ -48,15 +48,42 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    // Doc: https://axios.nuxtjs.org/usage
+    // https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    // https://github.com/nuxt-community/redirect-module
     '@nuxtjs/redirect-module',
+    // https://pwa.nuxtjs.org/
     '@nuxtjs/pwa',
-    // https://i18n.nuxtjs.org/es
-    'nuxt-i18n',
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
+    // https://i18n.nuxtjs.org/
+    ['nuxt-i18n',
+      {
+        defaultLocale: 'en',
+        lazy:          true,
+        langDir:       '/lang/',
+        //differentDomains: (process.env.NODE_ENV === 'production'),
+        locales: [
+          {
+            code: 'en',
+            iso:  'en-US',
+            name: 'English',
+            file: 'en.json'
+          },
+          {
+            code: 'es',
+            iso:  'en-ES',
+            name: 'Español',
+            file: 'es.json'
+          }
+        ],
+        vueI18n: {
+          fallbackLocale: 'en',
+        }
+      }
+    ]
   ],
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     loaders: {
@@ -80,9 +107,6 @@ export default {
     classPrefix: 'theme-',
     classSuffix: ''
   },
-
-  // i18n
-  i18n: {},
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {

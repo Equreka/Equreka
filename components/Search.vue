@@ -3,9 +3,9 @@
     <b-form-input 
       id="search-bar"
       type="search"
-      placeholder="Search for constants, formulas or equations..."
       autocomplete="off"
       aria-label="Search"
+      :placeholder="$t('Search for constants, formulas or equations...')"
       v-model="searchQuery"
     />
     <div class="results" v-if="searchResults">
@@ -20,12 +20,12 @@
     </div>
     <div class="results" v-if="!searchResults && searchQuery.length >= 2">
       <div class="items">
-        <h5 class="title m-0">I didn't found anytihng... 😧</h5>
+        <h5 class="title m-0">{{ $t('I didnt found anything...') }}</h5>
       </div>
     </div>
     <div class="results" v-if="searchQuery.length == 1">
       <div class="items">
-        <h5 class="title m-0">Try with more letters... 😉</h5>
+        <h5 class="title m-0">{{ $t('Try with more letters...') }}</h5>
       </div>
     </div>
   </div>
@@ -49,8 +49,8 @@
             data:  {}
           },
           constants: {
-            title: 'Contstants',
-            slug:  'contstants/',
+            title: 'Constants',
+            slug:  'constants/',
             data:  {}
           },
           units: {

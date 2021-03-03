@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row mathematics">
         <div class="col-12 col-lg-3">
-          <h3 class="title">Mathematics</h3>
+          <h3 class="title">{{ $t('Mathematics') }}</h3>
         </div>
         <div class="col-12 col-lg-9">
           <div class="list">
