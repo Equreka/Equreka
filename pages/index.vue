@@ -33,7 +33,7 @@ export default {
   },
   head: {
     bodyAttrs: {
-      class: 'page-index'
+      class: 'page-home'
     }
   },
 }

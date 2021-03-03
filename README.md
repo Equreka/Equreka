@@ -1,16 +1,21 @@
-![logo](./static/assets/brand/logo.png)
+<div align="center">
+
+![Logo](./static/assets/brand/logo.png)
+
 
 # Equreka 
-[![Discord](https://img.shields.io/discord/812053915356364811?style=flat&logo=discord&label=Discord&labelColor=f2f2f2)](https://discord.gg/NZypuxvAB6)
-![Twitter Follow](https://img.shields.io/twitter/follow/Equreka?style=social)(https://twitter.com/Equreka)
-![GitHub](https://img.shields.io/github/license/Equreka/Equreka?color=green&label=License)(https://github.com//Equreka)
+[![Discord](https://img.shields.io/discord/812053915356364811?style=social&logo=discord&label=Discord&labelColor=f2f2f2)](https://discord.gg/NZypuxvAB6)
+[![Twitter Follow](https://img.shields.io/twitter/follow/Equreka?style=social)](https://twitter.com/Equreka)
+[![Sponsor](https://img.shields.io/github/sponsors/DerianAndre?style=social)](https://github.com/sponsors/DerianAndre)
+[![GitHub](https://img.shields.io/github/license/Equreka/Equreka?color=green&label=License)](https://github.com//Equreka)
 
+### Your open-source site for formulas, equations, and constants!
 
-Your open-source site for formulas, equations, and constants!
+**Sponsor Equreka** https://github.com/sponsors/DerianAndre
 
-**Sponsor Equreka**
-https://github.com/sponsors/DerianAndre
+</div>
 
+***
 
 ## Help wanted
 Join us at Discord: https://discord.gg/NZypuxvAB6
@@ -36,15 +41,19 @@ $ npm run generate
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
 
-# To-do
+## To-do
 
+### UI
+- Add content for everything
+***
 ### API
 - Add security layers
+- Add content
 - Entries
   - Fetch all data (units, terms, category, etc.)
-
+***
 ### Database
 - Improve general structure
-
+***
 ### Scripts
 - Improve Hover system for dynamic created elements (MathJax)

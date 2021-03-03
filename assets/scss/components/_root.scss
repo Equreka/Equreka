@@ -1,3 +1,5 @@
+@use "sass:color";
+
 :root {
   --separator: 1px solid var(--separator-color);
 }
@@ -25,6 +27,17 @@
   --input-focus-bg:           hsl(0, 0%, 99%);
   --input-focus-color:        hsl(0, 0%, 10%);
   --input-focus-border-color:   var(--#{$variable-prefix}primary);
+
+  
+  @each $subject, $color in $subjects {
+    .#{$subject} {
+      --category-color:     #{$color};
+      --category-color-hsl: #{color.hue($color), color.saturation($color), color.lightness($color)};
+      --category-color-h:   #{color.hue($color)};
+      --category-color-s:   #{color.saturation($color)};
+      --category-color-l:   #{color.lightness($color)};
+    }
+  }
 }
 
 // Dark
@@ -39,7 +52,7 @@
 
   --body-bg:                  hsl(0, 0%, 05%);
   --body-color:               hsl(0, 0%, 60%);
-  --body-color-highlight:     hsl(0, 0%, 75%);
+  --body-color-highlight:     hsl(0, 0%, 80%);
 
   --category-color:           hsl(0, 0%, 05%);
 
@@ -52,11 +65,24 @@
   --input-focus-border-color: var(--#{$variable-prefix}primary);
 
   // Bootstrap color modifier.
-  @each $color, $value in $colors {
-    --#{$variable-prefix}#{$color}: #{darken(desaturate($value, 20%), 10%)};
+  @each $name, $value in $colors {
+    $color: darken(desaturate($value, 20%), 10%);
+    --#{$variable-prefix}#{$name}: #{$color};
   }
-  @each $color, $value in $theme-colors {
-    --#{$variable-prefix}#{$color}: #{darken(desaturate($value, 20%), 10%)};
+  @each $name, $value in $theme-colors {
+    $color: darken(desaturate($value, 20%), 10%);
+    --#{$variable-prefix}#{$name}: #{$color};
+  }
+
+  @each $subject, $value in $subjects {
+    $color: darken(desaturate($value, 20%), 10%);
+    .#{$subject} {
+      --category-color:     #{$color};
+      --category-color-hsl: #{color.hue($color), color.saturation($color), color.lightness($color)};
+      --category-color-h:   #{color.hue($color)};
+      --category-color-s:   #{color.saturation($color)};
+      --category-color-l:   #{color.lightness($color)};
+    }
   }
 }
 
@@ -97,8 +123,3 @@
   }
 }
 
-@each $subject, $color in $subjects {
-  .#{$subject} {
-    --category-color:   #{$color};
-  }
-}

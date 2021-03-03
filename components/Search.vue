@@ -18,6 +18,16 @@
         @click.native="searchResults = false, searchQuery = ''"
       />
     </div>
+    <div class="results" v-if="!searchResults && searchQuery.length >= 2">
+      <div class="items">
+        <h5 class="title m-0">I didn't found anytihng... 😧</h5>
+      </div>
+    </div>
+    <div class="results" v-if="searchQuery.length == 1">
+      <div class="items">
+        <h5 class="title m-0">Try with more letters... 😉</h5>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -53,7 +63,7 @@
     },
     watch: {
       async searchQuery(searchQuery) {
-        if (searchQuery.length < 1) {
+        if (searchQuery.length <= 1) {
           this.searchResults = false;
           return;
         } 

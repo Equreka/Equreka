@@ -31,7 +31,8 @@ h1, h2, h3, h4, h5, h6
 // Categories
 .categories {
   .row {
-    margin-bottom: 3rem;
+    margin-top:    1rem;
+    margin-bottom: 1rem;
   }
   .title {
     font-size: 1.5rem;
@@ -52,11 +53,17 @@ h1, h2, h3, h4, h5, h6
     overflow: hidden;
     a {
       display: flex;
-      flex: 0 1 33.3333%;
+      flex: 1 1 100%;
       padding: 0 1rem;
       margin-bottom: 1rem;
       font-size: 110%;
       font-weight: 500;
+      @include media-breakpoint-up(sm) {
+        flex: 0 1 50%;
+      }
+      @include media-breakpoint-up($navbar-expand) {
+        flex: 0 1 33.3333%;
+      }
       &:hover {
         color: var(--category-color);
       }

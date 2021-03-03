@@ -20,7 +20,7 @@
     backdrop-filter: blur(15px) saturate(150%);
     border-radius:   0.25rem;
     transition:      $transition-all-ease;
-    animation:       fade-in 1s forwards;
+    animation:       fade-in 0.5s forwards;
     z-index:         999;
     .items {
       animation: fade-in 0.35s forwards;
@@ -63,10 +63,10 @@
           transition: $transition-all-ease;
         }
         &:hover {      
-          background: var(--category-color);
-          color: $white;
+          background: hsla(var(--category-color-hsl), 0.75);
+          color: var(--body-color-highlight);
           .badge {
-            background: rgba($white, 0.25);
+            background: var(--category-color);
           }
         }
       }
