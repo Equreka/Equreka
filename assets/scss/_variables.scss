@@ -1,0 +1,57 @@
+// 
+$navbar-expand: lg;
+
+//
+$variable-prefix: bs-;
+
+// Font
+$font-family-math              : MJXc-TeX-math-I, MJXc-TeX-math-Ix, MJXc-TeX-math-Iw;
+$font-family-heading-sans-serif: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+// Colors
+$blue:    hsl(215, 95%, 50%);
+$indigo:  hsl(265, 90%, 50%);
+$purple:  hsl(260, 50%, 50%);
+$pink:    hsl(330, 65%, 50%);
+$red:     hsl(355, 70%, 55%);
+$orange:  hsl(25, 100%, 55%);
+$yellow:  hsl(45, 100%, 50%);
+$green:   hsl(150, 70%, 30%);
+$teal:    hsl(160, 75%, 45%);
+$cyan:    hsl(190, 90%, 50%);
+
+$theme-colors: (
+  "primary":    $primary,
+  "secondary":  $secondary,
+  "success":    $success,
+  "info":       $info,
+  "warning":    $warning,
+  "danger":     $danger,
+  "light":      $light,
+  "dark":       $dark
+);
+
+$subjects: (
+  "mathematics": $red,
+  "physics"    : $blue,
+  "chemistry"  : $purple
+);
+
+// Links
+$link-color:            #8c9ba7;
+$link-shade-percentage: 20% !default;
+$link-hover-color:      shift-color($link-color, $link-shade-percentage) !default;
+
+// Forms
+$input-bg:           var(--input-bg);
+$input-color:        var(--input-color);
+$input-border-color: var(--input-border-color);
+
+$input-focus-bg:           var(--input-focus-bg);
+$input-focus-color:        var(--input-focus-color);
+$input-focus-border-color: var(--input-focus-border-color);
+
+// Transition
+$transition-speed-ease:     cubic-bezier(0.4, 0.0, 0.2, 1);
+$transition-speed-incoming: cubic-bezier(0.0, 0.0, 0.2, 1);
+$transition-all-ease:       all .35s $transition-speed-ease;

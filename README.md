@@ -2,13 +2,13 @@
 
 # Equreka 
 [![Discord](https://img.shields.io/discord/812053915356364811?style=flat&logo=discord&label=Discord&labelColor=f2f2f2)](https://discord.gg/NZypuxvAB6)
-![Twitter Follow](https://img.shields.io/twitter/follow/Equreka?style=social)
-![GitHub](https://img.shields.io/github/license/Equreka/Equreka?color=green&label=License)
+![Twitter Follow](https://img.shields.io/twitter/follow/Equreka?style=social)(https://twitter.com/Equreka)
+![GitHub](https://img.shields.io/github/license/Equreka/Equreka?color=green&label=License)(https://github.com//Equreka)
 
 
 Your open-source site for formulas, equations, and constants!
 
-**Do you want to be a Github Sponsor?**
+**Sponsor Equreka**
 https://github.com/sponsors/DerianAndre
 
 
@@ -39,13 +39,12 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 # To-do
 
 ### API
-- Entry
+- Add security layers
+- Entries
   - Fetch all data (units, terms, category, etc.)
 
 ### Database
 - Improve general structure
 
 ### Scripts
-- Expression Parser
-- Description Parser (Or just use TeX in descriptions [?]) *
-- Hover system without jQuery
+- Improve Hover system for dynamic created elements (MathJax)

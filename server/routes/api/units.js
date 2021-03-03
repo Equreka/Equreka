@@ -1,9 +1,27 @@
 const router = require('express').Router();
 const Unit = require('../../database/models/unit');
+const { param } = require('express-validator');
 
 // GET - All
 router.get('/', async (req, res) => {
   const data = await Unit.find();
+  res.json(data);
+});
+
+// GET - Search
+router.get('/search/:search',
+param('search').not().isEmpty().trim().escape(),
+async (req, res) => {
+  let search = req.params.search.replace(/[^\w\s]/gi, '');
+  const data = await Unit.find({ 
+    'name': {
+      '$regex':   search,
+      '$options': 'i'
+    }
+  },
+  )
+  .populate('category')
+  .limit(10);
   res.json(data);
 });
 

@@ -1,29 +1,74 @@
 .form-search {
-  width: 100%;
+  width:    100%;
   position: relative;
   input {
-    width: 100%;
-    border-radius: 999rem;
-    padding-left: 1rem;
+    margin:        0 auto;
+    width:         100%;
+    padding-left:  1rem;
     padding-right: 1rem;
+    transition:    $transition-all-ease;
   }
   .results {
-    position: absolute;
-    margin-top: 1rem;
-    top: 100%;
-    left: 0;
-    right: 0;
-    background: hsl(220, 10%, var(--theme-lightness), 0.65);
-    box-shadow: inset 0 0 0 1px hsla(0, 0%, var(--theme-inverted-lightness), 0.05);
-    backdrop-filter: blur(15px);
-    border-radius: 0.25rem;
-    animation: fade-in 0.35s forwards;
-    z-index: 999;
-    .result {
-      a {
-        display: block;
-        padding: 0.5rem 1rem;
-        color: var(--body-color);
+    position:        absolute;
+    margin-top:      0.5rem;
+    padding:         1rem 0;
+    top:             100%;
+    left:            0;
+    right:           0;
+    background:      hsl(220, 10%, var(--theme-lightness), 0.78);
+    box-shadow:      0 .5rem 1rem -.5rem hsla(0, 0%, 0%, 0.10), inset 0 0 0 1px var(--input-border-color);
+    backdrop-filter: blur(15px) saturate(150%);
+    border-radius:   0.25rem;
+    transition:      $transition-all-ease;
+    animation:       fade-in 1s forwards;
+    z-index:         999;
+    .items {
+      animation: fade-in 0.35s forwards;
+      &:first-child {
+        .title {
+          margin-top: 0;
+        }
+      }
+      .title {
+        font-size:      0.95rem;
+        padding:        0 1rem;
+        margin:         1rem 0 0.5rem;
+        font-weight:    600;
+        display:        flex;
+        align-items:    center;
+        color:          var(--body-color-highlight);
+        line-height:    1;
+        pointer-events: none;
+        .badge {
+          display:         flex;
+          align-items:     center;
+          justify-content: center;
+          margin-left:     0.5rem;
+          border: 1px solid var(--body-color);
+          color:           var(--body-color);
+          padding:         0.45rem 0.35rem;
+          line-height:     0;
+        }
+      }
+      .item {
+        display:         flex;
+        align-items:     center;
+        justify-content: space-between;
+        padding:         0.25rem 1rem;
+        color:           var(--body-color);
+        text-decoration: none;
+        transition: $transition-all-ease;
+        .badge {
+          background: var(--category-color);
+          transition: $transition-all-ease;
+        }
+        &:hover {      
+          background: var(--category-color);
+          color: $white;
+          .badge {
+            background: rgba($white, 0.25);
+          }
+        }
       }
     }
   }

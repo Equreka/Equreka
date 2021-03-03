@@ -1,6 +1,6 @@
 <template> 
   <main role="main">
-    <header class="category" :class="category.slug">
+    <header class="category">
       <div class="container">
         <h2 class="title-small">Category</h2>
         <h1 class="title-large">{{ category.name }}</h1>
@@ -16,9 +16,8 @@
         </NuxtLink>
       </div>
       <div v-else>
-        <h2>
-        No entries :(
-        </h2>
+        <h2>No entries :(</h2>
+        <nuxt-link to="/">Go back</nuxt-link>
       </div>
       <nav class="d-none" aria-label="Page navigation example">
         <ul class="pagination">
@@ -32,13 +31,12 @@
     </div>
   </main>
 </template>
-
 <script>
   export default {
     data() {
       return {
         category: {},
-        entries: false,
+        entries: {},
         subCategories: {}
       }
     },
@@ -58,7 +56,7 @@
           category: category,
           entries: entries
         }
-      } else if(category && entries.length === 0) {
+      } else if(category && entries.length === 0) {        
         return {
           category: category,
           entries: false
@@ -67,11 +65,13 @@
         redirect(process.env.baseUrl);
       }
     },
-    head: {
-      bodyAttrs: {
-        class: 'page-category'
+    head() {
+      return {
+        bodyAttrs: {
+          class: 'page-category' + (this.category.slug ? ' ' + this.category.slug : '')
+        }
       }
-    },
+    }
   }
 </script>
 

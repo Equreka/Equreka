@@ -1,14 +1,17 @@
 <template>
+
   <main role="main">
+    <!-- Main: Header -->
     <div class="category" :class="data.category.slug">
       <div class="container">
         <div class="d-flex align-items-center justify-content-between">
           <div class="info">
-            <NuxtLink :to="'/' + data.category.slug">
-              <h2 class="title-small">{{ data.category.name }}</h2>
+            <NuxtLink  class="title-small" :to="'/' + data.category.slug">
+              {{ data.category.name }}
             </NuxtLink>
             <h1 class="title-large">{{ data.name }}</h1>
           </div>
+          <!-- Options -->
           <b-dropdown class="dropdown-options" variant="outline-light" no-caret right>
             <template #button-content>
               <i class="bi bi-three-dots-vertical"></i>
@@ -33,7 +36,7 @@
     <div class="container">
       <!-- Eureka! Expression -->
       <section class="expression">
-        <div>$${{ parserLaTeX(data.expressionIntern) }}$$</div>
+        <div class="">$${{ parserLaTeX(data.expressionIntern) }}$$</div>
       </section>
       <!-- Terms -->
       <section class="terms">
@@ -74,10 +77,15 @@
         <p class="text-justify">{{ parserLaTeX( data.description ) }}</p>
       </section>
       <!-- Code -->
-      <section class="code">
+      <section class="codes">
         <h3 class="mb-4">Code</h3>
         <h4>LaTeX</h4>
-        <code>{{ data.expression }}</code>
+        <div class="input-group">
+          <b-button variant="dark" @click="copyClipboard('#' + data.slug)" aria-label="Copy to clipboard">
+            <i class="bi bi-clipboard"></i>
+          </b-button>
+          <input :id="data.slug" class="form-control" :value="data.expression" />
+        </div>
       </section>
       <!-- References -->
       <section class="references" v-if="data.references.length > 0">
@@ -101,36 +109,9 @@
     data () {
       return {
         data: {},
+        constants: {},
         json: false
       }
-    },
-    head: {
-      script: [
-        {
-          src: 'https://polyfill.io/v3/polyfill.min.js?features=es6'
-        },
-        {
-          id: 'MathJax-script',
-          src: 'https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js',
-          async: true
-        }
-      ],
-      bodyAttrs: {
-        class: 'page-entry'
-      }
-    },
-    components: {
-    },
-    methods: {
-      parserLaTeX(data) {
-        return Equreka.parserLaTeX(data);
-      }
-    },
-    beforeMount() {
-      Equreka.initMathJax();
-    },
-    mounted() {
-      Equreka.initTermHover();
     },
     async asyncData ({ params, redirect }) {
       const slug = params.slug;
@@ -144,6 +125,35 @@
         }
       } else {
         redirect('/');
+      }
+    },
+    beforeMount() {
+      Equreka.initMathJax();
+      Equreka.initTermHover();
+    },
+    head() {
+      return {
+        script: [
+          {
+            src: 'https://polyfill.io/v3/polyfill.min.js?features=es6'
+          },
+          {
+            id: 'MathJax-script',
+            src: '/assets/js/mathjax/tex-chtml-full.js',
+            async: true
+          }
+        ],
+        bodyAttrs: {
+          class: 'page-entry' + (this.data.slug ? ' ' + this.data.category.slug : '')
+        }
+      }
+    },
+    methods: {     
+      copyClipboard(clipboard) {
+        Equreka.copyClipboard(clipboard);
+      },
+      parserLaTeX(data) {
+        return Equreka.parserLaTeX(data);
       }
     }
   }

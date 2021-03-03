@@ -1,11 +1,28 @@
 const router = require('express').Router();
-const mongoose = require('mongoose');
 const Entry = require('../../database/models/entry');
 const Category = require('../../database/models/category');
+const { param } = require('express-validator');
 
 // GET - All
 router.get('/', async (req, res) => {
   const data = await Entry.find().populate('variable');
+  res.json(data);
+});
+
+// GET - Search
+router.get('/search/:search',
+param('search').not().isEmpty().trim().escape(),
+async (req, res) => {
+  let search = req.params.search.replace(/[^\w\s]/gi, '');
+  const data = await Entry.find({ 
+    'name': {
+      '$regex':   search,
+      '$options': 'i'
+    }
+  },
+  )
+  .populate('category')
+  .limit(10);
   res.json(data);
 });
 
@@ -36,19 +53,6 @@ router.get('/category/:category', async (req, res) => {
   const data = await Entry.find({
     'category._id': category._id 
   });
-  res.json(data);
-});
-
-// GET - Search
-router.get('/search/:search', async (req, res) => {
-  const data = await Entry.find({ 
-    'name': {
-      '$regex':   req.params.search,
-      '$options': 'i'
-    }
-  })
-  .populate('category')
-  .limit(10);
   res.json(data);
 });
 

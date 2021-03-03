@@ -12,6 +12,10 @@ const SchemaUnit = new Schema({
   },
   symbol:      String,
   description: String,
+  category: { 
+    type: Number,
+    ref:  'Category'
+  },
   type: {
     type:    String,
     default: 'SI'     // 'SI' International System of Units / 'EN' English Units

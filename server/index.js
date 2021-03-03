@@ -1,6 +1,7 @@
 const express = require('express');
 const db = require('./database')
 const app = express();
+const mongoSanitize = require('express-mongo-sanitize');
 
 // Databes
 db.on('error', function() { 
@@ -14,6 +15,7 @@ db.once('open', function() {
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(mongoSanitize());
 
 // API Index
 app.get('/', (req, res) => { res.send('Eureka!'); });

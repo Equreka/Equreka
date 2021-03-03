@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Category = require('../../database/models/category');
+const { param } = require('express-validator');
 
 // GET - All
 router.get('/', async (req, res) => {

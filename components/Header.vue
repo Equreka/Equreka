@@ -18,7 +18,7 @@
           <b-dropdown variant="link" v-model="$colorMode.preference" no-caret right>
             <template #button-content>
               <span></span>
-              <i class="bi bi-sun icon-theme"></i>
+              <i class="bi bi-moon theme-icon"></i>
             </template>
             <b-dropdown-header>Theme</b-dropdown-header>
             <b-dropdown-item v-for="(color, code) in themeColors" :key="code"  @click="$colorMode.preference = code, themeChange()">{{ color }}</b-dropdown-item>

@@ -51,6 +51,14 @@ let Equreka = {
     }
   },
 
+  copyClipboard (clipboard) {
+    var selector = document.querySelector(clipboard);
+    selector.select();
+    selector.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    alert('Copied to clipboard successfully');
+  },
+
   parserLaTeX (data) {
     let parsedData;
     const classPrefix = Equreka.TERM_SELECTOR.substring(1);

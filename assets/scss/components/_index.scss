@@ -1,9 +1,21 @@
+// Root
 @import "root";
-@import "keyframes";
+
+// Web-UI
+@import "scrollbar";
+
+// Structure
 @import "header";
 @import "search";
 @import "footer";
+
+// Math
 @import "math";
 @import "mathjax";
+
+// Bootstrap
 @import "button";
 @import "dropdown";
+
+// Animation
+@import "keyframes";

@@ -6,3 +6,9 @@
     font-weight: 500;
   }
 }
+
+.dropdown-toggle-no-caret {
+  &::after {
+    display: none;
+  }
+}

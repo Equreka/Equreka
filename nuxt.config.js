@@ -29,7 +29,6 @@ export default {
   // Global CSS: https://go.nuxtjs.dev/config-css
   css: [
     '@/assets/scss/style.scss',
-    '@/node_modules/bootstrap-icons/font/bootstrap-icons.css'
   ],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
@@ -58,7 +57,6 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
   ],
-
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     loaders: {
@@ -69,6 +67,12 @@ export default {
         implementation: require('sass')
       }
     }
+  },
+
+  // Bootstrap Vue
+  bootstrapVue: {
+    bootstrapCSS: false, 
+    bootstrapVueCSS: false
   },
 
   // @nuxtjs/color-mode

@@ -2,12 +2,15 @@
   Equreka
   Version: 1.0.0
 */
-
-// Custom Variables
-@import "custom-variables";
+// Bootstrap
+@import "bootstrap/scss/functions";
+@import "bootstrap/scss/variables";
+@import "bootstrap/scss/mixins";
+@import "variables";
 // Bootstrap
 @import "bootstrap/scss/bootstrap";
-// Theming
+@import "bootstrap-icons/font/bootstrap-icons.css";
+// Our style
 @import 'components';
 @import 'pages';
 @import "custom";

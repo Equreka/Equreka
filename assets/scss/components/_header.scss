@@ -1,6 +1,7 @@
 // Header
 .header {
   padding: 1rem 0;
+  transition: $transition-all-ease;
   .container {
     display    : flex;
     align-items: stretch;
@@ -39,10 +40,15 @@
       font-size: 1.35rem;
     }
   }
-
   .btn {
     font-family: $font-family-heading-sans-serif;
     font-weight: 600;
     text-decoration: none;
+    color: var(--body-color);
+    box-shadow: none;
+    transition: $transition-all-ease;
+    &:hover {
+      color: var(--body-color-highlight);
+    }
   } 
 }
