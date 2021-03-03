@@ -78,7 +78,10 @@ export default {
           }
         ],
         vueI18n: {
-          fallbackLocale: 'en',
+          fallbackLocale: {
+            // 'es-MX':   ['es', 'en'], // Para después ;)
+            'default': ['en', 'es']
+          }
         }
       }
     ]
