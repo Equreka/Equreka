@@ -43,17 +43,18 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 ## To-do
 
+### App
+- Use cappacitor.js to export as an app for iOS and Android
 ### UI
 - Add content for everything
 ***
 ### API
 - Add security layers
-- Add content
+- Add content through post
 - Entries
-  - Fetch all data (units, terms, category, etc.)
 ***
 ### Database
-- Improve general structure
+- Improve general structure (?)
 ***
 ### Scripts
 - Improve Hover system for dynamic created elements (MathJax)

@@ -75,26 +75,34 @@ h1, h2, h3, h4, h5, h6
   }
   .title-small {
     margin:         0;
-    font-size:      95%;
-    font-weight:    600;
-    color:          var(--body-color-highlight);
+    font-size:      90%;
+    font-weight:    800;
+    font-family:    $font-family-heading-sans-serif;
+    color:          hsl(var(--category-color-h), 100%, 80%);
     text-transform: uppercase;
-    opacity:        var(--alpha-normal);
+    letter-spacing: 1px;
   }
   .title-large {
-    margin:      0;
-    font-size:   170%;
-    font-weight: bold;
-    color:       var(--body-color-highlight);
+    margin:         0;
+    font-size:      170%;
+    font-weight:    700;
+    font-family:    $font-family-heading-sans-serif;
+    color:          hsl(var(--category-color-h), 100%, 95%);
+    letter-spacing: 1px;
   }
   .dropdown-options {
     margin-left: 1.5rem;
     .btn {
       border-radius: 999rem;
       padding: .35rem;
-      border-color: var(--body-color-highlight);
-      color: var(--body-color-highlight);
+      border-color: hsl(var(--category-color-h), 100%, 85%);
+      color: hsl(var(--category-color-h), 100%, 85%);
       border-width: 2px;
+      transition: $transition-all-ease;
+      &:hover {
+        border-color: hsl(var(--category-color-h), 100%, 95%);
+        color: hsl(var(--category-color-h), 100%, 95%);
+      }
     }
   }
 }

@@ -17,7 +17,7 @@
     right:           0;
     background:      hsl(220, 10%, var(--theme-lightness), var(--alpha-dropdown));
     box-shadow:      0 .5rem 1rem -.5rem hsla(0, 0%, 0%, 0.10), inset 0 0 0 1px var(--input-border-color);
-    backdrop-filter: blur(15px) saturate(150%);
+    backdrop-filter: blur(25px) contrast(1.25) saturate(1.25);
     border-radius:   0.25rem;
     transition:      $transition-all-ease;
     animation:       fade-in 0.5s forwards;
@@ -59,15 +59,17 @@
         text-decoration: none;
         transition: $transition-all-ease;
         .badge {
-          background: var(--category-color);
+          background: hsl(var(--category-color-h), 85%, 50%);
+          color: hsl(var(--category-color-h), 100%, 90%);
           transition: $transition-all-ease;
+          text-transform: uppercase;
+          font-weight: bold;
+          font-family: $font-family-heading-sans-serif;
+          letter-spacing: 1px;
         }
         &:hover {      
-          background: hsla(var(--category-color-hsl), 0.75);
+          background: hsla(var(--category-color-h), 85%, 50%, 0.2);
           color: var(--body-color-highlight);
-          .badge {
-            background: var(--category-color);
-          }
         }
       }
     }
