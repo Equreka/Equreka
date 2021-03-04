@@ -1,7 +1,8 @@
 @use "sass:color";
+@use "sass:math";
 
 :root {
-  --separator: 1px solid var(--separator-color);
+  --dropdown-backdrop-filter: blur(15px) saturate(150%);
 }
 
 // Light
@@ -11,8 +12,15 @@
   --theme-lightness:          98%;
   --theme-inverted-lightness: 05%;
 
+  --alpha-normal:   0.75;
+  --alpha-active:   0.85;
+  --alpha-hover:    0.65;
+  --alpha-dropdown: 0.75;
+
   --selection-bg:             hsla(0, 0%, 05%, 0.15);
-  --separator-color:          hsla(0, 0%, 20%, 0.15);
+  
+  --separator-color:          hsl(0, 0%, 85%);
+  --separator:                1px solid var(--separator-color);
 
   --body-bg:                  hsl(0, 0%, 90%);
   --body-color:               hsl(0, 0%, 20%);
@@ -28,7 +36,17 @@
   --input-focus-color:        hsl(0, 0%, 10%);
   --input-focus-border-color:   var(--#{$variable-prefix}primary);
 
-  
+  // Bootstrap color modifier.
+  @each $name, $value in $colors {
+    $color: $value;
+    --#{$variable-prefix}#{$name}-hsl: #{math.round(color.hue($color)), math.round(color.saturation($color)), math.round(color.lightness($color))};
+
+  }
+  @each $name, $value in $theme-colors {
+    $color: $value;
+    --#{$variable-prefix}#{$name}-hsl: #{math.round(color.hue($color)), math.round(color.saturation($color)), math.round(color.lightness($color))};
+  }
+
   @each $subject, $color in $subjects {
     .#{$subject} {
       --category-color:     #{$color};
@@ -47,8 +65,15 @@
   --theme-lightness:          07%;
   --theme-inverted-lightness: 90%;
 
+  --alpha-normal:   0.55;
+  --alpha-active:   0.65;
+  --alpha-hover:    0.45;
+  --alpha-dropdown: 0.75;
+
   --selection-bg:             hsla(0, 0%, 90%, 0.125);
-  --separator-color:          hsla(0, 0%, 90%, 0.10);
+
+  --separator-color:          hsl(0, 0%, 15%);
+  --separator:                1px solid var(--separator-color);
 
   --body-bg:                  hsl(0, 0%, 05%);
   --body-color:               hsl(0, 0%, 60%);
@@ -68,10 +93,13 @@
   @each $name, $value in $colors {
     $color: darken(desaturate($value, 20%), 10%);
     --#{$variable-prefix}#{$name}: #{$color};
+    --#{$variable-prefix}#{$name}-hsl: #{math.round(color.hue($color)), math.round(color.saturation($color)), math.round(color.lightness($color))};
+
   }
   @each $name, $value in $theme-colors {
     $color: darken(desaturate($value, 20%), 10%);
     --#{$variable-prefix}#{$name}: #{$color};
+    --#{$variable-prefix}#{$name}-hsl: #{math.round(color.hue($color)), math.round(color.saturation($color)), math.round(color.lightness($color))};
   }
 
   @each $subject, $value in $subjects {

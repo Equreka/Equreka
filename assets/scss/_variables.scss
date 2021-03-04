@@ -1,11 +1,11 @@
-// 
+// Expand
 $navbar-expand: lg;
 
-//
-$variable-prefix: bs-;
+// Options
+$equreka-term-selector: eqk;
 
 // Font
-$font-family-math              : MJXc-TeX-math-I, MJXc-TeX-math-Ix, MJXc-TeX-math-Iw;
+$font-family-math              : serif;
 $font-family-heading-sans-serif: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
 // Colors
@@ -36,6 +36,14 @@ $subjects: (
   "physics"    : $blue,
   "chemistry"  : $purple
 );
+
+// Dropdown
+$dropdown-bg:          hsl(220, 10%, var(--theme-lightness), var(--alpha-dropdown));
+$dropdown-color:       var(--body-color);
+$dropdown-border-color: var(--separator-color);
+$dropdown-link-color:  var(--body-color);
+$dropdown-link-hover-color:  var(--body-color-highlight);
+$dropdown-link-hover-bg: hsla(var(--bs-primary-hsl), var(--alpha-hover));
 
 // Links
 $link-color:            #8c9ba7;

@@ -1,13 +1,3 @@
-// HTML
-html {
-  &.theme-light {
-    @include theme-light();
-  }
-  &.theme-dark {
-    @include theme-dark();
-  }
-}
-
 // Selection
 ::selection { background: var(--selection-bg); }
 
@@ -71,24 +61,28 @@ h1, h2, h3, h4, h5, h6
   }
 }
 
-// Category
+// Category header
 .category { 
   padding:    1.5rem 0;
   background: var(--category-color);
+  font-size: 110%;
+  @include media-breakpoint-up(md) {
+    font-size: 120%;
+  }
   a {
     text-decoration: none;
   }
   .title-small {
     margin:         0;
-    font-size:      90%;
+    font-size:      85%;
     text-transform: uppercase;
     font-weight:    600;
     color:          var(--body-bg);
-    opacity:        0.85;
+    opacity:        0.80;
   }
   .title-large {
     margin:      0;
-    font-size:   2rem;
+    font-size:   175%;
     font-weight: bold;
     color:       var(--body-bg);
   }

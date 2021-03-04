@@ -51,11 +51,11 @@ footer {
       color: hsl(199, 98%, 48%);
     }
     .icon {
-      font-size: 115%;
+      font-size: 100%;
       line-height: 1;
       transition: all 0.35s ease;
-      @include media-breakpoint-down(md) {
-        font-size: 110%;
+      @include media-breakpoint-up(md) {
+        font-size: 115%;
       }
     }
   }

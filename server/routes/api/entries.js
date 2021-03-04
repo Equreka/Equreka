@@ -40,6 +40,15 @@ router.get('/:slug', async (req, res) => {
         path: 'unit'
       }
     }
+  })
+  .populate({
+    path: 'constants',
+    populate: {
+      path: 'constant',
+      populate: {
+        path: 'unit'
+      }
+    }
   });
   res.json(data);
 });

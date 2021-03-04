@@ -1,10 +1,10 @@
 // Math
-.eqk-term {
+.#{$equreka-term-selector} {
   transition: all .35s ease, font-size 0s;
   &.hover {
-    color: var(--term-color, green);
+    color: var(--term-color, var(--bs-primary));
     a {
-      color: var(--term-color, green);
+      color: var(--term-color, var(--bs-primary));
     }
   }
   &.variable {
@@ -16,21 +16,10 @@
 }
 
 .math {
-  font-family: $font-family-math;
-  font-style: oblique;
-  font-weight: bold;
-  font-size: 120%;
-  -webkit-font-smoothing: antialiased;
+  font-family:             $font-family-math;
+  font-style:              oblique;
+  font-size:               130%;
+  font-weight:             400;
+  -webkit-font-smoothing:  antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-.terms {
-  .symbol {
-    font-size: 135%;
-    font-style: oblique;
-    font-family: $font-family-math;
-    &.unit {
-      font-size: 100%;
-    }
-  }
 }

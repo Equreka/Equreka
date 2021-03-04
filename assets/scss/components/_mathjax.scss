@@ -1,0 +1,78 @@
+.CtxtMenu_Menu,
+.CtxtMenu_Info {
+  font-family:     $font-family-base !important;
+  background:      hsl(220, 10%, var(--theme-lightness), var(--alpha-dropdown)) !important;
+  color:           var(--body-color) !important;
+  border:          0 !important;
+  box-shadow:      0 .5rem 1rem -.5rem hsla(0, 0%, 0%, 0.10), inset 0 0 0 1px var(--input-border-color) !important;
+  backdrop-filter: var(--dropdown-backdrop-filter);
+}
+
+.CtxtMenu_InfoContent {
+  background: none !important;
+  border: var(--separator) !important;
+  .CtxtMenu_InfoTitle {
+    font-family: $font-family-heading-sans-serif !important;
+  }
+}
+
+.CtxtMenu_MenuClose {
+  visibility: hidden;
+  &::before {
+    visibility: visible !important;
+    position: absolute;
+    top: 0;
+    right: 0;
+    content: "\f62a" !important;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    background: none !important;
+    color: var(--body-color) !important;
+    @include bootstrap-icon();
+  }
+  &:hover {
+    color: var(--body-color-highlight) !important;
+    border: var(--separator) !important;
+  }
+  span {
+    display: none !important;
+  }
+}
+
+.CtxtMenu_Menu {
+  .CtxtMenu_MenuRule {
+    border-color: var(--input-border-color) !important;
+  }
+  .CtxtMenu_MenuActive {
+    background: hsla(var(--bs-primary-hsl), var(--alpha-active)) !important;
+  }
+  .CtxtMenu_MenuDisabled:focus {
+    background: hsla(var(--bs-primary-hsl), calc(var(--alpha-active) - 0.25) ) !important;
+  }
+  .CtxtMenu_MenuArrow,
+  .CtxtMenu_MenuCheck {
+    &::before {
+      @include bootstrap-icon();
+    }
+  }
+  .CtxtMenu_MenuArrow,
+  .CtxtMenu_MenuCheck {
+    font-size: 0;
+  }
+  .CtxtMenu_MenuArrow{
+    &::before {
+      content: "\f285";
+      margin-right: 0.25rem;
+      font-size: 0.75rem;
+    }
+  }
+  .CtxtMenu_MenuCheck {
+    &::before {
+      content: "\f272";
+      margin-top: 0.2rem;
+      margin-left: 0.35rem;
+      font-size: 0.85rem;
+    }   
+  }
+}

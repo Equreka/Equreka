@@ -1,20 +1,24 @@
 let Equreka = {
   // Constants
-  TERM_SELECTOR: '.eqk-term',
+  TERM_SELECTOR: '.eqk',
 
-  // Initialize
+  /**
+   * Initialize Term Hover
+   * 
+   * Create Event Listener for all elements with the Equreka.TERM_SELECTOR class
+   */
   initTermHover() {
-    var elements = document.querySelectorAll(Equreka.TERM_SELECTOR);
-    //var sel = document.getElementById('expression').firstChild;
-    //sel.addEventListener('mouseenter', (event) => { equrekaHover2(event, 'add') }, false);
+    let elements = document.querySelectorAll(Equreka.TERM_SELECTOR);
+
     Array.from(elements).forEach(function(element) {
       element.addEventListener('pointerenter', (event) => { Equreka.termHover(event, element, 'add') }, false);
       element.addEventListener('pointerleave', (event) => { Equreka.termHover(event, element, 'remove') }, false);
     });
   },
 
+  // Deprecated
   initMathJax() {
-    window.MathJax = {
+    MathJax = {
       loader: {
         load: ['[tex]/html']
       },
@@ -25,6 +29,12 @@ let Equreka = {
       },
       svg: {
         fontCache: 'global'
+      },
+      startup: {
+        ready: () => {
+          MathJax.startup.defaultReady()
+          MathJax.startup.promise.then(() => resolve())
+        }
       }
     }
   },
@@ -51,29 +61,41 @@ let Equreka = {
     }
   },
 
-  copyClipboard (clipboard) {
-    var selector = document.querySelector(clipboard);
-    selector.select();
-    selector.setSelectionRange(0, 99999);
-    document.execCommand("copy");
-    alert('Copied to clipboard successfully');
-  },
+ /**
+  * Parser LaTeX
+  * 
+  * Function that adds the term-selector, type and term to LaTeX command-class of the term from our custom LaTeX command (\(var|const){X})
+  * Ex. \var{X} -> \class{eqk variable X}{X}
+  * 
+  * @param {string} data Expression / Description
+  */
 
   parserLaTeX (data) {
-    let parsedData;
     const classPrefix = Equreka.TERM_SELECTOR.substring(1);
     const regex = /\\(var|const)\{(.*?)\}/g;
+    let parsedData;
+
     parsedData = data.replace(regex, function(global, type, symbol) {
       var type = (type === 'var') ? 'variable' : 'constant';
       return `\\class{${classPrefix} ${type} ${symbol}}{${symbol}}`;
     });
+
     return parsedData;
   },
 
+  /**
+   * Parser Cleaner
+   * 
+   * Simple function to remove our custom LaTeX command
+   * Ex. \var{X} -> X
+   * 
+   * @param {string}  data        Expression / Description
+   * @param {boolean} removeSigns removes $ that activates MathJax
+   */
   parserCleaner (data, removeSigns = false) {
-    let parsedData;
-    const classPrefix = Equreka.TERM_SELECTOR.substring(1);
     const regex = /\\(var|const)\{(.*?)\}/g;
+    let parsedData;
+
     parsedData = data.replace(regex, function(global, type, symbol) {
       return symbol;
     });
@@ -85,10 +107,36 @@ let Equreka = {
     return parsedData;
   },
 
+  /**
+   * JSON Download
+   * 
+   * Concatenate "type" to make the anchor link downloadable
+   * 
+   * @param {object} json Data to download
+   */
   jsonDownload (json) {
     let type = "data:text/json;charset=utf-8,";
-    return type + encodeURIComponent(JSON.stringify(json));
-  }
+    let href = type + encodeURIComponent(JSON.stringify(json));
+
+    return href;
+  },
+
+  /**
+   * Copy to clipboard
+   * 
+   * Simple function to clipboard from selector
+   * 
+   * @param {string} clipboard Query selector
+   */
+  copyClipboard (clipboard) {
+    let selector = document.querySelector(clipboard);
+    
+    selector.select();
+    selector.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+
+    alert('Copied to clipboard successfully');
+  },
 
 }
 

@@ -9,7 +9,7 @@
         </div>
         <div class="col-12 col-lg-9">
           <div class="list">
-            <NuxtLink :to="localePath(category.slug)">{{ $t(category.name) }} Subcategory</NuxtLink>
+            <NuxtLink :to="localePath('/' + category.slug)">{{ $t(category.name) }} Subcategory</NuxtLink>
           </div>
         </div>
       </div>

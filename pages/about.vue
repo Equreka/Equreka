@@ -11,13 +11,13 @@
       <p>All open source projects and specially the ones that made possible this project</p>
       <p>You can check our <a  target="_blank" rel="noopener nofollow" href="https://github.com/Equreka">Github</a> for a more complete list in our source-code.</p>
       <p>Here are some projects (in no particular order) that made this project possible:</p>
-      <ul class="list-group list-group-horizontal">
+      <div class="list-group list-group-horizontal">
         <a class="list-group-item" target="_blank" rel="noopener nofollow"
           v-for="(url, title) in projects"
           :key="title"
           :href="url"
         >{{ title }}</a>
-      </ul>
+      </div>
     </div>
   </main>
 </template>
@@ -27,17 +27,17 @@ export default {
   data() {
     return {
       projects: {
-        'Github':          'https://github.com/',
-        'Wikimedia Foundation':       'https://wikimediafoundation.org/',
-        'Node.js':         'https://nodejs.org/',
-        'Vue.js':          'https://vuejs.org/',
-        'Nuxt.js':         'https://nuxtjs.org/',
-        'Mongoose':        'https://mongoosejs.com/',
-        'Express':         'https://expressjs.com/es/',
-        'Bootstrap':       'https://github.com/twbs/bootstrap',
-        'Bootstrap Icons': 'https://github.com/twbs/icons',
-        'Bootstrap Vue':   'https://bootstrap-vue.org/',
-        'Icons8':          'https://icons8.com/',
+        'Github':               'https://github.com/',
+        'Wikimedia Foundation': 'https://wikimediafoundation.org/',
+        'Node.js':              'https://nodejs.org/',
+        'Vue.js':               'https://vuejs.org/',
+        'Nuxt.js':              'https://nuxtjs.org/',
+        'Mongoose':             'https://mongoosejs.com/',
+        'Express':              'https://expressjs.com/es/',
+        'Bootstrap':            'https://github.com/twbs/bootstrap',
+        'Bootstrap Icons':      'https://github.com/twbs/icons',
+        'Bootstrap Vue':        'https://bootstrap-vue.org/',
+        'Icons8':               'https://icons8.com/',
       }
     }
   },

@@ -1,4 +1,5 @@
 .dropdown-menu {
+  backdrop-filter: var(--dropdown-backdrop-filter);
   &.show {
     animation: fade-in 0.5s ease;
   }

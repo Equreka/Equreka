@@ -1,6 +1,10 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'static',
+  target: 'server',
+
+  server: {
+    host: '0.0.0.0'
+  },
 
   serverMiddleware: [
     {
@@ -10,16 +14,17 @@ export default {
   ],
 
   env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:3000',
+    baseUrl: process.env.BASE_URL || 'http://localhost:3000'
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Equreka',
+    title: 'Equreka!',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: '' },
+      { hid: 'description', name: 'description', content: 'Your open-source site of science' },
+      { hid: 'author', name: 'author', content: 'Derian André Castillo Franco' },
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
@@ -35,6 +40,8 @@ export default {
   plugins: [
     //'@/node_modules/vue-mathjax',
     //'~/plugins/tex-chtml-full.js',
+    '~/plugins/preview.client.js',
+    '~/plugins/i18n.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components

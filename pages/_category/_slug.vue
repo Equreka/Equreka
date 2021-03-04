@@ -1,6 +1,23 @@
 <template>
-
   <main role="main">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      MathJax = {
+        loader: {
+          load: ['[tex]/html']
+        },
+        tex: { 
+          inlineMath: [['$', '$']],
+          packages: { '[+]': ['html'] },
+          processEscapes: true,
+        },
+        svg: {
+          fontCache: 'global'
+        },
+      };
+    </script>
+
     <!-- Main: Header -->
     <div class="category" :class="data.category.slug">
       <div class="container">
@@ -9,10 +26,10 @@
             <NuxtLink  class="title-small" :to="localePath('/' + data.category.slug)">
               {{ $t(data.category.name) }}
             </NuxtLink>
-            <h1 class="title-large">{{ $t(data.name) }}</h1>
+            <h1 class="title-large">{{ data.name }}</h1>
           </div>
           <!-- Options -->
-          <b-dropdown class="dropdown-options" variant="outline-light" no-caret right>
+          <b-dropdown class="dropdown-options" variant="link" no-caret right>
             <template #button-content>
               <i class="bi bi-three-dots-vertical"></i>
             </template>
@@ -36,45 +53,96 @@
     <div class="container">
       <!-- Eureka! Expression -->
       <section class="expression">
-        <div class="">$${{ parserLaTeX(data.expressionIntern) }}$$</div>
+        <div class="mathjax">$${{ parserLaTeX(data.expressionIntern) }}$$</div>
       </section>
       <!-- Terms -->
       <section class="terms">
-        <h3>{{ $t('Variables') }}</h3>
-        <table class="table table-borderless">
-          <thead>
-            <tr>
-              <th scope="col">{{ $t('Symbol') }}</th>
-              <th scope="col">{{ $t('Name') }}</th>
-              <th scope="col" colspan="2">{{ $t('Unit') }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr class="eqk-term variable" v-for="(json, index) in data.variables" :key="index" :class="json.variable.symbol">
-              <td class="variable symbol">
-                {{ json.variable.symbol }}
-              </td>
-              <td class="variable name">
-                <NuxtLink :to="localePath('/' + data.category.slug + '/variable/' + json.variable.slug)">
-                  {{ json.variable.name }}
-                </NuxtLink>
-              </td>
-              <td class="unit symbol">
-                {{ json.variable.unit.symbol }}
-              </td>              
-              <td class="unit name">
-                <NuxtLink :to="localePath('/' + data.category.slug + '/unit/' + json.variable.slug)">
-                  {{ json.variable.unit.name }}
-                </NuxtLink>
-              </td>              
-            </tr>
-          </tbody>
-        </table>
+        <div class="row">
+          <!-- Variables -->
+          <div class="variables" v-if="data.variables.length > 0">
+            <h3 class="mb-3">{{ $t('Variables') }}</h3>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="variable symbol">{{ $t('Sym') }}</th>
+                    <th scope="col" class="variable name">{{ $t('Name') }}</th>
+                    <th scope="col" class="variable unit" colspan="2">{{ $t('Unit') }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(json, index) in data.variables" :key="index" :class="TERM_SELECTOR + ' variable ' + json.variable.symbol">
+                    <td class="variable symbol math">
+                      {{ json.variable.symbol }}
+                    </td>
+                    <td class="variable name">
+                      <NuxtLink :to="localePath('/' + data.category.slug + '/variable/' + json.variable.slug)">
+                        {{ json.variable.name }}
+                      </NuxtLink>
+                    </td>
+                    <td class="variable unit symbol math">
+                      {{ json.variable.unit.symbol }}
+                    </td>              
+                    <td class="variable unit name">
+                      <NuxtLink :to="localePath('/' + data.category.slug + '/unit/' + json.variable.unit.slug)">
+                        {{ json.variable.unit.name }}
+                      </NuxtLink>
+                    </td>              
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <!-- Constants -->
+          <div class="constants" v-if="data.constants.length > 0">
+            <h3 class="mb-3">{{ $t('Constants') }}</h3>
+            <div class="table-responsive">
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col" class="constant symbol">{{ $t('Sym') }}</th>
+                    <th scope="col" class="constant name">{{ $t('Name') }}</th>
+                    <th scope="col" class="constant value">{{ $t('Value') }}</th>
+                    <th scope="col" class="constant unit" colspan="2">{{ $t('Unit') }}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr v-for="(json, index) in data.constants" :key="index" :class="TERM_SELECTOR + ' constant ' + json.constant.symbol">
+                    <td class="constant symbol math">
+                      {{ json.constant.symbol }}
+                    </td>
+                    <td class="constant name">
+                      <NuxtLink :to="localePath('/' + data.category.slug + '/constant/' + json.constant.slug)">
+                        {{ json.constant.name }}
+                      </NuxtLink>
+                    </td>
+                    <td class="constant unit value math">
+                      {{ json.constant.value.toLocaleString(undefined, { minimumFractionDigits: 2 }) }}
+                    </td>   
+                    <td class="constant unit symbol math">
+                      <template v-if="json.constant.unit.symbolTeX">
+                        ${{ json.constant.unit.symbolTeX }}$
+                      </template>
+                      <template v-else>
+                        {{ json.constant.unit.symbol }}
+                      </template>              
+                    </td>              
+                    <td class="constant unit name">
+                      <NuxtLink :to="localePath('/' + data.category.slug + '/unit/' + json.constant.unit.slug)">
+                        {{ json.constant.unit.name }}
+                      </NuxtLink>
+                    </td>     
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
       </section>
       <!-- Description -->
       <section class="description" v-if="data.description">
         <h3 class="mb-4">{{ $t('Description') }}</h3>
-        <p class="text-justify">{{ parserLaTeX( data.description ) }}</p>
+        <p>{{ parserLaTeX( data.description ) }}</p>
       </section>
       <!-- Code -->
       <section class="codes">
@@ -104,46 +172,38 @@
   </main>
 </template>
 
+
 <script>
-  import Equreka from '@/constants'
+  import Equreka from '@/constants';
   export default {
     data () {
       return {
+        TERM_SELECTOR: Equreka.TERM_SELECTOR.substring(1),
         data: {},
-        constants: {},
         json: false
       }
     },
-    async asyncData ({ params, redirect }) {
+    async asyncData ({ params, error }) {
       const slug = params.slug;
+
       const data = await fetch(
         process.env.baseUrl + '/api/entries/' + slug
       ).then((res) => res.json());
+
       if(data) { 
         return { 
           data: data,
           json: Equreka.jsonDownload(data)
         }
       } else {
-        redirect('/');
+        error({ statusCode: 404 });
       }
     },
-    beforeMount() {
-      Equreka.initMathJax();
+    mounted() {
       Equreka.initTermHover();
     },
     head() {
       return {
-        script: [
-          {
-            src: 'https://polyfill.io/v3/polyfill.min.js?features=es6'
-          },
-          {
-            id: 'MathJax-script',
-            src: '/assets/js/mathjax/tex-chtml-full.js',
-            async: true
-          }
-        ],
         bodyAttrs: {
           class: 'page-entry' + (this.data.slug ? ' ' + this.data.category.slug : '')
         }

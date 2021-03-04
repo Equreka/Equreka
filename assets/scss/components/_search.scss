@@ -15,7 +15,7 @@
     top:             100%;
     left:            0;
     right:           0;
-    background:      hsl(220, 10%, var(--theme-lightness), 0.78);
+    background:      hsl(220, 10%, var(--theme-lightness), var(--alpha-dropdown));
     box-shadow:      0 .5rem 1rem -.5rem hsla(0, 0%, 0%, 0.10), inset 0 0 0 1px var(--input-border-color);
     backdrop-filter: blur(15px) saturate(150%);
     border-radius:   0.25rem;

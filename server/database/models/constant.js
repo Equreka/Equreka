@@ -2,6 +2,8 @@ const mongoose = require('mongoose');
 const slug = require('mongoose-slug-generator');
 const Schema = mongoose.Schema;
 
+mongoose.plugin(slug);
+
 const SchemaConstant = new Schema({
   name:        String,
   slug: { 
@@ -10,16 +12,21 @@ const SchemaConstant = new Schema({
   },
   symbol:      String,
   description: String,
-  category:    [{ 
+  value:       Number,
+  category:    { 
     type: Schema.Types.ObjectId,
     ref:  'Category'
-  }],
+  },
+  unit: {
+    type: Schema.Types.ObjectId,
+    ref:  'Unit'
+  },
   values: [{
     value: Number,
-    unit: [{
+    unit: {
       type: Schema.Types.ObjectId,
       ref:  'Unit'
-    }]
+    }
   }]
 });
 

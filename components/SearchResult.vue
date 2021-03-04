@@ -8,7 +8,7 @@
       v-for="item of data"
       :key="item.slug"
       :class="item.category.slug"
-      :to="`/${item.category.slug}/${slug}${item.slug}`"
+      :to="localePath(`/${item.category.slug}/${slug}${item.slug}`)"
     >
       <span>
         {{ item.name }}
@@ -24,8 +24,8 @@
   export default {
     props: {
       title: String,
-      slug: String,
-      data: [Array, Object]
+      slug:  String,
+      data:  [Array, Object]
     }
   }
 </script>

@@ -11,7 +11,6 @@ db.once('open', function() {
   console.log('i [Mongoose] Connection has been established successfully');
 });
 
-
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));

@@ -5,7 +5,7 @@
       type="search"
       autocomplete="off"
       aria-label="Search"
-      :placeholder="$t('Search for constants, formulas or equations...')"
+      :placeholder="$t('Search for...')"
       v-model="searchQuery"
     />
     <div class="results" v-if="searchResults">
