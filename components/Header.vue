@@ -6,11 +6,11 @@
           <NuxtLink class="navbar-brand" :to="localePath('/')">
             <img src="/assets/brand/logo.png" width="50" alt="Equreka">
           </NuxtLink>
-          <b-dropdown variant="link" :text="$t('Categories')" left>
-            <!--<template #button-content>
+          <b-dropdown variant="link" :text="$t('Categories')" no-caret left>
+            <template #button-content>
               <span class="visually-hidden">{{ $t('Categories') }}</span>
-              <i class="bi bi-grid"></i>
-            </template>-->
+              <i class="bi bi-list"></i>
+            </template>
             <b-dropdown-header>
               {{ $t('Categories') }}
             </b-dropdown-header>

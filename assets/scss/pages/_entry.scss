@@ -1,45 +1,37 @@
 // Page: Entry
 .page-entry {
-  .dropdown-options {
-    margin: 0 0.45rem;
-    .btn {
-      border-radius: 999rem;
-      padding: .5rem;
-      border-color: var(--body-bg);
-      color: var(--body-bg);
-      border-width: 2px;
-    }
-  }
   main {
     font-size: 85%;
     @include media-breakpoint-up(md) {
       font-size: 100%;
     }
     section {
-      padding: 1.5rem 0;
+      padding:  1rem 0;
       overflow: hidden;
-
-      h3 {
-        font-weight: bold;
-        font-size: 1.25rem;
+      // Title
+      .title {
+        font-weight:   600;
+        font-size:     1.35rem;
+        margin-bottom: 1.25rem;
       }
-      
-      h4 {
-        font-weight: bold;
-        font-size: 1rem;
+      // Sub-title
+      .subtitle {
+        font-weight: 500;
+        font-size:   1rem;
+        opacity:     0.75;
       }
-
       // Expression
       &.expression {
+        padding:         2rem 0 1rem;
         color:           var(--term-color, var(--body-color-hightlight));
         display:         flex;
-        justify-content: center;
         align-items:     center;
+        justify-content: center;
         flex:            1 1 100%;
         order:           0;
         font-size:       120%;
         @supports (font-size: clamp(1.5rem, 5vw, 3rem)) {
-          font-size: clamp(1.5rem, 3vw, 3rem);
+          font-size: clamp(1.5rem, 2.5vw, 2.5rem);
         }
         mjx-container,
         mjx-math {
@@ -56,30 +48,31 @@
 
       // Terms
       &.terms {
+        padding-bottom: 0;
         .row {
-          display: flex;
-          margin-bottom: -1.5rem;
-          --bs-gutter-x: 2.5rem;
+          display:       flex;
+          margin-bottom: -1rem;
           & > * {
-            flex: inherit;
-            width: auto;
+            flex:          inherit;
+            width:         auto;
             margin-bottom: 1.5rem;
             @include media-breakpoint-down(sm) {
-              flex: 1;
+              flex:  1;
               width: 100%;
             }
           }
         }
         .table-responsive {
+          margin-top: -0.75rem;
           &::-webkit-scrollbar {
             background: rgba(0,0,0, 0.15);
-            width: 10px;
-            height: 10px;
+            width:      10px;
+            height:     10px;
           }
           &::-webkit-scrollbar-thumb {
-            background: var(--separator-color);
+            background:    var(--separator-color);
             border-radius: 5px;
-            transition: $transition-all-ease;
+            transition:    $transition-all-ease;
           }
           &::-webkit-scrollbar-thumb:active {
             background: var(--bs-primary);            
@@ -90,7 +83,7 @@
           width: auto;
           th,
           td {
-            border: 0;
+            border:      0;
             white-space: nowrap;
             &:first-child {
               padding-left: 0;
@@ -100,11 +93,11 @@
             }
           }
           th {
-            font-size: 80%;
-            font-weight: bold;
-            font-family: $font-family-heading-sans-serif;
+            font-size:      80%;
+            font-weight:    bold;
+            font-family:    $font-family-heading-sans-serif;
             text-transform: uppercase;
-            opacity: 0.75;
+            opacity:        0.75;
           }
           tr {
             vertical-align: baseline;
@@ -119,7 +112,7 @@
                 font-size: 110%;
               }
               a {
-                opacity: 0.65;
+                opacity:    0.65;
                 transition: color 0.35s ease, opacity 0.35s ease;
                 &:hover {
                   opacity: 1;
@@ -134,20 +127,20 @@
       // Description
       &.description {
         p {
-
+          white-space: pre-line;
         }
       }
       
       // Codes
       &.codes {
         .code {
-          display: block;
-          width: 100%;
-          padding: 0.375rem 0.75rem;
-          color: var(--body-color);
+          display:          block;
+          width:            100%;
+          padding:          0.375rem 0.75rem;
+          color:            var(--body-color);
           background-color: var(--input-bg);
-          border: 1px solid var(--input-border-color);
-          border-radius: 0.25rem;
+          border:           1px solid var(--input-border-color);
+          border-radius:    0.25rem;
         }
       }
     }

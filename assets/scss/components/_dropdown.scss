@@ -4,7 +4,12 @@
     animation: fade-in 0.5s ease;
   }
   .dropdown-header {
-    font-weight: 500;
+    font-size:      0.8rem;
+    font-family:    $font-family-heading-sans-serif;
+    font-weight:    800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color:          var(--body-color-highlight);
   }
 }
 

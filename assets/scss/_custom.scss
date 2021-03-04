@@ -63,28 +63,39 @@ h1, h2, h3, h4, h5, h6
 
 // Category header
 .category { 
-  padding:    1.5rem 0;
+  padding:    1rem 0;
   background: var(--category-color);
-  font-size: 110%;
+  font-size: 100%;
   @include media-breakpoint-up(md) {
     font-size: 120%;
+    padding:    1.5rem 0;
   }
   a {
     text-decoration: none;
   }
   .title-small {
     margin:         0;
-    font-size:      85%;
-    text-transform: uppercase;
+    font-size:      95%;
     font-weight:    600;
-    color:          var(--body-bg);
-    opacity:        0.80;
+    color:          var(--body-color-highlight);
+    text-transform: uppercase;
+    opacity:        var(--alpha-normal);
   }
   .title-large {
     margin:      0;
-    font-size:   175%;
+    font-size:   170%;
     font-weight: bold;
-    color:       var(--body-bg);
+    color:       var(--body-color-highlight);
+  }
+  .dropdown-options {
+    margin-left: 1.5rem;
+    .btn {
+      border-radius: 999rem;
+      padding: .35rem;
+      border-color: var(--body-color-highlight);
+      color: var(--body-color-highlight);
+      border-width: 2px;
+    }
   }
 }
 

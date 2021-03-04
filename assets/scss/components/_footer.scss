@@ -8,26 +8,30 @@ footer {
     align-items: center;
   }
   .nav-link {
-    padding: .65rem;
+    font-size: 90%;
+    padding: .5rem;
     display: inline-flex;
     align-items: center;
-    @include media-breakpoint-down(md) {
-      font-size: 90%;
-      padding: .5rem;
+    @include media-breakpoint-up(md) {
+      font-size: 100%;
+      padding: .65rem;
     }
     .bi {
       line-height: 0;
     }
   }
   .equreka {
-    @include media-breakpoint-down($navbar-expand) {
-      display: none;
+    display: none;
+    @include media-breakpoint-up($navbar-expand) {
+      order: 0;
+      display: block;
     }
   }
   .social {
-    justify-content: center;
-    @include media-breakpoint-down($navbar-expand) {
-      justify-content: flex-end;
+    justify-content: flex-end;
+    flex: 1;
+    @include media-breakpoint-up($navbar-expand) {
+      justify-content: center;
     }
     .github:hover {
       color: hsl(0, 0%, 40%);
@@ -60,10 +64,16 @@ footer {
     }
   }
   .links {
-    justify-content: flex-end;
-    @include media-breakpoint-down($navbar-expand) {
-      justify-content: flex-start;
-      order: -1;
+    justify-content: flex-start;
+    order: -1;
+    flex: 1 0 35%;
+    @include media-breakpoint-up($navbar-expand) {
+      order: 1;
+      flex: 1;
+      justify-content: flex-end;
+    }
+    .nav {
+      flex-wrap: none;
     }
     a {
       &:hover {

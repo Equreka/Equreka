@@ -5,7 +5,10 @@
   .container {
     display    : flex;
     align-items: stretch;
-    flex-wrap  : wrap !important;
+    flex-wrap  : wrap !important;    
+  }
+  .navbar-brand {
+    margin-right: 0.5rem;
   }
   // Divisions
   .left,
@@ -32,14 +35,22 @@
       flex : 1 0 100%;
     }
   }
-
+  // Icons
+  .bi {
+    font-size: 24px;
+    margin-bottom: -2px;
+  }
+  .left {
+    .bi {
+      font-size: 28px;
+    }
+  }
   // Right
   .right {
     justify-content: flex-end;
-    .bi {
-      font-size: 1.35rem;
-    }
+    margin-right: -0.5rem;
   }
+  // Button
   .btn {
     font-family: $font-family-heading-sans-serif;
     font-weight: 600;

@@ -3,6 +3,7 @@
 
 :root {
   --dropdown-backdrop-filter: blur(15px) saturate(150%);
+  --bs-gutter-x: 1.25rem;
 }
 
 // Light
@@ -17,24 +18,24 @@
   --alpha-hover:    0.65;
   --alpha-dropdown: 0.75;
 
-  --selection-bg:             hsla(0, 0%, 05%, 0.15);
+  --selection-bg: hsla(0, 0%, 05%, 0.15);
   
-  --separator-color:          hsl(0, 0%, 85%);
-  --separator:                1px solid var(--separator-color);
+  --separator-color: hsl(0, 0%, 85%);
+  --separator:       1px solid var(--separator-color);
 
-  --body-bg:                  hsl(0, 0%, 90%);
-  --body-color:               hsl(0, 0%, 20%);
-  --body-color-highlight:     hsl(0, 0%, 05%);
+  --body-bg:              hsl(0, 0%, 90%);
+  --body-color:           hsl(0, 0%, 20%);
+  --body-color-highlight: hsl(0, 0%, 05%);
 
-  --category-color:           hsl(0, 0%, 95%);
+  --category-color: hsl(0, 0%, 95%);
 
-  --input-bg:                 hsl(0, 0%, 97%);
-  --input-color:              hsl(0, 0%, 15%);
-  --input-border-color:       hsl(0, 0%, 85%);
+  --input-bg:           hsl(0, 0%, 97%);
+  --input-color:        hsl(0, 0%, 15%);
+  --input-border-color: hsl(0, 0%, 85%);
 
   --input-focus-bg:           hsl(0, 0%, 99%);
   --input-focus-color:        hsl(0, 0%, 10%);
-  --input-focus-border-color:   var(--#{$variable-prefix}primary);
+  --input-focus-border-color: var(--#{$variable-prefix}primary);
 
   // Bootstrap color modifier.
   @each $name, $value in $colors {
@@ -70,20 +71,20 @@
   --alpha-hover:    0.45;
   --alpha-dropdown: 0.75;
 
-  --selection-bg:             hsla(0, 0%, 90%, 0.125);
+  --selection-bg: hsla(0, 0%, 90%, 0.125);
 
-  --separator-color:          hsl(0, 0%, 15%);
-  --separator:                1px solid var(--separator-color);
+  --separator-color: hsl(0, 0%, 15%);
+  --separator:       1px solid var(--separator-color);
 
-  --body-bg:                  hsl(0, 0%, 05%);
-  --body-color:               hsl(0, 0%, 60%);
-  --body-color-highlight:     hsl(0, 0%, 80%);
+  --body-bg:              hsl(0, 0%, 05%);
+  --body-color:           hsl(0, 0%, 60%);
+  --body-color-highlight: hsl(0, 0%, 80%);
 
-  --category-color:           hsl(0, 0%, 05%);
+  --category-color: hsl(0, 0%, 05%);
 
-  --input-bg:                 hsl(0, 0%, 09%);
-  --input-color:              hsl(0, 0%, 55%);
-  --input-border-color:       hsl(0, 0%, 15%);
+  --input-bg:           hsl(0, 0%, 09%);
+  --input-color:        hsl(0, 0%, 55%);
+  --input-border-color: hsl(0, 0%, 15%);
 
   --input-focus-bg:           hsl(0, 0%, 10%);
   --input-focus-color:        hsl(0, 0%, 60%);

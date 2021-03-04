@@ -32,19 +32,20 @@
           <b-dropdown class="dropdown-options" variant="link" no-caret right>
             <template #button-content>
               <i class="bi bi-three-dots-vertical"></i>
+              <span class="visually-hidden">{{ $t('Options') }}</span>
             </template>
-            <h6 class="dropdown-header">Options</h6>
+            <h6 class="dropdown-header">{{ $t('Options') }}</h6>
             <b-dropdown-item :href="json" :download="data.slug + '.json'">
               <i class="bi bi-download"></i>
-              Download JSON
+              {{ $t('Download JSON') }}
             </b-dropdown-item>
             <b-dropdown-item>
               <i class="bi bi-heart"></i>
-              Add to favorites
+              {{ $t('Add to favorites') }}
             </b-dropdown-item>
             <b-dropdown-item :to="'/report/' + data.category.slug + '/' + data.slug">
               <i class="bi bi-flag"></i>
-              Report an error
+              {{ $t('Report an error') }}
             </b-dropdown-item>
           </b-dropdown>
         </div>
@@ -53,14 +54,17 @@
     <div class="container">
       <!-- Eureka! Expression -->
       <section class="expression">
-        <div class="mathjax">$${{ parserLaTeX(data.expressionIntern) }}$$</div>
+        <div class="mathjax">
+          <template v-if="!data.expressionIntern">$${{ data.expression }}$$</template>
+          <template v-else>$${{ parserLaTeX(data.expressionIntern) }}$$</template>
+        </div>
       </section>
       <!-- Terms -->
       <section class="terms">
         <div class="row">
           <!-- Variables -->
           <div class="variables" v-if="data.variables.length > 0">
-            <h3 class="mb-3">{{ $t('Variables') }}</h3>
+            <h3 class="title">{{ $t('Variables') }}</h3>
             <div class="table-responsive">
               <table class="table">
                 <thead>
@@ -95,7 +99,7 @@
           </div>
           <!-- Constants -->
           <div class="constants" v-if="data.constants.length > 0">
-            <h3 class="mb-3">{{ $t('Constants') }}</h3>
+            <h3 class="title">{{ $t('Constants') }}</h3>
             <div class="table-responsive">
               <table class="table">
                 <thead>
@@ -141,13 +145,13 @@
       </section>
       <!-- Description -->
       <section class="description" v-if="data.description">
-        <h3 class="mb-4">{{ $t('Description') }}</h3>
+        <h3 class="title">{{ $t('Description') }}</h3>
         <p>{{ parserLaTeX( data.description ) }}</p>
       </section>
       <!-- Code -->
       <section class="codes">
-        <h3 class="mb-4">{{ $t('Code') }}</h3>
-        <h4>LaTeX</h4>
+        <h3 class="title">{{ $t('Code') }}</h3>
+        <h4 class="subtitle">LaTeX</h4>
         <div class="input-group">
           <b-button variant="dark" @click="copyClipboard('#' + data.slug)" :aria-label="$t('Copy to clipboard')">
             <i class="bi bi-clipboard"></i>
@@ -158,7 +162,7 @@
       </section>
       <!-- References -->
       <section class="references" v-if="data.references.length > 0">
-        <h3 class="mb-4">{{ $t('References') }}</h3>
+        <h3 class="title">{{ $t('References') }}</h3>
         <ul>
           <li v-for="reference in data.references" :key="reference.id">
             {{ reference.description }}
