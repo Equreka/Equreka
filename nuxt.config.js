@@ -19,7 +19,7 @@ export default {
 
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: 'Equreka!',
+    title: 'Equreka',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -27,7 +27,7 @@ export default {
       { hid: 'author', name: 'author', content: 'Derian André Castillo Franco' },
     ],
     link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }
+      { rel: 'icon', type: 'image/x-icon', href: '/assets/brand/icons/favicon.ico' }
     ],
   },
 
@@ -47,20 +47,12 @@ export default {
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
 
-  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
-  buildModules: [
-    // https://nuxtjs.org/blog/going-dark-with-nuxtjs-color-mode
-    '@nuxtjs/color-mode'
-  ],
-
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
     // https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
     // https://github.com/nuxt-community/redirect-module
     '@nuxtjs/redirect-module',
-    // https://pwa.nuxtjs.org/
-    '@nuxtjs/pwa',
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     // https://i18n.nuxtjs.org/
@@ -106,6 +98,14 @@ export default {
     }
   },
 
+  // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
+  buildModules: [
+    // https://nuxtjs.org/blog/going-dark-with-nuxtjs-color-mode
+    '@nuxtjs/color-mode',
+    // https://pwa.nuxtjs.org/
+    '@nuxtjs/pwa'
+  ],
+
   // Bootstrap Vue
   bootstrapVue: {
     bootstrapCSS: false, 
@@ -120,10 +120,22 @@ export default {
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
+    meta: {
+      name: 'Equreka',
+      short_name: 'Equreka',
+      author: 'Derian Castillo',
+      description: 'Your free and open-source app for variables, constants, formulas and equations',
+      theme_color: '#ffffff',
+      lang: 'en'
+    },
     manifest: {
+      name: 'Equreka',
+      short_name: 'Equreka',
+      description: 'Your free and open-source app for variables, constants, formulas and equations',
       lang: 'en',
     },
-  },
-
-
+    icon: {
+      source: './static/icon.png'
+    }
+  }
 }

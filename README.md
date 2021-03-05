@@ -9,13 +9,13 @@
 [![Sponsor](https://img.shields.io/github/sponsors/DerianAndre?style=social)](https://github.com/sponsors/DerianAndre)
 [![GitHub](https://img.shields.io/github/license/Equreka/Equreka?color=green&label=License)](https://github.com//Equreka)
 
-### Your open-source site for formulas, equations, and constants!
+### Your free and open-source site/app for variables, constants, formulas and equations
 
 **Sponsor Equreka** https://github.com/sponsors/DerianAndre
 
 </div>
 
-***
+#####
 
 ## Help wanted
 Join us at Discord: https://discord.gg/NZypuxvAB6
@@ -47,14 +47,11 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 - Use cappacitor.js to export as an app for iOS and Android
 ### UI
 - Add content for everything
-***
 ### API
 - Add security layers
 - Add content through post
 - Entries
-***
 ### Database
 - Improve general structure (?)
-***
 ### Scripts
 - Improve Hover system for dynamic created elements (MathJax)

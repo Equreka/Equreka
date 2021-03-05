@@ -1,6 +1,7 @@
 // Header
 .header {
   padding: 1rem 0;
+  color: var(--header-color);
   transition: $transition-all-ease;
   .container {
     display    : flex;
@@ -8,6 +9,7 @@
     flex-wrap  : wrap !important;    
   }
   .navbar-brand {
+    padding: 0;
     margin-right: 0.5rem;
   }
   // Divisions
@@ -55,10 +57,11 @@
     font-family: $font-family-heading-sans-serif;
     font-weight: 600;
     text-decoration: none;
-    color: var(--body-color);
     box-shadow: none;
+    color: var(--header-color);
     transition: $transition-all-ease;
-    &:hover {
+    &:hover,
+    &[aria-expanded="true"] {
       color: var(--body-color-highlight);
     }
   } 

@@ -5,8 +5,17 @@
     margin:        0 auto;
     width:         100%;
     padding-left:  1rem;
-    padding-right: 1rem;
+    padding-right: 2.5rem;
     transition:    $transition-all-ease;
+  }
+  button {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    .bi {
+      font-size: .85rem;
+    }
   }
   .results {
     position:        absolute;
@@ -15,13 +24,11 @@
     top:             100%;
     left:            0;
     right:           0;
-    background:      hsl(220, 10%, var(--theme-lightness), var(--alpha-dropdown));
-    box-shadow:      0 .5rem 1rem -.5rem hsla(0, 0%, 0%, 0.10), inset 0 0 0 1px var(--input-border-color);
-    backdrop-filter: blur(25px) contrast(1.25) saturate(1.25);
     border-radius:   0.25rem;
-    transition:      $transition-all-ease;
     animation:       fade-in 0.5s forwards;
     z-index:         999;
+    transition: $transition-all-ease;
+    @include acrylic-bg();
     .items {
       animation: fade-in 0.35s forwards;
       &:first-child {

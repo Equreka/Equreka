@@ -5,21 +5,30 @@ $navbar-expand: lg;
 $equreka-term-selector: eqk;
 
 // Font
-$font-family-math              : serif;
+$font-family-math:               serif;
 $font-family-heading-sans-serif: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
 // Colors
-$blue:    hsl(215deg, 95%, 50%);
-$indigo:  hsl(265deg, 90%, 50%);
-$purple:  hsl(260deg, 50%, 50%);
-$pink:    hsl(330deg, 65%, 50%);
-$red:     hsl(355deg, 70%, 55%);
-$orange:  hsl(25deg, 100%, 55%);
-$yellow:  hsl(45deg, 100%, 50%);
-$green:   hsl(150deg, 70%, 30%);
-$teal:    hsl(160deg, 75%, 45%);
-$cyan:    hsl(190deg, 90%, 50%);
+$blue:     hsl(215, 95%, 50%);
+$indigo:   hsl(265, 90%, 50%);
+$purple:   hsl(260, 50%, 50%);
+$pink:     hsl(330, 65%, 50%);
+$red:      hsl(355, 70%, 55%);
+$orange:   hsl(25, 100%, 55%);
+$yellow:   hsl(45, 100%, 50%);
+$green:    hsl(150, 70%, 30%);
+$teal:     hsl(160, 75%, 45%);
+$cyan:     hsl(190, 90%, 50%);
+// Social
+$github:   hsl(000, 00%, 40%);
+$facebook: hsl(231, 48%, 48%);
+$twitter:  hsl(199, 98%, 48%);
+$discord:  hsl(227, 58%, 65%);
+$windows:  hsl(199, 98%, 48%);
+$android:  hsl(089, 46%, 48%);
+$apple:    hsl(000, 00%, 33%);
 
+// Theme
 $theme-colors: (
   "primary":    $primary,
   "secondary":  $secondary,
@@ -31,19 +40,31 @@ $theme-colors: (
   "dark":       $dark
 );
 
-$subjects: (
+// Categories
+$categories: (
   "mathematics": $red,
-  "physics"    : $blue,
-  "chemistry"  : $purple
+  "physics":     $blue,
+  "chemistry":   $purple
+);
+
+// Social
+$social: (
+  "github":   $github,
+  "facebook": $facebook,
+  "twitter":  $twitter,
+  "discord":  $discord,
+  "windows":  $windows,
+  "android":  $android,
+  "apple":    $apple
 );
 
 // Dropdown
-$dropdown-bg:          hsl(220, 10%, var(--theme-lightness), var(--alpha-dropdown));
-$dropdown-color:       var(--body-color);
-$dropdown-border-color: var(--separator-color);
-$dropdown-link-color:  var(--body-color);
-$dropdown-link-hover-color:  var(--body-color-highlight);
-$dropdown-link-hover-bg: hsla(var(--bs-primary-hsl), var(--alpha-hover));
+$dropdown-bg:               hsl(220, 10%, var(--theme-lightness), var(--alpha-dropdown));
+$dropdown-color:            var(--body-color);
+$dropdown-border-color:     var(--separator-color);
+$dropdown-link-color:       var(--body-color-highlight);
+$dropdown-link-hover-color: var(--body-color-highlight);
+$dropdown-link-hover-bg:    hsla(0, 0%, var(--theme-inverted-lightness),0.05);
 
 // Links
 $link-color:            #8c9ba7;
@@ -51,17 +72,19 @@ $link-shade-percentage: 20% !default;
 $link-hover-color:      shift-color($link-color, $link-shade-percentage) !default;
 
 // Forms
-$input-bg:           var(--input-bg);
-$input-color:        var(--input-color);
-$input-border-color: var(--input-border-color);
+$input-bg:                 var(--input-bg);
+$input-color:              var(--body-color);
+$input-border-color:       var(--input-border-color);
+$input-placeholder-color:  var(--body-color-muted);
 
 $input-focus-bg:           var(--input-focus-bg);
-$input-focus-color:        var(--input-focus-color);
+$input-focus-color:        var(--body-color);
 $input-focus-border-color: var(--input-focus-border-color);
+
+// Paragraphs
+$lead-font-weight:          400;
 
 // Transition
 $transition-speed-ease:     cubic-bezier(0.4, 0.0, 0.2, 1);
 $transition-speed-incoming: cubic-bezier(0.0, 0.0, 0.2, 1);
 $transition-all-ease:       all .35s $transition-speed-ease;
-
-$lead-font-weight:          400;

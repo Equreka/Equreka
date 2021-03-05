@@ -2,6 +2,7 @@
 footer {
   margin-top: auto;
   padding:    2rem 0;
+  color: var(--footer-color);
   .col {
     padding: 0;
     display: flex;
@@ -12,12 +13,14 @@ footer {
     padding: .5rem;
     display: inline-flex;
     align-items: center;
+    color: var(--footer-color);
+    transition: all 0.35s ease;
     @include media-breakpoint-up(md) {
       font-size: 100%;
       padding: .65rem;
     }
-    .bi {
-      line-height: 0;
+    &:hover {
+      color: var(--body-color);
     }
   }
   .equreka {
@@ -42,22 +45,21 @@ footer {
     .twitter:hover {
       color: hsl(199, 98%, 48%);
     }
-    .android:hover {
-      color: hsl(89, 46%, 48%);
-    }
-    .apple:hover {
-      color: hsl(0, 0%, 33%);
-    }
     .discord:hover {
       color: hsl(227, 58%, 65%);
     }
     .windows:hover {
       color: hsl(199, 98%, 48%);
     }
+    .android:hover {
+      color: hsl(89, 46%, 48%);
+    }
+    .apple:hover {
+      color: hsl(0, 0%, 33%);
+    }
     .icon {
       font-size: 100%;
       line-height: 1;
-      transition: all 0.35s ease;
       @include media-breakpoint-up(md) {
         font-size: 115%;
       }

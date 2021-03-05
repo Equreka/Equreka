@@ -4,7 +4,7 @@
       <div class="container">
         <div class="left">
           <NuxtLink class="navbar-brand" :to="localePath('/')">
-            <img src="/assets/brand/logo.png" width="50" alt="Equreka">
+            <Logo/>
           </NuxtLink>
           <b-dropdown variant="link" :text="$t('Categories')" no-caret left>
             <template #button-content>
@@ -29,7 +29,7 @@
               <span class="visually-hidden">{{ $t('Change theme') }}</span>
             </template>
             <b-dropdown-header>{{ $t('Theme') }}</b-dropdown-header>
-            <b-dropdown-item v-for="(option, code) in themeColors" :key="code"  @click="$colorMode.preference = code, themeChange()">{{ $t(option) }}</b-dropdown-item>
+            <b-dropdown-item v-for="(option, code) in themeColors" :key="code"  @click="$colorMode.preference = code, themeTransition(code, $colorMode.value, $colorMode._darkWatcher.matches)">{{ $t(option) }}</b-dropdown-item>
           </b-dropdown>
           <b-dropdown variant="link" no-caret right>
             <template #button-content>
@@ -46,12 +46,13 @@
 </template>
 
 <script>
+  import Equreka from '~/constants/index';
   export default {
     data () {
       return {
         themeColors: {
-          'light': 'Light',
-          'dark': 'Dark',
+          'light':  'Light',
+          'dark':   'Dark',
           'system': 'System default'
         },
         categories: {}
@@ -63,12 +64,8 @@
       }
     },
     methods: {
-      themeChange() {
-        const root = document.documentElement;
-        root.classList.add('theme-transition');
-        setTimeout(() => {
-          root.classList.remove('theme-transition');
-        }, 350);
+      themeTransition(newTheme, actualTheme, systemQuery) {
+        Equreka.themeTransition(newTheme, actualTheme, systemQuery);
       }
     },
     async fetch () {

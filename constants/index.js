@@ -1,6 +1,7 @@
 let Equreka = {
   // Constants
-  TERM_SELECTOR: '.eqk',
+  TERM_SELECTOR:     '.eqk',
+  TRANSITION_TIMING: 350,
 
   /**
    * Initialize Term Hover
@@ -138,6 +139,32 @@ let Equreka = {
     alert('Copied to clipboard successfully');
   },
 
+  /**
+   * Theme Transition (needs @nuxtjs/color-mode)
+   * 
+   * Detects if transition needs to be done when changing from theme mode
+   * by adding class 'theme-transition'
+   * 
+   * @param {string}  newTheme     New theme mode
+   * @param {string}  actualTheme  Actual theme mode value (variable by @nuxtjs/color-mode)
+   * @param {boolean} systemQuery  Watcher for prefers-color-scheme: dark (boolean by @nuxtjs/color-mode)
+   */
+  themeTransition (newTheme, actualTheme, systemQuery) {
+    // if false default theme is dark 
+    var systemTheme = (systemQuery) ? 'dark' : 'light';
+    // if newTheme value is system change it to systemTheme
+    if(newTheme == 'system') {
+      newTheme = systemTheme;
+    }
+    // Simple magic lvl. 1
+    if(newTheme != actualTheme) {
+      const root = document.documentElement;
+      root.classList.add('theme-transition');
+      setTimeout(() => {
+        root.classList.remove('theme-transition');
+      }, Equreka.TRANSITION_TIMING);
+    }    
+  }
 }
 
 export default Equreka;

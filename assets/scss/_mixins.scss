@@ -1,0 +1,22 @@
+// Mixins
+@mixin bootstrap-icon() {
+  display:                 inline-block !important;
+  font-family:             bootstrap-icons !important;
+  font-style:              normal !important;
+  font-weight:             normal !important;
+  font-variant:            normal !important;
+  text-transform:          none !important;
+  line-height:             1 !important;
+  vertical-align:          -.125em !important;
+  -webkit-font-smoothing:  antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+}
+
+@mixin acrylic-bg($important: false) {
+  background: hsl(220, 10%, var(--theme-lightness), var(--alpha-acrylic)) if-important($important);
+  box-shadow: 0 .5rem 1rem -.5rem hsla(0, 0%, 0%, 0.10), inset 0 0 0 1px var(--input-border-color) if-important($important);
+  @supports (backdrop-filter: blur(25px)) {
+    background:      hsl(220, 10%, var(--theme-lightness), var(--alpha-acrylic-backdrop)) if-important($important);
+    backdrop-filter: blur(25px) contrast(1.25) saturate(1.25) if-important($important);
+  }
+}

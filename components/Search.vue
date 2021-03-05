@@ -1,13 +1,18 @@
 <template>
   <div class="form-search">
-    <b-form-input 
-      id="search-bar"
-      type="search"
-      autocomplete="off"
-      aria-label="Search"
-      :placeholder="$t('Search for...')"
-      v-model="searchQuery"
-    />
+    <form>
+      <b-form-input 
+        id="search-bar"
+        type="search"
+        autocomplete="off"
+        aria-label="Search"
+        :placeholder="$t('Search for...')"
+        v-model="searchQuery"
+      />
+      <b-button type="submit" variant="link">
+        <i class="bi bi-search"></i>
+      </b-button>
+    </form>
     <div class="results" v-if="searchResults">
       <SearchResult id="serach-bar-results"
         v-for="searchItem in searchData"

@@ -26,3 +26,13 @@
     opacity: 1;
   }
 }
+
+@keyframes dropdown {
+  0% {
+    opacity: 0;
+    margin-top: -1rem;
+  }
+  100% {
+    opacity: 1;
+  }
+}

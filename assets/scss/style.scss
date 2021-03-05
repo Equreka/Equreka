@@ -3,19 +3,6 @@
   Version: 1.0.0
 */
 
-@mixin bootstrap-icon() {
-  display: inline-block !important;
-  font-family: bootstrap-icons !important;
-  font-style: normal !important;
-  font-weight: normal !important;
-  font-variant: normal !important;
-  text-transform: none !important;
-  line-height: 1 !important;
-  vertical-align: -.125em !important;
-  -webkit-font-smoothing: antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
-}
-
 // Bootstrap
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
@@ -25,6 +12,27 @@
 @import "bootstrap/scss/bootstrap";
 @import "bootstrap-icons/font/bootstrap-icons.css";
 // Our style
+@import 'functions';
+@import 'mixins';
+@import 'root';
 @import 'components';
 @import 'pages';
 @import "custom";
+
+.theme-transition {
+  *,
+  *::before,
+  *::after {
+    transition: $transition-all-ease !important;
+  }
+  .theme-icon {
+    animation: theme-change 0.35s $transition-speed-ease forwards !important;
+  }
+}
+
+.theme-icon {
+  &::before {
+    content: var(--theme-icon) !important;
+  }
+}
+

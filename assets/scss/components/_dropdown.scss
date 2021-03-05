@@ -1,7 +1,12 @@
 .dropdown-menu {
-  backdrop-filter: var(--dropdown-backdrop-filter);
+  border: 0;
+  color:  var(--body-color) !important;
+  @include acrylic-bg();
   &.show {
-    animation: fade-in 0.5s ease;
+    animation: dropdown 0.5s ease;
+  }
+  .dropdown-item {
+    transition: $transition-all-ease;
   }
   .dropdown-header {
     font-size:      0.8rem;

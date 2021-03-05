@@ -13,10 +13,11 @@
   --theme-lightness:          98%;
   --theme-inverted-lightness: 05%;
 
-  --alpha-normal:   0.75;
-  --alpha-active:   0.85;
-  --alpha-hover:    0.65;
-  --alpha-dropdown: 0.75;
+  --alpha-normal:           0.75;
+  --alpha-active:           0.85;
+  --alpha-hover:            0.65;
+  --alpha-acrylic:          0.925;
+  --alpha-acrylic-backdrop: 0.75;
 
   --selection-bg: hsla(0, 0%, 05%, 0.15);
   
@@ -24,8 +25,12 @@
   --separator:       1px solid var(--separator-color);
 
   --body-bg:              hsl(0, 0%, 90%);
-  --body-color:           hsl(0, 0%, 20%);
-  --body-color-highlight: hsl(0, 0%, 05%);
+  --body-color-muted:     hsl(0, 0%, 70%);
+  --body-color:           hsl(0, 0%, 60%);
+  --body-color-highlight: hsl(0, 0%, 35%);
+
+  --header-color: hsl(0, 0%, 65%);
+  --footer-color: hsl(0, 0%, 62.5%);
 
   --category-color: hsl(0, 0%, 95%);
 
@@ -48,7 +53,7 @@
     --#{$variable-prefix}#{$name}-hsl: #{math.round(color.hue($color)), math.round(color.saturation($color)), math.round(color.lightness($color))};
   }
 
-  @each $subject, $color in $subjects {
+  @each $subject, $color in $categories {
     .#{$subject} {
       --category-color:     #{$color};
       --category-color-hsl: #{color.hue($color), color.saturation($color), color.lightness($color)};
@@ -66,10 +71,11 @@
   --theme-lightness:          07%;
   --theme-inverted-lightness: 90%;
 
-  --alpha-normal:   0.55;
-  --alpha-active:   0.65;
-  --alpha-hover:    0.45;
-  --alpha-dropdown: 0.75;
+  --alpha-normal:            0.55;
+  --alpha-active:            0.65;
+  --alpha-hover:             0.45;
+  --alpha-acrylic:          0.925;
+  --alpha-acrylic-backdrop: 0.75;
 
   --selection-bg: hsla(0, 0%, 90%, 0.125);
 
@@ -77,8 +83,12 @@
   --separator:       1px solid var(--separator-color);
 
   --body-bg:              hsl(0, 0%, 05%);
+  --body-color-muted:     hsl(0, 0%, 30%);
   --body-color:           hsl(0, 0%, 60%);
   --body-color-highlight: hsl(0, 0%, 80%);
+  
+  --header-color:           hsl(0, 0%, 35%);
+  --footer-color:           hsl(0, 0%, 32.5%);
 
   --category-color: hsl(0, 0%, 05%);
 
@@ -102,15 +112,22 @@
     --#{$variable-prefix}#{$name}: #{$color};
     --#{$variable-prefix}#{$name}-hsl: #{math.round(color.hue($color)), math.round(color.saturation($color)), math.round(color.lightness($color))};
   }
-
-  @each $subject, $value in $subjects {
+  // Categories
+  @each $name, $value in $categories {
     $color: darken(desaturate($value, 20%), 10%);
-    .#{$subject} {
+    .#{$name} {
       --category-color:     #{$color};
       --category-color-hsl: #{color.hue($color), color.saturation($color), color.lightness($color)};
       --category-color-h:   #{color.hue($color)};
       --category-color-s:   #{color.saturation($color)};
       --category-color-l:   #{color.lightness($color)};
+    }
+  }
+  // Social
+  @each $name, $value in $social {
+    $color: darken(desaturate($value, 20%), 10%);
+    .#{$name} {
+      --#{$name}: #{$color}
     }
   }
 }
@@ -134,21 +151,3 @@
     }
   }
 }
-
-.theme-transition {
-  *,
-  *::before,
-  *::after {
-    transition: $transition-all-ease !important;
-  }
-  .theme-icon {
-    animation: theme-change 0.35s $transition-speed-ease forwards;
-  }
-}
-
-.theme-icon {
-  &::before {
-    content: var(--theme-icon);
-  }
-}
-

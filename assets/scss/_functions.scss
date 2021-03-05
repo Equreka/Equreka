@@ -1,0 +1,4 @@
+// Functions
+@function if-important($important) {
+  @return #{if($important, '!important', '')};
+}

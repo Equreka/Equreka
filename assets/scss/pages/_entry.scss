@@ -23,7 +23,7 @@
       // Expression
       &.expression {
         padding:         2rem 0 1rem;
-        color:           var(--term-color, var(--body-color-hightlight));
+        color:           var(--term-color, var(--body-color-highlight));
         display:         flex;
         align-items:     center;
         justify-content: center;
@@ -97,25 +97,36 @@
             font-weight:    bold;
             font-family:    $font-family-heading-sans-serif;
             text-transform: uppercase;
-            opacity:        0.75;
+            color: var(--body-color-muted);
           }
           tr {
             vertical-align: baseline;
-            td {
+            &:hover {
+              td.symbol {
+                color: var(--term-color, var(--body-color-highlight));
+              }
+            }
+            td {    
+              &:first-child {
+                font-weight: 600;
+              }
               &.symbol {
                 text-align: center;
+                color: var(--body-color-highlight);
+                transition: $transition-all-ease;
               }
               &.unit.symbol {
                 font-size: 105%;
+                transition: $transition-all-ease;
               }
               &.unit.value {
                 font-size: 110%;
+                color: var(--body-color-highlight);
               }
               a {
-                opacity:    0.65;
-                transition: color 0.35s ease, opacity 0.35s ease;
+                color: var(--body-color);
                 &:hover {
-                  opacity: 1;
+                  opacity: var(--body-color-highlight);
                 }
               }
             }
