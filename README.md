@@ -44,14 +44,16 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 ## To-do
 
 ### App
-- Use cappacitor.js to export as an app for iOS and Android
+- [] Use cappacitor.js to export as an app for iOS and Android
 ### UI
-- Add content for everything
+- [] Add content for everything
 ### API
-- Add security layers
-- Add content through post
-- Entries
+- [] Add security layers
+- [] Add content through post
+- [] Finish APIs for every model
 ### Database
-- Improve general structure (?)
+- [] Add subcategories (?)
+- [] Improve general structure (?)
+- [] Traductions in database (?)
 ### Scripts
-- Improve Hover system for dynamic created elements (MathJax)
+- [] Improve Hover system for dynamic created elements (MathJax)

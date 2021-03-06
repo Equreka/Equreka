@@ -1,5 +1,5 @@
-// Page: Entry
-.page-entry {
+// Page: Data
+.page-data {
   main {
     font-size: 85%;
     @include media-breakpoint-up(md) {
@@ -20,34 +20,38 @@
         font-size:   1rem;
         opacity:     0.75;
       }
-      // Expression
-      &.expression {
-        padding:         2rem 0 1rem;
+      // Expression / Symbol
+      &.expression,
+      &.symbol {
         color:           var(--term-color, var(--body-color-highlight));
         display:         flex;
         align-items:     center;
         justify-content: center;
         flex:            1 1 100%;
         order:           0;
-        font-size:       120%;
-        @supports (font-size: clamp(1.5rem, 5vw, 3rem)) {
+      }
+
+      // Expression
+      &.expression {
+        padding:   1rem 0;
+        font-size: 120%;
+        @supports (font-size: clamp(1vw, 1vw, 1vw)) {
           font-size: clamp(1.5rem, 2.5vw, 2.5rem);
         }
-        mjx-container,
-        mjx-math {
-          margin:      0 !important;
-          max-width:   100%;
-          display:     flex;
-          flex:        0 1 auto;
-          flex-wrap:   wrap;
-          align-items: baseline;
-          line-height: 50%;
-          outline:     0;
+      }
+
+      // Symbol
+      &.symbol {
+        padding:  0;
+        font-size: 140%;
+        @supports (font-size: clamp(1vw, 1vw, 1vw)) {
+          font-size: clamp(1.5rem, 4vw, 4rem);
         }
       }
 
       // Terms
-      &.terms {
+      &.terms,
+      &.values {
         padding-bottom: 0;
         .row {
           display:       flex;
@@ -121,6 +125,8 @@
               }
               &.unit.value {
                 font-size: 110%;
+                font-weight: normal;
+                font-style: normal;
                 color: var(--body-color-highlight);
               }
               a {
@@ -131,10 +137,9 @@
               }
             }
           }
-
-
         }
       }
+      
       // Description
       &.description {
         p {

@@ -20,7 +20,7 @@ async (req, res) => {
     }
   },
   )
-  .populate('category')
+  .populate('category, unit')
   .limit(10);
   res.json(data);
 });
@@ -29,7 +29,23 @@ async (req, res) => {
 router.get('/:slug', async (req, res) => {
   const data = await Constant.findOne({
     'slug': req.params.slug
-  });
+  })
+  .populate('category', {
+    _id: 0,
+    name: 1,
+    slug: 1
+  })
+  .populate('unit', {
+    _id: 0,
+    name: 1,
+    symbol: 1
+  })
+  .populate('values.unit', {
+    _id: 0,
+    name: 1,
+    slug: 1,
+    symbol: 1
+  })
   res.json(data);
 });
 
@@ -40,23 +56,23 @@ router.post('/create/', async (req, res) => {
 })
 
 // POST - Edit
-router.put('/update/:constantId', async (req, res) => {
+router.put('/update/:id', async (req, res) => {
   await Constant.update(req.body, {
     where: {
-      id: req.params.constantId
+      id: req.params.id
     }
   });
-  res.json({ success: 'id: ' + req.params.constantId + ' modified successfully' })
+  res.json({ success: 'id: ' + req.params.id + ' modified successfully' })
 })
 
 // DEL - Delete
-router.delete('/delete/:constantId', async (req, res) => {
+router.delete('/delete/:id', async (req, res) => {
   await Constant.destroy({
     where: {
-      id: req.params.constantId
+      id: req.params.id
     }
   });
-  res.json({ success: 'id: ' + req.params.constantId + ' deleted successfully' })
+  res.json({ success: 'id: ' + req.params.id + ' deleted successfully' })
 })
 
 module.exports = router;

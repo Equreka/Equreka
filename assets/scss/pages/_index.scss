@@ -3,11 +3,11 @@
 @import 'report';
 @import 'error';
 @import 'category';
-@import 'entry';
+@import 'data';
 
 .page-enter-active,
 .page-leave-active {
-  transition: opacity 0.5s;
+  transition: opacity 0.25s;
 }
 .page-enter,
 .page-leave-to {

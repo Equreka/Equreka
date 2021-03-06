@@ -17,29 +17,6 @@ let Equreka = {
     });
   },
 
-  // Deprecated
-  initMathJax() {
-    MathJax = {
-      loader: {
-        load: ['[tex]/html']
-      },
-      tex: { 
-        inlineMath: [['$', '$']],
-        processEscapes: true,
-        packages: { '[+]': ['html'] }
-      },
-      svg: {
-        fontCache: 'global'
-      },
-      startup: {
-        ready: () => {
-          MathJax.startup.defaultReady()
-          MathJax.startup.promise.then(() => resolve())
-        }
-      }
-    }
-  },
-
   termHover (event, element, action) {
     var type = false
     if(event.target == element) {
@@ -164,6 +141,19 @@ let Equreka = {
         root.classList.remove('theme-transition');
       }, Equreka.TRANSITION_TIMING);
     }    
+  },
+
+  /**
+   * Format Number
+   * Format the number for better reading
+   * 
+   * Ex. 1000000 -> 1,000,000
+   * @param {number} value Number to format
+   * @returns 
+   */
+  formatNumber (number) {
+    // Undefined to get browser default format depending on user locale
+    return number.toLocaleString(undefined, { minimumFractionDigits: 2 });
   }
 }
 

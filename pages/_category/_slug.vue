@@ -1,23 +1,5 @@
 <template>
   <main role="main">
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>
-      MathJax = {
-        loader: {
-          load: ['[tex]/html']
-        },
-        tex: { 
-          inlineMath: [['$', '$']],
-          packages: { '[+]': ['html'] },
-          processEscapes: true,
-        },
-        svg: {
-          fontCache: 'global'
-        },
-      };
-    </script>
-
     <!-- Main: Header -->
     <PageHeader :category="category" :type="type" :name="name" :data="data" :json="json" />
     <div class="container">
@@ -90,7 +72,7 @@
                       </NuxtLink>
                     </td>
                     <td class="constant unit value math">
-                      {{ json.constant.value.toLocaleString(undefined, { minimumFractionDigits: 2 }) }}
+                      {{ formatNumber(json.constant.value) }}
                     </td>   
                     <td class="constant unit symbol math">
                       <template v-if="json.constant.unit.symbolTeX">
@@ -142,6 +124,24 @@
         </cite>
       </section>
     </div>
+    <!-- Scripts -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>
+      MathJax = {
+        loader: {
+          load: ['[tex]/html']
+        },
+        tex: { 
+          inlineMath: [['$', '$']],
+          packages: { '[+]': ['html'] },
+          processEscapes: true,
+        },
+        svg: {
+          fontCache: 'global'
+        },
+      };
+    </script>
   </main>
 </template>
 
@@ -183,7 +183,7 @@
     head() {
       return {
         bodyAttrs: {
-          class: 'page-entry ' + this.category.slug
+          class: 'page-data page-entry ' + this.category.slug
         }
       }
     },
@@ -193,6 +193,9 @@
       },
       parserLaTeX(data) {
         return Equreka.parserLaTeX(data);
+      },
+      formatNumber(number) {
+        return Equreka.formatNumber(number);
       }
     }
   }
