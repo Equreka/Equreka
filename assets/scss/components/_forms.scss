@@ -1,0 +1,6 @@
+.form-control:disabled,
+.form-control[readonly] {
+  color: $input-disabled-color;
+  user-select: none;
+  cursor: not-allowed;
+}

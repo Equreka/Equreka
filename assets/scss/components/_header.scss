@@ -1,7 +1,7 @@
 // Header
 .header {
-  padding: 1rem 0;
-  color: var(--header-color);
+  padding:    1rem 0;
+  color:      var(--header-color);
   transition: $transition-all-ease;
   .container {
     display    : flex;
@@ -9,7 +9,7 @@
     flex-wrap  : wrap !important;    
   }
   .navbar-brand {
-    padding: 0;
+    padding:      0;
     margin-right: 0.5rem;
   }
   // Divisions
@@ -39,7 +39,7 @@
   }
   // Icons
   .bi {
-    font-size: 24px;
+    font-size:     24px;
     margin-bottom: -2px;
   }
   .left {
@@ -50,16 +50,16 @@
   // Right
   .right {
     justify-content: flex-end;
-    margin-right: -0.5rem;
+    margin-right:    -0.5rem;
   }
   // Button
   .btn {
-    font-family: $font-family-heading-sans-serif;
-    font-weight: 600;
+    font-family:     $font-family-heading-sans-serif;
+    font-weight:     600;
     text-decoration: none;
-    box-shadow: none;
-    color: var(--header-color);
-    transition: $transition-all-ease;
+    box-shadow:      none;
+    color:           var(--header-color);
+    transition:      $transition-all-ease;
     &:hover,
     &[aria-expanded="true"] {
       color: var(--body-color-highlight);

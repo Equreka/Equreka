@@ -61,52 +61,6 @@ h1, h2, h3, h4, h5, h6
   }
 }
 
-// Category header
-.category { 
-  padding:    1rem 0;
-  background: var(--category-color);
-  font-size: 100%;
-  @include media-breakpoint-up(md) {
-    font-size: 120%;
-    padding:    1.5rem 0;
-  }
-  a {
-    text-decoration: none;
-  }
-  .title-small {
-    margin:         0;
-    font-size:      90%;
-    font-weight:    800;
-    font-family:    $font-family-heading-sans-serif;
-    color:          hsl(var(--category-color-h), 100%, 80%);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-  }
-  .title-large {
-    margin:         0;
-    font-size:      170%;
-    font-weight:    700;
-    font-family:    $font-family-heading-sans-serif;
-    color:          hsl(var(--category-color-h), 100%, 95%);
-    letter-spacing: 1px;
-  }
-  .dropdown-options {
-    margin-left: 1.5rem;
-    .btn {
-      border-radius: 999rem;
-      padding: .35rem;
-      border-color: hsl(var(--category-color-h), 100%, 85%);
-      color: hsl(var(--category-color-h), 100%, 85%);
-      border-width: 2px;
-      transition: $transition-all-ease;
-      &:hover {
-        border-color: hsl(var(--category-color-h), 100%, 95%);
-        color: hsl(var(--category-color-h), 100%, 95%);
-      }
-    }
-  }
-}
-
 // Anchor
 a {
   transition: color 0.35s ease;

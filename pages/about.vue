@@ -11,7 +11,7 @@
       <p>All open source projects and specially the ones that made possible this project</p>
       <p>You can check our <a  target="_blank" rel="noopener nofollow" href="https://github.com/Equreka">Github</a> for a more complete list in our source-code.</p>
       <p>Here are some projects (in no particular order) that made this project possible:</p>
-      <div class="list-group list-group-horizontal">
+      <div class="list-group">
         <a class="list-group-item" target="_blank" rel="noopener nofollow"
           v-for="(url, title) in projects"
           :key="title"
@@ -29,6 +29,7 @@ export default {
       projects: {
         'Github':               'https://github.com/',
         'Wikimedia Foundation': 'https://wikimediafoundation.org/',
+        'Stack Overflow':       'https://stackoverflow.com/',
         'Node.js':              'https://nodejs.org/',
         'Vue.js':               'https://vuejs.org/',
         'Nuxt.js':              'https://nuxtjs.org/',

@@ -11,26 +11,3 @@
     </g>
   </svg>
 </template>
-
-<style lang="scss" scoped>
-  .equreka {
-    display: block;
-    width: 82px;
-    height: auto;
-    &:hover {
-      opacity: 1;
-      animation: logo-hover 1s ease-out;
-    }
-  }
-  .theme-dark .equreka {
-    opacity: 0.85;
-  }
-  @keyframes logo-hover {
-    50% {
-      filter: hue-rotate(0.5turn);
-    }
-    100% {
-      filter: hue-rotate(1turn);
-    }
-  }
-</style>

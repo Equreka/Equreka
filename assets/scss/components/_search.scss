@@ -51,7 +51,7 @@
           align-items:     center;
           justify-content: center;
           margin-left:     0.5rem;
-          border: 1px solid var(--body-color);
+          border:          1px solid var(--body-color);
           color:           var(--body-color);
           padding:         0.45rem 0.35rem;
           line-height:     0;
@@ -64,18 +64,20 @@
         padding:         0.25rem 1rem;
         color:           var(--body-color);
         text-decoration: none;
-        transition: $transition-all-ease;
+        transition:      $transition-all-ease;
+        outline:         0;
         .badge {
-          background: hsl(var(--category-color-h), 85%, 50%);
-          color: hsl(var(--category-color-h), 100%, 90%);
-          transition: $transition-all-ease;
+          background:     hsl(var(--category-color-h), 85%, 50%);
+          color:          hsl(var(--category-color-h), 100%, 90%);
+          transition:     $transition-all-ease;
           text-transform: uppercase;
-          font-weight: bold;
-          font-family: $font-family-heading-sans-serif;
+          font-weight:    bold;
+          font-family:    $font-family-heading-sans-serif;
           letter-spacing: 1px;
         }
-        &:hover {      
-          background: hsla(var(--category-color-h), 85%, 50%, 0.2);
+        &:hover,
+        &:focus {      
+          background: hsla(var(--category-color-h), 85%, 50%, 0.2);;
           color: var(--body-color-highlight);
         }
       }

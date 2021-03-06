@@ -16,6 +16,16 @@
   }
 }
 
+@keyframes logo-hover {
+  50% {
+    filter: hue-rotate(0.5turn);
+    opacity: 1;
+  }
+  100% {
+    filter: hue-rotate(1turn);
+  }
+}
+
 @keyframes theme-change {
   0% {
     transform: scale(0);

@@ -9,6 +9,7 @@ $font-family-math:               serif;
 $font-family-heading-sans-serif: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
 // Colors
+$gray:     hsl(200, 20%, 40%);
 $blue:     hsl(215, 95%, 50%);
 $indigo:   hsl(265, 90%, 50%);
 $purple:   hsl(260, 50%, 50%);
@@ -42,6 +43,7 @@ $theme-colors: (
 
 // Categories
 $categories: (
+  "universal":   $gray,
   "mathematics": $red,
   "physics":     $blue,
   "chemistry":   $purple
@@ -76,6 +78,8 @@ $input-bg:                 var(--input-bg);
 $input-color:              var(--body-color);
 $input-border-color:       var(--input-border-color);
 $input-placeholder-color:  var(--body-color-muted);
+$input-disabled-bg:        hsla(0, 0%, var(--theme-inverted-lightness), 0.1);
+$input-disabled-color:     hsla(0, 0%, var(--theme-inverted-lightness), 0.15);
 
 $input-focus-bg:           var(--input-focus-bg);
 $input-focus-color:        var(--body-color);

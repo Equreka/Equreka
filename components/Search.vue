@@ -1,15 +1,16 @@
 <template>
   <div class="form-search">
     <form>
+      <label for="search-bar" class="visually-hidden">{{ $t('Search input label') }}</label>
       <b-form-input 
         id="search-bar"
         type="search"
         autocomplete="off"
         aria-label="Search"
-        :placeholder="$t('Search for...')"
+        :placeholder="$t('Search input placeholder')"
         v-model="searchQuery"
       />
-      <b-button type="submit" variant="link">
+      <b-button type="submit" variant="link" :aria-label="$t('Search button submit')">
         <i class="bi bi-search"></i>
       </b-button>
     </form>
@@ -25,12 +26,7 @@
     </div>
     <div class="results" v-if="!searchResults && searchQuery.length >= 2">
       <div class="items">
-        <h5 class="title m-0">{{ $t('I didnt found anything...') }}</h5>
-      </div>
-    </div>
-    <div class="results" v-if="searchQuery.length == 1">
-      <div class="items">
-        <h5 class="title m-0">{{ $t('Try with more letters...') }}</h5>
+        <h5 class="title m-0">{{ $t('Search results none') }}</h5>
       </div>
     </div>
   </div>
@@ -73,19 +69,19 @@
           return;
         } 
         searchQuery = searchQuery.replace(/[^\w\s]/gi, '');
-        // API
+        // Entries
         this.searchData.entries.data = await fetch(
           process.env.baseUrl + '/api/entries/search/' + searchQuery
         ).then((res) => res.json());
-
+        // Variables
         this.searchData.variables.data = await fetch(
           process.env.baseUrl + '/api/variables/search/' + searchQuery
         ).then((res) => res.json());
-
+        // Constants
         this.searchData.constants.data = await fetch(
           process.env.baseUrl + '/api/constants/search/' + searchQuery
         ).then((res) => res.json());
-
+        // Units
         this.searchData.units.data = await fetch(
           process.env.baseUrl + '/api/units/search/' + searchQuery
         ).then((res) => res.json());
@@ -98,6 +94,7 @@
           this.searchData.units.data.length     > 0
         ) {
           this.searchResults = true;
+
         } else {
           this.searchResults = false;
         }

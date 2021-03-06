@@ -4,7 +4,11 @@ const { param } = require('express-validator');
 
 // GET - All
 router.get('/', async (req, res) => {
-  const data = await Category.find();
+  const data = await Category.find({
+    _id: { 
+      $ne: 0 // Exclude category _id: 0 (Universal)
+    }
+  });
   res.json(data);
 });
 
@@ -31,13 +35,13 @@ router.post('/add/', async (req, res) => {
 })
 
 // POST - Update
-router.post('/edit/:categoryId', async (req, res) => {
+router.post('/edit/:id', async (req, res) => {
   await Category.update(req.body, {
     where: {
-      id: req.params.categoryId
+      id: req.params.id
     }
   });
-  res.json({ success: 'id: ' + req.params.categoryId + ' modified successfully' })
+  res.json({ success: 'id: ' + req.params.id + ' modified successfully' })
 })
 
 // Delete

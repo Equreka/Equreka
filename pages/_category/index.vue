@@ -1,11 +1,6 @@
 <template> 
   <main role="main">
-    <header class="category">
-      <div class="container">
-        <h2 class="title-small">{{ $t('Category') }}</h2>
-        <h1 class="title-large">{{ $t(category.name) }}</h1>
-      </div>
-    </header>
+    <PageHeader :main="true" :category="category" :name="category.name" />
     <div class="container py-4">
       <p class="lead">
         {{ category.description }}
@@ -17,7 +12,7 @@
       </div>
       <div v-else>
         <h2>No entries :(</h2>
-        <nuxt-link to="/">Go back</nuxt-link>
+        <NuxtLink to="/">Go back</NuxtLink>
       </div>
       <nav class="d-none" aria-label="Page navigation example">
         <ul class="pagination">
@@ -36,11 +31,10 @@
     data() {
       return {
         category: {},
-        entries: {},
-        subCategories: {}
+        entries: {}
       }
     },
-    async asyncData ({ params, redirect }) {
+    async asyncData ({ params, error }) {
       const slug = params.category;
 
       const category = await fetch(
@@ -62,13 +56,13 @@
           entries: false
         }
       } else {
-        redirect(process.env.baseUrl);
+        error({ statusCode: 404 });
       }
     },
     head() {
       return {
         bodyAttrs: {
-          class: 'page-category' + (this.category.slug ? ' ' + this.category.slug : '')
+          class: 'page-category ' + this.category.slug
         }
       }
     }

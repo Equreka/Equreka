@@ -1,10 +1,10 @@
 <template>
-  <div class="items" v-if="data.length >= 1">
+  <div class="items" v-if="data.length >= 1" role="menu" tabindex="-1">
     <h5 class="title">
       {{ $t(title) }}
       <small class="badge">{{data.length}}</small>
     </h5>
-    <NuxtLink class="item" 
+    <NuxtLink class="item" role="menuitem" tabindex="0"
       v-for="item of data"
       :key="item.slug"
       :class="item.category.slug"

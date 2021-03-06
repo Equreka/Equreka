@@ -20,7 +20,11 @@ async (req, res) => {
     }
   },
   )
-  .populate('category')
+  .populate('category', {
+    _id: 0,
+    name: 1,
+    slug: 1
+  })
   .limit(10);
   res.json(data);
 });
@@ -29,6 +33,11 @@ async (req, res) => {
 router.get('/:slug', async (req, res) => {
   const data = await Unit.findOne({
     'slug': req.params.slug
+  })
+  .populate('category', {
+    _id: 0,
+    name: 1,
+    slug: 1
   });
   res.json(data);
 });

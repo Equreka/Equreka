@@ -5,23 +5,32 @@ const { param } = require('express-validator');
 
 // GET - All
 router.get('/', async (req, res) => {
-  const data = await Entry.find().populate('variable');
+  const data = await Entry.find()
+  .populate('category')
+  .populate('variable');
   res.json(data);
 });
 
 // GET - Search
-router.get('/search/:search',
-param('search').not().isEmpty().trim().escape(),
-async (req, res) => {
-  let search = req.params.search.replace(/[^\w\s]/gi, '');
+router.get('/search/:search', param('search').not().isEmpty().trim().escape(), async (req, res) => {
+  let search = req.params.search.replace(/[^\w\s]/gi, '').replace(" ", '.+');
   const data = await Entry.find({ 
-    'name': {
-      '$regex':   search,
-      '$options': 'i'
-    }
-  },
-  )
-  .populate('category')
+    $or: [
+      {'name': {
+        '$regex':   search,
+        '$options': 'i'
+      }},
+      {'description': {
+        '$regex':   search,
+        '$options': 'i'
+      }}
+    ]
+  })
+  .populate('category', {
+    _id: 0,
+    name: 1,
+    slug: 1
+  })
   .limit(10);
   res.json(data);
 });
@@ -31,7 +40,11 @@ router.get('/:slug', async (req, res) => {
   const data = await Entry.findOne({
     'slug': req.params.slug
   })
-  .populate('category')
+  .populate('category', {
+    _id: 0,
+    name: 1,
+    slug: 1
+  })
   .populate({
     path: 'variables',
     populate: {
@@ -58,7 +71,11 @@ router.get('/category/:category', async (req, res) => {
   // GET - By slug
   const category = await Category.findOne({
     'slug': req.params.category
-  });  
+  });
+  if (category === null) {
+    res.json(null);
+    return;
+  }
   const data = await Entry.find({
     'category._id': category._id 
   });

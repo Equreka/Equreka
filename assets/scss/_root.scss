@@ -144,6 +144,9 @@
 
 .theme-dark {
   @include theme-dark();
+  .equreka {
+    opacity: 0.75;
+  }
   .theme-icon {
     &::before {      
       --theme-animation: theme-dark;

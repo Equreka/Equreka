@@ -1,0 +1,67 @@
+// Page Header
+.page-header { 
+  padding:    1rem 0;
+  background: var(--category-color);
+  font-size: 100%;
+  @include media-breakpoint-up(md) {
+    font-size: 120%;
+    padding:    1.5rem 0;
+  }
+  a {
+    text-decoration: none;
+  }
+  .wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  // Info
+  .info {
+    .category,
+    .type,
+    .divider {
+      margin:         0;
+      font-size:      90%;
+      font-weight:    800;
+      font-family:    $font-family-heading-sans-serif;
+      color:          hsl(var(--category-color-h), var(--category-color-s), 80%);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .divider {
+      font-size: 80%;
+      margin: 0 0.25rem;
+      opacity: 0.75;
+    }
+    .name {
+      margin:         0;
+      font-size:      170%;
+      font-weight:    700;
+      font-family:    $font-family-heading-sans-serif;
+      color:          hsl(var(--category-color-h), 100%, 95%);
+      letter-spacing: 1px;
+    }
+  }
+  // Dropdown
+  .dropdown-options {
+    margin-left: 1.5rem;
+    .dropdown-menu {
+      min-width: 200px;
+      .bi {
+        margin-right: 0.5rem;
+      }
+    }
+    .btn {
+      border-radius: 999rem;
+      padding: .35rem;
+      border-color: hsl(var(--category-color-h), 100%, 85%);
+      color: hsl(var(--category-color-h), 100%, 85%);
+      border-width: 2px;
+      transition: $transition-all-ease;
+      &:hover {
+        border-color: hsl(var(--category-color-h), 100%, 95%);
+        color: hsl(var(--category-color-h), 100%, 95%);
+      }
+    }
+  }
+}

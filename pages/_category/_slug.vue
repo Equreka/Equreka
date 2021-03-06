@@ -19,38 +19,7 @@
     </script>
 
     <!-- Main: Header -->
-    <div class="category" :class="data.category.slug">
-      <div class="container">
-        <div class="d-flex align-items-center justify-content-between">
-          <div class="info">
-            <NuxtLink  class="title-small" :to="localePath('/' + data.category.slug)">
-              {{ $t(data.category.name) }}
-            </NuxtLink>
-            <h1 class="title-large">{{ data.name }}</h1>
-          </div>
-          <!-- Options -->
-          <b-dropdown class="dropdown-options" variant="link" no-caret right>
-            <template #button-content>
-              <i class="bi bi-three-dots-vertical"></i>
-              <span class="visually-hidden">{{ $t('Options') }}</span>
-            </template>
-            <h6 class="dropdown-header">{{ $t('Options') }}</h6>
-            <b-dropdown-item :href="json" :download="data.slug + '.json'">
-              <i class="bi bi-download"></i>
-              {{ $t('Download JSON') }}
-            </b-dropdown-item>
-            <b-dropdown-item>
-              <i class="bi bi-heart"></i>
-              {{ $t('Add to favorites') }}
-            </b-dropdown-item>
-            <b-dropdown-item :to="'/report/' + data.category.slug + '/' + data.slug">
-              <i class="bi bi-flag"></i>
-              {{ $t('Report an error') }}
-            </b-dropdown-item>
-          </b-dropdown>
-        </div>
-      </div>
-    </div>
+    <PageHeader :category="category" :type="type" :name="name" :data="data" :json="json" />
     <div class="container">
       <!-- Eureka! Expression -->
       <section class="expression">
@@ -80,7 +49,7 @@
                       {{ json.variable.symbol }}
                     </td>
                     <td class="variable name">
-                      <NuxtLink :to="localePath('/' + data.category.slug + '/variable/' + json.variable.slug)">
+                      <NuxtLink :to="localePath('/' + data.category.slug + '/variables/' + json.variable.slug)">
                         {{ json.variable.name }}
                       </NuxtLink>
                     </td>
@@ -88,7 +57,7 @@
                       {{ json.variable.unit.symbol }}
                     </td>              
                     <td class="variable unit name">
-                      <NuxtLink :to="localePath('/' + data.category.slug + '/unit/' + json.variable.unit.slug)">
+                      <NuxtLink :to="localePath('/' + data.category.slug + '/units/' + json.variable.unit.slug)">
                         {{ json.variable.unit.name }}
                       </NuxtLink>
                     </td>              
@@ -116,7 +85,7 @@
                       {{ json.constant.symbol }}
                     </td>
                     <td class="constant name">
-                      <NuxtLink :to="localePath('/' + data.category.slug + '/constant/' + json.constant.slug)">
+                      <NuxtLink :to="localePath('/' + data.category.slug + '/constants/' + json.constant.slug)">
                         {{ json.constant.name }}
                       </NuxtLink>
                     </td>
@@ -132,7 +101,7 @@
                       </template>              
                     </td>              
                     <td class="constant unit name">
-                      <NuxtLink :to="localePath('/' + data.category.slug + '/unit/' + json.constant.unit.slug)">
+                      <NuxtLink :to="localePath('/' + data.category.slug + '/units/' + json.constant.unit.slug)">
                         {{ json.constant.unit.name }}
                       </NuxtLink>
                     </td>     
@@ -183,21 +152,26 @@
     data () {
       return {
         TERM_SELECTOR: Equreka.TERM_SELECTOR.substring(1),
-        data: {},
-        json: false
+        data:     {},
+        category: {},
+        name:     String,
+        type:     String,
+        json:     false
       }
     },
     async asyncData ({ params, error }) {
       const slug = params.slug;
-
       const data = await fetch(
         process.env.baseUrl + '/api/entries/' + slug
       ).then((res) => res.json());
-
-      if(data) { 
+      if(data === null) error({ statusCode: 404 });
+      if(data && data.category.slug == params.category) { 
         return { 
-          data: data,
-          json: Equreka.jsonDownload(data)
+          data:     data,
+          category: data.category,
+          name:     data.name,
+          type:     params.type,
+          json:     Equreka.jsonDownload(data)
         }
       } else {
         error({ statusCode: 404 });
@@ -209,7 +183,7 @@
     head() {
       return {
         bodyAttrs: {
-          class: 'page-entry' + (this.data.slug ? ' ' + this.data.category.slug : '')
+          class: 'page-entry ' + this.category.slug
         }
       }
     },
