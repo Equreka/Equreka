@@ -1,11 +1,7 @@
 .equreka {
   display: block;
-  width:   62px;
-  height:  auto;
+  height: auto;
   transition: all 1s ease-out;
-  @include media-breakpoint-up($navbar-expand) {
-    width: 72px;
-  }
   &:hover {
     filter: hue-rotate(1turn);
   }

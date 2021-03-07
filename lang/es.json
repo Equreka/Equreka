@@ -26,10 +26,6 @@
   "Dark": "Oscuro",
   "Language": "Lenguaje",
   "Change language": "Cambiar lenguaje",
-  "Search input label": "Barra de búsqueda",
-  "Search input placeholder": "Busca constantes, fórmulas o ecuaciones...",
-  "Search button submit": "Buscar",
-  "Search results none": "No encontré nada... 😧",
   "Formulas or equations": "Fórmulas o ecuaciones",
   "Description": "Descripción",
   "Code": "Código",
@@ -38,17 +34,33 @@
   "Add to favorites": "Agregar a favoritos",
   "Report an error": "Reportar un error",
   "Copy to clipboard": "Copiar al portapapeles",
-  "Page not found": "Page not found",
-  "An error occurred": "An error occurred",
-  "Take me home": "Vamos a casa 🏡",
-  "Something is wrong": "Algo está mal por aquí... 🔨",
-  "Page Report title": "Reportar esta página",
-  "Page Report lead": "Reportar errores es muy importante para nosotros, ¡gracias por tomarte el tiempo en hacerlo!",
-  "Page Report label reason": "¿Qué está mal con esta página?",
-  "Page Report label category": "Categoria",
-  "Page Report label type": "Tipo",
-  "Page Report label slug": "Identificador",
-  "Page Report input placeholder reason": "¿Qué errores encontraste? 😧",
-  "Page Report button submit": "¡Enviar reporte!",
+  "search": {
+    "input-label": "Barra de búsqueda",
+    "input-placeholder": "Buscar en Equreka",
+    "button-submit": "Buscar",
+    "try-for": "Intenta buscar constantes, variables, unidades, fórmulas y/o ecuaciones",
+    "no-results": "No encontré nada... 😧"
+
+  },
+  "page": {
+    "error": {
+      "title": "¡Error en la matrix!",
+      "lead": "¡¿Qué tratabas de hacer?!",
+      "link": "Vamos a casa 🏡",
+      "unknown": "Ocurrió un error desconocido",
+      "404": "Página no encontrada"
+    },
+    "report": {
+      "title": "Reportar esta página",
+      "lead": "Reportar errores es muy importante para nosotros, ¡gracias por tomarte el tiempo en hacerlo!",
+      "label reason": "¿Qué está mal con esta página?",
+      "label category": "Categoria",
+      "label type": "Tipo",
+      "label slug": "Identificador",
+      "input placeholder reason": "¿Qué errores encontraste? 😧",
+      "button submit": "¡Enviar reporte!"
+    }
+  },
+
   "":""
 }

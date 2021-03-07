@@ -80,6 +80,7 @@
   export default {
     data () {
       return {
+        TERM_SELECTOR: Equreka.TERM_SELECTOR.substring(1),
         data:     {},
         category: {},
         type:     String,

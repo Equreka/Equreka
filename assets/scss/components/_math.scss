@@ -1,23 +1,20 @@
 // Math
+.math {
+  font-family: $font-family-math;
+  font-style:  oblique;
+  font-size:   130%;
+  font-weight: 500;
+}
+
+// Term selector
 .#{$equreka-term-selector} {
-  transition: all .35s ease, font-size 0s;
-  &.hover {
-    color: var(--term-color, var(--bs-primary));
-    a {
-      color: var(--term-color, var(--bs-primary));
-    }
-  }
+  transition: all 0.35s ease, font-size 0s;
   &.variable {
     --term-color: #{$red};
+    --term-color-hsl: var(--bs-red-hsl);
   }
   &.constant {
     --term-color: #{$blue};
+    --term-color-hsl: var(--bs-blue-hsl);
   }
-}
-
-.math {
-  font-family:             $font-family-math;
-  font-style:              oblique;
-  font-size:               130%;
-  font-weight:             500;
 }

@@ -18,17 +18,28 @@
     }
   }
   .results {
-    position:        absolute;
-    margin-top:      0.5rem;
-    padding:         1rem 0;
-    top:             100%;
-    left:            0;
-    right:           0;
-    border-radius:   0.25rem;
-    animation:       fade-in 0.5s forwards;
-    z-index:         999;
-    transition: $transition-all-ease;
+    position:      absolute;
+    margin-top:    0.5rem;
+    padding:       1rem 0;
+    top:           100%;
+    left:          0;
+    right:         0;
+    border-radius: 0.25rem;
+    animation:     fade-in 0.5s forwards;
+    z-index:       999;
+    transition:    $transition-all-ease;
     @include acrylic-bg();
+
+    max-height: 200px;
+    overflow-y:   auto;
+    &::-webkit-scrollbar {
+      background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--separator-color);
+      border-radius: 10px;
+    }
+    
     .items {
       animation: fade-in 0.35s forwards;
       &:first-child {

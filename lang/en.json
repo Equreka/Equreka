@@ -26,10 +26,6 @@
   "Dark": "Dark",
   "Language": "Lenguage",
   "Change language": "Change language",
-  "Search input label": "Search bar",
-  "Search input placeholder": "Search for constants, formulas or equations..",
-  "Search button submit": "Submit search",
-  "Search results not found": "I didn't found anything.. 😧",
   "Formulas or equations": "Formulas or equations",
   "Description": "Description",
   "Code": "Code",
@@ -38,17 +34,31 @@
   "Add to favorites": "Add to favorites",
   "Report an error": "Report an error",
   "Copy to clipboard": "Copy to clipboard",
-  "Page not found": "Page not found",
-  "An error occurred": "An error occurred",
-  "Take me home": "Take me home",
-  "Something is wrong": "Something is wrong",
-  "Page Report title": "Report this page",
-  "Page Report lead": "Reporting errors are very important for us, thank you for taking your time to do it!",
-  "Page Report label reason": "What's wrong with this page?",
-  "Page Report label category": "Category",
-  "Page Report label type": "Type",
-  "Page Report label slug": "Identifier",
-  "Page Report input placeholder reason": "Tell us what did you find... 😧",
-  "Page Report button submit": "Send report!",
+  "search": {
+    "input-label": "Search bar",
+    "input-placeholder": "Search in Equreka",
+    "button-submit": "Submit search",
+    "try-for": "You can search for constants, variables, units, formulas and/or equations",
+    "no-results": "I didn't found anything.. 😧"
+  },
+  "page": {
+    "error": {
+      "title": "Error in the matrix!",
+      "lead": "What are you doing?!",
+      "link": "Take me home 🏡",
+      "unknown": "An error occurred",
+      "404": "Page not found"
+    },
+    "report": {
+      "title": "Report this page",
+      "lead": "Reporting errors are very important for us, thank you for taking your time to do it!",
+      "label reason": "What's wrong with this page?",
+      "label category": "Category",
+      "label type": "Type",
+      "label slug": "Identifier",
+      "input placeholder reason": "Tell us what did you find... 😧",
+      "button submit": "Send report!"
+    }
+  },
   "":""
 }

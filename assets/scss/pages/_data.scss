@@ -2,12 +2,19 @@
 .page-data {
   main {
     font-size: 85%;
+    overflow: hidden;
     @include media-breakpoint-up(md) {
       font-size: 100%;
     }
+    
+    a {
+      color: var(--body-color);
+      &:hover {
+        color: var(--term-color);
+      }
+    }
     section {
       padding:  1rem 0;
-      overflow: hidden;
       // Title
       .title {
         font-weight:   600;
@@ -23,12 +30,15 @@
       // Expression / Symbol
       &.expression,
       &.symbol {
-        color:           var(--term-color, var(--body-color-highlight));
+        color:           var(--body-color-highlight);
         display:         flex;
         align-items:     center;
         justify-content: center;
         flex:            1 1 100%;
         order:           0;
+        .hover {
+          color: var(--term-color);
+        }
       }
 
       // Expression
@@ -42,7 +52,7 @@
 
       // Symbol
       &.symbol {
-        padding:  0;
+        padding:   0;
         font-size: 140%;
         @supports (font-size: clamp(1vw, 1vw, 1vw)) {
           font-size: clamp(1.5rem, 4vw, 4rem);
@@ -66,8 +76,9 @@
             }
           }
         }
+        // Table Responsive
         .table-responsive {
-          margin-top: -0.75rem;
+          margin: -0.75rem -0.5rem 0;
           &::-webkit-scrollbar {
             background: rgba(0,0,0, 0.15);
             width:      10px;
@@ -82,6 +93,7 @@
             background: var(--bs-primary);            
           }
         }
+        // Table
         .table {
           color: inherit;
           width: auto;
@@ -89,12 +101,6 @@
           td {
             border:      0;
             white-space: nowrap;
-            &:first-child {
-              padding-left: 0;
-            }
-            &:last-child {
-              padding-right: 0;
-            }
           }
           th {
             font-size:      80%;
@@ -106,34 +112,37 @@
           tr {
             vertical-align: baseline;
             &:hover {
-              td.symbol {
-                color: var(--term-color, var(--body-color-highlight));
+              td {
+                $td-border-radius: 0.5rem;
+                background: hsla(var(--term-color-hsl), 0.15);
+                &:first-child {                  
+                  border-radius: $td-border-radius 0 0 $td-border-radius;
+                }
+                &:last-child:last-child {
+                  border-radius: 0 $td-border-radius $td-border-radius 0;
+                }
+                &.symbol:first-child {
+                  color: var(--term-color, var(--body-color-highlight));
+                }
               }
-            }
-            td {    
+            } 
+            td {                
+              transition: $transition-all-ease;  
               &:first-child {
                 font-weight: 600;
+                text-align: center;
               }
               &.symbol {
-                text-align: center;
                 color: var(--body-color-highlight);
-                transition: $transition-all-ease;
               }
               &.unit.symbol {
                 font-size: 105%;
-                transition: $transition-all-ease;
               }
               &.unit.value {
                 font-size: 110%;
                 font-weight: normal;
                 font-style: normal;
                 color: var(--body-color-highlight);
-              }
-              a {
-                color: var(--body-color);
-                &:hover {
-                  opacity: var(--body-color-highlight);
-                }
               }
             }
           }

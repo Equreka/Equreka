@@ -12,8 +12,7 @@
           </template>
           <!-- Type -->
           <template v-if="type">
-            <i class="divider bi bi-chevron-right"></i>
-            <NuxtLink class="type" :to="localePath('/' + category.slug + '/' + type)">{{ $t(type[0].toUpperCase() + type.substring(1)) }}</NuxtLink>
+            <i class="divider bi bi-chevron-right"></i><NuxtLink class="type" :to="localePath('/' + category.slug + '/' + type)">{{ $t(type[0].toUpperCase() + type.substring(1)) }}</NuxtLink>
           </template>
           <!-- Name -->
           <h1 class="name">{{ $t(name) }}</h1>

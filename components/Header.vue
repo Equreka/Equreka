@@ -3,11 +3,11 @@
     <nav class="navbar navbar-expand-md">
       <div class="container">
         <div class="left">
-          <NuxtLink class="navbar-brand" :to="localePath('/')">
+          <NuxtLink :to="localePath('/')">
             <Logo/>
           </NuxtLink>
           <b-dropdown variant="link" :text="$t('Categories')" no-caret left>
-            <template #button-content>
+            <template #button-content class="focus-visible">
               <span class="visually-hidden">{{ $t('Categories') }}</span>
               <i class="bi bi-list"></i>
             </template>

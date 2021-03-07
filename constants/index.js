@@ -2,6 +2,18 @@ let Equreka = {
   // Constants
   TERM_SELECTOR:     '.eqk',
   TRANSITION_TIMING: 350,
+  
+  /**
+   * Log
+   * 
+   * Simple and usefull command to log
+   * 
+   * @param {*} log   Data to log
+   * @param {*} depth Depth
+   */
+  log(log, depth = null) {
+    console.dir(log, { depth: depth});
+  },
 
   /**
    * Initialize Term Hover
@@ -17,6 +29,15 @@ let Equreka = {
     });
   },
 
+  /**
+   * Term Hover
+   * 
+   * On hover adds class 'hover' to all elements that matches TERM_SELECTOR
+   * 
+   * @param {event}   event   Event to watch for
+   * @param {element} element Element
+   * @param {string}  action  Add / Remove
+   */
   termHover (event, element, action) {
     var type = false
     if(event.target == element) {

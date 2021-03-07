@@ -1,5 +1,5 @@
 <template>
-  <div class="items" v-if="data.length >= 1" role="menu" tabindex="-1">
+  <div class="items" v-if="data.length >= 1">
     <h5 class="title">
       {{ $t(title) }}
       <small class="badge">{{data.length}}</small>

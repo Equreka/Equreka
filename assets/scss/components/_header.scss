@@ -8,9 +8,13 @@
     align-items: stretch;
     flex-wrap  : wrap !important;    
   }
-  .navbar-brand {
-    padding:      0;
+  .equreka {
     margin-right: 0.5rem;
+    width:   62px;
+    height:  auto;
+    @include media-breakpoint-up($navbar-expand) {
+      width: 72px;
+    }
   }
   // Divisions
   .left,

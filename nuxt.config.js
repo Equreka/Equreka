@@ -89,6 +89,12 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     loaders: {
+      vue: {
+        compilerOptions: {
+          whitespace: 'condense',
+          preserveWhitespace: false
+        }
+      },
       sass: {
         implementation: require('sass')
       },
