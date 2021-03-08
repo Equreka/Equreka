@@ -6,17 +6,17 @@
       <b-form @submit.prevent="submitForm">
         <div class="row">
           <b-form-group class="col-12 col-md mb-3" v-for="value, name in params" :key="name" :id="name">
-            <label class="form-label" :for="'input-' + name">{{ $t('page.report.label ' + name) }}</label>
+            <label class="form-label" :for="'input-' + name">{{ $t('page.report.label-' + name) }}</label>
             <b-form-input class="disabled" type="text" :id="'input-' + name" :name="name" :value="value" disabled/>
           </b-form-group>
         </div>
 
         <b-form-group class="mb-4">
-          <label class="form-label" for="textarea-message">{{ $t('page.report.label reason') }}</label>
-          <b-form-textarea id="textarea-message" rows="5" :placeholder="$t('page.report.input placeholder reason')"></b-form-textarea>
+          <label class="form-label" for="textarea-message">{{ $t('page.report.label-reason') }}</label>
+          <b-form-textarea id="textarea-message" rows="5" :placeholder="$t('page.report.input-placeholder-reason')"></b-form-textarea>
         </b-form-group>
 
-        <b-button type="submit" variant="primary">{{ $t('page.report.button submit') }}</b-button>
+        <b-button type="submit" variant="primary">{{ $t('page.report.button-submit') }}</b-button>
       </b-form>
     </div>
   </main>

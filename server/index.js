@@ -1,7 +1,9 @@
-const express = require('express');
 const db = require('./database')
-const app = express();
+const cors = require('cors');
+const express = require('express');
+const morgan = require('morgan');
 const mongoSanitize = require('express-mongo-sanitize');
+const app = express();
 
 // Databes
 db.on('error', function() { 
@@ -14,7 +16,12 @@ db.once('open', function() {
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+// Sanitize mongo
 app.use(mongoSanitize());
+// Enable CORS for all requests
+app.use(cors());
+// Log HTTP requests
+app.use(morgan('combined'));
 
 // API Index
 app.get('/', (req, res) => { res.send('Eureka!'); });

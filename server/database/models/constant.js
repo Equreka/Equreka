@@ -22,7 +22,8 @@ const SchemaConstant = new Schema({
     ref:  'Unit'
   },
   values: [{
-    value: Number,
+    value: Schema.Types.Mixed,
+    exact: Boolean,
     unit: {
       type: Schema.Types.ObjectId,
       ref:  'Unit'

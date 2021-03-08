@@ -58,28 +58,35 @@ export default {
     // https://i18n.nuxtjs.org/
     ['nuxt-i18n',
       {
-        defaultLocale: 'en',
-        lazy:          true,
-        langDir:       '/lang/',
-        //differentDomains: (process.env.NODE_ENV === 'production'),
         locales: [
           {
             code: 'en',
             iso:  'en-US',
-            name: 'English',
-            file: 'en.json'
+            file: 'en.json',
+            name: 'English'
           },
           {
             code: 'es',
             iso:  'en-ES',
-            name: 'Español',
-            file: 'es.json'
+            file: 'es.json',
+            name: 'Español'
           }
         ],
+        defaultLocale: 'en',
+        lazy:          true,
+        langDir:       '/lang/',
+        //differentDomains: (process.env.NODE_ENV === 'production'),
+        vuex: {
+          moduleName:      'i18n',
+          syncLocale:      true,
+          syncMessages:    true,
+          syncRouteParams: true
+        },
         vueI18n: {
           fallbackLocale: {
-            // 'es-MX':   ['es', 'en'], // Para después ;)
             'default': ['en', 'es']
+            // 'es-MX':   ['es', 'en'], // Para después ;)
+            // 'es-MX':   ['es', 'en'], // Para después ;)
           }
         }
       }

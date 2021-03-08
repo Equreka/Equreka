@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 mongoose.plugin(slug);
 
-const SchemaEntry = new Schema({
+const SchemaFormula = new Schema({
   name: {
     type: String,
     alias: 'title'
@@ -49,6 +49,6 @@ const SchemaEntry = new Schema({
   }]
 });
 
-SchemaEntry.index({ name: 'text' });
+SchemaFormula.index({ name: 'text' });
 
-module.exports = Entry = mongoose.model('Entry', SchemaEntry);
+module.exports = Formula = mongoose.model('Formula', SchemaFormula);

@@ -77,15 +77,6 @@
         text-decoration: none;
         transition:      $transition-all-ease;
         outline:         0;
-        .badge {
-          background:     hsl(var(--category-color-h), 85%, 50%);
-          color:          hsl(var(--category-color-h), 100%, 90%);
-          transition:     $transition-all-ease;
-          text-transform: uppercase;
-          font-weight:    bold;
-          font-family:    $font-family-heading-sans-serif;
-          letter-spacing: 1px;
-        }
         &:hover,
         &:focus {      
           background: hsla(var(--category-color-h), 85%, 50%, 0.2);;

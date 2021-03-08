@@ -1,24 +1,37 @@
 {
+  "Home": "Home",
   "About": "About",
   "Contact": "Contact",
   "Donate": "Donate",
-  "Formulas": "Formulas",
-  "Equations": "Equations",
-  "Variables": "Variables",
-  "Constants": "Constants",
-  "Units": "Units",
-  "Unit": "Unit",
-  "Value": "Value",
-  "Values": "Values",
-  "Symbol": "Symbol",
-  "Sym": "Sym",
-  "Name": "Name",
+
   "Category": "Category",
   "Categories": "Categories",
-  "categories": "categories",
+  "Constant": "Constant",
+  "Constants": "Constants",
+  "Equation": "Equation",
+  "Equations": "Equations",
+  "Formula": "Formula",
+  "Formulas": "Formulas",
+  "Unit": "Unit",
+  "Units": "Units",
+  "Variable": "Variable",
+  "Variables": "Variables",
+  
+  "Chemistry": "Chemistry",
   "Mathematics": "Mathematics",
   "Physics": "Physics",
-  "Chemistry": "Chemistry",
+
+  "Value": "Value",
+  "Values": "Values",
+  "Exact values": "Exact values",
+  "Approximate values": "Approximate values",
+  "Symbol": "Symbol",
+  "Sym": "Sym",
+  "Actions": "Actions",
+  "Name": "Name",
+  "Type": "Type",
+
+  "Favorites": "Favorites",
   "Theme": "Theme",
   "Change theme": "Change theme",
   "System default": "System default",
@@ -34,6 +47,11 @@
   "Add to favorites": "Add to favorites",
   "Report an error": "Report an error",
   "Copy to clipboard": "Copy to clipboard",
+  "Add": "Add",
+  "Remove": "Remove",
+  "Delete": "Delete",
+  "References": "References",
+
   "search": {
     "input-label": "Search bar",
     "input-placeholder": "Search in Equreka",
@@ -41,24 +59,39 @@
     "try-for": "You can search for constants, variables, units, formulas and/or equations",
     "no-results": "I didn't found anything.. 😧"
   },
+
   "page": {
+    "favorites": {
+      "title": "Favorites",
+      "lead": "Your favorites are stored locally in the browser so no data is saved.",
+      "support": "Browser support: ${support}",
+      "none": "You don't have any favorites! 💔",
+      "no-support": "Your browser does not support local storage function 😔, consider using another browser for this feature.",
+      "types": {
+        "entries": "General",
+        "constants": "Constants",
+        "variables": "Variables",
+        "units": "Units"
+      }
+    },
+
     "error": {
+      "404": "Page not found",
       "title": "Error in the matrix!",
       "lead": "What are you doing?!",
       "link": "Take me home 🏡",
-      "unknown": "An error occurred",
-      "404": "Page not found"
+      "unknown": "An error occurred"
     },
+
     "report": {
       "title": "Report this page",
       "lead": "Reporting errors are very important for us, thank you for taking your time to do it!",
-      "label reason": "What's wrong with this page?",
-      "label category": "Category",
-      "label type": "Type",
-      "label slug": "Identifier",
-      "input placeholder reason": "Tell us what did you find... 😧",
-      "button submit": "Send report!"
+      "label-reason": "What's wrong with this page?",
+      "label-category": "Category",
+      "label-type": "Type",
+      "label-slug": "Identifier",
+      "input-placeholder-reason": "Tell us what did you find... 😧",
+      "button-submit": "Send report!"
     }
-  },
-  "":""
+  }
 }

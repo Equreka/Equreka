@@ -1,24 +1,37 @@
 {
+  "Home": "Inicio",
   "About": "Acerca de",
   "Contact": "Contacto",
   "Donate": "Donar",
-  "Formulas": "Fórmulas",
-  "Equations": "Ecuaciones",
-  "Variables": "Variables",
-  "Constants": "Constantes",
-  "Units": "Unidades",
-  "Unit": "Unidad",
-  "Value": "Valor",
-  "Values": "Valores",
-  "Symbol": "Símbolo",
-  "Sym": "Símb",
-  "Name": "Nombre",
+
   "Category": "Categoria",
   "Categories": "Categorias",
-  "categorias": "categorias",
+  "Constant": "Constante",
+  "Constants": "Constantes",
+  "Equation": "Ecuación",
+  "Equations": "Ecuaciones",
+  "Formula": "Fórmula",
+  "Formulas": "Fórmulas",
+  "Unit": "Unidad",
+  "Units": "Unidades",
+  "Variable": "Variable",
+  "Variables": "Variables",
+
+  "Chemistry": "Química",
   "Mathematics": "Matemáticas",
   "Physics": "Física",
-  "Chemistry": "Química",
+
+  "Value": "Valor",
+  "Values": "Valores",
+  "Exact values": "Valores exactos",
+  "Approximate values": "Valores aproximados",
+  "Symbol": "Símbolo",
+  "Sym": "Símb",
+  "Actions": "Acciones",
+  "Name": "Nombre",
+  "Type": "Tipo",
+
+  "Favorites": "Favoritos",
   "Theme": "Tema",
   "Change theme": "Cambiar tema",
   "System default": "Predimentado",
@@ -34,33 +47,51 @@
   "Add to favorites": "Agregar a favoritos",
   "Report an error": "Reportar un error",
   "Copy to clipboard": "Copiar al portapapeles",
+  "Add": "Agregar",
+  "Remove": "Quitar",
+  "Delete": "Eliminar",
+  "References": "Referencias",
+
   "search": {
     "input-label": "Barra de búsqueda",
     "input-placeholder": "Buscar en Equreka",
     "button-submit": "Buscar",
     "try-for": "Intenta buscar constantes, variables, unidades, fórmulas y/o ecuaciones",
     "no-results": "No encontré nada... 😧"
-
   },
+
   "page": {
+    "favorites": {
+      "title": "Favoritos",
+      "lead": "Sus favoritos se almacenan localmente en el navegador, por lo que no se guardan datos.",
+      "support": "Soporte del navegador $0",
+      "none": "¡No tienes ningún favorito! 💔",
+      "no-support": "Su navegador no es compatible con la función de almacenamiento local 😔, considere usar otro navegador para esta función.",
+      "types": {
+        "entries": "General",
+        "constants": "Constants",
+        "variables": "Variables",
+        "units": "Units"
+      }
+    },
+
     "error": {
+      "404": "Página no encontrada",
       "title": "¡Error en la matrix!",
       "lead": "¡¿Qué tratabas de hacer?!",
       "link": "Vamos a casa 🏡",
-      "unknown": "Ocurrió un error desconocido",
-      "404": "Página no encontrada"
+      "unknown": "Ocurrió un error desconocido"
     },
+
     "report": {
       "title": "Reportar esta página",
       "lead": "Reportar errores es muy importante para nosotros, ¡gracias por tomarte el tiempo en hacerlo!",
-      "label reason": "¿Qué está mal con esta página?",
-      "label category": "Categoria",
-      "label type": "Tipo",
-      "label slug": "Identificador",
-      "input placeholder reason": "¿Qué errores encontraste? 😧",
-      "button submit": "¡Enviar reporte!"
+      "label-reason": "¿Qué está mal con esta página?",
+      "label-category": "Categoria",
+      "label-type": "Tipo",
+      "label-slug": "Identificador",
+      "input-placeholder-reason": "¿Qué errores encontraste? 😧",
+      "button-submit": "¡Enviar reporte!"
     }
-  },
-
-  "":""
+  }
 }

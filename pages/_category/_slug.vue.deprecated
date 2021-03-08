@@ -16,8 +16,9 @@
           <!-- Variables -->
           <div class="variables" v-if="data.variables.length > 0">
             <h3 class="title">{{ $t('Variables') }}</h3>
+            <!-- Table -->
             <div class="table-responsive">
-              <table class="table">
+              <table class="table table-data">
                 <thead>
                   <tr>
                     <th scope="col" class="variable symbol">{{ $t('Sym') }}</th>
@@ -51,8 +52,9 @@
           <!-- Constants -->
           <div class="constants" v-if="data.constants.length > 0">
             <h3 class="title">{{ $t('Constants') }}</h3>
+            <!-- Table -->
             <div class="table-responsive">
-              <table class="table">
+              <table class="table table-data">
                 <thead>
                   <tr>
                     <th scope="col" class="constant symbol">{{ $t('Sym') }}</th>
@@ -187,7 +189,7 @@
         }
       }
     },
-    methods: {     
+    methods: {
       copyClipboard(clipboard) {
         Equreka.copyClipboard(clipboard);
       },

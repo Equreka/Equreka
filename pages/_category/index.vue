@@ -2,18 +2,22 @@
   <main role="main">
     <PageHeader :main="true" :category="category" :name="category.name" />
     <div class="container py-4">
+      <!-- Description -->
       <p class="lead">
         {{ category.description }}
       </p>
-      <div class="list mb-4" v-if="entries">
-        <NuxtLink v-for="entry in entries" :key="entry._id" :to="category.slug + '/' + entry.slug">
-          {{ entry.name }}
+      <!-- Data -->
+      <div class="list mb-4" v-if="equations">
+        <NuxtLink v-for="equation in equations" :key="equation._id" :to="category.slug + '/equations/' + equation.slug">
+          {{ equation.name }}
         </NuxtLink>
       </div>
+      <!-- No data -->
       <div v-else>
-        <h2>No entries :(</h2>
+        <h2>Nothing found :(</h2>
         <NuxtLink to="/">Go back</NuxtLink>
       </div>
+      <!-- Pagination -->
       <nav class="d-none" aria-label="Page navigation example">
         <ul class="pagination">
           <li class="page-item"><a class="page-link" href="/">Previous</a></li>
@@ -31,7 +35,7 @@
     data() {
       return {
         category: {},
-        entries: {}
+        equations: {}
       }
     },
     async asyncData ({ params, error }) {
@@ -41,19 +45,19 @@
         process.env.baseUrl + '/api/categories/' + slug
       ).then((res) => res.json());
 
-      const entries = await fetch(
-        process.env.baseUrl + '/api/entries/category/' + slug
+      const equations = await fetch(
+        process.env.baseUrl + '/api/equations/category/' + slug
       ).then((res) => res.json());
 
-      if(category && entries.length != 0) {
+      if(category && equations.length != 0) {
         return {
           category: category,
-          entries: entries
+          equations: equations
         }
-      } else if(category && entries.length === 0) {        
+      } else if(category && equations.length === 0) {        
         return {
           category: category,
-          entries: false
+          equations: false
         }
       } else {
         error({ statusCode: 404 });

@@ -65,3 +65,21 @@ h1, h2, h3, h4, h5, h6
 a {
   transition: color 0.35s ease;
 }
+
+.link-category {
+  color: $link-color;
+  &:hover {
+    color: var(--category-color, #{$primary});
+  }
+}
+
+.badge-category {
+  background:     hsl(var(--category-color-h), 85%, 50%) !important;
+  color:          hsl(var(--category-color-h), 100%, 90%) !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-weight:    bold;
+  font-family:    $font-family-heading-sans-serif;
+  transition:     $transition-all-ease;
+}

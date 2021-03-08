@@ -4,7 +4,8 @@ const { param } = require('express-validator');
 
 // GET - All
 router.get('/', async (req, res) => {
-  const data = await Constant.find();
+  const data = await Constant.find()
+  .populate('category, unit')
   res.json(data);
 });
 
@@ -29,6 +30,30 @@ async (req, res) => {
 router.get('/:slug', async (req, res) => {
   const data = await Constant.findOne({
     'slug': req.params.slug
+  })
+  .populate('category', {
+    _id: 0,
+    name: 1,
+    slug: 1
+  })
+  .populate('unit', {
+    _id: 0,
+    name: 1,
+    symbol: 1
+  })
+  .populate('values.unit', {
+    _id: 0,
+    name: 1,
+    slug: 1,
+    symbol: 1
+  })
+  res.json(data);
+});
+
+// GET - By Id
+router.get('/id/:id', async (req, res) => {
+  const data = await Constant.findOne({
+    '_id': req.params.id
   })
   .populate('category', {
     _id: 0,

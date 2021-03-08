@@ -19,11 +19,11 @@
     <div class="results" role="menu" tabindex="-1" v-if="searchResults || searchFocus">
       <template v-if="searchResults">
         <SearchResult id="search-bar-results"
-          v-for="searchItem in searchData"
-          :key="searchItem.title"
-          v-bind:title="searchItem.title"
-          v-bind:slug="searchItem.slug"
-          v-bind:data="searchItem.data"
+          v-for="(searchData, searchType) in searchData"
+          :key="searchData.slug"
+          v-bind:type="searchType.charAt(0).toUpperCase() + searchType.slice(1)"
+          v-bind:slug="searchType"
+          v-bind:data="searchData"
           @click.native="searchResults = false, searchQuery = ''"
           @focus.native="searchFocus = true"
         />
@@ -43,6 +43,7 @@
 </template>
 
 <script>
+  import Equreka from '@/constants'
   export default {
     data() {
       return {
@@ -50,26 +51,11 @@
         searchQuery:   '',
         searchResults: false,
         searchData: {
-          entries: {
-            title: 'Formulas or equations',
-            slug:  '',
-            data:  {}
-          },
-          variables: {
-            title: 'Variables',
-            slug:  'variables/',
-            data:  {}
-          },
-          constants: {
-            title: 'Constants',
-            slug:  'constants/',
-            data:  {}
-          },
-          units: {
-            title: 'Units',
-            slug:  'units/',
-            data:  {}
-          }
+          equations: {},
+          formulas:  {},
+          variables: {},
+          constants: {},
+          units:     {}
         }
       }
     },
@@ -82,33 +68,28 @@
           this.searchResults = false;
           return;
         }
-        
-        // Entries
-        this.searchData.entries.data = await fetch(
-          process.env.baseUrl + '/api/entries/search/' + searchQuery
-        ).then((res) => res.json());
-        // Variables
-        this.searchData.variables.data = await fetch(
-          process.env.baseUrl + '/api/variables/search/' + searchQuery
-        ).then((res) => res.json());
-        // Constants
-        this.searchData.constants.data = await fetch(
-          process.env.baseUrl + '/api/constants/search/' + searchQuery
-        ).then((res) => res.json());
-        // Units
-        this.searchData.units.data = await fetch(
-          process.env.baseUrl + '/api/units/search/' + searchQuery
-        ).then((res) => res.json());
+
+        let data = [];
+        await Promise.all((Equreka.COLLECTIONS).map(async (type) => {
+          data[type] = await fetch(process.env.baseUrl + '/api/' + type + '/search/' + searchQuery).then((res) => res.json());
+        }));
+
+        this.searchData.constants = data['constants'];
+        this.searchData.equations = data['equations'];
+        this.searchData.formulas =  data['formulas'];
+        this.searchData.variables = data['variables'];
+        this.searchData.units =     data['units'];
 
         // Search results
         if(
-          (this.searchData.entries.data   && this.searchData.entries.data.length   > 0) ||
-          (this.searchData.variables.data && this.searchData.variables.data.length > 0) ||
-          (this.searchData.constants.data && this.searchData.constants.data.length > 0) ||
-          (this.searchData.units.data     && this.searchData.units.data.length     > 0)
+          (this.searchData.constants && this.searchData.constants.length > 0) ||
+          (this.searchData.equations && this.searchData.equations.length > 0) ||
+          (this.searchData.formulas  && this.searchData.formulas.length  > 0) ||
+          (this.searchData.variables && this.searchData.variables.length > 0) ||
+          (this.searchData.units     && this.searchData.units.length     > 0)
         ) {
           this.searchResults = true;
-          this.searchFocus = true;
+          this.searchFocus =   true;
         } else {
           this.searchResults = false;
         }

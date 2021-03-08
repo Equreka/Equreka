@@ -1,5 +1,6 @@
 let Equreka = {
   // Constants
+  COLLECTIONS: ['constants', 'equations', 'formulas', 'units', 'variables'],
   TERM_SELECTOR:     '.eqk',
   TRANSITION_TIMING: 350,
   
@@ -173,9 +174,43 @@ let Equreka = {
    * @returns 
    */
   formatNumber (number) {
+    //Equreka.log(typeof number);
     // Undefined to get browser default format depending on user locale
-    return number.toLocaleString(undefined, { minimumFractionDigits: 2 });
+    if(typeof number == 'string') {
+      return number;
+    } else {
+      return number.toLocaleString(undefined, { minimumFractionDigits: 2 });
+    }
+  },
+
+  async getFavorites (type) {
+    let dataArray = [];
+    let dataStorage;
+
+    try {
+      dataStorage = JSON.parse(localStorage.getItem('favorites.'+type));
+    } catch {
+      dataStorage = false;
+    }
+
+    if(dataStorage) {
+      for (let i = 0, c = 0; i < dataStorage.length; i++) {
+        const element = dataStorage[i];
+        let data = await fetch(
+          process.env.baseUrl + '/api/' + type + '/id/' + element
+        ).then((res) => res.json());
+        if(data) {
+          dataArray[c] = data
+          c++;
+        }
+      }
+      return dataArray;
+    } else {
+      return false;
+    }
   }
+
+  // End
 }
 
 export default Equreka;

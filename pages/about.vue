@@ -11,13 +11,11 @@
       <p>All open source projects and specially the ones that made possible this project</p>
       <p>You can check our <a  target="_blank" rel="noopener nofollow" href="https://github.com/Equreka">Github</a> for a more complete list in our source-code.</p>
       <p>Here are some projects (in no particular order) that made this project possible:</p>
-      <div class="list-group">
-        <a class="list-group-item" target="_blank" rel="noopener nofollow"
+        <a class="btn btn-link" target="_blank" rel="noopener nofollow"
           v-for="(url, title) in projects"
           :key="title"
           :href="url"
         >{{ title }}</a>
-      </div>
     </div>
   </main>
 </template>

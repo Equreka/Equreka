@@ -9,10 +9,14 @@
     flex-wrap  : wrap !important;    
   }
   .equreka {
-    margin-right: 0.5rem;
-    width:   62px;
-    height:  auto;
-    @include media-breakpoint-up($navbar-expand) {
+    width:   42px;
+    height:  100%;
+    object-fit: cover;
+    object-position: center;
+    @media (min-width: 375px) {
+      width: 62px;
+    }
+    @media (min-width: 425px) {
       width: 72px;
     }
   }
@@ -43,12 +47,13 @@
   }
   // Icons
   .bi {
-    font-size:     24px;
+    font-size:     18px;
     margin-bottom: -2px;
-  }
-  .left {
-    .bi {
-      font-size: 28px;
+    @media (min-width: 375px) {
+      font-size: 20px;
+    }
+    @media (min-width: 425px) {
+      font-size: 26px;
     }
   }
   // Right

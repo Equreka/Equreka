@@ -2,6 +2,7 @@
   <header class="header">
     <nav class="navbar navbar-expand-md">
       <div class="container">
+        <!-- Left -->
         <div class="left">
           <NuxtLink :to="localePath('/')">
             <Logo/>
@@ -19,10 +20,23 @@
             </b-dropdown-item>
           </b-dropdown>
         </div>
+        <!-- Center -->
         <div class="center">
           <Search />
         </div>
+        <!-- Right -->
         <div class="right">
+          <!-- Button: Home -->
+          <NuxtLink class="btn" :to="localePath('/')">
+            <i class="bi bi-house"></i>
+            <span class="visually-hidden">{{ $t('Home') }}</span>
+          </NuxtLink>
+          <!-- Button: Favorites -->
+          <NuxtLink class="btn" :to="localePath('/favorites/')">
+            <i class="bi bi-heart"></i>
+            <span class="visually-hidden">{{ $t('Favorites') }}</span>
+          </NuxtLink>
+          <!-- Dropdown: Theme -->
           <b-dropdown variant="link" v-model="$colorMode.preference" no-caret right>
             <template #button-content>
               <i class="bi bi-moon theme-icon"></i>
@@ -30,7 +44,8 @@
             </template>
             <b-dropdown-header>{{ $t('Theme') }}</b-dropdown-header>
             <b-dropdown-item v-for="(option, code) in themeColors" :key="code"  @click="$colorMode.preference = code, themeTransition(code, $colorMode.value, $colorMode._darkWatcher.matches)">{{ $t(option) }}</b-dropdown-item>
-          </b-dropdown>
+          </b-dropdown>          
+          <!-- Dropdown: Language -->
           <b-dropdown variant="link" no-caret right>
             <template #button-content>
               <i class="bi bi-globe"></i>
