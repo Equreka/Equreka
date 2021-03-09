@@ -9,7 +9,7 @@
 [![Sponsor](https://img.shields.io/github/sponsors/DerianAndre?style=social)](https://github.com/sponsors/DerianAndre)
 [![GitHub](https://img.shields.io/github/license/Equreka/Equreka?color=green&label=License)](https://github.com//Equreka)
 
-### Your free and open-source site/app for variables, constants, formulas and equations
+### Your free and open-source app for variables, constants, formulas and equations
 
 **Sponsor Equreka** https://github.com/sponsors/DerianAndre
 
@@ -54,6 +54,8 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 ### Database
 - [ ] Add subcategories (?)
 - [ ] Improve general structure (?)
-- [ ] Traductions in database (?)
+- [ ] Improve traductions structure (?)
 ### Scripts
 - [ ] Improve Hover system for dynamic created elements (MathJax)
+- [ ] Improve favorites system (working but very basic)
+- [ ] Add import/export favorites

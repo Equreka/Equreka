@@ -7,7 +7,7 @@
           <NuxtLink :to="localePath('/')">
             <Logo/>
           </NuxtLink>
-          <b-dropdown variant="link" :text="$t('Categories')" no-caret left>
+          <b-dropdown variant="link" :text="$t('Categories')" :title="$t('Categories')" no-caret left>
             <template #button-content class="focus-visible">
               <span class="visually-hidden">{{ $t('Categories') }}</span>
               <i class="bi bi-list"></i>
@@ -27,26 +27,30 @@
         <!-- Right -->
         <div class="right">
           <!-- Button: Home -->
-          <NuxtLink class="btn" :to="localePath('/')">
+          <NuxtLink class="btn" :to="localePath('/')" :title="$t('Home')">
             <i class="bi bi-house"></i>
             <span class="visually-hidden">{{ $t('Home') }}</span>
           </NuxtLink>
           <!-- Button: Favorites -->
-          <NuxtLink class="btn" :to="localePath('/favorites/')">
+          <NuxtLink class="btn" :to="localePath('/favorites/')" :title="$t('Favorites')">
             <i class="bi bi-heart"></i>
             <span class="visually-hidden">{{ $t('Favorites') }}</span>
           </NuxtLink>
           <!-- Dropdown: Theme -->
-          <b-dropdown variant="link" v-model="$colorMode.preference" no-caret right>
+          <b-dropdown variant="link" v-model="$colorMode.preference" no-caret right :title="$t('Change theme')">
             <template #button-content>
               <i class="bi bi-moon theme-icon"></i>
               <span class="visually-hidden">{{ $t('Change theme') }}</span>
             </template>
-            <b-dropdown-header>{{ $t('Theme') }}</b-dropdown-header>
-            <b-dropdown-item v-for="(option, code) in themeColors" :key="code"  @click="$colorMode.preference = code, themeTransition(code, $colorMode.value, $colorMode._darkWatcher.matches)">{{ $t(option) }}</b-dropdown-item>
+            <b-dropdown-header>
+              {{ $t('Theme') }}
+            </b-dropdown-header>
+            <b-dropdown-item v-for="(option, code) in themeColors" :key="code"  @click="$colorMode.preference = code, themeTransition(code, $colorMode.value, $colorMode._darkWatcher.matches)">
+              {{ $t(option) }}
+            </b-dropdown-item>
           </b-dropdown>          
           <!-- Dropdown: Language -->
-          <b-dropdown variant="link" no-caret right>
+          <b-dropdown variant="link" no-caret right :title="$t('Change language')">
             <template #button-content>
               <i class="bi bi-globe"></i>
               <span class="visually-hidden">{{ $t('Change language') }}</span>
@@ -61,7 +65,7 @@
 </template>
 
 <script>
-  import Equreka from '~/constants/index';
+  import Equreka from '@/equreka';
   export default {
     data () {
       return {

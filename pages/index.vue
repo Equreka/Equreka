@@ -27,10 +27,12 @@ export default {
   async fetch () {
     this.categories = await fetch(process.env.baseUrl + '/api/categories/').then(res => res.json());
   },
-  head: {
-    bodyAttrs: {
-      class: 'page-home'
+  head() {
+    return {
+      bodyAttrs: {
+        class: `page-home`
+      }
     }
-  },
+  }
 }
 </script>

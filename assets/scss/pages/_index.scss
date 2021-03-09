@@ -7,15 +7,14 @@
 
 .page-enter-active,
 .page-leave-active {
-  transition: opacity 0.25s;
+  transition: opacity 0.15s;
 }
 .page-enter,
 .page-leave-to {
   opacity: 0;
 }
 
-.page-category,
-.page-entry {
+.page-data {
   &::-webkit-scrollbar {
     background: var(--body-bg);
     width: 16px;
@@ -23,7 +22,6 @@
   }
   &::-webkit-scrollbar-thumb {
     background: hsl(var(--category-color-h), var(--category-color-s), 30%);
-    border-radius: 8px;
   }
   &::-webkit-scrollbar-thumb:active {
     background: var(--bs-primary);

@@ -1,0 +1,19 @@
+// Badge
+.badge-category,
+.badge-type {
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 1px;
+  font-weight:    bold;
+  font-family:    $font-family-heading-sans-serif;
+  transition:     $transition-all-ease;
+}
+
+.badge-category {
+  background:     hsl(var(--category-color-h), 85%, 50%) !important;
+  color:          hsl(var(--category-color-h), 100%, 90%) !important;
+}
+
+.badge-type {
+  background: hsla(220, 85%, var(--theme-inverted-lightness), 0.15) !important;
+}

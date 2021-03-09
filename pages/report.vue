@@ -38,9 +38,11 @@
         error({ statusCode: 404 });
       }
     },
-    head: {
-      bodyAttrs: {
-        class: 'page-report'
+    head() {
+      return {
+        bodyAttrs: {
+          class: `page-report`
+        }
       }
     }
   }

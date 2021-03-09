@@ -21,3 +21,15 @@
     </div>
   </main>
 </template>
+
+<script>
+  export default {
+    head() {
+      return {
+        bodyAttrs: {
+          class: `page-contact`
+        }
+      }
+    }
+  }
+</script>

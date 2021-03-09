@@ -1,6 +1,6 @@
 <template>
   <main role="main">
-    <PageHeader :category="category" :type="type" :name="name" :data="data" :json="json" />
+    <PageHeader :category="category" :type="type" :name="data.name" :data="data" :json="json" />
     <div class="container">
       <template v-if="type === 'equations' || type == 'formulas'">
         <!-- Expression -->
@@ -224,36 +224,40 @@
 
 
 <script>
-  import Equreka from '@/constants';
+  import Equreka from '@/equreka';
   export default {
     data () {
       return {
         selector: Equreka.TERM_SELECTOR.substring(1),
         data:     {},
-        category: {},
+        category: String,
         type:     String,
         name:     String,
         json:     false
       }
     },
     async asyncData ({ params, error }) {
-      const slug = params.slug;
+      const category = params.category;
       const type = params.type;
 
-      const data = await fetch(
-        process.env.baseUrl + '/api/' + type + '/' + slug
-      ).then((res) => res.json());
+      if(!Equreka.CATEGORIES.includes(category) || !Equreka.TYPES.includes(type)) {
+        error({ statusCode: 404 });
+        return;
+      }
 
-      if(data && data.category.slug == params.category) { 
+      const slug = params.slug;
+      const data = await fetch(process.env.baseUrl + '/api/' + type + '/' + slug).then((res) => res.json());
+
+      if(data && data.category.slug == category) { 
         return { 
           data:     data,
-          name:     data.name,
-          category: data.category,
-          type:     params.type,
+          category: category,
+          type:     type,
           json:     Equreka.jsonDownload(data)
         }
       } else {
         error({ statusCode: 404 });
+        return;
       }
     },
     mounted() {
@@ -262,7 +266,7 @@
     head() {
       return {
         bodyAttrs: {
-          class: `page-data page-${this.type} ${this.category.slug}`
+          class: `page-data page-${this.type} ${this.category}`
         }
       }
     },

@@ -1,14 +1,14 @@
 <template> 
   <main role="main">
-    <PageHeader :main="true" :category="category" :name="category.name" />
+    <PageHeader :main="true" :category="category" :name="category" />
     <div class="container py-4">
       <!-- Description -->
       <p class="lead">
-        {{ category.description }}
+        {{ $t('page.categories.' + category + '.lead') }}
       </p>
       <!-- Data -->
       <div class="list mb-4" v-if="equations">
-        <NuxtLink v-for="equation in equations" :key="equation._id" :to="category.slug + '/equations/' + equation.slug">
+        <NuxtLink v-for="equation in equations" :key="equation._id" :to="category + '/equations/' + equation.slug">
           {{ equation.name }}
         </NuxtLink>
       </div>
@@ -31,48 +31,44 @@
   </main>
 </template>
 <script>
+  import Equreka from '@/equreka';
   export default {
     data() {
       return {
-        category: {},
-        equations: {}
+        category: false,
+        equations: false
       }
     },
     async asyncData ({ params, error }) {
-      const slug = params.category;
+      const category = params.category;
+      if(!Equreka.CATEGORIES.includes(category)) {
+        error({ statusCode: 404 });
+        return;
+      }
 
-      const category = await fetch(
-        process.env.baseUrl + '/api/categories/' + slug
-      ).then((res) => res.json());
-
-      const equations = await fetch(
-        process.env.baseUrl + '/api/equations/category/' + slug
-      ).then((res) => res.json());
+      const equations = await fetch(process.env.baseUrl + '/api/equations/category/' + category).then((res) => res.json());
 
       if(category && equations.length != 0) {
         return {
-          category: category,
+          category:  category,
           equations: equations
         }
       } else if(category && equations.length === 0) {        
         return {
-          category: category,
+          category:  category,
           equations: false
         }
       } else {
         error({ statusCode: 404 });
+        return;
       }
     },
     head() {
       return {
         bodyAttrs: {
-          class: 'page-category ' + this.category.slug
+          class: `page-category ${this.category}`
         }
       }
     }
   }
 </script>
-
-<style>
-
-</style>

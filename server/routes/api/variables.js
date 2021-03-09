@@ -1,5 +1,6 @@
 const router = require('express').Router();
 const Variable = require('../../database/models/variable');
+const Category = require('../../database/models/category');
 const { param } = require('express-validator');
 
 // GET - All
@@ -39,6 +40,34 @@ router.get('/:slug', async (req, res) => {
     name: 1,
     slug: 1
   })
+  res.json(data);
+});
+
+// GET - By Category
+router.get('/category/:category', async (req, res) => {
+  const category = await Category.findOne({
+    'slug': req.params.category
+  });  
+  if (category === null) {
+    res.json(null);
+    return;
+  }
+  const data = await Variable.find({
+    'category._id': category._id 
+  });
+  res.json(data);
+});
+
+// GET - By Id
+router.get('/id/:id', async (req, res) => {
+  const data = await Variable.findOne({
+    '_id': req.params.id
+  })
+  .populate('category', {
+    _id: 0,
+    name: 1,
+    slug: 1
+  });
   res.json(data);
 });
 

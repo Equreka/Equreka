@@ -60,9 +60,13 @@
 </template>
 
 <script>
-export default {}
+  export default {
+    head() {
+      return {
+        bodyAttrs: {
+          class: `page-category`
+        }
+      }
+    }
+  }
 </script>
-
-<style>
-
-</style>

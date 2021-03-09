@@ -12,15 +12,18 @@
 
 // UI
 @import "page-header";
+@import "abbr";
 
 // Math
 @import "math";
 @import "mathjax";
 
 // Bootstrap
+@import "badge";
 @import "button";
 @import "dropdown";
 @import "forms";
+@import "table";
 
 // Animation
 @import "keyframes";

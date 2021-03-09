@@ -1,5 +1,7 @@
 const router = require('express').Router();
+const mongoose = require('mongoose');
 const Constant = require('../../database/models/constant');
+const Category = require('../../database/models/category');
 const { param } = require('express-validator');
 
 // GET - All
@@ -71,6 +73,21 @@ router.get('/id/:id', async (req, res) => {
     slug: 1,
     symbol: 1
   })
+  res.json(data);
+});
+
+// GET - By Category
+router.get('/category/:category', async (req, res) => {
+  const category = await Category.findOne({
+    'slug': req.params.category
+  });
+  if (category === null) {
+    res.json(null);
+    return;
+  }
+  const data = await Constant.find({
+    'category._id': category._id 
+  });
   res.json(data);
 });
 

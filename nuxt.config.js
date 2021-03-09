@@ -56,41 +56,40 @@ export default {
     // https://go.nuxtjs.dev/bootstrap
     'bootstrap-vue/nuxt',
     // https://i18n.nuxtjs.org/
-    ['nuxt-i18n',
-      {
-        locales: [
-          {
-            code: 'en',
-            iso:  'en-US',
-            file: 'en.json',
-            name: 'English'
-          },
-          {
-            code: 'es',
-            iso:  'en-ES',
-            file: 'es.json',
-            name: 'Español'
-          }
-        ],
-        defaultLocale: 'en',
-        lazy:          true,
-        langDir:       '/lang/',
-        //differentDomains: (process.env.NODE_ENV === 'production'),
-        vuex: {
-          moduleName:      'i18n',
-          syncLocale:      true,
-          syncMessages:    true,
-          syncRouteParams: true
+    ['nuxt-i18n', {
+      seo: true,
+      locales: [
+        {
+          code: 'en',
+          iso:  'en-US',
+          file: 'en.json',
+          name: 'English'
         },
-        vueI18n: {
-          fallbackLocale: {
-            'default': ['en', 'es']
-            // 'es-MX':   ['es', 'en'], // Para después ;)
-            // 'es-MX':   ['es', 'en'], // Para después ;)
-          }
+        {
+          code: 'es',
+          iso:  'en-ES',
+          file: 'es.json',
+          name: 'Español'
+        }
+      ],
+      defaultLocale: 'en',
+      lazy:          true,
+      langDir:       '/lang/',
+      //differentDomains: (process.env.NODE_ENV === 'production'),
+      vuex: {
+        moduleName:      'i18n',
+        syncLocale:      true,
+        syncMessages:    true,
+        syncRouteParams: true
+      },
+      vueI18n: {
+        fallbackLocale: {
+          'default': ['en', 'es']
+          // 'es-MX':   ['es', 'en'], // Para después ;)
+          // 'es-MX':   ['es', 'en'], // Para después ;)
         }
       }
-    ]
+    }]
   ],
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

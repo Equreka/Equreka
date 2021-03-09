@@ -13,3 +13,15 @@
     </div>
   </main>
 </template>
+
+<script>
+  export default {
+    head() {
+      return {
+        bodyAttrs: {
+          class: `page-donate`
+        }
+      }
+    }
+  }
+</script>

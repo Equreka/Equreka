@@ -1,9 +1,18 @@
 let Equreka = {
+
+  //
   // Constants
-  COLLECTIONS: ['constants', 'equations', 'formulas', 'units', 'variables'],
+  //
+
+  CATEGORIES:  ['universal', 'chemistry', 'mathematics', 'physics'],
+  TYPES:       ['constants', 'equations', 'formulas', 'units', 'variables'],
   TERM_SELECTOR:     '.eqk',
   TRANSITION_TIMING: 350,
   
+  //
+  //  Functions
+  //
+
   /**
    * Log
    * 
@@ -69,7 +78,6 @@ let Equreka = {
   * 
   * @param {string} data Expression / Description
   */
-
   parserLaTeX (data) {
     const classPrefix = Equreka.TERM_SELECTOR.substring(1);
     const regex = /\\(var|const)\{(.*?)\}/g;
@@ -183,6 +191,18 @@ let Equreka = {
     }
   },
 
+  //
+  //  Favorites
+  //
+
+  /**
+   * Favorites: Get Favorites
+   * 
+   * Gets all favorites stored in localStorage as a JSON string
+   * 
+   * @param   {string}          type Type of data
+   * @returns {object, boolean} 
+   */
   async getFavorites (type) {
     let dataArray = [];
     let dataStorage;
@@ -208,8 +228,104 @@ let Equreka = {
     } else {
       return false;
     }
-  }
+  },
 
+  /**
+   * Have Favorites
+   * 
+   * Check if there is items and key inn localStorage favorites
+   * 
+   * @param   {object}  object 
+   * @returns {boolean}
+   */
+  haveFavorites(object) {
+    if(Object.keys(object).length === 0) return false;
+
+    let isEmpty = 0;
+
+    // Check every object
+    for (const key in object) {
+      if (Object.hasOwnProperty.call(object, key)) {
+        const element = object[key];
+        if(Object.keys(element).length != 0) {
+          isEmpty++;
+        }
+      }
+    }
+
+    isEmpty = (isEmpty === 0) ? false : true;
+
+    return isEmpty;
+  },
+  /**
+   * Add Favorite
+   * @param   {string}   type Type of data
+   * @param   {ObjectId} id   ObjectID
+   * @returns {boolean}
+   */
+  addFavorite(type, id) {
+    if (typeof(Storage) !== "undefined") {
+      var favoritesType =  type;
+      var favoritesValue = id;
+      var favoritesKey =   `favorites.${favoritesType}`;
+
+      // If array already exists
+      if(localStorage.getItem(favoritesKey)) {
+        var favoritesArray = JSON.parse(localStorage.getItem(favoritesKey));
+        
+        if(!favoritesArray.includes(favoritesValue)) {
+          favoritesArray.push(favoritesValue);
+        }
+      } else {
+        var favoritesArray = [];
+        favoritesArray[0] = favoritesValue;
+      }
+
+      // Save it to localStorage
+      localStorage.setItem(favoritesKey, JSON.stringify(favoritesArray));
+
+      return true;
+    } else {
+      return false;
+    }
+  },
+
+  /**
+   * Favorites: Remove Favorite
+   * 
+   * Delete ObjectId from array or delets the key if there is no favorites at all
+   * 
+   * @param {string} type Type of data
+   * @param {ObjectId} id   ObjectId of the data
+   * @returns {boolean}
+   */
+  removeFavorite(type, id) {
+    if(!type || !id) return false;
+    
+    let dataStorage;
+    //
+    try {
+      dataStorage = JSON.parse(localStorage.getItem('favorites.'+type));
+    } catch {
+      dataStorage = false;
+    }
+
+    if(dataStorage) {
+      const index = dataStorage.indexOf(id);
+      if (index > -1) {
+        dataStorage.splice(index, 1);
+      }
+
+      if(dataStorage.length != 0) {
+        localStorage.setItem('favorites.'+type, JSON.stringify(dataStorage));
+      } else {
+        localStorage.removeItem('favorites.'+type);
+      }
+      return true;
+    } else {
+      return false;
+    }
+  }
   // End
 }
 

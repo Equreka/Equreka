@@ -42,6 +42,19 @@ router.get('/:slug', async (req, res) => {
   res.json(data);
 });
 
+// GET - By Id
+router.get('/id/:id', async (req, res) => {
+  const data = await Unit.findOne({
+    '_id': req.params.id
+  })
+  .populate('category', {
+    _id: 0,
+    name: 1,
+    slug: 1
+  });
+  res.json(data);
+});
+
 // POST - Create
 router.post('/create/', async (req, res) => {
   const data = await Unit.create(req.body);

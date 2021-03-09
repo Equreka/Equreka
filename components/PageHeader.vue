@@ -1,24 +1,36 @@
 <template>
-  <header class="page-header" :class="category.slug">
+  <header class="page-header" :class="category">
     <div class="container">
       <div class="wrapper">
         <div class="info">
           <!-- Category -->
-          <template v-if="main">
-            <span class="category">{{ $t('Category') }}</span>
+          <template v-if="!type && !data">
+            <span class="category">
+              {{ $t('Category') }}
+            </span>
           </template>
           <template v-else>
-            <NuxtLink class="category" :to="localePath('/' + category.slug)">{{ $t(category.name) }}</NuxtLink>
+            <NuxtLink class="category" :to="localePath('/' + category)">
+              {{ $t('page.header.' + category) }}
+            </NuxtLink>
           </template>
           <!-- Type -->
-          <template v-if="type">
+          <template v-if="type && data">
             <i class="divider bi bi-chevron-right"></i>
-            <NuxtLink class="type" :to="localePath('/' + category.slug + '/' + type)">
-              {{ $t(type[0].toUpperCase() + type.substring(1)) }}
+            <NuxtLink class="type" :to="localePath('/' + category + '/' + type)">
+              {{ $t('page.header.' + type) }}
             </NuxtLink>
           </template>
           <!-- Name -->
-          <h1 class="name">{{ $t(name) }}</h1>
+          <h1 class="name">
+            <template v-if="!data">
+                {{ $t('page.header.' + name) }}
+            </template>
+            <template v-else>
+                {{ $t(name) }}
+            </template>
+          </h1>
+
         </div>
 
         <!-- Options -->
@@ -36,7 +48,7 @@
             <i class="bi bi-heart"></i>
             {{ $t('Add to favorites') }}
           </b-dropdown-item>
-          <b-dropdown-item @click="report()">
+          <b-dropdown-item @click="reportPage()">
             <i class="bi bi-flag"></i>
             {{ $t('Report an error') }}
           </b-dropdown-item>
@@ -47,46 +59,27 @@
 </template>
 
 <script>
-  import Equreka from '@/constants';
+  import Equreka from '@/equreka';
   export default {
     props: {
-      main: Boolean,
-      category: [String, Object],
+      category: String,
       type: String,
-      slug: String,
       name: String,
       data: [Array, Object],
       json: String
     },
     methods: {
-      report() {
+      reportPage() {
         this.$router.push({ 
           path:  this.localePath('/report'), 
           query: this.$route.params
         })
       },
       addFavorite() {
-        if (typeof(Storage) !== "undefined") {
-          var favoritesType =   (this.type == null) ? 'entries' : this.type;
-          var favoritesKey =   `favorites.${favoritesType}`;
-          var favoritesValue = this.data._id;
-
-          // If array already exists
-          if(localStorage.getItem(favoritesKey)) {
-            var favoritesArray = JSON.parse(localStorage.getItem(favoritesKey));
-            favoritesArray.push(favoritesValue);
-          } else {
-            var favoritesArray = [];
-            favoritesArray[0] = favoritesValue;
-          }
-
-          // Save it to localStorage
-          localStorage.setItem(favoritesKey, JSON.stringify(favoritesArray));
-
-          alert('Added to favorites');
-        } else {
-          // No localStorage support :(
-          alert($t('page.favorites.no-support'))
+        if(Equreka.addFavorite(this.type, this.data._id)) {
+          alert(this.$t('Added to favorites'));
+        } else {          
+          alert(this.$t('page.favorites.no-support'))
         }
       }
     }

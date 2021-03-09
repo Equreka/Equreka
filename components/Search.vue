@@ -43,7 +43,7 @@
 </template>
 
 <script>
-  import Equreka from '@/constants'
+  import Equreka from '@/equreka'
   export default {
     data() {
       return {
@@ -70,7 +70,7 @@
         }
 
         let data = [];
-        await Promise.all((Equreka.COLLECTIONS).map(async (type) => {
+        await Promise.all((Equreka.TYPES).map(async (type) => {
           data[type] = await fetch(process.env.baseUrl + '/api/' + type + '/search/' + searchQuery).then((res) => res.json());
         }));
 

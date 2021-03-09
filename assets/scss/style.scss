@@ -20,11 +20,6 @@
 @import "custom";
 
 .theme-transition {
-  *,
-  *::before,
-  *::after {
-    transition: $transition-all-ease !important;
-  }
   .theme-icon {
     animation: theme-change 0.35s $transition-speed-ease forwards !important;
   }
