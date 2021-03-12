@@ -1,102 +1,121 @@
 // Page: Data
-.page-data {
-  main {
-    font-size: 85%;
-    overflow: hidden;
-    @include media-breakpoint-up(md) {
-      font-size: 100%;
-    }    
-    a {
-      color: var(--body-color);
-      &:hover {
-        color: var(--term-color, var(--category-color));
+main.data {
+  overflow: hidden;
+  @include rs('font-size', 0.9rem, 2vw, 1rem);
+  a {
+    color: var(--body-color);
+    &:hover {
+      color: var(--term-color, var(--category-color));
+    }
+  }
+  section {
+    padding:  1rem 0;
+    // Title
+    .title {
+      font-weight:   600;
+      margin-bottom: 1.25rem;
+      @include rs('font-size', 1rem, 2vw, 1.35rem);
+    }
+    // Sub-title
+    .subtitle {
+      font-weight: 500;
+      font-size:   1rem;
+      opacity:     0.75;
+    }
+    // Expression / Symbol
+    &.mathjax {
+      position:        relative;
+      margin-bottom:   0.5rem;
+      background:      var(--acrylic-backdrop-bg);
+      color:           var(--body-color-highlight);
+      min-height:      80px;
+      display:         flex;
+      align-items:     center;
+      justify-content: center;
+      flex:            1 1 100%;
+      order:           0;
+      transition:      all 0.5s $transition-speed-ease;
+      box-shadow:      0 1rem 1rem -1rem hsla(220, 10%, 0%, 0.10);
+      @include rs('padding-top',    1.25rem, 2vw, 2.5rem);
+      @include rs('padding-bottom', 1.25rem, 2vw, 2.5rem);
+      @include rs('border-radius', 0.5rem, 2vw, 1rem);
+      @include media-breakpoint-up(sm) {
+        margin-bottom: 1rem;
+      }
+      .hover {
+        color: var(--term-color);
+      }
+      .wrapper {
+        opacity: 0;
+      }
+      mjx-container {
+        margin: 0;
+      }
+      &.rendered {
+        .loader {
+          animation: fade-out 0.35s $transition-speed-ease forwards;
+        }
+        .wrapper {
+          animation: loaded 0.35s 0.35s $transition-speed-ease forwards;
+        }
       }
     }
-    section {
-      padding:  1rem 0;
-      // Title
-      .title {
-        font-weight:   600;
-        font-size:     1.35rem;
-        margin-bottom: 1.25rem;
-      }
-      // Sub-title
-      .subtitle {
-        font-weight: 500;
-        font-size:   1rem;
-        opacity:     0.75;
-      }
-      // Expression / Symbol
-      &.expression,
-      &.symbol {
-        color:           var(--body-color-highlight);
-        display:         flex;
-        align-items:     center;
-        justify-content: center;
-        flex:            1 1 100%;
-        min-height:      150px;
-        order:           0;
-        transition:      color 0.35s $transition-speed-ease;
-        .hover {
-          color: var(--term-color);
-        }
-      }
 
-      // Expression
-      &.expression {
-        padding:   1rem 0;
-        font-size: 120%;
-        @supports (font-size: clamp(1vw, 1vw, 1vw)) {
-          font-size: clamp(1.5rem, 2.5vw, 2.5rem);
-        }
-      }
+    // Expression
+    &.expression {
+      @include rs('font-size', 1.25rem, 2.5vw, 2.5rem);
+    }
 
-      // Symbol
-      &.symbol {
-        padding:   0;
-        font-size: 140%;
-        @supports (font-size: clamp(1vw, 1vw, 1vw)) {
-          font-size: clamp(1.5rem, 4vw, 4rem);
-        }
-      }
+    // Symbol
+    &.symbol {
+      @include rs('font-size', 1.25rem, 4vw, 4rem);
+    }
 
-      // Terms
-      &.terms,
-      &.values {
-        padding-bottom: 0;
-        .row {
-          display:       flex;
-          margin-bottom: -1rem;
-          & > * {
+    // Terms
+    &.terms,
+    &.values {
+      padding-bottom: 0.5rem;
+      .row {
+        display: flex;
+        & > * {
+          flex:  1;
+          width: 100%;
+          margin-bottom: 1rem;
+          &:last-child {
+            margin-bottom: 0;
+          }
+          @include media-breakpoint-up($navbar-expand) {
+            margin-bottom: 0;
             flex:          inherit;
             width:         auto;
-            margin-bottom: 1.5rem;
-            @include media-breakpoint-down(sm) {
-              flex:  1;
-              width: 100%;
-            }
           }
         }
       }
-      
-      // Description
-      &.description {
-        p {
-          white-space: pre-line;
-        }
+      .title {
+        margin-bottom: 0.5rem;
       }
-      
-      // Codes
-      &.codes {
-        .code {
-          display:          block;
-          width:            100%;
-          padding:          0.375rem 0.75rem;
-          color:            var(--body-color);
-          background-color: var(--input-bg);
-          border:           1px solid var(--input-border-color);
-          border-radius:    0.25rem;
-        }
+    }
+    
+    // Description
+    &.description {
+      p {
+        white-space: pre-line;
+      }
+      *:last-child {
+        margin: 0;
+      }
+    }
+    
+    // Codes
+    &.codes {
+      .code {
+        display:          block;
+        width:            100%;
+        padding:          0.375rem 0.75rem;
+        color:            var(--body-color);
+        background-color: var(--input-bg);
+        border:           1px solid var(--input-border-color);
+        border-radius:    0.25rem;
       }
     }
   }

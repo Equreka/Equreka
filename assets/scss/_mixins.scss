@@ -13,10 +13,33 @@
 }
 
 @mixin acrylic-bg($important: false) {
-  background: hsl(220, 10%, var(--theme-lightness), var(--alpha-acrylic)) if-important($important);
-  box-shadow: 0 .5rem 1rem -.5rem hsla(0, 0%, 0%, 0.10), inset 0 0 0 1px var(--input-border-color) if-important($important);
-  @supports (backdrop-filter: blur(25px)) {
-    background:      hsl(220, 10%, var(--theme-lightness), var(--alpha-acrylic-backdrop)) if-important($important);
-    backdrop-filter: blur(25px) contrast(1.25) saturate(1.25) if-important($important);
+  background: var(--acrylic-bg) if-important($important);
+  box-shadow: 0 .5rem 1rem -.5rem hsla(0, 0%, 0%, var(--alpha-acrylic-shadow)), inset 0 0 0 1px hsl(220, 10%, var(--theme-lightness), var(--alpha-acrylic-border)) if-important($important);
+  @supports (backdrop-filter: blur(5px)) {
+    background:      var(--acrylic-backdrop-bg) if-important($important);
+    backdrop-filter: var(--acrylic-backdrop) if-important($important);
   }
+}
+
+@mixin clamp($property, $min-size, $scaler, $max-size, $min-size-left:false, $scaler-left:false, $max-size-left:false){
+  @if $min-size-left == false {
+    #{$property}: $max-size;
+    #{$property}: #{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"};
+    #{$property}: clamp($min-size, $scaler, $max-size);
+  } @else if $min-size-left == 0 or $min-size-left == auto{
+    #{$property}: $max-size $min-size-left;
+    #{$property}: #{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"} $min-size-left;
+    #{$property}: clamp($min-size, $scaler, $max-size) $min-size-left;
+  } @else {
+    #{$property}: $max-size $min-size-left;
+    #{$property}: #{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"} #{"min(max(#{$min-size-left}, #{$scaler-left}), #{$max-size-left})"};
+    #{$property}: clamp($min-size, $scaler, $max-size) clamp($min-size-left, $scaler-left, $max-size-left);
+  }
+}
+
+@mixin rs($property, $min, $scale, $max) {
+  //#{$property}: calc(#{$min} * 0.5vw);
+  #{$property}: calc(#{$min} + (#{number($max)} - #{number($min)}) * ((100vw - 300px) / (1600 - 300)));;
+  #{$property}: min(max(#{$min}, #{$scale}), #{$max});
+  #{$property}: clamp(#{$min}, #{$scale}, #{$max});
 }

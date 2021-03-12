@@ -1,3 +1,4 @@
+// Search
 .form-search {
   width:    100%;
   position: relative;
@@ -6,32 +7,45 @@
     width:         100%;
     padding-left:  1rem;
     padding-right: 2.5rem;
+    border-radius: 1.5rem;
     transition:    $transition-all-ease;
+    border: 0;
+    &:focus {
+      box-shadow: 0 0 0 0.15rem hsla(220, 100%, var(--theme-inverted-lightness), 0.10);
+    }
   }
-  button {
+  .btn {
     position: absolute;
-    top: 0;
+    top: 50%;
     bottom: 0;
-    right: 0;
+    right: 0.15rem;
+    width: 32px;
+    height: 32px;
+    padding: 0;
+    border-radius: 99rem !important;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
     .bi {
-      font-size: .85rem;
+      font-size: 1rem;
     }
   }
   .results {
+    @include acrylic-bg();
     position:      absolute;
     margin-top:    0.5rem;
     padding:       1rem 0;
     top:           100%;
     left:          0;
     right:         0;
-    border-radius: 0.25rem;
+    border:        0;
+    border-radius: 1rem;
     animation:     fade-in 0.5s forwards;
     z-index:       999;
     transition:    $transition-all-ease;
-    @include acrylic-bg();
-
-    max-height: 200px;
-    overflow-y:   auto;
+    max-height:    200px;
+    overflow-y:    auto;
     &::-webkit-scrollbar {
       background: transparent;
     }
@@ -48,7 +62,7 @@
         }
       }
       .title {
-        font-size:      0.95rem;
+        font-size:      1rem;
         padding:        0 1rem;
         margin:         1rem 0 0.5rem;
         font-weight:    600;
@@ -73,14 +87,21 @@
         align-items:     center;
         justify-content: space-between;
         padding:         0.25rem 1rem;
-        color:           var(--body-color);
+        color:           var(--body-color-highlight);
         text-decoration: none;
         transition:      $transition-all-ease;
         outline:         0;
+
         &:hover,
         &:focus {      
-          background: hsla(var(--category-color-h), 85%, 50%, 0.2);;
+          background: hsla(var(--category-color-h), 85%, 50%, 0.2);
           color: var(--body-color-highlight);
+          a {
+            color: hsl(var(--category-color-h), 100%, 90%) !important
+          }
+        }
+        &:active {
+          background: hsla(var(--category-color-h), 85%, 50%, 0.5);
         }
       }
     }

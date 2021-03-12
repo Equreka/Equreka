@@ -3,72 +3,118 @@ footer {
   margin-top: auto;
   padding:    2rem 0;
   color: var(--footer-color);
+  @include rs('font-size', 0.85rem, 2vw, 1rem);
   .col {
     padding: 0;
     display: flex;
     align-items: center;
   }
+
+  a {
+    transition: color 0.35s ease;
+    outline: 0;
+    &:focus {
+      background: hsla(0, 0%, var(--theme-inverted-lightness), 0.075);
+      border-radius: 0.25rem;
+    }
+  }
+
+  
+  .logo {
+    margin-top: 1rem;
+    order: 3;
+    flex: 1 1 100%;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.5;
+    @include media-breakpoint-up($navbar-expand) {
+      display: none;
+    }
+    svg {
+      width: 100%;
+      max-width: 22px;
+      height: auto;
+    }
+  }
+
+  .equreka {
+    display: none;
+    @include media-breakpoint-up($navbar-expand) {
+      order: 0;
+      display: flex;
+    }
+  }
+
   .nav-link {
-    font-size: 90%;
     padding: .5rem;
     display: inline-flex;
     align-items: center;
     color: var(--footer-color);
     transition: all 0.35s ease;
     @include media-breakpoint-up(md) {
-      font-size: 100%;
       padding: .65rem;
     }
-    &:hover {
+    &:hover,
+    &:focus {
       color: var(--body-color);
     }
   }
-  .equreka {
-    display: none;
-    @include media-breakpoint-up($navbar-expand) {
-      order: 0;
-      display: block;
-    }
-  }
+
   .social {
-    justify-content: flex-end;
+    justify-content: center;
     flex: 1;
-    @include media-breakpoint-up($navbar-expand) {
-      justify-content: center;
-    }
-    .github:hover {
-      color: hsl(0, 0%, 40%);
-    }
-    .facebook:hover {
-      color: hsl(231, 48%, 48%);
-    }
-    .twitter:hover {
-      color: hsl(199, 98%, 48%);
-    }
-    .discord:hover {
-      color: hsl(227, 58%, 65%);
-    }
-    .windows:hover {
-      color: hsl(199, 98%, 48%);
-    }
-    .android:hover {
-      color: hsl(89, 46%, 48%);
-    }
-    .apple:hover {
-      color: hsl(0, 0%, 33%);
-    }
-    .icon {
-      font-size: 100%;
-      line-height: 1;
-      @include media-breakpoint-up(md) {
-        font-size: 115%;
+    .github {
+      &:hover,
+      &:focus {
+        color: hsl(0, 0%, 40%);
       }
     }
+    .facebook {
+      &:hover,
+      &:focus {
+        color: hsl(231, 48%, 48%);
+      }
+    }
+    .twitter {
+      &:hover,
+      &:focus {
+        color: hsl(199, 98%, 48%);
+      }
+    }
+    .discord {
+      &:hover,
+      &:focus {
+        color: hsl(227, 58%, 65%);
+      }
+    }
+    .windows {
+      &:hover,
+      &:focus {
+        color: hsl(199, 98%, 48%);
+      }
+    }
+    .android {
+      &:hover,
+      &:focus {
+        color: hsl(89, 46%, 48%);
+      }
+    }
+    .apple {
+      &:hover,
+      &:focus {
+        color: hsl(0, 0%, 33%);
+      }
+    }
+    .icon {
+      line-height: 1;
+      @include rs('font-size', 0.85rem, 2vw, 1.15rem);
+    }
   }
+
   .links {
-    justify-content: flex-start;
+    justify-content: center;
     order: -1;
-    flex: 1 0 35%;
+    flex: 1 1 100%;
     @include media-breakpoint-up($navbar-expand) {
       order: 1;
       flex: 1;
@@ -83,4 +129,5 @@ footer {
       }
     }
   }
+
 }

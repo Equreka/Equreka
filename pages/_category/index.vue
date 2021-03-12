@@ -1,7 +1,7 @@
 <template> 
   <main role="main">
     <PageHeader :main="true" :category="category" :name="category" />
-    <div class="container py-4">
+    <div class="container">
       <!-- Description -->
       <p class="lead">
         {{ $t('page.categories.' + category + '.lead') }}

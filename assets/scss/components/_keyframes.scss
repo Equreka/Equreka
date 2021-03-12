@@ -1,3 +1,4 @@
+// Keyframes
 @keyframes fade-in {
   0% {
     opacity: 0;
@@ -8,11 +9,8 @@
 }
 
 @keyframes fade-out {
-  0% {
+  to {
     opacity: 0;
-  }
-  100% {
-    opacity: 1;
   }
 }
 
@@ -43,6 +41,17 @@
     margin-top: -1rem;
   }
   100% {
+    opacity: 1;
+  }
+}
+
+@keyframes loaded {
+  0% {
+    transform: scale(0.75);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
     opacity: 1;
   }
 }

@@ -3,23 +3,34 @@
 .table-responsive {
   &::-webkit-scrollbar {
     background: rgba(0,0,0, 0.15);
-    width:      10px;
-    height:     10px;
+    border-radius: 100px;
+    width:      3px;
+    height:     3px;
+    @include media-breakpoint-up($navbar-expand) {
+      width:      10px;
+      height:     10px;
+    }
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
   }
   &::-webkit-scrollbar-thumb {
     background:    var(--separator-color);
-    border-radius: 5px;
-    transition:    $transition-all-ease;
+    border-radius: 100px;
+    @include media-breakpoint-up($navbar-expand) {
+      transition:    $transition-all-ease;
+    }
   }
   &::-webkit-scrollbar-thumb:active {
-    background: var(--bs-primary);            
+    background: var(--category-color, var(--bs-primary));            
   }
 }
 
 // Table
 .table-data {
-  color:  inherit;
-  width:  auto;
+  width:         auto;
+  color:         inherit;
+  margin-bottom: 0.25rem;
   th,
   td {
     border:      0;
@@ -30,7 +41,7 @@
     font-weight:    bold;
     font-family:    $font-family-heading-sans-serif;
     text-transform: uppercase;
-    color: var(--body-color-muted);
+    color:          var(--body-color-muted);
   }
   tr {
     vertical-align: baseline;
@@ -55,8 +66,14 @@
       &.constant {
         &:first-child {
           font-weight: 600;
-          text-align: center;
+          text-align: left;
+          @include media-breakpoint-up($navbar-expand) {
+            text-align:  center;
+          }
         }
+      }
+      &.name {
+        min-width: 100px;
       }
       &.symbol {
         color: var(--body-color-highlight);
@@ -65,10 +82,10 @@
         font-size: 105%;
       }
       &.unit.value {
-        font-size: 110%;
+        font-size:   110%;
         font-weight: normal;
-        font-style: normal;
-        color: var(--body-color-highlight);
+        font-style:  normal;
+        color:       var(--body-color-highlight);
       }
     }
   }
@@ -83,16 +100,27 @@
 .table-favorites {
   width: auto;
   table-layout: fixed;
+  font-size: 0.95rem;
   tr {
+    th,
+    td {
+      &.type {
+        //display: none;
+      }
+    }
     th {
       &.actions {
         @include visually-hidden();
       }
     }
     td {
-      padding-top: 0.25rem;
-      padding-bottom: 0.25rem;
+      padding-top: 0.15rem;
+      padding-bottom: 0.15rem;
       vertical-align: initial;
+      @include media-breakpoint-up(sm) {
+        padding-top: 0.25rem;
+        padding-bottom: 0.25rem;
+      }
       &.name {
         width: 100%;
       }

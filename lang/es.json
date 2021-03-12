@@ -1,4 +1,5 @@
 {
+  "Menu": "Menú",
   "Home": "Inicio",
   "About": "Acerca de",
   "Contact": "Contacto",
@@ -6,6 +7,14 @@
 
   "Category": "Categoria",
   "Categories": "Categorias",
+
+  "Chemistry": "Química",
+  "Mathematics": "Matemáticas",
+  "Physics": "Física",
+
+  "Type": "Tipo",
+  "Types": "Tipos",
+
   "Constant": "Constante",
   "Constants": "Constantes",
   "Equation": "Ecuación",
@@ -17,19 +26,12 @@
   "Variable": "Variable",
   "Variables": "Variables",
 
-  "Chemistry": "Química",
-  "Mathematics": "Matemáticas",
-  "Physics": "Física",
-
   "Value": "Valor",
   "Values": "Valores",
   "Exact values": "Valores exactos",
   "Approximate values": "Valores aproximados",
-  "Symbol": "Símbolo",
-  "Sym": "Símb",
   "Actions": "Acciones",
   "Name": "Nombre",
-  "Type": "Tipo",
 
   "Favorites": "Favoritos",
   "Theme": "Tema",
@@ -54,11 +56,22 @@
 
   "An error occurred": "Ocurrió un error",
 
-  "Added to favorites": "Agregado a favoritos 💕",
+  "Loading": "Cargando...",
+
+  "favorites": {
+    "add": "Agregar a favoritos 💕",
+    "added": "Agregado a tus favoritos 💕",
+    "remove": "Eliminar de favoritos 💔",
+    "removed": "Eliminado de tus favoritos 💔"
+  },
 
   "category": {
     "cap":  "Categoria",
     "abbr": "Cat"
+  },
+  "universal": {
+    "cap":  "Universal",
+    "abbr": "Uni"
   },
   "chemistry": {
     "cap":  "Química",
@@ -92,6 +105,10 @@
     "cap":  "Variables",
     "abbr": "Vars"
   },
+  "symbol": {
+    "cap":   "Símbolo",
+    "abbr": "Símb"
+  },
 
   "search": {
     "input-label": "Barra de búsqueda",
@@ -105,6 +122,7 @@
     "header": {
       "category": "Categoria",
       "categories": "Categorias",
+      "universal": "Universal",
       "chemistry": "Química",
       "mathematics": "Matemática",
       "physics": "Física",
@@ -117,40 +135,44 @@
 
     "categories": {
       "title": "Categorias",
+      "universal": {
+        "title": "Universal",
+        "lead":  "Muchas constantes y unidades son universales en la ciencia, aquí puedes encontrarlas todas en un solo lugar."
+      },
       "chemistry": {
         "title": "Química",
-        "lead": "La química es la disciplina científica involucrada con elementos y compuestos compuestos por átomos, moléculas e iones: su composición, estructura, propiedades, comportamiento y los cambios que experimentan durante una reacción con otras sustancias."
+        "lead":  "La química es la disciplina científica involucrada con elementos y compuestos compuestos por átomos, moléculas e iones: su composición, estructura, propiedades, comportamiento y los cambios que experimentan durante una reacción con otras sustancias."
       },   
       "mathematics": {
         "title": "Matemáticas",
-        "lead": "Las matemáticas (del griego: μάθημα, máthēma, 'conocimiento, estudio, aprendizaje') incluyen el estudio de temas como cantidad (teoría de números), estructura (álgebra), espacio (geometría) y cambio (análisis). No tiene una definición generalmente aceptada."
+        "lead":  "Las matemáticas (del griego: μάθημα, máthēma, 'conocimiento, estudio, aprendizaje') incluyen el estudio de temas como cantidad (teoría de números), estructura (álgebra), espacio (geometría) y cambio (análisis). No tiene una definición generalmente aceptada."
       },   
       "physics": {
         "title": "Física",
-        "lead": "La física (del griego antiguo: φυσική (ἐπιστήμη), romanizado: physikḗ (epistḗmē), literalmente 'conocimiento de la naturaleza', de φύσις phýsis 'naturaleza') es la ciencia natural que estudia la materia, su movimiento y comportamiento a través del espacio y el tiempo, y las entidades relacionadas de energía y fuerza. La física es una de las disciplinas científicas más fundamentales y su principal objetivo es comprender cómo se comporta el universo."
+        "lead":  "La física (del griego antiguo: φυσική (ἐπιστήμη), romanizado: physikḗ (epistḗmē), literalmente 'conocimiento de la naturaleza', de φύσις phýsis 'naturaleza') es la ciencia natural que estudia la materia, su movimiento y comportamiento a través del espacio y el tiempo, y las entidades relacionadas de energía y fuerza. La física es una de las disciplinas científicas más fundamentales y su principal objetivo es comprender cómo se comporta el universo."
       }
     },
 
     "types": {
       "constants": {
         "title": "Constantes",
-        "lead": "Un número fijo y bien definido u otro objeto matemático que no varíe. Los términos constante matemática o constante física se utilizan a veces para distinguir este significado."
+        "lead":  "Un número fijo y bien definido u otro objeto matemático que no varíe. Los términos constante matemática o constante física se utilizan a veces para distinguir este significado."
       },  
       "equations": {
         "title": "Ecuaciones",
-        "lead": "En matemáticas, una ecuación es una declaración que afirma la igualdad de dos expresiones, que están conectadas por el signo igual \"=\"."
+        "lead":  "En matemáticas, una ecuación es una declaración que afirma la igualdad de dos expresiones, que están conectadas por el signo igual \"=\"."
       },  
       "formulas": {
         "title": "Fórmulas",
-        "lead": "En ciencia, una fórmula es una forma concisa de expresar información simbólicamente, como en una fórmula matemática o una fórmula química. El uso informal del término fórmula en ciencia se refiere al constructo general de una relación entre cantidades dadas."
+        "lead":  "En ciencia, una fórmula es una forma concisa de expresar información simbólicamente, como en una fórmula matemática o una fórmula química. El uso informal del término fórmula en ciencia se refiere al constructo general de una relación entre cantidades dadas."
       },  
       "units": {
         "title": "Unidades",
-        "lead": "Una unidad de medida es una cantidad estandarizada de una determinada magnitud física, definida y adoptada por convención o por ley.​ Cualquier valor de una cantidad física puede expresarse como un múltiplo de la unidad de medida."
+        "lead":  "Una unidad de medida es una cantidad estandarizada de una determinada magnitud física, definida y adoptada por convención o por ley.​ Cualquier valor de una cantidad física puede expresarse como un múltiplo de la unidad de medida."
       },  
       "variables": {
         "title": "Variables",
-        "lead": "Una variable es un símbolo que funciona como marcador de posición para expresiones o cantidades que pueden variar o cambiar; se utiliza a menudo para representar el argumento de una función o un elemento arbitrario de un conjunto. Además de los números, las variables se utilizan comúnmente para representar vectores, matrices y funciones."
+        "lead":  "Una variable es un símbolo que funciona como marcador de posición para expresiones o cantidades que pueden variar o cambiar; se utiliza a menudo para representar el argumento de una función o un elemento arbitrario de un conjunto. Además de los números, las variables se utilizan comúnmente para representar vectores, matrices y funciones."
       }
     },
 
@@ -180,6 +202,19 @@
       "label-slug": "Identificador",
       "input-placeholder-reason": "¿Qué errores encontraste? 😧",
       "button-submit": "¡Enviar reporte!"
+    },
+
+    "faq": {
+      "title": "Frequently Asked Questions",
+      "lead": "In this page you can find some of the *possible* questions you can have about Equreka",
+      "why-is-free": {
+        "question": "¿Por qué es gratis?",
+        "anwser": "Como dijimos en la página sobre: ​​el conocimiento debe ser gratuito, abierto, de fácil acceso y, si es posible, lo más fácil de entender posible."
+      },
+      "why-no-signup": {
+        "question": "¿Por qué no hay un registro para usuario?",
+        "anwser": "Vivimos en un mundo donde la mayoría de plataformas, sitios o apps requieren una forma de autentificación, ya sea por medio de crear una cuenta o registro por medio de una red social, dónde no hay una transparencia, no hay claridad o siempre hay letras chiquitas difíciles de ver, para saber como manejarán nuestros datos que se recolectan. Han existido muchas filtraciones de grandes compañías y es que garantizar dicha seguridad es una tarea muy difícil. Equreka no necesita ningún tipo de información tuya, no recolectaremos datos en nuestros servidores, manejamos APIs diractamente en el navegador que se guaradan en tu ordenador y que tu puedes ver que información se está gaurdando en TU ordenador."
+      }
     }
   }
 }

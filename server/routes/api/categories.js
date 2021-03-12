@@ -4,11 +4,7 @@ const { param } = require('express-validator');
 
 // GET - All
 router.get('/', async (req, res) => {
-  const data = await Category.find({
-    _id: { 
-      $ne: 0 // Exclude category _id: 0 (Universal)
-    }
-  });
+  const data = await Category.find();
   res.json(data);
 });
 

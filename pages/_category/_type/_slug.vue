@@ -1,11 +1,13 @@
 <template>
-  <main role="main">
+  <main role="main" class="data">
     <PageHeader :category="category" :type="type" :name="data.name" :data="data" :json="json" />
     <div class="container">
+      <!-- Equations / Formulas -->
       <template v-if="type === 'equations' || type == 'formulas'">
         <!-- Expression -->
-        <section class="expression">
-          <div class="mathjax">
+        <section class="mathjax expression">
+          <Loader />
+          <div class="wrapper">
             <template v-if="!data.expressionIntern">$${{ data.expression }}$$</template>
             <template v-else>$${{ parserLaTeX(data.expressionIntern) }}$$</template>
           </div>
@@ -22,9 +24,15 @@
                 <table class="table table-data">
                   <thead>
                     <tr>
-                      <th scope="col" class="variable symbol">{{ $t('Sym') }}</th>
-                      <th scope="col" class="variable name">{{ $t('Name') }}</th>
-                      <th scope="col" class="variable unit" colspan="2">{{ $t('Unit') }}</th>
+                      <th scope="col" class="variable symbol">
+                        <Abbr string="symbol"/>
+                      </th>
+                      <th scope="col" class="variable name">
+                        {{ $t('Name') }}
+                      </th>
+                      <th scope="col" class="variable unit" colspan="2">
+                        {{ $t('Unit') }}
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
@@ -58,36 +66,44 @@
                 <table class="table table-data">
                   <thead>
                     <tr>
-                      <th scope="col" class="constant symbol">{{ $t('Sym') }}</th>
-                      <th scope="col" class="constant name">{{ $t('Name') }}</th>
-                      <th scope="col" class="constant value">{{ $t('Value') }}</th>
-                      <th scope="col" class="constant unit" colspan="2">{{ $t('Unit') }}</th>
+                      <th scope="col" class="constant symbol">
+                        <Abbr string="symbol"/>
+                      </th>
+                      <th scope="col" class="constant name">
+                        {{ $t('Name') }}
+                      </th>
+                      <th scope="col" class="constant value">
+                        {{ $t('Value') }}
+                      </th>
+                      <th scope="col" class="constant unit" colspan="2">
+                        {{ $t('Unit') }}
+                      </th>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr v-for="(json, index) in data.constants" :key="index" :class="selector + ' constant ' + json.constant.symbol">
+                    <tr v-for="(object, index) in data.constants" :key="index" :class="selector + ' constant ' + object.constant.symbol">
                       <td class="constant symbol math">
-                        {{ json.constant.symbol }}
+                        {{ object.constant.symbol }}
                       </td>
                       <td class="constant name">
-                        <NuxtLink :to="localePath('/' + data.category.slug + '/constants/' + json.constant.slug)">
-                          {{ json.constant.name }}
+                        <NuxtLink :to="localePath('/' + data.category.slug + '/constants/' + object.constant.slug)">
+                          {{ object.constant.name }}
                         </NuxtLink>
                       </td>
                       <td class="constant unit value math">
-                        {{ formatNumber(json.constant.value) }}
+                        {{ formatNumber(object.constant.value) }}
                       </td>   
                       <td class="constant unit symbol math">
-                        <template v-if="json.constant.unit.symbolTeX">
-                          ${{ json.constant.unit.symbolTeX }}$
+                        <template v-if="object.constant.unit.symbolTeX">
+                          ${{ object.constant.unit.symbolTeX }}$
                         </template>
                         <template v-else>
-                          {{ json.constant.unit.symbol }}
+                          {{ object.constant.unit.symbol }}
                         </template>              
                       </td>              
                       <td class="constant unit name">
-                        <NuxtLink :to="localePath('/' + data.category.slug + '/units/' + json.constant.unit.slug)">
-                          {{ json.constant.unit.name }}
+                        <NuxtLink :to="localePath('/' + data.category.slug + '/units/' + object.constant.unit.slug)">
+                          {{ object.constant.unit.name }}
                         </NuxtLink>
                       </td>     
                     </tr>
@@ -98,10 +114,12 @@
           </div>
         </section>
       </template>
+      <!-- Constants / Variables / Units -->
       <template v-else>      
         <!-- Symbol -->
-        <section class="symbol" :class="type">
-          <div class="mathjax">
+        <section class="mathjax symbol" :class="type">
+          <Loader />
+          <div class="wrapper">
             $$
             <template v-if="!data.symbolLaTeX">
               {{ data.symbol }}
@@ -138,9 +156,9 @@
                           {{ value.unit.symbol }}
                         </td>
                         <td class="constant unit name">
-                            <NuxtLink :to="localePath('/' + data.category.slug + '/units/' + value.unit.slug)">
-                              {{ value.unit.name }}
-                            </NuxtLink>
+                          <NuxtLink :to="localePath('/' + data.category.slug + '/units/' + value.unit.slug)">
+                            {{ value.unit.name }}
+                          </NuxtLink>
                         </td>
                       </tr>
                     </template>
@@ -206,6 +224,7 @@
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
       MathJax = {
+        locale: 'es',
         loader: {
           load: ['[tex]/html']
         },
@@ -217,6 +236,18 @@
         svg: {
           fontCache: 'global'
         },
+        startup: {
+          ready: () => {
+            MathJax.startup.defaultReady();
+            MathJax.startup.promise.then(() => {
+              var div = document.body.querySelector('section.mathjax');
+              div.classList.add('rendered');              
+              setTimeout(() => {
+                div.querySelector('.loader').remove();
+              }, 500);
+            });
+          }
+        }
       };
     </script>
   </main>

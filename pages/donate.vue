@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main role="main" class="donate">
     <div class="container">
       <h2>Donate</h2>
       <p class="lead">Donations will help us to improve, add new features, organize and pay for all the infrastructure needed.</p>

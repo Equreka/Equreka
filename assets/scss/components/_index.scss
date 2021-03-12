@@ -1,4 +1,4 @@
-
+// Import all
 // Eureka!
 @import "equreka";
 
@@ -13,6 +13,7 @@
 // UI
 @import "page-header";
 @import "abbr";
+@import "loader";
 
 // Math
 @import "math";
@@ -25,5 +26,5 @@
 @import "forms";
 @import "table";
 
-// Animation
+// Keyframes
 @import "keyframes";

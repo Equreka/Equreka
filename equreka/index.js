@@ -31,11 +31,14 @@ let Equreka = {
    * Create Event Listener for all elements with the Equreka.TERM_SELECTOR class
    */
   initTermHover() {
-    let elements = document.querySelectorAll(Equreka.TERM_SELECTOR);
+    window.addEventListener('click', (event) => {  Equreka.termHoverRemover(event) } , false);
 
+    let elements = document.querySelectorAll(Equreka.TERM_SELECTOR);
     Array.from(elements).forEach(function(element) {
-      element.addEventListener('pointerenter', (event) => { Equreka.termHover(event, element, 'add') }, false);
-      element.addEventListener('pointerleave', (event) => { Equreka.termHover(event, element, 'remove') }, false);
+      element.addEventListener('pointerenter', (event) => { Equreka.termHover(event, element) }, false);
+      if(window.innerWidth >= 768) {
+        element.addEventListener('pointerleave', Equreka.termHoverRemover, false);
+      }
     });
   },
 
@@ -44,11 +47,10 @@ let Equreka = {
    * 
    * On hover adds class 'hover' to all elements that matches TERM_SELECTOR
    * 
-   * @param {event}   event   Event to watch for
-   * @param {element} element Element
-   * @param {string}  action  Add / Remove
+   * @param {string} event   Event to watch for
+   * @param {string} element Element
    */
-  termHover (event, element, action) {
+  termHover (event, element) {
     var type = false
     if(event.target == element) {
       var symbol = event.target.classList[2];
@@ -60,14 +62,34 @@ let Equreka = {
         type ='constant';
       }
       
+      // Remove classes from everything else
+      Equreka.termHoverRemover();
+
       // If contains a type
       if(type) {
         const elements = document.querySelectorAll(`${Equreka.TERM_SELECTOR}.${type}.${symbol}`);
         Array.from(elements).forEach(function(element) {
-          element.classList[action]('hover');
+          element.classList.add('hover');
         });
       }
     }
+  },
+
+  /**
+   * Term Hover Remover
+   * 
+   * Removes class hover from all elements that have that class
+   * 
+   * @param {string} event 
+   */
+  termHoverRemover (event) {
+    // Prevents remove on term with class "hover"
+    if(event && event.target.parentNode.classList.contains('hover')) return;
+    // Remove class hover from all elements with class "hover"
+    const elements = document.querySelectorAll(`${Equreka.TERM_SELECTOR}.hover`);
+    Array.from(elements).forEach(function(element) {
+      element.classList.remove('hover');
+    });
   },
 
  /**
@@ -264,10 +286,11 @@ let Equreka = {
    * @returns {boolean}
    */
   addFavorite(type, id) {
+    if(!type || !id) return false;
+    
     if (typeof(Storage) !== "undefined") {
-      var favoritesType =  type;
       var favoritesValue = id;
-      var favoritesKey =   `favorites.${favoritesType}`;
+      var favoritesKey =   `favorites.${type}`;
 
       // If array already exists
       if(localStorage.getItem(favoritesKey)) {
@@ -290,6 +313,30 @@ let Equreka = {
     }
   },
 
+  checkFavorite(type, id) {
+    if(!type || !id) return false;
+
+    if (typeof(Storage) !== "undefined") {
+      var favoritesValue = id;
+      var favoritesKey =   `favorites.${type}`;
+
+      // If array already exists
+      if(localStorage.getItem(favoritesKey)) {
+        var favoritesArray = JSON.parse(localStorage.getItem(favoritesKey));
+        if(favoritesArray.includes(favoritesValue)) {
+          console.log('true');
+          return true;
+        } else {
+          return false;
+        }
+      } else {
+        return false
+      }
+    } else {
+      return false;
+    }
+  },
+
   /**
    * Favorites: Remove Favorite
    * 
@@ -303,7 +350,7 @@ let Equreka = {
     if(!type || !id) return false;
     
     let dataStorage;
-    //
+    // Get localStorage data
     try {
       dataStorage = JSON.parse(localStorage.getItem('favorites.'+type));
     } catch {

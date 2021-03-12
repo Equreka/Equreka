@@ -1,5 +1,5 @@
 <template>
-  <main role="main">
+  <main role="main" class="report">
     <div class="container">
       <h2>{{ $t('page.report.title') }}</h2>
       <p class="lead mb-4">{{ $t('page.report.lead') }}</p>

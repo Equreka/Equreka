@@ -14,7 +14,7 @@ export default {
   ],
 
   env: {
-    baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+    baseUrl: process.env.BASE_URL || 'http://192.168.0.5:3000'
   },
 
   // Global page headers: https://go.nuxtjs.dev/config-head
@@ -51,6 +51,8 @@ export default {
   modules: [
     // https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    // https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
+    '@nuxtjs/dotenv',
     // https://github.com/nuxt-community/redirect-module
     '@nuxtjs/redirect-module',
     // https://go.nuxtjs.dev/bootstrap
@@ -115,7 +117,9 @@ export default {
     // https://nuxtjs.org/blog/going-dark-with-nuxtjs-color-mode
     '@nuxtjs/color-mode',
     // https://pwa.nuxtjs.org/
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    // https://github.com/nuxt-community/device-module
+    '@nuxtjs/device'
   ],
 
   // Bootstrap Vue
@@ -137,7 +141,7 @@ export default {
       short_name: 'Equreka',
       author: 'Derian Castillo',
       description: 'Your free and open-source app for variables, constants, formulas and equations',
-      theme_color: '#ffffff',
+      theme_color: '#e3e5e8',
       lang: 'en'
     },
     manifest: {
@@ -145,6 +149,7 @@ export default {
       short_name: 'Equreka',
       description: 'Your free and open-source app for variables, constants, formulas and equations',
       lang: 'en',
+      background_color: '#e3e5e8',
     },
     icon: {
       source: './static/icon.png'

@@ -6,12 +6,17 @@
 @import 'data';
 
 .page-enter-active,
-.page-leave-active {
-  transition: opacity 0.15s;
+.page-leave-active,
+.layout-enter-active, 
+.layout-leave-active {
+  transition: opacity .25s
 }
+
 .page-enter,
-.page-leave-to {
-  opacity: 0;
+.page-leave-active,
+.layout-enter, 
+.layout-leave-active {
+  opacity: 0
 }
 
 .page-data {

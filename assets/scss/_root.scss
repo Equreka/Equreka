@@ -2,8 +2,11 @@
 @use "sass:math";
 
 :root {
-  --dropdown-backdrop-filter: blur(15px) saturate(150%);
-  --bs-gutter-x: 1.25rem;
+  --bs-gutter-x: 1rem;
+  --dropdown-backdrop: blur(10px) saturate(1.35);
+  @include media-breakpoint-up(sm) {
+    --bs-gutter-x: 1.25rem;
+  }
 }
 
 // Light
@@ -13,33 +16,39 @@
   --theme-lightness:          98%;
   --theme-inverted-lightness: 05%;
 
+  --acrylic-bg:          hsla(220, 10%, 97%, 0.97);
+  --acrylic-backdrop-bg: hsla(220, 10%, 97%, 0.65);       
+  --acrylic-backdrop:    blur(10px) saturate(2);
+
   --alpha-normal:           0.75;
   --alpha-active:           0.85;
   --alpha-hover:            0.65;
   --alpha-acrylic:          0.925;
+  --alpha-acrylic-border:   0;
   --alpha-acrylic-backdrop: 0.75;
+  --alpha-acrylic-shadow:   0.15;
 
   --selection-bg: hsla(0, 0%, 05%, 0.15);
   
-  --separator-color: hsl(0, 0%, 85%);
+  --separator-color: hsl(220, 10%, 85%);
   --separator:       1px solid var(--separator-color);
 
-  --body-bg:              hsl(0, 0%, 90%);
-  --body-color-muted:     hsl(0, 0%, 65%);
-  --body-color:           hsl(0, 0%, 45%);
-  --body-color-highlight: hsl(0, 0%, 35%);
+  --body-bg:              hsl(220, 10%, 90%);
+  --body-color-muted:     hsl(220, 10%, 65%);
+  --body-color:           hsl(220, 10%, 45%);
+  --body-color-highlight: hsl(220, 10%, 35%);
 
-  --header-color: hsl(0, 0%, 65%);
-  --footer-color: hsl(0, 0%, 62.5%);
+  --header-color: hsl(220, 10%, 65%);
+  --footer-color: hsl(220, 10%, 62.5%);
 
-  --category-color: hsl(0, 0%, 95%);
+  --category-color: hsl(220, 10%, 95%);
 
-  --input-bg:           hsl(0, 0%, 97%);
-  --input-color:        hsl(0, 0%, 15%);
-  --input-border-color: hsl(0, 0%, 85%);
+  --input-bg:           hsl(220, 10%, 96%);
+  --input-color:        hsl(220, 10%, 15%);
+  --input-border-color: hsl(220, 10%, 85%);
 
-  --input-focus-bg:           hsl(0, 0%, 99%);
-  --input-focus-color:        hsl(0, 0%, 10%);
+  --input-focus-bg:           hsl(220, 10%, 99%);
+  --input-focus-color:        hsl(220, 10%, 10%);
   --input-focus-border-color: var(--#{$variable-prefix}primary);
 
   // Bootstrap color modifier.
@@ -71,11 +80,17 @@
   --theme-lightness:          07%;
   --theme-inverted-lightness: 90%;
 
-  --alpha-normal:            0.55;
-  --alpha-active:            0.65;
-  --alpha-hover:             0.45;
-  --alpha-acrylic:          0.925;
+  --acrylic-bg:          hsla(220, 05%, 12%, 0.97);
+  --acrylic-backdrop-bg: hsla(220, 10%, 15%, 0.35);       
+  --acrylic-backdrop:    blur(30px) saturate(1.35);
+
+  --alpha-normal:           0.55;
+  --alpha-active:           0.65;
+  --alpha-hover:            0.45;
+  --alpha-acrylic:          0.15;
+  --alpha-acrylic-border:   0;
   --alpha-acrylic-backdrop: 0.75;
+  --alpha-acrylic-shadow:   0.15;
 
   --selection-bg: hsla(0, 0%, 90%, 0.125);
 
@@ -134,6 +149,11 @@
 
 .theme-light {
   @include theme-light();
+  .header {
+    .results {
+      box-shadow:    none;
+    }
+  }
   .theme-icon {
     &::before {  
       --theme-animation: theme-light;
@@ -144,9 +164,19 @@
 
 .theme-dark {
   @include theme-dark();
-  .equreka {
-    opacity: 0.75;
+  .header {
+    .equreka {
+      opacity: 0.75;
+    }
+    .form-search {
+      input {
+        &:focus {
+          background: transparent;
+        }
+      }
+    }
   }
+
   .theme-icon {
     &::before {      
       --theme-animation: theme-dark;

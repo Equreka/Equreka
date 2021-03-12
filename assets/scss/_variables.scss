@@ -19,7 +19,7 @@ $red:      hsl(355, 70%, 55%);
 $orange:   hsl(25, 100%, 55%);
 $yellow:   hsl(45, 100%, 50%);
 $green:    hsl(150, 70%, 30%);
-$teal:     hsl(160, 75%, 45%);
+$teal:     hsl(170, 80%, 40%);
 $cyan:     hsl(190, 90%, 50%);
 // Social
 $github:   hsl(000, 00%, 40%);
@@ -44,7 +44,7 @@ $theme-colors: (
 
 // Categories
 $categories: (
-  "universal":   $gray,
+  "universal":   $orange,
   "mathematics": $red,
   "physics":     $blue,
   "chemistry":   $purple
@@ -67,7 +67,7 @@ $dropdown-color:            var(--body-color);
 $dropdown-border-color:     var(--separator-color);
 $dropdown-link-color:       var(--body-color-highlight);
 $dropdown-link-hover-color: var(--body-color-highlight);
-$dropdown-link-hover-bg:    hsla(0, 0%, var(--theme-inverted-lightness),0.05);
+$dropdown-link-hover-bg:    hsla(220, 10%, var(--theme-inverted-lightness),0.15);
 
 // Links
 $link-color:            #8c9ba7;

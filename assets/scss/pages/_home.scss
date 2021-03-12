@@ -1,6 +1,42 @@
 // Page Home (Index)
-.page-home {
-  main {
-    //padding: 3rem 0;
+main.home {
+  .categories {
+    margin-top:    1rem;
+    margin-bottom: 1rem;
+    .title {
+      font-weight: 600;
+      margin: 0;
+      color: var(--category-color);
+      @include rs('font-size', 1.25rem, 2vw, 1.5rem);
+    }
+    .list {
+      display: flex;
+      flex-wrap: wrap;
+      line-height: 2.5rem;
+      list-style: none;
+      padding: 0;
+      margin: 0 calc(var(--bs-gutter-x) / -2);
+      overflow: hidden;
+      a {
+        display: flex;
+        flex: 1 1 100%;
+        padding: 0 1rem;
+        margin-bottom: 1rem;
+        font-weight: 400;
+        @include rs('font-size', 1rem, 2vw, 1.25rem);
+        @include media-breakpoint-up(sm) {
+          flex: 0 1 50%;
+        }
+        @include media-breakpoint-up($navbar-expand) {
+          flex: 0 1 33.3333%;
+        }
+        &:hover {
+          color: var(--category-color);
+        }
+      }
+    }
+    a {
+      text-decoration: none;
+    }
   }
 }

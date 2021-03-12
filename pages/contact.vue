@@ -1,5 +1,5 @@
 <template>
-  <main>
+  <main role="main" class="contact">
     <div class="container">
       <h2>{{ $t('Contact') }}</h2>
       <p class="lead">Feel free to send a message if you want to say something to us!</p>
@@ -16,7 +16,7 @@
           <b-form-textarea id="textarea-message" rows="5" :placeholder="$t('What do you want to share to us?')"></b-form-textarea>
         </b-form-group>
 
-        <b-button type="submit" variant="primary">{{ $t('page.report.button submit') }}</b-button>
+        <b-button type="submit" variant="primary">{{ $t('page.contact.button-submit') }}</b-button>
       </b-form>
     </div>
   </main>

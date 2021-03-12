@@ -1,11 +1,11 @@
 // Page Header
 .page-header { 
   padding:    1rem 0;
+  margin-bottom: 1rem;
   background: var(--category-color);
-  font-size: 100%;
-  @include media-breakpoint-up(md) {
-    font-size: 120%;
-    padding:    1.5rem 0;
+  @include media-breakpoint-up($navbar-expand) {
+    padding:       1.5rem 0;
+    margin-bottom: 2rem;
   }
   a {
     text-decoration: none;
@@ -17,53 +17,78 @@
   }
   // Info
   .info {
+    display: block;
     .category,
     .type {
       margin:         0;
-      font-size:      90%;
-      font-weight:    800;
+      font-weight:    600;
       font-family:    $font-family-heading-sans-serif;
-      color:          hsl(var(--category-color-h), var(--category-color-s), 80%);
+      color:          hsl(var(--category-color-h), var(--category-color-s), 75%);
       text-transform: uppercase;
       letter-spacing: 1px;
-      &:hover {
+      @include media-breakpoint-up(sm) {
+        font-weight:  700;
+      }
+      @include media-breakpoint-up($navbar-expand) {
+        font-weight:  800;
+      }
+      @include rs('font-size', 0.75rem, 2vw, 1rem);
+      &:hover,
+      &:focus {
         color: hsl(var(--category-color-h), var(--category-color-s), 95%);
       }
     }
     .divider {
-      font-size: 80%;
-      margin:    0 0.25rem;
+      margin:    0 0.15rem;
       opacity:   0.75;
       color:     hsl(var(--category-color-h), var(--category-color-s), 80%);
+      @include media-breakpoint-up($navbar-expand) {
+        margin:  0 0.25rem;
+      }
+      @include rs('font-size', 0.65rem, 2vw, 0.95rem);
     }
     .name {
       margin:         0;
-      font-size:      170%;
-      font-weight:    700;
+      color:          hsl(var(--category-color-h), 100%, 90%);
+      font-weight:    600;
       font-family:    $font-family-heading-sans-serif;
-      color:          hsl(var(--category-color-h), 100%, 95%);
       letter-spacing: 1px;
-    }
-  }
-  // Dropdown
-  .dropdown-options {
-    margin-left: 1.5rem;
-    .dropdown-menu {
-      min-width: 200px;
-      .bi {
-        margin-right: 0.5rem;
+      @include rs('font-size', 1.25rem, 3vw, 2rem);
+      @include media-breakpoint-up($navbar-expand) {
+        font-weight: 700;
       }
     }
+  }
+  .actions {
+    display: flex;
+    align-items: center;
+    margin-left: 1.5rem;
     .btn {
-      border-radius: 999rem;
-      padding: .35rem;
-      border-color: hsl(var(--category-color-h), 100%, 85%);
-      color: hsl(var(--category-color-h), 100%, 85%);
-      border-width: 2px;
-      transition: $transition-all-ease;
-      &:hover {
-        border-color: hsl(var(--category-color-h), 100%, 95%);
+      display:         flex;
+      align-items:     center;
+      justify-content: center;
+      border-radius:   99rem;
+      color:           hsl(var(--category-color-h), 100%, 85%);
+      box-shadow:      none !important;
+      @include rs('padding', 0.5rem, 1vw, 0.75rem);
+      @include rs('font-size', 1rem, 1vw, 1.25rem);
+      &:hover,
+      &:focus,
+      &[aria-expanded="true"] {
         color: hsl(var(--category-color-h), 100%, 95%);
+        background:  hsl(var(--category-color-h), var(--category-color-s), calc(var(--category-color-l) + 5%));
+      }
+    }
+    // Dropdown
+    .dropdown-options {
+      .btn {
+        @include rs('font-size', 1.25rem, 2vw, 2rem);
+      }
+      .dropdown-menu {
+        min-width: 200px;
+        .bi {
+          margin-right: 0.5rem;
+        }
       }
     }
   }

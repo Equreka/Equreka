@@ -1,5 +1,5 @@
 <template>
-  <main role="main" class="subjects">
+  <main role="main" class="categories">
     <div class="container">
       <div class="row mathematics">
         <div class="col-12 col-lg-3">

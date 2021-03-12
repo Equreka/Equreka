@@ -1,12 +1,30 @@
+// Dropdown
 .dropdown-menu {
+  top: 0.5rem !important;
   border: 0;
+  border-radius: 0.75rem;
   color:  var(--body-color) !important;
+  min-width: 220px;
   @include acrylic-bg();
   &.show {
     animation: dropdown 0.5s ease;
   }
   .dropdown-item {
+    padding: 0.5rem 1rem;
     transition: $transition-all-ease;
+    outline: 0;
+    .icon {
+      margin-right: 0.5rem;
+      &.bi-light::before {
+        content: "\f5a2";
+      }
+      &.bi-dark::before {
+        content: "\f497";
+      }
+      &.bi-system::before {
+        content: "\f3e4";
+      }
+    }
   }
   .dropdown-header {
     font-size:      0.8rem;
@@ -21,5 +39,13 @@
 .dropdown-toggle-no-caret {
   &::after {
     display: none;
+  }
+}
+
+.dropdown-language {
+  .icon {
+    width: 16px;
+    font-size: 90%;
+    text-transform: uppercase;
   }
 }

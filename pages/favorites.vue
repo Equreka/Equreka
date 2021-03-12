@@ -1,56 +1,58 @@
 <template>
-  <div class="container">
-    <h2>{{ $t('page.favorites.title') }}</h2>
-    <p class="lead">{{ $t('page.favorites.lead') }}</p>
-    <p v-if="!support">{{ $t('page.favorites.no-support', support) }}</p>
-    <!-- Favorites -->
-    <template v-if="favorites && haveFavorites(favorites)">
-      <!-- Table -->
-      <div class="table-responsive">
-        <table class="table table-data table-favorites">
-          <thead>
-            <tr>
-              <th scope="col" class="category"><Abbr string="category" /></th>
-              <th scope="col" class="type">{{ $t('Type') }}</th>
-              <th scope="col" class="name">{{ $t('Name') }}</th>
-              <th scope="col" class="actions">{{ $t('Actions') }}</th>
-            </tr>
-          </thead>
-          <tbody>
-            <template v-for="(favorite, type) in favorites">
-              <tr v-for="data in favorite" :key="data.slug" :class="data.category.slug">              
-                <td class="category">
-                  <NuxtLink class="badge badge-category" :to="localePath('/' + data.category.slug)">
-                    <Abbr :string="data.category.slug" />
-                  </NuxtLink>
-                </td>              
-                <td class="type">
-                  <NuxtLink class="badge badge-type" :to="localePath(`/${data.category.slug}/${type}`)">
-                    <Abbr :string="type" />
-                  </NuxtLink>
-                </td>
-                <td class="name">
-                  <NuxtLink class="link-category" :to="localePath(`/${data.category.slug}/${type}/${data.slug}`)">
-                    {{ data.name }}
-                  </NuxtLink>
-                </td>
-                <td class="actions">
-                  <b-button class="p-1" variant="text" @click="removeFavorite(type, data._id)" :title="$t('page.favorites.remove')">
-                    <span class="visually-hidden">{{ $t('page.favorites.remove') }}</span>
-                    💔
-                  </b-button>
-                </td>
+  <main role="main" class="favorites">
+    <div class="container">
+      <h2>{{ $t('page.favorites.title') }}</h2>
+      <p class="lead">{{ $t('page.favorites.lead') }}</p>
+      <p v-if="!support">{{ $t('page.favorites.no-support', support) }}</p>
+      <!-- Favorites -->
+      <template v-if="favorites && haveFavorites(favorites)">
+        <!-- Table -->
+        <div class="table-responsive">
+          <table class="table table-data table-favorites">
+            <thead>
+              <tr>
+                <th scope="col" class="category"><Abbr string="category" /></th>
+                <th scope="col" class="type">{{ $t('Type') }}</th>
+                <th scope="col" class="name">{{ $t('Name') }}</th>
+                <th scope="col" class="actions">{{ $t('Actions') }}</th>
               </tr>
-            </template>
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              <template v-for="(favorite, type) in favorites">
+                <tr v-for="data in favorite" :key="data.slug" :class="data.category.slug">              
+                  <td class="category" :class="data.category.slug">
+                    <NuxtLink class="badge badge-category" :to="localePath('/' + data.category.slug)">
+                      <Abbr :string="data.category.slug" />
+                    </NuxtLink>
+                  </td>              
+                  <td class="type" :class="type">
+                    <NuxtLink class="badge badge-type" :to="localePath(`/${data.category.slug}/${type}`)">
+                      <Abbr :string="type" />
+                    </NuxtLink>
+                  </td>
+                  <td class="name">
+                    <NuxtLink class="link-category" :to="localePath(`/${data.category.slug}/${type}/${data.slug}`)">
+                      {{ data.name }}
+                    </NuxtLink>
+                  </td>
+                  <td class="actions">
+                    <b-button class="p-1" variant="text" @click="removeFavorite(type, data._id)" :title="$t('page.favorites.remove')">
+                      <span class="visually-hidden">{{ $t('page.favorites.remove') }}</span>
+                      💔
+                    </b-button>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </div>
+      </template>
+      <!-- No data -->
+      <div class="mt-4" v-else-if="support">
+        <h4>{{ $t('page.favorites.none') }}</h4>
       </div>
-    </template>
-    <!-- No data -->
-    <div class="mt-4" v-else-if="support">
-      <h4>{{ $t('page.favorites.none') }}</h4>
     </div>
-  </div>
+  </main>
 </template>
 
 <script>
@@ -59,7 +61,7 @@
     data() {
       return {
         support: true,
-        favorites: {}
+        favorites: false
       }
     },
     async asyncData() {
@@ -81,10 +83,9 @@
         }
       } else {
         return {
-          support: false,
+          support:   false,
           favorites: false
         }
-
       }
     },
     head() {
@@ -98,7 +99,6 @@
       haveFavorites(object) {
         return Equreka.haveFavorites(object);
       },
-
       removeFavorite(type, id) {
         if(Equreka.removeFavorite(type, id)) {
           this.$router.app.refresh();

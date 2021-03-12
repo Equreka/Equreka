@@ -13,62 +13,28 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6
-.h1, .h2, .h3, .h4, .h5, .h6 {
+.h1, .h2, .h3, .h4, .h5, .h6,
+.lead {
   color: var(--body-color-highlight);
   font-family: $font-family-heading-sans-serif;
-}
-
-// Categories
-.categories {
-  .row {
-    margin-top:    1rem;
-    margin-bottom: 1rem;
-  }
-  .title {
-    font-size: 1.5rem;
-    font-weight: 600;
-    margin: 0;
-    color: var(--category-color);
-  }
-  a {
-    text-decoration: none;
-  }
-  .list {
-    display: flex;
-    flex-wrap: wrap;
-    line-height: 2.5rem;
-    list-style: none;
-    padding: 0;
-    margin: 0 calc(var(--bs-gutter-x) / -2);
-    overflow: hidden;
-    a {
-      display: flex;
-      flex: 1 1 100%;
-      padding: 0 1rem;
-      margin-bottom: 1rem;
-      font-size: 110%;
-      font-weight: 500;
-      @include media-breakpoint-up(sm) {
-        flex: 0 1 50%;
-      }
-      @include media-breakpoint-up($navbar-expand) {
-        flex: 0 1 33.3333%;
-      }
-      &:hover {
-        color: var(--category-color);
-      }
-    }
-  }
 }
 
 // Anchor
 a {
   transition: color 0.35s ease;
+  outline: 0;
 }
 
 .link-category {
   color: $link-color;
   &:hover {
     color: var(--category-color, #{$primary});
+  }
+}
+
+p {
+  @include rs('font-size', 0.8rem, 1.5vw, 1rem);
+  &.lead {
+    @include rs('font-size', 0.9rem, 1.5vw, 1.25rem);
   }
 }
