@@ -53,7 +53,7 @@
     head() {
       return {
         bodyAttrs: {
-          class: `page-category page-${this.type} ${this.category}`
+          class: `page-data page-${this.type} ${this.category}`
         }
       }
     }

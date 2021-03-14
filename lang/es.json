@@ -4,10 +4,13 @@
   "About": "Acerca de",
   "Contact": "Contacto",
   "Donate": "Donar",
+  "Settings": "Ajustes",
+  "Search": "Buscar",
 
   "Category": "Categoria",
   "Categories": "Categorias",
 
+  "Universal": "Universal",
   "Chemistry": "Química",
   "Mathematics": "Matemáticas",
   "Physics": "Física",
@@ -30,6 +33,7 @@
   "Values": "Valores",
   "Exact values": "Valores exactos",
   "Approximate values": "Valores aproximados",
+
   "Actions": "Acciones",
   "Name": "Nombre",
 
@@ -119,6 +123,11 @@
   },  
 
   "page": {
+    "home": {
+      "title": "Equreka",
+      "lead": ""
+    },
+
     "header": {
       "category": "Categoria",
       "categories": "Categorias",
@@ -151,6 +160,16 @@
         "title": "Física",
         "lead":  "La física (del griego antiguo: φυσική (ἐπιστήμη), romanizado: physikḗ (epistḗmē), literalmente 'conocimiento de la naturaleza', de φύσις phýsis 'naturaleza') es la ciencia natural que estudia la materia, su movimiento y comportamiento a través del espacio y el tiempo, y las entidades relacionadas de energía y fuerza. La física es una de las disciplinas científicas más fundamentales y su principal objetivo es comprender cómo se comporta el universo."
       }
+    },
+
+    "contact": {
+      "title": "Contáctanos",
+      "lead": "No dudes en enviarnos un mensaje si quieres decirnos algo.",
+      "label-mail": "¿Cuál es tu correo electrónico?",
+      "placeholder-mail": "you@rock.com",
+      "label-message": "¿Cuál es tu mensaje?",
+      "placeholder-message": "¿Qué nos quieres compartir?",
+      "button-submit": "¡Enviar mensaje!"
     },
 
     "types": {
@@ -215,6 +234,16 @@
         "question": "¿Por qué no hay un registro para usuario?",
         "anwser": "Vivimos en un mundo donde la mayoría de plataformas, sitios o apps requieren una forma de autentificación, ya sea por medio de crear una cuenta o registro por medio de una red social, dónde no hay una transparencia, no hay claridad o siempre hay letras chiquitas difíciles de ver, para saber como manejarán nuestros datos que se recolectan. Han existido muchas filtraciones de grandes compañías y es que garantizar dicha seguridad es una tarea muy difícil. Equreka no necesita ningún tipo de información tuya, no recolectaremos datos en nuestros servidores, manejamos APIs diractamente en el navegador que se guaradan en tu ordenador y que tu puedes ver que información se está gaurdando en TU ordenador."
       }
+    },
+
+    "search": {
+      "title": "Buscar",
+      "lead": "Puede buscar constantes, variables, unidades, ecuaciones o fórmulas"
+    },
+
+    "settings": {
+      "title": "Ajustes",
+      "lead": "Esta configuración se almacena en su dispositivo, no tenemos ninguna información suya en nuestros servidores."
     }
   }
 }

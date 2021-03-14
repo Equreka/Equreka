@@ -6,12 +6,6 @@ body {
   color:      var(--body-color);
 }
 
-.body {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-}
-
 h1, h2, h3, h4, h5, h6
 .h1, .h2, .h3, .h4, .h5, .h6,
 .lead {
@@ -25,16 +19,22 @@ a {
   outline: 0;
 }
 
-.link-category {
-  color: $link-color;
-  &:hover {
-    color: var(--category-color, #{$primary});
-  }
-}
-
+// Paragraphs
 p {
   @include rs('font-size', 0.8rem, 1.5vw, 1rem);
   &.lead {
     @include rs('font-size', 0.9rem, 1.5vw, 1.25rem);
+  }
+}
+
+.page-title {
+  display: block;
+  margin:  1rem 0 1.5rem;
+}
+
+.link-category {
+  color: $link-color;
+  &:hover {
+    color: var(--category-color, #{$primary});
   }
 }

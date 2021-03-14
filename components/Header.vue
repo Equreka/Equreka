@@ -2,36 +2,35 @@
   <header class="header">
     <nav class="navbar navbar-expand-md">
       <div class="container">
+
         <!-- Left -->
         <div class="left">
+          <!-- Logo -->
           <NuxtLink class="logo" :to="localePath('/')">
             <Logo/>
           </NuxtLink>
-          <b-dropdown variant="link" :text="$t('Menu')" :title="$t('Menu')" no-caret left>
-            <template #button-content class="focus-visible">
+          <!-- Dropdown: Categories -->
+          <div class="dropdown dropdown-categories btn-group">
+            <button class="btn btn-link dropdown-toggle dropdown-toggle-no-caret" type="button" id="dropdown-categories" data-bs-toggle="dropdown" aria-expanded="false" :title="$t('Menu')">
               <span class="visually-hidden">{{ $t('Menu') }}</span>
-              <i class="bi bi-list"></i>
-            </template>
-            <b-dropdown-header>
-              {{ $t('Categories') }}
-            </b-dropdown-header>
-            <b-dropdown-item v-for="category in categories" :key="category" :to="localePath(`/${category}/`)">
-              {{ $t(`${category}.cap`) }}
-            </b-dropdown-item>
-            <!--
-            <b-dropdown-divider></b-dropdown-divider>
-            <b-dropdown-header>
-              {{ $t('Types') }}
-            </b-dropdown-header>
-            <b-dropdown-item v-for="type in types" :key="type" :to="localePath(`/${type}/`)">
-              {{ $t(`${type}.cap`) }}
-            </b-dropdown-item>-->
-          </b-dropdown>
+              <i class="bi bi-columns-gap"></i>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdown-categories">
+              <li><h6 class="dropdown-header">{{ $t('Categories') }}</h6></li>
+              <li v-for="category in categories" :key="category">
+                <NuxtLink class="dropdown-item" :to="localePath(`/${category}/`)">
+                  {{ $t(`${category}.cap`) }}
+                </NuxtLink>
+              </li>
+            </ul>
+          </div>
         </div>
+
         <!-- Center -->
         <div class="center">
-          <Search />
+          <SearchBar/>
         </div>
+
         <!-- Right -->
         <div class="right">
           <!-- Button: Home -->
@@ -44,33 +43,41 @@
             <span class="visually-hidden">{{ $t('Favorites') }}</span>
             <i class="bi bi-heart"></i>
           </NuxtLink>
-          <!-- Dropdown: Theme -->
-          <b-dropdown variant="link" v-model="$colorMode.preference" no-caret right :title="$t('Change theme')">
-            <template #button-content>
+          <!-- Dropdown: Theme -->                    
+          <div class="dropdown dropdown-theme btn-group">
+            <button class="btn btn-link dropdown-toggle dropdown-toggle-no-caret" type="button" id="dropdown-theme" data-bs-toggle="dropdown" aria-expanded="false" :title="$t('Change language')">
               <span class="visually-hidden">{{ $t('Change theme') }}</span>
               <i class="bi bi-moon theme-icon"></i>
-            </template>
-            <b-dropdown-header>
-              {{ $t('Theme') }}
-            </b-dropdown-header>
-            <b-dropdown-item v-for="(option, code) in themeColors" :key="code"  @click="$colorMode.preference = code, themeTransition(code, $colorMode.value, $colorMode._darkWatcher.matches)">
-              <i class="icon bi" :class="`bi-${code}`"></i> {{ $t(option) }}
-            </b-dropdown-item>
-          </b-dropdown>          
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-theme">
+              <li><h6 class="dropdown-header">{{ $t('Theme') }}</h6></li>
+              <li v-for="(option, code) in themes" :key="code">
+                <button class="dropdown-item" @click="$colorMode.preference = code, themeTransition(code, $colorMode.value, $colorMode._darkWatcher.matches)">
+                  <i class="icon bi" :class="`bi-${code}`"></i>
+                  {{ $t(option) }}
+                </button>
+              </li>
+            </ul>
+          </div>
+
           <!-- Dropdown: Language -->
-          <b-dropdown class="dropdown-language" variant="link" no-caret right :title="$t('Change language')">
-            <template #button-content>
+          <div class="dropdown dropdown-language btn-group">
+            <button class="btn btn-link dropdown-toggle dropdown-toggle-no-caret" type="button" id="dropdown-language" data-bs-toggle="dropdown" aria-expanded="false" :title="$t('Change language')">
               <span class="visually-hidden">{{ $t('Change language') }}</span>
               <i class="bi bi-globe"></i>
-            </template>
-            <b-dropdown-header>
-              {{ $t('Language') 
-              }}</b-dropdown-header>
-            <b-dropdown-item v-for="locale in availableLocales" :key="locale.code" :to="switchLocalePath(locale.code)">
-              {{ locale.name }}
-            </b-dropdown-item>
-          </b-dropdown>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-language">
+              <li><h6 class="dropdown-header">{{ $t('Language') }}</h6></li>
+              <li v-for="locale in availableLocales" :key="locale.code">
+                <NuxtLink class="dropdown-item" :to="switchLocalePath(locale.code)">
+                  {{ locale.name }}
+                </NuxtLink>
+              </li>
+            </ul>
+          </div>
+
         </div>
+
       </div>
     </nav>
   </header>
@@ -81,7 +88,7 @@
   export default {
     data () {
       return {
-        themeColors: {
+        themes: {
           'light':  'Light',
           'dark':   'Dark',
           'system': 'System default'

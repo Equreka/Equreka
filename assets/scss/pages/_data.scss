@@ -28,7 +28,6 @@ main.data {
       margin-bottom:   0.5rem;
       background:      var(--acrylic-backdrop-bg);
       color:           var(--body-color-highlight);
-      min-height:      80px;
       display:         flex;
       align-items:     center;
       justify-content: center;
@@ -53,7 +52,7 @@ main.data {
       }
       &.rendered {
         .loader {
-          animation: fade-out 0.35s $transition-speed-ease forwards;
+          animation: loader-complete 0.35s $transition-speed-ease forwards;
         }
         .wrapper {
           animation: loaded 0.35s 0.35s $transition-speed-ease forwards;

@@ -1,18 +1,17 @@
 // Page error
-.page-error {
-  main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    .container {
-      text-align: center;
-      .brand {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 3rem;
-      }
+main.error {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  .container {
+    text-align: center;
+    .brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 3rem;
     }
   }
 }
+

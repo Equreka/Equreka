@@ -211,16 +211,15 @@
         <h3 class="title">{{ $t('Code') }}</h3>
         <h4 class="subtitle">LaTeX</h4>
         <div class="input-group">
-          <b-button variant="dark" @click="copyClipboard('#' + data.slug)" :aria-label="$t('Copy to clipboard')">
+          <input class="form-control" :id="data.slug" :value="data.expression" />
+          <button type="button" class="btn btn-primary" @click="copyClipboard('#' + data.slug)" :aria-label="$t('Copy to clipboard')">
             <i class="bi bi-clipboard"></i>
             <span class="visually-hidden">{{ $t('Copy to clipboard') }}</span>
-          </b-button>
-          <input :id="data.slug" class="form-control" :value="data.expression" />
+          </button>
         </div>
       </section>
     </div>
     <!-- Scripts -->
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
     <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>
       MathJax = {

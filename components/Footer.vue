@@ -38,3 +38,14 @@
     </div>
   </footer>
 </template>
+
+<script>
+  import { version } from '../package.json'
+  export default {
+    data () {
+      return {
+        version: version,
+      }
+    }
+  }
+</script>

@@ -1,23 +1,21 @@
 <template>
   <main role="main" class="contact">
     <div class="container">
-      <h2>{{ $t('Contact') }}</h2>
-      <p class="lead">Feel free to send a message if you want to say something to us!</p>
-      <b-form>
-        <label for=""></label>
-        
-        <b-form-group class="mb-4">
-          <label class="form-label" for="input-mail">{{ $t('What\'s your e-mail?') }}</label>
-          <b-input id="input-mail" placeholder="you@rock.com"></b-input>
-        </b-form-group>
+      <h2 class="page-title">{{ $t('page.contact.title') }}</h2>
+      <p class="lead">{{ $t('page.contact.lead') }}</p>
+      <form method="post">        
+        <div class="mb-4">
+          <label class="form-label" for="input-mail">{{ $t('page.contact.label-mail') }}</label>
+          <input id="input-mail" class="form-control" :placeholder="$t('page.contact.placeholder-mail')" />
+        </div>
 
-        <b-form-group class="mb-4">
-          <label class="form-label" for="textarea-message">{{ $t('What\'s your message?') }}</label>
-          <b-form-textarea id="textarea-message" rows="5" :placeholder="$t('What do you want to share to us?')"></b-form-textarea>
-        </b-form-group>
+        <div class="mb-4">
+          <label class="form-label" for="textarea-message">{{ $t('page.contact.label-message') }}</label>
+          <textarea id="textarea-message" class="form-control" rows="5" :placeholder="$t('page.contact.placeholder-message')"></textarea>
+        </div>
 
-        <b-button type="submit" variant="primary">{{ $t('page.contact.button-submit') }}</b-button>
-      </b-form>
+        <button type="submit" class="btn btn-primary">{{ $t('page.contact.button-submit') }}</button>
+      </form>
     </div>
   </main>
 </template>

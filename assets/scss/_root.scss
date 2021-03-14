@@ -23,7 +23,7 @@
   --alpha-normal:           0.75;
   --alpha-active:           0.85;
   --alpha-hover:            0.65;
-  --alpha-acrylic:          0.925;
+  --alpha-acrylic:          0.97;
   --alpha-acrylic-border:   0;
   --alpha-acrylic-backdrop: 0.75;
   --alpha-acrylic-shadow:   0.15;
@@ -34,6 +34,7 @@
   --separator:       1px solid var(--separator-color);
 
   --body-bg:              hsl(220, 10%, 90%);
+  --body-bg-alpha:        hsla(220, 10%, 90%, 0.97);
   --body-color-muted:     hsl(220, 10%, 65%);
   --body-color:           hsl(220, 10%, 45%);
   --body-color-highlight: hsl(220, 10%, 35%);
@@ -80,7 +81,7 @@
   --theme-lightness:          07%;
   --theme-inverted-lightness: 90%;
 
-  --acrylic-bg:          hsla(220, 05%, 12%, 0.97);
+  --acrylic-bg:          hsla(220, 10%, 12%, 0.97);
   --acrylic-backdrop-bg: hsla(220, 10%, 15%, 0.35);       
   --acrylic-backdrop:    blur(30px) saturate(1.35);
 
@@ -94,25 +95,26 @@
 
   --selection-bg: hsla(0, 0%, 90%, 0.125);
 
-  --separator-color: hsl(0, 0%, 15%);
+  --separator-color: hsl(220, 10%, 8%);
   --separator:       1px solid var(--separator-color);
 
-  --body-bg:              hsl(220, 05%, 05%);
-  --body-color-muted:     hsl(220, 05%, 35%);
-  --body-color:           hsl(220, 05%, 60%);
-  --body-color-highlight: hsl(220, 05%, 80%);
+  --body-bg:              hsl(220, 10%, 03%);
+  --body-bg-alpha:        hsla(220, 10%, 03%, 0.97);
+  --body-color-muted:     hsl(220, 10%, 35%);
+  --body-color:           hsl(220, 10%, 60%);
+  --body-color-highlight: hsl(220, 10%, 80%);
   
-  --header-color:           hsl(220, 05%, 35%);
-  --footer-color:           hsl(220, 05%, 32.5%);
+  --header-color:           hsl(220, 10%, 35%);
+  --footer-color:           hsl(220, 10%, 32.5%);
 
-  --category-color: hsl(220, 05%, 05%);
+  --category-color: hsl(220, 10%, 05%);
 
-  --input-bg:           hsl(220, 05%, 09%);
-  --input-color:        hsl(220, 05%, 55%);
-  --input-border-color: hsl(220, 05%, 15%);
+  --input-bg:           hsl(220, 10%, 09%);
+  --input-color:        hsl(220, 10%, 55%);
+  --input-border-color: hsl(220, 10%, 15%);
 
-  --input-focus-bg:           hsl(220, 05%, 10%);
-  --input-focus-color:        hsl(220, 05%, 60%);
+  --input-focus-bg:           hsl(220, 10%, 10%);
+  --input-focus-color:        hsl(220, 10%, 60%);
   --input-focus-border-color: var(--#{$variable-prefix}primary);
 
   // Bootstrap color modifier.

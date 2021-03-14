@@ -1,7 +1,7 @@
 <template>
   <main role="main" class="faq">
     <div class="container">
-      <h2>{{ $t('page.faq.title') }}</h2>
+      <h2 class="page-title">{{ $t('page.faq.title') }}</h2>
       <p class="lead">{{ $t('page.faq.lead') }}</p>
 
       <h3>Why is it free?</h3>

@@ -1,7 +1,7 @@
 <template>
   <main role="main" class="favorites">
     <div class="container">
-      <h2>{{ $t('page.favorites.title') }}</h2>
+      <h2 class="page-title">{{ $t('page.favorites.title') }}</h2>
       <p class="lead">{{ $t('page.favorites.lead') }}</p>
       <p v-if="!support">{{ $t('page.favorites.no-support', support) }}</p>
       <!-- Favorites -->
@@ -36,10 +36,10 @@
                     </NuxtLink>
                   </td>
                   <td class="actions">
-                    <b-button class="p-1" variant="text" @click="removeFavorite(type, data._id)" :title="$t('page.favorites.remove')">
+                    <button type="button" class="btn p-1" variant="text" @click="removeFavorite(type, data._id)" :title="$t('page.favorites.remove')">
                       <span class="visually-hidden">{{ $t('page.favorites.remove') }}</span>
                       💔
-                    </b-button>
+                    </button>
                   </td>
                 </tr>
               </template>

@@ -29,6 +29,10 @@ export default {
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/assets/brand/icons/favicon.ico' }
     ],
+    script: [
+      { src: '/assets/js/bootstrap/bootstrap.bundle.min.js' },
+      { src: "https://polyfill.io/v3/polyfill.min.js?features=es6" }
+    ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
@@ -55,8 +59,6 @@ export default {
     '@nuxtjs/dotenv',
     // https://github.com/nuxt-community/redirect-module
     '@nuxtjs/redirect-module',
-    // https://go.nuxtjs.dev/bootstrap
-    'bootstrap-vue/nuxt',
     // https://i18n.nuxtjs.org/
     ['nuxt-i18n', {
       seo: true,
@@ -121,12 +123,6 @@ export default {
     // https://github.com/nuxt-community/device-module
     '@nuxtjs/device'
   ],
-
-  // Bootstrap Vue
-  bootstrapVue: {
-    bootstrapCSS: false, 
-    bootstrapVueCSS: false
-  },
 
   // @nuxtjs/color-mode
   colorMode: {

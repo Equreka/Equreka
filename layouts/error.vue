@@ -1,5 +1,5 @@
 <template>
-  <main role="main">
+  <main role="main" class="error">
     <div class="container">
       <!-- Logo -->
       <NuxtLink class="brand" :to="localePath('/')">

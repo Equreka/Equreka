@@ -1,24 +1,27 @@
 <template>
-  <div class="form-search">
-    <form>
-      <label for="search-bar" class="visually-hidden">{{ $t('search.input-label') }}</label>
-      <b-form-input 
+  <div id="search-bar" class="search-bar">
+    <form method="post" :action="localePath('/search/')">
+      <label for="search-bar" class="form-label visually-hidden">
+        {{ $t('search.input-label') }}
+      </label>
+      <input
         id="search-bar"
         type="search"
-        autocomplete="off"
-        aria-label="Search"
-        :placeholder="$t('search.input-placeholder')"
+        name="q"
+        class="form-control"
+        autocomplete="off"        
         v-model="searchQuery"
+        :placeholder="$t('search.input-placeholder')"
         @focus="searchFocus = true"
         @blur="searchFocus = false"
       />
-      <b-button type="submit" variant="link" :aria-label="$t('search.button-submit')">
+      <button class="btn btn-link" type="submit" :aria-label="$t('search.button-submit')">
         <i class="bi bi-search"></i>
-      </b-button>
+      </button>
     </form>
     <div class="results" role="menu" tabindex="-1" v-if="searchResults || searchFocus">
       <template v-if="searchResults">
-        <SearchResult id="search-bar-results"
+        <SearchBarResults id="search-bar-results"
           v-for="(searchData, searchType) in searchData"
           :key="searchData.slug"
           v-bind:type="searchType.charAt(0).toUpperCase() + searchType.slice(1)"

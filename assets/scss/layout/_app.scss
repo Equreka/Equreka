@@ -1,0 +1,57 @@
+// Layout: App
+.layout.app {
+  padding: #{$app-nav-height} 0;
+  .app-header,
+  .app-menu {
+    overflow: hidden;
+    background: var(--body-bg-alpha);
+    max-height: 70px;
+  }
+  .app-header {
+    padding: 1rem 0;
+    height: $app-nav-height;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 999;
+    border-bottom: var(--separator);
+    .equreka {
+      width: auto;
+      height: calc(#{$app-nav-height} - 2rem);
+    }
+  }
+  .app-menu {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 0;
+    z-index: 999;
+    border-top: var(--separator);
+    .navbar {
+      padding: 0;
+      display: flex;
+      a {
+        overflow: hidden;
+        margin: 0;
+        height: $app-nav-height;
+        flex: 1 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 0;
+        font-size: 1.5rem;
+        color: var(--body-color-highlight);
+        outline: 0;
+        box-shadow: none;
+        &.nuxt-link-exact-active {
+          color: var(--bs-primary);
+        }
+      }
+    }
+  }
+}

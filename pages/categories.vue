@@ -1,6 +1,7 @@
 <template>
   <main role="main" class="categories">
     <div class="container">
+      <h2 class="page-title">{{ $t('page.categories.title') }}</h2>
       <div class="row mathematics">
         <div class="col-12 col-lg-3">
           <h3 class="title">{{ $t('Mathematics') }}</h3>

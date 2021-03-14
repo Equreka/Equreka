@@ -230,7 +230,7 @@ let Equreka = {
     let dataStorage;
 
     try {
-      dataStorage = JSON.parse(localStorage.getItem('favorites.'+type));
+      dataStorage = JSON.parse(localStorage.getItem(`equreka-favorites-${type}`));
     } catch {
       dataStorage = false;
     }
@@ -290,7 +290,7 @@ let Equreka = {
     
     if (typeof(Storage) !== "undefined") {
       var favoritesValue = id;
-      var favoritesKey =   `favorites.${type}`;
+      var favoritesKey =   `equreka-favorites-${type}`;
 
       // If array already exists
       if(localStorage.getItem(favoritesKey)) {
@@ -318,13 +318,12 @@ let Equreka = {
 
     if (typeof(Storage) !== "undefined") {
       var favoritesValue = id;
-      var favoritesKey =   `favorites.${type}`;
+      var favoritesKey =   `equreka-favorites-${type}`;
 
       // If array already exists
       if(localStorage.getItem(favoritesKey)) {
         var favoritesArray = JSON.parse(localStorage.getItem(favoritesKey));
         if(favoritesArray.includes(favoritesValue)) {
-          console.log('true');
           return true;
         } else {
           return false;
@@ -349,10 +348,10 @@ let Equreka = {
   removeFavorite(type, id) {
     if(!type || !id) return false;
     
-    let dataStorage;
     // Get localStorage data
+    let dataStorage;
     try {
-      dataStorage = JSON.parse(localStorage.getItem('favorites.'+type));
+      dataStorage = JSON.parse(localStorage.getItem(`equreka-favorites-${type}`));
     } catch {
       dataStorage = false;
     }
@@ -364,9 +363,9 @@ let Equreka = {
       }
 
       if(dataStorage.length != 0) {
-        localStorage.setItem('favorites.'+type, JSON.stringify(dataStorage));
+        localStorage.setItem(`equreka-favorites-${type}`, JSON.stringify(dataStorage));
       } else {
-        localStorage.removeItem('favorites.'+type);
+        localStorage.removeItem(`equreka-favorites-${type}`);
       }
       return true;
     } else {

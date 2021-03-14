@@ -14,7 +14,7 @@
     opacity: 1;
     @include rs('width', 32px, 10vw, 128px);
     .circle {
-      animation: loading 2s linear infinite;
+      animation: loader-loading 2s linear infinite;
       @for $i from 1 through 7 {
         $delay: $i * .25s;
         &:nth-child(#{$i}) {
@@ -25,8 +25,15 @@
   }
 }
 
-@keyframes loading {
+@keyframes loader-loading {
   50% {
     opacity: 0.35;
+  }
+}
+
+@keyframes loader-complete {
+  100% {
+    opacity: 0;
+    transform: scale(0);
   }
 }

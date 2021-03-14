@@ -1,5 +1,5 @@
-// Search
-.form-search {
+// Search Bar
+.search-bar {
   width:    100%;
   position: relative;
   input {
@@ -15,20 +15,29 @@
     }
   }
   .btn {
-    position: absolute;
-    top: 50%;
-    bottom: 0;
-    right: 0.15rem;
-    width: 32px;
-    height: 32px;
-    padding: 0;
-    border-radius: 99rem !important;
-    transform: translateY(-50%);
-    display: flex;
-    align-items: center;
+    display:         flex;
+    align-items:     center;
     justify-content: center;
+    position:        absolute;
+    top:             50%;
+    bottom:          0;
+    right:           0.15rem;
+    width:           32px;
+    height:          32px;
+    padding:         0;
+    border-radius:   99rem !important;
+    transform:       translateY(-50%);
+    color:           var(--header-color);
+    transition:      $transition-all-ease;
+    box-shadow:      none;
     .bi {
       font-size: 1rem;
+    }
+    &:hover,
+    &:focus,
+    &[aria-expanded="true"] {
+      color:      var(--body-color-highlight);
+      background: hsla(220, 100%, var(--theme-inverted-lightness), 0.075);
     }
   }
   .results {
@@ -95,7 +104,7 @@
         &:hover,
         &:focus {      
           background: hsla(var(--category-color-h), 85%, 50%, 0.2);
-          color: var(--body-color-highlight);
+          color:      var(--body-color-highlight);
           a {
             color: hsl(var(--category-color-h), 100%, 90%) !important
           }

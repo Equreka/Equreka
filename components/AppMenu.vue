@@ -1,22 +1,16 @@
 <template>    
-  <header class="header">
+  <header class="app-menu">
     <nav class="navbar">
-      <!-- Button: Favorites -->
-      <NuxtLink class="btn" :to="localePath('/favorites/')" :title="$t('Favorites')">
-        <span class="visually-hidden">{{ $t('Favorites') }}</span>
-        <i class="bi bi-heart"></i>
+      <!-- Button: Home -->
+      <NuxtLink class="btn" :to="localePath('/')" :title="$t('Home')">
+        <span class="visually-hidden">{{ $t('Home') }}</span>
+        <i class="bi bi-house"></i>
       </NuxtLink>
       
-      <!-- Button: Favorites -->
-      <NuxtLink class="btn" :to="localePath('/favorites/')" :title="$t('Favorites')">
-        <span class="visually-hidden">{{ $t('Favorites') }}</span>
-        <i class="bi bi-heart"></i>
-      </NuxtLink>
-
-      <!-- Button: Home -->
-      <NuxtLink class="logo" :to="localePath('/')">
-        <span class="visually-hidden">{{ $t('Home') }}</span>
-        <Logo/>
+      <!-- Button: Search -->
+      <NuxtLink class="btn" :to="localePath('/search/')" :title="$t('Search')">
+        <span class="visually-hidden">{{ $t('Search') }}</span>
+        <i class="bi bi-search"></i>
       </NuxtLink>
 
       <!-- Button: Favorites -->
@@ -24,10 +18,10 @@
         <span class="visually-hidden">{{ $t('Favorites') }}</span>
         <i class="bi bi-heart"></i>
       </NuxtLink>
-      <!-- Button: Favorites -->
-      <NuxtLink class="btn" :to="localePath('/favorites/')" :title="$t('Favorites')">
-        <span class="visually-hidden">{{ $t('Favorites') }}</span>
-        <i class="bi bi-heart"></i>
+      <!-- Button: Settings -->
+      <NuxtLink class="btn" :to="localePath('/settings/')" :title="$t('Settings')">
+        <span class="visually-hidden">{{ $t('Settings') }}</span>
+        <i class="bi bi-gear"></i>
       </NuxtLink>
     </nav>
   </header>
@@ -38,7 +32,7 @@
   export default {
     data () {
       return {
-        themeColors: {
+        themes: {
           'light':  'Light',
           'dark':   'Dark',
           'system': 'System default'

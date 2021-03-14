@@ -1,6 +1,7 @@
 <template>
   <main role="main" class="home">
     <div class="container">
+      <h2 class="page-title">{{ $t('page.home.title') }}</h2>
       <div class="categories row" v-for="category in categories" :key="category.slug" :class="category.slug">
         <div class="col-12 col-lg-3 mb-3">
           <NuxtLink :to="localePath('/' + category.slug)">
@@ -19,7 +20,6 @@
 
 <script>
 export default {
-  layout: (ctx) => ctx.$device.isMobile ? 'mobile' : 'default',
   data () {
     return {
       categories: {}
