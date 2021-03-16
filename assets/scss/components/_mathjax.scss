@@ -17,7 +17,10 @@ mjx-container {
   }
 }
 
-.MJX_LiveRegion {
+// Remove anoying white pixel...
+.MJX_HoverRegion,
+.MJX_LiveRegion,
+.MJX_ToolTip {
   background: transparent !important;
 }
 

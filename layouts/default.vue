@@ -2,7 +2,7 @@
   <div class="layout" :class="layout">
     <!-- App -->
     <template v-if="layout == 'app'">
-      <!--<AppHeader/>-->
+      <AppHeader/>
       <Nuxt/>
       <AppMenu/>
     </template>
@@ -23,7 +23,7 @@
       }
     },
     head () {
-      return this.$nuxtI18nHead()
+      return this.$nuxtI18nHead();
     }
   }
 </script>

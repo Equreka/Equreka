@@ -2,7 +2,7 @@
 // Table Responsive
 .table-responsive {
   &::-webkit-scrollbar {
-    background: rgba(0,0,0, 0.15);
+    background: transparent;
     border-radius: 100px;
     width:      3px;
     height:     3px;
@@ -102,12 +102,6 @@
   table-layout: fixed;
   font-size: 0.95rem;
   tr {
-    th,
-    td {
-      &.type {
-        //display: none;
-      }
-    }
     th {
       &.actions {
         @include visually-hidden();

@@ -5,11 +5,10 @@
   input {
     margin:        0 auto;
     width:         100%;
-    padding-left:  1rem;
-    padding-right: 2.5rem;
-    border-radius: 1.5rem;
+    padding:       0.65rem 3rem 0.65rem 1.5rem;
+    border-radius: 99rem;
     transition:    $transition-all-ease;
-    border: 0;
+    border:        0;
     &:focus {
       box-shadow: 0 0 0 0.15rem hsla(220, 100%, var(--theme-inverted-lightness), 0.10);
     }
@@ -21,12 +20,12 @@
     position:        absolute;
     top:             50%;
     bottom:          0;
-    right:           0.15rem;
-    width:           32px;
-    height:          32px;
+    right:           0;
+    width:           2.45rem;
+    height:          2.45rem;
     padding:         0;
     border-radius:   99rem !important;
-    transform:       translateY(-50%);
+    transform:       translate(-10%, -50%);
     color:           var(--header-color);
     transition:      $transition-all-ease;
     box-shadow:      none;
@@ -38,6 +37,16 @@
     &[aria-expanded="true"] {
       color:      var(--body-color-highlight);
       background: hsla(220, 100%, var(--theme-inverted-lightness), 0.075);
+    }
+  }
+  &.lg {
+    input {
+      font-size: 115%;
+      padding: 0.75rem 3rem 0.75rem 1.5rem;
+    }
+    .btn {
+      width: 2.75rem;
+      height: 2.75rem;
     }
   }
   .search-results {

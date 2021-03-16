@@ -4,7 +4,7 @@
       <h2 class="page-title">{{ $t('page.search.title') }}</h2>
       <p class="lead">{{ $t('page.search.lead') }}</p>
       <!-- Input -->
-      <div id="search-bar" class="search-bar mb-4">
+      <div id="search-bar" class="search-bar lg mb-4">
         <form>
           <label for="search-bar" class="form-label visually-hidden">
             {{ $t('search.input-label') }}
@@ -31,7 +31,7 @@
       <template v-else>
         <svg class="page-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 466">
           <style>
-            .primary{fill:var(--bs-primary)}
+            .color{fill:var(--bs-purple)}
             .body-bg{fill:var(--body-bg)}
             .body-color{fill:var(--body-color)}
             .body-color-high{fill:var(--body-color-highlight)}
@@ -53,14 +53,14 @@
           <path id="be265de5-288f-49a7-867d-c42e7cdbf4db" d="M448 469.7a2 2 0 01-1.3 0l-5.3-2.3a2 2 0 111.6-3.8l3.4 1.5 4.5-10.6a2 2 0 012.7-1 2 2 0 011 2.6l-5.2 12.5a2 2 0 01-1.4 1.1z" class="body-bg" transform="translate(-311 -139)"/>
           <path d="M462.5 464.7h-258a33 33 0 01-33-33v-303a33 33 0 0133-33h240l51 40.6v295.4a33 33 0 01-33 33z" class="body-color"/>
           <path d="M204.5 105.2a23.5 23.5 0 00-23.5 23.5v303a23.5 23.5 0 0023.5 23.5h258a23.5 23.5 0 0023.5-23.5V140.9l-44.8-35.7z" class="body-bg"/>
-          <path d="M412.3 193.3H294.8a5.5 5.5 0 010-11h117.5a5.5 5.5 0 110 11zM435 211.8H294.8a5.5 5.5 0 010-11H435a5.5 5.5 0 110 11z" class="primary"/>
+          <path d="M412.3 193.3H294.8a5.5 5.5 0 010-11h117.5a5.5 5.5 0 110 11zM435 211.8H294.8a5.5 5.5 0 010-11H435a5.5 5.5 0 110 11z" class="color"/>
           <path d="M412.3 265.4H294.8a5.5 5.5 0 100 11h117.5a5.5 5.5 0 000-11zM435 284H294.8a5.5 5.5 0 100 11H435a5.5 5.5 0 000-11zM412.3 359.5H294.8a5.5 5.5 0 010-11h117.5a5.5 5.5 0 110 11zM435 378H294.8a5.5 5.5 0 010-11H435a5.5 5.5 0 110 11z" class="body-color"/>
-          <circle id="abdb8e2f-a218-463c-85f4-c869fef49971" cx="245.9" cy="197.1" r="19.4" class="primary"/>
+          <circle id="abdb8e2f-a218-463c-85f4-c869fef49971" cx="245.9" cy="197.1" r="19.4" class="color"/>
           <path id="ba7dbbd6-0052-44b1-a552-47a8298b8d3e" d="M555 343.5a2 2 0 01-1.2-.4l-4.6-3.5a2 2 0 112.5-3.2l3 2.2 6.9-9a2 2 0 012.8-.4 2 2 0 01.4 2.8l-8.2 10.7a2 2 0 01-1.6.8z" class="body-bg" data-name="Path 395" transform="translate(-311 -139)"/>
           <path d="M267.3 280.2a19.4 19.4 0 01-19.4 19.4 4.2 4.2 0 01-.5 0 19.4 19.4 0 1120-19.4z" class="body-color"/>
-          <circle id="e4a71040-498e-4958-ad41-c2d79154b8f7" cx="245.9" cy="363.3" r="19.4" class="body-color" data-name="Ellipse 44"/>
+          <circle id="e4a71040-498e-4958-ad41-c2d79154b8f7" cx="245.9" cy="363.3" r="19.4" class="body-color"/>
           <path d="M494.5 137.6h-40a11 11 0 01-11-11V97.1a.7.7 0 011.2-.5l50.2 39.8a.7.7 0 01-.4 1.2z" class="body-color"/>
-          <path d="M267.3 280.2a19.4 19.4 0 01-19.4 19.4 4.2 4.2 0 01-.5 0 42 42 0 013.8-38.6 19.4 19.4 0 0116.1 19.2zM289.3 271a5.5 5.5 0 015.5-5.6h29.3a41.6 41.6 0 013.6 11h-32.9a5.5 5.5 0 01-5.5-5.5zM328.4 284a42 42 0 01-1.5 11h-32a5.5 5.5 0 110-11z" class="primary"/>
+          <path d="M267.3 280.2a19.4 19.4 0 01-19.4 19.4 4.2 4.2 0 01-.5 0 42 42 0 013.8-38.6 19.4 19.4 0 0116.1 19.2zM289.3 271a5.5 5.5 0 015.5-5.6h29.3a41.6 41.6 0 013.6 11h-32.9a5.5 5.5 0 01-5.5-5.5zM328.4 284a42 42 0 01-1.5 11h-32a5.5 5.5 0 110-11z" class="color"/>
           <path d="M400.8 351.7a6 6 0 01-8.2 2l-70-42.7a6 6 0 016.2-10.2l70 42.7a6 6 0 012 8.2z" class="body-color-high"/>
           <path d="M330.8 309a48 48 0 11-16-66 48 48 0 0116 66zm-71.7-43.7a36 36 0 1049.5-12 36 36 0 00-49.5 12z" class="body-color-high"/>
         </svg>

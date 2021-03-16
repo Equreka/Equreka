@@ -6,4 +6,7 @@
   @else {
     padding-bottom: calc(#{$app-nav-height} + #{$app-nav-margin * 2});
   }
+  .page-title {
+    margin-top: 0;
+  }
 }

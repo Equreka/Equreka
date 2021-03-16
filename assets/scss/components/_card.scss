@@ -1,0 +1,31 @@
+.card {
+
+}
+
+.card-category {
+  position: relative;
+  background: var(--category-color);
+  margin-bottom: 1rem;
+  color: hsl(var(--category-color-h), 100%, 90%);
+  border-radius: 0.5rem;
+  @media (min-width: 325px) {
+    border-radius: 0.75rem;
+  }  
+  @media (min-width: 375px) {
+    border-radius: 1rem;
+  }
+  p {
+    display: -moz-box;
+    display: -webkit-box;
+    -moz-line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -moz-box-orient: vertical;  
+    -webkit-box-orient: vertical;  
+    overflow: hidden;
+    margin: 0;
+    text-overflow: ellipsis;
+  }
+  .card-title {
+    color: hsl(var(--category-color-h), 100%, 95%);
+  }
+}

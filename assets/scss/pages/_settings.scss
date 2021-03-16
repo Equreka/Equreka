@@ -1,0 +1,25 @@
+main.settings {
+  .nav-pages {
+    flex-direction: column;
+    margin-bottom: 1rem;
+    .nav-link {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  .nav-social {
+    justify-content: center;
+    .nav-link {
+      color: var(--body-color-muted);
+    }
+  }
+  .btn {
+    min-width: 175px;
+    &::after {
+      margin-left: auto;
+    }
+  }
+  hr {
+    opacity: 0.15;
+  }
+}
