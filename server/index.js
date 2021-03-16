@@ -4,6 +4,9 @@ const express = require('express');
 const morgan = require('morgan');
 const mongoSanitize = require('express-mongo-sanitize');
 const app = express();
+const apiRouter = require('./routes');
+const args = process.argv;
+const build = args[2] || 'development';
 
 // Databes
 db.on('error', function() { 
@@ -23,12 +26,20 @@ app.use(cors());
 // Log HTTP requests
 app.use(morgan('combined'));
 
-// API Index
-app.get('/', (req, res) => { res.send('Eureka!'); });
-
-// Routes
-const apiRouter = require('./routes');
-app.use('/', apiRouter);
+// Running server standalone
+if(build == 'test') {
+  app.get('/api/', (req, res) => { res.send('Eureka!'); });
+  app.use('/api/', apiRouter);
+  app.listen(3000, () => {
+    console.log('i [Express] Running server standalone')
+  });
+}
+// Running server with Nuxt
+else {
+  app.get('/', (req, res) => { res.send('Eureka!'); });
+  app.use('/', apiRouter);
+  console.log('i [Express] Running server with nuxt')
+}
 
 // Done
 module.exports = app;

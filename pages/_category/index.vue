@@ -46,7 +46,7 @@
         return;
       }
 
-      const equations = await fetch(process.env.baseUrl + '/api/equations/category/' + category).then((res) => res.json());
+      const equations = await fetch(`${process.env.api}/equations/category/${category}`).then((res) => res.json());
 
       if(category && equations.length != 0) {
         return {

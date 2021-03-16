@@ -1,6 +1,8 @@
 export default {
   // Target: https://go.nuxtjs.dev/config-target
-  target: 'server',
+  target: 'static',
+
+  ssr: false,
 
   server: {
     host: '0.0.0.0'
@@ -14,6 +16,7 @@ export default {
   ],
 
   env: {
+    api:     process.env.API_URL  || 'http://192.168.0.5:3000/api',
     baseUrl: process.env.BASE_URL || 'http://192.168.0.5:3000'
   },
 
@@ -30,8 +33,7 @@ export default {
       { rel: 'icon', type: 'image/x-icon', href: '/assets/brand/icons/favicon.ico' }
     ],
     script: [
-      { src: '/assets/js/bootstrap/bootstrap.bundle.min.js' },
-      { src: "https://polyfill.io/v3/polyfill.min.js?features=es6" }
+      { src: 'https://polyfill.io/v3/polyfill.min.js?features=es6', body: true }
     ]
   },
 
@@ -42,10 +44,10 @@ export default {
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
   plugins: [
-    //'@/node_modules/vue-mathjax',
-    //'~/plugins/tex-chtml-full.js',
-    '~/plugins/preview.client.js',
-    '~/plugins/i18n.js'
+    //'@/node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
+    '@/static/assets/js/bootstrap/bootstrap.bundle.min.js',
+    '@/plugins/preview.client.js',
+    '@/plugins/i18n.js'
   ],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
@@ -55,10 +57,20 @@ export default {
   modules: [
     // https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
+    // https://nuxtjs.org/blog/going-dark-with-nuxtjs-color-mode
+    '@nuxtjs/color-mode',
+    // https://github.com/nuxt-community/device-module
+    '@nuxtjs/device',
     // https://nuxtjs.org/blog/moving-from-nuxtjs-dotenv-to-runtime-config
     '@nuxtjs/dotenv',
+    // https://pwa.nuxtjs.org/
+    '@nuxtjs/pwa',
     // https://github.com/nuxt-community/redirect-module
     '@nuxtjs/redirect-module',
+    // https://github.com/nuxt-community/robots-module
+    '@nuxtjs/robots',
+    // https://sitemap.nuxtjs.org/
+    '@nuxtjs/sitemap',
     // https://i18n.nuxtjs.org/
     ['nuxt-i18n', {
       seo: true,
@@ -78,8 +90,13 @@ export default {
       ],
       defaultLocale: 'en',
       lazy:          true,
-      langDir:       '/lang/',
-      //differentDomains: (process.env.NODE_ENV === 'production'),
+      langDir:       '@/lang/',
+      detectBrowserLanguage: {
+        useCookie: true,
+        cookieKey: 'equreka-lang',
+        alwaysRedirect: true,
+        fallbackLocale: 'en'
+      },
       vuex: {
         moduleName:      'i18n',
         syncLocale:      true,
@@ -88,9 +105,9 @@ export default {
       },
       vueI18n: {
         fallbackLocale: {
-          'default': ['en', 'es']
-          // 'es-MX':   ['es', 'en'], // Para después ;)
-          // 'es-MX':   ['es', 'en'], // Para después ;)
+          'default': ['en', 'es'],
+          'es-US':   ['es', 'en'],
+          'es-MX':   ['es', 'en']
         }
       }
     }]
@@ -117,11 +134,11 @@ export default {
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
     // https://nuxtjs.org/blog/going-dark-with-nuxtjs-color-mode
-    '@nuxtjs/color-mode',
+    //'@nuxtjs/color-mode',
     // https://pwa.nuxtjs.org/
-    '@nuxtjs/pwa',
+    //'@nuxtjs/pwa',
     // https://github.com/nuxt-community/device-module
-    '@nuxtjs/device'
+    //'@nuxtjs/device'
   ],
 
   // @nuxtjs/color-mode
@@ -130,7 +147,7 @@ export default {
     classSuffix: ''
   },
 
-  // PWA module configuration: https://go.nuxtjs.dev/pwa
+  // @nuxtjs/pwa
   pwa: {
     meta: {
       name: 'Equreka',
@@ -145,10 +162,32 @@ export default {
       short_name: 'Equreka',
       description: 'Your free and open-source app for variables, constants, formulas and equations',
       lang: 'en',
-      background_color: '#e3e5e8',
+      background_color: '#070708',
     },
     icon: {
       source: './static/icon.png'
     }
+  },
+
+  // @nuxtjs/robots
+  robots: {
+    Sitemap: process.env.SITE_URL + 'sitemap.xml'
+  },
+  
+  // @nuxtjs/sitemap
+  sitemap: {
+    hostname: process.env.BASE_URL,
+    trailingSlash: true,
+    routes: [
+      {
+        url: '/',
+        changefreq: 'weekly',
+        priority: 1,
+        lastmod: new Date().toISOString()
+      }
+    ]
+  },
+  generate: {
+    fallback: true
   }
 }

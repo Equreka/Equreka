@@ -40,7 +40,7 @@
         return;
       }
 
-      let data = await fetch(process.env.baseUrl + '/api/' + type + '/category/' + category).then((res) => res.json());
+      let data = await fetch(`${process.env.api}/${type}/category/${category}`).then((res) => res.json());
       
       if(!data || data.length === 0) data = false;
 

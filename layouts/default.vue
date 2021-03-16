@@ -2,7 +2,7 @@
   <div class="layout" :class="layout">
     <!-- App -->
     <template v-if="layout == 'app'">
-      <AppHeader/>
+      <!--<AppHeader/>-->
       <Nuxt/>
       <AppMenu/>
     </template>

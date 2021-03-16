@@ -3,8 +3,11 @@ $navbar-expand: lg;
 $abbr-expand:   md; // Expands from this
 
 // Options
-$app-nav-height: 17.5vw;
-$app-body-padding: 1rem;
+$app-header: false;
+$app-body-padding:      1rem;
+$app-nav-height:        17.5vw;
+$app-nav-margin:        1rem;
+$app-nav-border-radius: 1rem;
 $equreka-term-selector: eqk;
 
 // Font
@@ -12,7 +15,7 @@ $font-family-math:               serif;
 $font-family-heading-sans-serif: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
 // Colors
-$gray:     hsl(200, 20%, 40%);
+$gray:     hsl(220, 10%, 40%);
 $blue:     hsl(215, 95%, 50%);
 $indigo:   hsl(265, 90%, 50%);
 $purple:   hsl(260, 50%, 50%);
@@ -61,6 +64,13 @@ $social: (
   "windows":  $windows,
   "android":  $android,
   "apple":    $apple
+);
+
+$app-menu: (
+  "home": "blue",
+  "search": "purple",
+  "favorites": "red",
+  "settings": "yellow"
 );
 
 // Dropdown

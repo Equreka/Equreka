@@ -1,6 +1,6 @@
 <template>
   <div id="search-bar" class="search-bar">
-    <form method="post" :action="localePath('/search/')">
+    <form :action="localePath('/search/')">
       <label for="search-bar" class="form-label visually-hidden">
         {{ $t('search.input-label') }}
       </label>
@@ -9,7 +9,7 @@
         type="search"
         name="q"
         class="form-control"
-        autocomplete="off"        
+        autocomplete="off"
         v-model="searchQuery"
         :placeholder="$t('search.input-placeholder')"
         @focus="searchFocus = true"
@@ -19,7 +19,7 @@
         <i class="bi bi-search"></i>
       </button>
     </form>
-    <div class="results" role="menu" tabindex="-1" v-if="searchResults || searchFocus">
+    <div class="search-results" role="menu" tabindex="-1" v-if="searchResults || searchFocus">
       <template v-if="searchResults">
         <SearchBarResults id="search-bar-results"
           v-for="(searchData, searchType) in searchData"
@@ -50,9 +50,9 @@
   export default {
     data() {
       return {
+        searchResults: false,
         searchFocus:   false,
         searchQuery:   '',
-        searchResults: false,
         searchData: {
           equations: {},
           formulas:  {},
@@ -74,7 +74,7 @@
 
         let data = [];
         await Promise.all((Equreka.TYPES).map(async (type) => {
-          data[type] = await fetch(process.env.baseUrl + '/api/' + type + '/search/' + searchQuery).then((res) => res.json());
+          data[type] = await fetch(`${process.env.api}/${type}/search/${searchQuery}`).then((res) => res.json());
         }));
 
         this.searchData.constants = data['constants'];

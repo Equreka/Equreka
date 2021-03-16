@@ -276,7 +276,7 @@
       }
 
       const slug = params.slug;
-      const data = await fetch(process.env.baseUrl + '/api/' + type + '/' + slug).then((res) => res.json());
+      const data = await fetch(`${process.env.api}/${type}/${slug}`).then((res) => res.json());
 
       if(data && data.category.slug == category) { 
         return { 

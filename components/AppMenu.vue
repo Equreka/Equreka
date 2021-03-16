@@ -2,24 +2,24 @@
   <header class="app-menu">
     <nav class="navbar">
       <!-- Button: Home -->
-      <NuxtLink class="btn" :to="localePath('/')" :title="$t('Home')">
+      <NuxtLink class="btn home" :to="localePath('/')" :title="$t('Home')">
         <span class="visually-hidden">{{ $t('Home') }}</span>
         <i class="bi bi-house"></i>
       </NuxtLink>
       
       <!-- Button: Search -->
-      <NuxtLink class="btn" :to="localePath('/search/')" :title="$t('Search')">
+      <NuxtLink class="btn search" :to="localePath('/search/')" :title="$t('Search')">
         <span class="visually-hidden">{{ $t('Search') }}</span>
         <i class="bi bi-search"></i>
       </NuxtLink>
 
       <!-- Button: Favorites -->
-      <NuxtLink class="btn" :to="localePath('/favorites/')" :title="$t('Favorites')">
+      <NuxtLink class="btn favorites" :to="localePath('/favorites/')" :title="$t('Favorites')">
         <span class="visually-hidden">{{ $t('Favorites') }}</span>
         <i class="bi bi-heart"></i>
       </NuxtLink>
       <!-- Button: Settings -->
-      <NuxtLink class="btn" :to="localePath('/settings/')" :title="$t('Settings')">
+      <NuxtLink class="btn settings" :to="localePath('/settings/')" :title="$t('Settings')">
         <span class="visually-hidden">{{ $t('Settings') }}</span>
         <i class="bi bi-gear"></i>
       </NuxtLink>
@@ -51,7 +51,7 @@
       }
     },
     async fetch () {
-      this.categories = await fetch(process.env.baseUrl + '/api/categories/').then(res => res.json());
+      this.categories = await fetch(`${process.env.api}/categories/`).then(res => res.json());
     }
   }
 </script>

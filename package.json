@@ -7,13 +7,19 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "build-android": "nuxt build && nuxt generate && cap sync && cap copy && cap open android && nodemon server test"
   },
   "dependencies": {
+    "@capacitor/android": "^2.4.7",
+    "@capacitor/cli": "^2.4.7",
+    "@capacitor/core": "^2.4.7",
     "@nuxtjs/axios": "^5.13.1",
     "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/pwa": "^3.3.5",
     "@nuxtjs/redirect-module": "^0.3.1",
+    "@nuxtjs/robots": "^2.5.0",
+    "@nuxtjs/sitemap": "^2.4.0",
     "bootstrap": "^5.0.0-beta2",
     "bootstrap-icons": "^1.4.0",
     "core-js": "^3.8.3",
@@ -22,6 +28,7 @@
     "express": "^4.17.1",
     "express-mongo-sanitize": "^2.0.2",
     "express-validator": "^6.10.0",
+    "fs": "^0.0.1-security",
     "helmet": "^4.4.1",
     "mongoose": "^5.11.18",
     "mongoose-slug-generator": "^1.0.4",

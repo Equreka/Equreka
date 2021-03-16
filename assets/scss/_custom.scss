@@ -38,3 +38,12 @@ p {
     color: var(--category-color, #{$primary});
   }
 }
+
+.page-svg {
+  display: block;
+  margin: 4rem auto 2rem;
+  max-width: 100%;
+  opacity: 0.25;
+  pointer-events: none;
+  user-select: none;
+}

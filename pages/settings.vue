@@ -12,7 +12,7 @@
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
           <li v-for="locale in availableLocales" :key="locale.code">
-            <NuxtLink class="dropdown-item" :to="switchLocalePath(locale.code)">
+            <NuxtLink class="dropdown-item" :to="switchLocalePath(locale.code)" @click="setLocale(local.code)">
               {{ locale.name }}
             </NuxtLink>
           </li>
@@ -28,7 +28,7 @@
         <ul class="dropdown-menu" aria-labelledby="dropdown-theme">
           <li><h6 class="dropdown-header">{{ $t('Theme') }}</h6></li>
           <li v-for="(option, code) in themes" :key="code">
-            <button class="dropdown-item" @click="$colorMode.preference = code, themeTransition(code, $colorMode.value, $colorMode._darkWatcher.matches)">
+            <button class="dropdown-item" @click="$colorMode.preference = code, themeTransition(code, $colorMode.value)">
               <i class="icon bi" :class="`bi-${code}`"></i>
               {{ $t(option) }}
             </button>

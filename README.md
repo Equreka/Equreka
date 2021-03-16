@@ -40,11 +40,34 @@ $ npm run generate
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
+## Android build
+
+```bash
+# this will run all scripts needed and open android studio
+$ npm run build-android
+
+```
+Please check out [Capacitor docs](https://capacitorjs.com/docs/v3/)
+
+## Capacitor not working when launching App in Android Studio
+
+Make sure `/android/app/build.gradle` have `aapOptions` like this:
+```
+android {
+  ...
+  defaultConfig {
+    ...
+    aaptOptions {
+      ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:!CVS:!thumbs.db:!picasa.ini:!*~'
+    }
+  }
+}
+```
 
 ## To-do
 
 ### App
-- [ ] Use cappacitor.js to export as an app for iOS and Android
+- [ ] Use cappacitor.js to export as an app for iOS and Android (WIP)
 ### UI
 - [ ] Add content for everything
 ### API
@@ -54,8 +77,11 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 ### Database
 - [ ] Add subcategories (?)
 - [ ] Improve general structure (?)
-- [ ] Improve traductions structure (?)
+- [ ] Improve traductions structure (*)
+- [ ] Add Realm for mobile (offlinemode)
+- [ ] Sync offline mode db with server (Realm)
 ### Scripts
 - [ ] Improve Hover system for dynamic created elements (MathJax)
-- [ ] Improve favorites system (working but very basic)
+- [X] Improve favorites system (working but very basic)
 - [ ] Add import/export favorites
+- [ ] Save in localStorage language setting

@@ -1,0 +1,72 @@
+[{
+  "_id": {
+    "$oid": "6039dc6e25ac3c5b0c902c1f"
+  },
+  "units": [],
+  "category": {
+    "_id": 2
+  },
+  "name": "Mass-energy equivalence",
+  "slug": "mass-energy-equivalence",
+  "expression": "E=mc^{2}",
+  "description": "This formula states that the equivalent $energy$ $(\\var{E})$ can be calculated as the mass $(\\var{m})$ multiplied by the speed of light $(\\const{c})$ squared. Similarly, anything having energy exhibits a corresponding mass $(\\var{m})$ given by its energy $(\\var{E})$ divided by the speed of light squared $(\\const{c}^{2})$.\nBecause the speed of light is a very large number in everyday units, the formula implies that even an everyday object at rest with a modest amount of mass has a very large amount of energy intrinsically.",
+  "references": [],
+  "__v": 0,
+  "variables": [
+    {
+      "variable": {
+        "$oid": "603a42a07abd113e30d8b30e"
+      }
+    },
+    {
+      "variable": {
+        "$oid": "603b0955362a26563cabe4cc"
+      }
+    }
+  ],
+  "constants": [
+    {
+      "constant": {
+        "$oid": "6040364e75de29277c377057"
+      }
+    }
+  ],
+  "expressionIntern": "\\var{E}=\\var{m}\\const{c}^{2}"
+},{
+  "_id": {
+    "$oid": "603a5b5b7abd113e30d8b30f"
+  },
+  "units": [],
+  "category": {
+    "_id": 1
+  },
+  "name": "Pythagorean theorem",
+  "slug": "pithagoras-theorem",
+  "expression": "a^2+b^2=c^2",
+  "description": "Where $\\var{c}$ represents the length of the hypotenuse and $\\var{a}$ and $\\var{b}$ the lengths of the triangle's other two sides. The theorem, whose history is the subject of much debate, is named for the Greek thinker Pythagoras, born around 570 BC.",
+  "references": [],
+  "__v": 0,
+  "variables": [
+    {
+      "variable": {
+        "$oid": "603a42a07abd113e30d8b30e"
+      }
+    },
+    {
+      "variable": {
+        "$oid": "603b0955362a26563cabe4cc"
+      }
+    }
+  ],
+  "expressionIntern": "\\var{a}^{2}+\\var{b}^{2}=\\var{c}^{2}"
+},{
+  "_id": {
+    "$oid": "6040752fedeb14f3d0109a36"
+  },
+  "name": "LaTeX test",
+  "slug": "latex-test",
+  "expression": "\\begin{pmatrix}\\alpha & \\cdots & \\beta^{*}\\\\ \\vdots & \\ddots & \\vdots \\\\ \\gamma^{*} & \\cdots & \\delta \\end{pmatrix}",
+  "category": {
+    "_id": 0
+  }
+}]

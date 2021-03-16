@@ -2,7 +2,6 @@
   <header class="header">
     <nav class="navbar navbar-expand-md">
       <div class="container">
-
         <!-- Left -->
         <div class="left">
           <!-- Logo -->
@@ -52,14 +51,13 @@
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-theme">
               <li><h6 class="dropdown-header">{{ $t('Theme') }}</h6></li>
               <li v-for="(option, code) in themes" :key="code">
-                <button class="dropdown-item" @click="$colorMode.preference = code, themeTransition(code, $colorMode.value, $colorMode._darkWatcher.matches)">
+                <button class="dropdown-item" @click="$colorMode.preference = code, themeTransition(code, $colorMode.value)">
                   <i class="icon bi" :class="`bi-${code}`"></i>
                   {{ $t(option) }}
                 </button>
               </li>
             </ul>
           </div>
-
           <!-- Dropdown: Language -->
           <div class="dropdown dropdown-language btn-group">
             <button class="btn btn-link dropdown-toggle dropdown-toggle-no-caret" type="button" id="dropdown-language" data-bs-toggle="dropdown" aria-expanded="false" :title="$t('Change language')">
@@ -69,7 +67,7 @@
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-language">
               <li><h6 class="dropdown-header">{{ $t('Language') }}</h6></li>
               <li v-for="locale in availableLocales" :key="locale.code">
-                <NuxtLink class="dropdown-item" :to="switchLocalePath(locale.code)">
+                <NuxtLink class="dropdown-item" :to="switchLocalePath(locale.code)" @click="setLocale(local.code)">
                   {{ locale.name }}
                 </NuxtLink>
               </li>

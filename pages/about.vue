@@ -18,7 +18,7 @@
       <h4 class="mt-5">Special thanks to</h4>
       <p class="lead">Science and all the people that creates awesome stuff, all philosophers, all alchemists, all scientists, to all those people who contributed to science, to civilization, to humanity.</p>
       <p>All open source projects and specially the ones that made possible this project</p>
-      <p>Here are some projects (in no particular order) that made this project possible:</p>
+      <p>Here are some projects (in alphabetical order) that made this project possible:</p>
       <div class="open-source">
         <a class="btn btn-link" target="_blank" rel="noopener nofollow" v-for="(url, title) in projects" :key="title" :href="url">{{ title }}</a>
       </div>
@@ -32,18 +32,20 @@
     data() {
       return {
         projects: {
-          'Github':               'https://github.com/',
-          'Wikimedia Foundation': 'https://wikimediafoundation.org/',
-          'Stack Overflow':       'https://stackoverflow.com/',
-          'Node.js':              'https://nodejs.org/',
-          'Vue.js':               'https://vuejs.org/',
-          'Nuxt.js':              'https://nuxtjs.org/',
-          'Mongoose':             'https://mongoosejs.com/',
-          'Express':              'https://expressjs.com/es/',
           'Bootstrap':            'https://github.com/twbs/bootstrap',
           'Bootstrap Icons':      'https://github.com/twbs/icons',
-          'Bootstrap Vue':        'https://bootstrap-vue.org/',
+          'Capacitor':            'https://capacitorjs.com/',
+          'Express':              'https://expressjs.com/es/',
+          'Github':               'https://github.com/',
           'Icons8':               'https://icons8.com/',
+          'MongoDB':              'https://mongodb.com/',
+          'Mongoose':             'https://mongoosejs.com/',
+          'Node.js':              'https://nodejs.org/',
+          'Nuxt.js':              'https://nuxtjs.org/',
+          'Stack Overflow':       'https://stackoverflow.com/',
+          'Undraw':               'https://undraw.co/',
+          'Vue.js':               'https://vuejs.org/',
+          'Wikimedia Foundation': 'https://wikimediafoundation.org/',
         }
       }
     },

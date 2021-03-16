@@ -178,9 +178,9 @@ let Equreka = {
    * @param {string}  actualTheme  Actual theme mode value (variable by @nuxtjs/color-mode)
    * @param {boolean} systemQuery  Watcher for prefers-color-scheme: dark (boolean by @nuxtjs/color-mode)
    */
-  themeTransition (newTheme, actualTheme, systemQuery) {
-    // if false default theme is dark 
-    var systemTheme = (systemQuery) ? 'dark' : 'light';
+  themeTransition (newTheme, actualTheme) {
+    // Set system default theme
+    var systemTheme = (window.matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
     // if newTheme value is system change it to systemTheme
     if(newTheme == 'system') {
       newTheme = systemTheme;
@@ -239,7 +239,7 @@ let Equreka = {
       for (let i = 0, c = 0; i < dataStorage.length; i++) {
         const element = dataStorage[i];
         let data = await fetch(
-          process.env.baseUrl + '/api/' + type + '/id/' + element
+          `${process.env.api}/${type}/id/${element}`
         ).then((res) => res.json());
         if(data) {
           dataArray[c] = data
