@@ -29,9 +29,6 @@
             <template v-if="!data">
                 {{ $t('page.header.' + name) }}
             </template>
-            <!--<template v-else>
-                {{ $t(name) }}
-            </template>-->
             <template v-else>
                 {{ name }}
             </template>

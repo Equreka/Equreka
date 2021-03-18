@@ -220,7 +220,8 @@
       </section>
     </div>
     <!-- Scripts -->
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <!--<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>-->
+    <script id="MathJax-script" async src="/assets/js/mathjax/tex-mml-chtml.js"></script>
     <script>
       MathJax = {
         locale: 'es',
@@ -254,7 +255,9 @@
 
 
 <script>
+  import jslinq from "jslinq";
   import Equreka from '@/equreka';
+  import dbOffline from "@/static/data";
   export default {
     data () {
       return {
@@ -276,8 +279,15 @@
       }
 
       const slug = params.slug;
-      const data = await fetch(`${process.env.api}/${type}/${slug}`).then((res) => res.json());
+      let data, dataOffline;
 
+      try {
+        data = await fetch(`${process.env.api}/${type}/${slug}`).then((res) => res.json());
+      } catch {
+        dataOffline = jslinq(dbOffline[type]);
+        data = dataOffline.where((el) => { return el.slug == slug }).toList()[0];
+      }
+      
       if(data && data.category.slug == category) { 
         return { 
           data:     data,

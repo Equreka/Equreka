@@ -1,11 +1,18 @@
-const router = require('express').Router();
-const Variable = require('../../database/models/variable');
-const Category = require('../../database/models/category');
-const { param } = require('express-validator');
+const router=    require('express').Router();
+const Variable=  require('../../database/models/variable');
+const Category=  require('../../database/models/category');
+const { param }= require('express-validator');
 
 // GET - All
 router.get('/', async (req, res) => {
   const data = await Variable.find();
+  res.json(data);
+});
+
+// GET - Dump all
+router.get('/dump', async (req, res) => {
+  const data = await Variable.find()
+  .populate('category');
   res.json(data);
 });
 

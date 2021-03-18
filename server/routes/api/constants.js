@@ -1,13 +1,21 @@
-const router = require('express').Router();
-const mongoose = require('mongoose');
-const Constant = require('../../database/models/constant');
-const Category = require('../../database/models/category');
-const { param } = require('express-validator');
+const router=    require('express').Router();
+const Constant=  require('../../database/models/constant');
+const Category=  require('../../database/models/category');
+const { param }= require('express-validator');
 
 // GET - All
 router.get('/', async (req, res) => {
   const data = await Constant.find()
   .populate('category, unit')
+  res.json(data);
+});
+
+// GET - Dump all
+router.get('/dump', async (req, res) => {
+  const data = await Constant.find()
+  .populate('category')
+  .populate('unit')
+  .populate('values.unit')
   res.json(data);
 });
 
@@ -23,7 +31,7 @@ async (req, res) => {
     }
   },
   )
-  .populate('category, unit')
+  .populate('category, unit, values.unit')
   .limit(10);
   res.json(data);
 });

@@ -1,3 +1,6 @@
+import jslinq from "jslinq";
+import dbOffline from "../static/data";
+
 let Equreka = {
 
   //
@@ -12,6 +15,10 @@ let Equreka = {
   //
   //  Functions
   //
+
+
+
+
 
   /**
    * Log
@@ -226,6 +233,7 @@ let Equreka = {
    * @returns {object, boolean} 
    */
   async getFavorites (type) {
+    
     let dataArray = [];
     let dataStorage;
 
@@ -237,10 +245,26 @@ let Equreka = {
 
     if(dataStorage) {
       for (let i = 0, c = 0; i < dataStorage.length; i++) {
-        const element = dataStorage[i];
-        let data = await fetch(
-          `${process.env.api}/${type}/id/${element}`
-        ).then((res) => res.json());
+        let element = dataStorage[i];
+
+        let data, dataOffline;
+        
+        try {
+          data = await fetch(`${process.env.api}/${type}/id/${element}`).then((res) => res.json());
+        } catch {
+          try {
+            dataOffline = jslinq(dbOffline[type]);
+            data = dataOffline.where((el) => {
+              if(el) {
+                return el._id == element
+              } else {
+                return false
+              }
+            }).toList()[0];
+          } catch {
+            data = false;
+          }
+        }
         if(data) {
           dataArray[c] = data
           c++;
@@ -261,24 +285,24 @@ let Equreka = {
    * @returns {boolean}
    */
   haveFavorites(object) {
-    if(Object.keys(object).length === 0) return false;
-
+    if(!object || Object.keys(object).length === 0) return false;
     let isEmpty = 0;
 
     // Check every object
-    for (const key in object) {
+    for (var key in object) {
       if (Object.hasOwnProperty.call(object, key)) {
-        const element = object[key];
-        if(Object.keys(element).length != 0) {
+        let element = object[key];
+        if(element) {
           isEmpty++;
         }
       }
     }
-
+    
     isEmpty = (isEmpty === 0) ? false : true;
 
     return isEmpty;
   },
+
   /**
    * Add Favorite
    * @param   {string}   type Type of data
@@ -289,6 +313,10 @@ let Equreka = {
     if(!type || !id) return false;
     
     if (typeof(Storage) !== "undefined") {
+      if(typeof id != 'string') id = id.$oid;
+
+      console.log(id);
+
       var favoritesValue = id;
       var favoritesKey =   `equreka-favorites-${type}`;
 
@@ -313,6 +341,12 @@ let Equreka = {
     }
   },
 
+  /**
+   * Check Favorite
+   * @param {*} type 
+   * @param {*} id 
+   * @returns {boolean}
+   */
   checkFavorite(type, id) {
     if(!type || !id) return false;
 
@@ -350,6 +384,7 @@ let Equreka = {
     
     // Get localStorage data
     let dataStorage;
+
     try {
       dataStorage = JSON.parse(localStorage.getItem(`equreka-favorites-${type}`));
     } catch {
@@ -367,10 +402,26 @@ let Equreka = {
       } else {
         localStorage.removeItem(`equreka-favorites-${type}`);
       }
+
       return true;
     } else {
       return false;
     }
+  },
+
+
+  async fetchData(query, localData) {
+    let data;
+    try {
+      data = await fetch(process.env.api + query).then(res => res.json());
+    } catch {
+      try {
+        data = localData;
+      } catch {
+        data = {}
+      }
+    }
+    return data
   }
   // End
 }

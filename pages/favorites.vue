@@ -5,7 +5,6 @@
       <p class="lead mb-4">{{ $t('page.favorites.lead') }}</p>
 
       <p v-if="!support">{{ $t('page.favorites.no-support', support) }}</p>
-      
       <!-- Favorites -->
       <template v-if="favorites && haveFavorites(favorites)">
         <div class="table-responsive">
@@ -79,18 +78,18 @@
     },
     async asyncData() {
       if (typeof(Storage) !== "undefined") {
-        let data = []
+        let dataStorage = [], data = [], dataOffline = [];
         await Promise.all((Equreka.TYPES).map(async (type) => {
           data[type] = await Equreka.getFavorites(type);
         }));
-
+        
         return {
           support: true,
           favorites: {
-            formulas:  {},
-            equations: data['equations'],
-            units:     data['units'],
             constants: data['constants'],
+            equations: data['equations'],
+            formulas:  data['formulas'],
+            units:     data['units'],
             variables: data['variables']
           }
         }
@@ -110,7 +109,11 @@
     },
     methods: {
       haveFavorites(object) {
-        return Equreka.haveFavorites(object);
+        if(object) {
+          return Equreka.haveFavorites(object);
+        } else {
+          return false;
+        }
       },
       removeFavorite(type, id) {
         if(Equreka.removeFavorite(type, id)) {

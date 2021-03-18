@@ -36,6 +36,9 @@ $ npm run start
 
 # generate static project
 $ npm run generate
+
+# update offline database (json files) API server must be online
+$ npm run update
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
@@ -44,7 +47,7 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 
 ```bash
 # this will run all scripts needed and open android studio
-$ npm run build-android
+$ npm run android
 
 ```
 Please check out [Capacitor docs](https://capacitorjs.com/docs/v3/)

@@ -1,5 +1,5 @@
 <template> 
-  <main role="main">
+  <main role="main" class="category" :class="type">
     <PageHeader :main="true" :category="category" :type="type" :name="type" />
     <div class="container">
       <!-- Description -->
@@ -23,6 +23,8 @@
 
 <script>
   import Equreka from '@/equreka';
+  import jslinq from "jslinq";
+  import categories from "/static/data/categories.json";
   export default {
     data() {
       return {
@@ -40,7 +42,15 @@
         return;
       }
 
-      let data = await fetch(`${process.env.api}/${type}/category/${category}`).then((res) => res.json());
+      let data, dataOffline;
+      try {
+        data = await fetch(`${process.env.api}/${type}/category/${category}`).then((res) => res.json());
+      } catch {
+        dataOffline = jslinq(categories);
+        data = dataOffline.where((el) => { return el.slug == slug }).toList()[0];        
+      }
+
+      
       
       if(!data || data.length === 0) data = false;
 

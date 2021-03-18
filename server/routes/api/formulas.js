@@ -1,13 +1,38 @@
-const router = require('express').Router();
-const Formula = require('../../database/models/formula');
-const Category = require('../../database/models/category');
-const { param } = require('express-validator');
+const router=    require('express').Router();
+const Formula=   require('../../database/models/formula');
+const Category=  require('../../database/models/category');
+const { param }= require('express-validator');
 
 // GET - All
 router.get('/', async (req, res) => {
   const data = await Formula.find()
   .populate('category')
   .populate('variable');
+  res.json(data);
+});
+
+// GET - Dump all
+router.get('/', async (req, res) => {
+  const data = await Formula.find()
+  .populate('category')
+  .populate({
+    path: 'variables',
+    populate: {
+      path: 'variable',
+      populate: {
+        path: 'unit'
+      }
+    }
+  })
+  .populate({
+    path: 'constants',
+    populate: {
+      path: 'constant',
+      populate: {
+        path: 'unit'
+      }
+    }
+  });
   res.json(data);
 });
 

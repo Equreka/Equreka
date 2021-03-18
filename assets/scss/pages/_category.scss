@@ -3,15 +3,12 @@ main.category {
   .list {
     display    : flex;
     flex-wrap  : wrap;
-    font-size  : 120%;
-    line-height: 2.5rem;
-    font-weight: 400;
     list-style : none;
     margin     : 0 -1rem;
     padding    : 0;
     a {
       display: flex;
-      flex   : 1 1 33.3333%;
+      flex   : 0 1 auto;
       padding: 0 1rem .5rem 1rem;
       &:hover {
         color: var(--category-color);

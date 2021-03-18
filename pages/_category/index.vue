@@ -1,20 +1,27 @@
 <template> 
-  <main role="main">
-    <PageHeader :main="true" :category="category" :name="category" />
+  <main role="main" class="category">
+    <PageHeader :category="category" :name="category" />
     <div class="container">
       <!-- Description -->
-      <p class="lead">
+      <p class="lead mb-4">
         {{ $t('page.categories.' + category + '.lead') }}
       </p>
       <!-- Data -->
-      <div class="list mb-4" v-if="equations">
-        <NuxtLink v-for="equation in equations" :key="equation._id" :to="category + '/equations/' + equation.slug">
-          {{ equation.name }}
-        </NuxtLink>
-      </div>
+      <template v-if="data">
+        <template v-for="types, slug in data">
+          <section :key="slug" :id="slug" :class="slug" v-if="types.length !== 0">
+            <h3 class="h4 mb-3">{{ $t(`${slug}.cap`) }}</h3>
+            <div class="list mb-4">
+              <NuxtLink v-for="type in types" :key="type.slug" :class="slug" :to="`${category}/${slug}/${type.slug}`">
+                {{ type.name }}
+              </NuxtLink>
+            </div>
+          </section>
+        </template>
+      </template>
       <!-- No data -->
       <div v-else>
-        <h2>Nothing found :(</h2>
+        <h2 class="h4 mb-3">Nothing found :(</h2>
         <NuxtLink to="/">Go back</NuxtLink>
       </div>
       <!-- Pagination -->
@@ -32,11 +39,13 @@
 </template>
 <script>
   import Equreka from '@/equreka';
+  import jslinq from "jslinq";
+  import dbOffline from "/static/data";
   export default {
     data() {
       return {
         category: false,
-        equations: false
+        data: false
       }
     },
     async asyncData ({ params, error }) {
@@ -46,17 +55,58 @@
         return;
       }
 
-      const equations = await fetch(`${process.env.api}/equations/category/${category}`).then((res) => res.json());
+      let data = [], dataOffline = [];
 
-      if(category && equations.length != 0) {
+      await Promise.all((Equreka.TYPES).map(async (type) => {
+        try {
+          data[type] = await fetch(`${process.env.api}/${type}/category/${category}`).then((res) => res.json());
+        } catch {
+          try {
+            dataOffline[type] = jslinq(dbOffline[type]);
+            data[type] = dataOffline[type].where((el) => {
+              if(Object.keys(el).length !== 0) {
+                return el.category.slug == category 
+              } else {
+                return false
+              }
+            }).toList();
+          } catch {
+            data[type] = [];
+          }
+        } 
+      }));
+
+      if(category &&
+        (
+          data.constants.length !== 0 || 
+          data.equations.length !== 0 || 
+          data.formulas.length  !== 0 || 
+          data.units.length     !== 0 || 
+          data.variables.length !== 0
+        )
+      ) {
         return {
           category:  category,
-          equations: equations
+          data: {
+            constants: data['constants'],
+            equations: data['equations'],
+            formulas:  data['formulas'],
+            units:     data['units'],
+            variables: data['variables']
+          }
         }
-      } else if(category && equations.length === 0) {        
+      } else if(category &&
+        (
+          data.constants.length === 0 && 
+          data.equations.length === 0 && 
+          data.formulas.length  === 0 && 
+          data.units.length     === 0 && 
+          data.variables.length === 0
+        ) 
+      ) {        
         return {
-          category:  category,
-          equations: false
+          category: category,
+          data: false
         }
       } else {
         error({ statusCode: 404 });

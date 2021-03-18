@@ -1,0 +1,11 @@
+.nuxt-progress {
+  height: 6px;
+  top: 2px;
+  left: 1rem;
+  right: 1rem;
+  max-width: calc(100% - 2rem);
+  border-radius: 3px;
+  background: linear-gradient(90deg, $blue, $indigo, $purple, $pink, $red, $orange, $yellow, $green, $teal, $cyan);
+  background-attachment: fixed;
+  background-size: 100% 100%;
+}

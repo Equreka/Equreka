@@ -128,6 +128,9 @@ export default {
       scss: {
         implementation: require('sass')
       }
+    },
+    extend(config) {
+      config.node = { fs: 'empty' }
     }
   },
 
