@@ -3,7 +3,6 @@
     <div class="container">
       <h2 class="page-title">{{ $t('page.settings.title') }}</h2>
       <p class="lead mb-4">{{ $t('page.settings.lead') }}</p>
-
       <!-- Language -->
       <h3 class="h5 mb-3">{{ $t('Language') }}</h3>
       <div class="dropdown mb-4">
@@ -18,9 +17,8 @@
             </NuxtLink>
           </li>
         </ul>
-      </div>
-      
-      <!-- Theme -->                    
+      </div>      
+      <!-- Theme -->
       <h3 class="h5 mb-3">{{ $t('Theme') }}</h3>
       <div class="dropdown">
         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdown-theme" data-bs-toggle="dropdown" aria-expanded="false" :title="$t('Change language')">
@@ -37,19 +35,16 @@
         </ul>
       </div>
       <hr class="my-4"> 
-      
       <!-- Version -->
       <h3 class="h6 mb-2">Equreka</h3>
       <p>Version: {{ version }}</p>
-
       <!-- Pages -->
       <nav class="nav nav-pages">
         <NuxtLink class="nav-link" :to="localePath('/about')">{{ $t('About') }}</NuxtLink>
         <NuxtLink class="nav-link" :to="localePath('/contact')">{{ $t('Contact') }}</NuxtLink>
         <NuxtLink class="nav-link" :to="localePath('/donate')">{{ $t('Donate') }}</NuxtLink>
       </nav>
-      <hr class="mt-3 mb-4"> 
-
+      <hr class="mt-3 mb-4">
       <!-- Social -->
       <ul class="nav nav-social">
         <li class="nav-item">
@@ -71,7 +66,7 @@
 
 <script>
   import { version } from '../package.json'
-  import Equreka from '@/equreka';
+  import Equreka from "@/equreka";;
   export default {
     data () {
       return {

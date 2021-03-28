@@ -1,5 +1,5 @@
 <template>
-  <div id="search-bar" class="search-bar">
+  <div id="search-bar" class="search-bar" v-if="display">
     <form :action="localePath('/search/')">
       <label for="search-bar" class="form-label visually-hidden">
         {{ $t('search.input-label') }}
@@ -46,42 +46,60 @@
 </template>
 
 <script>
-  import Equreka from '@/equreka'
+  import Equreka from "@/equreka";
+  import jslinq from "jslinq";
   export default {
+    props: {
+      display: {
+        type: Boolean,
+        default: true
+      }
+    },
     data() {
       return {
         searchResults: false,
         searchFocus:   false,
         searchQuery:   '',
         searchData: {
-          equations: {},
-          formulas:  {},
-          variables: {},
-          constants: {},
-          units:     {}
+          equations: [],
+          formulas:  [],
+          variables: [],
+          constants: [],
+          units:     []
         }
       }
     },
     watch: {
       async searchQuery(searchQuery) {
-        // Trim searchQuery
-        searchQuery = searchQuery.replace(/[\])}[{(]/g, '').replace(/[^a-zA-Z ]/g, "").replace(/[^\w\s]/gi, "");
         // Validate searchQuery
         if(!searchQuery || searchQuery == "" || searchQuery.length <= 1) {
           this.searchResults = false;
           return;
         }
-
-        let data = [];
+        
+        // Fetch Data
         await Promise.all((Equreka.TYPES).map(async (type) => {
-          data[type] = await fetch(`${process.env.api}/${type}/search/${searchQuery}`).then((res) => res.json());
+          try {
+            this.searchData[type] = await fetch(`${process.env.api}/${type}/search/${searchQuery}`).then((res) => res.json());
+          } catch {
+            try {
+              let
+                dataOffline = [],
+                searchRegex = new RegExp(Equreka.sanitizeSearch(searchQuery), "i");
+              const dbOffline = await import("@/static/data");
+              dataOffline[type] = jslinq(dbOffline[type]);
+              this.searchData[type] = dataOffline[type].where((el) => {
+                if(Object.keys(el).length !== 0) {
+                  if(searchRegex.exec(el.slug) || searchRegex.exec(el.name)) {
+                    return el
+                  }
+                }
+              }).toList();
+            } catch {
+              this.searchData[type] = [];
+            }
+          }
         }));
-
-        this.searchData.constants = data['constants'];
-        this.searchData.equations = data['equations'];
-        this.searchData.formulas =  data['formulas'];
-        this.searchData.variables = data['variables'];
-        this.searchData.units =     data['units'];
 
         // Search results
         if(

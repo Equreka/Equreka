@@ -57,12 +57,12 @@
           </template>
 
           <!-- Download JSON -->
-          <button type="button" class="btn btn-link" :title="$t('Download JSON')" :href="json" :download="`Equreka-${category}-${type}-${data.slug}.json`">
+          <a class="btn btn-link" :title="$t('Download JSON')" :href="json" :download="`Equreka-${category}-${type}-${data.slug}.json`">
             <span class="visually-hidden">
               {{ $t('Download JSON') }}
             </span>
             <i class="bi bi-download"></i>
-          </button>
+          </a>
 
           <!-- Report -->
           <button type="button" class="btn btn-link" :title="$t('Report an error')" @click="reportPage()">
@@ -78,7 +78,7 @@
 </template>
 
 <script>
-  import Equreka from '@/equreka';
+  import Equreka from "@/equreka";;
   export default {
     data() {
       return {

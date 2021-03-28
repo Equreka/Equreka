@@ -18,7 +18,7 @@
       </div>
       <h4 class="h6 mb-3 d-none" v-if="searchQuery"><span class="text-muted">Search:</span> {{ searchQuery }}</h4>
       <!-- Reuslts -->
-      <div class="search-results shadow-none pt-4 py-3" v-if="searchQuery && searchResults">
+      <div class="search-results" v-if="searchQuery && searchResults">
         <SearchBarResults id="search-bar-results" v-for="(searchData, searchType) in searchData" :key="searchData.slug"
           v-bind:type="searchType.charAt(0).toUpperCase() + searchType.slice(1)" v-bind:slug="searchType"
           v-bind:data="searchData" />
@@ -70,48 +70,58 @@
 </template>
 
 <script>
-  import Equreka from '@/equreka'
+  import Equreka from "@/equreka";
+  import jslinq from "jslinq";
   export default {
     data() {
       return {
-        searchData: {
-          equations: {},
-          formulas: {},
-          variables: {},
-          constants: {},
-          units: {}
-        },
+        searchResults: false,
         searchQuery: '',
-        searchResults: false
+        searchData: {
+          equations: [],
+          formulas: [],
+          variables: [],
+          constants: [],
+          units: []
+        }
       }
     },
-    async asyncData({
-      query
-    }) {
+    async asyncData({ query }) {
       let searchQuery;
       if (!query.q) {
         return
       } else {
         searchQuery = query.q;
       }
+      
+      let searchData = {},
+          searchResults;
 
-      let data = [];
-      let searchData = {};
-      let searchResults;
-
-      searchQuery = searchQuery.replace(/[\])}[{(]/g, '').replace(/[^a-zA-Z ]/g, "").replace(/[^\w\s]/gi, "");
-
+      // Fetch Data
       await Promise.all((Equreka.TYPES).map(async (type) => {
-        data[type] = await fetch(`${process.env.api}/${type}/search/${searchQuery}`).then((res) => res
-      .json());
+        try {
+          searchData[type] = await fetch(`${process.env.api}/${type}/search/${searchQuery}`).then((res) => res.json());
+          
+        } catch {
+          try {
+            let
+              dataOffline = [],
+              searchRegex = new RegExp(Equreka.sanitizeSearch(searchQuery), "i");
+            const dbOffline = await import("@/static/data");
+            dataOffline[type] = jslinq(dbOffline[type]);
+            searchData[type] = dataOffline[type].where((el) => {
+              if(Object.keys(el).length !== 0) {
+                if(searchRegex.exec(el.slug) || searchRegex.exec(el.name)) {
+                  return el
+                }
+              }
+            }).toList();
+          } catch {
+            searchData[type] = [];
+          }
+        }
       }));
-
-      searchData.constants = data['constants'];
-      searchData.equations = data['equations'];
-      searchData.formulas = data['formulas'];
-      searchData.variables = data['variables'];
-      searchData.units = data['units'];
-
+      
       // Search results
       if (
         (searchData.constants && searchData.constants.length > 0) ||
@@ -124,7 +134,7 @@
       } else {
         searchResults = false;
       }
-
+      // Return results
       return {
         searchData: searchData,
         searchQuery: searchQuery,

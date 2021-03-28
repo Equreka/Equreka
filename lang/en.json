@@ -1,242 +1,240 @@
 {
-  "Menu": "Menu",
-  "Home": "Home",
   "About": "About",
-  "Contact": "Contact",
-  "Donate": "Donate",
-  "Settings": "Ajustes",
-  "Search": "Buscar",
-
-  "Category": "Category",
+  "Actions": "Actions",
+  "Add": "Add",
+  "Add to favorites": "Add to favorites",
+  "An error occurred": "An error occurred",
+  "Approximate values": "Approximate values",
   "Categories": "Categories",
-
-  "Universal": "Universal",
+  "Category": "Category",
+  "Change language": "Change language",
+  "Change theme": "Change theme",
   "Chemistry": "Chemistry",
-  "Mathematics": "Mathematics",
-  "Physics": "Physics",
-
-  "Type": "Type",
-  "Types": "Types",
-
+  "Code": "Code",
   "Constant": "Constant",
   "Constants": "Constants",
+  "Contact": "Contact",
+  "Copy to clipboard": "Copy to clipboard",
+  "Dark": "Dark",
+  "Delete": "Delete",
+  "Description": "Description",
+  "Donate": "Donate",
+  "Download JSON": "Download JSON",
   "Equation": "Equation",
   "Equations": "Equations",
+  "Exact values": "Exact values",
+  "Favorites": "Favorites",
   "Formula": "Formula",
   "Formulas": "Formulas",
+  "Formulas or equations": "Formulas or equations",
+  "Go back to home": "Go back to home",
+  "Home": "Home",
+  "Language": "Lenguage",
+  "Light": "Light",
+  "Loading": "Loading...",
+  "Mathematics": "Mathematics",
+  "Menu": "Menu",
+  "Name": "Name",
+  "Options": "Options",
+  "Physics": "Physics",
+  "References": "References",
+  "Remove": "Remove",
+  "Report an error": "Report an error",
+  "Search": "Buscar",
+  "Settings": "Ajustes",
+  "System default": "System's default",
+  "Theme": "Theme",
+  "Type": "Type",
+  "Types": "Types",
   "Unit": "Unit",
   "Units": "Units",
-  "Variable": "Variable",
-  "Variables": "Variables",
-
+  "Universal": "Universal",
   "Value": "Value",
   "Values": "Values",
-  "Exact values": "Exact values",
-  "Approximate values": "Approximate values",
-
-  "Actions": "Actions",
-  "Name": "Name",
-  "Favorites": "Favorites",
-  "Theme": "Theme",
-  "Change theme": "Change theme",
-  "System default": "System's default",
-  "Light": "Light",
-  "Dark": "Dark",
-  "Language": "Lenguage",
-  "Change language": "Change language",
-  "Formulas or equations": "Formulas or equations",
-  "Description": "Description",
-  "Code": "Code",
-  "Options": "Options",
-  "Download JSON": "Download JSON",
-  "Add to favorites": "Add to favorites",
-  "Report an error": "Report an error",
-  "Copy to clipboard": "Copy to clipboard",
-  "Add": "Add",
-  "Remove": "Remove",
-  "Delete": "Delete",
-  "References": "References",
-  "An error occurred": "An error occurred",
-  "Loading": "Loading...",
+  "Variable": "Variable",
+  "Variables": "Variables",
+  "Go to section": "Go to section",
+  "category": {
+    "abbr": "Cat",
+    "cap": "Category"
+  },
+  "chemistry": {
+    "abbr": "Chem",
+    "cap": "Chemistry"
+  },
+  "constants": {
+    "abbr": "Cnst",
+    "cap": "Constants"
+  },
+  "equations": {
+    "abbr": "Eqs",
+    "cap": "Equations"
+  },
+  "error": {
+    "general": "An error occurred 😪",
+    "no-data": "No data added yet 😭",
+    "not-found": "Not found 😔"
+  },
   "favorites": {
     "add": "Add to favorites",
     "added": "Added to favorites 💕",
     "remove": "Remove from favorites",
     "removed": "Removed from favorites 💔"
   },
-  "category": {
-    "cap": "Category",
-    "abbr": "Cat"
-  },
-  "universal": {
-    "cap": "Universal",
-    "abbr": "Uni"
-  },
-  "chemistry": {
-    "cap": "Chemistry",
-    "abbr": "Chem"
+  "formulas": {
+    "abbr": "Frms",
+    "cap": "Formulas"
   },
   "mathematics": {
-    "cap": "Mathematics",
-    "abbr": "Math"
-  },
-  "physics": {
-    "cap": "Physics",
-    "abbr": "Phy"
-  },
-  "constants": {
-    "cap": "Constants",
-    "abbr": "Cnst"
-  },
-  "equations": {
-    "cap": "Equations",
-    "abbr": "Eqs"
-  },
-  "formulas": {
-    "cap": "Formulas",
-    "abbr": "Frms"
-  },
-  "units": {
-    "cap": "Units",
-    "abbr": "Uts"
-  },
-  "variables": {
-    "cap": "Variables",
-    "abbr": "Var"
-  },
-  "symbol": {
-    "cap": "Symbol",
-    "abbr": "Sym"
-  },
-  "search": {
-    "input-label": "Search bar",
-    "input-placeholder": "Search in Equreka",
-    "button-submit": "Submit search",
-    "try-for": "You can search for constants, variables, units, formulas and/or equations",
-    "no-results": "I didn't found anything.. 😧"
+    "abbr": "Math",
+    "cap": "Mathematics"
   },
   "page": {
-    "home": {
-      "title": "Equreka",
-      "lead": ""
+    "categories": {
+      "chemistry": {
+        "lead": "Chemistry is the scientific discipline involved with elements and compounds composed of atoms, molecules and ions: their composition, structure, properties, behavior and the changes they undergo during a reaction with other substances.",
+        "title": "Chemistry"
+      },
+      "mathematics": {
+        "lead": "Mathematics (from Greek: μάθημα, máthēma, 'knowledge, study, learning') includes the study of such topics as quantity (number theory), structure (algebra), space (geometry), and change (analysis). It has no generally accepted definition.",
+        "title": "Mathematics"
+      },
+      "physics": {
+        "lead": "Physics (from Ancient Greek: φυσική (ἐπιστήμη), romanized: physikḗ (epistḗmē), lit. 'knowledge of nature', from φύσις phýsis 'nature') is the natural science that studies matter, its motion and behavior through space and time, and the related entities of energy and force. Physics is one of the most fundamental scientific disciplines, and its main goal is to understand how the universe behaves.",
+        "title": "Physics"
+      },
+      "title": "Categories",
+      "universal": {
+        "lead": "Within science there are properties that can be applied to different branches, this is known as a universal property, for example constants and units. In this category you can find them all.",
+        "title": "Universal"
+      }
     },
-
+    "contact": {
+      "button-submit": "Send the message!",
+      "label-mail": "What's your e-mail?",
+      "label-message": "What's your message?",
+      "lead": "Feel free to send a message if you want to say something to us!",
+      "placeholder-mail": "you@rock.com",
+      "placeholder-message": "What do you want to share to us?",
+      "title": "Contact us"
+    },
+    "donate": {
+      "lead": "Donations will help us to improve, add new features, organize and pay for all the infrastructure needed.",
+      "title": "Donate",
+      "paragraph": "If you like what we do and the platform you can help us by sharing and if you want you can donate.",
+      "button-github": "Be a Github Sponsor",
+      "button-paypal": "Donate via Paypal"
+    },
+    "error": {
+      "404": "Page not found",
+      "lead": "What are you doing?!",
+      "link": "Take me home 🏡",
+      "title": "Error in the matrix!",
+      "unknown": "An error occurred"
+    },
+    "faq": {
+      "lead": "In this page you can find some of the *possible* questions you can have about Equreka",
+      "title": "Frequently Asked Questions",
+      "why-is-free": {
+        "anwser": "As we stated in the page about: knowledge should be free, open, easily accessible and if can be, as easy to understand as possible.",
+        "question": "Why is it free?"
+      },
+      "why-no-signup": {
+        "anwser": "We live in a world where most platforms, sites or apps require a form of authentication, whether by creating an account or registration through a social network, where there is no transparency, there is no clarity or there are always small letters difficult to see, to know how they will handle our data that is collected. There have been many leaks from large companies and guaranteeing said security is a very difficult task. Equreka does not need any type of information from you, we will not collect data on our servers, we handle APIs directly in the browser that are stored on your computer and that you can see what information is being stored on YOUR computer.",
+        "question": "Why don't there is no user signup?"
+      }
+    },
+    "favorites": {
+      "lead": "Your favorites are stored locally in the browser so no data is saved.",
+      "no-support": "Your browser does not support local storage function 😔, consider using another browser for this feature.",
+      "none": "You don't have any favorites! 💔",
+      "remove": "Remove from my favorites",
+      "support": "Browser support: ${support}",
+      "title": "Favorites"
+    },
     "header": {
-      "category": "Category",
       "categories": "Categories",
-      "universal": "Universal",
+      "category": "Category",
       "chemistry": "Chemistry",
-      "mathematics": "Mathematics",
-      "physics": "Physics",
       "constants": "Constants",
       "equations": "Equations",
       "formulas": "Formulas",
+      "mathematics": "Mathematics",
+      "physics": "Physics",
       "units": "Units",
+      "universal": "Universal",
       "variables": "Variables"
     },
-
-    "categories": {
-      "title": "Categories",
-      "universal": {
-        "title": "Universal",
-        "lead": "Within science there are properties that can be applied to different branches, this is known as a universal property, for example constants and units. In this category you can find them all."
-      },
-      "chemistry": {
-        "title": "Chemistry",
-        "lead": "Chemistry is the scientific discipline involved with elements and compounds composed of atoms, molecules and ions: their composition, structure, properties, behavior and the changes they undergo during a reaction with other substances."
-      },
-      "mathematics": {
-        "title": "Mathematics",
-        "lead": "Mathematics (from Greek: μάθημα, máthēma, 'knowledge, study, learning') includes the study of such topics as quantity (number theory), structure (algebra), space (geometry), and change (analysis). It has no generally accepted definition."
-      },
-      "physics": {
-        "title": "Physics",
-        "lead": "Physics (from Ancient Greek: φυσική (ἐπιστήμη), romanized: physikḗ (epistḗmē), lit. 'knowledge of nature', from φύσις phýsis 'nature') is the natural science that studies matter, its motion and behavior through space and time, and the related entities of energy and force. Physics is one of the most fundamental scientific disciplines, and its main goal is to understand how the universe behaves."
-      }
+    "home": {
+      "lead": "Your free and open-source app for equations, formulas, variables, constants and units.",
+      "title": "Equreka"
     },
-
-    "contact": {
-      "title": "Contact us",
-      "lead": "Feel free to send a message if you want to say something to us!",
-      "label-mail": "What's your e-mail?",
-      "placeholder-mail": "you@rock.com",
-      "label-message": "What's your message?",
-      "placeholder-message": "What do you want to share to us?",
-      "button-submit": "Send the message!"
+    "report": {
+      "button-submit": "Send report!",
+      "input-placeholder-reason": "Tell us what did you find... 😧",
+      "label-category": "Category",
+      "label-reason": "What's wrong with this page?",
+      "label-slug": "Identifier",
+      "label-type": "Type",
+      "lead": "Reporting errors are very important for us, thank you for taking your time to do it!",
+      "title": "Report this page"
     },
-
+    "search": {
+      "lead": "You can search for constants, variables, units, equations or formulas",
+      "title": "Search"
+    },
+    "settings": {
+      "lead": "This settings are stored in your device, we do not have any information of you in our servers",
+      "title": "Settings"
+    },
     "types": {
       "constants": {
-        "title": "Constants",
-        "lead": "A fixed and well-defined number or other non-varying mathematical object. The terms mathematical constant or physical constant are sometimes used to distinguish this meaning."
+        "lead": "A fixed and well-defined number or other non-varying mathematical object. The terms mathematical constant or physical constant are sometimes used to distinguish this meaning.",
+        "title": "Constants"
       },
       "equations": {
-        "title": "Equations",
-        "lead": "In mathematics, an equation is a statement that asserts the equality of two expressions, which are connected by the equals sign \"=\"."
+        "lead": "In mathematics, an equation is a statement that asserts the equality of two expressions, which are connected by the equals sign \"=\".",
+        "title": "Equations"
       },
       "formulas": {
-        "title": "Formulas",
-        "lead": "In science, a formula is a concise way of expressing information symbolically, as in a mathematical formula or a chemical formula. The informal use of the term formula in science refers to the general construct of a relationship between given quantities."
+        "lead": "In science, a formula is a concise way of expressing information symbolically, as in a mathematical formula or a chemical formula. The informal use of the term formula in science refers to the general construct of a relationship between given quantities.",
+        "title": "Formulas"
       },
       "units": {
-        "title": "Units",
-        "lead": "A unit of measure is a standardized quantity of a certain physical quantity, defined and adopted by convention or by law.Any value of a physical quantity can be expressed as a multiple of the unit of measure."
+        "lead": "A unit of measure is a standardized quantity of a certain physical quantity, defined and adopted by convention or by law.Any value of a physical quantity can be expressed as a multiple of the unit of measure.",
+        "title": "Units"
       },
       "variables": {
-        "title": "Variables",
-        "lead": "A variable is a symbol which works as a placeholder for expression or quantities that may vary or change; is often used to represent the argument of a function or an arbitrary element of a set. In addition to numbers, variables are commonly used to represent vectors, matrices and functions."
+        "lead": "A variable is a symbol which works as a placeholder for expression or quantities that may vary or change; is often used to represent the argument of a function or an arbitrary element of a set. In addition to numbers, variables are commonly used to represent vectors, matrices and functions.",
+        "title": "Variables"
       }
-    },
-
-    "favorites": {
-      "title": "Favorites",
-      "lead": "Your favorites are stored locally in the browser so no data is saved.",
-      "support": "Browser support: ${support}",
-      "none": "You don't have any favorites! 💔",
-      "no-support": "Your browser does not support local storage function 😔, consider using another browser for this feature.",
-      "remove": "Remove from my favorites"
-    },
-
-    "error": {
-      "404": "Page not found",
-      "title": "Error in the matrix!",
-      "lead": "What are you doing?!",
-      "link": "Take me home 🏡",
-      "unknown": "An error occurred"
-    },
-
-    "report": {
-      "title": "Report this page",
-      "lead": "Reporting errors are very important for us, thank you for taking your time to do it!",
-      "label-reason": "What's wrong with this page?",
-      "label-category": "Category",
-      "label-type": "Type",
-      "label-slug": "Identifier",
-      "input-placeholder-reason": "Tell us what did you find... 😧",
-      "button-submit": "Send report!"
-    },
-
-    "faq": {
-      "title": "Frequently Asked Questions",
-      "lead": "In this page you can find some of the *possible* questions you can have about Equreka",
-      "why-is-free": {
-        "question": "Why is it free?",
-        "anwser": "As we stated in the page about: knowledge should be free, open, easily accessible and if can be, as easy to understand as possible."
-      },
-      "why-no-signup": {
-        "question": "Why don't there is no user signup?",
-        "anwser": "We live in a world where most platforms, sites or apps require a form of authentication, whether by creating an account or registration through a social network, where there is no transparency, there is no clarity or there are always small letters difficult to see, to know how they will handle our data that is collected. There have been many leaks from large companies and guaranteeing said security is a very difficult task. Equreka does not need any type of information from you, we will not collect data on our servers, we handle APIs directly in the browser that are stored on your computer and that you can see what information is being stored on YOUR computer."
-      }
-    },
-
-    "search": {
-      "title": "Search",
-      "lead": "You can search for constants, variables, units, equations or formulas"
-    },
-
-    "settings": {
-      "title": "Settings",
-      "lead": "This settings are stored in your device, we do not have any information of you in our servers"
     }
+  },
+  "physics": {
+    "abbr": "Phy",
+    "cap": "Physics"
+  },
+  "search": {
+    "button-submit": "Submit search",
+    "input-label": "Search bar",
+    "input-placeholder": "Search in Equreka",
+    "no-results": "I didn't found anything.. 😧",
+    "try-for": "You can search for constants, variables, units, formulas and/or equations"
+  },
+  "symbol": {
+    "abbr": "Sym",
+    "cap": "Symbol"
+  },
+  "units": {
+    "abbr": "Uts",
+    "cap": "Units"
+  },
+  "universal": {
+    "abbr": "Uni",
+    "cap": "Universal"
+  },
+  "variables": {
+    "abbr": "Var",
+    "cap": "Variables"
   }
 }

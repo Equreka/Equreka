@@ -74,6 +74,14 @@ $app-menu: (
   "settings": "yellow"
 );
 
+// Buttons
+$btn-padding-x: 1rem;
+$btn-padding-y: 0.5rem;
+$btn-border-radius: 0.5rem;
+
+// Card
+$card-border-width: 0;
+
 // Dropdown
 $dropdown-bg:               hsl(220, 10%, var(--theme-lightness), var(--alpha-dropdown));
 $dropdown-color:            var(--body-color);

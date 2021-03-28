@@ -10,6 +10,7 @@
     transition:    $transition-all-ease;
     border:        0;
     &:focus {
+      background: var(--body-bg);
       box-shadow: 0 0 0 0.15rem hsla(220, 100%, var(--theme-inverted-lightness), 0.10);
     }
   }

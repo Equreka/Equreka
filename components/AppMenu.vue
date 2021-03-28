@@ -28,7 +28,7 @@
 </template>
 
 <script>
-  import Equreka from '@/equreka';
+  import Equreka from "@/equreka";;
   export default {
     data () {
       return {
@@ -49,9 +49,6 @@
       themeTransition(newTheme, actualTheme, systemQuery) {
         Equreka.themeTransition(newTheme, actualTheme, systemQuery);
       }
-    },
-    async fetch () {
-      this.categories = await fetch(`${process.env.api}/categories/`).then(res => res.json());
     }
   }
 </script>

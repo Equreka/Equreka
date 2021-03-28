@@ -1,17 +1,87 @@
 // Page: Category
-main.category {  
-  .list {
-    display    : flex;
-    flex-wrap  : wrap;
-    list-style : none;
-    margin     : 0 -1rem;
-    padding    : 0;
-    a {
+main.category {
+  section.description {
+    background: var(--body-bg-high);
+    .btn-collapse {
+      font-weight: bold;
+      transition:  margin 0.35s ease-in-out;
+      @include rs('font-size', 1rem, 2vw, 1.25rem);
+    }
+    .lead {
+      margin-bottom: 0;
+      @include rs('margin-top', 0.5rem, 2vw, 1rem);
+    }
+  }
+
+  section {
+    @include rs('padding',  0.75rem, 2vw, 1rem);
+    @include rs('margin-bottom', 0.75rem, 2vw, 1.5rem);
+    @include rs('border-radius', 0.5rem, 1.5vw, 1rem);
+    @include acrylic-bg();
+
+    header {
       display: flex;
-      flex   : 0 1 auto;
-      padding: 0 1rem .5rem 1rem;
-      &:hover {
-        color: var(--category-color);
+      align-items: center;
+      justify-content: space-between;
+      .section-title {
+        font-weight: 600;
+        margin: 0;
+        @include rs('font-size', 1.15rem, 2vw, 1.65rem);
+      }
+      .btn-category {
+        color: hsl(var(--category-color-h), 100%, 95%);
+        border-radius: 99rem;
+        @include rs('font-size', 0.75rem, 1vw, 0.95rem);
+        span {
+          padding: 0 0.35rem;
+        }
+        @include media-breakpoint-up($navbar-expand) {
+          span {
+            display: block;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 0;
+            width: 0;
+            opacity: 0;
+            transform-origin: right center;
+            transform: scaleX(0);
+            transition: $transition-all-ease;
+          }
+          .bi {
+            transition: all 0.35s ease;
+          }
+          &:hover {
+            span {
+              opacity: 1;
+              width: auto;
+              transform: scaleX(1);
+              padding: 0 0.5rem;
+            }
+            .bi {
+              margin-right: 0.5rem;
+            }
+          }
+        }
+      }
+    }
+
+    .list {
+      display    : flex;
+      flex-wrap  : wrap;
+      list-style : none;
+      padding    : 0;
+      a {
+        display: flex;
+        flex   : 0 1 auto;
+        padding: 0.75rem;
+        border-radius: 0.5rem;
+        transition: $transition-all-ease;
+        line-height: 1;
+        @include rs('font-size', 0.95rem, 2vw, 1.15rem);
+        &:hover {
+          color: var(--category-color);
+          background: hsla(var(--category-color-h), 100%, 50%, 0.1);
+        }
       }
     }
   }

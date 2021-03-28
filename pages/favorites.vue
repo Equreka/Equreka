@@ -68,7 +68,7 @@
 </template>
 
 <script>
-  import Equreka from '@/equreka';
+  import Equreka from "@/equreka";;
   export default {
     data() {
       return {

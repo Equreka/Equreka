@@ -2,6 +2,7 @@ const router=    require('express').Router();
 const Unit=      require('../../database/models/unit');
 const Category=  require('../../database/models/category');
 const { param }= require('express-validator');
+const sanitize=  require('../sanitize');
 
 // GET - All
 router.get('/', async (req, res) => {
@@ -20,19 +21,20 @@ router.get('/dump', async (req, res) => {
 router.get('/search/:search',
 param('search').not().isEmpty().trim().escape(),
 async (req, res) => {
-  let search = req.params.search.replace(/[^\w\s]/gi, '');
+  let search = sanitize.search(req.params.search);
   const data = await Unit.find({ 
-    'name': {
-      '$regex':   search,
-      '$options': 'i'
-    }
-  },
-  )
-  .populate('category', {
-    _id: 0,
-    name: 1,
-    slug: 1
-  })
+    $or: [
+      {'name': {
+        '$regex':   search,
+        '$options': 'i'
+      }},
+      {'slug': {
+        '$regex':   search,
+        '$options': 'i'
+      }}
+    ]
+  })  
+  .populate('category')
   .limit(10);
   res.json(data);
 });
@@ -42,11 +44,7 @@ router.get('/:slug', async (req, res) => {
   const data = await Unit.findOne({
     'slug': req.params.slug
   })
-  .populate('category', {
-    _id: 0,
-    name: 1,
-    slug: 1
-  });
+  .populate('category');
   res.json(data);
 });
 
@@ -55,11 +53,7 @@ router.get('/id/:id', async (req, res) => {
   const data = await Unit.findOne({
     '_id': req.params.id
   })
-  .populate('category', {
-    _id: 0,
-    name: 1,
-    slug: 1
-  });
+  .populate('category');
   res.json(data);
 });
 

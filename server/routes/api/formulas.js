@@ -2,6 +2,7 @@ const router=    require('express').Router();
 const Formula=   require('../../database/models/formula');
 const Category=  require('../../database/models/category');
 const { param }= require('express-validator');
+const sanitize=  require('../sanitize');
 
 // GET - All
 router.get('/', async (req, res) => {
@@ -37,25 +38,23 @@ router.get('/', async (req, res) => {
 });
 
 // GET - Search
-router.get('/search/:search', param('search').not().isEmpty().trim().escape(), async (req, res) => {
-  let search = req.params.search.replace(/[^\w\s]/gi, '').replace(" ", '.+');
+router.get('/search/:search',
+param('search').not().isEmpty().trim().escape(),
+async (req, res) => {
+  let search = sanitize.search(req.params.search);
   const data = await Formula.find({ 
     $or: [
       {'name': {
         '$regex':   search,
         '$options': 'i'
       }},
-      {'description': {
+      {'slug': {
         '$regex':   search,
         '$options': 'i'
       }}
     ]
   })
-  .populate('category', {
-    _id: 0,
-    name: 1,
-    slug: 1
-  })
+  .populate('category')
   .limit(10);
   res.json(data);
 });

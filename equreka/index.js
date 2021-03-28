@@ -16,10 +16,6 @@ let Equreka = {
   //  Functions
   //
 
-
-
-
-
   /**
    * Log
    * 
@@ -422,6 +418,15 @@ let Equreka = {
       }
     }
     return data
+  },
+
+  sanitizeSearch(string) {
+    string = string
+      .replace(/[\])}[{(]/gi, "")
+      .replace(/[^\w\s]/gi, " ")
+      .replace(/[^a-zA-Z]/gi, ".+")
+      .replace(" ", ".+");
+    return string;
   }
   // End
 }

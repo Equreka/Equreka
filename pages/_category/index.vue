@@ -3,44 +3,58 @@
     <PageHeader :category="category" :name="category" />
     <div class="container">
       <!-- Description -->
-      <p class="lead mb-4">
-        {{ $t('page.categories.' + category + '.lead') }}
-      </p>
+      <section class="description">
+        <button class="btn btn-text btn-collapse muted" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-description" aria-controls="collapse-description" aria-expanded="false">
+          {{ $t('Description') }}
+        </button>
+        <div id="collapse-description" class="collapse">
+          <p class="lead">
+            {{ $t(`page.categories.${category}.lead`) }}
+          </p>
+        </div>
+      </section>
       <!-- Data -->
       <template v-if="data">
-        <template v-for="types, slug in data">
-          <section :key="slug" :id="slug" :class="slug" v-if="types.length !== 0">
-            <h3 class="h4 mb-3">{{ $t(`${slug}.cap`) }}</h3>
-            <div class="list mb-4">
-              <NuxtLink v-for="type in types" :key="type.slug" :class="slug" :to="`${category}/${slug}/${type.slug}`">
-                {{ type.name }}
+        <template v-for="dataTypes, type in data">
+          <section :key="type" :id="type" :class="type" v-if="dataTypes.length !== 0">
+            <!-- Header -->
+            <header>
+              <button class="btn btn-text btn-collapse" type="button" data-bs-toggle="collapse" :data-bs-target="`#collapse-${type}`" :aria-controls="`collapse-${type}`" aria-expanded="true">
+                <h2 class="section-title">
+                  {{ $t(`${type}.cap`) }}
+                </h2>
+              </button>
+              <NuxtLink class="btn btn-sm btn-category" :to="localePath(`/${category}/${type}`)">
+                <span>{{ $t('Go to section')}}</span>
+                <i class="bi bi-arrow-right"></i>
               </NuxtLink>
+            </header>
+            <!-- List -->
+            <div :id="`collapse-${type}`" class="collapse show">
+              <div class="list">
+                <NuxtLink v-for="link in dataTypes" :key="link.slug" :class="type" :to="localePath(`/${category}/${type}/${link.slug}`)">
+                  {{ link.name }}
+                </NuxtLink>
+              </div>
             </div>
           </section>
         </template>
       </template>
       <!-- No data -->
-      <div v-else>
-        <h2 class="h4 mb-3">Nothing found :(</h2>
-        <NuxtLink to="/">Go back</NuxtLink>
-      </div>
-      <!-- Pagination -->
-      <nav class="d-none" aria-label="Page navigation example">
-        <ul class="pagination">
-          <li class="page-item"><a class="page-link" href="/">Previous</a></li>
-          <li class="page-item"><a class="page-link" href="/">1</a></li>
-          <li class="page-item"><a class="page-link" href="/">2</a></li>
-          <li class="page-item"><a class="page-link" href="/">3</a></li>
-          <li class="page-item"><a class="page-link" href="/">Next</a></li>
-        </ul>
-      </nav>
+      <section v-else>
+        <h2 class="section-title">
+          {{ $t('error.no-data') }}
+        </h2>
+        <NuxtLink :to="localePath('/')">
+          {{ $t('Go back to home') }}
+        </NuxtLink>
+      </section>
     </div>
   </main>
 </template>
 <script>
-  import Equreka from '@/equreka';
+  import Equreka from "@/equreka";
   import jslinq from "jslinq";
-  import dbOffline from "/static/data";
   export default {
     data() {
       return {
@@ -62,6 +76,7 @@
           data[type] = await fetch(`${process.env.api}/${type}/category/${category}`).then((res) => res.json());
         } catch {
           try {
+            const dbOffline = await import("@/static/data");
             dataOffline[type] = jslinq(dbOffline[type]);
             data[type] = dataOffline[type].where((el) => {
               if(Object.keys(el).length !== 0) {

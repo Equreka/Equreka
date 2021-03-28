@@ -1,249 +1,240 @@
 {
-  "Menu": "Menú",
-  "Home": "Inicio",
   "About": "Acerca de",
-  "Contact": "Contacto",
-  "Donate": "Donar",
-  "Settings": "Ajustes",
-  "Search": "Buscar",
-
-  "Category": "Categoria",
+  "Actions": "Acciones",
+  "Add": "Agregar",
+  "Add to favorites": "Agregar a favoritos",
+  "An error occurred": "Ocurrió un error",
+  "Approximate values": "Valores aproximados",
   "Categories": "Categorias",
-
-  "Universal": "Universal",
+  "Category": "Categoria",
+  "Change language": "Cambiar lenguaje",
+  "Change theme": "Cambiar tema",
   "Chemistry": "Química",
-  "Mathematics": "Matemáticas",
-  "Physics": "Física",
-
-  "Type": "Tipo",
-  "Types": "Tipos",
-
+  "Code": "Código",
   "Constant": "Constante",
   "Constants": "Constantes",
+  "Contact": "Contacto",
+  "Copy to clipboard": "Copiar al portapapeles",
+  "Dark": "Oscuro",
+  "Delete": "Eliminar",
+  "Description": "Descripción",
+  "Donate": "Donar",
+  "Download JSON": "Descargar JSON",
   "Equation": "Ecuación",
   "Equations": "Ecuaciones",
+  "Exact values": "Valores exactos",
+  "Favorites": "Favoritos",
   "Formula": "Fórmula",
   "Formulas": "Fórmulas",
+  "Formulas or equations": "Fórmulas o ecuaciones",
+  "Go back to home": "Regresar al inicio",
+  "Home": "Inicio",
+  "Language": "Lenguaje",
+  "Light": "Claro",
+  "Loading": "Cargando...",
+  "Mathematics": "Matemáticas",
+  "Menu": "Menú",
+  "Name": "Nombre",
+  "Options": "Opciones",
+  "Physics": "Física",
+  "References": "Referencias",
+  "Remove": "Quitar",
+  "Report an error": "Reportar un error",
+  "Search": "Buscar",
+  "Settings": "Ajustes",
+  "System default": "Predeterminado del sistema",
+  "Theme": "Tema",
+  "Type": "Tipo",
+  "Types": "Tipos",
   "Unit": "Unidad",
   "Units": "Unidades",
-  "Variable": "Variable",
-  "Variables": "Variables",
-
+  "Universal": "Universal",
   "Value": "Valor",
   "Values": "Valores",
-  "Exact values": "Valores exactos",
-  "Approximate values": "Valores aproximados",
-
-  "Actions": "Acciones",
-  "Name": "Nombre",
-
-  "Favorites": "Favoritos",
-  "Theme": "Tema",
-  "Change theme": "Cambiar tema",
-  "System default": "Predeterminado del sistema",
-  "Light": "Claro",
-  "Dark": "Oscuro",
-  "Language": "Lenguaje",
-  "Change language": "Cambiar lenguaje",
-  "Formulas or equations": "Fórmulas o ecuaciones",
-  "Description": "Descripción",
-  "Code": "Código",
-  "Options": "Opciones",
-  "Download JSON": "Descargar JSON",
-  "Add to favorites": "Agregar a favoritos",
-  "Report an error": "Reportar un error",
-  "Copy to clipboard": "Copiar al portapapeles",
-  "Add": "Agregar",
-  "Remove": "Quitar",
-  "Delete": "Eliminar",
-  "References": "Referencias",
-
-  "An error occurred": "Ocurrió un error",
-
-  "Loading": "Cargando...",
-
+  "Variable": "Variable",
+  "Variables": "Variables",
+  "Go to section": "Ir a sección",
+  "category": {
+    "abbr": "Cat",
+    "cap": "Categoria"
+  },
+  "chemistry": {
+    "abbr": "Quím",
+    "cap": "Química"
+  },
+  "constants": {
+    "abbr": "Ctes",
+    "cap": "Constantes"
+  },
+  "equations": {
+    "abbr": "Ecs",
+    "cap": "Ecuaciones"
+  },
+  "error": {
+    "general": "Ocurrió un error 😪",
+    "no-data": "Aún no se agregaron datos 😭",
+    "not-found": "No se encontró 😔"
+  },
   "favorites": {
     "add": "Agregar a favoritos 💕",
     "added": "Agregado a tus favoritos 💕",
     "remove": "Eliminar de favoritos 💔",
     "removed": "Eliminado de tus favoritos 💔"
   },
-
-  "category": {
-    "cap":  "Categoria",
-    "abbr": "Cat"
-  },
-  "universal": {
-    "cap":  "Universal",
-    "abbr": "Uni"
-  },
-  "chemistry": {
-    "cap":  "Química",
-    "abbr": "Quím"
+  "formulas": {
+    "abbr": "Fórms",
+    "cap": "Fórmulas"
   },
   "mathematics": {
-    "cap":  "Matemáticas",
-    "abbr": "Mat"
-  }, 
-  "physics": {
-    "cap":  "Física",
-    "abbr": "Fís"
+    "abbr": "Mat",
+    "cap": "Matemáticas"
   },
-  "constants": {
-    "cap":  "Constantes",
-    "abbr": "Ctes"
-  },
-  "equations": {
-    "cap":  "Ecuaciones",
-    "abbr": "Ecs"
-  }, 
-  "formulas": {
-    "cap":  "Fórmulas",
-    "abbr": "Fórms"
-  },
-  "units": {
-    "cap":  "Unidades",
-    "abbr": "Uds"
-  },
-  "variables": {
-    "cap":  "Variables",
-    "abbr": "Vars"
-  },
-  "symbol": {
-    "cap":   "Símbolo",
-    "abbr": "Símb"
-  },
-
-  "search": {
-    "input-label": "Barra de búsqueda",
-    "input-placeholder": "Buscar en Equreka",
-    "button-submit": "Buscar",
-    "try-for": "Intenta buscar constantes, variables, unidades, fórmulas y/o ecuaciones",
-    "no-results": "No encontré nada... 😧"
-  },  
-
   "page": {
-    "home": {
-      "title": "Equreka",
-      "lead": ""
+    "categories": {
+      "chemistry": {
+        "lead": "La química es la disciplina científica involucrada con elementos y compuestos compuestos por átomos, moléculas e iones: su composición, estructura, propiedades, comportamiento y los cambios que experimentan durante una reacción con otras sustancias.",
+        "title": "Química"
+      },
+      "mathematics": {
+        "lead": "Las matemáticas (del griego: μάθημα, máthēma, 'conocimiento, estudio, aprendizaje') incluyen el estudio de temas como cantidad (teoría de números), estructura (álgebra), espacio (geometría) y cambio (análisis). No tiene una definición generalmente aceptada.",
+        "title": "Matemáticas"
+      },
+      "physics": {
+        "lead": "La física (del griego antiguo: φυσική (ἐπιστήμη), romanizado: physikḗ (epistḗmē), literalmente 'conocimiento de la naturaleza', de φύσις phýsis 'naturaleza') es la ciencia natural que estudia la materia, su movimiento y comportamiento a través del espacio y el tiempo, y las entidades relacionadas de energía y fuerza. La física es una de las disciplinas científicas más fundamentales y su principal objetivo es comprender cómo se comporta el universo.",
+        "title": "Física"
+      },
+      "title": "Categorias",
+      "universal": {
+        "lead": "Dentro de la ciencia existen propiedades que se pueden aplicar a diferentes ramas, a esto se le conoce como propiedad universal, por ejemplo las constantes y unidades. En esta categoria puedes encontrarlas todas.",
+        "title": "Universal"
+      }
     },
-
+    "contact": {
+      "button-submit": "¡Enviar mensaje!",
+      "label-mail": "¿Cuál es tu correo electrónico?",
+      "label-message": "¿Cuál es tu mensaje?",
+      "lead": "No dudes en enviarnos un mensaje si quieres decirnos algo.",
+      "placeholder-mail": "you@rock.com",
+      "placeholder-message": "¿Qué nos quieres compartir?",
+      "title": "Contáctanos"
+    },
+    "donate": {
+      "lead": "Las donaciones nos ayudarán a mejorar, agregar nuevas funciones, organizar y pagar toda la infraestructura necesaria.",
+      "title": "Donar",
+      "paragraph": "Si te gusta lo que hacemos y la plataforma puedes ayudarnos compartiendo y si quieres, puedes donar.",
+      "button-github": "Ser un patrocinador en Github",
+      "button-paypal": "Donar por Paypal"
+    },
+    "error": {
+      "404": "Página no encontrada",
+      "lead": "¡¿Qué tratabas de hacer?!",
+      "link": "Vamos a casa 🏡",
+      "title": "¡Error en la matrix!",
+      "unknown": "Ocurrió un error desconocido"
+    },
+    "faq": {
+      "lead": "In this page you can find some of the *possible* questions you can have about Equreka",
+      "title": "Frequently Asked Questions",
+      "why-is-free": {
+        "anwser": "Como dijimos en la página sobre: ​​el conocimiento debe ser gratuito, abierto, de fácil acceso y, si es posible, lo más fácil de entender posible.",
+        "question": "¿Por qué es gratis?"
+      },
+      "why-no-signup": {
+        "anwser": "Vivimos en un mundo donde la mayoría de plataformas, sitios o apps requieren una forma de autentificación, ya sea por medio de crear una cuenta o registro por medio de una red social, dónde no hay una transparencia, no hay claridad o siempre hay letras chiquitas difíciles de ver, para saber como manejarán nuestros datos que se recolectan. Han existido muchas filtraciones de grandes compañías y es que garantizar dicha seguridad es una tarea muy difícil. Equreka no necesita ningún tipo de información tuya, no recolectaremos datos en nuestros servidores, manejamos APIs diractamente en el navegador que se guaradan en tu ordenador y que tu puedes ver que información se está gaurdando en TU ordenador.",
+        "question": "¿Por qué no hay un registro para usuario?"
+      }
+    },
+    "favorites": {
+      "lead": "Sus favoritos se almacenan localmente en el navegador, por lo que no se guardan datos.",
+      "no-support": "Su navegador no es compatible con la función de almacenamiento local 😔, considere usar otro navegador para esta función.",
+      "none": "¡No tienes ningún favorito! 💔",
+      "remove": "Quitar de mis favoritos",
+      "support": "Soporte del navegador $0",
+      "title": "Favoritos"
+    },
     "header": {
-      "category": "Categoria",
       "categories": "Categorias",
-      "universal": "Universal",
+      "category": "Categoria",
       "chemistry": "Química",
-      "mathematics": "Matemática",
-      "physics": "Física",
       "constants": "Constantes",
       "equations": "Ecuaciones",
       "formulas": "Fórmulas",
+      "mathematics": "Matemática",
+      "physics": "Física",
       "units": "Unidades",
+      "universal": "Universal",
       "variables": "Variables"
     },
-
-    "categories": {
-      "title": "Categorias",
-      "universal": {
-        "title": "Universal",
-        "lead":  "Dentro de la ciencia existen propiedades que se pueden aplicar a diferentes ramas, a esto se le conoce como propiedad universal, por ejemplo las constantes y unidades. En esta categoria puedes encontrarlas todas."
-      },
-      "chemistry": {
-        "title": "Química",
-        "lead":  "La química es la disciplina científica involucrada con elementos y compuestos compuestos por átomos, moléculas e iones: su composición, estructura, propiedades, comportamiento y los cambios que experimentan durante una reacción con otras sustancias."
-      },   
-      "mathematics": {
-        "title": "Matemáticas",
-        "lead":  "Las matemáticas (del griego: μάθημα, máthēma, 'conocimiento, estudio, aprendizaje') incluyen el estudio de temas como cantidad (teoría de números), estructura (álgebra), espacio (geometría) y cambio (análisis). No tiene una definición generalmente aceptada."
-      },   
-      "physics": {
-        "title": "Física",
-        "lead":  "La física (del griego antiguo: φυσική (ἐπιστήμη), romanizado: physikḗ (epistḗmē), literalmente 'conocimiento de la naturaleza', de φύσις phýsis 'naturaleza') es la ciencia natural que estudia la materia, su movimiento y comportamiento a través del espacio y el tiempo, y las entidades relacionadas de energía y fuerza. La física es una de las disciplinas científicas más fundamentales y su principal objetivo es comprender cómo se comporta el universo."
-      }
+    "home": {
+      "lead": "Tu aplicación gratuita y de código abierto para ecuaciones, fórmulas, variables, constantes y unidades.",
+      "title": "Equreka"
     },
-
-    "contact": {
-      "title": "Contáctanos",
-      "lead": "No dudes en enviarnos un mensaje si quieres decirnos algo.",
-      "label-mail": "¿Cuál es tu correo electrónico?",
-      "placeholder-mail": "you@rock.com",
-      "label-message": "¿Cuál es tu mensaje?",
-      "placeholder-message": "¿Qué nos quieres compartir?",
-      "button-submit": "¡Enviar mensaje!"
+    "report": {
+      "button-submit": "¡Enviar reporte!",
+      "input-placeholder-reason": "¿Qué errores encontraste? 😧",
+      "label-category": "Categoria",
+      "label-reason": "¿Qué está mal con esta página?",
+      "label-slug": "Identificador",
+      "label-type": "Tipo",
+      "lead": "Reportar errores es muy importante para nosotros, ¡gracias por tomarte el tiempo en hacerlo!",
+      "title": "Reportar esta página"
     },
-
+    "search": {
+      "lead": "Puede buscar constantes, variables, unidades, ecuaciones o fórmulas",
+      "title": "Buscar"
+    },
+    "settings": {
+      "lead": "Esta configuración se almacena en su dispositivo, no tenemos ninguna información suya en nuestros servidores.",
+      "title": "Ajustes"
+    },
     "types": {
       "constants": {
-        "title": "Constantes",
-        "lead":  "Un número fijo y bien definido u otro objeto matemático que no varíe. Los términos constante matemática o constante física se utilizan a veces para distinguir este significado."
-      },  
-      "equations": {
-        "title": "Ecuaciones",
-        "lead":  "En matemáticas, una ecuación es una declaración que afirma la igualdad de dos expresiones, que están conectadas por el signo igual \"=\"."
-      },  
-      "formulas": {
-        "title": "Fórmulas",
-        "lead":  "En ciencia, una fórmula es una forma concisa de expresar información simbólicamente, como en una fórmula matemática o una fórmula química. El uso informal del término fórmula en ciencia se refiere al constructo general de una relación entre cantidades dadas."
-      },  
-      "units": {
-        "title": "Unidades",
-        "lead":  "Una unidad de medida es una cantidad estandarizada de una determinada magnitud física, definida y adoptada por convención o por ley.​ Cualquier valor de una cantidad física puede expresarse como un múltiplo de la unidad de medida."
-      },  
-      "variables": {
-        "title": "Variables",
-        "lead":  "Una variable es un símbolo que funciona como marcador de posición para expresiones o cantidades que pueden variar o cambiar; se utiliza a menudo para representar el argumento de una función o un elemento arbitrario de un conjunto. Además de los números, las variables se utilizan comúnmente para representar vectores, matrices y funciones."
-      }
-    },
-
-    "favorites": {
-      "title": "Favoritos",
-      "lead": "Sus favoritos se almacenan localmente en el navegador, por lo que no se guardan datos.",
-      "support": "Soporte del navegador $0",
-      "none": "¡No tienes ningún favorito! 💔",
-      "no-support": "Su navegador no es compatible con la función de almacenamiento local 😔, considere usar otro navegador para esta función.",
-      "remove": "Quitar de mis favoritos"
-    },
-
-    "error": {
-      "404": "Página no encontrada",
-      "title": "¡Error en la matrix!",
-      "lead": "¡¿Qué tratabas de hacer?!",
-      "link": "Vamos a casa 🏡",
-      "unknown": "Ocurrió un error desconocido"
-    },
-
-    "report": {
-      "title": "Reportar esta página",
-      "lead": "Reportar errores es muy importante para nosotros, ¡gracias por tomarte el tiempo en hacerlo!",
-      "label-reason": "¿Qué está mal con esta página?",
-      "label-category": "Categoria",
-      "label-type": "Tipo",
-      "label-slug": "Identificador",
-      "input-placeholder-reason": "¿Qué errores encontraste? 😧",
-      "button-submit": "¡Enviar reporte!"
-    },
-
-    "faq": {
-      "title": "Frequently Asked Questions",
-      "lead": "In this page you can find some of the *possible* questions you can have about Equreka",
-      "why-is-free": {
-        "question": "¿Por qué es gratis?",
-        "anwser": "Como dijimos en la página sobre: ​​el conocimiento debe ser gratuito, abierto, de fácil acceso y, si es posible, lo más fácil de entender posible."
+        "lead": "Un número fijo y bien definido u otro objeto matemático que no varíe. Los términos constante matemática o constante física se utilizan a veces para distinguir este significado.",
+        "title": "Constantes"
       },
-      "why-no-signup": {
-        "question": "¿Por qué no hay un registro para usuario?",
-        "anwser": "Vivimos en un mundo donde la mayoría de plataformas, sitios o apps requieren una forma de autentificación, ya sea por medio de crear una cuenta o registro por medio de una red social, dónde no hay una transparencia, no hay claridad o siempre hay letras chiquitas difíciles de ver, para saber como manejarán nuestros datos que se recolectan. Han existido muchas filtraciones de grandes compañías y es que garantizar dicha seguridad es una tarea muy difícil. Equreka no necesita ningún tipo de información tuya, no recolectaremos datos en nuestros servidores, manejamos APIs diractamente en el navegador que se guaradan en tu ordenador y que tu puedes ver que información se está gaurdando en TU ordenador."
+      "equations": {
+        "lead": "En matemáticas, una ecuación es una declaración que afirma la igualdad de dos expresiones, que están conectadas por el signo igual \"=\".",
+        "title": "Ecuaciones"
+      },
+      "formulas": {
+        "lead": "En ciencia, una fórmula es una forma concisa de expresar información simbólicamente, como en una fórmula matemática o una fórmula química. El uso informal del término fórmula en ciencia se refiere al constructo general de una relación entre cantidades dadas.",
+        "title": "Fórmulas"
+      },
+      "units": {
+        "lead": "Una unidad de medida es una cantidad estandarizada de una determinada magnitud física, definida y adoptada por convención o por ley.​ Cualquier valor de una cantidad física puede expresarse como un múltiplo de la unidad de medida.",
+        "title": "Unidades"
+      },
+      "variables": {
+        "lead": "Una variable es un símbolo que funciona como marcador de posición para expresiones o cantidades que pueden variar o cambiar; se utiliza a menudo para representar el argumento de una función o un elemento arbitrario de un conjunto. Además de los números, las variables se utilizan comúnmente para representar vectores, matrices y funciones.",
+        "title": "Variables"
       }
-    },
-
-    "search": {
-      "title": "Buscar",
-      "lead": "Puede buscar constantes, variables, unidades, ecuaciones o fórmulas"
-    },
-
-    "settings": {
-      "title": "Ajustes",
-      "lead": "Esta configuración se almacena en su dispositivo, no tenemos ninguna información suya en nuestros servidores."
     }
+  },
+  "physics": {
+    "abbr": "Fís",
+    "cap": "Física"
+  },
+  "search": {
+    "button-submit": "Buscar",
+    "input-label": "Barra de búsqueda",
+    "input-placeholder": "Buscar en Equreka",
+    "no-results": "No encontré nada... 😧",
+    "try-for": "Intenta buscar constantes, variables, unidades, fórmulas y/o ecuaciones"
+  },
+  "symbol": {
+    "abbr": "Símb",
+    "cap": "Símbolo"
+  },
+  "units": {
+    "abbr": "Uds",
+    "cap": "Unidades"
+  },
+  "universal": {
+    "abbr": "Uni",
+    "cap": "Universal"
+  },
+  "variables": {
+    "abbr": "Vars",
+    "cap": "Variables"
   }
 }

@@ -21,25 +21,8 @@
   }
 }
 
-@mixin clamp($property, $min-size, $scaler, $max-size, $min-size-left:false, $scaler-left:false, $max-size-left:false){
-  @if $min-size-left == false {
-    #{$property}: $max-size;
-    #{$property}: #{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"};
-    #{$property}: clamp($min-size, $scaler, $max-size);
-  } @else if $min-size-left == 0 or $min-size-left == auto{
-    #{$property}: $max-size $min-size-left;
-    #{$property}: #{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"} $min-size-left;
-    #{$property}: clamp($min-size, $scaler, $max-size) $min-size-left;
-  } @else {
-    #{$property}: $max-size $min-size-left;
-    #{$property}: #{"min(max(#{$min-size}, #{$scaler}), #{$max-size})"} #{"min(max(#{$min-size-left}, #{$scaler-left}), #{$max-size-left})"};
-    #{$property}: clamp($min-size, $scaler, $max-size) clamp($min-size-left, $scaler-left, $max-size-left);
-  }
-}
-
-@mixin rs($property, $min, $scale, $max) {
-  //#{$property}: calc(#{$min} * 0.5vw);
-  #{$property}: calc(#{$min} + (#{number($max)} - #{number($min)}) * ((100vw - 300px) / (1600 - 300)));;
-  #{$property}: min(max(#{$min}, #{$scale}), #{$max});
-  #{$property}: clamp(#{$min}, #{$scale}, #{$max});
+@mixin rs($property, $min, $scale, $max, $important: false) {
+  #{$property}: calc(#{$min} + (#{number($max)} - #{number($min)}) * ((100vw - 300px) / (1600 - 300))) if-important($important);
+  #{$property}: min(max(#{$min}, #{$scale}), #{$max}) if-important($important);
+  #{$property}: clamp(#{$min}, #{$scale}, #{$max}) if-important($important);
 }

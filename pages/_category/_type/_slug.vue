@@ -256,8 +256,7 @@
 
 <script>
   import jslinq from "jslinq";
-  import Equreka from '@/equreka';
-  import dbOffline from "@/static/data";
+  import Equreka from "@/equreka";
   export default {
     data () {
       return {
@@ -284,6 +283,7 @@
       try {
         data = await fetch(`${process.env.api}/${type}/${slug}`).then((res) => res.json());
       } catch {
+        const dbOffline = await import("@/static/data");
         dataOffline = jslinq(dbOffline[type]);
         data = dataOffline.where((el) => { return el.slug == slug }).toList()[0];
       }

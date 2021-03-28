@@ -9,7 +9,7 @@
 [![Sponsor](https://img.shields.io/github/sponsors/DerianAndre?style=social)](https://github.com/sponsors/DerianAndre)
 [![GitHub](https://img.shields.io/github/license/Equreka/Equreka?color=green&label=License)](https://github.com//Equreka)
 
-### Your free and open-source app for variables, constants, formulas and equations
+### Your free and open-source app for equations, formulas, variables, constants and units.
 
 **Sponsor Equreka** https://github.com/sponsors/DerianAndre
 
@@ -70,9 +70,9 @@ android {
 ## To-do
 
 ### App
-- [ ] Use cappacitor.js to export as an app for iOS and Android (WIP)
+- [X] Use cappacitor.js to export as an app for iOS and Android (WIP)
 ### UI
-- [ ] Add content for everything
+- [X] Add content for everything
 ### API
 - [ ] Add security layers
 - [ ] Add content through post
@@ -81,8 +81,8 @@ android {
 - [ ] Add subcategories (?)
 - [ ] Improve general structure (?)
 - [ ] Improve traductions structure (*)
-- [ ] Add Realm for mobile (offlinemode)
-- [ ] Sync offline mode db with server (Realm)
+- [ ] Add Realm for mobile (offlinemode) (*)
+- [ ] Sync offline mode db with server (Realm) (*)
 ### Scripts
 - [ ] Improve Hover system for dynamic created elements (MathJax)
 - [X] Improve favorites system (working but very basic)

@@ -1,0 +1,49 @@
+details {
+  display:block;
+  overflow: hidden;
+  transition: $transition-all-ease;
+  &[open] {
+    & > summary::before {
+      transform: rotate(90deg);
+    }
+    section {
+      animation: details 0.35s linear forwards;
+    }
+  }
+  summary {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 1rem 0;
+    font-family: $font-family-heading-sans-serif;
+    font-weight: bold;
+    outline: 0;
+    color: var(--body-color-muted);
+    cursor: pointer;
+    &::before {
+      content: "\f285";
+      display: block;
+      margin-right: 0.5rem;
+      transition: $transition-all-ease;
+      transform-origin: 50% 50%;
+      @include bootstrap-icon();
+    }
+    &::marker {
+      display: none !important;
+    }    
+  }
+  p {
+    margin: 0;
+  }
+}
+
+@keyframes details {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}

@@ -1,6 +1,7 @@
 {
-  "name": "equreka",
+  "name": "@equreka/equreka",
   "version": "1.0.0",
+  "description": "Your free and open-source app for equations, formulas, variables, constants and units.",
   "private": true,
   "scripts": {
     "api": "nodemon server",
@@ -9,8 +10,9 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
+    "analyze": "nuxt build -a",
     "android": "nuxt build && nuxt generate && cap sync && cap copy && cap open android",
-    "electron": "nuxt build && nuxt generate && cap sync && cap copy && cap open electron",
+    "electron": "nuxt build && nuxt generate && cap sync && cap copy && cap open @capacitor-community/electron",
     "update": "node update"
   },
   "dependencies": {

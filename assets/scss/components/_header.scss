@@ -1,10 +1,10 @@
 // Header
 .header {
-  padding:    0.5rem 0;
+  padding:    1.5rem 0;
   color:      var(--header-color);
   transition: $transition-all-ease;
-  @include media-breakpoint-up($navbar-expand) {
-    padding:    1rem 0;
+  .navbar {
+    padding: 0;
   }
   .container {
     display    : flex;
@@ -35,8 +35,8 @@
   }
   .equreka {
     width:   42px;
-    height:  100%;
-    object-fit: cover;
+    height:  auto;
+    object-fit: contain;
     object-position: center;
     @media (min-width: 375px) {
       width: 62px;
@@ -52,14 +52,10 @@
     display: flex;
     flex   : 1;
   }
-
-  .left,
-  .right {
-    @include media-breakpoint-down($navbar-expand) {
-      margin-bottom: 1rem;
-    }
+  // Left 
+  .left {
+    align-items: center;
   }
-  
   // Center
   .center {
     flex           : 1 1 auto;
@@ -69,6 +65,16 @@
       order: 2;
       flex : 1 0 100%;
     }
+    .search-bar {
+      @include media-breakpoint-down($navbar-expand) {
+        margin-top: 1rem;
+      }
+    }
+  }
+  // Right
+  .right {
+    justify-content: flex-end;
+    margin-right:    -0.5rem;
   }
   // Icons
   .btn .bi {
@@ -81,11 +87,6 @@
       font-size: 26px;
     }
   }
-  // Right
-  .right {
-    justify-content: flex-end;
-    margin-right:    -0.5rem;
-  }
   // Button
   .btn {
     font-family:     $font-family-heading-sans-serif;
@@ -94,7 +95,8 @@
     box-shadow:      none;
     color:           var(--header-color);
     transition:      $transition-all-ease;
-    border-radius: 0.75rem;
+    border-radius:   0.75rem;
+    padding: 0.75rem;
     &:hover,
     &:focus,
     &[aria-expanded="true"] {

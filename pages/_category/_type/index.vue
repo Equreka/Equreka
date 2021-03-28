@@ -1,30 +1,56 @@
 <template> 
   <main role="main" class="category" :class="type">
-    <PageHeader :main="true" :category="category" :type="type" :name="type" />
+    <PageHeader :category="category" :name="type" :type="type" :main="true" />
     <div class="container">
       <!-- Description -->
-      <p class="lead">
-        {{ $t('page.types.' + type + '.lead') }}
-      </p>
+      <section class="description">
+        <button class="btn btn-text btn-collapse muted" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-description" aria-controls="collapse-description" aria-expanded="false">
+          {{ $t('Description') }}
+        </button>
+        <div id="collapse-description" class="collapse">
+          <p class="lead">
+            {{ $t(`page.types.${type}.lead`) }}
+          </p>
+        </div>
+      </section>
       <!-- Data -->
-      <div class="list mb-4" v-if="data">
-        <NuxtLink v-for="item in data" :key="item._id" :to="localePath('/' + category + '/' + type + '/' + item.slug)">
-          {{ item.name }}
-        </NuxtLink>
-      </div>
+      <section v-if="data">
+        <!-- Header -->
+        <header>
+          <button class="btn btn-text btn-collapse" type="button" data-bs-toggle="collapse" :data-bs-target="`#collapse-${type}`" :aria-controls="`collapse-${type}`" aria-expanded="true">
+            <h2 class="section-title">
+              {{ $t(`${type}.cap`) }}
+            </h2>
+          </button>
+          <NuxtLink class="btn btn-sm btn-category" :to="localePath(`/${category}/${type}`)">
+            View all
+          </NuxtLink>
+        </header>
+        <!-- List -->
+        <div :id="`collapse-${type}`" class="collapse show">
+          <div class="list">
+            <NuxtLink v-for="item in data" :key="item._id" :to="localePath(`/${category}/${type}/${item.slug}`)">
+              {{ item.name }}
+            </NuxtLink>
+          </div>
+        </div>
+      </section>
       <!-- No data -->
-      <div v-else>
-        <h2>Nothing found :(</h2>
-        <NuxtLink to="/">Go back</NuxtLink>
-      </div>
+      <section v-else>
+        <h2 class="section-title">
+          {{ $t('error.no-data') }}
+        </h2>
+        <NuxtLink :to="localePath('/')">
+          {{ $t('Go back to home') }}
+        </NuxtLink>
+      </section>
     </div>
   </main>
 </template>
 
 <script>
-  import Equreka from '@/equreka';
+  import Equreka from "@/equreka";;
   import jslinq from "jslinq";
-  import categories from "/static/data/categories.json";
   export default {
     data() {
       return {
@@ -43,15 +69,15 @@
       }
 
       let data, dataOffline;
+      
       try {
         data = await fetch(`${process.env.api}/${type}/category/${category}`).then((res) => res.json());
       } catch {
-        dataOffline = jslinq(categories);
+        const dbOffline = await import("@/static/data");
+        dataOffline = jslinq(dbOffline.categories);
         data = dataOffline.where((el) => { return el.slug == slug }).toList()[0];        
       }
 
-      
-      
       if(!data || data.length === 0) data = false;
 
       return {
@@ -63,7 +89,7 @@
     head() {
       return {
         bodyAttrs: {
-          class: `page-data page-${this.type} ${this.category}`
+          class: `page-category page-${this.type} ${this.category}`
         }
       }
     }

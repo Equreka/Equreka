@@ -1,14 +1,14 @@
 <template>
   <main role="main" class="donate">
     <div class="container">
-      <h2 class="page-title">Donate</h2>
-      <p class="lead">Donations will help us to improve, add new features, organize and pay for all the infrastructure needed.</p>
-      <p>If you like what we do and the platform you can help us by sharing and if you want you can donate.</p>
-      <a href="https://github.com/sponsors/DerianAndre" class="btn btn-dark btn-icon mr-3" target="_blank" rel="noopener nofollow">
-        <i class="bi bi-github"></i> Be a Github Sponsor
+      <h2 class="page-title">{{ $t('page.donate.title') }}</h2>
+      <p class="lead">{{ $t('page.donate.lead') }}</p>
+      <p>{{ $t('page.donate.paragraph') }}</p>
+      <a href="https://github.com/sponsors/DerianAndre" class="btn btn-dark btn-icon m-2" target="_blank" rel="noopener nofollow">
+        <i class="bi bi-github"></i> {{ $t('page.donate.button-github') }}
       </a>
-      <a href="https://paypal.me/Derianandre" class="btn btn-light btn-icon" target="_blank" rel="noopener nofollow">
-        <i class="bi bi-credit-card"></i> Donate via Paypal
+      <a href="https://paypal.me/Derianandre" class="btn btn-primary btn-icon m-2" target="_blank" rel="noopener nofollow">
+        <i class="bi bi-credit-card"></i> {{ $t('page.donate.button-paypal') }}
       </a>
     </div>
   </main>

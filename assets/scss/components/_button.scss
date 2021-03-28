@@ -2,6 +2,9 @@
 .btn {
   display: inline-flex;
   align-items: center;
+  font-family: $font-family-heading-sans-serif;
+  font-weight: 500;
+  letter-spacing: 0.5px;
   .bi {
     line-height: 0;
   }
@@ -9,5 +12,46 @@
     .bi {
       margin-right: 0.75rem;
     }
+  }
+}
+
+.btn-text {
+  padding-left: 0;
+  padding-right: 0;
+  color: var(--body-color);
+  &:hover {
+    color: var(--body-color-highlight);
+  }
+  &.muted {
+    color: var(--body-color-muted);
+    &:hover {
+      color: var(--body-color);
+    }
+  }
+}
+
+.btn-collapse {
+  font-weight: bold;
+  position: relative;
+  box-shadow: none !important;
+  &[aria-expanded="true"] {
+    &::before {
+      transform: rotate(90deg);
+    }
+  }
+  &::before {
+    content: "\f285";
+    display: block;
+    margin-right: 0.5rem;
+    transition: transform 0.35s $transition-speed-ease;
+    transform-origin: 50% 50%;
+    @include bootstrap-icon();
+  }
+}
+
+.btn-category {
+  background: var(--category-color);
+  &:focus {
+    box-shadow: 0 0 0 0.25rem hsla(var(--category-color-hsl), 0.25);
   }
 }

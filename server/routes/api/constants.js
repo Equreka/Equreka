@@ -2,6 +2,7 @@ const router=    require('express').Router();
 const Constant=  require('../../database/models/constant');
 const Category=  require('../../database/models/category');
 const { param }= require('express-validator');
+const sanitize=  require('../sanitize');
 
 // GET - All
 router.get('/', async (req, res) => {
@@ -23,15 +24,22 @@ router.get('/dump', async (req, res) => {
 router.get('/search/:search',
 param('search').not().isEmpty().trim().escape(),
 async (req, res) => {
-  let search = req.params.search.replace(/[^\w\s]/gi, '');
+  let search = sanitize.search(req.params.search);
   const data = await Constant.find({ 
-    'name': {
-      '$regex':   search,
-      '$options': 'i'
-    }
-  },
-  )
-  .populate('category, unit, values.unit')
+    $or: [
+      {'name': {
+        '$regex':   search,
+        '$options': 'i'
+      }},
+      {'slug': {
+        '$regex':   search,
+        '$options': 'i'
+      }}
+    ]
+  })
+  .populate('category')
+  .populate('unit')
+  .populate('values.unit')
   .limit(10);
   res.json(data);
 });

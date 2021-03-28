@@ -48,8 +48,6 @@
 </template>
 
 <script>
-import Equreka from "@/equreka";
-import dbOffline from "@/static/data";
 export default {
   data () {
     return {
@@ -57,9 +55,20 @@ export default {
       layout: (this.$device.isMobile) ? 'app' : 'web'
     }
   },
-  async asyncData() {
+  async asyncData({ $device }) {
+    let data;
+    try {
+      data = await fetch(`${process.env.api}/categories/`).then(res => res.json());
+    } catch {
+      try {
+        const dbOffline = await import("@/static/data");
+        data = dbOffline.categories;
+      } catch {
+        data = {}
+      }
+    }
     return {
-      categories: await Equreka.fetchData('/categories/', dbOffline.categories)
+      categories: data
     }
   },
   head() {

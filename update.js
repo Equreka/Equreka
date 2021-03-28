@@ -11,29 +11,28 @@ console.log(`i [Equreka] API: ${API}`);
 console.time('i [Equreka] Total time');
 
 async function update(type) {
-  let response, data;
-  let apiPath = API + type;
-  let filePath = PATH + type;
+  let response, 
+      data,
+      apiPath = API + type + '/dump/',
+      fileName = type + '.json',
+      filePath = PATH + fileName;
   try {
-    fs.createWriteStream(`${filePath}.json`);
-    response = await fetch(`${apiPath}/dump`);
+    fs.createWriteStream(filePath);
+    response = await fetch(apiPath);
     data = await response.json();
-    console.time(type);
     if(JSON.stringify(data) != 'null') {
-      fs.writeFileSync(`${filePath}.json`, JSON.stringify(data));
-      console.timeEnd(type);
-      return `i [Equreka] ["${filePath}.json"]: Updated successfully.`;
+      fs.writeFileSync(filePath, JSON.stringify(data));
+      return `i [Equreka] ["${filePath}"]: Updated successfully.`;
     } else {
-      fs.writeFileSync(`${filePath}.json`, "{}");
-      console.timeEnd(type);
-      return `i [Equreka] ["${filePath}.json"]: Updated successfully but is empty.`;
+      fs.writeFileSync(filePath, "{}");
+      return `i [Equreka] ["${filePath}"]: Updated successfully but is empty.`;
     }
   } catch (err) {
-    console.timeEnd(type);
     return `e [Equreka] ${err}`;
   }
 }
 
+// Magic
 (FILES).map(async (type) => {
   await update(type).then(res => console.log(res));
 })
