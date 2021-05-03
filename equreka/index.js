@@ -170,6 +170,27 @@ let Equreka = {
 
     alert('Copied to clipboard successfully');
   },
+  
+  getLanguage() {
+    let language;
+    try {
+      language = localStorage.getItem(`equreka-settings-language`);
+    } catch {
+      language = 'en';
+    }
+    return language;
+  },
+
+  setLanguage(language) {
+    if(!language) return;
+    console.log(language);
+    try {
+      localStorage.setItem(`equreka-settings-language`, language);
+      return true;
+    } catch {
+      return false;
+    }
+  },
 
   /**
    * Theme Transition (needs @nuxtjs/color-mode)

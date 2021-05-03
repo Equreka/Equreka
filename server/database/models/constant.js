@@ -5,15 +5,18 @@ const Schema = mongoose.Schema;
 mongoose.plugin(slug);
 
 const SchemaConstant = new Schema({
-  name:        String,
-  slug: { 
-    type: String, 
-    slug: 'name' 
-  },
+  slug: { type: String, slug: 'name' },
+  name:  String,
   symbol:      String,
   description: String,
   value:       Number,
-  category:    { 
+  lang: {
+    es: {
+      name: String,
+      description: String
+    }
+  },
+  category: { 
     type: Schema.Types.ObjectId,
     ref:  'Category'
   },

@@ -10,14 +10,9 @@ const SchemaCategory = new Schema({
   slug: { 
     type: String, 
     slug: 'name' 
-  },
-  description: String,
+  }
 });
 
 const Category = mongoose.model('Category', SchemaCategory);
-//const cat = new Category();
-//cat._id = 1;
-//cat.name = 'Mathematics';
-//cat.save();
 
 module.exports = Category;

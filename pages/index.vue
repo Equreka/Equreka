@@ -55,7 +55,7 @@ export default {
       layout: (this.$device.isMobile) ? 'app' : 'web'
     }
   },
-  async asyncData({ $device }) {
+  async asyncData() {
     let data;
     try {
       data = await fetch(`${process.env.api}/categories/`).then(res => res.json());

@@ -2,19 +2,23 @@ export default {
   // Target: https://go.nuxtjs.dev/config-target
   target: 'static',
 
+  // Server Side Rendering
   ssr: false,
 
+  // Server
   server: {
     host: '0.0.0.0'
   },
 
+  // API
   serverMiddleware: [
     {
       path:    '/api',
       handler: '@/server'
     }
   ],
-
+  
+  // Environment
   env: {
     api:     process.env.API_URL  || 'http://192.168.0.5:3000/api',
     baseUrl: process.env.BASE_URL || 'http://192.168.0.5:3000'
@@ -92,8 +96,8 @@ export default {
       lazy:          true,
       langDir:       '@/lang/',
       detectBrowserLanguage: {
+        cookieKey: 'equreka-settings-lang',
         useCookie: true,
-        cookieKey: 'equreka-lang',
         alwaysRedirect: true,
         fallbackLocale: 'en'
       },

@@ -10,7 +10,7 @@
           {{ $t('Change language') }}
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdown-language">
-          <li><h6 class="dropdown-header">{{ $t('Langauge') }}</h6></li>
+          <li><h6 class="dropdown-header">{{ $t('Language') }}</h6></li>
           <li v-for="locale in availableLocales" :key="locale.code">
             <NuxtLink class="dropdown-item" :to="switchLocalePath(locale.code)" @click="setLocale(local.code)">
               {{ locale.name }}

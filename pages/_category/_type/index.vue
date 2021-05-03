@@ -22,9 +22,6 @@
               {{ $t(`${type}.cap`) }}
             </h2>
           </button>
-          <NuxtLink class="btn btn-sm btn-category" :to="localePath(`/${category}/${type}`)">
-            View all
-          </NuxtLink>
         </header>
         <!-- List -->
         <div :id="`collapse-${type}`" class="collapse show">
@@ -74,8 +71,8 @@
         data = await fetch(`${process.env.api}/${type}/category/${category}`).then((res) => res.json());
       } catch {
         const dbOffline = await import("@/static/data");
-        dataOffline = jslinq(dbOffline.categories);
-        data = dataOffline.where((el) => { return el.slug == slug }).toList()[0];        
+        dataOffline = jslinq(dbOffline[type]);
+        data = dataOffline.where((el) => { return el.category.slug == category }).toList();
       }
 
       if(!data || data.length === 0) data = false;

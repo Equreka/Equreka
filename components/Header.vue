@@ -67,9 +67,9 @@
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-language">
               <li><h6 class="dropdown-header">{{ $t('Language') }}</h6></li>
               <li v-for="locale in availableLocales" :key="locale.code">
-                <NuxtLink class="dropdown-item" :to="switchLocalePath(locale.code)" @click="setLocale(local.code)">
+                <button class="dropdown-item" @click="$i18n.setLocale(locale.code);setLanguage(locale.code);" :to="switchLocalePath(locale.code)">
                   {{ locale.name }}
-                </NuxtLink>
+                </button>
               </li>
             </ul>
           </div>
@@ -82,7 +82,7 @@
 </template>
 
 <script>
-  import Equreka from "@/equreka";;
+  import Equreka from "@/equreka";
   export default {
     data () {
       return {
@@ -95,6 +95,10 @@
         types: Equreka.TYPES
       }
     },
+    mounted() {
+      let lang = Equreka.getLanguage();
+      if(lang) this.$i18n.setLocale(lang);
+    },
     computed: {
       availableLocales () {
         return this.$i18n.locales
@@ -103,6 +107,9 @@
     methods: {
       themeTransition(newTheme, actualTheme, systemQuery) {
         Equreka.themeTransition(newTheme, actualTheme, systemQuery);
+      },
+      setLanguage(language) {
+        Equreka.setLanguage(language);
       }
     }
   }
