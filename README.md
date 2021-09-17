@@ -1,6 +1,6 @@
 <div align="center">
 
-![Logo](./static/assets/brand/logo.png)
+![Logo](./assets/brand/logo.png)
 
 
 # Equreka 
@@ -71,20 +71,15 @@ android {
 
 ### App
 - [X] Use cappacitor.js to export as an app for iOS and Android (WIP)
+- [ ] Beta test
 ### UI
 - [X] Add content for everything
-### API
-- [ ] Add security layers
-- [ ] Add content through post
-- [ ] Finish APIs for every model
-### Database
-- [ ] Add subcategories (?)
-- [ ] Improve general structure (?)
-- [ ] Improve traductions structure (*)
-- [ ] Add Realm for mobile (offlinemode) (*)
-- [ ] Sync offline mode db with server (Realm) (*)
+- [ ] Improve UX/UI
+### Calculator
+- [ ] Unit input for equations/formulas
+- [ ] Unit converter system
 ### Scripts
-- [ ] Improve Hover system for dynamic created elements (MathJax)
-- [X] Improve favorites system (working but very basic)
-- [ ] Add import/export favorites
-- [ ] Save in localStorage language setting
+- [X] Hover system
+- [X] Favorites: System with localStorage
+- [ ] Favorites: Add import/export
+- [ ] Languages: Save in localStorage

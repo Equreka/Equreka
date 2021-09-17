@@ -97,7 +97,8 @@ export default {
 	// Custom modules configuration
 	// @nuxtjs/content https://go.nuxtjs.dev/config-content
 	content: {
-
+		apiPrefix: 'api',
+		fullTextSearchFields: ['title', 'name', 'slug', 'description']
 	},
 	// @nuxtjs/color-mode https://color-mode.nuxtjs.org/
 	colorMode: {

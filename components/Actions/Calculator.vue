@@ -1,5 +1,5 @@
 <template>
-	<NuxtLink class="btn btn-link" :to="localePath(`/calculator/${type}/${slug}`)">
+	<NuxtLink class="btn" :to="localePath(`/calculator/${type}/${slug}`)">
 		<span class="visually-hidden">
 			{{ $t('calculator.go-to-calculator') }}
 		</span>
@@ -9,6 +9,6 @@
 
 <script>
 	export default {
-		props: ['slug', 'type']
+		props: ['category', 'type', 'slug']
 	}
 </script>

@@ -1,5 +1,5 @@
 
-const without = ['path', 'extension', 'dir', 'extension'];
+const without = ['path', 'extension', 'dir'];
 
 const getConstant = async ($content, constant) => {
 	if(!constant) return false;
@@ -75,13 +75,18 @@ const getUnits = async ($content, units) => {
 };
 
 export default async ($content, params, error, calc = false) => {
-	const { category, type, slug } = params;
-	const where = calc ? {} : { category: category };
+	const { category, type, slug } = params,
+	// If calc is true then category is needed to be set
+			where = calc ? { } : { category: category };
+	// Get the
 	let data = await $content(type, slug)
 		.where(where)
 		.without(without)
-		.fetch();
-
+		.fetch()
+		.catch((err) => {
+			error({ statusCode: 404 })
+		});
+	// Get units
 	if(data.units) {
 		data.units = await getUnits($content, data.units);
 	}
@@ -97,6 +102,6 @@ export default async ($content, params, error, calc = false) => {
 	if(data.values) {
 		data.values = await getValues($content, data.values);
 	}
-
+	// Return
 	return data;
 }

@@ -97,7 +97,7 @@
 
 <script>
 	import Utils from "~/utils";
-	import UtilsData from "~/utils/data";
+	import getData from "~/utils/data";
 	export default {
 		data () {
 			return {
@@ -108,7 +108,7 @@
 			const category = params.category,
 					type = params.type,
 					slug = params.slug,
-					data = await UtilsData($content, params, error);
+					data = await getData($content, params, error);
 			return {
 				category,
 				type,
