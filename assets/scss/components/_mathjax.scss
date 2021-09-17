@@ -1,110 +1,110 @@
 // MathJax
 mjx-container {
-  outline: 0;
-  position: relative;
-  display: inline-flex;
-  &:focus {
-    &::after {
-      content: "";
-      position: absolute;
-      top: -0.25rem;
-      left: -0.25rem;
-      right: -0.25rem;
-      bottom: -0.25rem;
-      background: hsla(0, 0%, var(--theme-inverted-lightness), 0.15);
-      border-radius: 0.5rem;
-    }
-  }
+	outline: 0;
+	position: relative;
+	display: inline-flex;
+	&:focus {
+		&::after {
+			content: "";
+			position: absolute;
+			top: -0.25rem;
+			left: -0.25rem;
+			right: -0.25rem;
+			bottom: -0.25rem;
+			background: hsla(0, 0%, var(--theme-inverted-lightness), 0.15);
+			border-radius: 0.5rem;
+		}
+	}
 }
 
 // Remove anoying white pixel...
 .MJX_HoverRegion,
 .MJX_LiveRegion,
 .MJX_ToolTip {
-  background: transparent !important;
+	background: transparent !important;
 }
 
 .CtxtMenu_Menu,
 .CtxtMenu_Info {
-  font-family:     $font-family-base !important;
-  color:           var(--body-color) !important;
-  border:          0 !important;
-  @include acrylic-bg(true);
+	font-family:     $font-family-base !important;
+	color:           var(--body-color) !important;
+	border:          0 !important;
+	@include acrylic-bg(true);
 }
 .CtxtMenu_Info {
-  margin-left: 4px !important;
-  transform: translate(-50%, 10%) !important;
+	margin-left: 4px !important;
+	transform: translate(-50%, 10%) !important;
 }
 
 .CtxtMenu_InfoContent {
-  background: none !important;
-  border: var(--separator) !important;
-  .CtxtMenu_InfoTitle {
-    font-family: $font-family-heading-sans-serif !important;
-  }
+	background: none !important;
+	border: var(--separator) !important;
+	.CtxtMenu_InfoTitle {
+		font-family: $font-family-heading-sans-serif !important;
+	}
 }
 
 .CtxtMenu_MenuClose {
-  visibility: hidden;
-  transition: $transition-all-ease;
-  &::before {
-    visibility: visible !important;
-    position: absolute;
-    top: 0;
-    right: 0;
-    content: "\f62a" !important;
-    display: flex !important;
-    align-items: center;
-    justify-content: center;
-    background: none !important;
-    color: var(--body-color) !important;
-    @include bootstrap-icon();
-  }
-  &:hover {
-    color: var(--body-color-highlight) !important;
-    border: var(--separator) !important;
-  }
-  span {
-    display: none !important;
-  }
+	visibility: hidden;
+	transition: $transition-all-ease;
+	&::before {
+		visibility: visible !important;
+		position: absolute;
+		top: 0;
+		right: 0;
+		content: "\f62a" !important;
+		display: flex !important;
+		align-items: center;
+		justify-content: center;
+		background: none !important;
+		color: var(--body-color) !important;
+		@include bootstrap-icon();
+	}
+	&:hover {
+		color: var(--body-color-highlight) !important;
+		border: var(--separator) !important;
+	}
+	span {
+		display: none !important;
+	}
 }
 
 .CtxtMenu_Menu {
-  .CtxtMenu_MenuItem { 
-    transition: $transition-all-ease;
-  }
-  .CtxtMenu_MenuRule {
-    border-color: var(--input-border-color) !important;
-  }
-  .CtxtMenu_MenuActive {
-    background: hsla(var(--bs-primary-hsl), var(--alpha-active)) !important;
-  }
-  .CtxtMenu_MenuDisabled:focus {
-    background: hsla(var(--bs-primary-hsl), calc(var(--alpha-active) - 0.25) ) !important;
-  }
-  .CtxtMenu_MenuArrow,
-  .CtxtMenu_MenuCheck {
-    &::before {
-      @include bootstrap-icon();
-    }
-  }
-  .CtxtMenu_MenuArrow,
-  .CtxtMenu_MenuCheck {
-    font-size: 0;
-  }
-  .CtxtMenu_MenuArrow{
-    &::before {
-      content: "\f285";
-      margin-right: 0.25rem;
-      font-size: 0.75rem;
-    }
-  }
-  .CtxtMenu_MenuCheck {
-    &::before {
-      content: "\f272";
-      margin-top: 0.2rem;
-      margin-left: 0.35rem;
-      font-size: 0.85rem;
-    }   
-  }
+	.CtxtMenu_MenuItem { 
+		transition: $transition-all-ease;
+	}
+	.CtxtMenu_MenuRule {
+		border-color: var(--input-border-color) !important;
+	}
+	.CtxtMenu_MenuActive {
+		background: hsla(var(--bs-primary-hsl), var(--alpha-active)) !important;
+	}
+	.CtxtMenu_MenuDisabled:focus {
+		background: hsla(var(--bs-primary-hsl), calc(var(--alpha-active) - 0.25) ) !important;
+	}
+	.CtxtMenu_MenuArrow,
+	.CtxtMenu_MenuCheck {
+		&::before {
+			@include bootstrap-icon();
+		}
+	}
+	.CtxtMenu_MenuArrow,
+	.CtxtMenu_MenuCheck {
+		font-size: 0;
+	}
+	.CtxtMenu_MenuArrow{
+		&::before {
+			content: "\f285";
+			margin-right: 0.25rem;
+			font-size: 0.75rem;
+		}
+	}
+	.CtxtMenu_MenuCheck {
+		&::before {
+			content: "\f272";
+			margin-top: 0.2rem;
+			margin-left: 0.35rem;
+			font-size: 0.85rem;
+		}
+	}
 }

@@ -1,34 +1,19 @@
-/*!
-  Equreka
-  Version: 1.0.0
-*/
-
+@use "sass:color";
 // Bootstrap
 @import "bootstrap/scss/functions";
 @import "bootstrap/scss/variables";
 @import "bootstrap/scss/mixins";
+// Custom variables
 @import "variables";
 // Bootstrap
 @import "bootstrap/scss/bootstrap";
 @import "bootstrap-icons/font/bootstrap-icons.css";
 // Our style
-@import 'functions';
-@import 'mixins';
-@import 'root';
-@import 'components';
-@import 'pages';
+@import "functions";
+@import "mixins";
+@import "nuxt";
+@import "root";
+@import "components";
+@import "layouts";
+@import "pages";
 @import "custom";
-@import "layout";
-
-.theme-transition {
-  .theme-icon {
-    animation: theme-change 0.35s $transition-speed-ease forwards !important;
-  }
-}
-
-.theme-icon {
-  &::before {
-    content: var(--theme-icon) !important;
-  }
-}
-

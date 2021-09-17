@@ -7,16 +7,17 @@
 @import "app-menu";
 
 // Web-UI
-@import "scroll-bar";
+@import "web-header";
+@import "web-footer";
 
 // Structure
-@import "header";
+@import "scroll-bar";
 @import "search-bar";
-@import "footer";
 
 // UI
-@import "nuxt-progress";
 @import "page-header";
+@import "page-collapse";
+@import "nuxt-progress";
 @import "abbr";
 @import "details";
 @import "loader";

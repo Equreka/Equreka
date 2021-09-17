@@ -1,9 +1,53 @@
 // Math
 .math {
-  font-family: $font-family-math;
-  font-style:  oblique;
-  font-size:   130%;
-  font-weight: 500;
+	// Error
+	&.math-error-message,
+	&.math-error-type {
+		font-family: $font-family-math;
+	}
+	&.math-error-message {
+		font-style:  oblique;
+		color: var(--body-color);
+	}
+	// Values
+	&.math-value,
+	&.math-value-result,
+	&.math-value-constant {
+		font-size: 110%;
+		font-weight: normal;
+		font-style: normal;
+		color: var(--body-color-highlight);
+	}
+	// Symbols
+	&.math-symbol,
+	&.math-symbol-variable,
+	&.math-symbol-constant,
+	&.math-symbol-unit {
+		font-family: $font-family-math;
+		font-style:  oblique;
+		font-size:   120%;
+	}
+	&.math-symbol-unit,
+	&.math-symbol-equality {
+		color: var(--body-color-muted);
+	}
+	// Exponents
+	&.math-exp,
+	&.math-exp-value {
+		color: var(--body-color);
+	}
+	&.math-exp {
+		font-family: $font-family-math;
+		font-style:  oblique;
+	}
+	&.math-exp-sign {
+		&.plus {
+			color: $green;
+		}
+		&.minus {
+			color: $red;
+		}
+	}
 }
 
 // Term selector

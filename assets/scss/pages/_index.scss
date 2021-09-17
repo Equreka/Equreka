@@ -2,36 +2,23 @@
 @import 'about';
 @import 'category';
 @import 'data';
+@import 'calculator';
 @import 'error';
 @import 'favorites';
 @import 'report';
 @import 'search';
 @import 'settings';
 
-.page-enter-active,
-.page-leave-active,
-.layout-enter-active, 
-.layout-leave-active {
-  transition: opacity .25s
-}
-
-.page-enter,
-.page-leave-active,
-.layout-enter, 
-.layout-leave-active {
-  opacity: 0
-}
-
 .page-data {
-  &::-webkit-scrollbar {
-    background: var(--body-bg);
-    width: 16px;
-    height: 16px;
-  }
-  &::-webkit-scrollbar-thumb {
-    background: hsl(var(--category-color-h), var(--category-color-s), 30%);
-  }
-  &::-webkit-scrollbar-thumb:active {
-    background: var(--bs-primary);
-  }
+	&::-webkit-scrollbar {
+		background: var(--body-bg);
+		width: 16px;
+		height: 16px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: hsl(var(--category-color-h), var(--category-color-s), 30%);
+	}
+	&::-webkit-scrollbar-thumb:active {
+		background: var(--bs-primary);
+	}
 }

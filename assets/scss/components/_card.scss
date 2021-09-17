@@ -1,31 +1,85 @@
 .card {
-
+	@include rs('border-radius', 0.5rem, 1.5vw, 1rem);
+	@include rs('margin-bottom', 0.75rem, 2vw, 1.5rem);
+	@include acrylic-bg();
+	.card-body {
+		@include rs('padding',  0.75rem, 2vw, 1rem);
+	}
+	.card-title {
+		font-weight: 600;
+		@include rs('font-size',      1.1rem, 2vw, 1.25rem);
+		@include rs('margin-bottom',  0.5rem, 2vw, 1rem);
+	}
+	p:last-child {
+		margin-bottom: 0;
+	}
 }
 
 .card-category {
-  position: relative;
-  background: var(--category-color);
-  margin-bottom: 1rem;
-  color: hsl(var(--category-color-h), 100%, 90%);
-  border-radius: 0.5rem;
-  @media (min-width: 325px) {
-    border-radius: 0.75rem;
-  }  
-  @media (min-width: 375px) {
-    border-radius: 1rem;
-  }
-  p {
-    display: -moz-box;
-    display: -webkit-box;
-    -moz-line-clamp: 3;
-    -webkit-line-clamp: 3;
-    -moz-box-orient: vertical;  
-    -webkit-box-orient: vertical;  
-    overflow: hidden;
-    margin: 0;
-    text-overflow: ellipsis;
-  }
-  .card-title {
-    color: hsl(var(--category-color-h), 100%, 95%);
-  }
+	position: relative;
+	background: var(--category-color);
+	margin-bottom: 1rem;
+	color: hsl(var(--category-color-h), 100%, 90%);
+	border-radius: 0.5rem;
+	@media (min-width: 325px) {
+		border-radius: 0.75rem;
+	}  
+	@media (min-width: 375px) {
+		border-radius: 1rem;
+	}
+	.card-title {
+		color: hsl(var(--category-color-h), 100%, 95%);
+	}
+	p {
+		display: -moz-box;
+		display: -webkit-box;
+		-moz-line-clamp: 3;
+		-webkit-line-clamp: 3;
+		-moz-box-orient: vertical;  
+		-webkit-box-orient: vertical;  
+		overflow: hidden;
+		margin: 0;
+		text-overflow: ellipsis;
+	}
+}
+
+// Description
+.card-description {
+	p {
+		white-space: pre-line;
+	}
+	*:last-child {
+		margin: 0;
+	}
+}
+
+// Expression
+.card-expression {
+	color:      var(--body-color-highlight);
+	transition: all 0.5s $transition-speed-ease;
+	@include rs('font-size', 1.25rem, 4vw, 3rem);
+	.card-body {
+		width: 100%;
+		@include rs('padding-top',  1.5rem, 2vw, 3rem);
+		@include rs('padding-bottom',  1.5rem, 2vw, 3rem);
+	}
+}
+
+// Symbol
+.card-symbol {
+	@include rs('font-size', 1.25rem, 4vw, 4rem);
+}
+
+
+// Codes
+.card-codes {
+	.code {
+		display:          block;
+		width:            100%;
+		padding:          0.375rem 0.75rem;
+		color:            var(--body-color);
+		background-color: var(--input-bg);
+		border:           1px solid var(--input-border-color);
+		border-radius:    0.25rem;
+	}
 }

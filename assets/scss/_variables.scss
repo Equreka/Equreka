@@ -14,6 +14,8 @@ $equreka-term-selector: eqk;
 // Font
 $font-family-math:               serif;
 $font-family-heading-sans-serif: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$headings-font-family: $font-family-heading-sans-serif;
+$headings-font-weight: 500;
 
 // Colors
 $gray:     hsl(220, 10%, 40%);
@@ -69,7 +71,8 @@ $social: (
 
 $app-menu: (
   "home": "blue",
-  "search": "purple",
+  "search": "indigo",
+  "calculator": "pink",
   "favorites": "red",
   "settings": "yellow"
 );

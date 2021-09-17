@@ -1,29 +1,22 @@
 <template>
-  <div class="layout" :class="layout">
-    <!-- App -->
-    <template v-if="layout == 'app'">
-      <AppHeader/>
-      <Nuxt/>
-      <AppMenu/>
-    </template>
-    <!-- Web -->
-    <template v-else>
-      <Header/>
-      <Nuxt/>
-      <Footer/>
-    </template>
-  </div>
+	<div class="layout" :class="layout">
+		<AppHeader v-if="layout == 'app'"/>
+		<WebHeader v-else/>
+		<Nuxt/>
+		<AppMenu v-if="layout === 'app'"/>
+		<WebFooter v-else/>
+	</div>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        layout: (this.$device.isMobile) ? 'app' : 'web'
-      }
-    },
-    head () {
-      return this.$nuxtI18nHead();
-    }
-  }
+	export default {
+		head () {
+			return this.$nuxtI18nHead();
+		},
+		computed: {
+			layout() {
+				return (this.$device.isMobile) ? 'app' : 'web';
+			}
+		}
+	}
 </script>

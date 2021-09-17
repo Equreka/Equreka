@@ -1,0 +1,20 @@
+{
+	name: 'Pythagorean theorem',
+	expression: 'a^2+b^2=c^2',
+	expressionIntern: '\\var{a}^{2}+\\var{b}^{2}=\\var{c}^{2}',
+	description: 'Where $\\var{c}$ represents the length of the hypotenuse and $\\var{a}$ and $\\var{b}$ the lengths of the triangle\'s other two sides. The theorem, whose history is the subject of much debate, is named for the Greek thinker Pythagoras, born around 570 BC.',
+	category: 'mathematics',
+	units: [
+		'unit'
+	],
+	constants: [
+
+	],
+	variables: [
+		'a', 'b', 'c'
+	],
+	references: [
+
+	],
+	supported: true,
+}

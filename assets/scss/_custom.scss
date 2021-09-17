@@ -2,35 +2,23 @@
 ::selection { background: var(--selection-bg); }
 
 body {
-  background: var(--body-bg);
-  color:      var(--body-color);
-  transition: $transition-all-ease;
-}
-
-h1, h2, h3, h4, h5, h6
-.h1, .h2, .h3, .h4, .h5, .h6,
-.lead {
-  color: var(--body-color-highlight);
-  font-family: $font-family-heading-sans-serif;
+	background: var(--body-bg);
+	color:      var(--body-color);
+	transition: $transition-all-ease;
 }
 
 // Anchor
 a {
-  transition: color 0.35s ease;
-  outline: 0;
+	transition: color 0.35s ease;
+	outline: 0;
 }
 
 // Paragraphs
 p {
-  @include rs('font-size', 0.8rem, 1.5vw, 1rem);
-  &.lead {
-    @include rs('font-size', 0.9rem, 1.5vw, 1.15rem);
-  }
-}
-
-.page-title {
-  display: block;
-  margin:  1rem 0 1.5rem;
+	@include rs('font-size', 0.9rem, 1.5vw, 1rem);
+	&.lead {
+		@include rs('font-size', 1rem, 1.5vw, 1.15rem);
+	}
 }
 
 .link-category {
@@ -41,10 +29,18 @@ p {
 }
 
 .page-svg {
-  display: block;
-  margin: 4rem auto 2rem;
-  max-width: 100%;
-  opacity: 0.25;
-  pointer-events: none;
-  user-select: none;
+	display: block;
+	margin: 4rem auto 2rem;
+	max-width: 100%;
+	opacity: 0.25;
+	pointer-events: none;
+	user-select: none;
+}
+
+.main-header {
+	display: none;
+	@include media-breakpoint-up($navbar-expand) {
+		display: block;
+		margin: 0 0 1rem;
+	}
 }

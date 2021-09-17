@@ -2,189 +2,183 @@
 @use "sass:math";
 
 :root {
-  --bs-gutter-x: 1rem;
-  --dropdown-backdrop: blur(10px) saturate(1.35);
-  @include media-breakpoint-up(sm) {
-    --bs-gutter-x: 1.25rem;
-  }
+	--bs-gutter-x: 1rem;
+	--dropdown-backdrop: blur(10px) saturate(1.35);
+	@include media-breakpoint-up(sm) {
+		--bs-gutter-x: 1.25rem;
+	}
 }
 
 // Light
 @mixin theme-light() {
-  --theme-name:               light;
-  --theme-icon:               "\f497";
-  --theme-lightness:          98%;
-  --theme-inverted-lightness: 05%;
+	--theme-name:               light;
+	--theme-icon:               "\f497";
+	--theme-lightness:          98%;
+	--theme-inverted-lightness: 05%;
+	--acrylic-bg:          hsla(220, 10%, 97%, 0.97);
+	--acrylic-backdrop-bg: hsla(220, 10%, 97%, 0.65);
+	--acrylic-backdrop:    blur(10px) saturate(2);
+	--alpha-normal:           0.75;
+	--alpha-active:           0.85;
+	--alpha-hover:            0.65;
+	--alpha-acrylic:          0.97;
+	--alpha-acrylic-border:   0;
+	--alpha-acrylic-backdrop: 0.75;
+	--alpha-acrylic-shadow:   0.15;
+	--selection-bg:    hsla(0, 0%, 05%, 0.15);
+	--separator-color: hsl(220, 10%, 85%);
+	--separator:       1px solid var(--separator-color);
+	--body-bg:              hsl(220, 10%, 90%);
+	--body-bg-alpha:        hsla(220, 10%, 90%, 0.97);
+	--body-bg-high:         hsl(220, 10%, 94%);
+	--body-color-muted:     hsl(220, 10%, 65%);
+	--body-color:           hsl(220, 10%, 45%);
+	--body-color-highlight: hsl(220, 10%, 35%);
+	--header-color:   hsl(220, 10%, 65%);
+	--footer-color:   hsl(220, 10%, 62.5%);
+	--category-color: hsl(220, 10%, 95%);
+	--input-bg:                 hsl(220, 10%, 96%);
+	--input-color:              hsl(220, 10%, 15%);
+	--input-border-color:       hsl(220, 10%, 85%);
+	--input-focus-bg:           hsl(220, 10%, 99%);
+	--input-focus-color:        hsl(220, 10%, 10%);
+	--input-focus-border-color: var(--#{$variable-prefix}primary);
 
-  --acrylic-bg:          hsla(220, 10%, 97%, 0.97);
-  --acrylic-backdrop-bg: hsla(220, 10%, 97%, 0.65);
-  --acrylic-backdrop:    blur(10px) saturate(2);
+	// Bootstrap color modifier.
+	@each $name, $value in $colors {
+		$color: $value;
+		--#{$variable-prefix}#{$name}-hsl: #{math.round(color.hue($color)), math.round(color.saturation($color)), math.round(color.lightness($color))};
 
-  --alpha-normal:           0.75;
-  --alpha-active:           0.85;
-  --alpha-hover:            0.65;
-  --alpha-acrylic:          0.97;
-  --alpha-acrylic-border:   0;
-  --alpha-acrylic-backdrop: 0.75;
-  --alpha-acrylic-shadow:   0.15;
+	}
+	@each $name, $value in $theme-colors {
+		$color: $value;
+		--#{$variable-prefix}#{$name}-hsl: #{math.round(color.hue($color)), math.round(color.saturation($color)), math.round(color.lightness($color))};
+	}
 
-  --selection-bg: hsla(0, 0%, 05%, 0.15);
-  
-  --separator-color: hsl(220, 10%, 85%);
-  --separator:       1px solid var(--separator-color);
-
-  --body-bg:              hsl(220, 10%, 90%);
-  --body-bg-alpha:        hsla(220, 10%, 90%, 0.97);
-  --body-bg-high:         hsl(220, 10%, 94%);
-  --body-color-muted:     hsl(220, 10%, 65%);
-  --body-color:           hsl(220, 10%, 45%);
-  --body-color-highlight: hsl(220, 10%, 35%);
-
-  --header-color: hsl(220, 10%, 65%);
-  --footer-color: hsl(220, 10%, 62.5%);
-
-  --category-color: hsl(220, 10%, 95%);
-
-  --input-bg:           hsl(220, 10%, 96%);
-  --input-color:        hsl(220, 10%, 15%);
-  --input-border-color: hsl(220, 10%, 85%);
-
-  --input-focus-bg:           hsl(220, 10%, 99%);
-  --input-focus-color:        hsl(220, 10%, 10%);
-  --input-focus-border-color: var(--#{$variable-prefix}primary);
-
-  // Bootstrap color modifier.
-  @each $name, $value in $colors {
-    $color: $value;
-    --#{$variable-prefix}#{$name}-hsl: #{math.round(color.hue($color)), math.round(color.saturation($color)), math.round(color.lightness($color))};
-
-  }
-  @each $name, $value in $theme-colors {
-    $color: $value;
-    --#{$variable-prefix}#{$name}-hsl: #{math.round(color.hue($color)), math.round(color.saturation($color)), math.round(color.lightness($color))};
-  }
-
-  @each $subject, $color in $categories {
-    .#{$subject} {
-      --category-color:     #{$color};
-      --category-color-hsl: #{color.hue($color), color.saturation($color), color.lightness($color)};
-      --category-color-h:   #{color.hue($color)};
-      --category-color-s:   #{color.saturation($color)};
-      --category-color-l:   #{color.lightness($color)};
-    }
-  }
+	@each $subject, $color in $categories {
+		.#{$subject} {
+			--category-color:     #{$color};
+			--category-color-hsl: #{color.hue($color), color.saturation($color), color.lightness($color)};
+			--category-color-h:   #{color.hue($color)};
+			--category-color-s:   #{color.saturation($color)};
+			--category-color-l:   #{color.lightness($color)};
+		}
+	}
 }
 
 // Dark
 @mixin theme-dark() {
-  --theme-name:               dark;
-  --theme-icon:               "\f5a2";
-  --theme-lightness:          07%;
-  --theme-inverted-lightness: 90%;
+	--theme-name:               dark;
+	--theme-icon:               "\f5a2";
+	--theme-lightness:          07%;
+	--theme-inverted-lightness: 90%;
+	--acrylic-bg:          hsla(220, 10%, 12%, 0.97);
+	--acrylic-backdrop-bg: hsla(220, 10%, 12%, 0.65);       
+	--acrylic-backdrop:    blur(30px) saturate(1.35);
+	--alpha-normal:           0.55;
+	--alpha-active:           0.65;
+	--alpha-hover:            0.45;
+	--alpha-acrylic:          0.15;
+	--alpha-acrylic-border:   0;
+	--alpha-acrylic-backdrop: 0.75;
+	--alpha-acrylic-shadow:   0.15;
+	--selection-bg: hsla(0, 0%, 90%, 0.125);
+	--separator-color: hsl(220, 10%, 8%);
+	--separator:       1px solid var(--separator-color);
+	--body-bg:              hsl(220, 10%, 03%);
+	--body-bg-alpha:        hsla(220, 10%, 03%, 0.97);
+	--body-bg-high:         hsl(220, 10%, 06%);
+	--body-color-muted:     hsl(220, 10%, 35%);
+	--body-color:           hsl(220, 10%, 60%);
+	--body-color-highlight: hsl(220, 10%, 80%);
+	--header-color:           hsl(220, 10%, 35%);
+	--footer-color:           hsl(220, 10%, 32.5%);
+	--category-color: hsl(220, 10%, 05%);
+	--input-bg:           hsl(220, 10%, 09%);
+	--input-color:        hsl(220, 10%, 55%);
+	--input-border-color: hsl(220, 10%, 15%);
+	--input-focus-bg:           hsl(220, 10%, 10%);
+	--input-focus-color:        hsl(220, 10%, 60%);
+	--input-focus-border-color: var(--#{$variable-prefix}primary);
 
-  --acrylic-bg:          hsla(220, 10%, 12%, 0.97);
-  --acrylic-backdrop-bg: hsla(220, 10%, 12%, 0.65);       
-  --acrylic-backdrop:    blur(30px) saturate(1.35);
+	// Bootstrap color modifier.
+	@each $name, $value in $colors {
+		$color: darken(desaturate($value, 20%), 10%);
+		--#{$variable-prefix}#{$name}: #{$color};
+		--#{$variable-prefix}#{$name}-hsl: #{math.round(color.hue($color)), math.round(color.saturation($color)), math.round(color.lightness($color))};
 
-  --alpha-normal:           0.55;
-  --alpha-active:           0.65;
-  --alpha-hover:            0.45;
-  --alpha-acrylic:          0.15;
-  --alpha-acrylic-border:   0;
-  --alpha-acrylic-backdrop: 0.75;
-  --alpha-acrylic-shadow:   0.15;
-
-  --selection-bg: hsla(0, 0%, 90%, 0.125);
-
-  --separator-color: hsl(220, 10%, 8%);
-  --separator:       1px solid var(--separator-color);
-
-  --body-bg:              hsl(220, 10%, 03%);
-  --body-bg-alpha:        hsla(220, 10%, 03%, 0.97);
-  --body-bg-high:         hsl(220, 10%, 06%);
-  --body-color-muted:     hsl(220, 10%, 35%);
-  --body-color:           hsl(220, 10%, 60%);
-  --body-color-highlight: hsl(220, 10%, 80%);
-  
-  --header-color:           hsl(220, 10%, 35%);
-  --footer-color:           hsl(220, 10%, 32.5%);
-
-  --category-color: hsl(220, 10%, 05%);
-
-  --input-bg:           hsl(220, 10%, 09%);
-  --input-color:        hsl(220, 10%, 55%);
-  --input-border-color: hsl(220, 10%, 15%);
-
-  --input-focus-bg:           hsl(220, 10%, 10%);
-  --input-focus-color:        hsl(220, 10%, 60%);
-  --input-focus-border-color: var(--#{$variable-prefix}primary);
-
-  // Bootstrap color modifier.
-  @each $name, $value in $colors {
-    $color: darken(desaturate($value, 20%), 10%);
-    --#{$variable-prefix}#{$name}: #{$color};
-    --#{$variable-prefix}#{$name}-hsl: #{math.round(color.hue($color)), math.round(color.saturation($color)), math.round(color.lightness($color))};
-
-  }
-  @each $name, $value in $theme-colors {
-    $color: darken(desaturate($value, 20%), 10%);
-    --#{$variable-prefix}#{$name}: #{$color};
-    --#{$variable-prefix}#{$name}-hsl: #{math.round(color.hue($color)), math.round(color.saturation($color)), math.round(color.lightness($color))};
-  }
-  // Categories
-  @each $name, $value in $categories {
-    $color: darken(desaturate($value, 20%), 10%);
-    .#{$name} {
-      --category-color:     #{$color};
-      --category-color-hsl: #{color.hue($color), color.saturation($color), color.lightness($color)};
-      --category-color-h:   #{color.hue($color)};
-      --category-color-s:   #{color.saturation($color)};
-      --category-color-l:   #{color.lightness($color)};
-    }
-  }
-  // Social
-  @each $name, $value in $social {
-    $color: darken(desaturate($value, 20%), 10%);
-    .#{$name} {
-      --#{$name}: #{$color}
-    }
-  }
+	}
+	@each $name, $value in $theme-colors {
+		$color: darken(desaturate($value, 20%), 10%);
+		--#{$variable-prefix}#{$name}: #{$color};
+		--#{$variable-prefix}#{$name}-hsl: #{math.round(color.hue($color)), math.round(color.saturation($color)), math.round(color.lightness($color))};
+	}
+	// Categories
+	@each $name, $value in $categories {
+		$color: darken(desaturate($value, 20%), 10%);
+		.#{$name} {
+			--category-color:     #{$color};
+			--category-color-hsl: #{color.hue($color), color.saturation($color), color.lightness($color)};
+			--category-color-h:   #{color.hue($color)};
+			--category-color-s:   #{color.saturation($color)};
+			--category-color-l:   #{color.lightness($color)};
+		}
+	}
+	// Social
+	@each $name, $value in $social {
+		$color: darken(desaturate($value, 20%), 10%);
+		.#{$name} {
+			--#{$name}: #{$color}
+		}
+	}
 }
 
 .theme-light {
-  @include theme-light();
-  .header {
-    .results {
-      box-shadow:    none;
-    }
-  }
-  .theme-icon {
-    &::before {  
-      --theme-animation: theme-light;
-      --theme-icon:      "\f497";
-    }
-  }
+	@include theme-light();
+	.header {
+		.results {
+			box-shadow:    none;
+		}
+	}
+	.theme-icon {
+		&::before {  
+			--theme-animation: theme-light;
+			--theme-icon:      "\f497";
+		}
+	}
 }
 
 .theme-dark {
-  @include theme-dark();
-  .header {
-    .equreka {
-      opacity: 0.75;
-    }
-    .form-search {
-      input {
-        &:focus {
-          background: transparent;
-        }
-      }
-    }
-  }
+	@include theme-dark();
+	.header {
+		.equreka {
+			opacity: 0.75;
+		}
+		.form-search {
+			input {
+				&:focus {
+					background: transparent;
+				}
+			}
+		}
+	}
 
-  .theme-icon {
-    &::before {      
-      --theme-animation: theme-dark;
-      --theme-icon:      "\f5a2";
-    }
-  }
+	.theme-icon {
+		&::before {
+			--theme-animation: theme-dark;
+			--theme-icon:      "\f5a2";
+		}
+	}
+}
+
+.theme-transition {
+	.theme-icon {
+		animation: theme-change 0.35s $transition-speed-ease forwards !important;
+	}
+}
+
+.theme-icon {
+	&::before {
+		content: var(--theme-icon) !important;
+	}
 }

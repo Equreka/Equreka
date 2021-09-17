@@ -1,28 +1,28 @@
 // Mixins
 @mixin bootstrap-icon() {
-  display:                 inline-block !important;
-  font-family:             bootstrap-icons !important;
-  font-style:              normal !important;
-  font-weight:             normal !important;
-  font-variant:            normal !important;
-  text-transform:          none !important;
-  line-height:             1 !important;
-  vertical-align:          -.125em !important;
-  -webkit-font-smoothing:  antialiased !important;
-  -moz-osx-font-smoothing: grayscale !important;
+	display:                 inline-block !important;
+	font-family:             bootstrap-icons !important;
+	font-style:              normal !important;
+	font-weight:             normal !important;
+	font-variant:            normal !important;
+	text-transform:          none !important;
+	line-height:             1 !important;
+	vertical-align:          -.125em !important;
+	-webkit-font-smoothing:  antialiased !important;
+	-moz-osx-font-smoothing: grayscale !important;
 }
 
 @mixin acrylic-bg($important: false) {
-  background: var(--acrylic-bg) if-important($important);
-  box-shadow: 0 .5rem 1rem -.5rem hsla(0, 0%, 0%, var(--alpha-acrylic-shadow)), inset 0 0 0 1px hsl(220, 10%, var(--theme-lightness), var(--alpha-acrylic-border)) if-important($important);
-  @supports (backdrop-filter: blur(5px)) {
-    background:      var(--acrylic-backdrop-bg) if-important($important);
-    backdrop-filter: var(--acrylic-backdrop) if-important($important);
-  }
+	background: var(--acrylic-bg) if-important($important);
+	box-shadow: 0 .5rem 1rem -.5rem hsla(0, 0%, 0%, var(--alpha-acrylic-shadow)), inset 0 0 0 1px hsl(220, 10%, var(--theme-lightness), var(--alpha-acrylic-border)) if-important($important);
+	@supports (backdrop-filter: blur(5px)) {
+		background:      var(--acrylic-backdrop-bg) if-important($important);
+		backdrop-filter: var(--acrylic-backdrop) if-important($important);
+	}
 }
 
 @mixin rs($property, $min, $scale, $max, $important: false) {
-  #{$property}: calc(#{$min} + (#{number($max)} - #{number($min)}) * ((100vw - 300px) / (1600 - 300))) if-important($important);
-  #{$property}: min(max(#{$min}, #{$scale}), #{$max}) if-important($important);
-  #{$property}: clamp(#{$min}, #{$scale}, #{$max}) if-important($important);
+	#{$property}: calc(#{$min} + (#{number($max)} - #{number($min)}) * ((100vw - 300px) / (1600 - 300))) if-important($important);
+	#{$property}: min(max(#{$min}, #{$scale}), #{$max}) if-important($important);
+	#{$property}: clamp(#{$min}, #{$scale}, #{$max}) if-important($important);
 }

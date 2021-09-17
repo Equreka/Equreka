@@ -1,0 +1,14 @@
+{
+	name: 'Kilogram',
+	symbol: 'kg',
+	unitOf: 'mass',
+	type: 'SI',
+	category: 'physics',
+	description: 'The kilogram is the basic unit of mass of the International System of Units (SI). It is a widely used measure in science, engineering, and commerce around the world, and is often simply called a kilo in everyday speech.',
+	equalsTo: [
+		{
+			value: 1000,
+			unit: 'gram'
+		}
+	]
+}
