@@ -29,59 +29,55 @@
 
 // Table
 .table-data {
+	$td-border-radius: 0.5rem;
 	color:         inherit;
-	margin-bottom: 0.25rem;
 	th,
 	td {
 		border:      0;
 		white-space: nowrap;
 	}
 	th {
+		color:          var(--body-color-muted);
 		font-size:      80%;
 		font-weight:    bold;
 		font-family:    $font-family-heading-sans-serif;
 		text-transform: uppercase;
-		color:          var(--body-color-muted);
 	}
 	tr {
 		vertical-align: baseline;
-		&:hover {
+		&:hover,
+		&.hover {
 			td {
-				$td-border-radius: 0.5rem;
 				background: hsla(var(--term-color-hsl, var(--category-color-hsl)), 0.15);
-				&:first-child {                  
-					border-radius: $td-border-radius 0 0 $td-border-radius;
-				}
-				&:last-child:last-child {
-					border-radius: 0 $td-border-radius $td-border-radius 0;
-				}
-				&.symbol:first-child {
+				&.math-symbol-constant,
+				&.math-symbol-variable,
+				&.math-symbol-magnitude {
 					color: var(--term-color, var(--body-color-highlight));
 				}
 			}
 		} 
 		td {
 			transition: $transition-all-ease;
-			&.variable,
-			&.constant {
-				&:first-child {
-					font-weight: 600;
-				}
+			&:first-child {
+				border-radius: $td-border-radius 0 0 $td-border-radius;
 			}
-			&.name {
-				min-width: 100px;
+			&:last-child:last-child {
+				border-radius: 0 $td-border-radius $td-border-radius 0;
 			}
-			&.symbol {
+			&.math-symbol-constant,
+			&.math-symbol-variable,
+			&.math-symbol-magnitude {
+				font-weight: 600;
 				color: var(--body-color-highlight);
 			}
-			&.unit.symbol {
+			&.math-symbol-unit {
 				font-size: 105%;
 			}
-			&.unit.value {
+			&.math-value-unit,
+			&.math-value-constant {
 				font-size:   110%;
 				font-weight: normal;
 				font-style:  normal;
-				color:       var(--body-color-highlight);
 			}
 		}
 	}

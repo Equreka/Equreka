@@ -122,7 +122,7 @@
 		</div>
 		<!-- Scripts -->
 		<!--<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>-->
-		<script id="MathJax-script" async src="/assets/js/mathjax/tex-mml-chtml.js"></script>
+		<script id="MathJax-script" src="/mathjax/tex-mml-chtml.js" async></script>
 	</main>
 </template>
 
@@ -149,8 +149,10 @@
 			}
 		},
 		mounted() {
-			Utils.initTermHover();
 			window.MathJax = {
+				options: {
+					enableMenu: false,
+				},
 				loader: {
 					load: ['[tex]/html']
 				},
@@ -166,6 +168,7 @@
 									div.classList.add('rendered');
 							setTimeout(() => {
 								div.querySelector('.loader').remove();
+								Utils.initTermHover();
 							}, 500);
 						});
 					}
