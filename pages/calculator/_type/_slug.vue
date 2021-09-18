@@ -159,7 +159,6 @@
 						}
 					}
 				}
-				console.log(input);
 				if(functions) {
 					this.output = functions.default(input);
 					this.input = [];

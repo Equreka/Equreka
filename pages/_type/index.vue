@@ -18,7 +18,6 @@
 <script>
 	export default {
 		async asyncData({ $content, params }) {
-			console.log(params);
 			const type = params.type,
 					data = await $content(type)
 						.fetch();

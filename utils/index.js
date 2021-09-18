@@ -1,7 +1,5 @@
 const Utils = {
 	TERM_SELECTOR:     '.eqk',
-	TRANSITION_TIMING: 350,
-
 	/**
 		* Initialize Term Hover
 		* 
@@ -9,6 +7,7 @@ const Utils = {
 		*/
 	initTermHover() {
 		let elements = document.querySelectorAll(Utils.TERM_SELECTOR);
+		if(elements.length === 0) return;
 		Array.from(elements).forEach(function(element) {
 			element.addEventListener('pointerenter', (event) => { 
 				Utils.termHover(event, element);
@@ -17,7 +16,11 @@ const Utils = {
 				element.addEventListener('pointerleave', Utils.termHoverRemover, false);
 			}
 		});
-
+		// Add Event Listener for touch devices for term hover remover
+		// This is needed because the pointerleave event is not triggered on touch devices
+		window.addEventListener('click', (event) => { 
+			Utils.termHoverRemover(event);
+		}, false);
 	},
 
 	/**
@@ -46,7 +49,6 @@ const Utils = {
 			// If contains a type
 			if(type) {
 				const elements = document.querySelectorAll(`${Utils.TERM_SELECTOR}.${type}.${symbol}`);
-				console.log(elements);
 				Array.from(elements).forEach(function(element) {
 					element.classList.add('hover');
 				});
@@ -121,23 +123,16 @@ const Utils = {
 	},
 	
 	getLanguage() {
-		let language;
-		try {
-			language = localStorage.getItem(`equreka-settings-language`);
-		} catch {
-			language = 'en';
-		}
+		let language = 'en';
+		if(localStorage) language = localStorage.getItem(`equreka-settings-language`);
 		return language;
 	},
 
 	setLanguage(language) {
-		if(!language) return;
-		try {
-			localStorage.setItem(`equreka-settings-language`, language);
-			return true;
-		} catch {
-			return false;
-		}
+		if(!language) return false;
+		if(!localStorage) return false;
+		localStorage.setItem(`equreka-settings-language`, language);
+		return true;
 	},
 
 	/**
@@ -161,26 +156,22 @@ const Utils = {
 			root.classList.add('theme-transition');
 			setTimeout(() => {
 				root.classList.remove('theme-transition');
-			}, Utils.TRANSITION_TIMING);
+			}, 350);
 		}
 	},
 
 	/**
 	 * Format Number
 	 * Format the number for better reading
-	 * 
 	 * Ex. 1000000 -> 1,000,000
 	 * @param {number} value Number to format
 	 * @returns 
 	 */
 	formatNumber (number) {
+		if(typeof number == 'string') return number;
 		if(!number) return false;
 		// Undefined to get browser default format depending on user locale
-		if(typeof number == 'string') {
-			return number;
-		} else {
-			return number.toLocaleString(undefined, { minimumFractionDigits: 2 });
-		}
+		return number.toLocaleString(undefined, { minimumFractionDigits: 2 });
 	},
 }
 

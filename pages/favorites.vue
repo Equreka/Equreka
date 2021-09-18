@@ -74,7 +74,6 @@
 					}
 				)
 			);
-			console.log(favorites);
 			return {
 				support: true,
 				favorites
