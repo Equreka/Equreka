@@ -1,107 +1,130 @@
 // Header
 .header {
-  padding:    1.5rem 0;
-  color:      var(--header-color);
-  transition: $transition-all-ease;
-  .navbar {
-    padding: 0;
-  }
-  .container {
-    display    : flex;
-    align-items: stretch;
-    flex-wrap  : wrap !important;    
-  }
-  .logo {
-    position: relative;
-    margin-right: 0.65rem;
-    &:focus {
-      background: none;
-      &::before {
-        opacity: 1;
-      }
-    }
-    &::before {
-      content: "";
-      position: absolute;
-      top: -20%;
-      left: -12.5%;
-      right: -12.5%;
-      bottom: -20%;
-      background: hsla(220, 100%, var(--theme-inverted-lightness), 0.075);
-      opacity: 0;
-      border-radius: 1em;
-      transition: $transition-all-ease;
-    }
-  }
-  .equreka {
-    width:   42px;
-    height:  auto;
-    object-fit: contain;
-    object-position: center;
-    @media (min-width: 375px) {
-      width: 62px;
-    }
-    @media (min-width: 425px) {
-      width: 72px;
-    }
-  }
-  // Divisions
-  .left,
-  .center,
-  .right {
-    display: flex;
-    flex   : 1;
-  }
-  // Left 
-  .left {
-    align-items: center;
-  }
-  // Center
-  .center {
-    flex           : 1 1 auto;
-    justify-content: center;
-    align-self     : center;
-    @include media-breakpoint-down($navbar-expand) {
-      order: 2;
-      flex : 1 0 100%;
-    }
-    .search-bar {
-      @include media-breakpoint-down($navbar-expand) {
-        margin-top: 1rem;
-      }
-    }
-  }
-  // Right
-  .right {
-    justify-content: flex-end;
-    margin-right:    -0.5rem;
-  }
-  // Icons
-  .btn .bi {
-    font-size:     18px;
-    margin-bottom: -2px;
-    @media (min-width: 375px) {
-      font-size: 20px;
-    }
-    @media (min-width: 425px) {
-      font-size: 26px;
-    }
-  }
-  // Button
-  .btn {
-    font-family:     $font-family-heading-sans-serif;
-    font-weight:     600;
-    text-decoration: none;
-    box-shadow:      none;
-    color:           var(--header-color);
-    transition:      $transition-all-ease;
-    border-radius:   0.75rem;
-    padding: 0.75rem;
-    &:hover,
-    &:focus,
-    &[aria-expanded="true"] {
-      color: var(--body-color-highlight);
-      background: hsla(220, 100%, var(--theme-inverted-lightness), 0.075);
-    }
-  }
+	padding:    1.5rem 0;
+	color:      var(--header-color);
+	transition: $transition-all-ease;
+	.navbar {
+		padding: 0;
+	}
+	.container {
+		display    : flex;
+		align-items: stretch;
+		flex-wrap  : wrap !important;    
+	}
+	.logo {
+		position: relative;
+		margin-right: 0.65rem;
+		&:focus {
+			background: none;
+			&::before {
+			opacity: 1;
+			}
+		}
+		&::before {
+			content: "";
+			position: absolute;
+			top: -20%;
+			left: -12.5%;
+			right: -12.5%;
+			bottom: -20%;
+			background: hsla(220, 100%, var(--theme-inverted-lightness), 0.075);
+			opacity: 0;
+			border-radius: 1em;
+			transition: $transition-all-ease;
+		}
+	}
+	.equreka {
+		width:   42px;
+		height:  auto;
+		object-fit: contain;
+		object-position: center;
+		@media (min-width: 375px) {
+			width: 62px;
+		}
+		@media (min-width: 425px) {
+			width: 72px;
+		}
+	}
+	// Divisions
+	.left,
+	.center,
+	.right {
+		display: flex;
+		flex   : 1;
+		// Icons
+		.bi {
+			font-size:     18px;
+			margin-bottom: -2px;
+			@media (min-width: 375px) {
+				font-size: 20px;
+			}
+			@media (min-width: 425px) {
+				font-size: 26px;
+			}
+		}
+	}
+	// Left 
+	.left {
+		align-items: center;
+	}
+	// Center
+	.center {
+		flex           : 1 1 auto;
+		justify-content: center;
+		align-self     : center;
+		@include media-breakpoint-down($navbar-expand) {
+			order: 2;
+			flex : 1 0 100%;
+		}
+	}
+	// Right
+	.right {
+		justify-content: flex-end;
+		margin-right:    -0.5rem;
+	}
+	// Button
+	.btn {
+		font-family:     $font-family-heading-sans-serif;
+		font-weight:     600;
+		text-decoration: none;
+		box-shadow:      none;
+		color:           var(--header-color);
+		transition:      $transition-all-ease;
+		border-radius:   0.75rem;
+		padding: 0.75rem;
+		&:hover,
+		&:focus,
+		&[aria-expanded="true"] {
+			color: var(--body-color-highlight);
+			background: hsla(220, 100%, var(--theme-inverted-lightness), 0.075);
+		}
+	}
+	.dropdown-menu {
+		li {
+			display: flex;
+			align-items: center;
+			.bi {
+				font-size: 1.25rem;
+			}
+		}
+	}
+	// Search
+	.search-bar {
+		@include media-breakpoint-down($navbar-expand) {
+			margin-top: 1rem;
+		}
+	}
+	.search-bar-results {
+		position:   absolute;
+		margin-top: 0.5rem;
+		top:        100%;
+		left:       0;
+		right:      0;
+		border:     0;
+		z-index:    999;
+		overflow:   hidden;
+		.search-bar-items {
+			max-height:  500px;
+		}
+	}
 }

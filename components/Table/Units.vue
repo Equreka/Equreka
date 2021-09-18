@@ -13,12 +13,12 @@
 			</thead>
 			<tbody>
 				<template v-for="item in data">
-					<tr class="eqk variable" :key="item.slug" :class="item.symbol" v-if="item">
+					<tr :key="item.slug" :class="item.symbol" v-if="item">
 						<td class="math math-symbol-unit unit">
 							{{ item.symbol }}
 						</td>
 						<td class="unit name">
-							<NuxtLink :to="localePath(`/${item.category}/units/${item.slug}`)">
+							<NuxtLink :to="localePath(`${item.dir}/${item.slug}`)">
 								{{ item.name }}
 							</NuxtLink>
 						</td>

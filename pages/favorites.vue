@@ -55,7 +55,7 @@
 				}
 			}
 			// Get data
-			const types = ['constants', 'equations', 'formulas', 'units', 'variables'];
+			const types = ['constants', 'equations', 'formulas', 'magnitudes', 'units', 'variables'];
 			let favorites = {};
 			await Promise.all(
 				types.map(
@@ -66,7 +66,7 @@
 							for (let i = 0; i < localStorage.length; i++) {
 								const slug = localStorage[i],
 										data = await $content(type, slug)
-									.only(['name', 'slug', 'category', 'supported'])
+									.only(['name', 'slug', 'category', 'supported', 'dir'])
 									.fetch();
 								favorites[type][i] = data;
 							}

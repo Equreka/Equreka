@@ -208,6 +208,18 @@
 			"abbr": "Cat",
 			"cap": "Categoria"
 		},
+		"universal": {
+			"abbr": "Uni",
+			"cap": "Universal"
+		},
+		"mathematics": {
+			"abbr": "Mat",
+			"cap": "Matemáticas"
+		},
+		"physics": {
+			"abbr": "Fís",
+			"cap": "Física"
+		},
 		"chemistry": {
 			"abbr": "Quím",
 			"cap": "Química"
@@ -224,14 +236,6 @@
 			"abbr": "Fórms",
 			"cap": "Fórmulas"
 		},
-		"mathematics": {
-			"abbr": "Mat",
-			"cap": "Matemáticas"
-		},
-		"physics": {
-			"abbr": "Fís",
-			"cap": "Física"
-		},
 		"symbol": {
 			"abbr": "Símb",
 			"cap": "Símbolo"
@@ -244,17 +248,33 @@
 			"abbr": "Uds",
 			"cap": "Unidades"
 		},
-		"universal": {
-			"abbr": "Uni",
-			"cap": "Universal"
-		},
 		"value": {
 			"abbr": "Val",
 			"cap": "Valor"
 		},
+		"magnitude": {
+			"abbr": "Mag",
+			"cap": "Magnitud"
+		},
+		"magnitudes": {
+			"abbr": "Mags",
+			"cap": "Magnitudes"
+		},
+		"variable": {
+			"abbr": "Var",
+			"cap": "Variable"
+		},
 		"variables": {
 			"abbr": "Vars",
 			"cap": "Variables"
+		},
+		"conversion": {
+			"abbr": "Conv",
+			"cap": "Conversión"
+		},
+		"conversions": {
+			"abbr": "Convs",
+			"cap": "Conversiones"
 		}
 	}
 }

@@ -21,7 +21,7 @@
 							{{ item.symbol }}
 						</td>
 						<td class="name">
-							<NuxtLink :to="localePath(`/${item.category}/variables/${item.slug}`)">
+							<NuxtLink :to="localePath(`${item.dir}/${item.slug}`)">
 							{{ item.name }}
 							</NuxtLink>
 						</td>
@@ -29,7 +29,7 @@
 							{{ item.units[0].symbol }}
 						</td>
 						<td class="unit name">
-							<NuxtLink :to="localePath(`/${item.units[0].category}/units/${item.units[0].slug}`)">
+							<NuxtLink :to="localePath(`${item.units[0].dir}/${item.units[0].slug}`)">
 								{{ item.units[0].name }}
 							</NuxtLink>
 						</td>

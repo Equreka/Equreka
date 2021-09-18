@@ -22,19 +22,22 @@ p {
 }
 
 .link-category {
-  color: $link-color;
-  &:hover {
-    color: var(--category-color, #{$primary});
-  }
+	color: $link-color;
+	&:hover {
+		color: var(--category-color, #{$primary});
+	}
 }
 
 .page-svg {
+	position: absolute;
+	top: 50%;
+	left: 50%;
 	display: block;
-	margin: 4rem auto 2rem;
 	max-width: 100%;
-	opacity: 0.25;
+	transform: translate(-50%, -50%);
 	pointer-events: none;
 	user-select: none;
+	opacity: 0.25;
 }
 
 .main-header {

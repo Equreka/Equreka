@@ -1,26 +1,26 @@
 <template>
-	<div class="table-responsive">
-		<table class="table table-data table-constants table-values">
+	<div class="table-responsive" v-if="show">
+		<table class="table table-data table-conversions">
 			<thead>
 				<tr>
-					<th scope="col" class="name">
+					<th scope="col" class="value">
 						<Abbr string="value"/>
 					</th>
 					<th scope="col" class="symbol">
 						<Abbr string="symbol"/>
 					</th>
-					<th scope="col" class="unit">
-						<Abbr string="unit"/>
+					<th scope="col" class="name">
+						{{ $t('Name') }}
 					</th>
 				</tr>
 			</thead>
 			<tbody>
 				<template v-for="item in data">
-					<tr class="eqk constants values" :key="item.value" v-if="item.exact">
-						<td class="math math-value unit value">
-							{{ formatNumber(item.value) }}
+					<tr :key="item.slug" :class="item.symbol" v-if="item">
+						<td class="math math-value value">
+							{{ item.value }}
 						</td>
-						<td class="math math math-symbol-unit symbol">
+						<td class="math math-symbol-unit unit">
 							{{ item.unit.symbol }}
 						</td>
 						<td class="unit name">

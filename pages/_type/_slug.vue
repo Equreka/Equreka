@@ -5,20 +5,24 @@
 			<!-- Expression -->
 			<section class="card card-expression card-mathjax" :class="(type === 'equations' || type == 'formulas') ? false : 'card-symbol'" v-if="data.expression || data.symbol">
 				<Loader />
-				<div class="card-body" v-if="(type === 'equations' || type == 'formulas') && type != 'units'">
-					<template v-if="!data.expressionIntern">$${{ data.expression }}$$</template>
-					<template v-else>$${{ parserLaTeX(data.expressionIntern) }}$$</template>
-				</div>
-				<div class="card-body" v-else>
+				<div class="card-body">
 					$$
-					<template v-if="data.symbol">
-						{{ data.symbol }}
+					<!-- Equations || Formulas -->
+					<template v-if="(type === 'equations' || type == 'formulas') && type != 'units'">
+						<template v-if="!data.expressionIntern">
+							{{ data.expression }}
+						</template>
+						<template v-else>
+							{{ parserLaTeX(data.expressionIntern) }}
+						</template>
 					</template>
-					<template v-else-if="data.symbolLatex">
-						{{ parserLaTeX(data.symbolLaTeX) }}
+					<!-- Units || Variables -->
+					<template v-else-if="type === 'magnitudes' || type === 'units' || type === 'variables'">
+						{{ `${data.name} - ${data.symbol}` }}
 					</template>
-					<template v-if="data.values && data.values.length > 0">
-						= {{ formatNumber(data.values[0].value) + data.values[0].unit.symbol }}
+					<!-- Constants -->
+					<template v-else-if="type === 'constants'">
+						{{ `${data.symbol} = ${formatNumber(data.values[0].value)} ${data.values[0].unit.symbol}` }}
 					</template>
 					$$
 				</div>
@@ -41,6 +45,14 @@
 						</div>
 					</section>
 				</div>
+				<div class="col-12 col-lg-6" v-if="data.magnitudes && data.magnitudes.length > 0">
+					<section class="card card-magnitudes">
+						<div class="card-body">
+							<h3 class="card-title">{{ $t('abbreviations.magnitudes.cap') }}</h3>
+							<TableVariables :data="data.magnitudes"/>
+						</div>
+					</section>
+				</div>
 				<div class="col-12 col-lg-6" v-if="data.constants && data.constants.length > 0">
 					<section class="card card-constants">
 						<div class="card-body">
@@ -51,18 +63,27 @@
 				</div>
 				<!-- Values -->
 				<div class="col-12 col-lg-6" v-if="data.values && data.values.length > 0">
-					<section class="card card-constants">
+					<section class="card card-values card-values-exact">
 						<div class="card-body">
 							<h3 class="card-title">{{ $t('Approximate values') }}</h3>
-							<TableValuesExact :data="data.values" />
+							<TableValues :data="data.values" />
 						</div>
 					</section>
 				</div>
 				<div class="col-12 col-lg-6" v-if="data.values && data.values.length > 0">
-					<section class="card card-constants">
+					<section class="card card-values card-values-aprox">
 						<div class="card-body">
 							<h3 class="card-title">{{ $t('Exact values') }}</h3>
-							<TableValuesAprox class="col" :data="data.values" />
+							<TableValues class="col" :data="data.values" exact/>
+						</div>
+					</section>
+				</div>
+				<!-- Conversions -->
+				<div class="col-12 col-lg-6" v-if="data.conversions && data.conversions.length > 0">
+					<section class="card card-conversions">
+						<div class="card-body">
+							<h3 class="card-title">{{ $t('abbreviations.conversions.cap') }}</h3>
+							<TableConversions :data="data.conversions"/>
 						</div>
 					</section>
 				</div>
@@ -85,6 +106,17 @@
 							<span class="visually-hidden">{{ $t('Copy to clipboard') }}</span>
 						</button>
 					</div>
+				</div>
+			</section>
+			<!-- References -->
+			<section class="card references" v-if="data.references && data.references.length > 0">
+				<div class="card-body">
+					<h3 class="card-title">{{ $t('References') }}</h3>
+					<ul class="mb-0">
+						<li v-for="item in data.references" :key="item.title">
+							<a :href="item.url" target="_blank" rel="noopneer nofollow noreferrer">{{ item.title }} - {{ item.site }}</a>
+						</li>
+					</ul>
 				</div>
 			</section>
 		</div>
@@ -119,17 +151,12 @@
 		mounted() {
 			Utils.initTermHover();
 			window.MathJax = {
-				locale: 'es',
 				loader: {
 					load: ['[tex]/html']
 				},
 				tex: { 
 					inlineMath: [['$', '$']],
 					packages: { '[+]': ['html'] },
-					processEscapes: true,
-				},
-				svg: {
-					fontCache: 'global'
 				},
 				startup: {
 					ready: () => {

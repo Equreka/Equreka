@@ -31,18 +31,34 @@
 				<div class="card-body">
 					<form class="mx-auto" @submit.prevent>
 						<div class="row gx-2 flex-wrap justify-content-md-center">
-							<div class="mb-3 col col-md-auto" v-for="variable in data.variables" :key="variable.slug">
-								<div class="form-floating">
-									<input 
-										class="form-control form-control-sm" type="number" 
-										:id="`input-${variable.slug}`" :placeholder="variable.name"
-										v-model="input[variable.symbol]"
-									>
-									<label :for="`input-${variable.slug}`">
-										{{ variable.name }} ({{ variable.units[0].symbol }})
-									</label>
+							<template v-if="data.variables && data.variables.length > 0">
+								<div class="mb-3 col col-md-auto" v-for="variable in data.variables" :key="variable.slug">
+									<div class="form-floating">
+										<input 
+											class="form-control form-control-sm" type="number" 
+											:id="`input-${variable.slug}`" :placeholder="variable.name"
+											v-model="input[variable.symbol]"
+										>
+										<label :for="`input-${variable.slug}`">
+											{{ variable.name }} ({{ variable.units[0].symbol }})
+										</label>
+									</div>
 								</div>
-							</div>
+							</template>
+							<template v-if="data.magnitudes && data.magnitudes.length > 0">
+								<div class="mb-3 col col-md-auto" v-for="magnitude in data.magnitudes" :key="magnitude.slug">
+									<div class="form-floating">
+										<input 
+											class="form-control form-control-sm" type="number" 
+											:id="`input-${magnitude.slug}`" :placeholder="magnitude.name"
+											v-model="input[magnitude.symbol]"
+										>
+										<label :for="`input-${magnitude.slug}`">
+											{{ magnitude.name }} ({{ magnitude.units[0].symbol }})
+										</label>
+									</div>
+								</div>
+							</template>
 							<div class="col-12 text-center">
 								<button tpe="submit" class="btn btn-success rounded-pill py-3 px-5 h-100" @click="getOutput">
 									{{ $t('calculator.calculate') }}
@@ -143,6 +159,7 @@
 						}
 					}
 				}
+				console.log(input);
 				if(functions) {
 					this.output = functions.default(input);
 					this.input = [];

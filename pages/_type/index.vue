@@ -5,7 +5,7 @@
 			<div class="card card-collapse" v-if="data && data.length > 0">
 				<div class="card-body">
 					<div class="list">
-						<NuxtLink v-for="item in data" :key="item._id" :to="localePath(`/${category}/${type}/${item.slug}`)">
+						<NuxtLink v-for="item in data" :key="item._id" :to="localePath(`/${type}/${item.slug}`)">
 							{{ item.name }}
 						</NuxtLink>
 					</div>
@@ -17,15 +17,13 @@
 
 <script>
 	export default {
-		async asyncData({ $content, params}) {
-			const category = params.category,
-					type = params.type,
+		async asyncData({ $content, params }) {
+			console.log(params);
+			const type = params.type,
 					data = await $content(type)
-						.where({ category: category })
 						.fetch();
 			// Return data
 			return {
-				category,
 				type,
 				data
 			}

@@ -1,36 +1,23 @@
 <template>
-	<header class="page-header" :class="category">
+	<header class="page-header" :class="type ? type : category">
 		<div class="container">
 			<div class="wrapper">
 				<div class="info">
 					<span class="category" v-if="!type">
 						{{ $t('Category') }}
 					</span>
-					<NuxtLink class="category" :to="localePath(`/${category}/`)" v-else>
-						<Abbr :string="category"/>
-					</NuxtLink>
-					<template v-if="category && type && data">
-						<i class="divider bi bi-chevron-right"></i>
-						<NuxtLink class="type" :to="localePath(`/${category}/${type}`)">
+					<span class="category" v-if="type && !data">
+						{{ $t('Type') }}
+					</span>
+					<template v-if="data">
+						<NuxtLink class="type" :to="localePath(`/${type}`)">
 							<Abbr :string="type" expand="sm"/>
 						</NuxtLink>
 					</template>
-
 					<h1 class="title">{{ title }}</h1>
 				</div>
-
 				<!-- Actions -->
-				<PageActions :favorite="favorite" :data="data" :type="type" :category="category"/>
-				<div class="actions" v-if="data && false == true">
-
-					<!-- Report -->
-					<button type="button" class="btn btn-link" :title="$t('Report an error')" @click="reportPage()">
-						<span class="visually-hidden">
-						{{ $t('Report an error') }}
-						</span>
-						<i class="bi bi-flag"></i>
-					</button>
-				</div>
+				<PageActions :data="data" :favorite="favorite" :type="type" :category="data.category"/>
 			</div>
 		</div>
 	</header>

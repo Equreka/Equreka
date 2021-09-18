@@ -2,10 +2,10 @@
 	name: 'Gram',
 	symbol: 'g',
 	unitOf: 'mass',
-	type: 'SI',
+	type: 'si',
 	category: 'physics',
 	description: 'The gram is the main unit of mass in the Cegesimal System of Units, and the unit of weight in the metric system. Originally defined as the weight of a cubic centimeter of water at 3.98 ° C, and is currently defined as one thousandth of a kilogram, the basic unit of mass in the International System of Units.',
-	equalsTo: [
+	conversions: [
 		{
 			value: 0.001,
 			unit: 'kilogram'

@@ -1,5 +1,5 @@
 <template>
-	<div class="table-responsive" v-if="show">
+	<div class="table-responsive" v-if="showTable">
 		<table class="table table-data table-constants table-values">
 			<thead>
 				<tr>
@@ -16,15 +16,15 @@
 			</thead>
 			<tbody>
 				<template v-for="item in data">
-					<tr class="eqk constants values" :key="item.value" v-if="!item.exact">
-						<td class="unit math math-value value">
+					<tr :key="item.value" v-if="showItem(item.exact)">
+						<td class="math math-value unit value">
 							{{ formatNumber(item.value) }}
 						</td>
 						<td class="math math math-symbol-unit symbol">
 							{{ item.unit.symbol }}
 						</td>
 						<td class="unit name">
-							<NuxtLink :to="localePath(`/${item.unit.category}/units/${item.unit.slug}`)">
+							<NuxtLink :to="localePath(`${item.unit.dir}/${item.unit.slug}`)">
 								{{ item.unit.name }}
 							</NuxtLink>
 						</td>
@@ -43,9 +43,13 @@
 				type: Array | Object | Boolean,
 				required: true
 			},
+			exact: {
+				type: Boolean,
+				default: null
+			}
 		},
 		computed: {
-			show() {
+			showTable() {
 				let show = this.data && this.data.length > 0 ? true : false;
 				if(show) {
 					// Check if all item in array are false
@@ -54,19 +58,15 @@
 					show = !this.data.every(isFalse);
 				}
 				return show;
-			},
-			category() {
-				if(this.data && this.data.category) {
-					return this.data.category;
-				} else {
-					return this.$route.params.category ? this.$route.params.category : false;
-				}
-			},
-			type() {
-				return this.$route.params.type ? this.$route.params.type : false;
-			},
+			}
 		},
 		methods: {
+			showItem(isExact) {
+				if(this.exact === true) {
+					return (this.exact && isExact) ? true : false;
+				}
+				return !isExact ? true : false;
+			},
 			formatNumber(number) {
 				return Utils.formatNumber(number);
 			}

@@ -25,17 +25,17 @@
 						</NuxtLink>
 					</td>
 					<td class="type" :class="type" v-if="false">
-						<NuxtLink class="badge badge-type" :to="localePath(`/${item.category}/${type}`)">
+						<NuxtLink class="badge badge-type" :to="localePath(`${item.dir}`)">
 							<Abbr :string="type" />
 						</NuxtLink>
 					</td>
 					<td class="name" v-if="item.name">
-						<NuxtLink class="link-category" :to="localePath(`/${item.category}/${type}/${item.slug}`)">
+						<NuxtLink class="link-category" :to="localePath(`${item.dir}/${item.slug}`)">
 							{{ item.name }}
 						</NuxtLink>
 					</td>
 					<td class="actions">
-						<NuxtLink class="btn btn-text btn-primary text-light p-0 rounded-2 me-2" :to="localePath(`/calculator/${type}/${item.slug}`)" :title="$t('calculator.go-to-calculator')" v-if="item.supported">
+						<NuxtLink class="btn btn-text btn-primary text-light p-0 rounded-2 me-2" :to="localePath(`/calculator${item.dir}/${item.slug}`)" :title="$t('calculator.go-to-calculator')" v-if="item.supported">
 							<span class="visually-hidden">{{ $t('calculator.go-to-calculator') }}</span>
 							<i class="bi bi-plus fs-5"></i>
 						</NuxtLink>
@@ -66,7 +66,6 @@
 		},
 		computed: {
 			show() {
-				console.log(this.data);
 				let show = this.data && this.data.length > 0 ? true : false;
 				return show;
 			},
