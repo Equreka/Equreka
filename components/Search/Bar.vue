@@ -32,6 +32,7 @@
 						:type="type"
 						:data="item"
 						@focus.native="focus = true, results = false"
+						@click.native="clear($event)"
 					/>
 				</template>
 				<div class="items" v-if="!results && focus">
@@ -80,6 +81,12 @@
 			}
 		},
 		methods: {
+			clear(event) {
+				setTimeout(() => {
+					this.query = '';
+					this.results = false;
+				}, 150);
+			},
 			async search(query) {
 				// Validate query
 				if(!query || query.length == 0 || query == "") {

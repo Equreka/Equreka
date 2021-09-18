@@ -79,6 +79,7 @@
 
 <script>
 	import Utils from "~/utils";
+	import NoDB from "~/utils/nodb";
 	export default {
 		data () {
 			return {
@@ -87,7 +88,7 @@
 					'dark':   'Dark',
 					'system': 'System default'
 				},
-				categories: Utils.CATEGORIES,
+				categories: NoDB.categories,
 			}
 		},
 		mounted() {

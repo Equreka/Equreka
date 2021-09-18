@@ -39,6 +39,7 @@
 </template>
 
 <script>
+	import NoDB from "~/utils/nodb";
 	import Favorites from "~/utils/favorites";
 	export default {
 		data() {
@@ -55,10 +56,9 @@
 				}
 			}
 			// Get data
-			const types = ['constants', 'equations', 'formulas', 'magnitudes', 'units', 'variables'];
 			let favorites = {};
 			await Promise.all(
-				types.map(
+				NoDB.types.map(
 					async (type) => {
 						favorites[type] = [];
 						const localStorage = await Favorites.get(type);
