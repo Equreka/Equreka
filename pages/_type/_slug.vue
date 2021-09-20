@@ -7,7 +7,7 @@
 				<!-- Expression -->
 				<div class="col-12" v-if="data.expression || data.symbol">
 					<section class="card card-expression card-mathjax" :class="(type === 'equations' || type == 'formulas') ? '' : 'card-symbol'">
-						<Loader />						
+						<Loader />
 						<div class="card-body">
 							$$
 							<!-- Equations || Formulas -->

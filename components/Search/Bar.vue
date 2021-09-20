@@ -120,9 +120,9 @@
 				// This ways will respect the order
 				this.data.equations  = (group.equations  && group.equations.length   > 0) ? group.equations  : [];
 				this.data.formulas   = (group.formulas   && group.formulas.length    > 0) ? group.formulas   : [];
+				this.data.constants  = (group.constants  && group.constants.length   > 0) ? group.constants  : [];
 				this.data.magnitudes = (group.magnitudes && group.magnitudes.length  > 0) ? group.magnitudes : [];
 				this.data.variables  = (group.variables  && group.variables.length   > 0) ? group.variables  : [];
-				this.data.constants  = (group.constants  && group.constants.length   > 0) ? group.constants  : [];
 				this.data.units      = (group.units      && group.units.length       > 0) ? group.units      : [];
 			}
 		},
