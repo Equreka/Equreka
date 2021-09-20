@@ -17,14 +17,17 @@
 			<tbody>
 				<template v-for="item in data">
 					<tr :key="item.value" v-if="showItem(item.exact)">
-						<td class="math math-value unit value">
-							{{ formatNumber(item.value) }}
+						<!-- Constant: Value -->
+						<td>
+							<EqurekaValue :data="item.value" :precision="item.exact ? 12 : 9" />
 						</td>
-						<td class="math math math-symbol-unit symbol">
-							{{ item.unit.symbol }}
+						<!-- Constant: Unit: Symbol -->
+						<td>
+							<EqurekaSymbol :data="item.unit.symbol" />
 						</td>
-						<td class="unit name">
-							<NuxtLink :to="localePath(`${item.unit.dir}/${item.unit.slug}`)">
+						<!-- Constant: Unit: Name -->
+						<td>
+							<NuxtLink :to="localePath(item.unit.path)">
 								{{ item.unit.name }}
 							</NuxtLink>
 						</td>
@@ -36,7 +39,6 @@
 </template>
 
 <script>
-	import Utils from '~/utils';
 	export default {
 		props: {
 			data: {
@@ -57,6 +59,14 @@
 					// If so then show = true, so we have to return the opposite value
 					show = !this.data.every(isFalse);
 				}
+				if(this.exact === null) {
+					show = false;
+					this.data.forEach((item) => {
+						if (!item.exact === true) {
+							show = true;
+						}
+					});
+				}
 				return show;
 			}
 		},
@@ -67,9 +77,6 @@
 				}
 				return !isExact ? true : false;
 			},
-			formatNumber(number) {
-				return Utils.formatNumber(number);
-			}
 		},
 	}
 </script>

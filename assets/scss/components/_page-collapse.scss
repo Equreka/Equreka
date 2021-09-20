@@ -3,18 +3,19 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		margin-bottom: 0.5rem;
 		.section-title {
-			font-weight: 600;
 			margin: 0;
+			font-weight: 600;
 			@include rs('font-size', 1.15rem, 2vw, 1.65rem);
 		}
-		.btn-category {
-			color: hsl(var(--category-color-h), 100%, 95%);
-			border-radius: 99rem;
+		.btn-go {
+			color: var(--body-color);
+			background: hsla(220, 20%, 50%, 0.2);
+			@include rs('font-size', 0.75rem, 1vw, 0.95rem);
 			.bi {
 				transition: $transition-all-ease;
 			}
-			@include rs('font-size', 0.75rem, 1vw, 0.95rem);
 			span {
 				padding: 0 0.35rem;
 				display: block;
@@ -57,14 +58,33 @@
 		a {
 			display: flex;
 			flex   : 0 1 auto;
-			padding: 0.75rem;
+			align-items: stretch;
+			padding: 0.5rem 0.75rem;
 			border-radius: 0.5rem;
-			transition: $transition-all-ease;
-			line-height: 1;
-			@include rs('font-size', 0.95rem, 2vw, 1.15rem);
+			text-decoration: none;
+			transition: all 0.35s ease !important;
+			@include rs('font-size', 0.95rem, 2vw, 1rem);
+			.badge {
+				display: flex !important;
+				align-items: center;
+				margin-right: 0.5rem;
+				color: inherit;
+				border: 1px solid var(--body-color-muted);
+				transition: all 0.35s ease !important;
+			}
+			.name {
+				display: flex;
+				align-items: center;
+				font-weight: 500;
+			}
 			&:hover {
-				color: var(--category-color);
-				background: hsla(var(--category-color-h), 100%, 50%, 0.1);
+				color: var(--body-color-highlight);
+				background: hsla(220, 20%, 50%, 0.2);
+				.badge {
+					color: var(--body-bg);
+					background: var(--body-color-highlight);
+					border-color: var(--body-color-highlight);
+				}
 			}
 		}
 	}

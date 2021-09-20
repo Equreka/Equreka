@@ -1,10 +1,16 @@
 <template>
 	<main role="main" class="favorites">
+		<SVGFavoritesEmpty />
 		<div class="container">
 			<header class="main-header">
-				<h2 class="page-title">
-					{{ $t('favorites.title') }}
-				</h2>
+				<div class="hstack">
+					<h2 class="page-title">
+						{{ $t('favorites.title') }}
+					</h2>
+					<button class="ms-auto btn" :class="edit ? 'btn-success' : 'btn-warning'" @click="toggleEdit">
+						<i class="bi" :class="edit ? 'bi-check2' : 'bi-pencil'"></i>
+					</button>
+				</div>
 				<p class="lead m-0">
 					{{ $t('favorites.lead') }}
 				</p>
@@ -16,7 +22,7 @@
 						<div class="card-body">
 							<section>
 								<h5>{{ $t(`abbreviations.${type}.cap`) }}</h5>
-								<TableFavorites :data="data" :type="type"/>
+								<TableFavorites :data="data" :type="type" :edit="edit"/>
 							</section>
 						</div>
 					</div>
@@ -30,7 +36,6 @@
 						<p class="m-0" v-else>
 							{{ $t('favorites.no-support') }}
 						</p>
-						<SVGFavoritesEmpty />
 					</div>
 				</div>
 			</template>
@@ -44,6 +49,7 @@
 	export default {
 		data() {
 			return {
+				edit: false,
 				support: true,
 				favorites: false
 			}
@@ -93,6 +99,9 @@
 				} else {
 					return false;
 				}
+			},
+			toggleEdit() {
+				this.edit = !this.edit;
 			}
 		},
 	}

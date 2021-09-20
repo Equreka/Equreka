@@ -1,5 +1,5 @@
 <template>
-	<span class="abbr" :class="(always) ? 'always' : false">
+	<span class="abbr" :class="(expanded) ? 'expanded' : false">
 		<abbr :class="show ? show + '-none'   : false" :title="$t(`abbreviations.${string}.cap`)">
 			{{ $t(`abbreviations.${string}.abbr`) }}
 		</abbr>
@@ -13,7 +13,7 @@
 	export default {
 		props: {
 			string: String,
-			always: Boolean,
+			expanded: Boolean,
 			expand: String
 		},
 		computed:{

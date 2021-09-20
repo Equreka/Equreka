@@ -1,3 +1,5 @@
+//const NUXT_GENERATE = process.env.NUXT_GENERATE || false,
+//		BASE_URL = NUXT_GENERATE ? `http://equreka.com/${NUXT_GENERATE}` : 'http://localhost:3000'
 export default {
 	// Target: https://go.nuxtjs.dev/config-target
 	target: 'static',
@@ -7,10 +9,14 @@ export default {
 	server: {
 		host: '0.0.0.0'
 	},
+	// Router
+	//router: {
+	//	base: NUXT_GENERATE ? `/${NUXT_GENERATE}/` : '/',
+	//},
 	// Environment
-	env: {
-		baseUrl: process.env.BASE_URL || 'http://192.168.0.5:3000'
-	},
+	//env: {
+	//	baseUrl: BASE_URL
+	//},
 	// Global page headers: https://go.nuxtjs.dev/config-head
 	head: {
 		title: 'Equreka',
@@ -98,7 +104,16 @@ export default {
 	// @nuxtjs/content https://go.nuxtjs.dev/config-content
 	content: {
 		apiPrefix: 'api',
-		fullTextSearchFields: ['title', 'name', 'slug', 'description']
+		fullTextSearchFields: ['title', 'name', 'slug', 'description'],
+		nestedProperties: [
+			'category.slug',
+			'constants.slug',
+			'magnitudes.slug',
+			'variables.slug',
+			'units.slug',
+			'values.unit.slug',
+			'conversions.unit.slug',
+		],
 	},
 	// @nuxtjs/color-mode https://color-mode.nuxtjs.org/
 	colorMode: {
@@ -153,7 +168,7 @@ export default {
 			short_name: 'Equreka',
 			author: 'Derian Castillo',
 			description: 'Your free and open-source app for variables, constants, formulas and equations',
-			theme_color: '#e3e5e8',
+			theme_color: '#070708',
 			lang: 'en'
 		},
 		manifest: {
@@ -169,7 +184,7 @@ export default {
 	},
 	// @nuxtjs/robots
 	robots: {
-		Sitemap: process.env.SITE_URL + 'sitemap.xml'
+		Sitemap: process.env.BASE_URL + '/sitemap.xml'
 	},
 	// @nuxtjs/sitemap
 	sitemap: {

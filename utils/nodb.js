@@ -1,4 +1,4 @@
-const types 		= ['constants', 'equations', 'formulas', 'magnitudes', 'units', 'variables'],
+const types 		= ['equations', 'formulas', 'constants', 'magnitudes', 'variables', 'units'],
 		categories	= ['universal', 'mathematics', 'physics', 'chemistry'];
 export default {
 	types,

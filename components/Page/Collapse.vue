@@ -2,13 +2,13 @@
 	<div class="card card-collapse" :class="`card-${type}`">
 		<div class="card-body">
 			<!-- Header -->
-			<div class="collapse-header">
+			<div class="collapse-header" v-if="header">
 				<button class="btn btn-text btn-collapse" type="button" data-bs-toggle="collapse" :data-bs-target="`#collapse-${type}`" :aria-controls="`collapse-${type}`" aria-expanded="true">
 					<h2 class="section-title">
-					{{ $t(`abbreviations.${type}.cap`) }}
+						{{ $t(`abbreviations.${type}.cap`) }}
 					</h2>
 				</button>
-				<NuxtLink class="btn btn-sm btn-category" :to="localePath(`/${type}`)">
+				<NuxtLink class="btn btn-sm btn-go rounded-pill" :to="localePath(`/${type}`)">
 					<span>{{ $t('Go to section')}}</span>
 					<i class="bi bi-arrow-right"></i>
 				</NuxtLink>
@@ -16,8 +16,11 @@
 			<!-- List -->
 			<div :id="`collapse-${type}`" class="collapse show">
 				<div class="list">
-					<NuxtLink v-for="item in data" :key="item.slug" :to="localePath(`${item.dir}/${item.slug}`)">
-						{{ item.name }}
+					<NuxtLink v-for="item in data" :key="item.slug" :to="localePath(item.path)">
+						<EqurekaSymbol class="badge" :data="item.symbol" v-if="item.symbol"/>
+						<span class="name">
+							{{ item.name }}
+						</span>
 					</NuxtLink>
 				</div>
 			</div>
@@ -33,12 +36,15 @@
 				required: true
 			},
 			category: {
-				type: String,
-				required: true
+				type: String
 			},
 			type: {
 				type: String,
 				required: true
+			},
+			header: {
+				type: Boolean,
+				default: true
 			}
 		}
 	}

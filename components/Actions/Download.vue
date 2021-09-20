@@ -1,17 +1,37 @@
 
 <template>
-	<!-- Download JSON -->
-	<a class="btn" :title="$t('Download JSON')" :href="json" :download="`equreka.${data.category}.${type}.${data.slug}.json`" v-if="json">
-		<span class="visually-hidden">
+	<a :href="json" :download="`equreka.${data.category}.${type}.${data.slug}.json`" :title="$t('Download JSON')" v-if="json">
+		<i class="bi bi-download" :class="icon && expanded ? `me-${expand}-3` : ''" v-if="icon"></i>
+		<span :class="expanded ? `d-none d-${expand}-inline expanded` : 'visually-hidden'">
 			{{ $t('Download JSON') }}
 		</span>
-		<i class="bi bi-download"></i>
 	</a>
 </template>
 
 <script>
 	export default {
-		props: ['data', 'type'],
+		props: {
+			data: {
+				type: Object,
+				required: true,
+			},
+			type: {
+				type: String,
+				required: true,
+			},
+			expand: {
+				type: String,
+				default: 'md',
+			},
+			expanded: {
+				type: Boolean,
+				default: false,
+			},
+			icon: {
+				type: Boolean,
+				default: true,
+			}
+		},
 		computed: {
 			json() {
 				const jsonString = JSON.stringify(this.data, null, 2),

@@ -77,7 +77,7 @@ android {
 - [ ] Improve UX/UI
 ### Calculator
 - [ ] Unit input for equations/formulas
-- [ ] Unit converter system
+- [ ] Unit convesion system
 ### Scripts
 - [X] Hover system
 - [X] Favorites: System with localStorage

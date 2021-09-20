@@ -39,7 +39,7 @@
 							<span class="visually-hidden">{{ $t('calculator.go-to-calculator') }}</span>
 							<i class="bi bi-plus fs-5"></i>
 						</NuxtLink>
-						<button class="btn btn-text btn-danger text-light p-0 rounded-pill" type="button" @click="removeFavorite(type, item.slug)" :title="$t('favorites.remove')">
+						<button class="btn btn-text btn-danger text-light p-0 rounded-pill" type="button" @click="removeFavorite(type, item.slug)" :title="$t('favorites.remove')" v-if="edit">
 							<span class="visually-hidden">{{ $t('favorites.remove') }}</span>
 							<i class="bi bi-x fs-5"></i>
 						</button>
@@ -62,6 +62,10 @@
 			type: {
 				type: String,
 				required: true
+			},
+			edit: {
+				type: Boolean,
+				default: false
 			}
 		},
 		computed: {

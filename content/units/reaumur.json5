@@ -1,0 +1,32 @@
+{
+	name: 'Réamur',
+	symbol: '°Ré',
+	unitOf: 'thermodynamic-temperature',
+	type: null,
+	category: 'physics',
+	description: 'The degree Réaumur ($°Ré$, $°Re$, $°r$) is an unused unit of temperature. Named in honor of René Antoine Ferchault de Réaumur (1683-1757) who proposed it as a unit in 1731. A value of 0 ° Réaumur corresponds to the freezing point of water and 80 ° Réaumur to the boiling point of water.',
+	conversions: [
+		{
+			value: 274.4,
+			unit: 'kelvin'
+		}, {
+			value: 1.25,
+			unit: 'celsius'
+		}, {
+			value: 34.25,
+			unit: 'fahrenheit'
+		}, {
+			value: 0.4125,
+			unit: 'newton-degree'
+		}, {
+			value: 493.92,
+			unit: 'rankine'
+		}, {
+			value: 148.125,
+			unit: 'delisle'
+		}, {
+			value: 8.15625,
+			unit: 'romer'
+		}
+	],
+}

@@ -4,6 +4,14 @@
 		"no-data": "No data added yet 😭",
 		"not-found": "Not found 😔"
 	},
+	"actions": {
+		"title": "Actions",
+		"copy": {
+			"label": "Copy to clipboard",
+			"success": "Copied to clipboard! 👌🏻",
+			"error": "Error copying to clipboard 😅"
+		}
+	},
 	"search": {
 		"title": "Search",
 		"button-submit": "Submit search",
@@ -32,9 +40,10 @@
 			"default": "An error courred 😪",
 			"type": {
 				"input": {
+					"empty": "You have not entered all the necessary data",
 					"needed": "Enter data to solve",
-					"empty": "You haven't entered all necessary data",
-					"invalid": "No has introducido datos"
+					"invalid": "One or more data is invalid",
+					"all-filled": "All inputs were filled"
 				}
 			}
 		}
@@ -163,7 +172,6 @@
 	"Constant": "Constant",
 	"Constants": "Constants",
 	"Contact": "Contact",
-	"Copy to clipboard": "Copy to clipboard",
 	"Dark": "Dark",
 	"Delete": "Delete",
 	"Description": "Description",
@@ -251,6 +259,14 @@
 		"value": {
 			"abbr": "Val",
 			"cap": "Value"
+		},
+		"magnitude": {
+			"abbr": "Mag",
+			"cap": "Magnitude"
+		},
+		"magnitudes": {
+			"abbr": "Mags",
+			"cap": "Magnitudes"
 		},
 		"variable": {
 			"abbr": "Var",

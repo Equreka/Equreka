@@ -9,11 +9,9 @@
 import { errorDefault, errorInputsAllFilled } from '~/calculator/errors';
 // Utils
 import { isIn } from '~/calculator/utils';
-// Constants
-import c from '~/calculator/constants/speed-of-light';
 
 // Calculate mass
-export function mass(input) {
+export function mass(input, c) {
 	var { E } = input,
 		variable = 'm', unit = 'kg',
 		value = E / Math.pow(c, 2);
@@ -21,21 +19,23 @@ export function mass(input) {
 }
 
 // Calculate energy
-export function energy(input) {
+export function energy(input, c) {
 	var { m } = input,
-		value = m * Math.pow(c, 2),
-		variable = 'E', unit = 'J';
+		variable = 'E', unit = 'J',
+		value = m * Math.pow(c, 2);
 	return { value, variable, unit }
 }
 
 // This is the function that will get called by the calculator
-export default (input) => {
+export default (input, constants) => {
 	// All inputs
 	if(isIn(['E', 'm'], input)) return { error: errorInputsAllFilled };
+	// Constants
+	var { c } = constants;
 	// Calculate mass
-	if(['E'] in input) return mass(input);
+	if(['E'] in input) return mass(input, c);
 	// Calculate energy
-	if(['m'] in input) return energy(input);
+	if(['m'] in input) return energy(input, c);
 	// Return default error
 	return { error: errorDefault }
 }

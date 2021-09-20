@@ -8,28 +8,43 @@
 						$${{ data.expression }}$$
 					</div>
 				</div>
-				<div class="card-body">
-					<template v-if="output.value != null && !output.error">
-						<span v-html="formatOutput(output)" />
-					</template>
-					<div class="message text-center" v-else>
-						<template v-if="output.error && output.error.message">
-							<h5 class="math-error-type fs-4 m-2">{{ $t(`calculator.errors.type.${output.error.type}`) }}</h5>
-							<p class="math math-error-message m-0">{{ output.error.message }}</p>
-						</template>
-						<p class="math math-error-type fs-3 m-0" v-else-if="output.error && output.error.type">
-							{{ $t(`calculator.errors.type.${output.error.type}`) }}
-						</p>
-						<p class="math math-error-type fs-3 m-0" v-else>
-							{{ $t('calculator.errors.type.input.needed') }}
-						</p>
-					</div>
+				<div class="card-body d-flex flex-column align-items-center justify-content-center">
+					<!--
+						<EqurekaSymbol :data="output.variable ? output.variable : ''"/>
+						<EqurekaValue :data="output.value ? output.value : 0" format="TeX" />
+						<EqurekaSymbol :data="output.unit ? output.unit : ''" />-->
+					<!-- Calculator: Result -->
+					<transition name="fade">
+						<div id="calculator-result" class="calculator-result" v-if="output.value != null && !output.error">
+							<EqurekaSymbol :data="output.variable" format="html"/>
+							<span class="math math-symbol-equality">=</span>
+							<EqurekaValue :data="output.value"  format="html" />
+							<EqurekaSymbol :data="output.unit" format="html"/>
+						</div>
+					</transition>
+					<!-- Calculator: Message -->
+					<transition name="fade">
+						<div id="calculator-message" class="calculator-message" v-if="output.value == null && output.error">
+							<div class="card-body d-flex flex-column align-items-center justify-content-center text-center">
+								<template v-if="output.error && output.error.message">
+									<p class="math-error-type m-0">{{ $t(`calculator.errors.type.${output.error.type}`) }}</p>
+									<p class="math math-error-message mt-2 mb-0 d-none">{{ output.error.message }}</p>
+								</template>
+								<p class="math math-error-type m-0" v-else-if="output.error && output.error.type">
+									{{ $t(`calculator.errors.type.${output.error.type}`) }}
+								</p>
+								<p class="math math-error-type m-0" v-else>
+									{{ $t('calculator.errors.type.input.needed') }}
+								</p>
+							</div>
+						</div>
+					</transition>
 				</div>
 			</section>
 			<!-- Inputs -->
 			<section class="card card-inputs mx-auto" style="max-width: 800px">
 				<div class="card-body">
-					<form class="mx-auto" @submit.prevent>
+					<form ref="calculatorForm" class="mx-auto" @submit.prevent>
 						<div class="row gx-2 flex-wrap justify-content-md-center">
 							<template v-if="data.variables && data.variables.length > 0">
 								<div class="mb-3 col col-md-auto" v-for="variable in data.variables" :key="variable.slug">
@@ -59,24 +74,54 @@
 									</div>
 								</div>
 							</template>
+							<!-- Actions -->
 							<div class="col-12 text-center">
-								<button tpe="submit" class="btn btn-success rounded-pill py-3 px-5 h-100" @click="getOutput">
-									{{ $t('calculator.calculate') }}
-								</button>
+								<div class="row gx-2">
+									<div class="col d-flex align-items-center justify-content-end">
+										<button type="reset" class="btn btn-danger rounded-pill p-3" @click="reset">
+											<i class="bi bi-arrow-clockwise"></i>
+										</button>
+									</div>
+									<div class="col-auto d-flex align-items-center justify-content-center">
+										<button tpe="submit" class="btn btn-success rounded-pill py-3 px-5 h-100" @click="getOutput">
+											{{ $t('calculator.calculate') }}
+										</button>
+									</div>
+									<div class="col d-flex align-items-center justify-content-start">
+										<transition name="fade">
+											<ActionsCopy class="btn btn-dark rounded-pill p-3" target="#calculator-result" v-if="output.value != null && !output.error"/>
+										</transition>
+									</div>
+								</div>
+								
 							</div>
 						</div>
 					</form>
 				</div>
 			</section>
-			<!-- Terms -->
-			<section class="terms">
-				<div class="row row-cols-1 row-cols-md-auto">
-					<TableVariables class="col mb-3 mb-lg-0" :data="data.variables" :category="data.category"/>
-					<TableConstants class="col" :data="data.constants" :category="data.category"/>
+			<!-- Data -->
+			<div class="row justify-content-center">
+				<!-- Table - Variables -->
+				<div class="col-12 col-lg-6" v-if="data.variables && data.variables.length > 0">
+					<section class="card card-variables">
+						<div class="card-body">
+							<h3 class="card-title">{{ $t('abbreviations.variables.cap') }}</h3>
+							<TableVariables :data="data.variables"/>
+						</div>
+					</section>
 				</div>
-			</section>
+				<!-- Table - Magnitudes -->
+				<div class="col-12 col-lg-6" v-if="data.magnitudes && data.magnitudes.length > 0">
+					<section class="card card-magnitudes">
+						<div class="card-body">
+							<h3 class="card-title">{{ $t('abbreviations.magnitudes.cap') }}</h3>
+							<TableVariables :data="data.magnitudes"/>
+						</div>
+					</section>
+				</div>
+			</div>
 		</div>
-		<script id="MathJax-script" async src="/assets/js/mathjax/tex-mml-chtml.js"></script>
+		<MathJax :key="render" />
 	</main>
 </template>
 
@@ -85,19 +130,22 @@
 	import Calculator from "~/utils/calculator";
 	import Utils from "~/utils";
 	import UtilsData from "~/utils/data";
+	const defaultOutput = {
+				value: null,
+				variable: null,
+				unit: null,
+				error: {
+					type: null,
+					message: null
+				}
+			};
 	export default {
 		data () {
 			return {
-				input: [],
-				output: {
-					value: null,
-					variable: null,
-					unit: null,
-					error: {
-						type: null,
-						message: null
-					}
-				}
+				render: 0,
+				constants: {},
+				input: {},
+				output: defaultOutput
 			}
 		},
 		async asyncData ({ $content, params, error }) {
@@ -105,11 +153,19 @@
 					type = params.type,
 					slug = params.slug,
 					data = await UtilsData($content, params, error, true);
+			let constants = false;
+			if (data.constants && data.constants.length > 0) {
+				constants = {};
+				data.constants.forEach(constant => {
+					constants[constant.symbol] = constant.values[0].value;
+				});
+			}
 			return {
 				category,
 				type,
 				slug,
-				data
+				data,
+				constants
 			}
 		},
 		mounted() {
@@ -133,34 +189,38 @@
 			}
 		},
 		methods: {
-			copyClipboard(clipboard) {
-				Utils.copyClipboard(clipboard);
-			},
 			parserLaTeX(data) {
 				return Utils.parserLaTeX(data);
 			},
-			formatNumber(number) {
-				return Utils.formatNumber(number);
-			},
-			formatOutput(output) {
-				return Calculator.formatOutput(output);
+			reset() {
+				this.input = {};
+				this.output = defaultOutput;
+				this.$refs.calculatorForm.reset();
 			},
 			async getOutput(event) {
 				event.preventDefault();
 				const input = this.input;
-				let functions;
+				let functions = false;
 				try {
 					functions = await import(`~/calculator/${this.type}/${this.slug}.js`);
 				} catch (error) {
-					functions = {
+					this.output = {
 						error: {
 							type: 'catch.error',
 							message: error.message
 						}
 					}
+					return;
 				}
-				if(functions) {
-					this.output = functions.default(input);
+				if(functions && input) {
+					if(this.constants) { 
+						this.output = functions.default(input, this.constants);
+					} else {
+						this.output = functions.default(input);
+					}
+					setTimeout(() => {
+						this.render += 1;
+					}, 350);
 					this.input = [];
 				}
 			}

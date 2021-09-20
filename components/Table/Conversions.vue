@@ -3,30 +3,33 @@
 		<table class="table table-data table-conversions">
 			<thead>
 				<tr>
-					<th scope="col" class="value">
-						<Abbr string="value"/>
+					<th scope="col" class="name">
+						{{ $t('Name') }}
+					</th>
+					<th scope="col" class="conversion text-end">
+						<Abbr string="conversion"/>
 					</th>
 					<th scope="col" class="symbol">
 						<Abbr string="symbol"/>
-					</th>
-					<th scope="col" class="name">
-						{{ $t('Name') }}
 					</th>
 				</tr>
 			</thead>
 			<tbody>
 				<template v-for="item in data">
 					<tr :key="item.slug" :class="item.symbol" v-if="item">
-						<td class="math math-value value">
-							{{ item.value }}
-						</td>
-						<td class="math math-symbol-unit unit">
-							{{ item.unit.symbol }}
-						</td>
-						<td class="unit name">
-							<NuxtLink :to="localePath(`/${item.unit.category}/units/${item.unit.slug}`)">
+						<!-- Conversion: Unit: Name -->
+						<td>
+							<NuxtLink :to="localePath(item.unit.path)">
 								{{ item.unit.name }}
 							</NuxtLink>
+						</td>
+						<!-- Conversion: Value -->
+						<td class="text-end">
+							<EqurekaValue :data="item.value" />
+						</td>
+						<!-- Conversion: Unit: Symbol -->
+						<td>
+							<EqurekaSymbol :data="item.unit.symbol" />
 						</td>
 					</tr>
 				</template>
@@ -65,11 +68,6 @@
 			type() {
 				return this.$route.params.type ? this.$route.params.type : false;
 			},
-		},
-		methods: {
-			formatNumber(number) {
-				return Utils.formatNumber(number);
-			}
-		},
+		}
 	}
 </script>

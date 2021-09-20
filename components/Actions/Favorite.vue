@@ -1,7 +1,9 @@
 <template>
-	<button type="button" class="btn" :title="!isFavorite ? $t('favorites.add') : $t('favorites.remove')" @click="!isFavorite ? add() : remove()">
-		<span class="visually-hidden" v-html="!isFavorite ? $t('favorites.add') : $t('favorites.remove')" />
-		<i class="bi" :class="!isFavorite ? 'bi-heart' : 'bi-heart-fill'" />
+	<button type="button" :title="!isFavorite ? $t('favorites.add') : $t('favorites.remove')" @click="!isFavorite ? addFavorite() : removeFavorite()">
+		<i class="bi" :class="[ !isFavorite ? 'bi-heart' : 'bi-heart-fill', icon && expanded ? `me-${expand}-3` : '']"  v-if="icon"></i>
+		<span :class="expanded ? `d-none d-${expand}-inline expanded` : 'visually-hidden'"
+			v-html="!isFavorite ? $t('favorites.add') : $t('favorites.remove')"
+		/>
 	</button>
 </template>
 
@@ -26,17 +28,25 @@
 			slug: {
 				type: String,
 				required: true
+			},
+			expanded: {
+				type: Boolean,
+				default: false
+			},
+			icon: {
+				type: Boolean,
+				default: true
 			}
 		},
 		methods: {
 			// Add isFavorite
-			add() {
+			addFavorite() {
 				if(this.isFavorite) return;
 				let added = Favorites.add(this.type, this.slug);
 				if(added) this.isFavorite = true;
 			},
 			// Remove isFavorite
-			remove() {
+			removeFavorite() {
 				if(!this.isFavorite) return;
 				let removed = Favorites.remove(this.type, this.slug);
 				if(removed) this.isFavorite = false;

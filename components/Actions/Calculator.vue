@@ -1,14 +1,35 @@
 <template>
-	<NuxtLink class="btn" :to="localePath(`/calculator/${type}/${slug}`)">
-		<span class="visually-hidden">
+	<NuxtLink :to="localePath(`/calculator/${type}/${slug}`)">
+		<i class="bi bi-plus-square" :class="icon && expanded ? `me-${expand}-3` : ''" v-if="icon"></i>
+		<span :class="expanded ? `d-none d-${expand}-inline expanded` : 'visually-hidden'">
 			{{ $t('calculator.go-to-calculator') }}
 		</span>
-		<i class="bi bi-plus-square"></i>
 	</NuxtLink>
 </template>
 
 <script>
 	export default {
-		props: ['category', 'type', 'slug']
+		props: {
+			type: {
+				type: String,
+				required: true,
+			},
+			slug: {
+				type: String,
+				required: true,
+			},
+			expand: {
+				type: String,
+				default: 'md',
+			},
+			expanded: {
+				type: Boolean,
+				default: false,
+			},
+			icon: {
+				type: Boolean,
+				default: true,
+			}
+		}
 	}
 </script>

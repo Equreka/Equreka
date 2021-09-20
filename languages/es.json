@@ -16,9 +16,9 @@
 		"title": "Favoritos",
 		"lead": "Sus favoritos se almacenan localmente en el navegador, por lo que no se guardan datos.",
 		"none": "¡No tienes ningún favorito! 💔",
-		"add": "Agregar a favoritos 💕",
+		"add": "Agregar a favoritos",
 		"added": "Agregado a tus favoritos 💕",
-		"remove": "Eliminar de favoritos 💔",
+		"remove": "Eliminar de favoritos",
 		"removed": "Eliminado de tus favoritos 💔",
 		"support": "Soporte del navegador $0",
 		"no-support": "Su navegador no es compatible con la función de almacenamiento local 😔, considere usar otro navegador para esta función."
@@ -32,11 +32,46 @@
 			"default": "Ocurrió un error 😪",
 			"type": {
 				"input": {
-					"needed": "Ingresa datos para resolver",
 					"empty": "No haz introducido todos los datos necesarios",
-					"invalid": "Uno o más datos son inválidos"
+					"needed": "Ingresa datos para resolver",
+					"invalid": "Uno o más datos son inválidos",
+					"all-filled": "Haz introducido datos demás"
 				}
 			}
+		}
+	},
+	"types": {
+		"equations": {
+			"title": "Ecuaciones",
+			"description": "En matemáticas, una ecuación es una declaración que afirma la igualdad de dos expresiones, que están conectadas por el signo igual \"=\"."
+		},
+		"formulas": {
+			"title": "Fórmulas",
+			"description": "En ciencia, una fórmula es una forma concisa de expresar información simbólicamente, como en una fórmula matemática o una fórmula química. El uso informal del término fórmula en ciencia se refiere al constructo general de una relación entre cantidades dadas."
+		},
+		"constants": {
+			"title": "Constantes",
+			"description": "Un número fijo y bien definido u otro objeto matemático que no varíe. Los términos constante matemática o constante física se utilizan a veces para distinguir este significado."
+		},
+		"magnitudes": {
+			"title": "Magnitudes",
+			"description": "Una magnitud física es una cantidad medible de un sistema físico a la que se le pueden asignar distintos valores como resultado de una medición o una relación de medidas. Las magnitudes físicas se miden usando un patrón que tenga bien definida esa magnitud, y tomando como unidad la cantidad de esa propiedad que posea el objeto patrón."
+		},
+		"units": {
+			"title": "Unidades",
+			"description": "Una unidad de medida es una cantidad estandarizada de una determinada magnitud física, definida y adoptada por convención o por ley.​ Cualquier valor de una cantidad física puede expresarse como un múltiplo de la unidad de medida."
+		},
+		"variables": {
+			"title": "Variables",
+			"description": "Una variable es un símbolo que funciona como marcador de posición para expresiones o cantidades que pueden variar o cambiar; se utiliza a menudo para representar el argumento de una función o un elemento arbitrario de un conjunto. Además de los números, las variables se utilizan comúnmente para representar vectores, matrices y funciones."
+		}
+	},
+	"actions": {
+		"title": "Actions",
+		"copy": {
+			"label": "Copiar al portapapeles",
+			"success": "Se copió al portapapeles! 👌🏻",
+			"error": "No se ha podido copiar al portapapeles 😅"
 		}
 	},
 	"page": {
@@ -124,28 +159,6 @@
 		"settings": {
 			"lead": "Esta configuración se almacena en su dispositivo, no tenemos ninguna información suya en nuestros servidores.",
 			"title": "Ajustes"
-		},
-		"types": {
-			"constants": {
-			"lead": "Un número fijo y bien definido u otro objeto matemático que no varíe. Los términos constante matemática o constante física se utilizan a veces para distinguir este significado.",
-			"title": "Constantes"
-			},
-			"equations": {
-			"lead": "En matemáticas, una ecuación es una declaración que afirma la igualdad de dos expresiones, que están conectadas por el signo igual \"=\".",
-			"title": "Ecuaciones"
-			},
-			"formulas": {
-			"lead": "En ciencia, una fórmula es una forma concisa de expresar información simbólicamente, como en una fórmula matemática o una fórmula química. El uso informal del término fórmula en ciencia se refiere al constructo general de una relación entre cantidades dadas.",
-			"title": "Fórmulas"
-			},
-			"units": {
-			"lead": "Una unidad de medida es una cantidad estandarizada de una determinada magnitud física, definida y adoptada por convención o por ley.​ Cualquier valor de una cantidad física puede expresarse como un múltiplo de la unidad de medida.",
-			"title": "Unidades"
-			},
-			"variables": {
-			"lead": "Una variable es un símbolo que funciona como marcador de posición para expresiones o cantidades que pueden variar o cambiar; se utiliza a menudo para representar el argumento de una función o un elemento arbitrario de un conjunto. Además de los números, las variables se utilizan comúnmente para representar vectores, matrices y funciones.",
-			"title": "Variables"
-			}
 		}
 	},
 	"About": "Acerca de",

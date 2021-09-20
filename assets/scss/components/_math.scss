@@ -1,10 +1,7 @@
-// Math
+
 .math {
+	font-family: $font-family-math;
 	// Error
-	&.math-error-message,
-	&.math-error-type {
-		font-family: $font-family-math;
-	}
 	&.math-error-message {
 		font-style:  oblique;
 		color: var(--body-color);
@@ -13,40 +10,56 @@
 	&.math-value,
 	&.math-value-result,
 	&.math-value-constant {
-		font-size: 110%;
+		color: var(--body-color-highlight);
+	}
+	// Symbol
+	&.math-symbol-unit {
+		color: var(--category-color);
+	}
+	// Equality
+	&.math-symbol-equality {
+		color: var(--body-color-muted);
+	}
+	// Exponent
+	&.math-exponent {
+		color: var(--body-color);
+	}
+	&.math-exponent-value {
+		color: var(--body-color-highlight);
+	}
+	// Exponent sign
+	&.math-exponent-sign {
+		&.math-exponent-sign-plus {
+			color: $green;
+		}
+		&.math-exponent-sign-minus {
+			color: $red;
+		}
+	}
+}
+
+// Math
+.math-html {
+	&.math-error-message {
+		font-style: oblique;
+	}
+	// Values
+	&.math-value,
+	&.math-value-result,
+	&.math-value-constant {
 		font-weight: normal;
 		font-style: normal;
-		color: var(--body-color-highlight);
 	}
 	// Symbols
 	&.math-symbol,
 	&.math-symbol-variable,
 	&.math-symbol-constant,
 	&.math-symbol-unit {
-		font-family: $font-family-math;
-		font-style:  oblique;
-		font-size:   120%;
-	}
-	&.math-symbol-unit,
-	&.math-symbol-equality {
-		color: var(--body-color-muted);
-	}
-	// Exponents
-	&.math-exp,
-	&.math-exp-value {
-		color: var(--body-color);
-	}
-	&.math-exp {
-		font-family: $font-family-math;
 		font-style:  oblique;
 	}
-	&.math-exp-sign {
-		&.plus {
-			color: $green;
-		}
-		&.minus {
-			color: $red;
-		}
+	// Exponent
+	&.math-exponent-e {
+		font-style:  oblique;
 	}
 }
 

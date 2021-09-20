@@ -1,0 +1,8 @@
+@keyframes fade {
+	0% {
+		opacity: var(--fade-initial, 0);
+	}
+	100% {
+		opacity: var(--fade-final, 1);
+	}
+}

@@ -5,8 +5,10 @@ main.calculator {
 			display: flex;
 			align-items: baseline;
 			justify-content: center;
+			@include rs('min-height', 100px, 8vw, 175px);
 		}
 		.background {
+			--fade-final: 0.1;
 			position: absolute;
 			top: 0;
 			left: 0;
@@ -18,21 +20,45 @@ main.calculator {
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			opacity: 0.2;
+			opacity: 0;
+			color: var(--body-color-muted);
+			animation: fade 1s 0.5s ease forwards;
 			@include rs('border-radius', 0.5rem, 2vw, 1rem);
 			.latex {
-				color: var(--body-color-muted);
+				font-weight: bold;
 				-webkit-text-fill-color: transparent;
 				-webkit-text-stroke-width: 1px;
 				-webkit-text-stroke-color: var(--body-color-muted);
-				@include rs('font-size', 4rem, 10vw, 10rem);
+				transform: translateY(-7.5%);
+				@include rs('font-size', 5.5em, 10vw, 10em, true);
 				.MathJax {
 					margin: 0;
 				}
 			}
 		}
-		.message {
-			color: var(--body-color-muted);
+		.calculator-result {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			grid-gap: 0.35em;
+			gap: 0.35em;
+		}
+		.calculator-message {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			padding-left: 1rem;
+			padding-right: 1rem;
+			p {
+				color: var(--body-color-muted);
+				@include rs('font-size', 1.15rem, 1.5vw, 1.75rem);
+				&.math-error-type {
+					font-family: $headings-font-family;
+					font-weight: 600;
+				}
+			}
 		}
 	}
 	.inputs {

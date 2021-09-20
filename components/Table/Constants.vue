@@ -21,26 +21,26 @@
 					<template v-for="item in data">
 						<tr :key="item.slug" :class="`eqk constant ${item.symbol}`" v-if="item && item.symbol">
 							<!-- Constant Symbol -->
-							<td class="math math-symbol-constant">
-								{{ item.symbol }}
+							<td>
+								<EqurekaSymbol :data="item.symbol" />
 							</td>
-							<!-- Constant Name -->
-							<td class="name">
-								<NuxtLink :to="localePath(`/${item.category}/constants/${item.slug}`)">
+							<!-- Constant: Name -->
+							<td>
+								<NuxtLink :to="localePath(item.path)">
 									{{ item.name }}
 								</NuxtLink>
 							</td>
-							<!-- Constant Value-->
-							<td class="unit math math-value-constant">
-								{{ formatNumber(item.values[0].value) }}
+							<!-- Constant: Value-->
+							<td>
+								<EqurekaValue :data="item.values[0].value" />
 							</td>
-							<!-- Constant Unit Symbol-->
-							<td class="unit math math-symbol-unit" v-if="item.units[0].symbol">
-								{{ item.units[0].symbol }}
+							<!-- Constant: Unit: Symbol-->
+							<td v-if="item.units[0].symbol">
+								<EqurekaSymbol :data="item.units[0].symbol" />
 							</td>
-							<!-- Constant Unit Name-->
-							<td class="unit name">
-								<NuxtLink :to="localePath(`/${item.units[0].category}/units/${item.units[0].slug}`)">
+							<!-- Constant: Unit: Name-->
+							<td>
+								<NuxtLink :to="localePath(item.units[0].path)">
 									{{ item.units[0].name }}
 								</NuxtLink>
 							</td>
@@ -81,11 +81,6 @@
 			type() {
 				return this.$route.params.type ? this.$route.params.type : false;
 			},
-		},
-		methods: {
-			formatNumber(number) {
-				return Utils.formatNumber(number);
-			}
-		},
+		}
 	}
 </script>

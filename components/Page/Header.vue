@@ -11,7 +11,7 @@
 					</span>
 					<template v-if="data">
 						<NuxtLink class="type" :to="localePath(`/${type}`)">
-							<Abbr :string="type" expand="sm"/>
+							<Abbr :string="type" expanded/>
 						</NuxtLink>
 					</template>
 					<h1 class="title">{{ title }}</h1>
@@ -70,16 +70,12 @@
 				return slug ? slug : false;
 			},
 			bodyClass() {
-				let bodyClass = `${this.category}`;
-				if(this.category && !this.slug) {
-					bodyClass += ` category-${this.category}`;
-				}
-				if(this.type) {
-					bodyClass += ` type-${this.type}`;
-				}
-				if(this.slug) {
-					bodyClass += ` data-${this.slug}`;
-				}
+				let bodyClass = '';
+				if(this.category) bodyClass += `category-${this.category}`;
+				if(this.type) bodyClass += ` type-${this.type}`;
+				if(this.slug) bodyClass += ` slug-${this.slug}`;
+				if(this.category && !this.type) bodyClass += `${this.category}`;
+				if(this.type) bodyClass += ` ${this.type}`;
 				return bodyClass;
 			}
 		}

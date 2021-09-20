@@ -1,46 +1,104 @@
 .card {
+	position: relative;
 	@include rs('border-radius', 0.5rem, 1.5vw, 1rem);
-	@include rs('margin-bottom', 0.75rem, 2vw, 1.5rem);
+	@include rs('margin-bottom', 0.75rem, 2vw, 1.15rem);
 	@include acrylic-bg();
 	.card-body {
 		@include rs('padding',  0.75rem, 2vw, 1rem);
 	}
 	.card-title {
+		color: var(--body-color-highlight);
 		font-weight: 600;
 		@include rs('font-size',      1.1rem, 2vw, 1.25rem);
-		@include rs('margin-bottom',  0.5rem, 2vw, 1rem);
+		@include rs('margin-bottom',  0.5rem, 2vw, 0.85rem);
 	}
 	p:last-child {
 		margin-bottom: 0;
 	}
 }
 
+// Category
 .card-category {
-	position: relative;
 	background: var(--category-color);
-	margin-bottom: 1rem;
-	color: hsl(var(--category-color-h), 100%, 90%);
-	border-radius: 0.5rem;
-	@media (min-width: 325px) {
-		border-radius: 0.75rem;
-	}  
-	@media (min-width: 375px) {
-		border-radius: 1rem;
+	color: hsl(var(--category-color-h), 100%, 95%);
+	@include rs('border-radius', 1rem, 1.5vw, 1.15rem);
+	.card-body {
+		@include rs('padding-top',  0.95rem, 2vw, 1.25rem);
+		@include rs('padding-bottom',  0.95rem, 2vw, 1.25rem);
 	}
 	.card-title {
 		color: hsl(var(--category-color-h), 100%, 95%);
+		@include rs('font-size', 1.25rem, 2vw, 1.4rem);
 	}
 	p {
+		font-weight: 500;
+		font-family: $headings-font-family;
 		display: -moz-box;
 		display: -webkit-box;
 		-moz-line-clamp: 3;
 		-webkit-line-clamp: 3;
-		-moz-box-orient: vertical;  
-		-webkit-box-orient: vertical;  
+		-moz-box-orient: vertical;
+		-webkit-box-orient: vertical;
 		overflow: hidden;
 		margin: 0;
 		text-overflow: ellipsis;
+		@include rs('font-size', 1rem, 2vw, 1.1rem);
 	}
+}
+
+// Expression
+.card-expression {
+	position: relative;
+	color:      var(--body-color-highlight);
+	transition: all 0.5s $transition-speed-ease;
+	@include rs('font-size', 1.25rem, 2vw, 2.5rem);
+	.card-body {
+		display: flex;
+		align-items: baseline;
+		justify-content: center;
+		grid-gap: 0.25em;
+		gap: 0.25em;
+		width: 100%;
+		@include rs('padding-top',  1.5rem, 2vw, 3rem);
+		@include rs('padding-bottom',  1.5rem, 2vw, 3rem);
+	}
+	.MathJax {
+		font-size: inherit !important;
+	}
+}
+
+// Mathjax
+.card-mathjax {
+	display:         flex;
+	align-items:     center;
+	justify-content: center;
+	flex:            1 1 100%;
+	order:           0;
+	mjx-container {
+		margin: 0;
+		&::after {
+			display: none;
+		}
+	}
+	.hover {
+		color: var(--term-color);
+	}
+	.card-body {
+		opacity: 0;
+	}
+	&.rendered {
+		.loader {
+			animation: loader-complete 0.35s $transition-speed-ease forwards;
+		}
+		.card-body {
+			animation: loaded 0.35s 0.35s $transition-speed-ease forwards;
+		}
+	}
+}
+
+// Symbol
+.card-symbol {
+	@include rs('font-size', 1.15rem, 3vw, 3rem);
 }
 
 // Description
@@ -50,36 +108,5 @@
 	}
 	*:last-child {
 		margin: 0;
-	}
-}
-
-// Expression
-.card-expression {
-	color:      var(--body-color-highlight);
-	transition: all 0.5s $transition-speed-ease;
-	@include rs('font-size', 1.25rem, 4vw, 3rem);
-	.card-body {
-		width: 100%;
-		@include rs('padding-top',  1.5rem, 2vw, 3rem);
-		@include rs('padding-bottom',  1.5rem, 2vw, 3rem);
-	}
-}
-
-// Symbol
-.card-symbol {
-	@include rs('font-size', 1.25rem, 4vw, 4rem);
-}
-
-
-// Codes
-.card-codes {
-	.code {
-		display:          block;
-		width:            100%;
-		padding:          0.375rem 0.75rem;
-		color:            var(--body-color);
-		background-color: var(--input-bg);
-		border:           1px solid var(--input-border-color);
-		border-radius:    0.25rem;
 	}
 }

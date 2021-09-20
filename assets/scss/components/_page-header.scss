@@ -1,12 +1,10 @@
 // Page Header
 .page-header { 
-	padding:    1rem 0;
 	margin-bottom: 1rem;
 	background: var(--category-color);
-	@include media-breakpoint-up($navbar-expand) {
-		padding:       1.5rem 0;
-		margin-bottom: 2rem;
-	}
+	@include rs('padding-top',    0.75rem, 2vw, 1.25rem);
+	@include rs('padding-bottom', 0.75rem, 2vw, 1.25rem);
+	@include rs('margin-bottom',  0.75rem, 2vw, 1.35rem);
 	a {
 		text-decoration: none;
 	}
@@ -21,7 +19,7 @@
 		a {
 			&:hover,
 			&:focus {
-			color: hsl(var(--category-color-h), var(--category-color-s), 95%);
+				color: hsl(var(--category-color-h), var(--category-color-s), 95%) !important;
 			}
 		}
 		.category,

@@ -1,5 +1,5 @@
 const Utils = {
-	TERM_SELECTOR:     '.eqk',
+	TERM_SELECTOR: '.eqk',
 	/**
 		* Initialize Term Hover
 		* 
@@ -108,20 +108,10 @@ const Utils = {
 		}
 		return parsedData;
 	},
-
-	/**
-	 * Copy to clipboard
-	 * Simple function to clipboard from selector
-	 * @param {string} clipboard Query selector
-	 */
-	copyClipboard (clipboard) {
-		let selector = document.querySelector(clipboard);
-		selector.select();
-		selector.setSelectionRange(0, 99999);
-		document.execCommand("copy");
-		alert('Copied to clipboard successfully');
-	},
 	
+	/**
+	 * Laguages utilities
+	 */
 	getLanguage() {
 		let language = 'en';
 		if(localStorage) language = localStorage.getItem(`equreka-settings-language`);
@@ -158,21 +148,7 @@ const Utils = {
 				root.classList.remove('theme-transition');
 			}, 350);
 		}
-	},
-
-	/**
-	 * Format Number
-	 * Format the number for better reading
-	 * Ex. 1000000 -> 1,000,000
-	 * @param {number} value Number to format
-	 * @returns 
-	 */
-	formatNumber (number) {
-		if(typeof number == 'string') return number;
-		if(!number) return false;
-		// Undefined to get browser default format depending on user locale
-		return number.toLocaleString(undefined, { minimumFractionDigits: 2 });
-	},
+	}
 }
 
 export default Utils;

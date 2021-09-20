@@ -14,11 +14,13 @@
 			<tbody>
 				<template v-for="item in data">
 					<tr :key="item.slug" :class="item.symbol" v-if="item">
-						<td class="math math-symbol-unit unit">
-							{{ item.symbol }}
+						<!-- Unit: Symbol -->
+						<td>
+							<EqurekaSymbol :data="item.symbol" />
 						</td>
-						<td class="unit name">
-							<NuxtLink :to="localePath(`${item.dir}/${item.slug}`)">
+						<!-- Unit: Name -->
+						<td>
+							<NuxtLink :to="localePath(item.path)">
 								{{ item.name }}
 							</NuxtLink>
 						</td>
@@ -30,7 +32,6 @@
 </template>
 
 <script>
-	import Utils from '~/utils';
 	export default {
 		props: {
 			data: {
@@ -59,11 +60,6 @@
 			type() {
 				return this.$route.params.type ? this.$route.params.type : false;
 			},
-		},
-		methods: {
-			formatNumber(number) {
-				return Utils.formatNumber(number);
-			}
-		},
+		}
 	}
 </script>

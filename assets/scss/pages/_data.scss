@@ -2,41 +2,10 @@
 main.data {
 	overflow: hidden;
 	@include rs('font-size', 0.9rem, 2vw, 1rem);
-	a {
+	a:not(.btn) {
 		color: var(--body-color);
 		&:hover {
 			color: var(--term-color, var(--category-color));
-		}
-	}
-	.card {
-		@include rs('margin-bottom', 1rem, 2vw, 1.5rem);
-	}
-	.card-mathjax {
-		position:        relative;
-		display:         flex;
-		align-items:     center;
-		justify-content: center;
-		flex:            1 1 100%;
-		order:           0;
-		mjx-container {
-			margin: 0;
-			&::after {
-				display: none;
-			}
-		}
-		.hover {
-			color: var(--term-color);
-		}
-		.card-body {
-			opacity: 0;
-		}
-		&.rendered {
-			.loader {
-				animation: loader-complete 0.35s $transition-speed-ease forwards;
-			}
-			.card-body {
-				animation: loaded 0.35s 0.35s $transition-speed-ease forwards;
-			}
 		}
 	}
 	.table {
