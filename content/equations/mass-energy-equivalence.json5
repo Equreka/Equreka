@@ -3,7 +3,7 @@
 	expression: 'E=mc^{2}',
 	expressionIntern: '\\var{E}=\\var{m}\\const{c}^{2}',
 	description: 'This formula states that the equivalent $energy$ $(\\var{E})$ can be calculated as the mass $(\\var{m})$ multiplied by the speed of light $(\\const{c})$ squared. Similarly, anything having energy exhibits a corresponding mass $(\\var{m})$ given by its energy $(\\var{E})$ divided by the speed of light squared $(\\const{c}^{2})$.\nBecause the speed of light is a very large number in everyday units, the formula implies that even an everyday object at rest with a modest amount of mass has a very large amount of energy intrinsically.',
-	category: 'physics',
+	categories: ['physics'],
 	units: [
 		'joule'
 	],

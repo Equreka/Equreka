@@ -1,8 +1,8 @@
 <template>
-	<button type="button" :title="$t('Report an error')" @click="reportPage">
+	<button type="button" :title="$t('actions.report.error')" @click="reportPage">
 		<i class="bi bi-flag" :class="icon && expanded ? `me-${expand}-3` : ''" v-if="icon"></i>
 		<span :class="expanded ? `d-none d-${expand}-inline expanded` : 'visually-hidden'">
-			{{ $t('Report an error') }}
+			{{ $t('actions.report.error') }}
 		</span>
 	</button>
 </template>

@@ -10,10 +10,10 @@
 					<div class="card card-category" v-for="category in categories" :key="category.slug" :class="category.slug">
 						<div class="card-body">
 							<h3 class="card-title">
-								{{ $t(category.name) }}
+								{{ $t(`categories.${category.slug}.title`) }}
 							</h3>
 							<p>
-								{{ $t(`page.categories.${category.slug}.lead`) }}
+								{{ $t(`categories.${category.slug}.lead`) }}
 							</p>
 							<NuxtLink class="stretched-link" :to="localePath(`${category.dir}/${category.slug}/`)">
 								<span class="visually-hidden">Go to category</span>

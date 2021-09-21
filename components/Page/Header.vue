@@ -4,10 +4,10 @@
 			<div class="wrapper">
 				<div class="info">
 					<span class="category" v-if="!type">
-						{{ $t('Category') }}
+						{{ $t('abbreviations.category.cap') }}
 					</span>
 					<span class="category" v-if="type && !data">
-						{{ $t('Type') }}
+						{{ $t('abbreviations.type.cap') }}
 					</span>
 					<template v-if="data">
 						<NuxtLink class="type" :to="localePath(`/${type}`)">

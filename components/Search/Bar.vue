@@ -81,11 +81,11 @@
 			}
 		},
 		methods: {
-			clear(event) {
+			clear() {
 				setTimeout(() => {
 					this.query = '';
 					this.results = false;
-				}, 150);
+				}, 250);
 			},
 			async search(query) {
 				// Validate query
@@ -93,27 +93,28 @@
 					this.results = false;
 					return;
 				}
+				const limit = this.limit;
 				// Get data with nuxt content is a breeze
-				let search = await this.$content('/', { deep: true })
-					// Don't include unnecessary data
-					.only(['slug', 'name', 'category', 'dir'])
-					// Ignore categories
+				let search = await this.$content({ deep: true })
 					.where({ dir: { $ne: '/categories' }})
+					.only(['slug', 'name', 'categories', 'dir', 'path'])
 					.search(query)
 					.sortBy('name', 'asc')
-					.limit(this.limit)
+					.limit(limit)
 					.fetch();
+				console.log(search);
 				// Organize by key
-				let group = search.reduce(function (array, item) {
-									array[item.dir.substring(1)] = array[item.dir.substring(1)] || [];
-									array[item.dir.substring(1)].push(item);
-									return array;
-								}, Object.create(null));
+				let group = search.reduce((array, item) => {
+					array[item.dir.substring(1)] = array[item.dir.substring(1)] || [];
+					array[item.dir.substring(1)].push(item);
+					return array;
+				}, Object.create(null));
 				// If object is not empty return
 				if(!Object.keys(group).length > 0) {
 					this.results = false;
 					return;
 				}
+				console.log(group)
 				// If we have results then...
 				this.results = true;
 				// This.data = group; Do the order in reverse, don't know why...

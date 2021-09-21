@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="card">
 				<div class="card-body">
-					<h2 class="page-title">{{ $t('About') }}</h2>
+					<h2 class="page-title">{{ $t('about.title') }}</h2>
 					<p class="lead">Equreka is a 100% free and ad-free, open-source platform for everyone.</p>
 					<p>Hopefully you will find this usefull and will inspire to learn more, create and contribute to human-kind.</p>
 					<p class="mb-5">You can contribute in many ways, from sharing to contributing directly to the project in our Github.</p>

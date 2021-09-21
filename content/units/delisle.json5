@@ -3,7 +3,7 @@
 	symbol: '°De',
 	unitOf: 'thermodynamic-temperature',
 	type: null,
-	category: 'physics',
+	categories: ['physics'],
 	description: 'The Delisle scale is a way of measuring temperature conceived in 1732 by the French astronomer Joseph-Nicolas Delisle (1688-1768). Its units are degrees Delisle, they are represented by the symbol $°D$ and each one is equal to −2/3 of a degree Celsius or Kelvin. The zero of the scale is at the boiling temperature of water and measures 150 $°D$ for the melting of water, it increases as the other scales descend until it reaches absolute zero at 559.725 $°D$.',
 	conversions: [
 		{

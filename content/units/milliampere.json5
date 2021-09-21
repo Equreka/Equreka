@@ -3,7 +3,7 @@
 	symbol: 'mA',
 	unitOf: 'electric-current',
 	type: 'si',
-	category: 'physics',
+	categories: ['physics'],
 	description: 'The milliampere is a unit used to measure electric current.',
 	conversions: [
 		{

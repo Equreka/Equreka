@@ -1,8 +1,7 @@
 {
 	name: 'LaTeX test',
 	expression: '\\begin{pmatrix}\\alpha & \\cdots & \\beta^{*}\\\\ \\vdots & \\ddots & \\vdots \\\\ \\gamma^{*} & \\cdots & \\delta \\end{pmatrix}',
-	expressionIntern: null,
-	category: 'universal',
+	categories: ['universal'],
 	description: null,
 	units: [
 

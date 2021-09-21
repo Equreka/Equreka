@@ -3,7 +3,7 @@
 	symbol: '°N',
 	unitOf: 'thermodynamic-temperature',
 	type: null,
-	category: 'physics',
+	categories: ['physics'],
 	description: 'The Newton scale is a temperature scale devised by Isaac Newton in 1701. He called his device a "thermometer", but he did not use the term "temperature", speaking of "degrees of heat" (gradus caloris) instead. Newton\'s publication represents the first attempt to introduce an objective way of measuring (what would come to be called) temperature (alongside the Rømer scale published at nearly the same time). Newton likely developed his scale for practical use rather than for a theoretical interest in thermodynamics; he had been appointed Warden of the Mint in 1695, and Master of the Mint in 1699, and his interest in the melting points of metals are likely inspired by his duties in connection with the Royal Mint.',
 	conversions: [
 		{

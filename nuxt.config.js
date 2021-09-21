@@ -104,7 +104,7 @@ export default {
 	// @nuxtjs/content https://go.nuxtjs.dev/config-content
 	content: {
 		apiPrefix: 'api',
-		fullTextSearchFields: ['title', 'name', 'slug', 'description'],
+		fullTextSearchFields: ['title', 'name', 'slug', 'unit', 'unitOf', 'conversions.unit', 'description'],
 		nestedProperties: [
 			'category.slug',
 			'constants.slug',
@@ -113,6 +113,7 @@ export default {
 			'units.slug',
 			'values.unit.slug',
 			'conversions.unit.slug',
+			'unitOf.slug',
 		],
 	},
 	// @nuxtjs/color-mode https://color-mode.nuxtjs.org/

@@ -1,9 +1,9 @@
 // Equreka (Logo)
 .equreka {
-  display: block;
-  height: auto;
-  transition: #{$transition-all-ease}, filter 1s ease-out;
-  &:hover {
-    filter: hue-rotate(1turn);
-  }
+	display: block;
+	height: auto;
+	transition: #{$transition-all-ease}, filter 1s ease-out;
+	&:hover {
+		filter: hue-rotate(1turn);
+	}
 }

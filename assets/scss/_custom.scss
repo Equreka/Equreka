@@ -28,18 +28,6 @@ p {
 	}
 }
 
-.page-svg {
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	display: block;
-	max-width: 100%;
-	transform: translate(-50%, -50%);
-	pointer-events: none;
-	user-select: none;
-	opacity: 0.25;
-}
-
 .main-header {
 	display: none;
 	@include media-breakpoint-up($navbar-expand) {

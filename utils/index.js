@@ -78,6 +78,7 @@ const Utils = {
 	 * @param {string} data Expression / Description
 	 */
 	parserLaTeX (data) {
+		if(!data) return;
 		const classPrefix = Utils.TERM_SELECTOR.substring(1);
 		const regex = /\\(var|const|mag)\{(.*?)\}/g;
 		const parsedData = data.replace(regex, function(global, type, symbol) {
@@ -98,6 +99,7 @@ const Utils = {
 	 * @param {boolean} removeSigns removes $ that activates MathJax
 	 */
 	parserCleaner (data, removeSigns = false) {
+		if(!data) return;
 		const regex = /\\(var|const)\{(.*?)\}/g;
 		let parsedData;
 		parsedData = data.replace(regex, function(global, type, symbol) {

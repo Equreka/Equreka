@@ -8,21 +8,6 @@
 					<NuxtLink class="logo" :to="localePath('/')">
 						<Logo/>
 					</NuxtLink>
-					<!-- Dropdown: Categories -->
-					<div class="dropdown dropdown-categories btn-group">
-						<button class="btn btn-link dropdown-toggle dropdown-toggle-no-caret" type="button" id="dropdown-categories" data-bs-toggle="dropdown" aria-expanded="false" :title="$t('Menu')">
-							<span class="visually-hidden">{{ $t('Menu') }}</span>
-							<i class="bi bi-columns-gap"></i>
-						</button>
-						<ul class="dropdown-menu" aria-labelledby="dropdown-categories">
-							<li><h6 class="dropdown-header">{{ $t('Categories') }}</h6></li>
-							<li v-for="category in categories" :key="category">
-								<NuxtLink class="dropdown-item" :to="localePath(`/${category}/`)">
-									{{ $t(`abbreviations.${category}.cap`) }}
-								</NuxtLink>
-							</li>
-						</ul>
-					</div>
 				</div>
 				<!-- Center -->
 				<div class="center">
@@ -30,40 +15,42 @@
 				</div>
 				<!-- Right -->
 				<div class="right">
-					<!-- Button: Favorites -->
-					<NuxtLink class="btn" :to="localePath('/favorites/')" :title="$t('favorites.title')">
-						<span class="visually-hidden">{{ $t('Favorites') }}</span>
-						<i class="bi bi-heart"></i>
+					<!-- Button: Calculator -->
+					<NuxtLink class="btn" :to="localePath('/calculator/')" :title="$t('calculator.title')">
+						<span class="visually-hidden">{{ $t('calculator.title') }}</span>
+						<i class="bi bi-plus-square"></i>
 					</NuxtLink>
 					<!-- Button: Favorites -->
-					<NuxtLink class="btn" :to="localePath('/calculator/')" :title="$t('calculator.title')">
-						<span class="visually-hidden">{{ $t('Favorites') }}</span>
-						<i class="bi bi-plus-square"></i>
+					<NuxtLink class="btn" :to="localePath('/favorites/')" :title="$t('favorites.title')">
+						<span class="visually-hidden">{{ $t('favorites.title') }}</span>
+						<i class="bi bi-heart"></i>
 					</NuxtLink>
 					<!-- Dropdown: Theme -->
 					<div class="dropdown dropdown-theme btn-group">
-						<button class="btn btn-link dropdown-toggle dropdown-toggle-no-caret" type="button" id="dropdown-theme" data-bs-toggle="dropdown" aria-expanded="false" :title="$t('Change theme')">
-							<span class="visually-hidden">{{ $t('Change theme') }}</span>
+						<button class="btn btn-link dropdown-toggle dropdown-toggle-no-caret" type="button" id="dropdown-theme" data-bs-toggle="dropdown" aria-expanded="false" :title="$t('settings.theme.change')">
+							<span class="visually-hidden">{{ $t('settings.theme.change') }}</span>
 							<i class="bi bi-moon theme-icon"></i>
 						</button>
 						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-theme">
-							<li><h6 class="dropdown-header">{{ $t('Theme') }}</h6></li>
+							<li>
+								<h6 class="dropdown-header">{{ $t('settings.theme.choose') }}</h6>
+							</li>
 							<li v-for="(option, code) in themes" :key="code">
 								<button class="dropdown-item" @click="$colorMode.preference = code, themeTransition(code, $colorMode.value)">
 									<i class="icon bi" :class="`bi-${code}`"></i>
-									{{ $t(option) }}
+									{{ $t(`settings.theme.options.${code}`) }}
 								</button>
 							</li>
 						</ul>
 					</div>
 					<!-- Dropdown: Language -->
 					<div class="dropdown dropdown-language btn-group">
-						<button class="btn btn-link dropdown-toggle dropdown-toggle-no-caret" type="button" id="dropdown-language" data-bs-toggle="dropdown" aria-expanded="false" :title="$t('Change language')">
-							<span class="visually-hidden">{{ $t('Change language') }}</span>
+						<button class="btn btn-link dropdown-toggle dropdown-toggle-no-caret" type="button" id="dropdown-language" data-bs-toggle="dropdown" aria-expanded="false" :title="$t('settings.language.change')">
+							<span class="visually-hidden">{{ $t('settings.language.change') }}</span>
 							<i class="bi bi-globe"></i>
 						</button>
 						<ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdown-language">
-							<li><h6 class="dropdown-header">{{ $t('Language') }}</h6></li>
+							<li><h6 class="dropdown-header">{{ $t('settings.language.choose') }}</h6></li>
 							<li v-for="locale in availableLocales" :key="locale.code">
 								<button class="dropdown-item" @click="$i18n.setLocale(locale.code);setLanguage(locale.code);" :to="switchLocalePath(locale.code)">
 									{{ locale.name }}

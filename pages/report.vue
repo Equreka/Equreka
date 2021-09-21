@@ -1,8 +1,8 @@
 <template>
 	<main role="main" class="report">
 		<div class="container">
-			<h2 class="page-title">{{ $t('page.report.title') }}</h2>
-			<p class="lead mb-4">{{ $t('page.report.lead') }}</p>
+			<h2 class="page-title">{{ $t('report.title') }}</h2>
+			<p class="lead mb-4">{{ $t('report.lead') }}</p>
 			<div class="card">
 				<div class="card-body">
 					<form method="post" @submit.prevent="submitForm">
@@ -11,18 +11,18 @@
 								<h4>{{ data.name }}</h4>
 							</div>
 							<div class="col-12 col-md mb-3" v-for="value, name in query" :key="name" :id="name">
-								<label class="form-label" :for="'input-' + name">{{ $t(`page.report.label-${name}`) }}</label>
+								<label class="form-label" :for="'input-' + name">{{ $t(`report.label-${name}`) }}</label>
 								<input class="form-control disabled" type="text" :id="'input-' + name" :name="name" :value="value" disabled/>
 							</div>
 						</div>
 						<div class="mb-4">
 							<label class="form-label" for="textarea-message">
-								{{ $t('page.report.label-reason') }}
+								{{ $t('report.label-reason') }}
 							</label>
-							<textarea id="textarea-message" class="form-control" rows="5" :placeholder="$t('page.report.input-placeholder-reason')"></textarea>
+							<textarea id="textarea-message" class="form-control" rows="5" :placeholder="$t('report.input-placeholder-reason')"></textarea>
 						</div>
 						<button type="submit" class="btn btn-primary px-5">
-							{{ $t('page.report.button-submit') }}
+							{{ $t('report.button-submit') }}
 						</button>
 					</form>
 				</div>

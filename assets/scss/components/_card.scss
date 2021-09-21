@@ -17,35 +17,6 @@
 	}
 }
 
-// Category
-.card-category {
-	background: var(--category-color);
-	color: hsl(var(--category-color-h), 100%, 95%);
-	@include rs('border-radius', 1rem, 1.5vw, 1.15rem);
-	.card-body {
-		@include rs('padding-top',  0.95rem, 2vw, 1.25rem);
-		@include rs('padding-bottom',  0.95rem, 2vw, 1.25rem);
-	}
-	.card-title {
-		color: hsl(var(--category-color-h), 100%, 95%);
-		@include rs('font-size', 1.25rem, 2vw, 1.4rem);
-	}
-	p {
-		font-weight: 500;
-		font-family: $headings-font-family;
-		display: -moz-box;
-		display: -webkit-box;
-		-moz-line-clamp: 3;
-		-webkit-line-clamp: 3;
-		-moz-box-orient: vertical;
-		-webkit-box-orient: vertical;
-		overflow: hidden;
-		margin: 0;
-		text-overflow: ellipsis;
-		@include rs('font-size', 1rem, 2vw, 1.1rem);
-	}
-}
-
 // Expression
 .card-expression {
 	position: relative;

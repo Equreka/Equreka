@@ -3,7 +3,7 @@
 	symbol: 'min',
 	unitOf: 'time',
 	type: 'si',
-	category: 'physics',
+	categories: ['physics'],
 	description: 'The minute is a unit of time usually equal to $1/60$. Historically, the word "minute" comes from the Latin <em>pars minuta prima</em>, meaning "first small part". This division of the hour can be further refined with a "second small part" (Latin: <em>pars minuta secunda</em>), and this is where the word "second" comes from. ',
 	conversions: [
 		{

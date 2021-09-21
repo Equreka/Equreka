@@ -7,13 +7,13 @@
 							<Abbr string="symbol"/>
 						</th>
 						<th scope="col" class="name">
-							{{ $t('Name') }}
+							{{ $t('table.name') }}
 						</th>
 						<th scope="col" class="value">
-							{{ $t('Value') }}
+							{{ $t('table.value') }}
 						</th>
 						<th scope="col" class="unit" colspan="2">
-							{{ $t('Unit') }}
+							{{ $t('table.unit') }}
 						</th>
 					</tr>
 				</thead>

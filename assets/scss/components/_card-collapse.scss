@@ -3,8 +3,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		margin-bottom: 0.5rem;
-		.section-title {
+		.card-title {
 			margin: 0;
 			font-weight: 600;
 			@include rs('font-size', 1.15rem, 2vw, 1.65rem);

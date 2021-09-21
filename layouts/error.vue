@@ -1,19 +1,16 @@
 <template>
 	<main role="main" class="error">
 		<div class="container">
-			<!-- Logo -->
 			<NuxtLink class="brand" :to="localePath('/')">
 				<Logo height="100px"/>
 			</NuxtLink>
-			<!-- Title -->
-			<h1 class="mb-5">{{ $t('page.error.title') }}</h1>
-			<h3>{{ errorMessage }}</h3>
-			<p class="lead mb-5">
-				{{ $t('page.error.lead') }}
+			<h1 class="fs-4 mb-3">{{ $t('error.title') }}</h1>
+			<h2 class="text-highlight fw-bolder">{{ errorMessage }}</h2>
+			<p class="lead text-muted mb-5">
+				{{ $t('error.lead') }}
 			</p>
-			<!-- Link -->
-			<NuxtLink class="btn btn-primary" :to="localePath('/')">
-				{{ $t('page.error.link') }}
+			<NuxtLink class="btn btn-primary btn-sm py-2 px-4 rounded-pill" :to="localePath('/')">
+				{{ $t('error.link') }}
 			</NuxtLink>
 		</div>
 	</main>
@@ -30,12 +27,12 @@
 		},
 		computed: {
 			errorMessage() {
-				let errorMessage = this.$t('page.error.unknown');
-				if (this.error.statusCode === 404) {
-					errorMessage = this.$t('page.error.404')
-				}
+				let errorMessage = this.$t('error.general');
 				if (this.error.message) {
 					errorMessage = this.error.message
+				}
+				if (this.error.statusCode == 404) {
+					errorMessage = this.$t('error.404')
 				}
 				return errorMessage;
 			}

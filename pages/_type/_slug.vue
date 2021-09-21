@@ -12,11 +12,8 @@
 							$$
 							<!-- Equations || Formulas -->
 							<template v-if="(type === 'equations' || type == 'formulas') && type != 'units'">
-								<template v-if="!data.expressionIntern">
+								<template v-if="data.expression">
 									{{ data.expression }}
-								</template>
-								<template v-else>
-									{{ parserLaTeX(data.expressionIntern) }}
 								</template>
 							</template>
 							<!-- Units || Variables -->
@@ -31,7 +28,6 @@
 								<EqurekaValue :data="data.values[0].value" format="TeX" />
 								<EqurekaSymbol :data="data.values[0].unit.symbol" :sup="data.values[0].sup" />
 							</template>
-							
 						</div>
 					</section>
 				</div>
@@ -39,7 +35,7 @@
 				<div class="col-12 col-lg-6" v-if="data.units && data.units.length > 0 && (type === 'variables' || type === 'magnitudes')">
 					<section class="card card-units">
 						<div class="card-body">
-							<h3 class="card-title">{{ $t('abbreviations.units.cap') }}</h3>
+							<h3 class="card-title">{{ $t('section.units.title') }}</h3>
 							<TableUnits :data="data.units"/>
 						</div>
 					</section>
@@ -48,7 +44,7 @@
 				<div class="col-12 col-lg-6" v-if="data.variables && data.variables.length > 0">
 					<section class="card card-variables">
 						<div class="card-body">
-							<h3 class="card-title">{{ $t('abbreviations.variables.cap') }}</h3>
+							<h3 class="card-title">{{ $t('section.variables.title') }}</h3>
 							<TableVariables :data="data.variables"/>
 						</div>
 					</section>
@@ -57,7 +53,7 @@
 				<div class="col-12 col-lg-6" v-if="data.magnitudes && data.magnitudes.length > 0">
 					<section class="card card-magnitudes">
 						<div class="card-body">
-							<h3 class="card-title">{{ $t('abbreviations.magnitudes.cap') }}</h3>
+							<h3 class="card-title">{{ $t('section.magnitudes.title') }}</h3>
 							<TableVariables :data="data.magnitudes"/>
 						</div>
 					</section>
@@ -66,7 +62,7 @@
 				<div class="col-12 col-lg-6" v-if="data.constants && data.constants.length > 0">
 					<section class="card card-constants">
 						<div class="card-body">
-							<h3 class="card-title">{{ $t('abbreviations.constants.cap') }}</h3>
+							<h3 class="card-title">{{ $t('section.constants.title') }}</h3>
 							<TableConstants :data="data.constants"/>
 						</div>
 					</section>
@@ -75,7 +71,7 @@
 				<div class="col-12 col-lg-6" v-if="data.values && showTableValuesExact">
 					<section class="card card-values card-values-exact">
 						<div class="card-body">
-							<h3 class="card-title">{{ $t('Approximate values') }}</h3>
+							<h3 class="card-title">{{ $t('section.values.approximate.title') }}</h3>
 							<TableValues :data="data.values" />
 						</div>
 					</section>
@@ -84,7 +80,7 @@
 				<div class="col-12 col-lg-6" v-if="data.values && showTableValuesAprox">
 					<section class="card card-values card-values-aprox">
 						<div class="card-body">
-							<h3 class="card-title">{{ $t('Exact values') }}</h3>
+							<h3 class="card-title">{{ $t('section.values.exact.title') }}</h3>
 							<TableValues class="col" :data="data.values" exact/>
 						</div>
 					</section>
@@ -98,12 +94,22 @@
 						</div>
 					</section>
 				</div>
-				<!-- Description -->
-				<div class="col-12 col-lg-12" v-if="data.description">
+				<!-- Información -->
+				<div class="col-12 col-lg-12">
+					<section class="card card-information" v-if="data.description">
+						<div class="card-body">
+							<h3 class="card-title">{{ $t('section.information.title') }}</h3>
+							<p v-if="data.unitOf"><span class="fw-bolder">Unit of:</span> {{ data.unitOf.name }}</p>
+							<h4 class="card-title">{{ $t('section.information.description') }}</h4>
+							<p v-html="parserLaTeX(data.description)"/>
+						</div>
+					</section>
+				</div>
+				<!-- Relations -->
+				<div class="col-12 col-lg-12" v-if="data.relations">
 					<section class="card card-description">
 						<div class="card-body">
-							<h3 class="card-title">{{ $t('Description') }}</h3>
-							<p v-html="parserLaTeX(data.description)" />
+							<h3 class="card-title">{{ $t('section.relations.title') }}</h3>
 						</div>
 					</section>
 				</div>
@@ -111,7 +117,7 @@
 				<div class="col-12 col-lg-12" v-if="data.expression || data.symbol">
 					<section class="card card-code">
 						<div class="card-body">
-							<h3 class="card-title">{{ $t('Code') }}</h3>
+							<h3 class="card-title">{{ $t('section.code.title') }}</h3>
 							<div class="input-group">
 								<input class="form-control" :id="`copy-${slug}`" :value="data.expression || data.symbol" />
 								<ActionsCopy class="btn btn-dark rounded-end" :target="`#copy-${slug}`" expanded/>
@@ -123,7 +129,7 @@
 				<div class="col-12 col-lg-12" v-if="data.references && data.references.length > 0">
 					<section class="card card-references">
 						<div class="card-body">
-							<h3 class="card-title">{{ $t('References') }}</h3>
+							<h3 class="card-title">{{ $t('section.references.title') }}</h3>
 							<ul class="mb-0">
 								<li v-for="item in data.references" :key="item.title">
 									<a :href="item.url" target="_blank" rel="noopneer nofollow noreferrer">{{ item.title }} - {{ item.site }}</a>

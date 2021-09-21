@@ -3,7 +3,7 @@
 		<PageHeader :title="category.name" :class="category.slug" />
 		<div class="container">
 			<template v-for="data, type in types">
-				<PageCollapse :key="type" :id="type" :class="type" :category="category.slug" :type="type" :data="data"  v-if="data.length > 0"/>
+				<CardCollapse class="card-type" :key="type" :data="data" :to="`/${type}`" :type="type"  v-if="data.length > 0"/>
 			</template>
 		</div>
 		<MathJax />
@@ -25,7 +25,7 @@
 				NoDB.types.map(async (type) => {
 					try {
 						types[type] = await $content(type)
-							.where({ category: params.slug })
+							.where({ categories: { $contains: params.slug } })
 							.sortBy(type == 'units' ? 'unitOf' : 'name')
 							.fetch()
 							.catch((e) => {

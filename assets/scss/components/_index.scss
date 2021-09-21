@@ -14,24 +14,25 @@
 @import "scroll-bar";
 @import "search-bar";
 
-// UI
+// Page
 @import "page-header";
-@import "page-collapse";
+@import "page-svg";
 @import "nuxt-progress";
-@import "abbr";
-@import "details";
-@import "loader";
 
 // Math
 @import "math";
 @import "mathjax";
 
-// Bootstrap
+// General
+@import "abbr";
 @import "badge";
 @import "button";
 @import "card";
+@import "card-collapse";
+@import "details";
 @import "dropdown";
 @import "forms";
+@import "loader";
 @import "table";
 
 // Keyframes

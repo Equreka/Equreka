@@ -72,7 +72,7 @@
 							for (let i = 0; i < localStorage.length; i++) {
 								const slug = localStorage[i],
 										data = await $content(type, slug)
-									.only(['name', 'slug', 'category', 'supported', 'dir'])
+									.only(['name', 'slug', 'categories', 'supported', 'dir', 'path'])
 									.fetch();
 								favorites[type][i] = data;
 							}

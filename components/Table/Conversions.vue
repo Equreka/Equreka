@@ -4,7 +4,7 @@
 			<thead>
 				<tr>
 					<th scope="col" class="name">
-						{{ $t('Name') }}
+						{{ $t('table.name') }}
 					</th>
 					<th scope="col" class="conversion text-end">
 						<Abbr string="conversion"/>

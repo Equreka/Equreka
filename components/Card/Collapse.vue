@@ -4,12 +4,12 @@
 			<!-- Header -->
 			<div class="collapse-header" v-if="header">
 				<button class="btn btn-text btn-collapse" type="button" data-bs-toggle="collapse" :data-bs-target="`#collapse-${type}`" :aria-controls="`collapse-${type}`" aria-expanded="true">
-					<h2 class="section-title">
+					<h2 class="card-title">
 						{{ $t(`abbreviations.${type}.cap`) }}
 					</h2>
 				</button>
-				<NuxtLink class="btn btn-sm btn-go rounded-pill" :to="localePath(`/${type}`)">
-					<span>{{ $t('Go to section')}}</span>
+				<NuxtLink class="btn btn-sm btn-go rounded-pill" :to="localePath(to)">
+					<span>{{ $t('actions.view.by') + $t(`abbreviations.${type}.cap`)}}</span>
 					<i class="bi bi-arrow-right"></i>
 				</NuxtLink>
 			</div>
@@ -35,8 +35,9 @@
 				type: Array | Object | Boolean,
 				required: true
 			},
-			category: {
-				type: String
+			to: {
+				type: String,
+				required: true
 			},
 			type: {
 				type: String,

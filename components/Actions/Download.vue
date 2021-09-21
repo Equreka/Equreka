@@ -1,9 +1,9 @@
 
 <template>
-	<a :href="json" :download="`equreka.${data.category}.${type}.${data.slug}.json`" :title="$t('Download JSON')" v-if="json">
+	<a :href="json" :download="`equreka.${data.category}.${type}.${data.slug}.json`" :title="$t('actions.download.json')" v-if="json">
 		<i class="bi bi-download" :class="icon && expanded ? `me-${expand}-3` : ''" v-if="icon"></i>
 		<span :class="expanded ? `d-none d-${expand}-inline expanded` : 'visually-hidden'">
-			{{ $t('Download JSON') }}
+			{{ $t('actions.download.json') }}
 		</span>
 	</a>
 </template>

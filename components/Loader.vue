@@ -1,8 +1,7 @@
 <template>
 	<div class="loader">
-		<span class="visually-hidden">{{ $t('Loading') }}</span>
+		<span class="visually-hidden">{{ $t('section.loading') }}</span>
 		<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 500">
-			<title>{{ $t('Loading') }}</title>
 			<circle id="E" class="circle" fill="hsla(220, 10%, 50%, 0.35)" cx="570"   cy="250"   r="250"/>
 			<circle id="q" class="circle" fill="hsla(220, 10%, 50%, 0.35)" cx="150"   cy="350"   r="150"/>
 			<circle id="u" class="circle" fill="hsla(220, 10%, 50%, 0.35)" cx="92.5"  cy="92.5"  r="92.5"/>
