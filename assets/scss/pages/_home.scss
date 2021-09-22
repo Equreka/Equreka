@@ -1,6 +1,5 @@
 // Page Home (Index)
 main.home {
-
 	.search-bar-results {
 		position:   absolute;
 		margin-top: 0.5rem;
@@ -16,15 +15,17 @@ main.home {
 	}
 	// Category
 	.card-category {
-		background: var(--category-color);
-		color: hsl(var(--category-color-h), 100%, 95%);
+		background: var(--eqk-color);
+		color: hsl(var(--eqk-color-h), 100%, 95%);
+		box-shadow: 0 0.75rem 1.25rem -1rem var(--eqk-color);
+		transition: all 0.35s ease;
 		@include rs('border-radius', 1rem, 1.5vw, 1.15rem);
 		.card-body {
 			@include rs('padding-top',  0.95rem, 2vw, 1.25rem);
 			@include rs('padding-bottom',  0.95rem, 2vw, 1.25rem);
 		}
 		.card-title {
-			color: hsl(var(--category-color-h), 100%, 95%);
+			color: hsl(var(--eqk-color-h), 100%, 95%);
 			@include rs('font-size', 1.25rem, 2vw, 1.4rem);
 		}
 		p {
@@ -40,6 +41,11 @@ main.home {
 			margin: 0;
 			text-overflow: ellipsis;
 			@include rs('font-size', 1rem, 2vw, 1.1rem);
+		}
+		&:hover {
+			transform: scale(1.025);
+			color:  hsl(var(--eqk-color-h), 100%, 97%);
+			box-shadow: 0 1rem 1.75rem -1rem var(--eqk-color);
 		}
 	}
 

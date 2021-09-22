@@ -19,8 +19,8 @@
 					<tr :key="item.slug" :class="item.symbol" v-if="item">
 						<!-- Conversion: Unit: Name -->
 						<td>
-							<NuxtLink :to="localePath(item.unit.path)">
-								{{ item.unit.name }}
+							<NuxtLink :to="localePath(item.units.path)">
+								{{ item.units.name }}
 							</NuxtLink>
 						</td>
 						<!-- Conversion: Value -->
@@ -29,7 +29,7 @@
 						</td>
 						<!-- Conversion: Unit: Symbol -->
 						<td>
-							<EqurekaSymbol :data="item.unit.symbol" />
+							<EqurekaSymbol :data="item.units.symbol" />
 						</td>
 					</tr>
 				</template>

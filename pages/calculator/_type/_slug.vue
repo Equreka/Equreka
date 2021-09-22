@@ -11,15 +11,15 @@
 				<div class="card-body d-flex flex-column align-items-center justify-content-center">
 					<!--
 						<EqurekaSymbol :data="output.variable ? output.variable : ''"/>
-						<EqurekaValue :data="output.value ? output.value : 0" format="TeX" />
-						<EqurekaSymbol :data="output.unit ? output.unit : ''" />-->
+						<EqurekaValue :data="output.value ? output.value : 0" format="tex" />
+						<EqurekaSymbol :data="output.units ? output.units : ''" />-->
 					<!-- Calculator: Result -->
 					<transition name="fade">
 						<div id="calculator-result" class="calculator-result" v-if="output.value != null && !output.error">
 							<EqurekaSymbol :data="output.variable" format="html"/>
 							<span class="math math-symbol-equality">=</span>
 							<EqurekaValue :data="output.value"  format="html" />
-							<EqurekaSymbol :data="output.unit" format="html"/>
+							<EqurekaSymbol :data="output.units" format="html"/>
 						</div>
 					</transition>
 					<!-- Calculator: Message -->
@@ -133,7 +133,7 @@
 	const defaultOutput = {
 				value: null,
 				variable: null,
-				unit: null,
+				units: null,
 				error: {
 					type: null,
 					message: null
@@ -189,8 +189,8 @@
 			}
 		},
 		methods: {
-			parserLaTeX(data) {
-				return Utils.parserLaTeX(data);
+			parserTeX(data) {
+				return Utils.parserTeX(data);
 			},
 			reset() {
 				this.input = {};

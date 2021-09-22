@@ -1,32 +1,32 @@
 {
 	name: 'Fahrenheit',
 	symbol: '°F',
-	unitOf: 'thermodynamic-temperature',
+	unitOf: ['thermodynamic-temperature'],
 	type: null,
 	categories: ['physics'],
 	description: 'The Fahrenheit scale (/ˈfærənhaɪt/ or /ˈfɑːrənhaɪt/) is a temperature scale based on one proposed in 1724 by the physicist Daniel Gabriel Fahrenheit (1686–1736). It uses the degree Fahrenheit ($°F$) as the unit.',
 	conversions: [
 		{
 			value: 255.927777777778,
-			unit: 'kelvin'
+			units: 'kelvin'
 		}, {
 			value: -17.222222222222,
-			unit: 'celsius'
+			units: 'celsius'
 		}, {
 			value: -5.6833333333333,
-			unit: 'newton-degree'
+			units: 'newton-degree'
 		}, {
 			value: 460.67,
-			unit: 'rankine'
+			units: 'rankine'
 		}, {
 			value: -13.777777777778,
-			unit: 'reaumur'
+			units: 'reaumur'
 		}, {
 			value: 175.833333333333,
-			unit: 'delisle'
+			units: 'delisle'
 		}, {
 			value: -1.5416666666667,
-			unit: 'romer'
+			units: 'romer'
 		}
 	],
 }

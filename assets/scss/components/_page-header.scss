@@ -1,7 +1,8 @@
 // Page Header
 .page-header { 
 	margin-bottom: 1rem;
-	background: var(--category-color);
+	background: hsl(var(--eqk-color-h), var(--eqk-color-s), 40%);
+	box-shadow: 0 0rem 2rem -1rem var(--eqk-color);
 	@include rs('padding-top',    0.75rem, 2vw, 1.25rem);
 	@include rs('padding-bottom', 0.75rem, 2vw, 1.25rem);
 	@include rs('margin-bottom',  0.75rem, 2vw, 1.35rem);
@@ -19,7 +20,7 @@
 		a {
 			&:hover,
 			&:focus {
-				color: hsl(var(--category-color-h), var(--category-color-s), 95%) !important;
+				color: hsl(var(--eqk-color-h), var(--eqk-color-s), 97%) !important;
 			}
 		}
 		.category,
@@ -27,7 +28,7 @@
 			margin:         0;
 			font-weight:    600;
 			font-family:    $font-family-heading-sans-serif;
-			color:          hsl(var(--category-color-h), var(--category-color-s), 75%);
+			color:          hsl(var(--eqk-color-h), var(--eqk-color-s), 80%);
 			text-transform: uppercase;
 			letter-spacing: 1px;
 			@include rs('font-size', 0.75rem, 2vw, 1rem);
@@ -41,7 +42,7 @@
 		.divider {
 			margin:    0 0.15rem;
 			opacity:   0.75;
-			color:     hsl(var(--category-color-h), var(--category-color-s), 80%);
+			color:     hsl(var(--eqk-color-h), var(--eqk-color-s), 80%);
 			@include rs('font-size', 0.65rem, 2vw, 0.95rem);
 			@include media-breakpoint-up($navbar-expand) {
 				margin:  0 0.25rem;
@@ -49,7 +50,7 @@
 		}
 		.title {
 			margin:         0;
-			color:          hsl(var(--category-color-h), 100%, 90%);
+			color:          hsl(var(--eqk-color-h), 100%, 95%);
 			font-weight:    600;
 			font-family:    $font-family-heading-sans-serif;
 			letter-spacing: 1px;
@@ -62,33 +63,21 @@
 	.actions {
 		display: flex;
 		align-items: center;
-		margin-left: 1.5rem;
+		margin-left: 1.25rem;
 		.btn {
 			display:         flex;
 			align-items:     center;
 			justify-content: center;
 			border-radius:   99rem;
-			color:           hsl(var(--category-color-h), 100%, 85%);
+			color:           hsl(var(--eqk-color-h), 100%, 85%);
 			box-shadow:      none !important;
 			@include rs('padding', 0.5rem, 1vw, 0.75rem);
-			@include rs('font-size', 1rem, 1vw, 1.25rem);
+			@include rs('font-size', 1rem, 1vw, 1.35rem);
 			&:hover,
 			&:focus,
 			&[aria-expanded="true"] {
-				color: hsl(var(--category-color-h), 100%, 95%);
-				background:  hsl(var(--category-color-h), var(--category-color-s), calc(var(--category-color-l) + 5%));
-			}
-		}
-		// Dropdown
-		.dropdown-options {
-			.btn {
-				@include rs('font-size', 1.25rem, 2vw, 2rem);
-			}
-			.dropdown-menu {
-				min-width: 200px;
-				.bi {
-					margin-right: 0.5rem;
-				}
+				color: hsl(var(--eqk-color-h), 100%, 95%);
+				background:  hsl(var(--eqk-color-h), var(--eqk-color-s), calc(var(--eqk-color-l) + 5%));
 			}
 		}
 	}

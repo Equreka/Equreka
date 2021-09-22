@@ -1,32 +1,32 @@
 {
 	name: 'Kelvin',
 	symbol: 'K',
-	unitOf: 'thermodynamic-temperature',
+	unitOf: ['thermodynamic-temperature'],
 	type: 'si',
 	categories: ['physics'],
 	description: 'The kelvin is the base unit of temperature in the International System of Units (SI), having the unit symbol $K$. It is named after the Belfast-born Glasgow University engineer and physicist William Thomson, 1st Baron Kelvin (1824–1907).',
 	conversions: [
 		{
 			value: -272.15,
-			unit: 'celsius'
+			units: 'celsius'
 		}, {
 			value: -457.87,
-			unit: 'fahrenheit'
+			units: 'fahrenheit'
 		}, {
 			value: -89.8095,
-			unit: 'newton-degree'
+			units: 'newton-degree'
 		}, {
 			value: 1.8,
-			unit: 'rankine'
+			units: 'rankine'
 		}, {
 			value: -217.72,
-			unit: 'reaumur'
+			units: 'reaumur'
 		}, {
 			value: 558.225,
-			unit: 'delisle'
+			units: 'delisle'
 		}, {
 			value: -135.37875,
-			unit: 'romer'
+			units: 'romer'
 		}
 	],
 }

@@ -1,32 +1,32 @@
 {
 	name: 'Rømer',
 	symbol: '°Rø',
-	unitOf: 'thermodynamic-temperature',
+	unitOf: ['thermodynamic-temperature'],
 	type: null,
 	categories: ['physics'],
 	description: 'Rømer is a disused temperature scale that was proposed by the Danish astronomer Ole Christensen Rømer in 1701. On this scale, zero is initially the freezing temperature of the brine. The boiling point of water is 60°. Rømer saw that the freezing point of water was almost an eighth of this value (7.5 degrees), and used this value as another benchmark. The unit of measurement on this scale, the degree Rømer, is equal to 40/21 of a Kelvin (or one degree Celsius). The symbol for degree Rømer can sometimes be $R$ but to avoid confusion with Rankine ($R$) and degrees Réaumur ($°Ré$), the symbol $°Rø$ is used.',
 	conversions: [
 		{
 			value: 260.76904761905,
-			unit: 'kelvin'
+			units: 'kelvin'
 		}, {
 			value: -12.380952380952,
-			unit: 'celsius'
+			units: 'celsius'
 		}, {
 			value: 9.7142857142858,
-			unit: 'fahrenheit'
+			units: 'fahrenheit'
 		}, {
 			value: -4.0857142857143,
-			unit: 'newton-degree'
+			units: 'newton-degree'
 		}, {
 			value: 469.38428571429,
-			unit: 'rankine'
+			units: 'rankine'
 		}, {
 			value: -9.9047619047601,
-			unit: 'reaumur'
+			units: 'reaumur'
 		}, {
 			value: 168.57142857143,
-			unit: 'delisle'
+			units: 'delisle'
 		}
 	],
 }

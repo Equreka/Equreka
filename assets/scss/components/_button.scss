@@ -50,8 +50,8 @@
 }
 
 .btn-category {
-  background: var(--category-color);
+  background: var(--eqk-color);
   &:focus {
-    box-shadow: 0 0 0 0.25rem hsla(var(--category-color-hsl), 0.25);
+    box-shadow: 0 0 0 0.25rem hsla(var(--eqk-color-hsl), 0.25);
   }
 }

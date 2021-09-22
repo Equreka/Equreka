@@ -102,7 +102,6 @@
 					.sortBy('name', 'asc')
 					.limit(limit)
 					.fetch();
-				console.log(search);
 				// Organize by key
 				let group = search.reduce((array, item) => {
 					array[item.dir.substring(1)] = array[item.dir.substring(1)] || [];
@@ -114,7 +113,6 @@
 					this.results = false;
 					return;
 				}
-				console.log(group)
 				// If we have results then...
 				this.results = true;
 				// This.data = group; Do the order in reverse, don't know why...

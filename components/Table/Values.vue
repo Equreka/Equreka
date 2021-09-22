@@ -23,12 +23,12 @@
 						</td>
 						<!-- Constant: Unit: Symbol -->
 						<td>
-							<EqurekaSymbol :data="item.unit.symbol" />
+							<EqurekaSymbol :data="item.units.symbol" />
 						</td>
 						<!-- Constant: Unit: Name -->
 						<td>
-							<NuxtLink :to="localePath(item.unit.path)">
-								{{ item.unit.name }}
+							<NuxtLink :to="localePath(item.units.path)">
+								{{ item.units.name }}
 							</NuxtLink>
 						</td>
 					</tr>

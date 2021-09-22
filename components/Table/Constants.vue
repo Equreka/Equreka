@@ -19,7 +19,7 @@
 				</thead>
 				<tbody>
 					<template v-for="item in data">
-						<tr :key="item.slug" :class="`eqk constant ${item.symbol}`" v-if="item && item.symbol">
+						<tr :class="`equreka-term equreka-constant equreka-${item.symbol}`" :key="item.slug" v-if="item && item.symbol">
 							<!-- Constant Symbol -->
 							<td>
 								<EqurekaSymbol :data="item.symbol" />

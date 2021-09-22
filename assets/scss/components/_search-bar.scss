@@ -114,14 +114,14 @@
 
 			&:hover,
 			&:focus {      
-			background: hsla(var(--category-color-h), 85%, 50%, 0.2);
+			background: hsla(var(--eqk-color-h), 85%, 50%, 0.2);
 			color:      var(--body-color-highlight);
 			a {
-				color: hsl(var(--category-color-h), 100%, 90%) !important
+				color: hsl(var(--eqk-color-h), 100%, 90%) !important
 			}
 			}
 			&:active {
-			background: hsla(var(--category-color-h), 85%, 50%, 0.5);
+			background: hsla(var(--eqk-color-h), 85%, 50%, 0.5);
 			}
 		}
 	}

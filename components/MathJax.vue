@@ -59,10 +59,20 @@
 				return config;
 			}
 		},
-		mounted() {
-			if(window.MathJax) {
-				window.MathJax = this.Config;
+		watch: {
+			key() {
+				this.update();
 			}
+		},
+		methods: {
+			render() {
+				if(window.MathJax) {
+					window.MathJax = this.Config;
+				}
+			}
+		},
+		created() {
+			this.render();
 		}
 	}
 </script>

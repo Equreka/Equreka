@@ -16,7 +16,7 @@
 			</thead>
 			<tbody>
 				<template v-for="item in data">
-					<tr class="eqk variable" :key="item.slug" :class="item.symbol" v-if="item">
+					<tr :class="`equreka-term equreka-variable equreka-${item.symbol}`" :key="item.slug" v-if="item && item.slug">
 						<!-- Magnitude/Variable: Symbol -->
 						<td>
 							<EqurekaSymbol :data="item.symbol" />

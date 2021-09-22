@@ -1,70 +1,71 @@
 .app-menu {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  padding: 0;
-  z-index: 999;
-  overflow: hidden;
-  margin: $app-nav-margin;
-  max-height: $app-nav-max-height;
-  border-radius: $app-nav-border-radius;
-  @include acrylic-bg();
-  .navbar {
-    padding: 0;
-    display: flex;
-    a {
-      position: relative;
-      overflow: hidden;
-      margin: 0;
-      height: $app-nav-height;
-      max-height: $app-nav-max-height;
-      flex: 1 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 0;
-      font-size: 1.5rem;
-      color: var(--body-color);
-      outline: 0;
-      box-shadow: none;
-      .bi {
-        transform: rotate(0deg);
-        transition: transform 0.35s $transition-speed-ease;
-      }
-      &::after {
-        opacity: 0;
-        content: "";
-        display: block;
-        height: 8px;
-        width: 8px;
-        position: absolute;
-        bottom: 5px;
-        left: 50%;
-        background: var(--body-color-highlight);
-        transform: translate(-50%, 50%);
-        border-radius: 999rem;
-        transition: $transition-all-ease;
-      }
-      // Active
-      &.nuxt-link-active:not(.home),
-      &.nuxt-link-exact-active {
-        color: var(--app-nav-color, var(--body-color-highlight));
-        .bi {
-          transform: rotate(360deg);
-        }
-        &::after {
-          opacity: 1;
-          background: var(--app-nav-color, var(--body-color-highlight));
-          transform: translate(-50%, 0%);
-        }
-      }
-      // Colors
-      @each $name, $color in $app-menu {
-        &.#{$name} {
-          --app-nav-color: var(--bs-#{$color});
-        }
-      }
-    }
-  }
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	padding: 0;
+	z-index: 999;
+	overflow: hidden;
+	margin: $app-nav-margin;
+	max-height: $app-nav-max-height;
+	border-radius: $app-nav-border-radius;
+	@include acrylic-bg();
+	.navbar {
+		padding: 0;
+		display: flex;
+		a {
+			position: relative;
+			overflow: hidden;
+			margin: 0;
+			height: $app-nav-height;
+			max-height: $app-nav-max-height;
+			flex: 1 1;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			border-radius: 0;
+			font-size: 1.5rem;
+			color: var(--body-color);
+			outline: 0;
+			box-shadow: none;
+			.bi {
+				fill: currentColor;
+				transform: rotate(0deg);
+				transition: transform 0.35s $transition-speed-ease;
+			}
+			&::after {
+				opacity: 0;
+				content: "";
+				display: block;
+				height: 8px;
+				width: 8px;
+				position: absolute;
+				bottom: 5px;
+				left: 50%;
+				background: var(--body-color-highlight);
+				transform: translate(-50%, 50%);
+				border-radius: 999rem;
+				transition: $transition-all-ease;
+			}
+			// Active
+			&.nuxt-link-active:not(.home),
+			&.nuxt-link-exact-active {
+				color: var(--app-nav-color, var(--body-color-highlight));
+				.bi {
+					transform: rotate(360deg);
+				}
+				&::after {
+					opacity: 1;
+					background: var(--app-nav-color, var(--body-color-highlight));
+					transform: translate(-50%, 0%);
+				}
+			}
+			// Colors
+			@each $name, $color in $app-menu {
+				&.#{$name} {
+					--app-nav-color: var(--bs-#{$color});
+				}
+			}
+		}
+	}
 }

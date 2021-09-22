@@ -1,19 +1,19 @@
 <template>
 	<main role="main" class="data">
 		<PageHeader :title="data.name" :data="data" />
-		<div class="container">
+		<div class="container" :class="type">
 			<!-- Terms -->
 			<div class="row">
 				<!-- Expression -->
 				<div class="col-12" v-if="data.expression || data.symbol">
-					<section class="card card-expression card-mathjax" :class="(type === 'equations' || type == 'formulas') ? '' : 'card-symbol'">
+					<section class="card card-expression card-mathjax" ref="mathjax" :class="(type === 'equations' || type == 'formulas') ? '' : 'card-symbol'">
 						<Loader />
 						<div class="card-body">
 							$$
 							<!-- Equations || Formulas -->
 							<template v-if="(type === 'equations' || type == 'formulas') && type != 'units'">
-								<template v-if="data.expression">
-									{{ data.expression }}
+								<template v-if="data.expressionIntern || data.expression">
+									{{ expression || data.expression }}
 								</template>
 							</template>
 							<!-- Units || Variables -->
@@ -25,14 +25,14 @@
 							<template v-if="type === 'constants'">
 								<EqurekaSymbol :data="data.symbol" />
 								<span class="math math-symbol-equality">=</span>
-								<EqurekaValue :data="data.values[0].value" format="TeX" />
-								<EqurekaSymbol :data="data.values[0].unit.symbol" :sup="data.values[0].sup" />
+								<EqurekaValue :data="data.values[0].value" format="tex" />
+								<EqurekaSymbol :data="data.values[0].units.symbol" :sup="data.values[0].sup" />
 							</template>
 						</div>
 					</section>
 				</div>
 				<!-- Table - Units -->
-				<div class="col-12 col-lg-6" v-if="data.units && data.units.length > 0 && (type === 'variables' || type === 'magnitudes')">
+				<div class="col-12 col-lg" v-if="data.units && data.units.length > 0 && (type === 'variables' || type === 'magnitudes' || type === 'units')">
 					<section class="card card-units">
 						<div class="card-body">
 							<h3 class="card-title">{{ $t('section.units.title') }}</h3>
@@ -68,7 +68,7 @@
 					</section>
 				</div>
 				<!-- Table - Values - Exact -->
-				<div class="col-12 col-lg-6" v-if="data.values && showTableValuesExact">
+				<div class="col-12 col-lg-6" :class="data.values && showTableValuesExact && showTableValuesAprox ? 'col-6' : 'col-12'" v-if="data.values && showTableValuesExact">
 					<section class="card card-values card-values-exact">
 						<div class="card-body">
 							<h3 class="card-title">{{ $t('section.values.approximate.title') }}</h3>
@@ -77,7 +77,7 @@
 					</section>
 				</div>
 				<!-- Table - Values - Approximate -->
-				<div class="col-12 col-lg-6" v-if="data.values && showTableValuesAprox">
+				<div class="col-12 col-lg-6" :class="data.values && showTableValuesExact && showTableValuesAprox ? 'col-6' : 'col-12'" v-if="data.values && showTableValuesAprox">
 					<section class="card card-values card-values-aprox">
 						<div class="card-body">
 							<h3 class="card-title">{{ $t('section.values.exact.title') }}</h3>
@@ -99,9 +99,14 @@
 					<section class="card card-information" v-if="data.description">
 						<div class="card-body">
 							<h3 class="card-title">{{ $t('section.information.title') }}</h3>
-							<p v-if="data.unitOf"><span class="fw-bolder">Unit of:</span> {{ data.unitOf.name }}</p>
-							<h4 class="card-title">{{ $t('section.information.description') }}</h4>
-							<p v-html="parserLaTeX(data.description)"/>
+							<div class="hstack gap-2 mb-3" v-if="data.unitOf && data.unitOf.length > 0">
+								<span>Unit of:</span>
+								<NuxtLink class="badge badge-type" :class="item.dir.slice(1)" v-for="item in data.unitOf" :key="item.slug" :to="item.path">
+									<span>{{ item.name }}</span>
+								</NuxtLink>
+							</div>
+							<h4 class="card-title" v-if="data.unitOf && data.unitOf.length > 0">{{ $t('section.information.description') }}</h4>
+							<p v-html="parserTeX(data.description)"/>
 						</div>
 					</section>
 				</div>
@@ -119,7 +124,7 @@
 						<div class="card-body">
 							<h3 class="card-title">{{ $t('section.code.title') }}</h3>
 							<div class="input-group">
-								<input class="form-control" :id="`copy-${slug}`" :value="data.expression || data.symbol" />
+								<input class="form-control" :id="`copy-${slug}`" :value="code" />
 								<ActionsCopy class="btn btn-dark rounded-end" :target="`#copy-${slug}`" expanded/>
 							</div>
 						</div>
@@ -161,17 +166,11 @@
 	export default {
 		data () {
 			return {
-				selector: Utils.TERM_SELECTOR.substring(1),
 				startup: {
 					ready: () => {
 						MathJax.startup.defaultReady();
 						MathJax.startup.promise.then(() => {
-							const div = document.body.querySelector('.card-mathjax');
-									div.classList.add('rendered');
-							setTimeout(() => {
-								div.querySelector('.loader').remove();
-								Utils.initTermHover();
-							}, 500);
+							this.render();
 						});
 					}
 				}
@@ -190,6 +189,24 @@
 			}
 		},
 		computed: {
+			code(alt) {
+				if(this.data.expression) {
+					if(typeof this.data.expression === "string") {
+						return this.data.expression;
+					}
+					return this.data.expression.tex || this.data.expression.text || this.dataexpression.fallback;
+				}
+
+				if(this.data.symbol) {
+					if(typeof this.data.symbol === "string") {
+						return this.data.symbol;
+					}
+					return this.data.symbol.tex || this.data.symbol.text || this.data.symbol.fallback;
+				}
+			},
+			expression() {
+				return Utils.parserTeX(this.data.expressionIntern) || this.data.expression;
+			},
 			showTableValuesAprox() {
 				let show = false;
 				this.data.values.forEach((item) => {
@@ -210,9 +227,25 @@
 			}
 		},
 		methods: {
-			parserLaTeX(data) {
-				return Utils.parserLaTeX(data);
+			parserTeX(data) {
+				return Utils.parserTeX(data);
+			},
+			render() {
+				const selector = this.$refs.mathjax;
+				if(selector && !selector.classList.contains('rendered')) {
+					selector.classList.add('rendered');
+					setTimeout(() => {
+						selector.querySelector('.loader').remove();
+						Utils.initTermHover();
+					}, 500);
+				}
 			}
-		}
+		},
+		mounted() {
+			const selector = this.$refs.mathjax;
+			if(selector && !selector.classList.contains('rendered')) {
+				this.render();
+			}
+		},
 	}
 </script>

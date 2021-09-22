@@ -1,3 +1,25 @@
 {
-	
+	name: 'Boltzmann constant',
+	symbol: {
+		text: 'k',
+		tex: 'k',
+	},
+	symbolAlt: {
+		text: 'kB',
+		html: 'k<sub>B</sub>',
+		tex: 'k_{\\rm {B}}',
+	},
+	description: 'Boltzmann\'s constant ($k$ or $k_{\\rm {B}}$) is the physical constant that relates absolute temperature and energy. Named after the Austrian physicist Ludwig Boltzmann, who made important contributions to the theory of statistical mechanics, in fundamental equations this constant plays a central role. Its value is a fixed number without uncertainty (November 26, 2018 CGPM, effective from May 20, 2019)',
+	categories: ['universal', 'physics'],
+	units: [
+		'joule-per-kelvin'
+	],
+	values: [
+		{
+			value: 1380649e-23,
+			units: 'joule-per-kelvin',
+			exact: true,
+			base: true,
+		}
+	]
 }

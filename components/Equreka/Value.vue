@@ -29,7 +29,7 @@
 			valueFormat() {
 				let format = this.format;
 				if(format.toLowerCase() === 'html') format = 'HTML';
-				if(format.toLowerCase() === 'tex')  format = 'TeX';
+				if(format.toLowerCase() === 'tex')  format = 'tex';
 				return format;
 			},
 			formatedValue() {
@@ -66,7 +66,7 @@
 					formatedValue += `<span class="math math-html math-exponent">×10</span><sup>${exponent}</sup>`;
 				}
 				// Styling for TeX
-				if(this.valueFormat === 'TeX') {
+				if(this.valueFormat === 'tex') {
 					// Format the exponent
 					if(exponentSign && exponentValue) {
 						exponent  = `\\class{math math-tex math-exponent-sign math-exponent-sign-${exponentSignClass}}{${exponentSign}}`
@@ -80,7 +80,7 @@
 			},
 			html() {
 				// Simple value
-				if(this.valueFormat !== 'TeX') return this.formatedValue;
+				if(this.valueFormat !== 'tex') return this.formatedValue;
 				// MathJax Inline
 				if(this.display === 'inline') return `$${this.formatedValue}$`;
 				// MathJax Block

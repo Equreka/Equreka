@@ -9,13 +9,13 @@
 	values: [
 		{
 			value: 299792458,
-			unit: 'meter-per-second',
+			units: 'meter-per-second',
 			exact: true,
 			base: true,
 		},
 		{
 			value: 3e+8,
-			unit: 'meter-per-second',
+			units: 'meter-per-second',
 			exact: false,
 		}
 	]

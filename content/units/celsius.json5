@@ -1,32 +1,32 @@
 {
 	name: 'Celsius',
 	symbol: '°C',
-	unitOf: 'thermodynamic-temperature',
+	unitOf: ['thermodynamic-temperature'],
 	type: 'si',
 	categories: ['physics'],
 	description: 'The degree Celsius is a unit of temperature on the Celsius scale, a temperature scale originally known as the centigrade scale. The degree Celsius ($°C$) can refer to a specific temperature on the Celsius scale or a unit to indicate a difference or range between two temperatures.',
 	conversions: [
 		{
 			value: 274.15,
-			unit: 'kelvin'
+			units: 'kelvin'
 		}, {
 			value: 33.8,
-			unit: 'fahrenheit'
+			units: 'fahrenheit'
 		}, {
 			value: 0.33,
-			unit: 'newton-degree'
+			units: 'newton-degree'
 		}, {
 			value: 493.47,
-			unit: 'rankine'
+			units: 'rankine'
 		}, {
 			value: 0.8,
-			unit: 'reaumur'
+			units: 'reaumur'
 		}, {
 			value: 148.5,
-			unit: 'delisle'
+			units: 'delisle'
 		}, {
 			value: 8.025,
-			unit: 'romer'
+			units: 'romer'
 		}
 	],
 }

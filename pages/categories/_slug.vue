@@ -1,6 +1,6 @@
 <template> 
-	<main role="main" class="category">
-		<PageHeader :title="category.name" :class="category.slug" />
+	<main role="main" class="category" :class="category.slug">
+		<PageHeader :title="category.name" />
 		<div class="container">
 			<template v-for="data, type in types">
 				<CardCollapse class="card-type" :key="type" :data="data" :to="`/${type}`" :type="type"  v-if="data.length > 0"/>

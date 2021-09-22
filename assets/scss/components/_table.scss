@@ -15,15 +15,12 @@
 		background:  transparent;
 	}
 	&::-webkit-scrollbar-thumb {
-		background: var(--category-color);
+		background: var(--eqk-color);
 		opacity: 0.75;
 		border-radius: 100px;
-		@include media-breakpoint-up($navbar-expand) {
-			transition:    $transition-all-ease;
-		}
 	}
 	&::-webkit-scrollbar-thumb:active {
-		background: var(--category-color, var(--bs-primary));
+		background: var(--eqk-color, var(--bs-primary));
 	}
 }
 
@@ -48,16 +45,11 @@
 		&:hover,
 		&.hover {
 			td {
-				background: hsla(var(--term-color-hsl, var(--category-color-hsl)), 0.15);
-				&.math-symbol-constant,
-				&.math-symbol-variable,
-				&.math-symbol-magnitude {
-					color: var(--term-color, var(--body-color-highlight));
-				}
+				background: hsla(var(--term-color-hsl, var(--eqk-color-hsl)), 0.15);
 			}
 		} 
 		td {
-			transition: $transition-all-ease;
+			transition: background-color 0.35s ease;
 			&:first-child {
 				border-radius: $td-border-radius 0 0 $td-border-radius;
 			}

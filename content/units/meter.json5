@@ -1,8 +1,8 @@
 {
 	name: 'Meter',
 	symbol: 'm',
-	unitOf: 'length',
+	unitOf: ['length'],
 	type: 'si',
 	categories: ['physics'],
-	description: 'The meter ($m$) is defined by taking the fixed numerical value of the speed of light in vacuum $c$ to be $299,792,458$ when expressed in the unit $m$ $s^{−1}$, where the second is defined in terms of $\\Deltaν_{Cs}$.'
+	description: 'The $meter$ (American spelling; see spelling differences) or $metre$ (Commonwealth spelling) (from the French unit mètre, from the Greek noun μέτρον, "measure") is the base unit of length in the International System of Units (SI). The SI unit symbol is $m$.'
 }

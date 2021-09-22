@@ -14,7 +14,7 @@
 	}
 	// Symbol
 	&.math-symbol-unit {
-		color: var(--category-color);
+		color: var(--eqk-color);
 	}
 	// Equality
 	&.math-symbol-equality {
@@ -61,17 +61,4 @@
 	&.math-exponent-e {
 		font-style:  oblique;
 	}
-}
-
-// Term selector
-.#{$equreka-term-selector} {
-  transition: all 0.35s ease, font-size 0s;
-  &.variable {
-    --term-color: #{$red};
-    --term-color-hsl: var(--bs-red-hsl);
-  }
-  &.constant {
-    --term-color: #{$blue};
-    --term-color-hsl: var(--bs-blue-hsl);
-  }
 }

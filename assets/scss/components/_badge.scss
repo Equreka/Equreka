@@ -9,12 +9,13 @@
 	transition:     $transition-all-ease;
 }
 
-.badge-category {
-	background:     hsl(var(--category-color-h), 85%, 50%) !important;
-	color:          hsl(var(--category-color-h), 100%, 90%) !important;
+.badge-category,
+.badge-type {
+	background:     var(--eqk-color) !important;
+	color:          hsl(var(--eqk-color-h), 100%, 90%) !important;
 }
 
-.badge-type {
+/* .badge-type {
 	background: hsla(220, 85%, var(--theme-inverted-lightness), 0.25) !important;
 	color: #FFF !important;
-}
+} */

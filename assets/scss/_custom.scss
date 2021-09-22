@@ -24,7 +24,7 @@ p {
 .link-category {
 	color: $link-color;
 	&:hover {
-		color: var(--category-color, #{$primary});
+		color: var(--eqk-color, #{$primary});
 	}
 }
 

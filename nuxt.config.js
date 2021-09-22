@@ -104,9 +104,9 @@ export default {
 	// @nuxtjs/content https://go.nuxtjs.dev/config-content
 	content: {
 		apiPrefix: 'api',
-		fullTextSearchFields: ['title', 'name', 'slug', 'unit', 'unitOf', 'conversions.unit', 'description'],
+		fullTextSearchFields: ['title', 'name', 'slug', 'unit', 'conversions.unit'],
 		nestedProperties: [
-			'category.slug',
+			'categories.slug',
 			'constants.slug',
 			'magnitudes.slug',
 			'variables.slug',

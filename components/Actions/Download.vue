@@ -1,7 +1,7 @@
 
 <template>
-	<a :href="json" :download="`equreka.${data.category}.${type}.${data.slug}.json`" :title="$t('actions.download.json')" v-if="json">
-		<i class="bi bi-download" :class="icon && expanded ? `me-${expand}-3` : ''" v-if="icon"></i>
+	<a :href="json" :download="`equreka.${data.dir.slice(1)}.${data.slug}.json`" :title="$t('actions.download.json')" v-if="json">
+		<i class="bi bi-cloud-download" :class="icon && expanded ? `me-${expand}-3` : ''" v-if="icon"></i>
 		<span :class="expanded ? `d-none d-${expand}-inline expanded` : 'visually-hidden'">
 			{{ $t('actions.download.json') }}
 		</span>
@@ -13,10 +13,6 @@
 		props: {
 			data: {
 				type: Object,
-				required: true,
-			},
-			type: {
-				type: String,
 				required: true,
 			},
 			expand: {

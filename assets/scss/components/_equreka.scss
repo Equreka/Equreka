@@ -1,9 +1,27 @@
-// Equreka (Logo)
-.equreka {
+// Equreka
+.equreka-logo {
 	display: block;
 	height: auto;
-	transition: #{$transition-all-ease}, filter 1s ease-out;
+	transition: $transition-all-ease, filter 1s ease-out;
 	&:hover {
 		filter: hue-rotate(1turn);
 	}
 }
+
+// Term selector
+.equreka-term {
+	transition: color 0.35s 0s ease !important;
+	&.equreka-variable {
+	  --term-color:     #{$red};
+	  --term-color-hsl: var(--bs-red-hsl);
+	}
+	&.equreka-constant {
+	  --term-color:     #{$blue};
+	  --term-color-hsl: var(--bs-blue-hsl);
+	}
+	&.equreka-term-hover {
+		color: var(--term-color, var(--body-color-highlight)) !important;
+	}
+	
+}
+

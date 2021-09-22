@@ -57,19 +57,21 @@
 		a {
 			display: flex;
 			flex   : 0 1 auto;
-			align-items: stretch;
+			align-items: center;
 			padding: 0.5rem 0.75rem;
 			border-radius: 0.5rem;
 			text-decoration: none;
 			transition: all 0.35s ease !important;
 			@include rs('font-size', 0.95rem, 2vw, 1rem);
 			.badge {
-				display: flex !important;
+				display: inline-flex !important;
 				align-items: center;
 				margin-right: 0.5rem;
+				padding: 0.35rem;
 				color: inherit;
 				border: 1px solid var(--body-color-muted);
 				transition: all 0.35s ease !important;
+				line-height: 1;
 			}
 			.name {
 				display: flex;

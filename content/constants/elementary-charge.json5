@@ -1,7 +1,17 @@
 {
 	name: 'Elementary charge',
-	symbol: 'e',
-	symbolAlias: 'q_{e}',
+	symbol: {
+		fallback: 'e',
+		text: 'e',
+		html: 'e',
+		tex: 'e',
+	},
+	symbolAlt: {
+		fallback: 'qe',
+		text: 'qe',
+		html: 'q<sub>e</sub>',
+		tex: 'q_{e}',
+	},
 	description: 'The elementary charge, usually denoted by $e$ or sometimes $q_{e}$ is the electric charge carried by a single proton or, equivalently, the magnitude of the negative electric charge carried by a single electron, which has charge −1 $e$. This elementary charge is a fundamental physical constant. To avoid confusion over its sign, $e$ is sometimes called the elementary positive charge.',
 	categories: ['universal'],
 	units: [
@@ -10,7 +20,7 @@
 	values: [
 		{
 			value: 1.602176634e-19,
-			unit: 'coulomb',
+			units: 'coulomb',
 			exact: true,
 			base: true,
 		}

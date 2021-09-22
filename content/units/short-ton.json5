@@ -1,29 +1,29 @@
 {
 	name: 'Short ton',
 	symbol: 'st',
-	unitOf: 'mass',
+	unitOf: ['mass'],
 	type: 'uscs',
 	categories: ['physics'],
 	description: 'The short ton is a mass measurement unit equal to 2,000 pounds (lb) (907.18474 kg). It is commonly used in the United States, where it is known as simply a common ton.',
 	conversions: [
 		{
 			value: 907.18474,
-			unit: 'kilogram',
+			units: 'kilogram',
 		}, {
 			value: 907184.74,
-			unit: 'gram',
+			units: 'gram',
 		}, {
 			value: 0.90718474,
-			unit: 'tonne',
+			units: 'tonne',
 		}, {
 			value: 0.89285714,
-			unit: 'short-ton',
+			units: 'short-ton',
 		}, {
 			value: 2000,
-			unit: 'pound',
+			units: 'pound',
 		}, {
 			value: 32000,
-			unit: 'ounce',
+			units: 'ounce',
 		}
 	],
 	references: [

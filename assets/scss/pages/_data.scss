@@ -5,7 +5,7 @@ main.data {
 	a:not(.btn) {
 		color: var(--body-color);
 		&:hover {
-			color: var(--term-color, var(--category-color));
+			color: var(--term-color, var(--eqk-color));
 		}
 	}
 	.table {

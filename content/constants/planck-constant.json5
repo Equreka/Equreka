@@ -1,3 +1,20 @@
 {
-	
+	name: 'Planck constant',
+	symbol: {
+		text: 'h',
+		tex: 'h',
+	},
+	categories: ['universal', 'physics'],
+	description: 'The Planck constant is a physical constant that plays a central role in the theory of quantum mechanics and receives its name from its discoverer, the German physicist and mathematician Max Planck, one of the fathers of this theory. Denoted as $h$, it is the constant that is often defined as the elementary quantum of action. Planck would call it precisely "quantum of action" (in German, Wirkungsquantum), because the quantity called action of a physical process (the product of the energy involved and the time used) could only take discrete values, that is, integer multiples of $h$.',
+	units: [
+		'joule-second'
+	],
+	values: [
+		{
+			value: 6.62607015e-34,
+			units: 'joule-second',
+			exact: true,
+			base: true,
+		}
+	]
 }

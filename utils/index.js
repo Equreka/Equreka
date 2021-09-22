@@ -1,12 +1,12 @@
 const Utils = {
-	TERM_SELECTOR: '.eqk',
+	TERM_SELECTOR: 'equreka-term',
 	/**
 		* Initialize Term Hover
 		* 
 		* Create Event Listener for all elements with the Utils.TERM_SELECTOR class
 		*/
 	initTermHover() {
-		let elements = document.querySelectorAll(Utils.TERM_SELECTOR);
+		let elements = document.querySelectorAll(`.${Utils.TERM_SELECTOR}`);
 		if(elements.length === 0) return;
 		Array.from(elements).forEach(function(element) {
 			element.addEventListener('pointerenter', (event) => { 
@@ -31,28 +31,18 @@ const Utils = {
 	 */
 	termHover (event, element) {
 		if(event.target == element) {
-			let type = false,
-				 classList = event.target.classList,
-				 symbol = classList[classList.length-1];
-			// Type of term
-			if(classList.contains('variable')) {
-				type = 'variable';
-			}
-			if(classList.contains('constant')) {
-				type = 'constant';
-			}
-			if(classList.contains('magnitude')) {
-				type = 'magnitude';
-			}
 			// Remove classes from everything else
 			Utils.termHoverRemover();
-			// If contains a type
-			if(type) {
-				const elements = document.querySelectorAll(`${Utils.TERM_SELECTOR}.${type}.${symbol}`);
-				Array.from(elements).forEach(function(element) {
-					element.classList.add('hover');
-				});
-			}
+			const classList = event.target.classList,
+					classSymbol = classList[classList.length-1],
+					selector = Utils.TERM_SELECTOR,
+					selectorHover = `${selector}-hover`,
+					selectorAll = `.${selector}.${classSymbol}`,
+					elements = document.querySelectorAll(selectorAll);
+			// Add class to all elements that matches the selector
+			Array.from(elements).forEach(function(element) {
+				element.classList.add(selectorHover);
+			});
 		}
 	},
 
@@ -63,31 +53,40 @@ const Utils = {
 	 */
 	termHoverRemover (event) {
 		// Prevents remove on term with class "hover"
-		if(event && event.target.parentNode.classList.contains('hover')) return;
+		const selector = `.${Utils.TERM_SELECTOR}`,
+				selectorHover = `.${Utils.TERM_SELECTOR}-hover`;
+		if(event && event.target.parentNode.classList.contains(selector)) return;
 		// Remove class hover from all elements with class "hover"
-		const elements = document.querySelectorAll(`${Utils.TERM_SELECTOR}.hover`);
+		const elements = document.querySelectorAll(selectorHover);
 		Array.from(elements).forEach(function(element) {
-			element.classList.remove('hover');
+			element.classList.remove(selectorHover.slice(1));
 		});
 	},
 
 	/**
-	 * Parser LaTeX
+	 * Parser TeX
 	 * Function that adds the term-selector, type and term to LaTeX command-class of the term from our custom LaTeX command (\(var|const){X})
 	 * Ex. \var{X} -> \class{eqk variable X}{X}
 	 * @param {string} data Expression / Description
 	 */
-	parserLaTeX (data) {
+	parserTeX (data) {
 		if(!data) return;
-		const classPrefix = Utils.TERM_SELECTOR.substring(1);
+		const classPrefix = 'equreka';
 		const regex = /\\(var|const|mag)\{(.*?)\}/g;
-		const parsedData = data.replace(regex, function(global, type, symbol) {
-			let classType = 'constant',
-				 classSymbol = symbol;
-			if(type == 'var') classType = 'variable';
-			if(type == 'mag') classType = 'magnitude';
-			return `\\class{${classPrefix} ${classType} ${classSymbol}}{${symbol}}`;
-		});
+		const parsedData = data.replace(regex,
+			function(global, type, symbol) {
+				// Classes to be added
+				let   classSelector = Utils.TERM_SELECTOR,
+				      classSymbol   = `${classPrefix}-${symbol}`,
+				      classType     = `${classPrefix}-constant`;
+				if(type == 'var') classType = `${classPrefix}-variable`;
+				if(type == 'mag') classType = `${classPrefix}-magnitude`;
+				// Final class to be added
+				const classTeX = `${classSelector} ${classType} ${classSymbol}`;
+				// Return it
+				return '\\class{' + classTeX + '}{' + symbol + '}';
+			}
+		);
 		return parsedData;
 	},
 

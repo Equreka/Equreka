@@ -1,8 +1,7 @@
 const getCategory = async ($content, category) => {
 	if(!category) return false;
 	try {
-		let data = await $content('categories', category)
-			.fetch();
+		let data = await $content('categories', category).fetch();
 		return data;
 	} catch {
 		return false;
@@ -11,15 +10,18 @@ const getCategory = async ($content, category) => {
 
 const getConstant = async ($content, constant) => {
 	if(!constant) return false;
-	let data = await $content('constants', constant)
-		.fetch();
-	if(data.units && data.units.length > 0) {
-		data['units'] = await getUnits($content, data.units);
+	try {
+		let data = await $content('constants', constant).fetch();
+		if(data.units) {
+			data['units'] = await getUnits($content, data.units);
+		}
+		if(data.values) {
+			data['values'] = await getValues($content, data.values);
+		}
+		return data;
+	} catch {
+		return false;
 	}
-	if(data.values && data.values.length > 0) {
-		data['values'] = await getValues($content, data.values);
-	}
-	return data;
 };
 
 const getUnit = async ($content, unit) => {
@@ -60,66 +62,98 @@ const getVariable = async ($content, variable) => {
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 const getCategories = async ($content, categories) => {
-	if(!categories && categories.length > 0) return false;
-	for(let i = 0; i < categories.length; i++) {
-		categories[i] = await getCategory($content, categories[i]);
+	if(!categories) return false;
+	let returnData = [];
+	if(typeof data === 'string') {
+		returnData[0] = await getCategory($content, categories[0]);
+	} else {
+		for(let i = 0; i < categories.length; i++) {
+			returnData[i] = await getCategory($content, categories[i]);
+		}
 	}
-	return categories;
+	return returnData;
 };
 
 const getConstants = async ($content, constants) => {
-	if(!constants && constants.length > 0) return false;
-	for(let i = 0; i < constants.length; i++) {
-		constants[i] = await getConstant($content, constants[i]);
+	if(!constants) return false;
+	let returnData = [];
+	if(typeof data === 'string') {
+		returnData[0] = await getCategory($content, constants[0]);
+	} else {
+		for(let i = 0; i < constants.length; i++) {
+			returnData[i] = await getConstant($content, constants[i]);
+		}
 	}
-	return constants;
+	return returnData;
 };
 
-const getMagnitudes = async ($content, data) => {
-	if(!data) return false;
-	if(typeof data === 'string') {
-		data = [];
-		data[0] = await getMagnitude($content, data);
+const getMagnitudes = async ($content, magnitudes) => {
+	if(!magnitudes) return false;
+	let returnData = [];
+	if(typeof magnitudes === 'string') {
+		returnData[0] = await getMagnitude($content, magnitudes);
+	} else {
+		for(let i = 0; i < magnitudes.length; i++) {
+			returnData[i] = await getMagnitude($content, magnitudes[i]);
+		}
 	}
-	for(let i = 0; i < data.length; i++) {
-		data[i] = await getMagnitude($content, data[i]);
-	}
-	return data;
+	return returnData;
 };
 
 const getVariables = async ($content, variables) => {
-	if(!variables  && variables.length > 0) return false;
-	for(let i = 0; i < variables.length; i++) {
-		variables[i] = await getVariable($content, variables[i]);
-	}
-	return variables;
-};
-
-const getValues = async ($content, data) => {
-	if(!data) return false;
-	for(let i = 0; i < data.length; i++) {
-		data[i].unit = await getUnit($content, data[i].unit);
-	}
-	return data;
-};
-
-const getUnits = async ($content, data) => {
-	if(!data) return false;
+	if(!variables) return false;
+	let returnData = [];
 	if(typeof data === 'string') {
-		data[0] = await getUnit($content, data);
+		returnData[0] = await getCategory($content, variables[0]);
+	} else {
+		for(let i = 0; i < variables.length; i++) {
+			returnData[i] = await getVariable($content, variables[i]);
+		}
 	}
-	for(let i = 0; i < data.length; i++) {
-		data[i] = await getUnit($content, data[i]);
+	return returnData;
+};
+
+const getValues = async ($content, values) => {
+	if(!values) return false;
+	let returnData = [];
+	if(typeof values === 'string') {
+		returnData[0] = values;
+		returnData[0].units = await getUnit($content, values.units);
+	} else {
+		for(let i = 0; i < values.length; i++) {
+			returnData[i] = values[i];
+			returnData[i].units = await getUnit($content, values[i].units);
+		}
 	}
-	return data;
+	return returnData;
+};
+
+const getUnits = async ($content, units) => {
+	if(!units) return false;
+	let returnData = [];
+	if(typeof units === 'string') {
+		returnData[0] = await getUnit($content, units);
+	} else {
+		for(let i = 0; i < units.length; i++) {
+			returnData[i] = await getUnit($content, units[i]);
+		}
+	}
+	return returnData;
 };
 
 const getConversions = async ($content, data) => {
-	if(!data && data.length > 0) return false;
-	for(let i = 0; i < data.length; i++) {
-		data[i].unit = await getUnit($content, data[i].unit);
+	if(!data) return false;
+	let returnData = [];
+	if(typeof units === 'string') {
+		returnData[0] = data;
+		returnData[0].units = await getUnit($content, data);
+	} else {
+		for(let i = 0; i < data.length; i++) {
+			returnData[i] = data[i];
+			returnData[i].units = await getUnit($content, data[i].units);
+		}
 	}
-	return data;
+	return returnData;
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -172,7 +206,7 @@ export default async ($content, params, error) => {
 
 
 // Experimental
-const nested = async ($content, property, data) => {
+const testnested = async ($content, property, data) => {
 	if(!data) return false;
 	if(typeof data === 'string') {
 		return await get($content, property, data);
@@ -185,7 +219,7 @@ const nested = async ($content, property, data) => {
 	
 };
 
-const get = async ($content, property, data) => {
+const testget = async ($content, property, data) => {
 	if(!data) return false;
 	console.log(property)
 	try {

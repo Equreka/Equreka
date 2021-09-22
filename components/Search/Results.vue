@@ -7,7 +7,7 @@
 		<NuxtLink class="item" role="menuitem" tabindex="0"
 			v-for="item in data"
 			:key="item.slug"
-			:class="item.categories"
+			:class="item.categories[0]"
 			:to="localePath(item.path)"
 		>
 			<span v-text="item.name" />

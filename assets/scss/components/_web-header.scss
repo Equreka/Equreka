@@ -9,7 +9,7 @@
 	.container {
 		display    : flex;
 		align-items: stretch;
-		flex-wrap  : wrap !important;    
+		flex-wrap  : wrap !important;
 	}
 	.logo {
 		position: relative;
@@ -17,7 +17,7 @@
 		&:focus {
 			background: none;
 			&::before {
-			opacity: 1;
+				opacity: 1;
 			}
 		}
 		&::before {
@@ -33,7 +33,7 @@
 			transition: $transition-all-ease;
 		}
 	}
-	.equreka {
+	.equreka-logo {
 		width:   42px;
 		height:  auto;
 		object-fit: contain;
@@ -55,6 +55,7 @@
 		.bi {
 			font-size:     18px;
 			margin-bottom: -2px;
+			fill: currentColor;
 			@media (min-width: 375px) {
 				font-size: 20px;
 			}

@@ -1,6 +1,6 @@
 <template>
-	<NuxtLink :to="localePath(path)">
-		<i class="bi" :class="icon && expanded ? `${iconClass} me-${expand}-3` : iconClass" v-if="icon"></i>
+	<NuxtLink :to="localePath(to)">
+		<i class="bi bi-info-square" :class="icon && expanded ? `me-${expand}-3` : ''" v-if="icon"></i>
 		<span :class="expanded ? `d-none d-${expand}-inline expanded` : 'visually-hidden'">
 			{{ $t('calculator.go-to-calculator') }}
 		</span>
@@ -25,14 +25,6 @@
 			icon: {
 				type: Boolean,
 				default: true,
-			}
-		},
-		computed: {
-			iconClass() {
-				return this.$route.path.includes('/calculator') ? 'bi-info-square' : 'bi-plus-square';
-			},
-			path() {
-				return this.$route.path.includes('/calculator') ? this.to: `/calculator${this.to}`;
 			}
 		}
 	}

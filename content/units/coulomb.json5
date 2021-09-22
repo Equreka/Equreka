@@ -1,17 +1,17 @@
 {
 	name: 'Coulomb',
 	symbol: 'C',
-	unitOf: 'electric-charge',
+	unitOf: ['electric-charge'],
 	type: 'si',
 	categories: ['physics'],
 	description: 'The coulomb (symbol: $C$) is the International System of Units (SI) unit of electric charge. Under the 2019 redefinition of the SI base units, which took effect on 20 May 2019, the coulomb is exactly $\\frac{1}{1.602176634×10^{−19}}$ elementary charges. The same number of electrons has the same magnitude but opposite sign of charge, that is, a charge of −1 C.',
 	conversions: [
 		{
 			value: 1,
-			unit: 'ampere-second'
+			units: 'ampere-second'
 		}, {
 			value:  6.241509074e+18,
-			unit: 'atomic-units'
+			units: 'atomic-units'
 		}
 	],
 }

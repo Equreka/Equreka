@@ -8,15 +8,15 @@
 						{{ $t(`abbreviations.${type}.cap`) }}
 					</h2>
 				</button>
-				<NuxtLink class="btn btn-sm btn-go rounded-pill" :to="localePath(to)">
-					<span>{{ $t('actions.view.by') + $t(`abbreviations.${type}.cap`)}}</span>
+				<NuxtLink class="btn btn-sm btn-go rounded-pill" :to="localePath(to)" v-if="to">
+					<span>{{ $t('actions.view.all') }}</span>
 					<i class="bi bi-arrow-right"></i>
 				</NuxtLink>
 			</div>
 			<!-- List -->
 			<div :id="`collapse-${type}`" class="collapse show">
 				<div class="list">
-					<NuxtLink v-for="item in data" :key="item.slug" :to="localePath(item.path)">
+					<NuxtLink v-for="item in data" :key="item.slug" :to="localePath(pathCalc + item.path)">
 						<EqurekaSymbol class="badge" :data="item.symbol" v-if="item.symbol"/>
 						<span class="name">
 							{{ item.name }}
@@ -36,8 +36,8 @@
 				required: true
 			},
 			to: {
-				type: String,
-				required: true
+				type: String | Boolean,
+				default: false
 			},
 			type: {
 				type: String,
@@ -46,7 +46,16 @@
 			header: {
 				type: Boolean,
 				default: true
+			},
+			calculator: {
+				type: Boolean,
+				default: false
 			}
-		}
+		},
+		computed: {
+			pathCalc() {
+				return (this.calculator || this.$route.path.includes('calculator')) ? '/calculator' : '';
+			}
+		}	
 	}
 </script>

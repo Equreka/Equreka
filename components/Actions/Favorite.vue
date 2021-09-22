@@ -1,6 +1,6 @@
 <template>
-	<button type="button" :title="!isFavorite ? $t('favorites.add') : $t('favorites.remove')" @click="!isFavorite ? addFavorite() : removeFavorite()">
-		<i class="bi" :class="[ !isFavorite ? 'bi-heart' : 'bi-heart-fill', icon && expanded ? `me-${expand}-3` : '']"  v-if="icon"></i>
+	<button type="button" :title="!isFavorite ? $t('favorites.add') : $t('favorites.remove')" @click="click = true, !isFavorite ? addFavorite() : removeFavorite()" @mouseover="hover = true, setClass()" @mouseleave="click = false, hover = false">
+		<i class="bi" :class="iconClass"  v-if="icon"></i>
 		<span :class="expanded ? `d-none d-${expand}-inline expanded` : 'visually-hidden'"
 			v-html="!isFavorite ? $t('favorites.add') : $t('favorites.remove')"
 		/>
@@ -12,6 +12,8 @@
 	export default {
 		data() {
 			return {
+				click: false,
+				hover: false,
 				isFavorite: null
 			}
 		},
@@ -38,7 +40,20 @@
 				default: true
 			}
 		},
+		computed: {
+			iconClass() {
+				return this.setClass();
+			}
+		},
 		methods: {
+			setClass() {
+				let iconClass = 'bi-heart';
+				if(this.isFavorite && !this.hover) iconClass = 'bi-heart-fill';
+				if(this.isFavorite && this.hover && !this.click) iconClass = 'bi-heart-half';
+				if(!this.isFavorite && this.hover) iconClass = 'bi-heart-fill';
+				if(this.expanded) iconClass += ` me-${expand}-3`;
+				return iconClass;
+			},
 			// Add isFavorite
 			addFavorite() {
 				if(this.isFavorite) return;

@@ -17,12 +17,17 @@
 	}
 }
 
+// Diasble shadow for dark theme
+.theme-dark .card {
+	box-shadow: none !important;
+}
+
 // Expression
 .card-expression {
 	position: relative;
 	color:      var(--body-color-highlight);
 	transition: all 0.5s $transition-speed-ease;
-	@include rs('font-size', 1.25rem, 2vw, 2.5rem);
+	@include rs('font-size', 1.5rem, 3vw, 2.5rem);
 	.card-body {
 		display: flex;
 		align-items: baseline;
@@ -80,4 +85,9 @@
 	*:last-child {
 		margin: 0;
 	}
+}
+
+.card-category,
+.card-type {
+	box-shadow: 0 0.5rem 1.25rem -1rem var(--eqk-color);
 }

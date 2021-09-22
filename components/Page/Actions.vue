@@ -1,8 +1,8 @@
 <template>
 	<div class="actions" v-if="data">
+		<ActionsCalculator class="btn btn-link" :to="data.path" :type="type" v-if="showCalculator"/>
 		<ActionsFavorite class="btn btn-link" :slug="data.slug" :type="type" />
-		<ActionsCalculator class="btn btn-link" :slug="data.slug" :type="type" v-if="showCalculator"/>
-		<ActionsDownload class="btn btn-link d-none d-md-flex" :data="data" :type="type"/>
+		<ActionsDownload class="btn btn-link d-none d-md-flex" :data="data" />
 		<ActionsReport class="btn btn-link"/>
 	</div>
 </template>
@@ -12,8 +12,7 @@
 		props: ['data', 'type', 'category'],
 		computed: {
 			showCalculator() {
-				const route = this.$route.path;
-				return this.data.supported && !route.includes('calculator');
+				return this.data.supported ? true : false;
 			}
 		}
 	}

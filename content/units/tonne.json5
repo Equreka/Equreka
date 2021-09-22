@@ -1,29 +1,29 @@
 {
 	name: 'Tonne',
 	symbol: 't',
-	unitOf: 'mass',
+	unitOf: ['mass'],
 	type: 'si',
 	categories: ['physics'],
 	description: 'The tonne (/tʌn/ or /tɒn/; symbol: t) is a metric unit of mass equal to 1,000 kilograms. It is also referred to as a metric ton. It is equivalent to approximately 2,204.6 pounds; 1.102 short tons (US), and 0.984 long tons (UK). The official SI unit is the megagram (symbol: Mg), a less common way to express the same mass.',
 	conversions: [
 		{
 			value: 1000,
-			unit: 'kilogram'
+			units: 'kilogram'
 		}, {
 			value: 1000000,
-			unit: 'gram',
+			units: 'gram',
 		}, {
 			value: 2204.622621848776,
-			unit: 'pound',
+			units: 'pound',
 		}, {
 			value: 317465.658,
-			unit: 'ounce',
+			units: 'ounce',
 		}, {
 			value: 0.9842065276110608,
-			unit: 'long-ton',
+			units: 'long-ton',
 		}, {
 			value: 1.1023113109243878,
-			unit: 'short-ton',
+			units: 'short-ton',
 		}
 	],
 	references: [
