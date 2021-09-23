@@ -16,7 +16,7 @@
 					<tr :key="item.slug" :class="item.symbol" v-if="item">
 						<!-- Unit: Symbol -->
 						<td>
-							<EqurekaSymbol :data="item.symbol" />
+							<MathSymbol :data="item.symbol" />
 						</td>
 						<!-- Unit: Name -->
 						<td>

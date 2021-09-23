@@ -19,11 +19,11 @@
 					<tr :key="item.value" v-if="showItem(item.exact)">
 						<!-- Constant: Value -->
 						<td>
-							<EqurekaValue :data="item.value" :precision="item.exact ? 12 : 9" />
+							<MathValue :data="item.value" format="html" :precision="item.exact ? 12 : 9" />
 						</td>
 						<!-- Constant: Unit: Symbol -->
 						<td>
-							<EqurekaSymbol :data="item.units.symbol" />
+							<MathSymbol :data="item.units.symbol" />
 						</td>
 						<!-- Constant: Unit: Name -->
 						<td>

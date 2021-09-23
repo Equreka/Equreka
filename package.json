@@ -1,11 +1,14 @@
 {
-	"name": "@equreka/equreka",
+	"name": "equreka",
 	"version": "1.0.0",
-	"description": "Your free and open-source app for equations, formulas, variables, constants and units.",
+	"author": {
+		"name": "Derian Castillo",
+		"email": "hola@derianandre.com",
+		"url": "https://derianandre.com"
+	},
+	"description": "Your free and open-source app for equations, formulas, constants, magnitudes, variables and units",
 	"private": true,
 	"scripts": {
-		"api": "nodemon server",
-		"api test": "nodemon server test",
 		"dev": "nuxt",
 		"build": "nuxt build",
 		"start": "nuxt start",
@@ -13,8 +16,7 @@
 		"gen:pre": "set NUXT_GENERATE=preview&& nuxt generate",
 		"analyze": "nuxt build -a",
 		"android": "nuxt build && nuxt generate && cap sync && cap copy && cap open android",
-		"electron": "nuxt build && nuxt generate && cap sync && cap copy && cap open @capacitor-community/electron",
-		"update": "node update"
+		"electron": "nuxt build && nuxt generate && cap sync && cap copy && cap open @capacitor-community/electron"
 	},
 	"dependencies": {
 		"@nuxt/content": "^1.14.0",

@@ -25,11 +25,11 @@
 						</td>
 						<!-- Conversion: Value -->
 						<td class="text-end">
-							<EqurekaValue :data="item.value" />
+							<MathValue :data="item.value" format="html"/>
 						</td>
 						<!-- Conversion: Unit: Symbol -->
 						<td>
-							<EqurekaSymbol :data="item.units.symbol" />
+							<MathSymbol :data="item.units.symbol" />
 						</td>
 					</tr>
 				</template>

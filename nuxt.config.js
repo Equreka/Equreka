@@ -1,5 +1,3 @@
-//const NUXT_GENERATE = process.env.NUXT_GENERATE || false,
-//		BASE_URL = NUXT_GENERATE ? `http://equreka.com/${NUXT_GENERATE}` : 'http://localhost:3000'
 export default {
 	// Target: https://go.nuxtjs.dev/config-target
 	target: 'static',
@@ -9,25 +7,21 @@ export default {
 	server: {
 		host: '0.0.0.0'
 	},
-	// Router
-	//router: {
-	//	base: NUXT_GENERATE ? `/${NUXT_GENERATE}/` : '/',
-	//},
 	// Environment
-	//env: {
-	//	baseUrl: BASE_URL
-	//},
+	env: {
+		baseUrl: process.env.BASE_URL || 'http://localhost:3000'
+	},
 	// Global page headers: https://go.nuxtjs.dev/config-head
 	head: {
 		title: 'Equreka',
 		meta: [
 			{ charset: 'utf-8' },
 			{ name: 'viewport', content: 'width=device-width, initial-scale=1' },
-			{ hid: 'description', name: 'description', content: 'Your open-source site of science' },
+			{ hid: 'description', name: 'description', content: 'Your free and open-source app for equations, formulas, constants, magnitudes, variables and units' },
 			{ hid: 'author', name: 'author', content: 'Derian André Castillo Franco' },
 		],
 		link: [
-			{ rel: 'icon', type: 'image/x-icon', href: '/assets/brand/icons/favicon.ico' },
+			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
 			{ rel: 'preconnect', href: 'https://fonts.googleapis.com' },
 			{ rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
 			{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap' },
@@ -104,7 +98,12 @@ export default {
 	// @nuxtjs/content https://go.nuxtjs.dev/config-content
 	content: {
 		apiPrefix: 'api',
-		fullTextSearchFields: ['title', 'name', 'slug', 'unit', 'conversions.unit'],
+		fullTextSearchFields: [
+			'name',
+			'slug',
+			'unit',
+			'conversions.unit'
+		],
 		nestedProperties: [
 			'categories.slug',
 			'constants.slug',
@@ -164,23 +163,27 @@ export default {
 	},
 	// @nuxtjs/pwa
 	pwa: {
+		icon: {
+			fileName: 'icon.png',
+			purpose: 'maskable'
+		},
 		meta: {
+			lang: 'en',
 			name: 'Equreka',
 			short_name: 'Equreka',
+			description: 'Your free and open-source app for equations, formulas, constants, magnitudes, variables and units',
+			theme_color: '#E3E5E8',
 			author: 'Derian Castillo',
-			description: 'Your free and open-source app for variables, constants, formulas and equations',
-			theme_color: '#070708',
-			lang: 'en'
+			ogHost: 'https://equreka.com',
+			twitterSite: '@Equreka',
+			twitterCreator: '@DerianAndre',
 		},
 		manifest: {
+			lang: 'en',
 			name: 'Equreka',
 			short_name: 'Equreka',
-			description: 'Your free and open-source app for variables, constants, formulas and equations',
-			lang: 'en',
-			background_color: '#070708',
-		},
-		icon: {
-			source: '~/static/icon.png'
+			description: 'Your free and open-source app for equations, formulas, constants, magnitudes, variables and units',
+			background_color: '#E3E5E8',
 		}
 	},
 	// @nuxtjs/robots

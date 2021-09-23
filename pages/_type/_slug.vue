@@ -23,10 +23,10 @@
 							$$
 							<!-- Constants -->
 							<template v-if="type === 'constants'">
-								<EqurekaSymbol :data="data.symbol" />
-								<span class="math math-symbol-equality">=</span>
-								<EqurekaValue :data="data.values[0].value" format="tex" />
-								<EqurekaSymbol :data="data.values[0].units.symbol" :sup="data.values[0].sup" />
+								<MathSymbol :data="data.symbol" />
+								<MathOperator />
+								<MathValue :data="data.values[0].value" />
+								<MathSymbol :data="data.values[0].units.symbol" :sup="data.values[0].sup" />
 							</template>
 						</div>
 					</section>
@@ -155,7 +155,7 @@
 				</div>
 			</div>
 		</div>
-		<MathJax :startup="startup"/>
+		<MathJax :startup="startup" :update="$route"/>
 	</main>
 </template>
 

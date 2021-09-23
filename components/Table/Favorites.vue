@@ -1,7 +1,7 @@
 <template>
 	<div class="table-responsive">
 		<table class="table table-data table-favorites">
-			<thead>
+			<thead class="visually-hidden">
 				<tr>
 					<th scope="col" class="category">
 						<Abbr string="category"/>

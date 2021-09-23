@@ -19,7 +19,7 @@
 					<tr :class="`equreka-term equreka-variable equreka-${item.symbol}`" :key="item.slug" v-if="item && item.slug">
 						<!-- Magnitude/Variable: Symbol -->
 						<td>
-							<EqurekaSymbol :data="item.symbol" />
+							<MathSymbol :data="item.symbol" />
 						</td>
 						<!-- Magnitude/Variable: Name -->
 						<td>
@@ -29,7 +29,7 @@
 						</td>
 						<!-- Magnitude/Variable: Unit: Symbol -->
 						<td>
-							<EqurekaSymbol :data="item.units[0].symbol" />
+							<MathSymbol :data="item.units[0].symbol" />
 						</td>
 						<!-- Magnitude/Variable: Unit: Name -->
 						<td>

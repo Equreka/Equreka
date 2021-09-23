@@ -9,17 +9,13 @@
 					</div>
 				</div>
 				<div class="card-body d-flex flex-column align-items-center justify-content-center">
-					<!--
-						<EqurekaSymbol :data="output.variable ? output.variable : ''"/>
-						<EqurekaValue :data="output.value ? output.value : 0" format="tex" />
-						<EqurekaSymbol :data="output.units ? output.units : ''" />-->
 					<!-- Calculator: Result -->
 					<transition name="fade">
 						<div id="calculator-result" class="calculator-result" v-if="output.value != null && !output.error">
-							<EqurekaSymbol :data="output.variable" format="html"/>
-							<span class="math math-symbol-equality">=</span>
-							<EqurekaValue :data="output.value"  format="html" />
-							<EqurekaSymbol :data="output.units" format="html"/>
+							<MathSymbol :data="output.variable" format="html" />
+							<MathOperator :data="output.operator" format="html" />
+							<MathValue :data="output.value"  format="html" />
+							<MathSymbol :data="output.unit" format="html" />
 						</div>
 					</transition>
 					<!-- Calculator: Message -->
@@ -76,24 +72,23 @@
 							</template>
 							<!-- Actions -->
 							<div class="col-12 text-center">
-								<div class="row gx-2">
-									<div class="col d-flex align-items-center justify-content-end">
+								<div class="row gx-2 justify-content-center">
+									<div class="col d-flex align-items-center justify-content-center justify-content-md-end" style="max-width: 55px">
 										<button type="reset" class="btn btn-danger rounded-pill p-3" @click="reset">
 											<i class="bi bi-arrow-clockwise"></i>
 										</button>
 									</div>
-									<div class="col-auto d-flex align-items-center justify-content-center">
-										<button tpe="submit" class="btn btn-success rounded-pill py-3 px-5 h-100" @click="getOutput">
+									<div class="col col-sm-auto d-flex align-items-center justify-content-center">
+										<button tpe="submit" class="btn btn-success align-items-center justify-content-center rounded-pill px-sm-5 w-100 h-100" @click="getOutput">
 											{{ $t('calculator.calculate') }}
 										</button>
 									</div>
-									<div class="col d-flex align-items-center justify-content-start">
+									<div class="col d-flex align-items-center justify-content-center justify-content-md-end" style="max-width: 55px">
 										<transition name="fade">
-											<ActionsCopy class="btn btn-dark rounded-pill p-3" target="#calculator-result" v-if="output.value != null && !output.error"/>
+											<ActionsCopy class="btn btn-dark rounded-pill p-3" target="#calculator-result"/>
 										</transition>
 									</div>
 								</div>
-								
 							</div>
 						</div>
 					</form>
@@ -121,18 +116,18 @@
 				</div>
 			</div>
 		</div>
-		<MathJax :key="render" />
+		<MathJax :update="$route"/>
 	</main>
 </template>
 
 
 <script>
-	import Calculator from "~/utils/calculator";
 	import Utils from "~/utils";
 	import UtilsData from "~/utils/data";
 	const defaultOutput = {
 				value: null,
 				variable: null,
+				operator: 'equal',
 				units: null,
 				error: {
 					type: null,
@@ -218,10 +213,9 @@
 					} else {
 						this.output = functions.default(input);
 					}
-					setTimeout(() => {
-						this.render += 1;
-					}, 350);
+					this.output.operator = this.output.operator ? this.output.operator : 'equal';
 					this.input = [];
+					this.render += 1;
 				}
 			}
 		}

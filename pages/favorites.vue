@@ -1,6 +1,6 @@
 <template>
 	<main role="main" class="favorites">
-		<SVGFavoritesEmpty />
+		<SVGFavoritesEmpty v-if="!haveFavorites" />
 		<div class="container">
 			<header class="main-header">
 				<div class="hstack">
@@ -16,7 +16,7 @@
 				</p>
 			</header>
 			<!-- Favorites -->
-			<template  v-if="favorites && haveFavorites(favorites)">
+			<template  v-if="favorites && haveFavorites">
 				<template v-for="data, type in favorites">
 					<div class="card mb-3" :key="type" v-if="data && data.length > 0">
 						<div class="card-body">
@@ -32,7 +32,7 @@
 			<template v-else>
 				<div class="card">
 					<div class="card-body">
-						<h4 v-if="!haveFavorites(favorites) && support">{{ $t('favorites.none') }}</h4>
+						<h4 v-if="!haveFavorites && support">{{ $t('favorites.none') }}</h4>
 						<p class="m-0" v-else>
 							{{ $t('favorites.no-support') }}
 						</p>
@@ -92,14 +92,12 @@
 				}
 			}
 		},
+		computed: {
+			haveFavorites() {
+				return Favorites.have(this.favorites);
+			}
+		},
 		methods: {
-			haveFavorites(object) {
-				if(object) {
-					return Favorites.have(object);
-				} else {
-					return false;
-				}
-			},
 			toggleEdit() {
 				this.edit = !this.edit;
 			}

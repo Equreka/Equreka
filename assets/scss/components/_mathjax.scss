@@ -17,8 +17,12 @@ mjx-container {
 	}
 }
 
+mjx-c.mjx-cD7::before {
+	padding: 0.5em 0.5em 0 0 !important;
+}
+
 .MathJax {
-	font-size: 105% !important;
+	font-size: 110% !important;
 }
 
 // Remove anoying white pixel...

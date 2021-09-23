@@ -11,7 +11,7 @@
 			},
 			format: {
 				type: String,
-				default: 'html',
+				default: 'tex',
 			},
 			display: {
 				type: String,
@@ -73,7 +73,7 @@
 						exponent += `\\class{math math-tex math-exponent-value}{${exponentValue}}`;
 					}
 					formatedValue  = `\\class{math math-tex math-value}{${numberFormat}}`
-					formatedValue += `\\class{math math-tex math-exponent}{×10}^{${exponent}}`;
+					formatedValue += `\\class{math math-tex math-exponent}{\\times 10}^{${exponent}}`;
 				}
 				// Return formatted value
 				return formatedValue;

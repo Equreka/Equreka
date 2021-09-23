@@ -22,7 +22,7 @@
 						<tr :class="`equreka-term equreka-constant equreka-${item.symbol}`" :key="item.slug" v-if="item && item.symbol">
 							<!-- Constant Symbol -->
 							<td>
-								<EqurekaSymbol :data="item.symbol" />
+								<MathSymbol :data="item.symbol" />
 							</td>
 							<!-- Constant: Name -->
 							<td>
@@ -32,11 +32,11 @@
 							</td>
 							<!-- Constant: Value-->
 							<td>
-								<EqurekaValue :data="item.values[0].value" />
+								<MathValue :data="item.values[0].value" format="html"/>
 							</td>
 							<!-- Constant: Unit: Symbol-->
 							<td v-if="item.units[0].symbol">
-								<EqurekaSymbol :data="item.units[0].symbol" />
+								<MathSymbol :data="item.units[0].symbol" />
 							</td>
 							<!-- Constant: Unit: Name-->
 							<td>
