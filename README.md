@@ -37,8 +37,9 @@ $ npm run start
 # generate static project
 $ npm run generate
 
+# DEPRECATED - Moved from MongoDB/Mongoose to local content with nuxt-content
 # update offline database (json files) API server must be online
-# [deprecateed] $ npm run update
+# $ npm run update
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
