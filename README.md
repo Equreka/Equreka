@@ -9,7 +9,7 @@
 [![Sponsor](https://img.shields.io/github/sponsors/DerianAndre?style=social)](https://github.com/sponsors/DerianAndre)
 [![GitHub](https://img.shields.io/github/license/Equreka/Equreka?color=green&label=License)](https://github.com//Equreka)
 
-### Your free and open-source app for equations, formulas, variables, constants and units.
+### Your free and open-source app for equations, formulas, constants, magnitudes, variables and units.
 
 **Sponsor Equreka** https://github.com/sponsors/DerianAndre
 
@@ -17,7 +17,7 @@
 
 #####
 
-## Help wanted
+## You can help!
 Join us at Discord: https://discord.gg/NZypuxvAB6
 
 
@@ -38,7 +38,7 @@ $ npm run start
 $ npm run generate
 
 # update offline database (json files) API server must be online
-$ npm run update
+# [deprecateed] $ npm run update
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
@@ -69,17 +69,26 @@ android {
 
 ## To-do
 
+### Data
+- [ ] Basic units and constants
+- [ ] Get at least 100 mixed data
+- [ ] Create subCategories or tags
 ### App
 - [X] Use cappacitor.js to export as an app for iOS and Android (WIP)
 - [ ] Beta test
 ### UI
 - [X] Add content for everything
-- [ ] Improve UX/UI
+- [ ] Improve UX/UI (always doing it!)
 ### Calculator
+- [X] Automatically create inputs, import function file and get constants
+- [X] Error message system
+- [X] Copy to clipboard
 - [ ] Unit input for equations/formulas
 - [ ] Unit convesion system
 ### Scripts
-- [X] Hover system
+- [X] Hover system for web
+- [ ] Hover: Better hover system for app
+- [X] Languages: Save in localStorage
 - [X] Favorites: System with localStorage
 - [ ] Favorites: Add import/export
-- [ ] Languages: Save in localStorage
+- [ ] Report system
