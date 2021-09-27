@@ -217,14 +217,16 @@
 				if(this.data.expression) {
 					if(typeof this.data.expression === "string") {
 						code = this.data.expression;
+					} else {
+						code = this.data.expression;
 					}
-					code = this.data.expression.tex || this.data.expression.html || this.data.expression.text;
 				}
 				if(this.data.symbol) {
 					if(typeof this.data.symbol === "string") {
 						code = this.data.symbol;
+					} else {
+						code = this.data.symbol.tex || this.data.symbol.html || this.data.symbol.text;
 					}
-					code = this.data.symbol.tex || this.data.symbol.html || this.data.symbol.text;
 				}
 				return code;
 			},

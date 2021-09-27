@@ -14,13 +14,13 @@
 						<div id="calculator-result" class="calculator-result" v-if="output.value != null && !output.error">
 							<template v-if="type != 'units'">
 								<MathSymbol :data="data.magnitudes.find(i => i.slug === output.magnitudes).symbol" format="html" v-if="output.magnitudes"/>
+								<MathSymbol :data="data.variables.find(i => i.slug === output.variables).symbol" format="html" v-if="output.variables"/>
 								<MathOperator :data="output.operator" format="html" />
 								<MathValue :data="output.value" format="html" />
-								<MathSymbol :data="data.units[output.units]" :sup="output.sup" format="html" />
+								<MathSymbol :data="data.units.find(i => i.slug === output.units).symbol" :sup="output.sup" format="html" />
 							</template>
 							<template v-else>
 								<MathValue :data="output.value" format="html" />
-								<MathValue :data="input.unitsTo.symbol" format="html" />
 							</template>
 						</div>
 					</transition>
@@ -42,10 +42,10 @@
 										<input 
 											class="form-control form-control-sm" type="number" 
 											:id="`input-${magnitude.slug}`" :placeholder="magnitude.name"
-											v-model.number="input.values[magnitude.symbol]"
+											v-model.number="input.values[magnitude.symbol.text]"
 										>
 										<label :for="`input-${magnitude.slug}`">
-											{{ magnitude.name }} ({{ magnitude.units[0].symbol }})
+											{{ magnitude.name }} ({{ magnitude.units[0].symbol.text }})
 										</label>
 									</div>
 								</div>
@@ -57,10 +57,10 @@
 										<input 
 											class="form-control form-control-sm" type="number" 
 											:id="`input-${variable.slug}`" :placeholder="variable.name"
-											v-model.number="input.values[variable.symbol]"
+											v-model.number="input.values[variable.symbol.text]"
 										>
 										<label :for="`input-${variable.slug}`">
-											{{ variable.name }} ({{ variable.units[0].symbol }})
+											{{ variable.name }} ({{ variable.units[0].symbol.text }})
 										</label>
 									</div>
 								</div>
