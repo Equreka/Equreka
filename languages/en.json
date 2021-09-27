@@ -29,6 +29,11 @@
       "title": "Language",
       "change": "Change the language",
       "choose": "Choose a language"
+    },
+    "favorites": {
+      "title": "Favorites",
+      "export": "Export",
+      "import": "Import"
     }
   },
   "actions": {
@@ -74,10 +79,16 @@
     "lead": "All the equations and formulas that are available.",
     "go-to-calculator": "Solve this in the calculator",
     "calculate": "Calculate",
+    "conversions": {
+      "to": "Convert to"
+    },
     "errors": {
       "title": "Error in the matrix!",
       "default": "An error courred 😪",
       "type": {
+        "catch": {
+          "error": "An internal error occurred, please report it!"
+        },
         "input": {
           "empty": "You have not entered all the necessary data",
           "needed": "Enter data to solve",

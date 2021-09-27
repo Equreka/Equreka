@@ -11,6 +11,10 @@
 // Term selector
 .equreka-term {
 	transition: color 0.35s 0s ease !important;
+	&.equreka-magnitude {
+	  --term-color:     #{$orange};
+	  --term-color-hsl: var(--bs-orange-hsl);
+	}
 	&.equreka-variable {
 	  --term-color:     #{$red};
 	  --term-color-hsl: var(--bs-red-hsl);
@@ -19,6 +23,7 @@
 	  --term-color:     #{$blue};
 	  --term-color-hsl: var(--bs-blue-hsl);
 	}
+	&:hover,
 	&.equreka-term-hover {
 		color: var(--term-color, var(--body-color-highlight)) !important;
 	}

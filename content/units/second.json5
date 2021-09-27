@@ -1,6 +1,10 @@
 {
 	name: 'Second',
-	symbol: 's',
+	symbol: {
+		text: 's',
+		html: 's',
+		tex: 's',
+	},
 	unitOf: ['time'],
 	type: 'si',
 	categories: ['physics'],

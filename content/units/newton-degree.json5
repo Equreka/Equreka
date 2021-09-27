@@ -1,6 +1,10 @@
 {
 	name: 'Newton degree',
-	symbol: '°N',
+	symbol: {
+		text: '°N',
+		html: '°N',
+		tex: '°N',
+	},
 	unitOf: ['thermodynamic-temperature'],
 	type: null,
 	categories: ['physics'],
@@ -15,6 +19,9 @@
 		}, {
 			value: 37.454545454545,
 			units: 'fahrenheit'
+		}, {
+			value: 1,
+			units: 'newton-degree'
 		}, {
 			value: 497.12454545455,
 			units: 'rankine'

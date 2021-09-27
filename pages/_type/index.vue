@@ -6,7 +6,7 @@
 				<CardCollapse class="card-category" :key="category" :data="data" :to="`/categories/${category}`" :type="category" v-if="data.length > 0" />
 			</template>
 		</div>
-		<MathJax />
+		<MathAll />
 	</main>
 </template>
 
@@ -14,25 +14,24 @@
 	import NoDB from '~/utils/nodb';
 	export default {
 		async asyncData({ $content, params, error }) {
-			const { type } = params;
-		
+			const type = params.type;
 			let categories = {};
 			await Promise.all(
 				NoDB.categories.map(async (category) => {
 					try {
 						categories[category] = await $content(type)
-							.only(['categories', 'name', 'slug', 'path'])
 							.where({ categories: { $contains: category } })
-							.sortBy(type == 'units' ? 'unitOf' : 'name')
+							.sortBy('unitOf')
+							.sortBy('name')
 							.fetch()
-							.catch(() => error({ statusCode: 404 }));
+							.catch((error) => {
+								error({ statusCode: 404 })
+							});
 					} catch {
 						categories[category] = [];
 					}
 				})
 			);
-
-			// Return data
 			return {
 				type,
 				categories

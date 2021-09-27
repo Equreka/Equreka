@@ -24,7 +24,7 @@
 		},
 		computed: {
 			show() {
-				return this.data !== undefined && this.data !== null;
+				return (this.data && this.symbol) ? true : false;
 			},
 			symbol() {
 				let symbolData = this.data,
@@ -39,25 +39,27 @@
 				return symbol;
 			},
 			symbolClass() {
-				return `math math-${this.symbolFormat} math-symbol`;
+				let symbolClass = `math math-symbol`;
+				symbolClass += ` math-${this.data.text}`
+				if(this.symbolFormat === 'tex') symbolClass += ` math-jax`;
+				return symbolClass;
 			},
 			symbolFormat() {
 				if(!this.format || this.format.toLowerCase() === 'tex') return 'tex';
-				if(this.format.toLowerCase() === 'html') return 'HTML';
+				if(this.format.toLowerCase() === 'html') return 'html';
 				if(this.format.toLowerCase() === 'text') return 'text';
-				return 'fallback';
 			},
 			symbolSup() {
-				if(this.sup === false) return '';
 				let symbolSup = this.sup;
-				if(this.symbolFormat === 'tex')  symbolSup = `^{${this.sup}}`;
+				if(symbolSup === false) return '';
 				if(this.symbolFormat === 'html') symbolSup = `<sup>${this.sup}</sup>`;
+				if(this.symbolFormat === 'tex')  symbolSup = `^{${this.sup}}`;
 				return symbolSup;
 			},
 			html() {
-				if(this.symbolFormat.toLowerCase() !== 'tex') return this.symbol + this.symbolSup;
-				if(this.display === 'raw') return this.symbol;
-				if(this.display === 'inline') return '$' + this.symbol + this.symbolSup + '$';
+				if(this.symbolFormat !== 'tex') 	return this.symbol + this.symbolSup;
+				if(this.display === 'raw') 		return this.symbol + this.symbolSup;
+				if(this.display === 'inline') 	return '$' + this.symbol + this.symbolSup + '$';
 				return '$$' + this.symbol + this.symbolSup + '$$';
 			}
 		}

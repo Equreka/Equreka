@@ -1,0 +1,33 @@
+{
+	name: 'Metre',
+	symbol: {
+		text: 'm',
+		html: 'm',
+		tex: 'm',
+	},
+	unitOf: ['length'],
+	type: 'si',
+	categories: ['physics'],
+	description: 'The $metre$ (International spelling) or $meter$ (American spelling; see spelling differences) (from the French unit mètre, from the Greek noun μέτρον, "measure") is the base unit of length in the International System of Units (SI). The SI unit symbol is $m$.',
+	conversions: [
+		{
+			value: 0.001,
+			units: 'kilometre',
+		}, {
+			value: 1,
+			units: 'metre',
+		}, {
+			value: 100,
+			units: 'centimetre'
+		}, {
+			value: 1000,
+			units: 'millimetre'
+		}, {
+			value: 1e+6,
+			units: 'micrometre'
+		}, {
+			value: 1e+9,
+			units: 'nanometre'
+		}
+	]
+}

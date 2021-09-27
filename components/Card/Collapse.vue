@@ -17,7 +17,7 @@
 			<div :id="`collapse-${type}`" class="collapse show">
 				<div class="list">
 					<NuxtLink v-for="item in data" :key="item.slug" :to="localePath(pathCalc + item.path)">
-						<MathSymbol class="badge" :data="item.symbol" v-if="item.symbol"/>
+						<MathSymbol class="badge" :data="item.symbol" display="inline" v-if="item.symbol"/>
 						<span class="name">
 							{{ item.name }}
 						</span>

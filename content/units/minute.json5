@@ -1,6 +1,10 @@
 {
 	name: 'Minute',
-	symbol: 'min',
+	symbol: {
+		text: 'min',
+		html: 'min',
+		tex: 'min',
+	},
 	unitOf: ['time'],
 	type: 'si',
 	categories: ['physics'],

@@ -29,6 +29,11 @@
       "title": "Lenguaje",
       "change": "Cambia el lenguaje",
       "choose": "Elige un lengauje"
+    },
+    "favorites": {
+      "title": "Favoritos",
+      "export": "Exportar",
+      "import": "Importar"
     }
   },
   "search": {
@@ -55,10 +60,16 @@
     "lead": "Todas las ecuaciones y fórmulas disponibles.",
     "go-to-calculator": "Resolver en la calculadora",
     "calculate": "Calcular",
+    "conversions": {
+      "to": "Convertir a"
+    },
     "errors": {
       "title": "¡Error en la matrix!",
       "default": "Ocurrió un error 😪",
       "type": {
+        "catch": {
+          "error": "¡Ocurrió un error interno, por favor reportalo!"
+        },
         "input": {
           "empty": "No haz introducido todos los datos necesarios",
           "needed": "Ingresa datos para resolver",

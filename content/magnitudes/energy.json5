@@ -1,8 +1,13 @@
 {
 	name: 'Energy',
-	symbol: 'E',
+	symbol: {
+		text: 'E',
+		html: 'E',
+		tex: 'E',
+	},
 	categories: ['physics'],
 	description: 'In physics, energy is the quantitative property that must be transferred to an object in order to perform work on, or to heat, the object. Energy is a conserved quantity; the law of conservation of energy states that energy can be converted in form, but not created or destroyed. The SI unit of energy is the joule, which is the energy transferred to an object by the work of moving it a distance of 1 metre against a force of 1 newton.',
+	baseUnit: 'joule',
 	units: [
 		'joule'
 	]

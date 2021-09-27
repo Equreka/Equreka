@@ -3,6 +3,7 @@ mjx-container {
 	outline: 0;
 	position: relative;
 	display: inline-flex;
+	margin: 0 !important;
 	&:focus {
 		&::after {
 			content: "";
@@ -21,10 +22,6 @@ mjx-c.mjx-cD7::before {
 	padding: 0.5em 0.5em 0 0 !important;
 }
 
-.MathJax {
-	font-size: 110% !important;
-}
-
 // Remove anoying white pixel...
 .MJX_HoverRegion,
 .MJX_LiveRegion,
@@ -41,7 +38,7 @@ mjx-c.mjx-cD7::before {
 }
 .CtxtMenu_Info {
 	margin-left: 4px !important;
-	transform: translate(-50%, 10%) !important;
+	transform: translate(-50%, 0) !important;
 }
 
 .CtxtMenu_InfoContent {
@@ -85,10 +82,10 @@ mjx-c.mjx-cD7::before {
 		border-color: var(--input-border-color) !important;
 	}
 	.CtxtMenu_MenuActive {
-		background: hsla(var(--bs-primary-hsl), var(--alpha-active)) !important;
+		background: hsla(var(--eqk-color-hsl, (220, 20%, 30%)), var(--alpha-active)) !important;
 	}
 	.CtxtMenu_MenuDisabled:focus {
-		background: hsla(var(--bs-primary-hsl), calc(var(--alpha-active) - 0.25) ) !important;
+		background: hsla(var(--eqk-color-hsl), calc(var(--alpha-active) - 0.25) ) !important;
 	}
 	.CtxtMenu_MenuArrow,
 	.CtxtMenu_MenuCheck {

@@ -1,14 +1,45 @@
 {
 	name: 'Gram',
-	symbol: 'g',
+	symbol: {
+		text: 'g',
+		html: 'g',
+		tex: 'g',
+	},
 	unitOf: ['mass'],
 	type: 'si',
 	categories: ['physics'],
 	description: 'The gram is the main unit of mass in the Cegesimal System of Units, and the unit of weight in the metric system. Originally defined as the weight of a cubic centimeter of water at 3.98 ° C, and is currently defined as one thousandth of a kilogram, the basic unit of mass in the International System of Units.',
 	conversions: [
 		{
+			value: 1e-6,
+			units: 'tonne'
+		}, {
 			value: 0.001,
 			units: 'kilogram'
+		}, {
+			value: 1,
+			units: 'gram'
+		}, {
+			value: 1000,
+			units: 'milligram'
+		}, {
+			value: 1e+6,
+			units: 'microgram'
+		}, {
+			value: 9.8421e-7,
+			units: 'long-ton'
+		}, {
+			value: 1.1023e-6,
+			units: 'short-ton',
+		}, {
+			value: 0.000157473,
+			units: 'stone',
+		}, {
+			value: 0.00220462,
+			units: 'pound',
+		}, {
+			value: 0.035274,
+			units: 'ounce',
 		}
 	],
 }

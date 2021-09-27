@@ -1,4 +1,18 @@
 // Page: Data
+.page-data {
+	&::-webkit-scrollbar {
+		background: var(--body-bg);
+		width: 16px;
+		height: 16px;
+	}
+	&::-webkit-scrollbar-thumb {
+		background: hsl(var(--eqk-color-h), var(--eqk-color-s), 30%);
+	}
+	&::-webkit-scrollbar-thumb:active {
+		background: var(--bs-primary);
+	}
+}
+
 main.data {
 	overflow: hidden;
 	@include rs('font-size', 0.9rem, 2vw, 1rem);

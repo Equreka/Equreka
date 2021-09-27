@@ -3,26 +3,26 @@
 		<table class="table table-data table-units">
 			<thead>
 				<tr>
-					<th scope="col" class="symbol">
-						<Abbr string="symbol"/>
-					</th>
 					<th scope="col" class="name">
 						{{ $t('table.name') }}
+					</th>
+					<th scope="col" class="symbol">
+						<Abbr string="symbol"/>
 					</th>
 				</tr>
 			</thead>
 			<tbody>
 				<template v-for="item in data">
 					<tr :key="item.slug" :class="item.symbol" v-if="item">
-						<!-- Unit: Symbol -->
-						<td>
-							<MathSymbol :data="item.symbol" />
-						</td>
 						<!-- Unit: Name -->
 						<td>
 							<NuxtLink :to="localePath(item.path)">
 								{{ item.name }}
 							</NuxtLink>
+						</td>
+						<!-- Unit: Symbol -->
+						<td>
+							<MathSymbol :data="item.symbol" />
 						</td>
 					</tr>
 				</template>

@@ -1,23 +1,39 @@
 {
 	name: 'Kilogram',
-	symbol: 'kg',
+	symbol: {
+		text: 'kg',
+		html: 'kg',
+		tex: 'kg',
+	},
 	unitOf: ['mass'],
 	type: 'si',
 	categories: ['physics'],
 	description: 'The kilogram is the basic unit of mass of the International System of Units (SI). It is a widely used measure in science, engineering, and commerce around the world, and is often simply called a kilo in everyday speech.',
 	conversions: [
 		{
-			value: 1000,
-			units: 'gram'
-		},	{
 			value: 0.001,
 			units: 'tonne'
-		},	{
+		}, {
+			value: 1,
+			units: 'kilogram'
+		}, {
+			value: 1000,
+			units: 'gram'
+		}, {
+			value: 1e+6,
+			units: 'milligram'
+		}, {
+			value: 1e+9,
+			units: 'microgram'
+		}, {
 			value: 0.000984206527611061,
 			units: 'long-ton'
 		}, {
 			value: 0.00110231,
 			units: 'short-ton',
+		}, {
+			value: 0.157473,
+			units: 'stone',
 		}, {
 			value: 2.2046226218487757,
 			units: 'pound',

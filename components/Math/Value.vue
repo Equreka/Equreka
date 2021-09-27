@@ -28,11 +28,11 @@
 			},
 			valueFormat() {
 				let format = this.format;
-				if(format.toLowerCase() === 'html') format = 'HTML';
+				if(format.toLowerCase() === 'html') format = 'html';
 				if(format.toLowerCase() === 'tex')  format = 'tex';
 				return format;
 			},
-			formatedValue() {
+			valueFormatted() {
 				let value = this.data;
 				// Convert string to number
 				if(typeof value == 'string') value = Number(value);
@@ -42,7 +42,7 @@
 				let split = value.split('e');
 				// Already assuming the worst case lol
 				if(!split || split.length == 1) return new Intl.NumberFormat(undefined, { maximumFractionDigits: this.precision }).format(value);
-				let formatedValue = split[0];
+				let valueFormatted = split[0];
 				let exponent = split[1],
 					 exponentSign = exponent ? exponent.charAt(0) : false,
 					 exponentValue = exponent ? exponent.substr(1) : false,
@@ -52,18 +52,18 @@
 					exponentSignClass = exponentSign === '+' ? 'plus' : 'minus';
 				}
 				// Format the value
-				let numberFormat = new Intl.NumberFormat(undefined, { maximumFractionDigits: this.precision }).format(formatedValue);
+				let numberFormat = new Intl.NumberFormat(undefined, { maximumFractionDigits: this.precision }).format(valueFormatted);
 				// Styling for text
-				formatedValue = `${numberFormat}×10${exponent}`;
+				valueFormatted = `${numberFormat}×10${exponent}`;
 				// Styling for HTML
-				if(this.valueFormat === 'HTML') {
+				if(this.valueFormat === 'html') {
 					// Format the exponent
 					if(exponentSign && exponentValue) {
 						exponent  = `<span class="math math-html math-exponent-sign math-exponent-sign-${exponentSignClass}">${exponentSign}</span>`
 						exponent += `<span class="math math-html math-exponent-value">${exponentValue}</span>`;
 					}
-					formatedValue  = `<span class="math math-html math-value">${numberFormat}</span>`
-					formatedValue += `<span class="math math-html math-exponent">×10</span><sup>${exponent}</sup>`;
+					valueFormatted  = `<span class="math math-html math-value">${numberFormat}</span>`
+					valueFormatted += `<span class="math math-html math-exponent">×10</span><sup>${exponent}</sup>`;
 				}
 				// Styling for TeX
 				if(this.valueFormat === 'tex') {
@@ -72,19 +72,19 @@
 						exponent  = `\\class{math math-tex math-exponent-sign math-exponent-sign-${exponentSignClass}}{${exponentSign}}`
 						exponent += `\\class{math math-tex math-exponent-value}{${exponentValue}}`;
 					}
-					formatedValue  = `\\class{math math-tex math-value}{${numberFormat}}`
-					formatedValue += `\\class{math math-tex math-exponent}{\\times 10}^{${exponent}}`;
+					valueFormatted  = `\\class{math math-tex math-value}{${numberFormat}}`
+					valueFormatted += `\\class{math math-tex math-exponent}{\\times 10}^{${exponent}}`;
 				}
 				// Return formatted value
-				return formatedValue;
+				return valueFormatted;
 			},
 			html() {
 				// Simple value
-				if(this.valueFormat !== 'tex') return this.formatedValue;
+				if(this.valueFormat !== 'tex') return this.valueFormatted;
 				// MathJax Inline
-				if(this.display === 'inline') return `$${this.formatedValue}$`;
+				if(this.display === 'inline') return `$${this.valueFormatted}$`;
 				// MathJax Block
-				return `$$${this.formatedValue}$$`
+				return `$$${this.valueFormatted}$$`
 			}
 		}
 	}

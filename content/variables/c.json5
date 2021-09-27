@@ -1,7 +1,11 @@
 {
 	name: 'c',
 	slug: 'c',
-	symbol: 'c',
+	symbol: {
+		text: 'c',
+		html: 'c',
+		tex: 'c',
+	},
 	categories: ['mathematics'],
 	description: null,
 	units: [

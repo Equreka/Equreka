@@ -24,8 +24,7 @@ export default {
 			{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
 			{ rel: 'preconnect', href: 'https://fonts.googleapis.com' },
 			{ rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
-			{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700;800;900&display=swap' },
-			{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,500;1,600;1,700&display=swap' },
+			{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap' },
 		],
 		script: [
 			{ src: 'https://polyfill.io/v3/polyfill.min.js?features=es6', body: true }
@@ -184,6 +183,7 @@ export default {
 			short_name: 'Equreka',
 			description: 'Your free and open-source app for equations, formulas, constants, magnitudes, variables and units',
 			background_color: '#E3E5E8',
+			theme_color: '#E3E5E8',
 		}
 	},
 	// @nuxtjs/robots

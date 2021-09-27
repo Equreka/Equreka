@@ -1,5 +1,5 @@
 <template>
-	<span class="math math-symbol-equality" v-html="operator"/>
+	<span class="equreka-operator math math-operator" v-html="operator"/>
 </template>
 
 <script>

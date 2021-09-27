@@ -43,7 +43,7 @@
 	tr {
 		vertical-align: baseline;
 		&:hover,
-		&.hover {
+		&.equreka-term-hover {
 			td {
 				background: hsla(var(--term-color-hsl, var(--eqk-color-hsl)), 0.15);
 			}

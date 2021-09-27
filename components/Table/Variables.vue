@@ -16,7 +16,7 @@
 			</thead>
 			<tbody>
 				<template v-for="item in data">
-					<tr :class="`equreka-term equreka-variable equreka-${item.symbol}`" :key="item.slug" v-if="item && item.slug">
+					<tr :class="`equreka-term equreka-${type} equreka-${item.symbol.text}`" :key="item.slug" v-if="item && item.slug">
 						<!-- Magnitude/Variable: Symbol -->
 						<td>
 							<MathSymbol :data="item.symbol" />
@@ -51,6 +51,10 @@
 				type: Array | Object | Boolean,
 				required: true
 			},
+			type: {
+				type: String,
+				default: 'variable'
+			}
 		},
 		computed: {
 			show() {
@@ -69,10 +73,7 @@
 				} else {
 					return this.$route.params.category ? this.$route.params.category : false;
 				}
-			},
-			type() {
-				return this.$route.params.type ? this.$route.params.type : false;
-			},
+			}
 		}
 	}
 </script>

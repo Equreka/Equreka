@@ -1,6 +1,10 @@
 {
 	name: 'Ampere',
-	symbol: 'A',
+	symbol: {
+		text: 'A',
+		html: 'A',
+		tex: 'A',
+	},
 	unitOf: ['electric-current'],
 	type: 'si',
 	categories: ['physics'],

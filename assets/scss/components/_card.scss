@@ -4,7 +4,10 @@
 	@include rs('margin-bottom', 0.75rem, 2vw, 1.15rem);
 	@include acrylic-bg();
 	.card-body {
-		@include rs('padding',  0.75rem, 2vw, 1rem);
+		@include rs('padding-top',    1.25rem, 2vw, 1.25rem);
+		@include rs('padding-bottom', 1.25rem, 2vw, 1.25rem);
+		@include rs('padding-left',   0.95rem, 2vw, 1.25rem);
+		@include rs('padding-right',  0.95rem, 2vw, 1.25rem);
 	}
 	.card-title {
 		color: var(--body-color-highlight);
@@ -30,7 +33,7 @@
 	@include rs('font-size', 1.5rem, 3vw, 2.5rem);
 	.card-body {
 		display: flex;
-		align-items: baseline;
+		align-items: center;
 		justify-content: center;
 		grid-gap: 0.25em;
 		gap: 0.25em;
@@ -38,37 +41,23 @@
 		@include rs('padding-top',  1.5rem, 2vw, 3rem);
 		@include rs('padding-bottom',  1.5rem, 2vw, 3rem);
 	}
-	.MathJax {
-		font-size: inherit !important;
+	.card-body {
+		height: 0;
+		transform: scaleY(0);
+		animation: mathjax 0.35s 0.35s ease forwards;
+		transition: all 0.35s ease;
 	}
 }
 
 // Mathjax
 .card-mathjax {
 	display:         flex;
-	align-items:     center;
+	align-items:     baseline;
 	justify-content: center;
 	flex:            1 1 100%;
 	order:           0;
-	mjx-container {
-		margin: 0;
-		&::after {
-			display: none;
-		}
-	}
 	.hover {
 		color: var(--term-color);
-	}
-	.card-body {
-		opacity: 0;
-	}
-	&.rendered {
-		.loader {
-			animation: loader-complete 0.35s $transition-speed-ease forwards;
-		}
-		.card-body {
-			animation: loaded 0.35s 0.35s $transition-speed-ease forwards;
-		}
 	}
 }
 

@@ -41,7 +41,7 @@ const Favorites = {
 	 * @param {string} slug 
 	 * @returns {boolean}
 	 */
-	 check(type, slug) {
+	check(type, slug) {
 		// If no variables are passed or can't access storage, return false
 		if(!type || !slug || typeof(Storage) === "undefined") return false;
 		// Check favorite
@@ -105,5 +105,40 @@ const Favorites = {
 		}
 		return false;
 	},
+
+	/**
+	 * Favorites: Export
+	 * @param {string} type Type of data
+	 * @returns {object}
+	 */
+	export() {
+		let data = {};
+		for (let key in localStorage) {
+			if (key.startsWith(Favorites.STORAGE_KEY)) {
+				data[key] = localStorage.getItem(key);
+			}
+		}
+		return JSON.stringify(data);
+	},
+
+	/**
+	 * Favorites: Import
+	 * @param {string} data
+	 * @returns {boolean}
+	 */
+	import(data) {
+		if(data) {
+			try {
+				const dataObj = JSON.parse(data);
+				for (let key in dataObj) {
+					localStorage.setItem(key, dataObj[key]);
+				}
+				return true;
+			} catch(error) {
+				return false;
+			}
+		}
+		return false;
+	}
 }
 export default Favorites;

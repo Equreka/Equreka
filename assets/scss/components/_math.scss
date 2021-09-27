@@ -16,8 +16,8 @@
 	&.math-symbol-unit {
 		color: var(--eqk-color);
 	}
-	// Equality
-	&.math-symbol-equality {
+	// Operator
+	&.math-operator {
 		color: var(--body-color-muted);
 	}
 	// Exponent
@@ -38,7 +38,7 @@
 	}
 }
 
-// Math
+// Math HTML
 .math-html {
 	&.math-error-message {
 		font-style: oblique;
@@ -62,3 +62,15 @@
 		font-style:  oblique;
 	}
 }
+
+/* 
+.MathJax,
+.math-jax {
+	&:not(.math-jax-loaded) {
+		opacity: 0;
+		visibility: hidden;
+	}
+	&.math-jax-loaded {
+		animation: mathjax 0.5s ease forwards;
+	}
+} */

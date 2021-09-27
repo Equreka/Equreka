@@ -1,25 +1,22 @@
 main.settings {
-  .nav-pages {
-    flex-direction: column;
-    margin-bottom: 1rem;
-    .nav-link {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  }
-  .nav-social {
-    justify-content: center;
-    .nav-link {
-      color: var(--body-color-muted);
-    }
-  }
-  .btn {
-    min-width: 175px;
-    &::after {
-      margin-left: auto;
-    }
-  }
-  hr {
-    opacity: 0.15;
-  }
+	h2 {
+		small {
+			margin-left: 0.5rem;
+			font-size: 75%;
+		}
+	}
+	hr {
+		opacity: 0.1;
+	}
+	.btn {
+		&::after {
+			margin-left: 0.5rem;
+		}
+	}
+	.links {
+		a {
+			text-decoration: none;
+			color: var(--body-color-muted);
+		}
+	}
 }

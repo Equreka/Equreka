@@ -3,7 +3,7 @@
 		<PageHeader :title="data.name" :data="data" />
 		<div class="container position-relative">
 			<section class="card card-expression card-calculator">
-				<div class="background">
+				<div class="background" v-if="data.expression">
 					<div class="latex">
 						$${{ data.expression }}$$
 					</div>
@@ -12,57 +12,37 @@
 					<!-- Calculator: Result -->
 					<transition name="fade">
 						<div id="calculator-result" class="calculator-result" v-if="output.value != null && !output.error">
-							<MathSymbol :data="output.variable" format="html" />
-							<MathOperator :data="output.operator" format="html" />
-							<MathValue :data="output.value"  format="html" />
-							<MathSymbol :data="output.unit" format="html" />
+							<template v-if="type != 'units'">
+								<MathSymbol :data="data.magnitudes.find(i => i.slug === output.magnitudes).symbol" format="html" v-if="output.magnitudes"/>
+								<MathOperator :data="output.operator" format="html" />
+								<MathValue :data="output.value" format="html" />
+								<MathSymbol :data="data.units[output.units]" :sup="output.sup" format="html" />
+							</template>
+							<template v-else>
+								<MathValue :data="output.value" format="html" />
+								<MathValue :data="input.unitsTo.symbol" format="html" />
+							</template>
 						</div>
 					</transition>
 					<!-- Calculator: Message -->
 					<transition name="fade">
-						<div id="calculator-message" class="calculator-message" v-if="output.value == null && output.error">
-							<div class="card-body d-flex flex-column align-items-center justify-content-center text-center">
-								<template v-if="output.error && output.error.message">
-									<p class="math-error-type m-0">{{ $t(`calculator.errors.type.${output.error.type}`) }}</p>
-									<p class="math math-error-message mt-2 mb-0 d-none">{{ output.error.message }}</p>
-								</template>
-								<p class="math math-error-type m-0" v-else-if="output.error && output.error.type">
-									{{ $t(`calculator.errors.type.${output.error.type}`) }}
-								</p>
-								<p class="math math-error-type m-0" v-else>
-									{{ $t('calculator.errors.type.input.needed') }}
-								</p>
-							</div>
-						</div>
+						<CalculatorMessage :data="output" v-if="output.error" />
 					</transition>
 				</div>
 			</section>
 			<!-- Inputs -->
-			<section class="card card-inputs mx-auto" style="max-width: 800px">
+			<section class="card card-inputs mx-auto col-lg-6">
 				<div class="card-body">
-					<form ref="calculatorForm" class="mx-auto" @submit.prevent>
+					<form ref="calculatorForm" class="mx-auto" @submit.prevent="getOutput">
 						<div class="row gx-2 flex-wrap justify-content-md-center">
-							<template v-if="data.variables && data.variables.length > 0">
-								<div class="mb-3 col col-md-auto" v-for="variable in data.variables" :key="variable.slug">
-									<div class="form-floating">
-										<input 
-											class="form-control form-control-sm" type="number" 
-											:id="`input-${variable.slug}`" :placeholder="variable.name"
-											v-model="input[variable.symbol]"
-										>
-										<label :for="`input-${variable.slug}`">
-											{{ variable.name }} ({{ variable.units[0].symbol }})
-										</label>
-									</div>
-								</div>
-							</template>
+							<!-- Magnitudes -->
 							<template v-if="data.magnitudes && data.magnitudes.length > 0">
 								<div class="mb-3 col col-md-auto" v-for="magnitude in data.magnitudes" :key="magnitude.slug">
 									<div class="form-floating">
 										<input 
 											class="form-control form-control-sm" type="number" 
 											:id="`input-${magnitude.slug}`" :placeholder="magnitude.name"
-											v-model="input[magnitude.symbol]"
+											v-model.number="input.values[magnitude.symbol]"
 										>
 										<label :for="`input-${magnitude.slug}`">
 											{{ magnitude.name }} ({{ magnitude.units[0].symbol }})
@@ -70,6 +50,53 @@
 									</div>
 								</div>
 							</template>
+							<!-- Variables -->
+							<template v-if="data.variables && data.variables.length > 0">
+								<div class="mb-3 col col-md-auto" v-for="variable in data.variables" :key="variable.slug">
+									<div class="form-floating">
+										<input 
+											class="form-control form-control-sm" type="number" 
+											:id="`input-${variable.slug}`" :placeholder="variable.name"
+											v-model.number="input.values[variable.symbol]"
+										>
+										<label :for="`input-${variable.slug}`">
+											{{ variable.name }} ({{ variable.units[0].symbol }})
+										</label>
+									</div>
+								</div>
+							</template>
+							<!-- Units -->
+							<template v-if="data.conversions && data.conversions.length > 0">
+								<div class="mb-3 col">
+									<div class="form-floating">
+										<input 
+											class="form-control form-control-sm" type="number" 
+											:id="`input-${data.slug}`" :placeholder="data.name"
+											v-model="input.value"
+										>
+										<label :for="`input-${data.slug}`">
+											{{ data.name }} (<MathSymbol :data="data.symbol" display="raw"/>)
+										</label>
+									</div>
+								</div>
+								<div class="mb-3 col-auto d-flex align-items-center justify-content-center px-2">
+									<i class="bi bi-arrow-right-circle fs-3"></i>
+								</div>
+								<div class="mb-3 col">
+									<!-- Units -->
+									<div class="form-floating">
+										<select id="convert-to" class="form-select" v-model="input.conversionKey">
+											<option v-for="item, index in data.conversions" :key="index" :value="index">
+												{{ item.units.name }} (<MathSymbol :data="item.units.symbol" display="raw"/>)
+											</option>
+										</select>
+										<label for="convert-to">
+											{{ $t('calculator.conversions.to') }}
+										</label>
+									</div>
+								</div>
+							</template>
+
 							<!-- Actions -->
 							<div class="col-12 text-center">
 								<div class="row gx-2 justify-content-center">
@@ -79,7 +106,7 @@
 										</button>
 									</div>
 									<div class="col col-sm-auto d-flex align-items-center justify-content-center">
-										<button tpe="submit" class="btn btn-success align-items-center justify-content-center rounded-pill px-sm-5 w-100 h-100" @click="getOutput">
+										<button tpe="submit" class="btn btn-success align-items-center justify-content-center rounded-pill px-sm-5 w-100 h-100">
 											{{ $t('calculator.calculate') }}
 										</button>
 									</div>
@@ -116,30 +143,44 @@
 				</div>
 			</div>
 		</div>
-		<MathJax :update="$route"/>
+		<MathAll />
 	</main>
 </template>
 
 
 <script>
-	import Utils from "~/utils";
 	import UtilsData from "~/utils/data";
+	const defaultInput = {
+		value: null,
+		values: {},
+		magnitudes: null,
+		variables: null,
+		units: null,
+		unitsFrom: null,
+		unitsTo: null,
+		sup: null,
+		ratio: null,
+		conversionKey: 0,
+	}
 	const defaultOutput = {
-				value: null,
-				variable: null,
-				operator: 'equal',
-				units: null,
-				error: {
-					type: null,
-					message: null
-				}
-			};
+		value: null,
+		values: {},
+		magnitudes: null,
+		variables: null,
+		units: null,
+		sup: null,
+		operator: 'equal',
+		error: {
+			type: null,
+			message: null
+		}
+	};
+
 	export default {
 		data () {
 			return {
-				render: 0,
-				constants: {},
-				input: {},
+				constants: false,
+				input: defaultInput,
 				output: defaultOutput
 			}
 		},
@@ -148,32 +189,22 @@
 					type = params.type,
 					slug = params.slug,
 					data = await UtilsData($content, params, error, true);
+			// Get constants
 			let constants = false;
 			if (data.constants && data.constants.length > 0) {
 				constants = {};
 				data.constants.forEach(constant => {
-					constants[constant.symbol] = constant.values[0].value;
+					constants[constant.symbol.text] = constant.values[0].value;
 				});
 			}
+			// If type is units then we set the default select option
+
 			return {
 				category,
 				type,
 				slug,
 				data,
 				constants
-			}
-		},
-		mounted() {
-			window.MathJax = {
-				options: {
-					enableMenu: false
-				},
-				loader: {
-					load: ['[tex]/html']
-				},
-				tex: { 
-					inlineMath: [['$', '$']],
-				},
 			}
 		},
 		head() {
@@ -184,20 +215,35 @@
 			}
 		},
 		methods: {
-			parserTeX(data) {
-				return Utils.parserTeX(data);
+			resetAllObject(object) {
+				Object.keys(object).forEach(key => {
+					if (object[key] && typeof object[key] === 'object') {
+						this.resetAllObject(object[key]);
+					} else {
+						object[key] = null;
+					}
+				});
 			},
 			reset() {
-				this.input = {};
-				this.output = defaultOutput;
 				this.$refs.calculatorForm.reset();
+				this.resetAllObject(this.input);
+			},
+			resetInput() {
+				this.$refs.calculatorForm.reset();
+				this.input = defaultInput;
 			},
 			async getOutput(event) {
 				event.preventDefault();
-				const input = this.input;
-				let functions = false;
+				let	input = this.input,
+						output = defaultOutput,
+						type = this.type,
+						slug = this.slug,
+						constants = this.constants,
+						functions = false,
+						file = type === 'units' ? 'conversions' : slug;
+
 				try {
-					functions = await import(`~/calculator/${this.type}/${this.slug}.js`);
+					functions = await import(`~/calculator/${type}/${file}.js`);
 				} catch (error) {
 					this.output = {
 						error: {
@@ -207,15 +253,21 @@
 					}
 					return;
 				}
+
+				if(type === 'units') {
+					let item = this.data.conversions[this.input.conversionKey];
+					input.unitsFrom = this.data.slug;
+					input.unitsTo = item.units.slug;
+					input.ratio = item.value;
+				}
+
 				if(functions && input) {
-					if(this.constants) { 
-						this.output = functions.default(input, this.constants);
+					if(this.constants) {
+						output = functions.default(input, constants);
 					} else {
-						this.output = functions.default(input);
+						output = functions.default(input);
 					}
-					this.output.operator = this.output.operator ? this.output.operator : 'equal';
-					this.input = [];
-					this.render += 1;
+					this.output = output;
 				}
 			}
 		}

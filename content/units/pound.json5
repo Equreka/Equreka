@@ -1,14 +1,45 @@
 {
 	name: 'Pound',
-	symbol: 'lb',
+	symbol: {
+		text: 'lb',
+		html: 'lb',
+		tex: 'lb',
+	},
 	unitOf: ['mass'],
 	type: 'imperial',
 	categories: ['physics'],
 	description: 'The pound or pound-mass is a unit of mass used in British imperial and United States customary systems of measurement. Various definitions have been used; the most common today is the international avoirdupois pound, which is legally defined as exactly 0.45359237 kilograms, and which is divided into 16 avoirdupois ounces. The international standard symbol for the avoirdupois pound is lb; an alternative symbol is lb<sub>m</sub> (for most pound definitions), # (chiefly in the U.S.), and ℔ or ″̶  (specifically for the apothecaries\' pound).',
 	conversions: [
 		{
+			value: 0.000453592,
+			units: 'tonne'
+		}, {
 			value: 0.45359237,
-			units: 'kilogram',
+			units: 'kilogram'
+		}, {
+			value: 453.592,
+			units: 'gram'
+		}, {
+			value: 453592,
+			units: 'milligram'
+		}, {
+			value: 4.536e+8,
+			units: 'microgram'
+		}, {
+			value: 0.000446429,
+			units: 'long-ton'
+		}, {
+			value: 0.0005,
+			units: 'short-ton',
+		}, {
+			value: 0.0714286,
+			units: 'stone',
+		}, {
+			value: 1,
+			units: 'pound',
+		}, {
+			value: 16,
+			units: 'ounce',
 		}
 	],
 	references: [

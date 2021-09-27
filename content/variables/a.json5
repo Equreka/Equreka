@@ -1,7 +1,11 @@
 {
 	name: 'a',
 	slug: 'a',
-	symbol: 'a',
+	symbol: {
+		text: 'a',
+		html: 'a',
+		tex: 'a',
+	},
 	categories: ['mathematics'],
 	description: null,
 	units: [

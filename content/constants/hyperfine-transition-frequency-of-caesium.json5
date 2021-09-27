@@ -1,11 +1,11 @@
 {
-	name: 'Unperturbed ground state hyperfine transition frequency of the Caesium 133 atom',
+	name: 'Hyperfine transition frequency of Caesium',
 	symbol: {
 		text: 'ΔνCs',
+		html: 'Δν<sub>Cs</sub>',
 		tex: '\\Delta\\nu_{\\rm Cs}',
-		HTML: 'Δν<sub>Cs</sub>'
 	},
-	description: 'The caesium standard is a primary frequency standard in which the photon absorption by transitions between the two hyperfine ground states of caesium-133 atoms is used to control the output frequency. The first caesium clock was built by Louis Essen in 1955 at the National Physical Laboratory in the UK and promoted worldwide by Gernot M. R. Winkler of the United States Naval Observatory.',
+	description: 'The caesium standard (to be precise: unperturbed ground state hyperfine transition frequency of the Caesium 133 atom) is a primary frequency standard in which the photon absorption by transitions between the two hyperfine ground states of caesium-133 atoms is used to control the output frequency. The first caesium clock was built by Louis Essen in 1955 at the National Physical Laboratory in the UK and promoted worldwide by Gernot M. R. Winkler of the United States Naval Observatory.',
 	categories: ['universal'],
 	units: [
 		'hertz'

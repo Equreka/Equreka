@@ -1,6 +1,10 @@
 {
 	name: 'Milimole',
-	symbol: 'mmol',
+	symbol: {
+		text: 'mmol',
+		html: 'mmol',
+		tex: 'mmol',
+	},
 	unitOf: ['substance'],
 	type: 'si',
 	categories: ['chemistry'],

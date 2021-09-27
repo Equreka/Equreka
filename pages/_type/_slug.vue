@@ -1,28 +1,28 @@
 <template>
 	<main role="main" class="data">
 		<PageHeader :title="data.name" :data="data" />
+		<MathAll />
 		<div class="container" :class="type">
 			<!-- Terms -->
 			<div class="row">
 				<!-- Expression -->
 				<div class="col-12" v-if="data.expression || data.symbol">
-					<section class="card card-expression card-mathjax" ref="mathjax" :class="(type === 'equations' || type == 'formulas') ? '' : 'card-symbol'">
-						<Loader />
+					<section class="card card-expression card-mathjax" :class="(type === 'equations' || type == 'formulas') ? '' : 'card-symbol'">
 						<div class="card-body">
-							$$
 							<!-- Equations || Formulas -->
 							<template v-if="(type === 'equations' || type == 'formulas') && type != 'units'">
-								<template v-if="data.expressionIntern || data.expression">
-									{{ expression || data.expression }}
-								</template>
+								<MathExpression :expression="expression" />
 							</template>
 							<!-- Units || Variables -->
-							<template v-else-if="type === 'magnitudes' || type === 'units' || type === 'variables'">
-								\text{ {{data.name }} } ({{ data.symbol }})
+							<template v-else-if="(type === 'magnitudes' || type === 'units' || type === 'variables')">
+								<MathExpression
+									:text="data.name"
+									:symbol="data.symbol"
+									:unit="baseUnit"
+								/>
 							</template>
-							$$
 							<!-- Constants -->
-							<template v-if="type === 'constants'">
+							<template v-else-if="type === 'constants'">
 								<MathSymbol :data="data.symbol" />
 								<MathOperator />
 								<MathValue :data="data.values[0].value" />
@@ -35,78 +35,103 @@
 				<div class="col-12 col-lg" v-if="data.units && data.units.length > 0 && (type === 'variables' || type === 'magnitudes' || type === 'units')">
 					<section class="card card-units">
 						<div class="card-body">
-							<h3 class="card-title">{{ $t('section.units.title') }}</h3>
-							<TableUnits :data="data.units"/>
+							<h3 class="card-title">
+								{{ $t('section.units.title') }}
+							</h3>
+							<TableUnits :data="data.units" :base="data.baseUnit"/>
 						</div>
 					</section>
 				</div>
 				<!-- Table - Variables -->
-				<div class="col-12 col-lg-6" v-if="data.variables && data.variables.length > 0">
+				<div class="col-12 col-lg" v-if="data.variables && data.variables.length > 0">
 					<section class="card card-variables">
 						<div class="card-body">
-							<h3 class="card-title">{{ $t('section.variables.title') }}</h3>
+							<h3 class="card-title">
+								{{ $t('section.variables.title') }}
+							</h3>
 							<TableVariables :data="data.variables"/>
 						</div>
 					</section>
 				</div>
 				<!-- Table - Magnitudes -->
-				<div class="col-12 col-lg-6" v-if="data.magnitudes && data.magnitudes.length > 0">
+				<div class="col-12 col-lg" v-if="data.magnitudes && data.magnitudes.length > 0">
 					<section class="card card-magnitudes">
 						<div class="card-body">
-							<h3 class="card-title">{{ $t('section.magnitudes.title') }}</h3>
-							<TableVariables :data="data.magnitudes"/>
+							<h3 class="card-title">
+								{{ $t('section.magnitudes.title') }}
+							</h3>
+							<TableVariables :data="data.magnitudes" type="magnitude"/>
 						</div>
 					</section>
 				</div>
 				<!-- Table - Constants -->
-				<div class="col-12 col-lg-6" v-if="data.constants && data.constants.length > 0">
+				<div class="col-12 col-lg" v-if="data.constants && data.constants.length > 0">
 					<section class="card card-constants">
 						<div class="card-body">
-							<h3 class="card-title">{{ $t('section.constants.title') }}</h3>
+							<h3 class="card-title">
+								{{ $t('section.constants.title') }}
+							</h3>
 							<TableConstants :data="data.constants"/>
 						</div>
 					</section>
 				</div>
 				<!-- Table - Values - Exact -->
-				<div class="col-12 col-lg-6" :class="data.values && showTableValuesExact && showTableValuesAprox ? 'col-6' : 'col-12'" v-if="data.values && showTableValuesExact">
+				<div class="col-12 col-lg" :class="data.values && showTableValuesExact && showTableValuesAprox ? 'col-6' : 'col-12'" v-if="data.values && showTableValuesExact">
 					<section class="card card-values card-values-exact">
 						<div class="card-body">
-							<h3 class="card-title">{{ $t('section.values.approximate.title') }}</h3>
+							<h3 class="card-title">
+								{{ $t('section.values.approximate.title') }}
+							</h3>
 							<TableValues :data="data.values" />
 						</div>
 					</section>
 				</div>
 				<!-- Table - Values - Approximate -->
-				<div class="col-12 col-lg-6" :class="data.values && showTableValuesExact && showTableValuesAprox ? 'col-6' : 'col-12'" v-if="data.values && showTableValuesAprox">
+				<div class="col-12 col-lg" :class="data.values && showTableValuesExact && showTableValuesAprox ? 'col-6' : 'col-12'" v-if="data.values && showTableValuesAprox">
 					<section class="card card-values card-values-aprox">
 						<div class="card-body">
-							<h3 class="card-title">{{ $t('section.values.exact.title') }}</h3>
+							<h3 class="card-title">
+								{{ $t('section.values.exact.title') }}
+							</h3>
 							<TableValues class="col" :data="data.values" exact/>
 						</div>
 					</section>
 				</div>
 				<!-- Table - Conversions -->
-				<div class="col-12 col-lg-6" v-if="data.conversions && data.conversions.length > 0">
+				<div class="col-12 col-lg" v-if="data.conversions && data.conversions.length > 0">
 					<section class="card card-conversions">
 						<div class="card-body">
-							<h3 class="card-title">{{ $t('abbreviations.conversions.cap') }} <small class="ms-2">($1$ ${{ data.symbol }}$)</small></h3>
+							<h3 class="card-title">
+								{{ $t('abbreviations.conversions.cap') }}
+							</h3>
 							<TableConversions :data="data.conversions"/>
 						</div>
 					</section>
 				</div>
-				<!-- Información -->
+				<!-- Information -->
 				<div class="col-12 col-lg-12">
 					<section class="card card-information" v-if="data.description">
 						<div class="card-body">
-							<h3 class="card-title">{{ $t('section.information.title') }}</h3>
-							<div class="hstack gap-2 mb-3" v-if="data.unitOf && data.unitOf.length > 0">
-								<span>Unit of:</span>
-								<NuxtLink class="badge badge-type" :class="item.dir.slice(1)" v-for="item in data.unitOf" :key="item.slug" :to="item.path">
-									<span>{{ item.name }}</span>
+							<h3 class="card-title">
+								{{ $t('section.information.title') }}
+							</h3>
+							<!-- Base Unit -->
+							<div class="hstack gap-2 mb-3" v-if="baseUnit">
+								<h6 class="m-0">Base unit:</h6>
+								<NuxtLink class="badge badge-type" :class="baseUnit.dir.slice(1)" :key="baseUnit.slug" :to="localePath(baseUnit.path)" v-if="baseUnit.dir">
+									<span>{{ baseUnit.name }}</span>
 								</NuxtLink>
 							</div>
-							<h4 class="card-title" v-if="data.unitOf && data.unitOf.length > 0">{{ $t('section.information.description') }}</h4>
-							<p v-html="parserTeX(data.description)"/>
+							<!-- Units of -->
+							<div class="hstack gap-2 mb-3" v-if="unitOf">
+								<h6 class="m-0 me-2">Unit of</h6>
+								<template v-for="item in unitOf">
+									<NuxtLink class="badge badge-type" :class="item.dir.slice(1)" :key="item.slug" :to="localePath(item.path)" v-if="item.dir">
+										<span>{{ item.name }}</span>
+									</NuxtLink>
+								</template>
+							</div>
+							<div v-html="parserTeX(data.description)"/>
 						</div>
 					</section>
 				</div>
@@ -114,7 +139,9 @@
 				<div class="col-12 col-lg-12" v-if="data.relations">
 					<section class="card card-description">
 						<div class="card-body">
-							<h3 class="card-title">{{ $t('section.relations.title') }}</h3>
+							<h3 class="card-title">
+								{{ $t('section.relations.title') }}
+							</h3>
 						</div>
 					</section>
 				</div>
@@ -122,7 +149,9 @@
 				<div class="col-12 col-lg-12" v-if="data.expression || data.symbol">
 					<section class="card card-code">
 						<div class="card-body">
-							<h3 class="card-title">{{ $t('section.code.title') }}</h3>
+							<h3 class="card-title">
+								{{ $t('section.code.title') }}
+							</h3>
 							<div class="input-group">
 								<input class="form-control" :id="`copy-${slug}`" :value="code" />
 								<ActionsCopy class="btn btn-dark rounded-end" :target="`#copy-${slug}`" expanded/>
@@ -134,7 +163,9 @@
 				<div class="col-12 col-lg-12" v-if="data.references && data.references.length > 0">
 					<section class="card card-references">
 						<div class="card-body">
-							<h3 class="card-title">{{ $t('section.references.title') }}</h3>
+							<h3 class="card-title">
+								{{ $t('section.references.title') }}
+							</h3>
 							<ul class="mb-0">
 								<li v-for="item in data.references" :key="item.title">
 									<a :href="item.url" target="_blank" rel="noopneer nofollow noreferrer">{{ item.title }} - {{ item.site }}</a>
@@ -155,7 +186,6 @@
 				</div>
 			</div>
 		</div>
-		<MathJax :startup="startup" :update="$route"/>
 	</main>
 </template>
 
@@ -164,19 +194,7 @@
 	import Utils from "~/utils";
 	import getData from "~/utils/data";
 	export default {
-		data () {
-			return {
-				startup: {
-					ready: () => {
-						MathJax.startup.defaultReady();
-						MathJax.startup.promise.then(() => {
-							this.render();
-						});
-					}
-				}
-			}
-		},
-		async asyncData ({ $content, params, error }) {
+		async asyncData ({ $content, params, error, i18n }) {
 			const { category, type, slug } = params;
 			const data = await getData($content, params, error);
 			return { category, type, slug, data }
@@ -188,24 +206,49 @@
 				}
 			}
 		},
+		mounted() {
+			window.addEventListener('math-jax-all-loaded', () => {
+				Utils.initTermHover()
+			}, false);
+		},
 		computed: {
-			code(alt) {
+			code() {
+				let code = false;
 				if(this.data.expression) {
 					if(typeof this.data.expression === "string") {
-						return this.data.expression;
+						code = this.data.expression;
 					}
-					return this.data.expression.tex || this.data.expression.text || this.dataexpression.fallback;
+					code = this.data.expression.tex || this.data.expression.html || this.data.expression.text;
 				}
-
 				if(this.data.symbol) {
 					if(typeof this.data.symbol === "string") {
-						return this.data.symbol;
+						code = this.data.symbol;
 					}
-					return this.data.symbol.tex || this.data.symbol.text || this.data.symbol.fallback;
+					code = this.data.symbol.tex || this.data.symbol.html || this.data.symbol.text;
 				}
+				return code;
 			},
 			expression() {
-				return Utils.parserTeX(this.data.expressionIntern) || this.data.expression;
+				let expression = this.data.expressionIntern ? Utils.parserTeX(this.data.expressionIntern) : this.data.expression;
+				return expression;
+			},
+			baseUnit() {
+				let baseUnit = false;
+				if(this.data.baseUnit) {
+					this.data.units.forEach(unit => {
+						if(unit.slug === this.data.baseUnit) {
+							baseUnit = unit;
+						}
+					});
+				}
+				return baseUnit;
+			},
+			unitOf() {
+				let unitOf = false;
+				if(this.data.unitOf && this.data.unitOf.length > 0) {
+					unitOf = this.data.unitOf;
+				}
+				return unitOf;
 			},
 			showTableValuesAprox() {
 				let show = false;
@@ -229,23 +272,7 @@
 		methods: {
 			parserTeX(data) {
 				return Utils.parserTeX(data);
-			},
-			render() {
-				const selector = this.$refs.mathjax;
-				if(selector && !selector.classList.contains('rendered')) {
-					selector.classList.add('rendered');
-					setTimeout(() => {
-						selector.querySelector('.loader').remove();
-						Utils.initTermHover();
-					}, 500);
-				}
 			}
-		},
-		mounted() {
-			const selector = this.$refs.mathjax;
-			if(selector && !selector.classList.contains('rendered')) {
-				this.render();
-			}
-		},
+		}
 	}
 </script>

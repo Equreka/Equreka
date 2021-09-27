@@ -1,6 +1,10 @@
 {
 	name: 'Joule per Kelvin',
-	symbol: 'J/K',
+	symbol: {
+		text: 'J/K',
+		html: 'J/K',
+		tex: '\\frac{J}{K}',
+	},
 	type: 'si',
 	categories: ['physics'],
 	description: 'The joule per kelvin ($J/K$) is the product of an SI derived unit, the joule ($J$), and an SI base unit, the kelvin ($K$).',

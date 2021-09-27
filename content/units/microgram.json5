@@ -1,0 +1,45 @@
+{
+	name: 'Microgram',
+	symbol: {
+		text: 'μg',
+		html: 'μg',
+		tex: 'μg',
+	},
+	unitOf: ['mass'],
+	type: 'si',
+	categories: ['physics'],
+	description: 'In the metric system, a microgram or microgramme is a unit of mass equal to one millionth ($1×10^{−6}$) of a gram. The unit symbol is μg according to the International System of Units; the recommended symbol in the United States and United Kingdom when communicating medical information is mcg. In μg the prefix symbol for $micro-$ is the Greek letter $μ$ (Mu).',
+	conversions: [
+		{
+			value: 1e-12,
+			units: 'tonne'
+		}, {
+			value: 1e-9,
+			units: 'kilogram'
+		}, {
+			value: 1e-6,
+			units: 'gram'
+		}, {
+			value: 0.001,
+			units: 'milligram'
+		}, {
+			value: 1,
+			units: 'microgram'
+		}, {
+			value: 9.8421e-13,
+			units: 'long-ton'
+		}, {
+			value: 1.1023e-12,
+			units: 'short-ton',
+		}, {
+			value: 1.5747e-10,
+			units: 'stone',
+		}, {
+			value: 2.2046e-9,
+			units: 'pound',
+		}, {
+			value: 3.5274e-8,
+			units: 'ounce',
+		}
+	],
+}

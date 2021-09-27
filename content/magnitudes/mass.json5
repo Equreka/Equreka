@@ -1,9 +1,14 @@
 {
 	name: 'Mass',
-	symbol: 'm',
+	symbol: {
+		text: 'm',
+		html: 'm',
+		tex: 'm',
+	},
 	categories: ['physics'],
 	description: 'Property of matter to resist changes of the state of motion and to attract other bodies',
+	baseUnit: 'kilogram',
 	units: [
-		'kilogram', 'gram', 'pound', 'ounce'
+		'tonne', 'kilogram', 'gram', 'milligram', 'microgram', 'long-ton', 'short-ton', 'stone', 'pound', 'ounce'
 	]
 }

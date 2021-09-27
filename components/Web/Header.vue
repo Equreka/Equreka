@@ -16,12 +16,12 @@
 				<!-- Right -->
 				<div class="right">
 					<!-- Button: Calculator -->
-					<NuxtLink class="btn" :to="localePath('/calculator/')" :title="$t('calculator.title')">
+					<NuxtLink class="btn" :to="localePath('/calculator')" :title="$t('calculator.title')">
 						<span class="visually-hidden">{{ $t('calculator.title') }}</span>
 						<i class="bi bi-plus-square"></i>
 					</NuxtLink>
 					<!-- Button: Favorites -->
-					<NuxtLink class="btn" :to="localePath('/favorites/')" :title="$t('favorites.title')">
+					<NuxtLink class="btn" :to="localePath('/favorites')" :title="$t('favorites.title')">
 						<span class="visually-hidden">{{ $t('favorites.title') }}</span>
 						<i class="bi bi-heart"></i>
 					</NuxtLink>

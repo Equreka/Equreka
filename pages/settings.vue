@@ -3,14 +3,14 @@
 		<div class="container">
 			<div class="card">
 				<div class="card-body">
-					<h2 class="page-title">
+					<h2 class="mb-4">
 						{{ $t('settings.title') }}
+						<small>
+							v{{ version }}
+						</small>
 					</h2>
-					<p class="lead mb-4">
-						{{ $t('settings.lead') }}
-					</p>
 					<!-- Language -->
-					<h3 class="h5 mb-3">
+					<h3 class="h6 mb-3">
 						{{ $t('settings.language.title') }}
 					</h3>
 					<div class="dropdown mb-4">
@@ -30,8 +30,9 @@
 							</li>
 						</ul>
 					</div>
+					<hr class="my-4">
 					<!-- Theme -->
-					<h3 class="h5 mb-3">
+					<h3 class="h6 mb-3">
 						{{ $t('settings.theme.title') }}
 					</h3>
 					<div class="dropdown">
@@ -52,57 +53,61 @@
 							</li>
 						</ul>
 					</div>
-					<hr class="my-4"> 
-					<!-- Version -->
-					<div class="hstack gap-3">
-						<h3 class="h5 mb-0">Equreka</h3>
-
-						<p class="mb-0">Version: {{ version }}</p>
+					<hr class="my-4">
+					<!-- Favorites -->
+					<h3 class="h6 mb-3">
+						{{ $t('settings.favorites.title') }}
+					</h3>
+					<div class="hstack align-items-start gap-2">
+						<button class="btn btn-primary" @click="exportFavorites">
+							<i class="me-2 bi bi-box-arrow-up"></i>
+							<span>{{ $t('settings.favorites.export') }}</span>
+						</button>
+						<button class="btn btn-primary" @click="importFavorites">
+							<i class="me-2 bi bi-box-arrow-in-down"></i>
+							<span>{{ $t('settings.favorites.import') }}</span>
+						</button>
 					</div>
-					<!-- Pages -->
-					<nav class="nav nav-pages mt-3 mb-0" v-if="layout == 'app'">
-						<NuxtLink class="nav-link" :to="localePath('/about')">{{ $t('about.title') }}</NuxtLink>
-						<NuxtLink class="nav-link" :to="localePath('/contact')">{{ $t('contact.title') }}</NuxtLink>
-						<NuxtLink class="nav-link" :to="localePath('/donate')">{{ $t('donate.title') }}</NuxtLink>
-					</nav>
+				</div>
+			</div>
+			<div class="links mx-auto" v-if="layout == 'app'">
+				<!-- Pages -->
+				<div class="hstack justify-content-center gap-3 small mt-4 mb-3" v-if="layout == 'app'">
+					<NuxtLink :to="localePath('/about')">{{ $t('about.title') }}</NuxtLink>
+					<NuxtLink :to="localePath('/contact')">{{ $t('contact.title') }}</NuxtLink>
+					<NuxtLink :to="localePath('/donate')">{{ $t('donate.title') }}</NuxtLink>
+				</div>
+				<!-- Social -->
+				<div class="hstack justify-content-center gap-3 small">
+					<a class="github" target="_blank" rel="noopener nofollow" href="https://github.com/Equreka" title="Github"><i class="icon bi bi-github"></i></a>
+					<a class="facebook" target="_blank" rel="noopener nofollow" href="https://fb.me/Equreka" title="Facebook"><i class="icon bi bi-facebook"></i></a>
+					<a class="twitter" target="_blank" rel="noopener nofollow" href="https://twitter.com/Equreka" title="Twitter"><i class="icon bi bi-twitter"></i></a>
+					<a class="discord" target="_blank" rel="noopener nofollow" href="https://discord.gg/NZypuxvAB6" title="Discord"><i class="icon bi bi-discord"></i></a>
 				</div>
 			</div>
 		</div>
-		<!-- Social -->
-		<ul class="nav nav-social" v-if="layout == 'app'">
-			<li class="nav-item">
-				<a class="nav-link github" target="_blank" rel="noopener nofollow" href="https://github.com/Equreka" title="Github"><i class="icon bi bi-github"></i></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link facebook" target="_blank" rel="noopener nofollow" href="https://fb.me/Equreka" title="Facebook"><i class="icon bi bi-facebook"></i></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link twitter" target="_blank" rel="noopener nofollow" href="https://twitter.com/Equreka" title="Twitter"><i class="icon bi bi-twitter"></i></a>
-			</li>
-			<li class="nav-item">
-				<a class="nav-link discord" target="_blank" rel="noopener nofollow" href="https://discord.gg/NZypuxvAB6" title="Discord"><i class="icon bi bi-discord"></i></a>
-			</li>
-		</ul>
 	</main>
 </template>
 
 <script>
 	import { version } from '../package.json'
 	import Utils from "~/utils";
+	import Favorites from "~/utils/favorites";
 	export default {
 		data () {
 			return {
-			version: version,
-			themes: {
-				'light':  'Light',
-				'dark':   'Dark',
-				'system': 'System default'
-			},
+				version: version,
+				favorites: false,
+				themes: {
+					'light':  'Light',
+					'dark':   'Dark',
+					'system': 'System default'
+				},
 			}
 		},
 		computed: {
 			availableLocales () {
-			return this.$i18n.locales
+				return this.$i18n.locales
 			},
 			layout() {
 				return (this.$device.isMobile) ? 'app' : 'web';
@@ -110,14 +115,54 @@
 		},
 		methods: {
 			themeTransition(newTheme, actualTheme, systemQuery) {
-			Utils.themeTransition(newTheme, actualTheme, systemQuery);
+				Utils.themeTransition(newTheme, actualTheme, systemQuery);
+			},
+			setLanguage(language) {
+				Utils.setLanguage(language);
+			},
+			exportFavorites() {
+				const data = Favorites.export();
+				const blob = new Blob([data], { type: "text/json" });
+				const link = document.createElement("a");
+
+				link.download = 'equreka-favorites.json';
+				link.href = window.URL.createObjectURL(blob);
+				link.dataset.downloadurl = ["text/json", link.download, link.href].join(":");
+
+				const evt = new MouseEvent("click", {
+					view: window,
+					bubbles: true,
+					cancelable: true,
+				});
+
+				link.dispatchEvent(evt);
+				link.remove()
+			},
+			async importFavorites(event) {
+				let success = false;
+				const file = event.target.files[0];
+				if (!file) {
+					return;
+				}
+				const reader = new FileReader();
+				reader.onload = async (event) => {
+					const data = JSON.parse(event.target.result);
+					success = Favorites.import(data);
+					if(success) {
+						alert('success');
+					} else {
+						alert('error');
+					}
+					//this.favorites = await Favorites.getAll();
+				}
+				reader.readAsText(file);
 			}
 		},
 		head() {
 			return {
-			bodyAttrs: {
-				class: `page-settings`
-			}
+				bodyAttrs: {
+					class: `page-settings`
+				}
 			}
 		}
 	}

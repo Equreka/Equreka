@@ -12,7 +12,7 @@ $app-nav-border-radius: 1rem;
 
 // Font
 $font-family-math:               serif;
-$font-family-heading-sans-serif: "Raleway", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font-family-heading-sans-serif: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 $headings-font-family: $font-family-heading-sans-serif;
 $headings-font-weight: 500;
 
@@ -139,6 +139,13 @@ $input-disabled-color:     hsla(0, 0%, var(--theme-inverted-lightness), 0.15);
 $input-focus-bg:           var(--input-focus-bg);
 $input-focus-color:        var(--body-color);
 $input-focus-border-color: var(--input-focus-border-color);
+
+$form-select-bg:                 var(--input-bg);
+$form-select-color:              var(--body-color);
+$form-select-border-color:       var(--input-border-color);
+$form-select-placeholder-color:  var(--body-color-muted);
+$form-select-disabled-bg:        hsla(0, 0%, var(--theme-inverted-lightness), 0.1);
+$form-select-disabled-color:     hsla(0, 0%, var(--theme-inverted-lightness), 0.15);
 
 // Paragraphs
 $lead-font-weight:          400;

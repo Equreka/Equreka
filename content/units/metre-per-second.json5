@@ -1,6 +1,10 @@
 {
-	name: 'Meter per second',
-	symbol: 'm/s',
+	name: 'Metre per second',
+	symbol: {
+		text: 'm/s',
+		html: 'm/s',
+		tex: '\\frac{m}{s}',
+	},
 	unitOf: ['speed'],
 	type: 'si',
 	categories: ['physics'],

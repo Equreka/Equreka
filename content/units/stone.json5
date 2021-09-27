@@ -1,0 +1,53 @@
+{
+	name: 'Stone',
+	symbol: {
+		text: 'st',
+		html: 'st',
+		tex: 'st',
+	},
+	unitOf: ['mass'],
+	type: 'imperial',
+	categories: ['physics'],
+	description: 'The stone or stone weight (abbreviation: $st$) is an English and imperial unit of mass equal to 14 pounds (approximately 6.35 kg). The stone continues in customary use in the United Kingdom and Ireland for body weight.',
+	conversions: [
+		{
+			value: 0.00635029,
+			units: 'tonne'
+		}, {
+			value: 6.35029,
+			units: 'kilogram'
+		}, {
+			value: 6350.29,
+			units: 'gram'
+		}, {
+			value: 6.35029e+6,
+			units: 'milligram'
+		}, {
+			value: 6.35029e+9,
+			units: 'microgram'
+		}, {
+			value: 0.00625,
+			units: 'long-ton'
+		}, {
+			value: 0.007,
+			units: 'short-ton',
+		}, {
+			value: 1,
+			units: 'stone',
+		}, {
+			value: 14,
+			units: 'pound',
+		}, {
+			value: 224,
+			units: 'ounce',
+		}
+	],
+	references: [
+		{
+			title: 'Pound (mass)',
+			site: 'Wikipedia',
+			url: 'https://en.wikipedia.org/wiki/Pound_(unit)',
+			date: '2021-09-17 09:16:34',
+		}
+	]
+}

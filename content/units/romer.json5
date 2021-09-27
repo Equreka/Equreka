@@ -1,6 +1,10 @@
 {
 	name: 'Rømer',
-	symbol: '°Rø',
+	symbol: {
+		text: '°Rø',
+		html: '°Rø',
+		tex: '°Rø',
+	},
 	unitOf: ['thermodynamic-temperature'],
 	type: null,
 	categories: ['physics'],
@@ -27,6 +31,9 @@
 		}, {
 			value: 168.57142857143,
 			units: 'delisle'
+		}, {
+			value: 1,
+			units: 'romer'
 		}
 	],
 }

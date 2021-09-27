@@ -3,13 +3,15 @@
 		<SVGFavoritesEmpty v-if="!haveFavorites" />
 		<div class="container">
 			<header class="main-header">
-				<div class="hstack">
-					<h2 class="page-title">
+				<div class="hstack align-items-center">
+					<h2>
 						{{ $t('favorites.title') }}
 					</h2>
-					<button class="ms-auto btn" :class="edit ? 'btn-success' : 'btn-warning'" @click="toggleEdit">
-						<i class="bi" :class="edit ? 'bi-check2' : 'bi-pencil'"></i>
-					</button>
+					<div class="ms-auto hstack gap-3">
+						<button class="btn" :class="edit ? 'btn-success' : 'btn-warning'" @click="toggleEdit">
+							<i class="bi" :class="edit ? 'bi-check2' : 'bi-pencil'"></i>
+						</button>
+					</div>
 				</div>
 				<p class="lead m-0">
 					{{ $t('favorites.lead') }}

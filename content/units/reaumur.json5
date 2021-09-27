@@ -1,6 +1,10 @@
 {
-	name: 'Réamur',
-	symbol: '°Ré',
+	name: 'Réaumur',
+	symbol: {
+		text: '°Ré',
+		html: '°Ré',
+		tex: '°Ré',
+	},
 	unitOf: ['thermodynamic-temperature'],
 	type: null,
 	categories: ['physics'],
@@ -21,6 +25,9 @@
 		}, {
 			value: 493.92,
 			units: 'rankine'
+		}, {
+			value: 1,
+			units: 'reaumur'
 		}, {
 			value: 148.125,
 			units: 'delisle'

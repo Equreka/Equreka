@@ -1,63 +1,63 @@
 /**
  * Pithagoras Theorem
  * @author Derian Castillo
- * @version 1.0.0
- * @date 2021-09-14
+ * @version 1.1.0
+ * @dateCreated 2021-09-14
+ * @dateUpdated 2021-09-24
  */
 
 // Errors
 import { errorDefault, errorInputsAllFilled, errorInputNegativeValues, } from '~/calculator/errors';
 // Utils
-import { isIn } from '~/calculator/utils';
-
-function checkNegatives(input) {
-	if(input.a < 0 || input.b < 0 || input.c < 0) return true;
-	return false;
-}
+import { check, checkNegatives } from '~/calculator/utils';
 
 // Calculate a
 export function a(input) {
 	var { b, c } = input;
 	// Custom error
-	if(c <= b) return {
+	if(b > c) return {
 		error: {
 			type: 'input.invalid',
 			message: 'c must be greater than b'
 		}
 	}
-	var value = Math.sqrt(Math.pow(c, 2) - Math.pow(b, 2)),
-		variable = 'a', unit = 'u';
-	return { value, variable, unit }
+	var	variables = 'a',
+			units = 'unit',
+			value = Math.sqrt(Math.pow(c, 2) - Math.pow(b, 2));
+	return { variables, units, value }
 }
 
 // Calculate b
 export function b(input) {
-	var { a, c } = input,
-		value = Math.sqrt(Math.pow(c, 2) - Math.pow(a, 2)),
-		variable = 'b', unit = 'u';
-	return { value, variable, unit }
+	var	{ a, c } = input,
+			variables = 'b',
+			units = 'unit',
+			value = Math.sqrt(Math.pow(c, 2) - Math.pow(a, 2));
+	return { variables, units, value }
 }
 
 // Calculate c
 export function c(input) {
-	var { a, b } = input,
-		value = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2)),
-		variable = 'c', unit = 'u';
-	return { value, variable, unit }
+	var	{ a, b } = input,
+			variables = 'c',
+			units = 'unit',
+			value = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+	return { variables, units, value }
 }
 
 // This is the function that will get called by the calculator
 export default (input) => {
-	// All inputs
-	if(isIn(['a', 'b', 'c'], input)) return { error: errorInputsAllFilled };
+	var inputs = input.values;
 	// Check for negative values
-	if(checkNegatives(input)) return { error: errorInputNegativeValues };
+	if(checkNegatives(inputs)) return { error: errorInputNegativeValues };
+	// Check if all inputs are filled
+	if(check(['a', 'b', 'c'], inputs)) return { error: errorInputsAllFilled };
 	// Calculate a
-	if(isIn(['b', 'c'], input)) return a(input);
+	if(check(['b', 'c'], inputs)) return a(inputs);
 	// Calculate b
-	if(isIn(['a', 'c'], input)) return b(input);
+	if(check(['a', 'c'], inputs)) return b(inputs);
 	// Calculate c
-	if(isIn(['a', 'b'], input)) return c(input);
+	if(check(['a', 'b'], inputs)) return c(inputs);
 	// Return default error
 	return { error: errorDefault };
 }

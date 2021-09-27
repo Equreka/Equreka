@@ -1,6 +1,10 @@
 {
 	name: 'Celsius',
-	symbol: '°C',
+	symbol: {
+		text: '°C',
+		html: '°C',
+		tex: '°C',
+	},
 	unitOf: ['thermodynamic-temperature'],
 	type: 'si',
 	categories: ['physics'],
@@ -9,6 +13,9 @@
 		{
 			value: 274.15,
 			units: 'kelvin'
+		}, {
+			value: 1,
+			units: 'celsius'
 		}, {
 			value: 33.8,
 			units: 'fahrenheit'

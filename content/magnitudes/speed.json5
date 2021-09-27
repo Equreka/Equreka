@@ -1,9 +1,14 @@
 {
 	name: 'Speed',
-	symbol: 'v',
+	symbol: {
+		text: 'v',
+		html: 'v',
+		tex: 'v',
+	},
 	categories: ['physics'],
 	description: 'In everyday use and in kinematics, the speed (commonly referred to as v) of an object is the magnitude of the rate of change of its position with time or the magnitude of the change of its position per unit of time; it is thus a scalar quantity.',
+	baseUnit: 'metre-per-second',
 	units: [
-		'meter-per-second'
+		'metre-per-second'
 	]
 }

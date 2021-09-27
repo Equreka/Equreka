@@ -1,6 +1,10 @@
 {
 	name: 'Fahrenheit',
-	symbol: '°F',
+	symbol: {
+		text: '°F',
+		html: '°F',
+		tex: '°F',
+	},
 	unitOf: ['thermodynamic-temperature'],
 	type: null,
 	categories: ['physics'],
@@ -12,6 +16,9 @@
 		}, {
 			value: -17.222222222222,
 			units: 'celsius'
+		}, {
+			value: 1,
+			units: 'fahrenheit'
 		}, {
 			value: -5.6833333333333,
 			units: 'newton-degree'

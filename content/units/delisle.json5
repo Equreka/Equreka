@@ -1,6 +1,10 @@
 {
 	name: 'Delisle',
-	symbol: '°De',
+	symbol: {
+		text: '°De',
+		html: '°De',
+		tex: '°De',
+	},
 	unitOf: ['thermodynamic-temperature'],
 	type: null,
 	categories: ['physics'],
@@ -24,6 +28,9 @@
 		}, {
 			value: 53.86667,
 			units: 'reaumur'
+		}, {
+			value: 1,
+			units: 'delisle'
 		}, {
 			value: 59.65,
 			units: 'romer'

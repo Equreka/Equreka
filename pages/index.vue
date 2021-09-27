@@ -2,9 +2,14 @@
 	<main role="main" class="home">
 		<div class="container">
 			<SearchBar class="mb-3" :limit="20" v-if="layout === 'app'"/>
-			<button class="btn btn-text p-0 shadow-none mb-3" @click="toggle = !toggle" v-if="false">
-				<i class="fs-2 bi" :class="toggle ? 'bi-toggle-on' : 'bi-toggle-off'"></i>
-			</button>
+			<div class="hstack align-items-stretch gap-2 mb-3" role="group">
+				<button class="btn justify-content-center col rounded-pill" :class="toggle ? 'btn-primary' : 'btn-dark'" @click="toggle = true">
+					{{ $t('categories.title') }}
+				</button>
+				<button class="btn justify-content-center col rounded-pill" :class="!toggle ? 'btn-primary' : 'btn-dark'" @click="toggle = false">
+					{{ $t('types.title') }}
+				</button>
+			</div>
 			<transition name="toggle">
 				<div v-if="toggle">
 					<div class="card card-category" v-for="category in categories" :key="category.slug" :class="category.slug">

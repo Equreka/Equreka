@@ -1,0 +1,12 @@
+{
+	name: 'Lumen per watt',
+	symbol: {
+		text: 'lm/W',
+		html: 'lm/W',
+		tex: '\\frac{lm}{W}',
+	},
+	unitOf: ['speed'],
+	type: 'si',
+	categories: ['physics'],
+	description: ''
+}

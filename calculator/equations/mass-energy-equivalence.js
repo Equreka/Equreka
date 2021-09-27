@@ -1,41 +1,45 @@
 /**
  * Mass energy equivalence
  * @author Derian Castillo
- * @version 1.0.0
- * @date 2021-09-14
+ * @version 1.1.0
+ * @dateCreated 2021-09-14
+ * @dateUpdated 2021-09-24
  */
 
 // Errors
 import { errorDefault, errorInputsAllFilled } from '~/calculator/errors';
 // Utils
-import { isIn } from '~/calculator/utils';
+import { check } from '~/calculator/utils';
 
 // Calculate mass
 export function mass(input, c) {
 	var { E } = input,
-		variable = 'm', unit = 'kg',
+		magnitudes = 'mass',
+		units = 'kilogram',
 		value = E / Math.pow(c, 2);
-	return { value, variable, unit }
+	return { magnitudes, units, value }
 }
 
 // Calculate energy
 export function energy(input, c) {
 	var { m } = input,
-		variable = 'E', unit = 'J',
+		magnitudes = 'energy',
+		units = 'joule',
 		value = m * Math.pow(c, 2);
-	return { value, variable, unit }
+	return { magnitudes, units, value }
 }
 
 // This is the function that will get called by the calculator
 export default (input, constants) => {
+	var inputs = input.values;
 	// All inputs
-	if(isIn(['E', 'm'], input)) return { error: errorInputsAllFilled };
+	if(check(['E', 'm'], inputs)) return { error: errorInputsAllFilled };
 	// Constants
 	var { c } = constants;
 	// Calculate mass
-	if(['E'] in input) return mass(input, c);
+	if(check(['E'], inputs)) return mass(inputs, c);
 	// Calculate energy
-	if(['m'] in input) return energy(input, c);
+	if(check(['m'], inputs)) return energy(inputs, c);
 	// Return default error
 	return { error: errorDefault }
 }

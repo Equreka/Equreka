@@ -1,9 +1,18 @@
 {
 	name: 'Frequency',
-	symbol: 'f',
-	symbolAlt: 'ν',
+	symbol: {
+		text: 'f',
+		html: 'f',
+		tex: 'f',
+	},
+	symbolAlt: {
+		text: 'v',
+		html: 'v',
+		tex: 'v',
+	},
 	categories: ['physics'],
 	description: 'Frequency is the number of occurrences of a repeating event per unit of time. It is also occasionally referred to as temporal frequency to emphasize the contrast to spatial frequency, and ordinary frequency to emphasize the contrast to angular frequency. Frequency is measured in hertz ($Hz$) which is equal to <strong>one event per second</strong>.',
+	baseUnit: 'hertz',
 	units: [
 		'hertz'
 	]

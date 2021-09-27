@@ -1,7 +1,11 @@
 {
 	name: 'Unitless',
-	symbol: null,
-	unitOf: null,
+	symbol:  {
+		text: '',
+		html: '',
+		tex: '',
+	},
+	unitOf: false,
 	categories: ['universal'],
 	description: 'In science, a unitless quantity or dimension is a quantity without a physical dimension, being a number that can describe a physical characteristic without a physical unit of measurement or expression, and that as such, always has a dimension of 1.​ Unitless quantities are widely used in mathematics, physics, engineering and economics, and in daily life (for example, in counting). Many well-known numbers, such as π, e and φ, are also unitless. On the other hand, non-unitless quantities are measured in units of length, area, time, etc.',
 	//	es: 'En ciencias, una magnitud adimensional o magnitud de dimensión uno es una cantidad sin una dimensión física asociada, siendo por tanto un número puro que permite describir una característica física sin dimensión ni unidad de expresión explícita, y que como tal, siempre tiene una dimensión de 1. Las magnitudes adimensionales son ampliamente utilizadas en matemáticas, física, ingeniería o economía, y en la vida cotidiana (por ejemplo, en el conteo). Muchos números bien conocidos, como π, e y φ, son también adimensionales. Por el contrario, las magnitudes no adimensionales se miden en unidades de longitud, área, tiempo, etc.',

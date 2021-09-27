@@ -5,7 +5,7 @@
 			<p class="lead m-0">{{ $t('calculator.lead') }}</p>
 		</header>
 		<template v-for="data, type in data">
-				<CardCollapse class="card-type" :key="type" :data="data" :to="`/${type}`" :type="type" v-if="data.length > 0" />
+			<CardCollapse class="card-type" :key="type" :data="data" :to="`/${type}`" :type="type" v-if="data.length > 0" />
 		</template>
 	</div>
 </template>

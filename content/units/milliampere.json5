@@ -1,6 +1,10 @@
 {
 	name: 'Milliampere',
-	symbol: 'mA',
+	symbol: {
+		text: 'mA',
+		html: 'mA',
+		tex: 'mA',
+	},
 	unitOf: ['electric-current'],
 	type: 'si',
 	categories: ['physics'],

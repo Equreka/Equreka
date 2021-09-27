@@ -16,10 +16,10 @@
 			return {
 				menu: [
 					{ slug: 'home', to: '/', icon: 'bi-house' },
-					{ slug: 'search', to: '/search/', icon: 'bi-search' },
-					{ slug: 'calculator', to: '/calculator/', icon: 'bi-plus-square' },
-					{ slug: 'favorites', to: '/favorites/', icon: 'bi-heart' },
-					{ slug: 'settings', to: '/settings/', icon: 'bi-gear' }
+					{ slug: 'search', to: '/search', icon: 'bi-search' },
+					{ slug: 'calculator', to: '/calculator', icon: 'bi-plus-square' },
+					{ slug: 'favorites', to: '/favorites', icon: 'bi-heart' },
+					{ slug: 'settings', to: '/settings', icon: 'bi-gear' }
 				],
 				themes: {
 					'light':  'Light',

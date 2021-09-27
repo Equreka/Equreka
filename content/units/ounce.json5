@@ -1,14 +1,45 @@
 {
 	name: 'Ounce',
-	symbol: 'oz',
+	symbol: {
+		text: 'oz',
+		html: 'oz',
+		tex: 'oz',
+	},
 	unitOf: ['mass'],
 	type: 'imperial',
 	categories: ['physics'],
 	description: 'Mass is both a property of a physical body and a measure of its resistance to acceleration (a change in its state of motion) when a net force is applied. An object\'s mass also determines the strength of its gravitational attraction to other bodies.',
 	conversions: [
 		{
-			units: 'kilogram',
-			value: 0.0283495
+			value: 2.835e-5,
+			units: 'tonne'
+		}, {
+			value: 0.0283495,
+			units: 'kilogram'
+		}, {
+			value: 28.3495,
+			units: 'gram'
+		}, {
+			value: 28349.5,
+			units: 'milligram'
+		}, {
+			value: 2.835e+7,
+			units: 'microgram'
+		}, {
+			value: 2.7902e-5,
+			units: 'long-ton'
+		}, {
+			value: 3.125e-5,
+			units: 'short-ton',
+		}, {
+			value: 0.00446429,
+			units: 'stone',
+		}, {
+			value: 0.0625,
+			units: 'pound',
+		}, {
+			value: 1,
+			units: 'ounce',
 		}
 	],
 }

@@ -1,10 +1,14 @@
 // Page Header
 .page-header { 
-	margin-bottom: 1rem;
-	background: hsl(var(--eqk-color-h), var(--eqk-color-s), 40%);
-	box-shadow: 0 0rem 2rem -1rem var(--eqk-color);
-	@include rs('padding-top',    0.75rem, 2vw, 1.25rem);
-	@include rs('padding-bottom', 0.75rem, 2vw, 1.25rem);
+	//background: hsl(var(--eqk-color-h), var(--eqk-color-s), 40%);
+	background: linear-gradient(
+		0, 
+		var(--eqk-color),
+		transparent 250%
+	);
+	box-shadow: 0 0.5rem 2rem -1rem var(--eqk-color);
+	@include rs('padding-top',    0.75rem, 2vw, 1.35rem);
+	@include rs('padding-bottom', 0.75rem, 2vw, 1.35rem);
 	@include rs('margin-bottom',  0.75rem, 2vw, 1.35rem);
 	a {
 		text-decoration: none;
@@ -54,7 +58,7 @@
 			font-weight:    600;
 			font-family:    $font-family-heading-sans-serif;
 			letter-spacing: 1px;
-			@include rs('font-size', 1.25rem, 3vw, 2rem);
+			@include rs('font-size', 1.35rem, 3vw, 2rem);
 			@include media-breakpoint-up($navbar-expand) {
 				font-weight: 700;
 			}
@@ -72,7 +76,7 @@
 			color:           hsl(var(--eqk-color-h), 100%, 85%);
 			box-shadow:      none !important;
 			@include rs('padding', 0.5rem, 1vw, 0.75rem);
-			@include rs('font-size', 1rem, 1vw, 1.35rem);
+			@include rs('font-size', 1.15rem, 2vw, 1.35rem);
 			&:hover,
 			&:focus,
 			&[aria-expanded="true"] {

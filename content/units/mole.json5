@@ -1,6 +1,10 @@
 {
 	name: 'Mole',
-	symbol: 'mol',
+	symbol: {
+		text: 'mol',
+		html: 'mol',
+		tex: 'mol',
+	},
 	unitOf: ['substance'],
 	type: 'si',
 	categories: ['chemistry'],

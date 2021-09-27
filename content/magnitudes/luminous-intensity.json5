@@ -1,0 +1,15 @@
+{
+	name: 'Luminous intensity',
+	symbol: {
+		text: 'Iv',
+		html: 'I<sub>v<sub>',
+		tex: 'I_{v}',
+	},
+	categories: ['physics'],
+	subcategories: ['photometry'],
+	description: 'In photometry, luminous intensity is a measure of the wavelength-weighted power emitted by a light source in a particular direction per unit solid angle, based on the luminosity function, a standardized model of the sensitivity of the human eye. The SI unit of luminous intensity is the candela (cd), an SI base unit.',
+	baseUnit: 'candela',
+	units: [
+		'candela'
+	]
+}

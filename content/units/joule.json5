@@ -1,6 +1,10 @@
 {
 	name: 'Joule',
-	symbol: 'J',
+	symbol: {
+		text: 'J',
+		html: 'J',
+		tex: 'J',
+	},
 	type: 'si',
 	categories: ['physics'],
 	units: ['joule-per-kelvin', 'joule-second'],

@@ -71,9 +71,10 @@ android {
 ## To-do
 
 ### Data
-- [ ] Basic units and constants
+- [ ] SI basic units
+- [ ] SI basic constants
 - [ ] Get at least 100 mixed data
-- [ ] Create subCategories or tags
+- [ ] Add subCategories or tags
 ### App
 - [X] Use cappacitor.js to export as an app for iOS and Android (WIP)
 - [ ] Beta test
@@ -85,11 +86,13 @@ android {
 - [X] Error message system
 - [X] Copy to clipboard
 - [ ] Unit input for equations/formulas
-- [ ] Unit convesion system
+- [X] Unit ratio conversion-system
+- [ ] Unit formula conversion-system
 ### Scripts
 - [X] Hover system for web
 - [ ] Hover: Better hover system for app
 - [X] Languages: Save in localStorage
 - [X] Favorites: System with localStorage
-- [ ] Favorites: Add import/export
+- [X] Favorites: Add export
+- [ ] Favorites: Add import
 - [ ] Report system

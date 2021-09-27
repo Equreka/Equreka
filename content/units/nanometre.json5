@@ -1,0 +1,33 @@
+{
+	name: 'Nanometre',
+	symbol: {
+		text: 'nm',
+		html: 'nm',
+		tex: 'nm',
+	},
+	unitOf: ['length'],
+	type: 'si',
+	categories: ['physics'],
+	description: 'The nanometre (International spelling, SI symbol: $nm$) or nanometer (American spelling) is a unit of length in the metric system, equal to one billionth (short scale) of a metre (0.000000001 m). One nanometre can be expressed in scientific notation as $1×10^{−9}$ m, and as $1/1000000000$ metres.',
+	conversions: [
+		{
+			value: 1e-12,
+			units: 'kilometre'
+		}, {
+			value: 1e-9,
+			units: 'metre'
+		}, {
+			value: 1e-7,
+			units: 'centimetre'
+		}, {
+			value: 1e-6,
+			units: 'millimetre'
+		}, {
+			value: 0.001,
+			units: 'micrometre'
+		}, {
+			value: 1,
+			units: 'nanometre'
+		}
+	]
+}

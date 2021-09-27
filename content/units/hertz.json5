@@ -1,6 +1,10 @@
 {
 	name: 'Hertz',
-	symbol: 'Hz',
+	symbol: {
+		text: 'Hz',
+		html: 'Hz',
+		tex: 'Hz',
+	},
 	unitOf: ['frequency'],
 	type: 'si',
 	categories: ['physics'],

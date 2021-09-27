@@ -1,0 +1,14 @@
+{
+	name: 'Candela',
+	symbol: {
+		text: 'cd',
+		html: 'cd',
+		tex: 'cd',
+	},
+	unitOf: 'luminous-intensity',
+	type: 'si',
+	categories: ['physics'],
+	description: 'The candela (/kænˈdɛlə/ or /kænˈdiːlə/; symbol: $cd$) is the base unit of luminous intensity in the International System of Units (SI); that is, luminous power per unit solid angle emitted by a point light source in a particular direction. Luminous intensity is analogous to radiant intensity, but instead of simply adding up the contributions of every wavelength of light in the source\'s spectrum, the contribution of each wavelength is weighted by the standard luminosity function (a model of the sensitivity of the human eye to different wavelengths).',
+	conversions: [
+	],
+}

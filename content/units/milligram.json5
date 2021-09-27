@@ -1,0 +1,45 @@
+{
+	name: 'Milligram',
+	symbol: {
+		text: 'mg',
+		html: 'mg',
+		tex: 'mg',
+	},
+	unitOf: ['mass'],
+	type: 'si',
+	categories: ['physics'],
+	description: 'The milligram (symbol $mg$) is a unit of mass in the International System of Units. It is the third submultiple of the gram and the sixth of the kilogram, being one thousandth of the gram and one millionth of the kilogram.',
+	conversions: [
+		{
+			value: 1e-9,
+			units: 'tonne'
+		}, {
+			value: 1e-6,
+			units: 'kilogram'
+		}, {
+			value: 0.001,
+			units: 'gram'
+		}, {
+			value: 1,
+			units: 'milligram'
+		}, {
+			value: 1000,
+			units: 'microgram'
+		}, {
+			value: 9.8421e-10,
+			units: 'long-ton'
+		}, {
+			value: 1.1023e-9,
+			units: 'short-ton',
+		}, {
+			value: 1.5747e-7,
+			units: 'stone',
+		}, {
+			value: 2.2046e-6,
+			units: 'pound',
+		}, {
+			value: 3.5274e-5,
+			units: 'ounce',
+		}
+	],
+}

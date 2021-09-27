@@ -7,13 +7,14 @@ const Utils = {
 		*/
 	initTermHover() {
 		let elements = document.querySelectorAll(`.${Utils.TERM_SELECTOR}`);
-		if(elements.length === 0) return;
 		Array.from(elements).forEach(function(element) {
 			element.addEventListener('pointerenter', (event) => { 
 				Utils.termHover(event, element);
 			}, false);
 			if(window.innerWidth >= 768) {
-				element.addEventListener('pointerleave', Utils.termHoverRemover, false);
+				element.addEventListener('pointerleave', (event) => {
+					Utils.termHoverRemover(event);
+				}, false);
 			}
 		});
 		// Add Event Listener for touch devices for term hover remover
@@ -53,7 +54,7 @@ const Utils = {
 	 */
 	termHoverRemover (event) {
 		// Prevents remove on term with class "hover"
-		const selector = `.${Utils.TERM_SELECTOR}`,
+		const selector = Utils.TERM_SELECTOR,
 				selectorHover = `.${Utils.TERM_SELECTOR}-hover`;
 		if(event && event.target.parentNode.classList.contains(selector)) return;
 		// Remove class hover from all elements with class "hover"

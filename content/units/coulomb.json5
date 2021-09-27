@@ -1,6 +1,10 @@
 {
 	name: 'Coulomb',
-	symbol: 'C',
+	symbol: {
+		text: 'C',
+		html: 'C',
+		tex: 'C',
+	},
 	unitOf: ['electric-charge'],
 	type: 'si',
 	categories: ['physics'],
