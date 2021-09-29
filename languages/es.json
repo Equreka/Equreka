@@ -32,8 +32,8 @@
     },
     "favorites": {
       "title": "Favoritos",
-      "export": "Exportar",
-      "import": "Importar"
+      "export": "Exportar favoritos",
+      "import": "Importar favoritos"
     }
   },
   "search": {
@@ -79,24 +79,24 @@
       }
     }
   },
-  "actions": {
-    "title": "Actions",
-    "view": {
-      "title": "Ver",
-      "by": "Ver por ",
-      "all": "Ver todo"
-    },
-    "copy": {
-      "label": "Copiar al portapapeles",
-      "success": "Se copió al portapapeles! 👌🏻",
-      "error": "No se ha podido copiar al portapapeles 😅"
-    },
-    "download": {
-      "json": "Descargar archivo json"
-    },
-    "report": {
-      "error": "Reportar un error"
-    }
+  "about": {
+	  "title": "Acerca de",
+	  "lead": "Equreka es una plataforma de código abierto 100% gratuita y sin publicidad para todos. Con suerte, encontrará esto útil y lo inspirará a aprender más, crear y contribuir a la humanidad.",
+	  "paragraph": "Puedes contribuir de muchas formas, desde compartir hasta contribuir directamente al proyecto en nuestro Github.",
+	  "free-and-open-source": {
+		  "title": "¿Gratis y de código abierto? <small class=\"text-muted\">¿dónde está el truco?</small>",
+		  "lead": "No hay. Al ser de código abierto, el proyecto obtiene confiabilidad, transparencia y brinda la oportunidad a cualquiera (que quiera) de contribuir y hacer su granito de arena",
+		  "quote": {
+			  "paragraph": "Creo firmemente que el conocimiento debe ser libre, abierto, de fácil acceso y, si puede, lo más fácil de entender posible",
+			  "author": "Derian, creador de Equreka"
+		  }
+	  },
+	  "thanks": {
+		  "title": "Un agradecimiento especial a",
+		  "lead": "La ciencia y toda la gente que crea cosas asombrosas, todos los filósofos, todos los alquimistas, todos los científicos, a todas las personas que contribuyeron a la ciencia, a la civilización, a la humanidad. Todos los proyectos de código abierto y especialmente los que hicieron posible este proyecto",
+		  "paragraph": "Aquí hay algunos de los proyectos (en orden alfabético) que hicieron posible este proyecto:",
+		  "check-github": "Puede consultar nuestro <a target=\"_blank\" rel=\"noopener nofollow\" href=\"https://github.com/Equreka\"> Github </a> para una lista más completa en nuestro código fuente."
+	  }
   },
   "contact": {
     "button-submit": "¡Enviar mensaje!",
@@ -159,7 +159,7 @@
     "title": "Tipos",
     "equations": {
       "title": "Ecuaciones",
-      "description": "En matemáticas, una ecuación es una declaración que afirma la igualdad de dos expresiones, que están conectadas por el signo igual \"=\"."
+      "description": "En matemáticas, una ecuación es una declaración que afirma la igualdad de dos expresiones, que están conectadas por el signo de igualdad."
     },
     "formulas": {
       "title": "Fórmulas",
@@ -259,6 +259,25 @@
       "cap": "Tipo"
     }
   },
+  "actions": {
+    "title": "Actions",
+    "view": {
+      "title": "Ver",
+      "by": "Ver por ",
+      "all": "Ver todo"
+    },
+    "copy": {
+      "label": "Copiar al portapapeles",
+      "success": "Se copió al portapapeles! 👌🏻",
+      "error": "No se ha podido copiar al portapapeles 😅"
+    },
+    "download": {
+      "json": "Descargar archivo json"
+    },
+    "report": {
+      "error": "Reportar un error"
+    }
+  },
   "table": {
     "type": "Tipo",
     "name": "Nombre",
@@ -266,13 +285,12 @@
     "unit": "Unidad",
     "value": "Valor"
   },
-  "about": {
-    "title": "Acerca de"
-  },
   "section": {
     "information": {
       "title": "Información",
-      "description": "Descripción"
+      "description": "Descripción",
+      "unit-of": "Unidad de",
+      "base-unit": "Unidad base"
     },
     "relations": {
       "title": "Relaciones"

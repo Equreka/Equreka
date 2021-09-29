@@ -6,7 +6,11 @@
  * @returns {boolean} true if all variables are in the input
  */
 function check(array, input) {
-	return array.every(variable => Object.keys(input).includes(variable) && input[variable] !== null);
+	return array.every(variable => 
+		Object.keys(input).includes(variable)
+		&& input[variable] !== null 
+		&& input[variable] !== ""
+	);
 }
 
 /**
@@ -17,13 +21,13 @@ function check(array, input) {
  */
 function checkNegatives(input) {
 	if(Array.isArray(input)) {
-		return !(input.every(element => element >= 0));
+		return (input.every(element => element < 0));
 	}
 	if(typeof input === 'number') {
-		return !(input >= 0);
+		return (input < 0);
 	}
 	if(typeof input === 'object') {
-		return !(Object.values(input).every(element => element >= 0));
+		return (Object.values(input).every(element => element < 0));
 	}
 }
 

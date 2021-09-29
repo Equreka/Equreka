@@ -32,27 +32,8 @@
     },
     "favorites": {
       "title": "Favorites",
-      "export": "Export",
-      "import": "Import"
-    }
-  },
-  "actions": {
-    "title": "Actions",
-    "view": {
-      "title": "View",
-      "by": "View by ",
-      "all": "View all"
-    },
-    "copy": {
-      "label": "Copy to clipboard",
-      "success": "Copied to clipboard! 👌🏻",
-      "error": "Error copying to clipboard 😅"
-    },
-    "download": {
-      "json": "Download json file"
-    },
-    "report": {
-      "error": "Report an error"
+      "export": "Export favorites",
+      "import": "Import favorites"
     }
   },
   "search": {
@@ -98,6 +79,25 @@
       }
     }
   },
+  "about": {
+	  "title": "About us",
+	  "lead": "Equreka is a 100% free and ad-free, open-source platform for everyone. Hopefully you will find this usefull and will inspire to learn more, create and contribute to human-kind.",
+	  "paragraph": "You can contribute in many ways, from sharing to contributing directly to the project in our Github.",
+	  "free-and-open-source":  {
+		  "title": "Free and Open-source? <small class=\"text-muted\">where is the catch?</small>",
+		  "lead": "There is NO catch, it's as simple as that. By being open-source, the project obtains reliability, transparency and gives the opportunity for anyone (who wants to) to contribute and do their bit.",
+		  "quote": {
+			  "paragraph": "I firmly believe that knowledge should be free, open, easily accessible and if can be, as easy to understand as possible.",
+			  "author": "Derian, Creator of Equreka"
+		  }
+	  },
+	  "thanks": {
+		  "title": "Special thanks to",
+		  "lead": "Science and all the people that creates awesome stuff, all philosophers, all alchemists, all scientists, to all those people who contributed to science, to civilization, to humanity. All open source projects and specially the ones that made possible this project",
+		  "paragraph": "Here are some projects (in alphabetical order) that made this project possible:",
+		  "check-github": "You can check our <a target=\"_blank\" rel=\"noopener nofollow\" href=\"https://github.com/Equreka\">Github</a> for a more complete list in our source-code."
+	  }
+  },
   "contact": {
     "button-submit": "Send the message!",
     "label-mail": "What's your e-mail?",
@@ -135,52 +135,6 @@
     "label-type": "Type",
     "lead": "Reporting errors are very important for us, thank you for taking your time to do it!",
     "title": "Report this page"
-  },
-  "categories": {
-    "title": "Categorias",
-    "chemistry": {
-      "lead": "La química es la disciplina científica involucrada con elementos y compuestos compuestos por átomos, moléculas e iones: su composición, estructura, propiedades, comportamiento y los cambios que experimentan durante una reacción con otras sustancias.",
-      "title": "Química"
-    },
-    "mathematics": {
-      "lead": "Las matemáticas (del griego: μάθημα, máthēma, 'conocimiento, estudio, aprendizaje') incluyen el estudio de temas como cantidad (teoría de números), estructura (álgebra), espacio (geometría) y cambio (análisis). No tiene una definición generalmente aceptada.",
-      "title": "Matemáticas"
-    },
-    "physics": {
-      "lead": "La física (del griego antiguo: φυσική (ἐπιστήμη), romanizado: physikḗ (epistḗmē), literalmente 'conocimiento de la naturaleza', de φύσις phýsis 'naturaleza') es la ciencia natural que estudia la materia, su movimiento y comportamiento a través del espacio y el tiempo, y las entidades relacionadas de energía y fuerza. La física es una de las disciplinas científicas más fundamentales y su principal objetivo es comprender cómo se comporta el universo.",
-      "title": "Física"
-    },
-    "universal": {
-      "lead": "Dentro de la ciencia existen propiedades que se pueden aplicar a diferentes ramas, a esto se le conoce como propiedad universal, por ejemplo las constantes y unidades. En esta categoria puedes encontrarlas todas.",
-      "title": "Universal"
-    }
-  },
-  "types": {
-    "title": "Tipos",
-    "equations": {
-      "title": "Equations",
-      "description": "En matemáticas, una ecuación es una declaración que afirma la igualdad de dos expresiones, que están conectadas por el signo igual \"=\"."
-    },
-    "formulas": {
-      "title": "Formulas",
-      "description": "En ciencia, una fórmula es una forma concisa de expresar información simbólicamente, como en una fórmula matemática o una fórmula química. El uso informal del término fórmula en ciencia se refiere al constructo general de una relación entre cantidades dadas."
-    },
-    "constants": {
-      "title": "Constants",
-      "description": "Un número fijo y bien definido u otro objeto matemático que no varíe. Los términos constante matemática o constante física se utilizan a veces para distinguir este significado."
-    },
-    "magnitudes": {
-      "title": "Magnitudes",
-      "description": "Una magnitud física es una cantidad medible de un sistema físico a la que se le pueden asignar distintos valores como resultado de una medición o una relación de medidas. Las magnitudes físicas se miden usando un patrón que tenga bien definida esa magnitud, y tomando como unidad la cantidad de esa propiedad que posea el objeto patrón."
-    },
-    "units": {
-      "title": "Units",
-      "description": "Una unidad de medida es una cantidad estandarizada de una determinada magnitud física, definida y adoptada por convención o por ley.​ Cualquier valor de una cantidad física puede expresarse como un múltiplo de la unidad de medida."
-    },
-    "variables": {
-      "title": "Variables",
-      "description": "Una variable es un símbolo que funciona como marcador de posición para expresiones o cantidades que pueden variar o cambiar; se utiliza a menudo para representar el argumento de una función o un elemento arbitrario de un conjunto. Además de los números, las variables se utilizan comúnmente para representar vectores, matrices y funciones."
-    }
   },
   "abbreviations": {
     "category": {
@@ -259,6 +213,71 @@
       "cap": "Type"
     }
   },
+  "categories": {
+	"title": "Categories",
+	"chemistry": {
+	  "lead": "Chemistry is the scientific discipline involved with elements and compounds made up of atoms, molecules and ions: their composition, structure, properties, behavior and the changes they undergo during a reaction with other substances.",
+	  "title": "Chemistry"
+	},
+	"mathematics": {
+	  "lead": "Mathematics (from Greek: μάθημα, máthēma, 'knowledge, study, learning') includes the study of such topics as quantity (number theory), structure (algebra), space (geometry) and change (analysis) . It does not have a generally accepted definition. ",
+	  "title": "Mathematics"
+	},
+	"physics": {
+	  "lead": "Physics (from ancient Greek: φυσική (ἐπιστήμη), romanized: physikḗ (epistḗmē), literally 'knowledge of nature', from φύσις phýsis 'nature') is the natural science that studies matter, its movement and behavior across space and time, and the related entities of energy and force. Physics is one of the most fundamental scientific disciplines and its main objective is to understand how the universe behaves. ",
+	  "title": "Physics"
+	},
+	"universal": {
+	  "lead": "Within science there are properties that can be applied to different branches, this is known as a universal property, for example constants and units. In this category you can find them all.",
+	  "title": "Universal"
+	}
+  },
+  "types": {
+	"title": "Types",
+	"equations": {
+	  "title": "Equations",
+	  "description": "In mathematics, an equation is a statement that asserts the equality of two expressions, which are connected by the equal sign."
+	},
+	"formulas": {
+	  "title": "Formulas",
+	  "description": "In science, a formula is a concise way of expressing information symbolically, as in a mathematical formula or a chemical formula. The informal use of the term formula in science refers to the general construct of a relationship between given quantities."
+	},
+	"constants": {
+	  "title": "Constants",
+	  "description": "A well-defined, fixed number or other mathematical object that does not vary. The terms mathematical constant or physical constant are sometimes used to distinguish this meaning."
+	},
+	"magnitudes": {
+	  "title": "Magnitudes",
+	  "description": "A physical quantity is a measurable quantity of a physical system to which different values ​​can be assigned as a result of a measurement or a relation of measurements. Physical quantities are measured using a standard that has that quantity well defined. , and taking as a unit the amount of that property that the master object possesses. "
+	},
+	"units": {
+	  "title": "Units",
+	  "description": "A unit of measure is a standardized quantity of a certain physical quantity, defined and adopted by convention or by law. Any value of a physical quantity can be expressed as a multiple of the unit of measure."
+	},
+	"variables": {
+	  "title": "Variables",
+	  "description": "A variable is a symbol that functions as a placeholder for expressions or quantities that can vary or change; it is often used to represent the argument of a function or an arbitrary element of a set. In addition to numbers, variables are commonly used to represent vectors, matrices, and functions. "
+	}
+ },
+  "actions": {
+    "title": "Actions",
+    "view": {
+      "title": "View",
+      "by": "View by ",
+      "all": "View all"
+    },
+    "copy": {
+      "label": "Copy to clipboard",
+      "success": "Copied to clipboard! 👌🏻",
+      "error": "Error copying to clipboard 😅"
+    },
+    "download": {
+      "json": "Download json file"
+    },
+    "report": {
+      "error": "Report an error"
+    }
+  },
   "table": {
     "actions": "Actions",
     "type": "Type",
@@ -266,13 +285,12 @@
     "unit": "Unit",
     "value": "Value"
   },
-  "about": {
-    "title": "About us"
-  },
   "section": {
     "information": {
       "title": "Information",
-      "description": "Description"
+      "description": "Description",
+      "unit-of": "Unit of",
+      "base-unit": "Base unit"
     },
     "relations": {
       "title": "Relations"

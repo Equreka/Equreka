@@ -43,7 +43,7 @@
     content: "\f285";
     display: block;
     margin-right: 0.5rem;
-    transition: transform 0.35s $transition-speed-ease;
+    transition: transform 0.35s ease;
     transform-origin: 50% 50%;
     @include bootstrap-icon();
   }

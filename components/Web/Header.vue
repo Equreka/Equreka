@@ -15,17 +15,13 @@
 				</div>
 				<!-- Right -->
 				<div class="right">
-					<!-- Button: Calculator -->
-					<NuxtLink class="btn" :to="localePath('/calculator')" :title="$t('calculator.title')">
-						<span class="visually-hidden">{{ $t('calculator.title') }}</span>
-						<i class="bi bi-plus-square"></i>
+					<!-- Menu -->
+					<NuxtLink v-for="item in menu" :key="item.slug" class="btn" :to="localePath(item.to)" :title="$t(`${item.slug}.title`)">
+						<span class="visually-hidden" v-text="$t(`${item.slug}.title`)" />
+						<i class="bi" :class="item.icon"></i>
 					</NuxtLink>
-					<!-- Button: Favorites -->
-					<NuxtLink class="btn" :to="localePath('/favorites')" :title="$t('favorites.title')">
-						<span class="visually-hidden">{{ $t('favorites.title') }}</span>
-						<i class="bi bi-heart"></i>
-					</NuxtLink>
-					<!-- Dropdown: Theme -->
+					<!--
+					<!-- Dropdown: Theme
 					<div class="dropdown dropdown-theme btn-group">
 						<button class="btn btn-link dropdown-toggle dropdown-toggle-no-caret" type="button" id="dropdown-theme" data-bs-toggle="dropdown" aria-expanded="false" :title="$t('settings.theme.change')">
 							<span class="visually-hidden">{{ $t('settings.theme.change') }}</span>
@@ -43,7 +39,7 @@
 							</li>
 						</ul>
 					</div>
-					<!-- Dropdown: Language -->
+					<!-- Dropdown: Language
 					<div class="dropdown dropdown-language btn-group">
 						<button class="btn btn-link dropdown-toggle dropdown-toggle-no-caret" type="button" id="dropdown-language" data-bs-toggle="dropdown" aria-expanded="false" :title="$t('settings.language.change')">
 							<span class="visually-hidden">{{ $t('settings.language.change') }}</span>
@@ -58,6 +54,7 @@
 							</li>
 						</ul>
 					</div>
+					-->
 				</div>
 			</div>
 		</nav>
@@ -70,6 +67,12 @@
 	export default {
 		data () {
 			return {
+				menu: [
+					{ slug: 'home', icon: 'bi-house', to: '/' },
+					{ slug: 'calculator', icon: 'bi-plus-square', to: '/calculator' },
+					{ slug: 'favorites', icon: 'bi-heart', to: '/favorites' },
+					{ slug: 'settings', icon: 'bi-gear', to: '/settings' },
+				],
 				themes: {
 					'light':  'Light',
 					'dark':   'Dark',

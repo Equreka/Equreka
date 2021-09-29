@@ -1,7 +1,7 @@
 details {
   display:block;
   overflow: hidden;
-  transition: $transition-all-ease;
+  transition: all 0.35s ease;
   &[open] {
     & > summary::before {
       transform: rotate(90deg);
@@ -24,7 +24,7 @@ details {
       content: "\f285";
       display: block;
       margin-right: 0.5rem;
-      transition: $transition-all-ease;
+      transition: all 0.35s ease;
       transform-origin: 50% 50%;
       @include bootstrap-icon();
     }

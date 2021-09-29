@@ -13,7 +13,7 @@
 			background: hsla(220, 20%, 50%, 0.2);
 			@include rs('font-size', 0.75rem, 1vw, 0.95rem);
 			.bi {
-				transition: $transition-all-ease;
+				transition: all 0.35s ease;
 			}
 			span {
 				padding: 0 0.35rem;
@@ -25,7 +25,7 @@
 				opacity: 0;
 				transform-origin: right center;
 				transform: scaleX(0);
-				transition: $transition-all-ease;
+				transition: all 0.35s ease;
 				@include media-breakpoint-up($navbar-expand) {
 					opacity: 1;
 					width: auto;
@@ -61,22 +61,14 @@
 			padding: 0.5rem 0.75rem;
 			border-radius: 0.5rem;
 			text-decoration: none;
-			transition: all 0.35s ease !important;
 			@include rs('font-size', 0.95rem, 2vw, 1rem);
-			.badge {
-				display: inline-flex !important;
-				align-items: center;
-				margin-right: 0.5rem;
-				padding: 0.35rem;
-				color: inherit;
-				border: 1px solid var(--body-color-muted);
-				transition: all 0.35s ease !important;
-				line-height: 1;
-			}
 			.name {
 				display: flex;
 				align-items: center;
 				font-weight: 500;
+			}
+			.badge {
+				margin-right: 0.75rem;
 			}
 			&:hover {
 				color: var(--body-color-highlight);

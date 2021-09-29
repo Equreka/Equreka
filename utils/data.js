@@ -37,6 +37,9 @@ const getMagnitude = async ($content, magnitude) => {
 	if(!magnitude) return false;
 	try {
 		let data = await $content('magnitudes', magnitude).fetch();
+		if(data['baseUnit']) {
+			data['baseUnit'] = await getUnit($content, data['baseUnit']);
+		}
 		if(data['units']) {
 			data['units'] = await getUnits($content, data['units']);
 		}
@@ -50,6 +53,9 @@ const getVariable = async ($content, variable) => {
 	if(!variable) return false;
 	try {
 		let data = await $content('variables', variable).fetch();
+		if(data['baseUnit']) {
+			data['baseUnit'] = await getUnit($content, data['baseUnit']);
+		}
 		if(data['units']) {
 			data['units'] = await getUnits($content, data['units']);
 		}

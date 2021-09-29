@@ -51,7 +51,7 @@ mjx-c.mjx-cD7::before {
 
 .CtxtMenu_MenuClose {
 	visibility: hidden;
-	transition: $transition-all-ease;
+	transition: all 0.35s ease;
 	&::before {
 		visibility: visible !important;
 		position: absolute;
@@ -76,7 +76,7 @@ mjx-c.mjx-cD7::before {
 
 .CtxtMenu_Menu {
 	.CtxtMenu_MenuItem { 
-		transition: $transition-all-ease;
+		transition: all 0.35s ease;
 	}
 	.CtxtMenu_MenuRule {
 		border-color: var(--input-border-color) !important;

@@ -14,7 +14,8 @@
 						{{ $t('settings.language.title') }}
 					</h3>
 					<div class="dropdown mb-4">
-						<button class="btn btn-primary dropdown-toggle" type="button" id="dropdown-language" data-bs-toggle="dropdown" aria-expanded="false">
+						<button class="px-4 btn btn-primary dropdown-toggle" type="button" id="dropdown-language" data-bs-toggle="dropdown" aria-expanded="false">
+							<i class="bi bi-translate me-2"></i>
 							{{ $t('settings.language.change') }}
 						</button>
 						<ul class="dropdown-menu" aria-labelledby="dropdown-language">
@@ -30,13 +31,13 @@
 							</li>
 						</ul>
 					</div>
-					<hr class="my-4">
 					<!-- Theme -->
 					<h3 class="h6 mb-3">
 						{{ $t('settings.theme.title') }}
 					</h3>
-					<div class="dropdown">
-						<button class="btn btn-primary dropdown-toggle" type="button" id="dropdown-theme" data-bs-toggle="dropdown" aria-expanded="false" :title="$t('settings.theme.change')">
+					<div class="dropdown mb-4">
+						<button class="px-4 btn btn-primary dropdown-toggle" type="button" id="dropdown-theme" data-bs-toggle="dropdown" aria-expanded="false" :title="$t('settings.theme.change')">
+							<i class="me-2 bi" :class="`bi-${$colorMode.preference}`"></i>
 							{{ $t('settings.theme.change') }}
 						</button>
 						<ul class="dropdown-menu" aria-labelledby="dropdown-theme">
@@ -47,23 +48,22 @@
 							</li>
 							<li v-for="(option, code) in themes" :key="code">
 								<button class="dropdown-item" @click="$colorMode.preference = code, themeTransition(code, $colorMode.value)">
-									<i class="icon bi" :class="`bi-${code}`"></i>
+									<i class="me-2 bi" :class="`bi-${code}`"></i>
 									{{ $t(`settings.theme.options.${code}`) }}
 								</button>
 							</li>
 						</ul>
 					</div>
-					<hr class="my-4">
 					<!-- Favorites -->
 					<h3 class="h6 mb-3">
 						{{ $t('settings.favorites.title') }}
 					</h3>
-					<div class="hstack align-items-start gap-2">
-						<button class="btn btn-primary" @click="exportFavorites">
+					<div class="vstack align-items-start gap-3">
+						<button class="px-4 btn btn-primary" @click="exportFavorites">
 							<i class="me-2 bi bi-box-arrow-up"></i>
 							<span>{{ $t('settings.favorites.export') }}</span>
 						</button>
-						<button class="btn btn-primary" @click="importFavorites">
+						<button class="px-4 btn btn-primary" @click="importFavorites">
 							<i class="me-2 bi bi-box-arrow-in-down"></i>
 							<span>{{ $t('settings.favorites.import') }}</span>
 						</button>

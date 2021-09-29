@@ -31,7 +31,7 @@
 			.bi {
 				fill: currentColor;
 				transform: rotate(0deg);
-				transition: transform 0.35s $transition-speed-ease;
+				transition: transform 0.35s ease;
 			}
 			&::after {
 				opacity: 0;
@@ -45,7 +45,7 @@
 				background: var(--body-color-highlight);
 				transform: translate(-50%, 50%);
 				border-radius: 999rem;
-				transition: $transition-all-ease;
+				transition: all 0.35s ease;
 			}
 			// Active
 			&.nuxt-link-active:not(.home),

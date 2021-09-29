@@ -29,12 +29,12 @@
 						</td>
 						<!-- Magnitude/Variable: Unit: Symbol -->
 						<td>
-							<MathSymbol :data="item.units[0].symbol" />
+							<MathSymbol :data="item.baseUnit.symbol" />
 						</td>
 						<!-- Magnitude/Variable: Unit: Name -->
 						<td>
-							<NuxtLink :to="localePath(item.units[0].path)">
-								{{ item.units[0].name }}
+							<NuxtLink :to="localePath(item.baseUnit.path)">
+								{{ item.baseUnit.name }}
 							</NuxtLink>
 						</td>
 					</tr>

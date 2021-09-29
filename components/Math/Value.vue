@@ -3,6 +3,7 @@
 </template>
 
 <script>
+	import {Decimal} from 'decimal.js';
 	export default {
 		props: {
 			data: {
@@ -18,13 +19,29 @@
 				default: 'inline',
 			},
 			precision: {
-				type: Number,
-				default: 9,
+				type: Number | Boolean,
+				default: 12,
+			},
+			maxDigits: {
+				type: Number | Boolean,
+				default: 12,
+			},
+			full: {
+				type: Boolean,
+				default: false,
 			}
 		},
 		computed: {
 			show() {
 				return this.data !== undefined && this.data !== null;
+			},
+			facrtionDigits() {
+				if(this.maxDigits === false) {
+					return {};
+				}
+				return {
+					maxDigits: this.maxDigits,
+				}
 			},
 			valueFormat() {
 				let format = this.format;
@@ -37,11 +54,11 @@
 				// Convert string to number
 				if(typeof value == 'string') value = Number(value);
 				// Convert to scientific notation
-				value = value.toPrecision(this.precision);
+				value = new Decimal(value);
 				// Split into value and exponent
-				let split = value.split('e');
+				let split = value.toString().split('e');
 				// Already assuming the worst case lol
-				if(!split || split.length == 1) return new Intl.NumberFormat(undefined, { maximumFractionDigits: this.precision }).format(value);
+				if(!split || split.length == 1) return new Intl.NumberFormat(undefined, { maximumFractionDigits: this.maxDigits }).format(value);
 				let valueFormatted = split[0];
 				let exponent = split[1],
 					 exponentSign = exponent ? exponent.charAt(0) : false,
@@ -52,7 +69,7 @@
 					exponentSignClass = exponentSign === '+' ? 'plus' : 'minus';
 				}
 				// Format the value
-				let numberFormat = new Intl.NumberFormat(undefined, { maximumFractionDigits: this.precision }).format(valueFormatted);
+				let numberFormat = valueFormatted;
 				// Styling for text
 				valueFormatted = `${numberFormat}×10${exponent}`;
 				// Styling for HTML

@@ -2,7 +2,7 @@
 .header {
 	padding:    1.5rem 0;
 	color:      var(--header-color);
-	transition: $transition-all-ease;
+	transition: all 0.35s ease;
 	.navbar {
 		padding: 0;
 	}
@@ -30,7 +30,7 @@
 			background: hsla(220, 100%, var(--theme-inverted-lightness), 0.075);
 			opacity: 0;
 			border-radius: 1em;
-			transition: $transition-all-ease;
+			transition: all 0.35s ease;
 		}
 	}
 	.equreka-logo {
@@ -90,7 +90,7 @@
 		text-decoration: none;
 		box-shadow:      none;
 		color:           var(--header-color);
-		transition:      $transition-all-ease;
+		transition:      all 0.35s ease;
 		border-radius:   0.75rem;
 		padding: 0.75rem;
 		&:hover,

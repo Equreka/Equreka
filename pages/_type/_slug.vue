@@ -7,26 +7,18 @@
 			<div class="row">
 				<!-- Expression -->
 				<div class="col-12" v-if="data.expression || data.symbol">
-					<section class="card card-expression card-mathjax" :class="(type === 'equations' || type == 'formulas') ? '' : 'card-symbol'">
+					<section class="card card-expression card-mathjax">
 						<div class="card-body">
 							<!-- Equations || Formulas -->
-							<template v-if="(type === 'equations' || type == 'formulas') && type != 'units'">
-								<MathExpression :expression="expression" />
-							</template>
+							<MathExpression :expression="expression" v-if="(type === 'equations' || type == 'formulas') && type != 'units'"/>
 							<!-- Units || Variables -->
-							<template v-else-if="(type === 'magnitudes' || type === 'units' || type === 'variables')">
-								<MathExpression
-									:text="data.name"
-									:symbol="data.symbol"
-									:unit="baseUnit"
-								/>
-							</template>
+							<MathExpression :text="data.name" :symbol="data.symbol" :unit="baseUnit" v-else-if="(type === 'magnitudes' || type === 'units' || type === 'variables')"/>
 							<!-- Constants -->
-							<template v-else-if="type === 'constants'">
+							<template v-else>
 								<MathSymbol :data="data.symbol" />
 								<MathOperator />
-								<MathValue :data="data.values[0].value" />
-								<MathSymbol :data="data.values[0].units.symbol" :sup="data.values[0].sup" />
+								<MathValue :data="data.values[0].value" :precision="22" :full="true" />
+								<MathSymbol :data="data.values[0].units.symbol" :sup="data.values[0].sup" v-if="data.values[0].units.symbol.tex != ''"/>
 							</template>
 						</div>
 					</section>
@@ -39,17 +31,6 @@
 								{{ $t('section.units.title') }}
 							</h3>
 							<TableUnits :data="data.units" :base="data.baseUnit"/>
-						</div>
-					</section>
-				</div>
-				<!-- Table - Variables -->
-				<div class="col-12 col-lg" v-if="data.variables && data.variables.length > 0">
-					<section class="card card-variables">
-						<div class="card-body">
-							<h3 class="card-title">
-								{{ $t('section.variables.title') }}
-							</h3>
-							<TableVariables :data="data.variables"/>
 						</div>
 					</section>
 				</div>
@@ -72,6 +53,17 @@
 								{{ $t('section.constants.title') }}
 							</h3>
 							<TableConstants :data="data.constants"/>
+						</div>
+					</section>
+				</div>
+				<!-- Table - Variables -->
+				<div class="col-12 col-lg" v-if="data.variables && data.variables.length > 0">
+					<section class="card card-variables">
+						<div class="card-body">
+							<h3 class="card-title">
+								{{ $t('section.variables.title') }}
+							</h3>
+							<TableVariables :data="data.variables"/>
 						</div>
 					</section>
 				</div>
@@ -117,21 +109,25 @@
 							</h3>
 							<!-- Base Unit -->
 							<div class="hstack gap-2 mb-3" v-if="baseUnit">
-								<h6 class="m-0">Base unit:</h6>
+								<h6 class="m-0">
+									{{ $t('section.information.base-unit') }}
+								</h6>
 								<NuxtLink class="badge badge-type" :class="baseUnit.dir.slice(1)" :key="baseUnit.slug" :to="localePath(baseUnit.path)" v-if="baseUnit.dir">
 									<span>{{ baseUnit.name }}</span>
 								</NuxtLink>
 							</div>
 							<!-- Units of -->
 							<div class="hstack gap-2 mb-3" v-if="unitOf">
-								<h6 class="m-0 me-2">Unit of</h6>
+								<h6 class="m-0">
+									{{ $t('section.information.unit-of') }}
+								</h6>
 								<template v-for="item in unitOf">
 									<NuxtLink class="badge badge-type" :class="item.dir.slice(1)" :key="item.slug" :to="localePath(item.path)" v-if="item.dir">
 										<span>{{ item.name }}</span>
 									</NuxtLink>
 								</template>
 							</div>
-							<div v-html="parserTeX(data.description)"/>
+							<div v-html="description"/>
 						</div>
 					</section>
 				</div>
@@ -197,6 +193,7 @@
 		async asyncData ({ $content, params, error, i18n }) {
 			const { category, type, slug } = params;
 			const data = await getData($content, params, error);
+			console.log(data.description);
 			return { category, type, slug, data }
 		},
 		head() {
@@ -252,6 +249,12 @@
 				}
 				return unitOf;
 			},
+			description() {
+				let description = '<p>';
+					 description += Utils.parserTeX(this.data.description).replace(/\n([ \t]*\n)+/g, '</p><p>');
+					 description += '</p>';
+				return description;
+			},
 			showTableValuesAprox() {
 				let show = false;
 				this.data.values.forEach((item) => {
@@ -271,10 +274,5 @@
 				return show;
 			}
 		},
-		methods: {
-			parserTeX(data) {
-				return Utils.parserTeX(data);
-			}
-		}
 	}
 </script>

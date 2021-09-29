@@ -96,3 +96,6 @@ android {
 - [X] Favorites: Add export
 - [ ] Favorites: Add import
 - [ ] Report system
+### Code
+- [ ] Clean code
+- [ ] Optimizations and refactors

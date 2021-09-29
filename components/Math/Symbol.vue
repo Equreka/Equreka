@@ -28,13 +28,21 @@
 			},
 			symbol() {
 				let symbolData = this.data,
-				    symbol = symbolData.tex,
+					 symbol = symbolData.tex,
 					 format = this.symbolFormat;
 				// We don't have an object, so we assume it's a symbol string
-				if (typeof this.data === 'string') return symbolData;
+				if (typeof symbolData === 'string' && symbolData !== '') {
+					return symbolData;
+				}
+				if (typeof symbolData === 'string' && symbolData === '') {
+					return '-';
+				}
 				// If key is in the symbol object
 				if(format && [format] in this.data && this.data[format]) {
 					symbol = this.data[format];
+				}
+				if (symbol === '') {
+					symbol = '-';
 				}
 				return symbol;
 			},

@@ -2,7 +2,7 @@
 .equreka-logo {
 	display: block;
 	height: auto;
-	transition: $transition-all-ease, filter 1s ease-out;
+	transition: all 0.35s ease, filter 1s ease-out;
 	&:hover {
 		filter: hue-rotate(1turn);
 	}

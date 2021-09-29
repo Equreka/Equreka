@@ -172,7 +172,7 @@
 
 .theme-transition {
 	.theme-icon {
-		animation: theme-change 0.35s $transition-speed-ease forwards !important;
+		animation: theme-change 0.35s ease forwards !important;
 	}
 }
 

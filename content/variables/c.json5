@@ -1,6 +1,5 @@
 {
 	name: 'c',
-	slug: 'c',
 	symbol: {
 		text: 'c',
 		html: 'c',
@@ -8,6 +7,7 @@
 	},
 	categories: ['mathematics'],
 	description: null,
+	baseUnit: 'unit',
 	units: [
 		'unit'
 	]

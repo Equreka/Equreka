@@ -6,13 +6,29 @@
 	letter-spacing: 1px;
 	font-weight:    700;
 	font-family:    $headings-font-family;
-	transition:     $transition-all-ease;
+	transition:     all 0.35s ease;
 }
 
 .badge-category,
 .badge-type {
 	background:     var(--eqk-color) !important;
 	color:          hsl(var(--eqk-color-h), 100%, 90%) !important;
+}
+
+.badge-symbol {
+	display: inline-flex !important;
+	align-items: baseline;
+	padding: 0.35rem;
+	color: inherit;
+	border: 1px solid var(--body-color-muted);
+	line-height: 1;
+	font-size: 100% !important;
+	transition: all 0.35s ease;
+	&:hover {
+		color: var(--body-bg);
+		background: var(--body-color-highlight);
+		border-color: var(--body-color-highlight);
+	}
 }
 
 /* .badge-type {

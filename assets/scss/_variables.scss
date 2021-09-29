@@ -149,8 +149,3 @@ $form-select-disabled-color:     hsla(0, 0%, var(--theme-inverted-lightness), 0.
 
 // Paragraphs
 $lead-font-weight:          400;
-
-// Transition
-$transition-speed-ease:     cubic-bezier(0.4, 0.0, 0.2, 1);
-$transition-speed-incoming: cubic-bezier(0.0, 0.0, 0.2, 1);
-$transition-all-ease:       all .35s $transition-speed-ease;

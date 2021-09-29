@@ -1,6 +1,7 @@
 <template>
 	<main role="main" class="calculator data">
 		<PageHeader :title="data.name" :data="data" />
+		<MathAll />
 		<div class="container position-relative">
 			<section class="card card-expression card-calculator">
 				<div class="background" v-if="data.expression">
@@ -17,7 +18,7 @@
 								<MathSymbol :data="data.variables.find(i => i.slug === output.variables).symbol" format="html" v-if="output.variables"/>
 								<MathOperator :data="output.operator" format="html" />
 								<MathValue :data="output.value" format="html" />
-								<MathSymbol :data="data.units.find(i => i.slug === output.units).symbol" :sup="output.sup" format="html" />
+								<MathSymbol :data="output.units.symbol" :sup="output.sup" format="html" v-if="output.units"/>
 							</template>
 							<template v-else>
 								<MathValue :data="output.value" format="html" />
@@ -37,31 +38,31 @@
 						<div class="row gx-2 flex-wrap justify-content-md-center">
 							<!-- Magnitudes -->
 							<template v-if="data.magnitudes && data.magnitudes.length > 0">
-								<div class="mb-3 col col-md-auto" v-for="magnitude in data.magnitudes" :key="magnitude.slug">
+								<div class="mb-3 col col-md-auto" v-for="item in data.magnitudes" :key="item.slug">
 									<div class="form-floating">
 										<input 
-											class="form-control form-control-sm" type="number" 
-											:id="`input-${magnitude.slug}`" :placeholder="magnitude.name"
-											v-model.number="input.values[magnitude.symbol.text]"
+											class="form-control" 
+											type="number" 
+											step="0.000000000000000001" 
+											:id="`input-${item.slug}`"
+											v-model.number="input.values[item.symbol.text]"
 										>
-										<label :for="`input-${magnitude.slug}`">
-											{{ magnitude.name }} ({{ magnitude.units[0].symbol.text }})
-										</label>
+										<label :for="`input-${item.slug}`" v-html="`${item.name} (${item.baseUnit.symbol.html})`" />
 									</div>
 								</div>
 							</template>
 							<!-- Variables -->
 							<template v-if="data.variables && data.variables.length > 0">
-								<div class="mb-3 col col-md-auto" v-for="variable in data.variables" :key="variable.slug">
+								<div class="mb-3 col col-md-auto" v-for="item in data.variables" :key="item.slug">
 									<div class="form-floating">
 										<input 
-											class="form-control form-control-sm" type="number" 
-											:id="`input-${variable.slug}`" :placeholder="variable.name"
-											v-model.number="input.values[variable.symbol.text]"
+											class="form-control" 
+											type="number" 
+											step="0.000000000000000001" 
+											:id="`input-${item.slug}`"
+											v-model.number="input.values[item.symbol.text]"
 										>
-										<label :for="`input-${variable.slug}`">
-											{{ variable.name }} ({{ variable.units[0].symbol.text }})
-										</label>
+										<label :for="`input-${item.slug}`" v-html="`${item.name} (${item.baseUnit.symbol.html})`" />
 									</div>
 								</div>
 							</template>
@@ -70,13 +71,13 @@
 								<div class="mb-3 col">
 									<div class="form-floating">
 										<input 
-											class="form-control form-control-sm" type="number" 
-											:id="`input-${data.slug}`" :placeholder="data.name"
+											class="form-control" 
+											type="number" 
+											step="0.000000000000000001" 
+											:id="`input-${data.slug}`" 
 											v-model="input.value"
 										>
-										<label :for="`input-${data.slug}`">
-											{{ data.name }} (<MathSymbol :data="data.symbol" display="raw"/>)
-										</label>
+										<label :for="`input-${data.slug}`" v-html="`${data.name} (${data.baseUnit.symbol.html})`" />
 									</div>
 								</div>
 								<div class="mb-3 col-auto d-flex align-items-center justify-content-center px-2">
@@ -96,7 +97,6 @@
 									</div>
 								</div>
 							</template>
-
 							<!-- Actions -->
 							<div class="col-12 text-center">
 								<div class="row gx-2 justify-content-center">
@@ -143,7 +143,6 @@
 				</div>
 			</div>
 		</div>
-		<MathAll />
 	</main>
 </template>
 
@@ -175,7 +174,6 @@
 			message: null
 		}
 	};
-
 	export default {
 		data () {
 			return {
@@ -185,9 +183,7 @@
 			}
 		},
 		async asyncData ({ $content, params, error }) {
-			const category = params.category,
-					type = params.type,
-					slug = params.slug,
+			const { category, type, slug } = params,
 					data = await UtilsData($content, params, error, true);
 			// Get constants
 			let constants = false;
@@ -197,14 +193,8 @@
 					constants[constant.symbol.text] = constant.values[0].value;
 				});
 			}
-			// If type is units then we set the default select option
-
 			return {
-				category,
-				type,
-				slug,
-				data,
-				constants
+				category, type, slug, data, constants
 			}
 		},
 		head() {
@@ -215,10 +205,10 @@
 			}
 		},
 		methods: {
-			resetAllObject(object) {
+			resetObject(object) {
 				Object.keys(object).forEach(key => {
 					if (object[key] && typeof object[key] === 'object') {
-						this.resetAllObject(object[key]);
+						this.resetObject(object[key]);
 					} else {
 						object[key] = null;
 					}
@@ -226,7 +216,7 @@
 			},
 			reset() {
 				this.$refs.calculatorForm.reset();
-				this.resetAllObject(this.input);
+				this.resetObject(this.input);
 			},
 			resetInput() {
 				this.$refs.calculatorForm.reset();
@@ -241,7 +231,7 @@
 						constants = this.constants,
 						functions = false,
 						file = type === 'units' ? 'conversions' : slug;
-
+				// Get functions
 				try {
 					functions = await import(`~/calculator/${type}/${file}.js`);
 				} catch (error) {
@@ -253,19 +243,21 @@
 					}
 					return;
 				}
-
 				if(type === 'units') {
 					let item = this.data.conversions[this.input.conversionKey];
 					input.unitsFrom = this.data.slug;
 					input.unitsTo = item.units.slug;
 					input.ratio = item.value;
 				}
-
+				// Get output
 				if(functions && input) {
 					if(this.constants) {
 						output = functions.default(input, constants);
 					} else {
 						output = functions.default(input);
+					}
+					if(output.units) {
+						output.units = await this.$content('units', output.units).fetch();
 					}
 					this.output = output;
 				}

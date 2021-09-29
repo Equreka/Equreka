@@ -78,7 +78,7 @@ const Utils = {
 			function(global, type, symbol) {
 				// Classes to be added
 				let   classSelector = Utils.TERM_SELECTOR,
-				      classSymbol   = `${classPrefix}-${symbol}`,
+				      classSymbol   = `${classPrefix}-${symbol.replace('\\', '')}`,
 				      classType     = `${classPrefix}-constant`;
 				if(type == 'var') classType = `${classPrefix}-variable`;
 				if(type == 'mag') classType = `${classPrefix}-magnitude`;
