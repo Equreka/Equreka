@@ -1,0 +1,57 @@
+{
+	name: 'Hour',
+	symbol: {
+		text: 'h',
+		html: 'h',
+		tex: 'h',
+	},
+	unitOf: ['time'],
+	type: 'non-si',
+	categories: ['universal', 'physics'],
+	description: 'An hour (symbol: $h$; also abbreviated hr) is a unit of time conventionally reckoned as $\\frac{1}{24}$ of a day and scientifically reckoned as 3,599–3,601 seconds, depending on conditions. There are 60 minutes in an hour, and 24 hours in a day.',
+	conversions: [
+		{
+			value: 1.1416e-6,
+			units: 'century',
+			exact: false,
+		}, {
+			value: 1.1416e-5,
+			units: 'decade',
+			exact: false,
+		}, {
+			value: 0.000114155,
+			units: 'year',
+			exact: false,
+		}, {
+			value: 0.00136986,
+			units: 'month',
+			exact: false,
+		}, {
+			value: 0.00595238,
+			units: 'week',
+			exact: false,
+		}, {
+			value: 0.0416667,
+			units: 'day',
+			exact: false,
+		}, {
+			value: 1,
+			units: 'hour'
+		}, {
+			value: 60,
+			units: 'minute'
+		}, {
+			value: 3600,
+			units: 'second',
+		}, {
+			value: 3.6e+6,
+			units: 'millisecond',
+		}, {
+			value: 3.6e+9,
+			units: 'microsecond',
+		}, {
+			value: 3.6e+12,
+			units: 'nanosecond',
+		}
+	],
+}

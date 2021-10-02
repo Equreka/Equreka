@@ -1,0 +1,48 @@
+{
+	name: 'Cubic metre',
+	symbol: {
+		text: 'm3',
+		html: 'm<sup>3</sup>',
+		tex: 'm^{3}',
+	},
+	unitOf: ['volume'],
+	type: 'si',
+	categories: ['physics'],
+	description: 'The cubic metre (in Commonwealth English and international spelling as used by the International Bureau of Weights and Measures) or cubic meter (in American English) is the SI derived unit of volume. Its SI symbol is $m^{3}$. It is the volume of a cube with edges one metre in length. An alternative name, which allowed a different usage with metric prefixes, was the stère, still sometimes used for dry measure (for instance, in reference to wood). Another alternative name, no longer widely used, was the kilolitre.',
+	conversions: [
+		{
+			value: 1,
+			units: 'cubic-metre',
+		}, {
+			value: 1000,
+			units: 'litre',
+		}, {
+			value: 1e+6,
+			units: 'millilitre'
+		}, {
+			value: 264.172,
+			units: 'us-gallon',
+			exact: false,
+		}, {
+			value: 1056.69,
+			units: 'us-quart',
+			exact: false,
+		}, {
+			value: 2113.38,
+			units: 'us-pint',
+			exact: false,
+		}, {
+			value: 219.969157,
+			units: 'imperial-gallon',
+			exact: false
+		}, {
+			value: 879.877,
+			units: 'imperial-quart',
+			exact: false
+		}, {
+			value: 1759.75,
+			units: 'imperial-pint',
+			exact: false
+		}
+	]
+}

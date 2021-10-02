@@ -1,0 +1,60 @@
+{
+	name: 'Millisecond',
+	symbol: {
+		text: 'ms',
+		html: 'ms',
+		tex: 'ms',
+	},
+	unitOf: ['time'],
+	type: 'si',
+	categories: ['universal', 'physics'],
+	description: 'A millisecond (from milli- and second; symbol: $ms$) is a thousandth ($0.001$ or $10^{−3}$ or $\\frac{1}{1000}$) of a second..',
+	conversions: [
+		{
+			value: 3.171e-13,
+			units: 'century',
+			exact: false,
+		}, {
+			value: 3.171e-12,
+			units: 'decade',
+			exact: false,
+		}, {
+			value: 3.171e-11,
+			units: 'year',
+			exact: false,
+		}, {
+			value: 3.8052e-10,
+			units: 'month',
+			exact: false,
+		}, {
+			value: 1.6534e-9,
+			units: 'week',
+			exact: false,
+		}, {
+			value: 1.1574e-8,
+			units: 'day',
+			exact: false,
+		}, {
+			value: 2.7778e-7,
+			units: 'hour',
+			exact: false,
+		}, {
+			value: 1.6667e-5,
+			units: 'minute',
+			exact: false,
+		}, {
+			value: 0.001,
+			units: 'second',
+		}, {
+			value: 1,
+			units: 'millisecond',
+		}, {
+			value: 1000,
+			units: 'microsecond',
+		}, {
+			value: 1e+6,
+			units: 'nanosecond',
+		}
+
+	]
+}

@@ -89,17 +89,6 @@
 						</div>
 					</section>
 				</div>
-				<!-- Table - Conversions -->
-				<div class="col-12 col-lg" v-if="data.conversions && data.conversions.length > 0">
-					<section class="card card-conversions">
-						<div class="card-body">
-							<h3 class="card-title">
-								{{ $t('abbreviations.conversions.cap') }}
-							</h3>
-							<TableConversions :data="data.conversions"/>
-						</div>
-					</section>
-				</div>
 				<!-- Information -->
 				<div class="col-12 col-lg-12">
 					<section class="card card-information" v-if="data.description">
@@ -128,6 +117,17 @@
 								</template>
 							</div>
 							<div v-html="description"/>
+						</div>
+					</section>
+				</div>
+				<!-- Table - Conversions -->
+				<div class="col-12 col-lg" v-if="data.conversions && data.conversions.length > 0">
+					<section class="card card-conversions">
+						<div class="card-body">
+							<h3 class="card-title">
+								{{ $t('abbreviations.conversions.cap') }}
+							</h3>
+							<TableConversions :data="data.conversions"/>
 						</div>
 					</section>
 				</div>
@@ -191,9 +191,9 @@
 	import getData from "~/utils/data";
 	export default {
 		async asyncData ({ $content, params, error, i18n }) {
+			if(!params) return error({ statusCode: 404 });
 			const { category, type, slug } = params;
 			const data = await getData($content, params, error);
-			console.log(data.description);
 			return { category, type, slug, data }
 		},
 		head() {

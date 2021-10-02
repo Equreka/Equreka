@@ -1,0 +1,60 @@
+{
+	name: 'Microsecond',
+	symbol: {
+		text: 'μs',
+		html: 'μs',
+		tex: 'μs',
+	},
+	unitOf: ['time'],
+	type: 'si',
+	categories: ['universal', 'physics'],
+	description: 'A microsecond is an SI unit of time equal to one millionth ($0.000001$ or $10^{−6}$ or $\\frac{1}{1,000,000}$) of a second. Its symbol is $μs$, sometimes simplified to $us$ when Unicode is not available.',
+	conversions: [
+		{
+			value: 3.171e-16,
+			units: 'century',
+			exact: false,
+		}, {
+			value: 3.171e-15,
+			units: 'decade',
+			exact: false,
+		}, {
+			value: 3.171e-14,
+			units: 'year',
+			exact: false,
+		}, {
+			value: 3.8052e-13,
+			units: 'month',
+			exact: false,
+		}, {
+			value: 1.6534e-12,
+			units: 'week',
+			exact: false,
+		}, {
+			value: 1.1574e-11,
+			units: 'day',
+			exact: false,
+		}, {
+			value: 2.7778e-10,
+			units: 'hour',
+			exact: false,
+		}, {
+			value: 1.6667e-8,
+			units: 'minute',
+			exact: false,
+		}, {
+			value: 1e-6,
+			units: 'second',
+		}, {
+			value: 0.001,
+			units: 'millisecond',
+		}, {
+			value: 1,
+			units: 'microsecond',
+		}, {
+			value: 1000,
+			units: 'nanosecond',
+		}
+
+	]
+}

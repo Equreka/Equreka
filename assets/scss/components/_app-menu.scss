@@ -9,6 +9,7 @@
 	margin: $app-nav-margin;
 	max-height: $app-nav-max-height;
 	border-radius: $app-nav-border-radius;
+	transition: all 0.35s ease;
 	@include acrylic-bg();
 	.navbar {
 		padding: 0;

@@ -170,7 +170,7 @@ export default async ($content, params, error) => {
 	let data = await $content(type, slug)
 		.fetch()
 		.catch((err) => {
-			error({ statusCode: 404 })
+			return error({ statusCode: 404 })
 		});
 
 	// Get categories

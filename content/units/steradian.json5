@@ -1,0 +1,19 @@
+{
+	name: 'Steradian',
+	symbol: {
+		text: 'sr',
+		html: 'sr',
+		tex: 'sr',
+	},
+	unitOf: ['solid-angle'],
+	type: 'si',
+	categories: ['universal', 'physics', 'mathematics'],
+	description: 'The steradian (symbol: $sr$) or square radian is the SI unit of solid angle. It is used in three-dimensional geometry, and is analogous to the radian, which quantifies planar angles. Whereas an angle in radians, projected onto a circle, gives a length on the circumference, a solid angle in steradians, projected onto a sphere, gives an area on the surface. The name is derived from the Greek στερεός stereos "solid" + radian. \n\n\
+	The steradian, like the radian, is a dimensionless unit, the quotient of the area subtended and the square of its distance from the center. Both the numerator and denominator of this ratio have dimension length squared (i.e. $L^{2}/L^{2}$ = 1, dimensionless). It is useful, however, to distinguish between dimensionless quantities of a different nature, so the symbol $sr$ is used to indicate a solid angle. ',
+	conversions: [
+		//{
+		//	value: 1000,
+		//	units: 'milliampere'
+		//}
+	],
+}

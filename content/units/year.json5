@@ -1,0 +1,56 @@
+{
+	name: 'Year',
+	symbol: {
+		text: 'a',
+		html: 'a',
+		tex: 'a',
+	},
+	unitOf: ['time'],
+	type: 'si',
+	categories: ['universal', 'physics'],
+	description: 'A year is the orbital period of a planetary body, for example, the Earth, moving in its orbit around the Sun. Due to the Earth\'s axial tilt, the course of a year sees the passing of the seasons, marked by change in weather, the hours of daylight, and, consequently, vegetation and soil fertility.',
+	conversions: [
+		{
+			value: 0.01,
+			units: 'century',
+		}, {
+			value: 0.1,
+			units: 'decade',
+		}, {
+			value: 1,
+			units: 'year',
+		}, {
+			value: 12,
+			units: 'month',
+		}, {
+			value: 52.1429,
+			units: 'week',
+			exact: false
+		}, {
+			value: 365,
+			units: 'day',
+		}, {
+			value: 8760,
+			units: 'hour',
+		}, {
+			value: 525600,
+			units: 'minute',
+		}, {
+			value: 3.154e+7,
+			units: 'second',
+			exact: false
+		}, {
+			value: 3.154e+10,
+			units: 'millisecond',
+			exact: false
+		}, {
+			value: 3.154e+13,
+			units: 'microsecond',
+			exact: false
+		}, {
+			value: 3.154e+16,
+			units: 'nanosecond',
+			exact: false
+		}
+	],
+}

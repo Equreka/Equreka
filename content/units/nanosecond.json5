@@ -1,0 +1,60 @@
+{
+	name: 'Nanosecond',
+	symbol: {
+		text: 'ns',
+		html: 'ns',
+		tex: 'ns',
+	},
+	unitOf: ['time'],
+	type: 'si',
+	categories: ['universal', 'physics'],
+	description: 'A nanosecond is an SI unit of time equal to one millionth ($0.000001$ or $10^{−9}$ or $\\frac{1}{1,000,000,000}$) of a second.',
+	conversions: [
+		{
+			value: 3.171e-19,
+			units: 'century',
+			exact: false,
+		}, {
+			value: 3.171e-18,
+			units: 'decade',
+			exact: false,
+		}, {
+			value: 3.171e-17,
+			units: 'year',
+			exact: false,
+		}, {
+			value: 3.8052e-16,
+			units: 'month',
+			exact: false,
+		}, {
+			value: 1.6534e-15,
+			units: 'week',
+			exact: false,
+		}, {
+			value: 1.1574e-14,
+			units: 'day',
+			exact: false,
+		}, {
+			value: 2.7778e-13,
+			units: 'hour',
+			exact: false,
+		}, {
+			value: 1.6667e-11,
+			units: 'minute',
+			exact: false,
+		}, {
+			value: 1e-9,
+			units: 'second',
+		}, {
+			value: 1e-6,
+			units: 'millisecond',
+		}, {
+			value: 0.001,
+			units: 'microsecond',
+		}, {
+			value: 1,
+			units: 'nanosecond',
+		}
+
+	]
+}

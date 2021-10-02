@@ -1,0 +1,48 @@
+{
+	name: 'Millilitre',
+	symbol: {
+		text: 'ml',
+		html: 'ml',
+		tex: 'ml',
+	},
+	unitOf: ['volume'],
+	type: 'non-si',
+	categories: ['physics'],
+	description: 'A unit of measure of capacity, being one thousandth of a litre. Symbol: ml.',
+	conversions: [
+		{
+			value: 1e-6,
+			units: 'cubic-metre',
+		}, {
+			value: 0.001,
+			units: 'litre',
+		}, {
+			value: 1,
+			units: 'millilitre'
+		}, {
+			value: 0.000264172,
+			units: 'us-gallon',
+			exact: false
+		}, {
+			value: 0.00105669,
+			units: 'us-quart',
+			exact: false
+		}, {
+			value: 0.00211338,
+			units: 'us-pint',
+			exact: false
+		}, {
+			value: 0.000219969,
+			units: 'imperial-gallon',
+			exact: false
+		}, {
+			value: 0.000879877,
+			units: 'imperial-quart',
+			exact: false
+		}, {
+			value: 0.00175975,
+			units: 'imperial-pint',
+			exact: false
+		}
+	]
+}

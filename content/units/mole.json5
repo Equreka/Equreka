@@ -8,10 +8,10 @@
 	unitOf: ['substance'],
 	type: 'si',
 	categories: ['chemistry'],
-	description: 'Mass is both a property of a physical body and a measure of its resistance to acceleration (a change in its state of motion) when a net force is applied. An object\'s mass also determines the strength of its gravitational attraction to other bodies.',
+	description: 'The mole (symbol: $mol$) is the base unit of amount of substance in the International System of Units (SI). It is defined as exactly $6.02214076×10^{23}$ particles, which may be atoms, molecules, ions, or electrons.',
 	conversions: [
 		{
-			units: 'milimole',
+			units: 'millimole',
 			value: 1000
 		}
 	],

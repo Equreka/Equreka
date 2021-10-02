@@ -6,7 +6,7 @@
 		.card-title {
 			margin: 0;
 			font-weight: 600;
-			@include rs('font-size', 1.15rem, 2vw, 1.65rem);
+			@include rs('font-size', 1.15rem, 2vw, 1.35rem);
 		}
 		.btn-go {
 			color: var(--body-color);

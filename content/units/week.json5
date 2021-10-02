@@ -1,0 +1,58 @@
+{
+	name: 'Week',
+	symbol: {
+		text: 'wk',
+		html: 'wk',
+		tex: 'wk',
+	},
+	unitOf: ['time'],
+	type: 'si',
+	categories: ['universal', 'physics'],
+	description: 'A week is a time unit equal to seven days. It is the standard time period used for cycles of rest days in most parts of the world, mostly alongside—although not strictly part of—the Gregorian calendar.',
+	conversions: [
+		{
+			value: 0.000191781,
+			units: 'century',
+			exact: false,
+		}, {
+			value: 0.00191781,
+			units: 'decade',
+			exact: false,
+		}, {
+			value: 0.0191781,
+			units: 'year',
+			exact: false,
+		}, {
+			value: 0.230137,
+			units: 'month',
+			exact: false,
+		}, {
+			value: 1,
+			units: 'week',
+		}, {
+			value: 7,
+			units: 'day',
+		}, {
+			value: 168,
+			units: 'hour',
+		}, {
+			value: 10080,
+			units: 'minute',
+		}, {
+			value: 604800,
+			units: 'second',
+		}, {
+			value: 6.048e+8,
+			units: 'millisecond',
+			exact: false
+		}, {
+			value: 6.048e+11,
+			units: 'microsecond',
+			exact: false
+		}, {
+			value: 6.048e+14,
+			units: 'nanosecond',
+			exact: false
+		}
+	],
+}

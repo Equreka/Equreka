@@ -1,0 +1,55 @@
+{
+	name: 'Day',
+	symbol: {
+		text: 'd',
+		html: 'd',
+		tex: 'd',
+	},
+	unitOf: ['time'],
+	type: 'non-si',
+	categories: ['universal', 'physics'],
+	description: 'As a term in physics and astronomy it is approximately the period during which the Earth completes one rotation around its axis, which takes about 24 hours.',
+	conversions: [
+		{
+			value: 2.7397e-5,
+			units: 'century',
+			exact: false,
+		}, {
+			value: 0.000273973,
+			units: 'decade',
+			exact: false,
+		}, {
+			value: 0.00273973,
+			units: 'year',
+			exact: false,
+		}, {
+			value: 0.0328767,
+			units: 'month',
+			exact: false,
+		}, {
+			value: 0.142857,
+			units: 'week',
+		}, {
+			value: 1,
+			units: 'day',
+		}, {
+			value: 24,
+			units: 'hour',
+		}, {
+			value: 1440,
+			units: 'minute',
+		}, {
+			value: 86400,
+			units: 'second',
+		}, {
+			value: 8.64e+7,
+			units: 'millisecond',
+		}, {
+			value: 8.64e+10,
+			units: 'microsecond',
+		}, {
+			value: 8.64e+13,
+			units: 'nanosecond',
+		}
+	],
+}

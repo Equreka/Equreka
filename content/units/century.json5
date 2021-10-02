@@ -1,0 +1,56 @@
+{
+	name: 'Century',
+	symbol: {
+		text: 'c',
+		html: 'c',
+		tex: 'c',
+	},
+	unitOf: ['time'],
+	//type: 'si',
+	categories: ['universal', 'physics'],
+	description: 'A century is a period of 100 years. Centuries are numbered ordinally in English and many other languages. The word century comes from the Latin centum, meaning one hundred. Century is sometimes abbreviated as c.',
+	conversions: [
+		{
+			value: 1,
+			units: 'century',
+		}, {
+			value: 10,
+			units: 'decade',
+		}, {
+			value: 100,
+			units: 'year',
+		}, {
+			value: 1200,
+			units: 'month',
+		}, {
+			value: 5214.29,
+			units: 'week',
+			exact: false
+		}, {
+			value: 36500,
+			units: 'day',
+		}, {
+			value: 876000,
+			units: 'hour',
+		}, {
+			value: 5.256e+7,
+			units: 'minute',
+		}, {
+			value: 3.154e+9,
+			units: 'second',
+			exact: false
+		}, {
+			value: 3.154e+12,
+			units: 'millisecond',
+			exact: false
+		}, {
+			value: 3.154e+15,
+			units: 'microsecond',
+			exact: false
+		}, {
+			value: 3.154e+18,
+			units: 'nanosecond',
+			exact: false
+		}
+	],
+}

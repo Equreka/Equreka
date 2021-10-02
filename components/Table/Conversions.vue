@@ -25,7 +25,7 @@
 						</td>
 						<!-- Conversion: Value -->
 						<td class="text-end">
-							<MathValue :data="item.value" format="html"/>
+							<MathOperator data="approximately" format="html" v-if="item.exact == false"/> <MathValue :data="item.value" format="html"/>
 						</td>
 						<!-- Conversion: Unit: Symbol -->
 						<td>

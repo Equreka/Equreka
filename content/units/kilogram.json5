@@ -8,7 +8,9 @@
 	unitOf: ['mass'],
 	type: 'si',
 	categories: ['physics'],
-	description: 'The kilogram is the basic unit of mass of the International System of Units (SI). It is a widely used measure in science, engineering, and commerce around the world, and is often simply called a kilo in everyday speech.',
+	description: 'The kilogram is the basic unit of mass of the International System of Units (SI). It is a widely used measure in science, engineering, and commerce around the world, and is often simply called a kilo in everyday speech.\n\n\
+	The kilogram is defined by setting the Planck constant $h$ exactly to $6.62607015×10^{−34} J⋅s$ $(J = kg⋅m^{2}⋅s^{−2})$, given the definitions of the metre and the second. \n\n\
+	Then the formula would be $kg = \\frac{h}{6.62607015×10^{−34}⋅m^{2}⋅s^{−1}}$',
 	conversions: [
 		{
 			value: 0.001,

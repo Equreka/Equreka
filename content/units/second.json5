@@ -7,13 +7,55 @@
 	},
 	unitOf: ['time'],
 	type: 'si',
-	categories: ['physics'],
+	categories: ['universal', 'physics'],
 	description: 'The second, symbol $s$, is the SI unit of $time$. It is defined by taking the fixed numerical value of the caesium frequency $Δν_{Cs}$ the unperturbed ground-state hyperfine transition frequency of the caesium-133 atom, to be 9 192 631 770 when expressed in the unit Hz, which is equal to $s^{–1}$.',
 	conversions: [
 		{
+			value: 3.171e-10,
+			units: 'century',
+			exact: false,
+		}, {
+			value: 3.171e-9,
+			units: 'decade',
+			exact: false,
+		}, {
+			value: 3.171e-8,
+			units: 'year',
+			exact: false,
+		}, {
+			value: 3.8052e-7,
+			units: 'month',
+			exact: false,
+		}, {
+			value: 1.6534e-6,
+			units: 'week',
+			exact: false,
+		}, {
+			value: 1.1574e-5,
+			units: 'day',
+			exact: false,
+		}, {
+			value: 0.000277778,
+			units: 'hour',
+			exact: false,
+		}, {
 			value: 0.0166666667,
-			units: 'minute'
+			units: 'minute',
+			exact: false,
+		}, {
+			value: 1,
+			units: 'second',
+		}, {
+			value: 1000,
+			units: 'millisecond',
+		}, {
+			value: 1e+6,
+			units: 'microsecond',
+		}, {
+			value: 1e+9,
+			units: 'nanosecond',
 		}
+
 	],
 	references: [
 		{

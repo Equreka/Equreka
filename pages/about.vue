@@ -64,6 +64,7 @@
 					'Undraw':               'https://undraw.co/',
 					'Vue.js':               'https://vuejs.org/',
 					'Wikimedia Foundation': 'https://wikimediafoundation.org/',
+					'Wikipedia':            'https://wikipedia.org/',
 				}
 			}
 		},
