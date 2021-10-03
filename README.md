@@ -44,30 +44,6 @@ $ npm run generate
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
 
-## Android build
-
-```bash
-# this will run all scripts needed and open android studio
-$ npm run android
-
-```
-Please check out [Capacitor docs](https://capacitorjs.com/docs/v3/)
-
-## Capacitor not working when launching App in Android Studio
-
-Make sure `/android/app/build.gradle` have `aapOptions` like this:
-```
-android {
-  ...
-  defaultConfig {
-    ...
-    aaptOptions {
-      ignoreAssetsPattern '!.svn:!.git:!.ds_store:!*.scc:!CVS:!thumbs.db:!picasa.ini:!*~'
-    }
-  }
-}
-```
-
 ## To-do
 
 ### Data
