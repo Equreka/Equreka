@@ -23,113 +23,73 @@
 						</div>
 					</section>
 				</div>
-				<!-- Table - Units -->
-				<div class="col-12 col-lg" v-if="data.units && data.units.length > 0 && (type === 'variables' || type === 'magnitudes' || type === 'units')">
-					<section class="card card-units">
-						<div class="card-body">
-							<h3 class="card-title">
-								{{ $t('section.units.title') }}
-							</h3>
-							<TableUnits :data="data.units" :base="data.baseUnit"/>
-						</div>
-					</section>
-				</div>
 				<!-- Table - Magnitudes -->
 				<div class="col-12 col-lg" v-if="data.magnitudes && data.magnitudes.length > 0">
-					<section class="card card-magnitudes">
-						<div class="card-body">
-							<h3 class="card-title">
-								{{ $t('section.magnitudes.title') }}
-							</h3>
-							<TableVariables :data="data.magnitudes" type="magnitude"/>
-						</div>
-					</section>
+					<CardCollapse slug="magnitudes" class="card-magnitudes">
+						<TableVariables :data="data.magnitudes" type="magnitude"/>
+					</CardCollapse>
 				</div>
 				<!-- Table - Constants -->
 				<div class="col-12 col-lg" v-if="data.constants && data.constants.length > 0">
-					<section class="card card-constants">
-						<div class="card-body">
-							<h3 class="card-title">
-								{{ $t('section.constants.title') }}
-							</h3>
-							<TableConstants :data="data.constants"/>
-						</div>
-					</section>
+					<CardCollapse slug="constants" class="card-constants">
+						<TableConstants :data="data.constants"/>
+					</CardCollapse>
 				</div>
 				<!-- Table - Variables -->
 				<div class="col-12 col-lg" v-if="data.variables && data.variables.length > 0">
-					<section class="card card-variables">
-						<div class="card-body">
-							<h3 class="card-title">
-								{{ $t('section.variables.title') }}
-							</h3>
-							<TableVariables :data="data.variables"/>
-						</div>
-					</section>
-				</div>
-				<!-- Table - Values - Exact -->
-				<div class="col-12 col-lg" :class="data.values && showTableValuesExact && showTableValuesAprox ? 'col-6' : 'col-12'" v-if="data.values && showTableValuesExact">
-					<section class="card card-values card-values-exact">
-						<div class="card-body">
-							<h3 class="card-title">
-								{{ $t('section.values.approximate.title') }}
-							</h3>
-							<TableValues :data="data.values" />
-						</div>
-					</section>
+					<CardCollapse slug="variables" class="card-variables">
+						<TableVariables :data="data.variables"/>
+					</CardCollapse>
 				</div>
 				<!-- Table - Values - Approximate -->
+				<div class="col-12 col-lg" :class="data.values && showTableValuesExact && showTableValuesAprox ? 'col-6' : 'col-12'" v-if="data.values && showTableValuesExact">
+					<CardCollapse slug="values.approximate" class="card-values card-values-aprox">
+						<TableValues :data="data.values" />
+					</CardCollapse>
+				</div>
+				<!-- Table - Values - Exact -->
 				<div class="col-12 col-lg" :class="data.values && showTableValuesExact && showTableValuesAprox ? 'col-6' : 'col-12'" v-if="data.values && showTableValuesAprox">
-					<section class="card card-values card-values-aprox">
-						<div class="card-body">
-							<h3 class="card-title">
-								{{ $t('section.values.exact.title') }}
-							</h3>
-							<TableValues class="col" :data="data.values" exact/>
-						</div>
-					</section>
+					<CardCollapse slug="values.exact" class="card-values card-values-exact">
+						<TableValues class="col" :data="data.values" exact/>
+					</CardCollapse>
 				</div>
 				<!-- Information -->
 				<div class="col-12 col-lg-12">
-					<section class="card card-information" v-if="data.description">
-						<div class="card-body">
-							<h3 class="card-title">
-								{{ $t('section.information.title') }}
-							</h3>
-							<!-- Base Unit -->
-							<div class="hstack gap-2 mb-3" v-if="baseUnit">
-								<h6 class="m-0">
-									{{ $t('section.information.base-unit') }}
-								</h6>
-								<NuxtLink class="badge badge-type" :class="baseUnit.dir.slice(1)" :key="baseUnit.slug" :to="localePath(baseUnit.path)" v-if="baseUnit.dir">
-									<span>{{ baseUnit.name }}</span>
-								</NuxtLink>
-							</div>
-							<!-- Units of -->
-							<div class="hstack gap-2 mb-3" v-if="unitOf">
-								<h6 class="m-0">
-									{{ $t('section.information.unit-of') }}
-								</h6>
-								<template v-for="item in unitOf">
-									<NuxtLink class="badge badge-type" :class="item.dir.slice(1)" :key="item.slug" :to="localePath(item.path)" v-if="item.dir">
-										<span>{{ item.name }}</span>
-									</NuxtLink>
-								</template>
-							</div>
-							<div v-html="description"/>
+					<CardCollapse slug="information" class="card-information" v-if="data.description">
+						<!-- Base Unit -->
+						<div class="hstack gap-2 mb-3" v-if="baseUnit">
+							<h6 class="m-0">
+								{{ $t('section.information.base-unit') }}
+							</h6>
+							<NuxtLink class="badge badge-type" :class="baseUnit.dir.slice(1)" :key="baseUnit.slug" :to="localePath(baseUnit.path)" v-if="baseUnit.dir">
+								<span>{{ baseUnit.name }}</span>
+							</NuxtLink>
 						</div>
-					</section>
+						<!-- Units of -->
+						<div class="hstack gap-2 mb-3" v-if="unitOf">
+							<h6 class="m-0">
+								{{ $t('section.information.unit-of') }}
+							</h6>
+							<template v-for="item in unitOf">
+								<NuxtLink class="badge badge-type" :class="item.dir.slice(1)" :key="item.slug" :to="localePath(item.path)" v-if="item.dir">
+									<span>{{ item.name }}</span>
+								</NuxtLink>
+							</template>
+						</div>
+						<div v-html="description"/>
+					</CardCollapse>
+				</div>
+				<!-- Table - Units -->
+				<div class="col-12 col-lg" v-if="data.units && data.units.length > 0 && (type === 'variables' || type === 'magnitudes' || type === 'units')">
+					<CardCollapse slug="units" class="card-units">
+						<TableUnits :data="data.units" :base="data.baseUnit"/>
+					</CardCollapse>
 				</div>
 				<!-- Table - Conversions -->
 				<div class="col-12 col-lg" v-if="data.conversions && data.conversions.length > 0">
-					<section class="card card-conversions">
-						<div class="card-body">
-							<h3 class="card-title">
-								{{ $t('abbreviations.conversions.cap') }}
-							</h3>
-							<TableConversions :data="data.conversions"/>
-						</div>
-					</section>
+					<CardCollapse slug="conversions" class="card-conversions">
+						<TableConversions :data="data.conversions"/>
+					</CardCollapse>
 				</div>
 				<!-- Relations -->
 				<div class="col-12 col-lg-12" v-if="data.relations">
@@ -191,7 +151,7 @@
 	import getData from "~/utils/data";
 	export default {
 		async asyncData ({ $content, params, error, i18n }) {
-			if(!params) return error({ statusCode: 404 });
+			if(!params.slug) return;
 			const { category, type, slug } = params;
 			const data = await getData($content, params, error);
 			return { category, type, slug, data }

@@ -100,8 +100,6 @@ export default {
 		fullTextSearchFields: [
 			'name',
 			'slug',
-			'unit',
-			'conversions.unit'
 		],
 		nestedProperties: [
 			'categories.slug',

@@ -6,6 +6,7 @@
 		tex: 'mm',
 	},
 	unitOf: ['length'],
+	units: ['metre'],
 	type: 'si',
 	categories: ['physics'],
 	description: 'The millimetre (International spelling; SI unit symbol $mm$) or millimeter (American spelling) is a unit of length in the metric system, equal to one thousandth of a metre, which is the SI base unit of length. Therefore, there are one thousand millimetres in a metre. There are ten millimetres in a centimetre.',
@@ -28,6 +29,26 @@
 		}, {
 			value: 1e+6,
 			units: 'nanometre'
+		}, {
+			value: 6.2137e-7,
+			units: 'mile',
+			exact: false,
+		}, {
+			value: 0.00109361,
+			units: 'yard',
+			exact: false,
+		}, {
+			value: 0.00328084,
+			units: 'foot',
+			exact: false,
+		}, {
+			value: 0.0393701,
+			units: 'inch',
+			exact: false,
+		}, {
+			value: 5.3996e-7,
+			units: 'nautical-mile',
+			exact: false,
 		}
 	]
 }

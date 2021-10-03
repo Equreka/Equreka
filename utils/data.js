@@ -209,35 +209,3 @@ export default async ($content, params, error) => {
 	// Return
 	return data;
 }
-
-
-// Experimental
-const testnested = async ($content, property, data) => {
-	if(!data) return false;
-	if(typeof data === 'string') {
-		return await get($content, property, data);
-	}
-	let getData = [];
-	for(let i = 0; i < data.length; i++) {
-		getData[i] = await get($content, property, data[i]);
-	}
-	return getData;
-	
-};
-
-const testget = async ($content, property, data) => {
-	if(!data) return false;
-	console.log(property)
-	try {
-		data = await $content(property, data).fetch();
-		if(data['units']) {
-			data['units'] = await get($content, 'units', data['units']);
-		}
-		if(data['values']) {
-			data['values'] = await getValues($content, data['values']);
-		}
-		return data;
-	} catch {
-		return false;
-	}
-}

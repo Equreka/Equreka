@@ -1,0 +1,49 @@
+{
+	name: 'Yard',
+	symbol: {
+		text: 'yd',
+		html: 'yd',
+		tex: 'yd',
+	},
+	unitOf: ['length'],
+	categories: ['physics'],
+	type: 'imperial',
+	description: 'The yard (symbol: $yd$) is an English unit of length, in both the British imperial and US customary systems of measurement, that comprises 3 feet or 36 inches. Since 1959 it is by international agreement standardized as exactly 0.9144 meters. 1,760 yards is equal to 1 mile.',
+	conversions: [
+		{
+			value: 0.0009144,
+			units: 'kilometre',
+		}, {
+			value: 0.9144,
+			units: 'metre',
+		}, {
+			value: 91.44,
+			units: 'centimetre',
+		}, {
+			value: 914.4,
+			units: 'millimetre',
+		}, {
+			value: 914400,
+			units: 'micrometre',
+		}, {
+			value: 9.144e+8,
+			units: 'nanometre',
+		}, {
+			value: 0.000568182,
+			units: 'mile',
+		}, {
+			value: 1,
+			units: 'yard',
+		}, {
+			value: 3,
+			units: 'foot',
+		}, {
+			value: 36,
+			units: 'inch',
+		}, {
+			value: 0.000493737,
+			units: 'nautical-mile',
+			exact: false,
+		}
+	]
+}

@@ -6,21 +6,21 @@
 		tex: 'oz',
 	},
 	unitOf: ['mass'],
-	type: 'imperial',
+	type: 'uscs',
 	categories: ['physics'],
-	description: 'Mass is both a property of a physical body and a measure of its resistance to acceleration (a change in its state of motion) when a net force is applied. An object\'s mass also determines the strength of its gravitational attraction to other bodies.',
+	description: 'The international avoirdupois ounce (abbreviated oz) is defined as exactly 28.349523125 g under the international yard and pound agreement of 1959, signed by the United States and countries of the Commonwealth of Nations.',
 	conversions: [
 		{
-			value: 2.835e-5,
+			value: 2.8349523125e-5,
 			units: 'tonne'
 		}, {
-			value: 0.0283495,
+			value: 0.028349523125,
 			units: 'kilogram'
 		}, {
-			value: 28.3495,
+			value: 28.349523125,
 			units: 'gram'
 		}, {
-			value: 28349.5,
+			value: 28349.523125,
 			units: 'milligram'
 		}, {
 			value: 2.835e+7,

@@ -6,6 +6,7 @@
 		tex: 'cm',
 	},
 	unitOf: ['length'],
+	units: ['metre'],
 	type: 'si',
 	categories: ['physics'],
 	description: 'A centimetre (International spelling) or centimeter (American spelling) (SI symbol $cm$) is a unit of $length$ in the metric system, equal to one hundredth of a metre, centi being the SI prefix for a factor of $1/100$. The centimetre was the base unit of $length$ in the now deprecated centimetre–gram–second (CGS) system of units.',
@@ -28,6 +29,26 @@
 		}, {
 			value: 1e+7,
 			units: 'nanometre'
+		}, {
+			value: 6.2137e-6,
+			units: 'mile',
+			exact: false,
+		}, {
+			value: 0.0109361,
+			units: 'yard',
+			exact: false,
+		}, {
+			value: 0.0328084,
+			units: 'foot',
+			exact: false,
+		}, {
+			value: 0.393701,
+			units: 'inch',
+			exact: false,
+		}, {
+			value: 5.3996e-6,
+			units: 'nautical-mile',
+			exact: false,
 		}
 	]
 }

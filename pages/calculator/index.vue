@@ -5,14 +5,14 @@
 			<p class="lead m-0">{{ $t('calculator.lead') }}</p>
 		</header>
 		<template v-for="data, type in data">
-			<CardCollapse class="card-type" :key="type" :data="data" :to="`/${type}`" :type="type" v-if="data.length > 0" />
+			<CardList class="card-type" :key="type" :slug="type" :data="data" :to="`/${type}`" :type="type" v-if="data.length > 0" />
 		</template>
 	</div>
 </template>
 
 <script>
 	export default {
-		async asyncData({ $content }) {
+		async asyncData({ $content, error }) {
 			let data = {};
 			await Promise.all(
 				['equations', 'formulas'].map(async (type) => {

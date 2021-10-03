@@ -3,7 +3,7 @@
 		<PageHeader :title="$t(`abbreviations.${type}.cap`)" />
 		<div class="container">
 			<template v-for="data, category in categories">
-				<CardCollapse class="card-category" :key="category" :data="data" :to="`/categories/${category}`" :type="category" v-if="data.length > 0" />
+				<CardList class="card-category" :key="category" :slug="category" :data="data" :to="`/categories/${category}`" :type="category" v-if="data.length > 0" />
 			</template>
 		</div>
 		<MathAll />

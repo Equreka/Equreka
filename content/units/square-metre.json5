@@ -1,11 +1,12 @@
 {
 	name: 'Square metre',
 	symbol: {
-		text: 'm2',
+		text: 'm²',
 		html: 'm<sup>2</sup>',
 		tex: 'm^{2}',
 	},
 	unitOf: ['area'],
+	units: ['metre'],
 	type: 'si',
 	categories: ['physics'],
 	description: 'The square metre (international spelling as used by the International Bureau of Weights and Measures) or square meter (American spelling) is the SI derived unit of area with symbol $m^{2}$',

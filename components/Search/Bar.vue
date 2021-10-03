@@ -98,8 +98,7 @@
 				let search = await this.$content({ deep: true })
 					.where({ dir: { $ne: '/categories' }})
 					.only(['slug', 'name', 'categories', 'dir', 'path'])
-					.search(query)
-					.sortBy('name', 'asc')
+					.search('name', query)
 					.limit(limit)
 					.fetch();
 				// Organize by key

@@ -181,10 +181,6 @@
       "abbr": "Uni",
       "cap": "Universal"
     },
-    "value": {
-      "abbr": "Val",
-      "cap": "Value"
-    },
     "magnitude": {
       "abbr": "Mag",
       "cap": "Magnitude"
@@ -192,6 +188,22 @@
     "magnitudes": {
       "abbr": "Mags",
       "cap": "Magnitudes"
+    },
+    "value": {
+      "abbr": "Val",
+      "cap": "Value"
+    },
+    "values": {
+      "abbr": "Val",
+      "cap": "Values",
+		 "approximate": {
+			"abbr": "Approx. Val.",
+			"cap": "Approximate values"
+		 },
+		 "exact": {
+			 "abbr":"Ex. Val.",
+			 "cap": "Exact values"
+		 }
     },
     "variable": {
       "abbr": "Var",
@@ -210,8 +222,13 @@
       "cap": "Conversions"
     },
     "type": {
+		"abbr": "Typ",
       "cap": "Type"
-    }
+    },
+	 "information": {
+		 "abbr": "Info",
+		 "cap": "Information"
+	 }
   },
   "categories": {
 	"title": "Categories",

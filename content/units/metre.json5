@@ -28,6 +28,26 @@
 		}, {
 			value: 1e+9,
 			units: 'nanometre'
+		}, {
+			value: 0.000621371,
+			units: 'mile',
+			exact: false,
+		}, {
+			value: 1.09361,
+			units: 'yard',
+			exact: false,
+		}, {
+			value: 3.28084,
+			units: 'foot',
+			exact: false,
+		}, {
+			value: 39.3701,
+			units: 'inch',
+			exact: false,
+		}, {
+			value: 0.000539957,
+			units: 'nautical-mile',
+			exact: false,
 		}
 	]
 }

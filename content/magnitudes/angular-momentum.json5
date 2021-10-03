@@ -1,0 +1,15 @@
+{
+	name: 'Angular momentum',
+	symbol: {
+		text: 'L',
+		html: 'L',
+		tex: 'L',
+	},
+	categories: ['physics'],
+	description: 'In physics, angular momentum (rarely, moment of momentum or rotational momentum) is the rotational equivalent of linear momentum. It is an important quantity in physics because it is a conserved quantity—the total angular momentum of a closed system remains constant. \n\n\
+	In three dimensions, the angular momentum for a point particle is a pseudovector $r×p$, the cross product of the particle\'s position vector r (relative to some origin) and its momentum vector; the latter is $p = mv$ in Newtonian mechanics. Unlike momentum, angular momentum depends on where the origin is chosen, since the particle\'s position is measured from it.',
+	baseUnit: 'joule-second',
+	units: [
+		'joule-second'
+	]
+}

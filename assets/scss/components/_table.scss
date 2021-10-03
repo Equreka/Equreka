@@ -46,6 +46,9 @@
 		&.equreka-term-hover {
 			td {
 				background: hsla(var(--term-color-hsl, var(--eqk-color-hsl)), 0.15);
+				a {
+					color :hsla(var(--term-color-hsl, var(--eqk-color-hsl)), 1);
+				}
 			}
 		} 
 		td {

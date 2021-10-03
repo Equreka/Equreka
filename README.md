@@ -81,6 +81,7 @@ android {
 ### UI
 - [X] Add content for everything
 - [ ] Improve UX/UI (always doing it!)
+- [ ] Add copy-to-clipboard for conversions
 ### Calculator
 - [X] Automatically create inputs, import function file and get constants
 - [X] Error message system

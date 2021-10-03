@@ -1,0 +1,57 @@
+{
+	name: 'Nautical mile',
+	symbol: {
+		text: 'nmi',
+		html: 'nmi',
+		tex: 'nmi',
+	},
+	unitOf: ['length'],
+	categories: ['physics'],
+	type: 'non-si',
+	description: 'A nautical mile is a unit of length used in air, marine, and space navigation, and for the definition of territorial waters. Historically, it was defined as the meridian arc length corresponding to one minute (1/60 of a degree) of latitude. Today the international nautical mile is defined as exactly 1852 metres (6076 ft; 1.151 mi). The derived unit of speed is the knot, one nautical mile per hour.\n\n\
+	There is no single internationally agreed symbol, with several symbols in use.\n\n\
+	$M$ is used as the abbreviation for the nautical mile by the International Hydrographic Organization.\n\
+	$NM$ is used by the International Civil Aviation Organization.\n\
+	$nmi$ is used by the Institute of Electrical and Electronics Engineers and the United States Government Publishing Office.\n\
+	$nm$ is a non-standard abbreviation used in many maritime applications and texts, including US Government Coast Pilots and Sailing Directions.',
+	conversions: [
+		{
+			value: 1.852,
+			units: 'kilometre'
+		}, {
+			value: 1852,
+			units: 'metre'
+		}, {
+			value: 185200,
+			units: 'centimetre'
+		}, {
+			value: 1.852e+6,
+			units: 'millimetre'
+		}, {
+			value: 1.852e+9,
+			units: 'micrometre'
+		}, {
+			value: 1.852e+12,
+			units: 'nanometre'
+		}, {
+			value: 1.15078,
+			units: 'mile',
+			exact: false,
+		}, {
+			value: 2025.37,
+			units: 'yard',
+			exact: false,
+		}, {
+			value: 6076.12,
+			units: 'foot',
+			exact: false,
+		}, {
+			value: 72913.4,
+			units: 'inch',
+			exact: false,
+		}, {
+			value: 1,
+			units: 'nautical-mile',
+		}
+	]
+}

@@ -227,10 +227,6 @@
       "abbr": "Uds",
       "cap": "Unidades"
     },
-    "value": {
-      "abbr": "Val",
-      "cap": "Valor"
-    },
     "magnitude": {
       "abbr": "Mag",
       "cap": "Magnitud"
@@ -238,6 +234,22 @@
     "magnitudes": {
       "abbr": "Mags",
       "cap": "Magnitudes"
+    },
+    "value": {
+      "abbr": "Val",
+      "cap": "Valor"
+    },
+	 "values": {
+      "abbr": "Val",
+      "cap": "Valores",
+		 "approximate": {
+			"abbr": "Val. Aprox.",
+			"cap": "Valores aproximados"
+		 },
+		 "exact": {
+			 "abbr":"Val. Ex.",
+			 "cap": "Valores exactos"
+		 }
     },
     "variable": {
       "abbr": "Var",
@@ -256,8 +268,13 @@
       "cap": "Conversiones"
     },
     "type": {
+		"abbr": "Tip",
       "cap": "Tipo"
-    }
+    },
+	 "information": {
+		 "abbr": "Inf",
+		 "cap": "Información"
+	 }
   },
   "actions": {
     "title": "Actions",

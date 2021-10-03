@@ -6,6 +6,7 @@
 		tex: '\\frac{m}{s}',
 	},
 	unitOf: ['speed'],
+	units: ['metre', 'second'],
 	type: 'si',
 	categories: ['physics'],
 	description: 'Is an SI derived unit of both speed (scalar quantity) and velocity (vector quantity (which have direction and magnitude)), equal to the speed of a body covering a distance of one metre in a time of one second.'

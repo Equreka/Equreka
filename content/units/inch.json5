@@ -1,0 +1,53 @@
+{
+	name: 'Inch',
+	symbol: {
+		text: 'in',
+		html: 'in',
+		tex: 'in',
+	},
+	unitOf: ['length'],
+	categories: ['physics'],
+	type: 'imperial',
+	description: 'The inch (symbol: in or ″) is a unit of length in the British imperial and the United States customary systems of measurement. It is equal to 1/36 yard or 1/12 of a foot. Derived from the Roman uncia ("twelfth"), the word inch is also sometimes used to translate similar units in other measurement systems, usually understood as deriving from the width of the human thumb.',
+	conversions: [
+		{
+			value: 2.54e-5,
+			units: 'kilometre'
+		}, {
+			value: 0.0254,
+			units: 'metre'
+		}, {
+			value: 2.54,
+			units: 'centimetre'
+		}, {
+			value: 25.4,
+			units: 'millimetre'
+		}, {
+			value: 25400,
+			units: 'micrometre'
+		}, {
+			value: 2.54e+7,
+			units: 'nanometre'
+		}, {
+			value: 1.5783e-5,
+			units: 'mile',
+			exact: false,
+		}, {
+			value: 0.0277778,
+			units: 'yard',
+			exact: false,
+		}, {
+			value: 0.0833333,
+			units: 'foot',
+			exact: false,
+		}, {
+			value: 1,
+			units: 'inch',
+			exact: false,
+		}, {
+			value: 1.3715e-5,
+			units: 'nautical-mile',
+			exact: false,
+		}
+	]
+}

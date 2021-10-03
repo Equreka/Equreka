@@ -5,8 +5,9 @@
 		html: 'J/K',
 		tex: '\\frac{J}{K}',
 	},
+	unitOf: ['entropy'],
+	units: ['joule', 'kelvin'],
 	type: 'si',
 	categories: ['physics'],
 	description: 'The joule per kelvin ($J/K$) is the product of an SI derived unit, the joule ($J$), and an SI base unit, the kelvin ($K$).',
-	units: ['joule', 'kelvin']
 }
