@@ -76,7 +76,7 @@
 								</NuxtLink>
 							</template>
 						</div>
-						<div v-html="description"/>
+						<nuxt-content :document="data.descriptionMarkdown" />
 					</CardCollapse>
 				</div>
 				<!-- Table - Units -->
@@ -154,6 +154,7 @@
 			if(!params.slug) return;
 			const { category, type, slug } = params;
 			const data = await getData($content, params, error);
+			console.log(data);
 			return { category, type, slug, data }
 		},
 		head() {
@@ -208,12 +209,6 @@
 					unitOf = this.data.unitOf;
 				}
 				return unitOf;
-			},
-			description() {
-				let description = '<p>';
-					 description += Utils.parserTeX(this.data.description).replace(/\n([ \t]*\n)+/g, '</p><p>');
-					 description += '</p>';
-				return description;
 			},
 			showTableValuesAprox() {
 				let show = false;

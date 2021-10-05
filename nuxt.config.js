@@ -1,3 +1,4 @@
+import Utils from "./utils";
 export default {
 	// Target: https://go.nuxtjs.dev/config-target
 	target: 'static',
@@ -92,15 +93,12 @@ export default {
 	generate: {
 		fallback: true
 	},
-
 	// Custom modules configuration
 	// @nuxtjs/content https://go.nuxtjs.dev/config-content
 	content: {
 		apiPrefix: 'api',
-		fullTextSearchFields: [
-			'name',
-			'slug',
-		],
+		liveEdit: false,
+		fullTextSearchFields: ['name'],
 		nestedProperties: [
 			'categories.slug',
 			'constants.slug',
@@ -110,7 +108,18 @@ export default {
 			'values.unit.slug',
 			'conversions.unit.slug',
 			'unitOf.slug',
+			'description.text'
 		],
+	},
+	hooks: {
+		'content:file:beforeInsert': async (document, database) => {
+			if (document.extension === '.json5' && document.description) {
+				const description = Utils.parserTeX(document.description);
+				const data = await database.markdown.toJSON(description);
+				document.descriptionMarkdown = {};
+				document.descriptionMarkdown = data;
+			}
+		}
 	},
 	// @nuxtjs/color-mode https://color-mode.nuxtjs.org/
 	colorMode: {

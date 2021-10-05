@@ -77,7 +77,7 @@
 											:id="`input-${data.slug}`" 
 											v-model="input.value"
 										>
-										<label :for="`input-${data.slug}`" v-html="`${data.name} (${data.baseUnit.symbol.html})`" />
+										<label :for="`input-${data.slug}`" v-html="`${data.name} (${data.symbol.html})`" />
 									</div>
 								</div>
 								<div class="mb-3 col-auto d-flex align-items-center justify-content-center px-2">

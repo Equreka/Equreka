@@ -44,6 +44,7 @@
 </template>
 
 <script>
+	import NoDB from '~/utils/nodb';
 	export default {
 		props: {
 			get: {
@@ -116,12 +117,9 @@
 				this.results = true;
 				// This.data = group; Do the order in reverse, don't know why...
 				// This ways will respect the order
-				this.data.equations  = (group.equations  && group.equations.length   > 0) ? group.equations  : [];
-				this.data.formulas   = (group.formulas   && group.formulas.length    > 0) ? group.formulas   : [];
-				this.data.constants  = (group.constants  && group.constants.length   > 0) ? group.constants  : [];
-				this.data.magnitudes = (group.magnitudes && group.magnitudes.length  > 0) ? group.magnitudes : [];
-				this.data.variables  = (group.variables  && group.variables.length   > 0) ? group.variables  : [];
-				this.data.units      = (group.units      && group.units.length       > 0) ? group.units      : [];
+				NoDB.types.forEach(type => {
+					this.data[type] = group[type] || [];
+				});
 			}
 		},
 		mounted() {

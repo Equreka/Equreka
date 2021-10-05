@@ -2,7 +2,8 @@
 	name: 'Mass-energy equivalence',
 	expression: 'E=mc^{2}',
 	expressionIntern: '\\mag{E}=\\mag{m}\\const{c}^{2}',
-	description: 'This formula states that the equivalent $energy$ $(\\mag{E})$ can be calculated as the mass $(\\mag{m})$ multiplied by the speed of light $(\\const{c})$ squared. Similarly, anything having energy exhibits a corresponding mass $(\\mag{m})$ given by its energy $(\\mag{E})$ divided by the speed of light squared $(\\const{c}^{2})$.\nBecause the speed of light is a very large number in everyday units, the formula implies that even an everyday object at rest with a modest amount of mass has a very large amount of energy intrinsically.',
+	description: 'This formula states that the equivalent $energy$ $(\\mag{E})$ can be calculated as the mass $(\\mag{m})$ multiplied by the speed of light $(\\const{c})$ squared. Similarly, anything having energy exhibits a corresponding mass $(\\mag{m})$ given by its energy $(\\mag{E})$ divided by the speed of light squared $(\\const{c}^{2})$. \n \
+						Because the speed of light is a very large number in everyday units, the formula implies that even an everyday object at rest with a modest amount of mass has a very large amount of energy intrinsically.',
 	categories: ['physics'],
 	units: [
 		'joule'

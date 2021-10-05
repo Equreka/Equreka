@@ -25,4 +25,22 @@ main.data {
 	.table {
 		margin: 0;
 	}
+	.card-collapse {
+		.card-title {
+			width: 100%;
+			text-align: left;
+		}
+		.btn-collapse {
+			width: 100%;
+			&::before {
+				content: "\f284";
+				order: 1;
+				margin-left: 0.5rem;
+				margin-right: 0;
+			}
+			&[aria-expanded=true]::before {
+				transform: rotate(-90deg);
+			}
+		}
+	}
 }

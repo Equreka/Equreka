@@ -46,7 +46,6 @@
 				background: var(--body-color-highlight);
 				transform: translate(-50%, 50%);
 				border-radius: 999rem;
-				transition: all 0.35s ease;
 			}
 			// Active
 			&.nuxt-link-active:not(.home),
