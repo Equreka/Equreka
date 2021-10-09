@@ -15,25 +15,32 @@
 			units: 'kelvin',
 		}, {
 			value: -272.15,
-			units: 'celsius'
+			units: 'celsius',
+			formula: 'value - 273.15',
 		}, {
 			value: -457.87,
-			units: 'fahrenheit'
-		}, {
-			value: -89.8095,
-			units: 'newton-degree'
+			units: 'fahrenheit',
+			formula: 'value * 9/5 - 459.67',
 		}, {
 			value: 1.8,
-			units: 'rankine'
-		}, {
-			value: -217.72,
-			units: 'reaumur'
+			units: 'rankine',
+			formula: 'value * 9/5',
 		}, {
 			value: 558.225,
-			units: 'delisle'
+			units: 'delisle',
+			formula: '(373.15 - value) * 3/2',
+		}, {
+			value: -89.8095,
+			units: 'newton-degree',
+			formula: '(value - 273.15) * 33/100',
+		}, {
+			value: -217.72,
+			units: 'reaumur',
+			formula: '(value - 273.15) * 4/5',
 		}, {
 			value: -135.37875,
-			units: 'romer'
+			units: 'romer',
+			formula: '(value - 273.15) * 21/40 + 7.5',
 		}
 	],
 }

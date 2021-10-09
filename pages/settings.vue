@@ -58,12 +58,12 @@
 					<h3 class="h6 mb-3">
 						{{ $t('settings.favorites.title') }}
 					</h3>
-					<div class="vstack align-items-start gap-3">
-						<button class="px-4 btn btn-primary" @click="exportFavorites">
+					<div class="vstack gap-3">
+						<button class="px-4 btn btn-primary align-self-start" @click="exportFavorites">
 							<i class="me-2 bi bi-box-arrow-up"></i>
 							<span>{{ $t('settings.favorites.export') }}</span>
 						</button>
-						<button class="px-4 btn btn-primary" @click="importFavorites">
+						<button class="px-4 btn btn-primary align-self-start" @click="importFavorites">
 							<i class="me-2 bi bi-box-arrow-in-down"></i>
 							<span>{{ $t('settings.favorites.import') }}</span>
 						</button>

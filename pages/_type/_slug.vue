@@ -88,7 +88,7 @@
 				<!-- Table - Conversions -->
 				<div class="col-12 col-lg" v-if="data.conversions && data.conversions.length > 0">
 					<CardCollapse slug="conversions" class="card-conversions">
-						<TableConversions :data="data.conversions"/>
+						<TableConversions :data="data.conversions" :unit="data.symbol.tex"/>
 					</CardCollapse>
 				</div>
 				<!-- Relations -->
@@ -154,7 +154,6 @@
 			if(!params.slug) return;
 			const { category, type, slug } = params;
 			const data = await getData($content, params, error);
-			console.log(data);
 			return { category, type, slug, data }
 		},
 		head() {

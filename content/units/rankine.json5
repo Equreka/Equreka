@@ -1,9 +1,9 @@
 {
 	name: 'Rankine',
 	symbol: {
-		text: 'R',
-		html: 'R',
-		tex: 'R',
+		text: '°R',
+		html: '°R',
+		tex: '°R',
 	},
 	unitOf: ['thermodynamic-temperature'],
 	type: null,
@@ -12,28 +12,35 @@
 	conversions: [
 		{
 			value: 0.555555555555556,
-			units: 'kelvin'
+			units: 'kelvin',
+			formula: 'value * 5/9'
 		}, {
 			value: -272.594444444444,
-			units: 'celsius'
+			units: 'celsius',
+			formula: '(value - 491.67) * 5/9'
 		}, {
 			value: -458.67,
-			units: 'fahrenheit'
-		}, {
-			value: -89.9561666666667,
-			units: 'newton-degree'
+			units: 'fahrenheit',
+			formula: 'value - 459.67'
 		}, {
 			value: 1,
 			units: 'rankine'
 		}, {
-			value: -218.075555555556,
-			units: 'reaumur'
-		}, {
 			value: 558.8916666666667,
-			units: 'delisle'
+			units: 'delisle',
+			formula: '(671.67 - value) * 5/6'
+		}, {
+			value: -89.9561666666667,
+			units: 'newton-degree',
+			formula: '(value - 491.67) * 11/60'
+		}, {
+			value: -218.075555555556,
+			units: 'reaumur',
+			formula: '(value - 491.67) * 4/9'
 		}, {
 			value: -135.612083333333,
-			units: 'romer'
+			units: 'romer',
+			formula: '(value - 491.67) * 7/24 + 7.5'
 		}
 	],
 }

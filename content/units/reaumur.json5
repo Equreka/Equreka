@@ -12,28 +12,35 @@
 	conversions: [
 		{
 			value: 274.4,
-			units: 'kelvin'
+			units: 'kelvin',
+			formula: 'value * 5/4 + 273.15',
 		}, {
 			value: 1.25,
-			units: 'celsius'
+			units: 'celsius',
+			formula: 'value * 5/4',
 		}, {
 			value: 34.25,
-			units: 'fahrenheit'
-		}, {
-			value: 0.4125,
-			units: 'newton-degree'
+			units: 'fahrenheit',
+			formula: 'value * 9/4 + 32',
 		}, {
 			value: 493.92,
-			units: 'rankine'
-		}, {
-			value: 1,
-			units: 'reaumur'
+			units: 'rankine',
+			formula: 'value * 9/4 +491.67',
 		}, {
 			value: 148.125,
-			units: 'delisle'
+			units: 'delisle',
+			formula: '(80 - value) * 15/8',
+		}, {
+			value: 0.4125,
+			units: 'newton-degree',
+			formula: 'value * 33/80',
+		}, {
+			value: 1,
+			units: 'reaumur',
 		}, {
 			value: 8.15625,
-			units: 'romer'
+			units: 'romer',
+			formula: 'value * 21/32 + 7.5',
 		}
 	],
 }

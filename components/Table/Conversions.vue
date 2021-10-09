@@ -7,10 +7,13 @@
 						{{ $t('table.name') }}
 					</th>
 					<th scope="col" class="conversion text-end">
-						<Abbr string="conversion"/>
+						<Abbr string="conversion"/> <small>(1 {{ unit }})</small>
 					</th>
 					<th scope="col" class="symbol">
 						<Abbr string="symbol"/>
+					</th>
+					<th scope="col" class="formula">
+						<Abbr string="formula" expanded/>
 					</th>
 				</tr>
 			</thead>
@@ -31,6 +34,10 @@
 						<td>
 							<MathSymbol :data="item.units.symbol" />
 						</td>
+						<!-- Conversion: Formula -->
+						<td>
+							${{ formula(item.formula, item.value, item.units.symbol.tex) }}$
+						</td>
 					</tr>
 				</template>
 			</tbody>
@@ -39,13 +46,16 @@
 </template>
 
 <script>
-	import Utils from '~/utils';
 	export default {
 		props: {
 			data: {
 				type: Array | Object | Boolean,
 				required: true
 			},
+			unit: {
+				type: String,
+				required: true
+			}
 		},
 		computed: {
 			show() {
@@ -67,6 +77,18 @@
 			},
 			type() {
 				return this.$route.params.type ? this.$route.params.type : false;
+			},
+		},
+		methods: {
+			formula(formula = false, ratio = false) {
+				let formulaParsed = '-';
+				if(formula) {
+					formulaParsed = formula.replace(/(\d+)\/(\d+)/gm, '\\frac{$1}{$2}').replace('value', `[${this.unit}]`).replace('*', '\\times');
+				}
+				if(!formula && ratio && ratio != 1) {
+					formulaParsed = `[${this.unit}] * ${String(ratio)}`;
+				}
+				return formulaParsed;
 			},
 		}
 	}

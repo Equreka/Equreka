@@ -2,7 +2,6 @@
 mjx-container {
 	outline: 0;
 	position: relative;
-	display: inline-flex;
 	margin: 0 !important;
 	&:focus {
 		&::after {
@@ -16,10 +15,6 @@ mjx-container {
 			border-radius: 0.5rem;
 		}
 	}
-}
-
-mjx-c.mjx-cD7::before {
-	padding: 0.5em 0.5em 0 0 !important;
 }
 
 // Remove anoying white pixel...

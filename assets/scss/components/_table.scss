@@ -24,10 +24,16 @@
 	}
 }
 
+.table {
+	tbody {
+		border: 0 !important;
+	}
+}
+
 // Table
 .table-data {
 	$td-border-radius: 0.5rem;
-	color:         inherit;
+	color: inherit;
 	th,
 	td {
 		border:      0;

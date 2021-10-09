@@ -12,28 +12,35 @@
 	conversions: [
 		{
 			value: 255.927777777778,
-			units: 'kelvin'
+			units: 'kelvin',
+			formula: '(value + 459.67) * 5/9',
 		}, {
 			value: -17.222222222222,
-			units: 'celsius'
+			units: 'celsius',
+			formula: '(value - 32) * 5/9',
 		}, {
 			value: 1,
-			units: 'fahrenheit'
-		}, {
-			value: -5.6833333333333,
-			units: 'newton-degree'
+			units: 'fahrenheit',
 		}, {
 			value: 460.67,
-			units: 'rankine'
-		}, {
-			value: -13.777777777778,
-			units: 'reaumur'
+			units: 'rankine',
+			formula: 'value + 459.67',
 		}, {
 			value: 175.833333333333,
-			units: 'delisle'
+			units: 'delisle',
+			formula: '(212 - value) * 5/6',
+		}, {
+			value: -5.6833333333333,
+			units: 'newton-degree',
+			formula: '(value - 32) * 11/60',
+		}, {
+			value: -13.777777777778,
+			units: 'reaumur',
+			formula: '(value - 32) * 4/9',
 		}, {
 			value: -1.5416666666667,
-			units: 'romer'
+			units: 'romer',
+			formula: '(value - 32) * 7/24 + 7.5',
 		}
 	],
 }

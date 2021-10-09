@@ -1,15 +1,15 @@
 {
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "~/*": ["./*"],
-      "@/*": ["./*"],
-      "~~/*": ["./*"],
-      "@@/*": ["./*"]
-    }
-  },
-  "exclude": ["node_modules", ".nuxt", "dist", ],
-  "typeAcquisition": {
-    "exclude": [ "dotenv" ]
-  }
+	"compilerOptions": {
+		"baseUrl": ".",
+		"paths": {
+			"~/*": ["./*"],
+			"@/*": ["./*"],
+			"~~/*": ["./*"],
+			"@@/*": ["./*"]
+		}
+	},
+	"exclude": ["node_modules", ".nuxt", "dist", ],
+	"typeAcquisition": {
+		"exclude": [ "dotenv" ]
+	}
 }

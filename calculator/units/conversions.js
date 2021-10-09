@@ -8,13 +8,27 @@
  */
 
 // Errors
-import { errorDefault } from '~/calculator/errors';
+import { 
+	errorDefault,
+	errorInputValueNotANumber
+} 
+from '~/calculator/errors';
 
 // Conversion by ratio
 export function conversion(input) {
-	var { value, unitsFrom, unitsTo, ratio } = input;
-		 value = value * ratio;
-	return { unitsFrom, value, unitsTo }
+	var { formula, ratio, units, value } = input;
+	value = Number(value);
+	ratio = Number(ratio);
+	console.log(typeof value, value)
+	if(typeof value != 'number' || isNaN(value)) {
+		return { error: errorInputValueNotANumber };
+	}
+	try {
+		value = formula ? eval(formula) : (value * ratio);
+	} catch (error) {
+		return { error: errorDefault };
+	}
+	return { units, value };
 }
 
 // This is the function that will get called by the calculator

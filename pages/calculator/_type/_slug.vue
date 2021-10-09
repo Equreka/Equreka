@@ -22,6 +22,7 @@
 							</template>
 							<template v-else>
 								<MathValue :data="output.value" format="html" />
+								<MathSymbol :data="output.units.symbol" :sup="output.sup" format="html" v-if="output.units"/>
 							</template>
 						</div>
 					</transition>
@@ -66,7 +67,7 @@
 									</div>
 								</div>
 							</template>
-							<!-- Units -->
+							<!-- Units Conversion -->
 							<template v-if="data.conversions && data.conversions.length > 0">
 								<div class="mb-3 col">
 									<div class="form-floating">
@@ -87,9 +88,11 @@
 									<!-- Units -->
 									<div class="form-floating">
 										<select id="convert-to" class="form-select" v-model="input.conversionKey">
-											<option v-for="item, index in data.conversions" :key="index" :value="index">
-												{{ item.units.name }} (<MathSymbol :data="item.units.symbol" display="raw"/>)
-											</option>
+											<template v-for="item, index in data.conversions">
+												<option :key="index" :value="index" v-if="item.units.slug != data.slug">
+													{{ item.units.name }} (<MathSymbol :data="item.units.symbol" display="raw"/>)
+												</option>
+											</template>
 										</select>
 										<label for="convert-to">
 											{{ $t('calculator.conversions.to') }}
@@ -155,8 +158,6 @@
 		magnitudes: null,
 		variables: null,
 		units: null,
-		unitsFrom: null,
-		unitsTo: null,
 		sup: null,
 		ratio: null,
 		conversionKey: 0,
@@ -245,9 +246,9 @@
 				}
 				if(type === 'units') {
 					let item = this.data.conversions[this.input.conversionKey];
-					input.unitsFrom = this.data.slug;
-					input.unitsTo = item.units.slug;
+					input.units = item.units.slug;
 					input.ratio = item.value;
+					input.formula = item.formula ? item.formula : false;
 				}
 				// Get output
 				if(functions && input) {

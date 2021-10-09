@@ -2,7 +2,6 @@
 
 ![Logo](./assets/brand/logo.png)
 
-
 # Equreka 
 [![Discord](https://img.shields.io/discord/812053915356364811?style=social&logo=discord&label=Discord&labelColor=f2f2f2)](https://discord.gg/NZypuxvAB6)
 [![Twitter Follow](https://img.shields.io/twitter/follow/Equreka?style=social)](https://twitter.com/Equreka)
@@ -17,7 +16,7 @@
 
 #####
 
-## You can help!
+## You can help and we need you!
 Join us at Discord: https://discord.gg/NZypuxvAB6
 
 
@@ -36,10 +35,6 @@ $ npm run start
 
 # generate static project
 $ npm run generate
-
-# DEPRECATED - Moved from MongoDB/Mongoose to local content with nuxt-content
-# update offline database (json files) API server must be online
-# $ npm run update
 ```
 
 For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
@@ -52,11 +47,12 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 - [ ] Get at least 100 mixed data
 - [ ] Add subCategories or tags
 ### App
-- [X] Use cappacitor.js to export as an app for iOS and Android (WIP)
+- [X] App for Android (WIP)
+- [ ] App for iOS (WIP)
 - [ ] Beta test
 ### UI
-- [X] Add content for everything
 - [ ] Improve UX/UI (always doing it!)
+- [X] Add content for everything
 - [ ] Add copy-to-clipboard for conversions
 ### Calculator
 - [X] Automatically create inputs, import function file and get constants
@@ -64,7 +60,7 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 - [X] Copy to clipboard
 - [ ] Unit input for equations/formulas
 - [X] Unit ratio conversion-system
-- [ ] Unit formula conversion-system
+- [X] Unit formula conversion-system
 ### Scripts
 - [X] Hover system for web
 - [ ] Hover: Better hover system for app
@@ -72,6 +68,7 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 - [X] Favorites: System with localStorage
 - [X] Favorites: Add export
 - [ ] Favorites: Add import
+- [ ] Favorites: Fix export for capacitor
 - [ ] Report system
 ### Code
 - [ ] Clean code
