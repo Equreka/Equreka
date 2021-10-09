@@ -15,12 +15,11 @@
 		background:  transparent;
 	}
 	&::-webkit-scrollbar-thumb {
-		background: var(--eqk-color);
-		opacity: 0.75;
+		background: hsla(var(--eqk-color-hsl, 220, 20%, 40), 0.35);
 		border-radius: 100px;
 	}
 	&::-webkit-scrollbar-thumb:active {
-		background: var(--eqk-color, var(--bs-primary));
+		background: hsla(var(--eqk-color-hsl, 220, 20%, 40), 0.65);
 	}
 }
 
@@ -97,13 +96,9 @@
 			}
 		}
 		td {
-			padding-top: 0.15rem;
-			padding-bottom: 0.15rem;
+			padding-top: 0.35rem;
+			padding-bottom: 0.35rem;
 			vertical-align: initial;
-			@include media-breakpoint-up(sm) {
-				padding-top: 0.25rem;
-				padding-bottom: 0.25rem;
-			}
 			&.name {
 				width: 100%;
 			}

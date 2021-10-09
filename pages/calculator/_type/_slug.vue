@@ -39,7 +39,7 @@
 						<div class="row gx-2 flex-wrap justify-content-md-center">
 							<!-- Magnitudes -->
 							<template v-if="data.magnitudes && data.magnitudes.length > 0">
-								<div class="mb-3 col col-md-auto" v-for="item in data.magnitudes" :key="item.slug">
+								<div class="mb-3 col-12 col-md-auto" v-for="item in data.magnitudes" :key="item.slug">
 									<div class="form-floating">
 										<input 
 											class="form-control" 
@@ -54,7 +54,7 @@
 							</template>
 							<!-- Variables -->
 							<template v-if="data.variables && data.variables.length > 0">
-								<div class="mb-3 col col-md-auto" v-for="item in data.variables" :key="item.slug">
+								<div class="mb-3 col-12 col-md-auto" v-for="item in data.variables" :key="item.slug">
 									<div class="form-floating">
 										<input 
 											class="form-control" 
@@ -69,7 +69,7 @@
 							</template>
 							<!-- Units Conversion -->
 							<template v-if="data.conversions && data.conversions.length > 0">
-								<div class="mb-3 col">
+								<div class="mb-3 col-12 col-sm order-1 order-sm-0">
 									<div class="form-floating">
 										<input 
 											class="form-control" 
@@ -81,10 +81,10 @@
 										<label :for="`input-${data.slug}`" v-html="`${data.name} (${data.symbol.html})`" />
 									</div>
 								</div>
-								<div class="mb-3 col-auto d-flex align-items-center justify-content-center px-2">
-									<i class="bi bi-arrow-right-circle fs-3"></i>
+								<div class="mb-3 col-auto d-none d-sm-flex align-items-center justify-content-center px-2">
+									<i class="bi bi-chevron-right text-muted fs-4"></i>
 								</div>
-								<div class="mb-3 col">
+								<div class="mb-3 col-12 col-sm order-0 order-sm-2">
 									<!-- Units -->
 									<div class="form-floating">
 										<select id="convert-to" class="form-select" v-model="input.conversionKey">
@@ -100,24 +100,24 @@
 									</div>
 								</div>
 							</template>
-							<!-- Actions -->
-							<div class="col-12 text-center">
-								<div class="row gx-2 justify-content-center">
-									<div class="col d-flex align-items-center justify-content-center justify-content-md-end" style="max-width: 55px">
-										<button type="reset" class="btn btn-danger rounded-pill p-3" @click="reset">
-											<i class="bi bi-arrow-clockwise"></i>
-										</button>
-									</div>
-									<div class="col col-sm-auto d-flex align-items-center justify-content-center">
-										<button tpe="submit" class="btn btn-success align-items-center justify-content-center rounded-pill px-sm-5 w-100 h-100">
-											{{ $t('calculator.calculate') }}
-										</button>
-									</div>
-									<div class="col d-flex align-items-center justify-content-center justify-content-md-end" style="max-width: 55px">
-										<transition name="fade">
-											<ActionsCopy class="btn btn-dark rounded-pill p-3" target="#calculator-result"/>
-										</transition>
-									</div>
+						</div>
+						<!-- Actions -->
+						<div class="actions text-center">
+							<div class="row gx-2 justify-content-center">
+								<div class="col d-flex align-items-center justify-content-center justify-content-md-end" style="max-width: 55px">
+									<button type="reset" class="btn btn-danger rounded-pill p-3" @click="reset">
+										<i class="bi bi-arrow-clockwise"></i>
+									</button>
+								</div>
+								<div class="col col-sm-auto d-flex align-items-center justify-content-center">
+									<button tpe="submit" class="btn btn-success align-items-center justify-content-center rounded-pill px-sm-5 w-100 h-100">
+										{{ $t('calculator.calculate') }}
+									</button>
+								</div>
+								<div class="col d-flex align-items-center justify-content-center justify-content-md-end" style="max-width: 55px">
+									<transition name="fade">
+										<ActionsCopy class="btn btn-dark rounded-pill p-3" target="#calculator-result"/>
+									</transition>
 								</div>
 							</div>
 						</div>

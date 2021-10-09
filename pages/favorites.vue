@@ -20,7 +20,7 @@
 			<!-- Favorites -->
 			<template  v-if="favorites && haveFavorites">
 				<template v-for="data, type in favorites">
-					<div class="card mb-3" :key="type" v-if="data && data.length > 0">
+					<div class="card mb-3" :class="type" :key="type" v-if="data && data.length > 0">
 						<div class="card-body">
 							<section>
 								<h5>{{ $t(`abbreviations.${type}.cap`) }}</h5>

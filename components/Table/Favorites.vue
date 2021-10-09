@@ -35,7 +35,7 @@
 						</NuxtLink>
 					</td>
 					<td class="actions">
-						<NuxtLink class="btn btn-text btn-primary text-light p-0 rounded-2 me-2" :to="localePath(`/calculator${item.path}`)" :title="$t('calculator.go-to-calculator')" v-if="item.supported">
+						<NuxtLink class="btn btn-text btn-primary text-light p-0 rounded-2 me-2" :to="localePath(`/calculator${item.path}`)" :title="$t('calculator.go-to-calculator')" v-if="showCalculator(item)">
 							<span class="visually-hidden">
 								{{ $t('calculator.go-to-calculator') }}
 							</span>
@@ -76,9 +76,23 @@
 			show() {
 				let show = this.data && this.data.length > 0 ? true : false;
 				return show;
-			},
+			}
 		},
 		methods: {
+			showCalculator(item) {
+				let show = true,
+					type = item.dir.substring(1);
+				if(type == 'equations' || type == 'formulas') {
+					show = item.supported ? true : false;
+				}
+				if(type == 'constants' || type == 'variables') {
+					show = false;
+				}
+				if(item.supported === false) {
+					show = false;
+				}
+				return show;
+			},
 			removeFavorite(type, slug) {
 				if(Favorites.remove(type, slug)) {
 					this.$router.app.refresh();
