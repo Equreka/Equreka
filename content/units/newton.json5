@@ -1,0 +1,15 @@
+{
+	name: 'Newton',
+	symbol: {
+		text: 'N',
+		html: 'N',
+		tex: 'N',
+	},
+	type: 'si',
+	categories: ['physics'],
+	units: ['kilogram', 'metre', 'second'],
+	unitOf: ['force', 'weight'],
+	description: 'The newton (symbol: $N$) is the International System of Units (SI) derived unit of force. It is named after Isaac Newton in recognition of his work on classical mechanics, specifically Newton\'s second law of motion. \n \
+	\n *A newton is defined as the force which gives a mass of 1 kilogram an acceleration of 1 metre per second, per second: \n \
+	\n $$1 \\frac{kg⋅m}{s^{2}}$$'
+}

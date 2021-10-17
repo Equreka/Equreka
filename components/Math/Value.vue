@@ -3,7 +3,7 @@
 </template>
 
 <script>
-	import {Decimal} from 'decimal.js';
+	import { Decimal } from 'decimal.js';
 	export default {
 		props: {
 			data: {
@@ -22,26 +22,22 @@
 				type: Number | Boolean,
 				default: 12,
 			},
-			maxDigits: {
-				type: Number | Boolean,
-				default: 12,
-			},
 			full: {
 				type: Boolean,
 				default: false,
-			}
+			},
+			'all-digits': {
+				type: Boolean,
+				default: false,
+			},
+			'max-digits': {
+				type: Number | Boolean,
+				default: 12,
+			},
 		},
 		computed: {
 			show() {
 				return this.data !== undefined && this.data !== null;
-			},
-			facrtionDigits() {
-				if(this.maxDigits === false) {
-					return {};
-				}
-				return {
-					maxDigits: this.maxDigits,
-				}
 			},
 			valueFormat() {
 				let format = this.format;
@@ -50,15 +46,26 @@
 				return format;
 			},
 			valueFormatted() {
-				let value = this.data;
-				// Convert string to number
-				if(typeof value == 'string') value = Number(value);
-				// Convert to scientific notation
-				value = new Decimal(value);
+				let value = new Decimal(this.data),
+					 format = this.valueFormat;
+				// Show full number with all decimals
+				if(this.allDigits) {
+					return value.toFixed();
+				}
+				if(this.maxDigits) {
+					Decimal.set({ toExpPos: 0 });
+					Decimal.set({ toExpNeg: 0 });
+					if(typeof this.maxDigits === 'number') {
+						value.toExponential(this.maxDigits);
+					} else {
+						value.toExponential();
+					}
+				}
 				// Split into value and exponent
+				console.log(value.toString());
 				let split = value.toString().split('e');
 				// Already assuming the worst case lol
-				if(!split || split.length == 1) return new Intl.NumberFormat(undefined, { maximumFractionDigits: this.maxDigits }).format(value);
+				if(!split || split.length == 1 || split[1] == 0) return value.toFixed();
 				let valueFormatted = split[0];
 				let exponent = split[1],
 					 exponentSign = exponent ? exponent.charAt(0) : false,
@@ -73,7 +80,7 @@
 				// Styling for text
 				valueFormatted = `${numberFormat}×10${exponent}`;
 				// Styling for HTML
-				if(this.valueFormat === 'html') {
+				if(format === 'html') {
 					// Format the exponent
 					if(exponentSign && exponentValue) {
 						exponent  = `<span class="math math-html math-exponent-sign math-exponent-sign-${exponentSignClass}">${exponentSign}</span>`
@@ -83,7 +90,7 @@
 					valueFormatted += `<span class="math math-html math-exponent">×10</span><sup>${exponent}</sup>`;
 				}
 				// Styling for TeX
-				if(this.valueFormat === 'tex') {
+				if(format === 'tex') {
 					// Format the exponent
 					if(exponentSign && exponentValue) {
 						exponent  = `\\class{math math-tex math-exponent-sign math-exponent-sign-${exponentSignClass}}{${exponentSign}}`

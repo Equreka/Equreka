@@ -3,7 +3,7 @@
 		<table class="table table-data table-constants table-values">
 			<thead>
 				<tr>
-					<th scope="col" class="name">
+					<th scope="col" class="value">
 						<Abbr string="value"/>
 					</th>
 					<th scope="col" class="symbol">
@@ -19,7 +19,7 @@
 					<tr :key="item.value" v-if="showItem(item.exact)">
 						<!-- Constant: Value -->
 						<td>
-							<MathValue :data="item.value" format="html" :precision="item.exact ? 12 : 9" />
+							<MathValue :data="item.value" format="html" :full="item.exact ? true : false" />
 						</td>
 						<!-- Constant: Unit: Symbol -->
 						<td>

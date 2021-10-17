@@ -1,7 +1,7 @@
 <template>
 	<div class="app-header">
-		<NuxtLink :to="localePath('/')">
-			<Logo/>
+		<NuxtLink class="logo" :to="localePath('/')">
+			<Logo width="72px"/>
 		</NuxtLink>
 	</div>
 </template>

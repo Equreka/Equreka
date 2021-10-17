@@ -5,7 +5,7 @@
 				<!-- Left -->
 				<div class="left">
 					<NuxtLink class="logo" :to="localePath('/')">
-						<Logo/>
+						<Logo width="72px"/>
 					</NuxtLink>
 				</div>
 				<!-- Center -->

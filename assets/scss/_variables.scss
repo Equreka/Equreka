@@ -17,20 +17,21 @@ $headings-font-family: $font-family-heading-sans-serif;
 $headings-font-weight: 500;
 
 // Colors
-$blue:     hsl(215, 95%, 50%);
-$indigo:   hsl(265, 90%, 50%);
-$purple:   hsl(250, 50%, 50%);
-$pink:     hsl(345, 65%, 55%);
-$red:      hsl(355, 70%, 55%);
-$orange:   hsl(25, 100%, 55%);
-$yellow:   hsl(50, 100%, 50%);
-$olive:    hsl(70,  90%, 40%);
-$green:    hsl(150, 70%, 35%);
-$teal:     hsl(165, 75%, 40%);
-$cyan:     hsl(180, 70%, 45%);
-$aqua:     hsl(190, 70%, 45%);
-$white:    hsl(0, 100%, 100%);
-$gray:     hsl(220, 10%, 40%);
+$red:     hsl(000, 70%, 55%);
+$orange:  hsl(025, 85%, 55%);
+$yellow:  hsl(050, 99%, 50%);
+$olive:   hsl(075, 75%, 40%);
+$green:   hsl(120, 70%, 40%);
+$teal:    hsl(170, 85%, 40%);
+$cyan:    hsl(195, 85%, 40%);
+$blue:    hsl(215, 95%, 45%);
+$purple:  hsl(260, 85%, 50%);
+$indigo:  hsl(270, 95%, 55%);
+$magenta: hsl(285, 85%, 50%);
+$pink:    hsl(335, 75%, 55%);
+$white:   hsl(0, 100%, 100%);
+$gray:    hsl(220, 10%, 40%);
+$black:   hsl(0,   0%,   0%);
 
 // Theme
 $colors: (
@@ -80,12 +81,13 @@ $categories: (
   "mathematics": $red,
   "physics":     $blue,
   "chemistry":   $indigo,
-  "equations":   $purple,
-  "formulas":    $pink,
-  "constants":   $orange,
-  "magnitudes":  $olive,
-  "units":       $teal,
-  "variables":   $aqua,
+  "equations":   $olive,
+  "formulas":    $green,
+  "constants":   $teal,
+  "magnitudes":  $cyan,
+  "variables":   $blue,
+  "units":       $purple,
+  "prefixes":    $magenta,
 );
 
 // Social

@@ -10,7 +10,7 @@ const
 		{ slug: 'settings', to: '/settings', icon: 'bi-gear' }
 	],
 	types = [
-		'equations', 'formulas', 'constants', 'magnitudes', 'variables', 'units'
+		'equations', 'formulas', 'constants', 'magnitudes', 'variables', 'units', 'prefixes'
 	],
 	themes = {
 		'light':  'Light',

@@ -42,8 +42,9 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 ## To-do
 
 ### Data
-- [ ] SI basic units
-- [ ] SI basic constants
+- [X] SI basic units
+- [X] SI basic constants
+- [ ] SI derivated units
 - [ ] Get at least 100 mixed data
 - [ ] Add subCategories or tags
 ### App
@@ -61,6 +62,7 @@ For detailed explanation on how things work, check out [Nuxt.js docs](https://nu
 - [ ] Unit input for equations/formulas
 - [X] Unit ratio conversion-system
 - [X] Unit formula conversion-system
+- [ ] Computer Algebra System (Future)
 ### Scripts
 - [X] Hover system for web
 - [ ] Hover: Better hover system for app

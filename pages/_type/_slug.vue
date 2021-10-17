@@ -10,15 +10,20 @@
 					<section class="card card-expression card-mathjax">
 						<div class="card-body">
 							<!-- Equations || Formulas -->
-							<MathExpression :expression="expression" v-if="(type === 'equations' || type == 'formulas') && type != 'units'"/>
-							<!-- Units || Variables -->
-							<MathExpression :text="data.name" :symbol="data.symbol" :unit="baseUnit" v-else-if="(type === 'magnitudes' || type === 'units' || type === 'variables')"/>
+							<template v-if="(type === 'equations' || type == 'formulas') && type != 'units'">
+								<MathExpression :expression="expression"/>
+							</template>
 							<!-- Constants -->
-							<template v-else>
+							<template v-else-if="type === 'constants'">
 								<MathSymbol :data="data.symbol" />
 								<MathOperator />
 								<MathValue :data="data.values[0].value" :precision="22" :full="true" />
 								<MathSymbol :data="data.values[0].units.symbol" :sup="data.values[0].sup" v-if="data.values[0].units.symbol.tex != ''"/>
+							</template>
+							<!-- Everything else -->
+							<template v-else>
+								<MathExpression :text="data.name" :symbol="data.symbol" :unit="baseUnit" />
+								<MathValue class="d-block ms-3" :data="data.value" :max-digits="3" v-if="data.value"/>
 							</template>
 						</div>
 					</section>

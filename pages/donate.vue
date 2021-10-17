@@ -12,7 +12,7 @@
 							{{ $t('donate.button-github') }}
 						</a>
 						<a href="https://paypal.me/Derianandre" class="btn btn-primary btn-icon" target="_blank" rel="noopener nofollow">
-							<i class="bi bi-credit-card"></i>
+							<i class="bi bi-paypal"></i>
 							{{ $t('donate.button-paypal') }}
 						</a>
 					</div>
