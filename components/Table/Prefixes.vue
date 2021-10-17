@@ -10,10 +10,10 @@
 						<Abbr string="symbol"/>
 					</th>
 					<th scope="col">
-						Exponent
+						{{ $t('table.exponent') }}
 					</th>
 					<th scope="col">
-						Factor
+						{{ $t('table.number') }}
 					</th>
 				</tr>
 			</thead>
@@ -27,7 +27,7 @@
 							<MathSymbol :data="item.symbol"/>
 						</td>
 						<td>
-							<MathValue :data="item.value" :maxDigits="true"/>
+							<MathValue :data="item.value" :maxDigits="1"/>
 						</td>
 						<td>
 							<MathValue :data="item.value" :allDigits="true"/>
