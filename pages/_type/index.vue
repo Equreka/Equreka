@@ -14,6 +14,7 @@
 	import NoDB from '~/utils/nodb';
 	export default {
 		async asyncData({ $content, params, error }) {
+			if(!params.type) return error({ statusCode: 404 });
 			const type = params.type;
 			let categories = {};
 			await Promise.all(

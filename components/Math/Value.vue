@@ -62,7 +62,6 @@
 					}
 				}
 				// Split into value and exponent
-				console.log(value.toString());
 				let split = value.toString().split('e');
 				// Already assuming the worst case lol
 				if(!split || split.length == 1 || split[1] == 0) return value.toFixed();

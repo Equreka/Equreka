@@ -1,6 +1,6 @@
 {
 	name: 'Circle area',
-	expression: 'A=\\pi r^2',
+	expression: 'A=\\pi r^{2}',
 	expressionIntern: '\\mag{A}=\\const{\\pi}\\var{r}^{2}',
 	description: 'In geometry, the area enclosed by a circle of radius $r$ is $\\pi r^{2}$. Here the Greek letter π represents the constant ratio of the circumference of any circle to its diameter, approximately equal to 3.1416. One method of deriving this formula, which originated with Archimedes, involves viewing the circle as the limit of a sequence of regular polygons.',
 	categories: ['mathematics'],

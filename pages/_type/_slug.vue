@@ -8,7 +8,7 @@
 				<!-- Expression -->
 				<div class="col-12" v-if="data.expression || data.symbol">
 					<section class="card card-expression card-mathjax">
-						<div class="card-body">
+						<div class="card-body flex-wrap">
 							<!-- Equations || Formulas -->
 							<template v-if="(type === 'equations' || type == 'formulas') && type != 'units'">
 								<MathExpression :expression="expression"/>
@@ -62,8 +62,8 @@
 				<div class="col-12 col-lg-12">
 					<CardCollapse slug="information" class="card-information" v-if="data.description">
 						<!-- Base Unit -->
-						<div class="hstack gap-2 mb-3" v-if="baseUnit">
-							<h6 class="m-0">
+						<div class="hstack gap-2 my-3" v-if="baseUnit">
+							<h6 class="m-0 me-1">
 								{{ $t('section.information.base-unit') }}
 							</h6>
 							<NuxtLink class="badge badge-type" :class="baseUnit.dir.slice(1)" :key="baseUnit.slug" :to="localePath(baseUnit.path)" v-if="baseUnit.dir">
@@ -71,8 +71,8 @@
 							</NuxtLink>
 						</div>
 						<!-- Units of -->
-						<div class="hstack gap-2 mb-3" v-if="unitOf">
-							<h6 class="m-0">
+						<div class="hstack gap-2 my-3" v-if="unitOf">
+							<h6 class="m-0 me-1">
 								{{ $t('section.information.unit-of') }}
 							</h6>
 							<template v-for="item in unitOf">

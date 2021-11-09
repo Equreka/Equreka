@@ -20,14 +20,9 @@
 			<!-- Favorites -->
 			<template  v-if="favorites && haveFavorites">
 				<template v-for="data, type in favorites">
-					<div class="card mb-3" :class="type" :key="type" v-if="data && data.length > 0">
-						<div class="card-body">
-							<section>
-								<h5>{{ $t(`abbreviations.${type}.cap`) }}</h5>
-								<TableFavorites :data="data" :type="type" :edit="edit"/>
-							</section>
-						</div>
-					</div>
+					<CardCollapse class="mb-3" :slug="type" :class="type" :key="type" v-if="data && data.length > 0">
+						<TableFavorites :data="data" :type="type" :edit="edit"/>
+					</CardCollapse>
 				</template>
 			</template>
 			<!-- No data -->
@@ -69,14 +64,17 @@
 				NoDB.types.map(
 					async (type) => {
 						favorites[type] = [];
-						const localStorage = await Favorites.get(type);
+						let localStorage = await Favorites.get(type);
 						if (localStorage) {
 							for (let i = 0; i < localStorage.length; i++) {
-								const slug = localStorage[i],
+								let slug = localStorage[i],
 										data = await $content(type, slug)
 									.only(['name', 'slug', 'categories', 'supported', 'dir', 'path'])
-									.fetch();
-								favorites[type][i] = data;
+									.fetch()
+									.catch(() => false);
+								if(data) {
+									favorites[type].push(data);
+								}
 							}
 						}
 					}
