@@ -1,211 +1,89 @@
-const getCategory = async ($content, category) => {
-	if(!category) return false;
-	try {
-		let data = await $content('categories', category).fetch();
-		return data;
-	} catch {
-		return false;
-	}
+const GETDATA_SLUGS = [
+  'categories',
+  'conversions',
+  'constants',
+  'magnitudes',
+  'units',
+  'values',
+  'variables',
+  'unitOf',
+  'baseUnit',
+];
+
+const GETDATA_SLUGS_MAP = {
+  'unitOf': 'magnitudes',
+  'baseUnit': 'units',
 };
 
-const getConstant = async ($content, constant) => {
-	if(!constant) return false;
-	try {
-		let data = await $content('constants', constant).fetch();
-		if(data.units) {
-			data['units'] = await getUnits($content, data.units);
-		}
-		if(data.values) {
-			data['values'] = await getValues($content, data.values);
-		}
-		return data;
-	} catch {
-		return false;
-	}
-};
+const GETDATA_MAX_LEVEL = 2;
 
-const getUnit = async ($content, unit) => {
-	if(!unit) return false;
-	try {
-		return await $content('units', unit).fetch();
-	} catch {
-		return false;
-	}
-};
+function isObject(obj) {
+	return obj != null && obj.constructor.name === "Object"
+}
 
-const getMagnitude = async ($content, magnitude) => {
-	if(!magnitude) return false;
-	try {
-		let data = await $content('magnitudes', magnitude).fetch();
-		if(data['baseUnit']) {
-			data['baseUnit'] = await getUnit($content, data['baseUnit']);
-		}
-		if(data['units']) {
-			data['units'] = await getUnits($content, data['units']);
-		}
-		return data;
-	} catch {
-		return false;
-	}
-};
-
-const getVariable = async ($content, variable) => {
-	if(!variable) return false;
-	try {
-		let data = await $content('variables', variable).fetch();
-		if(data['baseUnit']) {
-			data['baseUnit'] = await getUnit($content, data['baseUnit']);
-		}
-		if(data['units']) {
-			data['units'] = await getUnits($content, data['units']);
-		}
-		return data;
-	} catch {
-		return false;
-	}
-};
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-const getCategories = async ($content, categories) => {
-	if(!categories) return false;
-	let returnData = [];
-	if(typeof data === 'string') {
-		returnData[0] = await getCategory($content, categories[0]);
-	} else {
-		for(let i = 0; i < categories.length; i++) {
-			returnData[i] = await getCategory($content, categories[i]);
-		}
-	}
-	return returnData;
-};
-
-const getConstants = async ($content, constants) => {
-	if(!constants) return false;
-	let returnData = [];
-	if(typeof data === 'string') {
-		returnData[0] = await getCategory($content, constants[0]);
-	} else {
-		for(let i = 0; i < constants.length; i++) {
-			returnData[i] = await getConstant($content, constants[i]);
-		}
-	}
-	return returnData;
-};
-
-const getMagnitudes = async ($content, magnitudes) => {
-	if(!magnitudes) return false;
-	let returnData = [];
-	if(typeof magnitudes === 'string') {
-		returnData[0] = await getMagnitude($content, magnitudes);
-	} else {
-		for(let i = 0; i < magnitudes.length; i++) {
-			returnData[i] = await getMagnitude($content, magnitudes[i]);
-		}
-	}
-	return returnData;
-};
-
-const getVariables = async ($content, variables) => {
-	if(!variables) return false;
-	let returnData = [];
-	if(typeof data === 'string') {
-		returnData[0] = await getCategory($content, variables[0]);
-	} else {
-		for(let i = 0; i < variables.length; i++) {
-			returnData[i] = await getVariable($content, variables[i]);
-		}
-	}
-	return returnData;
-};
-
-const getValues = async ($content, values) => {
-	if(!values) return false;
-	let returnData = [];
-	if(typeof values === 'string') {
-		returnData[0] = values;
-		returnData[0].units = await getUnit($content, values.units);
-	} else {
-		for(let i = 0; i < values.length; i++) {
-			returnData[i] = values[i];
-			returnData[i].units = await getUnit($content, values[i].units);
-		}
-	}
-	return returnData;
-};
-
-const getUnits = async ($content, units) => {
-	if(!units) return false;
-	let returnData = [];
-	if(typeof units === 'string') {
-		returnData[0] = await getUnit($content, units);
-	} else {
-		for(let i = 0; i < units.length; i++) {
-			returnData[i] = await getUnit($content, units[i]);
-		}
-	}
-	return returnData;
-};
-
-const getConversions = async ($content, data) => {
+async function getAllData($content, data, error, level = 0) {
 	if(!data) return false;
-	let returnData = [];
-	if(typeof units === 'string') {
-		returnData[0] = data;
-		returnData[0].units = await getUnit($content, data);
-	} else {
-		for(let i = 0; i < data.length; i++) {
-			returnData[i] = data[i];
-			returnData[i].units = await getUnit($content, data[i].units);
+	const nextLevel = level + 1;
+	Object.keys(data).forEach(async (key) => {
+		// If the key is in the allowed slugs, get the data from the content API
+		// and replace the value with the data only if the level is less than the max level
+		// to avoid infinite recursion
+		if (GETDATA_SLUGS.includes(key) && level <= GETDATA_MAX_LEVEL) {
+			const dataKey = data[key];
+			// If the key is in the slug map, use the mapped key
+			const contentPath = GETDATA_SLUGS_MAP[key] || key;
+
+			// Check if we have an array of slugs
+			if(Array.isArray(dataKey) && dataKey.length > 0) {
+				const resultArray = dataKey.map(async (item) => {
+					// If the item is an object then recurse into it
+					if(isObject(item)) {
+						return await getAllData($content, item, error, nextLevel);
+					}
+					// Otherwise get the data from the content API and then recurse into it
+					else {
+						const resultSingle = await $content(contentPath, item)
+							.fetch()
+							.catch((err) => {
+								return error({ statusCode: 404 })
+							});
+						return await getAllData($content, resultSingle, error, nextLevel);
+					}
+				});
+				// Resolve the array of promises and replace the value with the data
+				data[key] = await Promise.all(resultArray);
+			}
+
+			// Otherwise check if its only a string (one slug)
+			if(typeof data[key] === 'string') {
+				// Get the data from the content API and then recurse into it
+				const resultSingle = await $content(contentPath, dataKey)
+					.fetch()
+					.catch((err) => {
+						return error({ statusCode: 404 })
+					});
+				// Replace the value with the data and recurse
+				data[key] = await getAllData($content, resultSingle, error, nextLevel);
+			}
 		}
-	}
-	return returnData;
-};
+	});
 
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	return data;
+}
 
-export default async ($content, params, error) => {
+async function getData($content, params, error) {
 	const { type, slug } = params;
-	// Get the data
-	let data = await $content(type, slug)
+
+	const data = await $content(type, slug)
 		.fetch()
 		.catch((err) => {
 			return error({ statusCode: 404 })
 		});
 
-	// Get categories
-	if(data.categories) {
-		data.categories = await getCategories($content, data.categories);
-	}
-	// Get units
-	if(data.units) {
-		data.units = await getUnits($content, data.units);
-	}
-	// Get unit of
-	if(data.unitOf) {
-		data.unitOf = await getMagnitudes($content, data.unitOf);
-	}
-	// Get constants
-	if(data.constants) {
-		data.constants = await getConstants($content, data.constants);
-	}
-	// Get variables
-	if(data.variables) {
-		data.variables = await getVariables($content, data.variables);
-	}
-	// Get magnitudes
-	if(data.magnitudes) {
-		data.magnitudes = await getMagnitudes($content, data.magnitudes);
-	}
-	// Get values
-	if(data.values) {
-		data.values = await getValues($content, data.values);
-	}
-	// Get conversions
-	if(data.conversions) {
-		data.conversions = await getConversions($content, data.conversions);
-	}
-	
-	// Return
-	return data;
+	const allData = await getAllData($content, data, error);
+
+
+	return allData;
 }
+
+export default getData;

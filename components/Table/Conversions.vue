@@ -19,7 +19,7 @@
 			</thead>
 			<tbody>
 				<template v-for="item in data">
-					<tr :key="item.slug" :class="item.symbol" v-if="item">
+					<tr :key="item.slug" :class="item.symbol" v-if="item && item.units.symbol">
 						<!-- Conversion: Unit: Name -->
 						<td>
 							<NuxtLink :to="localePath(item.units.path)">

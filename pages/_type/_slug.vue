@@ -14,11 +14,11 @@
 								<MathExpression :expression="expression"/>
 							</template>
 							<!-- Constants -->
-							<template v-else-if="type === 'constants'">
+							<template v-else-if="type === 'constants' && data.values[0].value">
 								<MathSymbol :data="data.symbol" />
 								<MathOperator />
 								<MathValue :data="data.values[0].value" :precision="22" :full="true" />
-								<MathSymbol :data="data.values[0].units.symbol" :sup="data.values[0].sup" v-if="data.values[0].units.symbol.tex != ''"/>
+								<MathSymbol :data="data.values[0].units.symbol" :sup="data.values[0].sup" v-if="data.values[0].units.symbol && data.values[0].units.symbol.tex != ''"/>
 							</template>
 							<!-- Everything else -->
 							<template v-else>
@@ -155,7 +155,7 @@
 	import Utils from "~/utils";
 	import getData from "~/utils/data";
 	export default {
-		async asyncData ({ $content, params, error, i18n }) {
+		async asyncData ({ $content, params, error }) {
 			if(!params.slug) return;
 			const { category, type, slug } = params;
 			const data = await getData($content, params, error);
@@ -180,7 +180,7 @@
 					if(typeof this.data.expression === "string") {
 						code = this.data.expression;
 					} else {
-						code = this.data.expression;
+						code = this.data.expression[0];
 					}
 				}
 				if(this.data.symbol) {
