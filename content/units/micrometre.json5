@@ -6,7 +6,7 @@
 		tex: 'μm',
 	},
 	unitOf: ['length'],
-	units: ['metre'],
+	baseUnit: 'metre',
 	type: 'si',
 	categories: ['physics'],
 	description: 'The micrometre (International spelling, SI symbol: $μm$) or micrometer (American spelling), also commonly known as a micron, is an SI derived unit of length equalling $1×10^{−6}$ $metre$ (SI standard prefix "micro-" = $10^{−6}$); that is, one millionth of a metre (or one thousandth of a millimetre, 0.001 mm, or about 0.000039 inch).',

@@ -6,7 +6,7 @@
 		tex: 'km',
 	},
 	unitOf: ['length'],
-	units: ['metre'],
+	baseUnit: 'metre',
 	type: 'si',
 	categories: ['physics'],
 	description: 'The $metre$ (International spelling) or $meter$ (American spelling; see spelling differences) (from the French unit mètre, from the Greek noun μέτρον, "measure") is the base unit of length in the International System of Units (SI). The SI unit symbol is $m$.',

@@ -6,7 +6,7 @@
 		tex: 'ns',
 	},
 	unitOf: ['time'],
-	units: ['second'],
+	baseUnit: 'second',
 	type: 'si',
 	categories: ['universal', 'physics'],
 	description: 'A nanosecond is an SI unit of time equal to one millionth ($0.000001$ or $10^{−9}$ or $\\frac{1}{1,000,000,000}$) of a second.',
@@ -56,6 +56,5 @@
 			value: 1,
 			units: 'nanosecond',
 		}
-
 	]
 }

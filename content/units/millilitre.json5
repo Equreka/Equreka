@@ -6,7 +6,7 @@
 		tex: 'ml',
 	},
 	unitOf: ['volume'],
-	units: ['litre'],
+	baseUnit: 'litre',
 	type: 'non-si',
 	categories: ['physics'],
 	description: 'A unit of measure of capacity, being one thousandth of a litre. Symbol: ml.',

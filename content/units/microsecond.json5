@@ -6,7 +6,7 @@
 		tex: 'μs',
 	},
 	unitOf: ['time'],
-	units: ['second'],
+	baseUnit: 'second',
 	type: 'si',
 	categories: ['universal', 'physics'],
 	description: 'A microsecond is an SI unit of time equal to one millionth ($0.000001$ or $10^{−6}$ or $\\frac{1}{1,000,000}$) of a second. Its symbol is $μs$, sometimes simplified to $us$ when Unicode is not available.',

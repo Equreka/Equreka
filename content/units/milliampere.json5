@@ -6,7 +6,7 @@
 		tex: 'mA',
 	},
 	unitOf: ['electric-current'],
-	units: ['ampere'],
+	baseUnit: 'ampere',
 	type: 'si',
 	categories: ['physics'],
 	description: 'The milliampere is a unit used to measure electric current.',
