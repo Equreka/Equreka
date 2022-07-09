@@ -61,15 +61,6 @@
 				<!-- Information -->
 				<div class="col-12 col-lg-12">
 					<CardCollapse slug="information" class="card-information" v-if="data.description">
-						<!-- Base Unit -->
-						<div class="hstack gap-2 my-3" v-if="baseUnit">
-							<h6 class="m-0 me-1">
-								{{ $t('section.information.base-unit') }}
-							</h6>
-							<NuxtLink class="badge badge-type" :class="baseUnit.dir.slice(1)" :key="baseUnit.slug" :to="localePath(baseUnit.path)" v-if="baseUnit.dir">
-								<span>{{ baseUnit.name }}</span>
-							</NuxtLink>
-						</div>
 						<!-- Units of -->
 						<div class="hstack gap-2 my-3" v-if="unitOf">
 							<h6 class="m-0 me-1">
@@ -80,6 +71,15 @@
 									<span>{{ item.name }}</span>
 								</NuxtLink>
 							</template>
+						</div>
+						<!-- Base Unit -->
+						<div class="hstack gap-2 my-3" v-if="baseUnit">
+							<h6 class="m-0 me-1">
+								{{ $t('section.information.base-unit') }}
+							</h6>
+							<NuxtLink class="badge badge-type" :class="baseUnit.dir.slice(1)" :key="baseUnit.slug" :to="localePath(baseUnit.path)" v-if="baseUnit.dir">
+								<span>{{ baseUnit.name }}</span>
+							</NuxtLink>
 						</div>
 						<nuxt-content :document="data.descriptionMarkdown" />
 					</CardCollapse>
@@ -193,25 +193,20 @@
 				return code;
 			},
 			expression() {
-				let expression = this.data.expressionIntern ? Utils.parserTeX(this.data.expressionIntern) : this.data.expression;
+				const expression = this.data.expressionIntern ? Utils.parserTeX(this.data.expressionIntern) : this.data.expression;
 				return expression;
 			},
 			baseUnit() {
 				let baseUnit = false;
 				if(this.data.baseUnit) {
-					this.data.units.forEach(unit => {
-						if(unit.slug === this.data.baseUnit) {
-							baseUnit = unit;
-						}
-					});
+					return this.data.baseUnit;
 				}
 				return baseUnit;
 			},
 			unitOf() {
-				let unitOf = false;
-				if(this.data.unitOf && this.data.unitOf.length > 0) {
-					unitOf = this.data.unitOf;
-				}
+				const unitOf = this.data.unitOf && this.data.unitOf.length > 0
+					? this.data.unitOf
+					: false;
 				return unitOf;
 			},
 			showTableValuesAprox() {

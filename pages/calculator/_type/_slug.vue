@@ -40,45 +40,49 @@
 							<!-- Magnitudes -->
 							<template v-if="data.magnitudes && data.magnitudes.length > 0">
 								<div class="mb-3 col-12 col-md-auto" v-for="item in data.magnitudes" :key="item.slug">
-									<div class="form-floating">
-										<input 
-											class="form-control" 
-											type="number" 
-											step="0.000000000000000001" 
-											:id="`input-${item.slug}`"
-											v-model.number="input.values[item.symbol.text]"
-										>
-										<label :for="`input-${item.slug}`" v-html="`${item.name} (${item.baseUnit.symbol.html})`" />
-									</div>
+									<template v-if="item.symbol && item.baseUnit">
+										<div class="form-floating">
+											<input
+												class="form-control"
+												type="number"
+												step="0.000000000000000001"
+												:id="`input-${item.slug}`"
+												v-model.number="input.values[item.symbol.text]"
+											>
+											<label :for="`input-${item.slug}`" v-html="`${item.name} (${item.baseUnit.symbol.html})`" v-if="item.baseUnit.symbol"/>
+										</div>
+									</template>
 								</div>
 							</template>
 							<!-- Variables -->
 							<template v-if="data.variables && data.variables.length > 0">
 								<div class="mb-3 col-12 col-md-auto" v-for="item in data.variables" :key="item.slug">
-									<div class="form-floating">
-										<input 
-											class="form-control" 
-											type="number" 
-											step="0.000000000000000001" 
-											:id="`input-${item.slug}`"
-											v-model.number="input.values[item.symbol.text]"
-										>
-										<label :for="`input-${item.slug}`" v-html="`${item.name} (${item.baseUnit.symbol.html})`" />
-									</div>
+									<template v-if="item.symbol && item.baseUnit">
+										<div class="form-floating">
+											<input
+												class="form-control"
+												type="number"
+												step="0.000000000000000001"
+												:id="`input-${item.slug}`"
+												v-model.number="input.values[item.symbol.text]"
+											>
+											<label :for="`input-${item.slug}`" v-html="`${item.name} (${item.baseUnit.symbol.html})`" v-if="item.baseUnit.symbol"/>
+										</div>
+									</template>
 								</div>
 							</template>
 							<!-- Units Conversion -->
 							<template v-if="data.conversions && data.conversions.length > 0">
-								<div class="mb-3 col-12 col-sm order-1 order-sm-0">
+								<div class="mb-3 col-12 col-sm order-1 order-sm-0" v-if="data.symbol">
 									<div class="form-floating">
-										<input 
-											class="form-control" 
-											type="number" 
-											step="0.000000000000000001" 
-											:id="`input-${data.slug}`" 
+										<input
+											class="form-control"
+											type="number"
+											step="0.000000000000000001"
+											:id="`input-${data.slug}`"
 											v-model="input.value"
 										>
-										<label :for="`input-${data.slug}`" v-html="`${data.name} (${data.symbol.html})`" />
+										<label :for="`input-${data.slug}`" v-html="`${data.name} (${data.symbol.html})`"/>
 									</div>
 								</div>
 								<div class="mb-3 col-auto d-none d-sm-flex align-items-center justify-content-center px-2">
@@ -151,7 +155,7 @@
 
 
 <script>
-	import UtilsData from "~/utils/data";
+	import getData from "~/utils/data";
 	const defaultInput = {
 		value: null,
 		values: {},
@@ -178,24 +182,17 @@
 	export default {
 		data () {
 			return {
-				constants: false,
+				loading: true,
 				input: defaultInput,
 				output: defaultOutput
 			}
 		},
 		async asyncData ({ $content, params, error }) {
-			const { category, type, slug } = params,
-					data = await UtilsData($content, params, error, true);
-			// Get constants
-			let constants = false;
-			if (data.constants && data.constants.length > 0) {
-				constants = {};
-				data.constants.forEach(constant => {
-					constants[constant.symbol.text] = constant.values[0].value;
-				});
-			}
+			const { category, type, slug } = params;
+			const data = await getData($content, params, error);
+
 			return {
-				category, type, slug, data, constants
+				category, type, slug, data
 			}
 		},
 		head() {
@@ -203,6 +200,18 @@
 				bodyAttrs: {
 					class: `page-data page-${this.type} ${this.category}`
 				}
+			}
+		},
+		computed: {
+			constants () {
+				let constants = false;
+				if (this.data.constants && this.data.constants.length > 0) {
+					constants = {};
+					this.data.constants.forEach(constant => {
+						constants[constant.symbol.text] = constant.values[0].value;
+					});
+				}
+				return constants;
 			}
 		},
 		methods: {

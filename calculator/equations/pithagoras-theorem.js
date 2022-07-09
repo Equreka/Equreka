@@ -13,7 +13,7 @@ import { check, checkNegatives } from '~/calculator/utils';
 
 // Calculate a
 export function a(input) {
-	var { b, c } = input;
+	const { b, c } = input;
 	// Custom error
 	if(b > c) return {
 		error: {
@@ -21,7 +21,7 @@ export function a(input) {
 			message: 'c must be greater than b'
 		}
 	}
-	var	variables = 'a',
+	const	variables = 'a',
 			units = 'unit',
 			value = Math.sqrt(Math.pow(c, 2) - Math.pow(b, 2));
 	return { variables, units, value }
@@ -29,8 +29,15 @@ export function a(input) {
 
 // Calculate b
 export function b(input) {
-	var	{ a, c } = input,
-			variables = 'b',
+	const	{ a, c } = input;
+	// Custom error
+	if(a > c) return {
+		error: {
+			type: 'input.invalid',
+			message: 'c must be greater than b'
+		}
+	}
+	const variables = 'b',
 			units = 'unit',
 			value = Math.sqrt(Math.pow(c, 2) - Math.pow(a, 2));
 	return { variables, units, value }
@@ -38,7 +45,7 @@ export function b(input) {
 
 // Calculate c
 export function c(input) {
-	var	{ a, b } = input,
+	const	{ a, b } = input,
 			variables = 'c',
 			units = 'unit',
 			value = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
@@ -47,7 +54,7 @@ export function c(input) {
 
 // This is the function that will get called by the calculator
 export default (input) => {
-	var inputs = input.values;
+	const inputs = input.values;
 	// Check for negative values
 	if(checkNegatives(inputs)) return { error: errorInputNegativeValues };
 	// Check if all inputs are filled

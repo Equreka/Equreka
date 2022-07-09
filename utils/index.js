@@ -1,14 +1,13 @@
 const Utils = {
 	TERM_SELECTOR: 'equreka-term',
 	/**
-		* Initialize Term Hover
-		* 
-		* Create Event Listener for all elements with the Utils.TERM_SELECTOR class
-		*/
+	 * Initialize Term Hover
+	 * @description Create Event Listener for all elements with the Utils.TERM_SELECTOR class
+	 */
 	initTermHover() {
 		let elements = document.querySelectorAll(`.${Utils.TERM_SELECTOR}`);
 		Array.from(elements).forEach(function(element) {
-			element.addEventListener('pointerenter', (event) => { 
+			element.addEventListener('pointerenter', (event) => {
 				Utils.termHover(event, element);
 			}, false);
 			if(window.innerWidth >= 768) {
@@ -19,16 +18,16 @@ const Utils = {
 		});
 		// Add Event Listener for touch devices for term hover remover
 		// This is needed because the pointerleave event is not triggered on touch devices
-		window.addEventListener('click', (event) => { 
+		window.addEventListener('click', (event) => {
 			Utils.termHoverRemover(event);
 		}, false);
 	},
 
 	/**
 	 * Term Hover
-	 * On hover adds class 'hover' to all elements that matches TERM_SELECTOR
-	 * @param {string} event   Event to watch for
-	 * @param {string} element Element
+	 * @description On hover adds class 'hover' to all elements that matches TERM_SELECTOR
+	 * @param {string} event   - Event to watch for
+	 * @param {string} element - Element
 	 */
 	termHover (event, element) {
 		if(event.target == element) {
@@ -49,8 +48,8 @@ const Utils = {
 
 	/**
 	 * Term Hover Remover
-	 * Removes class hover from all elements that have that class
-	 * @param {string} event 
+	 * @description Removes class hover from all elements that have that class
+	 * @param {string} event
 	 */
 	termHoverRemover (event) {
 		// Prevents remove on term with class "hover"
@@ -66,9 +65,12 @@ const Utils = {
 
 	/**
 	 * Parser TeX
-	 * Function that adds the term-selector, type and term to LaTeX command-class of the term from our custom LaTeX command (\(var|const){X})
-	 * Ex. \var{X} -> \class{eqk variable X}{X}
-	 * @param {string} data Expression / Description
+	 * @description Function that adds the term-selector, type and term to LaTeX command-class of the term from our custom LaTeX command (\(var|const){X})
+	 * @param {string} data - Expression / Description
+	 * @returns {string} Parsed expression / description
+	 * @example
+	 * parserTeX('\var{X}');
+	 * // returns \class{eqk variable X}{X}
 	 */
 	parserTeX (data) {
 		if(!data) return;
@@ -93,10 +95,13 @@ const Utils = {
 
 	/**
 	 * Parser Cleaner
-	 * Simple function to remove our custom LaTeX command
-	 * Ex. \var{X} -> X
-	 * @param {string}  data        Expression / Description
-	 * @param {boolean} removeSigns removes $ that activates MathJax
+	 * @description Simple function to remove our custom LaTeX command
+	 * @param {string}  data        - Expression / Description
+	 * @param {boolean} removeSigns - Removes $ that activates MathJax
+	 * @returns {string} Parsed expression / description
+	 * @example
+	 * parserCleaner('\var{X}');
+	 * // returns X
 	 */
 	parserCleaner (data, removeSigns = false) {
 		if(!data) return;
@@ -110,30 +115,37 @@ const Utils = {
 		}
 		return parsedData;
 	},
-	
+
 	/**
 	 * Laguages utilities
+	 * @description Function to get the language from localStorage
+	 * @returns {string} The current language
 	 */
 	getLanguage() {
-		let language = 'en';
-		if(localStorage) language = localStorage.getItem(`equreka-settings-language`);
+		const language = localStorage
+			? localStorage.getItem(`equreka-settings-language`)
+			: 'en';
 		return language;
 	},
 
+	/**
+	 * Set Language
+	 * @description Function to set the language in localStorage
+	 * @param {string} language - Language to set
+	 * @returns {boolean} True if language is set, false if not
+	 */
 	setLanguage(language) {
-		if(!language) return false;
-		if(!localStorage) return false;
+		if(!language || !localStorage) return false;
 		localStorage.setItem(`equreka-settings-language`, language);
 		return true;
 	},
 
 	/**
 	 * Theme Transition (needs @nuxtjs/color-mode)
-	 * Detects if transition needs to be done when changing from theme mode
-	 * by adding class 'theme-transition'
-	 * @param {string}  newTheme     New theme mode
-	 * @param {string}  actualTheme  Actual theme mode value (variable by @nuxtjs/color-mode)
-	 * @param {boolean} systemQuery  Watcher for prefers-color-scheme: dark (boolean by @nuxtjs/color-mode)
+	 * @description Detects if transition needs to be done when changing from theme mode by adding class 'theme-transition'
+	 * @param {string}  newTheme     - New theme mode
+	 * @param {string}  actualTheme  - Actual theme mode value (variable by @nuxtjs/color-mode)
+	 * @param {boolean} systemQuery  - Watcher for prefers-color-scheme: dark (boolean by @nuxtjs/color-mode)
 	 */
 	themeTransition (newTheme, actualTheme) {
 		// Set system default theme
@@ -150,6 +162,26 @@ const Utils = {
 				root.classList.remove('theme-transition');
 			}, 350);
 		}
+	},
+
+	/**
+	 * Is object
+	 * @description Checks if object is an object
+	 * @param {object} obj - Object to check
+	 * @return {boolean} True if object, false if not
+	 */
+	isObject (obj) {
+		return obj != null && obj.constructor.name === "Object"
+	},
+
+	/**
+	 * Check array
+	 * @description Check if is array and is not empty
+	 * @param   {object} array - Array to check
+	 * @returns {boolean} True if array is not empty and is array
+	 */
+	checkArray(array) {
+		return Array.isArray(array) && array.length > 0;
 	}
 }
 

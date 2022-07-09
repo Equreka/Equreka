@@ -12,15 +12,13 @@
 		props: ['data', 'type', 'category'],
 		computed: {
 			showCalculator() {
-				let show = true,
-					 type = this.data.dir.substring(1);
+				const type = this.data.dir.substring(1);
+				const disabled = ['constants', 'variables', 'magnitudes'];
+				let show = true;
 				if(type == 'equations' || type == 'formulas') {
 					show = this.data.supported ? true : false;
 				}
-				if(type == 'constants' || type == 'variables') {
-					show = false;
-				}
-				if(this.data.supported === false) {
+				if(disabled.includes(type) || this.data.supported === false) {
 					show = false;
 				}
 				return show;
