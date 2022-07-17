@@ -13,23 +13,23 @@ import { check, checkNegatives } from '~/calculator/utils';
 
 // Calculate area
 export function A(input) {
-	var { l } = input;
-	var value = Math.pow(l, 2),
-		 magnitudes = 'area',
-		 units = 'square-metre';
+	const { l } = input;
+	const value = Math.pow(l, 2),
+				magnitudes = 'area',
+				units = 'square-metre';
 	return { value, magnitudes, units }
 }
 export function l(input) {
-	var { A } = input;
-	var value = Math.sqrt(A),
-		 magnitudes = 'length',
-		 units = 'metre';
+	const { A } = input;
+	const value = Math.sqrt(A),
+				magnitudes = 'length',
+				units = 'metre';
 	return { value, magnitudes, units }
 }
 
 // This is the function that will get called by the calculator
 export default (input) => {
-	var inputs = input.values;
+	const inputs = input.values;
 	// Check for negative values
 	if(checkNegatives(inputs)) return { error: errorInputNegativeValues };
 	// Calculate area

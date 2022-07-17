@@ -8,15 +8,14 @@
  */
 
 // Errors
-import { 
+import {
 	errorDefault,
 	errorInputValueNotANumber
-} 
-from '~/calculator/errors';
+} from '~/calculator/errors';
 
 // Conversion by formula or ratio
 export function conversion(input) {
-	var { formula, ratio, units, value } = input;
+	const { formula, ratio, units, value } = input;
 	// Convert to numbers
 	value = Number(value);
 	ratio = Number(ratio);
@@ -28,10 +27,10 @@ export function conversion(input) {
 	try {
 		// If the formula is not defined, use the ratio
 		value = formula ? eval(formula) : (value * ratio);
+		return { units, value };
 	} catch (error) {
 		return { error: errorDefault };
 	}
-	return { units, value };
 }
 
 // This is the function that will get called by the calculator

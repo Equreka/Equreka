@@ -13,29 +13,29 @@ import { check } from '~/calculator/utils';
 
 // Calculate mass
 export function mass(input, c) {
-	var { E } = input,
-		magnitudes = 'mass',
-		units = 'kilogram',
-		value = E / Math.pow(c, 2);
+	const { E } = input,
+				magnitudes = 'mass',
+				units = 'kilogram',
+				value = E / Math.pow(c, 2);
 	return { magnitudes, units, value }
 }
 
 // Calculate energy
 export function energy(input, c) {
-	var { m } = input,
-		magnitudes = 'energy',
-		units = 'joule',
-		value = m * Math.pow(c, 2);
+	const { m } = input,
+				magnitudes = 'energy',
+				units = 'joule',
+				value = m * Math.pow(c, 2);
 	return { magnitudes, units, value }
 }
 
 // This is the function that will get called by the calculator
 export default (input, constants) => {
-	var inputs = input.values;
+	const inputs = input.values;
 	// All inputs
 	if(check(['E', 'm'], inputs)) return { error: errorInputsAllFilled };
 	// Constants
-	var { c } = constants;
+	const { c } = constants;
 	// Calculate mass
 	if(check(['E'], inputs)) return mass(inputs, c);
 	// Calculate energy

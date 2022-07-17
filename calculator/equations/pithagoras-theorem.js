@@ -22,8 +22,8 @@ export function a(input) {
 		}
 	}
 	const	variables = 'a',
-			units = 'unit',
-			value = Math.sqrt(Math.pow(c, 2) - Math.pow(b, 2));
+				units = 'unit',
+				value = Math.sqrt(Math.pow(c, 2) - Math.pow(b, 2));
 	return { variables, units, value }
 }
 
@@ -38,17 +38,17 @@ export function b(input) {
 		}
 	}
 	const variables = 'b',
-			units = 'unit',
-			value = Math.sqrt(Math.pow(c, 2) - Math.pow(a, 2));
+				units = 'unit',
+				value = Math.sqrt(Math.pow(c, 2) - Math.pow(a, 2));
 	return { variables, units, value }
 }
 
 // Calculate c
 export function c(input) {
 	const	{ a, b } = input,
-			variables = 'c',
-			units = 'unit',
-			value = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
+				variables = 'c',
+				units = 'unit',
+				value = Math.sqrt(Math.pow(a, 2) + Math.pow(b, 2));
 	return { variables, units, value }
 }
 
