@@ -1,0 +1,15 @@
+name:
+  en: 'Reciprocal mole'
+symbol:
+  tex: 'mol^{-1}'
+unitOf:
+  - 'reciprocal-amount'
+system: 'si-derived'
+compose:
+  - unit: 'mole'
+    exp: -1
+categories:
+  - 'chemistry'
+description:
+  en: 'The reciprocal of the mole, used for quantities that count entities per amount of substance —
+    most prominently the Avogadro constant ($6.02214076 \times 10^{23}\,mol^{-1}$).'
