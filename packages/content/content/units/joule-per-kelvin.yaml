@@ -1,0 +1,18 @@
+name:
+  en: 'Joule per Kelvin'
+symbol:
+  tex: '\frac{J}{K}'
+  text: 'J/K'
+unitOf:
+  - 'entropy'
+system: 'si-derived'
+compose:
+  - unit: 'joule'
+    exp: 1
+  - unit: 'kelvin'
+    exp: -1
+categories:
+  - 'physics'
+description:
+  en: 'The joule per kelvin ($J/K$) is the product of an SI derived unit, the joule ($J$), and an SI
+    base unit, the kelvin ($K$).'

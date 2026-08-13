@@ -1,0 +1,28 @@
+name:
+  en: 'Pythagorean theorem'
+kind: 'equation'
+expression: '\var{a}^{2}+\var{b}^{2}=\var{c}^{2}'
+terms:
+  a:
+    kind: 'variable'
+    ref: 'a'
+  b:
+    kind: 'variable'
+    ref: 'b'
+  c:
+    kind: 'variable'
+    ref: 'c'
+solutions:
+  a: 'sqrt(c^2 - b^2)'
+  b: 'sqrt(c^2 - a^2)'
+  c: 'sqrt(a^2 + b^2)'
+calculator:
+  enabled: true
+units:
+  - 'unit'
+categories:
+  - 'mathematics'
+description:
+  en: 'Where $\var{c}$ represents the length of the hypotenuse and $\var{a}$ and $\var{b}$ the lengths
+    of the triangle''s other two sides. The theorem, whose history is the subject of much debate, is
+    named for the Greek thinker Pythagoras, born around 570 BC.'

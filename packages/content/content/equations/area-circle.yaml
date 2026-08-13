@@ -1,0 +1,26 @@
+name:
+  en: 'Circle area'
+kind: 'formula'
+expression: '\mag{A}=\const{\pi}\var{r}^{2}'
+terms:
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+solutions:
+  A: 'pi * r^2'
+  r: 'sqrt(A / pi)'
+units:
+  - 'metre'
+categories:
+  - 'mathematics'
+description:
+  en: 'In geometry, the area enclosed by a circle of radius $r$ is $\pi r^{2}$. Here the Greek letter
+    π represents the constant ratio of the circumference of any circle to its diameter,
+    approximately equal to 3.1416. One method of deriving this formula, which originated with
+    Archimedes, involves viewing the circle as the limit of a sequence of regular polygons.'

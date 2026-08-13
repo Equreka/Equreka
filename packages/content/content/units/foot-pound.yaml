@@ -1,0 +1,19 @@
+name:
+  en: 'Foot-pound'
+symbol:
+  tex: 'ft⋅lb'
+unitOf:
+  - 'energy'
+system: 'imperial'
+compose:
+  - unit: 'foot'
+    exp: 1
+  - unit: 'pound'
+    exp: 1
+categories:
+  - 'physics'
+description:
+  en: 'The foot-pound force (symbol: $ft⋅lbf$, $ft⋅lbf$, or $ft⋅lb$) is a unit of work or energy in
+    the engineering and gravitational systems in United States customary and imperial units of
+    measure. It is the energy transferred upon applying a force of one pound-force (lbf) through a
+    linear displacement of one foot. The corresponding SI unit is the joule.'

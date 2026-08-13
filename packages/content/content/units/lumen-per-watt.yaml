@@ -1,0 +1,15 @@
+name:
+  en: 'Lumen per watt'
+symbol:
+  tex: '\frac{lm}{W}'
+  text: 'lm/W'
+unitOf:
+  - 'speed'
+system: 'si-derived'
+compose:
+  - unit: 'lumen'
+    exp: 1
+  - unit: 'watt'
+    exp: -1
+categories:
+  - 'physics'

@@ -1,0 +1,17 @@
+name:
+  en: 'Joule per second'
+symbol:
+  tex: '\frac{J}{s}'
+  text: 'J/s'
+unitOf:
+  - 'power'
+system: 'si-derived'
+compose:
+  - unit: 'joule'
+    exp: 1
+  - unit: 'second'
+    exp: -1
+categories:
+  - 'physics'
+description:
+  en: 'The SI units for work and time are Joules and seconds, respectively.'

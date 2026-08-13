@@ -33,6 +33,7 @@ catalog:
   '@types/node': ^22.0.0 # matches the Node 22 floor in engines
   decimal.js: ^10.6.0 # BUILD-TIME ONLY (factor composition); runtime is float64 (ADR 0002)
   fast-check: ^4.9.0
+  json5: ^2.2.3 # migrate-legacy only: parses the 2021-2022 corpus
 
 # pnpm settings live here, not .npmrc (single commented SSOT).
 catalogMode: strict
