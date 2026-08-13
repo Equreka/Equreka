@@ -1,0 +1,74 @@
+# CI shape: gated jobs closed by a `validate` job with if: always() —
+# a skipped upstream gate is a failure, never a silent pass.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  static-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - run: pnpm lint
+      - run: pnpm quality
+
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: turbo-${{ runner.os }}-${{ github.sha }}
+          restore-keys: turbo-${{ runner.os }}-
+      - run: pnpm typecheck
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: turbo-test-${{ runner.os }}-${{ github.sha }}
+          restore-keys: turbo-test-${{ runner.os }}-
+      - run: pnpm test
+
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: turbo-build-${{ runner.os }}-${{ github.sha }}
+          restore-keys: turbo-build-${{ runner.os }}-
+      - run: pnpm build
+      - run: pnpm check
+
+  validate:
+    runs-on: ubuntu-latest
+    needs: [static-checks, typecheck, test, build]
+    if: always()
+    steps:
+      - name: Fail if any gate failed or was skipped
+        run: |
+          results='${{ join(needs.*.result, ' ') }}'
+          echo "gate results: $results"
+          for r in $results; do
+            if [ "$r" != "success" ]; then
+              echo "gate not green: $r"
+              exit 1
+            fi
+          done

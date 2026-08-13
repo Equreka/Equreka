@@ -1,0 +1,19 @@
+{
+	name: 'Joule per second',
+	symbol: {
+		text: 'J/s',
+		html: 'J/s',
+		tex: '\\frac{J}{s}',
+	},
+	unitOf: ['power'],
+	units: ['joule', 'second'],
+	type: 'si',
+	categories: ['physics'],
+	description: 'The SI units for work and time are Joules and seconds, respectively.',
+	conversions: [
+		{
+			value: 1,
+			units: 'watt'
+		}
+	]
+}

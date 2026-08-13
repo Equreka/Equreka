@@ -1,0 +1,18 @@
+{
+	name: 'Mole',
+	symbol: {
+		text: 'mol',
+		html: 'mol',
+		tex: 'mol',
+	},
+	unitOf: ['substance'],
+	type: 'si',
+	categories: ['chemistry'],
+	description: 'The mole (symbol: $mol$) is the base unit of amount of substance in the International System of Units (SI). It is defined as exactly $6.02214076×10^{23}$ particles, which may be atoms, molecules, ions, or electrons.',
+	conversions: [
+		{
+			units: 'millimole',
+			value: 1000
+		}
+	],
+}

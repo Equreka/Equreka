@@ -1,0 +1,15 @@
+{
+	name: 'Heat',
+	symbol: {
+		text: 'Q',
+		html: 'Q',
+		tex: 'Q',
+	},
+	categories: ['physics'],
+	branches: ['thermodynamics'],
+	description: 'In thermodynamics, heat is energy in transfer to or from a thermodynamic system, by mechanisms other than thermodynamic work or transfer of matter. The various mechanisms of energy transfer that define heat are stated in the next section of this article.',
+	baseUnit: 'joule',
+	units: [
+		'joule'
+	]
+}

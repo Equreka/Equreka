@@ -1,0 +1,18 @@
+{
+	name: 'Farad',
+	symbol: {
+		text: 'F',
+		html: 'F',
+		tex: 'F',
+	},
+	unitOf: ['capacitance'],
+	type: 'si',
+	categories: ['physics'],
+	description: 'The farad (symbol: $F$) is the SI derived unit of electrical capacitance, the ability of a body to store an electrical charge. It is named after the English physicist Michael Faraday (1791-1867). In SI base units $1 ~F = 1 ~kg^{−1}⋅m^{−2}⋅s^{4}⋅A^{2}$. \n \
+	\n One farad is defined as the capacitance across which, when charged with one coulomb, there is a potential difference of one volt. Equally, one farad can be described as the capacitance which stores a one-coulomb charge across a potential difference of one volt. \n \
+	\n ### Equalities \n \
+	\n A farad is a derived unit based on four of the seven base units of the International System of Units: **kilogram ($kg$), metre ($m$), second ($s$), and ampere ($A$)**. Expressed in combinations of SI units, the farad is: \n \
+	\n$${\\displaystyle {\\text{F}}={\\dfrac {{\\text{s}}^{4}{\\cdot }{\\text{A}}^{2}}{{\\text{m}}^{2}{\\cdot }{\\text{kg}}}}={\\dfrac {{\\text{s}}^{2}{\\cdot }{\\text{C}}^{2}}{{\\text{m}}^{2}{\\cdot }{\\text{kg}}}}={\\dfrac {\\text{C}}{\\text{V}}}={\\dfrac {{\\text{A}}{\\cdot }{\\text{s}}}{\\text{V}}}={\\dfrac {{\\text{W}}{\\cdot }{\\text{s}}}{{\\text{V}}^{2}}}={\\dfrac {\\text{J}}{{\\text{V}}^{2}}}={\\dfrac {{\\text{N}}{\\cdot }{\\text{m}}}{{\\text{V}}^{2}}}={\\dfrac {{\\text{C}}^{2}}{\\text{J}}}={\\dfrac {{\\text{C}}^{2}}{{\\text{N}}{\\cdot }{\\text{m}}}}={\\dfrac {\\text{s}}{\\Omega }}={\\dfrac {1}{\\Omega {\\cdot }{\\text{Hz}}}}={\\dfrac {\\text{S}}{\\text{Hz}}}={\\dfrac {{\\text{s}}^{2}}{\\text{H}}}}$$ \n \
+	\n Where: F = farad, s = second, A = ampere, m = metre, kg = kilogram, C = coulomb, V = volt, W = watt, J = joule, N = newton, Ω = ohm, S = siemens, Hz = hertz, H = henry.',
+	conversions: [],
+}

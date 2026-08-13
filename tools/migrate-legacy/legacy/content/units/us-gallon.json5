@@ -1,0 +1,45 @@
+{
+	name: 'U.S. Gallon',
+	symbol: {
+		text: 'US gal',
+		html: 'US gal',
+		tex: 'US\\ gal',
+	},
+	unitOf: ['volume'],
+	type: 'uscs',
+	categories: ['physics'],
+	description: 'The US gallon (US gal) defined as 231 cubic inches (exactly 3.785411784 L), which is used in the US and some Latin American and Caribbean countries.',
+	conversions: [
+		{
+			value: 0.003785411784,
+			units: 'cubic-metre',
+		}, {
+			value: 3.785411784,
+			units: 'litre',
+		}, {
+			value: 3785.411784,
+			units: 'millilitre'
+		}, {
+			value: 1,
+			units: 'us-gallon',
+		}, {
+			value: 4,
+			units: 'us-quart',
+		}, {
+			value: 8,
+			units: 'us-pint',
+		}, {
+			value: 0.832674,
+			units: 'imperial-gallon',
+			exact: false
+		}, {
+			value: 3.3307,
+			units: 'imperial-quart',
+			exact: false
+		}, {
+			value: 6.66139,
+			units: 'imperial-pint',
+			exact: false
+		}
+	]
+}

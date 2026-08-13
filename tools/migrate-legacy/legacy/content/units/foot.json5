@@ -1,0 +1,51 @@
+{
+	name: 'Foot',
+	symbol: {
+		text: 'ft',
+		html: 'ft',
+		tex: 'ft',
+	},
+	unitOf: ['length'],
+	categories: ['physics'],
+	type: 'imperial',
+	description: 'The foot (pural feet), standard symbol: $ft$, is a unit of length in the British imperial and United States customary systems of measurement. The prime symbol, ′, is a customarily used alternative symbol. Since the International Yard and Pound Agreement of 1959, one foot is defined as 0.3048 meters exactly. In both, customary and imperial units, one foot comprises 12 inches and one yard comprises three feet.',
+	conversions: [
+		{
+			value: 0.0003048,
+			units: 'kilometre',
+		}, {
+			value: 0.3048,
+			units: 'metre',
+		}, {
+			value: 30.48,
+			units: 'centimetre',
+		}, {
+			value: 304.8,
+			units: 'millimetre',
+		}, {
+			value: 304800,
+			units: 'micrometre',
+		}, {
+			value: 3.048e+8,
+			units: 'nanometre',
+		}, {
+			value: 0.000189394,
+			units: 'mile',
+			exact: false,
+		}, {
+			value: 0.333333333,
+			units: 'yard',
+			exact: false,
+		}, {
+			value: 1,
+			units: 'foot',
+		}, {
+			value: 12,
+			units: 'inch',
+		}, {
+			value: 0.000164579,
+			units: 'nautical-mile',
+			exact: false,
+		}
+	]
+}

@@ -1,0 +1,45 @@
+{
+	name: 'Imperial Gallon',
+	symbol: {
+		text: 'imp gal',
+		html: 'imp gal',
+		tex: 'imp\\ gal',
+	},
+	unitOf: ['volume'],
+	type: 'imperial',
+	categories: ['physics'],
+	description: 'The imperial gallon ($imp gal$), defined as 4.54609 litres, which is or was used in the United Kingdom, Canada, and some Caribbean countries.',
+	conversions: [
+		{
+			value: 0.00454609,
+			units: 'cubic-metre',
+		}, {
+			value: 4.54609,
+			units: 'litre',
+		}, {
+			value: 4546.09,
+			units: 'millilitre'
+		}, {
+			value: 1.20095,
+			units: 'us-gallon',
+			exact: false,
+		}, {
+			value: 4.8038,
+			units: 'us-quart',
+			exact: false,
+		}, {
+			value: 9.6076,
+			units: 'us-pint',
+			exact: false,
+		}, {
+			value: 1,
+			units: 'imperial-gallon',
+		}, {
+			value: 4,
+			units: 'imperial-quart',
+		}, {
+			value: 8,
+			units: 'imperial-pint'
+		}
+	]
+}

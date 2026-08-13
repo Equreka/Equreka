@@ -1,0 +1,31 @@
+{
+	"name": "equreka-monorepo",
+	"private": true,
+	"license": "GPL-3.0",
+	"engines": {
+		"node": ">=22",
+		"pnpm": ">=11"
+	},
+	"packageManager": "pnpm@11.1.1",
+	"scripts": {
+		"build": "turbo run build",
+		"check": "turbo run check",
+		"dev:web": "turbo run dev --filter=web",
+		"dev:mobile": "turbo run dev --filter=mobile",
+		"lint": "biome check .",
+		"lint:fix": "biome check --write .",
+		"test": "turbo run test",
+		"typecheck": "turbo run typecheck",
+		"verify": "turbo run typecheck test --filter=\"...[origin/main]\"",
+		"quality": "node scripts/quality/catalog-drift.mjs",
+		"env:init": "node scripts/env/init-env.mjs development",
+		"env:test:init": "node scripts/env/init-env.mjs test",
+		"prepare": "node -e \"if(process.env.LEFTHOOK!=='0'){try{require('child_process').execSync('lefthook install',{stdio:'inherit'})}catch{}}\""
+	},
+	"devDependencies": {
+		"@biomejs/biome": "catalog:",
+		"lefthook": "catalog:",
+		"turbo": "catalog:",
+		"typescript": "catalog:"
+	}
+}

@@ -1,0 +1,17 @@
+{
+	name: 'Volume',
+	symbol: {
+	 text: 'V',
+	 html: 'V',
+	 tex: 'V',
+	},	
+	categories: ['universal', 'mathematics', 'physics'],
+	description: 'Volume is the quantity of three-dimensional space enclosed by a closed surface. For example, the space that a substance (solid, liquid, gas, or plasma) or 3D shape occupies or contains. Volume is often quantified numerically using the SI derived unit, the cubic metre. The volume of a container is generally understood to be the capacity of the container; i.e., the amount of fluid (gas or liquid) that the container could hold, rather than the amount of space the container itself displaces. Three dimensional mathematical shapes are also assigned volumes.',
+	baseUnit: 'cubic-metre',
+	units: [
+		'cubic-metre', 'litre', 'millilitre',
+		'us-gallon', 'us-quart', 'us-pint', 
+		'imperial-gallon', 'imperial-quart', 'imperial-pint', 
+		// 'fluid-ounce', 'tsp', 'fluid-dram', 'cubic-inch', 'cubic-yardd', 'barrel'
+	]
+}

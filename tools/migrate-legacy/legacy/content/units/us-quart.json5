@@ -1,0 +1,45 @@
+{
+	name: 'U.S. Quart',
+	symbol: {
+		text: 'US qt',
+		html: 'US qt',
+		tex: 'US\\ qt',
+	},
+	unitOf: ['volume'],
+	type: 'uscs',
+	categories: ['physics'],
+	description: 'The quart (symbol: $qt$) is an English unit of volume equal to a quarter gallon. Three kinds of quarts are currently used: the liquid quart and dry quart of the US customary system and the imperial quart of the British imperial system. All are roughly equal to one liter. It is divided into two pints or (in the US) four cups. Historically, the exact size of the quart has varied with the different values of gallons over time and in reference to different commodities.',
+	conversions: [
+		{
+			value: 0.0009463529460,
+			units: 'cubic-metre',
+		}, {
+			value: 0.9463529460,
+			units: 'litre',
+		}, {
+			value: 946.3529460,
+			units: 'millilitre',
+		}, {
+			value: 0.25,
+			units: 'us-gallon',
+		}, {
+			value: 1,
+			units: 'us-quart',
+		}, {
+			value: 2,
+			units: 'us-pint',
+		}, {
+			value: 0.208169,
+			units: 'imperial-gallon',
+			exact: false
+		}, {
+			value: 0.832674,
+			units: 'imperial-quart',
+			exact: false
+		}, {
+			value: 1.66535,
+			units: 'imperial-pint',
+			exact: false
+		}
+	]
+}

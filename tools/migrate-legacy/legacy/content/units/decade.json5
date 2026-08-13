@@ -1,0 +1,56 @@
+{
+	name: 'Decade',
+	symbol: {
+		text: 'dec',
+		html: 'dec',
+		tex: 'dec',
+	},
+	unitOf: ['time'],
+	//type: 'non-si',
+	categories: ['universal', 'physics'],
+	description: 'A decade is a period of 10 years. The word is derived (via French and Latin) from the Ancient Greek: δεκάς, romanized: dekas, which means a group of ten. Decades may describe any ten-year period, such as those of a person\'s life, or refer to specific groupings of calendar years.',
+	conversions: [
+		{
+			value: 0.1,
+			units: 'century',
+		}, {
+			value: 1,
+			units: 'decade',
+		}, {
+			value: 10,
+			units: 'year',
+		}, {
+			value: 120,
+			units: 'month',
+		}, {
+			value: 521.429,
+			units: 'week',
+			exact: false
+		}, {
+			value: 3650,
+			units: 'day',
+		}, {
+			value: 87600,
+			units: 'hour',
+		}, {
+			value: 5.256e+6,
+			units: 'minute',
+		}, {
+			value: 3.154e+8,
+			units: 'second',
+			exact: false
+		}, {
+			value: 3.154e+11,
+			units: 'millisecond',
+			exact: false
+		}, {
+			value: 3.154e+14,
+			units: 'microsecond',
+			exact: false
+		}, {
+			value: 3.154e+17,
+			units: 'nanosecond',
+			exact: false
+		}
+	],
+}

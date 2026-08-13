@@ -1,0 +1,30 @@
+{
+	"name": "@equreka/core",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"sideEffects": false,
+	"exports": {
+		".": "./src/index.ts",
+		"./hooks/*": "./src/hooks/*.ts",
+		"./search": "./src/search/index.ts",
+		"./i18n": "./src/i18n/index.ts"
+	},
+	"scripts": {
+		"typecheck": "tsc --noEmit -p tsconfig.json",
+		"test": "vitest run --passWithNoTests"
+	},
+	"dependencies": {
+		"@equreka/engine": "workspace:*",
+		"@equreka/schema": "workspace:*",
+		"minisearch": "catalog:"
+	},
+	"peerDependencies": {
+		"react": "*"
+	},
+	"devDependencies": {
+		"@equreka/config": "workspace:*",
+		"typescript": "catalog:",
+		"vitest": "catalog:"
+	}
+}

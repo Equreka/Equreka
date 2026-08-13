@@ -1,0 +1,25 @@
+{
+	name: 'Time',
+	symbol: {
+		text: 't',
+		html: 't',
+		tex: 't',
+	},
+	categories: ['universal', 'physics'],
+	description: 'Time in physics is defined by its measurement: time is what a clock reads. In classical, non-relativistic physics, it is a scalar quantity (often denoted by the symbol $t$) and, like length, mass, and charge, is usually described as a fundamental quantity.',
+	baseUnit: 'second',
+	units: [
+		'century',
+		'decade',
+		'year',
+		'month',
+		'week',
+		'day',
+		'hour',
+		'minute',
+		'second',
+		'millisecond',
+		'microsecond',
+		'nanosecond',
+	]
+}

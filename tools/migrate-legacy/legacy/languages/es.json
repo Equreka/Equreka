@@ -1,0 +1,361 @@
+{
+  "error": {
+    "404": "Página no encontrada",
+    "title": "¡Error en la matrix!",
+    "lead": "¡¿Qué tratabas de hacer?!",
+    "link": "Vamos a casa 🏡",
+    "general": "Ocurrió un error 😪",
+    "no-data": "Aún no se agregaron datos 😭",
+    "not-found": "No se encontró 😔"
+  },
+  "home": {
+    "title": "Equreka",
+    "lead": "Tu aplicación gratuita y de código abierto para ecuaciones, fórmulas, variables, constantes y unidades."
+  },
+  "settings": {
+    "title": "Ajustes",
+    "lead": "Esta configuración se almacena localmente, no tenemos ninguna información suya en nuestros servidores.",
+    "theme": {
+      "change": "Cambia el tema",
+      "choose": "Selecciona un tema",
+      "title": "Tema",
+      "options": {
+        "light": "Claro",
+        "dark": "Oscuro",
+        "system": "Tema del sistema"
+      }
+    },
+    "language": {
+      "title": "Lenguaje",
+      "change": "Cambia el lenguaje",
+      "choose": "Elige un lengauje"
+    },
+    "favorites": {
+      "title": "Favoritos",
+      "export": "Exportar favoritos",
+      "import": "Importar favoritos"
+    }
+  },
+  "search": {
+    "title": "Buscar",
+    "button-submit": "Buscar",
+    "input-label": "Barra de búsqueda",
+    "input-placeholder": "Constantes, variables, unidades, ecuaciones o fórmulas...",
+    "no-results": "No encontré nada... 😧",
+    "try-for": "¡Intenta buscando tu ecuación favorita!"
+  },
+  "favorites": {
+    "title": "Favoritos",
+    "lead": "Sus favoritos se almacenan localmente en el navegador, por lo que no se guardan datos.",
+    "none": "¡No tienes ningún favorito! 💔",
+    "add": "Agregar a favoritos",
+    "added": "Agregado a tus favoritos 💕",
+    "remove": "Eliminar de favoritos",
+    "removed": "Eliminado de tus favoritos 💔",
+    "support": "Soporte del navegador $0",
+    "no-support": "Su navegador no es compatible con la función de almacenamiento local 😔, considere usar otro navegador para esta función."
+  },
+  "calculator": {
+    "title": "Calculadora",
+    "lead": "Todas las ecuaciones y fórmulas disponibles.",
+    "go-to-calculator": "Resolver en la calculadora",
+    "calculate": "Calcular",
+    "conversions": {
+      "to": "Convertir a"
+    },
+    "errors": {
+      "title": "¡Error en la matrix!",
+      "default": "Ocurrió un error 😪",
+      "type": {
+        "catch": {
+          "error": "¡Ocurrió un error interno, por favor reportalo!"
+        },
+        "input": {
+          "empty": "No haz introducido todos los datos necesarios",
+          "needed": "Ingresa datos para resolver",
+          "invalid": "Uno o más datos son inválidos",
+          "all-filled": "Haz introducido datos demás"
+        }
+      }
+    }
+  },
+  "about": {
+    "title": "Acerca de",
+    "lead": "Equreka es una plataforma de código abierto 100% gratuita y sin publicidad para todos. Con suerte, encontrará esto útil y lo inspirará a aprender más, crear y contribuir a la humanidad.",
+    "paragraph": "Puedes contribuir de muchas formas, desde compartir hasta contribuir directamente al proyecto en nuestro Github.",
+    "free-and-open-source": {
+      "title": "¿Gratis y de código abierto? <small class=\"text-muted\">¿dónde está el truco?</small>",
+      "lead": "No hay. Al ser de código abierto, el proyecto obtiene confiabilidad, transparencia y brinda la oportunidad a cualquiera (que quiera) de contribuir y hacer su granito de arena",
+      "quote": {
+        "paragraph": "Creo firmemente que el conocimiento debe ser libre, abierto, de fácil acceso y, si puede, lo más fácil de entender posible",
+        "author": "Derian, creador de Equreka"
+      }
+    },
+    "thanks": {
+      "title": "Agradecimiento especial a",
+      "lead": "La ciencia y toda la gente que crea cosas asombrosas, todos los filósofos, todos los alquimistas, todos los científicos, a todas las personas que contribuyeron a la ciencia, a la civilización, a la humanidad. Todos los proyectos de código abierto y especialmente los que hicieron posible este proyecto",
+      "paragraph": "Aquí hay algunos de los proyectos (en orden alfabético) que hicieron posible este proyecto:",
+      "check-github": "Puedes consultar nuestro <a target=\"_blank\" rel=\"noopener nofollow\" href=\"https://github.com/Equreka\">repositorio en Github</a> para una lista más completa."
+    }
+  },
+  "contact": {
+    "button-submit": "¡Enviar mensaje!",
+    "label-mail": "¿Cuál es tu correo electrónico?",
+    "label-message": "¿Cuál es tu mensaje?",
+    "lead": "No dudes en enviarnos un mensaje si quieres decirnos algo.",
+    "placeholder-mail": "you@rock.com",
+    "placeholder-message": "¿Qué nos quieres compartir?",
+    "title": "Contáctanos"
+  },
+  "donate": {
+    "lead": "Las donaciones nos ayudarán a mejorar, agregar nuevas funciones, organizar y pagar toda la infraestructura necesaria.",
+    "title": "Donar",
+    "paragraph": "Si te gusta lo que hacemos y la plataforma puedes ayudarnos compartiendo y si quieres, puedes donar.",
+    "button-github": "Ser un patrocinador en Github",
+    "button-paypal": "Donar por Paypal"
+  },
+  "faq": {
+    "lead": "In this page you can find some of the *possible* questions you can have about Equreka",
+    "title": "Frequently Asked Questions",
+    "why-is-free": {
+      "anwser": "Como dijimos en la página sobre: ​​el conocimiento debe ser gratuito, abierto, de fácil acceso y, si es posible, lo más fácil de entender posible.",
+      "question": "¿Por qué es gratis?"
+    },
+    "why-no-signup": {
+      "anwser": "Vivimos en un mundo donde la mayoría de plataformas, sitios o apps requieren una forma de autentificación, ya sea por medio de crear una cuenta o registro por medio de una red social, dónde no hay una transparencia, no hay claridad o siempre hay letras chiquitas difíciles de ver, para saber como manejarán nuestros datos que se recolectan. Han existido muchas filtraciones de grandes compañías y es que garantizar dicha seguridad es una tarea muy difícil. Equreka no necesita ningún tipo de información tuya, no recolectaremos datos en nuestros servidores, manejamos APIs diractamente en el navegador que se guaradan en tu ordenador y que tu puedes ver que información se está gaurdando en TU ordenador.",
+      "question": "¿Por qué no hay un registro para usuario?"
+    }
+  },
+  "report": {
+    "button-submit": "¡Enviar reporte!",
+    "input-placeholder-reason": "¿Qué errores encontraste? 😧",
+    "label-category": "Categoria",
+    "label-reason": "¿Qué está mal con esta página?",
+    "label-slug": "Identificador",
+    "label-type": "Tipo",
+    "lead": "Reportar errores es muy importante para nosotros, ¡gracias por tomarte el tiempo en hacerlo!",
+    "title": "Reportar esta página"
+  },
+  "categories": {
+    "title": "Categorias",
+    "chemistry": {
+      "lead": "La química es la disciplina científica involucrada con elementos y compuestos compuestos por átomos, moléculas e iones: su composición, estructura, propiedades, comportamiento y los cambios que experimentan durante una reacción con otras sustancias.",
+      "title": "Química"
+    },
+    "mathematics": {
+      "lead": "Las matemáticas (del griego: μάθημα, máthēma, 'conocimiento, estudio, aprendizaje') incluyen el estudio de temas como cantidad (teoría de números), estructura (álgebra), espacio (geometría) y cambio (análisis). No tiene una definición generalmente aceptada.",
+      "title": "Matemáticas"
+    },
+    "physics": {
+      "lead": "La física (del griego antiguo: φυσική (ἐπιστήμη), romanizado: physikḗ (epistḗmē), literalmente 'conocimiento de la naturaleza', de φύσις phýsis 'naturaleza') es la ciencia natural que estudia la materia, su movimiento y comportamiento a través del espacio y el tiempo, y las entidades relacionadas de energía y fuerza. La física es una de las disciplinas científicas más fundamentales y su principal objetivo es comprender cómo se comporta el universo.",
+      "title": "Física"
+    },
+    "universal": {
+      "lead": "Dentro de la ciencia existen propiedades que se pueden aplicar a diferentes ramas, a esto se le conoce como propiedad universal, por ejemplo las constantes y unidades. En esta categoria puedes encontrarlas todas.",
+      "title": "Universal"
+    }
+  },
+  "types": {
+    "title": "Tipos",
+    "equations": {
+      "title": "Ecuaciones",
+      "description": "En matemáticas, una ecuación es una declaración que afirma la igualdad de dos expresiones, que están conectadas por el signo de igualdad."
+    },
+    "formulas": {
+      "title": "Fórmulas",
+      "description": "En ciencia, una fórmula es una forma concisa de expresar información simbólicamente, como en una fórmula matemática o una fórmula química. El uso informal del término fórmula en ciencia se refiere al constructo general de una relación entre cantidades dadas."
+    },
+    "constants": {
+      "title": "Constantes",
+      "description": "Un número fijo y bien definido u otro objeto matemático que no varíe. Los términos constante matemática o constante física se utilizan a veces para distinguir este significado."
+    },
+    "magnitudes": {
+      "title": "Magnitudes",
+      "description": "Una magnitud física es una cantidad medible de un sistema físico a la que se le pueden asignar distintos valores como resultado de una medición o una relación de medidas. Las magnitudes físicas se miden usando un patrón que tenga bien definida esa magnitud, y tomando como unidad la cantidad de esa propiedad que posea el objeto patrón."
+    },
+    "units": {
+      "title": "Unidades",
+      "description": "Una unidad de medida es una cantidad estandarizada de una determinada magnitud física, definida y adoptada por convención o por ley.​ Cualquier valor de una cantidad física puede expresarse como un múltiplo de la unidad de medida."
+    },
+    "variables": {
+      "title": "Variables",
+      "description": "Una variable es un símbolo que funciona como marcador de posición para expresiones o cantidades que pueden variar o cambiar; se utiliza a menudo para representar el argumento de una función o un elemento arbitrario de un conjunto. Además de los números, las variables se utilizan comúnmente para representar vectores, matrices y funciones."
+    },
+    "prefixes": {
+      "title": "Prefijos",
+      "description": "Un prefijo de unidad es un especificador o nemotécnico que se antepone a las unidades de medida para indicar múltiplos o fracciones de las unidades. Las unidades de varios tamaños se forman comúnmente mediante el uso de tales prefijos."
+    }
+  },
+  "abbreviations": {
+    "category": {
+      "abbr": "Cat",
+      "cap": "Categoria"
+    },
+    "universal": {
+      "abbr": "Uni",
+      "cap": "Universal"
+    },
+    "mathematics": {
+      "abbr": "Mat",
+      "cap": "Matemáticas"
+    },
+    "physics": {
+      "abbr": "Fís",
+      "cap": "Física"
+    },
+    "chemistry": {
+      "abbr": "Quím",
+      "cap": "Química"
+    },
+    "constants": {
+      "abbr": "Ctes",
+      "cap": "Constantes"
+    },
+    "equations": {
+      "abbr": "Ecs",
+      "cap": "Ecuaciones"
+    },
+    "formula": {
+      "abbr": "Fórm",
+      "cap": "Fórmula"
+    },
+    "formulas": {
+      "abbr": "Fórms",
+      "cap": "Fórmulas"
+    },
+    "symbol": {
+      "abbr": "Símb",
+      "cap": "Símbolo"
+    },
+    "unit": {
+      "abbr": "Unid",
+      "cap": "Unidad"
+    },
+    "units": {
+      "abbr": "Uds",
+      "cap": "Unidades"
+    },
+    "magnitude": {
+      "abbr": "Mag",
+      "cap": "Magnitud"
+    },
+    "magnitudes": {
+      "abbr": "Mags",
+      "cap": "Magnitudes"
+    },
+    "value": {
+      "abbr": "Val",
+      "cap": "Valor"
+    },
+    "values": {
+      "abbr": "Val",
+      "cap": "Valores",
+      "approximate": {
+        "abbr": "Val. Aprox.",
+        "cap": "Valores aproximados"
+      },
+      "exact": {
+        "abbr": "Val. Ex.",
+        "cap": "Valores exactos"
+      }
+    },
+    "variable": {
+      "abbr": "Var",
+      "cap": "Variable"
+    },
+    "variables": {
+      "abbr": "Vars",
+      "cap": "Variables"
+    },
+    "conversion": {
+      "abbr": "Conv",
+      "cap": "Conversión"
+    },
+    "conversions": {
+      "abbr": "Convs",
+      "cap": "Conversiones"
+    },
+    "type": {
+      "abbr": "Tip",
+      "cap": "Tipo"
+    },
+    "information": {
+      "abbr": "Inf",
+      "cap": "Información"
+    },
+    "prefix": {
+      "abbr": "Prefs",
+      "cap": "Prefijo"
+    },
+    "prefixes": {
+      "abbr": "Pref",
+      "cap": "Prefijos"
+    }
+  },
+  "actions": {
+    "title": "Actions",
+    "view": {
+      "title": "Ver",
+      "by": "Ver por ",
+      "all": "Ver todo"
+    },
+    "copy": {
+      "label": "Copiar al portapapeles",
+      "success": "Se copió al portapapeles! 👌🏻",
+      "error": "No se ha podido copiar al portapapeles 😅"
+    },
+    "download": {
+      "json": "Descargar archivo json"
+    },
+    "report": {
+      "error": "Reportar un error"
+    }
+  },
+  "table": {
+    "type": "Tipo",
+    "name": "Nombre",
+    "actions": "Acciones",
+    "unit": "Unidad",
+    "value": "Valor",
+    "exponent": "Exponente",
+    "number": "Número"
+  },
+  "section": {
+    "loading": "Cargando...",
+    "information": {
+      "title": "Información",
+      "description": "Descripción",
+      "unit-of": "Unidad de",
+      "base-unit": "Unidad base"
+    },
+    "relations": {
+      "title": "Relaciones"
+    },
+    "values": {
+      "approximate": {
+        "title": "Valores aproximados"
+      },
+      "exact": {
+        "title": "Valores exactos"
+      }
+    },
+    "constants": {
+      "title": "Constantes"
+    },
+    "variables": {
+      "title": "Variables"
+    },
+    "magnitudes": {
+      "title": "Magnitudes"
+    },
+    "units": {
+      "title": "Unidades"
+    },
+    "code": {
+      "title": "Código"
+    },
+    "references": {
+      "title": "Referencias"
+    }
+  }
+}

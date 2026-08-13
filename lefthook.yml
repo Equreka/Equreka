@@ -1,0 +1,30 @@
+# Git hooks. Convention: hook bodies are flat `node scripts/…` / binary
+# invocations (never inline shell) for Windows reliability. Skip idiom:
+# LEFTHOOK=0 git commit …   (documented, intentional escape hatch)
+
+pre-commit:
+  parallel: true
+  jobs:
+    # Formats + lints only what is staged; re-stages fixes.
+    - name: biome
+      run: pnpm exec biome check --write --no-errors-on-unmatched {staged_files}
+      stage_fixed: true
+      glob: '*.{ts,tsx,js,mjs,json,jsonc,css,astro}'
+    # Secret scan. Fail-closed in CI (binary installed there); locally the
+    # hook is skipped when the gitleaks binary is absent rather than lying.
+    - name: gitleaks
+      run: gitleaks protect --staged --redact
+      skip:
+        - run: '! command -v gitleaks'
+
+commit-msg:
+  jobs:
+    - name: conventional-commits
+      run: node lefthook/commit-msg-validate.mjs {1}
+
+pre-push:
+  jobs:
+    - name: protected-branch
+      run: node lefthook/prepush-protected-branch.mjs
+    - name: verify
+      run: pnpm verify

@@ -1,0 +1,46 @@
+{
+	name: 'Rankine',
+	symbol: {
+		text: '°R',
+		html: '°R',
+		tex: '°R',
+	},
+	unitOf: ['thermodynamic-temperature'],
+	type: null,
+	categories: ['physics'],
+	description: 'Rankine is a very rarely used thermodynamic temperature scale and a unit for temperature measurement in the Imperial system, with the symbol $R$. The scale was proposed in the middle of the 19th century by a British physician and scientist W. J. Rankine. It is based on Fahrenheit scale and uses the common water freezing point as 459.67 $°R$ and water boiling point as 671.69 $°R$.',
+	conversions: [
+		{
+			value: 0.555555555555556,
+			units: 'kelvin',
+			formula: 'value * 5/9'
+		}, {
+			value: -272.594444444444,
+			units: 'celsius',
+			formula: '(value - 491.67) * 5/9'
+		}, {
+			value: -458.67,
+			units: 'fahrenheit',
+			formula: 'value - 459.67'
+		}, {
+			value: 1,
+			units: 'rankine'
+		}, {
+			value: 558.8916666666667,
+			units: 'delisle',
+			formula: '(671.67 - value) * 5/6'
+		}, {
+			value: -89.9561666666667,
+			units: 'newton-degree',
+			formula: '(value - 491.67) * 11/60'
+		}, {
+			value: -218.075555555556,
+			units: 'reaumur',
+			formula: '(value - 491.67) * 4/9'
+		}, {
+			value: -135.612083333333,
+			units: 'romer',
+			formula: '(value - 491.67) * 7/24 + 7.5'
+		}
+	],
+}

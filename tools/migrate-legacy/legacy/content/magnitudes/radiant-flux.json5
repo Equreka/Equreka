@@ -1,0 +1,13 @@
+{
+	name: 'Radiant flux',
+	symbol: {
+	 text: 'Φe',
+	 html: 'Φ<sub>e</sub>',
+	 tex: '\\Phi _{\\mathrm {e}}',
+	},	
+	categories: ['physics'],
+	branches: ['radiometry'],
+	description: 'In radiometry, radiant flux or radiant power is the radiant energy emitted, reflected, transmitted or received, per unit time, and spectral flux or spectral power is the radiant flux per unit frequency or wavelength, depending on whether the spectrum is taken as a function of frequency or of wavelength. The SI unit of radiant flux is the watt ($W$), that is the joule per second ($\\frac{J}{s}$) in SI base units, while that of spectral flux in frequency is the watt per hertz ($\\frac{W}{Hz}$) and that of spectral flux in wavelength is the watt per metre ($\\frac{W}{m}$)—commonly the watt per nanometre ($\\frac{W}{nm}$).',
+	baseUnit: 'watt',
+	units: ['watt']
+}

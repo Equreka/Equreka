@@ -1,0 +1,33 @@
+{
+	"name": "@equreka/content",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts",
+		"./astro": "./src/astro/loader.ts",
+		"./artifact/*": "./dist/*"
+	},
+	"scripts": {
+		"build": "tsx src/cli.ts build",
+		"check": "tsx src/cli.ts check",
+		"typecheck": "tsc --noEmit -p tsconfig.json",
+		"test": "vitest run --passWithNoTests"
+	},
+	"dependencies": {
+		"@equreka/schema": "workspace:*",
+		"yaml": "catalog:",
+		"zod": "catalog:"
+	},
+	"devDependencies": {
+		"@equreka/config": "workspace:*",
+		"@types/node": "catalog:",
+		"decimal.js": "catalog:",
+		"katex": "catalog:",
+		"mathjax": "catalog:",
+		"minisearch": "catalog:",
+		"tsx": "catalog:",
+		"typescript": "catalog:",
+		"vitest": "catalog:"
+	}
+}

@@ -1,0 +1,17 @@
+{
+	name: 'Ohm',
+	symbol: {
+		text: 'Ω',
+		html: 'Ω',
+		tex: '\\Omega',
+	},
+	unitOf: ['electrical-resistance', 'electrical-impedance', 'electrical-rectance'],
+	type: 'si',
+	categories: ['physics'],
+	description: 'The ohm (symbol: Ω) is the SI derived unit of electrical resistance, named after German physicist Georg Ohm. Various empirically derived standard units for electrical resistance were developed in connection with early telegraphy practice, and the British Association for the Advancement of Science proposed a unit derived from existing units of mass, length and time, and of a convenient scale for practical work as early as 1861. As of 2020, the definition of the ohm is expressed in terms of the quantum Hall effect. \n \
+	\n ### Definition \n \
+	\n The ohm is defined as an electrical resistance between two points of a conductor when a constant potential difference of one volt, applied to these points, produces in the conductor a current of one ampere, the conductor not being the seat of any electromotive force. \n \
+	\n $${\\displaystyle \\Omega ={\\dfrac {\\text{V}}{\\text{A}}}={\\dfrac {1}{\\text{S}}}={\\dfrac {\\text{W}}{{\\text{A}}^{2}}}={\\dfrac {{\\text{V}}^{2}}{\\text{W}}}={\\dfrac {\\text{s}}{\\text{F}}}={\\dfrac {\\text{H}}{\\text{s}}}={\\dfrac {{\\text{J}}{\\cdot }{\\text{s}}}{{\\text{C}}^{2}}}={\\dfrac {{\\text{kg}}{\\cdot }{\\text{m}}^{2}}{{\\text{s}}{\\cdot }{\\text{C}}^{2}}}={\\dfrac {\\text{J}}{{\\text{s}}{\\cdot }{\\text{A}}^{2}}}={\\dfrac {{\\text{kg}}{\\cdot }{\\text{m}}^{2}}{{\\text{s}}^{3}{\\cdot }{\\text{A}}^{2}}}}$$ \n \
+	\n Where: volt (V), ampere (A), siemens (S), watt (W), second (s), farad (F), henry (H), joule (J), coulomb (C), kilogram (kg), and metre (m).',
+	conversions: [],
+}

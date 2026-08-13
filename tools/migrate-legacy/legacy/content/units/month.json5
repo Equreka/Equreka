@@ -1,0 +1,61 @@
+{
+	name: 'Month',
+	symbol: {
+		text: 'm',
+		html: 'm',
+		tex: 'm',
+	},
+	unitOf: ['time'],
+	type: 'si',
+	categories: ['universal', 'physics'],
+	description: 'A month is a unit of time, used with calendars, that is approximately as long as a natural orbital period of the Moon; the words month and Moon are cognates.',
+	conversions: [
+		{
+			value: 0.000833334,
+			units: 'century',
+			exact: false,
+		}, {
+			value: 0.00833334,
+			units: 'decade',
+			exact: false,
+		}, {
+			value: 0.0833334,
+			units: 'year',
+			exact: false,
+		}, {
+			value: 1,
+			units: 'month',
+		}, {
+			value: 4.34524,
+			units: 'week',
+			exact: false
+		}, {
+			value: 30.4167,
+			units: 'day',
+		}, {
+			value: 730.001,
+			units: 'hour',
+			exact: false
+		}, {
+			value: 43800,
+			units: 'minute',
+			exact: false,
+		}, {
+			value: 2.628e+6,
+			units: 'second',
+			exact: false,
+		}, {
+			value: 2.628e+9,
+			units: 'millisecond',
+			exact: false,
+		}, {
+			value: 3.154e+12,
+			units: 'microsecond',
+			exact: false,
+		}, {
+			value: 3.154e+15,
+			units: 'nanosecond',
+			exact: false,
+		}
+	],
+}

@@ -1,0 +1,25 @@
+{
+	"$schema": "https://turborepo.com/schema.json",
+	"ui": "tui",
+	"globalDependencies": ["biome.json", "pnpm-lock.yaml", "pnpm-workspace.yaml"],
+	"globalEnv": ["NODE_ENV", "CI"],
+	"tasks": {
+		"build": {
+			"dependsOn": ["^build"],
+			"outputs": ["dist/**"]
+		},
+		"check": {
+			"dependsOn": ["^build"]
+		},
+		"typecheck": {
+			"dependsOn": ["^build"]
+		},
+		"test": {
+			"dependsOn": ["^build"]
+		},
+		"dev": {
+			"cache": false,
+			"persistent": true
+		}
+	}
+}

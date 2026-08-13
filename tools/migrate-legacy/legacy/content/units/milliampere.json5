@@ -1,0 +1,19 @@
+{
+	name: 'Milliampere',
+	symbol: {
+		text: 'mA',
+		html: 'mA',
+		tex: 'mA',
+	},
+	unitOf: ['electric-current'],
+	baseUnit: 'ampere',
+	type: 'si',
+	categories: ['physics'],
+	description: 'The milliampere is a unit used to measure electric current.',
+	conversions: [
+		{
+			value: 0.0001,
+			units: 'ampere'
+		}
+	],
+}

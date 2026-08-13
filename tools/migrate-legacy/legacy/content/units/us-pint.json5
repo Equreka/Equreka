@@ -1,0 +1,48 @@
+{
+	name: 'U.S. Pint',
+	symbol: {
+		text: 'US pt',
+		html: 'US pt',
+		tex: 'US\\ pt',
+	},
+	unitOf: ['volume'],
+	type: 'uscs',
+	categories: ['physics'],
+	description: 'The pint (/ˈpaɪnt/, symbol $pt$, sometimes abbreviated as $p$) is a unit of volume or capacity in both the imperial and United States customary measurement systems. In both of those systems it is traditionally one eighth of a gallon. The British imperial pint is about 20% larger than the American pint because the two systems are defined differently. Almost all other countries have standardized on the metric system, so the size of what may be called a pint, from the French la pinte, varies depending on local custom.',
+	conversions: [
+		{
+			value: 0.000473176,
+			units: 'cubic-metre',
+			exact: false,
+		}, {
+			value: 0.473176,
+			units: 'litre',
+			exact: false,
+		}, {
+			value: 473.176,
+			units: 'millilitre',
+			exact: false,
+		}, {
+			value: 0.125,
+			units: 'us-gallon',
+		}, {
+			value: 0.5,
+			units: 'us-quart',
+		}, {
+			value: 1,
+			units: 'us-pint',
+		}, {
+			value: 0.104084,
+			units: 'imperial-gallon',
+			exact: false
+		}, {
+			value: 0.416337,
+			units: 'imperial-quart',
+			exact: false
+		}, {
+			value: 0.832674,
+			units: 'imperial-pint',
+			exact: false
+		}
+	]
+}
