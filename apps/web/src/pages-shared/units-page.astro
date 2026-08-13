@@ -1,0 +1,91 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/base-layout.astro';
+import { CATEGORY_TEXT } from '../lib/category-styles';
+import { asCategory, asUnit } from '../lib/collections';
+import { SYSTEM_LABELS } from '../lib/labels';
+import { renderSymbolHtml } from '../lib/tex';
+import { symbolTextOf } from '../lib/unit-symbol';
+
+const categories = (await getCollection('categories'))
+	.map((entry) => ({ slug: entry.id, ...asCategory(entry.data) }))
+	.sort((a, b) => a.order - b.order);
+const units = (await getCollection('units')).map((entry) => ({
+	slug: entry.id,
+	...asUnit(entry.data),
+}));
+
+const byName = (a: { name: { en: string } }, b: { name: { en: string } }) =>
+	a.name.en.localeCompare(b.name.en);
+
+const grouped = categories
+	.map((category) => ({
+		slug: category.slug,
+		title: category.name.en,
+		units: units.filter((unit) => unit.categories.includes(category.slug)).sort(byName),
+	}))
+	.filter((group) => group.units.length > 0);
+
+const groupedSlugs = new Set(grouped.flatMap((group) => group.units.map((unit) => unit.slug)));
+const ungrouped = units.filter((unit) => !groupedSlugs.has(unit.slug)).sort(byName);
+if (ungrouped.length > 0) {
+	grouped.push({ slug: 'other', title: 'Other', units: ungrouped });
+}
+---
+
+<BaseLayout
+	title="Units — Equreka"
+	description="All units of measurement in the Equreka wiki, grouped by category."
+>
+	<h1 class="text-3xl font-bold tracking-tight">Units</h1>
+	<p class="mt-2 text-ink-muted">
+		{units.length} units grouped by category. Every unit page includes a conversion table computed
+		by the Equreka engine.
+	</p>
+	{
+		grouped.map((group) => (
+			<section aria-labelledby={`${group.slug}-heading`} class="mt-10">
+				<h2
+					id={group.slug}
+					class={`text-2xl font-semibold ${CATEGORY_TEXT[group.slug] ?? 'text-ink'}`}
+				>
+					<span id={`${group.slug}-heading`}>{group.title}</span>
+					<span class="ml-2 text-sm font-normal text-ink-muted">{group.units.length}</span>
+				</h2>
+				<div class="mt-4 overflow-x-auto rounded-lg border border-border">
+					<table class="w-full border-collapse bg-surface text-left">
+						<thead>
+							<tr class="border-b border-border text-sm text-ink-muted">
+								<th scope="col" class="w-24 px-4 py-2 font-medium">
+									Symbol
+								</th>
+								<th scope="col" class="px-4 py-2 font-medium">
+									Name
+								</th>
+								<th scope="col" class="px-4 py-2 font-medium">
+									System
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							{group.units.map((unit) => (
+								<tr class="border-b border-border last:border-b-0">
+									<td
+										class="px-4 py-2"
+										set:html={renderSymbolHtml(unit.symbol.tex, symbolTextOf(unit))}
+									/>
+									<td class="px-4 py-2">
+										<a class="text-accent hover:underline" href={`/units/${unit.slug}/`}>
+											{unit.name.en}
+										</a>
+									</td>
+									<td class="px-4 py-2 text-sm text-ink-muted">{SYSTEM_LABELS[unit.system]}</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
+			</section>
+		))
+	}
+</BaseLayout>

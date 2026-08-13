@@ -1,0 +1,16 @@
+@import "tailwindcss";
+@import "@equreka/tokens/theme.css";
+
+@layer base {
+	html {
+		background-color: var(--eq-bg);
+		color: var(--eq-ink);
+		font-family: var(--font-sans);
+	}
+
+	.katex-display {
+		overflow-x: auto;
+		overflow-y: hidden;
+		padding-block: 0.25rem;
+	}
+}

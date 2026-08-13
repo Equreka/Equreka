@@ -1,4 +1,7 @@
 {
 	"extends": "@equreka/config/typescript/base.json",
-	"include": ["src"]
+	"compilerOptions": {
+		"types": ["node"]
+	},
+	"include": ["src", "scripts"]
 }

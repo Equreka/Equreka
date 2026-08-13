@@ -5,6 +5,7 @@
 	"type": "module",
 	"exports": {
 		".": "./src/index.ts",
+		"./search-options": "./src/search-options.ts",
 		"./astro": "./src/astro/loader.ts",
 		"./artifact/*": "./dist/*"
 	},

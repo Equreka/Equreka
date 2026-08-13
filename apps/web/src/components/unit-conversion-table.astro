@@ -1,0 +1,80 @@
+---
+import { formatSigFigs } from '@equreka/engine/format';
+import { unitRegistry } from '../lib/server/engine-registry';
+import { renderSymbolHtml } from '../lib/tex';
+
+interface Props {
+	unitSlug: string;
+}
+
+const { unitSlug } = Astro.props;
+const unit = unitRegistry.getUnit(unitSlug);
+const targets =
+	unit === undefined
+		? []
+		: unitRegistry
+				.compatibleUnits(unitSlug)
+				.filter((target) => target.slug !== unitSlug)
+				.sort((a, b) => a.name.en.localeCompare(b.name.en));
+const rows = targets.flatMap((target) => {
+	const converted = unitRegistry.convert(1, unitSlug, target.slug);
+	return converted.ok
+		? [
+				{
+					target,
+					value: formatSigFigs(converted.value),
+					exact: unitRegistry.isExactPath(unitSlug, target.slug),
+				},
+			]
+		: [];
+});
+---
+
+{
+	unit !== undefined && rows.length > 0 && (
+		<section aria-labelledby="conversions-heading" class="mt-10">
+			<h2 id="conversions-heading" class="text-2xl font-semibold">
+				Conversions
+			</h2>
+			<p class="mt-1 text-sm text-ink-muted">
+				The value of 1 {unit.symbolText} in every compatible unit, computed by the Equreka engine.
+				Approximate values are rounded to 6 significant figures.
+			</p>
+			<div class="mt-4 overflow-x-auto rounded-lg border border-border">
+				<table class="w-full border-collapse bg-surface text-left">
+					<thead>
+						<tr class="border-b border-border text-sm text-ink-muted">
+							<th scope="col" class="px-4 py-2 font-medium">
+								Unit
+							</th>
+							<th scope="col" class="px-4 py-2 font-medium">
+								Symbol
+							</th>
+							<th scope="col" class="px-4 py-2 font-medium">
+								1 {unit.symbolText} =
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						{rows.map((row) => (
+							<tr class="border-b border-border last:border-b-0">
+								<td class="px-4 py-2">
+									<a class="text-accent hover:underline" href={`/units/${row.target.slug}/`}>
+										{row.target.name.en}
+									</a>
+								</td>
+								<td class="px-4 py-2">
+									<span set:html={renderSymbolHtml(row.target.symbolTex, row.target.symbolText)} />
+								</td>
+								<td class="px-4 py-2 font-mono text-sm">
+									{row.exact ? '' : '≈ '}
+									{row.value} {row.target.symbolText}
+								</td>
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+		</section>
+	)
+}

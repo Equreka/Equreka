@@ -1,0 +1,98 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import UnitConversionTable from '../components/unit-conversion-table.astro';
+import ConverterIsland from '../islands/converter-island';
+import BaseLayout from '../layouts/base-layout.astro';
+import { CATEGORY_BADGE } from '../lib/category-styles';
+import { asMagnitude, asUnit } from '../lib/collections';
+import { SYSTEM_LABELS } from '../lib/labels';
+import { renderRichTextHtml, renderSymbolHtml } from '../lib/tex';
+import { symbolTextOf } from '../lib/unit-symbol';
+
+interface Props {
+	entry: CollectionEntry<'units'>;
+}
+
+const { entry } = Astro.props;
+const unit = asUnit(entry.data);
+const slug = entry.id;
+const symbolText = symbolTextOf({ ...unit, slug });
+
+const magnitudeEntries = await getCollection('magnitudes');
+const magnitudes = unit.unitOf.map((magnitudeSlug) => {
+	const match = magnitudeEntries.find((candidate) => candidate.id === magnitudeSlug);
+	return {
+		slug: magnitudeSlug,
+		name: match === undefined ? magnitudeSlug : asMagnitude(match.data).name.en,
+	};
+});
+
+const description = unit.description?.en;
+const metaDescription =
+	description === undefined
+		? `${unit.name.en} (${symbolText}) — unit reference and conversions.`
+		: `${description.replaceAll('$', '').slice(0, 157)}…`;
+---
+
+<BaseLayout title={`${unit.name.en} (${symbolText}) — Equreka`} description={metaDescription}>
+	<article>
+		<header class="border-b border-border pb-6">
+			<div class="flex flex-wrap items-center gap-2 text-xs font-medium">
+				<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">
+					{SYSTEM_LABELS[unit.system]}
+				</span>
+				{
+					unit.categories.map((category) => (
+						<span
+							class={`rounded-full px-2.5 py-0.5 ${CATEGORY_BADGE[category] ?? CATEGORY_BADGE.universal}`}
+						>
+							{category}
+						</span>
+					))
+				}
+			</div>
+			<div class="mt-3 flex flex-wrap items-baseline gap-4">
+				<h1 class="text-3xl font-bold tracking-tight">{unit.name.en}</h1>
+				<span class="text-2xl" set:html={renderSymbolHtml(unit.symbol.tex, symbolText)} />
+			</div>
+		</header>
+
+		{
+			description !== undefined && (
+				<div class="mt-6 max-w-3xl leading-7" set:html={renderRichTextHtml(description)} />
+			)
+		}
+
+		<dl class="mt-6 grid max-w-3xl gap-x-8 gap-y-3 sm:grid-cols-[10rem_1fr]">
+			<dt class="text-sm font-medium text-ink-muted">System</dt>
+			<dd>{SYSTEM_LABELS[unit.system]}</dd>
+			<dt class="text-sm font-medium text-ink-muted">
+				{magnitudes.length === 1 ? 'Magnitude' : 'Magnitudes'}
+			</dt>
+			<dd class="flex flex-wrap gap-3">
+				{
+					magnitudes.map((magnitude) => (
+						<a
+							class="text-accent hover:underline"
+							href={`/converter/?magnitude=${magnitude.slug}`}
+						>
+							{magnitude.name}
+						</a>
+					))
+				}
+			</dd>
+		</dl>
+
+		<UnitConversionTable unitSlug={slug} />
+
+		<section aria-labelledby="unit-converter-heading" class="mt-10">
+			<h2 id="unit-converter-heading" class="text-2xl font-semibold">
+				Convert {unit.name.en.toLowerCase()}
+			</h2>
+			<div class="mt-4">
+				<ConverterIsland client:visible initialMagnitude={unit.unitOf[0]} initialFrom={slug} />
+			</div>
+		</section>
+	</article>
+</BaseLayout>

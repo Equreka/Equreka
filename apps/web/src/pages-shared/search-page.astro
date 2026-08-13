@@ -1,0 +1,17 @@
+---
+import SearchBox from '../islands/search-box';
+import BaseLayout from '../layouts/base-layout.astro';
+---
+
+<BaseLayout
+	title="Search — Equreka"
+	description="Search every unit, magnitude, constant, and equation in the Equreka wiki."
+>
+	<h1 class="text-3xl font-bold tracking-tight">Search</h1>
+	<p class="mt-2 max-w-2xl text-ink-muted">
+		Search by name, symbol, or alias — with or without accents.
+	</p>
+	<div class="mt-6 max-w-2xl">
+		<SearchBox client:load variant="page" />
+	</div>
+</BaseLayout>

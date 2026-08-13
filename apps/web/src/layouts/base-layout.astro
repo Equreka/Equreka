@@ -1,0 +1,89 @@
+---
+import '../styles/global.css';
+import SearchBox from '../islands/search-box';
+
+interface Props {
+	title: string;
+	description?: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>{title}</title>
+		{description !== undefined && <meta name="description" content={description} />}
+		<link rel="stylesheet" href="/katex/katex.min.css" />
+		<script is:inline>
+			(() => {
+				let stored = null;
+				try {
+					stored = localStorage.getItem('equreka-theme');
+				} catch {}
+				const theme =
+					stored === 'light' || stored === 'dark'
+						? stored
+						: matchMedia('(prefers-color-scheme: dark)').matches
+							? 'dark'
+							: 'light';
+				document.documentElement.dataset.theme = theme;
+			})();
+		</script>
+	</head>
+	<body class="flex min-h-screen flex-col bg-bg font-sans text-ink">
+		<header class="border-b border-border bg-surface">
+			<div class="mx-auto flex max-w-5xl flex-wrap items-center gap-4 px-4 py-3">
+				<a href="/" class="text-xl font-bold tracking-tight text-accent">Equreka</a>
+				<nav aria-label="Main" class="flex gap-4 text-sm">
+					<a href="/units/" class="text-ink-muted hover:text-ink">Units</a>
+					<a href="/converter/" class="text-ink-muted hover:text-ink">Converter</a>
+					<a href="/search/" class="text-ink-muted hover:text-ink">Search</a>
+				</nav>
+				<div class="ml-auto flex items-center gap-2">
+					<SearchBox client:idle variant="header" />
+					<button
+						id="theme-toggle"
+						type="button"
+						aria-label="Toggle color theme"
+						class="rounded-md border border-border px-2.5 py-1.5 text-sm text-ink-muted hover:text-ink"
+					>
+						<span class="theme-toggle-dark" aria-hidden="true">☾</span>
+						<span class="theme-toggle-light" aria-hidden="true">☀</span>
+					</button>
+				</div>
+			</div>
+		</header>
+		<main class="mx-auto w-full max-w-5xl flex-1 px-4 py-8">
+			<slot />
+		</main>
+		<footer class="border-t border-border bg-surface">
+			<div class="mx-auto max-w-5xl px-4 py-6 text-sm text-ink-muted">
+				<p>
+					Equreka — an open-source educational wiki and calculator for units, magnitudes,
+					constants, and equations.
+				</p>
+			</div>
+		</footer>
+		<style is:global>
+			:root[data-theme='dark'] .theme-toggle-dark {
+				display: none;
+			}
+			:root:not([data-theme='dark']) .theme-toggle-light {
+				display: none;
+			}
+		</style>
+		<script>
+			const toggle = document.getElementById('theme-toggle');
+			toggle?.addEventListener('click', () => {
+				const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+				document.documentElement.dataset.theme = next;
+				try {
+					localStorage.setItem('equreka-theme', next);
+				} catch {}
+			});
+		</script>
+	</body>
+</html>

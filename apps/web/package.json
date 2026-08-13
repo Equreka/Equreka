@@ -1,0 +1,35 @@
+{
+	"name": "web",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"dev": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"typecheck": "astro sync && astro check",
+		"test": "vitest run --passWithNoTests"
+	},
+	"dependencies": {
+		"@astrojs/react": "catalog:",
+		"@equreka/content": "workspace:*",
+		"@equreka/engine": "workspace:*",
+		"@equreka/schema": "workspace:*",
+		"@equreka/tokens": "workspace:*",
+		"@tailwindcss/vite": "catalog:",
+		"astro": "catalog:",
+		"katex": "catalog:",
+		"minisearch": "catalog:",
+		"react": "catalog:",
+		"react-dom": "catalog:",
+		"tailwindcss": "catalog:"
+	},
+	"devDependencies": {
+		"@astrojs/check": "catalog:",
+		"@types/node": "catalog:",
+		"@types/react": "catalog:",
+		"@types/react-dom": "catalog:",
+		"typescript": "catalog:",
+		"vitest": "catalog:"
+	}
+}

@@ -1,0 +1,110 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/base-layout.astro';
+import { CATEGORY_BORDER } from '../lib/category-styles';
+import { asCategory } from '../lib/collections';
+
+const categories = (await getCollection('categories'))
+	.map((entry) => ({ slug: entry.id, ...asCategory(entry.data) }))
+	.sort((a, b) => a.order - b.order);
+const unitCount = (await getCollection('units')).length;
+const magnitudeCount = (await getCollection('magnitudes')).length;
+
+const collectionCards = [
+	{
+		title: 'Units',
+		count: unitCount,
+		description: 'Units of measurement across systems, with computed conversion tables.',
+		href: '/units/',
+	},
+	{
+		title: 'Magnitudes',
+		count: magnitudeCount,
+		description: 'Physical quantities and the units that measure them.',
+		href: undefined,
+	},
+	{
+		title: 'Converter',
+		count: undefined,
+		description: 'Convert values between any pair of compatible units.',
+		href: '/converter/',
+	},
+	{
+		title: 'Search',
+		count: undefined,
+		description: 'Find any unit, magnitude, or constant by name, symbol, or alias.',
+		href: '/search/',
+	},
+];
+---
+
+<BaseLayout
+	title="Equreka — units, magnitudes, and conversions"
+	description="Open-source educational wiki and calculator: units, magnitudes, constants, and equations with computed conversions."
+>
+	<section class="py-6">
+		<h1 class="text-4xl font-bold tracking-tight">Equreka</h1>
+		<p class="mt-3 max-w-2xl text-lg text-ink-muted">
+			A reference wiki for units, magnitudes, constants, and equations — every conversion computed
+			from first principles, never hand-copied.
+		</p>
+	</section>
+
+	<section aria-labelledby="categories-heading" class="py-6">
+		<h2 id="categories-heading" class="text-2xl font-semibold">Categories</h2>
+		<ul class="mt-4 grid gap-4 sm:grid-cols-2">
+			{
+				categories.map((category) => (
+					<li>
+						<a
+							href={`/units/#${category.slug}`}
+							class={`block h-full rounded-lg border border-border ${CATEGORY_BORDER[category.slug] ?? CATEGORY_BORDER.universal} border-t-4 bg-surface p-5 hover:shadow-md`}
+						>
+							<h3 class="text-lg font-semibold">{category.name.en}</h3>
+							{category.description !== undefined && (
+								<p class="mt-2 line-clamp-3 text-sm text-ink-muted">{category.description.en}</p>
+							)}
+						</a>
+					</li>
+				))
+			}
+		</ul>
+	</section>
+
+	<section aria-labelledby="browse-heading" class="py-6">
+		<h2 id="browse-heading" class="text-2xl font-semibold">Browse</h2>
+		<ul class="mt-4 grid gap-4 sm:grid-cols-2">
+			{
+				collectionCards.map((card) => (
+					<li>
+						{card.href !== undefined ? (
+							<a
+								href={card.href}
+								class="block h-full rounded-lg border border-border bg-surface p-5 hover:shadow-md"
+							>
+								<h3 class="text-lg font-semibold text-accent">
+									{card.title}
+									{card.count !== undefined && (
+										<span class="ml-2 text-sm font-normal text-ink-muted">{card.count}</span>
+									)}
+								</h3>
+								<p class="mt-2 text-sm text-ink-muted">{card.description}</p>
+							</a>
+						) : (
+							<div class="block h-full rounded-lg border border-dashed border-border p-5">
+								<h3 class="text-lg font-semibold text-ink-muted">
+									{card.title}
+									{card.count !== undefined && (
+										<span class="ml-2 text-sm font-normal">{card.count}</span>
+									)}
+								</h3>
+								<p class="mt-2 text-sm text-ink-muted">{card.description}</p>
+								<p class="mt-2 text-xs text-ink-muted uppercase tracking-wide">Coming soon</p>
+							</div>
+						)}
+					</li>
+				))
+			}
+		</ul>
+	</section>
+</BaseLayout>

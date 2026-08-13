@@ -5,13 +5,17 @@
 	"type": "module",
 	"sideEffects": false,
 	"exports": {
-		".": "./src/index.ts"
+		".": "./src/index.ts",
+		"./theme.css": "./dist/theme.css"
 	},
 	"scripts": {
+		"build": "tsx scripts/build-theme.ts",
 		"typecheck": "tsc --noEmit -p tsconfig.json"
 	},
 	"devDependencies": {
 		"@equreka/config": "workspace:*",
+		"@types/node": "catalog:",
+		"tsx": "catalog:",
 		"typescript": "catalog:"
 	}
 }
