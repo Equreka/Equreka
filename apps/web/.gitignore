@@ -2,3 +2,11 @@
 /public/katex/
 /public/search/
 /public/data/
+
+# Build-time generated PWA assets (equreka-pwa integration)
+/public/manifest.webmanifest
+/public/icons/
+
+# Playwright artifacts
+test-results/
+playwright-report/

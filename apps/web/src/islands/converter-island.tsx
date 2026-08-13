@@ -2,7 +2,7 @@ import type { EngineError } from '@equreka/engine';
 import { formatSigFigs } from '@equreka/engine/format';
 import { createUnitRegistry, type UnitRegistry } from '@equreka/engine/units';
 import type { CompiledDimension, CompiledUnit, EngineSlice } from '@equreka/schema';
-import { useEffect, useMemo, useState } from 'react';
+import { useEffect, useId, useMemo, useState } from 'react';
 import type { ConverterPayload } from '../integrations/equreka-assets';
 
 export interface ConverterIslandProps {
@@ -78,6 +78,7 @@ export default function ConverterIsland({ initialMagnitude, initialFrom }: Conve
 	const [fromUnit, setFromUnit] = useState('');
 	const [toUnit, setToUnit] = useState('');
 	const [rawValue, setRawValue] = useState('1');
+	const fieldId = useId();
 
 	useEffect(() => {
 		let cancelled = false;
@@ -162,9 +163,15 @@ export default function ConverterIsland({ initialMagnitude, initialFrom }: Conve
 	return (
 		<div className="rounded-lg border border-border bg-surface p-6">
 			<div className="grid gap-4 sm:grid-cols-2">
-				<label className="block sm:col-span-2">
-					<span className="mb-1 block text-sm font-medium text-ink-muted">Magnitude</span>
+				<div className="sm:col-span-2">
+					<label
+						htmlFor={`${fieldId}-magnitude`}
+						className="mb-1 block text-sm font-medium text-ink-muted"
+					>
+						Magnitude
+					</label>
 					<select
+						id={`${fieldId}-magnitude`}
 						className={selectClass}
 						value={magnitude}
 						onChange={(event) => selectMagnitude(event.target.value)}
@@ -175,10 +182,16 @@ export default function ConverterIsland({ initialMagnitude, initialFrom }: Conve
 							</option>
 						))}
 					</select>
-				</label>
-				<label className="block">
-					<span className="mb-1 block text-sm font-medium text-ink-muted">From</span>
+				</div>
+				<div>
+					<label
+						htmlFor={`${fieldId}-from`}
+						className="mb-1 block text-sm font-medium text-ink-muted"
+					>
+						From
+					</label>
 					<select
+						id={`${fieldId}-from`}
 						className={selectClass}
 						value={fromUnit}
 						onChange={(event) => setFromUnit(event.target.value)}
@@ -189,10 +202,16 @@ export default function ConverterIsland({ initialMagnitude, initialFrom }: Conve
 							</option>
 						))}
 					</select>
-				</label>
-				<label className="block">
-					<span className="mb-1 block text-sm font-medium text-ink-muted">To</span>
+				</div>
+				<div>
+					<label
+						htmlFor={`${fieldId}-to`}
+						className="mb-1 block text-sm font-medium text-ink-muted"
+					>
+						To
+					</label>
 					<select
+						id={`${fieldId}-to`}
 						className={selectClass}
 						value={toUnit}
 						onChange={(event) => setToUnit(event.target.value)}
@@ -203,17 +222,23 @@ export default function ConverterIsland({ initialMagnitude, initialFrom }: Conve
 							</option>
 						))}
 					</select>
-				</label>
-				<label className="block">
-					<span className="mb-1 block text-sm font-medium text-ink-muted">Value</span>
+				</div>
+				<div>
+					<label
+						htmlFor={`${fieldId}-value`}
+						className="mb-1 block text-sm font-medium text-ink-muted"
+					>
+						Value
+					</label>
 					<input
+						id={`${fieldId}-value`}
 						className={selectClass}
 						type="text"
 						inputMode="decimal"
 						value={rawValue}
 						onChange={(event) => setRawValue(event.target.value)}
 					/>
-				</label>
+				</div>
 				<div className="flex items-end">
 					<button
 						type="button"

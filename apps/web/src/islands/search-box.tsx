@@ -78,7 +78,7 @@ function runSearch(lanes: SearchLanes, query: string): ResultRow[] {
 
 	const seen = new Set(pinned.map((row) => row.key));
 	const rest: ResultRow[] = [];
-	for (const hit of lanes.index.search(query, { prefix: true })) {
+	for (const hit of lanes.index.search(query, { prefix: true, fuzzy: 0.2 })) {
 		const key = String(hit.id);
 		if (seen.has(key)) continue;
 		const separator = key.indexOf(':');

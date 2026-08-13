@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import { tokens } from '@equreka/tokens';
 import SearchBox from '../islands/search-box';
 
 interface Props {
@@ -16,7 +17,11 @@ const { title, description } = Astro.props;
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>{title}</title>
 		{description !== undefined && <meta name="description" content={description} />}
+		<meta name="theme-color" content={tokens.color.accent.light} />
+		<link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
+		<link rel="manifest" href="/manifest.webmanifest" />
 		<link rel="stylesheet" href="/katex/katex.min.css" />
+		<script is:inline defer src="/pwa-register.js"></script>
 		<script is:inline>
 			(() => {
 				let stored = null;

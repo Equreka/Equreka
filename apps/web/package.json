@@ -8,7 +8,8 @@
 		"build": "astro build",
 		"preview": "astro preview",
 		"typecheck": "astro sync && astro check",
-		"test": "vitest run --passWithNoTests"
+		"test": "vitest run --passWithNoTests",
+		"test:e2e": "astro build && playwright test"
 	},
 	"dependencies": {
 		"@astrojs/react": "catalog:",
@@ -26,10 +27,13 @@
 	},
 	"devDependencies": {
 		"@astrojs/check": "catalog:",
+		"@equreka/config": "workspace:*",
+		"@playwright/test": "catalog:",
 		"@types/node": "catalog:",
 		"@types/react": "catalog:",
 		"@types/react-dom": "catalog:",
 		"typescript": "catalog:",
-		"vitest": "catalog:"
+		"vitest": "catalog:",
+		"workbox-build": "catalog:"
 	}
 }

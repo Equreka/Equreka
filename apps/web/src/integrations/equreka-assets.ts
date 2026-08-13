@@ -29,6 +29,31 @@ export interface ConverterPayload {
 	magnitudes: Record<string, { name: string; baseUnit: string; dimension: number[] }>;
 }
 
+/**
+ * Per-unit slice of the presentation artifact for the offline reader:
+ * English name/symbol/description only. Descriptions keep their inline
+ * $TeX$ fragments; the reader renders them as plain text.
+ */
+export type ReaderUnits = Record<string, { name: string; symbolText: string; description: string }>;
+
+interface PresentationUnit {
+	name: { en: string };
+	symbolText: string;
+	description?: { en?: string };
+}
+
+function buildReaderUnits(units: Record<string, PresentationUnit>): ReaderUnits {
+	const payload: ReaderUnits = {};
+	for (const [slug, unit] of Object.entries(units)) {
+		payload[slug] = {
+			name: unit.name.en,
+			symbolText: unit.symbolText,
+			description: unit.description?.en ?? '',
+		};
+	}
+	return payload;
+}
+
 function buildConverterPayload(slice: EngineSlice): ConverterPayload {
 	const payload: ConverterPayload = { units: {}, magnitudes: {} };
 	for (const unit of Object.values(slice.units)) {
@@ -95,8 +120,17 @@ export function equrekaAssets(): AstroIntegration {
 				const payload = JSON.stringify(buildConverterPayload(slice));
 				writeFileSync(join(dataOutDir, 'converter.en.json'), payload);
 
+				const presentationUnits = JSON.parse(
+					readFileSync(
+						requireFromHere.resolve('@equreka/content/artifact/presentation/units.json'),
+						'utf8',
+					),
+				) as Record<string, PresentationUnit>;
+				const readerPayload = JSON.stringify(buildReaderUnits(presentationUnits));
+				writeFileSync(join(dataOutDir, 'units.en.json'), readerPayload);
+
 				logger.info(
-					`katex css + ${woff2Fonts.length} woff2 fonts, search index, converter payload (${payload.length} bytes)`,
+					`katex css + ${woff2Fonts.length} woff2 fonts, search index, converter payload (${payload.length} bytes), reader units (${readerPayload.length} bytes)`,
 				);
 			},
 		},
