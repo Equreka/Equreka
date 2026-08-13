@@ -13,13 +13,16 @@
 	},
 	"scripts": {
 		"typecheck": "tsc --noEmit -p tsconfig.json",
-		"test": "vitest run --passWithNoTests"
+		"test": "vitest run --passWithNoTests",
+		"test:hermes": "node scripts/hermes-smoke.mjs"
 	},
 	"dependencies": {
 		"@equreka/schema": "workspace:*"
 	},
 	"devDependencies": {
 		"@equreka/config": "workspace:*",
+		"@types/node": "catalog:",
+		"esbuild": "catalog:",
 		"fast-check": "catalog:",
 		"typescript": "catalog:",
 		"vitest": "catalog:"

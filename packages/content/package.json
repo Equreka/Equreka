@@ -16,16 +16,16 @@
 	},
 	"dependencies": {
 		"@equreka/schema": "workspace:*",
+		"minisearch": "catalog:",
 		"yaml": "catalog:",
 		"zod": "catalog:"
 	},
 	"devDependencies": {
+		"@cortex-js/compute-engine": "catalog:",
 		"@equreka/config": "workspace:*",
 		"@types/node": "catalog:",
-		"decimal.js": "catalog:",
 		"katex": "catalog:",
 		"mathjax": "catalog:",
-		"minisearch": "catalog:",
 		"tsx": "catalog:",
 		"typescript": "catalog:",
 		"vitest": "catalog:"

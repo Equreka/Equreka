@@ -28,3 +28,4 @@ export const collectionSchemas = {
 	equations: equation,
 	paths: path,
 } as const;
+export * from './compiled.js';

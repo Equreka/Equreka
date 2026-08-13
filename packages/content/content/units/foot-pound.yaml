@@ -5,11 +5,8 @@ symbol:
 unitOf:
   - 'energy'
 system: 'imperial'
-compose:
-  - unit: 'foot'
-    exp: 1
-  - unit: 'pound'
-    exp: 1
+toBase:
+  factor: '1.3558179483314004'
 categories:
   - 'physics'
 description:

@@ -22,6 +22,10 @@ export interface ConversionFixture {
  */
 const KNOWN_WRONG: ReadonlyArray<{ from: string; to: string }> = [
 	{ from: 'milliampere', to: 'ampere' },
+	{ from: 'tonne', to: 'ounce' },
+	{ from: 'month', to: 'microsecond' },
+	{ from: 'month', to: 'nanosecond' },
+	{ from: 'short-ton', to: 'long-ton' },
 ];
 
 export function buildFixtures(corpus: LegacyCorpus, report: MigrationReport): ConversionFixture[] {

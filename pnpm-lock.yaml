@@ -9,12 +9,15 @@ catalogs:
     '@biomejs/biome':
       specifier: 2.5.8
       version: 2.5.8
+    '@cortex-js/compute-engine':
+      specifier: 0.105.0
+      version: 0.105.0
     '@types/node':
       specifier: ^22.0.0
       version: 22.20.1
-    decimal.js:
-      specifier: ^10.6.0
-      version: 10.6.0
+    esbuild:
+      specifier: ^0.28.0
+      version: 0.28.2
     fast-check:
       specifier: ^4.9.0
       version: 4.9.0
@@ -83,6 +86,9 @@ importers:
       '@equreka/schema':
         specifier: workspace:*
         version: link:../schema
+      minisearch:
+        specifier: 'catalog:'
+        version: 7.2.0
       yaml:
         specifier: 'catalog:'
         version: 2.9.0
@@ -90,24 +96,21 @@ importers:
         specifier: 'catalog:'
         version: 4.4.3
     devDependencies:
+      '@cortex-js/compute-engine':
+        specifier: 'catalog:'
+        version: 0.105.0
       '@equreka/config':
         specifier: workspace:*
         version: link:../config
       '@types/node':
         specifier: 'catalog:'
         version: 22.20.1
-      decimal.js:
-        specifier: 'catalog:'
-        version: 10.6.0
       katex:
         specifier: 'catalog:'
         version: 0.18.4
       mathjax:
         specifier: 'catalog:'
         version: 4.1.3
-      minisearch:
-        specifier: 'catalog:'
-        version: 7.2.0
       tsx:
         specifier: 'catalog:'
         version: 4.23.12
@@ -152,6 +155,12 @@ importers:
       '@equreka/config':
         specifier: workspace:*
         version: link:../config
+      '@types/node':
+        specifier: 'catalog:'
+        version: 22.20.1
+      esbuild:
+        specifier: 'catalog:'
+        version: 0.28.2
       fast-check:
         specifier: 'catalog:'
         version: 4.9.0
@@ -214,6 +223,9 @@ importers:
 
 packages:
 
+  '@arnog/colors@0.5.0':
+    resolution: {integrity: sha512-NB7yqrO7qvInsqJdqz6C6mDU+2oiKmbBbk3czMS0E7KkGxLRy538tEHCsB5TKqmaxxXpi6/U120TnGl8NsDePg==}
+
   '@biomejs/biome@2.5.8':
     resolution: {integrity: sha512-aeAeeJB9fSDc7Gq+2GqpQxA0qBj6gj1k2R6L1cYqGePKP/baIq1WX8y6B+D+nRsO5ViQL22K/8IwbqERW0q1nw==}
     engines: {node: '>=14.21.3'}
@@ -270,6 +282,11 @@ packages:
     engines: {node: '>=14.21.3'}
     cpu: [x64]
     os: [win32]
+
+  '@cortex-js/compute-engine@0.105.0':
+    resolution: {integrity: sha512-S+rwfvkluES4BENqLssKV9cQPUl78/V49lsjHVG5ni/jhFrcaA5vdhWDna7Nh1y5VQqxG+hjQB3gJpjR4v/oVA==}
+    engines: {node: '>=21.7.3', npm: '>=10.5.0'}
+    hasBin: true
 
   '@esbuild/aix-ppc64@0.28.2':
     resolution: {integrity: sha512-XExcO+dvLKvVtNTibSTBej1NCAbaGhWn9Ww1ZPx80qsahhPFe/8jgWP0IchNe0F3HwkU7n8ejhH8bjonqht8mQ==}
@@ -615,11 +632,12 @@ packages:
     resolution: {integrity: sha512-OkTL9umf+He2DZkUq8f8J9of7yL6RJKI24dVITBmNfZBmri9zYZQrKkuXiKhyfPSu8tUhnVBB1iKXevvnlR4Ww==}
     engines: {node: '>= 12'}
 
+  complex-esm@2.1.1-esm1:
+    resolution: {integrity: sha512-IShBEWHILB9s7MnfyevqNGxV0A1cfcSnewL/4uPFiSxkcQL4Mm3FxJ0pXMtCXuWLjYz3lRRyk6OfkeDZcjD6nw==}
+    engines: {node: '>=16.14.2', npm: '>=8.5.0'}
+
   convert-source-map@2.0.0:
     resolution: {integrity: sha512-Kvp459HrV2FEJ1CAsi1Ku+MY3kasH19TFykTz2xWmMeq6bk2NU3XXvfJ+Q61m0xktWwt+1HSYf3JZsTms3aRJg==}
-
-  decimal.js@10.6.0:
-    resolution: {integrity: sha512-YpgQiITW3JXGntzdUmyUR1V812Hn8T1YVXhCu+wO3OpS4eU9l4YdD3qjyiKdV6mvV29zapkMeD390UVEf2lkUg==}
 
   detect-libc@2.1.2:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
@@ -983,6 +1001,8 @@ packages:
 
 snapshots:
 
+  '@arnog/colors@0.5.0': {}
+
   '@biomejs/biome@2.5.8':
     optionalDependencies:
       '@biomejs/cli-darwin-arm64': 2.5.8
@@ -1017,6 +1037,11 @@ snapshots:
 
   '@biomejs/cli-win32-x64@2.5.8':
     optional: true
+
+  '@cortex-js/compute-engine@0.105.0':
+    dependencies:
+      '@arnog/colors': 0.5.0
+      complex-esm: 2.1.1-esm1
 
   '@esbuild/aix-ppc64@0.28.2':
     optional: true
@@ -1226,9 +1251,9 @@ snapshots:
 
   commander@8.3.0: {}
 
-  convert-source-map@2.0.0: {}
+  complex-esm@2.1.1-esm1: {}
 
-  decimal.js@10.6.0: {}
+  convert-source-map@2.0.0: {}
 
   detect-libc@2.1.2: {}
 

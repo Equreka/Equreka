@@ -2352,22 +2352,6 @@
 		"viaFormula": false
 	},
 	{
-		"from": "month",
-		"to": "microsecond",
-		"input": "1",
-		"expected": "3.154e+12",
-		"exact": false,
-		"viaFormula": false
-	},
-	{
-		"from": "month",
-		"to": "nanosecond",
-		"input": "1",
-		"expected": "3.154e+15",
-		"exact": false,
-		"viaFormula": false
-	},
-	{
 		"from": "nanometre",
 		"to": "kilometre",
 		"input": "1",
@@ -3113,14 +3097,6 @@
 	},
 	{
 		"from": "short-ton",
-		"to": "long-ton",
-		"input": "1",
-		"expected": "0.89285739910714",
-		"exact": true,
-		"viaFormula": false
-	},
-	{
-		"from": "short-ton",
 		"to": "stone",
 		"input": "1",
 		"expected": "142.857",
@@ -3276,14 +3252,6 @@
 		"to": "pound",
 		"input": "1",
 		"expected": "2204.622621848776",
-		"exact": true,
-		"viaFormula": false
-	},
-	{
-		"from": "tonne",
-		"to": "ounce",
-		"input": "1",
-		"expected": "317465.658",
 		"exact": true,
 		"viaFormula": false
 	},
