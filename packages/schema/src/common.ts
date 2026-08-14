@@ -39,11 +39,42 @@ export const decimalString = z
 	.regex(/^-?\d+(\.\d+)?([eE][-+]?\d+)?$/, 'decimal string like "299792458", "0.3048" or "1e-19"');
 
 /**
- * Exact ratio for factors that have no finite decimal form (Fahrenheit's 5/9).
+ * Boolean under the failsafe YAML parse, where every scalar arrives as a
+ * string: exactly 'true'/'false' coerce; YAML 1.1 spellings ('yes', 'on',
+ * '1') fail loudly. Native booleans stay valid for TS callers.
+ */
+export const strictBool = z.union([
+	z.boolean(),
+	z.enum(['true', 'false']).transform((value) => value === 'true'),
+]);
+
+/**
+ * Integer under the failsafe YAML parse: a base-10 digit string coerces via
+ * Number() with a safe-integer assert; native ints stay valid for TS callers.
+ */
+export const intFromString = z.union([
+	z.number().int(),
+	z
+		.string()
+		.regex(/^-?\d+$/, 'integer string like "2" or "-1"')
+		.transform((value, ctx) => {
+			const parsed = Number(value);
+			if (!Number.isSafeInteger(parsed)) {
+				ctx.addIssue({ code: 'custom', message: `integer exceeds safe range: ${value}` });
+				return z.NEVER;
+			}
+			return parsed;
+		}),
+]);
+
+/**
+ * Exact ratio for factors that have no finite decimal form (Fahrenheit's
+ * 5/9). Digit strings only — a number union would reopen the float64
+ * truncation leak the failsafe parse closed; consumers feed BigInt directly.
  */
 export const rational = z.object({
-	num: z.number().int(),
-	den: z.number().int().positive(),
+	num: z.string().regex(/^-?\d+$/, 'integer string like "5" or "-2"'),
+	den: z.string().regex(/^[1-9]\d*$/, 'positive integer string like "9"'),
 });
 
 export const exactNumber = z.union([decimalString, rational]);

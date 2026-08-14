@@ -142,7 +142,9 @@ function snapToRational(literal: string): ExactNumberValue | undefined {
 	for (const [num, den] of SNAP_RATIONALS) {
 		if (isFiniteDecimal(den)) continue;
 		const ratio = num / den;
-		if (Math.abs(value - ratio) / Math.abs(ratio) <= 1e-12) return { num, den };
+		if (Math.abs(value - ratio) / Math.abs(ratio) <= 1e-12) {
+			return { num: String(num), den: String(den) };
+		}
 	}
 	return undefined;
 }

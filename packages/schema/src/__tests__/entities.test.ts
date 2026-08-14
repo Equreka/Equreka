@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { constant, equation, magnitude, prefix, unit } from '../entities.js';
+import { category, constant, equation, magnitude, prefix, unit } from '../entities.js';
 
 describe('unit', () => {
 	it('accepts a primitive affine unit (fahrenheit)', () => {
@@ -9,11 +9,21 @@ describe('unit', () => {
 			unitOf: ['thermodynamic-temperature'],
 			system: 'uscs',
 			toBase: {
-				factor: { num: 5, den: 9 },
-				offset: { num: 45967, den: 180 },
+				factor: { num: '5', den: '9' },
+				offset: { num: '45967', den: '180' },
 			},
 		});
 		expect(parsed.toBase?.exact).toBe(true);
+	});
+
+	it('rejects a numeric rational (float64 truncation path)', () => {
+		const result = unit.safeParse({
+			name: { en: 'Fahrenheit' },
+			symbol: { tex: '°F' },
+			unitOf: ['thermodynamic-temperature'],
+			toBase: { factor: { num: 5, den: 9 } },
+		});
+		expect(result.success).toBe(false);
 	});
 
 	it('accepts a prefixed unit (kilometre)', () => {
@@ -155,5 +165,70 @@ describe('magnitude', () => {
 		});
 		expect(parsed.dimension.A).toBe(1);
 		expect(parsed.nonNegative).toBe(false);
+	});
+});
+
+describe('failsafe-parse coercions (every YAML scalar arrives as a string)', () => {
+	it('coerces string booleans and string integers to native types', () => {
+		const parsed = magnitude.parse({
+			name: { en: 'Angular velocity' },
+			symbol: { tex: '\\omega' },
+			baseUnit: 'radian-per-second',
+			dimension: { A: '1', T: '-1' },
+			nonNegative: 'true',
+		});
+		expect(parsed.dimension.A).toBe(1);
+		expect(parsed.dimension.T).toBe(-1);
+		expect(parsed.nonNegative).toBe(true);
+	});
+
+	it("rejects YAML 1.1 boolean spellings ('yes' must not coerce)", () => {
+		const result = constant.safeParse({
+			name: { en: 'Pi' },
+			symbol: { tex: '\\pi' },
+			value: '3.14159',
+			unit: 'unitless',
+			exact: 'yes',
+		});
+		expect(result.success).toBe(false);
+	});
+
+	it('coerces string exponents in compose and rejects non-integer strings', () => {
+		const parsed = unit.parse({
+			name: { en: 'Metre per second' },
+			symbol: { tex: '\\frac{m}{s}' },
+			unitOf: ['speed'],
+			compose: [
+				{ unit: 'metre', exp: '1' },
+				{ unit: 'second', exp: '-1' },
+			],
+		});
+		expect(parsed.compose?.map((operand) => operand.exp)).toEqual([1, -1]);
+		const bad = unit.safeParse({
+			name: { en: 'Broken' },
+			symbol: { tex: 'x' },
+			unitOf: ['length'],
+			compose: [{ unit: 'metre', exp: '1.5' }],
+		});
+		expect(bad.success).toBe(false);
+	});
+
+	it('rejects unsafe-range integer strings', () => {
+		const result = category.safeParse({
+			name: { en: 'Broken' },
+			order: '9007199254740993',
+		});
+		expect(result.success).toBe(false);
+	});
+
+	it('accepts string-rational toBase (the failsafe form of authored num/den)', () => {
+		const parsed = unit.parse({
+			name: { en: 'Rankine' },
+			symbol: { tex: '°R' },
+			unitOf: ['thermodynamic-temperature'],
+			toBase: { factor: { num: '5', den: '9' }, exact: 'true' },
+		});
+		expect(parsed.toBase?.factor).toEqual({ num: '5', den: '9' });
+		expect(parsed.toBase?.exact).toBe(true);
 	});
 });

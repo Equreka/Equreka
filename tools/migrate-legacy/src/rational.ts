@@ -11,9 +11,10 @@ export interface Rational {
 
 /**
  * Schema-facing form of a coefficient: a decimal string when the reduced
- * denominator is 1, else a `{num, den}` rational object.
+ * denominator is 1, else a `{num, den}` rational of digit strings (the
+ * schema rejects YAML-number rationals — float64 truncation hazard).
  */
-export type ExactNumberValue = string | { num: number; den: number };
+export type ExactNumberValue = string | { num: string; den: string };
 
 function gcd(a: bigint, b: bigint): bigint {
 	let x = a < 0n ? -a : a;
@@ -81,12 +82,7 @@ export function fromDecimalLiteral(text: string): Rational {
 
 export function toExactNumber(a: Rational): ExactNumberValue {
 	if (a.den === 1n) return a.num.toString();
-	const num = Number(a.num);
-	const den = Number(a.den);
-	if (!Number.isSafeInteger(num) || !Number.isSafeInteger(den)) {
-		throw new MigrationError(`rational ${a.num}/${a.den} exceeds safe integer range`);
-	}
-	return { num, den };
+	return { num: a.num.toString(), den: a.den.toString() };
 }
 
 export function describe(a: Rational): string {

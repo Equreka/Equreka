@@ -31,8 +31,10 @@ function isRationalObject(entry: unknown): boolean {
 	const record = entry as Record<string, unknown>;
 	return (
 		Object.keys(record).length === 2 &&
-		typeof record.num === 'number' &&
-		typeof record.den === 'number'
+		typeof record.num === 'string' &&
+		/^-?\d+$/.test(record.num) &&
+		typeof record.den === 'string' &&
+		/^[1-9]\d*$/.test(record.den)
 	);
 }
 

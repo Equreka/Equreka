@@ -17,7 +17,7 @@ describe('ratFromDecimal', () => {
 
 describe('ratToDecimal', () => {
 	it('renders terminating expansions exactly', () => {
-		expect(ratToDecimal(ratFromExact({ num: 5463, den: 20 }))).toEqual({
+		expect(ratToDecimal(ratFromExact({ num: '5463', den: '20' }))).toEqual({
 			text: '273.15',
 			exact: true,
 		});
@@ -39,7 +39,7 @@ describe('ratToDecimal', () => {
 			text: '0.333333333333333333333333333333333333',
 			exact: false,
 		});
-		expect(ratToDecimal(ratFromExact({ num: 45967, den: 180 }))).toEqual({
+		expect(ratToDecimal(ratFromExact({ num: '45967', den: '180' }))).toEqual({
 			text: '255.372222222222222222222222222222222',
 			exact: false,
 		});
@@ -48,8 +48,8 @@ describe('ratToDecimal', () => {
 
 describe('rational arithmetic', () => {
 	it('composes the fahrenheit mapping exactly: 212°F lands on 373.15K', () => {
-		const factor = ratFromExact({ num: 5, den: 9 });
-		const offset = ratFromExact({ num: 45967, den: 180 });
+		const factor = ratFromExact({ num: '5', den: '9' });
+		const offset = ratFromExact({ num: '45967', den: '180' });
 		const scaled = ratMul(factor, rat(212n, 1n));
 		const kelvin = rat(scaled.num * offset.den + offset.num * scaled.den, scaled.den * offset.den);
 		expect(kelvin).toEqual(ratFromDecimal('373.15'));

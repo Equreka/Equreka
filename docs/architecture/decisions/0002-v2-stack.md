@@ -23,3 +23,12 @@ The legacy app (Nuxt 2, EOL; `eval()` on content; broken conversions; PWA-in-nam
 ## Consequences
 
 Adding an equation requires authoring its solutions — the build refuses expressions it cannot verify, so a wrong answer cannot ship silently. Artifact slices have CI size budgets; growth fails loudly. The TS 7 flip, Temml/MathML Core, Sveltia CMS, and self-hosted expo-updates are documented escape hatches, not v1 work.
+
+## Format decision re-verified (2026-08-13)
+
+A three-agent adversarial deep-research pass re-examined the content-format choice against current evidence; all three tracks independently concluded YAML (eemeli `yaml`, 1.2) remains the best fit. Two hardening outcomes were adopted:
+
+- **Failsafe schema at the parse boundary.** The pipeline now parses with `{ version: '1.2', schema: 'failsafe', merge: false, uniqueKeys: true }`: every scalar arrives as a string, so unquoted-numeric float64 truncation is structurally impossible rather than lint-prevented, and 1.1 re-typing (octals, `yes`/`no`, tags, merge keys) is neutralized. Typed coercion happens exactly once, in `@equreka/schema` (`strictBool`, `intFromString`; rational `num`/`den` are digit strings only). Parser warnings surface as pipeline issues; `%YAML`/`%TAG` directives are lint errors in content.
+- **JSON5 stays banned.** The research reproduced JSON5's silent TeX destruction: `\m`, `\c`, etc. are valid JSON5 escapes that decode to bare `m`, `c` — `"\mu"` becomes `mu` with no error, corrupting every TeX field it touches. That failure mode is unlintable at the text layer without reimplementing the escape grammar, and it is the recorded reason JSON5 remains excluded despite its comment support.
+
+Prose scalars were migrated to folded block style (`en: >-`), removing the single-quote apostrophe-doubling trap from the corpus; block scalars carry TeX and apostrophes byte-literally.

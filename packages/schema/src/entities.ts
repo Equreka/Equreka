@@ -3,9 +3,11 @@ import {
 	decimalString,
 	entityBase,
 	exactNumber,
+	intFromString,
 	localizedText,
 	ref,
 	slug,
+	strictBool,
 	symbol,
 } from './common.js';
 
@@ -14,7 +16,7 @@ export const category = z
 		name: localizedText,
 		description: localizedText.optional(),
 		aliases: z.array(z.string().min(1)).default([]),
-		order: z.number().int().nonnegative(),
+		order: intFromString.refine((value) => value >= 0, 'order must be nonnegative'),
 	})
 	.strict();
 
@@ -25,14 +27,14 @@ export const category = z
  */
 export const dimensionVector = z
 	.object({
-		L: z.number().int(),
-		M: z.number().int(),
-		T: z.number().int(),
-		I: z.number().int(),
-		Th: z.number().int(),
-		N: z.number().int(),
-		J: z.number().int(),
-		A: z.number().int(),
+		L: intFromString,
+		M: intFromString,
+		T: intFromString,
+		I: intFromString,
+		Th: intFromString,
+		N: intFromString,
+		J: intFromString,
+		A: intFromString,
 	})
 	.partial();
 
@@ -42,7 +44,7 @@ export const magnitude = entityBase
 		symbolAlt: symbol.optional(),
 		baseUnit: ref('units'),
 		dimension: dimensionVector,
-		nonNegative: z.boolean().default(false),
+		nonNegative: strictBool.default(false),
 	})
 	.strict();
 
@@ -58,7 +60,7 @@ export const toBase = z
 	.object({
 		factor: exactNumber,
 		offset: exactNumber.default('0'),
-		exact: z.boolean().default(true),
+		exact: strictBool.default(true),
 	})
 	.strict();
 
@@ -81,10 +83,7 @@ export const unit = entityBase
 				z
 					.object({
 						unit: ref('units'),
-						exp: z
-							.number()
-							.int()
-							.refine((n) => n !== 0, 'exponent 0 is meaningless'),
+						exp: intFromString.refine((n) => n !== 0, 'exponent 0 is meaningless'),
 					})
 					.strict(),
 			)
@@ -117,8 +116,8 @@ export const constant = entityBase
 		symbolAlt: symbol.optional(),
 		value: decimalString,
 		unit: ref('units'),
-		exact: z.boolean().default(false),
-		irrational: z.boolean().default(false),
+		exact: strictBool.default(false),
+		irrational: strictBool.default(false),
 		uncertainty: decimalString.optional(),
 		source: z
 			.object({
@@ -159,7 +158,7 @@ export const equation = entityBase
 		solutions: z.record(z.string().min(1), z.string().min(1)).default({}),
 		calculator: z
 			.object({
-				enabled: z.boolean().default(false),
+				enabled: strictBool.default(false),
 				solveFor: z.array(z.string().min(1)).optional(),
 			})
 			.strict()
