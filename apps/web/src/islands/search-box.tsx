@@ -4,13 +4,16 @@ import {
 	type SearchDocument,
 	searchOptions,
 } from '@equreka/content/search-options';
+import { collectionLabel, type Locale, t } from '@equreka/core/i18n';
 import MiniSearch from 'minisearch';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { entryHref } from '../lib/entry-links';
-import { COLLECTION_LABELS, COLLECTION_ORDER } from '../lib/labels';
+import { COLLECTION_ORDER } from '../lib/labels';
+import { localePath } from '../lib/locale-paths';
 
 export interface SearchBoxProps {
 	variant: 'header' | 'page';
+	locale?: Locale;
 }
 
 interface FoldedCatalogEntry extends CatalogLiteEntry {
@@ -119,7 +122,7 @@ function groupRows(rows: ResultRow[]): ResultGroup[] {
 		});
 }
 
-export default function SearchBox({ variant }: SearchBoxProps) {
+export default function SearchBox({ variant, locale = 'en' }: SearchBoxProps) {
 	const [query, setQuery] = useState('');
 	const [lanes, setLanes] = useState<SearchLanes | null>(null);
 	const [failed, setFailed] = useState(false);
@@ -129,8 +132,8 @@ export default function SearchBox({ variant }: SearchBoxProps) {
 	const ensureLanes = useCallback(() => {
 		loadRef.current ??= (async () => {
 			const [catalogResponse, indexResponse] = await Promise.all([
-				fetch('/search/catalog-lite.en.json'),
-				fetch('/search/en.json'),
+				fetch(`/search/catalog-lite.${locale}.json`),
+				fetch(`/search/${locale}.json`),
 			]);
 			if (!catalogResponse.ok || !indexResponse.ok) {
 				throw new Error('search assets unavailable');
@@ -148,7 +151,7 @@ export default function SearchBox({ variant }: SearchBoxProps) {
 			loadRef.current = null;
 			setFailed(true);
 		});
-	}, []);
+	}, [locale]);
 
 	useEffect(() => {
 		if (variant === 'page') ensureLanes();
@@ -161,18 +164,20 @@ export default function SearchBox({ variant }: SearchBoxProps) {
 
 	const results = !active ? null : failed ? (
 		<p role="alert" className="px-3 py-2 text-sm text-danger">
-			Search is unavailable right now.
+			{t(locale, 'search.unavailable')}
 		</p>
 	) : lanes === null ? (
-		<p className="px-3 py-2 text-sm text-ink-muted">Loading search index…</p>
+		<p className="px-3 py-2 text-sm text-ink-muted">{t(locale, 'search.loading')}</p>
 	) : groups.length === 0 ? (
-		<p className="px-3 py-2 text-sm text-ink-muted">No results for “{query.trim()}”.</p>
+		<p className="px-3 py-2 text-sm text-ink-muted">
+			{t(locale, 'search.noResults', { query: query.trim() })}
+		</p>
 	) : (
 		<ul className="divide-y divide-border">
 			{groups.map((group) => (
 				<li key={group.collection} className="py-1">
 					<p className="px-3 pt-1 text-xs font-semibold tracking-wide text-ink-muted uppercase">
-						{COLLECTION_LABELS[group.collection] ?? group.collection}
+						{collectionLabel(locale, group.collection)}
 					</p>
 					<ul>
 						{group.rows.map((row) => {
@@ -180,7 +185,10 @@ export default function SearchBox({ variant }: SearchBoxProps) {
 							return (
 								<li key={row.key}>
 									{href !== undefined ? (
-										<a className="flex items-baseline gap-2 px-3 py-1.5 hover:bg-bg" href={href}>
+										<a
+											className="flex items-baseline gap-2 px-3 py-1.5 hover:bg-bg"
+											href={localePath(locale, href)}
+										>
 											<span>{row.name}</span>
 											{row.symbolText !== '' && (
 												<span className="font-mono text-sm text-ink-muted">{row.symbolText}</span>
@@ -220,8 +228,8 @@ export default function SearchBox({ variant }: SearchBoxProps) {
 		>
 			<input
 				type="search"
-				placeholder="Search units, magnitudes…"
-				aria-label="Search the wiki"
+				placeholder={t(locale, 'search.placeholder')}
+				aria-label={t(locale, 'search.aria')}
 				className="w-full rounded-md border border-border bg-surface px-3 py-1.5 text-base text-ink placeholder:text-ink-muted"
 				value={query}
 				onChange={(event) => setQuery(event.target.value)}

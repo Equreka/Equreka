@@ -1,0 +1,11 @@
+# Gitleaks config — extends the default ruleset; allowlist entries must be
+# precise and carry a reason. Same file is used by the pre-commit hook and CI.
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Known false positives"
+# localStorage key-name constants ('equreka.v1.favorites' etc.) — identifiers
+# containing KEY with a dotted string literal trip generic-api-key; these are
+# public client-side storage namespaces, not credentials.
+regexes = ['''equreka\.v1\.[a-z-]+''']

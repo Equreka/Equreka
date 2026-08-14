@@ -1,11 +1,18 @@
 ---
 import { getCollection } from 'astro:content';
+import { type Locale, localizedName, t } from '@equreka/core/i18n';
 import BaseLayout from '../layouts/base-layout.astro';
 import { CATEGORY_TEXT } from '../lib/category-styles';
 import { asCategory, asUnit } from '../lib/collections';
-import { SYSTEM_LABELS } from '../lib/labels';
+import { localePath } from '../lib/locale-paths';
 import { renderSymbolHtml } from '../lib/tex';
 import { symbolTextOf } from '../lib/unit-symbol';
+
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
 
 const categories = (await getCollection('categories'))
 	.map((entry) => ({ slug: entry.id, ...asCategory(entry.data) }))
@@ -15,13 +22,15 @@ const units = (await getCollection('units')).map((entry) => ({
 	...asUnit(entry.data),
 }));
 
-const byName = (a: { name: { en: string } }, b: { name: { en: string } }) =>
-	a.name.en.localeCompare(b.name.en);
+const byName = (
+	a: { name: { en: string; es?: string } },
+	b: { name: { en: string; es?: string } },
+) => localizedName(a, locale).localeCompare(localizedName(b, locale), locale);
 
 const grouped = categories
 	.map((category) => ({
 		slug: category.slug,
-		title: category.name.en,
+		title: localizedName(category, locale),
 		units: units.filter((unit) => unit.categories.includes(category.slug)).sort(byName),
 	}))
 	.filter((group) => group.units.length > 0);
@@ -29,19 +38,17 @@ const grouped = categories
 const groupedSlugs = new Set(grouped.flatMap((group) => group.units.map((unit) => unit.slug)));
 const ungrouped = units.filter((unit) => !groupedSlugs.has(unit.slug)).sort(byName);
 if (ungrouped.length > 0) {
-	grouped.push({ slug: 'other', title: 'Other', units: ungrouped });
+	grouped.push({ slug: 'other', title: t(locale, 'group.other'), units: ungrouped });
 }
 ---
 
 <BaseLayout
-	title="Units — Equreka"
-	description="All units of measurement in the Equreka wiki, grouped by category."
+	title={`${t(locale, 'collection.units')} — Equreka`}
+	description={t(locale, 'meta.units')}
+	locale={locale}
 >
-	<h1 class="text-3xl font-bold tracking-tight">Units</h1>
-	<p class="mt-2 text-ink-muted">
-		{units.length} units grouped by category. Every unit page includes a conversion table computed
-		by the Equreka engine.
-	</p>
+	<h1 class="text-3xl font-bold tracking-tight">{t(locale, 'collection.units')}</h1>
+	<p class="mt-2 text-ink-muted">{t(locale, 'units.lead', { count: units.length })}</p>
 	{
 		grouped.map((group) => (
 			<section aria-labelledby={`${group.slug}-heading`} class="mt-10">
@@ -57,13 +64,13 @@ if (ungrouped.length > 0) {
 						<thead>
 							<tr class="border-b border-border text-sm text-ink-muted">
 								<th scope="col" class="w-24 px-4 py-2 font-medium">
-									Symbol
+									{t(locale, 'table.symbol')}
 								</th>
 								<th scope="col" class="px-4 py-2 font-medium">
-									Name
+									{t(locale, 'table.name')}
 								</th>
 								<th scope="col" class="px-4 py-2 font-medium">
-									System
+									{t(locale, 'table.system')}
 								</th>
 							</tr>
 						</thead>
@@ -75,11 +82,16 @@ if (ungrouped.length > 0) {
 										set:html={renderSymbolHtml(unit.symbol.tex, symbolTextOf(unit))}
 									/>
 									<td class="px-4 py-2">
-										<a class="text-accent hover:underline" href={`/units/${unit.slug}/`}>
-											{unit.name.en}
+										<a
+											class="text-accent hover:underline"
+											href={localePath(locale, `/units/${unit.slug}/`)}
+										>
+											{localizedName(unit, locale)}
 										</a>
 									</td>
-									<td class="px-4 py-2 text-sm text-ink-muted">{SYSTEM_LABELS[unit.system]}</td>
+									<td class="px-4 py-2 text-sm text-ink-muted">
+										{t(locale, `system.${unit.system}`)}
+									</td>
 								</tr>
 							))}
 						</tbody>

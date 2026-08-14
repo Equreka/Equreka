@@ -1,10 +1,10 @@
 import { solutions } from '@equreka/content/artifact/solutions.js';
+import { ENGINE_HINT_CODES, engineMessage, type Locale, t } from '@equreka/core/i18n';
 import type { EngineError } from '@equreka/engine';
 import { formatSigFigs } from '@equreka/engine/format';
 import { type KnownValue, solveEquation } from '@equreka/engine/solutions';
 import type { CompiledEquationMeta } from '@equreka/schema';
 import { useId, useState } from 'react';
-import { CALCULATOR_HINT_CODES, CALCULATOR_MESSAGES } from '../lib/calculator-messages';
 
 /**
  * One user-facing input, resolved at build from the equation's terms map:
@@ -41,10 +41,7 @@ export interface CalculatorIslandProps {
 	fields: CalculatorField[];
 	constants: CalculatorConstant[];
 	nonNegative: string[];
-}
-
-function messageFor(error: EngineError): string {
-	return CALCULATOR_MESSAGES[error.code] ?? 'The calculation failed.';
+	locale?: Locale;
 }
 
 export default function CalculatorIsland({
@@ -52,9 +49,12 @@ export default function CalculatorIsland({
 	fields,
 	constants,
 	nonNegative,
+	locale = 'en',
 }: CalculatorIslandProps) {
 	const [values, setValues] = useState<Record<string, string>>({});
 	const fieldId = useId();
+
+	const messageFor = (error: EngineError): string => engineMessage(locale, error.code);
 
 	const knowns: Record<string, KnownValue> = {};
 	for (const field of fields) {
@@ -92,7 +92,7 @@ export default function CalculatorIsland({
 								className={field.unitSymbol === '' ? inputClass : `${inputClass} rounded-r-none`}
 								type="text"
 								inputMode="decimal"
-								placeholder="Leave empty to solve"
+								placeholder={t(locale, 'calculator.placeholder')}
 								value={values[field.key] ?? ''}
 								onChange={(event) =>
 									setValues((previous) => ({ ...previous, [field.key]: event.target.value }))
@@ -113,11 +113,11 @@ export default function CalculatorIsland({
 					className="rounded-md border border-border px-4 py-2 text-sm font-medium text-ink hover:bg-bg"
 					onClick={() => setValues({})}
 				>
-					Reset
+					{t(locale, 'calculator.reset')}
 				</button>
 				{constants.length > 0 && (
 					<p className="text-sm text-ink-muted">
-						Filled in automatically:{' '}
+						{t(locale, 'calculator.autoFilled')}{' '}
 						{constants.map((constant, index) => (
 							<span key={constant.key}>
 								{index > 0 && ', '}
@@ -130,9 +130,7 @@ export default function CalculatorIsland({
 			</div>
 			<div className="mt-6 border-t border-border pt-4" aria-live="polite">
 				{result === null ? (
-					<p className="text-ink-muted">
-						Fill in every value except the one to solve for — it is computed as you type.
-					</p>
+					<p className="text-ink-muted">{t(locale, 'calculator.hint')}</p>
 				) : result.ok ? (
 					<>
 						<p className="text-xl">
@@ -141,16 +139,17 @@ export default function CalculatorIsland({
 							{solvedField !== undefined && solvedField.unitSymbol !== '' && (
 								<span> {solvedField.unitSymbol}</span>
 							)}
-							<span className="ml-2 text-sm text-ink-muted">(6 significant figures)</span>
+							<span className="ml-2 text-sm text-ink-muted">{t(locale, 'common.sigFigs')}</span>
 						</p>
 						{result.value.allRoots !== undefined && result.value.allRoots.length > 1 && (
 							<p className="mt-2 text-sm text-ink-muted">
-								All roots: {result.value.allRoots.map((root) => formatSigFigs(root)).join(', ')} —
-								the admissible root is shown above.
+								{t(locale, 'calculator.allRoots', {
+									roots: result.value.allRoots.map((root) => formatSigFigs(root)).join(', '),
+								})}
 							</p>
 						)}
 					</>
-				) : CALCULATOR_HINT_CODES.has(result.error.code) ? (
+				) : ENGINE_HINT_CODES.has(result.error.code) ? (
 					<p className="text-ink-muted">{messageFor(result.error)}</p>
 				) : (
 					<p role="alert" className="text-danger">

@@ -1,16 +1,5 @@
 ---
-import OfflineReader from '../islands/offline-reader';
-import BaseLayout from '../layouts/base-layout.astro';
+import OfflinePage from '../pages-shared/offline-page.astro';
 ---
 
-<BaseLayout
-	title="Offline — Equreka"
-	description="You are offline. Browse the precached Equreka library of units and their descriptions."
->
-	<h1 class="text-3xl font-bold tracking-tight">You're offline</h1>
-	<p class="mt-2 max-w-2xl text-ink-muted">
-		This page isn't cached yet, but the Equreka library is stored on your device — every entry
-		below works without a connection.
-	</p>
-	<OfflineReader client:load />
-</BaseLayout>
+<OfflinePage />

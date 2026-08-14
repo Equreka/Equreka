@@ -1,0 +1,22 @@
+---
+import { type Locale, t } from '@equreka/core/i18n';
+import SettingsPanel from '../islands/settings-panel';
+import BaseLayout from '../layouts/base-layout.astro';
+import { SITE_VERSION } from '../lib/site';
+
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
+---
+
+<BaseLayout
+	title={`${t(locale, 'settings.title')} — Equreka`}
+	description={t(locale, 'meta.settings')}
+	locale={locale}
+>
+	<h1 class="text-3xl font-bold tracking-tight">{t(locale, 'settings.title')}</h1>
+	<p class="mt-2 max-w-2xl text-ink-muted">{t(locale, 'settings.lead')}</p>
+	<SettingsPanel client:load locale={locale} version={SITE_VERSION} />
+</BaseLayout>

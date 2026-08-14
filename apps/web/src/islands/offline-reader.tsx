@@ -1,7 +1,7 @@
 import { type CatalogLiteEntry, foldSearchTerm } from '@equreka/content/search-options';
+import { collectionLabel, type Locale, t } from '@equreka/core/i18n';
 import { type ReactNode, useEffect, useMemo, useState } from 'react';
 import type { ReaderPayload } from '../integrations/equreka-assets';
-import { COLLECTION_LABELS } from '../lib/labels';
 
 type ReaderState =
 	| { status: 'loading' }
@@ -13,15 +13,16 @@ interface SelectedEntry {
 	slug: string;
 }
 
-const ENTRY_PATH_RE = /^\/(units|magnitudes|constants|equations|categories)\/([^/]+)\/?$/;
+const ENTRY_PATH_RE = /^\/(?:es\/)?(units|magnitudes|constants|equations|categories)\/([^/]+)\/?$/;
 
 const MATH_FRAGMENT_RE = /\$\$?([^$]+)\$\$?/g;
 
 /**
  * The URL the service worker failed to fetch: the offline reader HTML is
  * served under the originally requested path (precacheFallback preserves
- * it), with `?from=` honored as an explicit override for links into the
- * reader. The path's collection segment doubles as the reader-payload key.
+ * it, per-locale), with `?from=` honored as an explicit override for links
+ * into the reader. The path's collection segment doubles as the
+ * reader-payload key; an /es/ prefix is stripped.
  */
 function requestedEntry(): SelectedEntry | null {
 	const from = new URLSearchParams(window.location.search).get('from');
@@ -59,7 +60,11 @@ function plainMathText(text: string): ReactNode[] {
 
 const LIST_LIMIT = 30;
 
-export default function OfflineReader() {
+export interface OfflineReaderProps {
+	locale?: Locale;
+}
+
+export default function OfflineReader({ locale = 'en' }: OfflineReaderProps) {
 	const [state, setState] = useState<ReaderState>({ status: 'loading' });
 	const [selected, setSelected] = useState<SelectedEntry | null>(null);
 	const [filter, setFilter] = useState('');
@@ -67,11 +72,11 @@ export default function OfflineReader() {
 	useEffect(() => {
 		let cancelled = false;
 		Promise.all([
-			fetch('/search/catalog-lite.en.json').then((response) => {
+			fetch(`/search/catalog-lite.${locale}.json`).then((response) => {
 				if (!response.ok) throw new Error(`HTTP ${response.status}`);
 				return response.json() as Promise<CatalogLiteEntry[]>;
 			}),
-			fetch('/data/reader.en.json').then((response) => {
+			fetch(`/data/reader.${locale}.json`).then((response) => {
 				if (!response.ok) throw new Error(`HTTP ${response.status}`);
 				return response.json() as Promise<ReaderPayload>;
 			}),
@@ -87,7 +92,7 @@ export default function OfflineReader() {
 		return () => {
 			cancelled = true;
 		};
-	}, []);
+	}, [locale]);
 
 	const rows = useMemo(() => {
 		if (state.status !== 'ready') return [];
@@ -105,12 +110,12 @@ export default function OfflineReader() {
 	}, [state, filter]);
 
 	if (state.status === 'loading') {
-		return <p className="text-ink-muted">Loading offline library…</p>;
+		return <p className="text-ink-muted">{t(locale, 'offline.loading')}</p>;
 	}
 	if (state.status === 'error') {
 		return (
 			<p role="alert" className="text-danger">
-				The offline library is not available. Reconnect and reload once to store it.
+				{t(locale, 'offline.error')}
 			</p>
 		);
 	}
@@ -123,9 +128,7 @@ export default function OfflineReader() {
 			{selected !== null && (
 				<article className="rounded-lg border border-border bg-surface p-6">
 					{selectedEntry === undefined ? (
-						<p className="text-ink-muted">
-							This entry is not in the offline library. Pick one below.
-						</p>
+						<p className="text-ink-muted">{t(locale, 'offline.notCached')}</p>
 					) : (
 						<>
 							<div className="flex flex-wrap items-baseline gap-3">
@@ -136,7 +139,7 @@ export default function OfflineReader() {
 									</span>
 								)}
 								<span className="ml-auto text-xs text-ink-muted uppercase tracking-wide">
-									{COLLECTION_LABELS[selected.collection] ?? selected.collection}
+									{collectionLabel(locale, selected.collection)}
 								</span>
 							</div>
 							{selectedEntry.description !== '' && (
@@ -148,12 +151,12 @@ export default function OfflineReader() {
 			)}
 			<section aria-labelledby="offline-library-heading">
 				<h2 id="offline-library-heading" className="text-xl font-semibold">
-					Browse the offline library
+					{t(locale, 'offline.browse')}
 				</h2>
 				<input
 					type="search"
-					aria-label="Filter offline entries"
-					placeholder="Filter by name, symbol, or alias…"
+					aria-label={t(locale, 'offline.filterAria')}
+					placeholder={t(locale, 'offline.filterPlaceholder')}
 					className="mt-3 w-full max-w-md rounded-md border border-border bg-surface px-3 py-1.5 text-base text-ink placeholder:text-ink-muted"
 					value={filter}
 					onChange={(event) => setFilter(event.target.value)}
@@ -172,7 +175,7 @@ export default function OfflineReader() {
 										<span className="font-mono text-sm text-ink-muted">{entry.symbolText}</span>
 									)}
 									<span className="ml-auto text-xs text-ink-muted">
-										{COLLECTION_LABELS[entry.collection] ?? entry.collection}
+										{collectionLabel(locale, entry.collection)}
 									</span>
 								</button>
 							) : (
@@ -182,14 +185,14 @@ export default function OfflineReader() {
 										<span className="font-mono text-sm text-ink-muted">{entry.symbolText}</span>
 									)}
 									<span className="ml-auto text-xs text-ink-muted">
-										{COLLECTION_LABELS[entry.collection] ?? entry.collection}
+										{collectionLabel(locale, entry.collection)}
 									</span>
 								</span>
 							)}
 						</li>
 					))}
 					{rows.length === 0 && (
-						<li className="px-3 py-2 text-sm text-ink-muted">No offline entries match.</li>
+						<li className="px-3 py-2 text-sm text-ink-muted">{t(locale, 'offline.noMatch')}</li>
 					)}
 				</ul>
 			</section>

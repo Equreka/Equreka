@@ -1,19 +1,23 @@
 ---
+import { type Locale, t } from '@equreka/core/i18n';
 import ConverterIsland from '../islands/converter-island';
 import BaseLayout from '../layouts/base-layout.astro';
+
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
 ---
 
 <BaseLayout
-	title="Unit converter — Equreka"
-	description="Convert values between compatible units of measurement, computed by the Equreka engine."
+	title={`${t(locale, 'converter.title')} — Equreka`}
+	description={t(locale, 'meta.converter')}
+	locale={locale}
 >
-	<h1 class="text-3xl font-bold tracking-tight">Unit converter</h1>
-	<p class="mt-2 max-w-2xl text-ink-muted">
-		Pick a magnitude, choose the units, and enter a value. Conversions run through each unit's
-		exact factor to the SI-coherent base — results are rounded to 6 significant figures for
-		display.
-	</p>
+	<h1 class="text-3xl font-bold tracking-tight">{t(locale, 'converter.title')}</h1>
+	<p class="mt-2 max-w-2xl text-ink-muted">{t(locale, 'converter.lead')}</p>
 	<div class="mt-6 max-w-2xl">
-		<ConverterIsland client:load />
+		<ConverterIsland client:load locale={locale} />
 	</div>
 </BaseLayout>

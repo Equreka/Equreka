@@ -1,17 +1,23 @@
 ---
+import { type Locale, t } from '@equreka/core/i18n';
 import SearchBox from '../islands/search-box';
 import BaseLayout from '../layouts/base-layout.astro';
+
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
 ---
 
 <BaseLayout
-	title="Search — Equreka"
-	description="Search every unit, magnitude, constant, and equation in the Equreka wiki."
+	title={`${t(locale, 'search.title')} — Equreka`}
+	description={t(locale, 'meta.search')}
+	locale={locale}
 >
-	<h1 class="text-3xl font-bold tracking-tight">Search</h1>
-	<p class="mt-2 max-w-2xl text-ink-muted">
-		Search by name, symbol, or alias — with or without accents.
-	</p>
+	<h1 class="text-3xl font-bold tracking-tight">{t(locale, 'search.title')}</h1>
+	<p class="mt-2 max-w-2xl text-ink-muted">{t(locale, 'search.lead')}</p>
 	<div class="mt-6 max-w-2xl">
-		<SearchBox client:load variant="page" />
+		<SearchBox client:load variant="page" locale={locale} />
 	</div>
 </BaseLayout>

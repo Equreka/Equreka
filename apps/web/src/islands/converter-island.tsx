@@ -1,3 +1,4 @@
+import { engineMessage, type Locale, t } from '@equreka/core/i18n';
 import type { EngineError } from '@equreka/engine';
 import { formatSigFigs } from '@equreka/engine/format';
 import { createUnitRegistry, type UnitRegistry } from '@equreka/engine/units';
@@ -8,18 +9,13 @@ import type { ConverterPayload } from '../integrations/equreka-assets';
 export interface ConverterIslandProps {
 	initialMagnitude?: string;
 	initialFrom?: string;
+	locale?: Locale;
 }
 
 type PayloadState =
 	| { status: 'loading' }
 	| { status: 'error' }
 	| { status: 'ready'; payload: ConverterPayload };
-
-const ERROR_MESSAGES: Partial<Record<EngineError['code'], string>> = {
-	'inputs/not-a-number': 'Enter a numeric value.',
-	'units/unknown': 'Unknown unit selected.',
-	'units/incompatible-dimensions': 'These units measure different quantities.',
-};
 
 /**
  * Rebuilds an EngineSlice-shaped object from the trimmed client payload so
@@ -72,7 +68,11 @@ function compatibleFor(
 		.sort((a, b) => a.name.en.localeCompare(b.name.en));
 }
 
-export default function ConverterIsland({ initialMagnitude, initialFrom }: ConverterIslandProps) {
+export default function ConverterIsland({
+	initialMagnitude,
+	initialFrom,
+	locale = 'en',
+}: ConverterIslandProps) {
 	const [state, setState] = useState<PayloadState>({ status: 'loading' });
 	const [magnitude, setMagnitude] = useState('');
 	const [fromUnit, setFromUnit] = useState('');
@@ -80,9 +80,14 @@ export default function ConverterIsland({ initialMagnitude, initialFrom }: Conve
 	const [rawValue, setRawValue] = useState('1');
 	const fieldId = useId();
 
+	const errorMessage = (error: EngineError): string =>
+		error.code === 'inputs/not-a-number'
+			? t(locale, 'converter.notANumber')
+			: engineMessage(locale, error.code);
+
 	useEffect(() => {
 		let cancelled = false;
-		fetch('/data/converter.en.json')
+		fetch(`/data/converter.${locale}.json`)
 			.then((response) => {
 				if (!response.ok) throw new Error(`HTTP ${response.status}`);
 				return response.json() as Promise<ConverterPayload>;
@@ -96,7 +101,7 @@ export default function ConverterIsland({ initialMagnitude, initialFrom }: Conve
 		return () => {
 			cancelled = true;
 		};
-	}, []);
+	}, [locale]);
 
 	const registry = useMemo(
 		() => (state.status === 'ready' ? createUnitRegistry(toEngineSlice(state.payload)) : null),
@@ -129,10 +134,10 @@ export default function ConverterIsland({ initialMagnitude, initialFrom }: Conve
 	}, [state, registry, initialMagnitude, initialFrom]);
 
 	if (state.status === 'loading') {
-		return <p className="text-ink-muted">Loading converter…</p>;
+		return <p className="text-ink-muted">{t(locale, 'converter.loading')}</p>;
 	}
 	if (state.status === 'error' || registry === null) {
-		return <p role="alert">Could not load conversion data. Reload the page to try again.</p>;
+		return <p role="alert">{t(locale, 'converter.loadError')}</p>;
 	}
 
 	const { payload } = state;
@@ -168,7 +173,7 @@ export default function ConverterIsland({ initialMagnitude, initialFrom }: Conve
 						htmlFor={`${fieldId}-magnitude`}
 						className="mb-1 block text-sm font-medium text-ink-muted"
 					>
-						Magnitude
+						{t(locale, 'unit.magnitude')}
 					</label>
 					<select
 						id={`${fieldId}-magnitude`}
@@ -188,7 +193,7 @@ export default function ConverterIsland({ initialMagnitude, initialFrom }: Conve
 						htmlFor={`${fieldId}-from`}
 						className="mb-1 block text-sm font-medium text-ink-muted"
 					>
-						From
+						{t(locale, 'converter.from')}
 					</label>
 					<select
 						id={`${fieldId}-from`}
@@ -208,7 +213,7 @@ export default function ConverterIsland({ initialMagnitude, initialFrom }: Conve
 						htmlFor={`${fieldId}-to`}
 						className="mb-1 block text-sm font-medium text-ink-muted"
 					>
-						To
+						{t(locale, 'converter.to')}
 					</label>
 					<select
 						id={`${fieldId}-to`}
@@ -228,7 +233,7 @@ export default function ConverterIsland({ initialMagnitude, initialFrom }: Conve
 						htmlFor={`${fieldId}-value`}
 						className="mb-1 block text-sm font-medium text-ink-muted"
 					>
-						Value
+						{t(locale, 'table.value')}
 					</label>
 					<input
 						id={`${fieldId}-value`}
@@ -248,24 +253,24 @@ export default function ConverterIsland({ initialMagnitude, initialFrom }: Conve
 							setToUnit(fromUnit);
 						}}
 					>
-						Swap units
+						{t(locale, 'converter.swap')}
 					</button>
 				</div>
 			</div>
 			<div className="mt-6 border-t border-border pt-4" aria-live="polite">
 				{conversion === null ? (
-					<p className="text-ink-muted">Enter a value to convert.</p>
+					<p className="text-ink-muted">{t(locale, 'converter.enterValue')}</p>
 				) : conversion.ok ? (
 					<p className="text-xl">
 						{rawValue.trim()} {fromSymbol} {exact ? '=' : '≈'}{' '}
 						<strong>{formatSigFigs(conversion.value)}</strong> {toSymbol}
 						{exact ? null : (
-							<span className="ml-2 text-sm text-ink-muted">(6 significant figures)</span>
+							<span className="ml-2 text-sm text-ink-muted">{t(locale, 'common.sigFigs')}</span>
 						)}
 					</p>
 				) : (
 					<p role="alert" className="text-danger">
-						{ERROR_MESSAGES[conversion.error.code] ?? 'Conversion failed.'}
+						{errorMessage(conversion.error)}
 					</p>
 				)}
 			</div>

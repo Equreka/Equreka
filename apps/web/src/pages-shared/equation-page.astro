@@ -1,11 +1,20 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
+import {
+	type Locale,
+	type LocalizedText,
+	localizedName,
+	pickLocalized,
+	t,
+} from '@equreka/core/i18n';
+import UntranslatedBadge from '../components/untranslated-badge.astro';
+import FavoriteToggle from '../islands/favorite-toggle';
 import BaseLayout from '../layouts/base-layout.astro';
 import { CATEGORY_BADGE } from '../lib/category-styles';
 import { asEquation } from '../lib/collections';
 import { entryHref } from '../lib/entry-links';
-import { EQUATION_KIND_LABELS, TERM_KIND_LABELS } from '../lib/labels';
+import { localePath } from '../lib/locale-paths';
 import { engineSlice } from '../lib/server/engine-registry';
 import {
 	renderExpressionHtml,
@@ -16,11 +25,13 @@ import {
 
 interface Props {
 	entry: CollectionEntry<'equations'>;
+	locale?: Locale;
 }
 
-const { entry } = Astro.props;
+const { entry, locale = 'en' } = Astro.props;
 const equation = asEquation(entry.data);
 const slug = entry.id;
+const name = localizedName(equation, locale);
 
 const TERM_COLLECTIONS = {
 	magnitude: 'magnitudes',
@@ -32,7 +43,7 @@ const namesByCollection: Record<string, Map<string, string>> = {};
 for (const collection of Object.values(TERM_COLLECTIONS)) {
 	const entries = await getCollection(collection);
 	namesByCollection[collection] = new Map(
-		entries.map((item) => [item.id, (item.data as { name: { en: string } }).name.en]),
+		entries.map((item) => [item.id, localizedName(item.data as { name: LocalizedText }, locale)]),
 	);
 }
 
@@ -42,7 +53,7 @@ const termRows = Object.entries(equation.terms).map(([key, term]) => {
 		key,
 		term,
 		dataValue: termDataValue(term),
-		kindLabel: TERM_KIND_LABELS[term.kind],
+		kindLabel: t(locale, `term.${term.kind}`),
 		name: namesByCollection[collection]?.get(term.ref) ?? term.ref,
 		href: entryHref(collection, term.ref),
 	};
@@ -52,19 +63,28 @@ const relatedUnits = equation.units
 	.map((unitSlug) => engineSlice.units[unitSlug])
 	.filter((unit) => unit !== undefined);
 
-const description = equation.description?.en;
+const description =
+	equation.description === undefined ? undefined : pickLocalized(equation.description, locale);
+const untranslated =
+	locale !== 'en' &&
+	(pickLocalized(equation.name, locale).untranslated || description?.untranslated === true);
 const metaDescription =
 	description === undefined
-		? `${equation.name.en} — ${EQUATION_KIND_LABELS[equation.kind].toLowerCase()} reference.`
-		: `${description.replaceAll('$', '').slice(0, 157)}…`;
+		? t(locale, 'meta.equation', { name, kind: t(locale, `kind.${equation.kind}`).toLowerCase() })
+		: `${description.value.replaceAll('$', '').slice(0, 157)}…`;
 ---
 
-<BaseLayout title={`${equation.name.en} — Equreka`} description={metaDescription}>
+<BaseLayout
+	title={`${name} — Equreka`}
+	description={metaDescription}
+	locale={locale}
+	ogType="article"
+>
 	<article>
 		<header class="border-b border-border pb-6">
 			<div class="flex flex-wrap items-center gap-2 text-xs font-medium">
 				<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">
-					{EQUATION_KIND_LABELS[equation.kind]}
+					{t(locale, `kind.${equation.kind}`)}
 				</span>
 				{
 					equation.categories.map((category) => (
@@ -75,35 +95,39 @@ const metaDescription =
 						</span>
 					))
 				}
+				<UntranslatedBadge locale={locale} show={untranslated} />
 			</div>
-			<h1 class="mt-3 text-3xl font-bold tracking-tight">{equation.name.en}</h1>
+			<div class="mt-3 flex flex-wrap items-baseline gap-4">
+				<h1 class="text-3xl font-bold tracking-tight">{name}</h1>
+				<FavoriteToggle client:idle collection="equations" slug={slug} locale={locale} />
+			</div>
 		</header>
 
 		<div class="mt-6 text-xl" set:html={renderExpressionHtml(equation.expression, equation.terms)} />
-		<p class="text-sm text-ink-muted">
-			Hover or tap a term to highlight it everywhere on this page.
-		</p>
+		<p class="text-sm text-ink-muted">{t(locale, 'equation.hoverHint')}</p>
 
 		{
 			equation.calculator.enabled && (
 				<a
 					class="mt-4 inline-block rounded-md bg-accent px-4 py-2 text-sm font-medium text-accent-ink hover:opacity-90"
-					href={`/calculator/${slug}/`}
+					href={localePath(locale, `/calculator/${slug}/`)}
 				>
-					Solve with the calculator
+					{t(locale, 'equation.solve')}
 				</a>
 			)
 		}
 
 		<section aria-labelledby="equation-terms-heading" class="mt-10">
-			<h2 id="equation-terms-heading" class="text-2xl font-semibold">Terms</h2>
+			<h2 id="equation-terms-heading" class="text-2xl font-semibold">
+				{t(locale, 'equation.terms')}
+			</h2>
 			<div class="mt-4 overflow-x-auto rounded-lg border border-border">
 				<table class="w-full border-collapse bg-surface text-left">
 					<thead>
 						<tr class="border-b border-border text-sm text-ink-muted">
-							<th scope="col" class="w-24 px-4 py-2 font-medium">Symbol</th>
-							<th scope="col" class="px-4 py-2 font-medium">Kind</th>
-							<th scope="col" class="px-4 py-2 font-medium">Name</th>
+							<th scope="col" class="w-24 px-4 py-2 font-medium">{t(locale, 'table.symbol')}</th>
+							<th scope="col" class="px-4 py-2 font-medium">{t(locale, 'table.kind')}</th>
+							<th scope="col" class="px-4 py-2 font-medium">{t(locale, 'table.name')}</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -117,7 +141,7 @@ const metaDescription =
 									<td class="px-4 py-2 text-sm text-ink-muted">{row.kindLabel}</td>
 									<td class="px-4 py-2">
 										{row.href !== undefined ? (
-											<a class="text-accent hover:underline" href={row.href}>
+											<a class="text-accent hover:underline" href={localePath(locale, row.href)}>
 												{row.name}
 											</a>
 										) : (
@@ -136,7 +160,7 @@ const metaDescription =
 			description !== undefined && (
 				<div
 					class="mt-8 max-w-3xl leading-7"
-					set:html={renderRichTextHtml(description, equation.terms)}
+					set:html={renderRichTextHtml(description.value, equation.terms)}
 				/>
 			)
 		}
@@ -145,13 +169,16 @@ const metaDescription =
 			relatedUnits.length > 0 && (
 				<section aria-labelledby="equation-units-heading" class="mt-10">
 					<h2 id="equation-units-heading" class="text-2xl font-semibold">
-						Related units
+						{t(locale, 'equation.relatedUnits')}
 					</h2>
 					<ul class="mt-3 flex flex-wrap gap-3">
 						{relatedUnits.map((unit) => (
 							<li>
-								<a class="text-accent hover:underline" href={`/units/${unit.slug}/`}>
-									{unit.name.en} ({unit.symbolText})
+								<a
+									class="text-accent hover:underline"
+									href={localePath(locale, `/units/${unit.slug}/`)}
+								>
+									{localizedName(unit, locale)} ({unit.symbolText})
 								</a>
 							</li>
 						))}

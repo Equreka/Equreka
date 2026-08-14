@@ -12,7 +12,7 @@
 	},
 	"scripts": {
 		"typecheck": "tsc --noEmit -p tsconfig.json",
-		"test": "vitest run --passWithNoTests"
+		"test": "vitest run"
 	},
 	"dependencies": {
 		"@equreka/engine": "workspace:*",
@@ -24,6 +24,11 @@
 	},
 	"devDependencies": {
 		"@equreka/config": "workspace:*",
+		"@testing-library/react": "catalog:",
+		"@types/react": "catalog:",
+		"jsdom": "catalog:",
+		"react": "catalog:",
+		"react-dom": "catalog:",
 		"typescript": "catalog:",
 		"vitest": "catalog:"
 	}

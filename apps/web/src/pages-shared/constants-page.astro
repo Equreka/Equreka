@@ -1,14 +1,22 @@
 ---
 import { getCollection } from 'astro:content';
+import { type Locale, localizedName, t } from '@equreka/core/i18n';
 import { formatSigFigs } from '@equreka/engine/format';
 import BaseLayout from '../layouts/base-layout.astro';
 import { asConstant } from '../lib/collections';
+import { localePath } from '../lib/locale-paths';
 import { engineSlice } from '../lib/server/engine-registry';
 import { renderSymbolHtml } from '../lib/tex';
 
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
+
 const constants = (await getCollection('constants'))
 	.map((entry) => ({ slug: entry.id, ...asConstant(entry.data) }))
-	.sort((a, b) => a.name.en.localeCompare(b.name.en));
+	.sort((a, b) => localizedName(a, locale).localeCompare(localizedName(b, locale), locale));
 
 const rows = constants.map((constant) => {
 	const compiled = engineSlice.constants[constant.slug];
@@ -23,22 +31,20 @@ const rows = constants.map((constant) => {
 ---
 
 <BaseLayout
-	title="Constants — Equreka"
-	description="Physical constants in the Equreka wiki, with full-precision values, units, and definitions."
+	title={`${t(locale, 'collection.constants')} — Equreka`}
+	description={t(locale, 'meta.constants')}
+	locale={locale}
 >
-	<h1 class="text-3xl font-bold tracking-tight">Constants</h1>
-	<p class="mt-2 text-ink-muted">
-		{constants.length} physical constants. Values shown here are rounded to 6 significant figures —
-		each constant page carries the full-precision value.
-	</p>
+	<h1 class="text-3xl font-bold tracking-tight">{t(locale, 'collection.constants')}</h1>
+	<p class="mt-2 text-ink-muted">{t(locale, 'constants.lead', { count: constants.length })}</p>
 	<div class="mt-6 overflow-x-auto rounded-lg border border-border">
 		<table class="w-full border-collapse bg-surface text-left">
 			<thead>
 				<tr class="border-b border-border text-sm text-ink-muted">
-					<th scope="col" class="w-24 px-4 py-2 font-medium">Symbol</th>
-					<th scope="col" class="px-4 py-2 font-medium">Name</th>
-					<th scope="col" class="px-4 py-2 font-medium">Value</th>
-					<th scope="col" class="px-4 py-2 font-medium">Status</th>
+					<th scope="col" class="w-24 px-4 py-2 font-medium">{t(locale, 'table.symbol')}</th>
+					<th scope="col" class="px-4 py-2 font-medium">{t(locale, 'table.name')}</th>
+					<th scope="col" class="px-4 py-2 font-medium">{t(locale, 'table.value')}</th>
+					<th scope="col" class="px-4 py-2 font-medium">{t(locale, 'table.status')}</th>
 				</tr>
 			</thead>
 			<tbody>
@@ -47,8 +53,11 @@ const rows = constants.map((constant) => {
 						<tr class="border-b border-border last:border-b-0">
 							<td class="px-4 py-2" set:html={renderSymbolHtml(row.symbol.tex, row.symbolText)} />
 							<td class="px-4 py-2">
-								<a class="text-accent hover:underline" href={`/constants/${row.slug}/`}>
-									{row.name.en}
+								<a
+									class="text-accent hover:underline"
+									href={localePath(locale, `/constants/${row.slug}/`)}
+								>
+									{localizedName(row, locale)}
 								</a>
 							</td>
 							<td class="px-4 py-2 font-mono text-sm">
@@ -59,7 +68,7 @@ const rows = constants.map((constant) => {
 								<span
 									class={`rounded-full px-2.5 py-0.5 text-xs font-medium ${row.exact ? 'bg-accent/10 text-accent' : 'bg-physics/10 text-physics'}`}
 								>
-									{row.exact ? 'exact' : 'measured'}
+									{row.exact ? t(locale, 'badge.exact') : t(locale, 'badge.measured')}
 								</span>
 							</td>
 						</tr>

@@ -6,25 +6,27 @@ import type { AstroIntegration } from 'astro';
 import { generateSW } from 'workbox-build';
 
 /**
- * Explicit precache globs per ADR 0002: app-shell routes + island bundles +
- * KaTeX + the per-locale data bundle. Deliberately not a catch-all HTML
- * glob — entry pages are runtime-cached, so a chunk change never
- * invalidates all of them; never-visited entries resolve through the
- * offline reader and its precached reader payload.
+ * Explicit precache globs per ADR 0002: app-shell routes (both locale
+ * trees) + island bundles + KaTeX + the per-locale data bundles.
+ * Deliberately not a catch-all HTML glob — entry pages are runtime-cached,
+ * so a chunk change never invalidates all of them; never-visited entries
+ * resolve through the offline reader and its precached reader payload.
  */
 const PRECACHE_GLOBS = [
-	'index.html',
-	'offline/index.html',
-	'converter/index.html',
-	'search/index.html',
+	'{,es/}index.html',
+	'{,es/}offline/index.html',
+	'{,es/}converter/index.html',
+	'{,es/}search/index.html',
+	'{,es/}favorites/index.html',
+	'{,es/}settings/index.html',
 	'_astro/*.js',
 	'_astro/*.css',
 	'katex/katex.min.css',
 	'katex/fonts/*.woff2',
-	'search/en.json',
-	'search/catalog-lite.en.json',
-	'data/converter.en.json',
-	'data/reader.en.json',
+	'search/{en,es}.json',
+	'search/catalog-lite.{en,es}.json',
+	'data/converter.{en,es}.json',
+	'data/reader.{en,es}.json',
 	'manifest.webmanifest',
 	'icons/*.svg',
 	'pwa-register.js',
@@ -99,8 +101,10 @@ function webManifest(): string {
  * into a runtime cache with the precached offline reader as fallback
  * (precacheFallback — generateSW's navigateFallback would shadow the
  * NetworkFirst route, serving the reader without ever trying the network);
- * other same-origin requests are StaleWhileRevalidate. `from`/`magnitude`
- * query params are ignored for precache matching so shell routes still hit.
+ * /es/ navigations fall back to the es reader shell, registered first
+ * because the first matching route wins. Other same-origin requests are
+ * StaleWhileRevalidate. `from`/`magnitude` query params are ignored for
+ * precache matching so shell routes still hit.
  */
 export function equrekaPwa(): AstroIntegration {
 	return {
@@ -129,6 +133,16 @@ export function equrekaPwa(): AstroIntegration {
 					dontCacheBustURLsMatching: /^_astro\//,
 					ignoreURLParametersMatching: [/^utm_/, /^fbclid$/, /^from$/, /^magnitude$/],
 					runtimeCaching: [
+						{
+							urlPattern: ({ request, url }) =>
+								request.mode === 'navigate' && url.pathname.startsWith('/es/'),
+							handler: 'NetworkFirst',
+							options: {
+								cacheName: 'equreka-pages',
+								networkTimeoutSeconds: 4,
+								precacheFallback: { fallbackURL: '/es/offline/index.html' },
+							},
+						},
 						{
 							urlPattern: ({ request }) => request.mode === 'navigate',
 							handler: 'NetworkFirst',

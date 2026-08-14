@@ -1,22 +1,26 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
+import { type Locale, localizedName, t } from '@equreka/core/i18n';
 import CalculatorIsland, {
 	type CalculatorConstant,
 	type CalculatorField,
 } from '../islands/calculator-island';
 import BaseLayout from '../layouts/base-layout.astro';
 import { asEquation, asVariable } from '../lib/collections';
+import { localePath } from '../lib/locale-paths';
 import { engineSlice } from '../lib/server/engine-registry';
 import { renderExpressionHtml } from '../lib/tex';
 
 interface Props {
 	entry: CollectionEntry<'equations'>;
+	locale?: Locale;
 }
 
-const { entry } = Astro.props;
+const { entry, locale = 'en' } = Astro.props;
 const equation = asEquation(entry.data);
 const slug = entry.id;
+const name = localizedName(equation, locale);
 
 const meta = engineSlice.equations[slug];
 if (meta === undefined || !meta.calculatorEnabled) {
@@ -38,7 +42,7 @@ for (const [key, term] of Object.entries(meta.terms)) {
 		}
 		constants.push({
 			key,
-			name: constant.name.en,
+			name: localizedName(constant, locale),
 			symbolText: constant.symbolText,
 			value: constant.value,
 			unitSymbol: engineSlice.units[constant.unit]?.symbolText ?? '',
@@ -52,7 +56,7 @@ for (const [key, term] of Object.entries(meta.terms)) {
 		}
 		fields.push({
 			key,
-			label: magnitude.name.en,
+			label: localizedName(magnitude, locale),
 			symbolText: key,
 			unitSymbol: engineSlice.units[magnitude.baseUnit]?.symbolText ?? '',
 		});
@@ -62,7 +66,7 @@ for (const [key, term] of Object.entries(meta.terms)) {
 	const variable = variables.get(term.ref);
 	fields.push({
 		key,
-		label: variable?.name.en ?? key,
+		label: variable === undefined ? key : localizedName(variable, locale),
 		symbolText: key,
 		unitSymbol:
 			variable?.defaultUnit === undefined
@@ -73,16 +77,18 @@ for (const [key, term] of Object.entries(meta.terms)) {
 ---
 
 <BaseLayout
-	title={`${equation.name.en} calculator — Equreka`}
-	description={`Solve ${equation.name.en} for any term — leave one field empty and the Equreka engine computes it.`}
+	title={`${t(locale, 'calculator.pageTitle', { name })} — Equreka`}
+	description={t(locale, 'meta.calculatorEquation', { name })}
+	locale={locale}
 >
-	<h1 class="text-3xl font-bold tracking-tight">{equation.name.en} calculator</h1>
+	<h1 class="text-3xl font-bold tracking-tight">{t(locale, 'calculator.pageTitle', { name })}</h1>
 	<div class="mt-4" set:html={renderExpressionHtml(equation.expression, equation.terms)} />
 	<p class="mt-2 max-w-2xl text-ink-muted">
-		Values are in the units shown next to each field. Leave exactly one field empty — the engine
-		solves for it as you type. See the
-		<a class="text-accent hover:underline" href={`/equations/${slug}/`}>equation reference</a>
-		for the term-by-term breakdown.
+		{t(locale, 'calculator.leadBefore')}
+		<a class="text-accent hover:underline" href={localePath(locale, `/equations/${slug}/`)}>
+			{t(locale, 'calculator.leadLink')}
+		</a>
+		{t(locale, 'calculator.leadAfter')}
 	</p>
 	<div class="mt-6 max-w-2xl">
 		<CalculatorIsland
@@ -91,6 +97,7 @@ for (const [key, term] of Object.entries(meta.terms)) {
 			fields={fields}
 			constants={constants}
 			nonNegative={nonNegative}
+			locale={locale}
 		/>
 	</div>
 </BaseLayout>

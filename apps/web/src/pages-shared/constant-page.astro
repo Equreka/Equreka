@@ -1,22 +1,28 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
 import { formatSigFigs } from '@equreka/engine/format';
+import UntranslatedBadge from '../components/untranslated-badge.astro';
+import FavoriteToggle from '../islands/favorite-toggle';
 import BaseLayout from '../layouts/base-layout.astro';
 import { CATEGORY_BADGE } from '../lib/category-styles';
 import { asConstant } from '../lib/collections';
+import { localePath } from '../lib/locale-paths';
 import { formatFullPrecision } from '../lib/notation';
 import { engineSlice } from '../lib/server/engine-registry';
 import { renderRichTextHtml, renderSymbolHtml } from '../lib/tex';
 
 interface Props {
 	entry: CollectionEntry<'constants'>;
+	locale?: Locale;
 }
 
-const { entry } = Astro.props;
+const { entry, locale = 'en' } = Astro.props;
 const constant = asConstant(entry.data);
 const slug = entry.id;
 const symbolText =
 	engineSlice.constants[slug]?.symbolText ?? constant.symbol.text ?? constant.symbol.tex;
+const name = localizedName(constant, locale);
 
 const unit = engineSlice.units[constant.unit];
 const unitSymbol = unit?.symbolText ?? '';
@@ -25,22 +31,33 @@ const display = formatSigFigs(parsed);
 const displayIsExact = Number(display) === parsed;
 const fullPrecision = formatFullPrecision(constant.value);
 
-const description = constant.description?.en;
+const description =
+	constant.description === undefined ? undefined : pickLocalized(constant.description, locale);
+const untranslated =
+	locale !== 'en' &&
+	(pickLocalized(constant.name, locale).untranslated || description?.untranslated === true);
 const metaDescription =
 	description === undefined
-		? `${constant.name.en} (${symbolText}) — physical constant reference.`
-		: `${description.replaceAll('$', '').slice(0, 157)}…`;
+		? t(locale, 'meta.constant', { name, symbol: symbolText })
+		: `${description.value.replaceAll('$', '').slice(0, 157)}…`;
 ---
 
-<BaseLayout title={`${constant.name.en} (${symbolText}) — Equreka`} description={metaDescription}>
+<BaseLayout
+	title={`${name} (${symbolText}) — Equreka`}
+	description={metaDescription}
+	locale={locale}
+	ogType="article"
+>
 	<article>
 		<header class="border-b border-border pb-6">
 			<div class="flex flex-wrap items-center gap-2 text-xs font-medium">
-				<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">Constant</span>
+				<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">
+					{t(locale, 'term.constant')}
+				</span>
 				<span
 					class={`rounded-full px-2.5 py-0.5 ${constant.exact ? 'bg-accent/10 text-accent' : 'bg-physics/10 text-physics'}`}
 				>
-					{constant.exact ? 'exact' : 'measured'}
+					{constant.exact ? t(locale, 'badge.exact') : t(locale, 'badge.measured')}
 				</span>
 				{
 					constant.categories.map((category) => (
@@ -51,34 +68,43 @@ const metaDescription =
 						</span>
 					))
 				}
+				<UntranslatedBadge locale={locale} show={untranslated} />
 			</div>
 			<div class="mt-3 flex flex-wrap items-baseline gap-4">
-				<h1 class="text-3xl font-bold tracking-tight">{constant.name.en}</h1>
+				<h1 class="text-3xl font-bold tracking-tight">{name}</h1>
 				<span class="text-2xl" set:html={renderSymbolHtml(constant.symbol.tex, symbolText)} />
+				<FavoriteToggle client:idle collection="constants" slug={slug} locale={locale} />
 			</div>
 		</header>
 
 		<section aria-labelledby="constant-value-heading" class="mt-6">
-			<h2 id="constant-value-heading" class="text-2xl font-semibold">Value</h2>
+			<h2 id="constant-value-heading" class="text-2xl font-semibold">
+				{t(locale, 'constant.value')}
+			</h2>
 			<p class="mt-3 text-2xl">
 				<span set:html={renderSymbolHtml(constant.symbol.tex, symbolText)} />
 				{displayIsExact ? ' = ' : ' ≈ '}
 				<strong>{display}</strong>
 				{
 					unit !== undefined && (
-						<a class="ml-2 text-accent hover:underline" href={`/units/${unit.slug}/`}>
+						<a
+							class="ml-2 text-accent hover:underline"
+							href={localePath(locale, `/units/${unit.slug}/`)}
+						>
 							{unitSymbol}
 						</a>
 					)
 				}
 				{
 					!displayIsExact && (
-						<span class="ml-2 text-sm text-ink-muted">(6 significant figures)</span>
+						<span class="ml-2 text-sm text-ink-muted">{t(locale, 'common.sigFigs')}</span>
 					)
 				}
 			</p>
 			<div class="mt-3 max-w-3xl rounded-lg border border-border bg-surface p-4">
-				<p class="text-xs font-medium text-ink-muted uppercase tracking-wide">Full precision</p>
+				<p class="text-xs font-medium text-ink-muted uppercase tracking-wide">
+					{t(locale, 'constant.fullPrecision')}
+				</p>
 				<p class="mt-1 break-words font-mono text-sm leading-6">
 					{fullPrecision}{unitSymbol === '' ? '' : ` ${unitSymbol}`}
 				</p>
@@ -93,7 +119,7 @@ const metaDescription =
 			{
 				constant.source !== undefined && (
 					<p class="mt-2 text-sm text-ink-muted">
-						Source:{' '}
+						{t(locale, 'constant.source')}{' '}
 						{constant.source.url !== undefined ? (
 							<a class="text-accent hover:underline" href={constant.source.url}>
 								{constant.source.name}
@@ -108,26 +134,29 @@ const metaDescription =
 
 		{
 			description !== undefined && (
-				<div class="mt-6 max-w-3xl leading-7" set:html={renderRichTextHtml(description)} />
+				<div class="mt-6 max-w-3xl leading-7" set:html={renderRichTextHtml(description.value)} />
 			)
 		}
 
 		<dl class="mt-6 grid max-w-3xl gap-x-8 gap-y-3 sm:grid-cols-[10rem_1fr]">
-			<dt class="text-sm font-medium text-ink-muted">Unit</dt>
+			<dt class="text-sm font-medium text-ink-muted">{t(locale, 'table.unit')}</dt>
 			<dd>
 				{
 					unit !== undefined ? (
-						<a class="text-accent hover:underline" href={`/units/${unit.slug}/`}>
-							{unit.name.en} ({unitSymbol})
+						<a
+							class="text-accent hover:underline"
+							href={localePath(locale, `/units/${unit.slug}/`)}
+						>
+							{localizedName(unit, locale)} ({unitSymbol})
 						</a>
 					) : (
 						constant.unit
 					)
 				}
 			</dd>
-			<dt class="text-sm font-medium text-ink-muted">Status</dt>
+			<dt class="text-sm font-medium text-ink-muted">{t(locale, 'table.status')}</dt>
 			<dd class="text-sm">
-				{constant.exact ? 'Exact — fixed by definition.' : 'Measured — carries uncertainty.'}
+				{constant.exact ? t(locale, 'constant.statusExact') : t(locale, 'constant.statusMeasured')}
 			</dd>
 		</dl>
 	</article>

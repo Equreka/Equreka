@@ -1,24 +1,31 @@
 ---
 import { getCollection } from 'astro:content';
+import { type Locale, localizedName, t } from '@equreka/core/i18n';
 import BaseLayout from '../layouts/base-layout.astro';
 import { asEquation } from '../lib/collections';
-import { EQUATION_KIND_LABELS } from '../lib/labels';
+import { localePath } from '../lib/locale-paths';
 import { renderExpressionHtml } from '../lib/tex';
+
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
 
 const equations = (await getCollection('equations'))
 	.map((entry) => ({ slug: entry.id, ...asEquation(entry.data) }))
 	.filter((equation) => equation.calculator.enabled)
-	.sort((a, b) => a.name.en.localeCompare(b.name.en));
+	.sort((a, b) => localizedName(a, locale).localeCompare(localizedName(b, locale), locale));
 ---
 
 <BaseLayout
-	title="Calculator — Equreka"
-	description="Solve any calculator-enabled equation for any term with the Equreka engine."
+	title={`${t(locale, 'calculator.title')} — Equreka`}
+	description={t(locale, 'meta.calculator')}
+	locale={locale}
 >
-	<h1 class="text-3xl font-bold tracking-tight">Calculator</h1>
+	<h1 class="text-3xl font-bold tracking-tight">{t(locale, 'calculator.title')}</h1>
 	<p class="mt-2 max-w-2xl text-ink-muted">
-		{equations.length} equations can be solved for any of their terms: fill in every value except
-		one, and the engine computes the rest — no unit conversions to get wrong.
+		{t(locale, 'calculator.lead', { count: equations.length })}
 	</p>
 	<ul class="mt-6 grid gap-4">
 		{
@@ -26,18 +33,18 @@ const equations = (await getCollection('equations'))
 				<li class="rounded-lg border border-border bg-surface p-5">
 					<div class="flex flex-wrap items-center gap-2 text-xs font-medium">
 						<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">
-							{EQUATION_KIND_LABELS[equation.kind]}
+							{t(locale, `kind.${equation.kind}`)}
 						</span>
 					</div>
 					<h2 class="mt-2 text-xl font-semibold">
-						<a class="text-accent hover:underline" href={`/calculator/${equation.slug}/`}>
-							{equation.name.en}
+						<a
+							class="text-accent hover:underline"
+							href={localePath(locale, `/calculator/${equation.slug}/`)}
+						>
+							{localizedName(equation, locale)}
 						</a>
 					</h2>
-					<div
-						class="mt-2"
-						set:html={renderExpressionHtml(equation.expression, equation.terms)}
-					/>
+					<div class="mt-2" set:html={renderExpressionHtml(equation.expression, equation.terms)} />
 				</li>
 			))
 		}

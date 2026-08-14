@@ -1,0 +1,21 @@
+---
+import { type Locale, t } from '@equreka/core/i18n';
+import FavoritesList from '../islands/favorites-list';
+import BaseLayout from '../layouts/base-layout.astro';
+
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
+---
+
+<BaseLayout
+	title={`${t(locale, 'favorites.title')} — Equreka`}
+	description={t(locale, 'meta.favorites')}
+	locale={locale}
+>
+	<h1 class="text-3xl font-bold tracking-tight">{t(locale, 'favorites.title')}</h1>
+	<p class="mt-2 max-w-2xl text-ink-muted">{t(locale, 'favorites.lead')}</p>
+	<FavoritesList client:load locale={locale} />
+</BaseLayout>

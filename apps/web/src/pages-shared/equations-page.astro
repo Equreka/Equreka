@@ -1,24 +1,31 @@
 ---
 import { getCollection } from 'astro:content';
+import { type Locale, localizedName, t } from '@equreka/core/i18n';
 import BaseLayout from '../layouts/base-layout.astro';
 import { CATEGORY_BADGE } from '../lib/category-styles';
 import { asEquation } from '../lib/collections';
-import { EQUATION_KIND_LABELS } from '../lib/labels';
+import { localePath } from '../lib/locale-paths';
 import { renderExpressionHtml } from '../lib/tex';
+
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
 
 const equations = (await getCollection('equations'))
 	.map((entry) => ({ slug: entry.id, ...asEquation(entry.data) }))
-	.sort((a, b) => a.name.en.localeCompare(b.name.en));
+	.sort((a, b) => localizedName(a, locale).localeCompare(localizedName(b, locale), locale));
 ---
 
 <BaseLayout
-	title="Equations — Equreka"
-	description="Equations and formulas in the Equreka wiki, with term-by-term breakdowns and calculators."
+	title={`${t(locale, 'collection.equations')} — Equreka`}
+	description={t(locale, 'meta.equations')}
+	locale={locale}
 >
-	<h1 class="text-3xl font-bold tracking-tight">Equations</h1>
+	<h1 class="text-3xl font-bold tracking-tight">{t(locale, 'collection.equations')}</h1>
 	<p class="mt-2 max-w-2xl text-ink-muted">
-		{equations.length} equations and formulas. Hover a term to highlight it everywhere on the page;
-		calculator-enabled entries solve for any term.
+		{t(locale, 'equations.lead', { count: equations.length })}
 	</p>
 	<ul class="mt-6 grid gap-4">
 		{
@@ -26,7 +33,7 @@ const equations = (await getCollection('equations'))
 				<li class="rounded-lg border border-border bg-surface p-5">
 					<div class="flex flex-wrap items-center gap-2 text-xs font-medium">
 						<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">
-							{EQUATION_KIND_LABELS[equation.kind]}
+							{t(locale, `kind.${equation.kind}`)}
 						</span>
 						{equation.categories.map((category) => (
 							<span
@@ -37,20 +44,20 @@ const equations = (await getCollection('equations'))
 						))}
 					</div>
 					<h2 class="mt-2 text-xl font-semibold">
-						<a class="text-accent hover:underline" href={`/equations/${equation.slug}/`}>
-							{equation.name.en}
+						<a
+							class="text-accent hover:underline"
+							href={localePath(locale, `/equations/${equation.slug}/`)}
+						>
+							{localizedName(equation, locale)}
 						</a>
 					</h2>
-					<div
-						class="mt-2"
-						set:html={renderExpressionHtml(equation.expression, equation.terms)}
-					/>
+					<div class="mt-2" set:html={renderExpressionHtml(equation.expression, equation.terms)} />
 					{equation.calculator.enabled && (
 						<a
 							class="mt-2 inline-block text-sm text-accent hover:underline"
-							href={`/calculator/${equation.slug}/`}
+							href={localePath(locale, `/calculator/${equation.slug}/`)}
 						>
-							Open in the calculator →
+							{t(locale, 'equations.openCalculator')}
 						</a>
 					)}
 				</li>

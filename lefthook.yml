@@ -13,7 +13,7 @@ pre-commit:
     # Secret scan. Fail-closed in CI (binary installed there); locally the
     # hook is skipped when the gitleaks binary is absent rather than lying.
     - name: gitleaks
-      run: gitleaks protect --staged --redact
+      run: gitleaks protect --staged --redact --config .gitleaks.toml
       skip:
         - run: '! command -v gitleaks'
 

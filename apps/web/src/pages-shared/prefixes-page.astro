@@ -1,9 +1,16 @@
 ---
 import { getCollection } from 'astro:content';
+import { type Locale, localizedName, t } from '@equreka/core/i18n';
 import BaseLayout from '../layouts/base-layout.astro';
 import { asPrefix } from '../lib/collections';
 import { formatFullPrecision, powerOfTenExponent, toSuperscript } from '../lib/notation';
 import { renderSymbolHtml } from '../lib/tex';
+
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
 
 const prefixes = (await getCollection('prefixes')).map((entry) => {
 	const prefix = asPrefix(entry.data);
@@ -21,19 +28,19 @@ const multiples = prefixes.filter((prefix) => (prefix.exponent ?? 0) >= 0).sort(
 const submultiples = prefixes.filter((prefix) => (prefix.exponent ?? 0) < 0).sort(byMagnitudeDesc);
 
 const tables = [
-	{ id: 'multiples', title: 'Multiples', rows: multiples },
-	{ id: 'submultiples', title: 'Submultiples', rows: submultiples },
+	{ id: 'multiples', title: t(locale, 'prefixes.multiples'), rows: multiples },
+	{ id: 'submultiples', title: t(locale, 'prefixes.submultiples'), rows: submultiples },
 ];
 ---
 
 <BaseLayout
-	title="Prefixes — Equreka"
-	description="SI unit prefixes — multiples and submultiples of ten, with symbols and power-of-ten notation."
+	title={`${t(locale, 'collection.prefixes')} — Equreka`}
+	description={t(locale, 'meta.prefixes')}
+	locale={locale}
 >
-	<h1 class="text-3xl font-bold tracking-tight">Prefixes</h1>
+	<h1 class="text-3xl font-bold tracking-tight">{t(locale, 'collection.prefixes')}</h1>
 	<p class="mt-2 max-w-2xl text-ink-muted">
-		{prefixes.length} SI prefixes. A prefix multiplies a unit by a power of ten — kilometre is
-		10³ metres, nanosecond is 10⁻⁹ seconds.
+		{t(locale, 'prefixes.lead', { count: prefixes.length })}
 	</p>
 	{
 		tables.map((table) => (
@@ -47,13 +54,13 @@ const tables = [
 						<thead>
 							<tr class="border-b border-border text-sm text-ink-muted">
 								<th scope="col" class="w-24 px-4 py-2 font-medium">
-									Symbol
+									{t(locale, 'table.symbol')}
 								</th>
 								<th scope="col" class="px-4 py-2 font-medium">
-									Name
+									{t(locale, 'table.name')}
 								</th>
 								<th scope="col" class="px-4 py-2 font-medium">
-									Value
+									{t(locale, 'table.value')}
 								</th>
 							</tr>
 						</thead>
@@ -67,7 +74,7 @@ const tables = [
 											prefix.symbol.text ?? prefix.symbol.tex,
 										)}
 									/>
-									<td class="px-4 py-2">{prefix.name.en}</td>
+									<td class="px-4 py-2">{localizedName(prefix, locale)}</td>
 									<td class="px-4 py-2 font-mono text-sm">
 										{prefix.exponent === null
 											? formatFullPrecision(prefix.value)

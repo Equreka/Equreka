@@ -1,21 +1,27 @@
 ---
 import type { CollectionEntry } from 'astro:content';
+import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
 import { formatSigFigs } from '@equreka/engine/format';
+import UntranslatedBadge from '../components/untranslated-badge.astro';
+import FavoriteToggle from '../islands/favorite-toggle';
 import BaseLayout from '../layouts/base-layout.astro';
 import { CATEGORY_BADGE } from '../lib/category-styles';
 import { asMagnitude } from '../lib/collections';
+import { localePath } from '../lib/locale-paths';
 import { formatDimension } from '../lib/notation';
 import { engineSlice, unitRegistry } from '../lib/server/engine-registry';
 import { renderRichTextHtml, renderSymbolHtml } from '../lib/tex';
 
 interface Props {
 	entry: CollectionEntry<'magnitudes'>;
+	locale?: Locale;
 }
 
-const { entry } = Astro.props;
+const { entry, locale = 'en' } = Astro.props;
 const magnitude = asMagnitude(entry.data);
 const slug = entry.id;
 const symbolText = magnitude.symbol.text ?? magnitude.symbol.tex;
+const name = localizedName(magnitude, locale);
 
 const compiled = engineSlice.magnitudes[slug];
 const dimensionText = compiled === undefined ? '' : formatDimension(compiled.dimension);
@@ -24,7 +30,7 @@ const baseSymbol = baseUnit?.symbolText ?? '';
 
 const units = Object.values(engineSlice.units)
 	.filter((unit) => unit.magnitudes.includes(slug))
-	.sort((a, b) => a.name.en.localeCompare(b.name.en));
+	.sort((a, b) => localizedName(a, locale).localeCompare(localizedName(b, locale), locale));
 const rows = units.map((unit) => {
 	const converted = unitRegistry.convert(1, unit.slug, magnitude.baseUnit);
 	return {
@@ -35,18 +41,29 @@ const rows = units.map((unit) => {
 	};
 });
 
-const description = magnitude.description?.en;
+const description =
+	magnitude.description === undefined ? undefined : pickLocalized(magnitude.description, locale);
+const untranslated =
+	locale !== 'en' &&
+	(pickLocalized(magnitude.name, locale).untranslated || description?.untranslated === true);
 const metaDescription =
 	description === undefined
-		? `${magnitude.name.en} (${symbolText}) — magnitude reference with all of its units.`
-		: `${description.replaceAll('$', '').slice(0, 157)}…`;
+		? t(locale, 'meta.magnitude', { name, symbol: symbolText })
+		: `${description.value.replaceAll('$', '').slice(0, 157)}…`;
 ---
 
-<BaseLayout title={`${magnitude.name.en} (${symbolText}) — Equreka`} description={metaDescription}>
+<BaseLayout
+	title={`${name} (${symbolText}) — Equreka`}
+	description={metaDescription}
+	locale={locale}
+	ogType="article"
+>
 	<article>
 		<header class="border-b border-border pb-6">
 			<div class="flex flex-wrap items-center gap-2 text-xs font-medium">
-				<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">Magnitude</span>
+				<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">
+					{t(locale, 'term.magnitude')}
+				</span>
 				{
 					magnitude.categories.map((category) => (
 						<span
@@ -58,19 +75,23 @@ const metaDescription =
 				}
 				{
 					dimensionText === '' && (
-						<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">dimensionless</span>
+						<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">
+							{t(locale, 'badge.dimensionless')}
+						</span>
 					)
 				}
+				<UntranslatedBadge locale={locale} show={untranslated} />
 			</div>
 			<div class="mt-3 flex flex-wrap items-baseline gap-4">
-				<h1 class="text-3xl font-bold tracking-tight">{magnitude.name.en}</h1>
+				<h1 class="text-3xl font-bold tracking-tight">{name}</h1>
 				<span class="text-2xl" set:html={renderSymbolHtml(magnitude.symbol.tex, symbolText)} />
+				<FavoriteToggle client:idle collection="magnitudes" slug={slug} locale={locale} />
 			</div>
 		</header>
 
 		{
 			description !== undefined && (
-				<div class="mt-6 max-w-3xl leading-7" set:html={renderRichTextHtml(description)} />
+				<div class="mt-6 max-w-3xl leading-7" set:html={renderRichTextHtml(description.value)} />
 			)
 		}
 
@@ -78,17 +99,20 @@ const metaDescription =
 			{
 				dimensionText !== '' && (
 					<>
-						<dt class="text-sm font-medium text-ink-muted">Dimension</dt>
+						<dt class="text-sm font-medium text-ink-muted">{t(locale, 'table.dimension')}</dt>
 						<dd>{dimensionText}</dd>
 					</>
 				)
 			}
-			<dt class="text-sm font-medium text-ink-muted">Base unit</dt>
+			<dt class="text-sm font-medium text-ink-muted">{t(locale, 'table.baseUnit')}</dt>
 			<dd>
 				{
 					baseUnit !== undefined ? (
-						<a class="text-accent hover:underline" href={`/units/${baseUnit.slug}/`}>
-							{baseUnit.name.en} ({baseUnit.symbolText})
+						<a
+							class="text-accent hover:underline"
+							href={localePath(locale, `/units/${baseUnit.slug}/`)}
+						>
+							{localizedName(baseUnit, locale)} ({baseSymbol})
 						</a>
 					) : (
 						magnitude.baseUnit
@@ -98,8 +122,8 @@ const metaDescription =
 			{
 				magnitude.nonNegative === true && (
 					<>
-						<dt class="text-sm font-medium text-ink-muted">Sign</dt>
-						<dd class="text-sm text-ink-muted">Non-negative quantity</dd>
+						<dt class="text-sm font-medium text-ink-muted">{t(locale, 'magnitude.sign')}</dt>
+						<dd class="text-sm text-ink-muted">{t(locale, 'magnitude.nonNegative')}</dd>
 					</>
 				)
 			}
@@ -109,24 +133,21 @@ const metaDescription =
 			rows.length > 0 && (
 				<section aria-labelledby="magnitude-units-heading" class="mt-10">
 					<h2 id="magnitude-units-heading" class="text-2xl font-semibold">
-						Units of {magnitude.name.en.toLowerCase()}
+						{t(locale, 'magnitude.unitsOf', { name: name.toLowerCase() })}
 					</h2>
-					<p class="mt-1 text-sm text-ink-muted">
-						Every unit measuring this magnitude, with its engine-computed factor to the base unit.
-						Approximate values are rounded to 6 significant figures.
-					</p>
+					<p class="mt-1 text-sm text-ink-muted">{t(locale, 'magnitude.unitsLead')}</p>
 					<div class="mt-4 overflow-x-auto rounded-lg border border-border">
 						<table class="w-full border-collapse bg-surface text-left">
 							<thead>
 								<tr class="border-b border-border text-sm text-ink-muted">
 									<th scope="col" class="px-4 py-2 font-medium">
-										Unit
+										{t(locale, 'table.unit')}
 									</th>
 									<th scope="col" class="px-4 py-2 font-medium">
-										Symbol
+										{t(locale, 'table.symbol')}
 									</th>
 									<th scope="col" class="px-4 py-2 font-medium">
-										Factor to base
+										{t(locale, 'table.factorToBase')}
 									</th>
 								</tr>
 							</thead>
@@ -134,8 +155,11 @@ const metaDescription =
 								{rows.map((row) => (
 									<tr class="border-b border-border last:border-b-0">
 										<td class="px-4 py-2">
-											<a class="text-accent hover:underline" href={`/units/${row.unit.slug}/`}>
-												{row.unit.name.en}
+											<a
+												class="text-accent hover:underline"
+												href={localePath(locale, `/units/${row.unit.slug}/`)}
+											>
+												{localizedName(row.unit, locale)}
 											</a>
 										</td>
 										<td
@@ -144,7 +168,9 @@ const metaDescription =
 										/>
 										<td class="px-4 py-2 font-mono text-sm">
 											{row.isBase ? (
-												<span class="font-sans text-ink-muted">base unit</span>
+												<span class="font-sans text-ink-muted">
+													{t(locale, 'conversions.baseUnit')}
+												</span>
 											) : row.value === undefined ? (
 												''
 											) : (

@@ -1,22 +1,56 @@
 ---
 import '../styles/global.css';
+import { type Locale, t } from '@equreka/core/i18n';
 import { tokens } from '@equreka/tokens';
 import SearchBox from '../islands/search-box';
+import { localePath } from '../lib/locale-paths';
+import { GITHUB_URL, LICENSE_URL, SITE_VERSION } from '../lib/site';
 
 interface Props {
 	title: string;
 	description?: string;
+	locale?: Locale;
+	ogType?: 'website' | 'article';
 }
 
-const { title, description } = Astro.props;
+const { title, description, locale = 'en', ogType = 'website' } = Astro.props;
+
+const site = Astro.site ?? new URL('https://equreka.com');
+const rawPath = Astro.url.pathname;
+const path = rawPath.endsWith('/') ? rawPath : `${rawPath}/`;
+const basePath = locale === 'es' ? path.replace(/^\/es(?=\/)/, '') : path;
+const canonicalUrl = new URL(path, site);
+const enUrl = new URL(basePath, site);
+const esUrl = new URL(`/es${basePath}`, site);
+
+const NAV_ITEMS = [
+	{ key: 'nav.units', href: '/units/' },
+	{ key: 'nav.magnitudes', href: '/magnitudes/' },
+	{ key: 'nav.constants', href: '/constants/' },
+	{ key: 'nav.prefixes', href: '/prefixes/' },
+	{ key: 'nav.equations', href: '/equations/' },
+	{ key: 'nav.calculator', href: '/calculator/' },
+	{ key: 'nav.converter', href: '/converter/' },
+	{ key: 'nav.search', href: '/search/' },
+	{ key: 'nav.favorites', href: '/favorites/' },
+	{ key: 'nav.settings', href: '/settings/' },
+] as const;
 ---
 
-<html lang="en">
+<html lang={locale}>
 	<head>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title>{title}</title>
 		{description !== undefined && <meta name="description" content={description} />}
+		<link rel="canonical" href={canonicalUrl.href} />
+		<link rel="alternate" hreflang="en" href={enUrl.href} />
+		<link rel="alternate" hreflang="es" href={esUrl.href} />
+		<link rel="alternate" hreflang="x-default" href={enUrl.href} />
+		<meta property="og:title" content={title} />
+		{description !== undefined && <meta property="og:description" content={description} />}
+		<meta property="og:type" content={ogType} />
+		<meta property="og:url" content={canonicalUrl.href} />
 		<meta name="theme-color" content={tokens.color.accent.light} />
 		<link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
 		<link rel="manifest" href="/manifest.webmanifest" />
@@ -26,7 +60,8 @@ const { title, description } = Astro.props;
 			(() => {
 				let stored = null;
 				try {
-					stored = localStorage.getItem('equreka-theme');
+					const raw = localStorage.getItem('equreka.v1.settings');
+					if (raw !== null) stored = JSON.parse(raw).theme ?? null;
 				} catch {}
 				const theme =
 					stored === 'light' || stored === 'dark'
@@ -41,23 +76,24 @@ const { title, description } = Astro.props;
 	<body class="flex min-h-screen flex-col bg-bg font-sans text-ink">
 		<header class="border-b border-border bg-surface">
 			<div class="mx-auto flex max-w-5xl flex-wrap items-center gap-4 px-4 py-3">
-				<a href="/" class="text-xl font-bold tracking-tight text-accent">Equreka</a>
-				<nav aria-label="Main" class="flex flex-wrap gap-4 text-sm">
-					<a href="/units/" class="text-ink-muted hover:text-ink">Units</a>
-					<a href="/magnitudes/" class="text-ink-muted hover:text-ink">Magnitudes</a>
-					<a href="/constants/" class="text-ink-muted hover:text-ink">Constants</a>
-					<a href="/prefixes/" class="text-ink-muted hover:text-ink">Prefixes</a>
-					<a href="/equations/" class="text-ink-muted hover:text-ink">Equations</a>
-					<a href="/calculator/" class="text-ink-muted hover:text-ink">Calculator</a>
-					<a href="/converter/" class="text-ink-muted hover:text-ink">Converter</a>
-					<a href="/search/" class="text-ink-muted hover:text-ink">Search</a>
+				<a href={localePath(locale, '/')} class="text-xl font-bold tracking-tight text-accent">
+					Equreka
+				</a>
+				<nav aria-label={t(locale, 'nav.aria')} class="flex flex-wrap gap-4 text-sm">
+					{
+						NAV_ITEMS.map((item) => (
+							<a href={localePath(locale, item.href)} class="text-ink-muted hover:text-ink">
+								{t(locale, item.key)}
+							</a>
+						))
+					}
 				</nav>
 				<div class="ml-auto flex items-center gap-2">
-					<SearchBox client:idle variant="header" />
+					<SearchBox client:idle variant="header" locale={locale} />
 					<button
 						id="theme-toggle"
 						type="button"
-						aria-label="Toggle color theme"
+						aria-label={t(locale, 'layout.themeToggle')}
 						class="rounded-md border border-border px-2.5 py-1.5 text-sm text-ink-muted hover:text-ink"
 					>
 						<span class="theme-toggle-dark" aria-hidden="true">☾</span>
@@ -70,11 +106,13 @@ const { title, description } = Astro.props;
 			<slot />
 		</main>
 		<footer class="border-t border-border bg-surface">
-			<div class="mx-auto max-w-5xl px-4 py-6 text-sm text-ink-muted">
-				<p>
-					Equreka — an open-source educational wiki and calculator for units, magnitudes,
-					constants, and equations.
-				</p>
+			<div
+				class="mx-auto flex max-w-5xl flex-wrap items-baseline gap-x-6 gap-y-2 px-4 py-6 text-sm text-ink-muted"
+			>
+				<p class="w-full">{t(locale, 'footer.tagline')}</p>
+				<a class="text-accent hover:underline" href={GITHUB_URL}>{t(locale, 'footer.github')}</a>
+				<a class="text-accent hover:underline" href={LICENSE_URL}>{t(locale, 'footer.license')}</a>
+				<span>v{SITE_VERSION}</span>
 			</div>
 		</footer>
 		<style is:global>
@@ -86,12 +124,24 @@ const { title, description } = Astro.props;
 			}
 		</style>
 		<script>
+			/**
+			 * Header theme toggle. Writes through the same versioned settings
+			 * key the useSettings hook owns, then pings the adapter's
+			 * same-document channel so any mounted settings island re-reads.
+			 */
+			const SETTINGS_KEY = 'equreka.v1.settings';
+
 			const toggle = document.getElementById('theme-toggle');
 			toggle?.addEventListener('click', () => {
 				const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
 				document.documentElement.dataset.theme = next;
 				try {
-					localStorage.setItem('equreka-theme', next);
+					const raw = localStorage.getItem(SETTINGS_KEY);
+					const settings = raw === null ? {} : JSON.parse(raw);
+					localStorage.setItem(SETTINGS_KEY, JSON.stringify({ ...settings, theme: next }));
+					window.dispatchEvent(
+						new CustomEvent('equreka:kv', { detail: { key: SETTINGS_KEY } }),
+					);
 				} catch {}
 			});
 		</script>

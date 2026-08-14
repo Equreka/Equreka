@@ -1,8 +1,16 @@
 ---
 import { getCollection } from 'astro:content';
+import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
 import BaseLayout from '../layouts/base-layout.astro';
 import { CATEGORY_BORDER } from '../lib/category-styles';
 import { asCategory, asEquation } from '../lib/collections';
+import { localePath } from '../lib/locale-paths';
+
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
 
 const categories = (await getCollection('categories'))
 	.map((entry) => ({ slug: entry.id, ...asCategory(entry.data) }))
@@ -17,81 +25,77 @@ const calculatorCount = equations.filter((equation) => equation.calculator.enabl
 
 const collectionCards = [
 	{
-		title: 'Units',
+		title: t(locale, 'collection.units'),
 		count: unitCount,
-		description: 'Units of measurement across systems, with computed conversion tables.',
+		description: t(locale, 'home.card.units'),
 		href: '/units/',
 	},
 	{
-		title: 'Magnitudes',
+		title: t(locale, 'collection.magnitudes'),
 		count: magnitudeCount,
-		description: 'Physical quantities with their dimensions and the units that measure them.',
+		description: t(locale, 'home.card.magnitudes'),
 		href: '/magnitudes/',
 	},
 	{
-		title: 'Constants',
+		title: t(locale, 'collection.constants'),
 		count: constantCount,
-		description: 'Physical constants at full precision, exact and measured.',
+		description: t(locale, 'home.card.constants'),
 		href: '/constants/',
 	},
 	{
-		title: 'Prefixes',
+		title: t(locale, 'collection.prefixes'),
 		count: prefixCount,
-		description: 'SI prefixes — every multiple and submultiple of ten.',
+		description: t(locale, 'home.card.prefixes'),
 		href: '/prefixes/',
 	},
 	{
-		title: 'Equations',
+		title: t(locale, 'collection.equations'),
 		count: equationCount,
-		description: 'Equations and formulas with term-by-term breakdowns.',
+		description: t(locale, 'home.card.equations'),
 		href: '/equations/',
 	},
 	{
-		title: 'Calculator',
+		title: t(locale, 'nav.calculator'),
 		count: calculatorCount,
-		description: 'Solve any calculator-enabled equation for any of its terms.',
+		description: t(locale, 'home.card.calculator'),
 		href: '/calculator/',
 	},
 	{
-		title: 'Converter',
+		title: t(locale, 'nav.converter'),
 		count: undefined,
-		description: 'Convert values between any pair of compatible units.',
+		description: t(locale, 'home.card.converter'),
 		href: '/converter/',
 	},
 	{
-		title: 'Search',
+		title: t(locale, 'nav.search'),
 		count: undefined,
-		description: 'Find any unit, magnitude, or constant by name, symbol, or alias.',
+		description: t(locale, 'home.card.search'),
 		href: '/search/',
 	},
 ];
 ---
 
-<BaseLayout
-	title="Equreka — units, magnitudes, and conversions"
-	description="Open-source educational wiki and calculator: units, magnitudes, constants, and equations with computed conversions."
->
+<BaseLayout title={t(locale, 'home.title')} description={t(locale, 'meta.home')} locale={locale}>
 	<section class="py-6">
 		<h1 class="text-4xl font-bold tracking-tight">Equreka</h1>
-		<p class="mt-3 max-w-2xl text-lg text-ink-muted">
-			A reference wiki for units, magnitudes, constants, and equations — every conversion computed
-			from first principles, never hand-copied.
-		</p>
+		<p class="mt-3 max-w-2xl text-lg text-ink-muted">{t(locale, 'home.lead')}</p>
 	</section>
 
 	<section aria-labelledby="categories-heading" class="py-6">
-		<h2 id="categories-heading" class="text-2xl font-semibold">Categories</h2>
+		<h2 id="categories-heading" class="text-2xl font-semibold">{t(locale, 'home.categories')}</h2>
 		<ul class="mt-4 grid gap-4 sm:grid-cols-2">
 			{
 				categories.map((category) => (
 					<li>
 						<a
-							href={`/categories/${category.slug}/`}
+							href={localePath(locale, `/categories/${category.slug}/`)}
 							class={`block h-full rounded-lg border border-border ${CATEGORY_BORDER[category.slug] ?? CATEGORY_BORDER.universal} border-t-4 bg-surface p-5 hover:shadow-md`}
 						>
-							<h3 class="text-lg font-semibold">{category.name.en}</h3>
+							<h3 class="text-lg font-semibold">{localizedName(category, locale)}</h3>
 							{category.description !== undefined && (
-								<p class="mt-2 line-clamp-3 text-sm text-ink-muted">{category.description.en}</p>
+								<p class="mt-2 line-clamp-3 text-sm text-ink-muted">
+									{pickLocalized(category.description, locale).value}
+								</p>
 							)}
 						</a>
 					</li>
@@ -101,13 +105,13 @@ const collectionCards = [
 	</section>
 
 	<section aria-labelledby="browse-heading" class="py-6">
-		<h2 id="browse-heading" class="text-2xl font-semibold">Browse</h2>
+		<h2 id="browse-heading" class="text-2xl font-semibold">{t(locale, 'home.browse')}</h2>
 		<ul class="mt-4 grid gap-4 sm:grid-cols-2">
 			{
 				collectionCards.map((card) => (
 					<li>
 						<a
-							href={card.href}
+							href={localePath(locale, card.href)}
 							class="block h-full rounded-lg border border-border bg-surface p-5 hover:shadow-md"
 						>
 							<h3 class="text-lg font-semibold text-accent">

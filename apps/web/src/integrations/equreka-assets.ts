@@ -8,10 +8,28 @@ import type { AstroIntegration } from 'astro';
 const requireFromHere = createRequire(import.meta.url);
 
 /**
+ * Locales with runtime payloads — one search index, converter payload, and
+ * reader payload each. Mirrors @equreka/core/i18n LOCALES.
+ */
+const LOCALES = ['en', 'es'] as const;
+
+type PayloadLocale = (typeof LOCALES)[number];
+
+interface LocalizedField {
+	en: string;
+	es?: string;
+}
+
+function localized(field: LocalizedField, locale: PayloadLocale): string {
+	return field[locale] ?? field.en;
+}
+
+/**
  * Client slice of the engine artifact for the converter island: per-unit
  * conversion parameters and per-magnitude picker metadata only — no TeX, no
- * prefixes/constants/equations, English names flattened to strings. The
- * island rebuilds an EngineSlice-shaped object from this at runtime.
+ * prefixes/constants/equations, names flattened to locale-resolved strings
+ * (es falls back to en while content is untranslated). The island rebuilds
+ * an EngineSlice-shaped object from this at runtime.
  */
 export interface ConverterPayload {
 	units: Record<
@@ -30,10 +48,11 @@ export interface ConverterPayload {
 }
 
 /**
- * One entry of the offline reader payload: English name/symbol/description
- * only. Descriptions keep their inline $TeX$ fragments (the reader renders
- * them as plain text) but semantic annotation macros are reduced to their
- * arguments — the reader must work from data alone, without KaTeX.
+ * One entry of the offline reader payload: locale-resolved
+ * name/symbol/description. Descriptions keep their inline $TeX$ fragments
+ * (the reader renders them as plain text) but semantic annotation macros
+ * are reduced to their arguments — the reader must work from data alone,
+ * without KaTeX.
  */
 export interface ReaderEntry {
 	name: string;
@@ -63,14 +82,14 @@ const READER_COLLECTIONS = [
 ] as const;
 
 interface PresentationEntry {
-	name: { en: string };
+	name: LocalizedField;
 	symbolText?: string;
-	description?: { en?: string };
+	description?: { en?: string; es?: string };
 }
 
 const SEMANTIC_MACRO_RE = /\\(?:mag|const|var)\{([^{}]*)\}/g;
 
-function buildReaderPayload(): string {
+function buildReaderPayload(locale: PayloadLocale): string {
 	const payload: ReaderPayload = {};
 	for (const collection of READER_COLLECTIONS) {
 		const entries = JSON.parse(
@@ -81,10 +100,11 @@ function buildReaderPayload(): string {
 		) as Record<string, PresentationEntry>;
 		const slice: Record<string, ReaderEntry> = {};
 		for (const [slug, entry] of Object.entries(entries)) {
+			const description = entry.description?.[locale] ?? entry.description?.en ?? '';
 			slice[slug] = {
-				name: entry.name.en,
+				name: localized(entry.name, locale),
 				symbolText: entry.symbolText ?? '',
-				description: (entry.description?.en ?? '').replace(SEMANTIC_MACRO_RE, '$1'),
+				description: description.replace(SEMANTIC_MACRO_RE, '$1'),
 			};
 		}
 		payload[collection] = slice;
@@ -92,11 +112,11 @@ function buildReaderPayload(): string {
 	return JSON.stringify(payload);
 }
 
-function buildConverterPayload(slice: EngineSlice): ConverterPayload {
+function buildConverterPayload(slice: EngineSlice, locale: PayloadLocale): ConverterPayload {
 	const payload: ConverterPayload = { units: {}, magnitudes: {} };
 	for (const unit of Object.values(slice.units)) {
 		payload.units[unit.slug] = {
-			name: unit.name.en,
+			name: localized(unit.name, locale),
 			symbolText: unit.symbolText,
 			dimension: unit.dimension,
 			factor: unit.factor,
@@ -107,7 +127,7 @@ function buildConverterPayload(slice: EngineSlice): ConverterPayload {
 	}
 	for (const magnitude of Object.values(slice.magnitudes)) {
 		payload.magnitudes[magnitude.slug] = {
-			name: magnitude.name.en,
+			name: localized(magnitude.name, locale),
 			baseUnit: magnitude.baseUnit,
 			dimension: magnitude.dimension,
 		};
@@ -117,10 +137,10 @@ function buildConverterPayload(slice: EngineSlice): ConverterPayload {
 
 /**
  * Materializes the static assets the pages and islands fetch at runtime:
- * self-hosted KaTeX CSS + woff2 fonts (no CDN per ADR 0002), the MiniSearch
- * index + catalog-lite shards, the trimmed converter payload, and the
- * offline reader payload. Runs at config setup so both `astro dev` and
- * `astro build` serve them from public/ (the generated paths are
+ * self-hosted KaTeX CSS + woff2 fonts (no CDN per ADR 0002), the per-locale
+ * MiniSearch index + catalog-lite shards, the trimmed converter payloads,
+ * and the offline reader payloads. Runs at config setup so both `astro dev`
+ * and `astro build` serve them from public/ (the generated paths are
  * gitignored).
  */
 export function equrekaAssets(): AstroIntegration {
@@ -142,29 +162,33 @@ export function equrekaAssets(): AstroIntegration {
 
 				const searchOutDir = join(publicDir, 'search');
 				mkdirSync(searchOutDir, { recursive: true });
-				copyFileSync(
-					requireFromHere.resolve('@equreka/content/artifact/search/en.json'),
-					join(searchOutDir, 'en.json'),
-				);
-				copyFileSync(
-					requireFromHere.resolve('@equreka/content/artifact/search/catalog-lite.en.json'),
-					join(searchOutDir, 'catalog-lite.en.json'),
-				);
 
 				const slice = JSON.parse(
 					readFileSync(requireFromHere.resolve('@equreka/content/artifact/engine.json'), 'utf8'),
 				) as EngineSlice;
 				const dataOutDir = join(publicDir, 'data');
 				mkdirSync(dataOutDir, { recursive: true });
-				const payload = JSON.stringify(buildConverterPayload(slice));
-				writeFileSync(join(dataOutDir, 'converter.en.json'), payload);
-
-				const readerPayload = buildReaderPayload();
-				writeFileSync(join(dataOutDir, 'reader.en.json'), readerPayload);
 				rmSync(join(dataOutDir, 'units.en.json'), { force: true });
 
+				let payloadBytes = 0;
+				for (const locale of LOCALES) {
+					copyFileSync(
+						requireFromHere.resolve(`@equreka/content/artifact/search/${locale}.json`),
+						join(searchOutDir, `${locale}.json`),
+					);
+					copyFileSync(
+						requireFromHere.resolve(`@equreka/content/artifact/search/catalog-lite.${locale}.json`),
+						join(searchOutDir, `catalog-lite.${locale}.json`),
+					);
+					const converterPayload = JSON.stringify(buildConverterPayload(slice, locale));
+					writeFileSync(join(dataOutDir, `converter.${locale}.json`), converterPayload);
+					const readerPayload = buildReaderPayload(locale);
+					writeFileSync(join(dataOutDir, `reader.${locale}.json`), readerPayload);
+					payloadBytes += converterPayload.length + readerPayload.length;
+				}
+
 				logger.info(
-					`katex css + ${woff2Fonts.length} woff2 fonts, search index, converter payload (${payload.length} bytes), reader payload (${readerPayload.length} bytes)`,
+					`katex css + ${woff2Fonts.length} woff2 fonts, ${LOCALES.length}-locale search index, converter + reader payloads (${payloadBytes} bytes)`,
 				);
 			},
 		},

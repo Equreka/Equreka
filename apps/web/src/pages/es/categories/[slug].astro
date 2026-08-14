@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import type { InferGetStaticPropsType } from 'astro';
+import CategoryPage from '../../../pages-shared/category-page.astro';
+
+export async function getStaticPaths() {
+	const categories = await getCollection('categories');
+	return categories.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { entry } = Astro.props;
+---
+
+<CategoryPage entry={entry} locale="es" />
