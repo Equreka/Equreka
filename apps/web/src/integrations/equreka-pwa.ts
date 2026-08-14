@@ -8,8 +8,9 @@ import { generateSW } from 'workbox-build';
 /**
  * Explicit precache globs per ADR 0002: app-shell routes + island bundles +
  * KaTeX + the per-locale data bundle. Deliberately not a catch-all HTML
- * glob — unit pages are runtime-cached, so a chunk change never
- * invalidates all 78 of them.
+ * glob — entry pages are runtime-cached, so a chunk change never
+ * invalidates all of them; never-visited entries resolve through the
+ * offline reader and its precached reader payload.
  */
 const PRECACHE_GLOBS = [
 	'index.html',
@@ -23,7 +24,7 @@ const PRECACHE_GLOBS = [
 	'search/en.json',
 	'search/catalog-lite.en.json',
 	'data/converter.en.json',
-	'data/units.en.json',
+	'data/reader.en.json',
 	'manifest.webmanifest',
 	'icons/*.svg',
 	'pwa-register.js',

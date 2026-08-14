@@ -2,13 +2,18 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../layouts/base-layout.astro';
 import { CATEGORY_BORDER } from '../lib/category-styles';
-import { asCategory } from '../lib/collections';
+import { asCategory, asEquation } from '../lib/collections';
 
 const categories = (await getCollection('categories'))
 	.map((entry) => ({ slug: entry.id, ...asCategory(entry.data) }))
 	.sort((a, b) => a.order - b.order);
 const unitCount = (await getCollection('units')).length;
 const magnitudeCount = (await getCollection('magnitudes')).length;
+const constantCount = (await getCollection('constants')).length;
+const prefixCount = (await getCollection('prefixes')).length;
+const equations = (await getCollection('equations')).map((entry) => asEquation(entry.data));
+const equationCount = equations.length;
+const calculatorCount = equations.filter((equation) => equation.calculator.enabled).length;
 
 const collectionCards = [
 	{
@@ -20,8 +25,32 @@ const collectionCards = [
 	{
 		title: 'Magnitudes',
 		count: magnitudeCount,
-		description: 'Physical quantities and the units that measure them.',
-		href: undefined,
+		description: 'Physical quantities with their dimensions and the units that measure them.',
+		href: '/magnitudes/',
+	},
+	{
+		title: 'Constants',
+		count: constantCount,
+		description: 'Physical constants at full precision, exact and measured.',
+		href: '/constants/',
+	},
+	{
+		title: 'Prefixes',
+		count: prefixCount,
+		description: 'SI prefixes — every multiple and submultiple of ten.',
+		href: '/prefixes/',
+	},
+	{
+		title: 'Equations',
+		count: equationCount,
+		description: 'Equations and formulas with term-by-term breakdowns.',
+		href: '/equations/',
+	},
+	{
+		title: 'Calculator',
+		count: calculatorCount,
+		description: 'Solve any calculator-enabled equation for any of its terms.',
+		href: '/calculator/',
 	},
 	{
 		title: 'Converter',
@@ -57,7 +86,7 @@ const collectionCards = [
 				categories.map((category) => (
 					<li>
 						<a
-							href={`/units/#${category.slug}`}
+							href={`/categories/${category.slug}/`}
 							class={`block h-full rounded-lg border border-border ${CATEGORY_BORDER[category.slug] ?? CATEGORY_BORDER.universal} border-t-4 bg-surface p-5 hover:shadow-md`}
 						>
 							<h3 class="text-lg font-semibold">{category.name.en}</h3>
@@ -77,31 +106,18 @@ const collectionCards = [
 			{
 				collectionCards.map((card) => (
 					<li>
-						{card.href !== undefined ? (
-							<a
-								href={card.href}
-								class="block h-full rounded-lg border border-border bg-surface p-5 hover:shadow-md"
-							>
-								<h3 class="text-lg font-semibold text-accent">
-									{card.title}
-									{card.count !== undefined && (
-										<span class="ml-2 text-sm font-normal text-ink-muted">{card.count}</span>
-									)}
-								</h3>
-								<p class="mt-2 text-sm text-ink-muted">{card.description}</p>
-							</a>
-						) : (
-							<div class="block h-full rounded-lg border border-dashed border-border p-5">
-								<h3 class="text-lg font-semibold text-ink-muted">
-									{card.title}
-									{card.count !== undefined && (
-										<span class="ml-2 text-sm font-normal">{card.count}</span>
-									)}
-								</h3>
-								<p class="mt-2 text-sm text-ink-muted">{card.description}</p>
-								<p class="mt-2 text-xs text-ink-muted uppercase tracking-wide">Coming soon</p>
-							</div>
-						)}
+						<a
+							href={card.href}
+							class="block h-full rounded-lg border border-border bg-surface p-5 hover:shadow-md"
+						>
+							<h3 class="text-lg font-semibold text-accent">
+								{card.title}
+								{card.count !== undefined && (
+									<span class="ml-2 text-sm font-normal text-ink-muted">{card.count}</span>
+								)}
+							</h3>
+							<p class="mt-2 text-sm text-ink-muted">{card.description}</p>
+						</a>
 					</li>
 				))
 			}

@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content';
+import { formatSigFigs } from '@equreka/engine/format';
+import BaseLayout from '../layouts/base-layout.astro';
+import { asConstant } from '../lib/collections';
+import { engineSlice } from '../lib/server/engine-registry';
+import { renderSymbolHtml } from '../lib/tex';
+
+const constants = (await getCollection('constants'))
+	.map((entry) => ({ slug: entry.id, ...asConstant(entry.data) }))
+	.sort((a, b) => a.name.en.localeCompare(b.name.en));
+
+const rows = constants.map((constant) => {
+	const compiled = engineSlice.constants[constant.slug];
+	const unit = engineSlice.units[constant.unit];
+	return {
+		...constant,
+		symbolText: compiled?.symbolText ?? constant.symbol.text ?? constant.symbol.tex,
+		display: formatSigFigs(Number(constant.value)),
+		unitSymbol: unit?.symbolText ?? '',
+	};
+});
+---
+
+<BaseLayout
+	title="Constants — Equreka"
+	description="Physical constants in the Equreka wiki, with full-precision values, units, and definitions."
+>
+	<h1 class="text-3xl font-bold tracking-tight">Constants</h1>
+	<p class="mt-2 text-ink-muted">
+		{constants.length} physical constants. Values shown here are rounded to 6 significant figures —
+		each constant page carries the full-precision value.
+	</p>
+	<div class="mt-6 overflow-x-auto rounded-lg border border-border">
+		<table class="w-full border-collapse bg-surface text-left">
+			<thead>
+				<tr class="border-b border-border text-sm text-ink-muted">
+					<th scope="col" class="w-24 px-4 py-2 font-medium">Symbol</th>
+					<th scope="col" class="px-4 py-2 font-medium">Name</th>
+					<th scope="col" class="px-4 py-2 font-medium">Value</th>
+					<th scope="col" class="px-4 py-2 font-medium">Status</th>
+				</tr>
+			</thead>
+			<tbody>
+				{
+					rows.map((row) => (
+						<tr class="border-b border-border last:border-b-0">
+							<td class="px-4 py-2" set:html={renderSymbolHtml(row.symbol.tex, row.symbolText)} />
+							<td class="px-4 py-2">
+								<a class="text-accent hover:underline" href={`/constants/${row.slug}/`}>
+									{row.name.en}
+								</a>
+							</td>
+							<td class="px-4 py-2 font-mono text-sm">
+								{row.display}
+								{row.unitSymbol === '' ? '' : ` ${row.unitSymbol}`}
+							</td>
+							<td class="px-4 py-2">
+								<span
+									class={`rounded-full px-2.5 py-0.5 text-xs font-medium ${row.exact ? 'bg-accent/10 text-accent' : 'bg-physics/10 text-physics'}`}
+								>
+									{row.exact ? 'exact' : 'measured'}
+								</span>
+							</td>
+						</tr>
+					))
+				}
+			</tbody>
+		</table>
+	</div>
+</BaseLayout>

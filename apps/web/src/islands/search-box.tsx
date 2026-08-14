@@ -6,6 +6,7 @@ import {
 } from '@equreka/content/search-options';
 import MiniSearch from 'minisearch';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { entryHref } from '../lib/entry-links';
 import { COLLECTION_LABELS, COLLECTION_ORDER } from '../lib/labels';
 
 export interface SearchBoxProps {
@@ -174,28 +175,28 @@ export default function SearchBox({ variant }: SearchBoxProps) {
 						{COLLECTION_LABELS[group.collection] ?? group.collection}
 					</p>
 					<ul>
-						{group.rows.map((row) => (
-							<li key={row.key}>
-								{row.collection === 'units' ? (
-									<a
-										className="flex items-baseline gap-2 px-3 py-1.5 hover:bg-bg"
-										href={`/units/${row.slug}/`}
-									>
-										<span>{row.name}</span>
-										{row.symbolText !== '' && (
-											<span className="font-mono text-sm text-ink-muted">{row.symbolText}</span>
-										)}
-									</a>
-								) : (
-									<span className="flex items-baseline gap-2 px-3 py-1.5 text-ink-muted">
-										<span>{row.name}</span>
-										{row.symbolText !== '' && (
-											<span className="font-mono text-sm">{row.symbolText}</span>
-										)}
-									</span>
-								)}
-							</li>
-						))}
+						{group.rows.map((row) => {
+							const href = entryHref(row.collection, row.slug);
+							return (
+								<li key={row.key}>
+									{href !== undefined ? (
+										<a className="flex items-baseline gap-2 px-3 py-1.5 hover:bg-bg" href={href}>
+											<span>{row.name}</span>
+											{row.symbolText !== '' && (
+												<span className="font-mono text-sm text-ink-muted">{row.symbolText}</span>
+											)}
+										</a>
+									) : (
+										<span className="flex items-baseline gap-2 px-3 py-1.5 text-ink-muted">
+											<span>{row.name}</span>
+											{row.symbolText !== '' && (
+												<span className="font-mono text-sm">{row.symbolText}</span>
+											)}
+										</span>
+									)}
+								</li>
+							);
+						})}
 					</ul>
 				</li>
 			))}

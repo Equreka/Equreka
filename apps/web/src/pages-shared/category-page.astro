@@ -1,0 +1,90 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/base-layout.astro';
+import { CATEGORY_BORDER, CATEGORY_TEXT } from '../lib/category-styles';
+import { asCategory } from '../lib/collections';
+import { entryHref } from '../lib/entry-links';
+import { COLLECTION_LABELS } from '../lib/labels';
+
+interface Props {
+	entry: CollectionEntry<'categories'>;
+}
+
+const { entry } = Astro.props;
+const category = asCategory(entry.data);
+const slug = entry.id;
+
+const MEMBER_COLLECTIONS = [
+	'magnitudes',
+	'units',
+	'prefixes',
+	'constants',
+	'variables',
+	'equations',
+] as const;
+
+interface MemberEntry {
+	name: string;
+	href: string | undefined;
+}
+
+const groups: { collection: string; label: string; members: MemberEntry[] }[] = [];
+for (const collection of MEMBER_COLLECTIONS) {
+	const entries = await getCollection(collection);
+	const members = entries
+		.map((item) => ({
+			id: item.id,
+			data: item.data as { name: { en: string }; categories: string[] },
+		}))
+		.filter((item) => item.data.categories.includes(slug))
+		.map((item) => ({ name: item.data.name.en, href: entryHref(collection, item.id) }))
+		.sort((a, b) => a.name.localeCompare(b.name));
+	if (members.length > 0) {
+		groups.push({ collection, label: COLLECTION_LABELS[collection] ?? collection, members });
+	}
+}
+
+const description = category.description?.en;
+const metaDescription =
+	description === undefined
+		? `Everything in the ${category.name.en} category of the Equreka wiki.`
+		: `${description.slice(0, 157)}…`;
+---
+
+<BaseLayout title={`${category.name.en} — Equreka`} description={metaDescription}>
+	<article>
+		<header
+			class={`rounded-lg border border-border ${CATEGORY_BORDER[slug] ?? CATEGORY_BORDER.universal} border-t-4 bg-surface p-6`}
+		>
+			<h1 class={`text-3xl font-bold tracking-tight ${CATEGORY_TEXT[slug] ?? 'text-ink'}`}>
+				{category.name.en}
+			</h1>
+			{description !== undefined && <p class="mt-3 max-w-3xl leading-7">{description}</p>}
+		</header>
+
+		{
+			groups.map((group) => (
+				<section aria-labelledby={`${group.collection}-heading`} class="mt-10">
+					<h2 id={`${group.collection}-heading`} class="text-2xl font-semibold">
+						{group.label}
+						<span class="ml-2 text-sm font-normal text-ink-muted">{group.members.length}</span>
+					</h2>
+					<ul class="mt-4 grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
+						{group.members.map((member) => (
+							<li>
+								{member.href !== undefined ? (
+									<a class="text-accent hover:underline" href={member.href}>
+										{member.name}
+									</a>
+								) : (
+									member.name
+								)}
+							</li>
+						))}
+					</ul>
+				</section>
+			))
+		}
+	</article>
+</BaseLayout>

@@ -1,0 +1,84 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/base-layout.astro';
+import { asPrefix } from '../lib/collections';
+import { formatFullPrecision, powerOfTenExponent, toSuperscript } from '../lib/notation';
+import { renderSymbolHtml } from '../lib/tex';
+
+const prefixes = (await getCollection('prefixes')).map((entry) => {
+	const prefix = asPrefix(entry.data);
+	return {
+		slug: entry.id,
+		...prefix,
+		exponent: powerOfTenExponent(prefix.value),
+	};
+});
+
+const byMagnitudeDesc = (a: { exponent: number | null }, b: { exponent: number | null }) =>
+	(b.exponent ?? 0) - (a.exponent ?? 0);
+
+const multiples = prefixes.filter((prefix) => (prefix.exponent ?? 0) >= 0).sort(byMagnitudeDesc);
+const submultiples = prefixes.filter((prefix) => (prefix.exponent ?? 0) < 0).sort(byMagnitudeDesc);
+
+const tables = [
+	{ id: 'multiples', title: 'Multiples', rows: multiples },
+	{ id: 'submultiples', title: 'Submultiples', rows: submultiples },
+];
+---
+
+<BaseLayout
+	title="Prefixes — Equreka"
+	description="SI unit prefixes — multiples and submultiples of ten, with symbols and power-of-ten notation."
+>
+	<h1 class="text-3xl font-bold tracking-tight">Prefixes</h1>
+	<p class="mt-2 max-w-2xl text-ink-muted">
+		{prefixes.length} SI prefixes. A prefix multiplies a unit by a power of ten — kilometre is
+		10³ metres, nanosecond is 10⁻⁹ seconds.
+	</p>
+	{
+		tables.map((table) => (
+			<section aria-labelledby={`${table.id}-heading`} class="mt-10">
+				<h2 id={`${table.id}-heading`} class="text-2xl font-semibold">
+					{table.title}
+					<span class="ml-2 text-sm font-normal text-ink-muted">{table.rows.length}</span>
+				</h2>
+				<div class="mt-4 overflow-x-auto rounded-lg border border-border">
+					<table class="w-full border-collapse bg-surface text-left">
+						<thead>
+							<tr class="border-b border-border text-sm text-ink-muted">
+								<th scope="col" class="w-24 px-4 py-2 font-medium">
+									Symbol
+								</th>
+								<th scope="col" class="px-4 py-2 font-medium">
+									Name
+								</th>
+								<th scope="col" class="px-4 py-2 font-medium">
+									Value
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							{table.rows.map((prefix) => (
+								<tr id={prefix.slug} class="border-b border-border last:border-b-0">
+									<td
+										class="px-4 py-2"
+										set:html={renderSymbolHtml(
+											prefix.symbol.tex,
+											prefix.symbol.text ?? prefix.symbol.tex,
+										)}
+									/>
+									<td class="px-4 py-2">{prefix.name.en}</td>
+									<td class="px-4 py-2 font-mono text-sm">
+										{prefix.exponent === null
+											? formatFullPrecision(prefix.value)
+											: `10${toSuperscript(prefix.exponent)}`}
+									</td>
+								</tr>
+							))}
+						</tbody>
+					</table>
+				</div>
+			</section>
+		))
+	}
+</BaseLayout>

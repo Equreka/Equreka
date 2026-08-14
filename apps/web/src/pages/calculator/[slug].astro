@@ -1,0 +1,19 @@
+---
+import { getCollection } from 'astro:content';
+import type { InferGetStaticPropsType } from 'astro';
+import { asEquation } from '../../lib/collections';
+import CalculatorPage from '../../pages-shared/calculator-page.astro';
+
+export async function getStaticPaths() {
+	const equations = await getCollection('equations');
+	return equations
+		.filter((entry) => asEquation(entry.data).calculator.enabled)
+		.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { entry } = Astro.props;
+---
+
+<CalculatorPage entry={entry} />

@@ -1,0 +1,96 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import CalculatorIsland, {
+	type CalculatorConstant,
+	type CalculatorField,
+} from '../islands/calculator-island';
+import BaseLayout from '../layouts/base-layout.astro';
+import { asEquation, asVariable } from '../lib/collections';
+import { engineSlice } from '../lib/server/engine-registry';
+import { renderExpressionHtml } from '../lib/tex';
+
+interface Props {
+	entry: CollectionEntry<'equations'>;
+}
+
+const { entry } = Astro.props;
+const equation = asEquation(entry.data);
+const slug = entry.id;
+
+const meta = engineSlice.equations[slug];
+if (meta === undefined || !meta.calculatorEnabled) {
+	throw new Error(`calculator page for ${slug} requires a calculator-enabled engine equation`);
+}
+
+const variables = new Map(
+	(await getCollection('variables')).map((item) => [item.id, asVariable(item.data)]),
+);
+
+const fields: CalculatorField[] = [];
+const constants: CalculatorConstant[] = [];
+const nonNegative: string[] = [];
+for (const [key, term] of Object.entries(meta.terms)) {
+	if (term.kind === 'constant') {
+		const constant = engineSlice.constants[term.ref];
+		if (constant === undefined) {
+			throw new Error(`calculator page for ${slug}: unknown constant ${term.ref}`);
+		}
+		constants.push({
+			key,
+			name: constant.name.en,
+			symbolText: constant.symbolText,
+			value: constant.value,
+			unitSymbol: engineSlice.units[constant.unit]?.symbolText ?? '',
+		});
+		continue;
+	}
+	if (term.kind === 'magnitude') {
+		const magnitude = engineSlice.magnitudes[term.ref];
+		if (magnitude === undefined) {
+			throw new Error(`calculator page for ${slug}: unknown magnitude ${term.ref}`);
+		}
+		fields.push({
+			key,
+			label: magnitude.name.en,
+			symbolText: key,
+			unitSymbol: engineSlice.units[magnitude.baseUnit]?.symbolText ?? '',
+		});
+		if (magnitude.nonNegative) nonNegative.push(key);
+		continue;
+	}
+	const variable = variables.get(term.ref);
+	fields.push({
+		key,
+		label: variable?.name.en ?? key,
+		symbolText: key,
+		unitSymbol:
+			variable?.defaultUnit === undefined
+				? ''
+				: (engineSlice.units[variable.defaultUnit]?.symbolText ?? ''),
+	});
+}
+---
+
+<BaseLayout
+	title={`${equation.name.en} calculator — Equreka`}
+	description={`Solve ${equation.name.en} for any term — leave one field empty and the Equreka engine computes it.`}
+>
+	<h1 class="text-3xl font-bold tracking-tight">{equation.name.en} calculator</h1>
+	<div class="mt-4" set:html={renderExpressionHtml(equation.expression, equation.terms)} />
+	<p class="mt-2 max-w-2xl text-ink-muted">
+		Values are in the units shown next to each field. Leave exactly one field empty — the engine
+		solves for it as you type. See the
+		<a class="text-accent hover:underline" href={`/equations/${slug}/`}>equation reference</a>
+		for the term-by-term breakdown.
+	</p>
+	<div class="mt-6 max-w-2xl">
+		<CalculatorIsland
+			client:load
+			meta={meta}
+			fields={fields}
+			constants={constants}
+			nonNegative={nonNegative}
+		/>
+	</div>
+</BaseLayout>

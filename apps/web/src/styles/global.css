@@ -14,3 +14,34 @@
 		padding-block: 0.25rem;
 	}
 }
+
+@layer components {
+	[data-term] {
+		cursor: pointer;
+	}
+
+	.term-hl {
+		border-radius: var(--radius-sm);
+		outline: 2px solid var(--eq-accent);
+		outline-offset: 1px;
+		background-color: color-mix(in srgb, var(--eq-accent) 15%, transparent);
+	}
+
+	.term-hl.eq-magnitude,
+	.eq-magnitude .term-hl {
+		outline-color: var(--eq-mathematics);
+		background-color: color-mix(in srgb, var(--eq-mathematics) 15%, transparent);
+	}
+
+	.term-hl.eq-constant,
+	.eq-constant .term-hl {
+		outline-color: var(--eq-universal);
+		background-color: color-mix(in srgb, var(--eq-universal) 15%, transparent);
+	}
+
+	.term-hl.eq-variable,
+	.eq-variable .term-hl {
+		outline-color: var(--eq-chemistry);
+		background-color: color-mix(in srgb, var(--eq-chemistry) 15%, transparent);
+	}
+}

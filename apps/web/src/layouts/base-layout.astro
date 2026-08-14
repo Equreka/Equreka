@@ -42,8 +42,13 @@ const { title, description } = Astro.props;
 		<header class="border-b border-border bg-surface">
 			<div class="mx-auto flex max-w-5xl flex-wrap items-center gap-4 px-4 py-3">
 				<a href="/" class="text-xl font-bold tracking-tight text-accent">Equreka</a>
-				<nav aria-label="Main" class="flex gap-4 text-sm">
+				<nav aria-label="Main" class="flex flex-wrap gap-4 text-sm">
 					<a href="/units/" class="text-ink-muted hover:text-ink">Units</a>
+					<a href="/magnitudes/" class="text-ink-muted hover:text-ink">Magnitudes</a>
+					<a href="/constants/" class="text-ink-muted hover:text-ink">Constants</a>
+					<a href="/prefixes/" class="text-ink-muted hover:text-ink">Prefixes</a>
+					<a href="/equations/" class="text-ink-muted hover:text-ink">Equations</a>
+					<a href="/calculator/" class="text-ink-muted hover:text-ink">Calculator</a>
 					<a href="/converter/" class="text-ink-muted hover:text-ink">Converter</a>
 					<a href="/search/" class="text-ink-muted hover:text-ink">Search</a>
 				</nav>
@@ -88,6 +93,52 @@ const { title, description } = Astro.props;
 				try {
 					localStorage.setItem('equreka-theme', next);
 				} catch {}
+			});
+		</script>
+		<script>
+			/**
+			 * Delegated equation-term cross-highlighting: hovering any
+			 * [data-term] element (KaTeX expression span, terms-table row)
+			 * toggles .term-hl on every element sharing that data-term value;
+			 * clicking locks the highlight until clicked again. Clicks that
+			 * land on links keep navigating untouched.
+			 */
+			const lockedTerms = new Set<string>();
+
+			const termElementOf = (target: EventTarget | null): HTMLElement | null =>
+				target instanceof Element ? target.closest<HTMLElement>('[data-term]') : null;
+
+			const setTermHighlight = (term: string, on: boolean): void => {
+				for (const element of document.querySelectorAll(`[data-term="${term}"]`)) {
+					element.classList.toggle('term-hl', on);
+				}
+			};
+
+			document.addEventListener('pointerover', (event) => {
+				const term = termElementOf(event.target)?.dataset.term;
+				if (term !== undefined) setTermHighlight(term, true);
+			});
+
+			document.addEventListener('pointerout', (event) => {
+				const element = termElementOf(event.target);
+				const term = element?.dataset.term;
+				if (element === null || term === undefined || lockedTerms.has(term)) return;
+				const next = event.relatedTarget instanceof Node ? event.relatedTarget : null;
+				if (next !== null && element.contains(next)) return;
+				setTermHighlight(term, false);
+			});
+
+			document.addEventListener('click', (event) => {
+				const term = termElementOf(event.target)?.dataset.term;
+				if (term === undefined) return;
+				if (event.target instanceof Element && event.target.closest('a') !== null) return;
+				const on = !lockedTerms.has(term);
+				if (on) {
+					lockedTerms.add(term);
+				} else {
+					lockedTerms.delete(term);
+				}
+				setTermHighlight(term, on);
 			});
 		</script>
 	</body>

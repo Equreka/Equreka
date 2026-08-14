@@ -1,4 +1,4 @@
-import { copyFileSync, mkdirSync, readdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { copyFileSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -30,28 +30,66 @@ export interface ConverterPayload {
 }
 
 /**
- * Per-unit slice of the presentation artifact for the offline reader:
- * English name/symbol/description only. Descriptions keep their inline
- * $TeX$ fragments; the reader renders them as plain text.
+ * One entry of the offline reader payload: English name/symbol/description
+ * only. Descriptions keep their inline $TeX$ fragments (the reader renders
+ * them as plain text) but semantic annotation macros are reduced to their
+ * arguments — the reader must work from data alone, without KaTeX.
  */
-export type ReaderUnits = Record<string, { name: string; symbolText: string; description: string }>;
-
-interface PresentationUnit {
-	name: { en: string };
+export interface ReaderEntry {
+	name: string;
 	symbolText: string;
+	description: string;
+}
+
+/**
+ * The offline reader's slice of the presentation artifact, keyed collection
+ * → slug. Every collection with per-entry presentation data is included so
+ * the reader resolves any entry, not just units.
+ */
+export type ReaderPayload = Record<string, Record<string, ReaderEntry>>;
+
+/**
+ * Presentation collections flattened into the reader payload; paths is
+ * excluded (empty in v1 and step-structured rather than entry-shaped).
+ */
+const READER_COLLECTIONS = [
+	'categories',
+	'magnitudes',
+	'units',
+	'prefixes',
+	'constants',
+	'variables',
+	'equations',
+] as const;
+
+interface PresentationEntry {
+	name: { en: string };
+	symbolText?: string;
 	description?: { en?: string };
 }
 
-function buildReaderUnits(units: Record<string, PresentationUnit>): ReaderUnits {
-	const payload: ReaderUnits = {};
-	for (const [slug, unit] of Object.entries(units)) {
-		payload[slug] = {
-			name: unit.name.en,
-			symbolText: unit.symbolText,
-			description: unit.description?.en ?? '',
-		};
+const SEMANTIC_MACRO_RE = /\\(?:mag|const|var)\{([^{}]*)\}/g;
+
+function buildReaderPayload(): string {
+	const payload: ReaderPayload = {};
+	for (const collection of READER_COLLECTIONS) {
+		const entries = JSON.parse(
+			readFileSync(
+				requireFromHere.resolve(`@equreka/content/artifact/presentation/${collection}.json`),
+				'utf8',
+			),
+		) as Record<string, PresentationEntry>;
+		const slice: Record<string, ReaderEntry> = {};
+		for (const [slug, entry] of Object.entries(entries)) {
+			slice[slug] = {
+				name: entry.name.en,
+				symbolText: entry.symbolText ?? '',
+				description: (entry.description?.en ?? '').replace(SEMANTIC_MACRO_RE, '$1'),
+			};
+		}
+		payload[collection] = slice;
 	}
-	return payload;
+	return JSON.stringify(payload);
 }
 
 function buildConverterPayload(slice: EngineSlice): ConverterPayload {
@@ -80,9 +118,10 @@ function buildConverterPayload(slice: EngineSlice): ConverterPayload {
 /**
  * Materializes the static assets the pages and islands fetch at runtime:
  * self-hosted KaTeX CSS + woff2 fonts (no CDN per ADR 0002), the MiniSearch
- * index + catalog-lite shards, and the trimmed converter payload. Runs at
- * config setup so both `astro dev` and `astro build` serve them from
- * public/ (the generated paths are gitignored).
+ * index + catalog-lite shards, the trimmed converter payload, and the
+ * offline reader payload. Runs at config setup so both `astro dev` and
+ * `astro build` serve them from public/ (the generated paths are
+ * gitignored).
  */
 export function equrekaAssets(): AstroIntegration {
 	return {
@@ -120,17 +159,12 @@ export function equrekaAssets(): AstroIntegration {
 				const payload = JSON.stringify(buildConverterPayload(slice));
 				writeFileSync(join(dataOutDir, 'converter.en.json'), payload);
 
-				const presentationUnits = JSON.parse(
-					readFileSync(
-						requireFromHere.resolve('@equreka/content/artifact/presentation/units.json'),
-						'utf8',
-					),
-				) as Record<string, PresentationUnit>;
-				const readerPayload = JSON.stringify(buildReaderUnits(presentationUnits));
-				writeFileSync(join(dataOutDir, 'units.en.json'), readerPayload);
+				const readerPayload = buildReaderPayload();
+				writeFileSync(join(dataOutDir, 'reader.en.json'), readerPayload);
+				rmSync(join(dataOutDir, 'units.en.json'), { force: true });
 
 				logger.info(
-					`katex css + ${woff2Fonts.length} woff2 fonts, search index, converter payload (${payload.length} bytes), reader units (${readerPayload.length} bytes)`,
+					`katex css + ${woff2Fonts.length} woff2 fonts, search index, converter payload (${payload.length} bytes), reader payload (${readerPayload.length} bytes)`,
 				);
 			},
 		},

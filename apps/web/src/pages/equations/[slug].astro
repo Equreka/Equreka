@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import type { InferGetStaticPropsType } from 'astro';
+import EquationPage from '../../pages-shared/equation-page.astro';
+
+export async function getStaticPaths() {
+	const equations = await getCollection('equations');
+	return equations.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { entry } = Astro.props;
+---
+
+<EquationPage entry={entry} />

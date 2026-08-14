@@ -35,3 +35,14 @@ export const COLLECTION_LABELS: Record<string, string> = {
 	equations: 'Equations',
 	paths: 'Paths',
 };
+
+export const EQUATION_KIND_LABELS: Record<'equation' | 'formula', string> = {
+	equation: 'Equation',
+	formula: 'Formula',
+};
+
+export const TERM_KIND_LABELS: Record<'magnitude' | 'constant' | 'variable', string> = {
+	magnitude: 'Magnitude',
+	constant: 'Constant',
+	variable: 'Variable',
+};

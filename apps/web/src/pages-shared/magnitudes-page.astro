@@ -1,0 +1,133 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/base-layout.astro';
+import { CATEGORY_TEXT } from '../lib/category-styles';
+import { asCategory, asMagnitude } from '../lib/collections';
+import { formatDimension } from '../lib/notation';
+import { engineSlice } from '../lib/server/engine-registry';
+import { renderSymbolHtml } from '../lib/tex';
+
+const categories = (await getCollection('categories'))
+	.map((entry) => ({ slug: entry.id, ...asCategory(entry.data) }))
+	.sort((a, b) => a.order - b.order);
+const magnitudes = (await getCollection('magnitudes')).map((entry) => ({
+	slug: entry.id,
+	...asMagnitude(entry.data),
+}));
+
+const byName = (a: { name: { en: string } }, b: { name: { en: string } }) =>
+	a.name.en.localeCompare(b.name.en);
+
+const grouped = categories
+	.map((category) => ({
+		slug: category.slug,
+		title: category.name.en,
+		magnitudes: magnitudes
+			.filter((magnitude) => magnitude.categories.includes(category.slug))
+			.sort(byName),
+	}))
+	.filter((group) => group.magnitudes.length > 0);
+
+const groupedSlugs = new Set(
+	grouped.flatMap((group) => group.magnitudes.map((magnitude) => magnitude.slug)),
+);
+const ungrouped = magnitudes.filter((magnitude) => !groupedSlugs.has(magnitude.slug)).sort(byName);
+if (ungrouped.length > 0) {
+	grouped.push({ slug: 'other', title: 'Other', magnitudes: ungrouped });
+}
+
+function dimensionTextOf(slug: string): string {
+	const compiled = engineSlice.magnitudes[slug];
+	return compiled === undefined ? '' : formatDimension(compiled.dimension);
+}
+
+function baseUnitOf(slug: string): { slug: string; name: string } | undefined {
+	const baseUnit = engineSlice.units[engineSlice.magnitudes[slug]?.baseUnit ?? ''];
+	return baseUnit === undefined ? undefined : { slug: baseUnit.slug, name: baseUnit.name.en };
+}
+---
+
+<BaseLayout
+	title="Magnitudes — Equreka"
+	description="All physical magnitudes in the Equreka wiki, grouped by category, with dimensions and base units."
+>
+	<h1 class="text-3xl font-bold tracking-tight">Magnitudes</h1>
+	<p class="mt-2 text-ink-muted">
+		{magnitudes.length} magnitudes grouped by category. Every magnitude page lists all of its units
+		with engine-computed factors to the base unit.
+	</p>
+	{
+		grouped.map((group) => (
+			<section aria-labelledby={`${group.slug}-heading`} class="mt-10">
+				<h2
+					id={group.slug}
+					class={`text-2xl font-semibold ${CATEGORY_TEXT[group.slug] ?? 'text-ink'}`}
+				>
+					<span id={`${group.slug}-heading`}>{group.title}</span>
+					<span class="ml-2 text-sm font-normal text-ink-muted">{group.magnitudes.length}</span>
+				</h2>
+				<div class="mt-4 overflow-x-auto rounded-lg border border-border">
+					<table class="w-full border-collapse bg-surface text-left">
+						<thead>
+							<tr class="border-b border-border text-sm text-ink-muted">
+								<th scope="col" class="w-24 px-4 py-2 font-medium">
+									Symbol
+								</th>
+								<th scope="col" class="px-4 py-2 font-medium">
+									Name
+								</th>
+								<th scope="col" class="px-4 py-2 font-medium">
+									Dimension
+								</th>
+								<th scope="col" class="px-4 py-2 font-medium">
+									Base unit
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							{group.magnitudes.map((magnitude) => {
+								const dimension = dimensionTextOf(magnitude.slug);
+								const baseUnit = baseUnitOf(magnitude.slug);
+								return (
+									<tr class="border-b border-border last:border-b-0">
+										<td
+											class="px-4 py-2"
+											set:html={renderSymbolHtml(
+												magnitude.symbol.tex,
+												magnitude.symbol.text ?? magnitude.symbol.tex,
+											)}
+										/>
+										<td class="px-4 py-2">
+											<a
+												class="text-accent hover:underline"
+												href={`/magnitudes/${magnitude.slug}/`}
+											>
+												{magnitude.name.en}
+											</a>
+										</td>
+										<td class="px-4 py-2 text-sm">
+											{dimension === '' ? (
+												<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+													dimensionless
+												</span>
+											) : (
+												dimension
+											)}
+										</td>
+										<td class="px-4 py-2 text-sm">
+											{baseUnit !== undefined && (
+												<a class="text-accent hover:underline" href={`/units/${baseUnit.slug}/`}>
+													{baseUnit.name}
+												</a>
+											)}
+										</td>
+									</tr>
+								);
+							})}
+						</tbody>
+					</table>
+				</div>
+			</section>
+		))
+	}
+</BaseLayout>

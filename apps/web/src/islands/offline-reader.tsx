@@ -1,14 +1,19 @@
 import { type CatalogLiteEntry, foldSearchTerm } from '@equreka/content/search-options';
 import { type ReactNode, useEffect, useMemo, useState } from 'react';
-import type { ReaderUnits } from '../integrations/equreka-assets';
+import type { ReaderPayload } from '../integrations/equreka-assets';
 import { COLLECTION_LABELS } from '../lib/labels';
 
 type ReaderState =
 	| { status: 'loading' }
 	| { status: 'error' }
-	| { status: 'ready'; catalog: CatalogLiteEntry[]; units: ReaderUnits };
+	| { status: 'ready'; catalog: CatalogLiteEntry[]; entries: ReaderPayload };
 
-const UNIT_PATH_RE = /^\/units\/([^/]+)\/?$/;
+interface SelectedEntry {
+	collection: string;
+	slug: string;
+}
+
+const ENTRY_PATH_RE = /^\/(units|magnitudes|constants|equations|categories)\/([^/]+)\/?$/;
 
 const MATH_FRAGMENT_RE = /\$\$?([^$]+)\$\$?/g;
 
@@ -16,12 +21,14 @@ const MATH_FRAGMENT_RE = /\$\$?([^$]+)\$\$?/g;
  * The URL the service worker failed to fetch: the offline reader HTML is
  * served under the originally requested path (precacheFallback preserves
  * it), with `?from=` honored as an explicit override for links into the
- * reader.
+ * reader. The path's collection segment doubles as the reader-payload key.
  */
-function requestedUnitSlug(): string | null {
+function requestedEntry(): SelectedEntry | null {
 	const from = new URLSearchParams(window.location.search).get('from');
 	const path = from ?? window.location.pathname;
-	return UNIT_PATH_RE.exec(path)?.[1] ?? null;
+	const match = ENTRY_PATH_RE.exec(path);
+	if (match === null) return null;
+	return { collection: match[1] ?? '', slug: match[2] ?? '' };
 }
 
 /**
@@ -54,7 +61,7 @@ const LIST_LIMIT = 30;
 
 export default function OfflineReader() {
 	const [state, setState] = useState<ReaderState>({ status: 'loading' });
-	const [selected, setSelected] = useState<string | null>(null);
+	const [selected, setSelected] = useState<SelectedEntry | null>(null);
 	const [filter, setFilter] = useState('');
 
 	useEffect(() => {
@@ -64,15 +71,15 @@ export default function OfflineReader() {
 				if (!response.ok) throw new Error(`HTTP ${response.status}`);
 				return response.json() as Promise<CatalogLiteEntry[]>;
 			}),
-			fetch('/data/units.en.json').then((response) => {
+			fetch('/data/reader.en.json').then((response) => {
 				if (!response.ok) throw new Error(`HTTP ${response.status}`);
-				return response.json() as Promise<ReaderUnits>;
+				return response.json() as Promise<ReaderPayload>;
 			}),
 		])
-			.then(([catalog, units]) => {
+			.then(([catalog, entries]) => {
 				if (cancelled) return;
-				setState({ status: 'ready', catalog, units });
-				setSelected(requestedUnitSlug());
+				setState({ status: 'ready', catalog, entries });
+				setSelected(requestedEntry());
 			})
 			.catch(() => {
 				if (!cancelled) setState({ status: 'error' });
@@ -108,28 +115,32 @@ export default function OfflineReader() {
 		);
 	}
 
-	const selectedUnit = selected === null ? undefined : state.units[selected];
+	const selectedEntry =
+		selected === null ? undefined : state.entries[selected.collection]?.[selected.slug];
 
 	return (
 		<div className="mt-6 grid gap-8">
 			{selected !== null && (
 				<article className="rounded-lg border border-border bg-surface p-6">
-					{selectedUnit === undefined ? (
+					{selectedEntry === undefined ? (
 						<p className="text-ink-muted">
 							This entry is not in the offline library. Pick one below.
 						</p>
 					) : (
 						<>
 							<div className="flex flex-wrap items-baseline gap-3">
-								<h2 className="text-2xl font-bold tracking-tight">{selectedUnit.name}</h2>
-								{selectedUnit.symbolText !== '' && (
+								<h2 className="text-2xl font-bold tracking-tight">{selectedEntry.name}</h2>
+								{selectedEntry.symbolText !== '' && (
 									<span className="font-mono text-xl text-ink-muted">
-										{selectedUnit.symbolText}
+										{selectedEntry.symbolText}
 									</span>
 								)}
+								<span className="ml-auto text-xs text-ink-muted uppercase tracking-wide">
+									{COLLECTION_LABELS[selected.collection] ?? selected.collection}
+								</span>
 							</div>
-							{selectedUnit.description !== '' && (
-								<p className="mt-3 leading-7">{plainMathText(selectedUnit.description)}</p>
+							{selectedEntry.description !== '' && (
+								<p className="mt-3 leading-7">{plainMathText(selectedEntry.description)}</p>
 							)}
 						</>
 					)}
@@ -150,16 +161,19 @@ export default function OfflineReader() {
 				<ul className="mt-4 divide-y divide-border rounded-md border border-border bg-surface">
 					{rows.map((entry) => (
 						<li key={`${entry.collection}:${entry.slug}`}>
-							{entry.collection === 'units' ? (
+							{state.entries[entry.collection]?.[entry.slug] !== undefined ? (
 								<button
 									type="button"
 									className="flex w-full items-baseline gap-2 px-3 py-2 text-left hover:bg-bg"
-									onClick={() => setSelected(entry.slug)}
+									onClick={() => setSelected({ collection: entry.collection, slug: entry.slug })}
 								>
 									<span className="text-accent">{entry.name}</span>
 									{entry.symbolText !== '' && (
 										<span className="font-mono text-sm text-ink-muted">{entry.symbolText}</span>
 									)}
+									<span className="ml-auto text-xs text-ink-muted">
+										{COLLECTION_LABELS[entry.collection] ?? entry.collection}
+									</span>
 								</button>
 							) : (
 								<span className="flex items-baseline gap-2 px-3 py-2">

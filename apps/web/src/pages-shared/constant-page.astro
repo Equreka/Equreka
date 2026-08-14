@@ -1,0 +1,134 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatSigFigs } from '@equreka/engine/format';
+import BaseLayout from '../layouts/base-layout.astro';
+import { CATEGORY_BADGE } from '../lib/category-styles';
+import { asConstant } from '../lib/collections';
+import { formatFullPrecision } from '../lib/notation';
+import { engineSlice } from '../lib/server/engine-registry';
+import { renderRichTextHtml, renderSymbolHtml } from '../lib/tex';
+
+interface Props {
+	entry: CollectionEntry<'constants'>;
+}
+
+const { entry } = Astro.props;
+const constant = asConstant(entry.data);
+const slug = entry.id;
+const symbolText =
+	engineSlice.constants[slug]?.symbolText ?? constant.symbol.text ?? constant.symbol.tex;
+
+const unit = engineSlice.units[constant.unit];
+const unitSymbol = unit?.symbolText ?? '';
+const parsed = Number(constant.value);
+const display = formatSigFigs(parsed);
+const displayIsExact = Number(display) === parsed;
+const fullPrecision = formatFullPrecision(constant.value);
+
+const description = constant.description?.en;
+const metaDescription =
+	description === undefined
+		? `${constant.name.en} (${symbolText}) — physical constant reference.`
+		: `${description.replaceAll('$', '').slice(0, 157)}…`;
+---
+
+<BaseLayout title={`${constant.name.en} (${symbolText}) — Equreka`} description={metaDescription}>
+	<article>
+		<header class="border-b border-border pb-6">
+			<div class="flex flex-wrap items-center gap-2 text-xs font-medium">
+				<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">Constant</span>
+				<span
+					class={`rounded-full px-2.5 py-0.5 ${constant.exact ? 'bg-accent/10 text-accent' : 'bg-physics/10 text-physics'}`}
+				>
+					{constant.exact ? 'exact' : 'measured'}
+				</span>
+				{
+					constant.categories.map((category) => (
+						<span
+							class={`rounded-full px-2.5 py-0.5 ${CATEGORY_BADGE[category] ?? CATEGORY_BADGE.universal}`}
+						>
+							{category}
+						</span>
+					))
+				}
+			</div>
+			<div class="mt-3 flex flex-wrap items-baseline gap-4">
+				<h1 class="text-3xl font-bold tracking-tight">{constant.name.en}</h1>
+				<span class="text-2xl" set:html={renderSymbolHtml(constant.symbol.tex, symbolText)} />
+			</div>
+		</header>
+
+		<section aria-labelledby="constant-value-heading" class="mt-6">
+			<h2 id="constant-value-heading" class="text-2xl font-semibold">Value</h2>
+			<p class="mt-3 text-2xl">
+				<span set:html={renderSymbolHtml(constant.symbol.tex, symbolText)} />
+				{displayIsExact ? ' = ' : ' ≈ '}
+				<strong>{display}</strong>
+				{
+					unit !== undefined && (
+						<a class="ml-2 text-accent hover:underline" href={`/units/${unit.slug}/`}>
+							{unitSymbol}
+						</a>
+					)
+				}
+				{
+					!displayIsExact && (
+						<span class="ml-2 text-sm text-ink-muted">(6 significant figures)</span>
+					)
+				}
+			</p>
+			<div class="mt-3 max-w-3xl rounded-lg border border-border bg-surface p-4">
+				<p class="text-xs font-medium text-ink-muted uppercase tracking-wide">Full precision</p>
+				<p class="mt-1 break-words font-mono text-sm leading-6">
+					{fullPrecision}{unitSymbol === '' ? '' : ` ${unitSymbol}`}
+				</p>
+				{
+					constant.uncertainty !== undefined && (
+						<p class="mt-1 font-mono text-sm text-ink-muted">
+							± {formatFullPrecision(constant.uncertainty)}
+						</p>
+					)
+				}
+			</div>
+			{
+				constant.source !== undefined && (
+					<p class="mt-2 text-sm text-ink-muted">
+						Source:{' '}
+						{constant.source.url !== undefined ? (
+							<a class="text-accent hover:underline" href={constant.source.url}>
+								{constant.source.name}
+							</a>
+						) : (
+							constant.source.name
+						)}
+					</p>
+				)
+			}
+		</section>
+
+		{
+			description !== undefined && (
+				<div class="mt-6 max-w-3xl leading-7" set:html={renderRichTextHtml(description)} />
+			)
+		}
+
+		<dl class="mt-6 grid max-w-3xl gap-x-8 gap-y-3 sm:grid-cols-[10rem_1fr]">
+			<dt class="text-sm font-medium text-ink-muted">Unit</dt>
+			<dd>
+				{
+					unit !== undefined ? (
+						<a class="text-accent hover:underline" href={`/units/${unit.slug}/`}>
+							{unit.name.en} ({unitSymbol})
+						</a>
+					) : (
+						constant.unit
+					)
+				}
+			</dd>
+			<dt class="text-sm font-medium text-ink-muted">Status</dt>
+			<dd class="text-sm">
+				{constant.exact ? 'Exact — fixed by definition.' : 'Measured — carries uncertainty.'}
+			</dd>
+		</dl>
+	</article>
+</BaseLayout>

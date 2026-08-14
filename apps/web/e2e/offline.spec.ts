@@ -4,7 +4,8 @@ import { expect, test } from '@playwright/test';
  * The v1 offline gate (ADR 0002): one browser context installs the service
  * worker online, runtime-caches a single unit page, then goes offline and
  * must still serve (a) the visited page, (b) the offline reader for a
- * never-visited unit, (c) a fully working converter, (d) working search.
+ * never-visited unit and (b2) a never-visited equation, (c) a fully working
+ * converter, (d) working search.
  */
 test('offline-first PWA serves shell, reader, converter, and search', async ({ page, context }) => {
 	await test.step('install service worker and precache online', async () => {
@@ -36,6 +37,12 @@ test('offline-first PWA serves shell, reader, converter, and search', async ({ p
 		await expect(
 			page.getByText('base unit of temperature in the International System'),
 		).toBeVisible();
+	});
+
+	await test.step('(b2) never-visited equation lands on the offline reader with its name', async () => {
+		await page.goto('/equations/mass-energy-equivalence/');
+		await expect(page.getByRole('heading', { level: 1, name: "You're offline" })).toBeVisible();
+		await expect(page.getByRole('heading', { name: 'Mass-energy equivalence' })).toBeVisible();
 	});
 
 	await test.step('(c) converter works offline end to end', async () => {

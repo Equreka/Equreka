@@ -10,4 +10,8 @@ export const collections = {
 	categories: defineCollection({ loader: equrekaLoader('categories') }),
 	magnitudes: defineCollection({ loader: equrekaLoader('magnitudes') }),
 	units: defineCollection({ loader: equrekaLoader('units') }),
+	prefixes: defineCollection({ loader: equrekaLoader('prefixes') }),
+	constants: defineCollection({ loader: equrekaLoader('constants') }),
+	variables: defineCollection({ loader: equrekaLoader('variables') }),
+	equations: defineCollection({ loader: equrekaLoader('equations') }),
 };

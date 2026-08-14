@@ -1,0 +1,163 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { formatSigFigs } from '@equreka/engine/format';
+import BaseLayout from '../layouts/base-layout.astro';
+import { CATEGORY_BADGE } from '../lib/category-styles';
+import { asMagnitude } from '../lib/collections';
+import { formatDimension } from '../lib/notation';
+import { engineSlice, unitRegistry } from '../lib/server/engine-registry';
+import { renderRichTextHtml, renderSymbolHtml } from '../lib/tex';
+
+interface Props {
+	entry: CollectionEntry<'magnitudes'>;
+}
+
+const { entry } = Astro.props;
+const magnitude = asMagnitude(entry.data);
+const slug = entry.id;
+const symbolText = magnitude.symbol.text ?? magnitude.symbol.tex;
+
+const compiled = engineSlice.magnitudes[slug];
+const dimensionText = compiled === undefined ? '' : formatDimension(compiled.dimension);
+const baseUnit = engineSlice.units[magnitude.baseUnit];
+const baseSymbol = baseUnit?.symbolText ?? '';
+
+const units = Object.values(engineSlice.units)
+	.filter((unit) => unit.magnitudes.includes(slug))
+	.sort((a, b) => a.name.en.localeCompare(b.name.en));
+const rows = units.map((unit) => {
+	const converted = unitRegistry.convert(1, unit.slug, magnitude.baseUnit);
+	return {
+		unit,
+		isBase: unit.slug === magnitude.baseUnit,
+		value: converted.ok ? formatSigFigs(converted.value) : undefined,
+		exact: unitRegistry.isExactPath(unit.slug, magnitude.baseUnit),
+	};
+});
+
+const description = magnitude.description?.en;
+const metaDescription =
+	description === undefined
+		? `${magnitude.name.en} (${symbolText}) — magnitude reference with all of its units.`
+		: `${description.replaceAll('$', '').slice(0, 157)}…`;
+---
+
+<BaseLayout title={`${magnitude.name.en} (${symbolText}) — Equreka`} description={metaDescription}>
+	<article>
+		<header class="border-b border-border pb-6">
+			<div class="flex flex-wrap items-center gap-2 text-xs font-medium">
+				<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">Magnitude</span>
+				{
+					magnitude.categories.map((category) => (
+						<span
+							class={`rounded-full px-2.5 py-0.5 ${CATEGORY_BADGE[category] ?? CATEGORY_BADGE.universal}`}
+						>
+							{category}
+						</span>
+					))
+				}
+				{
+					dimensionText === '' && (
+						<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">dimensionless</span>
+					)
+				}
+			</div>
+			<div class="mt-3 flex flex-wrap items-baseline gap-4">
+				<h1 class="text-3xl font-bold tracking-tight">{magnitude.name.en}</h1>
+				<span class="text-2xl" set:html={renderSymbolHtml(magnitude.symbol.tex, symbolText)} />
+			</div>
+		</header>
+
+		{
+			description !== undefined && (
+				<div class="mt-6 max-w-3xl leading-7" set:html={renderRichTextHtml(description)} />
+			)
+		}
+
+		<dl class="mt-6 grid max-w-3xl gap-x-8 gap-y-3 sm:grid-cols-[10rem_1fr]">
+			{
+				dimensionText !== '' && (
+					<>
+						<dt class="text-sm font-medium text-ink-muted">Dimension</dt>
+						<dd>{dimensionText}</dd>
+					</>
+				)
+			}
+			<dt class="text-sm font-medium text-ink-muted">Base unit</dt>
+			<dd>
+				{
+					baseUnit !== undefined ? (
+						<a class="text-accent hover:underline" href={`/units/${baseUnit.slug}/`}>
+							{baseUnit.name.en} ({baseUnit.symbolText})
+						</a>
+					) : (
+						magnitude.baseUnit
+					)
+				}
+			</dd>
+			{
+				magnitude.nonNegative === true && (
+					<>
+						<dt class="text-sm font-medium text-ink-muted">Sign</dt>
+						<dd class="text-sm text-ink-muted">Non-negative quantity</dd>
+					</>
+				)
+			}
+		</dl>
+
+		{
+			rows.length > 0 && (
+				<section aria-labelledby="magnitude-units-heading" class="mt-10">
+					<h2 id="magnitude-units-heading" class="text-2xl font-semibold">
+						Units of {magnitude.name.en.toLowerCase()}
+					</h2>
+					<p class="mt-1 text-sm text-ink-muted">
+						Every unit measuring this magnitude, with its engine-computed factor to the base unit.
+						Approximate values are rounded to 6 significant figures.
+					</p>
+					<div class="mt-4 overflow-x-auto rounded-lg border border-border">
+						<table class="w-full border-collapse bg-surface text-left">
+							<thead>
+								<tr class="border-b border-border text-sm text-ink-muted">
+									<th scope="col" class="px-4 py-2 font-medium">
+										Unit
+									</th>
+									<th scope="col" class="px-4 py-2 font-medium">
+										Symbol
+									</th>
+									<th scope="col" class="px-4 py-2 font-medium">
+										Factor to base
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								{rows.map((row) => (
+									<tr class="border-b border-border last:border-b-0">
+										<td class="px-4 py-2">
+											<a class="text-accent hover:underline" href={`/units/${row.unit.slug}/`}>
+												{row.unit.name.en}
+											</a>
+										</td>
+										<td
+											class="px-4 py-2"
+											set:html={renderSymbolHtml(row.unit.symbolTex, row.unit.symbolText)}
+										/>
+										<td class="px-4 py-2 font-mono text-sm">
+											{row.isBase ? (
+												<span class="font-sans text-ink-muted">base unit</span>
+											) : row.value === undefined ? (
+												''
+											) : (
+												`1 ${row.unit.symbolText} ${row.exact ? '=' : '≈'} ${row.value} ${baseSymbol}`
+											)}
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+				</section>
+			)
+		}
+	</article>
+</BaseLayout>
