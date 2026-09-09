@@ -31,7 +31,7 @@ const KNOWN_CE_SYMBOLS = new Set(['Pi', 'ExponentialE']);
 export interface EquationSolutionInput {
 	slug: string;
 	expression: string;
-	terms: Record<string, { kind: 'magnitude' | 'constant' | 'variable'; ref: string }>;
+	terms: Record<string, { kind: 'magnitude' | 'constant' | 'variable' | 'symbol' }>;
 	solutions: Record<string, string>;
 	constantValues: Record<string, number>;
 }

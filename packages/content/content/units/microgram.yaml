@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Microgram'
 symbol:
@@ -10,6 +11,9 @@ prefixOf:
   base: 'gram'
 categories:
   - 'physics'
+aliases:
+  - 'mcg'
+  - 'ug'
 description:
   en: >-
     In the metric system, a microgram or microgramme is a unit of mass equal to one millionth

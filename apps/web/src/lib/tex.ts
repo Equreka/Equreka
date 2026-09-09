@@ -15,12 +15,16 @@ const DASH_RE = /[–—−]/g;
  */
 const CLASS_NAME_RE = /^[a-z][a-z0-9- ]*$/;
 
-const DATA_VALUE_RE = /^[a-z-]+:[a-z0-9-]+$/;
+const DATA_VALUE_RE = /^[a-z-]+:[A-Za-z0-9_-]+$/;
 
-const MACRO_KINDS: Record<string, TermAnnotation['kind']> = {
-	mag: 'magnitude',
-	const: 'constant',
-	var: 'variable',
+/**
+ * `\var{}` annotates both wiki-backed variables and equation-local symbols;
+ * the other macros are one-to-one with their term kind.
+ */
+const MACRO_KINDS: Record<string, readonly TermAnnotation['kind'][]> = {
+	mag: ['magnitude'],
+	const: ['constant'],
+	var: ['variable', 'symbol'],
 };
 
 /**
@@ -32,12 +36,13 @@ const strictAllowHtmlExtension = (errorCode: string): 'ignore' | 'error' =>
 	errorCode === 'htmlExtension' ? 'ignore' : 'error';
 
 /**
- * The kind/ref pair of one equation term, matching the authored terms map
- * (@equreka/schema equationTerm).
+ * Structural subset of one authored equation term (@equreka/schema
+ * equationTerm): wiki-backed kinds carry `ref`; equation-local symbols have
+ * none and key their highlighting on the term identifier instead.
  */
 export interface TermAnnotation {
-	kind: 'magnitude' | 'constant' | 'variable';
-	ref: string;
+	kind: 'magnitude' | 'constant' | 'variable' | 'symbol';
+	ref?: string;
 }
 
 const HTML_ESCAPES: Record<string, string> = {
@@ -64,10 +69,18 @@ export function stripSemanticMacros(tex: string): string {
 /**
  * Canonical data-term value for one term — the equation page's expression
  * spans, terms-table rows, and the base layout's highlighting script all key
- * off this exact string.
+ * off this exact string. Symbol terms use the key's identifier form (the
+ * same normalization as the pipeline's solution identifiers).
  */
-export function termDataValue(term: TermAnnotation): string {
-	return `${term.kind}:${term.ref}`;
+export function termDataValue(key: string, term: TermAnnotation): string {
+	if (term.ref !== undefined) {
+		return `${term.kind}:${term.ref}`;
+	}
+	const identifier = key.replace(/[^A-Za-z0-9_]/g, '');
+	if (identifier === '') {
+		throw new Error(`term key ${JSON.stringify(key)} normalizes to an empty identifier`);
+	}
+	return `${term.kind}:${identifier}`;
 }
 
 /**
@@ -85,11 +98,11 @@ export function expandSemanticMacros(tex: string, terms: Record<string, TermAnno
 		if (term === undefined) {
 			throw new Error(`tex macro ${whole} has no matching term key "${arg}"`);
 		}
-		if (MACRO_KINDS[macro] !== term.kind) {
+		if (!(MACRO_KINDS[macro] ?? []).includes(term.kind)) {
 			throw new Error(`tex macro ${whole} disagrees with term kind "${term.kind}"`);
 		}
 		const className = `eq-term eq-${term.kind}`;
-		const dataValue = termDataValue(term);
+		const dataValue = termDataValue(arg, term);
 		if (!CLASS_NAME_RE.test(className)) {
 			throw new Error(`invalid \\htmlClass name "${className}"`);
 		}

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Fahrenheit'
 symbol:
@@ -14,6 +15,10 @@ toBase:
     den: '180'
 categories:
   - 'physics'
+aliases:
+  - 'degF'
+  - 'F'
+  - 'degrees fahrenheit'
 description:
   en: >-
     The Fahrenheit scale (/ˈfærənhaɪt/ or /ˈfɑːrənhaɪt/) is a temperature scale based on one

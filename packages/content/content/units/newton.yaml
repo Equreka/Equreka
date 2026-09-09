@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Newton'
 symbol:
@@ -6,6 +7,14 @@ unitOf:
   - 'force'
   - 'weight'
 system: 'si-derived'
+compose:
+  of:
+    - unit: 'kilogram'
+      exp: 1
+    - unit: 'metre'
+      exp: 1
+    - unit: 'second'
+      exp: -2
 categories:
   - 'physics'
 description:

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Joule per second'
 symbol:
@@ -7,12 +8,15 @@ unitOf:
   - 'power'
 system: 'si-derived'
 compose:
-  - unit: 'joule'
-    exp: 1
-  - unit: 'second'
-    exp: -1
+  of:
+    - unit: 'joule'
+      exp: 1
+    - unit: 'second'
+      exp: -1
 categories:
   - 'physics'
+aliases:
+  - 'J/s'
 description:
   en: >-
     The SI units for work and time are Joules and seconds, respectively.

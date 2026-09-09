@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Mile'
 symbol:
@@ -6,10 +7,12 @@ unitOf:
   - 'length'
 system: 'imperial'
 toBase:
-  factor: '1609.34'
-  exact: false
+  factor: '1609.344'
 categories:
   - 'physics'
+aliases:
+  - 'statute mile'
+  - 'international mile'
 description:
   en: >-
     The mile, sometimes the international mile or statute mile to distinguish it from other miles,

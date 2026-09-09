@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Imperial Quart'
 symbol:
@@ -7,9 +8,12 @@ unitOf:
   - 'volume'
 system: 'imperial'
 toBase:
-  factor: '0.00113652'
+  factor: '0.0011365225'
 categories:
   - 'physics'
+aliases:
+  - 'UK quart'
+  - 'imp qt'
 description:
   en: >-
     The imperial gallon ($imp gal$), defined as 4.54609 litres, which is or was used in the United

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Cubic metre'
 symbol:
@@ -7,10 +8,15 @@ unitOf:
   - 'volume'
 system: 'si-derived'
 compose:
-  - unit: 'metre'
-    exp: 3
+  of:
+    - unit: 'metre'
+      exp: 3
 categories:
   - 'physics'
+aliases:
+  - 'cubic meter'
+  - 'm3'
+  - 'm^3'
 description:
   en: >-
     The cubic metre (in Commonwealth English and international spelling as used by the International

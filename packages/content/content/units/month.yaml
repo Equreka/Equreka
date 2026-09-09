@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Month'
 symbol:
@@ -11,6 +12,8 @@ toBase:
 categories:
   - 'universal'
   - 'physics'
+aliases:
+  - 'mo'
 description:
   en: >-
     A month is a unit of time, used with calendars, that is approximately as long as a natural

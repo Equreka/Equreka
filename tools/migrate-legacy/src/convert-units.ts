@@ -257,7 +257,7 @@ export function convertUnits(
 				);
 			}
 			report.drop('units', 'units[] (composition source)', slug);
-			entity.compose = compose.map((operand) => ({ ...operand }));
+			entity.compose = { of: compose.map((operand) => ({ ...operand })) };
 		} else if (magnitudes.baseUnits.has(slug)) {
 			if (legacy.units !== undefined)
 				report.drop('units', 'units[] (related compound units)', slug);

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Inch'
 symbol:
@@ -9,6 +10,8 @@ toBase:
   factor: '0.0254'
 categories:
   - 'physics'
+aliases:
+  - 'inches'
 description:
   en: >-
     The inch (symbol: in or ″) is a unit of length in the British imperial and the United States

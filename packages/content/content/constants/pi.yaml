@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
 name:
   en: 'Pi'
 symbol:
@@ -5,10 +6,15 @@ symbol:
   text: 'pi'
 value: '3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214'
 unit: 'unitless'
-exact: true
+exact: false
+irrational: true
 categories:
   - 'universal'
   - 'mathematics'
+aliases:
+  - 'π'
+  - 'archimedes constant'
+  - '3.14'
 description:
   en: >-
     The number π (/paɪ/; spelled out as "pi") is a mathematical constant, approximately equal to

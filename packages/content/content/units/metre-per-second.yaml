@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Metre per second'
 symbol:
@@ -7,12 +8,17 @@ unitOf:
   - 'speed'
 system: 'si-derived'
 compose:
-  - unit: 'metre'
-    exp: 1
-  - unit: 'second'
-    exp: -1
+  of:
+    - unit: 'metre'
+      exp: 1
+    - unit: 'second'
+      exp: -1
 categories:
   - 'physics'
+aliases:
+  - 'meter per second'
+  - 'm/s'
+  - 'mps'
 description:
   en: >-
     Is an SI derived unit of both speed (scalar quantity) and velocity (vector quantity (which have

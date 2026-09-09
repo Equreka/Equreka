@@ -1,7 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
-import { type Locale, localizedName, t } from '@equreka/core/i18n';
+import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
 import CalculatorIsland, {
 	type CalculatorConstant,
 	type CalculatorField,
@@ -35,6 +35,18 @@ const fields: CalculatorField[] = [];
 const constants: CalculatorConstant[] = [];
 const nonNegative: string[] = [];
 for (const [key, term] of Object.entries(meta.terms)) {
+	if (term.kind === 'symbol') {
+		fields.push({
+			key,
+			label: term.label === undefined ? key : pickLocalized(term.label, locale).value,
+			symbolText: key,
+			unitSymbol: term.unit === undefined ? '' : (engineSlice.units[term.unit]?.symbolText ?? ''),
+		});
+		continue;
+	}
+	if (term.ref === undefined) {
+		throw new Error(`calculator page for ${slug}: ${term.kind} term ${key} has no ref`);
+	}
 	if (term.kind === 'constant') {
 		const constant = engineSlice.constants[term.ref];
 		if (constant === undefined) {

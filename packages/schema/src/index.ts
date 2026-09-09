@@ -12,7 +12,7 @@ import {
 export * from './common.js';
 export * from './entities.js';
 
-export const SCHEMA_VERSION = 1;
+export const SCHEMA_VERSION = 2;
 
 /**
  * Collection name → authored-entity schema. The pipeline validates every

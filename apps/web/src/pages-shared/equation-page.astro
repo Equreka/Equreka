@@ -1,6 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
+import equationsPresentation from '@equreka/content/artifact/presentation/equations.json';
 import {
 	type Locale,
 	type LocalizedText,
@@ -48,18 +49,29 @@ for (const collection of Object.values(TERM_COLLECTIONS)) {
 }
 
 const termRows = Object.entries(equation.terms).map(([key, term]) => {
-	const collection = TERM_COLLECTIONS[term.kind];
-	return {
+	const base = {
 		key,
 		term,
-		dataValue: termDataValue(term),
+		dataValue: termDataValue(key, term),
 		kindLabel: t(locale, `term.${term.kind}`),
+	};
+	if (term.kind === 'symbol') {
+		return { ...base, name: pickLocalized(term.label, locale).value, href: undefined };
+	}
+	const collection = TERM_COLLECTIONS[term.kind];
+	return {
+		...base,
 		name: namesByCollection[collection]?.get(term.ref) ?? term.ref,
 		href: entryHref(collection, term.ref),
 	};
 });
 
-const relatedUnits = equation.units
+/**
+ * Related units are pipeline-derived from the terms (presentation slice),
+ * never authored — the hand-maintained list drifted.
+ */
+const presentation = (equationsPresentation as Record<string, { relatedUnits: string[] }>)[slug];
+const relatedUnits = (presentation?.relatedUnits ?? [])
 	.map((unitSlug) => engineSlice.units[unitSlug])
 	.filter((unit) => unit !== undefined);
 

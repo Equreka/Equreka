@@ -1,7 +1,7 @@
 import type { CollectionName } from '@equreka/schema';
 import { dimensionsEqual, formatDimension, magnitudeDimension } from './dimension.js';
 import { ratFromExact, ratIsZero } from './rational.js';
-import { macroUses } from './tex.js';
+import { type MacroUse, macroUses } from './tex.js';
 import { type Issue, issue } from './types.js';
 import { type Corpus, fileOf } from './validate.js';
 
@@ -12,9 +12,40 @@ const TERM_COLLECTION: Record<'magnitude' | 'constant' | 'variable', CollectionN
 };
 
 /**
+ * `\var{}` annotates both wiki-backed variables and equation-local symbols;
+ * the other macros are one-to-one with their term kind.
+ */
+const MACRO_ACCEPTS: Record<MacroUse['kind'], readonly string[]> = {
+	magnitude: ['magnitude'],
+	constant: ['constant'],
+	variable: ['variable', 'symbol'],
+};
+
+/**
+ * The only units allowed to omit every derivation form: the seven SI base
+ * units, the two SI dimensionless derived anchors, and the dimensionless
+ * identity. Every other convertible unit must derive (toBase | prefixOf |
+ * compose) so its magnitude's dimension vector is verified by composition
+ * instead of trusted as hand-typed data.
+ */
+export const DERIVATION_FREE_UNITS: ReadonlySet<string> = new Set([
+	'metre',
+	'kilogram',
+	'second',
+	'ampere',
+	'kelvin',
+	'mole',
+	'candela',
+	'radian',
+	'steradian',
+	'unitless',
+]);
+
+/**
  * Stage 3: cross-entity referential integrity plus the structural rules a
- * per-file schema cannot see (baseUnit linkage, the affine ban, equation
- * term/macro agreement). Numeric anchor rules land in stage 4 resolution.
+ * per-file schema cannot see (baseUnit linkage, the affine ban, the
+ * derivation whitelist, nonConvertible isolation, equation term/macro
+ * agreement). Numeric anchor rules land in stage 4 resolution.
  */
 export function checkIntegrity(corpus: Corpus): Issue[] {
 	const issues: Issue[] = [];
@@ -59,6 +90,16 @@ export function checkIntegrity(corpus: Corpus): Issue[] {
 				),
 			);
 		}
+		if (baseUnit?.nonConvertible === true) {
+			issues.push(
+				issue(
+					'error',
+					'integrity',
+					file,
+					`baseUnit '${magnitude.baseUnit}' is nonConvertible; a magnitude anchors on a convertible unit`,
+				),
+			);
+		}
 	}
 
 	const affineUnits = new Set<string>();
@@ -88,6 +129,18 @@ export function checkIntegrity(corpus: Corpus): Issue[] {
 				),
 			);
 		}
+		const derivationFree =
+			unit.toBase === undefined && unit.prefixOf === undefined && unit.compose === undefined;
+		if (derivationFree && !unit.nonConvertible && !DERIVATION_FREE_UNITS.has(slug)) {
+			issues.push(
+				issue(
+					'error',
+					'integrity',
+					file,
+					`has no derivation form (toBase | prefixOf | compose); only ${[...DERIVATION_FREE_UNITS].join(', ')} may omit one`,
+				),
+			);
+		}
 		if (unit.prefixOf !== undefined) {
 			ref(file, 'prefixOf.prefix', 'prefixes', unit.prefixOf.prefix);
 			ref(file, 'prefixOf.base', 'units', unit.prefixOf.base);
@@ -101,9 +154,19 @@ export function checkIntegrity(corpus: Corpus): Issue[] {
 					),
 				);
 			}
+			if (corpus.units.get(unit.prefixOf.base)?.nonConvertible === true) {
+				issues.push(
+					issue(
+						'error',
+						'integrity',
+						file,
+						`prefixOf.base '${unit.prefixOf.base}' is nonConvertible and has no factor to scale`,
+					),
+				);
+			}
 		}
-		for (const operand of unit.compose ?? []) {
-			ref(file, 'compose.unit', 'units', operand.unit);
+		for (const operand of unit.compose?.of ?? []) {
+			ref(file, 'compose.of.unit', 'units', operand.unit);
 			if (affineUnits.has(operand.unit)) {
 				issues.push(
 					issue(
@@ -111,6 +174,16 @@ export function checkIntegrity(corpus: Corpus): Issue[] {
 						'integrity',
 						file,
 						`compose references affine unit '${operand.unit}' (offset ≠ 0); affine units do not compose`,
+					),
+				);
+			}
+			if (corpus.units.get(operand.unit)?.nonConvertible === true) {
+				issues.push(
+					issue(
+						'error',
+						'integrity',
+						file,
+						`compose references nonConvertible unit '${operand.unit}', which has no factor to compose`,
 					),
 				);
 			}
@@ -142,7 +215,7 @@ export function checkIntegrity(corpus: Corpus): Issue[] {
 				);
 				continue;
 			}
-			if (term.kind !== use.kind) {
+			if (!MACRO_ACCEPTS[use.kind].includes(term.kind)) {
 				issues.push(
 					issue(
 						'error',
@@ -161,7 +234,11 @@ export function checkIntegrity(corpus: Corpus): Issue[] {
 			}
 		}
 		for (const [key, term] of Object.entries(equation.terms)) {
-			ref(file, `terms.${key}.ref`, TERM_COLLECTION[term.kind], term.ref);
+			if (term.kind === 'symbol') {
+				ref(file, `terms.${key}.unit`, 'units', term.unit);
+			} else {
+				ref(file, `terms.${key}.ref`, TERM_COLLECTION[term.kind], term.ref);
+			}
 		}
 		for (const key of Object.keys(equation.solutions)) {
 			if (!termKeys.has(key)) {
@@ -184,9 +261,6 @@ export function checkIntegrity(corpus: Corpus): Issue[] {
 					),
 				);
 			}
-		}
-		for (const unitSlug of equation.units) {
-			ref(file, 'units', 'units', unitSlug);
 		}
 	}
 

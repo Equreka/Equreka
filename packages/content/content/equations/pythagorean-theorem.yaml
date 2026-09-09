@@ -1,25 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
 name:
   en: 'Pythagorean theorem'
 kind: 'equation'
 expression: '\var{a}^{2}+\var{b}^{2}=\var{c}^{2}'
 terms:
   a:
-    kind: 'variable'
-    ref: 'a'
+    kind: 'symbol'
+    label:
+      en: 'Leg'
+      es: 'Cateto'
   b:
-    kind: 'variable'
-    ref: 'b'
+    kind: 'symbol'
+    label:
+      en: 'Leg'
+      es: 'Cateto'
   c:
-    kind: 'variable'
-    ref: 'c'
+    kind: 'symbol'
+    label:
+      en: 'Hypotenuse'
+      es: 'Hipotenusa'
 solutions:
   a: 'sqrt(c^2 - b^2)'
   b: 'sqrt(c^2 - a^2)'
   c: 'sqrt(a^2 + b^2)'
 calculator:
   enabled: true
-units:
-  - 'unit'
 categories:
   - 'mathematics'
 description:

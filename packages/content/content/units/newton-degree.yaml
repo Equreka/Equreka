@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Newton degree'
 symbol:
@@ -14,6 +15,9 @@ toBase:
     den: '20'
 categories:
   - 'physics'
+aliases:
+  - 'degN'
+  - 'newton scale'
 description:
   en: >-
     The Newton scale is a temperature scale devised by Isaac Newton in 1701. He called his device a

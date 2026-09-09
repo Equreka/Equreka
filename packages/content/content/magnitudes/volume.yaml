@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
 name:
   en: 'Volume'
 symbol:
@@ -10,6 +11,8 @@ categories:
   - 'universal'
   - 'mathematics'
   - 'physics'
+aliases:
+  - 'capacity'
 description:
   en: >-
     Volume is the quantity of three-dimensional space enclosed by a closed surface. For example, the

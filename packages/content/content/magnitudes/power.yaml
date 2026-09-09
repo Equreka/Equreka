@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
 name:
   en: 'Power'
 symbol:
@@ -9,6 +10,8 @@ dimension:
   T: -3
 categories:
   - 'physics'
+aliases:
+  - 'wattage'
 description:
   en: >-
     In physics, power is the amount of energy transferred or converted per unit time. In the

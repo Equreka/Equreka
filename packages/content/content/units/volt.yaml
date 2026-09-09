@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Volt'
 symbol:
@@ -7,6 +8,12 @@ unitOf:
   - 'electric-potential-difference'
   - 'electromotive-force'
 system: 'si-derived'
+compose:
+  of:
+    - unit: 'watt'
+      exp: 1
+    - unit: 'ampere'
+      exp: -1
 categories:
   - 'physics'
 description:

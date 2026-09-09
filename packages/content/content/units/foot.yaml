@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Foot'
 symbol:
@@ -9,6 +10,8 @@ toBase:
   factor: '0.3048'
 categories:
   - 'physics'
+aliases:
+  - 'feet'
 description:
   en: >-
     The foot (pural feet), standard symbol: $ft$, is a unit of length in the British imperial and

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Hertz'
 symbol:
@@ -5,6 +6,10 @@ symbol:
 unitOf:
   - 'frequency'
 system: 'si-derived'
+compose:
+  of:
+    - unit: 'second'
+      exp: -1
 categories:
   - 'physics'
 description:

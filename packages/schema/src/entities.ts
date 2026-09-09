@@ -64,12 +64,44 @@ export const toBase = z
 	})
 	.strict();
 
+/**
+ * One factor of a composed unit: `unit` raised to a nonzero integer power.
+ */
+export const composeOperand = z
+	.object({
+		unit: ref('units'),
+		exp: intFromString.refine((n) => n !== 0, 'exponent 0 is meaningless'),
+	})
+	.strict();
+
+/**
+ * Product form: this unit = factor · Π unitᵢ^expᵢ. `factor` is an exact
+ * scalar (default 1) so exact non-unit ratios compose without a hand-typed
+ * decimal (arcminute = degree/60); the pipeline multiplies it into the
+ * rational factor chain and verifies the dimension sum against unitOf.
+ */
+export const compose = z
+	.object({
+		factor: exactNumber.default('1'),
+		of: z.array(composeOperand).min(1),
+	})
+	.strict();
+
+/**
+ * Derivation-free authoring is legal only for the SI-coherent anchors the
+ * pipeline whitelists and for nonConvertible units; everything else must
+ * derive so its dimension is machine-verified. `nonConvertible` marks
+ * wiki-only units with no linear/affine mapping (levels such as the
+ * decibel): they resolve no factor, never enter the engine slice, and may
+ * not anchor a magnitude or appear in another unit's derivation.
+ */
 export const unit = entityBase
 	.extend({
 		symbol,
 		symbolAlt: symbol.optional(),
 		unitOf: z.array(ref('magnitudes')).min(1),
 		system: unitSystem.default('other'),
+		nonConvertible: strictBool.default(false),
 		toBase: toBase.optional(),
 		prefixOf: z
 			.object({
@@ -78,17 +110,7 @@ export const unit = entityBase
 			})
 			.strict()
 			.optional(),
-		compose: z
-			.array(
-				z
-					.object({
-						unit: ref('units'),
-						exp: intFromString.refine((n) => n !== 0, 'exponent 0 is meaningless'),
-					})
-					.strict(),
-			)
-			.min(1)
-			.optional(),
+		compose: compose.optional(),
 	})
 	.strict()
 	.superRefine((value, ctx) => {
@@ -98,6 +120,12 @@ export const unit = entityBase
 				code: 'custom',
 				message:
 					'a unit is authored in at most one form: toBase | prefixOf | compose (none = base unit)',
+			});
+		}
+		if (value.nonConvertible && forms.length > 0) {
+			ctx.addIssue({
+				code: 'custom',
+				message: 'a nonConvertible unit has no mapping to a base and therefore no derivation form',
 			});
 		}
 	});
@@ -136,10 +164,18 @@ export const variable = entityBase
 	})
 	.strict();
 
+/**
+ * `symbol` terms are equation-local unknowns with no wiki entity behind
+ * them (the legs of a right triangle): a display label plus an optional
+ * unit that fixes their dimension for the build-time consistency check.
+ */
 export const equationTerm = z.discriminatedUnion('kind', [
 	z.object({ kind: z.literal('magnitude'), ref: ref('magnitudes') }).strict(),
 	z.object({ kind: z.literal('constant'), ref: ref('constants') }).strict(),
 	z.object({ kind: z.literal('variable'), ref: ref('variables') }).strict(),
+	z
+		.object({ kind: z.literal('symbol'), label: localizedText, unit: ref('units').optional() })
+		.strict(),
 ]);
 
 /**
@@ -148,7 +184,8 @@ export const equationTerm = z.discriminatedUnion('kind', [
  * macro argument must be a key of `terms` and vice versa (pipeline-enforced).
  * `solutions` are hand-authored per-variable solved forms in a small
  * expression grammar, machine-verified at build (ADR 0002) — the calculator
- * can only solve for symbols listed here.
+ * can only solve for symbols listed here. Related units are derived from
+ * terms at build time, never authored.
  */
 export const equation = entityBase
 	.extend({
@@ -163,7 +200,6 @@ export const equation = entityBase
 			})
 			.strict()
 			.default({ enabled: false }),
-		units: z.array(ref('units')).default([]),
 	})
 	.strict();
 
@@ -209,6 +245,8 @@ export type Category = z.infer<typeof category>;
 export type DimensionVector = z.infer<typeof dimensionVector>;
 export type Magnitude = z.infer<typeof magnitude>;
 export type Unit = z.infer<typeof unit>;
+export type Compose = z.infer<typeof compose>;
+export type ComposeOperand = z.infer<typeof composeOperand>;
 export type UnitSystem = z.infer<typeof unitSystem>;
 export type Prefix = z.infer<typeof prefix>;
 export type Constant = z.infer<typeof constant>;

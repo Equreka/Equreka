@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Millilitre'
 symbol:
@@ -10,6 +11,9 @@ prefixOf:
   base: 'litre'
 categories:
   - 'physics'
+aliases:
+  - 'milliliter'
+  - 'mL'
 description:
   en: >-
     A unit of measure of capacity, being one thousandth of a litre. Symbol: ml.

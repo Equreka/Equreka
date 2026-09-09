@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Litre'
 symbol:
@@ -9,6 +10,10 @@ toBase:
   factor: '0.001'
 categories:
   - 'physics'
+aliases:
+  - 'liter'
+  - 'liters'
+  - 'L'
 description:
   en: >-
     The litre (British English spelling) or liter (American English spelling) (SI symbols $l$ and

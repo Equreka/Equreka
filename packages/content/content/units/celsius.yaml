@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Celsius'
 symbol:
@@ -12,6 +13,11 @@ toBase:
     den: '20'
 categories:
   - 'physics'
+aliases:
+  - 'degC'
+  - 'C'
+  - 'centigrade'
+  - 'degrees celsius'
 description:
   en: >-
     The degree Celsius is a unit of temperature on the Celsius scale, a temperature scale originally

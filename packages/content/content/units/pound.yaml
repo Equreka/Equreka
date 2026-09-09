@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Pound'
 symbol:
@@ -9,6 +10,10 @@ toBase:
   factor: '0.45359237'
 categories:
   - 'physics'
+aliases:
+  - 'lbs'
+  - 'pound-mass'
+  - 'lbm'
 description:
   en: >-
     The pound or pound-mass is a unit of mass used in British imperial and United States customary

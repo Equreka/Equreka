@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
 name:
   en: 'Speed of light in vacuum'
 symbol:
@@ -8,6 +9,10 @@ exact: true
 categories:
   - 'universal'
   - 'physics'
+aliases:
+  - 'speed of light'
+  - 'light speed'
+  - 'c0'
 description:
   en: >-
     The speed of light in vacuum, commonly denoted $c$, is a universal physical constant important

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
 name:
   en: 'Amount of substance'
 symbol:
@@ -8,6 +9,9 @@ dimension:
 nonNegative: true
 categories:
   - 'chemistry'
+aliases:
+  - 'amount of substance'
+  - 'moles'
 description:
   en: >-
     The amount of substance, symbol n, of a system is a measure of the number of specified

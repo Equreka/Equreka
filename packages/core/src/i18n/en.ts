@@ -43,6 +43,7 @@ export const en = {
 	'term.magnitude': 'Magnitude',
 	'term.constant': 'Constant',
 	'term.variable': 'Variable',
+	'term.symbol': 'Symbol',
 
 	'badge.exact': 'exact',
 	'badge.measured': 'measured',

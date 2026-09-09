@@ -1,8 +1,8 @@
-import { mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { engineSlice, SCHEMA_VERSION } from '@equreka/schema';
+import { COLLECTIONS, engineSlice, SCHEMA_VERSION } from '@equreka/schema';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { type CompileReport, compileContent } from '../pipeline/compile.js';
 
@@ -29,9 +29,13 @@ describe('build over the real corpus', () => {
 		const parsed = engineSlice.parse(raw);
 		expect(parsed.schemaVersion).toBe(SCHEMA_VERSION);
 		expect(parsed.contentHash).toBe(report.contentHash);
-		expect(Object.keys(parsed.units).length).toBe(report.counts.units);
+		const convertible = [...report.corpus.units.values()].filter((unit) => !unit.nonConvertible);
+		expect(Object.keys(parsed.units).length).toBe(convertible.length);
 		expect(parsed.units.fahrenheit).toMatchObject({ affine: true, exact: false });
+		expect(parsed.units.joule).toMatchObject({ factor: '1', dimension: [2, 1, -2, 0, 0, 0, 0, 0] });
+		expect(parsed.units.unit).toBeUndefined();
 		expect(parsed.magnitudes.entropy).toMatchObject({ baseUnit: 'joule-per-kelvin' });
+		expect(parsed.magnitudes.capacitance?.dimension).toEqual([-2, -1, 4, 2, 0, 0, 0, 0]);
 		expect(parsed.equations['mass-energy-equivalence']).toMatchObject({
 			calculatorEnabled: true,
 			solvable: ['E', 'm'],
@@ -41,6 +45,49 @@ describe('build over the real corpus', () => {
 			ref: 'pi',
 			identifier: 'pi',
 		});
+		expect(parsed.equations['area-circle']?.terms.r).toEqual({
+			kind: 'symbol',
+			label: { en: 'Radius', es: 'Radio' },
+			unit: 'metre',
+			identifier: 'r',
+		});
+		expect(parsed.equations['pythagorean-theorem']?.terms.c).toEqual({
+			kind: 'symbol',
+			label: { en: 'Hypotenuse', es: 'Hipotenusa' },
+			identifier: 'c',
+		});
+		expect(parsed.constants.pi).toMatchObject({ exact: false, irrational: true });
+	});
+
+	it('derives related units into the equations presentation slice', () => {
+		const equations = JSON.parse(
+			readFileSync(join(outDir, 'presentation', 'equations.json'), 'utf8'),
+		) as Record<string, { relatedUnits: string[]; units?: unknown }>;
+		expect(equations['area-circle']?.relatedUnits).toEqual(['square-metre', 'unitless', 'metre']);
+		expect(equations['area-square']?.relatedUnits).toEqual(['square-metre', 'metre']);
+		expect(equations['mass-energy-equivalence']?.relatedUnits).toEqual([
+			'joule',
+			'kilogram',
+			'metre-per-second',
+		]);
+		expect(equations['pythagorean-theorem']?.relatedUnits).toEqual([]);
+		expect(equations['area-circle']?.units).toBeUndefined();
+	});
+
+	it('emits a draft-07 authoring JSON Schema per collection for editors', () => {
+		for (const collection of COLLECTIONS) {
+			const path = join(outDir, 'schemas', `${collection}.schema.json`);
+			expect(existsSync(path), collection).toBe(true);
+			const schema = JSON.parse(readFileSync(path, 'utf8')) as Record<string, unknown>;
+			expect(schema.$schema).toBe('http://json-schema.org/draft-07/schema#');
+			expect(schema.type).toBe('object');
+		}
+		const units = JSON.parse(
+			readFileSync(join(outDir, 'schemas', 'units.schema.json'), 'utf8'),
+		) as { properties: Record<string, { properties?: Record<string, unknown> }> };
+		expect(units.properties.compose?.properties).toHaveProperty('factor');
+		expect(units.properties.compose?.properties).toHaveProperty('of');
+		expect(units.properties).toHaveProperty('nonConvertible');
 	});
 
 	it('stays inside the artifact size budgets', () => {

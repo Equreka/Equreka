@@ -3,4 +3,4 @@
  * derivation caches keyed on file bytes alone (verification semantics,
  * codegen output shape).
  */
-export const CONTENT_PIPELINE_VERSION = 1;
+export const CONTENT_PIPELINE_VERSION = 2;

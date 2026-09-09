@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Stone'
 symbol:
@@ -6,7 +7,7 @@ unitOf:
   - 'mass'
 system: 'imperial'
 toBase:
-  factor: '6.35029'
+  factor: '6.35029318'
 categories:
   - 'physics'
 description:

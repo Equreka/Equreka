@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
 name:
   en: 'Thermodynamic temperature'
 symbol:
@@ -8,6 +9,8 @@ dimension:
 nonNegative: true
 categories:
   - 'physics'
+aliases:
+  - 'temperature'
 description:
   en: >-
     Thermodynamic temperature is the measure of absolute temperature and is one of the principal

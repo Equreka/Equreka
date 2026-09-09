@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/prefixes.schema.json
 name:
   en: 'Micro'
 symbol:
@@ -5,6 +6,10 @@ symbol:
 value: '1e-6'
 categories:
   - 'universal'
+aliases:
+  - 'mu'
+  - 'u'
+  - 'mc'
 description:
   en: |-
     Micro (symbol $μ$) is a unit prefix in the metric system denoting a factor of $10^{6}$ (one millionth). Confirmed in 1960, the prefix comes from the Greek μικρός (mikrós), meaning "small".

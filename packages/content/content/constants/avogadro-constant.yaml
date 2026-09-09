@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
 name:
   en: 'Avogadro constant'
 symbol:
@@ -9,6 +10,11 @@ exact: true
 categories:
   - 'universal'
   - 'chemistry'
+aliases:
+  - 'avogadro'
+  - 'avogadro number'
+  - 'NA'
+  - 'N_A'
 description:
   en: >-
     The Avogadro constant ($N_{\rm {A}}$ or $L$) is the proportionality factor that relates the

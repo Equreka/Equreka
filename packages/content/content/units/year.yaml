@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Year'
 symbol:
@@ -11,6 +12,9 @@ toBase:
 categories:
   - 'universal'
   - 'physics'
+aliases:
+  - 'yr'
+  - 'annum'
 description:
   en: >-
     A year is the orbital period of a planetary body, for example, the Earth, moving in its orbit

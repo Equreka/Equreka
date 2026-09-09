@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Second'
 symbol:
@@ -8,6 +9,8 @@ system: 'si'
 categories:
   - 'universal'
   - 'physics'
+aliases:
+  - 'sec'
 description:
   en: >-
     The second, symbol $s$, is the SI unit of $time$. It is defined by taking the fixed numerical

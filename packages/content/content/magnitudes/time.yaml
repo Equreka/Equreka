@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
 name:
   en: 'Time'
 symbol:
@@ -9,6 +10,8 @@ nonNegative: true
 categories:
   - 'universal'
   - 'physics'
+aliases:
+  - 'duration'
 description:
   en: >-
     Time in physics is defined by its measurement: time is what a clock reads. In classical,

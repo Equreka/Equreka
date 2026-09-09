@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Nanometre'
 symbol:
@@ -10,6 +11,9 @@ prefixOf:
   base: 'metre'
 categories:
   - 'physics'
+aliases:
+  - 'nanometer'
+  - 'nanometers'
 description:
   en: >-
     The nanometre (International spelling, SI symbol: $nm$) or nanometer (American spelling) is a

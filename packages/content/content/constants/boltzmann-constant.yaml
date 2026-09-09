@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
 name:
   en: 'Boltzmann constant'
 symbol:
@@ -11,6 +12,10 @@ exact: true
 categories:
   - 'universal'
   - 'physics'
+aliases:
+  - 'boltzmann'
+  - 'kB'
+  - 'k_B'
 description:
   en: >-
     Boltzmann's constant ($k$ or $k_{\rm {B}}$) is the physical constant that relates absolute

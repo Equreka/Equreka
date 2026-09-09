@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'U.S. Quart'
 symbol:
@@ -7,9 +8,13 @@ unitOf:
   - 'volume'
 system: 'uscs'
 toBase:
-  factor: '0.0009463529460'
+  factor: '0.000946352946'
 categories:
   - 'physics'
+aliases:
+  - 'quart'
+  - 'qt'
+  - 'US qt'
 description:
   en: >-
     The quart (symbol: $qt$) is an English unit of volume equal to a quarter gallon. Three kinds of

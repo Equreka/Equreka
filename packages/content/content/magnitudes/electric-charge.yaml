@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
 name:
   en: 'Electric charge'
 symbol:
@@ -8,6 +9,8 @@ dimension:
   I: 1
 categories:
   - 'physics'
+aliases:
+  - 'charge'
 description:
   en: >-
     Electric charge is the physical property of matter that causes it to experience a force when

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
 name:
   en: 'Speed'
 symbol:
@@ -9,6 +10,8 @@ dimension:
 nonNegative: true
 categories:
   - 'physics'
+aliases:
+  - 'velocity'
 description:
   en: >-
     In everyday use and in kinematics, the speed (commonly referred to as v) of an object is the

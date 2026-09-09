@@ -4,11 +4,14 @@ import {
 	type Symbol as AuthoredSymbol,
 	COLLECTIONS,
 	type CollectionName,
+	type CompiledEquationTerm,
+	collectionSchemas,
 	type EngineSlice,
 	engineSlice,
 	SCHEMA_VERSION,
 } from '@equreka/schema';
 import MiniSearch from 'minisearch';
+import { z } from 'zod';
 import {
 	type CatalogLiteEntry,
 	SEARCH_LOCALES,
@@ -16,6 +19,7 @@ import {
 	type SearchLocale,
 	searchOptions,
 } from '../search-options.js';
+import { deriveRelatedUnits } from './related-units.js';
 import type { ResolvedUnit } from './resolve.js';
 import { generateSolutionsModule } from './solution-codegen.js';
 import type { SolutionAst } from './solution-parser.js';
@@ -54,6 +58,7 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 	rmSync(outDir, { recursive: true, force: true });
 	mkdirSync(join(outDir, 'presentation'), { recursive: true });
 	mkdirSync(join(outDir, 'search'), { recursive: true });
+	mkdirSync(join(outDir, 'schemas'), { recursive: true });
 
 	const write = (relPath: string, text: string, budget?: number): void => {
 		const bytes = Buffer.byteLength(text, 'utf8');
@@ -91,7 +96,16 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 		for (const [slug, entity] of corpus[collection] as Map<string, Record<string, unknown>>) {
 			record[slug] = presentationOf(entity);
 		}
+		if (collection === 'equations') {
+			for (const [slug, equation] of corpus.equations) {
+				record[slug] = {
+					...(record[slug] as Record<string, unknown>),
+					relatedUnits: deriveRelatedUnits(equation.terms, corpus),
+				};
+			}
+		}
 		write(`presentation/${collection}.json`, `${stableStringify(record)}\n`);
+		write(`schemas/${collection}.schema.json`, `${stableStringify(authoringSchema(collection))}\n`);
 	}
 
 	for (const locale of SEARCH_LOCALES) {
@@ -199,11 +213,19 @@ function buildEngineSlice(input: EmitInput): EngineSlice {
 		const identifierByTermKey = verifications.get(slug)?.identifierByTermKey ?? {};
 		const terms: EngineSlice['equations'][string]['terms'] = {};
 		for (const [key, term] of Object.entries(equation.terms)) {
-			terms[key] = {
+			const compiled: CompiledEquationTerm = {
 				kind: term.kind,
-				ref: term.ref,
 				identifier: identifierByTermKey[key] ?? key,
 			};
+			if (term.kind === 'symbol') {
+				compiled.label = term.label;
+				if (term.unit !== undefined) {
+					compiled.unit = term.unit;
+				}
+			} else {
+				compiled.ref = term.ref;
+			}
+			terms[key] = compiled;
 		}
 		slice.equations[slug] = {
 			slug,
@@ -215,6 +237,16 @@ function buildEngineSlice(input: EmitInput): EngineSlice {
 		};
 	}
 	return slice;
+}
+
+/**
+ * Editor-facing JSON Schema of one collection's authored form: input side
+ * of the Zod contract (failsafe-parse string coercions stay strings) so
+ * yaml-language-server validates and completes exactly what the pipeline
+ * accepts. Draft-07 is the dialect that server supports fully.
+ */
+function authoringSchema(collection: CollectionName): unknown {
+	return z.toJSONSchema(collectionSchemas[collection], { io: 'input', target: 'draft-7' });
 }
 
 function presentationOf(entity: Record<string, unknown>): Record<string, unknown> {

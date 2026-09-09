@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Microsecond'
 symbol:
@@ -11,6 +12,8 @@ prefixOf:
 categories:
   - 'universal'
   - 'physics'
+aliases:
+  - 'us'
 description:
   en: >-
     A microsecond is an SI unit of time equal to one millionth ($0.000001$ or $10^{−6}$ or

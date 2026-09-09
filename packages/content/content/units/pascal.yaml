@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Pascal'
 symbol:
@@ -6,6 +7,12 @@ unitOf:
   - 'pressure'
   - 'stress'
 system: 'si-derived'
+compose:
+  of:
+    - unit: 'newton'
+      exp: 1
+    - unit: 'metre'
+      exp: -2
 categories:
   - 'physics'
 description:

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Imperial Pint'
 symbol:
@@ -7,10 +8,12 @@ unitOf:
   - 'volume'
 system: 'imperial'
 toBase:
-  factor: '0.000568261'
-  exact: false
+  factor: '0.00056826125'
 categories:
   - 'physics'
+aliases:
+  - 'UK pint'
+  - 'imp pt'
 description:
   en: >-
     The imperial gallon ($imp gal$), defined as 4.54609 litres, which is or was used in the United

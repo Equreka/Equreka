@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Unitless'
 symbol:
@@ -7,6 +8,9 @@ unitOf:
 system: 'other'
 categories:
   - 'universal'
+aliases:
+  - 'dimensionless'
+  - 'pure number'
 description:
   en: >-
     In science, a unitless quantity or dimension is a quantity without a physical dimension, being a

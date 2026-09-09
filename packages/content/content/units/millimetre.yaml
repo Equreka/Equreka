@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Millimetre'
 symbol:
@@ -10,6 +11,9 @@ prefixOf:
   base: 'metre'
 categories:
   - 'physics'
+aliases:
+  - 'millimeter'
+  - 'millimeters'
 description:
   en: >-
     The millimetre (International spelling; SI unit symbol $mm$) or millimeter (American spelling)

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Joule-second'
 symbol:
@@ -6,12 +7,16 @@ unitOf:
   - 'angular-momentum'
 system: 'si-derived'
 compose:
-  - unit: 'joule'
-    exp: 1
-  - unit: 'second'
-    exp: 1
+  of:
+    - unit: 'joule'
+      exp: 1
+    - unit: 'second'
+      exp: 1
 categories:
   - 'physics'
+aliases:
+  - 'J s'
+  - 'Js'
 description:
   en: >-
     The joule-second (symbol $J⋅s$ or $J s$) is the product of an SI derived unit, the joule ($J$),

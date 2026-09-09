@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Delisle'
 symbol:
@@ -14,6 +15,8 @@ toBase:
     den: '20'
 categories:
   - 'physics'
+aliases:
+  - 'degDe'
 description:
   en: >-
     The Delisle scale is a way of measuring temperature conceived in 1732 by the French astronomer

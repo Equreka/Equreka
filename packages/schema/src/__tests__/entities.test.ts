@@ -14,6 +14,7 @@ describe('unit', () => {
 			},
 		});
 		expect(parsed.toBase?.exact).toBe(true);
+		expect(parsed.nonConvertible).toBe(false);
 	});
 
 	it('rejects a numeric rational (float64 truncation path)', () => {
@@ -37,18 +38,42 @@ describe('unit', () => {
 		expect(parsed.prefixOf?.base).toBe('metre');
 	});
 
-	it('accepts a composed unit (joule per kelvin)', () => {
+	it('accepts a composed unit with the default coefficient (joule per kelvin)', () => {
 		const parsed = unit.parse({
 			name: { en: 'Joule per kelvin' },
 			symbol: { tex: '\\frac{J}{K}' },
 			unitOf: ['entropy'],
 			system: 'si-derived',
-			compose: [
-				{ unit: 'joule', exp: 1 },
-				{ unit: 'kelvin', exp: -1 },
-			],
+			compose: {
+				of: [
+					{ unit: 'joule', exp: 1 },
+					{ unit: 'kelvin', exp: -1 },
+				],
+			},
 		});
-		expect(parsed.compose).toHaveLength(2);
+		expect(parsed.compose?.of).toHaveLength(2);
+		expect(parsed.compose?.factor).toBe('1');
+	});
+
+	it('accepts a composed unit with an exact rational coefficient (arcminute)', () => {
+		const parsed = unit.parse({
+			name: { en: 'Arcminute' },
+			symbol: { tex: "'" },
+			unitOf: ['plane-angle'],
+			compose: { factor: { num: '1', den: '60' }, of: [{ unit: 'degree', exp: '1' }] },
+		});
+		expect(parsed.compose?.factor).toEqual({ num: '1', den: '60' });
+		expect(parsed.compose?.of[0]?.exp).toBe(1);
+	});
+
+	it('rejects the pre-coefficient array form of compose', () => {
+		const result = unit.safeParse({
+			name: { en: 'Square metre' },
+			symbol: { tex: 'm^{2}' },
+			unitOf: ['area'],
+			compose: [{ unit: 'metre', exp: 2 }],
+		});
+		expect(result.success).toBe(false);
 	});
 
 	it('accepts a base unit with no derivation form (metre)', () => {
@@ -59,6 +84,27 @@ describe('unit', () => {
 			system: 'si',
 		});
 		expect(parsed.toBase).toBeUndefined();
+	});
+
+	it('accepts a nonConvertible wiki-only unit (decibel)', () => {
+		const parsed = unit.parse({
+			name: { en: 'Decibel' },
+			symbol: { tex: 'dB' },
+			unitOf: ['dimensionless'],
+			nonConvertible: 'true',
+		});
+		expect(parsed.nonConvertible).toBe(true);
+	});
+
+	it('rejects a nonConvertible unit that also authors a derivation form', () => {
+		const result = unit.safeParse({
+			name: { en: 'Decibel' },
+			symbol: { tex: 'dB' },
+			unitOf: ['dimensionless'],
+			nonConvertible: true,
+			toBase: { factor: '0.1' },
+		});
+		expect(result.success).toBe(false);
 	});
 
 	it('rejects a unit authored in two forms at once', () => {
@@ -77,7 +123,7 @@ describe('unit', () => {
 			name: { en: 'Broken' },
 			symbol: { tex: 'x' },
 			unitOf: ['length'],
-			compose: [{ unit: 'metre', exp: 0 }],
+			compose: { of: [{ unit: 'metre', exp: 0 }] },
 		});
 		expect(result.success).toBe(false);
 	});
@@ -140,7 +186,7 @@ describe('equation', () => {
 		expect(Object.keys(parsed.solutions)).toEqual(['E', 'm']);
 	});
 
-	it('defaults calculator to disabled', () => {
+	it('accepts equation-local symbol terms with and without a unit', () => {
 		const parsed = equation.parse({
 			name: { en: 'Area of a circle' },
 			kind: 'formula',
@@ -148,10 +194,59 @@ describe('equation', () => {
 			terms: {
 				A: { kind: 'magnitude', ref: 'area' },
 				'\\pi': { kind: 'constant', ref: 'pi' },
-				r: { kind: 'variable', ref: 'radius' },
+				r: { kind: 'symbol', label: { en: 'Radius' }, unit: 'metre' },
 			},
 		});
 		expect(parsed.calculator.enabled).toBe(false);
+		expect(parsed.terms.r).toEqual({ kind: 'symbol', label: { en: 'Radius' }, unit: 'metre' });
+		const unitless = equation.parse({
+			name: { en: 'Pythagorean theorem' },
+			expression: '\\var{a}^{2}+\\var{b}^{2}=\\var{c}^{2}',
+			terms: {
+				a: { kind: 'symbol', label: { en: 'Leg' } },
+				b: { kind: 'symbol', label: { en: 'Leg' } },
+				c: { kind: 'symbol', label: { en: 'Hypotenuse' } },
+			},
+		});
+		expect(unitless.terms.c).toEqual({ kind: 'symbol', label: { en: 'Hypotenuse' } });
+	});
+
+	it('rejects a symbol term carrying a ref, and a variable term carrying a label', () => {
+		const base = {
+			name: { en: 'Broken' },
+			expression: '\\var{x}=\\var{y}',
+		};
+		expect(
+			equation.safeParse({
+				...base,
+				terms: {
+					x: { kind: 'symbol', label: { en: 'x' }, ref: 'radius' },
+					y: { kind: 'symbol', label: { en: 'y' } },
+				},
+			}).success,
+		).toBe(false);
+		expect(
+			equation.safeParse({
+				...base,
+				terms: {
+					x: { kind: 'variable', ref: 'radius', label: { en: 'x' } },
+					y: { kind: 'symbol', label: { en: 'y' } },
+				},
+			}).success,
+		).toBe(false);
+	});
+
+	it('rejects the retired hand-maintained units[] list', () => {
+		const result = equation.safeParse({
+			name: { en: 'Square area' },
+			expression: '\\mag{A}=\\var{l}^{2}',
+			terms: {
+				A: { kind: 'magnitude', ref: 'area' },
+				l: { kind: 'symbol', label: { en: 'Side length' }, unit: 'metre' },
+			},
+			units: ['metre'],
+		});
+		expect(result.success).toBe(false);
 	});
 });
 
@@ -198,17 +293,19 @@ describe('failsafe-parse coercions (every YAML scalar arrives as a string)', () 
 			name: { en: 'Metre per second' },
 			symbol: { tex: '\\frac{m}{s}' },
 			unitOf: ['speed'],
-			compose: [
-				{ unit: 'metre', exp: '1' },
-				{ unit: 'second', exp: '-1' },
-			],
+			compose: {
+				of: [
+					{ unit: 'metre', exp: '1' },
+					{ unit: 'second', exp: '-1' },
+				],
+			},
 		});
-		expect(parsed.compose?.map((operand) => operand.exp)).toEqual([1, -1]);
+		expect(parsed.compose?.of.map((operand) => operand.exp)).toEqual([1, -1]);
 		const bad = unit.safeParse({
 			name: { en: 'Broken' },
 			symbol: { tex: 'x' },
 			unitOf: ['length'],
-			compose: [{ unit: 'metre', exp: '1.5' }],
+			compose: { of: [{ unit: 'metre', exp: '1.5' }] },
 		});
 		expect(bad.success).toBe(false);
 	});

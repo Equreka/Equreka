@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
 name:
   en: 'Luminous efficacy of 540 THz radiation'
 symbol:
@@ -9,6 +10,9 @@ exact: true
 categories:
   - 'universal'
   - 'physics'
+aliases:
+  - 'Kcd'
+  - 'luminous efficacy constant'
 description:
   en: |-
     Unlike white light, which is made up of many components, monochromatic light is one that is made up of components of a single color. That is, it has a single wavelength, corresponding to that color.

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Micrometre'
 symbol:
@@ -10,6 +11,10 @@ prefixOf:
   base: 'metre'
 categories:
   - 'physics'
+aliases:
+  - 'micrometer'
+  - 'micron'
+  - 'um'
 description:
   en: >-
     The micrometre (International spelling, SI symbol: $μm$) or micrometer (American spelling), also

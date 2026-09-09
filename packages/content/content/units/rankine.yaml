@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Rankine'
 symbol:
@@ -11,6 +12,8 @@ toBase:
     den: '9'
 categories:
   - 'physics'
+aliases:
+  - 'degR'
 description:
   en: >-
     Rankine is a very rarely used thermodynamic temperature scale and a unit for temperature

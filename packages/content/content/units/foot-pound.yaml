@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Foot-pound'
 symbol:
@@ -9,6 +10,10 @@ toBase:
   factor: '1.3558179483314004'
 categories:
   - 'physics'
+aliases:
+  - 'ft-lb'
+  - 'ft lbf'
+  - 'foot-pound force'
 description:
   en: >-
     The foot-pound force (symbol: $ft⋅lbf$, $ft⋅lbf$, or $ft⋅lb$) is a unit of work or energy in the

@@ -1,5 +1,11 @@
 import type { CompiledDimension } from '@equreka/schema';
-import { dimensionsEqual, formatDimension, unitDimension } from './dimension.js';
+import {
+	DIMENSION_ZERO,
+	dimensionsEqual,
+	formatDimension,
+	magnitudeDimension,
+	unitDimension,
+} from './dimension.js';
 import {
 	RAT_ONE,
 	RAT_ZERO,
@@ -71,6 +77,9 @@ export function resolveUnits(corpus: Corpus): ResolveResult {
 		if (unit === undefined) {
 			return null;
 		}
+		if (unit.nonConvertible) {
+			return null;
+		}
 		const file = fileOf('units', slug);
 		if (unit.toBase !== undefined) {
 			return {
@@ -103,10 +112,10 @@ export function resolveUnits(corpus: Corpus): ResolveResult {
 			};
 		}
 		if (unit.compose !== undefined) {
-			let factor = RAT_ONE;
+			let factor = ratFromExact(unit.compose.factor);
 			let authoredExact = true;
-			const dimensionSum = [0, 0, 0, 0, 0, 0, 0, 0] as CompiledDimension;
-			for (const operand of unit.compose) {
+			const dimensionSum = [...DIMENSION_ZERO] as CompiledDimension;
+			for (const operand of unit.compose.of) {
 				const operandUnit = corpus.units.get(operand.unit);
 				const operandResolution = resolve(operand.unit);
 				if (operandUnit === undefined || operandResolution === null) {
@@ -187,5 +196,47 @@ export function resolveUnits(corpus: Corpus): ResolveResult {
 		}
 	}
 
+	issues.push(...checkIdentityAnchors(corpus, resolved));
 	return { resolved, issues };
+}
+
+/**
+ * The identity mapping (factor 1, offset 0) of a dimension belongs to the
+ * magnitudes' baseUnit. Any other unit landing on it is either a duplicate
+ * entity (`unit` next to `unitless`) or a compose form whose identity is a
+ * verified consequence of its operands (J·s⁻¹ = W) — only the former is an
+ * error, and it names the anchor(s) it collides with.
+ */
+function checkIdentityAnchors(
+	corpus: Corpus,
+	resolved: ReadonlyMap<string, ResolvedUnit>,
+): Issue[] {
+	const issues: Issue[] = [];
+	const anchors = new Set([...corpus.magnitudes.values()].map((magnitude) => magnitude.baseUnit));
+	for (const [slug, resolution] of resolved) {
+		if (!ratIsOne(resolution.factor) || !ratIsZero(resolution.offset) || anchors.has(slug)) {
+			continue;
+		}
+		if (corpus.units.get(slug)?.compose !== undefined) {
+			continue;
+		}
+		const collidingAnchors = [
+			...new Set(
+				[...corpus.magnitudes.values()]
+					.filter((magnitude) =>
+						dimensionsEqual(magnitudeDimension(magnitude), resolution.dimension),
+					)
+					.map((magnitude) => magnitude.baseUnit),
+			),
+		].sort();
+		issues.push(
+			issue(
+				'error',
+				'resolve',
+				fileOf('units', slug),
+				`resolves to the identity mapping (factor 1, offset 0) of dimension ${formatDimension(resolution.dimension)} already anchored by '${collidingAnchors.join("', '")}' — a duplicate identity unit; delete it or make it the anchor`,
+			),
+		);
+	}
+	return issues;
 }

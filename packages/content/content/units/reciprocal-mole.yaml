@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Reciprocal mole'
 symbol:
@@ -6,10 +7,15 @@ unitOf:
   - 'reciprocal-amount'
 system: 'si-derived'
 compose:
-  - unit: 'mole'
-    exp: -1
+  of:
+    - unit: 'mole'
+      exp: -1
 categories:
   - 'chemistry'
+aliases:
+  - '1/mol'
+  - 'per mole'
+  - 'mol^-1'
 description:
   en: >-
     The reciprocal of the mole, used for quantities that count entities per amount of substance —

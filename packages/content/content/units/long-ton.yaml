@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Long ton'
 symbol:
@@ -9,6 +10,9 @@ toBase:
   factor: '1016.0469088'
 categories:
   - 'physics'
+aliases:
+  - 'imperial ton'
+  - 'UK ton'
 description:
   en: >-
     Long ton, also known as the imperial ton or displacement ton, is the name for the unit called

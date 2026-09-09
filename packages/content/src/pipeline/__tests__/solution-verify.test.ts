@@ -8,9 +8,9 @@ const baseInput: Omit<EquationSolutionInput, 'solutions'> = {
 	slug: 'mass-energy-equivalence',
 	expression: '\\mag{E}=\\mag{m}\\const{c}^{2}',
 	terms: {
-		E: { kind: 'magnitude', ref: 'energy' },
-		m: { kind: 'magnitude', ref: 'mass' },
-		c: { kind: 'constant', ref: 'speed-of-light' },
+		E: { kind: 'magnitude' },
+		m: { kind: 'magnitude' },
+		c: { kind: 'constant' },
 	},
 	constantValues: { c: 299792458 },
 };
@@ -58,9 +58,9 @@ describe('verifyEquation', () => {
 			slug: 'pythagorean-theorem',
 			expression: '\\var{a}^{2}+\\var{b}^{2}=\\var{c}^{2}',
 			terms: {
-				a: { kind: 'variable', ref: 'a' },
-				b: { kind: 'variable', ref: 'b' },
-				c: { kind: 'variable', ref: 'c' },
+				a: { kind: 'symbol' },
+				b: { kind: 'symbol' },
+				c: { kind: 'symbol' },
 			},
 			solutions: { a: 'sqrt(c^2 - b^2)' },
 			constantValues: {},

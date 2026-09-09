@@ -71,6 +71,11 @@ const CASES = [
 		expect: null,
 	},
 	{
+		name: 'editor schema header comment stays quiet',
+		text: "# yaml-language-server: $schema=../../dist/schemas/units.schema.json\nname:\n  en: 'Metre'\nvalue: '1'\n",
+		expect: null,
+	},
+	{
 		name: 'block literal body stays quiet',
 		text: 'description:\n  en: |-\n    line one # not a comment\n    "quoted \\m inside prose"\nsystem: \'si\'\n',
 		expect: null,

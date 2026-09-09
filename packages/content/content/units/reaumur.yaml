@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Réaumur'
 symbol:
@@ -14,6 +15,9 @@ toBase:
     den: '20'
 categories:
   - 'physics'
+aliases:
+  - 'reaumur'
+  - 'degRe'
 description:
   en: >-
     The degree Réaumur (°Ré, °Re, °r) is an unused unit of temperature. Named in honor of René

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Ampere'
 symbol:
@@ -7,6 +8,9 @@ unitOf:
 system: 'si'
 categories:
   - 'physics'
+aliases:
+  - 'amp'
+  - 'amps'
 description:
   en: >-
     The ampere, symbol $A$, is the SI unit of electric current ($I$). It is defined by taking the

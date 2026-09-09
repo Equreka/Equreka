@@ -6,6 +6,7 @@ import { type EmittedArtifact, emitArtifacts } from './emit.js';
 import { checkIntegrity } from './integrity.js';
 import { loadContent } from './load.js';
 import { type ResolvedUnit, resolveUnits } from './resolve.js';
+import { checkSolutionDimensions } from './solution-dimension.js';
 import { type EquationVerification, verifyCorpusSolutions } from './solution-verify.js';
 import { lintTex } from './tex-lint.js';
 import { hasErrors, type Issue } from './types.js';
@@ -38,9 +39,10 @@ function defaultPackageRoot(): string {
 
 /**
  * Orchestrates the pipeline. `check` runs stages 1–4 (load, validate,
- * integrity, resolve + verify math + TeX lint) with no output; `build` adds
- * stage 5 emission into dist/. Every stage aggregates issues — nothing
- * fails fast — but emission is skipped when any prior stage errored.
+ * integrity, resolve + dimensional consistency + verify math + TeX lint)
+ * with no output; `build` adds stage 5 emission into dist/. Every stage
+ * aggregates issues — nothing fails fast — but emission is skipped when any
+ * prior stage errored.
  */
 export function compileContent(mode: CompileMode, options: CompileOptions = {}): CompileReport {
 	const packageRoot = options.packageRoot ?? defaultPackageRoot();
@@ -63,6 +65,8 @@ export function compileContent(mode: CompileMode, options: CompileOptions = {}):
 
 	const resolution = resolveUnits(corpus);
 	issues.push(...resolution.issues);
+
+	issues.push(...checkSolutionDimensions(corpus));
 
 	const verification = verifyCorpusSolutions(corpus, loaded.files, cacheDir);
 	issues.push(...verification.issues);

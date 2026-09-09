@@ -153,7 +153,7 @@ export function convertEquations(
 		};
 		if (entry.data.supported === true) entity.calculator = { enabled: true };
 		if (entry.data.units !== undefined && entry.data.units.length > 0) {
-			entity.units = [...entry.data.units];
+			report.drop('equations', 'units[] (related units are pipeline-derived from terms)', slug);
 		}
 		if (entry.data.categories !== undefined && entry.data.categories.length > 0) {
 			entity.categories = [...entry.data.categories];

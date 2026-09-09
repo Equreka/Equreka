@@ -1,21 +1,23 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
 name:
   en: 'Square area'
 kind: 'formula'
-expression: '\mag{A}=\mag{l}^{2}'
+expression: '\mag{A}=\var{l}^{2}'
 terms:
   A:
     kind: 'magnitude'
     ref: 'area'
   l:
-    kind: 'magnitude'
-    ref: 'length'
+    kind: 'symbol'
+    label:
+      en: 'Side length'
+      es: 'Longitud del lado'
+    unit: 'metre'
 solutions:
   A: 'l^2'
   l: 'sqrt(A)'
 calculator:
   enabled: true
-units:
-  - 'metre'
 categories:
   - 'mathematics'
 description:

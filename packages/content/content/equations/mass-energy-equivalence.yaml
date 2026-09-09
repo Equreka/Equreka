@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
 name:
   en: 'Mass-energy equivalence'
 kind: 'equation'
@@ -17,8 +18,6 @@ solutions:
   m: 'E / c^2'
 calculator:
   enabled: true
-units:
-  - 'joule'
 categories:
   - 'physics'
 description:

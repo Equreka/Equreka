@@ -66,6 +66,20 @@ export const compiledConstant = z.object({
 });
 
 /**
+ * Engine-slice equation term. `ref` is present for wiki-backed kinds
+ * (magnitude/constant/variable); `label` and optional `unit` carry the
+ * display contract of equation-local `symbol` terms so calculator UIs need
+ * no second lookup.
+ */
+export const compiledEquationTerm = z.object({
+	kind: z.enum(['magnitude', 'constant', 'variable', 'symbol']),
+	ref: slug.optional(),
+	label: localizedText.optional(),
+	unit: slug.optional(),
+	identifier: z.string().regex(/^[A-Za-z][A-Za-z0-9_]*$/),
+});
+
+/**
  * Engine-slice equation metadata. The solved-form implementations live in
  * the codegen'd solutions module (dist/solutions.js) keyed by
  * `${slug}.${termKey}`; this record carries everything else the calculator
@@ -76,14 +90,7 @@ export const compiledEquationMeta = z.object({
 	kind: z.enum(['equation', 'formula']),
 	name: localizedText,
 	calculatorEnabled: z.boolean(),
-	terms: z.record(
-		z.string(),
-		z.object({
-			kind: z.enum(['magnitude', 'constant', 'variable']),
-			ref: slug,
-			identifier: z.string().regex(/^[A-Za-z][A-Za-z0-9_]*$/),
-		}),
-	),
+	terms: z.record(z.string(), compiledEquationTerm),
 	solvable: z.array(z.string()),
 });
 
@@ -108,5 +115,6 @@ export type CompiledUnit = z.infer<typeof compiledUnit>;
 export type CompiledMagnitude = z.infer<typeof compiledMagnitude>;
 export type CompiledPrefix = z.infer<typeof compiledPrefix>;
 export type CompiledConstant = z.infer<typeof compiledConstant>;
+export type CompiledEquationTerm = z.infer<typeof compiledEquationTerm>;
 export type CompiledEquationMeta = z.infer<typeof compiledEquationMeta>;
 export type EngineSlice = z.infer<typeof engineSlice>;

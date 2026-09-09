@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Tonne'
 symbol:
@@ -9,6 +10,9 @@ toBase:
   factor: '1000'
 categories:
   - 'physics'
+aliases:
+  - 'metric ton'
+  - 'metric tonne'
 description:
   en: >-
     The tonne (/tʌn/ or /tɒn/; symbol: t) is a metric unit of mass equal to 1,000 kilograms. It is

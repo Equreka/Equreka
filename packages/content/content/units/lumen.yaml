@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Lumen'
 symbol:
@@ -5,6 +6,12 @@ symbol:
 unitOf:
   - 'luminous-flux'
 system: 'si-derived'
+compose:
+  of:
+    - unit: 'candela'
+      exp: 1
+    - unit: 'steradian'
+      exp: 1
 categories:
   - 'physics'
 description:

@@ -1,6 +1,14 @@
 import type { CollectionName } from '@equreka/schema';
 
-export type Stage = 'load' | 'validate' | 'integrity' | 'resolve' | 'solutions' | 'tex' | 'emit';
+export type Stage =
+	| 'load'
+	| 'validate'
+	| 'integrity'
+	| 'resolve'
+	| 'dimensions'
+	| 'solutions'
+	| 'tex'
+	| 'emit';
 
 /**
  * One aggregated finding. `file` is the path relative to the content root

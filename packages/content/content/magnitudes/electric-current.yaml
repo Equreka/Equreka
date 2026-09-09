@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
 name:
   en: 'Electric current'
 symbol:
@@ -7,6 +8,9 @@ dimension:
   I: 1
 categories:
   - 'physics'
+aliases:
+  - 'current'
+  - 'amperage'
 description:
   en: >-
     An electric current is a stream of charged particles, such as electrons or ions, moving through

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Kilometre'
 symbol:
@@ -10,6 +11,9 @@ prefixOf:
   base: 'metre'
 categories:
   - 'physics'
+aliases:
+  - 'kilometer'
+  - 'kilometers'
 description:
   en: >-
     The $metre$ (International spelling) or $meter$ (American spelling; see spelling differences)

@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
 name:
   en: 'Planck constant'
 symbol:
@@ -8,6 +9,9 @@ exact: true
 categories:
   - 'universal'
   - 'physics'
+aliases:
+  - 'planck'
+  - 'h'
 description:
   en: >-
     The Planck constant is a physical constant that plays a central role in the theory of quantum

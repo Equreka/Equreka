@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'U.S. Pint'
 symbol:
@@ -7,10 +8,13 @@ unitOf:
   - 'volume'
 system: 'uscs'
 toBase:
-  factor: '0.000473176'
-  exact: false
+  factor: '0.000473176473'
 categories:
   - 'physics'
+aliases:
+  - 'pint'
+  - 'pt'
+  - 'US pt'
 description:
   en: >-
     The pint (/ˈpaɪnt/, symbol $pt$, sometimes abbreviated as $p$) is a unit of volume or capacity

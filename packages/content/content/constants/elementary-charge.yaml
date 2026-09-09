@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
 name:
   en: 'Elementary charge'
 symbol:
@@ -12,6 +13,9 @@ categories:
   - 'universal'
   - 'chemistry'
   - 'physics'
+aliases:
+  - 'electron charge'
+  - 'e'
 description:
   en: >-
     The elementary charge, usually denoted by $e$ or sometimes $q_{e}$ is the electric charge

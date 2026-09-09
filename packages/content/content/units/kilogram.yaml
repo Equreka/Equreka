@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Kilogram'
 symbol:
@@ -7,6 +8,9 @@ unitOf:
 system: 'si'
 categories:
   - 'physics'
+aliases:
+  - 'kilo'
+  - 'kilos'
 description:
   en: |-
     The kilogram is the basic unit of mass of the International System of Units (SI). It is a widely used measure in science, engineering, and commerce around the world, and is often simply called a kilo in everyday speech.

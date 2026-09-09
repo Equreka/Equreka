@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
 name:
   en: 'Plane angle'
 symbol:
@@ -10,6 +11,8 @@ categories:
   - 'universal'
   - 'mathematics'
   - 'physics'
+aliases:
+  - 'angle'
 description:
   en: |-
     In Euclidean geometry, an angle is the figure formed by two rays, called the sides of the angle, sharing a common endpoint, called the vertex of the angle. Angles formed by two rays lie in the plane that contains the rays. Angles are also formed by the intersection of two planes. These are called dihedral angles. Two intersecting curves define also an angle, which is the angle of the tangents at the intersection point. For example, the spherical angle formed by two great circles on a sphere equals the dihedral angle between the planes containing the great circles.

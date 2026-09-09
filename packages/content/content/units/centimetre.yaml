@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Centimetre'
 symbol:
@@ -10,6 +11,9 @@ prefixOf:
   base: 'metre'
 categories:
   - 'physics'
+aliases:
+  - 'centimeter'
+  - 'centimeters'
 description:
   en: >-
     A centimetre (International spelling) or centimeter (American spelling) (SI symbol $cm$) is a

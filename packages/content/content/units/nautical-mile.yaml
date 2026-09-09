@@ -1,3 +1,4 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Nautical mile'
 symbol:
@@ -9,6 +10,9 @@ toBase:
   factor: '1852'
 categories:
   - 'physics'
+aliases:
+  - 'NM'
+  - 'sea mile'
 description:
   en: |-
     A nautical mile is a unit of length used in air, marine, and space navigation, and for the definition of territorial waters. Historically, it was defined as the meridian arc length corresponding to one minute (1/60 of a degree) of latitude. Today the international nautical mile is defined as exactly 1852 metres (6076 ft; 1.151 mi). The derived unit of speed is the knot, one nautical mile per hour.

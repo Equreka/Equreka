@@ -46,6 +46,7 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'term.magnitude': 'Magnitud',
 	'term.constant': 'Constante',
 	'term.variable': 'Variable',
+	'term.symbol': 'Símbolo',
 
 	'badge.exact': 'exacta',
 	'badge.measured': 'medida',
