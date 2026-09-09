@@ -74,6 +74,56 @@ describe('build over the real corpus', () => {
 		expect(equations['area-circle']?.units).toBeUndefined();
 	});
 
+	it('resolves entry-step targets into the paths presentation slice', () => {
+		const paths = JSON.parse(
+			readFileSync(join(outDir, 'presentation', 'paths.json'), 'utf8'),
+		) as Record<
+			string,
+			{
+				level: string;
+				prerequisites: string[];
+				estimatedMinutes?: number;
+				steps: {
+					id: string;
+					kind: string;
+					target?: { name: { en: string }; symbolText: string };
+				}[];
+			}
+		>;
+		expect(Object.keys(paths).sort()).toEqual([
+			'energy-work-heat',
+			'geometry-of-circles-and-triangles',
+			'si-base-units',
+			'temperature-scales',
+		]);
+		const si = paths['si-base-units'];
+		expect(si).toMatchObject({ level: 'intro', prerequisites: [], estimatedMinutes: 15 });
+		expect(si?.steps.find((step) => step.id === 'kilogram')).toMatchObject({
+			kind: 'entry',
+			target: { name: { en: 'Kilogram' }, symbolText: 'kg' },
+		});
+		expect(si?.steps.find((step) => step.id === 'intro')?.target).toBeUndefined();
+		expect(paths['temperature-scales']?.prerequisites).toEqual(['si-base-units']);
+		const equationStep = paths['energy-work-heat']?.steps.find((step) => step.id === 'mass-energy');
+		expect(equationStep?.target).toEqual({
+			name: { en: 'Mass-energy equivalence' },
+			symbolText: '',
+		});
+		const piStep = paths['geometry-of-circles-and-triangles']?.steps.find((s) => s.id === 'pi');
+		expect(piStep?.target?.symbolText).toBe('pi');
+	});
+
+	it('indexes paths for search and the catalog-lite lane', () => {
+		const catalog = JSON.parse(
+			readFileSync(join(outDir, 'search', 'catalog-lite.es.json'), 'utf8'),
+		) as { collection: string; slug: string; name: string; aliases: string[] }[];
+		const row = catalog.find(
+			(entry) => entry.collection === 'paths' && entry.slug === 'si-base-units',
+		);
+		expect(row).toMatchObject({ name: 'Las siete unidades base del SI' });
+		expect(row?.aliases).toContain('unidades base');
+	});
+
 	it('emits a draft-07 authoring JSON Schema per collection for editors', () => {
 		for (const collection of COLLECTIONS) {
 			const path = join(outDir, 'schemas', `${collection}.schema.json`);

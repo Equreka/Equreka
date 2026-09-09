@@ -4,6 +4,7 @@ import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n
 import { formatSigFigs } from '@equreka/engine/format';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
 import FavoriteToggle from '../islands/favorite-toggle';
+import PathContextBar from '../islands/path-context-bar';
 import BaseLayout from '../layouts/base-layout.astro';
 import { CATEGORY_BADGE } from '../lib/category-styles';
 import { asMagnitude } from '../lib/collections';
@@ -59,6 +60,7 @@ const metaDescription =
 	ogType="article"
 >
 	<article>
+		<PathContextBar client:idle locale={locale} />
 		<header class="border-b border-border pb-6">
 			<div class="flex flex-wrap items-center gap-2 text-xs font-medium">
 				<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">

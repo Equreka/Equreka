@@ -78,45 +78,4 @@ describe('useFavorites', () => {
 		act(() => first.result.current.toggle('constants', 'speed-of-light'));
 		expect(second.result.current.isFavorite('constants', 'speed-of-light')).toBe(true);
 	});
-
-	it('round-trips export → import and merges instead of overwriting', () => {
-		const storage = createMemoryStorage();
-		const { result } = renderHook(() => useFavorites(storage));
-
-		act(() => {
-			result.current.toggle('units', 'metre');
-			result.current.toggle('equations', 'density');
-		});
-		const envelope = result.current.exportEnvelope();
-		expect(envelope.v).toBe(1);
-		expect(envelope.favorites).toHaveLength(2);
-
-		const other = createMemoryStorage();
-		const imported = renderHook(() => useFavorites(other));
-		act(() => imported.result.current.toggle('units', 'metre'));
-
-		let added: number | null = null;
-		act(() => {
-			added = imported.result.current.importEnvelope(JSON.parse(JSON.stringify(envelope)));
-		});
-		expect(added).toBe(1);
-		expect(imported.result.current.favorites).toHaveLength(2);
-		expect(imported.result.current.isFavorite('equations', 'density')).toBe(true);
-	});
-
-	it('rejects invalid envelopes with null and leaves storage untouched', () => {
-		const storage = createMemoryStorage();
-		const { result } = renderHook(() => useFavorites(storage));
-
-		let outcome: number | null = 0;
-		act(() => {
-			outcome = result.current.importEnvelope({ v: 2, favorites: [] });
-		});
-		expect(outcome).toBeNull();
-		act(() => {
-			outcome = result.current.importEnvelope('[]');
-		});
-		expect(outcome).toBeNull();
-		expect(storage.get(FAVORITES_KEY)).toBeNull();
-	});
 });

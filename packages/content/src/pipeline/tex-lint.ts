@@ -1,3 +1,4 @@
+import type { LocalizedText as LocalizedProse, PathStep } from '@equreka/schema';
 import katex from 'katex';
 import { extractTexFragments, normalizeDashes, stripMacros } from './tex.js';
 import { type Issue, issue } from './types.js';
@@ -68,6 +69,23 @@ export function lintTex(corpus: Corpus, allowlist: ReadonlySet<string>): Issue[]
 		}
 	}
 
+	for (const [slug, path] of corpus.paths) {
+		const file = fileOf('paths', slug);
+		for (const step of path.steps) {
+			for (const [field, text] of stepProse(step)) {
+				for (const fragment of extractTexFragments(text)) {
+					lintFragment(
+						file,
+						`steps.${step.id}.${field} ${JSON.stringify(truncate(fragment.tex))}`,
+						fragment.tex,
+						fragment.display,
+						false,
+					);
+				}
+			}
+		}
+	}
+
 	if (dashFiles.size > 0) {
 		issues.push(
 			issue(
@@ -79,6 +97,37 @@ export function lintTex(corpus: Corpus, allowlist: ReadonlySet<string>): Issue[]
 		);
 	}
 	return issues;
+}
+
+/**
+ * Every localized prose field of a path step as `field.locale` → text pairs:
+ * these render through KaTeX at build like descriptions do, so they lint
+ * under the same strict pass (never allowlist-downgradable — paths are new
+ * content with no legacy debt).
+ */
+function stepProse(step: PathStep): [string, string][] {
+	const fields: [string, LocalizedProse | undefined][] =
+		step.kind === 'entry'
+			? [['note', step.note]]
+			: step.kind === 'prose'
+				? [['body', step.body]]
+				: [
+						['prompt', step.prompt],
+						['answer', step.answer],
+					];
+	const pairs: [string, string][] = [];
+	for (const [field, text] of fields) {
+		if (text === undefined) {
+			continue;
+		}
+		for (const locale of ['en', 'es'] as const) {
+			const localized = text[locale];
+			if (localized !== undefined) {
+				pairs.push([`${field}.${locale}`, localized]);
+			}
+		}
+	}
+	return pairs;
 }
 
 function truncate(tex: string): string {

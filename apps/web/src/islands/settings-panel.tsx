@@ -1,4 +1,4 @@
-import { type ThemeSetting, useFavorites, useSettings } from '@equreka/core';
+import { type ThemeSetting, useSettings } from '@equreka/core';
 import { LOCALES, type Locale, t } from '@equreka/core/i18n';
 import { useId } from 'react';
 import { kvLocalStorage } from '../lib/kv-local-storage';
@@ -40,7 +40,6 @@ function applyTheme(theme: ThemeSetting): void {
 
 export default function SettingsPanel({ locale = 'en', version }: SettingsPanelProps) {
 	const { settings, setTheme, setLocale } = useSettings(kvLocalStorage);
-	const favorites = useFavorites(kvLocalStorage);
 	const groupId = useId();
 
 	const sectionClass = 'rounded-lg border border-border bg-surface p-6';
@@ -100,7 +99,7 @@ export default function SettingsPanel({ locale = 'en', version }: SettingsPanelP
 					{t(locale, 'settings.favorites')}
 				</h2>
 				<div className="mt-3">
-					<FavoritesTransfer favorites={favorites} locale={locale} />
+					<FavoritesTransfer locale={locale} />
 				</div>
 			</section>
 			<p className="text-sm text-ink-muted">

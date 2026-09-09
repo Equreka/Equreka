@@ -22,6 +22,7 @@ const prefixCount = (await getCollection('prefixes')).length;
 const equations = (await getCollection('equations')).map((entry) => asEquation(entry.data));
 const equationCount = equations.length;
 const calculatorCount = equations.filter((equation) => equation.calculator.enabled).length;
+const pathCount = (await getCollection('paths')).length;
 
 const collectionCards = [
 	{
@@ -53,6 +54,12 @@ const collectionCards = [
 		count: equationCount,
 		description: t(locale, 'home.card.equations'),
 		href: '/equations/',
+	},
+	{
+		title: t(locale, 'paths.title'),
+		count: pathCount,
+		description: t(locale, 'home.card.paths'),
+		href: '/paths/',
 	},
 	{
 		title: t(locale, 'nav.calculator'),

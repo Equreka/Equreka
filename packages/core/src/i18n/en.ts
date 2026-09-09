@@ -14,6 +14,7 @@ export const en = {
 	'nav.calculator': 'Calculator',
 	'nav.converter': 'Converter',
 	'nav.search': 'Search',
+	'nav.paths': 'Paths',
 	'nav.favorites': 'Favorites',
 	'nav.settings': 'Settings',
 	'layout.themeToggle': 'Toggle color theme',
@@ -79,6 +80,8 @@ export const en = {
 	'home.card.calculator': 'Solve any calculator-enabled equation for any of its terms.',
 	'home.card.converter': 'Convert values between any pair of compatible units.',
 	'home.card.search': 'Find any unit, magnitude, or constant by name, symbol, or alias.',
+	'home.card.paths':
+		'Guided learning paths through units, constants, and equations, with self-checks.',
 
 	'meta.units': 'All units of measurement in the Equreka wiki, grouped by category.',
 	'units.lead':
@@ -200,6 +203,36 @@ export const en = {
 	'offline.filterPlaceholder': 'Filter by name, symbol, or alias…',
 	'offline.noMatch': 'No offline entries match.',
 
+	'meta.paths':
+		'Guided learning paths through the Equreka wiki — ordered steps with self-checks; progress stays on this device.',
+	'paths.title': 'Learning paths',
+	'paths.lead':
+		'{count} guided paths. Each one walks through a few entries in order, with transitions and self-check questions. Progress is stored on this device.',
+	'meta.path': '{name} — a {level} learning path in {count} steps.',
+	'path.level.intro': 'Intro',
+	'path.level.intermediate': 'Intermediate',
+	'path.level.advanced': 'Advanced',
+	'path.steps': '{count} steps',
+	'path.minutes': '{count} min',
+	'path.prerequisites': 'Before this path',
+	'path.progress': '{done} of {total} steps done',
+	'path.progressAria': 'Path progress',
+	'path.completed': 'Completed',
+	'path.markDone': 'Mark step as done',
+	'path.markUndone': 'Mark step as not done',
+	'path.stepOf': 'Step {n} of {total}',
+	'path.prev': 'Previous step',
+	'path.next': 'Next step',
+	'path.backToPath': 'Back to the path',
+	'path.reset': 'Reset progress',
+	'path.check': 'Check yourself',
+	'path.reveal': 'Show the answer',
+	'path.openEntry': 'Open the entry',
+	'path.kind.entry': 'Entry',
+	'path.kind.prose': 'Reading',
+	'path.kind.check': 'Self-check',
+	'offline.outline': 'Steps',
+
 	'meta.favorites': 'Your favorite entries, stored on this device — export or import them as JSON.',
 	'favorites.title': 'Favorites',
 	'favorites.lead': 'Favorites are stored locally in your browser — nothing leaves this device.',
@@ -211,6 +244,8 @@ export const en = {
 	'favorites.import': 'Import favorites',
 	'favorites.importError': 'That file is not a valid favorites export.',
 	'favorites.imported': 'Imported {count} new favorites.',
+	'favorites.importedProgress': 'Imported {count} completed path steps.',
+	'favorites.transferNote': 'Exports also include your learning-path progress.',
 
 	'meta.settings':
 		'Theme, language, and favorites for this device — settings never leave your browser.',

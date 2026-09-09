@@ -1,0 +1,184 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.schema.json
+name:
+  en: 'Geometry of circles and triangles'
+  es: 'Geometría de círculos y triángulos'
+level: 'intro'
+estimatedMinutes: '12'
+categories:
+  - 'mathematics'
+aliases:
+  - 'circle area'
+  - 'pythagoras'
+  - 'area del circulo'
+  - 'teorema de pitagoras'
+description:
+  en: >-
+    Three formulas every measurement rests on: the area of a circle, the area of a square and the
+    Pythagorean theorem, with the radius and the constant pi that tie them together.
+  es: >-
+    Tres fórmulas en las que descansa toda medición: el área del círculo, el área del cuadrado y el
+    teorema de Pitágoras, con el radio y la constante pi que las unen.
+steps:
+  - id: 'intro'
+    kind: 'prose'
+    body:
+      en: >-
+        Two shapes and three formulas carry most of everyday geometry. Along the way notice the
+        units: an area always comes out in square metres because it multiplies two lengths, and a
+        theorem about lengths alone holds in any unit as long as every side uses the same one.
+      es: >-
+        Dos figuras y tres fórmulas sostienen casi toda la geometría cotidiana. Fíjate en las
+        unidades por el camino: un área siempre sale en metros cuadrados porque multiplica dos
+        longitudes, y un teorema que solo habla de longitudes vale en cualquier unidad siempre que
+        todos los lados usen la misma.
+  - id: 'radius'
+    kind: 'entry'
+    ref:
+      collection: 'variables'
+      slug: 'radius'
+    note:
+      en: >-
+        The segment from the centre of a circle to any point on it, and by extension its length
+        $r$. The diameter is twice the radius, $d = 2r$.
+      es: >-
+        El segmento que va del centro de un círculo a cualquier punto de él y, por extensión, su
+        longitud $r$. El diámetro es el doble del radio, $d = 2r$.
+  - id: 'pi'
+    kind: 'entry'
+    ref:
+      collection: 'constants'
+      slug: 'pi'
+    note:
+      en: >-
+        The ratio of any circle's circumference to its diameter, $\pi = \frac{C}{d} \approx 3.14159$.
+        It is irrational, so no fraction or finite decimal is exact; $\frac{22}{7}$ is a classical
+        approximation good to two decimals.
+      es: >-
+        La razón entre la circunferencia de cualquier círculo y su diámetro,
+        $\pi = \frac{C}{d} \approx 3.14159$. Es irracional, así que ninguna fracción ni decimal
+        finito es exacto; $\frac{22}{7}$ es una aproximación clásica correcta a dos decimales.
+  - id: 'circle-formulas'
+    kind: 'prose'
+    body:
+      en: >-
+        Unrolling the circumference gives $C = 2\pi r$. Cutting the disc into many thin wedges and
+        laying them head to tail forms a near-rectangle of height $r$ and width $\pi r$ (half the
+        circumference), so the area is $A = \pi r^{2}$. Archimedes squeezed $\pi$ between
+        $\frac{223}{71}$ and $\frac{22}{7}$ with inscribed and circumscribed 96-sided polygons, the
+        idea behind this limit argument.
+      es: >-
+        Desenrollar la circunferencia da $C = 2\pi r$. Cortar el disco en muchas cuñas delgadas y
+        alinearlas alternadas forma casi un rectángulo de altura $r$ y ancho $\pi r$ (la mitad de la
+        circunferencia), así que el área es $A = \pi r^{2}$. Arquímedes acotó $\pi$ entre
+        $\frac{223}{71}$ y $\frac{22}{7}$ con polígonos inscritos y circunscritos de 96 lados, la
+        idea detrás de este argumento de límite.
+  - id: 'area-circle'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'area-circle'
+    note:
+      en: >-
+        Solve it both ways in the calculator: given $r$ find $A$, or given an area find the radius
+        that produces it.
+      es: >-
+        Resuélvela en ambos sentidos en la calculadora: dado $r$ halla $A$, o dada un área halla el
+        radio que la produce.
+  - id: 'check-double-radius'
+    kind: 'check'
+    prompt:
+      en: >-
+        Doubling the radius of a circle multiplies its area by what factor?
+      es: >-
+        Duplicar el radio de un círculo multiplica su área ¿por qué factor?
+    answer:
+      en: >-
+        By four. Area grows with the square of the radius: $\pi (2r)^{2} = 4\pi r^{2}$. The
+        circumference, linear in $r$, merely doubles.
+      es: >-
+        Por cuatro. El área crece con el cuadrado del radio: $\pi (2r)^{2} = 4\pi r^{2}$. La
+        circunferencia, lineal en $r$, apenas se duplica.
+  - id: 'area-square'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'area-square'
+    note:
+      en: >-
+        The simplest area, $A = l^{2}$, and the reason the unit of area is the square metre: a
+        square one metre on each side.
+      es: >-
+        El área más simple, $A = l^{2}$, y la razón por la que la unidad de área es el metro
+        cuadrado: un cuadrado de un metro por lado.
+  - id: 'compare'
+    kind: 'prose'
+    body:
+      en: >-
+        Put the two together. A circle of radius $r$ fits exactly inside a square of side $2r$. The
+        square's area is $4r^{2}$, the circle's is $\pi r^{2}$, so the circle covers
+        $\frac{\pi}{4} \approx 78.5\%$ of the square, whatever the size. Ratios like this are
+        dimensionless: the square metres cancel.
+      es: >-
+        Junta las dos. Un círculo de radio $r$ cabe exactamente dentro de un cuadrado de lado $2r$.
+        El área del cuadrado es $4r^{2}$ y la del círculo $\pi r^{2}$, así que el círculo cubre
+        $\frac{\pi}{4} \approx 78.5\%$ del cuadrado, sea cual sea el tamaño. Razones como esta son
+        adimensionales: los metros cuadrados se cancelan.
+  - id: 'pythagorean-theorem'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'pythagorean-theorem'
+    note:
+      en: >-
+        In a right triangle the square on the hypotenuse equals the sum of the squares on the legs,
+        $a^{2} + b^{2} = c^{2}$. Its terms are bare lengths with no fixed unit: any unit works as long
+        as all three sides share it.
+      es: >-
+        En un triángulo rectángulo el cuadrado de la hipotenusa es igual a la suma de los cuadrados
+        de los catetos, $a^{2} + b^{2} = c^{2}$. Sus términos son longitudes sin unidad fija:
+        cualquier unidad sirve mientras los tres lados la compartan.
+  - id: 'check-triple'
+    kind: 'check'
+    prompt:
+      en: >-
+        A right triangle has legs of $5$ and $12$. How long is the hypotenuse?
+      es: >-
+        Un triángulo rectángulo tiene catetos de $5$ y $12$. ¿Cuánto mide la hipotenusa?
+    answer:
+      en: >-
+        $13$, since $5^{2} + 12^{2} = 25 + 144 = 169 = 13^{2}$. Whole-number solutions like
+        $(3, 4, 5)$ and $(5, 12, 13)$ are called Pythagorean triples.
+      es: >-
+        $13$, porque $5^{2} + 12^{2} = 25 + 144 = 169 = 13^{2}$. Las soluciones enteras como
+        $(3, 4, 5)$ y $(5, 12, 13)$ se llaman ternas pitagóricas.
+  - id: 'check-no-units'
+    kind: 'check'
+    prompt:
+      en: >-
+        The circle-area calculator shows metres and square metres, but the Pythagorean calculator
+        shows no units at all. Why?
+      es: >-
+        La calculadora del área del círculo muestra metros y metros cuadrados, pero la del teorema
+        de Pitágoras no muestra ninguna unidad. ¿Por qué?
+    answer:
+      en: >-
+        The circle formula relates a length to an area, two different dimensions, so its terms are
+        tied to units. The theorem relates three lengths of the same kind and holds in any unit, so
+        its terms are authored as unitless symbols: the answer comes out in whatever unit the inputs
+        share.
+      es: >-
+        La fórmula del círculo relaciona una longitud con un área, dos dimensiones distintas, así que
+        sus términos están ligados a unidades. El teorema relaciona tres longitudes de la misma clase
+        y vale en cualquier unidad, por lo que sus términos se escriben como símbolos sin unidad: la
+        respuesta sale en la unidad que compartan las entradas.
+  - id: 'closing'
+    kind: 'prose'
+    body:
+      en: >-
+        The two ideas meet on the coordinate plane. The distance between two points is the
+        Pythagorean theorem applied to their coordinate differences, and a circle is the set of
+        points at one distance $r$ from the centre: $x^{2} + y^{2} = r^{2}$.
+      es: >-
+        Las dos ideas se encuentran en el plano coordenado. La distancia entre dos puntos es el
+        teorema de Pitágoras aplicado a las diferencias de sus coordenadas, y un círculo es el
+        conjunto de puntos a una misma distancia $r$ del centro: $x^{2} + y^{2} = r^{2}$.

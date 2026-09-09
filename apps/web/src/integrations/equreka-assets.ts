@@ -8,8 +8,8 @@ import type { AstroIntegration } from 'astro';
 const requireFromHere = createRequire(import.meta.url);
 
 /**
- * Locales with runtime payloads — one search index, converter payload, and
- * reader payload each. Mirrors @equreka/core/i18n LOCALES.
+ * Locales with runtime payloads — one search index, converter payload,
+ * reader payload and paths payload each. Mirrors @equreka/core/i18n LOCALES.
  */
 const LOCALES = ['en', 'es'] as const;
 
@@ -48,16 +48,27 @@ export interface ConverterPayload {
 }
 
 /**
+ * One step of a path as the offline reader lists it: the step kind plus a
+ * locale-resolved title (the entry's name, the check's prompt; empty for
+ * prose, which the reader labels by kind alone).
+ */
+export interface ReaderOutlineItem {
+	kind: string;
+	title: string;
+}
+
+/**
  * One entry of the offline reader payload: locale-resolved
- * name/symbol/description. Descriptions keep their inline $TeX$ fragments
- * (the reader renders them as plain text) but semantic annotation macros
- * are reduced to their arguments — the reader must work from data alone,
- * without KaTeX.
+ * name/symbol/description, plus the step outline for paths. Descriptions
+ * keep their inline $TeX$ fragments (the reader renders them as plain
+ * text) but semantic annotation macros are reduced to their arguments —
+ * the reader must work from data alone, without KaTeX.
  */
 export interface ReaderEntry {
 	name: string;
 	symbolText: string;
 	description: string;
+	outline?: ReaderOutlineItem[];
 }
 
 /**
@@ -68,9 +79,26 @@ export interface ReaderEntry {
 export type ReaderPayload = Record<string, Record<string, ReaderEntry>>;
 
 /**
- * Presentation collections flattened into the reader payload; paths is
- * excluded (empty in v1 and step-structured rather than entry-shaped).
+ * The learning-path context payload the dormant PathContextBar fetches on
+ * entry pages carrying `?path=&step=`: every path's name and ordered steps,
+ * locale-resolved and small enough to precache. Routes are derived on the
+ * client from (collection, slug) through entryHref — the artifact stays
+ * platform-neutral (ADR 0004).
  */
+export type PathsPayload = Record<
+	string,
+	{
+		name: string;
+		steps: {
+			id: string;
+			kind: 'entry' | 'prose' | 'check';
+			collection?: string;
+			slug?: string;
+			title: string;
+		}[];
+	}
+>;
+
 const READER_COLLECTIONS = [
 	'categories',
 	'magnitudes',
@@ -79,35 +107,95 @@ const READER_COLLECTIONS = [
 	'constants',
 	'variables',
 	'equations',
+	'paths',
 ] as const;
+
+/**
+ * Structural subset of @equreka/content's PresentationPathStep: entry steps
+ * carry the pipeline-resolved target.
+ */
+type PresentationPathStep =
+	| {
+			id: string;
+			kind: 'entry';
+			ref: { collection: string; slug: string };
+			target: { name: LocalizedField; symbolText: string };
+	  }
+	| { id: string; kind: 'prose'; body: LocalizedField }
+	| { id: string; kind: 'check'; prompt: LocalizedField; answer: LocalizedField };
 
 interface PresentationEntry {
 	name: LocalizedField;
 	symbolText?: string;
 	description?: { en?: string; es?: string };
+	steps?: PresentationPathStep[];
 }
 
 const SEMANTIC_MACRO_RE = /\\(?:mag|const|var)\{([^{}]*)\}/g;
 
+function readPresentation(collection: string): Record<string, PresentationEntry> {
+	return JSON.parse(
+		readFileSync(
+			requireFromHere.resolve(`@equreka/content/artifact/presentation/${collection}.json`),
+			'utf8',
+		),
+	) as Record<string, PresentationEntry>;
+}
+
+function outlineTitle(step: PresentationPathStep, locale: PayloadLocale): string {
+	switch (step.kind) {
+		case 'entry':
+			return step.target.symbolText === ''
+				? localized(step.target.name, locale)
+				: `${localized(step.target.name, locale)} (${step.target.symbolText})`;
+		case 'check':
+			return localized(step.prompt, locale);
+		case 'prose':
+			return '';
+	}
+}
+
 function buildReaderPayload(locale: PayloadLocale): string {
 	const payload: ReaderPayload = {};
 	for (const collection of READER_COLLECTIONS) {
-		const entries = JSON.parse(
-			readFileSync(
-				requireFromHere.resolve(`@equreka/content/artifact/presentation/${collection}.json`),
-				'utf8',
-			),
-		) as Record<string, PresentationEntry>;
 		const slice: Record<string, ReaderEntry> = {};
-		for (const [slug, entry] of Object.entries(entries)) {
+		for (const [slug, entry] of Object.entries(readPresentation(collection))) {
 			const description = entry.description?.[locale] ?? entry.description?.en ?? '';
-			slice[slug] = {
+			const reader: ReaderEntry = {
 				name: localized(entry.name, locale),
 				symbolText: entry.symbolText ?? '',
 				description: description.replace(SEMANTIC_MACRO_RE, '$1'),
 			};
+			if (entry.steps !== undefined) {
+				reader.outline = entry.steps.map((step) => ({
+					kind: step.kind,
+					title: outlineTitle(step, locale),
+				}));
+			}
+			slice[slug] = reader;
 		}
 		payload[collection] = slice;
+	}
+	return JSON.stringify(payload);
+}
+
+function buildPathsPayload(locale: PayloadLocale): string {
+	const payload: PathsPayload = {};
+	for (const [slug, entry] of Object.entries(readPresentation('paths'))) {
+		payload[slug] = {
+			name: localized(entry.name, locale),
+			steps: (entry.steps ?? []).map((step) =>
+				step.kind === 'entry'
+					? {
+							id: step.id,
+							kind: step.kind,
+							collection: step.ref.collection,
+							slug: step.ref.slug,
+							title: localized(step.target.name, locale),
+						}
+					: { id: step.id, kind: step.kind, title: '' },
+			),
+		};
 	}
 	return JSON.stringify(payload);
 }
@@ -139,9 +227,9 @@ function buildConverterPayload(slice: EngineSlice, locale: PayloadLocale): Conve
  * Materializes the static assets the pages and islands fetch at runtime:
  * self-hosted KaTeX CSS + woff2 fonts (no CDN per ADR 0002), the per-locale
  * MiniSearch index + catalog-lite shards, the trimmed converter payloads,
- * and the offline reader payloads. Runs at config setup so both `astro dev`
- * and `astro build` serve them from public/ (the generated paths are
- * gitignored).
+ * the offline reader payloads and the learning-path context payloads. Runs
+ * at config setup so both `astro dev` and `astro build` serve them from
+ * public/ (the generated paths are gitignored).
  */
 export function equrekaAssets(): AstroIntegration {
 	return {
@@ -184,11 +272,13 @@ export function equrekaAssets(): AstroIntegration {
 					writeFileSync(join(dataOutDir, `converter.${locale}.json`), converterPayload);
 					const readerPayload = buildReaderPayload(locale);
 					writeFileSync(join(dataOutDir, `reader.${locale}.json`), readerPayload);
-					payloadBytes += converterPayload.length + readerPayload.length;
+					const pathsPayload = buildPathsPayload(locale);
+					writeFileSync(join(dataOutDir, `paths.${locale}.json`), pathsPayload);
+					payloadBytes += converterPayload.length + readerPayload.length + pathsPayload.length;
 				}
 
 				logger.info(
-					`katex css + ${woff2Fonts.length} woff2 fonts, ${LOCALES.length}-locale search index, converter + reader payloads (${payloadBytes} bytes)`,
+					`katex css + ${woff2Fonts.length} woff2 fonts, ${LOCALES.length}-locale search index, converter + reader + paths payloads (${payloadBytes} bytes)`,
 				);
 			},
 		},

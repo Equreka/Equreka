@@ -19,6 +19,7 @@ import {
 	type SearchLocale,
 	searchOptions,
 } from '../search-options.js';
+import { presentationSteps } from './path-targets.js';
 import { deriveRelatedUnits } from './related-units.js';
 import type { ResolvedUnit } from './resolve.js';
 import { generateSolutionsModule } from './solution-codegen.js';
@@ -101,6 +102,14 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 				record[slug] = {
 					...(record[slug] as Record<string, unknown>),
 					relatedUnits: deriveRelatedUnits(equation.terms, corpus),
+				};
+			}
+		}
+		if (collection === 'paths') {
+			for (const [slug, path] of corpus.paths) {
+				record[slug] = {
+					...(record[slug] as Record<string, unknown>),
+					steps: presentationSteps(path, corpus),
 				};
 			}
 		}

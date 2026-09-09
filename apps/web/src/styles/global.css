@@ -16,6 +16,12 @@
 }
 
 @layer components {
+	progress.path-progress {
+		accent-color: var(--eq-accent);
+		border-radius: var(--radius-sm);
+		overflow: hidden;
+	}
+
 	[data-term] {
 		cursor: pointer;
 	}

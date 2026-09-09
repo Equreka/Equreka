@@ -268,10 +268,61 @@ export function checkIntegrity(corpus: Corpus): Issue[] {
 		const file = fileOf('paths', slug);
 		for (const step of path.steps) {
 			if (step.kind === 'entry') {
-				ref(file, `steps.${step.id}`, step.collection, step.slug);
+				ref(file, `steps.${step.id}.ref`, step.ref.collection, step.ref.slug);
 			}
 		}
+		for (const prerequisite of path.prerequisites) {
+			if (prerequisite === slug) {
+				issues.push(issue('error', 'integrity', file, 'a path cannot be its own prerequisite'));
+				continue;
+			}
+			ref(file, 'prerequisites', 'paths', prerequisite);
+		}
+	}
+	for (const cycle of prerequisiteCycles(corpus.paths)) {
+		issues.push(
+			issue(
+				'error',
+				'integrity',
+				fileOf('paths', cycle[0] ?? ''),
+				`prerequisites form a cycle: ${cycle.join(' → ')}`,
+			),
+		);
 	}
 
 	return issues;
+}
+
+/**
+ * Every elementary cycle in the prerequisite graph, each reported once from
+ * its lexicographically smallest member (so the report is deterministic and
+ * a cycle is not listed once per participant). Unknown and self
+ * prerequisites are skipped here — the checks above already reported them.
+ */
+function prerequisiteCycles(paths: Corpus['paths']): string[][] {
+	const cycles: string[][] = [];
+	const seen = new Set<string>();
+	const visit = (slug: string, stack: string[]): void => {
+		const at = stack.indexOf(slug);
+		if (at !== -1) {
+			const cycle = stack.slice(at);
+			const pivot = cycle.indexOf([...cycle].sort()[0] ?? '');
+			const canonical = [...cycle.slice(pivot), ...cycle.slice(0, pivot)];
+			const key = canonical.join('→');
+			if (!seen.has(key)) {
+				seen.add(key);
+				cycles.push([...canonical, canonical[0] ?? '']);
+			}
+			return;
+		}
+		for (const next of paths.get(slug)?.prerequisites ?? []) {
+			if (next !== slug && paths.has(next)) {
+				visit(next, [...stack, slug]);
+			}
+		}
+	};
+	for (const slug of [...paths.keys()].sort()) {
+		visit(slug, []);
+	}
+	return cycles;
 }

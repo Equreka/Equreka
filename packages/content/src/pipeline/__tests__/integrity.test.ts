@@ -219,3 +219,62 @@ describe('equation terms', () => {
 		]);
 	});
 });
+
+describe('path prerequisites', () => {
+	const pathWith = (
+		slug: string,
+		prerequisites: string[],
+		extra: Record<string, unknown> = {},
+	) => ({
+		[slug]: {
+			name: { en: slug },
+			level: 'intro',
+			prerequisites,
+			steps: [{ id: 'metre', kind: 'entry', ref: { collection: 'units', slug: 'metre' } }],
+			...extra,
+		},
+	});
+
+	it('accepts a resolved acyclic prerequisite chain', () => {
+		const corpus = corpusWith({
+			magnitudes: MAGNITUDES,
+			units: UNITS,
+			paths: { ...pathWith('a', []), ...pathWith('b', ['a']), ...pathWith('c', ['a', 'b']) },
+		});
+		expect(messages(corpus)).toEqual([]);
+	});
+
+	it('rejects an unknown prerequisite and a self-prerequisite', () => {
+		const corpus = corpusWith({
+			magnitudes: MAGNITUDES,
+			units: UNITS,
+			paths: { ...pathWith('a', ['ghost']), ...pathWith('b', ['b']) },
+		});
+		expect(messages(corpus)).toEqual([
+			"paths/a.yaml: prerequisites: unknown paths ref 'ghost'",
+			'paths/b.yaml: a path cannot be its own prerequisite',
+		]);
+	});
+
+	it('reports each prerequisite cycle once, from its smallest member', () => {
+		const corpus = corpusWith({
+			magnitudes: MAGNITUDES,
+			units: UNITS,
+			paths: { ...pathWith('a', ['b']), ...pathWith('b', ['c']), ...pathWith('c', ['a']) },
+		});
+		expect(messages(corpus)).toEqual(['paths/a.yaml: prerequisites form a cycle: a → b → c → a']);
+	});
+
+	it('rejects an entry step whose target does not exist', () => {
+		const corpus = corpusWith({
+			magnitudes: MAGNITUDES,
+			units: UNITS,
+			paths: pathWith('a', [], {
+				steps: [{ id: 'furlong', kind: 'entry', ref: { collection: 'units', slug: 'furlong' } }],
+			}),
+		});
+		expect(messages(corpus)).toEqual([
+			"paths/a.yaml: steps.furlong.ref: unknown units ref 'furlong'",
+		]);
+	});
+});

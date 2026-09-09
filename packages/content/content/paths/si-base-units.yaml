@@ -1,0 +1,205 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.schema.json
+name:
+  en: 'The seven SI base units'
+  es: 'Las siete unidades base del SI'
+level: 'intro'
+estimatedMinutes: '15'
+categories:
+  - 'physics'
+aliases:
+  - 'SI base units'
+  - 'base units'
+  - 'unidades base'
+  - 'sistema internacional'
+description:
+  en: >-
+    Meet the seven base units of the International System, learn which defining constant fixes
+    each one since 2019, and see why the kilogram is the odd one out.
+  es: >-
+    Conoce las siete unidades base del Sistema Internacional, aprende qué constante definitoria
+    fija cada una desde 2019 y descubre por qué el kilogramo es la excepción.
+steps:
+  - id: 'intro'
+    kind: 'prose'
+    body:
+      en: >-
+        The International System of Units (SI) builds every unit from seven base units: the second,
+        metre, kilogram, ampere, kelvin, mole and candela. Since 20 May 2019 none of them is defined
+        by an object or a material property. Each is fixed by assigning an exact numerical value to
+        one of seven defining constants of nature, so a laboratory anywhere can realize the unit from
+        first principles.
+      es: >-
+        El Sistema Internacional de Unidades (SI) construye todas sus unidades a partir de siete
+        unidades base: el segundo, el metro, el kilogramo, el ampere, el kelvin, el mol y la candela.
+        Desde el 20 de mayo de 2019 ninguna se define mediante un objeto ni una propiedad de un
+        material: cada una queda fijada al asignar un valor numérico exacto a una de siete constantes
+        definitorias de la naturaleza, de modo que cualquier laboratorio puede realizarla desde
+        primeros principios.
+  - id: 'second'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'second'
+    note:
+      en: >-
+        The second comes first because the metre and the kilogram are defined through it. It is
+        fixed by the caesium-133 hyperfine transition frequency
+        $\Delta\nu_{\text{Cs}} = 9\,192\,631\,770\ \text{Hz}$.
+      es: >-
+        El segundo va primero porque el metro y el kilogramo se definen a través de él. Lo fija la
+        frecuencia de la transición hiperfina del cesio-133,
+        $\Delta\nu_{\text{Cs}} = 9\,192\,631\,770\ \text{Hz}$.
+  - id: 'metre'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'metre'
+    note:
+      en: >-
+        Fixed by the speed of light, $c = 299\,792\,458\ \text{m/s}$: one metre is the distance light
+        travels in vacuum in $\frac{1}{299\,792\,458}$ of a second.
+      es: >-
+        Lo fija la velocidad de la luz, $c = 299\,792\,458\ \text{m/s}$: un metro es la distancia que
+        la luz recorre en el vacío en $\frac{1}{299\,792\,458}$ de segundo.
+  - id: 'kilogram'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'kilogram'
+    note:
+      en: >-
+        Fixed by the Planck constant, $h = 6.626\,070\,15 \times 10^{-34}\ \text{J s}$. Because
+        $\text{J s} = \text{kg}\,\text{m}^{2}\,\text{s}^{-1}$, the kilogram follows once the metre
+        and the second are known.
+      es: >-
+        Lo fija la constante de Planck, $h = 6.626\,070\,15 \times 10^{-34}\ \text{J s}$. Como
+        $\text{J s} = \text{kg}\,\text{m}^{2}\,\text{s}^{-1}$, el kilogramo queda determinado una
+        vez conocidos el metro y el segundo.
+  - id: 'kilogram-anomaly'
+    kind: 'prose'
+    body:
+      en: >-
+        The kilogram is the anomaly of the set. It is the only base unit whose name already carries
+        an SI prefix, a leftover from the metric system's original base unit, the gram. Prefixes
+        therefore attach to the gram, never to the kilogram: a thousandth of a kilogram is a gram
+        ($\text{g}$), a millionth is a milligram ($\text{mg}$), and $\mu\text{kg}$ is never written.
+        It was also the last base unit defined by an artefact: until 2019 the kilogram was the mass
+        of the International Prototype, a platinum-iridium cylinder kept near Paris, whose mass
+        drifted by roughly $50\ \mu\text{g}$ relative to its official copies over a century. Fixing
+        $h$ removed that dependence on a single object.
+      es: >-
+        El kilogramo es la anomalía del conjunto. Es la única unidad base cuyo nombre ya lleva un
+        prefijo del SI, herencia de la unidad base original del sistema métrico, el gramo. Por eso
+        los prefijos se aplican al gramo y nunca al kilogramo: la milésima parte de un kilogramo es
+        un gramo ($\text{g}$), la millonésima es un miligramo ($\text{mg}$) y $\mu\text{kg}$ jamás
+        se escribe. Fue además la última unidad base definida por un artefacto: hasta 2019 el
+        kilogramo era la masa del Prototipo Internacional, un cilindro de platino e iridio guardado
+        cerca de París, cuya masa derivó unos $50\ \mu\text{g}$ respecto a sus copias oficiales en
+        un siglo. Fijar $h$ eliminó esa dependencia de un solo objeto.
+  - id: 'check-prefix'
+    kind: 'check'
+    prompt:
+      en: >-
+        A thousandth of a gram is written $\text{mg}$. Why is a millionth of a kilogram not written
+        $\mu\text{kg}$?
+      es: >-
+        La milésima de gramo se escribe $\text{mg}$. ¿Por qué la millonésima de kilogramo no se
+        escribe $\mu\text{kg}$?
+    answer:
+      en: >-
+        SI prefixes never stack. The kilogram already contains the prefix kilo, so further prefixes
+        attach to the gram: a millionth of a kilogram is a thousandth of a gram, one milligram.
+      es: >-
+        Los prefijos del SI nunca se acumulan. El kilogramo ya contiene el prefijo kilo, así que los
+        demás prefijos se aplican al gramo: la millonésima de kilogramo es la milésima de gramo, un
+        miligramo.
+  - id: 'ampere'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'ampere'
+    note:
+      en: >-
+        Fixed by the elementary charge, $e = 1.602\,176\,634 \times 10^{-19}\ \text{C}$, with
+        $\text{C} = \text{A s}$: one ampere carries about $6.24 \times 10^{18}$ elementary charges
+        per second.
+      es: >-
+        Lo fija la carga elemental, $e = 1.602\,176\,634 \times 10^{-19}\ \text{C}$, con
+        $\text{C} = \text{A s}$: un ampere transporta unas $6.24 \times 10^{18}$ cargas elementales
+        por segundo.
+  - id: 'kelvin'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'kelvin'
+    note:
+      en: >-
+        Fixed by the Boltzmann constant, $k = 1.380\,649 \times 10^{-23}\ \text{J/K}$, which links
+        temperature to energy per particle. The triple point of water, once exactly $273.16\ \text{K}$
+        by definition, is now a measured value.
+      es: >-
+        Lo fija la constante de Boltzmann, $k = 1.380\,649 \times 10^{-23}\ \text{J/K}$, que
+        relaciona la temperatura con la energía por partícula. El punto triple del agua, antes
+        exactamente $273.16\ \text{K}$ por definición, ahora es un valor medido.
+  - id: 'mole'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'mole'
+    note:
+      en: >-
+        Fixed by the Avogadro constant, $N_{\text{A}} = 6.022\,140\,76 \times 10^{23}\ \text{mol}^{-1}$.
+        The mole is a pure count of entities, so it is the only base unit that depends on no other.
+      es: >-
+        Lo fija la constante de Avogadro,
+        $N_{\text{A}} = 6.022\,140\,76 \times 10^{23}\ \text{mol}^{-1}$. El mol es un conteo puro
+        de entidades, por lo que es la única unidad base que no depende de ninguna otra.
+  - id: 'candela'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'candela'
+    note:
+      en: >-
+        Fixed by the luminous efficacy of monochromatic radiation at $540\ \text{THz}$,
+        $K_{\text{cd}} = 683\ \text{lm/W}$. It is the one base unit tied to human perception: the
+        weighting follows the sensitivity of the eye.
+      es: >-
+        La fija la eficacia luminosa de la radiación monocromática de $540\ \text{THz}$,
+        $K_{\text{cd}} = 683\ \text{lm/W}$. Es la única unidad base ligada a la percepción humana:
+        la ponderación sigue la sensibilidad del ojo.
+  - id: 'closing'
+    kind: 'prose'
+    body:
+      en: >-
+        Notice the order of dependence. The second stands alone; the metre needs the second; the
+        kilogram needs both; the ampere, kelvin and candela need the second through their constants'
+        units. Every other unit in this wiki, from the joule to the pascal, is a product of powers of
+        these seven, which is exactly how the build verifies each derived unit's dimension.
+      es: >-
+        Observa el orden de dependencia. El segundo se sostiene solo; el metro necesita al segundo;
+        el kilogramo necesita a ambos; el ampere, el kelvin y la candela necesitan al segundo a
+        través de las unidades de sus constantes. Toda otra unidad de esta wiki, del joule al pascal,
+        es un producto de potencias de estas siete, y así es exactamente como la compilación verifica
+        la dimensión de cada unidad derivada.
+  - id: 'check-dependence'
+    kind: 'check'
+    prompt:
+      en: >-
+        Which of the seven base unit definitions do not depend on the second?
+      es: >-
+        ¿Cuáles de las siete definiciones de unidades base no dependen del segundo?
+    answer:
+      en: >-
+        Only the mole. The metre uses $c$ in $\text{m/s}$; the kilogram uses $h$ in
+        $\text{kg m}^{2}\text{ s}^{-1}$; the ampere uses $e$ in $\text{A s}$; the kelvin uses $k$ in
+        $\text{J/K}$ and the joule contains $\text{s}^{-2}$; the candela uses $\text{W}$ and
+        $\text{Hz}$. The Avogadro constant is a count per mole with no time in it.
+      es: >-
+        Solo el mol. El metro usa $c$ en $\text{m/s}$; el kilogramo usa $h$ en
+        $\text{kg m}^{2}\text{ s}^{-1}$; el ampere usa $e$ en $\text{A s}$; el kelvin usa $k$ en
+        $\text{J/K}$ y el joule contiene $\text{s}^{-2}$; la candela usa $\text{W}$ y $\text{Hz}$.
+        La constante de Avogadro es un conteo por mol sin tiempo alguno.
+references:
+  - title: 'The International System of Units (SI), 9th edition'
+    url: 'https://www.bipm.org/en/publications/si-brochure'

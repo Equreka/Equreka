@@ -5,7 +5,9 @@ import { expect, test } from '@playwright/test';
  * worker online, runtime-caches a single unit page, then goes offline and
  * must still serve (a) the visited page, (b) the offline reader for a
  * never-visited unit and (b2) a never-visited equation, (c) a fully working
- * converter, (d) working search.
+ * converter, (d) working search, (e) a visited learning path whose step
+ * progress persists across an offline reload, (f) the reader outline for a
+ * never-visited path.
  */
 test('offline-first PWA serves shell, reader, converter, and search', async ({ page, context }) => {
 	await test.step('install service worker and precache online', async () => {
@@ -19,6 +21,27 @@ test('offline-first PWA serves shell, reader, converter, and search', async ({ p
 	await test.step('visit /units/celsius/ once to runtime-cache it', async () => {
 		await page.goto('/units/celsius/');
 		await expect(page.getByRole('heading', { level: 1, name: 'Celsius' })).toBeVisible();
+	});
+
+	await test.step('visit /paths/si-base-units/ once to runtime-cache it', async () => {
+		await page.goto('/paths/si-base-units/');
+		await expect(
+			page.getByRole('heading', { level: 1, name: 'The seven SI base units' }),
+		).toBeVisible();
+	});
+
+	await test.step('entry page shows the dormant path bar only with ?path=&step=', async () => {
+		await page.goto('/units/metre/?path=si-base-units&step=metre');
+		const bar = page.getByRole('complementary', { name: 'The seven SI base units' });
+		await expect(bar).toBeVisible();
+		await expect(bar.getByText('Step 3 of 12')).toBeVisible();
+		await expect(bar.getByRole('link', { name: /Next step/ })).toHaveAttribute(
+			'href',
+			'/units/kilogram/?path=si-base-units&step=kilogram',
+		);
+		await page.goto('/units/metre/');
+		await expect(page.getByRole('heading', { level: 1, name: 'Metre' })).toBeVisible();
+		await expect(page.getByRole('complementary')).toHaveCount(0);
 	});
 
 	await context.setOffline(true);
@@ -52,6 +75,32 @@ test('offline-first PWA serves shell, reader, converter, and search', async ({ p
 		await page.getByLabel('To', { exact: true }).selectOption('fahrenheit');
 		await page.getByLabel('Value', { exact: true }).fill('100');
 		await expect(page.locator('strong')).toHaveText('212');
+	});
+
+	await test.step('(e) visited path renders offline; marking a step done survives reload', async () => {
+		await page.goto('/paths/si-base-units/');
+		await expect(
+			page.getByRole('heading', { level: 1, name: 'The seven SI base units' }),
+		).toBeVisible();
+		const toggle = page.locator('[data-step-toggle="metre"]');
+		await expect(toggle).not.toBeChecked();
+		await toggle.check();
+		await expect(toggle).toBeChecked();
+		await expect(page.getByText('1 of 12 steps done')).toBeVisible();
+		await page.reload();
+		await expect(page.locator('[data-step-toggle="metre"]')).toBeChecked();
+		await expect(page.getByText('1 of 12 steps done')).toBeVisible();
+		expect(await page.evaluate(() => localStorage.getItem('equreka.v1.path-progress'))).toBe(
+			JSON.stringify({ 'si-base-units': ['metre'] }),
+		);
+	});
+
+	await test.step('(f) never-visited path lands on the offline reader with its outline', async () => {
+		await page.goto('/paths/temperature-scales/');
+		await expect(page.getByRole('heading', { level: 1, name: "You're offline" })).toBeVisible();
+		await expect(page.getByRole('heading', { name: 'Temperature scales' })).toBeVisible();
+		await expect(page.getByRole('heading', { name: 'Steps' })).toBeVisible();
+		await expect(page.getByRole('listitem').filter({ hasText: 'Fahrenheit (°F)' })).toBeVisible();
 	});
 
 	await test.step('(d) search finds Metre for "metro" offline', async () => {

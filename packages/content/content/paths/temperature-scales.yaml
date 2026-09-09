@@ -1,0 +1,215 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.schema.json
+name:
+  en: 'Temperature scales'
+  es: 'Escalas de temperatura'
+level: 'intro'
+prerequisites:
+  - 'si-base-units'
+estimatedMinutes: '15'
+categories:
+  - 'physics'
+aliases:
+  - 'temperature conversion'
+  - 'celsius to fahrenheit'
+  - 'conversion de temperatura'
+  - 'grados'
+description:
+  en: >-
+    From the kelvin to Celsius and Fahrenheit: why temperature units carry an offset as well as a
+    factor, how to convert between them, and why an affine unit cannot be multiplied by another.
+  es: >-
+    Del kelvin al Celsius y al Fahrenheit: por qué las unidades de temperatura llevan un
+    desplazamiento además de un factor, cómo convertir entre ellas y por qué una unidad afín no
+    puede multiplicarse por otra.
+steps:
+  - id: 'intro'
+    kind: 'prose'
+    body:
+      en: >-
+        Most unit conversions are a single multiplication: $1\ \text{km} = 1000\ \text{m}$. Temperature
+        scales are different. Their zeros sit at different physical points, so converting one to
+        another needs a factor and an offset: $y = a\,x + b$. Mathematicians call such a map affine.
+        In this wiki every temperature unit is authored as exactly that pair, and the engine composes
+        them through the kelvin.
+      es: >-
+        La mayoría de las conversiones de unidades son una sola multiplicación:
+        $1\ \text{km} = 1000\ \text{m}$. Las escalas de temperatura son distintas. Sus ceros están en
+        puntos físicos diferentes, así que pasar de una a otra requiere un factor y un
+        desplazamiento: $y = a\,x + b$. En matemáticas esa transformación se llama afín. En esta
+        wiki cada unidad de temperatura se escribe exactamente como ese par y el motor las compone a
+        través del kelvin.
+  - id: 'kelvin'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'kelvin'
+    note:
+      en: >-
+        The SI base unit and the reference every other scale maps onto. Its zero is absolute zero,
+        the state of minimum thermal energy, so kelvin values are never negative and carry no degree
+        sign.
+      es: >-
+        La unidad base del SI y la referencia a la que se mapean las demás escalas. Su cero es el
+        cero absoluto, el estado de mínima energía térmica, por lo que los valores en kelvin nunca
+        son negativos y no llevan el signo de grado.
+  - id: 'celsius'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'celsius'
+    note:
+      en: >-
+        The same size of degree as the kelvin, shifted so that $0\ \text{°C}$ is the freezing point
+        of water: $T_{\text{K}} = t_{\text{°C}} + 273.15$, exactly.
+      es: >-
+        El mismo tamaño de grado que el kelvin, desplazado para que $0\ \text{°C}$ sea el punto de
+        congelación del agua: $T_{\text{K}} = t_{\text{°C}} + 273.15$, exactamente.
+  - id: 'celsius-offset'
+    kind: 'prose'
+    body:
+      en: >-
+        Celsius was originally the centigrade scale, pinned to two fixed points of water at standard
+        pressure: freezing at $0$ and boiling at $100$. Since 1954 it is defined from the kelvin
+        instead, with an exact offset of $273.15$. A temperature difference is the same number in
+        both units, which is why heat capacities are quoted per kelvin and per degree Celsius
+        interchangeably; only absolute readings differ.
+      es: >-
+        Celsius fue originalmente la escala centígrada, anclada a dos puntos fijos del agua a
+        presión estándar: congelación en $0$ y ebullición en $100$. Desde 1954 se define a partir
+        del kelvin, con un desplazamiento exacto de $273.15$. Una diferencia de temperatura es el
+        mismo número en ambas unidades, y por eso las capacidades caloríficas se expresan por kelvin
+        o por grado Celsius de manera intercambiable; solo las lecturas absolutas difieren.
+  - id: 'fahrenheit'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'fahrenheit'
+    note:
+      en: >-
+        A smaller degree and a different zero: $1\ \text{°F}$ is $\frac{5}{9}\ \text{K}$, and
+        $T_{\text{K}} = \frac{5}{9}\,(t_{\text{°F}} + 459.67)$. Water freezes at $32\ \text{°F}$ and
+        boils at $212\ \text{°F}$, a span of $180$ degrees.
+      es: >-
+        Un grado más pequeño y un cero distinto: $1\ \text{°F}$ equivale a $\frac{5}{9}\ \text{K}$, y
+        $T_{\text{K}} = \frac{5}{9}\,(t_{\text{°F}} + 459.67)$. El agua se congela a $32\ \text{°F}$
+        y hierve a $212\ \text{°F}$, un intervalo de $180$ grados.
+  - id: 'composing'
+    kind: 'prose'
+    body:
+      en: >-
+        Converting Fahrenheit to Celsius never needs its own formula: go through the kelvin. Apply
+        the Fahrenheit map, then invert the Celsius one, and the offsets combine into the familiar
+        $t_{\text{°C}} = \frac{5}{9}\,(t_{\text{°F}} - 32)$. The engine does exactly this
+        composition for every pair of units, so a scale added tomorrow converts to all the others
+        without anyone typing a table.
+      es: >-
+        Convertir de Fahrenheit a Celsius nunca necesita una fórmula propia: pasa por el kelvin.
+        Aplica la transformación de Fahrenheit, invierte la de Celsius y los desplazamientos se
+        combinan en la conocida $t_{\text{°C}} = \frac{5}{9}\,(t_{\text{°F}} - 32)$. El motor hace
+        exactamente esa composición para cada par de unidades, así que una escala agregada mañana se
+        convierte a todas las demás sin que nadie escriba una tabla.
+  - id: 'check-boiling'
+    kind: 'check'
+    prompt:
+      en: >-
+        Water boils at $100\ \text{°C}$ at standard pressure. What is that in kelvin and in degrees
+        Fahrenheit?
+      es: >-
+        El agua hierve a $100\ \text{°C}$ a presión estándar. ¿Cuánto es eso en kelvin y en grados
+        Fahrenheit?
+    answer:
+      en: >-
+        $373.15\ \text{K}$ and $212\ \text{°F}$: add $273.15$ for the kelvin, and for Fahrenheit
+        multiply by $\frac{9}{5}$ and add $32$.
+      es: >-
+        $373.15\ \text{K}$ y $212\ \text{°F}$: suma $273.15$ para el kelvin y, para Fahrenheit,
+        multiplica por $\frac{9}{5}$ y suma $32$.
+  - id: 'curiosities'
+    kind: 'prose'
+    body:
+      en: >-
+        Two historical scales show the same idea from opposite ends. Rankine keeps the Fahrenheit
+        degree but moves the zero to absolute zero, so it is a pure factor with no offset:
+        $T_{\text{K}} = \frac{5}{9}\,T_{\text{°R}}$. Réaumur keeps the Celsius zero but divides the
+        freezing-to-boiling span into $80$ degrees instead of $100$:
+        $t_{\text{°C}} = \frac{5}{4}\,t_{\text{°Ré}}$.
+      es: >-
+        Dos escalas históricas muestran la misma idea desde extremos opuestos. Rankine conserva el
+        grado Fahrenheit pero lleva el cero al cero absoluto, así que es un factor puro sin
+        desplazamiento: $T_{\text{K}} = \frac{5}{9}\,T_{\text{°R}}$. Réaumur conserva el cero de
+        Celsius pero divide el intervalo de congelación a ebullición en $80$ grados en lugar de
+        $100$: $t_{\text{°C}} = \frac{5}{4}\,t_{\text{°Ré}}$.
+  - id: 'rankine'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'rankine'
+    note:
+      en: >-
+        Still used in some US thermodynamics texts because absolute temperatures in Fahrenheit-sized
+        degrees keep the gas laws free of offsets.
+      es: >-
+        Aún se usa en algunos textos de termodinámica de EE. UU. porque las temperaturas absolutas
+        en grados de tamaño Fahrenheit mantienen las leyes de los gases libres de desplazamientos.
+  - id: 'reaumur'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'reaumur'
+    note:
+      en: >-
+        Widespread in eighteenth-century Europe, today it survives mostly in traditional cheese and
+        syrup making.
+      es: >-
+        Muy extendida en la Europa del siglo XVIII, hoy sobrevive sobre todo en la elaboración
+        tradicional de quesos y jarabes.
+  - id: 'try-converter'
+    kind: 'prose'
+    body:
+      en: >-
+        Open the Converter from the navigation, choose thermodynamic temperature, and convert
+        $-40$ between Celsius and Fahrenheit. The two scales agree at exactly that value; the
+        converter also marks which conversions are exact and which are rounded.
+      es: >-
+        Abre el Convertidor desde la navegación, elige temperatura termodinámica y convierte $-40$
+        entre Celsius y Fahrenheit. Las dos escalas coinciden exactamente en ese valor; el
+        convertidor también indica qué conversiones son exactas y cuáles están redondeadas.
+  - id: 'check-affine'
+    kind: 'check'
+    prompt:
+      en: >-
+        Why can't you compose $\text{°C}$ with another unit, for example a temperature gradient in
+        degrees Celsius per metre?
+      es: >-
+        ¿Por qué no puedes componer $\text{°C}$ con otra unidad, por ejemplo un gradiente de
+        temperatura en grados Celsius por metro?
+    answer:
+      en: >-
+        Because $\text{°C}$ is affine: its map to the kelvin has a nonzero offset, and an offset has
+        no meaning under multiplication. A product of units multiplies scale factors only, so
+        $1\ \text{°C m}$ would be $274.15\ \text{K m}$ by one reading and $1\ \text{K m}$ by another.
+        Gradients are differences, and a difference of one degree Celsius is one kelvin, so the
+        coherent unit is $\text{K/m}$. This build rejects affine units inside compose forms for
+        exactly that reason.
+      es: >-
+        Porque $\text{°C}$ es afín: su transformación al kelvin tiene un desplazamiento distinto de
+        cero, y un desplazamiento no tiene significado bajo la multiplicación. Un producto de
+        unidades solo multiplica factores de escala, así que $1\ \text{°C m}$ sería
+        $274.15\ \text{K m}$ según una lectura y $1\ \text{K m}$ según otra. Los gradientes son
+        diferencias, y una diferencia de un grado Celsius es un kelvin, de modo que la unidad
+        coherente es $\text{K/m}$. Esta compilación rechaza unidades afines dentro de formas
+        compuestas exactamente por esa razón.
+  - id: 'check-absolute'
+    kind: 'check'
+    prompt:
+      en: >-
+        Which of the scales in this path are absolute, with their zero at absolute zero?
+      es: >-
+        ¿Cuáles de las escalas de esta ruta son absolutas, con su cero en el cero absoluto?
+    answer:
+      en: >-
+        Kelvin and Rankine. Both convert to the base unit with a factor alone; Celsius, Fahrenheit
+        and Réaumur all need an offset.
+      es: >-
+        Kelvin y Rankine. Ambas se convierten a la unidad base solo con un factor; Celsius,
+        Fahrenheit y Réaumur necesitan un desplazamiento.

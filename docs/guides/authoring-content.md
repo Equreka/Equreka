@@ -115,7 +115,32 @@ calculator: { enabled: true }
 
 ### paths
 
-`name`, `steps[]` of `{ id, kind: 'entry', collection, slug, note? }` or `{ id, kind: 'prose', body }`, unique ids per path. Empty in v1.
+Learning paths (ADR 0004): an ordered walk through existing entries with authored transitions and self-checks. Paths are presentation-only — nothing here touches the engine slice.
+
+```yaml
+name: { en: 'Temperature scales', es: 'Escalas de temperatura' }
+level: 'intro'                        # intro | intermediate | advanced (required)
+prerequisites: ['si-base-units']      # refs to other paths; resolved, no cycles
+estimatedMinutes: '15'                # optional integer string
+steps:
+  - id: 'kelvin'                      # unique within the path; stable — progress is keyed on it
+    kind: 'entry'
+    ref:
+      collection: 'units'             # magnitudes | units | prefixes | constants | variables | equations
+      slug: 'kelvin'
+    note: { en: >- ... }              # optional, why this entry, here
+  - id: 'composing'
+    kind: 'prose'
+    body: { en: >- ... }
+  - id: 'check-boiling'
+    kind: 'check'
+    prompt: { en: >- ... }
+    answer: { en: >- ... }            # revealed on demand; prose, no grading
+```
+
+- **Step kinds.** `entry` points at one wiki entry through `ref: { collection, slug }` (the build resolves its name and symbol into `presentation/paths.json`, so readers need no second lookup; the target is nested because Astro's content layer reads any flat `{ collection, id }` object as a reference and would take the step's own `id` for the target); `prose` is transition text; `check` is a question with a revealable answer. Every prose field (`note`, `body`, `prompt`, `answer`) takes `$...$` math and is strict-KaTeX-linted like descriptions — never allowlist-downgradable.
+- **Localization.** Write `es` for every prose field, not only `name`/`description`: step text renders on the page in the reader's locale and falls back to English per field.
+- **Progress** is a reader-side concern (completed step ids under a local storage key), so renaming a step `id` resets learners' progress for that step — treat ids as stable.
 
 ## Checking your work
 

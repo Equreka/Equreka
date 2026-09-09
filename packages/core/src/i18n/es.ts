@@ -17,6 +17,7 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'nav.calculator': 'Calculadora',
 	'nav.converter': 'Convertidor',
 	'nav.search': 'Buscar',
+	'nav.paths': 'Rutas',
 	'nav.favorites': 'Favoritos',
 	'nav.settings': 'Ajustes',
 	'layout.themeToggle': 'Cambiar el tema de color',
@@ -83,6 +84,8 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'home.card.converter': 'Convierte valores entre cualquier par de unidades compatibles.',
 	'home.card.search':
 		'Encuentra cualquier unidad, magnitud o constante por nombre, símbolo o alias.',
+	'home.card.paths':
+		'Rutas de aprendizaje guiadas por unidades, constantes y ecuaciones, con autoevaluaciones.',
 
 	'meta.units': 'Todas las unidades de medida de la wiki de Equreka, agrupadas por categoría.',
 	'units.lead':
@@ -207,6 +210,36 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'offline.filterPlaceholder': 'Filtra por nombre, símbolo o alias…',
 	'offline.noMatch': 'Ninguna entrada sin conexión coincide.',
 
+	'meta.paths':
+		'Rutas de aprendizaje guiadas por la wiki de Equreka — pasos ordenados con autoevaluaciones; el progreso se queda en este dispositivo.',
+	'paths.title': 'Rutas de aprendizaje',
+	'paths.lead':
+		'{count} rutas guiadas. Cada una recorre unas cuantas entradas en orden, con transiciones y preguntas de autoevaluación. El progreso se guarda en este dispositivo.',
+	'meta.path': '{name} — ruta de aprendizaje de nivel {level} en {count} pasos.',
+	'path.level.intro': 'Introductorio',
+	'path.level.intermediate': 'Intermedio',
+	'path.level.advanced': 'Avanzado',
+	'path.steps': '{count} pasos',
+	'path.minutes': '{count} min',
+	'path.prerequisites': 'Antes de esta ruta',
+	'path.progress': '{done} de {total} pasos completados',
+	'path.progressAria': 'Progreso de la ruta',
+	'path.completed': 'Completada',
+	'path.markDone': 'Marcar paso como completado',
+	'path.markUndone': 'Marcar paso como pendiente',
+	'path.stepOf': 'Paso {n} de {total}',
+	'path.prev': 'Paso anterior',
+	'path.next': 'Paso siguiente',
+	'path.backToPath': 'Volver a la ruta',
+	'path.reset': 'Reiniciar progreso',
+	'path.check': 'Ponte a prueba',
+	'path.reveal': 'Mostrar la respuesta',
+	'path.openEntry': 'Abrir la entrada',
+	'path.kind.entry': 'Entrada',
+	'path.kind.prose': 'Lectura',
+	'path.kind.check': 'Autoevaluación',
+	'offline.outline': 'Pasos',
+
 	'meta.favorites':
 		'Tus entradas favoritas, guardadas en este dispositivo — expórtalas o impórtalas como JSON.',
 	'favorites.title': 'Favoritos',
@@ -220,6 +253,9 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'favorites.import': 'Importar favoritos',
 	'favorites.importError': 'Ese archivo no es una exportación válida de favoritos.',
 	'favorites.imported': 'Se importaron {count} favoritos nuevos.',
+	'favorites.importedProgress': 'Se importaron {count} pasos completados de rutas.',
+	'favorites.transferNote':
+		'Las exportaciones también incluyen tu progreso en las rutas de aprendizaje.',
 
 	'meta.settings':
 		'Tema, idioma y favoritos de este dispositivo — los ajustes nunca salen de tu navegador.',

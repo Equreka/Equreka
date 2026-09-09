@@ -14,15 +14,6 @@ export interface FavoriteEntry {
 	addedAt: string;
 }
 
-/**
- * Portable export format. The version travels inside the file so a future
- * shape change stays importable.
- */
-export interface FavoritesEnvelope {
-	v: 1;
-	favorites: FavoriteEntry[];
-}
-
 const LEGACY_PREFIX = 'equreka-favorites-';
 
 /**
@@ -50,7 +41,7 @@ function keyOf(entry: { collection: string; slug: string }): string {
 	return `${entry.collection}:${entry.slug}`;
 }
 
-function isFavoriteEntry(value: unknown): value is FavoriteEntry {
+export function isFavoriteEntry(value: unknown): value is FavoriteEntry {
 	if (typeof value !== 'object' || value === null) return false;
 	const entry = value as Record<string, unknown>;
 	return (
@@ -60,7 +51,7 @@ function isFavoriteEntry(value: unknown): value is FavoriteEntry {
 	);
 }
 
-function parseFavorites(raw: string | null): FavoriteEntry[] {
+export function parseFavorites(raw: string | null): FavoriteEntry[] {
 	if (raw === null) return [];
 	try {
 		const parsed: unknown = JSON.parse(raw);
@@ -70,18 +61,11 @@ function parseFavorites(raw: string | null): FavoriteEntry[] {
 	}
 }
 
-function parseEnvelope(data: unknown): FavoriteEntry[] | null {
-	if (typeof data !== 'object' || data === null) return null;
-	const envelope = data as Record<string, unknown>;
-	if (envelope.v !== 1 || !Array.isArray(envelope.favorites)) return null;
-	return envelope.favorites.filter(isFavoriteEntry);
-}
-
 /**
  * Merges `incoming` into `current`, skipping entries whose collection:slug
  * already exists. Returns the merged list and how many entries were new.
  */
-function mergeFavorites(
+export function mergeFavorites(
 	current: FavoriteEntry[],
 	incoming: FavoriteEntry[],
 ): { merged: FavoriteEntry[]; added: number } {
@@ -132,19 +116,13 @@ export interface UseFavorites {
 	favorites: readonly FavoriteEntry[];
 	isFavorite(collection: string, slug: string): boolean;
 	toggle(collection: string, slug: string): void;
-	exportEnvelope(): FavoritesEnvelope;
-	/**
-	 * Merges a parsed export envelope into the stored favorites. Returns
-	 * the number of newly added entries, or null when `data` is not a
-	 * valid envelope.
-	 */
-	importEnvelope(data: unknown): number | null;
 }
 
 /**
  * Favorites over an injected KVStorage. All instances sharing an adapter
  * stay in sync through its subscribe channel; the legacy-key migration
- * runs once on mount.
+ * runs once on mount. Export/import lives in `transfer.ts`, which spans
+ * favorites and path progress.
  */
 export function useFavorites(storage: KVStorage): UseFavorites {
 	const raw = useSyncExternalStore(
@@ -176,26 +154,5 @@ export function useFavorites(storage: KVStorage): UseFavorites {
 		[storage],
 	);
 
-	const exportEnvelope = useCallback(
-		(): FavoritesEnvelope => ({ v: 1, favorites: parseFavorites(storage.get(FAVORITES_KEY)) }),
-		[storage],
-	);
-
-	const importEnvelope = useCallback(
-		(data: unknown): number | null => {
-			const incoming = parseEnvelope(data);
-			if (incoming === null) return null;
-			const { merged, added } = mergeFavorites(
-				parseFavorites(storage.get(FAVORITES_KEY)),
-				incoming,
-			);
-			if (added > 0) {
-				storage.set(FAVORITES_KEY, JSON.stringify(merged));
-			}
-			return added;
-		},
-		[storage],
-	);
-
-	return { favorites, isFavorite, toggle, exportEnvelope, importEnvelope };
+	return { favorites, isFavorite, toggle };
 }

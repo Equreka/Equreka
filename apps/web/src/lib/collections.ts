@@ -3,6 +3,7 @@ import type {
 	Constant,
 	Equation,
 	Magnitude,
+	Path,
 	Prefix,
 	Unit,
 	Variable,
@@ -39,4 +40,8 @@ export function asVariable(data: Record<string, unknown>): Variable {
 
 export function asEquation(data: Record<string, unknown>): Equation {
 	return data as unknown as Equation;
+}
+
+export function asPath(data: Record<string, unknown>): Path {
+	return data as unknown as Path;
 }

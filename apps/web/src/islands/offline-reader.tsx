@@ -1,5 +1,5 @@
 import { type CatalogLiteEntry, foldSearchTerm } from '@equreka/content/search-options';
-import { collectionLabel, type Locale, t } from '@equreka/core/i18n';
+import { collectionLabel, type Locale, type MessageKey, t } from '@equreka/core/i18n';
 import { type ReactNode, useEffect, useMemo, useState } from 'react';
 import type { ReaderPayload } from '../integrations/equreka-assets';
 
@@ -13,7 +13,8 @@ interface SelectedEntry {
 	slug: string;
 }
 
-const ENTRY_PATH_RE = /^\/(?:es\/)?(units|magnitudes|constants|equations|categories)\/([^/]+)\/?$/;
+const ENTRY_PATH_RE =
+	/^\/(?:es\/)?(units|magnitudes|constants|equations|categories|paths)\/([^/]+)\/?$/;
 
 const MATH_FRAGMENT_RE = /\$\$?([^$]+)\$\$?/g;
 
@@ -59,6 +60,15 @@ function plainMathText(text: string): ReactNode[] {
 }
 
 const LIST_LIMIT = 30;
+
+/**
+ * Step kind → catalog key for the offline outline labels.
+ */
+const STEP_KIND_KEYS: Record<string, MessageKey> = {
+	entry: 'path.kind.entry',
+	prose: 'path.kind.prose',
+	check: 'path.kind.check',
+};
 
 export interface OfflineReaderProps {
 	locale?: Locale;
@@ -144,6 +154,25 @@ export default function OfflineReader({ locale = 'en' }: OfflineReaderProps) {
 							</div>
 							{selectedEntry.description !== '' && (
 								<p className="mt-3 leading-7">{plainMathText(selectedEntry.description)}</p>
+							)}
+							{selectedEntry.outline !== undefined && (
+								<section aria-labelledby="offline-outline-heading" className="mt-4">
+									<h3 id="offline-outline-heading" className="text-sm font-semibold">
+										{t(locale, 'offline.outline')}
+									</h3>
+									<ol className="mt-2 list-decimal space-y-1 pl-6 text-sm">
+										{selectedEntry.outline.map((item, index) => (
+											<li key={`${index}-${item.kind}`}>
+												<span className="text-xs text-ink-muted uppercase tracking-wide">
+													{t(locale, STEP_KIND_KEYS[item.kind] ?? 'path.steps')}
+												</span>
+												{item.title !== '' && (
+													<span className="ml-2">{plainMathText(item.title)}</span>
+												)}
+											</li>
+										))}
+									</ol>
+								</section>
 							)}
 						</>
 					)}

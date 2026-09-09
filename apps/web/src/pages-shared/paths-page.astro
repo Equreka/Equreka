@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content';
+import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
+import PathProgress from '../islands/path-progress';
+import BaseLayout from '../layouts/base-layout.astro';
+import { asPath } from '../lib/collections';
+import { localePath } from '../lib/locale-paths';
+import { LEVEL_BADGE } from '../lib/path-styles';
+
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
+
+const LEVEL_ORDER = ['intro', 'intermediate', 'advanced'] as const;
+
+const paths = (await getCollection('paths'))
+	.map((entry) => ({ slug: entry.id, ...asPath(entry.data) }))
+	.sort(
+		(a, b) =>
+			LEVEL_ORDER.indexOf(a.level) - LEVEL_ORDER.indexOf(b.level) ||
+			localizedName(a, locale).localeCompare(localizedName(b, locale), locale),
+	);
+---
+
+<BaseLayout
+	title={`${t(locale, 'paths.title')} — Equreka`}
+	description={t(locale, 'meta.paths')}
+	locale={locale}
+>
+	<h1 class="text-3xl font-bold tracking-tight">{t(locale, 'paths.title')}</h1>
+	<p class="mt-2 max-w-2xl text-ink-muted">{t(locale, 'paths.lead', { count: paths.length })}</p>
+	<ul class="mt-8 grid gap-4 sm:grid-cols-2">
+		{
+			paths.map((path) => (
+				<li>
+					<article class="flex h-full flex-col rounded-lg border border-border bg-surface p-5 hover:shadow-md">
+						<div class="flex flex-wrap items-center gap-2 text-xs font-medium">
+							<span class={`rounded-full px-2.5 py-0.5 ${LEVEL_BADGE[path.level] ?? LEVEL_BADGE.intro}`}>
+								{t(locale, `path.level.${path.level}`)}
+							</span>
+							<PathProgress
+								client:idle
+								variant="badge"
+								pathSlug={path.slug}
+								stepIds={path.steps.map((step) => step.id)}
+								locale={locale}
+							/>
+						</div>
+						<h2 class="mt-3 text-lg font-semibold">
+							<a class="text-accent hover:underline" href={localePath(locale, `/paths/${path.slug}/`)}>
+								{localizedName(path, locale)}
+							</a>
+						</h2>
+						{path.description !== undefined && (
+							<p class="mt-2 line-clamp-3 text-sm text-ink-muted">
+								{pickLocalized(path.description, locale).value}
+							</p>
+						)}
+						<p class="mt-auto pt-4 text-sm text-ink-muted">
+							{t(locale, 'path.steps', { count: path.steps.length })}
+							{path.estimatedMinutes !== undefined &&
+								` · ${t(locale, 'path.minutes', { count: path.estimatedMinutes })}`}
+						</p>
+					</article>
+				</li>
+			))
+		}
+	</ul>
+</BaseLayout>

@@ -123,7 +123,7 @@ export default function FavoritesList({ locale = 'en' }: FavoritesListProps) {
 					</section>
 				))
 			)}
-			<FavoritesTransfer favorites={favorites} locale={locale} />
+			<FavoritesTransfer locale={locale} />
 		</div>
 	);
 }

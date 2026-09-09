@@ -19,6 +19,7 @@ const PRECACHE_GLOBS = [
 	'{,es/}search/index.html',
 	'{,es/}favorites/index.html',
 	'{,es/}settings/index.html',
+	'{,es/}paths/index.html',
 	'_astro/*.js',
 	'_astro/*.css',
 	'katex/katex.min.css',
@@ -27,6 +28,7 @@ const PRECACHE_GLOBS = [
 	'search/catalog-lite.{en,es}.json',
 	'data/converter.{en,es}.json',
 	'data/reader.{en,es}.json',
+	'data/paths.{en,es}.json',
 	'manifest.webmanifest',
 	'icons/*.svg',
 	'pwa-register.js',
@@ -103,8 +105,10 @@ function webManifest(): string {
  * NetworkFirst route, serving the reader without ever trying the network);
  * /es/ navigations fall back to the es reader shell, registered first
  * because the first matching route wins. Other same-origin requests are
- * StaleWhileRevalidate. `from`/`magnitude` query params are ignored for
- * precache matching so shell routes still hit.
+ * StaleWhileRevalidate. `from`/`magnitude`/`path`/`step` query params are
+ * ignored for precache matching so shell routes still hit, and page-cache
+ * lookups ignore the search string: static HTML never depends on it, so an
+ * entry visited plain must still serve when revisited with `?path=`.
  */
 export function equrekaPwa(): AstroIntegration {
 	return {
@@ -131,7 +135,14 @@ export function equrekaPwa(): AstroIntegration {
 					sourcemap: false,
 					inlineWorkboxRuntime: true,
 					dontCacheBustURLsMatching: /^_astro\//,
-					ignoreURLParametersMatching: [/^utm_/, /^fbclid$/, /^from$/, /^magnitude$/],
+					ignoreURLParametersMatching: [
+						/^utm_/,
+						/^fbclid$/,
+						/^from$/,
+						/^magnitude$/,
+						/^path$/,
+						/^step$/,
+					],
 					runtimeCaching: [
 						{
 							urlPattern: ({ request, url }) =>
@@ -140,6 +151,7 @@ export function equrekaPwa(): AstroIntegration {
 							options: {
 								cacheName: 'equreka-pages',
 								networkTimeoutSeconds: 4,
+								matchOptions: { ignoreSearch: true },
 								precacheFallback: { fallbackURL: '/es/offline/index.html' },
 							},
 						},
@@ -149,6 +161,7 @@ export function equrekaPwa(): AstroIntegration {
 							options: {
 								cacheName: 'equreka-pages',
 								networkTimeoutSeconds: 4,
+								matchOptions: { ignoreSearch: true },
 								precacheFallback: { fallbackURL: '/offline/index.html' },
 							},
 						},

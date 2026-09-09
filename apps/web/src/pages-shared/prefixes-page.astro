@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { type Locale, localizedName, t } from '@equreka/core/i18n';
+import PathContextBar from '../islands/path-context-bar';
 import BaseLayout from '../layouts/base-layout.astro';
 import { asPrefix } from '../lib/collections';
 import { formatFullPrecision, powerOfTenExponent, toSuperscript } from '../lib/notation';
@@ -38,6 +39,7 @@ const tables = [
 	description={t(locale, 'meta.prefixes')}
 	locale={locale}
 >
+	<PathContextBar client:idle locale={locale} />
 	<h1 class="text-3xl font-bold tracking-tight">{t(locale, 'collection.prefixes')}</h1>
 	<p class="mt-2 max-w-2xl text-ink-muted">
 		{t(locale, 'prefixes.lead', { count: prefixes.length })}

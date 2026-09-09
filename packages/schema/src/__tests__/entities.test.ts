@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { category, constant, equation, magnitude, prefix, unit } from '../entities.js';
+import { category, constant, equation, magnitude, path, prefix, unit } from '../entities.js';
 
 describe('unit', () => {
 	it('accepts a primitive affine unit (fahrenheit)', () => {
@@ -327,5 +327,78 @@ describe('failsafe-parse coercions (every YAML scalar arrives as a string)', () 
 		});
 		expect(parsed.toBase?.factor).toEqual({ num: '5', den: '9' });
 		expect(parsed.toBase?.exact).toBe(true);
+	});
+});
+
+describe('path', () => {
+	const steps = [
+		{ id: 'metre', kind: 'entry', ref: { collection: 'units', slug: 'metre' } },
+		{ id: 'bridge', kind: 'prose', body: { en: 'Now the kilogram.' } },
+		{
+			id: 'check-1',
+			kind: 'check',
+			prompt: { en: 'How many SI base units are there?' },
+			answer: { en: 'Seven.' },
+		},
+	];
+
+	it('accepts the three step kinds, a level, prerequisites, and a string estimate', () => {
+		const parsed = path.parse({
+			name: { en: 'SI base units' },
+			level: 'intro',
+			prerequisites: ['temperature-scales'],
+			estimatedMinutes: '12',
+			steps,
+		});
+		expect(parsed.level).toBe('intro');
+		expect(parsed.estimatedMinutes).toBe(12);
+		expect(parsed.prerequisites).toEqual(['temperature-scales']);
+		expect(parsed.steps.map((step) => step.kind)).toEqual(['entry', 'prose', 'check']);
+	});
+
+	it('defaults prerequisites to empty and leaves the estimate undefined', () => {
+		const parsed = path.parse({ name: { en: 'Circles' }, level: 'intro', steps });
+		expect(parsed.prerequisites).toEqual([]);
+		expect(parsed.estimatedMinutes).toBeUndefined();
+	});
+
+	it('requires a level and rejects unknown levels', () => {
+		expect(path.safeParse({ name: { en: 'Circles' }, steps }).success).toBe(false);
+		expect(path.safeParse({ name: { en: 'Circles' }, level: 'expert', steps }).success).toBe(false);
+	});
+
+	it('rejects duplicate step ids, repeated prerequisites, and a non-positive estimate', () => {
+		const base = { name: { en: 'Circles' }, level: 'intro' };
+		expect(path.safeParse({ ...base, steps: [steps[0], steps[0]] }).success).toBe(false);
+		expect(path.safeParse({ ...base, prerequisites: ['a', 'a'], steps }).success).toBe(false);
+		expect(path.safeParse({ ...base, estimatedMinutes: '0', steps }).success).toBe(false);
+	});
+
+	it('rejects a check step without an answer, an entry into paths or categories, and a flat entry', () => {
+		const base = { name: { en: 'Circles' }, level: 'intro' };
+		expect(
+			path.safeParse({
+				...base,
+				steps: [{ id: 'q', kind: 'check', prompt: { en: 'Why?' } }],
+			}).success,
+		).toBe(false);
+		expect(
+			path.safeParse({
+				...base,
+				steps: [{ id: 'p', kind: 'entry', ref: { collection: 'paths', slug: 'si-base-units' } }],
+			}).success,
+		).toBe(false);
+		expect(
+			path.safeParse({
+				...base,
+				steps: [{ id: 'c', kind: 'entry', ref: { collection: 'categories', slug: 'physics' } }],
+			}).success,
+		).toBe(false);
+		expect(
+			path.safeParse({
+				...base,
+				steps: [{ id: 'm', kind: 'entry', collection: 'units', slug: 'metre' }],
+			}).success,
+		).toBe(false);
 	});
 });

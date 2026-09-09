@@ -203,20 +203,43 @@ export const equation = entityBase
 	})
 	.strict();
 
+/**
+ * Wiki collections a path step may point at; `paths` and `categories` are
+ * excluded so a step is always one concrete entry (a category is a listing,
+ * a nested path is a prerequisite).
+ */
+export const pathEntryCollection = z.enum([
+	'magnitudes',
+	'units',
+	'prefixes',
+	'constants',
+	'variables',
+	'equations',
+]);
+
+/**
+ * The entry a step points at. Nested under `ref` rather than flattened into
+ * the step: Astro's content layer treats any `{ collection, id | slug }`
+ * object as a reference and would read the step's own `id` as the target.
+ */
+export const pathEntryRef = z
+	.object({
+		collection: pathEntryCollection,
+		slug: slug,
+	})
+	.strict();
+
+/**
+ * Step grammar v1 (ADR 0004): `entry` sends the learner to one wiki entry,
+ * `prose` is authored transition text, `check` is a self-check question
+ * whose answer the learner reveals — no grading engine, prose only.
+ */
 export const pathStep = z.discriminatedUnion('kind', [
 	z
 		.object({
 			id: slug,
 			kind: z.literal('entry'),
-			collection: z.enum([
-				'magnitudes',
-				'units',
-				'prefixes',
-				'constants',
-				'variables',
-				'equations',
-			]),
-			slug: slug,
+			ref: pathEntryRef,
 			note: localizedText.optional(),
 		})
 		.strict(),
@@ -227,10 +250,29 @@ export const pathStep = z.discriminatedUnion('kind', [
 			body: localizedText,
 		})
 		.strict(),
+	z
+		.object({
+			id: slug,
+			kind: z.literal('check'),
+			prompt: localizedText,
+			answer: localizedText,
+		})
+		.strict(),
 ]);
 
+export const pathLevel = z.enum(['intro', 'intermediate', 'advanced']);
+
+/**
+ * `prerequisites` reference other paths (resolved and cycle-checked by the
+ * pipeline). `estimatedMinutes` is an authored reading-time estimate.
+ */
 export const path = entityBase
 	.extend({
+		level: pathLevel,
+		prerequisites: z.array(ref('paths')).default([]),
+		estimatedMinutes: intFromString
+			.refine((value) => value > 0, 'estimatedMinutes must be positive')
+			.optional(),
 		steps: z.array(pathStep).min(1),
 	})
 	.strict()
@@ -238,6 +280,9 @@ export const path = entityBase
 		const ids = value.steps.map((s) => s.id);
 		if (new Set(ids).size !== ids.length) {
 			ctx.addIssue({ code: 'custom', message: 'step ids must be unique within a path' });
+		}
+		if (new Set(value.prerequisites).size !== value.prerequisites.length) {
+			ctx.addIssue({ code: 'custom', message: 'prerequisites must not repeat' });
 		}
 	});
 
@@ -253,5 +298,8 @@ export type Constant = z.infer<typeof constant>;
 export type Variable = z.infer<typeof variable>;
 export type EquationTerm = z.infer<typeof equationTerm>;
 export type Equation = z.infer<typeof equation>;
+export type PathEntryCollection = z.infer<typeof pathEntryCollection>;
+export type PathEntryRef = z.infer<typeof pathEntryRef>;
+export type PathLevel = z.infer<typeof pathLevel>;
 export type PathStep = z.infer<typeof pathStep>;
 export type Path = z.infer<typeof path>;
