@@ -1,22 +1,61 @@
-import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import { createHash } from 'node:crypto';
+import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join } from 'node:path';
+import { join, relative } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { COLLECTIONS, engineSlice, SCHEMA_VERSION } from '@equreka/schema';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { type CompileReport, compileContent } from '../pipeline/compile.js';
+import {
+	hydrateMathBody,
+	type LocalizedSegments,
+	type MathAtlas,
+	type MathBodies,
+	type RichTextSegment,
+} from '../rich-text.js';
 
 let outDir: string;
+let coldOutDir: string;
 let report: CompileReport;
+let coldReport: CompileReport;
 
-beforeAll(() => {
+/**
+ * Two builds: one against the derivation cache (whatever state it is in)
+ * and one with caching disabled, so the byte-identity assertion covers the
+ * cold-render and cache-hit paths of every artifact at once.
+ */
+beforeAll(async () => {
 	outDir = mkdtempSync(join(tmpdir(), 'equreka-content-'));
-	report = compileContent('build', { outDir });
-}, 120_000);
+	coldOutDir = mkdtempSync(join(tmpdir(), 'equreka-content-cold-'));
+	report = await compileContent('build', { outDir });
+	coldReport = await compileContent('build', { outDir: coldOutDir, cacheDir: null });
+}, 180_000);
 
 afterAll(() => {
 	rmSync(outDir, { recursive: true, force: true });
+	rmSync(coldOutDir, { recursive: true, force: true });
 });
+
+function readJson<T>(...segments: string[]): T {
+	return JSON.parse(readFileSync(join(outDir, ...segments), 'utf8')) as T;
+}
+
+function walk(dir: string): string[] {
+	const files: string[] = [];
+	for (const name of readdirSync(dir)) {
+		const path = join(dir, name);
+		if (statSync(path).isDirectory()) {
+			files.push(...walk(path));
+		} else {
+			files.push(path);
+		}
+	}
+	return files;
+}
+
+function digest(path: string): string {
+	return createHash('sha256').update(readFileSync(path)).digest('hex');
+}
 
 describe('build over the real corpus', () => {
 	it('exits clean', () => {
@@ -25,7 +64,7 @@ describe('build over the real corpus', () => {
 	});
 
 	it('emits an engine.json that satisfies the engineSlice contract', () => {
-		const raw = JSON.parse(readFileSync(join(outDir, 'engine.json'), 'utf8'));
+		const raw = readJson('engine.json');
 		const parsed = engineSlice.parse(raw);
 		expect(parsed.schemaVersion).toBe(SCHEMA_VERSION);
 		expect(parsed.contentHash).toBe(report.contentHash);
@@ -59,10 +98,13 @@ describe('build over the real corpus', () => {
 		expect(parsed.constants.pi).toMatchObject({ exact: false, irrational: true });
 	});
 
-	it('derives related units into the equations presentation slice', () => {
-		const equations = JSON.parse(
-			readFileSync(join(outDir, 'presentation', 'equations.json'), 'utf8'),
-		) as Record<string, { relatedUnits: string[]; units?: unknown }>;
+	it('derives related units and canonical expression TeX into the equations presentation slice', () => {
+		const equations = readJson<
+			Record<
+				string,
+				{ relatedUnits: string[]; expression: string; expressionTex: string; units?: unknown }
+			>
+		>('presentation', 'equations.json');
 		expect(equations['area-circle']?.relatedUnits).toEqual(['square-metre', 'unitless', 'metre']);
 		expect(equations['area-square']?.relatedUnits).toEqual(['square-metre', 'metre']);
 		expect(equations['mass-energy-equivalence']?.relatedUnits).toEqual([
@@ -72,24 +114,28 @@ describe('build over the real corpus', () => {
 		]);
 		expect(equations['pythagorean-theorem']?.relatedUnits).toEqual([]);
 		expect(equations['area-circle']?.units).toBeUndefined();
+		const massEnergy = equations['mass-energy-equivalence'];
+		expect(massEnergy?.expression).toMatch(/\\(mag|const|var)\{/);
+		expect(massEnergy?.expressionTex).not.toMatch(/\\(mag|const|var)\{/);
+		expect(massEnergy?.expressionTex).toBe('{E}={m}{c}^{2}');
 	});
 
 	it('resolves entry-step targets into the paths presentation slice', () => {
-		const paths = JSON.parse(
-			readFileSync(join(outDir, 'presentation', 'paths.json'), 'utf8'),
-		) as Record<
-			string,
-			{
-				level: string;
-				prerequisites: string[];
-				estimatedMinutes?: number;
-				steps: {
-					id: string;
-					kind: string;
-					target?: { name: { en: string }; symbolText: string };
-				}[];
-			}
-		>;
+		const paths = readJson<
+			Record<
+				string,
+				{
+					level: string;
+					prerequisites: string[];
+					estimatedMinutes?: number;
+					steps: {
+						id: string;
+						kind: string;
+						target?: { name: { en: string }; symbolText: string };
+					}[];
+				}
+			>
+		>('presentation', 'paths.json');
 		expect(Object.keys(paths).sort()).toEqual([
 			'energy-work-heat',
 			'geometry-of-circles-and-triangles',
@@ -114,9 +160,9 @@ describe('build over the real corpus', () => {
 	});
 
 	it('indexes paths for search and the catalog-lite lane', () => {
-		const catalog = JSON.parse(
-			readFileSync(join(outDir, 'search', 'catalog-lite.es.json'), 'utf8'),
-		) as { collection: string; slug: string; name: string; aliases: string[] }[];
+		const catalog = readJson<
+			{ collection: string; slug: string; name: string; aliases: string[] }[]
+		>('search', 'catalog-lite.es.json');
 		const row = catalog.find(
 			(entry) => entry.collection === 'paths' && entry.slug === 'si-base-units',
 		);
@@ -132,9 +178,9 @@ describe('build over the real corpus', () => {
 			expect(schema.$schema).toBe('http://json-schema.org/draft-07/schema#');
 			expect(schema.type).toBe('object');
 		}
-		const units = JSON.parse(
-			readFileSync(join(outDir, 'schemas', 'units.schema.json'), 'utf8'),
-		) as { properties: Record<string, { properties?: Record<string, unknown> }> };
+		const units = readJson<{
+			properties: Record<string, { properties?: Record<string, unknown> }>;
+		}>('schemas', 'units.schema.json');
 		expect(units.properties.compose?.properties).toHaveProperty('factor');
 		expect(units.properties.compose?.properties).toHaveProperty('of');
 		expect(units.properties).toHaveProperty('nonConvertible');
@@ -148,10 +194,16 @@ describe('build over the real corpus', () => {
 				1024 * 1024,
 			);
 		}
+		expect(
+			sizes.get('presentation/math/atlas.json') ?? Number.POSITIVE_INFINITY,
+		).toBeLessThanOrEqual(200 * 1024);
+		expect(
+			sizes.get('presentation/math/bodies.json') ?? Number.POSITIVE_INFINITY,
+		).toBeLessThanOrEqual(1024 * 1024);
 	});
 
 	it('emits deterministic meta with a null timestamp', () => {
-		const meta = JSON.parse(readFileSync(join(outDir, 'meta.json'), 'utf8'));
+		const meta = readJson('meta.json');
 		expect(meta).toEqual({
 			schemaVersion: SCHEMA_VERSION,
 			contentHash: report.contentHash,
@@ -169,5 +221,144 @@ describe('build over the real corpus', () => {
 		expect(pythagorean?.a?.({ b: 5, c: 4 })).toBeNull();
 		const massEnergy = module.solutions['mass-energy-equivalence'];
 		expect(massEnergy?.E?.({ m: 1, c: 299792458 })).toBeCloseTo(8.987551787368176e16, 4);
+	});
+});
+
+describe('math artifact', () => {
+	let atlas: MathAtlas;
+	let bodies: MathBodies;
+
+	beforeAll(() => {
+		atlas = readJson<MathAtlas>('presentation', 'math', 'atlas.json');
+		bodies = readJson<MathBodies>('presentation', 'math', 'bodies.json');
+	});
+
+	it('has the contract shape and is glyph-closed', () => {
+		expect(atlas.schemaVersion).toBe(1);
+		expect(atlas.font).toBe('mathjax-newcm');
+		const glyphIds = Object.keys(atlas.glyphs);
+		expect(glyphIds.length).toBe(report.math.glyphs);
+		expect(glyphIds.every((id) => /^MJX-NCM-/.test(id))).toBe(true);
+		expect(Object.keys(bodies).length).toBe(report.math.uniqueTex);
+		const referenced = new Set<string>();
+		for (const [tex, body] of Object.entries(bodies)) {
+			expect(body.svg.startsWith('<svg'), tex).toBe(true);
+			expect(body.svg.match(/<svg\b/g)?.length, tex).toBe(1);
+			expect(body.svg.includes('<defs>'), tex).toBe(false);
+			expect(body.svg, tex).not.toMatch(/\sdata-|\srole=|\sfocusable=|\sstyle=/);
+			expect(typeof body.wEx).toBe('number');
+			expect(typeof body.hEx).toBe('number');
+			expect(typeof body.dyEx).toBe('number');
+			for (const id of body.glyphs) {
+				expect(atlas.glyphs[id], `${tex} → ${id}`).toBeDefined();
+				referenced.add(id);
+			}
+			expect(() => hydrateMathBody(body, atlas), tex).not.toThrow();
+		}
+		expect([...referenced].sort()).toEqual(glyphIds.sort());
+	});
+
+	it('covers every TeX string the presentation slices carry, keyed exactly', () => {
+		const mathSegments = (segments: LocalizedSegments | undefined): RichTextSegment[] =>
+			Object.values(segments ?? {})
+				.flat()
+				.filter((segment) => segment.t === 'math');
+		let checked = 0;
+		for (const collection of COLLECTIONS) {
+			const slice = readJson<
+				Record<
+					string,
+					{
+						symbolTex?: string;
+						symbolAltTex?: string;
+						expressionTex?: string;
+						terms?: Record<string, unknown>;
+						description?: Record<string, string>;
+						descriptionSegments?: LocalizedSegments;
+						steps?: Record<string, unknown>[];
+					}
+				>
+			>('presentation', `${collection}.json`);
+			for (const [slug, entity] of Object.entries(slice)) {
+				const keys = [entity.symbolTex, entity.symbolAltTex, entity.expressionTex].filter(
+					(key): key is string => key !== undefined,
+				);
+				keys.push(...Object.keys(entity.terms ?? {}));
+				if (entity.description !== undefined) {
+					expect(Object.keys(entity.descriptionSegments ?? {}).sort(), slug).toEqual(
+						Object.keys(entity.description).sort(),
+					);
+				}
+				for (const segment of mathSegments(entity.descriptionSegments)) {
+					if (segment.t === 'math') {
+						keys.push(segment.tex);
+					}
+				}
+				for (const step of entity.steps ?? []) {
+					for (const field of [
+						'noteSegments',
+						'bodySegments',
+						'promptSegments',
+						'answerSegments',
+					]) {
+						for (const segment of mathSegments(step[field] as LocalizedSegments | undefined)) {
+							if (segment.t === 'math') {
+								keys.push(segment.tex);
+							}
+						}
+					}
+				}
+				for (const key of keys) {
+					expect(bodies[key], `${collection}/${slug}: ${key}`).toBeDefined();
+					checked += 1;
+				}
+			}
+		}
+		expect(checked).toBeGreaterThan(300);
+	});
+
+	it('mirrors path-step prose as per-locale segments', () => {
+		const paths = readJson<
+			Record<string, { steps: { id: string; kind: string; bodySegments?: LocalizedSegments }[] }>
+		>('presentation', 'paths.json');
+		const prose = paths['si-base-units']?.steps.find((step) => step.kind === 'prose');
+		expect(prose?.bodySegments?.en?.[0]?.t).toBe('text');
+		const withMath = Object.values(paths)
+			.flatMap((path) => path.steps)
+			.find((step) => step.bodySegments?.en?.some((segment) => segment.t === 'math'));
+		expect(withMath).toBeDefined();
+	});
+
+	it('renders display bodies for equation expressions and inline for symbols', () => {
+		const equations = readJson<Record<string, { expressionTex: string }>>(
+			'presentation',
+			'equations.json',
+		);
+		const units = readJson<Record<string, { symbolTex: string }>>('presentation', 'units.json');
+		const expression = bodies[equations['mass-energy-equivalence']?.expressionTex ?? ''];
+		const symbol = bodies[units['joule-per-kelvin']?.symbolTex ?? ''];
+		expect(expression?.glyphs.length).toBeGreaterThan(3);
+		expect(symbol?.hEx ?? 0).toBeGreaterThan(2);
+		expect(report.math.uniqueTex).toBeGreaterThan(300);
+	});
+});
+
+describe('determinism', () => {
+	it('produces byte-identical artifacts from a cold render and a cached build', () => {
+		expect(coldReport.ok).toBe(true);
+		expect(coldReport.math.cached).toBe(0);
+		expect(coldReport.math.rendered).toBe(coldReport.math.uniqueTex);
+		const files = walk(outDir)
+			.map((path) => relative(outDir, path))
+			.sort();
+		const coldFiles = walk(coldOutDir)
+			.map((path) => relative(coldOutDir, path))
+			.sort();
+		expect(files).toEqual(coldFiles);
+		expect(files).toContain(join('presentation', 'math', 'atlas.json'));
+		expect(files).toContain(join('presentation', 'math', 'bodies.json'));
+		for (const file of files) {
+			expect(digest(join(outDir, file)), file).toBe(digest(join(coldOutDir, file)));
+		}
 	});
 });

@@ -8,10 +8,12 @@ import {
 	collectionSchemas,
 	type EngineSlice,
 	engineSlice,
+	type LocalizedText,
 	SCHEMA_VERSION,
 } from '@equreka/schema';
 import MiniSearch from 'minisearch';
 import { z } from 'zod';
+import { canonicalTex, splitLocalizedText } from '../rich-text.js';
 import {
 	type CatalogLiteEntry,
 	SEARCH_LOCALES,
@@ -19,6 +21,7 @@ import {
 	type SearchLocale,
 	searchOptions,
 } from '../search-options.js';
+import type { MathArtifact } from './math-artifact.js';
 import { presentationSteps } from './path-targets.js';
 import { deriveRelatedUnits } from './related-units.js';
 import type { ResolvedUnit } from './resolve.js';
@@ -32,11 +35,14 @@ import type { Corpus } from './validate.js';
 
 const ENGINE_BUDGET_BYTES = 500 * 1024;
 const SEARCH_BUDGET_BYTES = 1024 * 1024;
+const MATH_ATLAS_BUDGET_BYTES = 200 * 1024;
+const MATH_BODIES_BUDGET_BYTES = 1024 * 1024;
 
 export interface EmitInput {
 	corpus: Corpus;
 	resolved: Map<string, ResolvedUnit>;
 	verifications: Map<string, EquationVerification>;
+	math: MathArtifact;
 	contentHash: string;
 	outDir: string;
 }
@@ -57,7 +63,7 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 	const { corpus, outDir } = input;
 
 	rmSync(outDir, { recursive: true, force: true });
-	mkdirSync(join(outDir, 'presentation'), { recursive: true });
+	mkdirSync(join(outDir, 'presentation', 'math'), { recursive: true });
 	mkdirSync(join(outDir, 'search'), { recursive: true });
 	mkdirSync(join(outDir, 'schemas'), { recursive: true });
 
@@ -101,6 +107,7 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 			for (const [slug, equation] of corpus.equations) {
 				record[slug] = {
 					...(record[slug] as Record<string, unknown>),
+					expressionTex: canonicalTex(equation.expression),
 					relatedUnits: deriveRelatedUnits(equation.terms, corpus),
 				};
 			}
@@ -116,6 +123,17 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 		write(`presentation/${collection}.json`, `${stableStringify(record)}\n`);
 		write(`schemas/${collection}.schema.json`, `${stableStringify(authoringSchema(collection))}\n`);
 	}
+
+	write(
+		'presentation/math/atlas.json',
+		`${stableStringify(input.math.atlas)}\n`,
+		MATH_ATLAS_BUDGET_BYTES,
+	);
+	write(
+		'presentation/math/bodies.json',
+		`${stableStringify(input.math.bodies)}\n`,
+		MATH_BODIES_BUDGET_BYTES,
+	);
 
 	for (const locale of SEARCH_LOCALES) {
 		const documents = searchDocuments(corpus, locale);
@@ -258,19 +276,28 @@ function authoringSchema(collection: CollectionName): unknown {
 	return z.toJSONSchema(collectionSchemas[collection], { io: 'input', target: 'draft-7' });
 }
 
+/**
+ * Presentation form of one entity. TeX fields are canonical (the exact
+ * `math/bodies.json` keys) and prose is mirrored as pre-split segments; the
+ * raw description stays for renderers that split at build time themselves.
+ */
 function presentationOf(entity: Record<string, unknown>): Record<string, unknown> {
 	const { symbol, symbolAlt, ...rest } = entity as {
 		symbol?: AuthoredSymbol;
 		symbolAlt?: AuthoredSymbol;
+		description?: LocalizedText;
 	} & Record<string, unknown>;
 	const record: Record<string, unknown> = { ...rest };
 	if (symbol !== undefined) {
-		record.symbolTex = symbol.tex;
+		record.symbolTex = canonicalTex(symbol.tex);
 		record.symbolText = symbolText(symbol);
 	}
 	if (symbolAlt !== undefined) {
-		record.symbolAltTex = symbolAlt.tex;
+		record.symbolAltTex = canonicalTex(symbolAlt.tex);
 		record.symbolAltText = symbolText(symbolAlt);
+	}
+	if (rest.description !== undefined) {
+		record.descriptionSegments = splitLocalizedText(rest.description);
 	}
 	return record;
 }

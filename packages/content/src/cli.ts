@@ -6,7 +6,7 @@ if (command !== 'build' && command !== 'check') {
 	process.exit(2);
 }
 
-const report = compileContent(command);
+const report = await compileContent(command);
 
 for (const entry of report.issues) {
 	const location = entry.file === '' ? '(corpus)' : entry.file;
@@ -35,6 +35,10 @@ for (const [slug, verification] of report.verifications) {
 		console.log(`verified ${slug}: ${solved}${verification.cached ? ' (cached)' : ''}`);
 	}
 }
+console.log(
+	`math: ${report.math.uniqueTex} unique TeX, ${report.math.glyphs} glyphs ` +
+		`(${report.math.rendered} rendered, ${report.math.cached} cached)`,
+);
 if (report.mode === 'build') {
 	for (const artifact of report.artifacts) {
 		console.log(`dist/${artifact.relPath} ${(artifact.bytes / 1024).toFixed(1)}KB`);

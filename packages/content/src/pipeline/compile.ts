@@ -5,6 +5,7 @@ import { COLLECTIONS } from '@equreka/schema';
 import { type EmittedArtifact, emitArtifacts } from './emit.js';
 import { checkIntegrity } from './integrity.js';
 import { loadContent } from './load.js';
+import { buildMathArtifact, type MathStats } from './math-artifact.js';
 import { type ResolvedUnit, resolveUnits } from './resolve.js';
 import { checkSolutionDimensions } from './solution-dimension.js';
 import { type EquationVerification, verifyCorpusSolutions } from './solution-verify.js';
@@ -30,6 +31,7 @@ export interface CompileReport {
 	corpus: Corpus;
 	resolved: Map<string, ResolvedUnit>;
 	verifications: Map<string, EquationVerification>;
+	math: MathStats;
 	artifacts: EmittedArtifact[];
 }
 
@@ -39,12 +41,16 @@ function defaultPackageRoot(): string {
 
 /**
  * Orchestrates the pipeline. `check` runs stages 1–4 (load, validate,
- * integrity, resolve + dimensional consistency + verify math + TeX lint)
- * with no output; `build` adds stage 5 emission into dist/. Every stage
- * aggregates issues — nothing fails fast — but emission is skipped when any
- * prior stage errored.
+ * integrity, resolve + dimensional consistency + verify math + TeX lint +
+ * MathJax render) with no output; `build` adds stage 5 emission into dist/.
+ * Every stage aggregates issues — nothing fails fast — but emission is
+ * skipped when any prior stage errored. Async only because MathJax boots
+ * asynchronously; every other stage is synchronous.
  */
-export function compileContent(mode: CompileMode, options: CompileOptions = {}): CompileReport {
+export async function compileContent(
+	mode: CompileMode,
+	options: CompileOptions = {},
+): Promise<CompileReport> {
 	const packageRoot = options.packageRoot ?? defaultPackageRoot();
 	const contentDir = options.contentDir ?? join(packageRoot, 'content');
 	const outDir = options.outDir ?? join(packageRoot, 'dist');
@@ -73,12 +79,16 @@ export function compileContent(mode: CompileMode, options: CompileOptions = {}):
 
 	issues.push(...lintTex(corpus, readTexAllowlist(packageRoot)));
 
+	const math = await buildMathArtifact(corpus, cacheDir);
+	issues.push(...math.issues);
+
 	let artifacts: EmittedArtifact[] = [];
 	if (mode === 'build' && !hasErrors(issues)) {
 		const emitted = emitArtifacts({
 			corpus,
 			resolved: resolution.resolved,
 			verifications: verification.equations,
+			math: math.artifact,
 			contentHash: loaded.contentHash,
 			outDir,
 		});
@@ -100,6 +110,7 @@ export function compileContent(mode: CompileMode, options: CompileOptions = {}):
 		corpus,
 		resolved: resolution.resolved,
 		verifications: verification.equations,
+		math: math.artifact.stats,
 		artifacts,
 	};
 }

@@ -8,6 +8,7 @@ export type Stage =
 	| 'dimensions'
 	| 'solutions'
 	| 'tex'
+	| 'math'
 	| 'emit';
 
 /**

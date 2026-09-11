@@ -24,14 +24,7 @@ export function macroUses(tex: string): MacroUse[] {
 	return uses;
 }
 
-/**
- * Replaces every annotation macro by its brace-grouped argument. Braces are
- * kept (not just the bare argument) so multi-letter arguments stay a single
- * token under downstream parsers instead of fusing with neighbours.
- */
-export function stripMacros(tex: string): string {
-	return tex.replace(MACRO_RE, (_whole, _kind: string, arg: string) => `{${arg}}`);
-}
+export { canonicalTex, stripMacros } from '../rich-text.js';
 
 export function stripMacrosWith(tex: string, replaceArg: (arg: string) => string): string {
 	return tex.replace(MACRO_RE, (_whole, _kind: string, arg: string) => `{${replaceArg(arg)}}`);

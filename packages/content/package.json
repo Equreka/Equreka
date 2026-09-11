@@ -6,6 +6,7 @@
 	"exports": {
 		".": "./src/index.ts",
 		"./search-options": "./src/search-options.ts",
+		"./rich-text": "./src/rich-text.ts",
 		"./astro": "./src/astro/loader.ts",
 		"./artifact/*": "./dist/*"
 	},
