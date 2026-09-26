@@ -2,6 +2,7 @@ import { copyFileSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSy
 import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { stripMacrosToText } from '@equreka/content/rich-text';
 import type { EngineSlice } from '@equreka/schema';
 import type { AstroIntegration } from 'astro';
 
@@ -131,8 +132,6 @@ interface PresentationEntry {
 	steps?: PresentationPathStep[];
 }
 
-const SEMANTIC_MACRO_RE = /\\(?:mag|const|var)\{([^{}]*)\}/g;
-
 function readPresentation(collection: string): Record<string, PresentationEntry> {
 	return JSON.parse(
 		readFileSync(
@@ -164,7 +163,7 @@ function buildReaderPayload(locale: PayloadLocale): string {
 			const reader: ReaderEntry = {
 				name: localized(entry.name, locale),
 				symbolText: entry.symbolText ?? '',
-				description: description.replace(SEMANTIC_MACRO_RE, '$1'),
+				description: stripMacrosToText(description),
 			};
 			if (entry.steps !== undefined) {
 				reader.outline = entry.steps.map((step) => ({

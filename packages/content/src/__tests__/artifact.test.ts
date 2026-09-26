@@ -7,6 +7,7 @@ import { COLLECTIONS, engineSlice, SCHEMA_VERSION } from '@equreka/schema';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { type CompileReport, compileContent } from '../pipeline/compile.js';
 import {
+	canonicalTex,
 	hydrateMathBody,
 	type LocalizedSegments,
 	type MathAtlas,
@@ -289,23 +290,18 @@ describe('math artifact', () => {
 						Object.keys(entity.description).sort(),
 					);
 				}
-				for (const segment of mathSegments(entity.descriptionSegments)) {
+				const stepSegments = (entity.steps ?? []).flatMap((step) =>
+					['noteSegments', 'bodySegments', 'promptSegments', 'answerSegments'].flatMap((field) =>
+						mathSegments(step[field] as LocalizedSegments | undefined),
+					),
+				);
+				for (const segment of [...mathSegments(entity.descriptionSegments), ...stepSegments]) {
 					if (segment.t === 'math') {
+						expect(typeof segment.raw, `${collection}/${slug}: ${segment.tex}`).toBe('string');
+						expect(canonicalTex(segment.raw), `${collection}/${slug}: ${segment.raw}`).toBe(
+							segment.tex,
+						);
 						keys.push(segment.tex);
-					}
-				}
-				for (const step of entity.steps ?? []) {
-					for (const field of [
-						'noteSegments',
-						'bodySegments',
-						'promptSegments',
-						'answerSegments',
-					]) {
-						for (const segment of mathSegments(step[field] as LocalizedSegments | undefined)) {
-							if (segment.t === 'math') {
-								keys.push(segment.tex);
-							}
-						}
 					}
 				}
 				for (const key of keys) {
@@ -315,6 +311,23 @@ describe('math artifact', () => {
 			}
 		}
 		expect(checked).toBeGreaterThan(300);
+	});
+
+	it('keeps annotation macros in raw so equation prose can cross-highlight', () => {
+		const equations = readJson<Record<string, { descriptionSegments?: LocalizedSegments }>>(
+			'presentation',
+			'equations.json',
+		);
+		const annotated = Object.values(equations)
+			.flatMap((equation) => equation.descriptionSegments?.en ?? [])
+			.filter((segment) => segment.t === 'math' && segment.raw !== segment.tex);
+		expect(annotated.length).toBeGreaterThan(0);
+		for (const segment of annotated) {
+			if (segment.t === 'math') {
+				expect(segment.raw).toMatch(/\\(mag|const|var)\{|[–—−]/);
+				expect(segment.tex).not.toMatch(/\\(mag|const|var)\{/);
+			}
+		}
 	});
 
 	it('mirrors path-step prose as per-locale segments', () => {

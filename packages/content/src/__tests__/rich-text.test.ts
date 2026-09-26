@@ -1,13 +1,20 @@
 import { describe, expect, it } from 'vitest';
-import { canonicalTex, hydrateMathBody, splitLocalizedText, splitRichText } from '../rich-text.js';
+import {
+	canonicalTex,
+	hydrateMathBody,
+	splitLocalizedText,
+	splitRichText,
+	stripMacros,
+	stripMacrosToText,
+} from '../rich-text.js';
 
 describe('splitRichText', () => {
 	it('interleaves text and inline math, keeping text byte-for-byte', () => {
 		expect(splitRichText('The ampere, symbol $A$, measures $I$.')).toEqual([
 			{ t: 'text', v: 'The ampere, symbol ' },
-			{ t: 'math', tex: 'A', display: false },
+			{ t: 'math', tex: 'A', raw: 'A', display: false },
 			{ t: 'text', v: ', measures ' },
-			{ t: 'math', tex: 'I', display: false },
+			{ t: 'math', tex: 'I', raw: 'I', display: false },
 			{ t: 'text', v: '.' },
 		]);
 	});
@@ -15,29 +22,44 @@ describe('splitRichText', () => {
 	it('distinguishes display from inline fragments', () => {
 		expect(splitRichText('Defined as $$E = mc^2$$ where $c$ is fixed.')).toEqual([
 			{ t: 'text', v: 'Defined as ' },
-			{ t: 'math', tex: 'E = mc^2', display: true },
+			{ t: 'math', tex: 'E = mc^2', raw: 'E = mc^2', display: true },
 			{ t: 'text', v: ' where ' },
-			{ t: 'math', tex: 'c', display: false },
+			{ t: 'math', tex: 'c', raw: 'c', display: false },
 			{ t: 'text', v: ' is fixed.' },
 		]);
 	});
 
-	it('strips annotation macros to brace-grouped arguments and folds dashes', () => {
+	it('carries canonical tex (macros stripped, dashes folded) next to the authored raw', () => {
 		expect(splitRichText('$\\mag{E} = \\const{c}^{2} \\var{mu}$ and $10^{–19}$')).toEqual([
-			{ t: 'math', tex: '{E} = {c}^{2} {mu}', display: false },
+			{
+				t: 'math',
+				tex: '{E} = {c}^{2} {mu}',
+				raw: '\\mag{E} = \\const{c}^{2} \\var{mu}',
+				display: false,
+			},
 			{ t: 'text', v: ' and ' },
-			{ t: 'math', tex: '10^{-19}', display: false },
+			{ t: 'math', tex: '10^{-19}', raw: '10^{–19}', display: false },
 		]);
+	});
+
+	it('keeps raw byte-for-byte so canonicalTex(raw) is exactly tex', () => {
+		const authored = 'Force $\\mag{F} = \\var{m} · \\mag{a}$ over $$\\Delta t = t_{2} − t_{1}$$.';
+		for (const segment of splitRichText(authored)) {
+			if (segment.t === 'math') {
+				expect(canonicalTex(segment.raw)).toBe(segment.tex);
+				expect(authored).toContain(segment.raw);
+			}
+		}
 	});
 
 	it("preserves apostrophes, backslashes and unmatched '$' in text", () => {
 		expect(splitRichText("Ohm's law: it's $V = IR$; costs $5 \\ plain")).toEqual([
 			{ t: 'text', v: "Ohm's law: it's " },
-			{ t: 'math', tex: 'V = IR', display: false },
+			{ t: 'math', tex: 'V = IR', raw: 'V = IR', display: false },
 			{ t: 'text', v: '; costs $5 \\ plain' },
 		]);
 		expect(splitRichText('$\\Delta ν_{Cs}$')).toEqual([
-			{ t: 'math', tex: '\\Delta ν_{Cs}', display: false },
+			{ t: 'math', tex: '\\Delta ν_{Cs}', raw: '\\Delta ν_{Cs}', display: false },
 		]);
 	});
 
@@ -59,13 +81,25 @@ describe('canonicalTex', () => {
 	});
 });
 
+describe('stripMacros / stripMacrosToText', () => {
+	it('keeps the brace group for TeX and drops it for plain text', () => {
+		const authored = 'where $x = \\mag{E}$ is energy and \\const{c} the speed of light';
+		expect(stripMacros(authored)).toBe('where $x = {E}$ is energy and {c} the speed of light');
+		expect(stripMacrosToText(authored)).toBe('where $x = E$ is energy and c the speed of light');
+	});
+
+	it('leaves macro-free text untouched', () => {
+		expect(stripMacrosToText('plain $x^{2}$')).toBe('plain $x^{2}$');
+	});
+});
+
 describe('splitLocalizedText', () => {
 	it('splits present locales only', () => {
 		const segments = splitLocalizedText({ en: 'x $y$', es: undefined });
 		expect(Object.keys(segments)).toEqual(['en']);
 		expect(segments.en).toEqual([
 			{ t: 'text', v: 'x ' },
-			{ t: 'math', tex: 'y', display: false },
+			{ t: 'math', tex: 'y', raw: 'y', display: false },
 		]);
 	});
 });

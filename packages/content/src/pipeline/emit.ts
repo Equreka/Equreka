@@ -278,8 +278,9 @@ function authoringSchema(collection: CollectionName): unknown {
 
 /**
  * Presentation form of one entity. TeX fields are canonical (the exact
- * `math/bodies.json` keys) and prose is mirrored as pre-split segments; the
- * raw description stays for renderers that split at build time themselves.
+ * `math/bodies.json` keys) and prose is mirrored as pre-split segments whose
+ * math carries both the canonical key and the authored fragment; the raw
+ * description stays for search and meta text.
  */
 function presentationOf(entity: Record<string, unknown>): Record<string, unknown> {
 	const { symbol, symbolAlt, ...rest } = entity as {

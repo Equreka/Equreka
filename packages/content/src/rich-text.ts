@@ -10,9 +10,15 @@ const DASH_RE = /[–—−]/g;
 
 const FRAGMENT_RE = /\$\$([^$]+)\$\$|\$([^$\n]+)\$/g;
 
+/**
+ * Math segments carry both forms of one `$…$` fragment: `tex` is canonical
+ * (the `bodies.json` key) and `raw` is the fragment as authored, annotation
+ * macros intact, for renderers that expand \mag{}/\const{}/\var{} into
+ * term-highlighting markup. `canonicalTex(raw) === tex` always holds.
+ */
 export type RichTextSegment =
 	| { t: 'text'; v: string }
-	| { t: 'math'; tex: string; display: boolean };
+	| { t: 'math'; tex: string; raw: string; display: boolean };
 
 /**
  * One rendered math body of `presentation/math/bodies.json`, keyed by its
@@ -48,6 +54,15 @@ export function stripMacros(tex: string): string {
 }
 
 /**
+ * Replaces every annotation macro by its bare argument, braces dropped —
+ * for plain-text consumers (offline reader, search) where a stray `{E}`
+ * would leak into visible text.
+ */
+export function stripMacrosToText(text: string): string {
+	return text.replace(MACRO_RE, (_whole, _kind: string, arg: string) => arg);
+}
+
+/**
  * The exact TeX string that is rendered and used as a `bodies.json` key:
  * annotation macros reduced to their arguments, dash-like Unicode (en dash,
  * em dash, minus sign) folded to '-'. Idempotent; every TeX-bearing string
@@ -62,7 +77,8 @@ export function canonicalTex(tex: string): string {
  * Canonical splitter for localized prose: `$...$` becomes an inline math
  * segment, `$$...$$` a display one, everything else literal text (kept
  * byte-for-byte — apostrophes, backslashes, unmatched `$`). Math segments
- * carry canonical TeX, so `bodies[segment.tex]` resolves directly.
+ * carry canonical TeX, so `bodies[segment.tex]` resolves directly, plus the
+ * authored fragment in `raw`.
  */
 export function splitRichText(text: string): RichTextSegment[] {
 	const segments: RichTextSegment[] = [];
@@ -72,7 +88,8 @@ export function splitRichText(text: string): RichTextSegment[] {
 			segments.push({ t: 'text', v: text.slice(cursor, match.index) });
 		}
 		const display = match[1] !== undefined;
-		segments.push({ t: 'math', tex: canonicalTex(match[1] ?? match[2] ?? ''), display });
+		const raw = match[1] ?? match[2] ?? '';
+		segments.push({ t: 'math', tex: canonicalTex(raw), raw, display });
 		cursor = match.index + match[0].length;
 	}
 	if (cursor < text.length) {

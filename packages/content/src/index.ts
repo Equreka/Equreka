@@ -21,6 +21,7 @@ export {
 	splitLocalizedText,
 	splitRichText,
 	stripMacros,
+	stripMacrosToText,
 } from './rich-text.js';
 export {
 	type CatalogLiteEntry,

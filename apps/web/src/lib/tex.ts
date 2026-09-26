@@ -155,19 +155,26 @@ export function renderExpressionHtml(
 /**
  * Pre-split prose (a presentation slice's `descriptionSegments` or a
  * splitRichText result) rendered at build time: text escaped, math through
- * KaTeX. Fragments are strict-linted by the content pipeline; one that still
- * fails (tex-allowlist escape hatch) degrades to escaped literal TeX in its
- * `$`/`$$` delimiters instead of failing the whole build.
+ * KaTeX. With a terms map each math segment renders from its authored `raw`
+ * so annotation macros expand to highlightable term spans; without one the
+ * canonical `tex` renders as-is. Fragments are strict-linted by the content
+ * pipeline; one that still fails (tex-allowlist escape hatch) degrades to
+ * escaped canonical TeX in its `$`/`$$` delimiters instead of failing the
+ * whole build.
  */
-export function renderSegmentsHtml(segments: readonly RichTextSegment[]): string {
+export function renderSegmentsHtml(
+	segments: readonly RichTextSegment[],
+	terms?: Record<string, TermAnnotation>,
+): string {
 	let html = '';
 	for (const segment of segments) {
 		if (segment.t === 'text') {
 			html += escapeHtml(segment.v);
 			continue;
 		}
+		const tex = terms === undefined ? segment.tex : expandSemanticMacros(segment.raw, terms);
 		try {
-			html += renderFragment(segment.tex, segment.display);
+			html += renderFragment(tex, segment.display);
 		} catch {
 			const delimiter = segment.display ? '$$' : '$';
 			html += `<code>${escapeHtml(`${delimiter}${segment.tex}${delimiter}`)}</code>`;
@@ -177,12 +184,11 @@ export function renderSegmentsHtml(segments: readonly RichTextSegment[]): string
 }
 
 /**
- * Raw localized prose rendered through the canonical splitter. With a terms
- * map the annotation macros expand to highlightable spans before the split,
- * because the splitter's segments are canonical (macros already stripped);
- * without one they reduce to plain arguments.
+ * Raw localized prose (Astro collection data) rendered through the
+ * canonical splitter; annotation macros reduce to their arguments. Prose
+ * that must cross-highlight goes through renderSegmentsHtml with the
+ * slice's segments and a terms map instead.
  */
-export function renderRichTextHtml(text: string, terms?: Record<string, TermAnnotation>): string {
-	const annotated = terms === undefined ? text : expandSemanticMacros(text, terms);
-	return renderSegmentsHtml(splitRichText(annotated));
+export function renderRichTextHtml(text: string): string {
+	return renderSegmentsHtml(splitRichText(text));
 }

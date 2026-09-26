@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import equationsPresentation from '@equreka/content/artifact/presentation/equations.json';
+import type { LocalizedSegments } from '@equreka/content/rich-text';
 import {
 	type Locale,
 	type LocalizedText,
@@ -20,7 +21,7 @@ import { localePath } from '../lib/locale-paths';
 import { engineSlice } from '../lib/server/engine-registry';
 import {
 	renderExpressionHtml,
-	renderRichTextHtml,
+	renderSegmentsHtml,
 	renderSymbolHtml,
 	termDataValue,
 } from '../lib/tex';
@@ -68,16 +69,29 @@ const termRows = Object.entries(equation.terms).map(([key, term]) => {
 });
 
 /**
- * Related units are pipeline-derived from the terms (presentation slice),
- * never authored — the hand-maintained list drifted.
+ * Pipeline-emitted equation slice: related units are derived from the
+ * terms (never authored — the hand-maintained list drifted) and the
+ * description comes pre-split with `raw` math for term cross-highlighting.
  */
-const presentation = (equationsPresentation as Record<string, { relatedUnits: string[] }>)[slug];
+interface EquationPresentation {
+	relatedUnits: string[];
+	descriptionSegments?: LocalizedSegments;
+}
+
+const presentation = (equationsPresentation as Record<string, EquationPresentation>)[slug];
 const relatedUnits = (presentation?.relatedUnits ?? [])
 	.map((unitSlug) => engineSlice.units[unitSlug])
 	.filter((unit) => unit !== undefined);
 
 const description =
 	equation.description === undefined ? undefined : pickLocalized(equation.description, locale);
+const descriptionSegments =
+	description === undefined
+		? undefined
+		: presentation?.descriptionSegments?.[description.untranslated ? 'en' : locale];
+if (description !== undefined && descriptionSegments === undefined) {
+	throw new Error(`equations/${slug}: presentation slice has no ${locale} descriptionSegments`);
+}
 const untranslated =
 	locale !== 'en' &&
 	(pickLocalized(equation.name, locale).untranslated || description?.untranslated === true);
@@ -171,10 +185,10 @@ const metaDescription =
 		</section>
 
 		{
-			description !== undefined && (
+			descriptionSegments !== undefined && (
 				<div
 					class="mt-8 max-w-3xl leading-7"
-					set:html={renderRichTextHtml(description.value, equation.terms)}
+					set:html={renderSegmentsHtml(descriptionSegments, equation.terms)}
 				/>
 			)
 		}
