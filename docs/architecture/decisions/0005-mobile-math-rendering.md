@@ -54,3 +54,27 @@ ADR 0002 fixed the split: KaTeX SSR on the web, "MathJax 4.1 on mobile — build
 - The bundled `mathjax` package boots through a `require` rooted at its own entry — its default loader `import()`s bare Windows paths and the font sub-dependency only resolves from inside MathJax's node_modules under pnpm's isolated layout. `@mathjax/src` is not a dependency; the pipeline uses only what the catalog pins.
 - The web keeps its own KaTeX splitter for now; moving `apps/web/src/lib/tex.ts` onto `@equreka/content/rich-text` is a follow-up, not part of this decision.
 - Two corpus expressions are wider than a phone; the reader scrolls them horizontally. Authoring shorter definitional chains is a content decision, not an engine one.
+
+## Runtime leg — implementation record (2026-09-26)
+
+The calculator phase deferred above shipped in `apps/mobile` (commit `f3f8b24`): a successful solve renders the solved form on-device as SVG, symbolic and with knowns substituted, plain-text fallback. This section corrects the Consequences where the runtime leg contradicts them and binds what the leg proved.
+
+### Corrections
+
+1. **`@mathjax/src` is a dependency — of the mobile app, not the pipeline.** The claim "`@mathjax/src` is not a dependency" holds for `packages/content` only. The `mathjax` npm package is a set of loader-driven component bundles resolved through a computed-path `import()`; Metro cannot bundle it. `apps/mobile` therefore depends on `@mathjax/src` 4.1.3 and `@mathjax/mathjax-newcm-font` 4.1.3 (exact catalog pins), importing the ESM sources directly (`runtime-mathjax-core.ts`: liteAdaptor, TeX with the build's package set, SVG over the static newcm tables, `fontCache: 'local'`, line-breaking off, `asyncLoad` unset). **Pin-equality rule:** both pins must equal the pipeline's `mathjax` pin. Build = runtime is a property of one MathJax version and one font table; a drifted runtime pin renders the calculator's output with different metrics than the atlas bodies beside it.
+2. **A device-crash class Spike A structurally could not catch.** MathJax's `util/context` dereferences `navigator.appVersion` and `navigator.userAgent` at module evaluation, to name the host OS. React Native defines `window` and a `navigator` carrying only `product`, so every MathJax import throws before the first render — on device and under jest-expo alike. Spike A ran under bare-Hermes CLI, which has no `window` at all; that branch of `util/context` never executed, so the spike was blind to it. `apps/mobile/shared/math/mathjax-host.ts` defines both as empty strings when they are not strings; it is the first import of `runtime-mathjax-core.ts` and must evaluate before any MathJax module. Nothing in the runtime leg reads the resulting `context.os`.
+3. **`#default-font/*` is not resolved by `expo export`.** `@mathjax/src` reaches its font through the `#default-font/*` subpath import of its own `package.json` `imports` map; Metro 0.84 (SDK 57) fails to resolve it. `apps/mobile/metro.config.js` rewrites the prefix to `@mathjax/mathjax-newcm-font/mjs/*` in `resolveRequest`; `apps/mobile/jest.config.js` maps it to the `cjs/` build so jest's CommonJS graph shares one font module instance with the output jax. Any MathJax bump re-verifies both rewrites: the alias target is MathJax's, not ours.
+
+### Decision (runtime contract)
+
+- **Lazy init.** `createRuntimeMathCore` is referenced only inside the singleton's `load` arrow (`runtime-mathjax.ts`); under Metro's `inlineRequires` the MathJax graph is required on the first solve, never at app start. Verified in a `--no-bytecode` export: the module ends in `o(async()=>(0,r(d[1]).createRuntimeMathCore)())` with no top-level require of the core. The singleton boots once and retries only after a rejected boot.
+- **Budget.** Each render runs under a 250 ms `Promise.race` (`RUNTIME_MATH_BUDGET_MS`), first-call boot included. Overrun rejects and the caller shows the plain solution string while the boot it started keeps warming the singleton. The numeric result renders independently and never waits on math.
+- **Normalization = pipeline rules.** Exactly one `<svg>` root, inline `merror` → rejection, ex metrics read before `data-*`/`aria-*`/`role`/`focusable`/`style` are stripped, `<defs>` and `currentColor` retained; `layoutRuntimeMath` yields the same `HydratedMath` the atlas path feeds to `SvgXml`.
+
+### Measured cost
+
+Android Hermes export: 1546 → 1785 modules (+239), entry `.hbc` 4.01 → 5.79 MB (+1.78 MB), `dist` 5.2 → 6.9 MB — matching Spike A's 1.85 MB hbc estimate. The graph is lazily evaluated but ships in every OTA update; there is no split bundle.
+
+### Unverified on device
+
+No device or emulator was available. Open until measured under Expo Go: first-solve boot time against the 250 ms budget (Spike A's ~30 ms is a bare-Hermes lower bound), `SvgXml` rendering of runtime output (atlas bodies are proven; runtime bodies carry their own `<defs>`), and the `navigator` shim's behaviour under Expo Go's runtime rather than jest-expo's.
