@@ -13,15 +13,19 @@ import { useMemo, useState } from 'react';
 import { entryHref } from '../../entities/content/routes';
 import { getEngineSlice, getPresentation, getSolutions } from '../../shared/content/artifact';
 import { MathSvg } from '../../shared/math/math-view';
+import type { RuntimeMath } from '../../shared/math/runtime-mathjax';
 import { useLocale, useT } from '../../shared/providers/equreka-provider';
 import { Button } from '../../shared/ui/button';
 import { Card } from '../../shared/ui/card';
 import { DecimalField } from '../../shared/ui/field';
 import { HStack, Screen, VStack } from '../../shared/ui/screen';
 import { AppText, Lead, Muted, Title } from '../../shared/ui/text';
+import { buildSolvedForm } from './solved-form';
+import { SolvedFormView } from './solved-form-view';
 
 export interface CalculatorScreenProps {
 	slug: string;
+	renderer?: RuntimeMath | undefined;
 }
 
 /**
@@ -126,10 +130,12 @@ function UnitSymbol({ tex }: { tex: string }) {
 /**
  * Fill-all-but-one solver over the codegen'd solutions module: constants
  * inject automatically, inputs are parsed at the engine boundary, and the
- * result carries the solved term's unit symbol from the atlas. Runtime
- * MathJax for arbitrary output is a later phase (ADR 0005).
+ * result carries the solved term's unit symbol from the atlas. The solved
+ * form (symbolic, then with the knowns substituted) is typeset on device
+ * by the runtime MathJax leg (ADR 0005); `renderer` is injectable for
+ * tests and defaults to the app-wide singleton.
  */
-export function CalculatorScreen({ slug }: CalculatorScreenProps) {
+export function CalculatorScreen({ slug, renderer }: CalculatorScreenProps) {
 	const locale = useLocale();
 	const t = useT();
 	const router = useRouter();
@@ -144,16 +150,31 @@ export function CalculatorScreen({ slug }: CalculatorScreenProps) {
 	}
 	const { meta, fields, constants, nonNegative } = model;
 	const knowns: Record<string, KnownValue> = {};
+	const literals: Record<string, string> = {};
 	for (const field of fields) {
 		const raw = (values[field.key] ?? '').trim();
-		knowns[field.key] = raw === '' ? '' : Number(raw);
+		if (raw === '') {
+			knowns[field.key] = '';
+			continue;
+		}
+		const parsed = Number(raw);
+		knowns[field.key] = parsed;
+		if (Number.isFinite(parsed)) literals[field.key] = String(parsed);
 	}
-	for (const constant of constants) knowns[constant.key] = Number(constant.value);
+	for (const constant of constants) {
+		knowns[constant.key] = Number(constant.value);
+		literals[constant.key] = constant.value;
+	}
 	const anyInput = fields.some((field) => (values[field.key] ?? '').trim() !== '');
 	const result = anyInput ? solveEquation(meta, getSolutions(), knowns, { nonNegative }) : null;
 	const solved =
 		result?.ok === true ? fields.find((field) => field.key === result.value.symbol) : undefined;
-	const expressionTex = getPresentation('equations')[slug]?.expressionTex;
+	const presentation = getPresentation('equations')[slug];
+	const expressionTex = presentation?.expressionTex;
+	const solvedForm =
+		result?.ok === true
+			? buildSolvedForm(meta, presentation?.solutions ?? {}, result.value.symbol, literals)
+			: null;
 
 	return (
 		<Screen>
@@ -210,6 +231,7 @@ export function CalculatorScreen({ slug }: CalculatorScreenProps) {
 							{solved === undefined ? null : <UnitSymbol tex={solved.unitTex} />}
 						</HStack>
 						<Muted>{t('common.sigFigs')}</Muted>
+						{solvedForm === null ? null : <SolvedFormView lines={solvedForm} renderer={renderer} />}
 						{result.value.allRoots !== undefined && result.value.allRoots.length > 1 ? (
 							<Muted>
 								{t('calculator.allRoots', {

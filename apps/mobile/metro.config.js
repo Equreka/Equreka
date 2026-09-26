@@ -17,6 +17,15 @@ const workspaceRoot = path.resolve(projectRoot, '../..');
  */
 const TS_EXTENSIONS = ['.ts', '.tsx'];
 
+/**
+ * `@mathjax/src` reaches its default font through the `#default-font/*`
+ * subpath import of its own package.json `imports` map, which `expo export`
+ * (SDK 57, Metro 0.84) fails to resolve; the rewrite applies the map's
+ * declared target directly. jest.config.js carries the CommonJS twin.
+ */
+const MATHJAX_DEFAULT_FONT_PREFIX = '#default-font/';
+const MATHJAX_DEFAULT_FONT_TARGET = '@mathjax/mathjax-newcm-font/mjs/';
+
 const config = getDefaultConfig(projectRoot);
 
 config.watchFolders = [...new Set([...(config.watchFolders ?? []), workspaceRoot])];
@@ -29,6 +38,13 @@ config.resolver.nodeModulesPaths = [
 ];
 
 config.resolver.resolveRequest = (context, moduleName, platform) => {
+	if (moduleName.startsWith(MATHJAX_DEFAULT_FONT_PREFIX)) {
+		return context.resolveRequest(
+			context,
+			MATHJAX_DEFAULT_FONT_TARGET + moduleName.slice(MATHJAX_DEFAULT_FONT_PREFIX.length),
+			platform,
+		);
+	}
 	try {
 		return context.resolveRequest(context, moduleName, platform);
 	} catch (error) {

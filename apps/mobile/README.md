@@ -5,7 +5,7 @@ Expo SDK 57 app over the shared `@equreka/*` domain core: the wiki, the unit con
 ## Constraints that shape this app (ADR 0002, 0005)
 
 - **Expo Go-compatible.** Persistence is `expo-sqlite/kv-store` (not MMKV), there is no WebView, and no module here needs a custom native build during development.
-- **Math is pre-rendered.** `@equreka/content` emits a MathJax glyph atlas and per-TeX SVG bodies at build; the app hydrates a body per render into `react-native-svg`'s `SvgXml`. Plain symbols (letters, Greek, simple scripts, degree forms) render as Unicode `Text` inline; 2-D math renders as an SVG block below its paragraph. `SvgXml` is never nested inside `<Text>`.
+- **Math is pre-rendered.** `@equreka/content` emits a MathJax glyph atlas and per-TeX SVG bodies at build; the app hydrates a body per render into `react-native-svg`'s `SvgXml`. Plain symbols (letters, Greek, simple scripts, degree forms) render as Unicode `Text` inline; 2-D math renders as an SVG block below its paragraph. `SvgXml` is never nested inside `<Text>`. The one runtime exception is the calculator's solved form: `shared/math/runtime-mathjax.ts` boots MathJax (`@mathjax/src`, the pin the pipeline renders with) on the first solve and shows the plain solution string in monospace if a render throws or overruns its 250 ms budget.
 - **Search is built on-device** from the bundled catalog-lite plus localized descriptions, with the canonical `searchOptions` from `@equreka/content/search-options`.
 - **Versions come from the pnpm catalog.** Every native-facing dependency is pinned to `expo@57.0.21`'s `bundledNativeModules.json`; `react`/`react-dom` stay on the catalog's `19.2.3`.
 

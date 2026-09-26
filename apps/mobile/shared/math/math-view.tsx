@@ -6,8 +6,58 @@ import { getMathAtlas, getMathBodies } from '../content/artifact';
 import { useTheme } from '../providers/equreka-provider';
 import type { TextSize } from '../theme/theme';
 import { AppText } from '../ui/text';
-import { hydrateForSvg } from './hydrate';
+import { type HydratedMath, hydrateForSvg } from './hydrate';
 import { texToFallbackText, texToUnicode } from './plain-symbol';
+
+export interface HydratedMathViewProps {
+	hydrated: HydratedMath;
+	color: string;
+	center?: boolean;
+	scroll?: boolean;
+	accessibilityLabel?: string | undefined;
+	testID?: string | undefined;
+}
+
+/**
+ * A self-contained SVG document as a standalone block: never nested in
+ * `<Text>`, sized from its resolved metrics, `currentColor` driven by
+ * `color`. `scroll` lets an expression wider than the phone pan
+ * horizontally instead of clipping.
+ */
+export function HydratedMathView({
+	hydrated,
+	color,
+	center = false,
+	scroll = false,
+	accessibilityLabel,
+	testID,
+}: HydratedMathViewProps) {
+	const svg = (
+		<SvgXml xml={hydrated.xml} width={hydrated.width} height={hydrated.height} color={color} />
+	);
+	if (!scroll) {
+		return (
+			<View
+				style={center ? styles.center : styles.start}
+				accessibilityLabel={accessibilityLabel}
+				testID={testID}
+			>
+				{svg}
+			</View>
+		);
+	}
+	return (
+		<ScrollView
+			horizontal
+			showsHorizontalScrollIndicator={false}
+			contentContainerStyle={[styles.scrollContent, center ? styles.center : styles.start]}
+			accessibilityLabel={accessibilityLabel}
+			testID={testID}
+		>
+			{svg}
+		</ScrollView>
+	);
+}
 
 export interface MathSvgProps {
 	tex: string;
@@ -18,10 +68,9 @@ export interface MathSvgProps {
 }
 
 /**
- * One rendered body from the MathJax atlas as a standalone SVG block
- * (ADR 0005). Never nests in `<Text>`; a TeX string absent from the
- * artifact or failing hydration degrades to the lossy Unicode text form.
- * `scroll` lets definitional chains wider than the phone pan horizontally.
+ * One rendered body from the MathJax atlas (ADR 0005). A TeX string absent
+ * from the artifact or failing hydration degrades to the lossy Unicode
+ * text form.
  */
 export const MathSvg = memo(function MathSvg({
 	tex,
@@ -42,21 +91,7 @@ export const MathSvg = memo(function MathSvg({
 			</AppText>
 		);
 	}
-	const svg = (
-		<SvgXml xml={hydrated.xml} width={hydrated.width} height={hydrated.height} color={ink} />
-	);
-	if (!scroll) {
-		return <View style={center ? styles.center : styles.start}>{svg}</View>;
-	}
-	return (
-		<ScrollView
-			horizontal
-			showsHorizontalScrollIndicator={false}
-			contentContainerStyle={[styles.scrollContent, center ? styles.center : styles.start]}
-		>
-			{svg}
-		</ScrollView>
-	);
+	return <HydratedMathView hydrated={hydrated} color={ink} center={center} scroll={scroll} />;
 });
 
 export interface RichTextProps {
