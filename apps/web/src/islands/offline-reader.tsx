@@ -1,3 +1,4 @@
+import { splitRichText } from '@equreka/content/rich-text';
 import { type CatalogLiteEntry, foldSearchTerm } from '@equreka/content/search-options';
 import { collectionLabel, type Locale, type MessageKey, t } from '@equreka/core/i18n';
 import { type ReactNode, useEffect, useMemo, useState } from 'react';
@@ -15,8 +16,6 @@ interface SelectedEntry {
 
 const ENTRY_PATH_RE =
 	/^\/(?:es\/)?(units|magnitudes|constants|equations|categories|paths)\/([^/]+)\/?$/;
-
-const MATH_FRAGMENT_RE = /\$\$?([^$]+)\$\$?/g;
 
 /**
  * The URL the service worker failed to fetch: the offline reader HTML is
@@ -39,24 +38,15 @@ function requestedEntry(): SelectedEntry | null {
  * precached logic — the reader must work from data alone.
  */
 function plainMathText(text: string): ReactNode[] {
-	const nodes: ReactNode[] = [];
-	let cursor = 0;
-	for (const match of text.matchAll(MATH_FRAGMENT_RE)) {
-		const index = match.index ?? 0;
-		if (index > cursor) {
-			nodes.push(text.slice(cursor, index));
-		}
-		nodes.push(
-			<span key={index} className="font-mono text-sm">
-				{match[1]}
-			</span>,
-		);
-		cursor = index + match[0].length;
-	}
-	if (cursor < text.length) {
-		nodes.push(text.slice(cursor));
-	}
-	return nodes;
+	return splitRichText(text).map((segment, index) =>
+		segment.t === 'text' ? (
+			segment.v
+		) : (
+			<span key={`${index}-${segment.tex}`} className="font-mono text-sm">
+				{segment.tex}
+			</span>
+		),
+	);
 }
 
 const LIST_LIMIT = 30;

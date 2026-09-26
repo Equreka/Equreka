@@ -1,12 +1,9 @@
+import { canonicalTex, type RichTextSegment, splitRichText } from '@equreka/content/rich-text';
 import katex from 'katex';
 
 const TRUSTED_COMMANDS = ['\\htmlClass', '\\htmlData'];
 
 const MACRO_RE = /\\(mag|const|var)\{([^{}]*)\}/g;
-
-const FRAGMENT_RE = /\$\$([^$]+)\$\$|\$([^$\n]+)\$/g;
-
-const DASH_RE = /[–—−]/g;
 
 /**
  * ADR 0002 name-validation patterns for the KaTeX HTML extension: anything
@@ -58,15 +55,6 @@ export function escapeHtml(text: string): string {
 }
 
 /**
- * Reduces the pipeline's annotation macros (\mag{}/\const{}/\var{}) to their
- * brace-grouped arguments — used wherever no terms map is in scope, so plain
- * KaTeX never sees unknown macros.
- */
-export function stripSemanticMacros(tex: string): string {
-	return tex.replace(MACRO_RE, (_whole, _kind: string, arg: string) => `{${arg}}`);
-}
-
-/**
  * Canonical data-term value for one term — the equation page's expression
  * spans, terms-table rows, and the base layout's highlighting script all key
  * off this exact string. Symbol terms use the key's identifier form (the
@@ -113,14 +101,18 @@ export function expandSemanticMacros(tex: string, terms: Record<string, TermAnno
 	});
 }
 
+/**
+ * Annotation macros expand before canonicalization: canonicalTex strips
+ * them, so applying it first would erase the term spans. Post-expansion the
+ * string carries only \htmlClass/\htmlData, which canonicalization leaves
+ * untouched apart from dash folding.
+ */
 function renderFragment(
 	tex: string,
 	displayMode: boolean,
 	terms?: Record<string, TermAnnotation>,
 ): string {
-	const dashless = tex.replace(DASH_RE, '-');
-	const normalized =
-		terms === undefined ? stripSemanticMacros(dashless) : expandSemanticMacros(dashless, terms);
+	const normalized = canonicalTex(terms === undefined ? tex : expandSemanticMacros(tex, terms));
 	return katex.renderToString(normalized, {
 		strict: strictAllowHtmlExtension,
 		throwOnError: true,
@@ -161,27 +153,36 @@ export function renderExpressionHtml(
 }
 
 /**
- * Description prose with inline $...$ / display $$...$$ segments rendered at
- * build time. With a terms map the annotation macros expand to highlightable
- * spans; without one they reduce to plain arguments. Fragments are
- * strict-linted by the content pipeline; a fragment that still fails
- * (tex-allowlist escape hatch) degrades to escaped literal TeX instead of
- * failing the whole build.
+ * Pre-split prose (a presentation slice's `descriptionSegments` or a
+ * splitRichText result) rendered at build time: text escaped, math through
+ * KaTeX. Fragments are strict-linted by the content pipeline; one that still
+ * fails (tex-allowlist escape hatch) degrades to escaped literal TeX in its
+ * `$`/`$$` delimiters instead of failing the whole build.
+ */
+export function renderSegmentsHtml(segments: readonly RichTextSegment[]): string {
+	let html = '';
+	for (const segment of segments) {
+		if (segment.t === 'text') {
+			html += escapeHtml(segment.v);
+			continue;
+		}
+		try {
+			html += renderFragment(segment.tex, segment.display);
+		} catch {
+			const delimiter = segment.display ? '$$' : '$';
+			html += `<code>${escapeHtml(`${delimiter}${segment.tex}${delimiter}`)}</code>`;
+		}
+	}
+	return html;
+}
+
+/**
+ * Raw localized prose rendered through the canonical splitter. With a terms
+ * map the annotation macros expand to highlightable spans before the split,
+ * because the splitter's segments are canonical (macros already stripped);
+ * without one they reduce to plain arguments.
  */
 export function renderRichTextHtml(text: string, terms?: Record<string, TermAnnotation>): string {
-	let html = '';
-	let cursor = 0;
-	for (const match of text.matchAll(FRAGMENT_RE)) {
-		html += escapeHtml(text.slice(cursor, match.index));
-		const display = match[1] !== undefined;
-		const tex = match[1] ?? match[2] ?? '';
-		try {
-			html += renderFragment(tex, display, terms);
-		} catch {
-			html += `<code>${escapeHtml(match[0])}</code>`;
-		}
-		cursor = match.index + match[0].length;
-	}
-	html += escapeHtml(text.slice(cursor));
-	return html;
+	const annotated = terms === undefined ? text : expandSemanticMacros(text, terms);
+	return renderSegmentsHtml(splitRichText(annotated));
 }
