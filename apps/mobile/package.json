@@ -1,0 +1,50 @@
+{
+	"name": "mobile",
+	"version": "2.0.0",
+	"private": true,
+	"main": "expo-router/entry",
+	"scripts": {
+		"dev": "expo start",
+		"typecheck": "tsc --noEmit -p tsconfig.json",
+		"test": "jest --ci",
+		"export": "expo export --platform android",
+		"brand:icons": "node scripts/brand-icons.mjs"
+	},
+	"dependencies": {
+		"@equreka/content": "workspace:*",
+		"@equreka/core": "workspace:*",
+		"@equreka/engine": "workspace:*",
+		"@equreka/schema": "workspace:*",
+		"@equreka/tokens": "workspace:*",
+		"@expo/vector-icons": "catalog:",
+		"@shopify/flash-list": "catalog:",
+		"expo": "catalog:",
+		"expo-constants": "catalog:",
+		"expo-document-picker": "catalog:",
+		"expo-file-system": "catalog:",
+		"expo-linking": "catalog:",
+		"expo-router": "catalog:",
+		"expo-sharing": "catalog:",
+		"expo-splash-screen": "catalog:",
+		"expo-sqlite": "catalog:",
+		"expo-status-bar": "catalog:",
+		"expo-updates": "catalog:",
+		"minisearch": "catalog:",
+		"react": "catalog:",
+		"react-native": "catalog:",
+		"react-native-safe-area-context": "catalog:",
+		"react-native-screens": "catalog:",
+		"react-native-svg": "catalog:",
+		"react-native-worklets": "catalog:"
+	},
+	"devDependencies": {
+		"@equreka/config": "workspace:*",
+		"@jest/globals": "catalog:",
+		"@react-native/metro-config": "catalog:",
+		"@testing-library/react-native": "catalog:",
+		"@types/react": "catalog:",
+		"jest": "catalog:",
+		"jest-expo": "catalog:",
+		"typescript": "catalog:"
+	}
+}

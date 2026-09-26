@@ -49,7 +49,30 @@ catalog:
   '@astrojs/sitemap': ^3.7.3 # web SEO: sitemap-index with per-locale hreflang alternates
   '@testing-library/react': ^16.3.0 # @equreka/core hook tests (renderHook); needs react-dom at test time only
   jsdom: ^30.0.0 # vitest DOM environment for @equreka/core hook tests
-
+  # --- mobile: pinned by Expo SDK 57 bundledNativeModules (expo@57.0.21); `expo install --check` validates against these ranges ---
+  expo: ~57.0.21 # pinned by Expo SDK 57 bundledNativeModules
+  react-native: 0.86.3 # pinned by Expo SDK 57 bundledNativeModules
+  expo-router: ~57.0.20 # pinned by Expo SDK 57 bundledNativeModules
+  expo-sqlite: ~57.0.2 # pinned by Expo SDK 57 bundledNativeModules; kv-store is the KVStorage adapter (ADR 0002: not MMKV)
+  react-native-svg: 15.15.4 # pinned by Expo SDK 57 bundledNativeModules; SvgXml renders the MathJax glyph atlas
+  expo-updates: ~57.0.21 # pinned by Expo SDK 57 bundledNativeModules; EAS Update under the fingerprint runtime policy
+  react-native-screens: ~4.26.0 # pinned by Expo SDK 57 bundledNativeModules
+  react-native-safe-area-context: ~5.7.0 # pinned by Expo SDK 57 bundledNativeModules
+  expo-constants: ~57.0.17 # pinned by Expo SDK 57 bundledNativeModules
+  expo-linking: ~57.0.9 # pinned by Expo SDK 57 bundledNativeModules
+  expo-status-bar: ~57.0.1 # pinned by Expo SDK 57 bundledNativeModules
+  expo-splash-screen: ~57.0.8 # pinned by Expo SDK 57 bundledNativeModules
+  expo-sharing: ~57.0.18 # pinned by Expo SDK 57 bundledNativeModules; favorites export via the share sheet
+  expo-document-picker: ~57.0.1 # pinned by Expo SDK 57 bundledNativeModules; favorites import
+  expo-file-system: ~57.0.6 # pinned by Expo SDK 57 bundledNativeModules; writes the export envelope before sharing
+  '@expo/vector-icons': ^15.0.2 # pinned by Expo SDK 57 bundledNativeModules
+  '@shopify/flash-list': 2.0.2 # pinned by Expo SDK 57 bundledNativeModules (v2 is JS-only; the SDK-validated version wins over latest)
+  jest-expo: ~57.0.5 # pinned by Expo SDK 57 bundledNativeModules
+  jest: ~29.7.0 # jest-expo 57 is built on jest 29 (babel-jest/jest-snapshot 29 deps)
+  '@testing-library/react-native': ^14.0.1 # expo-router 57 peer >= 13.2.0; 14 targets react 19.2 + RN 0.86
+  '@jest/globals': ^29.7.0 # typed describe/it/expect for the mobile jest suite (jest 29 line)
+  react-native-worklets: 0.10.1 # pinned by Expo SDK 57 bundledNativeModules; expo-modules-core peer — without the pin pnpm auto-installs a newer major
+  '@react-native/metro-config': 0.86.3 # peer of @react-native/community-cli-plugin@0.86.3; locked to the react-native minor
 # pnpm settings live here, not .npmrc (single commented SSOT).
 catalogMode: strict
 linkWorkspacePackages: true

@@ -1,0 +1,21 @@
+{
+	"$schema": "https://turborepo.com/schema.json",
+	"extends": ["//"],
+	"tasks": {
+		"dev": {
+			"cache": false,
+			"persistent": true
+		},
+		"typecheck": {
+			"dependsOn": ["^build"]
+		},
+		"test": {
+			"dependsOn": ["^build"]
+		},
+		"export": {
+			"dependsOn": ["^build"],
+			"outputs": ["dist/**"],
+			"env": ["EXPO_PUBLIC_*"]
+		}
+	}
+}

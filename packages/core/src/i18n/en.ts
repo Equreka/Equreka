@@ -258,6 +258,23 @@ export const en = {
 	'settings.language': 'Language',
 	'settings.favorites': 'Favorites',
 	'settings.version': 'Version',
+
+	'nav.home': 'Home',
+	'mobile.notFound.title': 'Screen not found',
+	'mobile.notFound.lead': 'That link points nowhere in this build.',
+	'mobile.notFound.home': 'Go to Home',
+	'mobile.entry.notFound': 'This entry is not in the bundled library.',
+	'mobile.entry.count': '{count} entries',
+	'mobile.entry.related': 'Related',
+	'mobile.search.start': 'Type to search by name, symbol, or alias.',
+	'mobile.search.building': 'Building the search index…',
+	'mobile.transfer.exportFailed': 'Could not export favorites.',
+	'mobile.transfer.shareUnavailable': 'Sharing is unavailable on this device.',
+	'mobile.category.empty': 'Nothing in this category yet.',
+	'mobile.picker.filter': 'Filter…',
+	'mobile.picker.close': 'Close',
+	'mobile.check.hide': 'Hide the answer',
+	'mobile.math.unavailable': 'Rendered math is not available in this build.',
 } as const;
 
 export type MessageKey = keyof typeof en;

@@ -95,7 +95,7 @@ export const ENGINE_HINT_CODES: ReadonlySet<ErrorCode> = new Set<ErrorCode>([
  */
 export interface LocalizedText {
 	en: string;
-	es?: string;
+	es?: string | undefined;
 }
 
 /**

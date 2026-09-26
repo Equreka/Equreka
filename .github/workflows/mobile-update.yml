@@ -1,0 +1,54 @@
+# EAS Update publisher for apps/mobile. CI-only by design: the fingerprint
+# gate refuses to publish JS that no installed binary can load (a native
+# change bumps the fingerprint runtime version, so the channel's latest build
+# must match before an update goes out).
+name: Mobile OTA update
+
+on:
+  workflow_dispatch:
+    inputs:
+      channel:
+        description: EAS Update channel (matches an eas.json build profile)
+        required: true
+        type: choice
+        options: [preview, production]
+      message:
+        description: Update message shown in the EAS dashboard
+        required: true
+        type: string
+
+concurrency:
+  group: mobile-update-${{ inputs.channel }}
+  cancel-in-progress: false
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - run: pnpm lint
+      - run: pnpm quality
+      - run: pnpm --filter @equreka/content build
+      - run: pnpm --filter mobile typecheck
+      - run: pnpm --filter mobile test
+
+  publish:
+    runs-on: ubuntu-latest
+    needs: [gates]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - uses: expo/expo-github-action@v8
+        with:
+          eas-version: latest
+          token: ${{ secrets.EXPO_TOKEN }}
+      - run: pnpm --filter @equreka/content build
+      - name: Fingerprint gate
+        working-directory: apps/mobile
+        run: |
+          eas fingerprint:compare --platform android --build-profile "${{ inputs.channel }}" --non-interactive
+          eas fingerprint:compare --platform ios --build-profile "${{ inputs.channel }}" --non-interactive
+      - name: Publish
+        working-directory: apps/mobile
+        run: eas update --channel "${{ inputs.channel }}" --message "${{ inputs.message }}" --non-interactive

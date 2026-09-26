@@ -1,0 +1,12 @@
+# Paths that change on every build without touching the native runtime.
+# Anything here is excluded from the @expo/fingerprint hash that IS the
+# runtimeVersion (policy: fingerprint), so JS-only churn never forces a
+# new native build.
+.expo/**
+.turbo/**
+dist/**
+coverage/**
+**/__tests__/**
+**/*.md
+**/*.test.ts
+**/*.test.tsx
