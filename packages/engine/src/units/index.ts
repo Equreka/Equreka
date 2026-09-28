@@ -1,5 +1,15 @@
 import type { CompiledDimension, CompiledUnit, EngineSlice } from '@equreka/schema';
 import { type EngineError, type EngineResult, err, ok } from '../errors.js';
+import { kindFamily } from './kinds.js';
+
+export * from './kinds.js';
+
+/**
+ * Which units a magnitude offers: `kind` keeps to units whose unitOf meets
+ * the magnitude's kind family (ADR 0006); `dimension` is every unit
+ * convert() accepts for it.
+ */
+export type UnitScope = 'kind' | 'dimension';
 
 /**
  * A compiled unit with its decimal-string factor/offset parsed to float64
@@ -23,6 +33,7 @@ export interface UnitRegistry {
 	convert(value: number, from: string, to: string): EngineResult<number>;
 	convertDelta(value: number, from: string, to: string): EngineResult<number>;
 	compatibleUnits(unitOrDimension: string | CompiledDimension): CompiledUnit[];
+	unitsForMagnitude(magnitude: string, scope?: UnitScope): CompiledUnit[];
 	areCompatible(a: string, b: string): boolean;
 	getUnit(slug: string): CompiledUnit | undefined;
 	isExactPath(from: string, to: string): boolean;
@@ -108,6 +119,19 @@ export function createUnitRegistry(slice: EngineSlice): UnitRegistry {
 		return bucket === undefined ? [] : [...bucket];
 	}
 
+	/**
+	 * The kind scope is always a subset of the dimension scope, so every
+	 * pair it offers converts; order follows the slice like compatibleUnits.
+	 */
+	function unitsForMagnitude(magnitude: string, scope: UnitScope = 'kind'): CompiledUnit[] {
+		const compiled = slice.magnitudes[magnitude];
+		if (compiled === undefined) return [];
+		const sameDimension = compatibleUnits(compiled.dimension);
+		if (scope === 'dimension') return sameDimension;
+		const family = new Set(kindFamily(slice.magnitudes, magnitude));
+		return sameDimension.filter((unit) => unit.magnitudes.some((slug) => family.has(slug)));
+	}
+
 	function areCompatible(a: string, b: string): boolean {
 		const unitA = bySlug.get(a);
 		const unitB = bySlug.get(b);
@@ -131,5 +155,13 @@ export function createUnitRegistry(slice: EngineSlice): UnitRegistry {
 		);
 	}
 
-	return { convert, convertDelta, compatibleUnits, areCompatible, getUnit, isExactPath };
+	return {
+		convert,
+		convertDelta,
+		compatibleUnits,
+		unitsForMagnitude,
+		areCompatible,
+		getUnit,
+		isExactPath,
+	};
 }

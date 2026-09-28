@@ -29,8 +29,9 @@ function localized(field: LocalizedField, locale: PayloadLocale): string {
  * Client slice of the engine artifact for the converter island: per-unit
  * conversion parameters and per-magnitude picker metadata only — no TeX, no
  * prefixes/constants/equations, names flattened to locale-resolved strings
- * (es falls back to en while content is untranslated). The island rebuilds
- * an EngineSlice-shaped object from this at runtime.
+ * (es falls back to en while content is untranslated). Unit `magnitudes`
+ * and magnitude `kindOf` carry the quantity-kind scope (ADR 0006). The
+ * island rebuilds an EngineSlice-shaped object from this at runtime.
  */
 export interface ConverterPayload {
 	units: Record<
@@ -38,6 +39,7 @@ export interface ConverterPayload {
 		{
 			name: string;
 			symbolText: string;
+			magnitudes: string[];
 			dimension: number[];
 			factor: string;
 			offset: string;
@@ -45,7 +47,10 @@ export interface ConverterPayload {
 			affine: boolean;
 		}
 	>;
-	magnitudes: Record<string, { name: string; baseUnit: string; dimension: number[] }>;
+	magnitudes: Record<
+		string,
+		{ name: string; baseUnit: string; dimension: number[]; kindOf?: string }
+	>;
 }
 
 /**
@@ -199,12 +204,13 @@ function buildPathsPayload(locale: PayloadLocale): string {
 	return JSON.stringify(payload);
 }
 
-function buildConverterPayload(slice: EngineSlice, locale: PayloadLocale): ConverterPayload {
+export function buildConverterPayload(slice: EngineSlice, locale: PayloadLocale): ConverterPayload {
 	const payload: ConverterPayload = { units: {}, magnitudes: {} };
 	for (const unit of Object.values(slice.units)) {
 		payload.units[unit.slug] = {
 			name: localized(unit.name, locale),
 			symbolText: unit.symbolText,
+			magnitudes: unit.magnitudes,
 			dimension: unit.dimension,
 			factor: unit.factor,
 			offset: unit.offset,
@@ -217,6 +223,7 @@ function buildConverterPayload(slice: EngineSlice, locale: PayloadLocale): Conve
 			name: localized(magnitude.name, locale),
 			baseUnit: magnitude.baseUnit,
 			dimension: magnitude.dimension,
+			...(magnitude.kindOf === undefined ? {} : { kindOf: magnitude.kindOf }),
 		};
 	}
 	return payload;

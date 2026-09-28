@@ -38,12 +38,17 @@ export const compiledUnit = z.object({
 	affine: z.boolean(),
 });
 
+/**
+ * Engine-slice magnitude. `kindOf` is the build-verified parent quantity
+ * kind (same dimension, acyclic); absent on a root kind.
+ */
 export const compiledMagnitude = z.object({
 	slug,
 	name: localizedText,
 	symbolTex: z.string(),
 	baseUnit: slug,
 	dimension: compiledDimension,
+	kindOf: slug.optional(),
 	nonNegative: z.boolean(),
 });
 

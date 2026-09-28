@@ -1,6 +1,6 @@
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { type ReactNode, useMemo, useState } from 'react';
-import { FlatList, Modal, Pressable, StyleSheet, TextInput, View } from 'react-native';
+import { FlatList, Modal, Pressable, StyleSheet, Switch, TextInput, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { useT, useTheme } from '../providers/equreka-provider';
 import { Button } from './button';
@@ -69,6 +69,38 @@ export function DecimalField({ label, value, onChangeText, placeholder, unit }: 
 				)}
 			</View>
 		</FieldShell>
+	);
+}
+
+export interface SwitchFieldProps {
+	label: string;
+	hint?: string | undefined;
+	value: boolean;
+	onValueChange: (value: boolean) => void;
+}
+
+export function SwitchField({ label, hint, value, onValueChange }: SwitchFieldProps) {
+	const theme = useTheme();
+	return (
+		<View style={{ gap: theme.space(1) }}>
+			<View style={[styles.inputRow, { gap: theme.space(2) }]}>
+				<AppText size="sm" style={styles.grow}>
+					{label}
+				</AppText>
+				<Switch
+					accessibilityLabel={label}
+					accessibilityHint={hint}
+					value={value}
+					onValueChange={onValueChange}
+					trackColor={{ true: theme.color.accent, false: theme.color.border }}
+				/>
+			</View>
+			{hint === undefined ? null : (
+				<AppText size="sm" tone="muted">
+					{hint}
+				</AppText>
+			)}
+		</View>
 	);
 }
 

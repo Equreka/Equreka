@@ -1,14 +1,14 @@
+import { converterUnits, pickUnitPair } from '@equreka/core/converter';
 import { engineMessage, localizedName } from '@equreka/core/i18n';
 import type { EngineError } from '@equreka/engine';
 import { formatSigFigs } from '@equreka/engine/format';
-import type { CompiledUnit } from '@equreka/schema';
 import { useEffect, useMemo, useState } from 'react';
 import { getEngineSlice } from '../../shared/content/artifact';
 import { getUnitRegistry } from '../../shared/content/engine';
 import { useLocale, useT } from '../../shared/providers/equreka-provider';
 import { Button } from '../../shared/ui/button';
 import { Card } from '../../shared/ui/card';
-import { DecimalField, PickerField, type PickerOption } from '../../shared/ui/field';
+import { DecimalField, PickerField, type PickerOption, SwitchField } from '../../shared/ui/field';
 import { HStack, Screen, VStack } from '../../shared/ui/screen';
 import { AppText, Lead, Muted, Title } from '../../shared/ui/text';
 
@@ -19,28 +19,32 @@ export interface ConverterScreenProps {
 
 interface Selection {
 	magnitude: string;
+	showAllDimension: boolean;
 	from: string;
 	to: string;
 }
 
-function compatibleFor(magnitude: string): CompiledUnit[] {
-	const compiled = getEngineSlice().magnitudes[magnitude];
-	if (compiled === undefined) return [];
-	return getUnitRegistry().compatibleUnits(compiled.dimension);
+/**
+ * Opens on the kind scope (ADR 0006) and widens to the dimension scope
+ * only when the preferred unit exists there alone — a magnitude-less
+ * compound unit's convert link lands on a same-dimension magnitude.
+ */
+function selectionFor(magnitude: string, preferredFrom?: string): Selection {
+	const registry = getUnitRegistry();
+	const offers = (showAll: boolean): boolean =>
+		converterUnits(registry, magnitude, showAll).units.some((unit) => unit.slug === preferredFrom);
+	const showAllDimension = !offers(false) && offers(true);
+	return scopedSelection(magnitude, showAllDimension, { from: preferredFrom });
 }
 
-function selectionFor(magnitude: string, preferredFrom?: string): Selection {
-	const units = compatibleFor(magnitude);
+function scopedSelection(
+	magnitude: string,
+	showAllDimension: boolean,
+	preferred: { from?: string | undefined; to?: string | undefined },
+): Selection {
+	const { units } = converterUnits(getUnitRegistry(), magnitude, showAllDimension);
 	const baseUnit = getEngineSlice().magnitudes[magnitude]?.baseUnit ?? '';
-	const has = (slug: string | undefined): slug is string =>
-		slug !== undefined && units.some((unit) => unit.slug === slug);
-	const from = has(preferredFrom)
-		? preferredFrom
-		: has(baseUnit)
-			? baseUnit
-			: (units[0]?.slug ?? '');
-	const to = units.find((unit) => unit.slug !== from)?.slug ?? from;
-	return { magnitude, from, to };
+	return { magnitude, showAllDimension, ...pickUnitPair(units, baseUnit, preferred) };
 }
 
 /**
@@ -55,7 +59,10 @@ export function ConverterScreen({ initialMagnitude, initialFrom }: ConverterScre
 	const magnitudes = useMemo<PickerOption<string>[]>(
 		() =>
 			Object.values(getEngineSlice().magnitudes)
-				.filter((magnitude) => compatibleFor(magnitude.slug).length > 0)
+				.filter(
+					(magnitude) =>
+						getUnitRegistry().unitsForMagnitude(magnitude.slug, 'dimension').length > 0,
+				)
 				.map((magnitude) => ({ value: magnitude.slug, label: localizedName(magnitude, locale) }))
 				.sort((a, b) => a.label.localeCompare(b.label)),
 		[locale],
@@ -75,16 +82,20 @@ export function ConverterScreen({ initialMagnitude, initialFrom }: ConverterScre
 		setSelection(selectionFor(initialMagnitude, initialFrom));
 	}, [initialMagnitude, initialFrom]);
 
+	const scoped = useMemo(
+		() => converterUnits(getUnitRegistry(), selection.magnitude, selection.showAllDimension),
+		[selection.magnitude, selection.showAllDimension],
+	);
 	const units = useMemo<PickerOption<string>[]>(
 		() =>
-			compatibleFor(selection.magnitude)
+			scoped.units
 				.map((unit) => ({
 					value: unit.slug,
 					label: localizedName(unit, locale),
 					detail: unit.symbolText,
 				}))
 				.sort((a, b) => a.label.localeCompare(b.label)),
-		[selection.magnitude, locale],
+		[scoped, locale],
 	);
 	const registry = getUnitRegistry();
 	const trimmed = rawValue.trim();
@@ -113,6 +124,16 @@ export function ConverterScreen({ initialMagnitude, initialFrom }: ConverterScre
 					options={magnitudes}
 					onChange={(magnitude) => setSelection(selectionFor(magnitude))}
 				/>
+				{scoped.hiddenByKind > 0 ? (
+					<SwitchField
+						label={t('converter.showAllDimension', { count: scoped.hiddenByKind })}
+						hint={t('converter.showAllDimensionHint')}
+						value={selection.showAllDimension}
+						onValueChange={(showAll) =>
+							setSelection((current) => scopedSelection(current.magnitude, showAll, current))
+						}
+					/>
+				) : null}
 				<PickerField
 					label={t('converter.from')}
 					value={selection.from}

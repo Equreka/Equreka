@@ -8,6 +8,7 @@
 		".": "./src/index.ts",
 		"./hooks/*": "./src/hooks/*.ts",
 		"./search": "./src/search/index.ts",
+		"./converter": "./src/converter.ts",
 		"./i18n": "./src/i18n/index.ts"
 	},
 	"scripts": {

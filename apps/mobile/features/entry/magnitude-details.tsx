@@ -1,5 +1,6 @@
 import { localizedName } from '@equreka/core/i18n';
 import { formatSigFigs } from '@equreka/engine/format';
+import { kindRelations } from '@equreka/engine/units';
 import { useRouter } from 'expo-router';
 import { useMemo } from 'react';
 import { View } from 'react-native';
@@ -29,10 +30,17 @@ interface UnitRow {
 	isBase: boolean;
 }
 
+interface KindRow {
+	label: string;
+	hint?: string;
+	slugs: string[];
+}
+
 /**
  * Dimension vector from the engine slice (build-verified by composition,
- * ADR 0003), the base unit, and every unit of the same dimension with its
- * engine-computed factor to that base.
+ * ADR 0003), the base unit, the quantity-kind neighbours (ADR 0006), and
+ * every unit of the magnitude's kind family with its engine-computed
+ * factor to that base.
  */
 export function MagnitudeDetails({ slug, magnitude }: MagnitudeDetailsProps) {
 	const locale = useLocale();
@@ -44,7 +52,7 @@ export function MagnitudeDetails({ slug, magnitude }: MagnitudeDetailsProps) {
 		if (compiled === undefined) return [];
 		const registry = getUnitRegistry();
 		return registry
-			.compatibleUnits(compiled.dimension)
+			.unitsForMagnitude(slug)
 			.map((unit) => {
 				const converted = registry.convert(1, unit.slug, compiled.baseUnit);
 				return {
@@ -57,7 +65,20 @@ export function MagnitudeDetails({ slug, magnitude }: MagnitudeDetailsProps) {
 				};
 			})
 			.sort((a, b) => Number(b.isBase) - Number(a.isBase) || a.name.localeCompare(b.name));
-	}, [compiled, locale]);
+	}, [compiled, slug, locale]);
+	const kindRows = useMemo<KindRow[]>(() => {
+		const relations = kindRelations(getEngineSlice().magnitudes, slug);
+		const rows: KindRow[] = [
+			{ label: t('magnitude.broaderKind'), slugs: relations.broader.slice(0, 1) },
+			{ label: t('magnitude.narrowerKinds'), slugs: relations.narrower },
+			{
+				label: t('magnitude.sameDimension'),
+				hint: t('magnitude.sameDimensionHint'),
+				slugs: relations.sameDimension,
+			},
+		];
+		return rows.filter((row) => row.slugs.length > 0);
+	}, [slug, t]);
 	const base = getSummary('units', magnitude.baseUnit, locale);
 	const dimension = compiled === undefined ? '' : formatDimension(compiled.dimension);
 	return (
@@ -79,6 +100,25 @@ export function MagnitudeDetails({ slug, magnitude }: MagnitudeDetailsProps) {
 					</View>
 				</VStack>
 			)}
+			{kindRows.map((row) => (
+				<VStack key={row.label}>
+					<SectionTitle>{row.label}</SectionTitle>
+					{row.hint === undefined ? null : <Muted>{row.hint}</Muted>}
+					<View style={{ borderRadius: theme.radius.md, overflow: 'hidden' }}>
+						{row.slugs.map((related) => {
+							const summary = getSummary('magnitudes', related, locale);
+							return summary === undefined ? null : (
+								<Row
+									key={related}
+									title={summary.name}
+									subtitle={summary.symbolText}
+									onPress={() => router.push(entryHref('magnitudes', related))}
+								/>
+							);
+						})}
+					</View>
+				</VStack>
+			))}
 			{units.length === 0 ? null : (
 				<VStack>
 					<SectionTitle>

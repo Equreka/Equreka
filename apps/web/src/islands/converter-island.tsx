@@ -1,10 +1,11 @@
+import { type ConverterUnits, converterUnits, pickUnitPair } from '@equreka/core/converter';
 import { engineMessage, type Locale, t } from '@equreka/core/i18n';
 import type { EngineError } from '@equreka/engine';
 import { formatSigFigs } from '@equreka/engine/format';
 import { createUnitRegistry, type UnitRegistry } from '@equreka/engine/units';
-import type { CompiledDimension, CompiledUnit, EngineSlice } from '@equreka/schema';
 import { useEffect, useId, useMemo, useState } from 'react';
 import type { ConverterPayload } from '../integrations/equreka-assets';
+import { converterSliceOf } from '../lib/converter-slice';
 
 export interface ConverterIslandProps {
 	initialMagnitude?: string;
@@ -17,55 +18,20 @@ type PayloadState =
 	| { status: 'error' }
 	| { status: 'ready'; payload: ConverterPayload };
 
-/**
- * Rebuilds an EngineSlice-shaped object from the trimmed client payload so
- * the shared createUnitRegistry runs unchanged in the browser. Fields the
- * registry never reads (TeX, prefixes, constants, equations) are stubs —
- * the full engine.json never ships to the client.
- */
-function toEngineSlice(payload: ConverterPayload): EngineSlice {
-	const units: EngineSlice['units'] = {};
-	for (const [slug, unit] of Object.entries(payload.units)) {
-		const compiled: CompiledUnit = {
-			slug,
-			name: { en: unit.name },
-			symbolTex: '',
-			symbolText: unit.symbolText,
-			magnitudes: [],
-			system: 'other',
-			dimension: unit.dimension as CompiledDimension,
-			factor: unit.factor,
-			offset: unit.offset,
-			exact: unit.exact,
-			affine: unit.affine,
-		};
-		units[slug] = compiled;
-	}
-	return {
-		schemaVersion: 0,
-		contentHash: '',
-		magnitudes: {},
-		units,
-		prefixes: {},
-		constants: {},
-		equations: {},
-	};
-}
-
 function sortedMagnitudes(payload: ConverterPayload): [string, { name: string }][] {
 	return Object.entries(payload.magnitudes).sort(([, a], [, b]) => a.name.localeCompare(b.name));
 }
 
-function compatibleFor(
+function unitsFor(
 	registry: UnitRegistry,
-	payload: ConverterPayload,
 	magnitudeSlug: string,
-): CompiledUnit[] {
-	const magnitude = payload.magnitudes[magnitudeSlug];
-	if (magnitude === undefined) return [];
-	return registry
-		.compatibleUnits(magnitude.dimension as CompiledDimension)
-		.sort((a, b) => a.name.en.localeCompare(b.name.en));
+	showAllDimension: boolean,
+): ConverterUnits {
+	const scoped = converterUnits(registry, magnitudeSlug, showAllDimension);
+	return {
+		...scoped,
+		units: [...scoped.units].sort((a, b) => a.name.en.localeCompare(b.name.en)),
+	};
 }
 
 export default function ConverterIsland({
@@ -78,6 +44,7 @@ export default function ConverterIsland({
 	const [fromUnit, setFromUnit] = useState('');
 	const [toUnit, setToUnit] = useState('');
 	const [rawValue, setRawValue] = useState('1');
+	const [showAllDimension, setShowAllDimension] = useState(false);
 	const fieldId = useId();
 
 	const errorMessage = (error: EngineError): string =>
@@ -104,7 +71,7 @@ export default function ConverterIsland({
 	}, [locale]);
 
 	const registry = useMemo(
-		() => (state.status === 'ready' ? createUnitRegistry(toEngineSlice(state.payload)) : null),
+		() => (state.status === 'ready' ? createUnitRegistry(converterSliceOf(state.payload)) : null),
 		[state],
 	);
 
@@ -119,18 +86,19 @@ export default function ConverterIsland({
 				? requested
 				: (first?.[0] ?? '');
 		if (selected === '') return;
-		const units = compatibleFor(registry, payload, selected);
-		const baseUnit = payload.magnitudes[selected]?.baseUnit ?? '';
-		const from =
-			initialFrom !== undefined && units.some((unit) => unit.slug === initialFrom)
-				? initialFrom
-				: units.some((unit) => unit.slug === baseUnit)
-					? baseUnit
-					: (units[0]?.slug ?? '');
-		const to = units.find((unit) => unit.slug !== from)?.slug ?? from;
+		const byKind = unitsFor(registry, selected, false).units;
+		const byDimension = unitsFor(registry, selected, true).units;
+		const offers = (units: readonly { slug: string }[]): boolean =>
+			units.some((unit) => unit.slug === initialFrom);
+		const widen = !offers(byKind) && offers(byDimension);
+		const units = widen ? byDimension : byKind;
+		const pair = pickUnitPair(units, payload.magnitudes[selected]?.baseUnit ?? '', {
+			from: initialFrom,
+		});
 		setMagnitude(selected);
-		setFromUnit(from);
-		setToUnit(to);
+		setShowAllDimension(widen);
+		setFromUnit(pair.from);
+		setToUnit(pair.to);
 	}, [state, registry, initialMagnitude, initialFrom]);
 
 	if (state.status === 'loading') {
@@ -142,15 +110,28 @@ export default function ConverterIsland({
 
 	const { payload } = state;
 	const magnitudes = sortedMagnitudes(payload);
-	const units = magnitude === '' ? [] : compatibleFor(registry, payload, magnitude);
+	const { units, hiddenByKind } =
+		magnitude === ''
+			? { units: [], hiddenByKind: 0 }
+			: unitsFor(registry, magnitude, showAllDimension);
+	const baseUnitOf = (slug: string): string => payload.magnitudes[slug]?.baseUnit ?? '';
 
 	const selectMagnitude = (slug: string) => {
-		const nextUnits = compatibleFor(registry, payload, slug);
-		const base = payload.magnitudes[slug]?.baseUnit ?? '';
-		const from = nextUnits.some((unit) => unit.slug === base) ? base : (nextUnits[0]?.slug ?? '');
+		const pair = pickUnitPair(unitsFor(registry, slug, false).units, baseUnitOf(slug));
 		setMagnitude(slug);
-		setFromUnit(from);
-		setToUnit(nextUnits.find((unit) => unit.slug !== from)?.slug ?? from);
+		setShowAllDimension(false);
+		setFromUnit(pair.from);
+		setToUnit(pair.to);
+	};
+
+	const toggleScope = (next: boolean) => {
+		const pair = pickUnitPair(unitsFor(registry, magnitude, next).units, baseUnitOf(magnitude), {
+			from: fromUnit,
+			to: toUnit,
+		});
+		setShowAllDimension(next);
+		setFromUnit(pair.from);
+		setToUnit(pair.to);
 	};
 
 	const trimmed = rawValue.trim();
@@ -187,6 +168,22 @@ export default function ConverterIsland({
 							</option>
 						))}
 					</select>
+					{hiddenByKind > 0 ? (
+						<div className="mt-2">
+							<label className="flex items-center gap-2 text-sm text-ink">
+								<input
+									type="checkbox"
+									checked={showAllDimension}
+									aria-describedby={`${fieldId}-scope-hint`}
+									onChange={(event) => toggleScope(event.target.checked)}
+								/>
+								{t(locale, 'converter.showAllDimension', { count: hiddenByKind })}
+							</label>
+							<p id={`${fieldId}-scope-hint`} className="mt-1 text-xs text-ink-muted">
+								{t(locale, 'converter.showAllDimensionHint')}
+							</p>
+						</div>
+					) : null}
 				</div>
 				<div>
 					<label
