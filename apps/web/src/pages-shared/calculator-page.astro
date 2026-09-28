@@ -7,6 +7,7 @@ import CalculatorIsland, {
 	type CalculatorField,
 } from '../islands/calculator-island';
 import BaseLayout from '../layouts/base-layout.astro';
+import type { CalculatorVariableUnits } from '../lib/calculator-units';
 import { asEquation, asVariable } from '../lib/collections';
 import { localePath } from '../lib/locale-paths';
 import { engineSlice } from '../lib/server/engine-registry';
@@ -34,6 +35,7 @@ const variables = new Map(
 const fields: CalculatorField[] = [];
 const constants: CalculatorConstant[] = [];
 const nonNegative: string[] = [];
+const variableUnits: CalculatorVariableUnits = {};
 for (const [key, term] of Object.entries(meta.terms)) {
 	if (term.kind === 'symbol') {
 		fields.push({
@@ -76,6 +78,9 @@ for (const [key, term] of Object.entries(meta.terms)) {
 		continue;
 	}
 	const variable = variables.get(term.ref);
+	if (variable?.defaultUnit !== undefined) {
+		variableUnits[term.ref] = { defaultUnit: variable.defaultUnit };
+	}
 	fields.push({
 		key,
 		label: variable === undefined ? key : localizedName(variable, locale),
@@ -109,6 +114,7 @@ for (const [key, term] of Object.entries(meta.terms)) {
 			fields={fields}
 			constants={constants}
 			nonNegative={nonNegative}
+			variables={variableUnits}
 			locale={locale}
 		/>
 	</div>

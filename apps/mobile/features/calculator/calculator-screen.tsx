@@ -1,4 +1,10 @@
 import {
+	type CalculatorUnitSource,
+	solveInUnits,
+	type UseCalculatorUnits,
+	useCalculatorUnits,
+} from '@equreka/core/hooks/use-calculator-units';
+import {
 	ENGINE_HINT_CODES,
 	engineMessage,
 	type Locale,
@@ -6,22 +12,23 @@ import {
 	pickLocalized,
 } from '@equreka/core/i18n';
 import { formatSigFigs } from '@equreka/engine/format';
-import { type KnownValue, solveEquation } from '@equreka/engine/solutions';
 import type { CompiledEquationMeta } from '@equreka/schema';
 import { useRouter } from 'expo-router';
-import { useMemo, useState } from 'react';
+import { Fragment, useMemo, useState } from 'react';
 import { entryHref } from '../../entities/content/routes';
 import { getEngineSlice, getPresentation, getSolutions } from '../../shared/content/artifact';
+import { getUnitRegistry } from '../../shared/content/engine';
 import { MathSvg } from '../../shared/math/math-view';
 import type { RuntimeMath } from '../../shared/math/runtime-mathjax';
 import { useLocale, useT } from '../../shared/providers/equreka-provider';
 import { Button } from '../../shared/ui/button';
 import { Card } from '../../shared/ui/card';
-import { DecimalField } from '../../shared/ui/field';
+import { DecimalField, SwitchField } from '../../shared/ui/field';
 import { HStack, Screen, VStack } from '../../shared/ui/screen';
 import { AppText, Lead, Muted, Title } from '../../shared/ui/text';
 import { buildSolvedForm } from './solved-form';
 import { SolvedFormView } from './solved-form-view';
+import { UnitChips } from './unit-chips';
 
 export interface CalculatorScreenProps {
 	slug: string;
@@ -128,19 +135,43 @@ function UnitSymbol({ tex }: { tex: string }) {
 }
 
 /**
+ * A term's unit TeX: the selected unit's atlas symbol, or the build-time
+ * base-unit symbol when the selection has none.
+ */
+function selectedUnitTex(unitState: UseCalculatorUnits, key: string, fallback: string): string {
+	const tex = unitOf(unitState.unitFor(key)).tex;
+	return tex === '' ? fallback : tex;
+}
+
+/**
+ * The engine slice and presentation variables are bundled, so the unit
+ * source exists synchronously and pickers render on first paint.
+ */
+function useUnitSource(): CalculatorUnitSource {
+	return useMemo(
+		() => ({
+			registry: getUnitRegistry(),
+			magnitudes: getEngineSlice().magnitudes,
+			variables: getPresentation('variables'),
+		}),
+		[],
+	);
+}
+
+/**
  * Fill-all-but-one solver over the codegen'd solutions module: constants
- * inject automatically, inputs are parsed at the engine boundary, and the
- * result carries the solved term's unit symbol from the atlas. The solved
- * form (symbolic, then with the knowns substituted) is typeset on device
- * by the runtime MathJax leg (ADR 0005); `renderer` is injectable for
- * tests and defaults to the app-wide singleton.
+ * inject automatically, each input converts from its picked unit to the
+ * term's base unit before solving, and the result converts to its own
+ * picked unit ('≈' when a factor on the path is inexact). The solved form
+ * (symbolic, then with the knowns substituted) is typeset on device by the
+ * runtime MathJax leg (ADR 0005) and always substitutes base-unit values,
+ * because the authored solution is written in base units; `renderer` is
+ * injectable for tests and defaults to the app-wide singleton.
  */
 export function CalculatorScreen({ slug, renderer }: CalculatorScreenProps) {
 	const locale = useLocale();
 	const t = useT();
-	const router = useRouter();
 	const model = useMemo(() => buildModel(slug, locale), [slug, locale]);
-	const [values, setValues] = useState<Record<string, string>>({});
 	if (model === undefined) {
 		return (
 			<Screen>
@@ -148,25 +179,38 @@ export function CalculatorScreen({ slug, renderer }: CalculatorScreenProps) {
 			</Screen>
 		);
 	}
+	return <CalculatorForm slug={slug} model={model} renderer={renderer} />;
+}
+
+interface CalculatorFormProps {
+	slug: string;
+	model: CalculatorModel;
+	renderer?: RuntimeMath | undefined;
+}
+
+function CalculatorForm({ slug, model, renderer }: CalculatorFormProps) {
+	const locale = useLocale();
+	const t = useT();
+	const router = useRouter();
+	const [values, setValues] = useState<Record<string, string>>({});
 	const { meta, fields, constants, nonNegative } = model;
-	const knowns: Record<string, KnownValue> = {};
-	const literals: Record<string, string> = {};
-	for (const field of fields) {
-		const raw = (values[field.key] ?? '').trim();
-		if (raw === '') {
-			knowns[field.key] = '';
-			continue;
-		}
-		const parsed = Number(raw);
-		knowns[field.key] = parsed;
-		if (Number.isFinite(parsed)) literals[field.key] = String(parsed);
-	}
-	for (const constant of constants) {
-		knowns[constant.key] = Number(constant.value);
-		literals[constant.key] = constant.value;
-	}
-	const anyInput = fields.some((field) => (values[field.key] ?? '').trim() !== '');
-	const result = anyInput ? solveEquation(meta, getSolutions(), knowns, { nonNegative }) : null;
+	const unitState = useCalculatorUnits(meta, useUnitSource());
+	const constantValues = useMemo(
+		() => Object.fromEntries(constants.map((constant) => [constant.key, constant.value])),
+		[constants],
+	);
+	const { outcome: result, literals } = solveInUnits(
+		meta,
+		getSolutions(),
+		{
+			fields: fields.map((field) => field.key),
+			raw: values,
+			constants: constantValues,
+			selected: unitState.selected,
+			nonNegative,
+		},
+		unitState.units,
+	);
 	const solved =
 		result?.ok === true ? fields.find((field) => field.key === result.value.symbol) : undefined;
 	const presentation = getPresentation('equations')[slug];
@@ -175,6 +219,11 @@ export function CalculatorScreen({ slug, renderer }: CalculatorScreenProps) {
 		result?.ok === true
 			? buildSolvedForm(meta, presentation?.solutions ?? {}, result.value.symbol, literals)
 			: null;
+	const nonBaseSelected = Object.entries(unitState.selected).some(
+		([key, unit]) => unit !== unitState.units?.baseUnit(key),
+	);
+	const resultOptions =
+		result?.ok === true ? unitState.optionsFor(result.value.symbol).units : undefined;
 
 	return (
 		<Screen>
@@ -191,16 +240,40 @@ export function CalculatorScreen({ slug, renderer }: CalculatorScreenProps) {
 				</HStack>
 			</VStack>
 			<Card>
-				{fields.map((field) => (
-					<DecimalField
-						key={field.key}
-						label={`${field.label} (${field.key})`}
-						value={values[field.key] ?? ''}
-						onChangeText={(text) => setValues((previous) => ({ ...previous, [field.key]: text }))}
-						placeholder={t('calculator.placeholder')}
-						unit={<UnitSymbol tex={field.unitTex} />}
-					/>
-				))}
+				{fields.map((field) => {
+					const { units: offered, hiddenByKind } = unitState.optionsFor(field.key);
+					const name = `${field.label} (${field.key})`;
+					return (
+						<Fragment key={field.key}>
+							<DecimalField
+								label={name}
+								value={values[field.key] ?? ''}
+								onChangeText={(text) =>
+									setValues((previous) => ({ ...previous, [field.key]: text }))
+								}
+								placeholder={t('calculator.placeholder')}
+								unit={<UnitSymbol tex={selectedUnitTex(unitState, field.key, field.unitTex)} />}
+							/>
+							{offered.length > 1 ? (
+								<UnitChips
+									label={t('calculator.unitFor', { name })}
+									units={offered}
+									value={unitState.unitFor(field.key)}
+									locale={locale}
+									onChange={(unit) => unitState.select(field.key, unit)}
+								/>
+							) : null}
+							{hiddenByKind > 0 ? (
+								<SwitchField
+									label={t('converter.showAllDimension', { count: hiddenByKind })}
+									hint={t('converter.showAllDimensionHint')}
+									value={unitState.showAllFor(field.key)}
+									onValueChange={(showAll) => unitState.setShowAll(field.key, showAll)}
+								/>
+							) : null}
+						</Fragment>
+					);
+				})}
 				<HStack>
 					<Button label={t('calculator.reset')} onPress={() => setValues({})} />
 				</HStack>
@@ -223,15 +296,30 @@ export function CalculatorScreen({ slug, renderer }: CalculatorScreenProps) {
 					<VStack gap={1}>
 						<HStack gap={1.5}>
 							<AppText size="xl" accessibilityLiveRegion="polite">
-								{solved?.label ?? result.value.symbol} ({result.value.symbol}) ={' '}
+								{solved?.label ?? result.value.symbol} ({result.value.symbol}){' '}
+								{result.value.exact ? '=' : '≈'}{' '}
 								<AppText size="xl" weight="700">
 									{formatSigFigs(result.value.value)}
 								</AppText>
 							</AppText>
-							{solved === undefined ? null : <UnitSymbol tex={solved.unitTex} />}
+							{solved === undefined ? null : (
+								<UnitSymbol tex={selectedUnitTex(unitState, solved.key, solved.unitTex)} />
+							)}
 						</HStack>
+						{resultOptions !== undefined && resultOptions.length > 1 ? (
+							<UnitChips
+								label={t('calculator.resultUnit')}
+								units={resultOptions}
+								value={unitState.unitFor(result.value.symbol)}
+								locale={locale}
+								onChange={(unit) => unitState.select(result.value.symbol, unit)}
+							/>
+						) : null}
 						<Muted>{t('common.sigFigs')}</Muted>
 						{solvedForm === null ? null : <SolvedFormView lines={solvedForm} renderer={renderer} />}
+						{solvedForm !== null && nonBaseSelected ? (
+							<Muted>{t('calculator.solvedFormBaseUnits')}</Muted>
+						) : null}
 						{result.value.allRoots !== undefined && result.value.allRoots.length > 1 ? (
 							<Muted>
 								{t('calculator.allRoots', {
