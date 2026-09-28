@@ -13,8 +13,13 @@ toBase:
     url: 'https://www.nist.gov/pml/special-publication-811'
     ref: 'B.8: ton, short (2000 lb); exact as 2000 lb'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q469356'
+  qudt: 'http://qudt.org/vocab/unit/TON_SHORT'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 aliases:
   - 'ton'
   - 'US ton'

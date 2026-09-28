@@ -1,5 +1,6 @@
 const ENTRY_ROUTES: Record<string, (slug: string) => string> = {
 	categories: (slug) => `/categories/${slug}/`,
+	branches: (slug) => `/branches/${slug}/`,
 	magnitudes: (slug) => `/magnitudes/${slug}/`,
 	units: (slug) => `/units/${slug}/`,
 	prefixes: (slug) => `/prefixes/#${slug}`,

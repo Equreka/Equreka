@@ -8,9 +8,15 @@ value: '3.1415926535897932384626433832795028841971693993751058209749445923078164
 unit: 'unitless'
 exact: false
 irrational: true
+externalIds:
+  wikidata: 'Q167'
+  qudt: 'http://qudt.org/vocab/constant/Pi'
 categories:
   - 'universal'
   - 'mathematics'
+branches:
+  - 'geometry'
+  - 'arithmetic-and-algebra'
 aliases:
   - 'π'
   - 'archimedes constant'

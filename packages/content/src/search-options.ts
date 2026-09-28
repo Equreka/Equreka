@@ -4,6 +4,10 @@ export const SEARCH_LOCALES = ['en', 'es'] as const;
 
 export type SearchLocale = (typeof SEARCH_LOCALES)[number];
 
+/**
+ * `branches` holds the locale-resolved names of the entry's branches, so a
+ * query for a sub-discipline ("termodinámica") reaches its members.
+ */
 export interface SearchDocument {
 	id: string;
 	collection: string;
@@ -12,6 +16,7 @@ export interface SearchDocument {
 	description: string;
 	aliases: string[];
 	symbolText: string;
+	branches: string[];
 }
 
 export interface CatalogLiteEntry {
@@ -20,6 +25,7 @@ export interface CatalogLiteEntry {
 	name: string;
 	symbolText: string;
 	aliases: string[];
+	branches: string[];
 }
 
 /**
@@ -41,7 +47,7 @@ export function foldSearchTerm(term: string): string {
  * restate it.
  */
 export const searchOptions = {
-	fields: ['name', 'description', 'aliases', 'symbolText'],
+	fields: ['name', 'description', 'aliases', 'symbolText', 'branches'],
 	storeFields: ['name', 'collection'],
 	extractField: (document, fieldName): string => {
 		const value = (document as unknown as Record<string, unknown>)[fieldName];

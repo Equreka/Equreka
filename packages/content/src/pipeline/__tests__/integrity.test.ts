@@ -1,7 +1,12 @@
 import { fileURLToPath } from 'node:url';
 import { collectionSchemas } from '@equreka/schema';
 import { describe, expect, it } from 'vitest';
-import { checkIntegrity, DERIVATION_FREE_UNITS, orphanMagnitudes } from '../integrity.js';
+import {
+	checkIntegrity,
+	DERIVATION_FREE_UNITS,
+	emptyBranches,
+	orphanMagnitudes,
+} from '../integrity.js';
 import { loadContent } from '../load.js';
 import { type Corpus, validateContent } from '../validate.js';
 
@@ -10,6 +15,7 @@ const CONTENT_DIR = fileURLToPath(new URL('../../../content/', import.meta.url))
 function corpusWith(overrides: Partial<Record<keyof Corpus, Record<string, unknown>>>): Corpus {
 	const corpus: Corpus = {
 		categories: new Map(),
+		branches: new Map(),
 		magnitudes: new Map(),
 		units: new Map(),
 		prefixes: new Map(),
@@ -459,5 +465,77 @@ describe('orphan magnitudes', () => {
 		expect(files).not.toContain('magnitudes/reciprocal-amount.yaml');
 		expect(files).not.toContain('magnitudes/luminous-efficacy.yaml');
 		expect(files.every((file) => corpus.magnitudes.has(file.slice(11, -5)))).toBe(true);
+	});
+});
+
+describe('branches', () => {
+	const CATEGORIES = {
+		physics: { name: { en: 'Physics' }, order: 2 },
+		chemistry: { name: { en: 'Chemistry' }, order: 3 },
+	};
+	const BRANCHES = {
+		mechanics: { name: { en: 'Mechanics' }, category: 'physics', order: 0 },
+		'amount-of-substance': { name: { en: 'Amount of substance' }, category: 'chemistry', order: 0 },
+	};
+	const metreIn = (categories: string[], branches: string[]) => ({
+		...UNITS,
+		metre: { ...UNITS.metre, categories, branches },
+	});
+
+	it("accepts a branch of one of the entry's own categories", () => {
+		const corpus = corpusWith({
+			categories: CATEGORIES,
+			branches: BRANCHES,
+			magnitudes: MAGNITUDES,
+			units: metreIn(['physics'], ['mechanics']),
+		});
+		expect(messages(corpus)).toEqual([]);
+	});
+
+	it('rejects a branch whose category the entry does not list, instead of inferring it', () => {
+		const corpus = corpusWith({
+			categories: CATEGORIES,
+			branches: BRANCHES,
+			magnitudes: MAGNITUDES,
+			units: metreIn(['physics'], ['mechanics', 'amount-of-substance']),
+		});
+		expect(messages(corpus)).toEqual([
+			"units/metre.yaml: branches: 'amount-of-substance' belongs to category 'chemistry', which is not among this entry's categories [physics]; add 'chemistry' to categories or drop the branch",
+		]);
+	});
+
+	it('rejects an unknown branch, a repeated branch and a branch of an unknown category', () => {
+		const corpus = corpusWith({
+			categories: CATEGORIES,
+			branches: {
+				...BRANCHES,
+				alchemy: { name: { en: 'Alchemy' }, category: 'occultism', order: 0 },
+			},
+			magnitudes: MAGNITUDES,
+			units: metreIn(['physics'], ['mechanics', 'mechanics', 'ghost']),
+		});
+		expect(messages(corpus)).toEqual([
+			"branches/alchemy.yaml: category: unknown categories ref 'occultism'",
+			"units/metre.yaml: branches: 'mechanics' is listed twice",
+			"units/metre.yaml: branches: unknown branches ref 'ghost'",
+		]);
+	});
+
+	it('warns once per branch that no entry lists', () => {
+		const corpus = corpusWith({
+			categories: CATEGORIES,
+			branches: BRANCHES,
+			magnitudes: MAGNITUDES,
+			units: metreIn(['physics'], ['mechanics']),
+		});
+		expect(emptyBranches(corpus).map((entry) => `${entry.file}: ${entry.message}`)).toEqual([
+			'branches/amount-of-substance.yaml: no entry lists this branch; assign entries to it or delete it',
+		]);
+	});
+
+	it('leaves no authored branch empty in the real corpus', () => {
+		const { corpus } = validateContent(loadContent(CONTENT_DIR));
+		expect(corpus.branches.size).toBeGreaterThan(0);
+		expect(emptyBranches(corpus)).toEqual([]);
 	});
 });

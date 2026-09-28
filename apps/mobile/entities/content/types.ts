@@ -1,5 +1,6 @@
 import type { LocalizedSegments } from '@equreka/content/rich-text';
 import type {
+	Branch,
 	Category,
 	Constant,
 	Equation,
@@ -32,6 +33,7 @@ export interface PresentedDescription {
 type Presented<T> = Omit<T, 'symbol' | 'symbolAlt'> & PresentedSymbol & PresentedDescription;
 
 export type PresentationCategory = Category & PresentedDescription;
+export type PresentationBranch = Branch & PresentedDescription;
 export type PresentationMagnitude = Presented<Magnitude>;
 export type PresentationUnit = Presented<Unit>;
 export type PresentationPrefix = Presented<Prefix>;
@@ -65,6 +67,7 @@ export type PresentationPath = Omit<Path, 'steps'> &
 
 export interface PresentationSlices {
 	categories: Record<string, PresentationCategory>;
+	branches: Record<string, PresentationBranch>;
 	magnitudes: Record<string, PresentationMagnitude>;
 	units: Record<string, PresentationUnit>;
 	prefixes: Record<string, PresentationPrefix>;
@@ -75,6 +78,12 @@ export interface PresentationSlices {
 }
 
 export type EntryCollection = keyof PresentationSlices;
+
+/**
+ * Collections whose entities carry `categories` and `branches`: everything
+ * but the two taxonomy collections themselves.
+ */
+export type MemberCollection = Exclude<EntryCollection, 'categories' | 'branches'>;
 
 export type PresentationEntry = {
 	[K in EntryCollection]: { collection: K; slug: string; entity: PresentationSlices[K][string] };

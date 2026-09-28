@@ -7,9 +7,15 @@ symbol:
 value: '6.02214076e+23'
 unit: 'reciprocal-mole'
 exact: true
+externalIds:
+  wikidata: 'Q6203'
+  qudt: 'http://qudt.org/vocab/constant/AvogadroConstant'
 categories:
   - 'universal'
   - 'chemistry'
+branches:
+  - 'amount-of-substance'
+  - 'si-system'
 aliases:
   - 'avogadro'
   - 'avogadro number'

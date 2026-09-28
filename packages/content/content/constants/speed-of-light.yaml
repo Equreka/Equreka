@@ -6,9 +6,16 @@ symbol:
 value: '299792458'
 unit: 'metre-per-second'
 exact: true
+externalIds:
+  wikidata: 'Q2111'
+  qudt: 'http://qudt.org/vocab/constant/SpeedOfLight_Vacuum'
 categories:
   - 'universal'
   - 'physics'
+branches:
+  - 'electromagnetism'
+  - 'modern-physics'
+  - 'si-system'
 aliases:
   - 'speed of light'
   - 'light speed'

@@ -18,8 +18,13 @@ toBase:
     url: 'https://www.nist.gov/pml/special-publication-811'
     ref: 'B.8: degree Fahrenheit (°F); T/K = (t/°F + 459.67)/1.8'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q42289'
+  qudt: 'http://qudt.org/vocab/unit/DEG_F'
 categories:
   - 'physics'
+branches:
+  - 'thermodynamics'
 aliases:
   - 'degF'
   - 'F'

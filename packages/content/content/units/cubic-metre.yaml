@@ -11,8 +11,13 @@ compose:
   of:
     - unit: 'metre'
       exp: 3
+externalIds:
+  wikidata: 'Q25517'
+  qudt: 'http://qudt.org/vocab/unit/M3'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 aliases:
   - 'cubic meter'
   - 'm3'

@@ -6,9 +6,15 @@ symbol:
 value: '6.62607015e-34'
 unit: 'joule-second'
 exact: true
+externalIds:
+  wikidata: 'Q122894'
+  qudt: 'http://qudt.org/vocab/constant/PlanckConstant'
 categories:
   - 'universal'
   - 'physics'
+branches:
+  - 'modern-physics'
+  - 'si-system'
 aliases:
   - 'planck'
   - 'h'

@@ -9,8 +9,13 @@ compose:
   of:
     - unit: 'mole'
       exp: -1
+externalIds:
+  wikidata: 'Q68712008'
+  qudt: 'http://qudt.org/vocab/unit/PER-MOL'
 categories:
   - 'chemistry'
+branches:
+  - 'amount-of-substance'
 aliases:
   - '1/mol'
   - 'per mole'

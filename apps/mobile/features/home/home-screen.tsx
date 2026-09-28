@@ -18,6 +18,7 @@ import { AppText, Lead, SectionTitle, Title } from '../../shared/ui/text';
 
 const CARD_KEYS: Record<EntryCollection, MessageKey> = {
 	categories: 'home.categories',
+	branches: 'collection.branches',
 	magnitudes: 'home.card.magnitudes',
 	units: 'home.card.units',
 	prefixes: 'home.card.prefixes',

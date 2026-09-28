@@ -10,8 +10,13 @@ dimension:
   T: -3
   I: -1
 kindOf: 'electric-potential'
+externalIds:
+  wikidata: 'Q77597807'
+  qudt: 'http://qudt.org/vocab/quantitykind/ElectricPotentialDifference'
 categories:
   - 'physics'
+branches:
+  - 'electromagnetism'
 aliases:
   - 'Voltage'
   - 'Electric pressure'

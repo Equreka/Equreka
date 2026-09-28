@@ -9,8 +9,13 @@ dimension:
   M: 1
   T: -2
 kindOf: 'energy'
+externalIds:
+  wikidata: 'Q44432'
+  qudt: 'http://qudt.org/vocab/quantitykind/Heat'
 categories:
   - 'physics'
+branches:
+  - 'thermodynamics'
 description:
   en: >-
     In thermodynamics, heat is energy in transfer to or from a thermodynamic system, by mechanisms

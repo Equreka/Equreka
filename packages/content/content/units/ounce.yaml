@@ -13,8 +13,13 @@ toBase:
     url: 'https://www.nist.gov/pml/special-publication-811'
     ref: 'B.8: ounce (avoirdupois) (oz); exact as 1/16 lb'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q48013'
+  qudt: 'http://qudt.org/vocab/unit/OZ'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 description:
   en: >-
     The international avoirdupois ounce (abbreviated oz) is defined as exactly 28.349523125 g under

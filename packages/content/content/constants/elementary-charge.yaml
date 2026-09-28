@@ -9,10 +9,18 @@ symbolAlt:
 value: '1.602176634e-19'
 unit: 'coulomb'
 exact: true
+externalIds:
+  wikidata: 'Q2101'
+  qudt: 'http://qudt.org/vocab/constant/ElementaryCharge'
 categories:
   - 'universal'
   - 'chemistry'
   - 'physics'
+branches:
+  - 'electromagnetism'
+  - 'modern-physics'
+  - 'atomic-structure'
+  - 'si-system'
 aliases:
   - 'electron charge'
   - 'e'

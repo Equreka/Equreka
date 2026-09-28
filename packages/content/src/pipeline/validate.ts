@@ -1,4 +1,5 @@
 import {
+	type Branch,
 	type Category,
 	type Constant,
 	collectionSchemas,
@@ -15,6 +16,7 @@ import { type Issue, issue } from './types.js';
 
 export interface Corpus {
 	categories: Map<string, Category>;
+	branches: Map<string, Branch>;
 	magnitudes: Map<string, Magnitude>;
 	units: Map<string, Unit>;
 	prefixes: Map<string, Prefix>;
@@ -33,6 +35,7 @@ export function validateContent(loaded: LoadedContent): ValidateResult {
 	const issues: Issue[] = [];
 	const corpus: Corpus = {
 		categories: new Map(),
+		branches: new Map(),
 		magnitudes: new Map(),
 		units: new Map(),
 		prefixes: new Map(),

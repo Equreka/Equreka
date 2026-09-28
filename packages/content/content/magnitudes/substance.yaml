@@ -7,8 +7,13 @@ baseUnit: 'mole'
 dimension:
   N: 1
 nonNegative: true
+externalIds:
+  wikidata: 'Q104946'
+  qudt: 'http://qudt.org/vocab/quantitykind/AmountOfSubstance'
 categories:
   - 'chemistry'
+branches:
+  - 'amount-of-substance'
 aliases:
   - 'amount of substance'
   - 'moles'

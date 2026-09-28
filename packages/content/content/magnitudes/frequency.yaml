@@ -9,8 +9,13 @@ baseUnit: 'hertz'
 dimension:
   T: -1
 nonNegative: true
+externalIds:
+  wikidata: 'Q11652'
+  qudt: 'http://qudt.org/vocab/quantitykind/Frequency'
 categories:
   - 'physics'
+branches:
+  - 'waves-and-oscillations'
 description:
   en: >-
     Frequency is the number of occurrences of a repeating event per unit of time. It is also

@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
 import { formatSigFigs } from '@equreka/engine/format';
+import BranchBadges from '../components/branch-badges.astro';
 import DraftBadge from '../components/draft-badge.astro';
 import EntryIdentifiers from '../components/entry-identifiers.astro';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
@@ -73,6 +74,7 @@ const metaDescription =
 						</span>
 					))
 				}
+				<BranchBadges locale={locale} branches={constant.branches} />
 				<UntranslatedBadge locale={locale} show={untranslated} />
 				<DraftBadge locale={locale} status={constant.status} />
 			</div>

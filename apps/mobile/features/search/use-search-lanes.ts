@@ -63,6 +63,7 @@ export function buildSearchLanes(locale: Locale): SearchLanes {
 		description: descriptionOf(entry, locale),
 		aliases: entry.aliases,
 		symbolText: entry.symbolText,
+		branches: entry.branches,
 	}));
 	const index = new MiniSearch<SearchDocument>(searchOptions);
 	index.addAll(documents);

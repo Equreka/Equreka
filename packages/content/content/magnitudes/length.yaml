@@ -7,8 +7,13 @@ baseUnit: 'metre'
 dimension:
   L: 1
 nonNegative: true
+externalIds:
+  wikidata: 'Q36253'
+  qudt: 'http://qudt.org/vocab/quantitykind/Length'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 aliases:
   - 'distance'
 description:

@@ -14,8 +14,13 @@ toBase:
     url: 'https://www.nist.gov/pml/special-publication-811'
     ref: 'B.8: gallon [Canadian and U.K. (Imperial)] (gal)'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q23925410'
+  qudt: 'http://qudt.org/vocab/unit/GAL_IMP'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 aliases:
   - 'UK gallon'
   - 'imp gal'

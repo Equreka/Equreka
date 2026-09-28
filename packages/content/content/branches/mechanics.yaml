@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=../../dist/schemas/branches.schema.json
+name:
+  en: 'Mechanics'
+category: 'physics'
+order: 0
+aliases:
+  - 'kinematics'
+  - 'dynamics'
+  - 'statics'
+  - 'classical mechanics'
+  - 'cinemática'
+  - 'dinámica'
+  - 'estática'
+description:
+  en: >-
+    Mechanics studies motion and the forces that cause it. Kinematics describes position, velocity
+    and acceleration; dynamics relates them to forces and mass through Newton's laws; statics treats
+    bodies in equilibrium. Length, mass and time are its base quantities, and energy, work and power
+    follow from them.

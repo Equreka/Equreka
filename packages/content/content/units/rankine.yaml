@@ -15,8 +15,13 @@ toBase:
     url: 'https://www.nist.gov/pml/special-publication-811'
     ref: 'B.8: degree Rankine (°R); T/K = (T/°R)/1.8'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q37732658'
+  qudt: 'http://qudt.org/vocab/unit/DEG_R'
 categories:
   - 'physics'
+branches:
+  - 'thermodynamics'
 aliases:
   - 'degR'
 description:

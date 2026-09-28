@@ -1,0 +1,19 @@
+# yaml-language-server: $schema=../../dist/schemas/branches.schema.json
+name:
+  en: 'Optics and photometry'
+category: 'physics'
+order: 4
+aliases:
+  - 'optics'
+  - 'photometry'
+  - 'radiometry'
+  - 'light'
+  - 'óptica'
+  - 'fotometría'
+  - 'radiometría'
+  - 'luz'
+description:
+  en: >-
+    Optics studies light and its interaction with matter. Radiometry measures electromagnetic
+    radiation as power; photometry weights that power by the spectral sensitivity of the human eye,
+    which is why the candela, the lumen and luminous efficacy exist alongside the watt.

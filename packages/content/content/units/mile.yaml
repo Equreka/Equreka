@@ -13,8 +13,13 @@ toBase:
     url: 'https://www.nist.gov/pml/special-publication-811'
     ref: 'B.8: mile (mi), international'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q253276'
+  qudt: 'http://qudt.org/vocab/unit/MI'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 aliases:
   - 'statute mile'
   - 'international mile'

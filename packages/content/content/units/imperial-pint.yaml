@@ -14,8 +14,13 @@ toBase:
     url: 'https://www.legislation.gov.uk/ukpga/1985/72/schedule/1'
     ref: 'Schedule 1: pint = 1/8 gallon'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q11123'
+  qudt: 'http://qudt.org/vocab/unit/PINT_UK'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 aliases:
   - 'UK pint'
   - 'imp pt'

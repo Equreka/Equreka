@@ -42,8 +42,18 @@ export const DERIVATION_FREE_UNITS: ReadonlySet<string> = new Set([
 ]);
 
 /**
+ * Taxonomy fields as every collection sees them: entityBase collections
+ * carry both, the categories and branches collections neither (a branch's
+ * single `category` is checked on its own).
+ */
+interface TaxonomyFields {
+	categories?: string[];
+	branches?: string[];
+}
+
+/**
  * Stage 3: cross-entity referential integrity plus the structural rules a
- * per-file schema cannot see (baseUnit linkage, the quantity-kind
+ * per-file schema cannot see (branch ⊂ category membership, baseUnit linkage, the quantity-kind
  * hierarchy, the affine ban, the derivation whitelist, nonConvertible
  * isolation, equation term/macro agreement). Numeric anchor rules land in
  * stage 4 resolution.
@@ -66,11 +76,40 @@ export function checkIntegrity(corpus: Corpus): Issue[] {
 		return false;
 	};
 
+	for (const [slug, branch] of corpus.branches) {
+		ref(fileOf('branches', slug), 'category', 'categories', branch.category);
+	}
+
 	for (const collection of Object.keys(corpus) as CollectionName[]) {
-		for (const [slug, entity] of corpus[collection] as Map<string, { categories?: string[] }>) {
+		for (const [slug, entity] of corpus[collection] as Map<string, TaxonomyFields>) {
 			const file = fileOf(collection, slug);
-			for (const category of entity.categories ?? []) {
+			const categories = entity.categories ?? [];
+			for (const category of categories) {
 				ref(file, 'categories', 'categories', category);
+			}
+			const seenBranches = new Set<string>();
+			for (const branchSlug of entity.branches ?? []) {
+				if (seenBranches.has(branchSlug)) {
+					issues.push(
+						issue('error', 'integrity', file, `branches: '${branchSlug}' is listed twice`),
+					);
+					continue;
+				}
+				seenBranches.add(branchSlug);
+				if (!ref(file, 'branches', 'branches', branchSlug)) {
+					continue;
+				}
+				const owner = corpus.branches.get(branchSlug)?.category;
+				if (owner !== undefined && !categories.includes(owner)) {
+					issues.push(
+						issue(
+							'error',
+							'integrity',
+							file,
+							`branches: '${branchSlug}' belongs to category '${owner}', which is not among this entry's categories [${categories.join(', ')}]; add '${owner}' to categories or drop the branch`,
+						),
+					);
+				}
 			}
 		}
 	}
@@ -396,6 +435,32 @@ export function orphanMagnitudes(corpus: Corpus): Issue[] {
 			`orphan magnitudes (only their own baseUnit lists them; no constant or equation term uses them; no externalIds): ${orphans.join(', ')} — author externalIds for a real quantity kind, or give a hosted unit an empty unitOf with a compose form and delete the magnitude`,
 		),
 	];
+}
+
+/**
+ * One warning per branch that no entry lists: an authored navigation level
+ * with nothing under it renders as an empty page.
+ */
+export function emptyBranches(corpus: Corpus): Issue[] {
+	const used = new Set<string>();
+	for (const collection of Object.keys(corpus) as CollectionName[]) {
+		for (const entity of (corpus[collection] as Map<string, TaxonomyFields>).values()) {
+			for (const branchSlug of entity.branches ?? []) {
+				used.add(branchSlug);
+			}
+		}
+	}
+	return [...corpus.branches.keys()]
+		.filter((slug) => !used.has(slug))
+		.sort()
+		.map((slug) =>
+			issue(
+				'warning',
+				'integrity',
+				fileOf('branches', slug),
+				'no entry lists this branch; assign entries to it or delete it',
+			),
+		);
 }
 
 /**

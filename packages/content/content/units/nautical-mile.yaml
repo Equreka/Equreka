@@ -13,8 +13,13 @@ toBase:
     url: 'https://www.nist.gov/pml/special-publication-811'
     ref: 'B.8: mile, nautical'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q93318'
+  qudt: 'http://qudt.org/vocab/unit/MI_N'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 aliases:
   - 'NM'
   - 'sea mile'

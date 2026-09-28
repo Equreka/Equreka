@@ -1,12 +1,14 @@
 ---
 import { getCollection } from 'astro:content';
 import { type Locale, localizedName, t } from '@equreka/core/i18n';
+import { type BranchGroup, branchesOfCategory, groupByBranch } from '@equreka/core/taxonomy';
 import BaseLayout from '../layouts/base-layout.astro';
 import { CATEGORY_TEXT } from '../lib/category-styles';
 import { asCategory, asMagnitude } from '../lib/collections';
 import { localePath } from '../lib/locale-paths';
 import { formatDimension } from '../lib/notation';
 import { engineSlice } from '../lib/server/engine-registry';
+import { branchRecords } from '../lib/server/taxonomy';
 import { renderSymbolHtml } from '../lib/tex';
 
 interface Props {
@@ -28,22 +30,48 @@ const byName = (
 	b: { name: { en: string; es?: string } },
 ) => localizedName(a, locale).localeCompare(localizedName(b, locale), locale);
 
-const grouped = categories
-	.map((category) => ({
-		slug: category.slug,
-		title: localizedName(category, locale),
-		magnitudes: magnitudes
-			.filter((magnitude) => magnitude.categories.includes(category.slug))
-			.sort(byName),
-	}))
-	.filter((group) => group.magnitudes.length > 0);
+const branches = await branchRecords();
 
-const groupedSlugs = new Set(
-	grouped.flatMap((group) => group.magnitudes.map((magnitude) => magnitude.slug)),
-);
-const ungrouped = magnitudes.filter((magnitude) => !groupedSlugs.has(magnitude.slug)).sort(byName);
+type ListedMagnitude = (typeof magnitudes)[number];
+
+function branchSections(slug: string, group: BranchGroup<ListedMagnitude>) {
+	const branch = group.branch === null ? undefined : branches[group.branch];
+	return {
+		id: `${slug}-${group.branch ?? 'general'}`,
+		title: branch === undefined ? t(locale, 'branch.general') : localizedName(branch, locale),
+		href: group.branch === null ? undefined : `/branches/${group.branch}/`,
+		magnitudes: group.entries,
+	};
+}
+
+const grouped = categories
+	.map((category) => {
+		const members = magnitudes
+			.filter((magnitude) => magnitude.categories.includes(category.slug))
+			.sort(byName);
+		return {
+			slug: category.slug,
+			title: localizedName(category, locale),
+			count: members.length,
+			sections: groupByBranch(members, branchesOfCategory(branches, category.slug)).map((group) =>
+				branchSections(category.slug, group),
+			),
+		};
+	})
+	.filter((group) => group.count > 0);
+
+const ungrouped = magnitudes
+	.filter(
+		(magnitude) => !categories.some((category) => magnitude.categories.includes(category.slug)),
+	)
+	.sort(byName);
 if (ungrouped.length > 0) {
-	grouped.push({ slug: 'other', title: t(locale, 'group.other'), magnitudes: ungrouped });
+	grouped.push({
+		slug: 'other',
+		title: t(locale, 'group.other'),
+		count: ungrouped.length,
+		sections: [branchSections('other', { branch: null, entries: ungrouped })],
+	});
 }
 
 function dimensionTextOf(slug: string): string {
@@ -74,72 +102,90 @@ function baseUnitOf(slug: string): { slug: string; name: string } | undefined {
 					class={`text-2xl font-semibold ${CATEGORY_TEXT[group.slug] ?? 'text-ink'}`}
 				>
 					<span id={`${group.slug}-heading`}>{group.title}</span>
-					<span class="ml-2 text-sm font-normal text-ink-muted">{group.magnitudes.length}</span>
+					<span class="ml-2 text-sm font-normal text-ink-muted">{group.count}</span>
 				</h2>
-				<div class="mt-4 overflow-x-auto rounded-lg border border-border">
-					<table class="w-full border-collapse bg-surface text-left">
-						<thead>
-							<tr class="border-b border-border text-sm text-ink-muted">
-								<th scope="col" class="w-24 px-4 py-2 font-medium">
-									{t(locale, 'table.symbol')}
-								</th>
-								<th scope="col" class="px-4 py-2 font-medium">
-									{t(locale, 'table.name')}
-								</th>
-								<th scope="col" class="px-4 py-2 font-medium">
-									{t(locale, 'table.dimension')}
-								</th>
-								<th scope="col" class="px-4 py-2 font-medium">
-									{t(locale, 'table.baseUnit')}
-								</th>
-							</tr>
-						</thead>
-						<tbody>
-							{group.magnitudes.map((magnitude) => {
-								const dimension = dimensionTextOf(magnitude.slug);
-								const baseUnit = baseUnitOf(magnitude.slug);
-								return (
-									<tr class="border-b border-border last:border-b-0">
-										<td
-											class="px-4 py-2"
-											set:html={renderSymbolHtml(
-												magnitude.symbol.tex,
-												magnitude.symbol.text ?? magnitude.symbol.tex,
-											)}
-										/>
-										<td class="px-4 py-2">
-											<a
-												class="text-accent hover:underline"
-												href={localePath(locale, `/magnitudes/${magnitude.slug}/`)}
-											>
-												{localizedName(magnitude, locale)}
-											</a>
-										</td>
-										<td class="px-4 py-2 text-sm">
-											{dimension === '' ? (
-												<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
-													{t(locale, 'badge.dimensionless')}
-												</span>
-											) : (
-												dimension
-											)}
-										</td>
-										<td class="px-4 py-2 text-sm">
-											{baseUnit !== undefined && (
-												<a
-													class="text-accent hover:underline"
-													href={localePath(locale, `/units/${baseUnit.slug}/`)}
-												>
-													{baseUnit.name}
-												</a>
-											)}
-										</td>
+				{group.sections.map((section) => (
+					<>
+						{(section.href !== undefined || group.sections.length > 1) && (
+							<h3 id={section.id} class="mt-6 text-lg font-medium">
+								{section.href !== undefined ? (
+									<a class="hover:underline" href={localePath(locale, section.href)}>
+										{section.title}
+									</a>
+								) : (
+									section.title
+								)}
+								<span class="ml-2 text-sm font-normal text-ink-muted">
+									{section.magnitudes.length}
+								</span>
+							</h3>
+						)}
+						<div class="mt-4 overflow-x-auto rounded-lg border border-border">
+							<table class="w-full border-collapse bg-surface text-left">
+								<thead>
+									<tr class="border-b border-border text-sm text-ink-muted">
+										<th scope="col" class="w-24 px-4 py-2 font-medium">
+											{t(locale, 'table.symbol')}
+										</th>
+										<th scope="col" class="px-4 py-2 font-medium">
+											{t(locale, 'table.name')}
+										</th>
+										<th scope="col" class="px-4 py-2 font-medium">
+											{t(locale, 'table.dimension')}
+										</th>
+										<th scope="col" class="px-4 py-2 font-medium">
+											{t(locale, 'table.baseUnit')}
+										</th>
 									</tr>
-								);
-							})}
-						</tbody>
-					</table>
-				</div>
+								</thead>
+								<tbody>
+									{section.magnitudes.map((magnitude) => {
+										const dimension = dimensionTextOf(magnitude.slug);
+										const baseUnit = baseUnitOf(magnitude.slug);
+										return (
+											<tr class="border-b border-border last:border-b-0">
+												<td
+													class="px-4 py-2"
+													set:html={renderSymbolHtml(
+														magnitude.symbol.tex,
+														magnitude.symbol.text ?? magnitude.symbol.tex,
+													)}
+												/>
+												<td class="px-4 py-2">
+													<a
+														class="text-accent hover:underline"
+														href={localePath(locale, `/magnitudes/${magnitude.slug}/`)}
+													>
+														{localizedName(magnitude, locale)}
+													</a>
+												</td>
+												<td class="px-4 py-2 text-sm">
+													{dimension === '' ? (
+														<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-xs font-medium text-accent">
+															{t(locale, 'badge.dimensionless')}
+														</span>
+													) : (
+														dimension
+													)}
+												</td>
+												<td class="px-4 py-2 text-sm">
+													{baseUnit !== undefined && (
+														<a
+															class="text-accent hover:underline"
+															href={localePath(locale, `/units/${baseUnit.slug}/`)}
+														>
+															{baseUnit.name}
+														</a>
+													)}
+												</td>
+											</tr>
+										);
+									})}
+								</tbody>
+							</table>
+						</div>
+					</>
+				))}
 			</section>
 		))
 	}

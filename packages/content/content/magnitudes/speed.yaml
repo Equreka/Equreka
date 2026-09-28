@@ -8,8 +8,13 @@ dimension:
   L: 1
   T: -1
 nonNegative: true
+externalIds:
+  wikidata: 'Q3711325'
+  qudt: 'http://qudt.org/vocab/quantitykind/Speed'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 aliases:
   - 'velocity'
 description:

@@ -8,10 +8,16 @@ baseUnit: 'steradian'
 dimension:
   A: 2
 nonNegative: true
+externalIds:
+  wikidata: 'Q208476'
+  qudt: 'http://qudt.org/vocab/quantitykind/SolidAngle'
 categories:
   - 'universal'
   - 'mathematics'
   - 'physics'
+branches:
+  - 'geometry'
+  - 'optics-and-photometry'
 description:
   en: |-
     In geometry, a solid angle (symbol: $\Omega$) is a measure of the amount of the field of view from some particular point that a given object covers. That is, it is a measure of how large the object appears to an observer looking from that point. The point from which the object is viewed is called the apex of the solid angle, and the object is said to subtend its solid angle from that point.

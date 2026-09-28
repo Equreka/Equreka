@@ -11,6 +11,7 @@ const documents: SearchDocument[] = [
 		description: 'El sistema métrico decimal de unidades',
 		aliases: ['métrico'],
 		symbolText: 'm',
+		branches: [],
 	},
 	{
 		id: 'units:ohm',
@@ -20,6 +21,7 @@ const documents: SearchDocument[] = [
 		description: 'Resistencia eléctrica',
 		aliases: ['ohm', 'Ω'],
 		symbolText: 'Ω',
+		branches: ['Electromagnetismo'],
 	},
 ];
 
@@ -46,5 +48,11 @@ describe('searchOptions', () => {
 		const index = new MiniSearch(searchOptions);
 		index.addAll(documents);
 		expect(index.search('electrica').map((result) => result.id)).toContain('units:ohm');
+	});
+
+	it('indexes branch names so a sub-discipline query reaches its members', () => {
+		const index = new MiniSearch(searchOptions);
+		index.addAll(documents);
+		expect(index.search('electromagnetismo').map((result) => result.id)).toEqual(['units:ohm']);
 	});
 });

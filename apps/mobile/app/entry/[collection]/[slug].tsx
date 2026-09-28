@@ -7,15 +7,15 @@ import { firstParam } from '../../../shared/navigation/params';
 import { useLocale } from '../../../shared/providers/equreka-provider';
 
 /**
- * The `equreka://entry/<collection>/<slug>` deep-link target. Paths and
- * categories own richer screens, so their links redirect there.
+ * The `equreka://entry/<collection>/<slug>` deep-link target. Paths,
+ * categories and branches own richer screens, so their links redirect there.
  */
 export default function EntryRoute() {
 	const locale = useLocale();
 	const params = useLocalSearchParams<{ collection: string; slug: string }>();
 	const collection = firstParam(params.collection) ?? '';
 	const slug = firstParam(params.slug) ?? '';
-	if (collection === 'paths' || collection === 'categories') {
+	if (collection === 'paths' || collection === 'categories' || collection === 'branches') {
 		return <Redirect href={entryHref(collection, slug)} />;
 	}
 	const summary = isEntryCollection(collection) ? getSummary(collection, slug, locale) : undefined;

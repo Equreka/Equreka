@@ -7,6 +7,10 @@
 			"packages/content/content/categories/*.yaml",
 			"!packages/content/content/categories/*.*.yaml"
 		],
+		"./packages/content/dist/schemas/branches.schema.json": [
+			"packages/content/content/branches/*.yaml",
+			"!packages/content/content/branches/*.*.yaml"
+		],
 		"./packages/content/dist/schemas/magnitudes.schema.json": [
 			"packages/content/content/magnitudes/*.yaml",
 			"!packages/content/content/magnitudes/*.*.yaml"
@@ -36,6 +40,7 @@
 			"!packages/content/content/paths/*.*.yaml"
 		],
 		"./packages/content/dist/schemas/categories.locale.schema.json": "packages/content/content/categories/*.*.yaml",
+		"./packages/content/dist/schemas/branches.locale.schema.json": "packages/content/content/branches/*.*.yaml",
 		"./packages/content/dist/schemas/magnitudes.locale.schema.json": "packages/content/content/magnitudes/*.*.yaml",
 		"./packages/content/dist/schemas/units.locale.schema.json": "packages/content/content/units/*.*.yaml",
 		"./packages/content/dist/schemas/prefixes.locale.schema.json": "packages/content/content/prefixes/*.*.yaml",

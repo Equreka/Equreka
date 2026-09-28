@@ -14,8 +14,13 @@ toBase:
     url: 'https://www.nist.gov/pml/special-publication-811'
     ref: 'B.8: quart (U.S. liquid) (qt); exact as 1/4 gal'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q98793408'
+  qudt: 'http://qudt.org/vocab/unit/QT_US'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 aliases:
   - 'quart'
   - 'qt'

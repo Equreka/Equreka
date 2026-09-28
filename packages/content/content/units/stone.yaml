@@ -13,8 +13,13 @@ toBase:
     url: 'https://www.legislation.gov.uk/ukpga/1985/72/schedule/1'
     ref: 'Schedule 1: stone = 14 pounds'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q1131660'
+  qudt: 'http://qudt.org/vocab/unit/Stone_UK'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 description:
   en: >-
     The stone or stone weight (abbreviation: $st$) is an English and imperial unit of mass equal to

@@ -13,8 +13,13 @@ toBase:
     url: 'https://www.nist.gov/pml/special-publication-811'
     ref: 'B.8: inch (in)'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q218593'
+  qudt: 'http://qudt.org/vocab/unit/IN'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 aliases:
   - 'inches'
 description:

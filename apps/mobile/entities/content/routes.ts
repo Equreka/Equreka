@@ -7,6 +7,7 @@ import type { EntryCollection } from './types';
  */
 export const COLLECTION_ORDER: readonly EntryCollection[] = [
 	'categories',
+	'branches',
 	'magnitudes',
 	'units',
 	'prefixes',
@@ -18,7 +19,8 @@ export const COLLECTION_ORDER: readonly EntryCollection[] = [
 
 /**
  * Collections with a browse list of their own; categories are the home
- * chips and variables surface only through equations and path steps.
+ * chips, branches open from category screens and browse sections, and
+ * variables surface only through equations and path steps.
  */
 export const BROWSABLE_COLLECTIONS: readonly EntryCollection[] = [
 	'magnitudes',
@@ -39,13 +41,14 @@ export function collectionRank(collection: string): number {
 }
 
 /**
- * In-app route for one catalog entry. Paths and categories have dedicated
- * screens; everything else is the generic entry screen, which is also the
+ * In-app route for one catalog entry. Paths, categories and branches have
+ * dedicated screens; everything else is the generic entry screen, which is also the
  * `equreka://entry/<collection>/<slug>` deep-link target.
  */
 export function entryHref(collection: string, slug: string): string {
 	if (collection === 'paths') return `/paths/${slug}`;
 	if (collection === 'categories') return `/category/${slug}`;
+	if (collection === 'branches') return `/branch/${slug}`;
 	return `/entry/${collection}/${slug}`;
 }
 

@@ -13,8 +13,13 @@ compose:
       exp: 1
     - unit: 'second'
       exp: -1
+externalIds:
+  wikidata: 'Q182429'
+  qudt: 'http://qudt.org/vocab/unit/M-PER-SEC'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 aliases:
   - 'meter per second'
   - 'm/s'

@@ -1,0 +1,14 @@
+# yaml-language-server: $schema=../../dist/schemas/branches.schema.json
+name:
+  en: 'Amount of substance'
+category: 'chemistry'
+order: 0
+aliases:
+  - 'stoichiometry'
+  - 'mole concept'
+  - 'estequiometría'
+description:
+  en: >-
+    Amount of substance counts entities (atoms, molecules, ions) in units of the mole, one of the
+    seven SI base quantities. Through the Avogadro constant it links the masses weighed in a
+    laboratory to the number of particles taking part in a reaction, the basis of stoichiometry.

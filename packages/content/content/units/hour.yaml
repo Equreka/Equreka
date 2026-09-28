@@ -13,9 +13,15 @@ toBase:
     url: 'https://www.bipm.org/en/publications/si-brochure'
     ref: 'Table 8: hour, 1 h = 3600 s'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q25235'
+  qudt: 'http://qudt.org/vocab/unit/HR'
 categories:
   - 'universal'
   - 'physics'
+branches:
+  - 'mechanics'
+  - 'measurement'
 aliases:
   - 'hr'
   - 'hrs'

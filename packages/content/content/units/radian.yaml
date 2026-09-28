@@ -6,10 +6,17 @@ symbol:
 unitOf:
   - 'plane-angle'
 system: 'si-derived'
+externalIds:
+  wikidata: 'Q33680'
+  qudt: 'http://qudt.org/vocab/unit/RAD'
 categories:
   - 'universal'
   - 'physics'
   - 'mathematics'
+branches:
+  - 'geometry'
+  - 'mechanics'
+  - 'si-system'
 description:
   en: >-
     The radian, denoted by the symbol ${\displaystyle {\text{rad}}}{\displaystyle {\text{rad}}}$, is

@@ -10,6 +10,7 @@ import {
 	t,
 } from '@equreka/core/i18n';
 import type { Path } from '@equreka/schema';
+import BranchBadges from '../components/branch-badges.astro';
 import DraftBadge from '../components/draft-badge.astro';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
 import FavoriteToggle from '../islands/favorite-toggle';
@@ -95,6 +96,7 @@ const local = (text: LocalizedText): string => pickLocalized(text, locale).value
 						</span>
 					))
 				}
+				<BranchBadges locale={locale} branches={path.branches} />
 				<UntranslatedBadge locale={locale} show={untranslated} />
 				<DraftBadge locale={locale} status={path.status} />
 			</div>

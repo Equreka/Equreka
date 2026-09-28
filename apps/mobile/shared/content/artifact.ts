@@ -1,5 +1,6 @@
 import engineJson from '@equreka/content/artifact/engine.json';
 import metaJson from '@equreka/content/artifact/meta.json';
+import branchesJson from '@equreka/content/artifact/presentation/branches.json';
 import categoriesJson from '@equreka/content/artifact/presentation/categories.json';
 import constantsJson from '@equreka/content/artifact/presentation/constants.json';
 import equationsJson from '@equreka/content/artifact/presentation/equations.json';
@@ -31,6 +32,7 @@ import type { EntryCollection, PresentationSlices } from '../../entities/content
 export function getPresentation<K extends EntryCollection>(collection: K): PresentationSlices[K] {
 	const slices: { [C in EntryCollection]: () => unknown } = {
 		categories: () => categoriesJson,
+		branches: () => branchesJson,
 		magnitudes: () => magnitudesJson,
 		units: () => unitsJson,
 		prefixes: () => prefixesJson,

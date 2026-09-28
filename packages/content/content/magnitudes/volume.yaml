@@ -7,10 +7,16 @@ baseUnit: 'cubic-metre'
 dimension:
   L: 3
 nonNegative: true
+externalIds:
+  wikidata: 'Q39297'
+  qudt: 'http://qudt.org/vocab/quantitykind/Volume'
 categories:
   - 'universal'
   - 'mathematics'
   - 'physics'
+branches:
+  - 'geometry'
+  - 'mechanics'
 aliases:
   - 'capacity'
 description:

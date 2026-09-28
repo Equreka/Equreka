@@ -8,6 +8,7 @@ import { equrekaLoader } from '@equreka/content/astro';
  */
 export const collections = {
 	categories: defineCollection({ loader: equrekaLoader('categories') }),
+	branches: defineCollection({ loader: equrekaLoader('branches') }),
 	magnitudes: defineCollection({ loader: equrekaLoader('magnitudes') }),
 	units: defineCollection({ loader: equrekaLoader('units') }),
 	prefixes: defineCollection({ loader: equrekaLoader('prefixes') }),

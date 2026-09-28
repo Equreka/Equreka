@@ -13,8 +13,13 @@ toBase:
     url: 'https://www.bipm.org/en/publications/si-brochure'
     ref: 'Table 8: tonne, 1 t = 1000 kg'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q191118'
+  qudt: 'http://qudt.org/vocab/unit/TONNE'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 aliases:
   - 'metric ton'
   - 'metric tonne'

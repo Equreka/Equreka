@@ -1,21 +1,14 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { getCollection } from 'astro:content';
-import {
-	collectionLabel,
-	type Locale,
-	type LocalizedText,
-	localizedName,
-	pickLocalized,
-	t,
-} from '@equreka/core/i18n';
+import { collectionLabel, type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
+import { branchesOfCategory, groupByBranch } from '@equreka/core/taxonomy';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
 import FavoriteToggle from '../islands/favorite-toggle';
 import BaseLayout from '../layouts/base-layout.astro';
 import { CATEGORY_BORDER, CATEGORY_TEXT } from '../lib/category-styles';
 import { asCategory } from '../lib/collections';
-import { entryHref } from '../lib/entry-links';
 import { localePath } from '../lib/locale-paths';
+import { branchRecords, byCollection, memberEntries } from '../lib/server/taxonomy';
 
 interface Props {
 	entry: CollectionEntry<'categories'>;
@@ -27,38 +20,18 @@ const category = asCategory(entry.data);
 const slug = entry.id;
 const name = localizedName(category, locale);
 
-const MEMBER_COLLECTIONS = [
-	'magnitudes',
-	'units',
-	'prefixes',
-	'constants',
-	'variables',
-	'equations',
-] as const;
-
-interface MemberEntry {
-	name: string;
-	href: string | undefined;
-}
-
-const groups: { collection: string; label: string; members: MemberEntry[] }[] = [];
-for (const collection of MEMBER_COLLECTIONS) {
-	const entries = await getCollection(collection);
-	const members = entries
-		.map((item) => ({
-			id: item.id,
-			data: item.data as { name: LocalizedText; categories: string[] },
-		}))
-		.filter((item) => item.data.categories.includes(slug))
-		.map((item) => ({
-			name: localizedName(item.data, locale),
-			href: entryHref(collection, item.id),
-		}))
-		.sort((a, b) => a.name.localeCompare(b.name, locale));
-	if (members.length > 0) {
-		groups.push({ collection, label: collectionLabel(locale, collection), members });
-	}
-}
+const branches = await branchRecords();
+const members = (await memberEntries(locale)).filter((member) => member.categories.includes(slug));
+const branchGroups = groupByBranch(members, branchesOfCategory(branches, slug)).map((group) => {
+	const branch = group.branch === null ? undefined : branches[group.branch];
+	return {
+		id: group.branch ?? 'general',
+		title: branch === undefined ? t(locale, 'branch.general') : localizedName(branch, locale),
+		href: group.branch === null ? undefined : `/branches/${group.branch}/`,
+		count: group.entries.length,
+		collections: byCollection(group.entries),
+	};
+});
 
 const description =
 	category.description === undefined ? undefined : pickLocalized(category.description, locale);
@@ -98,25 +71,68 @@ const metaDescription =
 		</header>
 
 		{
-			groups.map((group) => (
-				<section aria-labelledby={`${group.collection}-heading`} class="mt-10">
-					<h2 id={`${group.collection}-heading`} class="text-2xl font-semibold">
-						{group.label}
-						<span class="ml-2 text-sm font-normal text-ink-muted">{group.members.length}</span>
+			branchGroups.length > 1 && (
+				<nav aria-labelledby="branches-nav-heading" class="mt-8">
+					<h2 id="branches-nav-heading" class="text-sm font-medium text-ink-muted">
+						{t(locale, 'category.branches')}
 					</h2>
-					<ul class="mt-4 grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
-						{group.members.map((member) => (
+					<ul class="mt-2 flex flex-wrap gap-2 text-sm">
+						{branchGroups.map((group) => (
 							<li>
-								{member.href !== undefined ? (
-									<a class="text-accent hover:underline" href={localePath(locale, member.href)}>
-										{member.name}
-									</a>
-								) : (
-									member.name
-								)}
+								<a
+									class="inline-block rounded-full border border-border bg-surface px-3 py-1 text-accent hover:underline"
+									href={`#branch-${group.id}`}
+								>
+									{group.title}
+									<span class="ml-1 text-ink-muted">{group.count}</span>
+								</a>
 							</li>
 						))}
 					</ul>
+				</nav>
+			)
+		}
+
+		{
+			branchGroups.map((group) => (
+				<section aria-labelledby={`branch-${group.id}`} class="mt-10">
+					<h2 id={`branch-${group.id}`} class="text-2xl font-semibold">
+						{group.href !== undefined ? (
+							<a class="hover:underline" href={localePath(locale, group.href)}>
+								{group.title}
+							</a>
+						) : (
+							group.title
+						)}
+						<span class="ml-2 text-sm font-normal text-ink-muted">{group.count}</span>
+					</h2>
+					{group.collections.map((members) => (
+						<>
+							<h3
+								id={`branch-${group.id}-${members.collection}`}
+								class="mt-5 text-lg font-medium text-ink-muted"
+							>
+								{collectionLabel(locale, members.collection)}
+								<span class="ml-2 text-sm font-normal">{members.entries.length}</span>
+							</h3>
+							<ul class="mt-2 grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
+								{members.entries.map((member) => (
+									<li>
+										{member.href !== undefined ? (
+											<a
+												class="text-accent hover:underline"
+												href={localePath(locale, member.href)}
+											>
+												{member.name}
+											</a>
+										) : (
+											member.name
+										)}
+									</li>
+								))}
+							</ul>
+						</>
+					))}
 				</section>
 			))
 		}

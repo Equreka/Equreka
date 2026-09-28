@@ -13,9 +13,15 @@ toBase:
     name: 'convention'
     ref: '1 year = 365 d common year'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q235729'
+  qudt: 'http://qudt.org/vocab/unit/YR_Common'
 categories:
   - 'universal'
   - 'physics'
+branches:
+  - 'mechanics'
+  - 'measurement'
 aliases:
   - 'yr'
   - 'annum'

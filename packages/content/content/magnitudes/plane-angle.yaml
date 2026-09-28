@@ -7,10 +7,16 @@ symbol:
 baseUnit: 'radian'
 dimension:
   A: 1
+externalIds:
+  wikidata: 'Q2849635'
+  qudt: 'http://qudt.org/vocab/quantitykind/PlaneAngle'
 categories:
   - 'universal'
   - 'mathematics'
   - 'physics'
+branches:
+  - 'geometry'
+  - 'mechanics'
 aliases:
   - 'angle'
 description:

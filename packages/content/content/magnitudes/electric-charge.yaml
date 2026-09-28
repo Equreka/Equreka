@@ -7,8 +7,13 @@ baseUnit: 'coulomb'
 dimension:
   T: 1
   I: 1
+externalIds:
+  wikidata: 'Q1111'
+  qudt: 'http://qudt.org/vocab/quantitykind/ElectricCharge'
 categories:
   - 'physics'
+branches:
+  - 'electromagnetism'
 aliases:
   - 'charge'
 description:

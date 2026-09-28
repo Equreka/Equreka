@@ -11,8 +11,13 @@ dimension:
   T: -3
   I: -1
 kindOf: 'electric-potential'
+externalIds:
+  wikidata: 'Q185329'
+  qudt: 'http://qudt.org/vocab/quantitykind/ElectromotiveForce'
 categories:
   - 'physics'
+branches:
+  - 'electromagnetism'
 description:
   en: >-
     In electromagnetism and electronics, **electromotive force** (**emf**, denoted $\mathcal {E}$

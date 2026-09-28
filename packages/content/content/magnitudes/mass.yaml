@@ -7,8 +7,13 @@ baseUnit: 'kilogram'
 dimension:
   M: 1
 nonNegative: true
+externalIds:
+  wikidata: 'Q11423'
+  qudt: 'http://qudt.org/vocab/quantitykind/Mass'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 description:
   en: >-
     Property of matter to resist changes of the state of motion and to attract other bodies

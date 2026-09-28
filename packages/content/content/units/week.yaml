@@ -12,9 +12,15 @@ toBase:
     name: 'convention'
     ref: '1 week = 7 d'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q23387'
+  qudt: 'http://qudt.org/vocab/unit/WK'
 categories:
   - 'universal'
   - 'physics'
+branches:
+  - 'mechanics'
+  - 'measurement'
 description:
   en: >-
     A week is a time unit equal to seven days. It is the standard time period used for cycles of

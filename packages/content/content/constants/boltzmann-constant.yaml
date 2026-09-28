@@ -9,9 +9,15 @@ symbolAlt:
 value: '1.380649e-23'
 unit: 'joule-per-kelvin'
 exact: true
+externalIds:
+  wikidata: 'Q5962'
+  qudt: 'http://qudt.org/vocab/constant/BoltzmannConstant'
 categories:
   - 'universal'
   - 'physics'
+branches:
+  - 'thermodynamics'
+  - 'si-system'
 aliases:
   - 'boltzmann'
   - 'kB'

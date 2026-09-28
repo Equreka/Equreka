@@ -13,8 +13,13 @@ toBase:
     url: 'https://www.nist.gov/pml/special-publication-811'
     ref: 'B.8: pound (avoirdupois) (lb)'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q100995'
+  qudt: 'http://qudt.org/vocab/unit/LB'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 aliases:
   - 'lbs'
   - 'pound-mass'

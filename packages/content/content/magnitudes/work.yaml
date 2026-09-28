@@ -9,8 +9,14 @@ dimension:
   M: 1
   T: -2
 kindOf: 'energy'
+externalIds:
+  wikidata: 'Q42213'
+  qudt: 'http://qudt.org/vocab/quantitykind/Work'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
+  - 'thermodynamics'
 description:
   en: >-
     In physics, work is the energy transferred to or from an object via the application of force

@@ -15,7 +15,7 @@ interface SelectedEntry {
 }
 
 const ENTRY_PATH_RE =
-	/^\/(?:es\/)?(units|magnitudes|constants|equations|categories|paths)\/([^/]+)\/?$/;
+	/^\/(?:es\/)?(units|magnitudes|constants|equations|categories|branches|paths)\/([^/]+)\/?$/;
 
 /**
  * The URL the service worker failed to fetch: the offline reader HTML is

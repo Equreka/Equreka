@@ -13,8 +13,13 @@ compose:
       exp: 1
     - unit: 'kelvin'
       exp: -1
+externalIds:
+  wikidata: 'Q21393312'
+  qudt: 'http://qudt.org/vocab/unit/J-PER-K'
 categories:
   - 'physics'
+branches:
+  - 'thermodynamics'
 aliases:
   - 'J/K'
 description:

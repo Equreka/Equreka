@@ -13,8 +13,13 @@ toBase:
     url: 'https://www.nist.gov/pml/special-publication-811'
     ref: 'B.8: erg (erg)'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q185153'
+  qudt: 'http://qudt.org/vocab/unit/ERG'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 description:
   en: >-
     The erg is a unit of energy equal to $10^{−7} ~joules$ ($100 ~nJ$). It originated in the

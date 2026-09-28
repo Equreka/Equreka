@@ -9,8 +9,13 @@ dimension:
   J: 1
   A: 2
 nonNegative: true
+externalIds:
+  wikidata: 'Q107780'
+  qudt: 'http://qudt.org/vocab/quantitykind/LuminousFlux'
 categories:
   - 'physics'
+branches:
+  - 'optics-and-photometry'
 description:
   en: >-
     In photometry, luminous flux or luminous power is the measure of the perceived power of light.

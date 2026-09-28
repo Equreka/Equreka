@@ -11,8 +11,13 @@ compose:
   of:
     - unit: 'metre'
       exp: 2
+externalIds:
+  wikidata: 'Q25343'
+  qudt: 'http://qudt.org/vocab/unit/M2'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 aliases:
   - 'square meter'
   - 'm2'

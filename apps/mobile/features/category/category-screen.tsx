@@ -1,21 +1,26 @@
-import { collectionLabel, localizedName } from '@equreka/core/i18n';
+import { localizedName } from '@equreka/core/i18n';
 import { useRouter } from 'expo-router';
-import { View } from 'react-native';
-import { entriesInCategory } from '../../entities/content/lookup';
+import { branchSectionsInCategory } from '../../entities/content/lookup';
 import { entryHref } from '../../entities/content/routes';
 import { pickSegments } from '../../entities/content/text';
 import { getPresentation } from '../../shared/content/artifact';
 import { RichText } from '../../shared/math/math-view';
 import { useLocale, useT, useTheme } from '../../shared/providers/equreka-provider';
 import { categoryColor } from '../../shared/theme/theme';
-import { Badge, Row } from '../../shared/ui/card';
+import { Badge, LinkCard } from '../../shared/ui/card';
 import { HStack, Screen, VStack } from '../../shared/ui/screen';
 import { Muted, SectionTitle, Title } from '../../shared/ui/text';
+import { CollectionGroups } from '../branch/collection-groups';
 
 export interface CategoryScreenProps {
 	slug: string;
 }
 
+/**
+ * A category's entries by branch: each branch opens on a card that leads to
+ * its own screen, then its entries by collection; unbranched entries close
+ * the list under "General".
+ */
 export function CategoryScreen({ slug }: CategoryScreenProps) {
 	const locale = useLocale();
 	const t = useT();
@@ -29,36 +34,42 @@ export function CategoryScreen({ slug }: CategoryScreenProps) {
 			</Screen>
 		);
 	}
+	const branches = getPresentation('branches');
+	const color = categoryColor(theme, slug);
 	const description = pickSegments(category.descriptionSegments, locale);
-	const groups = entriesInCategory(slug, locale);
+	const sections = branchSectionsInCategory(slug, locale);
 	return (
 		<Screen>
 			<VStack>
 				<HStack>
 					<Title>{localizedName(category, locale)}</Title>
-					<Badge label={t('collection.categories')} color={categoryColor(theme, slug)} />
+					<Badge label={t('collection.categories')} color={color} />
 				</HStack>
 				{description === undefined ? null : <RichText segments={description.segments} />}
 				{description?.untranslated ? <Muted>{t('badge.untranslated')}</Muted> : null}
 			</VStack>
-			{groups.length === 0 ? <Muted>{t('mobile.category.empty')}</Muted> : null}
-			{groups.map((group) => (
-				<VStack key={group.collection}>
-					<SectionTitle>
-						{collectionLabel(locale, group.collection)} · {group.entries.length}
-					</SectionTitle>
-					<View style={{ borderRadius: theme.radius.md, overflow: 'hidden' }}>
-						{group.entries.map((entry) => (
-							<Row
-								key={entry.slug}
-								title={entry.name}
-								subtitle={entry.symbolText}
-								onPress={() => router.push(entryHref(entry.collection, entry.slug))}
+			{sections.length === 0 ? <Muted>{t('mobile.category.empty')}</Muted> : null}
+			{sections.map((section) => {
+				const branch = section.branch === null ? undefined : branches[section.branch];
+				const branchSlug = section.branch;
+				return (
+					<VStack key={branchSlug ?? 'general'}>
+						{branch === undefined || branchSlug === null ? (
+							<SectionTitle>
+								{t('branch.general')} · {section.count}
+							</SectionTitle>
+						) : (
+							<LinkCard
+								title={localizedName(branch, locale)}
+								detail={String(section.count)}
+								accent={color}
+								onPress={() => router.push(entryHref('branches', branchSlug))}
 							/>
-						))}
-					</View>
-				</VStack>
-			))}
+						)}
+						<CollectionGroups groups={section.groups} />
+					</VStack>
+				);
+			})}
 		</Screen>
 	);
 }

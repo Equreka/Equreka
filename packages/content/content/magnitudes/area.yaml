@@ -7,8 +7,13 @@ baseUnit: 'square-metre'
 dimension:
   L: 2
 nonNegative: true
+externalIds:
+  wikidata: 'Q11500'
+  qudt: 'http://qudt.org/vocab/quantitykind/Area'
 categories:
   - 'mathematics'
+branches:
+  - 'geometry'
 description:
   en: >-
     Area is the quantity that expresses the extent of a two-dimensional region, shape, or planar

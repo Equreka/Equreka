@@ -7,9 +7,15 @@ baseUnit: 'second'
 dimension:
   T: 1
 nonNegative: true
+externalIds:
+  wikidata: 'Q2199864'
+  qudt: 'http://qudt.org/vocab/quantitykind/Time'
 categories:
   - 'universal'
   - 'physics'
+branches:
+  - 'mechanics'
+  - 'measurement'
 aliases:
   - 'duration'
 description:

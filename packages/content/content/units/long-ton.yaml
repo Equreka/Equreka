@@ -13,8 +13,13 @@ toBase:
     url: 'https://www.nist.gov/pml/special-publication-811'
     ref: 'B.8: ton, long (2240 lb); exact as 2240 lb'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q667419'
+  qudt: 'http://qudt.org/vocab/unit/TON_LONG'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 aliases:
   - 'imperial ton'
   - 'UK ton'

@@ -6,8 +6,13 @@ symbol:
 baseUnit: 'ampere'
 dimension:
   I: 1
+externalIds:
+  wikidata: 'Q29996'
+  qudt: 'http://qudt.org/vocab/quantitykind/ElectricCurrent'
 categories:
   - 'physics'
+branches:
+  - 'electromagnetism'
 aliases:
   - 'current'
   - 'amperage'

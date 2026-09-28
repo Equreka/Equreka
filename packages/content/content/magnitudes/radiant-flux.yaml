@@ -10,8 +10,13 @@ dimension:
   M: 1
   T: -3
 kindOf: 'power'
+externalIds:
+  wikidata: 'Q1253356'
+  qudt: 'http://qudt.org/vocab/quantitykind/RadiantFlux'
 categories:
   - 'physics'
+branches:
+  - 'optics-and-photometry'
 description:
   en: >-
     In radiometry, radiant flux or radiant power is the radiant energy emitted, reflected,

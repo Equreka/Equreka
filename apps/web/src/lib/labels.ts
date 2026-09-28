@@ -6,6 +6,7 @@
  */
 export const COLLECTION_ORDER = [
 	'categories',
+	'branches',
 	'magnitudes',
 	'units',
 	'prefixes',

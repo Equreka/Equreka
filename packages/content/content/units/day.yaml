@@ -13,9 +13,15 @@ toBase:
     url: 'https://www.bipm.org/en/publications/si-brochure'
     ref: 'Table 8: day, 1 d = 86400 s'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q573'
+  qudt: 'http://qudt.org/vocab/unit/DAY'
 categories:
   - 'universal'
   - 'physics'
+branches:
+  - 'mechanics'
+  - 'measurement'
 description:
   en: >-
     As a term in physics and astronomy it is approximately the period during which the Earth

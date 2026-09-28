@@ -6,10 +6,17 @@ symbol:
 unitOf:
   - 'solid-angle'
 system: 'si-derived'
+externalIds:
+  wikidata: 'Q177612'
+  qudt: 'http://qudt.org/vocab/unit/SR'
 categories:
   - 'universal'
   - 'physics'
   - 'mathematics'
+branches:
+  - 'geometry'
+  - 'optics-and-photometry'
+  - 'si-system'
 description:
   en: |-
     The steradian (symbol: $sr$) or square radian is the SI unit of solid angle. It is used in three-dimensional geometry, and is analogous to the radian, which quantifies planar angles. Whereas an angle in radians, projected onto a circle, gives a length on the circumference, a solid angle in steradians, projected onto a sphere, gives an area on the surface. The name is derived from the Greek στερεός stereos "solid" + radian.

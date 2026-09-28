@@ -13,8 +13,13 @@ toBase:
     url: 'https://www.nist.gov/pml/special-publication-811'
     ref: 'B.8: foot pound-force (ft·lbf); exact via g_n = 9.80665 m/s²'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q730251'
+  qudt: 'http://qudt.org/vocab/unit/FT-LB_F_Energy'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 aliases:
   - 'ft-lb'
   - 'ft lbf'

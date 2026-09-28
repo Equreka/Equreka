@@ -13,9 +13,15 @@ toBase:
     url: 'https://www.bipm.org/en/publications/si-brochure'
     ref: 'Table 8: minute, 1 min = 60 s'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q7727'
+  qudt: 'http://qudt.org/vocab/unit/MIN'
 categories:
   - 'universal'
   - 'physics'
+branches:
+  - 'mechanics'
+  - 'measurement'
 description:
   en: >-
     The minute is a unit of time usually equal to $1/60$. Historically, the word "minute" comes from

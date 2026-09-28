@@ -1,5 +1,7 @@
 import { describe, expect, it, jest } from '@jest/globals';
 import { fireEvent, screen } from '@testing-library/react-native';
+import { BranchScreen } from '../features/branch/branch-screen';
+import { CategoryScreen } from '../features/category/category-screen';
 import { EntryScreen } from '../features/entry/entry-screen';
 import { HomeScreen } from '../features/home/home-screen';
 import { SettingsScreen } from '../features/settings/settings-screen';
@@ -109,6 +111,33 @@ describe('EntryScreen', () => {
 
 	it('reports an unknown entry instead of crashing', async () => {
 		await renderWithProvider(<EntryScreen collection="units" slug="does-not-exist" />);
+		expect(screen.getByText('This entry is not in the bundled library.')).toBeTruthy();
+	});
+});
+
+describe('CategoryScreen', () => {
+	it('sections a category by branch in authored order and opens a branch screen', async () => {
+		await renderWithProvider(<CategoryScreen slug="physics" />);
+		expect(screen.getByText('Mechanics')).toBeTruthy();
+		expect(screen.getByText('Modern physics')).toBeTruthy();
+		expect(screen.queryByText(/^General/)).toBeNull();
+		await fireEvent.press(screen.getByText('Thermodynamics'));
+		expect(mockPush).toHaveBeenCalledWith('/branch/thermodynamics');
+	});
+});
+
+describe('BranchScreen', () => {
+	it("lists the branch's entries by collection under its category badge", async () => {
+		await renderWithProvider(<BranchScreen slug="thermodynamics" />);
+		expect(screen.getByText('Thermodynamics')).toBeTruthy();
+		expect(screen.getByText('Branch of Physics')).toBeTruthy();
+		expect(screen.getByText(/^Kelvin/)).toBeTruthy();
+		expect(screen.getByText(/^Boltzmann constant/)).toBeTruthy();
+		expect(screen.queryByText(/^Metre/)).toBeNull();
+	});
+
+	it('reports an unknown branch instead of crashing', async () => {
+		await renderWithProvider(<BranchScreen slug="alchemy" />);
 		expect(screen.getByText('This entry is not in the bundled library.')).toBeTruthy();
 	});
 });

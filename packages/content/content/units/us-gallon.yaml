@@ -14,8 +14,13 @@ toBase:
     url: 'https://www.nist.gov/pml/special-publication-811'
     ref: 'B.8: gallon (U.S.) (gal); exact as 231 in³'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q23925413'
+  qudt: 'http://qudt.org/vocab/unit/GAL_US'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 aliases:
   - 'gallon'
   - 'gal'

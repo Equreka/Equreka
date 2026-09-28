@@ -1,8 +1,14 @@
 import type { Locale } from '@equreka/core/i18n';
 import { localizedName } from '@equreka/core/i18n';
+import { branchesOfCategory, groupByBranch } from '@equreka/core/taxonomy';
 import { getPresentation } from '../../shared/content/artifact';
 import { COLLECTION_ORDER } from './routes';
-import type { EntryCollection, PresentationEntry, PresentationSlices } from './types';
+import type {
+	EntryCollection,
+	MemberCollection,
+	PresentationEntry,
+	PresentationSlices,
+} from './types';
 
 /**
  * The list-row projection of one entity: what browse, category, search and
@@ -64,21 +70,110 @@ export interface CollectionGroup {
 	entries: EntrySummary[];
 }
 
+const MEMBER_COLLECTIONS = COLLECTION_ORDER.filter(
+	(collection): collection is MemberCollection =>
+		collection !== 'categories' && collection !== 'branches',
+);
+
+/**
+ * A list row plus the taxonomy it is filed under, for branch grouping.
+ */
+interface FiledSummary extends EntrySummary {
+	categories: readonly string[];
+	branches: readonly string[];
+}
+
+function filedEntries(
+	collections: readonly MemberCollection[],
+	locale: Locale,
+	keep: (entity: { categories: string[]; branches: string[] }) => boolean,
+): FiledSummary[] {
+	return collections.flatMap((collection) =>
+		Object.entries(getPresentation(collection))
+			.filter(([, entity]) => keep(entity))
+			.map(([slug, entity]) => ({
+				...summaryOf(collection, slug, entity, locale),
+				categories: entity.categories,
+				branches: entity.branches,
+			}))
+			.sort(compareByName),
+	);
+}
+
+function toSummary({ collection, slug, name, symbolText }: FiledSummary): EntrySummary {
+	return { collection, slug, name, symbolText };
+}
+
 /**
  * Every entity tagged with the category, grouped in canonical collection
- * order; categories themselves carry no `categories` field and are skipped.
+ * order.
  */
 export function entriesInCategory(categorySlug: string, locale: Locale): CollectionGroup[] {
-	const groups: CollectionGroup[] = [];
-	for (const collection of COLLECTION_ORDER) {
-		if (collection === 'categories') continue;
-		const entries = Object.entries(getPresentation(collection))
-			.filter(([, entity]) => entity.categories.includes(categorySlug))
-			.map(([slug, entity]) => summaryOf(collection, slug, entity, locale))
-			.sort(compareByName);
-		if (entries.length > 0) groups.push({ collection, entries });
-	}
-	return groups;
+	return groupByCollection(
+		filedEntries(MEMBER_COLLECTIONS, locale, (entity) =>
+			entity.categories.includes(categorySlug),
+		).map(toSummary),
+	);
+}
+
+/**
+ * One branch section; `branch` is null for entries filed under none of the
+ * category's branches (shown as "General").
+ */
+export interface BranchSection {
+	branch: string | null;
+	count: number;
+	groups: CollectionGroup[];
+}
+
+/**
+ * The category's entries by branch (in authored order), each branch split
+ * by collection; an entry filed under two branches appears in both.
+ */
+export function branchSectionsInCategory(categorySlug: string, locale: Locale): BranchSection[] {
+	const entries = filedEntries(MEMBER_COLLECTIONS, locale, (entity) =>
+		entity.categories.includes(categorySlug),
+	);
+	return groupByBranch(entries, branchesOfCategory(getPresentation('branches'), categorySlug)).map(
+		(group) => ({
+			branch: group.branch,
+			count: group.entries.length,
+			groups: groupByCollection(group.entries.map(toSummary)),
+		}),
+	);
+}
+
+/**
+ * Every branch slug, categories in their authored order and branches in
+ * theirs within each category.
+ */
+export function orderedBranches(): string[] {
+	const branches = getPresentation('branches');
+	return Object.entries(getPresentation('categories'))
+		.sort(([, a], [, b]) => a.order - b.order)
+		.flatMap(([categorySlug]) => branchesOfCategory(branches, categorySlug));
+}
+
+/**
+ * One collection's browse list sectioned by branch across all categories,
+ * branchless entries last.
+ */
+export function branchSectionsOfCollection(
+	collection: MemberCollection,
+	locale: Locale,
+): { branch: string | null; entries: EntrySummary[] }[] {
+	return groupByBranch(
+		filedEntries([collection], locale, () => true),
+		orderedBranches(),
+	).map((group) => ({ branch: group.branch, entries: group.entries.map(toSummary) }));
+}
+
+export function entriesInBranch(branchSlug: string, locale: Locale): CollectionGroup[] {
+	return groupByCollection(
+		filedEntries(MEMBER_COLLECTIONS, locale, (entity) => entity.branches.includes(branchSlug)).map(
+			toSummary,
+		),
+	);
 }
 
 export function groupByCollection(entries: readonly EntrySummary[]): CollectionGroup[] {

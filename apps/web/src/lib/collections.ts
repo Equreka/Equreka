@@ -1,4 +1,5 @@
 import type {
+	Branch,
 	Category,
 	Constant,
 	Equation,
@@ -24,6 +25,10 @@ export function asMagnitude(data: Record<string, unknown>): Magnitude {
 
 export function asCategory(data: Record<string, unknown>): Category {
 	return data as unknown as Category;
+}
+
+export function asBranch(data: Record<string, unknown>): Branch {
+	return data as unknown as Branch;
 }
 
 export function asConstant(data: Record<string, unknown>): Constant {

@@ -107,6 +107,7 @@ export type PathsPayload = Record<
 
 const READER_COLLECTIONS = [
 	'categories',
+	'branches',
 	'magnitudes',
 	'units',
 	'prefixes',
