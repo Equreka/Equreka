@@ -1,6 +1,8 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Joule'
+namePlural:
+  en: 'joules'
 symbol:
   tex: 'J'
 unitOf:
@@ -8,6 +10,16 @@ unitOf:
   - 'work'
   - 'heat'
 system: 'si-derived'
+prefixes:
+  - 'femto'
+  - 'pico'
+  - 'nano'
+  - 'micro'
+  - 'milli'
+  - 'kilo'
+  - 'mega'
+  - 'giga'
+  - 'tera'
 compose:
   of:
     - unit: 'kilogram'
@@ -16,8 +28,14 @@ compose:
       exp: 2
     - unit: 'second'
       exp: -2
+externalIds:
+  wikidata: 'Q25269'
+  qudt: 'http://qudt.org/vocab/unit/J'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
+  - 'thermodynamics'
 description:
   en: >-
     The joule (/dʒaʊl, dʒuːl/ jowl, jool) is a derived unit of energy in the International System of

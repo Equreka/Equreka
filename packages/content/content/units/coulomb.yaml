@@ -1,19 +1,36 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Coulomb'
+namePlural:
+  en: 'coulombs'
 symbol:
   tex: 'C'
 unitOf:
   - 'electric-charge'
 system: 'si-derived'
+prefixes:
+  - 'femto'
+  - 'pico'
+  - 'nano'
+  - 'micro'
+  - 'milli'
+  - 'kilo'
+  - 'mega'
+  - 'giga'
+  - 'tera'
 compose:
   of:
     - unit: 'ampere'
       exp: 1
     - unit: 'second'
       exp: 1
+externalIds:
+  wikidata: 'Q25406'
+  qudt: 'http://qudt.org/vocab/unit/C'
 categories:
   - 'physics'
+branches:
+  - 'electromagnetism'
 description:
   en: >-
     The coulomb (symbol: $C$) is the International System of Units (SI) unit of electric charge.

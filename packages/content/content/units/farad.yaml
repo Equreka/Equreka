@@ -1,19 +1,36 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Farad'
+namePlural:
+  en: 'farads'
 symbol:
   tex: 'F'
 unitOf:
   - 'capacitance'
 system: 'si-derived'
+prefixes:
+  - 'femto'
+  - 'pico'
+  - 'nano'
+  - 'micro'
+  - 'milli'
+  - 'kilo'
+  - 'mega'
+  - 'giga'
+  - 'tera'
 compose:
   of:
     - unit: 'coulomb'
       exp: 1
     - unit: 'volt'
       exp: -1
+externalIds:
+  wikidata: 'Q131255'
+  qudt: 'http://qudt.org/vocab/unit/FARAD'
 categories:
   - 'physics'
+branches:
+  - 'electromagnetism'
 description:
   en: |-
     The farad (symbol: $F$) is the SI derived unit of electrical capacitance, the ability of a body to store an electrical charge. It is named after the English physicist Michael Faraday (1791-1867). In SI base units $1 ~F = 1 ~kg^{−1}⋅m^{−2}⋅s^{4}⋅A^{2}$.

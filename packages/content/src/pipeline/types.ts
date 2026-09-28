@@ -3,6 +3,7 @@ import type { CollectionName, TranslationLocale } from '@equreka/schema';
 export type Stage =
 	| 'load'
 	| 'validate'
+	| 'expand'
 	| 'integrity'
 	| 'resolve'
 	| 'dimensions'

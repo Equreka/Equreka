@@ -1,17 +1,34 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Hertz'
+namePlural:
+  en: 'hertz'
 symbol:
   tex: 'Hz'
 unitOf:
   - 'frequency'
 system: 'si-derived'
+prefixes:
+  - 'femto'
+  - 'pico'
+  - 'nano'
+  - 'micro'
+  - 'milli'
+  - 'kilo'
+  - 'mega'
+  - 'giga'
+  - 'tera'
 compose:
   of:
     - unit: 'second'
       exp: -1
+externalIds:
+  wikidata: 'Q39369'
+  qudt: 'http://qudt.org/vocab/unit/HZ'
 categories:
   - 'physics'
+branches:
+  - 'waves-and-oscillations'
 description:
   en: >-
     The $hertz$ (symbol: $Hz$) is the derived unit of frequency in the International System of Units

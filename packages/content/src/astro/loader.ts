@@ -1,6 +1,13 @@
 import { fileURLToPath } from 'node:url';
-import { type CollectionName, collectionSchemas } from '@equreka/schema';
-import { loadCollection } from '../pipeline/load.js';
+import {
+	type CollectionName,
+	collectionSchemas,
+	type Prefix,
+	prefix as prefixSchema,
+	type Unit,
+} from '@equreka/schema';
+import { type LoadedCollection, loadCollection } from '../pipeline/load.js';
+import { expandPrefixedUnits } from '../pipeline/prefix-expansion.js';
 
 /**
  * Structural subset of Astro's Content Layer Loader contract — declared
@@ -32,6 +39,45 @@ export interface EqurekaLoaderOptions {
 	contentDir?: string;
 }
 
+interface LoaderEntry {
+	id: string;
+	data: Record<string, unknown>;
+}
+
+/**
+ * The units collection with its generated prefixed units (ADR 0007), so the
+ * site builds a page for every unit the artifact carries. Prefixes that
+ * fail validation are skipped here; the prefixes loader reports them.
+ */
+function expandedUnitEntries(
+	contentDir: string,
+	loaded: LoadedCollection,
+	entries: readonly LoaderEntry[],
+	problems: string[],
+): LoaderEntry[] {
+	const prefixes = new Map<string, Prefix>();
+	for (const entry of loadCollection(contentDir, 'prefixes').entries) {
+		const parsed = prefixSchema.safeParse(entry.data);
+		if (parsed.success) {
+			prefixes.set(entry.file.slug, parsed.data);
+		}
+	}
+	const expansion = expandPrefixedUnits(
+		new Map(entries.map((entry) => [entry.id, entry.data as unknown as Unit])),
+		prefixes,
+		new Map(loaded.entries.map((entry) => [entry.file.slug, entry.data])),
+	);
+	for (const entry of expansion.issues) {
+		if (entry.severity === 'error') {
+			problems.push(`${entry.file}: ${entry.message}`);
+		}
+	}
+	return [...expansion.units].map(([id, unit]) => ({
+		id,
+		data: unit as unknown as Record<string, unknown>,
+	}));
+}
+
 export function equrekaLoader(
 	collection: CollectionName,
 	options: EqurekaLoaderOptions = {},
@@ -44,7 +90,7 @@ export function equrekaLoader(
 			const loaded = loadCollection(contentDir, collection);
 			const schema = collectionSchemas[collection];
 			const problems = loaded.issues.map((entry) => `${entry.file}: ${entry.message}`);
-			const entries: { id: string; data: Record<string, unknown> }[] = [];
+			const parsedEntries: LoaderEntry[] = [];
 			for (const entry of loaded.entries) {
 				const parsed = schema.safeParse(entry.data);
 				if (!parsed.success) {
@@ -55,8 +101,12 @@ export function equrekaLoader(
 					}
 					continue;
 				}
-				entries.push({ id: entry.file.slug, data: parsed.data as Record<string, unknown> });
+				parsedEntries.push({ id: entry.file.slug, data: parsed.data as Record<string, unknown> });
 			}
+			const entries =
+				collection === 'units'
+					? expandedUnitEntries(contentDir, loaded, parsedEntries, problems)
+					: parsedEntries;
 			if (problems.length > 0) {
 				throw new Error(`equreka ${collection} loader: ${problems.join('; ')}`);
 			}

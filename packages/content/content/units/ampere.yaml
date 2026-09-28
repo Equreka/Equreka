@@ -1,13 +1,30 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Ampere'
+namePlural:
+  en: 'amperes'
 symbol:
   tex: 'A'
 unitOf:
   - 'electric-current'
 system: 'si'
+prefixes:
+  - 'femto'
+  - 'pico'
+  - 'nano'
+  - 'micro'
+  - 'milli'
+  - 'kilo'
+  - 'mega'
+  - 'giga'
+  - 'tera'
+externalIds:
+  wikidata: 'Q25272'
+  qudt: 'http://qudt.org/vocab/unit/A'
 categories:
   - 'physics'
+branches:
+  - 'electromagnetism'
 aliases:
   - 'amp'
   - 'amps'

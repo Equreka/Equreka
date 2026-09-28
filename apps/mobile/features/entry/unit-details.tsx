@@ -1,4 +1,4 @@
-import { localizedName } from '@equreka/core/i18n';
+import { type Locale, localizedName, tParts } from '@equreka/core/i18n';
 import { formatSigFigs } from '@equreka/engine/format';
 import { useRouter } from 'expo-router';
 import { useMemo } from 'react';
@@ -12,7 +12,7 @@ import { useLocale, useT, useTheme } from '../../shared/providers/equreka-provid
 import { Button } from '../../shared/ui/button';
 import { Row } from '../../shared/ui/card';
 import { VStack } from '../../shared/ui/screen';
-import { Muted, SectionTitle } from '../../shared/ui/text';
+import { AppText, Muted, SectionTitle } from '../../shared/ui/text';
 
 export interface UnitDetailsProps {
 	slug: string;
@@ -42,6 +42,51 @@ function converterMagnitudeOf(slug: string, unitOf: readonly string[]): string |
 		.filter((magnitude) => magnitude.dimension.every((value, index) => value === dimension[index]))
 		.map((magnitude) => magnitude.slug)
 		.sort()[0];
+}
+
+/**
+ * "Derived from <base> with the SI prefix <prefix>." for a prefixed unit,
+ * each name a link to its entry; the sentence order is the locale's.
+ */
+function DerivationLine({
+	prefixOf,
+	locale,
+}: {
+	prefixOf: NonNullable<PresentationUnit['prefixOf']>;
+	locale: Locale;
+}) {
+	const router = useRouter();
+	const base = getSummary('units', prefixOf.base, locale);
+	const prefix = getSummary('prefixes', prefixOf.prefix, locale);
+	const links = {
+		base: {
+			label: base?.name ?? prefixOf.base,
+			href: entryHref('units', prefixOf.base),
+		},
+		prefix: {
+			label: (prefix?.name ?? prefixOf.prefix).toLocaleLowerCase(locale),
+			href: entryHref('prefixes', prefixOf.prefix),
+		},
+	};
+	return (
+		<AppText size="sm" tone="muted">
+			{tParts(locale, 'unit.derivedFrom').map((part, index) => {
+				if (part.kind === 'text') return part.text;
+				const link = part.name === 'base' ? links.base : links.prefix;
+				return (
+					<AppText
+						key={`${part.name}-${index}`}
+						size="sm"
+						tone="accent"
+						accessibilityRole="link"
+						onPress={() => router.push(link.href)}
+					>
+						{link.label}
+					</AppText>
+				);
+			})}
+		</AppText>
+	);
 }
 
 /**
@@ -79,6 +124,9 @@ export function UnitDetails({ slug, unit }: UnitDetailsProps) {
 	const converterMagnitude = converterMagnitudeOf(slug, unit.unitOf);
 	return (
 		<>
+			{unit.prefixOf === undefined ? null : (
+				<DerivationLine prefixOf={unit.prefixOf} locale={locale} />
+			)}
 			<VStack>
 				<SectionTitle>
 					{magnitudes.length > 1 ? t('unit.magnitudes') : t('unit.magnitude')}

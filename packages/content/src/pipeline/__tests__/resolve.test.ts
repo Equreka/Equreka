@@ -2,6 +2,7 @@ import { fileURLToPath } from 'node:url';
 import { collectionSchemas } from '@equreka/schema';
 import { beforeAll, describe, expect, it } from 'vitest';
 import { loadContent } from '../load.js';
+import { expandCorpus } from '../prefix-expansion.js';
 import { RAT_ONE, rat, ratMul } from '../rational.js';
 import { type ResolveResult, resolveUnits } from '../resolve.js';
 import { type Corpus, validateContent } from '../validate.js';
@@ -16,7 +17,9 @@ beforeAll(() => {
 	expect(loaded.issues).toEqual([]);
 	const validated = validateContent(loaded);
 	expect(validated.issues).toEqual([]);
-	corpus = validated.corpus;
+	const expansion = expandCorpus(validated.corpus, loaded);
+	expect(expansion.issues).toEqual([]);
+	corpus = expansion.corpus;
 	resolution = resolveUnits(corpus);
 	expect(resolution.issues).toEqual([]);
 });
@@ -141,6 +144,7 @@ describe('resolveUnits over the real corpus', () => {
 function syntheticCorpus(units: Record<string, unknown>): Corpus {
 	return {
 		categories: new Map(),
+		branches: new Map(),
 		magnitudes: new Map([
 			[
 				'energy',

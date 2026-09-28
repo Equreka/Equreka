@@ -31,6 +31,7 @@ export const en = {
 	'collection.variables': 'Variables',
 	'collection.equations': 'Equations',
 	'collection.paths': 'Paths',
+	'collection.branches': 'Branches',
 
 	'system.si': 'SI',
 	'system.si-derived': 'SI derived',
@@ -86,15 +87,16 @@ export const en = {
 	'home.card.paths':
 		'Guided learning paths through units, constants, and equations, with self-checks.',
 
-	'meta.units': 'All units of measurement in the Equreka wiki, grouped by category.',
+	'meta.units': 'All units of measurement in the Equreka wiki, grouped by category and branch.',
 	'units.lead':
-		'{count} units grouped by category. Every unit page includes a conversion table computed by the Equreka engine.',
+		'{count} units grouped by category and branch. Every unit page includes a conversion table computed by the Equreka engine.',
 	'meta.unit': '{name} ({symbol}) — unit reference and conversions.',
 	'unit.magnitude': 'Magnitude',
 	'unit.magnitudes': 'Magnitudes',
 	'unit.compoundHint':
 		'Compound unit: its dimension comes from its composition, not from a named magnitude.',
 	'unit.convert': 'Convert {name}',
+	'unit.derivedFrom': 'Derived from {base} with the SI prefix {prefix}.',
 	'conversions.title': 'Conversions',
 	'conversions.lead':
 		'The value of 1 {symbol} in every compatible unit, computed by the Equreka engine. Approximate values are rounded to 6 significant figures.',
@@ -103,9 +105,9 @@ export const en = {
 	'entry.identifiers': 'Identifiers',
 
 	'meta.magnitudes':
-		'All physical magnitudes in the Equreka wiki, grouped by category, with dimensions and base units.',
+		'All physical magnitudes in the Equreka wiki, grouped by category and branch, with dimensions and base units.',
 	'magnitudes.lead':
-		'{count} magnitudes grouped by category. Every magnitude page lists all of its units with engine-computed factors to the base unit.',
+		'{count} magnitudes grouped by category and branch. Every magnitude page lists all of its units with engine-computed factors to the base unit.',
 	'meta.magnitude': '{name} ({symbol}) — magnitude reference with all of its units.',
 	'magnitude.sign': 'Sign',
 	'magnitude.nonNegative': 'Non-negative quantity',
@@ -148,6 +150,11 @@ export const en = {
 	'equation.relatedUnits': 'Related units',
 
 	'meta.category': 'Everything in the {name} category of the Equreka wiki.',
+	'category.branches': 'Branches',
+	'branch.general': 'General',
+	'branch.of': 'Branch of {category}',
+	'meta.branch': 'Everything in {name}, a branch of {category}, in the Equreka wiki.',
+	'mobile.branch.empty': 'Nothing in this branch yet.',
 
 	'meta.calculator': 'Solve any calculator-enabled equation for any term with the Equreka engine.',
 	'calculator.title': 'Calculator',
@@ -167,6 +174,12 @@ export const en = {
 		'Fill in every value except the one to solve for — it is computed as you type.',
 	'calculator.allRoots': 'All roots: {roots} — the admissible root is shown above.',
 	'calculator.failed': 'The calculation failed.',
+	'calculator.unitFor': 'Unit for {name}',
+	'calculator.resultUnit': 'Result unit',
+	'calculator.solvedFormBaseUnits':
+		"The substituted form shows each value in its term's base unit, the units the formula is written in.",
+	'calculator.unitsUnavailable':
+		'Unit choices could not be loaded. Enter values in the units shown.',
 
 	'engine.inputs/empty': 'Fill in every value except the one to solve for.',
 	'engine.inputs/underdetermined': 'Leave exactly one field empty — the one to solve for.',

@@ -50,6 +50,35 @@ export function t(
 }
 
 /**
+ * One piece of a message split at its `{param}` tokens: literal text, or
+ * the name of a param the UI fills with its own element (a link).
+ */
+export type MessagePart = { kind: 'text'; text: string } | { kind: 'param'; name: string };
+
+/**
+ * `t` for messages whose params are rich elements rather than strings:
+ * the localized template split into text and param parts, in order, so
+ * web and mobile interleave their own links without string concatenation.
+ */
+export function tParts(
+	locale: Locale,
+	key: MessageKey,
+	catalogs: Catalogs = CATALOGS,
+): MessagePart[] {
+	const template = t(locale, key, undefined, catalogs);
+	const parts: MessagePart[] = [];
+	let from = 0;
+	for (const match of template.matchAll(PARAM_RE)) {
+		const at = match.index ?? 0;
+		if (at > from) parts.push({ kind: 'text', text: template.slice(from, at) });
+		parts.push({ kind: 'param', name: match[1] ?? '' });
+		from = at + match[0].length;
+	}
+	if (from < template.length) parts.push({ kind: 'text', text: template.slice(from) });
+	return parts;
+}
+
+/**
  * Localized message for an engine failure — every EngineError code has a
  * catalog entry under `engine.<code>` (statically checked: a code without
  * one fails typecheck here).
@@ -60,6 +89,7 @@ export function engineMessage(locale: Locale, code: ErrorCode): string {
 
 const COLLECTION_KEYS: Record<string, MessageKey> = {
 	categories: 'collection.categories',
+	branches: 'collection.branches',
 	magnitudes: 'collection.magnitudes',
 	units: 'collection.units',
 	prefixes: 'collection.prefixes',

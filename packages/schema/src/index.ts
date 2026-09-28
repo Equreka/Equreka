@@ -1,5 +1,6 @@
 import type { CollectionName } from './common.js';
 import {
+	branch,
 	category,
 	constant,
 	equation,
@@ -23,6 +24,7 @@ export const SCHEMA_VERSION = 2;
  */
 export const collectionSchemas = {
 	categories: category,
+	branches: branch,
 	magnitudes: magnitude,
 	units: unit,
 	prefixes: prefix,

@@ -39,8 +39,13 @@ const SEARCH_BUDGET_BYTES = 1024 * 1024;
 const MATH_ATLAS_BUDGET_BYTES = 200 * 1024;
 const MATH_BODIES_BUDGET_BYTES = 1024 * 1024;
 
+/**
+ * `generatedUnits` are the prefix-expanded units with no hand file; their
+ * presentation records carry `generated: true` (ADR 0007).
+ */
 export interface EmitInput {
 	corpus: Corpus;
+	generatedUnits: ReadonlySet<string>;
 	resolved: Map<string, ResolvedUnit>;
 	verifications: Map<string, EquationVerification>;
 	math: MathArtifact;
@@ -104,6 +109,11 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 		for (const [slug, entity] of corpus[collection] as Map<string, Record<string, unknown>>) {
 			record[slug] = presentationOf(entity);
 		}
+		if (collection === 'units') {
+			for (const slug of input.generatedUnits) {
+				record[slug] = { ...(record[slug] as Record<string, unknown>), generated: true };
+			}
+		}
 		if (collection === 'equations') {
 			for (const [slug, equation] of corpus.equations) {
 				record[slug] = {
@@ -155,6 +165,7 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 			name: document.name,
 			symbolText: document.symbolText,
 			aliases: document.aliases,
+			branches: document.branches,
 		}));
 		write(
 			`search/catalog-lite.${locale}.json`,
@@ -326,13 +337,14 @@ function searchDocuments(corpus: Corpus, locale: SearchLocale): SearchDocument[]
 			if (entity === undefined) {
 				continue;
 			}
-			documents.push(searchDocumentOf(collection, slug, entity, locale));
+			documents.push(searchDocumentOf(corpus, collection, slug, entity, locale));
 		}
 	}
 	return documents;
 }
 
 function searchDocumentOf(
+	corpus: Corpus,
 	collection: CollectionName,
 	slug: string,
 	entity: Record<string, unknown>,
@@ -342,6 +354,10 @@ function searchDocumentOf(
 	const description = entity.description as { en: string; es?: string } | undefined;
 	const symbol = entity.symbol as AuthoredSymbol | undefined;
 	const localizedDescription = description?.[locale] ?? description?.en ?? '';
+	const branchNames = ((entity.branches as string[] | undefined) ?? [])
+		.map((branchSlug) => corpus.branches.get(branchSlug)?.name)
+		.filter((branchName) => branchName !== undefined)
+		.map((branchName) => branchName[locale] ?? branchName.en);
 	return {
 		id: `${collection}:${slug}`,
 		collection,
@@ -350,5 +366,6 @@ function searchDocumentOf(
 		description: stripTexForSearch(localizedDescription),
 		aliases: (entity.aliases as string[] | undefined) ?? [],
 		symbolText: symbol === undefined ? '' : symbolText(symbol),
+		branches: branchNames,
 	};
 }

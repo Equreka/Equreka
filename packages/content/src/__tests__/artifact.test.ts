@@ -14,6 +14,15 @@ import {
 	type MathBodies,
 	type RichTextSegment,
 } from '../rich-text.js';
+import prefixedBaseline from './fixtures/prefixed-units-baseline.json';
+
+/**
+ * Categories whose entries must sit in a sub-discipline; universal entries
+ * may stay branchless. The allowlist names `collection/slug` exceptions.
+ */
+const BRANCHED_CATEGORIES: readonly string[] = ['physics', 'mathematics', 'chemistry'];
+
+const BRANCHLESS_ALLOWLIST: readonly string[] = [];
 
 let outDir: string;
 let coldOutDir: string;
@@ -152,7 +161,11 @@ describe('build over the real corpus', () => {
 			'magnitudes.json',
 		);
 		expect(magnitudes.length?.status).toBe('draft');
-		expect(magnitudes.length?.externalIds).toBeUndefined();
+		expect(magnitudes.length?.externalIds).toEqual({
+			wikidata: 'Q36253',
+			qudt: 'http://qudt.org/vocab/quantitykind/Length',
+		});
+		expect(magnitudes.work?.externalIds).not.toEqual(magnitudes.energy?.externalIds);
 	});
 
 	it('derives related units and canonical expression TeX into the equations presentation slice', () => {
@@ -225,6 +238,52 @@ describe('build over the real corpus', () => {
 		);
 		expect(row).toMatchObject({ name: 'Las siete unidades base del SI' });
 		expect(row?.aliases).toContain('unidades base');
+	});
+
+	it('files every physics, mathematics and chemistry entry under at least one branch', () => {
+		const branchless: string[] = [];
+		for (const collection of COLLECTIONS) {
+			const slice = readJson<Record<string, { categories?: string[]; branches?: string[] }>>(
+				'presentation',
+				`${collection}.json`,
+			);
+			for (const [slug, entity] of Object.entries(slice)) {
+				const disciplined = (entity.categories ?? []).some((category) =>
+					BRANCHED_CATEGORIES.includes(category),
+				);
+				if (disciplined && (entity.branches ?? []).length === 0) {
+					branchless.push(`${collection}/${slug}`);
+				}
+			}
+		}
+		expect(branchless.filter((key) => !BRANCHLESS_ALLOWLIST.includes(key))).toEqual([]);
+	});
+
+	it('emits branches ordered within their category and indexes their names on member entries', () => {
+		const branches = readJson<
+			Record<string, { category: string; order: number; name: { en: string; es?: string } }>
+		>('presentation', 'branches.json');
+		expect(branches.thermodynamics).toMatchObject({
+			category: 'physics',
+			name: { en: 'Thermodynamics', es: 'Termodinámica' },
+		});
+		const physicsOrder = Object.entries(branches)
+			.filter(([, branch]) => branch.category === 'physics')
+			.sort(([, a], [, b]) => a.order - b.order)
+			.map(([slug]) => slug);
+		expect(physicsOrder[0]).toBe('mechanics');
+		const units = readJson<Record<string, { branches: string[] }>>('presentation', 'units.json');
+		expect(units.kelvin?.branches).toEqual(['thermodynamics']);
+		const catalog = readJson<{ collection: string; slug: string; branches: string[] }[]>(
+			'search',
+			'catalog-lite.es.json',
+		);
+		expect(
+			catalog.find((row) => row.collection === 'units' && row.slug === 'kelvin'),
+		).toMatchObject({ branches: ['Termodinámica'] });
+		expect(
+			catalog.find((row) => row.collection === 'branches' && row.slug === 'thermodynamics'),
+		).toMatchObject({ branches: [] });
 	});
 
 	it('emits a draft-07 authoring JSON Schema per collection for editors', () => {
@@ -301,6 +360,61 @@ describe('build over the real corpus', () => {
 		expect(pythagorean?.a?.({ b: 5, c: 4 })).toBeNull();
 		const massEnergy = module.solutions['mass-energy-equivalence'];
 		expect(massEnergy?.E?.({ m: 1, c: 299792458 })).toBeCloseTo(8.987551787368176e16, 4);
+	});
+});
+
+describe('generated prefixed units (ADR 0007)', () => {
+	it('resolve the 13 formerly hand-authored prefixed slugs to their pre-expansion factors', () => {
+		const units = engineSlice.parse(readJson('engine.json')).units;
+		for (const [slug, expected] of Object.entries(prefixedBaseline)) {
+			expect(units[slug], slug).toMatchObject(expected);
+		}
+	});
+
+	it('emit every generated unit in the engine slice, presentation, search and catalog', () => {
+		expect(report.generatedUnits.size).toBeGreaterThan(100);
+		const units = engineSlice.parse(readJson('engine.json')).units;
+		const presentation = readJson<Record<string, { generated?: boolean }>>(
+			'presentation',
+			'units.json',
+		);
+		const catalog = readJson<{ collection: string; slug: string }[]>(
+			'search',
+			'catalog-lite.en.json',
+		);
+		const catalogUnits = new Set(
+			catalog.filter((entry) => entry.collection === 'units').map((entry) => entry.slug),
+		);
+		for (const slug of report.generatedUnits) {
+			expect(units[slug], slug).toBeDefined();
+			expect(presentation[slug]?.generated, slug).toBe(true);
+			expect(catalogUnits.has(slug), slug).toBe(true);
+		}
+		for (const slug of report.overriddenUnits) {
+			expect(presentation[slug]?.generated, slug).toBeUndefined();
+		}
+		expect(presentation.metre?.generated).toBeUndefined();
+	});
+
+	it('keeps the hand overrides and merges generated translations into them', () => {
+		expect([...report.overriddenUnits].sort()).toEqual(['centimetre', 'microgram', 'micrometre']);
+		const presentation = readJson<
+			Record<string, { name: { en: string; es?: string }; aliases: string[] }>
+		>('presentation', 'units.json');
+		expect(presentation.micrometre?.name).toEqual({ en: 'Micrometre', es: 'Micrómetro' });
+		expect(presentation.micrometre?.aliases).toEqual(
+			expect.arrayContaining(['micrometer', 'um', 'micron']),
+		);
+		expect(presentation.microgram?.aliases).toEqual(expect.arrayContaining(['ug', 'mcg']));
+	});
+
+	it('scales the base factor exactly for every generated unit', () => {
+		const units = engineSlice.parse(readJson('engine.json')).units;
+		expect(units.kilojoule).toMatchObject({ factor: '1000', exact: true });
+		expect(units.hectopascal).toMatchObject({ factor: '100', exact: true });
+		expect(units.picofarad).toMatchObject({ factor: '0.000000000001', exact: true });
+		expect(units.kilogram).toMatchObject({ factor: '1' });
+		expect(units.kilolitre).toBeUndefined();
 	});
 });
 

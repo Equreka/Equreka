@@ -1,20 +1,37 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Ohm'
+namePlural:
+  en: 'ohms'
 symbol:
   tex: '\Omega'
   text: 'Ω'
 unitOf:
   - 'electrical-resistance'
 system: 'si-derived'
+prefixes:
+  - 'femto'
+  - 'pico'
+  - 'nano'
+  - 'micro'
+  - 'milli'
+  - 'kilo'
+  - 'mega'
+  - 'giga'
+  - 'tera'
 compose:
   of:
     - unit: 'volt'
       exp: 1
     - unit: 'ampere'
       exp: -1
+externalIds:
+  wikidata: 'Q47083'
+  qudt: 'http://qudt.org/vocab/unit/OHM'
 categories:
   - 'physics'
+branches:
+  - 'electromagnetism'
 aliases:
   - 'ohm'
   - 'ohms'

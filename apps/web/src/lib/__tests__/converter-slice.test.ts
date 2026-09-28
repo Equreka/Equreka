@@ -26,6 +26,8 @@ describe('converter payload round trip', () => {
 		const payload = buildConverterPayload(slice, 'en');
 		expect(payload.magnitudes.work?.kindOf).toBe('energy');
 		expect(payload.magnitudes.energy?.kindOf).toBeUndefined();
-		expect(slugs(client.unitsForMagnitude('work'))).toEqual(['erg', 'foot-pound', 'joule']);
+		expect(slugs(client.unitsForMagnitude('work'))).toEqual(
+			expect.arrayContaining(['erg', 'foot-pound', 'joule', 'kilojoule']),
+		);
 	});
 });

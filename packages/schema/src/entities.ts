@@ -22,6 +22,20 @@ export const category = z
 	.strict();
 
 /**
+ * A sub-discipline of exactly one category (physics → thermodynamics), the
+ * second navigation level. `order` sorts branches within their category.
+ */
+export const branch = z
+	.object({
+		name: localizedText,
+		description: localizedText.optional(),
+		aliases: z.array(z.string().min(1)).default([]),
+		category: ref('categories'),
+		order: intFromString.refine((value) => value >= 0, 'order must be nonnegative'),
+	})
+	.strict();
+
+/**
  * SI base-dimension exponents plus a synthetic angle dimension `A` (ADR 0002:
  * 30° → rad must convert while ° → dimensionless must not silently succeed).
  * Partial: omitted keys are exponent 0.
@@ -108,14 +122,22 @@ export const compose = z
  * not anchor a magnitude or appear in another unit's derivation. An empty
  * `unitOf` is legal only with `compose` (N·m, kW·h): the dimension then
  * comes from the operands, so no synthetic magnitude is minted to host it.
+ * `prefixes` lists the SI prefixes the pipeline expands this unit with
+ * (ADR 0007): each one yields a generated `<prefix><slug>` unit in
+ * `prefixOf` form, and a hand file of that slug overrides it. `namePlural`
+ * is the lowercase running-prose plural ('metres', 'hertz') the generated
+ * names and descriptions are composed from, so it is required with
+ * `prefixes`.
  */
 export const unit = entityBase
 	.extend({
 		symbol,
 		symbolAlt: symbol.optional(),
+		namePlural: localizedText.optional(),
 		unitOf: z.array(ref('magnitudes')).default([]),
 		system: unitSystem.default('other'),
 		nonConvertible: strictBool.default(false),
+		prefixes: z.array(ref('prefixes')).default([]),
 		toBase: toBase.optional(),
 		prefixOf: z
 			.object({
@@ -148,6 +170,34 @@ export const unit = entityBase
 			ctx.addIssue({
 				code: 'custom',
 				message: 'a nonConvertible unit has no mapping to a base and therefore no derivation form',
+			});
+		}
+		if (value.prefixes.length === 0) {
+			return;
+		}
+		if (value.prefixOf !== undefined) {
+			ctx.addIssue({
+				code: 'custom',
+				path: ['prefixes'],
+				message: 'a prefixed unit takes no further prefixes; declare them on its base unit',
+			});
+		}
+		if (value.nonConvertible) {
+			ctx.addIssue({
+				code: 'custom',
+				path: ['prefixes'],
+				message: 'a nonConvertible unit has no factor for a prefix to scale',
+			});
+		}
+		if (new Set(value.prefixes).size !== value.prefixes.length) {
+			ctx.addIssue({ code: 'custom', path: ['prefixes'], message: 'prefixes must not repeat' });
+		}
+		if (value.namePlural === undefined) {
+			ctx.addIssue({
+				code: 'custom',
+				path: ['namePlural'],
+				message:
+					'namePlural is required with prefixes: generated names and descriptions count in the plural',
 			});
 		}
 	});
@@ -303,6 +353,7 @@ export const path = entityBase
 	});
 
 export type Category = z.infer<typeof category>;
+export type Branch = z.infer<typeof branch>;
 export type DimensionVector = z.infer<typeof dimensionVector>;
 export type Magnitude = z.infer<typeof magnitude>;
 export type Unit = z.infer<typeof unit>;

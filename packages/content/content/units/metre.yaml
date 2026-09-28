@@ -1,13 +1,34 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Metre'
+namePlural:
+  en: 'metres'
 symbol:
   tex: 'm'
 unitOf:
   - 'length'
 system: 'si'
+prefixes:
+  - 'femto'
+  - 'pico'
+  - 'nano'
+  - 'micro'
+  - 'milli'
+  - 'centi'
+  - 'deci'
+  - 'deca'
+  - 'hecto'
+  - 'kilo'
+  - 'mega'
+  - 'giga'
+  - 'tera'
+externalIds:
+  wikidata: 'Q11573'
+  qudt: 'http://qudt.org/vocab/unit/M'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 aliases:
   - 'meter'
   - 'metres'

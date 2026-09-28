@@ -1,15 +1,35 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Gram'
+namePlural:
+  en: 'grams'
 symbol:
   tex: 'g'
 unitOf:
   - 'mass'
 system: 'si-derived'
+prefixes:
+  - 'femto'
+  - 'pico'
+  - 'nano'
+  - 'micro'
+  - 'milli'
+  - 'centi'
+  - 'deci'
+  - 'deca'
+  - 'hecto'
+  - 'mega'
+  - 'giga'
+  - 'tera'
 toBase:
   factor: '0.001'
+externalIds:
+  wikidata: 'Q41803'
+  qudt: 'http://qudt.org/vocab/unit/GM'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 description:
   en: >-
     The gram is the main unit of mass in the Cegesimal System of Units, and the unit of weight in

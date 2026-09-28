@@ -26,6 +26,9 @@ const countSummary = Object.entries(report.counts)
 	.join(', ');
 
 console.log(`@equreka/content ${command}: ${total} entities (${countSummary})`);
+console.log(
+	`prefix expansion: ${report.generatedUnits.size + report.overriddenUnits.size} prefixed units (${report.generatedUnits.size} generated, ${report.overriddenUnits.size} hand overrides)`,
+);
 console.log(`content hash ${report.contentHash.slice(0, 12)}…`);
 for (const [slug, verification] of report.verifications) {
 	const solved = Object.entries(verification.samples)

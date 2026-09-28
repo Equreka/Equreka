@@ -1,5 +1,14 @@
 import { describe, expect, it } from 'vitest';
-import { category, constant, equation, magnitude, path, prefix, unit } from '../entities.js';
+import {
+	branch,
+	category,
+	constant,
+	equation,
+	magnitude,
+	path,
+	prefix,
+	unit,
+} from '../entities.js';
 
 describe('unit', () => {
 	it('accepts a primitive affine unit (fahrenheit)', () => {
@@ -536,5 +545,43 @@ describe('external identifiers', () => {
 		expect(withIds({ qudt: 'https://example.org/vocab/unit/M' })).toBe(false);
 		expect(withIds({ qudt: 'unit:M' })).toBe(false);
 		expect(withIds({ dbpedia: 'Metre' })).toBe(false);
+	});
+});
+
+describe('branch', () => {
+	it('accepts a failsafe-parsed branch and coerces its order', () => {
+		const parsed = branch.parse({
+			name: { en: 'Thermodynamics' },
+			category: 'physics',
+			order: '2',
+		});
+		expect(parsed).toEqual({
+			name: { en: 'Thermodynamics' },
+			category: 'physics',
+			order: 2,
+			aliases: [],
+		});
+	});
+
+	it('names exactly one category and rejects entity fields', () => {
+		expect(branch.safeParse({ name: { en: 'Optics' }, order: '0' }).success).toBe(false);
+		expect(
+			branch.safeParse({ name: { en: 'Optics' }, category: 'physics', order: '-1' }).success,
+		).toBe(false);
+		expect(
+			branch.safeParse({
+				name: { en: 'Optics' },
+				category: 'physics',
+				categories: ['physics'],
+				order: '0',
+			}).success,
+		).toBe(false);
+	});
+
+	it('is listed on entities as slug refs, defaulting to none', () => {
+		const base = { name: { en: 'Kilo' }, symbol: { tex: 'k' }, value: '1e3' };
+		expect(prefix.parse(base).branches).toEqual([]);
+		expect(prefix.parse({ ...base, branches: ['si-system'] }).branches).toEqual(['si-system']);
+		expect(prefix.safeParse({ ...base, branches: ['SI System'] }).success).toBe(false);
 	});
 });

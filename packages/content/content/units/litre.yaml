@@ -1,11 +1,26 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Litre'
+namePlural:
+  en: 'litres'
 symbol:
   tex: 'l'
 unitOf:
   - 'volume'
 system: 'other'
+prefixes:
+  - 'femto'
+  - 'pico'
+  - 'nano'
+  - 'micro'
+  - 'milli'
+  - 'centi'
+  - 'deci'
+  - 'deca'
+  - 'hecto'
+  - 'mega'
+  - 'giga'
+  - 'tera'
 toBase:
   factor: '0.001'
   source:
@@ -13,8 +28,13 @@ toBase:
     url: 'https://www.bipm.org/en/publications/si-brochure'
     ref: 'Table 8: litre, 1 L = 1 dm³'
 status: 'reviewed'
+externalIds:
+  wikidata: 'Q11582'
+  qudt: 'http://qudt.org/vocab/unit/L'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
 aliases:
   - 'liter'
   - 'liters'

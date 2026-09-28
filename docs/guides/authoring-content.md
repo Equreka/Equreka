@@ -27,14 +27,41 @@ Run `pnpm --filter @equreka/content build` once so `dist/schemas/*.schema.json` 
 - **Comments.** Only the schema header. Rationale belongs in `description`, sources in `references`, numeric provenance in `toBase.source` (units) or `source` (constants).
 - **Localization.** Entity files carry English only: every localized field is `{ en: ... }`. Translations live in one sidecar per locale beside the entity (`<slug>.es.yaml`, see *Translations*); an inline `es:` key is rejected by both yaml-lint and the loader, so each language has exactly one home. A missing translation falls back to English with an untranslated notice.
 - **Aliases.** `aliases` feeds the exact-match search lane: US spellings (`meter`), ASCII forms of Greek (`mu`, `ohm`), degree-text forms (`degC`), symbol variants users type (`m/s`, `J/K`), nicknames (`avogadro number`). Lowercase-insensitive; diacritics are folded at index and query time.
-- **Editorial status.** Every entity except categories takes `status: 'draft' | 'reviewed'` (default `draft`). `reviewed` asserts that a person checked the entry's numbers against the source it cites; it is not a claim about prose polish. Web and mobile show a subtle *draft* badge on every entry that is not `reviewed`. Set it only in the same change that adds or verifies the citation.
-- **External identifiers.** Every entity except categories takes an optional `externalIds: { wikidata?, qudt? }` — `wikidata` is an item QID (`'Q11573'`), `qudt` a `http(s)://qudt.org/...` IRI (`'http://qudt.org/vocab/unit/M'`). The web entry page links them and lists them as `sameAs` in its schema.org JSON-LD. Cite the exact concept: a unit's QID, never its quantity's.
+- **Taxonomy.** Every entity except categories and branches takes `categories` and `branches` (see *branches*).
+- **Editorial status.** Every entity except categories and branches takes `status: 'draft' | 'reviewed'` (default `draft`). `reviewed` asserts that a person checked the entry's numbers against the source it cites; it is not a claim about prose polish. Web and mobile show a subtle *draft* badge on every entry that is not `reviewed`. Set it only in the same change that adds or verifies the citation.
+- **External identifiers.** Every entity except categories and branches takes an optional `externalIds: { wikidata?, qudt? }` — `wikidata` is an item QID (`'Q11573'`), `qudt` a `http(s)://qudt.org/...` IRI (`'http://qudt.org/vocab/unit/M'`). The web entry page links them and lists them as `sameAs` in its schema.org JSON-LD. Cite the exact concept: a unit's QID, never its quantity's.
 
 ## Collections
 
 ### categories
 
 `name`, `description?`, `aliases?`, `order` (nonnegative integer string). Slug is the category id referenced everywhere else.
+
+### branches
+
+The second navigation level: a sub-discipline of exactly one category (physics → thermodynamics). `name`, `description?`, `aliases?`, `category` (ref: categories), `order` (nonnegative integer string; sorts branches within their category, ties break by slug). Every branch gets an `es` sidecar with its `name` and `description`.
+
+```yaml
+# yaml-language-server: $schema=../../dist/schemas/branches.schema.json
+name:
+  en: 'Thermodynamics'
+category: 'physics'
+order: 2
+aliases:
+  - 'thermal physics'
+description:
+  en: >-
+    Thermodynamics studies heat, work and temperature ...
+```
+
+Every other entity (magnitudes, units, prefixes, constants, variables, equations, paths) files itself under branches with `branches: ['mechanics', 'thermodynamics']` next to `categories`:
+
+- **Membership is explicit.** Each listed branch's `category` must already be in the entity's own `categories`; a branch never adds its category implicitly. `units/metre.yaml` listing `amount-of-substance` without `chemistry` in `categories` fails the integrity stage, as do an unknown branch slug and a branch listed twice.
+- **Coverage.** Every entry in `physics`, `mathematics` or `chemistry` lists at least one branch of that discipline (the artifact test holds an explicit, currently empty, allowlist of exceptions). `universal` entries may stay branchless; they then appear under *General* on the Universal category page.
+- **Judgment.** File an entry where a teacher would teach it, not everywhere it appears: joule is mechanics and thermodynamics; hertz is waves and oscillations; a unit of length is mechanics. Several branches are fine when the entry is genuinely central to each (the elementary charge: electromagnetism, modern physics, atomic structure, SI).
+- **Empty branches warn.** A branch no entry lists produces one build warning; assign entries or delete it.
+
+Branches drive navigation only — no engine, conversion or calculator behaviour depends on them. Category pages section their entries by branch (unbranched last under *General*), `/branches/<slug>/` lists a branch by collection, the units and magnitudes lists subgroup each category by branch, entry pages link their branches, and branch names are a search field, so a query for `termodinámica` reaches kelvin.
 
 ### magnitudes
 
@@ -48,7 +75,7 @@ Author a magnitude only for a real quantity kind (ISO/IEC 80000; luminous effica
 
 ### units
 
-`name`, `symbol`, `symbolAlt?`, `unitOf` (magnitude refs; all must share a dimension; empty or omitted only with `compose`, see below), `system` (`si | si-derived | imperial | uscs | cgs | other`), `nonConvertible?`, plus **exactly one** derivation form — or none, in the two cases below.
+`name`, `namePlural?`, `symbol`, `symbolAlt?`, `unitOf` (magnitude refs; all must share a dimension; empty or omitted only with `compose`, see below), `system` (`si | si-derived | imperial | uscs | cgs | other`), `nonConvertible?`, `prefixes?` (see *Prefixed units*), plus **exactly one** derivation form — or none, in the two cases below.
 
 **Form 1 — `toBase`** (linear or affine primitive against the SI-coherent base):
 
@@ -67,7 +94,7 @@ toBase:
 
 **Provenance.** `toBase.source` is `{ name, url?, ref? }`: the publication, a link, and a locator inside it (table, section, or row). Every `imperial`, `uscs`, `cgs` and `other` factor carries one. Preferred sources, in order: the defining document (SI Brochure Table 8 for units accepted for use with the SI; the UK Weights and Measures Act 1985 Schedule 1 for imperial-only units such as stone, imperial pint and quart); NIST SP 811 Appendix B.8 for customary units it lists exactly. When NIST lists only a rounded value but the unit is an exact multiple of an exact unit (ounce = lb/16, US gallon = 231 in³), cite the row and state the exact definition in `ref`. Calendar reckonings and historical temperature scales use `name: 'convention'` with the defining rule in `ref` (`'1 year = 365 d common year'`, `'Réaumur scale: 0 °Ré = 0 °C, 80 °Ré = 100 °C'`).
 
-**Form 2 — `prefixOf`** (SI prefix on a linear unit):
+**Form 2 — `prefixOf`** (SI prefix on a linear unit) is never authored standalone: prefixed units are generated from their base (see *Prefixed units*), and `prefixOf` appears only in a hand **override** of a generated unit:
 
 ```yaml
 prefixOf:
@@ -94,6 +121,20 @@ The named SI derived units are authored this way (`joule = kilogram·metre²·se
 **No form** is legal only for the derivation-free anchors — `metre kilogram second ampere kelvin mole candela radian steradian unitless` — and for `nonConvertible: true` units. Any other unit without a form is an integrity error.
 
 **Identity rule.** Exactly one non-compose unit per dimension may resolve to factor 1 / offset 0: the magnitudes' baseUnit. A second `toBase: { factor: '1' }` unit is a duplicate identity and fails (this removed `unit.yaml`). Compose forms that land on the identity (J·s⁻¹ beside W) are allowed because their identity is a verified consequence of their operands.
+
+**Prefixed units (ADR 0007).** A base unit lists the SI prefixes it takes, and the build generates one unit per prefix — there is no YAML file per prefixed unit:
+
+```yaml
+name: { en: 'Metre' }             # es 'Metro' / 'metros' live in metre.es.yaml
+namePlural: { en: 'metres' }      # lowercase prose plural; required with prefixes
+prefixes: ['milli', 'centi', 'kilo']
+```
+
+Each generated unit has slug `<prefix><base>` (`kilometre`), name prefix + base (`Kilometre`; Spanish `metro` compounds take the esdrújula stress, `Kilómetro`), symbol prefix TeX + base TeX, a templated description with the power of ten (en and es), aliases derived from the base's spellings (`meter` → `kilometer`), notation variants (`L` → `mL`) and single-letter ASCII prefix aliases (`u` → `um`), and `unitOf`, `system`, `categories`, `branches` and `status` copied from the base; its factor is the prefix value × the base factor. A locale is generated only when the prefix, the base name and the base plural all carry it — otherwise it falls back to English with the untranslated notice. The presentation artifact marks these units `generated: true`; pages show "Derived from <base> with the SI prefix <prefix>".
+
+- **Which prefixes.** SI coherent units take the 3n prefixes `femto pico nano micro milli kilo mega giga tera`. `metre`, `gram` and `litre` add the school ladder `centi deci deca hecto`; `pascal` adds `hecto` (hPa, meteorology). `gram` never takes `kilo` — `kilogram` is the SI anchor. `litre` omits `kilo`: 1 kL = 1 m³ would duplicate the cubic metre's identity mapping, which the identity rule rejects.
+- **Overrides.** A hand file `units/<prefix><base>.yaml` authored as `prefixOf` the same pair overrides the generated unit: every field it writes wins, localized fields merge per locale (a hand `name.en` keeps the generated `name.es`, a hand `description.en` keeps the generated Spanish description), and `aliases` are unioned. Write an override only for knowledge the generator cannot derive — `micrometre` (the micron), `microgram` (mcg in medicine), `centimetre` (the CGS base unit).
+- **Errors.** Prefixes on an affine unit, on a prefixed unit, or on a nonConvertible unit; an unknown or non-power-of-ten prefix; a repeated prefix; `prefixes` without `namePlural`; a hand file with a generated slug that is not its `prefixOf` override; a `prefixOf` file for a pair its base does not declare, or under a slug other than `<prefix><base>`.
 
 **`nonConvertible: true`** marks wiki-only units with no linear or affine mapping (levels such as the decibel). They resolve no factor, are excluded from the engine slice (no converter, no conversion table), may not anchor a magnitude, and may not appear in any `compose.of` or `prefixOf.base`. They keep their presentation entry and page.
 
@@ -182,7 +223,7 @@ steps:
       A $373.15\ \text{K}$, es decir $100\ ^{\circ}\text{C}$.
 ```
 
-Localizable fields are derived from the schema — every `localizedText` position: `name` and `description` everywhere, `label` of equation symbol terms (keyed by term key: `terms: { c: { label: 'Hipotenusa' } }`), and the step prose of paths (`note`, `body`, `prompt`, `answer`, keyed by step id). The loader merges each sidecar into its entity *before* validation, so every downstream stage — TeX lint, math rendering, search, presentation — sees the translation exactly as if it were inline.
+Localizable fields are derived from the schema — every `localizedText` position: `name` and `description` everywhere, `namePlural` of units, `label` of equation symbol terms (keyed by term key: `terms: { c: { label: 'Hipotenusa' } }`), and the step prose of paths (`note`, `body`, `prompt`, `answer`, keyed by step id). The loader merges each sidecar into its entity *before* validation, so every downstream stage — TeX lint, math rendering, search, presentation — sees the translation exactly as if it were inline.
 
 **Translator workflow.**
 

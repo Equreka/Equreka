@@ -34,6 +34,7 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'collection.variables': 'Variables',
 	'collection.equations': 'Ecuaciones',
 	'collection.paths': 'Rutas',
+	'collection.branches': 'Ramas',
 
 	'system.si': 'SI',
 	'system.si-derived': 'Derivada del SI',
@@ -90,15 +91,17 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'home.card.paths':
 		'Rutas de aprendizaje guiadas por unidades, constantes y ecuaciones, con autoevaluaciones.',
 
-	'meta.units': 'Todas las unidades de medida de la wiki de Equreka, agrupadas por categoría.',
+	'meta.units':
+		'Todas las unidades de medida de la wiki de Equreka, agrupadas por categoría y rama.',
 	'units.lead':
-		'{count} unidades agrupadas por categoría. Cada página de unidad incluye una tabla de conversión calculada por el motor de Equreka.',
+		'{count} unidades agrupadas por categoría y rama. Cada página de unidad incluye una tabla de conversión calculada por el motor de Equreka.',
 	'meta.unit': '{name} ({symbol}) — referencia de la unidad y conversiones.',
 	'unit.magnitude': 'Magnitud',
 	'unit.magnitudes': 'Magnitudes',
 	'unit.compoundHint':
 		'Unidad compuesta: su dimensión proviene de su composición, no de una magnitud con nombre.',
 	'unit.convert': 'Convertir {name}',
+	'unit.derivedFrom': 'Derivada de {base} con el prefijo SI {prefix}.',
 	'conversions.title': 'Conversiones',
 	'conversions.lead':
 		'El valor de 1 {symbol} en cada unidad compatible, calculado por el motor de Equreka. Los valores aproximados se redondean a 6 cifras significativas.',
@@ -107,9 +110,9 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'entry.identifiers': 'Identificadores',
 
 	'meta.magnitudes':
-		'Todas las magnitudes físicas de la wiki de Equreka, agrupadas por categoría, con dimensiones y unidades base.',
+		'Todas las magnitudes físicas de la wiki de Equreka, agrupadas por categoría y rama, con dimensiones y unidades base.',
 	'magnitudes.lead':
-		'{count} magnitudes agrupadas por categoría. Cada página de magnitud lista todas sus unidades con factores a la unidad base calculados por el motor.',
+		'{count} magnitudes agrupadas por categoría y rama. Cada página de magnitud lista todas sus unidades con factores a la unidad base calculados por el motor.',
 	'meta.magnitude': '{name} ({symbol}) — referencia de la magnitud con todas sus unidades.',
 	'magnitude.sign': 'Signo',
 	'magnitude.nonNegative': 'Cantidad no negativa',
@@ -152,6 +155,11 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'equation.relatedUnits': 'Unidades relacionadas',
 
 	'meta.category': 'Todo en la categoría {name} de la wiki de Equreka.',
+	'category.branches': 'Ramas',
+	'branch.general': 'General',
+	'branch.of': 'Rama de {category}',
+	'meta.branch': 'Todo en {name}, una rama de {category}, en la wiki de Equreka.',
+	'mobile.branch.empty': 'Todavía no hay nada en esta rama.',
 
 	'meta.calculator':
 		'Resuelve cualquier ecuación habilitada para cualquier término con el motor de Equreka.',
@@ -172,6 +180,12 @@ export const es: Partial<Record<MessageKey, string>> = {
 		'Llena todos los valores excepto el que quieres despejar — se calcula mientras escribes.',
 	'calculator.allRoots': 'Todas las raíces: {roots} — arriba se muestra la raíz admisible.',
 	'calculator.failed': 'El cálculo falló.',
+	'calculator.unitFor': 'Unidad de {name}',
+	'calculator.resultUnit': 'Unidad del resultado',
+	'calculator.solvedFormBaseUnits':
+		'La forma sustituida muestra cada valor en la unidad base de su término, las unidades en que está escrita la fórmula.',
+	'calculator.unitsUnavailable':
+		'No se pudieron cargar las unidades. Introduce los valores en las unidades mostradas.',
 
 	'engine.inputs/empty': 'Llena todos los valores excepto el que quieres despejar.',
 	'engine.inputs/underdetermined': 'Deja exactamente un campo vacío — el que quieres despejar.',

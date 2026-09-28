@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { type Catalogs, en, engineMessage, es, pickLocalized, t } from '../i18n/index';
+import { type Catalogs, en, engineMessage, es, pickLocalized, t, tParts } from '../i18n/index';
 
 describe('t', () => {
 	it('returns the localized string when the locale catalog has the key', () => {
@@ -21,6 +21,26 @@ describe('t', () => {
 	it('covers every English key in the Spanish catalog (fallback is for future keys)', () => {
 		const missing = Object.keys(en).filter((key) => !(key in es));
 		expect(missing).toEqual([]);
+	});
+});
+
+describe('tParts', () => {
+	it('splits a localized template into text and param parts in order', () => {
+		expect(tParts('en', 'unit.derivedFrom')).toEqual([
+			{ kind: 'text', text: 'Derived from ' },
+			{ kind: 'param', name: 'base' },
+			{ kind: 'text', text: ' with the SI prefix ' },
+			{ kind: 'param', name: 'prefix' },
+			{ kind: 'text', text: '.' },
+		]);
+		expect(tParts('es', 'unit.derivedFrom').filter((part) => part.kind === 'param')).toEqual([
+			{ kind: 'param', name: 'base' },
+			{ kind: 'param', name: 'prefix' },
+		]);
+	});
+
+	it('returns a single text part for a template without params', () => {
+		expect(tParts('en', 'favorites.title')).toEqual([{ kind: 'text', text: 'Favorites' }]);
 	});
 });
 

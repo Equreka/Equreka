@@ -6,6 +6,7 @@ import { z } from 'zod';
  */
 export const COLLECTIONS = [
 	'categories',
+	'branches',
 	'magnitudes',
 	'units',
 	'prefixes',
@@ -140,11 +141,14 @@ export const externalIds = z
  * Fields shared by every entity. `aliases` holds ASCII transliterations and
  * notation variants ("mu", "ohm", "km/h", "kmh") that feed the exact-match
  * search lane — symbol lookup fails on default tokenizers without them.
+ * Every `branches` ref must belong to one of the entity's own `categories`
+ * (pipeline-enforced; a branch never implies its category).
  */
 export const entityBase = z.object({
 	name: localizedText,
 	description: localizedText.optional(),
 	categories: z.array(ref('categories')).default([]),
+	branches: z.array(ref('branches')).default([]),
 	aliases: z.array(z.string().min(1)).default([]),
 	references: z.array(reference).default([]),
 	status: editorialStatus.default('draft'),

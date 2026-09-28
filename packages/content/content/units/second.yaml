@@ -1,14 +1,32 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Second'
+namePlural:
+  en: 'seconds'
 symbol:
   tex: 's'
 unitOf:
   - 'time'
 system: 'si'
+prefixes:
+  - 'femto'
+  - 'pico'
+  - 'nano'
+  - 'micro'
+  - 'milli'
+  - 'kilo'
+  - 'mega'
+  - 'giga'
+  - 'tera'
+externalIds:
+  wikidata: 'Q11574'
+  qudt: 'http://qudt.org/vocab/unit/SEC'
 categories:
   - 'universal'
   - 'physics'
+branches:
+  - 'mechanics'
+  - 'si-system'
 aliases:
   - 'sec'
 description:

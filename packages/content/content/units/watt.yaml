@@ -1,20 +1,38 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Watt'
+namePlural:
+  en: 'watts'
 symbol:
   tex: 'W'
 unitOf:
   - 'power'
   - 'radiant-flux'
 system: 'si-derived'
+prefixes:
+  - 'femto'
+  - 'pico'
+  - 'nano'
+  - 'micro'
+  - 'milli'
+  - 'kilo'
+  - 'mega'
+  - 'giga'
+  - 'tera'
 compose:
   of:
     - unit: 'joule'
       exp: 1
     - unit: 'second'
       exp: -1
+externalIds:
+  wikidata: 'Q25236'
+  qudt: 'http://qudt.org/vocab/unit/W'
 categories:
   - 'physics'
+branches:
+  - 'mechanics'
+  - 'electromagnetism'
 description:
   en: >-
     The watt (symbol: $W$) is a unit of power or radiant flux. In the International System of Units

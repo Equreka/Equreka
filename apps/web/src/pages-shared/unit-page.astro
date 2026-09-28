@@ -1,7 +1,8 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
-import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
+import { type Locale, localizedName, pickLocalized, t, tParts } from '@equreka/core/i18n';
+import BranchBadges from '../components/branch-badges.astro';
 import DraftBadge from '../components/draft-badge.astro';
 import EntryIdentifiers from '../components/entry-identifiers.astro';
 import UnitConversionTable from '../components/unit-conversion-table.astro';
@@ -11,7 +12,7 @@ import FavoriteToggle from '../islands/favorite-toggle';
 import PathContextBar from '../islands/path-context-bar';
 import BaseLayout from '../layouts/base-layout.astro';
 import { CATEGORY_BADGE } from '../lib/category-styles';
-import { asMagnitude, asUnit } from '../lib/collections';
+import { asMagnitude, asPrefix, asUnit } from '../lib/collections';
 import { converterMagnitudeOf } from '../lib/entry-meta';
 import { localePath } from '../lib/locale-paths';
 import { engineSlice } from '../lib/server/engine-registry';
@@ -37,6 +38,33 @@ const magnitudes = unit.unitOf.map((magnitudeSlug) => {
 		name: match === undefined ? magnitudeSlug : localizedName(asMagnitude(match.data), locale),
 	};
 });
+
+const prefixOf = unit.prefixOf;
+const baseEntry =
+	prefixOf === undefined
+		? undefined
+		: (await getCollection('units')).find((candidate) => candidate.id === prefixOf.base);
+const prefixEntry =
+	prefixOf === undefined
+		? undefined
+		: (await getCollection('prefixes')).find((candidate) => candidate.id === prefixOf.prefix);
+const derivation =
+	prefixOf === undefined
+		? undefined
+		: {
+				base: {
+					href: localePath(locale, `/units/${prefixOf.base}/`),
+					label:
+						baseEntry === undefined ? prefixOf.base : localizedName(asUnit(baseEntry.data), locale),
+				},
+				prefix: {
+					href: localePath(locale, `/prefixes/#${prefixOf.prefix}`),
+					label:
+						prefixEntry === undefined
+							? prefixOf.prefix
+							: localizedName(asPrefix(prefixEntry.data), locale).toLowerCase(),
+				},
+			};
 
 const compound = unit.unitOf.length === 0;
 const converterMagnitude = converterMagnitudeOf(slug, unit.unitOf, engineSlice);
@@ -75,6 +103,7 @@ const metaDescription =
 						</span>
 					))
 				}
+				<BranchBadges locale={locale} branches={unit.branches} />
 				{
 					compound && (
 						<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">
@@ -96,6 +125,22 @@ const metaDescription =
 		{
 			description !== undefined && (
 				<div class="mt-6 max-w-3xl leading-7" set:html={renderRichTextHtml(description.value)} />
+			)
+		}
+
+		{
+			derivation !== undefined && (
+				<p class="mt-4 max-w-3xl text-sm text-ink-muted">
+					{tParts(locale, 'unit.derivedFrom').map((part) => {
+						if (part.kind === 'text') return part.text;
+						const link = part.name === 'base' ? derivation.base : derivation.prefix;
+						return (
+							<a class="text-accent hover:underline" href={link.href}>
+								{link.label}
+							</a>
+						);
+					})}
+				</p>
 			)
 		}
 

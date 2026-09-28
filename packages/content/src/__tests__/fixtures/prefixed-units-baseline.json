@@ -1,0 +1,132 @@
+{
+	"centimetre": {
+		"factor": "0.01",
+		"offset": "0",
+		"exact": true,
+		"affine": false,
+		"dimension": [1, 0, 0, 0, 0, 0, 0, 0],
+		"magnitudes": ["length"],
+		"symbolTex": "cm",
+		"symbolText": "cm"
+	},
+	"kilometre": {
+		"factor": "1000",
+		"offset": "0",
+		"exact": true,
+		"affine": false,
+		"dimension": [1, 0, 0, 0, 0, 0, 0, 0],
+		"magnitudes": ["length"],
+		"symbolTex": "km",
+		"symbolText": "km"
+	},
+	"microgram": {
+		"factor": "0.000000001",
+		"offset": "0",
+		"exact": true,
+		"affine": false,
+		"dimension": [0, 1, 0, 0, 0, 0, 0, 0],
+		"magnitudes": ["mass"],
+		"symbolTex": "μg",
+		"symbolText": "μg"
+	},
+	"micrometre": {
+		"factor": "0.000001",
+		"offset": "0",
+		"exact": true,
+		"affine": false,
+		"dimension": [1, 0, 0, 0, 0, 0, 0, 0],
+		"magnitudes": ["length"],
+		"symbolTex": "μm",
+		"symbolText": "μm"
+	},
+	"microsecond": {
+		"factor": "0.000001",
+		"offset": "0",
+		"exact": true,
+		"affine": false,
+		"dimension": [0, 0, 1, 0, 0, 0, 0, 0],
+		"magnitudes": ["time"],
+		"symbolTex": "μs",
+		"symbolText": "μs"
+	},
+	"milliampere": {
+		"factor": "0.001",
+		"offset": "0",
+		"exact": true,
+		"affine": false,
+		"dimension": [0, 0, 0, 1, 0, 0, 0, 0],
+		"magnitudes": ["electric-current"],
+		"symbolTex": "mA",
+		"symbolText": "mA"
+	},
+	"milligram": {
+		"factor": "0.000001",
+		"offset": "0",
+		"exact": true,
+		"affine": false,
+		"dimension": [0, 1, 0, 0, 0, 0, 0, 0],
+		"magnitudes": ["mass"],
+		"symbolTex": "mg",
+		"symbolText": "mg"
+	},
+	"millilitre": {
+		"factor": "0.000001",
+		"offset": "0",
+		"exact": true,
+		"affine": false,
+		"dimension": [3, 0, 0, 0, 0, 0, 0, 0],
+		"magnitudes": ["volume"],
+		"symbolTex": "ml",
+		"symbolText": "ml"
+	},
+	"millimetre": {
+		"factor": "0.001",
+		"offset": "0",
+		"exact": true,
+		"affine": false,
+		"dimension": [1, 0, 0, 0, 0, 0, 0, 0],
+		"magnitudes": ["length"],
+		"symbolTex": "mm",
+		"symbolText": "mm"
+	},
+	"millimole": {
+		"factor": "0.001",
+		"offset": "0",
+		"exact": true,
+		"affine": false,
+		"dimension": [0, 0, 0, 0, 0, 1, 0, 0],
+		"magnitudes": ["substance"],
+		"symbolTex": "mmol",
+		"symbolText": "mmol"
+	},
+	"millisecond": {
+		"factor": "0.001",
+		"offset": "0",
+		"exact": true,
+		"affine": false,
+		"dimension": [0, 0, 1, 0, 0, 0, 0, 0],
+		"magnitudes": ["time"],
+		"symbolTex": "ms",
+		"symbolText": "ms"
+	},
+	"nanometre": {
+		"factor": "0.000000001",
+		"offset": "0",
+		"exact": true,
+		"affine": false,
+		"dimension": [1, 0, 0, 0, 0, 0, 0, 0],
+		"magnitudes": ["length"],
+		"symbolTex": "nm",
+		"symbolText": "nm"
+	},
+	"nanosecond": {
+		"factor": "0.000000001",
+		"offset": "0",
+		"exact": true,
+		"affine": false,
+		"dimension": [0, 0, 1, 0, 0, 0, 0, 0],
+		"magnitudes": ["time"],
+		"symbolTex": "ns",
+		"symbolText": "ns"
+	}
+}

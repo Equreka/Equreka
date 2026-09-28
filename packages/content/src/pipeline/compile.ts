@@ -3,9 +3,10 @@ import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { COLLECTIONS } from '@equreka/schema';
 import { type EmittedArtifact, emitArtifacts } from './emit.js';
-import { checkIntegrity, orphanMagnitudes } from './integrity.js';
+import { checkIntegrity, emptyBranches, orphanMagnitudes } from './integrity.js';
 import { loadContent } from './load.js';
 import { buildMathArtifact, type MathStats } from './math-artifact.js';
+import { expandCorpus } from './prefix-expansion.js';
 import { type ResolvedUnit, resolveUnits } from './resolve.js';
 import { checkSolutionDimensions } from './solution-dimension.js';
 import { type EquationVerification, verifyCorpusSolutions } from './solution-verify.js';
@@ -29,6 +30,8 @@ export interface CompileReport {
 	counts: Record<string, number>;
 	contentHash: string;
 	corpus: Corpus;
+	generatedUnits: ReadonlySet<string>;
+	overriddenUnits: ReadonlySet<string>;
 	resolved: Map<string, ResolvedUnit>;
 	verifications: Map<string, EquationVerification>;
 	math: MathStats;
@@ -41,8 +44,11 @@ function defaultPackageRoot(): string {
 
 /**
  * Orchestrates the pipeline. `check` runs stages 1–4 (load, validate,
- * integrity, resolve + dimensional consistency + verify math + TeX lint +
- * MathJax render) with no output; `build` adds stage 5 emission into dist/.
+ * prefix expansion, integrity, resolve + dimensional consistency + verify
+ * math + TeX lint + MathJax render) with no output; `build` adds stage 5
+ * emission into dist/. The orphan-magnitude warning reads the unexpanded
+ * corpus: a generated unit's unitOf is copied from its base and is no
+ * independent use of a magnitude.
  * Every stage aggregates issues — nothing fails fast — but emission is
  * skipped when any prior stage errored. Async only because MathJax boots
  * asynchronously; every other stage is synchronous.
@@ -65,10 +71,13 @@ export async function compileContent(
 
 	const validated = validateContent(loaded);
 	issues.push(...validated.issues);
-	const corpus = validated.corpus;
+	const expansion = expandCorpus(validated.corpus, loaded);
+	issues.push(...expansion.issues);
+	const corpus = expansion.corpus;
 
 	issues.push(...checkIntegrity(corpus));
-	issues.push(...orphanMagnitudes(corpus));
+	issues.push(...orphanMagnitudes(validated.corpus));
+	issues.push(...emptyBranches(corpus));
 
 	const resolution = resolveUnits(corpus);
 	issues.push(...resolution.issues);
@@ -87,6 +96,7 @@ export async function compileContent(
 	if (mode === 'build' && !hasErrors(issues)) {
 		const emitted = emitArtifacts({
 			corpus,
+			generatedUnits: expansion.generated,
 			resolved: resolution.resolved,
 			verifications: verification.equations,
 			math: math.artifact,
@@ -109,6 +119,8 @@ export async function compileContent(
 		counts,
 		contentHash: loaded.contentHash,
 		corpus,
+		generatedUnits: expansion.generated,
+		overriddenUnits: expansion.overridden,
 		resolved: resolution.resolved,
 		verifications: verification.equations,
 		math: math.artifact.stats,
