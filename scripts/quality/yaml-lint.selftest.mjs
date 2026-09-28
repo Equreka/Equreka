@@ -1,5 +1,5 @@
 import assert from 'node:assert/strict';
-import { lintText } from './yaml-lint.mjs';
+import { lintFile, lintText } from './yaml-lint.mjs';
 
 /**
  * Adversarial fixtures proving every yaml-lint rule fires (and stays quiet
@@ -87,9 +87,71 @@ const CASES = [
 	},
 ];
 
+const header = (schema) =>
+	`# yaml-language-server: $schema=../../dist/schemas/${schema}.schema.json\n`;
+
+/**
+ * Per-file rules, which depend on where the file sits: the schema header
+ * each file kind requires, and the inline-translation ban on entity files.
+ */
+const FILE_CASES = [
+	{
+		name: 'inline es key in an entity file',
+		relPath: 'paths/si-base-units.yaml',
+		text: `${header('paths')}name:\n  en: 'SI'\n  es: 'SI'\n`,
+		expect: /inline translation key/,
+	},
+	{
+		name: 'inline es key inside a flow mapping',
+		relPath: 'equations/area-square.yaml',
+		text: `${header('equations')}name: { en: 'Square area', es: 'Área del cuadrado' }\n`,
+		expect: /inline translation key/,
+	},
+	{
+		name: 'inline es key on a nested step field',
+		relPath: 'paths/temperature-scales.yaml',
+		text: `${header('paths')}steps:\n  - id: 'intro'\n    kind: 'prose'\n    body:\n      en: >-\n        Prose.\n      es: >-\n        Prosa.\n`,
+		expect: /inline translation key/,
+	},
+	{
+		name: 'es: inside block-scalar prose is data, not a key',
+		relPath: 'paths/x.yaml',
+		text: `${header('paths')}description:\n  en: >-\n    In Spanish the word is\n    es: a verb.\n`,
+		expect: null,
+	},
+	{
+		name: 'missing schema header',
+		relPath: 'units/metre.yaml',
+		text: "name:\n  en: 'Metre'\n",
+		expect: /first line must be the schema header/,
+	},
+	{
+		name: 'sidecar pointing at the entity schema',
+		relPath: 'paths/si-base-units.es.yaml',
+		text: `${header('paths')}name: 'Las siete unidades base del SI'\n`,
+		expect: /paths\.locale\.schema\.json/,
+	},
+	{
+		name: 'sidecar with a double-quoted TeX scalar',
+		relPath: 'paths/si-base-units.es.yaml',
+		text: `${header('paths.locale')}steps:\n  metre:\n    note: "Lo fija $\\mu$"\n`,
+		expect: /backslash inside double-quoted scalar/,
+	},
+	{
+		name: 'compliant sidecar with a Windows-style path stays quiet',
+		relPath: 'equations\\pythagorean-theorem.es.yaml',
+		text: `${header('equations.locale')}terms:\n  a:\n    label: 'Cateto'\n`,
+		expect: null,
+	},
+];
+
 let failures = 0;
-for (const { name, text, expect } of CASES) {
-	const violations = lintText(text);
+const cases = [
+	...CASES.map((entry) => ({ ...entry, run: () => lintText(entry.text) })),
+	...FILE_CASES.map((entry) => ({ ...entry, run: () => lintFile(entry.relPath, entry.text) })),
+];
+for (const { name, run, expect } of cases) {
+	const violations = run();
 	try {
 		if (expect === null) {
 			assert.equal(
@@ -116,4 +178,4 @@ if (failures > 0) {
 	console.error(`yaml-lint selftest: ${failures} failure(s)`);
 	process.exit(1);
 }
-console.log(`yaml-lint selftest: ok (${CASES.length} cases)`);
+console.log(`yaml-lint selftest: ok (${cases.length} cases)`);

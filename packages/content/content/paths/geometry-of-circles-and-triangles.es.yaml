@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.locale.schema.json
+name: 'Geometría de círculos y triángulos'
+description: >-
+  Tres fórmulas en las que descansa toda medición: el área del círculo, el área del cuadrado y el
+  teorema de Pitágoras, con el radio y la constante pi que las unen.
+steps:
+  intro:
+    body: >-
+      Dos figuras y tres fórmulas sostienen casi toda la geometría cotidiana. Fíjate en las unidades
+      por el camino: un área siempre sale en metros cuadrados porque multiplica dos longitudes, y un
+      teorema que solo habla de longitudes vale en cualquier unidad siempre que todos los lados usen
+      la misma.
+  radius:
+    note: >-
+      El segmento que va del centro de un círculo a cualquier punto de él y, por extensión, su
+      longitud $r$. El diámetro es el doble del radio, $d = 2r$.
+  pi:
+    note: >-
+      La razón entre la circunferencia de cualquier círculo y su diámetro, $\pi = \frac{C}{d}
+      \approx 3.14159$. Es irracional, así que ninguna fracción ni decimal finito es exacto;
+      $\frac{22}{7}$ es una aproximación clásica correcta a dos decimales.
+  circle-formulas:
+    body: >-
+      Desenrollar la circunferencia da $C = 2\pi r$. Cortar el disco en muchas cuñas delgadas y
+      alinearlas alternadas forma casi un rectángulo de altura $r$ y ancho $\pi r$ (la mitad de la
+      circunferencia), así que el área es $A = \pi r^{2}$. Arquímedes acotó $\pi$ entre
+      $\frac{223}{71}$ y $\frac{22}{7}$ con polígonos inscritos y circunscritos de 96 lados, la idea
+      detrás de este argumento de límite.
+  area-circle:
+    note: >-
+      Resuélvela en ambos sentidos en la calculadora: dado $r$ halla $A$, o dada un área halla el
+      radio que la produce.
+  check-double-radius:
+    prompt: >-
+      Duplicar el radio de un círculo multiplica su área ¿por qué factor?
+    answer: >-
+      Por cuatro. El área crece con el cuadrado del radio: $\pi (2r)^{2} = 4\pi r^{2}$. La
+      circunferencia, lineal en $r$, apenas se duplica.
+  area-square:
+    note: >-
+      El área más simple, $A = l^{2}$, y la razón por la que la unidad de área es el metro cuadrado:
+      un cuadrado de un metro por lado.
+  compare:
+    body: >-
+      Junta las dos. Un círculo de radio $r$ cabe exactamente dentro de un cuadrado de lado $2r$. El
+      área del cuadrado es $4r^{2}$ y la del círculo $\pi r^{2}$, así que el círculo cubre
+      $\frac{\pi}{4} \approx 78.5\%$ del cuadrado, sea cual sea el tamaño. Razones como esta son
+      adimensionales: los metros cuadrados se cancelan.
+  pythagorean-theorem:
+    note: >-
+      En un triángulo rectángulo el cuadrado de la hipotenusa es igual a la suma de los cuadrados de
+      los catetos, $a^{2} + b^{2} = c^{2}$. Sus términos son longitudes sin unidad fija: cualquier
+      unidad sirve mientras los tres lados la compartan.
+  check-triple:
+    prompt: >-
+      Un triángulo rectángulo tiene catetos de $5$ y $12$. ¿Cuánto mide la hipotenusa?
+    answer: >-
+      $13$, porque $5^{2} + 12^{2} = 25 + 144 = 169 = 13^{2}$. Las soluciones enteras como $(3, 4,
+      5)$ y $(5, 12, 13)$ se llaman ternas pitagóricas.
+  check-no-units:
+    prompt: >-
+      La calculadora del área del círculo muestra metros y metros cuadrados, pero la del teorema de
+      Pitágoras no muestra ninguna unidad. ¿Por qué?
+    answer: >-
+      La fórmula del círculo relaciona una longitud con un área, dos dimensiones distintas, así que
+      sus términos están ligados a unidades. El teorema relaciona tres longitudes de la misma clase
+      y vale en cualquier unidad, por lo que sus términos se escriben como símbolos sin unidad: la
+      respuesta sale en la unidad que compartan las entradas.
+  closing:
+    body: >-
+      Las dos ideas se encuentran en el plano coordenado. La distancia entre dos puntos es el
+      teorema de Pitágoras aplicado a las diferencias de sus coordenadas, y un círculo es el
+      conjunto de puntos a una misma distancia $r$ del centro: $x^{2} + y^{2} = r^{2}$.

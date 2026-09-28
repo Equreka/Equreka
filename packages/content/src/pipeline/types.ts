@@ -1,4 +1,4 @@
-import type { CollectionName } from '@equreka/schema';
+import type { CollectionName, TranslationLocale } from '@equreka/schema';
 
 export type Stage =
 	| 'load'
@@ -22,9 +22,14 @@ export interface Issue {
 	message: string;
 }
 
+/**
+ * One file on disk. `slug` is the entity the file belongs to; `locale` is
+ * set only on a translation sidecar (`<slug>.<locale>.yaml`).
+ */
 export interface ContentFile {
 	collection: CollectionName;
 	slug: string;
+	locale?: TranslationLocale;
 	relPath: string;
 	absPath: string;
 	bytes: Uint8Array;

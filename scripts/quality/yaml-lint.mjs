@@ -1,5 +1,5 @@
 import { readdirSync, readFileSync, statSync } from 'node:fs';
-import { join, resolve } from 'node:path';
+import { join, relative, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 /**
@@ -7,8 +7,11 @@ import { fileURLToPath } from 'node:url';
  * parsing (ADR 0002): TeX inside double-quoted scalars (\m is an illegal
  * YAML escape, including scalars wrapped across lines), unquoted numerics on
  * decimal-string fields (silent float64 truncation), ' #' comment-swallowing
- * inside plain scalars, and %YAML/%TAG directives (parser re-typing). The
- * rule engine is exported for yaml-lint.selftest.mjs.
+ * inside plain scalars, and %YAML/%TAG directives (parser re-typing). Per
+ * file it also requires the editor schema header and bans inline
+ * translations in entity files (they live in `<slug>.<locale>.yaml`
+ * sidecars, which follow the same quoting rules). The rule engine is
+ * exported for yaml-lint.selftest.mjs.
  */
 const CONTENT_ROOT = join(process.cwd(), 'packages', 'content', 'content');
 
@@ -24,12 +27,25 @@ const DECIMAL_FIELDS = [
 	'den',
 ];
 
+/**
+ * Mirrors TRANSLATION_LOCALES in @equreka/schema; the content loader is the
+ * authoritative check, this rule reports the same mistake before a build.
+ */
+const TRANSLATION_LOCALES = ['es'];
+
+const localeAlternation = TRANSLATION_LOCALES.join('|');
+const sidecarFilename = new RegExp(`^[a-z0-9]+(?:-[a-z0-9]+)*\\.(?:${localeAlternation})\\.yaml$`);
+const flowTranslationKey = new RegExp(`[{,]\\s*(?:${localeAlternation})\\s*:`);
+
 const decimalFieldPattern = new RegExp(
 	`^\\s*(?:- )?(${DECIMAL_FIELDS.join('|')}):\\s*(-?\\d|\\.\\d)`,
 );
 const doubleQuotedBackslash = /"[^"]*\\[^"]*"/;
 const blockScalarHeader = /^[|>][0-9+-]{0,2}(?:[ \t]+#.*)?$/;
 const lineDecomposition = /^(\s*)((?:- )*)(?:([^\s:#'"][^\s:]*):(?:[ \t]+|$))?(.*)$/;
+
+const INLINE_TRANSLATION_MESSAGE =
+	'inline translation key — move the text into the <slug>.<locale>.yaml sidecar';
 
 const DQ_BACKSLASH_MESSAGE =
 	'backslash inside double-quoted scalar (TeX breaks) — use single quotes or plain';
@@ -66,7 +82,8 @@ function scanQuoted(text, start, type) {
  * bodies are skipped entirely (prose is data), and multiline quoted scalars
  * are tracked across lines — the two holes a per-line regex cannot see.
  */
-export function lintText(text) {
+export function lintText(text, options = {}) {
+	const forbiddenKeys = new Set(options.forbiddenKeys ?? []);
 	const violations = [];
 	const lines = text.split('\n');
 	const flag = (index, message) => {
@@ -95,7 +112,13 @@ export function lintText(text) {
 			flag(index, 'unquoted numeric on a decimal-string field — quote it');
 		}
 		const parts = lineDecomposition.exec(line);
+		if (parts?.[3] !== undefined && forbiddenKeys.has(parts[3])) {
+			flag(index, INLINE_TRANSLATION_MESSAGE);
+		}
 		const value = parts === null ? line.trimStart() : parts[4];
+		if (forbiddenKeys.size > 0 && value.startsWith('{') && flowTranslationKey.test(value)) {
+			flag(index, INLINE_TRANSLATION_MESSAGE);
+		}
 		if (value === '' || value.startsWith('#')) continue;
 		const first = value[0];
 		if (first === "'" || first === '"') {
@@ -119,6 +142,29 @@ export function lintText(text) {
 	return violations;
 }
 
+/**
+ * Lints one content file by its path relative to the content root
+ * (`<collection>/<name>.yaml`): the raw-text rules, the schema header the
+ * file kind requires, and — for entity files — the inline-translation ban.
+ */
+export function lintFile(relPath, text) {
+	const segments = relPath.split(/[\\/]/);
+	const name = segments.pop() ?? '';
+	const collection = segments.join('/');
+	const sidecar = sidecarFilename.test(name);
+	const header = `# yaml-language-server: $schema=../../dist/schemas/${collection}${sidecar ? '.locale' : ''}.schema.json`;
+	const violations = lintText(text, { forbiddenKeys: sidecar ? [] : TRANSLATION_LOCALES });
+	const firstLine = text.split('\n', 1)[0]?.replace(/\r$/, '');
+	if (firstLine !== header) {
+		violations.unshift({
+			line: 1,
+			message: `first line must be the schema header '${header}'`,
+			text: firstLine ?? '',
+		});
+	}
+	return violations;
+}
+
 function walk(dir) {
 	let entries = [];
 	try {
@@ -136,7 +182,7 @@ function walk(dir) {
 function main() {
 	const violations = [];
 	for (const file of walk(CONTENT_ROOT)) {
-		for (const violation of lintText(readFileSync(file, 'utf8'))) {
+		for (const violation of lintFile(relative(CONTENT_ROOT, file), readFileSync(file, 'utf8'))) {
 			violations.push(`${file}:${violation.line} ${violation.message}: ${violation.text}`);
 		}
 	}

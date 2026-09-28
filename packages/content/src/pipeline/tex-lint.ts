@@ -1,4 +1,9 @@
-import type { LocalizedText as LocalizedProse, PathStep } from '@equreka/schema';
+import {
+	type LocalizedText as LocalizedProse,
+	type PathStep,
+	SOURCE_LOCALE,
+	TRANSLATION_LOCALES,
+} from '@equreka/schema';
 import katex from 'katex';
 import { extractTexFragments, normalizeDashes, stripMacros } from './tex.js';
 import { type Issue, issue } from './types.js';
@@ -12,14 +17,21 @@ import { type Corpus, fileOf } from './validate.js';
  * normalized to '-' first (warning) because the legacy corpus authored
  * en dashes inside math. Files listed in tex-allowlist.json downgrade
  * description-fragment failures to warnings — a pragmatic escape hatch for
- * legacy prose, never applicable to equation expressions.
+ * legacy prose, never applicable to equation expressions. Findings in
+ * translated text name the sidecar the text came from; the allowlist stays
+ * keyed by entity file.
  */
+const LOCALES = [SOURCE_LOCALE, ...TRANSLATION_LOCALES] as const;
+
+type Locale = (typeof LOCALES)[number];
+
 export function lintTex(corpus: Corpus, allowlist: ReadonlySet<string>): Issue[] {
 	const issues: Issue[] = [];
 	const dashFiles = new Set<string>();
 
 	const lintFragment = (
 		file: string,
+		reportFile: string,
 		context: string,
 		tex: string,
 		display: boolean,
@@ -38,7 +50,7 @@ export function lintTex(corpus: Corpus, allowlist: ReadonlySet<string>): Issue[]
 		} catch (error) {
 			const reason = error instanceof Error ? error.message : String(error);
 			const severity = downgradable && allowlist.has(file) ? 'warning' : 'error';
-			issues.push(issue(severity, 'tex', file, `${context}: ${reason}`));
+			issues.push(issue(severity, 'tex', reportFile, `${context}: ${reason}`));
 		}
 	};
 
@@ -49,9 +61,9 @@ export function lintTex(corpus: Corpus, allowlist: ReadonlySet<string>): Issue[]
 		>) {
 			const file = fileOf(collection, slug);
 			if (entity.expression !== undefined) {
-				lintFragment(file, 'expression', entity.expression, false, false);
+				lintFragment(file, file, 'expression', entity.expression, false, false);
 			}
-			for (const locale of ['en', 'es'] as const) {
+			for (const locale of LOCALES) {
 				const text = entity.description?.[locale];
 				if (text === undefined) {
 					continue;
@@ -59,6 +71,7 @@ export function lintTex(corpus: Corpus, allowlist: ReadonlySet<string>): Issue[]
 				for (const fragment of extractTexFragments(text)) {
 					lintFragment(
 						file,
+						fileOf(collection, slug, locale),
 						`description.${locale} ${JSON.stringify(truncate(fragment.tex))}`,
 						fragment.tex,
 						fragment.display,
@@ -72,11 +85,12 @@ export function lintTex(corpus: Corpus, allowlist: ReadonlySet<string>): Issue[]
 	for (const [slug, path] of corpus.paths) {
 		const file = fileOf('paths', slug);
 		for (const step of path.steps) {
-			for (const [field, text] of stepProse(step)) {
+			for (const [field, locale, text] of stepProse(step)) {
 				for (const fragment of extractTexFragments(text)) {
 					lintFragment(
 						file,
-						`steps.${step.id}.${field} ${JSON.stringify(truncate(fragment.tex))}`,
+						fileOf('paths', slug, locale),
+						`steps.${step.id}.${field}.${locale} ${JSON.stringify(truncate(fragment.tex))}`,
 						fragment.tex,
 						fragment.display,
 						false,
@@ -100,12 +114,12 @@ export function lintTex(corpus: Corpus, allowlist: ReadonlySet<string>): Issue[]
 }
 
 /**
- * Every localized prose field of a path step as `field.locale` → text pairs:
+ * Every localized prose field of a path step as (field, locale, text):
  * these render through KaTeX at build like descriptions do, so they lint
  * under the same strict pass (never allowlist-downgradable — paths are new
  * content with no legacy debt).
  */
-function stepProse(step: PathStep): [string, string][] {
+function stepProse(step: PathStep): [string, Locale, string][] {
 	const fields: [string, LocalizedProse | undefined][] =
 		step.kind === 'entry'
 			? [['note', step.note]]
@@ -115,15 +129,15 @@ function stepProse(step: PathStep): [string, string][] {
 						['prompt', step.prompt],
 						['answer', step.answer],
 					];
-	const pairs: [string, string][] = [];
+	const pairs: [string, Locale, string][] = [];
 	for (const [field, text] of fields) {
 		if (text === undefined) {
 			continue;
 		}
-		for (const locale of ['en', 'es'] as const) {
+		for (const locale of LOCALES) {
 			const localized = text[locale];
 			if (localized !== undefined) {
-				pairs.push([`${field}.${locale}`, localized]);
+				pairs.push([field, locale, localized]);
 			}
 		}
 	}

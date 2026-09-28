@@ -1,7 +1,6 @@
 # yaml-language-server: $schema=../../dist/schemas/paths.schema.json
 name:
   en: 'Energy, work and heat'
-  es: 'Energía, trabajo y calor'
 level: 'intermediate'
 prerequisites:
   - 'si-base-units'
@@ -17,9 +16,6 @@ description:
   en: >-
     Three quantities, one dimension: why energy, work and heat all use the joule yet are not the
     same thing, how power measures the rate of transfer, and what mass-energy equivalence says.
-  es: >-
-    Tres magnitudes, una dimensión: por qué energía, trabajo y calor usan el joule sin ser lo mismo,
-    cómo la potencia mide la tasa de transferencia y qué afirma la equivalencia masa-energía.
 steps:
   - id: 'intro'
     kind: 'prose'
@@ -31,14 +27,6 @@ steps:
         The first law of thermodynamics ties them together: the change in a system's internal energy
         equals the heat supplied minus the work it does, $\Delta U = Q - W$. All three share the
         dimension $\mathsf{L}^{2}\mathsf{M}\mathsf{T}^{-2}$ and the unit joule.
-      es: >-
-        La energía es la magnitud conservada de la física: cambia de forma pero nunca se crea ni se
-        destruye. El trabajo y el calor son las dos maneras en que la energía cruza la frontera de un
-        sistema, una mediante una fuerza que actúa a lo largo de un desplazamiento y la otra mediante
-        una diferencia de temperatura. La primera ley de la termodinámica las relaciona: el cambio en
-        la energía interna de un sistema es igual al calor suministrado menos el trabajo que realiza,
-        $\Delta U = Q - W$. Las tres comparten la dimensión $\mathsf{L}^{2}\mathsf{M}\mathsf{T}^{-2}$
-        y la unidad joule.
   - id: 'energy'
     kind: 'entry'
     ref:
@@ -48,9 +36,6 @@ steps:
       en: >-
         A state quantity: a system has a definite energy at each instant, whether kinetic, potential,
         thermal or chemical.
-      es: >-
-        Una magnitud de estado: un sistema tiene una energía definida en cada instante, ya sea
-        cinética, potencial, térmica o química.
   - id: 'joule'
     kind: 'entry'
     ref:
@@ -61,10 +46,6 @@ steps:
         One joule is the work done by a force of one newton over one metre:
         $\text{J} = \text{N m} = \text{kg m}^{2}\text{ s}^{-2}$. This wiki authors the joule as that
         composition of base units, so its dimension is verified rather than typed.
-      es: >-
-        Un joule es el trabajo que realiza una fuerza de un newton a lo largo de un metro:
-        $\text{J} = \text{N m} = \text{kg m}^{2}\text{ s}^{-2}$. Esta wiki escribe el joule como esa
-        composición de unidades base, de modo que su dimensión se verifica en lugar de teclearse.
   - id: 'work'
     kind: 'entry'
     ref:
@@ -74,10 +55,6 @@ steps:
       en: >-
         A process quantity: $W = F\,d\cos\theta$ for a constant force $F$ along a displacement $d$
         at angle $\theta$. Work is done on or by a system; a system does not contain work.
-      es: >-
-        Una magnitud de proceso: $W = F\,d\cos\theta$ para una fuerza constante $F$ a lo largo de
-        un desplazamiento $d$ con ángulo $\theta$. El trabajo se realiza sobre un sistema o por él;
-        un sistema no contiene trabajo.
   - id: 'heat'
     kind: 'entry'
     ref:
@@ -87,16 +64,11 @@ steps:
       en: >-
         Also a process quantity: energy in transit because of a temperature difference. Once inside
         the system it is simply internal energy, no longer heat.
-      es: >-
-        También una magnitud de proceso: energía en tránsito debida a una diferencia de temperatura.
-        Una vez dentro del sistema es simplemente energía interna, ya no calor.
   - id: 'check-same-unit'
     kind: 'check'
     prompt:
       en: >-
         Energy, work and heat are all measured in joules. Does that make them the same quantity?
-      es: >-
-        Energía, trabajo y calor se miden en joules. ¿Eso los convierte en la misma magnitud?
     answer:
       en: >-
         No. Equal dimension is necessary for two quantities to be of the same kind, not sufficient.
@@ -105,14 +77,6 @@ steps:
         not an energy at all. The converter in this wiki checks dimensions only, so it will happily
         convert a joule of heat into a joule of work; whether that transfer can actually happen is
         the second law's business, not arithmetic.
-      es: >-
-        No. Tener la misma dimensión es necesario para que dos magnitudes sean de la misma clase,
-        pero no suficiente. La energía es un estado de un sistema; el trabajo y el calor son
-        transferencias a través de su frontera. El torque es otra advertencia: también es
-        $\text{kg m}^{2}\text{ s}^{-2}$, escrito $\text{N m}$, y sin embargo no es una energía. El
-        convertidor de esta wiki solo comprueba dimensiones, así que convertirá sin problema un joule
-        de calor en un joule de trabajo; que esa transferencia pueda ocurrir es asunto de la segunda
-        ley, no de la aritmética.
   - id: 'power-intro'
     kind: 'prose'
     body:
@@ -120,12 +84,6 @@ steps:
         Power is how fast energy is transferred or converted: $P = \frac{dE}{dt}$. Its unit, the
         watt, is one joule per second, and in base units $\text{W} = \text{kg m}^{2}\text{ s}^{-3}$.
         Utility bills invert the relation: a kilowatt-hour is power times time, an energy of
-        $1\ \text{kW} \times 3600\ \text{s} = 3.6\ \text{MJ}$.
-      es: >-
-        La potencia es la rapidez con que la energía se transfiere o se convierte:
-        $P = \frac{dE}{dt}$. Su unidad, el watt, es un joule por segundo, y en unidades base
-        $\text{W} = \text{kg m}^{2}\text{ s}^{-3}$. Los recibos de electricidad invierten la
-        relación: un kilowatt-hora es potencia por tiempo, una energía de
         $1\ \text{kW} \times 3600\ \text{s} = 3.6\ \text{MJ}$.
   - id: 'power'
     kind: 'entry'
@@ -140,24 +98,15 @@ steps:
     note:
       en: >-
         Authored here as $\text{J s}^{-1}$, so the build derives its dimension from the joule's.
-      es: >-
-        Aquí se escribe como $\text{J s}^{-1}$, de modo que la compilación deriva su dimensión de la
-        del joule.
   - id: 'check-lamp'
     kind: 'check'
     prompt:
       en: >-
         A $60\ \text{W}$ lamp runs for one hour. How much energy does it convert, in joules and in
         kilowatt-hours?
-      es: >-
-        Una lámpara de $60\ \text{W}$ funciona durante una hora. ¿Cuánta energía convierte, en joules
-        y en kilowatt-hora?
     answer:
       en: >-
         $60\ \text{W} \times 3600\ \text{s} = 216\,000\ \text{J} = 216\ \text{kJ}$, which is
-        $0.06\ \text{kWh}$.
-      es: >-
-        $60\ \text{W} \times 3600\ \text{s} = 216\,000\ \text{J} = 216\ \text{kJ}$, es decir,
         $0.06\ \text{kWh}$.
   - id: 'mass-energy-intro'
     kind: 'prose'
@@ -167,12 +116,6 @@ steps:
         has energy $E = m c^{2}$, where $c$ is the speed of light in vacuum. The factor $c^{2}$ is
         about $9 \times 10^{16}\ \text{m}^{2}\text{ s}^{-2}$, which is why a tiny mass corresponds to
         an enormous energy and why nuclear reactions release so much more than chemical ones.
-      es: >-
-        En 1905 Einstein mostró que la masa misma es una forma de energía. Un cuerpo de masa $m$ en
-        reposo tiene energía $E = m c^{2}$, donde $c$ es la velocidad de la luz en el vacío. El
-        factor $c^{2}$ es de unos $9 \times 10^{16}\ \text{m}^{2}\text{ s}^{-2}$, y por eso una masa
-        diminuta corresponde a una energía enorme y las reacciones nucleares liberan mucho más que
-        las químicas.
   - id: 'speed-of-light'
     kind: 'entry'
     ref:
@@ -182,9 +125,6 @@ steps:
       en: >-
         Exact by definition since 1983: fixing $c$ is what defines the metre, so the uncertainty
         moved from the constant into the realization of the unit.
-      es: >-
-        Exacta por definición desde 1983: fijar $c$ es lo que define al metro, así que la
-        incertidumbre pasó de la constante a la realización de la unidad.
   - id: 'mass-energy'
     kind: 'entry'
     ref:
@@ -195,10 +135,6 @@ steps:
         Check the dimensions:
         $\text{kg} \times (\text{m/s})^{2} = \text{kg m}^{2}\text{ s}^{-2} = \text{J}$. The build
         performs this check on every authored solution.
-      es: >-
-        Comprueba las dimensiones:
-        $\text{kg} \times (\text{m/s})^{2} = \text{kg m}^{2}\text{ s}^{-2} = \text{J}$. La
-        compilación realiza esta comprobación en cada solución escrita.
   - id: 'try-calculator'
     kind: 'prose'
     body:
@@ -207,26 +143,14 @@ steps:
         $m = 0.001$ (one gram, in kilograms) and leave $E$ empty. The engine returns about
         $8.988 \times 10^{13}\ \text{J}$, roughly $25\ \text{GWh}$: the electricity a small city uses
         in a day, locked in a gram of matter.
-      es: >-
-        Abre la calculadora de la equivalencia masa-energía desde la página de la ecuación. Escribe
-        $m = 0.001$ (un gramo, en kilogramos) y deja $E$ vacío. El motor devuelve alrededor de
-        $8.988 \times 10^{13}\ \text{J}$, unos $25\ \text{GWh}$: la electricidad que una ciudad
-        pequeña usa en un día, encerrada en un gramo de materia.
   - id: 'check-exact'
     kind: 'check'
     prompt:
       en: >-
         Why is the speed of light listed as exact when most physical constants carry an
         uncertainty?
-      es: >-
-        ¿Por qué la velocidad de la luz aparece como exacta cuando la mayoría de las constantes
-        físicas tienen incertidumbre?
     answer:
       en: >-
         Because the metre is defined by fixing $c = 299\,792\,458\ \text{m/s}$. A defining constant
         has no uncertainty by construction; the experimental uncertainty now lives in how precisely a
         laboratory can realize the metre, not in $c$.
-      es: >-
-        Porque el metro se define fijando $c = 299\,792\,458\ \text{m/s}$. Una constante definitoria
-        no tiene incertidumbre por construcción; la incertidumbre experimental ahora está en la
-        precisión con que un laboratorio puede realizar el metro, no en $c$.

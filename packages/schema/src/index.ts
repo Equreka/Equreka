@@ -1,3 +1,4 @@
+import type { CollectionName } from './common.js';
 import {
 	category,
 	constant,
@@ -8,9 +9,11 @@ import {
 	unit,
 	variable,
 } from './entities.js';
+import { entityLocaleTree, type LocaleObjectNode, sidecarSchemaOf } from './locale.js';
 
 export * from './common.js';
 export * from './entities.js';
+export * from './locale.js';
 
 export const SCHEMA_VERSION = 2;
 
@@ -28,4 +31,25 @@ export const collectionSchemas = {
 	equations: equation,
 	paths: path,
 } as const;
+
+/**
+ * Collection name → where its entities carry localized text; drives the
+ * sidecar merge, the inline-translation ban, and the sidecar JSON Schema.
+ */
+export const collectionLocaleTrees = Object.fromEntries(
+	Object.entries(collectionSchemas).map(([collection, schema]) => [
+		collection,
+		entityLocaleTree(schema),
+	]),
+) as Record<CollectionName, LocaleObjectNode>;
+
+/**
+ * Collection name → strict schema of a `<slug>.<locale>.yaml` sidecar.
+ */
+export const localeSidecarSchemas = Object.fromEntries(
+	Object.entries(collectionLocaleTrees).map(([collection, tree]) => [
+		collection,
+		sidecarSchemaOf(tree),
+	]),
+) as Record<CollectionName, ReturnType<typeof sidecarSchemaOf>>;
 export * from './compiled.js';

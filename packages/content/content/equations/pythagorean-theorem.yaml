@@ -8,17 +8,14 @@ terms:
     kind: 'symbol'
     label:
       en: 'Leg'
-      es: 'Cateto'
   b:
     kind: 'symbol'
     label:
       en: 'Leg'
-      es: 'Cateto'
   c:
     kind: 'symbol'
     label:
       en: 'Hypotenuse'
-      es: 'Hipotenusa'
 solutions:
   a: 'sqrt(c^2 - b^2)'
   b: 'sqrt(c^2 - a^2)'

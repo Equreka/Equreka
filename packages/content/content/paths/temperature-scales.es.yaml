@@ -1,0 +1,86 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.locale.schema.json
+name: 'Escalas de temperatura'
+description: >-
+  Del kelvin al Celsius y al Fahrenheit: por qué las unidades de temperatura llevan un
+  desplazamiento además de un factor, cómo convertir entre ellas y por qué una unidad afín no puede
+  multiplicarse por otra.
+steps:
+  intro:
+    body: >-
+      La mayoría de las conversiones de unidades son una sola multiplicación: $1\ \text{km} = 1000\
+      \text{m}$. Las escalas de temperatura son distintas. Sus ceros están en puntos físicos
+      diferentes, así que pasar de una a otra requiere un factor y un desplazamiento: $y = a\,x +
+      b$. En matemáticas esa transformación se llama afín. En esta wiki cada unidad de temperatura
+      se escribe exactamente como ese par y el motor las compone a través del kelvin.
+  kelvin:
+    note: >-
+      La unidad base del SI y la referencia a la que se mapean las demás escalas. Su cero es el cero
+      absoluto, el estado de mínima energía térmica, por lo que los valores en kelvin nunca son
+      negativos y no llevan el signo de grado.
+  celsius:
+    note: >-
+      El mismo tamaño de grado que el kelvin, desplazado para que $0\ \text{°C}$ sea el punto de
+      congelación del agua: $T_{\text{K}} = t_{\text{°C}} + 273.15$, exactamente.
+  celsius-offset:
+    body: >-
+      Celsius fue originalmente la escala centígrada, anclada a dos puntos fijos del agua a presión
+      estándar: congelación en $0$ y ebullición en $100$. Desde 1954 se define a partir del kelvin,
+      con un desplazamiento exacto de $273.15$. Una diferencia de temperatura es el mismo número en
+      ambas unidades, y por eso las capacidades caloríficas se expresan por kelvin o por grado
+      Celsius de manera intercambiable; solo las lecturas absolutas difieren.
+  fahrenheit:
+    note: >-
+      Un grado más pequeño y un cero distinto: $1\ \text{°F}$ equivale a $\frac{5}{9}\ \text{K}$, y
+      $T_{\text{K}} = \frac{5}{9}\,(t_{\text{°F}} + 459.67)$. El agua se congela a $32\ \text{°F}$ y
+      hierve a $212\ \text{°F}$, un intervalo de $180$ grados.
+  composing:
+    body: >-
+      Convertir de Fahrenheit a Celsius nunca necesita una fórmula propia: pasa por el kelvin.
+      Aplica la transformación de Fahrenheit, invierte la de Celsius y los desplazamientos se
+      combinan en la conocida $t_{\text{°C}} = \frac{5}{9}\,(t_{\text{°F}} - 32)$. El motor hace
+      exactamente esa composición para cada par de unidades, así que una escala agregada mañana se
+      convierte a todas las demás sin que nadie escriba una tabla.
+  check-boiling:
+    prompt: >-
+      El agua hierve a $100\ \text{°C}$ a presión estándar. ¿Cuánto es eso en kelvin y en grados
+      Fahrenheit?
+    answer: >-
+      $373.15\ \text{K}$ y $212\ \text{°F}$: suma $273.15$ para el kelvin y, para Fahrenheit,
+      multiplica por $\frac{9}{5}$ y suma $32$.
+  curiosities:
+    body: >-
+      Dos escalas históricas muestran la misma idea desde extremos opuestos. Rankine conserva el
+      grado Fahrenheit pero lleva el cero al cero absoluto, así que es un factor puro sin
+      desplazamiento: $T_{\text{K}} = \frac{5}{9}\,T_{\text{°R}}$. Réaumur conserva el cero de
+      Celsius pero divide el intervalo de congelación a ebullición en $80$ grados en lugar de $100$:
+      $t_{\text{°C}} = \frac{5}{4}\,t_{\text{°Ré}}$.
+  rankine:
+    note: >-
+      Aún se usa en algunos textos de termodinámica de EE. UU. porque las temperaturas absolutas en
+      grados de tamaño Fahrenheit mantienen las leyes de los gases libres de desplazamientos.
+  reaumur:
+    note: >-
+      Muy extendida en la Europa del siglo XVIII, hoy sobrevive sobre todo en la elaboración
+      tradicional de quesos y jarabes.
+  try-converter:
+    body: >-
+      Abre el Convertidor desde la navegación, elige temperatura termodinámica y convierte $-40$
+      entre Celsius y Fahrenheit. Las dos escalas coinciden exactamente en ese valor; el convertidor
+      también indica qué conversiones son exactas y cuáles están redondeadas.
+  check-affine:
+    prompt: >-
+      ¿Por qué no puedes componer $\text{°C}$ con otra unidad, por ejemplo un gradiente de
+      temperatura en grados Celsius por metro?
+    answer: >-
+      Porque $\text{°C}$ es afín: su transformación al kelvin tiene un desplazamiento distinto de
+      cero, y un desplazamiento no tiene significado bajo la multiplicación. Un producto de unidades
+      solo multiplica factores de escala, así que $1\ \text{°C m}$ sería $274.15\ \text{K m}$ según
+      una lectura y $1\ \text{K m}$ según otra. Los gradientes son diferencias, y una diferencia de
+      un grado Celsius es un kelvin, de modo que la unidad coherente es $\text{K/m}$. Esta
+      compilación rechaza unidades afines dentro de formas compuestas exactamente por esa razón.
+  check-absolute:
+    prompt: >-
+      ¿Cuáles de las escalas de esta ruta son absolutas, con su cero en el cero absoluto?
+    answer: >-
+      Kelvin y Rankine. Ambas se convierten a la unidad base solo con un factor; Celsius, Fahrenheit
+      y Réaumur necesitan un desplazamiento.

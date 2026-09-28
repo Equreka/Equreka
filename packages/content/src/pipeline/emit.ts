@@ -9,6 +9,7 @@ import {
 	type EngineSlice,
 	engineSlice,
 	type LocalizedText,
+	localeSidecarSchemas,
 	SCHEMA_VERSION,
 } from '@equreka/schema';
 import MiniSearch from 'minisearch';
@@ -122,6 +123,10 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 		}
 		write(`presentation/${collection}.json`, `${stableStringify(record)}\n`);
 		write(`schemas/${collection}.schema.json`, `${stableStringify(authoringSchema(collection))}\n`);
+		write(
+			`schemas/${collection}.locale.schema.json`,
+			`${stableStringify(sidecarAuthoringSchema(collection))}\n`,
+		);
 	}
 
 	write(
@@ -194,6 +199,7 @@ function buildEngineSlice(input: EmitInput): EngineSlice {
 			symbolTex: magnitude.symbol.tex,
 			baseUnit: magnitude.baseUnit,
 			dimension: baseUnit?.dimension ?? [0, 0, 0, 0, 0, 0, 0, 0],
+			...(magnitude.kindOf === undefined ? {} : { kindOf: magnitude.kindOf }),
 			nonNegative: magnitude.nonNegative,
 		};
 	}
@@ -274,6 +280,14 @@ function buildEngineSlice(input: EmitInput): EngineSlice {
  */
 function authoringSchema(collection: CollectionName): unknown {
 	return z.toJSONSchema(collectionSchemas[collection], { io: 'input', target: 'draft-7' });
+}
+
+/**
+ * Editor-facing JSON Schema of a collection's `<slug>.<locale>.yaml`
+ * translation sidecar — the same strict shape the loader validates.
+ */
+function sidecarAuthoringSchema(collection: CollectionName): unknown {
+	return z.toJSONSchema(localeSidecarSchemas[collection], { io: 'input', target: 'draft-7' });
 }
 
 /**

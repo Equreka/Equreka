@@ -3,13 +3,45 @@
 	"yaml.completion": true,
 	"yaml.hover": true,
 	"yaml.schemas": {
-		"./packages/content/dist/schemas/categories.schema.json": "packages/content/content/categories/*.yaml",
-		"./packages/content/dist/schemas/magnitudes.schema.json": "packages/content/content/magnitudes/*.yaml",
-		"./packages/content/dist/schemas/units.schema.json": "packages/content/content/units/*.yaml",
-		"./packages/content/dist/schemas/prefixes.schema.json": "packages/content/content/prefixes/*.yaml",
-		"./packages/content/dist/schemas/constants.schema.json": "packages/content/content/constants/*.yaml",
-		"./packages/content/dist/schemas/variables.schema.json": "packages/content/content/variables/*.yaml",
-		"./packages/content/dist/schemas/equations.schema.json": "packages/content/content/equations/*.yaml",
-		"./packages/content/dist/schemas/paths.schema.json": "packages/content/content/paths/*.yaml"
+		"./packages/content/dist/schemas/categories.schema.json": [
+			"packages/content/content/categories/*.yaml",
+			"!packages/content/content/categories/*.*.yaml"
+		],
+		"./packages/content/dist/schemas/magnitudes.schema.json": [
+			"packages/content/content/magnitudes/*.yaml",
+			"!packages/content/content/magnitudes/*.*.yaml"
+		],
+		"./packages/content/dist/schemas/units.schema.json": [
+			"packages/content/content/units/*.yaml",
+			"!packages/content/content/units/*.*.yaml"
+		],
+		"./packages/content/dist/schemas/prefixes.schema.json": [
+			"packages/content/content/prefixes/*.yaml",
+			"!packages/content/content/prefixes/*.*.yaml"
+		],
+		"./packages/content/dist/schemas/constants.schema.json": [
+			"packages/content/content/constants/*.yaml",
+			"!packages/content/content/constants/*.*.yaml"
+		],
+		"./packages/content/dist/schemas/variables.schema.json": [
+			"packages/content/content/variables/*.yaml",
+			"!packages/content/content/variables/*.*.yaml"
+		],
+		"./packages/content/dist/schemas/equations.schema.json": [
+			"packages/content/content/equations/*.yaml",
+			"!packages/content/content/equations/*.*.yaml"
+		],
+		"./packages/content/dist/schemas/paths.schema.json": [
+			"packages/content/content/paths/*.yaml",
+			"!packages/content/content/paths/*.*.yaml"
+		],
+		"./packages/content/dist/schemas/categories.locale.schema.json": "packages/content/content/categories/*.*.yaml",
+		"./packages/content/dist/schemas/magnitudes.locale.schema.json": "packages/content/content/magnitudes/*.*.yaml",
+		"./packages/content/dist/schemas/units.locale.schema.json": "packages/content/content/units/*.*.yaml",
+		"./packages/content/dist/schemas/prefixes.locale.schema.json": "packages/content/content/prefixes/*.*.yaml",
+		"./packages/content/dist/schemas/constants.locale.schema.json": "packages/content/content/constants/*.*.yaml",
+		"./packages/content/dist/schemas/variables.locale.schema.json": "packages/content/content/variables/*.*.yaml",
+		"./packages/content/dist/schemas/equations.locale.schema.json": "packages/content/content/equations/*.*.yaml",
+		"./packages/content/dist/schemas/paths.locale.schema.json": "packages/content/content/paths/*.*.yaml"
 	}
 }

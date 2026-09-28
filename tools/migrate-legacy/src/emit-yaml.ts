@@ -4,7 +4,7 @@ import { MigrationError } from './report.js';
 const DOUBLE_QUOTED_BACKSLASH = /"[^"\n]*\\[^"\n]*"/;
 const DECIMAL_KEYS = new Set(['value', 'factor', 'offset', 'expected', 'input']);
 
-function deepEquals(a: unknown, b: unknown): boolean {
+export function deepEquals(a: unknown, b: unknown): boolean {
 	if (Object.is(a, b)) return true;
 	if (Array.isArray(a) && Array.isArray(b)) {
 		return a.length === b.length && a.every((item, index) => deepEquals(item, b[index]));

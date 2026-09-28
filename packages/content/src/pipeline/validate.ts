@@ -6,6 +6,7 @@ import {
 	type Magnitude,
 	type Path,
 	type Prefix,
+	SOURCE_LOCALE,
 	type Unit,
 	type Variable,
 } from '@equreka/schema';
@@ -57,6 +58,13 @@ export function validateContent(loaded: LoadedContent): ValidateResult {
 	return { corpus, issues };
 }
 
-export function fileOf(collection: string, slug: string): string {
-	return `${collection}/${slug}.yaml`;
+/**
+ * Content-relative path of an entity file, or of its translation sidecar
+ * when `locale` is a translation locale — where a reader must go to fix a
+ * finding about text in that locale.
+ */
+export function fileOf(collection: string, slug: string, locale: string = SOURCE_LOCALE): string {
+	return locale === SOURCE_LOCALE
+		? `${collection}/${slug}.yaml`
+		: `${collection}/${slug}.${locale}.yaml`;
 }
