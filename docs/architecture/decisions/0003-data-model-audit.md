@@ -44,13 +44,13 @@ Before the corpus grows past its migrated v1 seed (148 entities), three independ
 
 Recorded here so the next content push does not rediscover them:
 
-1. **Magnitude-less compound units** — `unitOf: []` with a compose-derived dimension, so N·m, J/s, kW·h need no synthetic magnitude; decides whether J/s stays an entity or becomes a watt alias.
-2. **Quantity-kind hierarchy** for dimension-collision clusters (energy/work/heat/torque; Hz/Bq; Gy/Sv) — convertibility is dimension equality today, which is too permissive for some pairs and the reason `A` is synthetic.
+1. **Magnitude-less compound units** — `unitOf: []` with a compose-derived dimension, so N·m, J/s, kW·h need no synthetic magnitude; decides whether J/s stays an entity or becomes a watt alias. *Implemented.*
+2. **Quantity-kind hierarchy** for dimension-collision clusters (energy/work/heat/torque; Hz/Bq; Gy/Sv) — convertibility is dimension equality today, which is too permissive for some pairs and the reason `A` is synthetic. *Decided in ADR 0006.*
 3. **Generated prefixed-unit pages** — prefix × base at build instead of one YAML per prefixed unit.
 4. **Substances collection or chemistry-category removal** — the category exists with no chemistry-specific entity type.
 5. **Lesson/exercise modeling** — `paths` is empty; decide the step grammar before authoring.
-6. **Editorial state + numeric provenance** — `status: draft|reviewed`, per-value `source` on unit factors (NIST SP 811 rows), not just on constants.
+6. **Editorial state + numeric provenance** — `status: draft|reviewed`, per-value `source` on unit factors (NIST SP 811 rows), not just on constants. *Implemented.*
 7. **Per-term calculator unit selection** — inputs are fixed to the baseUnit; symbol/magnitude terms should accept any compatible unit via the engine registry.
-8. **`es` translation sidecar files** — inline `es:` keys do not scale to full descriptions; sidecars enable translation tooling and diffing.
+8. **`es` translation sidecar files** — inline `es:` keys do not scale to full descriptions; sidecars enable translation tooling and diffing. *Implemented.*
 9. **Branches taxonomy depth** — `categories` is flat; physics needs sub-branches for navigation.
-10. **External identifiers** — Wikidata QIDs and QUDT IRIs on units/magnitudes/constants for interoperability and disambiguation.
+10. **External identifiers** — Wikidata QIDs and QUDT IRIs on units/magnitudes/constants for interoperability and disambiguation. *Implemented.*

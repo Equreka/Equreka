@@ -8,6 +8,11 @@ unitOf:
 system: 'cgs'
 toBase:
   factor: '1e-7'
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811'
+    ref: 'B.8: erg (erg)'
+status: 'reviewed'
 categories:
   - 'physics'
 description:

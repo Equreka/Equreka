@@ -50,6 +50,9 @@ export const en = {
 	'badge.measured': 'measured',
 	'badge.dimensionless': 'dimensionless',
 	'badge.untranslated': 'not yet translated — shown in English',
+	'badge.draft': 'draft',
+	'badge.draftHint': 'Not yet editorially reviewed against its sources.',
+	'badge.compound': 'compound',
 
 	'table.symbol': 'Symbol',
 	'table.name': 'Name',
@@ -89,12 +92,15 @@ export const en = {
 	'meta.unit': '{name} ({symbol}) — unit reference and conversions.',
 	'unit.magnitude': 'Magnitude',
 	'unit.magnitudes': 'Magnitudes',
+	'unit.compoundHint':
+		'Compound unit: its dimension comes from its composition, not from a named magnitude.',
 	'unit.convert': 'Convert {name}',
 	'conversions.title': 'Conversions',
 	'conversions.lead':
 		'The value of 1 {symbol} in every compatible unit, computed by the Equreka engine. Approximate values are rounded to 6 significant figures.',
 	'conversions.header': '1 {symbol} =',
 	'conversions.baseUnit': 'base unit',
+	'entry.identifiers': 'Identifiers',
 
 	'meta.magnitudes':
 		'All physical magnitudes in the Equreka wiki, grouped by category, with dimensions and base units.',
@@ -105,7 +111,12 @@ export const en = {
 	'magnitude.nonNegative': 'Non-negative quantity',
 	'magnitude.unitsOf': 'Units of {name}',
 	'magnitude.unitsLead':
-		'Every unit measuring this magnitude, with its engine-computed factor to the base unit. Approximate values are rounded to 6 significant figures.',
+		'Every unit measuring this magnitude or its broader and narrower kinds, with its engine-computed factor to the base unit. Approximate values are rounded to 6 significant figures.',
+	'magnitude.broaderKind': 'Broader kind',
+	'magnitude.narrowerKinds': 'Narrower kinds',
+	'magnitude.sameDimension': 'Same dimension',
+	'magnitude.sameDimensionHint':
+		'Different quantities that share this dimension. Their units convert numerically, but the result is a different physical quantity.',
 
 	'meta.constants':
 		'Physical constants in the Equreka wiki, with full-precision values, units, and definitions.',
@@ -180,6 +191,9 @@ export const en = {
 	'converter.enterValue': 'Enter a value to convert.',
 	'converter.notANumber': 'Enter a numeric value.',
 	'converter.failed': 'Conversion failed.',
+	'converter.showAllDimension': 'Show all units with this dimension (+{count})',
+	'converter.showAllDimensionHint':
+		'Adds units of other quantities that share the dimension — numerically convertible, physically different.',
 
 	'meta.search': 'Search every unit, magnitude, constant, and equation in the Equreka wiki.',
 	'search.title': 'Search',

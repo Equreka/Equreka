@@ -71,13 +71,20 @@ describe('resolveUnits over the real corpus', () => {
 		});
 	});
 
-	it('accepts compose-form base units (metre-per-second, reciprocal-mole)', () => {
+	it('accepts a compose-form base unit (metre-per-second)', () => {
 		expect(resolution.resolved.get('metre-per-second')).toMatchObject({
 			factorText: '1',
 			dimension: [1, 0, -1, 0, 0, 0, 0, 0],
 		});
+	});
+
+	it('derives the magnitude-less reciprocal-mole dimension from its operand', () => {
+		expect(corpus.units.get('reciprocal-mole')?.unitOf).toEqual([]);
+		expect(corpus.magnitudes.has('reciprocal-amount')).toBe(false);
 		expect(resolution.resolved.get('reciprocal-mole')).toMatchObject({
 			factorText: '1',
+			offsetText: '0',
+			exact: true,
 			dimension: [0, 0, 0, 0, 0, -1, 0, 0],
 		});
 	});
@@ -321,5 +328,80 @@ describe('resolveUnits identity anchors', () => {
 		);
 		expect(result.issues).toEqual([]);
 		expect(result.resolved.get('joule-alias')?.factorText).toBe('1');
+	});
+});
+
+describe('resolveUnits magnitude-less compound units', () => {
+	const newton = {
+		name: { en: 'Newton' },
+		symbol: { tex: 'N' },
+		compose: {
+			of: [
+				{ unit: 'joule', exp: 1 },
+				{ unit: 'metre', exp: -1 },
+			],
+		},
+	};
+
+	it('takes the dimension from the operands and nests through another magnitude-less unit', () => {
+		const result = resolveUnits(
+			syntheticCorpus({
+				...BASE_UNITS,
+				newton,
+				'newton-kilometre': {
+					name: { en: 'Newton kilometre' },
+					symbol: { tex: 'N\\cdot km' },
+					unitOf: [],
+					compose: {
+						factor: '1000',
+						of: [
+							{ unit: 'newton', exp: 1 },
+							{ unit: 'metre', exp: 1 },
+						],
+					},
+				},
+			}),
+		);
+		expect(result.issues).toEqual([]);
+		expect(result.resolved.get('newton')).toMatchObject({
+			factorText: '1',
+			dimension: [1, 1, -2, 0, 0, 0, 0, 0],
+		});
+		expect(result.resolved.get('newton-kilometre')).toMatchObject({
+			factorText: '1000',
+			exact: true,
+			dimension: [2, 1, -2, 0, 0, 0, 0, 0],
+		});
+	});
+
+	it('still checks the compose sum when unitOf is non-empty', () => {
+		const result = resolveUnits(
+			syntheticCorpus({ ...BASE_UNITS, newton: { ...newton, unitOf: ['length'] } }),
+		);
+		expect(result.issues.map((entry) => entry.message)).toEqual([
+			expect.stringContaining('compose dimension [1, 1, -2, 0, 0, 0, 0, 0] does not match'),
+		]);
+		expect(result.resolved.has('newton')).toBe(false);
+	});
+
+	it('terminates on a derivation cycle between magnitude-less units', () => {
+		const result = resolveUnits(
+			syntheticCorpus({
+				...BASE_UNITS,
+				ping: {
+					name: { en: 'Ping' },
+					symbol: { tex: 'p' },
+					compose: { of: [{ unit: 'pong', exp: 1 }] },
+				},
+				pong: {
+					name: { en: 'Pong' },
+					symbol: { tex: 'q' },
+					compose: { of: [{ unit: 'ping', exp: 1 }] },
+				},
+			}),
+		);
+		expect(result.issues.some((entry) => entry.message.includes('derivation cycle'))).toBe(true);
+		expect(result.resolved.has('ping')).toBe(false);
+		expect(result.resolved.has('pong')).toBe(false);
 	});
 });

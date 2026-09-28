@@ -8,6 +8,11 @@ unitOf:
 system: 'other'
 toBase:
   factor: '1000'
+  source:
+    name: 'SI Brochure (9th ed.)'
+    url: 'https://www.bipm.org/en/publications/si-brochure'
+    ref: 'Table 8: tonne, 1 t = 1000 kg'
+status: 'reviewed'
 categories:
   - 'physics'
 aliases:

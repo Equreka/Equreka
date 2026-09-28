@@ -1,8 +1,10 @@
 ---
 import '../styles/global.css';
 import { type Locale, t } from '@equreka/core/i18n';
+import type { ExternalIds } from '@equreka/schema';
 import { tokens } from '@equreka/tokens';
 import SearchBox from '../islands/search-box';
+import { definedTermJsonLd, serializeJsonLd } from '../lib/entry-meta';
 import { localePath } from '../lib/locale-paths';
 import { GITHUB_URL, LICENSE_URL, SITE_VERSION } from '../lib/site';
 
@@ -11,9 +13,10 @@ interface Props {
 	description?: string;
 	locale?: Locale;
 	ogType?: 'website' | 'article';
+	definedTerm?: { name: string; externalIds?: ExternalIds | undefined };
 }
 
-const { title, description, locale = 'en', ogType = 'website' } = Astro.props;
+const { title, description, locale = 'en', ogType = 'website', definedTerm } = Astro.props;
 
 const site = Astro.site ?? new URL('https://equreka.com');
 const rawPath = Astro.url.pathname;
@@ -22,6 +25,18 @@ const basePath = locale === 'es' ? path.replace(/^\/es(?=\/)/, '') : path;
 const canonicalUrl = new URL(path, site);
 const enUrl = new URL(basePath, site);
 const esUrl = new URL(`/es${basePath}`, site);
+const jsonLd =
+	definedTerm === undefined
+		? undefined
+		: serializeJsonLd(
+				definedTermJsonLd({
+					name: definedTerm.name,
+					description,
+					url: canonicalUrl.href,
+					inLanguage: locale,
+					externalIds: definedTerm.externalIds,
+				}),
+			);
 
 const NAV_ITEMS = [
 	{ key: 'nav.units', href: '/units/' },
@@ -52,6 +67,7 @@ const NAV_ITEMS = [
 		{description !== undefined && <meta property="og:description" content={description} />}
 		<meta property="og:type" content={ogType} />
 		<meta property="og:url" content={canonicalUrl.href} />
+		{jsonLd !== undefined && <script is:inline type="application/ld+json" set:html={jsonLd} />}
 		<meta name="theme-color" content={tokens.color.accent.light} />
 		<link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
 		<link rel="manifest" href="/manifest.webmanifest" />

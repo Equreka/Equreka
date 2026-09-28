@@ -8,6 +8,11 @@ unitOf:
 system: 'imperial'
 toBase:
   factor: '6.35029318'
+  source:
+    name: 'Weights and Measures Act 1985 (UK)'
+    url: 'https://www.legislation.gov.uk/ukpga/1985/72/schedule/1'
+    ref: 'Schedule 1: stone = 14 pounds'
+status: 'reviewed'
 categories:
   - 'physics'
 description:

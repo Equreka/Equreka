@@ -8,6 +8,11 @@ unitOf:
 system: 'other'
 toBase:
   factor: '0.001'
+  source:
+    name: 'SI Brochure (9th ed.)'
+    url: 'https://www.bipm.org/en/publications/si-brochure'
+    ref: 'Table 8: litre, 1 L = 1 dm³'
+status: 'reviewed'
 categories:
   - 'physics'
 aliases:

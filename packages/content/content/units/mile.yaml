@@ -8,6 +8,11 @@ unitOf:
 system: 'imperial'
 toBase:
   factor: '1609.344'
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811'
+    ref: 'B.8: mile (mi), international'
+status: 'reviewed'
 categories:
   - 'physics'
 aliases:

@@ -8,6 +8,11 @@ unitOf:
 system: 'uscs'
 toBase:
   factor: '907.18474'
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811'
+    ref: 'B.8: ton, short (2000 lb); exact as 2000 lb'
+status: 'reviewed'
 categories:
   - 'physics'
 aliases:

@@ -9,6 +9,10 @@ system: 'other'
 toBase:
   factor: '3153600000'
   exact: false
+  source:
+    name: 'convention'
+    ref: '1 century = 100 common years of 365 d'
+status: 'reviewed'
 categories:
   - 'universal'
   - 'physics'

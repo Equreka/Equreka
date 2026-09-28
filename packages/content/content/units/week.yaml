@@ -8,6 +8,10 @@ unitOf:
 system: 'other'
 toBase:
   factor: '604800'
+  source:
+    name: 'convention'
+    ref: '1 week = 7 d'
+status: 'reviewed'
 categories:
   - 'universal'
   - 'physics'

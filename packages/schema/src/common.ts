@@ -103,6 +103,40 @@ export const reference = z.object({
 });
 
 /**
+ * Provenance of one authored number: the publication (`name`), an optional
+ * locator inside it (`ref`: table, section or entry, e.g. 'B.8'), and an
+ * optional link. `name: 'convention'` marks a value fixed by customary
+ * definition rather than by a standards body; `ref` then states the rule.
+ */
+export const valueSource = z
+	.object({
+		name: z.string().min(1),
+		url: z.url().optional(),
+		ref: z.string().min(1).optional(),
+	})
+	.strict();
+
+/**
+ * Editorial state: `reviewed` asserts a human checked the entry's numbers
+ * against the cited source; every entry starts as `draft`.
+ */
+export const editorialStatus = z.enum(['draft', 'reviewed']);
+
+/**
+ * Cross-vocabulary identities for disambiguation and linked-data export:
+ * a Wikidata item QID and a QUDT vocabulary IRI.
+ */
+export const externalIds = z
+	.object({
+		wikidata: z
+			.string()
+			.regex(/^Q[1-9]\d*$/, 'Wikidata QID like "Q11573"')
+			.optional(),
+		qudt: z.url({ protocol: /^https?$/, hostname: /^qudt\.org$/ }).optional(),
+	})
+	.strict();
+
+/**
  * Fields shared by every entity. `aliases` holds ASCII transliterations and
  * notation variants ("mu", "ohm", "km/h", "kmh") that feed the exact-match
  * search lane — symbol lookup fails on default tokenizers without them.
@@ -113,6 +147,8 @@ export const entityBase = z.object({
 	categories: z.array(ref('categories')).default([]),
 	aliases: z.array(z.string().min(1)).default([]),
 	references: z.array(reference).default([]),
+	status: editorialStatus.default('draft'),
+	externalIds: externalIds.optional(),
 });
 
 export type Slug = z.infer<typeof slug>;
@@ -122,3 +158,6 @@ export type ExactNumber = z.infer<typeof exactNumber>;
 export type LocalizedText = z.infer<typeof localizedText>;
 export type Symbol = z.infer<typeof symbol>;
 export type Reference = z.infer<typeof reference>;
+export type ValueSource = z.infer<typeof valueSource>;
+export type EditorialStatus = z.infer<typeof editorialStatus>;
+export type ExternalIds = z.infer<typeof externalIds>;

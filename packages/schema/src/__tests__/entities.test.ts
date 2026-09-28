@@ -261,6 +261,19 @@ describe('magnitude', () => {
 		expect(parsed.dimension.A).toBe(1);
 		expect(parsed.nonNegative).toBe(false);
 	});
+
+	it('takes an optional kindOf slug naming the broader quantity kind', () => {
+		const work = {
+			name: { en: 'Work' },
+			symbol: { tex: 'W' },
+			baseUnit: 'joule',
+			dimension: { L: '2', M: '1', T: '-2' },
+		};
+		expect(magnitude.parse(work).kindOf).toBeUndefined();
+		expect(magnitude.parse({ ...work, kindOf: 'energy' }).kindOf).toBe('energy');
+		expect(magnitude.safeParse({ ...work, kindOf: 'Energy' }).success).toBe(false);
+		expect(magnitude.safeParse({ ...work, kindOf: ['energy'] }).success).toBe(false);
+	});
 });
 
 describe('failsafe-parse coercions (every YAML scalar arrives as a string)', () => {
@@ -400,5 +413,128 @@ describe('path', () => {
 				steps: [{ id: 'm', kind: 'entry', collection: 'units', slug: 'metre' }],
 			}).success,
 		).toBe(false);
+	});
+});
+
+describe('magnitude-less compound units', () => {
+	const newtonMetre = {
+		name: { en: 'Newton metre' },
+		symbol: { tex: 'N\\cdot m' },
+		compose: {
+			of: [
+				{ unit: 'newton', exp: '1' },
+				{ unit: 'metre', exp: '1' },
+			],
+		},
+	};
+
+	it('accepts an empty or omitted unitOf when compose is present', () => {
+		expect(unit.parse({ ...newtonMetre, unitOf: [] }).unitOf).toEqual([]);
+		expect(unit.parse(newtonMetre).unitOf).toEqual([]);
+	});
+
+	it('rejects an empty or omitted unitOf without compose', () => {
+		const furlong = {
+			name: { en: 'Furlong' },
+			symbol: { tex: 'fur' },
+			toBase: { factor: '201.168' },
+		};
+		expect(unit.safeParse({ ...furlong, unitOf: [] }).success).toBe(false);
+		expect(unit.safeParse(furlong).success).toBe(false);
+		expect(
+			unit.safeParse({ name: { en: 'Metre' }, symbol: { tex: 'm' }, unitOf: [] }).success,
+		).toBe(false);
+	});
+});
+
+describe('editorial state and provenance', () => {
+	const stone = {
+		name: { en: 'Stone' },
+		symbol: { tex: 'st' },
+		unitOf: ['mass'],
+		system: 'imperial',
+	};
+
+	it('defaults status to draft and accepts reviewed', () => {
+		expect(unit.parse({ ...stone, toBase: { factor: '6.35029318' } }).status).toBe('draft');
+		expect(
+			magnitude.parse({
+				name: { en: 'Mass' },
+				symbol: { tex: 'm' },
+				baseUnit: 'kilogram',
+				dimension: { M: '1' },
+				status: 'reviewed',
+			}).status,
+		).toBe('reviewed');
+	});
+
+	it('rejects an unknown status', () => {
+		expect(
+			unit.safeParse({ ...stone, toBase: { factor: '6.35029318' }, status: 'final' }).success,
+		).toBe(false);
+	});
+
+	it('accepts a toBase source with name, ref and url', () => {
+		const parsed = unit.parse({
+			...stone,
+			toBase: {
+				factor: '6.35029318',
+				source: {
+					name: 'NIST SP 811',
+					ref: 'B.8',
+					url: 'https://www.nist.gov/pml/special-publication-811',
+				},
+			},
+		});
+		expect(parsed.toBase?.source).toEqual({
+			name: 'NIST SP 811',
+			ref: 'B.8',
+			url: 'https://www.nist.gov/pml/special-publication-811',
+		});
+	});
+
+	it('rejects a source without a name, with a bad url, or with unknown keys', () => {
+		const withSource = (source: unknown) =>
+			unit.safeParse({ ...stone, toBase: { factor: '6.35029318', source } }).success;
+		expect(withSource({ ref: 'B.8' })).toBe(false);
+		expect(withSource({ name: 'NIST SP 811', url: 'not a url' })).toBe(false);
+		expect(withSource({ name: 'NIST SP 811', page: '52' })).toBe(false);
+	});
+
+	it('accepts a locator ref on a constant source', () => {
+		const parsed = constant.parse({
+			name: { en: 'Speed of light' },
+			symbol: { tex: 'c' },
+			value: '299792458',
+			unit: 'metre-per-second',
+			source: { name: 'CODATA 2018', ref: 'c' },
+		});
+		expect(parsed.source?.ref).toBe('c');
+	});
+});
+
+describe('external identifiers', () => {
+	const metre = { name: { en: 'Metre' }, symbol: { tex: 'm' }, unitOf: ['length'] };
+
+	it('is optional and accepts a Wikidata QID and a QUDT IRI', () => {
+		expect(unit.parse(metre).externalIds).toBeUndefined();
+		const parsed = unit.parse({
+			...metre,
+			externalIds: { wikidata: 'Q11573', qudt: 'http://qudt.org/vocab/unit/M' },
+		});
+		expect(parsed.externalIds).toEqual({
+			wikidata: 'Q11573',
+			qudt: 'http://qudt.org/vocab/unit/M',
+		});
+	});
+
+	it('rejects a malformed QID, a non-IRI qudt value, and unknown vocabularies', () => {
+		const withIds = (externalIds: unknown) => unit.safeParse({ ...metre, externalIds }).success;
+		expect(withIds({ wikidata: '11573' })).toBe(false);
+		expect(withIds({ wikidata: 'Q11573a' })).toBe(false);
+		expect(withIds({ wikidata: 'Q0' })).toBe(false);
+		expect(withIds({ qudt: 'https://example.org/vocab/unit/M' })).toBe(false);
+		expect(withIds({ qudt: 'unit:M' })).toBe(false);
+		expect(withIds({ dbpedia: 'Metre' })).toBe(false);
 	});
 });

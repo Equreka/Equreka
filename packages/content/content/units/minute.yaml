@@ -8,6 +8,11 @@ unitOf:
 system: 'other'
 toBase:
   factor: '60'
+  source:
+    name: 'SI Brochure (9th ed.)'
+    url: 'https://www.bipm.org/en/publications/si-brochure'
+    ref: 'Table 8: minute, 1 min = 60 s'
+status: 'reviewed'
 categories:
   - 'universal'
   - 'physics'

@@ -8,6 +8,11 @@ unitOf:
 system: 'imperial'
 toBase:
   factor: '0.45359237'
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811'
+    ref: 'B.8: pound (avoirdupois) (lb)'
+status: 'reviewed'
 categories:
   - 'physics'
 aliases:

@@ -13,6 +13,11 @@ toBase:
   offset:
     num: '45967'
     den: '180'
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811'
+    ref: 'B.8: degree Fahrenheit (°F); T/K = (t/°F + 459.67)/1.8'
+status: 'reviewed'
 categories:
   - 'physics'
 aliases:

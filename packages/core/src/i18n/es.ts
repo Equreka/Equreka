@@ -53,6 +53,9 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'badge.measured': 'medida',
 	'badge.dimensionless': 'adimensional',
 	'badge.untranslated': 'aún sin traducir — se muestra en inglés',
+	'badge.draft': 'borrador',
+	'badge.draftHint': 'Aún sin revisión editorial frente a sus fuentes.',
+	'badge.compound': 'compuesta',
 
 	'table.symbol': 'Símbolo',
 	'table.name': 'Nombre',
@@ -93,12 +96,15 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'meta.unit': '{name} ({symbol}) — referencia de la unidad y conversiones.',
 	'unit.magnitude': 'Magnitud',
 	'unit.magnitudes': 'Magnitudes',
+	'unit.compoundHint':
+		'Unidad compuesta: su dimensión proviene de su composición, no de una magnitud con nombre.',
 	'unit.convert': 'Convertir {name}',
 	'conversions.title': 'Conversiones',
 	'conversions.lead':
 		'El valor de 1 {symbol} en cada unidad compatible, calculado por el motor de Equreka. Los valores aproximados se redondean a 6 cifras significativas.',
 	'conversions.header': '1 {symbol} =',
 	'conversions.baseUnit': 'unidad base',
+	'entry.identifiers': 'Identificadores',
 
 	'meta.magnitudes':
 		'Todas las magnitudes físicas de la wiki de Equreka, agrupadas por categoría, con dimensiones y unidades base.',
@@ -109,7 +115,12 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'magnitude.nonNegative': 'Cantidad no negativa',
 	'magnitude.unitsOf': 'Unidades de {name}',
 	'magnitude.unitsLead':
-		'Cada unidad que mide esta magnitud, con su factor a la unidad base calculado por el motor. Los valores aproximados se redondean a 6 cifras significativas.',
+		'Cada unidad que mide esta magnitud o sus magnitudes más generales y más específicas, con su factor a la unidad base calculado por el motor. Los valores aproximados se redondean a 6 cifras significativas.',
+	'magnitude.broaderKind': 'Magnitud más general',
+	'magnitude.narrowerKinds': 'Magnitudes más específicas',
+	'magnitude.sameDimension': 'Misma dimensión',
+	'magnitude.sameDimensionHint':
+		'Magnitudes distintas que comparten esta dimensión. Sus unidades se convierten numéricamente, pero el resultado es otra magnitud física.',
 
 	'meta.constants':
 		'Constantes físicas de la wiki de Equreka, con valores a precisión completa, unidades y definiciones.',
@@ -186,6 +197,9 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'converter.enterValue': 'Introduce un valor para convertir.',
 	'converter.notANumber': 'Introduce un valor numérico.',
 	'converter.failed': 'La conversión falló.',
+	'converter.showAllDimension': 'Mostrar todas las unidades con esta dimensión (+{count})',
+	'converter.showAllDimensionHint':
+		'Añade unidades de otras magnitudes con la misma dimensión: convertibles numéricamente, físicamente distintas.',
 
 	'meta.search': 'Busca cualquier unidad, magnitud, constante o ecuación de la wiki de Equreka.',
 	'search.title': 'Buscar',

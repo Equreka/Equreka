@@ -9,6 +9,7 @@ import {
 	slug,
 	strictBool,
 	symbol,
+	valueSource,
 } from './common.js';
 
 export const category = z
@@ -38,12 +39,20 @@ export const dimensionVector = z
 	})
 	.partial();
 
+/**
+ * `kindOf` names the broader quantity kind this magnitude specializes
+ * (work → energy, weight → force; ADR 0006). The pipeline requires an
+ * identical dimension vector and an acyclic chain. Convertibility in the
+ * engine stays dimension equality; the hierarchy only scopes which units a
+ * magnitude's converter and unit table offer by default.
+ */
 export const magnitude = entityBase
 	.extend({
 		symbol,
 		symbolAlt: symbol.optional(),
 		baseUnit: ref('units'),
 		dimension: dimensionVector,
+		kindOf: ref('magnitudes').optional(),
 		nonNegative: strictBool.default(false),
 	})
 	.strict();
@@ -54,13 +63,15 @@ export const unitSystem = z.enum(['si', 'si-derived', 'imperial', 'uscs', 'cgs',
  * Affine mapping to the magnitude's SI-coherent base unit:
  * base = factor · value + offset. Base units themselves omit every
  * derivation field (enforced by the refinement below and by the pipeline
- * against magnitude.baseUnit).
+ * against magnitude.baseUnit). `source` cites where the factor is defined
+ * (a NIST SP 811 Appendix B row, or 'convention' for calendar reckoning).
  */
 export const toBase = z
 	.object({
 		factor: exactNumber,
 		offset: exactNumber.default('0'),
 		exact: strictBool.default(true),
+		source: valueSource.optional(),
 	})
 	.strict();
 
@@ -78,7 +89,8 @@ export const composeOperand = z
  * Product form: this unit = factor · Π unitᵢ^expᵢ. `factor` is an exact
  * scalar (default 1) so exact non-unit ratios compose without a hand-typed
  * decimal (arcminute = degree/60); the pipeline multiplies it into the
- * rational factor chain and verifies the dimension sum against unitOf.
+ * rational factor chain and verifies the dimension sum against unitOf —
+ * or, when unitOf is empty, takes that sum as the unit's dimension.
  */
 export const compose = z
 	.object({
@@ -93,13 +105,15 @@ export const compose = z
  * derive so its dimension is machine-verified. `nonConvertible` marks
  * wiki-only units with no linear/affine mapping (levels such as the
  * decibel): they resolve no factor, never enter the engine slice, and may
- * not anchor a magnitude or appear in another unit's derivation.
+ * not anchor a magnitude or appear in another unit's derivation. An empty
+ * `unitOf` is legal only with `compose` (N·m, kW·h): the dimension then
+ * comes from the operands, so no synthetic magnitude is minted to host it.
  */
 export const unit = entityBase
 	.extend({
 		symbol,
 		symbolAlt: symbol.optional(),
-		unitOf: z.array(ref('magnitudes')).min(1),
+		unitOf: z.array(ref('magnitudes')).default([]),
 		system: unitSystem.default('other'),
 		nonConvertible: strictBool.default(false),
 		toBase: toBase.optional(),
@@ -120,6 +134,14 @@ export const unit = entityBase
 				code: 'custom',
 				message:
 					'a unit is authored in at most one form: toBase | prefixOf | compose (none = base unit)',
+			});
+		}
+		if (value.unitOf.length === 0 && value.compose === undefined) {
+			ctx.addIssue({
+				code: 'custom',
+				path: ['unitOf'],
+				message:
+					'unitOf may be empty only for a compose-form unit, whose dimension derives from its operands',
 			});
 		}
 		if (value.nonConvertible && forms.length > 0) {
@@ -147,13 +169,7 @@ export const constant = entityBase
 		exact: strictBool.default(false),
 		irrational: strictBool.default(false),
 		uncertainty: decimalString.optional(),
-		source: z
-			.object({
-				name: z.string().min(1),
-				url: z.url().optional(),
-			})
-			.strict()
-			.optional(),
+		source: valueSource.optional(),
 	})
 	.strict();
 

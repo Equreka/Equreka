@@ -1,7 +1,7 @@
 import { fileURLToPath } from 'node:url';
 import { collectionSchemas } from '@equreka/schema';
 import { describe, expect, it } from 'vitest';
-import { checkIntegrity, DERIVATION_FREE_UNITS } from '../integrity.js';
+import { checkIntegrity, DERIVATION_FREE_UNITS, orphanMagnitudes } from '../integrity.js';
 import { loadContent } from '../load.js';
 import { type Corpus, validateContent } from '../validate.js';
 
@@ -220,6 +220,94 @@ describe('equation terms', () => {
 	});
 });
 
+describe('quantity-kind hierarchy', () => {
+	const kind = (dimension: Record<string, number>, kindOf?: string) => ({
+		name: { en: 'kind' },
+		symbol: { tex: 'k' },
+		baseUnit: 'metre',
+		dimension,
+		...(kindOf === undefined ? {} : { kindOf }),
+	});
+	const metreOf = (...unitOf: string[]) => ({
+		metre: { name: { en: 'Metre' }, symbol: { tex: 'm' }, unitOf },
+	});
+
+	it('accepts a same-dimension parent chain', () => {
+		const corpus = corpusWith({
+			magnitudes: {
+				length: kind({ L: 1 }),
+				distance: kind({ L: 1 }, 'length'),
+				height: kind({ L: 1 }, 'distance'),
+			},
+			units: metreOf('length', 'distance', 'height'),
+		});
+		expect(messages(corpus)).toEqual([]);
+	});
+
+	it('rejects a parent of a different dimension', () => {
+		const corpus = corpusWith({
+			magnitudes: {
+				length: kind({ L: 1 }),
+				area: { ...kind({ L: 2 }, 'length'), baseUnit: 'square-metre' },
+			},
+			units: {
+				...metreOf('length'),
+				'square-metre': {
+					name: { en: 'Square metre' },
+					symbol: { tex: 'm^2' },
+					unitOf: ['area'],
+					compose: { of: [{ unit: 'metre', exp: 2 }] },
+				},
+			},
+		});
+		expect(messages(corpus)).toEqual([
+			"magnitudes/area.yaml: kindOf 'length' has dimension [1, 0, 0, 0, 0, 0, 0, 0], this magnitude [2, 0, 0, 0, 0, 0, 0, 0]; a quantity kind specializes only a kind of identical dimension",
+		]);
+	});
+
+	it('rejects an unknown parent and a self parent', () => {
+		const corpus = corpusWith({
+			magnitudes: { length: kind({ L: 1 }, 'ghost'), distance: kind({ L: 1 }, 'distance') },
+			units: metreOf('length', 'distance'),
+		});
+		expect(messages(corpus)).toEqual([
+			"magnitudes/length.yaml: kindOf: unknown magnitudes ref 'ghost'",
+			'magnitudes/distance.yaml: a magnitude cannot be its own kindOf',
+		]);
+	});
+
+	it('reports a kindOf cycle once, from its smallest member', () => {
+		const corpus = corpusWith({
+			magnitudes: {
+				length: kind({ L: 1 }, 'height'),
+				distance: kind({ L: 1 }, 'length'),
+				height: kind({ L: 1 }, 'distance'),
+				breadth: kind({ L: 1 }, 'height'),
+			},
+			units: metreOf('length', 'distance', 'height', 'breadth'),
+		});
+		expect(messages(corpus)).toEqual([
+			'magnitudes/distance.yaml: kindOf forms a cycle: distance → length → height → distance',
+		]);
+	});
+
+	it('authors kindOf only between same-dimension magnitudes in the real corpus', () => {
+		const { corpus } = validateContent(loadContent(CONTENT_DIR));
+		const edges = [...corpus.magnitudes]
+			.filter(([, magnitude]) => magnitude.kindOf !== undefined)
+			.map(([slug, magnitude]) => `${slug} → ${magnitude.kindOf}`)
+			.sort();
+		expect(edges).toEqual([
+			'electric-potential-difference → electric-potential',
+			'electromotive-force → electric-potential',
+			'heat → energy',
+			'radiant-flux → power',
+			'weight → force',
+			'work → energy',
+		]);
+	});
+});
+
 describe('path prerequisites', () => {
 	const pathWith = (
 		slug: string,
@@ -276,5 +364,100 @@ describe('path prerequisites', () => {
 		expect(messages(corpus)).toEqual([
 			"paths/a.yaml: steps.furlong.ref: unknown units ref 'furlong'",
 		]);
+	});
+});
+
+describe('orphan magnitudes', () => {
+	const area = {
+		name: { en: 'Area' },
+		symbol: { tex: 'A' },
+		baseUnit: 'square-metre',
+		dimension: { L: '2' },
+	};
+	const squareMetre = {
+		name: { en: 'Square metre' },
+		symbol: { tex: 'm^{2}' },
+		unitOf: ['area'],
+		compose: { of: [{ unit: 'metre', exp: 2 }] },
+	};
+	const orphanFiles = (corpus: Corpus): string[] =>
+		orphanMagnitudes(corpus).flatMap((entry) => {
+			expect(entry).toMatchObject({ severity: 'warning', stage: 'integrity', file: '' });
+			return [...entry.message.matchAll(/magnitudes\/[a-z-]+\.yaml/g)].map((match) => match[0]);
+		});
+
+	it('warns once, listing every magnitude only its own baseUnit lists', () => {
+		const corpus = corpusWith({
+			magnitudes: { ...MAGNITUDES, area },
+			units: { ...UNITS, 'square-metre': squareMetre },
+		});
+		expect(orphanMagnitudes(corpus)).toHaveLength(1);
+		expect(orphanFiles(corpus)).toEqual([
+			'magnitudes/area.yaml',
+			'magnitudes/dimensionless.yaml',
+			'magnitudes/length.yaml',
+		]);
+	});
+
+	it("counts a second unit, a constant's unit and an equation term as a use", () => {
+		const corpus = corpusWith({
+			magnitudes: { ...MAGNITUDES, area },
+			units: {
+				...UNITS,
+				'square-metre': squareMetre,
+				hectare: {
+					name: { en: 'Hectare' },
+					symbol: { tex: 'ha' },
+					unitOf: ['area'],
+					toBase: { factor: '10000' },
+				},
+			},
+			constants: {
+				one: { name: { en: 'One' }, symbol: { tex: '1' }, value: '1', unit: 'unitless' },
+			},
+			equations: {
+				sample: {
+					name: { en: 'Sample' },
+					expression: '\\var{s}=\\var{s}',
+					terms: { s: { kind: 'symbol', label: { en: 'Side' }, unit: 'metre' } },
+				},
+			},
+		});
+		expect(orphanMagnitudes(corpus)).toEqual([]);
+	});
+
+	it('is silenced by externalIds on a real quantity kind', () => {
+		const corpus = corpusWith({
+			magnitudes: {
+				length: { ...MAGNITUDES.length, externalIds: { wikidata: 'Q36253' } },
+				dimensionless: { ...MAGNITUDES.dimensionless, externalIds: { wikidata: 'Q1758831' } },
+			},
+			units: UNITS,
+		});
+		expect(orphanMagnitudes(corpus)).toEqual([]);
+	});
+
+	it('does not count a magnitude-less compound unit toward any magnitude', () => {
+		const corpus = corpusWith({
+			magnitudes: { length: { ...MAGNITUDES.length, externalIds: { wikidata: 'Q36253' } } },
+			units: {
+				metre: UNITS.metre,
+				'square-metre': {
+					name: { en: 'Square metre' },
+					symbol: { tex: 'm^{2}' },
+					compose: { of: [{ unit: 'metre', exp: 2 }] },
+				},
+			},
+		});
+		expect(checkIntegrity(corpus)).toEqual([]);
+		expect(orphanMagnitudes(corpus)).toEqual([]);
+	});
+
+	it('flags only the synthetic magnitudes left in the real corpus, never reciprocal-amount', () => {
+		const { corpus } = validateContent(loadContent(CONTENT_DIR));
+		const files = orphanFiles(corpus);
+		expect(files).not.toContain('magnitudes/reciprocal-amount.yaml');
+		expect(files).not.toContain('magnitudes/luminous-efficacy.yaml');
+		expect(files.every((file) => corpus.magnitudes.has(file.slice(11, -5)))).toBe(true);
 	});
 });

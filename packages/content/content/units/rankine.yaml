@@ -10,6 +10,11 @@ toBase:
   factor:
     num: '5'
     den: '9'
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811'
+    ref: 'B.8: degree Rankine (°R); T/K = (T/°R)/1.8'
+status: 'reviewed'
 categories:
   - 'physics'
 aliases:

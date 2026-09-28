@@ -8,6 +8,11 @@ unitOf:
 system: 'other'
 toBase:
   factor: '86400'
+  source:
+    name: 'SI Brochure (9th ed.)'
+    url: 'https://www.bipm.org/en/publications/si-brochure'
+    ref: 'Table 8: day, 1 d = 86400 s'
+status: 'reviewed'
 categories:
   - 'universal'
   - 'physics'

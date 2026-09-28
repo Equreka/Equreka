@@ -43,9 +43,10 @@ export const DERIVATION_FREE_UNITS: ReadonlySet<string> = new Set([
 
 /**
  * Stage 3: cross-entity referential integrity plus the structural rules a
- * per-file schema cannot see (baseUnit linkage, the affine ban, the
- * derivation whitelist, nonConvertible isolation, equation term/macro
- * agreement). Numeric anchor rules land in stage 4 resolution.
+ * per-file schema cannot see (baseUnit linkage, the quantity-kind
+ * hierarchy, the affine ban, the derivation whitelist, nonConvertible
+ * isolation, equation term/macro agreement). Numeric anchor rules land in
+ * stage 4 resolution.
  */
 export function checkIntegrity(corpus: Corpus): Issue[] {
 	const issues: Issue[] = [];
@@ -100,6 +101,49 @@ export function checkIntegrity(corpus: Corpus): Issue[] {
 				),
 			);
 		}
+	}
+
+	for (const [slug, magnitude] of corpus.magnitudes) {
+		const parentSlug = magnitude.kindOf;
+		if (parentSlug === undefined) {
+			continue;
+		}
+		const file = fileOf('magnitudes', slug);
+		if (parentSlug === slug) {
+			issues.push(issue('error', 'integrity', file, 'a magnitude cannot be its own kindOf'));
+			continue;
+		}
+		if (!ref(file, 'kindOf', 'magnitudes', parentSlug)) {
+			continue;
+		}
+		const parent = corpus.magnitudes.get(parentSlug);
+		const own = magnitudeDimension(magnitude);
+		if (parent !== undefined && !dimensionsEqual(own, magnitudeDimension(parent))) {
+			issues.push(
+				issue(
+					'error',
+					'integrity',
+					file,
+					`kindOf '${parentSlug}' has dimension ${formatDimension(magnitudeDimension(parent))}, this magnitude ${formatDimension(own)}; a quantity kind specializes only a kind of identical dimension`,
+				),
+			);
+		}
+	}
+	const kindOfSuccessors = (slug: string): readonly string[] => {
+		const parent = corpus.magnitudes.get(slug)?.kindOf;
+		return parent === undefined || parent === slug || !corpus.magnitudes.has(parent)
+			? []
+			: [parent];
+	};
+	for (const cycle of graphCycles([...corpus.magnitudes.keys()], kindOfSuccessors)) {
+		issues.push(
+			issue(
+				'error',
+				'integrity',
+				fileOf('magnitudes', cycle[0] ?? ''),
+				`kindOf forms a cycle: ${cycle.join(' → ')}`,
+			),
+		);
 	}
 
 	const affineUnits = new Set<string>();
@@ -279,7 +323,11 @@ export function checkIntegrity(corpus: Corpus): Issue[] {
 			ref(file, 'prerequisites', 'paths', prerequisite);
 		}
 	}
-	for (const cycle of prerequisiteCycles(corpus.paths)) {
+	const prerequisiteSuccessors = (slug: string): readonly string[] =>
+		(corpus.paths.get(slug)?.prerequisites ?? []).filter(
+			(next) => next !== slug && corpus.paths.has(next),
+		);
+	for (const cycle of graphCycles([...corpus.paths.keys()], prerequisiteSuccessors)) {
 		issues.push(
 			issue(
 				'error',
@@ -294,12 +342,73 @@ export function checkIntegrity(corpus: Corpus): Issue[] {
 }
 
 /**
- * Every elementary cycle in the prerequisite graph, each reported once from
- * its lexicographically smallest member (so the report is deterministic and
- * a cycle is not listed once per participant). Unknown and self
- * prerequisites are skipped here — the checks above already reported them.
+ * One corpus-level warning listing magnitudes nothing leans on except their
+ * own baseUnit — no other unit lists them in unitOf, no constant's unit or
+ * equation term lands on them — and that carry no externalIds. That is the
+ * shape of a magnitude minted only to host a unit (which an empty-unitOf
+ * compose unit now avoids); a real quantity kind with one unit so far is
+ * silenced by authoring its Wikidata/QUDT identity. The baseUnit's own
+ * listing is discounted because the baseUnit rule forces it for every
+ * magnitude, which would make the check vacuous.
  */
-function prerequisiteCycles(paths: Corpus['paths']): string[][] {
+export function orphanMagnitudes(corpus: Corpus): Issue[] {
+	const used = new Set<string>();
+	const unitLands = (unitSlug: string | undefined): void => {
+		for (const magnitudeSlug of corpus.units.get(unitSlug ?? '')?.unitOf ?? []) {
+			used.add(magnitudeSlug);
+		}
+	};
+	for (const [unitSlug, unit] of corpus.units) {
+		for (const magnitudeSlug of unit.unitOf) {
+			if (corpus.magnitudes.get(magnitudeSlug)?.baseUnit !== unitSlug) {
+				used.add(magnitudeSlug);
+			}
+		}
+	}
+	for (const constant of corpus.constants.values()) {
+		unitLands(constant.unit);
+	}
+	for (const equation of corpus.equations.values()) {
+		for (const term of Object.values(equation.terms)) {
+			if (term.kind === 'magnitude') {
+				used.add(term.ref);
+			} else if (term.kind === 'constant') {
+				unitLands(corpus.constants.get(term.ref)?.unit);
+			} else if (term.kind === 'variable') {
+				unitLands(corpus.variables.get(term.ref)?.defaultUnit);
+			} else {
+				unitLands(term.unit);
+			}
+		}
+	}
+	const orphans = [...corpus.magnitudes]
+		.filter(([slug, magnitude]) => !used.has(slug) && magnitude.externalIds === undefined)
+		.map(([slug]) => fileOf('magnitudes', slug))
+		.sort();
+	if (orphans.length === 0) {
+		return [];
+	}
+	return [
+		issue(
+			'warning',
+			'integrity',
+			'',
+			`orphan magnitudes (only their own baseUnit lists them; no constant or equation term uses them; no externalIds): ${orphans.join(', ')} — author externalIds for a real quantity kind, or give a hosted unit an empty unitOf with a compose form and delete the magnitude`,
+		),
+	];
+}
+
+/**
+ * Every elementary cycle of a directed graph over `slugs`, each reported
+ * once from its lexicographically smallest member and closed by repeating
+ * it, so the report is deterministic and a cycle is not listed once per
+ * participant. `successors` must already drop self-edges and unknown
+ * targets — the callers report those separately.
+ */
+function graphCycles(
+	slugs: readonly string[],
+	successors: (slug: string) => readonly string[],
+): string[][] {
 	const cycles: string[][] = [];
 	const seen = new Set<string>();
 	const visit = (slug: string, stack: string[]): void => {
@@ -315,13 +424,11 @@ function prerequisiteCycles(paths: Corpus['paths']): string[][] {
 			}
 			return;
 		}
-		for (const next of paths.get(slug)?.prerequisites ?? []) {
-			if (next !== slug && paths.has(next)) {
-				visit(next, [...stack, slug]);
-			}
+		for (const next of successors(slug)) {
+			visit(next, [...stack, slug]);
 		}
 	};
-	for (const slug of [...paths.keys()].sort()) {
+	for (const slug of [...slugs].sort()) {
 		visit(slug, []);
 	}
 	return cycles;

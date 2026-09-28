@@ -58,14 +58,63 @@ export function magnitudeDimension(magnitude: Magnitude): CompiledDimension {
 }
 
 /**
- * A unit's dimension is defined by its first magnitude (`unitOf[0]`);
- * integrity separately enforces that every listed magnitude agrees.
+ * The dimension a unit's magnitudes declare (`unitOf[0]`; integrity
+ * separately enforces that every listed magnitude agrees). Undefined for a
+ * magnitude-less compound unit or a dangling ref.
  */
-export function unitDimension(unit: Unit, corpus: Corpus): CompiledDimension | undefined {
+export function declaredUnitDimension(unit: Unit, corpus: Corpus): CompiledDimension | undefined {
 	const first = unit.unitOf[0];
 	if (first === undefined) {
 		return undefined;
 	}
 	const magnitude = corpus.magnitudes.get(first);
 	return magnitude === undefined ? undefined : magnitudeDimension(magnitude);
+}
+
+/**
+ * Σ expᵢ·dim(unitᵢ) over a compose form's operands; undefined when the unit
+ * has no compose form or any operand's dimension is unknown. `visiting`
+ * holds the operand slugs on the current walk so a derivation cycle (which
+ * resolution reports) terminates here instead of recursing forever.
+ */
+export function composedUnitDimension(
+	unit: Unit,
+	corpus: Corpus,
+	visiting: ReadonlySet<string> = new Set(),
+): CompiledDimension | undefined {
+	if (unit.compose === undefined) {
+		return undefined;
+	}
+	let sum = DIMENSION_ZERO;
+	for (const operand of unit.compose.of) {
+		const operandUnit = corpus.units.get(operand.unit);
+		if (operandUnit === undefined || visiting.has(operand.unit)) {
+			return undefined;
+		}
+		const operandDimension = unitDimension(
+			operandUnit,
+			corpus,
+			new Set([...visiting, operand.unit]),
+		);
+		if (operandDimension === undefined) {
+			return undefined;
+		}
+		sum = dimensionAdd(
+			sum,
+			operandDimension.map((value) => value * operand.exp) as CompiledDimension,
+		);
+	}
+	return sum;
+}
+
+/**
+ * A unit's dimension: declared by its magnitudes when it has any, otherwise
+ * derived from its compose operands (a magnitude-less compound unit).
+ */
+export function unitDimension(
+	unit: Unit,
+	corpus: Corpus,
+	visiting: ReadonlySet<string> = new Set(),
+): CompiledDimension | undefined {
+	return declaredUnitDimension(unit, corpus) ?? composedUnitDimension(unit, corpus, visiting);
 }

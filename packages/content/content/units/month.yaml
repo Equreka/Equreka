@@ -9,6 +9,10 @@ system: 'other'
 toBase:
   factor: '2.628e+6'
   exact: false
+  source:
+    name: 'convention'
+    ref: '1 month = 1/12 of a 365 d common year'
+status: 'reviewed'
 categories:
   - 'universal'
   - 'physics'

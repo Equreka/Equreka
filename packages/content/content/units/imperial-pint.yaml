@@ -9,6 +9,11 @@ unitOf:
 system: 'imperial'
 toBase:
   factor: '0.00056826125'
+  source:
+    name: 'Weights and Measures Act 1985 (UK)'
+    url: 'https://www.legislation.gov.uk/ukpga/1985/72/schedule/1'
+    ref: 'Schedule 1: pint = 1/8 gallon'
+status: 'reviewed'
 categories:
   - 'physics'
 aliases:

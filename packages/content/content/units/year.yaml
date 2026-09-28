@@ -9,6 +9,10 @@ system: 'other'
 toBase:
   factor: '31536000'
   exact: false
+  source:
+    name: 'convention'
+    ref: '1 year = 365 d common year'
+status: 'reviewed'
 categories:
   - 'universal'
   - 'physics'

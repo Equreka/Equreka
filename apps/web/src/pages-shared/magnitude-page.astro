@@ -2,6 +2,9 @@
 import type { CollectionEntry } from 'astro:content';
 import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
 import { formatSigFigs } from '@equreka/engine/format';
+import { kindRelations } from '@equreka/engine/units';
+import DraftBadge from '../components/draft-badge.astro';
+import EntryIdentifiers from '../components/entry-identifiers.astro';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
 import FavoriteToggle from '../islands/favorite-toggle';
 import PathContextBar from '../islands/path-context-bar';
@@ -29,9 +32,30 @@ const dimensionText = compiled === undefined ? '' : formatDimension(compiled.dim
 const baseUnit = engineSlice.units[magnitude.baseUnit];
 const baseSymbol = baseUnit?.symbolText ?? '';
 
-const units = Object.values(engineSlice.units)
-	.filter((unit) => unit.magnitudes.includes(slug))
+const units = unitRegistry
+	.unitsForMagnitude(slug)
 	.sort((a, b) => localizedName(a, locale).localeCompare(localizedName(b, locale), locale));
+const relations = kindRelations(engineSlice.magnitudes, slug);
+const kindRows = [
+	{ label: t(locale, 'magnitude.broaderKind'), slugs: relations.broader.slice(0, 1), hint: '' },
+	{ label: t(locale, 'magnitude.narrowerKinds'), slugs: relations.narrower, hint: '' },
+	{
+		label: t(locale, 'magnitude.sameDimension'),
+		slugs: relations.sameDimension,
+		hint: t(locale, 'magnitude.sameDimensionHint'),
+	},
+]
+	.map((row) => ({
+		...row,
+		links: row.slugs
+			.map((related) => engineSlice.magnitudes[related])
+			.filter((related) => related !== undefined)
+			.map((related) => ({
+				href: localePath(locale, `/magnitudes/${related.slug}/`),
+				name: localizedName(related, locale),
+			})),
+	}))
+	.filter((row) => row.links.length > 0);
 const rows = units.map((unit) => {
 	const converted = unitRegistry.convert(1, unit.slug, magnitude.baseUnit);
 	return {
@@ -54,6 +78,7 @@ const metaDescription =
 ---
 
 <BaseLayout
+	definedTerm={{ name, externalIds: magnitude.externalIds }}
 	title={`${name} (${symbolText}) — Equreka`}
 	description={metaDescription}
 	locale={locale}
@@ -83,12 +108,14 @@ const metaDescription =
 					)
 				}
 				<UntranslatedBadge locale={locale} show={untranslated} />
+				<DraftBadge locale={locale} status={magnitude.status} />
 			</div>
 			<div class="mt-3 flex flex-wrap items-baseline gap-4">
 				<h1 class="text-3xl font-bold tracking-tight">{name}</h1>
 				<span class="text-2xl" set:html={renderSymbolHtml(magnitude.symbol.tex, symbolText)} />
 				<FavoriteToggle client:idle collection="magnitudes" slug={slug} locale={locale} />
 			</div>
+			<EntryIdentifiers locale={locale} externalIds={magnitude.externalIds} />
 		</header>
 
 		{
@@ -121,6 +148,24 @@ const metaDescription =
 					)
 				}
 			</dd>
+			{
+				kindRows.map((row) => (
+					<>
+						<dt class="text-sm font-medium text-ink-muted">{row.label}</dt>
+						<dd>
+							{row.links.map((link, index) => (
+								<>
+									{index > 0 && ', '}
+									<a class="text-accent hover:underline" href={link.href}>
+										{link.name}
+									</a>
+								</>
+							))}
+							{row.hint !== '' && <p class="mt-1 text-xs text-ink-muted">{row.hint}</p>}
+						</dd>
+					</>
+				))
+			}
 			{
 				magnitude.nonNegative === true && (
 					<>

@@ -2,6 +2,8 @@
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
+import DraftBadge from '../components/draft-badge.astro';
+import EntryIdentifiers from '../components/entry-identifiers.astro';
 import UnitConversionTable from '../components/unit-conversion-table.astro';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
 import ConverterIsland from '../islands/converter-island';
@@ -10,7 +12,9 @@ import PathContextBar from '../islands/path-context-bar';
 import BaseLayout from '../layouts/base-layout.astro';
 import { CATEGORY_BADGE } from '../lib/category-styles';
 import { asMagnitude, asUnit } from '../lib/collections';
+import { converterMagnitudeOf } from '../lib/entry-meta';
 import { localePath } from '../lib/locale-paths';
+import { engineSlice } from '../lib/server/engine-registry';
 import { renderRichTextHtml, renderSymbolHtml } from '../lib/tex';
 import { symbolTextOf } from '../lib/unit-symbol';
 
@@ -34,6 +38,9 @@ const magnitudes = unit.unitOf.map((magnitudeSlug) => {
 	};
 });
 
+const compound = unit.unitOf.length === 0;
+const converterMagnitude = converterMagnitudeOf(slug, unit.unitOf, engineSlice);
+
 const description =
 	unit.description === undefined ? undefined : pickLocalized(unit.description, locale);
 const untranslated =
@@ -46,6 +53,7 @@ const metaDescription =
 ---
 
 <BaseLayout
+	definedTerm={{ name, externalIds: unit.externalIds }}
 	title={`${name} (${symbolText}) — Equreka`}
 	description={metaDescription}
 	locale={locale}
@@ -67,13 +75,22 @@ const metaDescription =
 						</span>
 					))
 				}
+				{
+					compound && (
+						<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">
+							{t(locale, 'badge.compound')}
+						</span>
+					)
+				}
 				<UntranslatedBadge locale={locale} show={untranslated} />
+				<DraftBadge locale={locale} status={unit.status} />
 			</div>
 			<div class="mt-3 flex flex-wrap items-baseline gap-4">
 				<h1 class="text-3xl font-bold tracking-tight">{name}</h1>
 				<span class="text-2xl" set:html={renderSymbolHtml(unit.symbol.tex, symbolText)} />
 				<FavoriteToggle client:idle collection="units" slug={slug} locale={locale} />
 			</div>
+			<EntryIdentifiers locale={locale} externalIds={unit.externalIds} />
 		</header>
 
 		{
@@ -86,20 +103,24 @@ const metaDescription =
 			<dt class="text-sm font-medium text-ink-muted">{t(locale, 'table.system')}</dt>
 			<dd>{t(locale, `system.${unit.system}`)}</dd>
 			<dt class="text-sm font-medium text-ink-muted">
-				{magnitudes.length === 1 ? t(locale, 'unit.magnitude') : t(locale, 'unit.magnitudes')}
+				{magnitudes.length > 1 ? t(locale, 'unit.magnitudes') : t(locale, 'unit.magnitude')}
 			</dt>
-			<dd class="flex flex-wrap gap-3">
-				{
-					magnitudes.map((magnitude) => (
-						<a
-							class="text-accent hover:underline"
-							href={localePath(locale, `/converter/?magnitude=${magnitude.slug}`)}
-						>
-							{magnitude.name}
-						</a>
-					))
-				}
-			</dd>
+			{
+				compound ? (
+					<dd class="text-ink-muted">{t(locale, 'unit.compoundHint')}</dd>
+				) : (
+					<dd class="flex flex-wrap gap-3">
+						{magnitudes.map((magnitude) => (
+							<a
+								class="text-accent hover:underline"
+								href={localePath(locale, `/converter/?magnitude=${magnitude.slug}`)}
+							>
+								{magnitude.name}
+							</a>
+						))}
+					</dd>
+				)
+			}
 		</dl>
 
 		{
@@ -107,19 +128,21 @@ const metaDescription =
 				<>
 					<UnitConversionTable unitSlug={slug} locale={locale} />
 
-					<section aria-labelledby="unit-converter-heading" class="mt-10">
-						<h2 id="unit-converter-heading" class="text-2xl font-semibold">
-							{t(locale, 'unit.convert', { name: name.toLowerCase() })}
-						</h2>
-						<div class="mt-4">
-							<ConverterIsland
-								client:visible
-								initialMagnitude={unit.unitOf[0]}
-								initialFrom={slug}
-								locale={locale}
-							/>
-						</div>
-					</section>
+					{converterMagnitude !== undefined && (
+						<section aria-labelledby="unit-converter-heading" class="mt-10">
+							<h2 id="unit-converter-heading" class="text-2xl font-semibold">
+								{t(locale, 'unit.convert', { name: name.toLowerCase() })}
+							</h2>
+							<div class="mt-4">
+								<ConverterIsland
+									client:visible
+									initialMagnitude={converterMagnitude}
+									initialFrom={slug}
+									locale={locale}
+								/>
+							</div>
+						</section>
+					)}
 				</>
 			)
 		}

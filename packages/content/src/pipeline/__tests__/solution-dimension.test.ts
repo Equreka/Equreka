@@ -2,7 +2,7 @@ import { fileURLToPath } from 'node:url';
 import { collectionSchemas } from '@equreka/schema';
 import { describe, expect, it } from 'vitest';
 import { loadContent } from '../load.js';
-import { checkSolutionDimensions, dimensionOf } from '../solution-dimension.js';
+import { checkSolutionDimensions, dimensionOf, termDimension } from '../solution-dimension.js';
 import { parseSolution } from '../solution-parser.js';
 import { type Corpus, validateContent } from '../validate.js';
 
@@ -52,6 +52,18 @@ describe('checkSolutionDimensions over the real corpus', () => {
 		);
 		expect(checkSolutionDimensions(corpus).map((entry) => entry.message)).toEqual([
 			expect.stringContaining("solution for 'A': sqrt of [3, 0, 0, 0, 0, 0, 0, 0]"),
+		]);
+	});
+});
+
+describe('termDimension', () => {
+	it('reads a symbol term through a magnitude-less compound unit (reciprocal-mole)', () => {
+		const corpus = realCorpus();
+		expect(
+			termDimension({ kind: 'symbol', label: { en: 'Per mole' }, unit: 'reciprocal-mole' }, corpus),
+		).toEqual([0, 0, 0, 0, 0, -1, 0, 0]);
+		expect(termDimension({ kind: 'constant', ref: 'avogadro-constant' }, corpus)).toEqual([
+			0, 0, 0, 0, 0, -1, 0, 0,
 		]);
 	});
 });

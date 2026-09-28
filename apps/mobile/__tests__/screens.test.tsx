@@ -66,6 +66,47 @@ describe('EntryScreen', () => {
 		expect(screen.getByText('Full precision')).toBeTruthy();
 	});
 
+	it('marks a draft entry', async () => {
+		await renderWithProvider(<EntryScreen collection="units" slug="metre" />);
+		expect(screen.getByText('draft')).toBeTruthy();
+	});
+
+	it('leaves a reviewed entry unmarked', async () => {
+		await renderWithProvider(<EntryScreen collection="units" slug="stone" />);
+		expect(screen.getByText('Stone')).toBeTruthy();
+		expect(screen.queryByText('draft')).toBeNull();
+	});
+
+	it('renders a magnitude-less compound unit without a magnitude link or converter', async () => {
+		await renderWithProvider(<EntryScreen collection="units" slug="reciprocal-mole" />);
+		expect(screen.getByText('Reciprocal mole')).toBeTruthy();
+		expect(screen.getByText('compound')).toBeTruthy();
+		expect(
+			screen.getByText(
+				'Compound unit: its dimension comes from its composition, not from a named magnitude.',
+			),
+		).toBeTruthy();
+		expect(screen.queryByText(/^Convert /)).toBeNull();
+	});
+
+	it('lists quantity-kind neighbours and the kind-family units of a magnitude', async () => {
+		await renderWithProvider(<EntryScreen collection="magnitudes" slug="work" />);
+		expect(screen.getByText('Broader kind')).toBeTruthy();
+		expect(screen.getByText(/^Energy\s+E$/)).toBeTruthy();
+		expect(screen.getByText('Same dimension')).toBeTruthy();
+		expect(screen.getByText(/^Heat\s+Q$/)).toBeTruthy();
+		expect(screen.getByText(/^Erg\s/)).toBeTruthy();
+		expect(screen.queryByText('Narrower kinds')).toBeNull();
+	});
+
+	it('lists narrower kinds on a parent magnitude', async () => {
+		await renderWithProvider(<EntryScreen collection="magnitudes" slug="energy" />);
+		expect(screen.getByText('Narrower kinds')).toBeTruthy();
+		expect(screen.getByText(/^Work\s+W$/)).toBeTruthy();
+		expect(screen.getByText(/^Heat\s+Q$/)).toBeTruthy();
+		expect(screen.queryByText('Broader kind')).toBeNull();
+	});
+
 	it('reports an unknown entry instead of crashing', async () => {
 		await renderWithProvider(<EntryScreen collection="units" slug="does-not-exist" />);
 		expect(screen.getByText('This entry is not in the bundled library.')).toBeTruthy();

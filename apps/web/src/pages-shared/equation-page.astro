@@ -10,6 +10,8 @@ import {
 	pickLocalized,
 	t,
 } from '@equreka/core/i18n';
+import DraftBadge from '../components/draft-badge.astro';
+import EntryIdentifiers from '../components/entry-identifiers.astro';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
 import FavoriteToggle from '../islands/favorite-toggle';
 import PathContextBar from '../islands/path-context-bar';
@@ -102,6 +104,7 @@ const metaDescription =
 ---
 
 <BaseLayout
+	definedTerm={{ name, externalIds: equation.externalIds }}
 	title={`${name} — Equreka`}
 	description={metaDescription}
 	locale={locale}
@@ -124,11 +127,13 @@ const metaDescription =
 					))
 				}
 				<UntranslatedBadge locale={locale} show={untranslated} />
+				<DraftBadge locale={locale} status={equation.status} />
 			</div>
 			<div class="mt-3 flex flex-wrap items-baseline gap-4">
 				<h1 class="text-3xl font-bold tracking-tight">{name}</h1>
 				<FavoriteToggle client:idle collection="equations" slug={slug} locale={locale} />
 			</div>
+			<EntryIdentifiers locale={locale} externalIds={equation.externalIds} />
 		</header>
 
 		<div class="mt-6 text-xl" set:html={renderExpressionHtml(equation.expression, equation.terms)} />

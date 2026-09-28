@@ -1,6 +1,7 @@
 import type { CompiledDimension } from '@equreka/schema';
 import {
 	DIMENSION_ZERO,
+	declaredUnitDimension,
 	dimensionsEqual,
 	formatDimension,
 	magnitudeDimension,
@@ -142,7 +143,7 @@ export function resolveUnits(corpus: Corpus): ResolveResult {
 				factor = ratMul(factor, ratPow(operandResolution.factor, operand.exp));
 				authoredExact = authoredExact && operandResolution.authoredExact;
 			}
-			const declared = unitDimension(unit, corpus);
+			const declared = declaredUnitDimension(unit, corpus);
 			if (declared !== undefined && !dimensionsEqual(dimensionSum, declared)) {
 				issues.push(
 					issue(

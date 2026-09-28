@@ -99,6 +99,62 @@ describe('build over the real corpus', () => {
 		expect(parsed.constants.pi).toMatchObject({ exact: false, irrational: true });
 	});
 
+	it('emits a magnitude-less compound unit with an empty magnitudes list', () => {
+		const parsed = engineSlice.parse(readJson('engine.json'));
+		expect(parsed.units['reciprocal-mole']).toMatchObject({
+			magnitudes: [],
+			factor: '1',
+			exact: true,
+			dimension: [0, 0, 0, 0, 0, -1, 0, 0],
+		});
+		expect(parsed.magnitudes['reciprocal-amount']).toBeUndefined();
+		expect(parsed.constants['avogadro-constant']?.unit).toBe('reciprocal-mole');
+	});
+
+	it('carries editorial status and toBase provenance in the units presentation slice', () => {
+		const units = readJson<
+			Record<
+				string,
+				{
+					status: string;
+					system: string;
+					toBase?: { source?: { name: string; ref?: string; url?: string } };
+				}
+			>
+		>('presentation', 'units.json');
+		expect(units.stone).toMatchObject({
+			status: 'reviewed',
+			toBase: {
+				source: {
+					name: 'Weights and Measures Act 1985 (UK)',
+					ref: 'Schedule 1: stone = 14 pounds',
+				},
+			},
+		});
+		expect(units.foot?.toBase?.source).toEqual({
+			name: 'NIST SP 811',
+			url: 'https://www.nist.gov/pml/special-publication-811',
+			ref: 'B.8: foot (ft)',
+		});
+		expect(units.year?.toBase?.source?.name).toBe('convention');
+		expect(units.metre?.status).toBe('draft');
+		const customary = Object.entries(units).filter(
+			([, unit]) =>
+				unit.toBase !== undefined && ['imperial', 'uscs', 'cgs', 'other'].includes(unit.system),
+		);
+		expect(customary.length).toBeGreaterThan(0);
+		for (const [slug, unit] of customary) {
+			expect(unit.toBase?.source?.name, slug).toBeTruthy();
+			expect(unit.status, slug).toBe('reviewed');
+		}
+		const magnitudes = readJson<Record<string, { status: string; externalIds?: unknown }>>(
+			'presentation',
+			'magnitudes.json',
+		);
+		expect(magnitudes.length?.status).toBe('draft');
+		expect(magnitudes.length?.externalIds).toBeUndefined();
+	});
+
 	it('derives related units and canonical expression TeX into the equations presentation slice', () => {
 		const equations = readJson<
 			Record<
@@ -185,6 +241,29 @@ describe('build over the real corpus', () => {
 		expect(units.properties.compose?.properties).toHaveProperty('factor');
 		expect(units.properties.compose?.properties).toHaveProperty('of');
 		expect(units.properties).toHaveProperty('nonConvertible');
+	});
+
+	it('emits a strict draft-07 sidecar JSON Schema per collection for translators', () => {
+		for (const collection of COLLECTIONS) {
+			const path = join(outDir, 'schemas', `${collection}.locale.schema.json`);
+			expect(existsSync(path), collection).toBe(true);
+			const schema = JSON.parse(readFileSync(path, 'utf8')) as Record<string, unknown>;
+			expect(schema.$schema).toBe('http://json-schema.org/draft-07/schema#');
+			expect(schema.additionalProperties).toBe(false);
+			expect(schema.properties).toHaveProperty('name');
+		}
+		const paths = readJson<{
+			properties: {
+				steps: { propertyNames?: unknown; additionalProperties: { properties: object } };
+			};
+		}>('schemas', 'paths.locale.schema.json');
+		expect(paths.properties.steps.propertyNames).toBeDefined();
+		expect(Object.keys(paths.properties.steps.additionalProperties.properties).sort()).toEqual([
+			'answer',
+			'body',
+			'note',
+			'prompt',
+		]);
 	});
 
 	it('stays inside the artifact size budgets', () => {

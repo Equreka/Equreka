@@ -8,6 +8,11 @@ unitOf:
 system: 'other'
 toBase:
   factor: '3600'
+  source:
+    name: 'SI Brochure (9th ed.)'
+    url: 'https://www.bipm.org/en/publications/si-brochure'
+    ref: 'Table 8: hour, 1 h = 3600 s'
+status: 'reviewed'
 categories:
   - 'universal'
   - 'physics'

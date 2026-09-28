@@ -6,6 +6,7 @@ import { View } from 'react-native';
 import { getSummary } from '../../entities/content/lookup';
 import { converterHref, entryHref } from '../../entities/content/routes';
 import type { PresentationUnit } from '../../entities/content/types';
+import { getEngineSlice } from '../../shared/content/artifact';
 import { getUnitRegistry } from '../../shared/content/engine';
 import { useLocale, useT, useTheme } from '../../shared/providers/equreka-provider';
 import { Button } from '../../shared/ui/button';
@@ -27,9 +28,27 @@ interface ConversionRow {
 }
 
 /**
- * Magnitudes the unit measures, then "1 <unit> =" in every compatible unit
- * computed by the engine registry over the bundled slice — nonConvertible
- * units have no registry entry and show no table.
+ * The magnitude the converter opens on: the first authored one, or — for a
+ * magnitude-less compound unit — the first magnitude (by slug) sharing its
+ * dimension. Undefined when none does, and the unit offers no converter.
+ */
+function converterMagnitudeOf(slug: string, unitOf: readonly string[]): string | undefined {
+	const first = unitOf[0];
+	if (first !== undefined) return first;
+	const slice = getEngineSlice();
+	const dimension = slice.units[slug]?.dimension;
+	if (dimension === undefined) return undefined;
+	return Object.values(slice.magnitudes)
+		.filter((magnitude) => magnitude.dimension.every((value, index) => value === dimension[index]))
+		.map((magnitude) => magnitude.slug)
+		.sort()[0];
+}
+
+/**
+ * Magnitudes the unit measures (a compound unit states it has none), then
+ * "1 <unit> =" in every compatible unit computed by the engine registry
+ * over the bundled slice — nonConvertible units have no registry entry and
+ * show no table.
  */
 export function UnitDetails({ slug, unit }: UnitDetailsProps) {
 	const locale = useLocale();
@@ -57,30 +76,39 @@ export function UnitDetails({ slug, unit }: UnitDetailsProps) {
 	const magnitudes = unit.unitOf
 		.map((magnitudeSlug) => getSummary('magnitudes', magnitudeSlug, locale))
 		.filter((summary) => summary !== undefined);
+	const converterMagnitude = converterMagnitudeOf(slug, unit.unitOf);
 	return (
 		<>
 			<VStack>
-				<SectionTitle>{t('unit.magnitudes')}</SectionTitle>
-				<View style={{ borderRadius: theme.radius.md, overflow: 'hidden' }}>
-					{magnitudes.map((magnitude) => (
-						<Row
-							key={magnitude.slug}
-							title={magnitude.name}
-							subtitle={magnitude.symbolText}
-							onPress={() => router.push(entryHref('magnitudes', magnitude.slug))}
-						/>
-					))}
-				</View>
+				<SectionTitle>
+					{magnitudes.length > 1 ? t('unit.magnitudes') : t('unit.magnitude')}
+				</SectionTitle>
+				{unit.unitOf.length === 0 ? (
+					<Muted>{t('unit.compoundHint')}</Muted>
+				) : (
+					<View style={{ borderRadius: theme.radius.md, overflow: 'hidden' }}>
+						{magnitudes.map((magnitude) => (
+							<Row
+								key={magnitude.slug}
+								title={magnitude.name}
+								subtitle={magnitude.symbolText}
+								onPress={() => router.push(entryHref('magnitudes', magnitude.slug))}
+							/>
+						))}
+					</View>
+				)}
 			</VStack>
 			{conversions.length === 0 ? null : (
 				<VStack>
 					<SectionTitle>{t('conversions.title')}</SectionTitle>
 					<Muted>{t('conversions.lead', { symbol: unit.symbolText })}</Muted>
-					<Button
-						label={t('unit.convert', { name: localizedName(unit, locale) })}
-						variant="primary"
-						onPress={() => router.push(converterHref(unit.unitOf[0], slug))}
-					/>
+					{converterMagnitude === undefined ? null : (
+						<Button
+							label={t('unit.convert', { name: localizedName(unit, locale) })}
+							variant="primary"
+							onPress={() => router.push(converterHref(converterMagnitude, slug))}
+						/>
+					)}
 					<View style={{ borderRadius: theme.radius.md, overflow: 'hidden' }}>
 						{conversions.map((row) => (
 							<Row

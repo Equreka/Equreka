@@ -3,7 +3,7 @@ import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { COLLECTIONS } from '@equreka/schema';
 import { type EmittedArtifact, emitArtifacts } from './emit.js';
-import { checkIntegrity } from './integrity.js';
+import { checkIntegrity, orphanMagnitudes } from './integrity.js';
 import { loadContent } from './load.js';
 import { buildMathArtifact, type MathStats } from './math-artifact.js';
 import { type ResolvedUnit, resolveUnits } from './resolve.js';
@@ -68,6 +68,7 @@ export async function compileContent(
 	const corpus = validated.corpus;
 
 	issues.push(...checkIntegrity(corpus));
+	issues.push(...orphanMagnitudes(corpus));
 
 	const resolution = resolveUnits(corpus);
 	issues.push(...resolution.issues);

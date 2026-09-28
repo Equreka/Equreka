@@ -26,7 +26,9 @@ export interface EntryScreenProps {
 function badgesOf(entry: PresentationEntry, t: (key: MessageKey) => string): string[] {
 	switch (entry.collection) {
 		case 'units':
-			return [t(`system.${entry.entity.system}`)];
+			return entry.entity.unitOf.length === 0
+				? [t(`system.${entry.entity.system}`), t('badge.compound')]
+				: [t(`system.${entry.entity.system}`)];
 		case 'constants':
 			return [t(entry.entity.exact ? 'badge.exact' : 'badge.measured')];
 		case 'magnitudes':
@@ -80,6 +82,7 @@ export function EntryScreen({ collection, slug }: EntryScreenProps) {
 	const symbolTex = 'symbolTex' in entity ? entity.symbolTex : undefined;
 	const description = pickSegments(entity.descriptionSegments, locale);
 	const categories = 'categories' in entity ? entity.categories : [];
+	const draft = 'status' in entity && entity.status !== 'reviewed';
 	return (
 		<Screen>
 			<VStack>
@@ -98,6 +101,7 @@ export function EntryScreen({ collection, slug }: EntryScreenProps) {
 					{categories.map((category) => (
 						<Badge key={category} label={category} color={categoryColor(theme, category)} />
 					))}
+					{draft ? <Badge label={t('badge.draft')} /> : null}
 				</HStack>
 			</VStack>
 			{description === undefined ? null : (

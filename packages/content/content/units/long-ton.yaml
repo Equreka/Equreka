@@ -8,6 +8,11 @@ unitOf:
 system: 'imperial'
 toBase:
   factor: '1016.0469088'
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811'
+    ref: 'B.8: ton, long (2240 lb); exact as 2240 lb'
+status: 'reviewed'
 categories:
   - 'physics'
 aliases:

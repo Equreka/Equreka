@@ -8,6 +8,11 @@ unitOf:
 system: 'uscs'
 toBase:
   factor: '0.028349523125'
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811'
+    ref: 'B.8: ounce (avoirdupois) (oz); exact as 1/16 lb'
+status: 'reviewed'
 categories:
   - 'physics'
 description:
