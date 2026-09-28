@@ -5,18 +5,16 @@ symbol:
   tex: 'μg'
 unitOf:
   - 'mass'
-system: 'si-derived'
 prefixOf:
   prefix: 'micro'
   base: 'gram'
-categories:
-  - 'physics'
+externalIds:
+  wikidata: 'Q1645498'
+  qudt: 'http://qudt.org/vocab/unit/MicroGM'
 aliases:
   - 'mcg'
-  - 'ug'
 description:
   en: >-
-    In the metric system, a microgram or microgramme is a unit of mass equal to one millionth
-    ($1×10^{−6}$) of a gram. The unit symbol is μg according to the International System of Units;
-    the recommended symbol in the United States and United Kingdom when communicating medical
-    information is mcg. In μg the prefix symbol for $micro-$ is the Greek letter $μ$ (Mu).
+    The microgram is one millionth of a gram ($1\ \mathrm{μg} = 10^{-9}\ \mathrm{kg}$), formed with
+    the SI prefix micro. Medicine and nutrition labelling write it mcg rather than μg, because a
+    handwritten μ is easily misread as m, which would denote a dose a thousand times larger.
