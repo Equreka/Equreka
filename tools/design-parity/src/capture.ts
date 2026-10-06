@@ -4,6 +4,7 @@ import type { Browser, Locator, Page } from 'playwright-core';
 import { newAppContext, scrollToTop, settle, sweepScroll } from './browser.js';
 import type { App, PageSetup, Shell, ShellId, Theme, Waiver } from './config.js';
 import { assertLoaded, FontLoadError, firstLine } from './errors.js';
+import type { SkippedStep } from './failures.js';
 import type { Box } from './stability.js';
 import { runSteps } from './steps.js';
 
@@ -16,6 +17,7 @@ export interface CaptureManifest {
 	variantId: string;
 	url: string;
 	notes: string[];
+	skipped: SkippedStep[];
 	error?: string;
 	full?: string;
 	regions: Record<string, string | undefined>;
@@ -50,8 +52,24 @@ export interface CaptureRequest {
 	regions: Record<string, string>;
 	aboveFold: AboveFoldRequest;
 	waivers: readonly Waiver[];
+	waived: readonly string[];
 	outDir: string;
 	blocked: Set<string>;
+}
+
+/**
+ * The scenario's masks plus the regions its `legacy-flaw` waivers take
+ * out. Each must match at least one element: a selector that matches
+ * nothing is stale and would silently stop masking, so the capture fails.
+ */
+async function maskSelectors(page: Page, request: CaptureRequest): Promise<string[]> {
+	const selectors = [...request.setup.masks.map(({ selector }) => selector), ...request.waived];
+	for (const selector of selectors) {
+		if ((await page.locator(selector).count()) === 0) {
+			throw new Error(`mask ${selector} matches no element`);
+		}
+	}
+	return selectors;
 }
 
 async function visibleBox(locator: Locator): Promise<boolean> {
@@ -74,11 +92,12 @@ const HIDE_MAIN_CSS = 'main{opacity:0!important}';
  * Shoots the band from the top of the main content down `heightPx`
  * CSS pixels at full viewport width, with every chrome region made
  * invisible (layout unchanged) so the band holds page content only, and
- * records the boxes of the scenario's masks inside that band.
+ * records the boxes of every mask and waived region inside that band.
  */
 async function captureAboveFold(
 	page: Page,
 	request: CaptureRequest,
+	masks: readonly string[],
 	dir: string,
 ): Promise<AboveFoldCapture> {
 	const chrome = Object.values(request.regions);
@@ -109,10 +128,7 @@ async function captureAboveFold(
 			);
 			return { top, pageHeight: document.documentElement.scrollHeight, boxes };
 		},
-		{
-			selector: request.aboveFold.selector,
-			masks: request.setup.masks.map(({ selector }) => selector),
-		},
+		{ selector: request.aboveFold.selector, masks },
 	);
 	if (geometry === null) throw new Error(`aboveFold anchor ${request.aboveFold.selector} missing`);
 	const file = join(dir, `${request.variantId}--above-fold.png`);
@@ -169,6 +185,7 @@ async function captureOnce(
 		variantId: request.variantId,
 		url,
 		notes: [],
+		skipped: [],
 		regions: {},
 	};
 	const context = await newAppContext(request.browser, {
@@ -187,9 +204,10 @@ async function captureOnce(
 		assertLoaded(response, url);
 		await settle(page);
 		await sweepScroll(page);
-		manifest.notes.push(...(await runSteps(page, request.setup.steps, request.shellId)));
+		manifest.skipped = await runSteps(page, request.setup.steps, request.shellId);
 		await scrollToTop(page);
-		const mask = request.setup.masks.map(({ selector }) => page.locator(selector));
+		const masks = await maskSelectors(page, request);
+		const mask = masks.map((selector) => page.locator(selector));
 		const full = join(dir, `${request.variantId}.png`);
 		await page.screenshot({
 			path: full,
@@ -219,7 +237,7 @@ async function captureOnce(
 			manifest.regions[name] = file;
 		}
 		await hideMain.evaluate((element) => element.parentNode?.removeChild(element));
-		manifest.aboveFold = await captureAboveFold(page, request, dir);
+		manifest.aboveFold = await captureAboveFold(page, request, masks, dir);
 	} catch (error) {
 		manifest.error = firstLine(error);
 		fontFault = error instanceof FontLoadError;

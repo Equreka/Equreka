@@ -124,10 +124,12 @@
 				"masks": [
 					{
 						"selector": ".table-conversions",
+						"kind": "data",
 						"reason": "conversion table rows: the original converts to 77 units, v2 to 210, so the rows legitimately differ"
 					},
 					{
 						"selector": "mjx-container",
+						"kind": "math-engine",
 						"reason": "math: the original typesets TeX with MathJax CHTML, v2 with KaTeX, so glyph outlines and box widths differ by engine"
 					}
 				]
@@ -138,10 +140,12 @@
 				"masks": [
 					{
 						"selector": ".eq-table-data",
+						"kind": "data",
 						"reason": "conversion table rows: the original converts to 77 units, v2 to 210, so the rows legitimately differ"
 					},
 					{
 						"selector": ".katex",
+						"kind": "math-engine",
 						"reason": "math: the original typesets TeX with MathJax CHTML, v2 with KaTeX, so glyph outlines and box widths differ by engine"
 					}
 				]
@@ -161,10 +165,16 @@
 				"steps": [
 					{
 						"action": "hover",
-						"selector": "mjx-container .equreka-term"
+						"selector": ".card-expression mjx-container .equreka-term"
 					}
 				],
-				"masks": []
+				"masks": [
+					{
+						"selector": "mjx-container",
+						"kind": "math-engine",
+						"reason": "math: the original typesets TeX with MathJax CHTML, v2 with KaTeX, so glyph outlines and box widths differ by engine"
+					}
+				]
 			},
 			"current": {
 				"route": "/equations/mass-energy-equivalence/",
@@ -174,7 +184,18 @@
 						"selector": ".eq-display-math [data-term]"
 					}
 				],
-				"masks": []
+				"masks": [
+					{
+						"selector": ".katex",
+						"kind": "math-engine",
+						"reason": "math: the original typesets TeX with MathJax CHTML, v2 with KaTeX, so glyph outlines and box widths differ by engine"
+					},
+					{
+						"selector": ".eq-relations-card",
+						"kind": "new-feature",
+						"reason": "new feature: the Relations card lists v2 branch badges (and untranslated or draft markers); the original has no branches, and its own relations card renders only for entries with authored relations, which this entry has none of"
+					}
+				]
 			}
 		},
 		{
@@ -191,6 +212,7 @@
 				"masks": [
 					{
 						"selector": "mjx-container",
+						"kind": "math-engine",
 						"reason": "math: the original typesets TeX with MathJax CHTML, v2 with KaTeX, so glyph outlines and box widths differ by engine"
 					}
 				]
@@ -201,7 +223,13 @@
 				"masks": [
 					{
 						"selector": ".katex",
+						"kind": "math-engine",
 						"reason": "math: the original typesets TeX with MathJax CHTML, v2 with KaTeX, so glyph outlines and box widths differ by engine"
+					},
+					{
+						"selector": ".eq-relations-card",
+						"kind": "new-feature",
+						"reason": "new feature: the Relations card lists v2 branch badges (and untranslated or draft markers); the original has no branches, and its own relations card renders only for entries with authored relations, which this entry has none of"
 					}
 				]
 			}
@@ -263,7 +291,7 @@
 					},
 					{
 						"action": "waitFor",
-						"selector": "main .search-bar-results .items"
+						"selector": "main .search-bar-results a.item[href='/magnitudes/energy']"
 					}
 				],
 				"masks": []
@@ -278,7 +306,7 @@
 					},
 					{
 						"action": "waitFor",
-						"selector": "main .eq-search-group"
+						"selector": "main a.eq-search-item[href='/magnitudes/energy/']"
 					}
 				],
 				"masks": []
@@ -322,13 +350,11 @@
 					},
 					{
 						"action": "click",
-						"selector": "main form button[type='submit']",
-						"optional": true
+						"selector": "main form button[type='submit']"
 					},
 					{
 						"action": "waitFor",
-						"selector": ".eq-tool-value",
-						"optional": true
+						"selector": ".eq-tool-result .eq-calc-result"
 					}
 				],
 				"masks": []
@@ -354,14 +380,14 @@
 			"area": "interactive",
 			"contentIdentical": true,
 			"fixture": "favorites",
-			"note": "six seeded favorites, edit mode on (the original has no edit toggle in the mobile shell)",
+			"note": "six seeded favorites, edit mode on in the desktop shell (the original has no edit toggle in the mobile shell, and the port hides it there too)",
 			"legacy": {
 				"route": "/favorites",
 				"steps": [
 					{
 						"action": "click",
 						"selector": "main.favorites .main-header button",
-						"optional": true
+						"shells": ["desktop"]
 					}
 				],
 				"masks": []
@@ -372,7 +398,7 @@
 					{
 						"action": "click",
 						"selector": ".eq-fav-edit",
-						"optional": true
+						"shells": ["desktop"]
 					}
 				],
 				"masks": []
@@ -394,6 +420,7 @@
 				"masks": [
 					{
 						"selector": "main.settings h2 small",
+						"kind": "data",
 						"reason": "version string: the app version legitimately differs between the original and v2"
 					}
 				]
@@ -403,13 +430,13 @@
 				"steps": [
 					{
 						"action": "click",
-						"selector": "main [aria-haspopup]",
-						"optional": true
+						"selector": "main [aria-haspopup]"
 					}
 				],
 				"masks": [
 					{
 						"selector": ".eq-settings-version",
+						"kind": "data",
 						"reason": "version string: the app version legitimately differs between the original and v2"
 					}
 				]

@@ -40,14 +40,67 @@ cp -r ../Equreka /tmp/legacy-copy && cd /tmp/legacy-copy && npm ci --legacy-peer
 
 ## What is compared
 
-- **Scenarios** (`scenarios.json`): 12 views x {light, dark} x {desktop 1280x800, mobile 390x844} = 48 captures per app. The original picks its shell by user agent, so the mobile shell sends an Android user agent with touch enabled. Each view lists, for each app, its route, setup steps (`click`, `hover`, `type`, `waitFor`; `optional` steps that find no element are recorded as notes) and masks. Every mask is a `{ selector, reason }` pair, kept for data that cannot be equal in both apps (conversion rows, math typeset by different engines, the version string), never for copy or layout.
+- **Scenarios** (`scenarios.json`): 12 views x {light, dark} x {desktop 1280x800, mobile 390x844} = 48 captures per app. The original picks its shell by user agent, so the mobile shell sends an Android user agent with touch enabled. Each view lists, for each app, its route, setup steps (`click`, `hover`, `type`, `waitFor`, optionally limited to some `shells`) and masks. A step that times out (10 s) is an error. An `optional` step of the original that finds no element is a note: that is how a scenario records a control the original lacks. The port is the side under test, so a current-side step that does not complete, `optional` or not, makes the scenario an error in `report.json` (status `error`, with the step and the reason) and a probe page a probe error: a state the harness never reached cannot pass (`src/failures.ts`). Every mask is a `{ selector, kind, reason }` entry. `kind` is `data` (content that legitimately differs: conversion rows, the version string), `math-engine` (TeX typeset by MathJax in the original and KaTeX in the port) or `new-feature` (a port element with no counterpart in the original, such as the Relations card of branch badges). Copy and layout are never masked. A mask selector that matches no element is an error, so a stale selector cannot silently stop masking.
+- **Metrics**, each a pixelmatch percentage (threshold 0.1, anti-aliasing ignored; images of different sizes are padded with two different colors, so missing area always counts as different):
+  - `chromeDiffPct`: the chrome regions (header, footer, bottom nav, selectors per app and shell), shot one by one. A region that exists in one app only counts as entirely different.
+  - `aboveFoldPct`: the content band from the top of `main` down `aboveFold.heightPx` (900) CSS pixels at full viewport width, with the chrome regions made invisible. The browser does not paint these masks. The harness records the box of every masked element in both apps and paints the union of both sets the same gray in both crops. A mask that is wider in one app therefore does not count as a difference, and masked pixels leave the denominator (`aboveFoldMaskedPct` reports their share).
+  - `fullDiffPct`: the whole page, with the masks painted by the browser.
+- **Gates**: views with `contentIdentical: true` (favorites-empty, favorites-edit, settings) are gated by the full page. The other views are gated by chrome plus `aboveFold`, unless their `aboveFold` entry sets `gate: false`, which needs a reason. The content of such a view is checked only by the probes, and the verdict line names it. Numbers that do not gate are still reported, for information.
+- **Probes** (`probes.json`): computed styles of matching elements in the two apps (header, page title, container, card, card title, badges, tables, term highlight, calculator table symbols, buttons, inputs, select, dropdown, footer, hover colors, body). A probe targets the same entry in both apps: each app ranks its own search results, so the category badge probes select the result by slug (`/magnitudes/energy` for the query `ene`, `/constants/planck-constant` for `planck`) instead of taking the first row. Probes run without the freeze CSS and with reduced motion off, so transitions report their authored values. Values must match exactly. The exception is the properties listed in `probeTolerantProperties`, which match within `probeLengthTolerancePx` (1px) when both sides are single px lengths. A missing element is always a mismatch.
+- **Waivers** (`waivers.json`), each with a reason, all listed in `report.md`:
+  - `hide`: v2 features that never existed in the original (draft badge, identifiers row, path context bar, per-term unit pickers, generated-unit line), set to `display: none` in the named app before capture, so the rest of the page is measured as if the feature were absent.
+  - `legacy-flaw`: a region of one scenario where the original shows a flaw that `docs/design/legacy-design-spec.md` lists as not to be reproduced. It names the region in both apps and the spec section (`spec`); both regions are masked like a mask, and the rest of the scenario stays gated. The term-table cards of `equation` and `calculator` carry one: the original prints unit symbols as raw TeX (`$J# @equreka/design-parity
+
+Measures how close `apps/web` is to the original Equreka app (Nuxt 2, 2021-2022). The goal is measured 1:1 visual parity. When the original and an earlier choice in the port disagree, the original wins. `docs/design/legacy-design-spec.md` describes the original; this tool checks the port against the running original.
+
+## Run
+
+```sh
+pnpm --filter web build                 # production output, no dev toolbar in screenshots
+LEGACY_DIR=/path/to/scratch/legacy-copy pnpm design:parity
+```
+
+| App | Default URL | Served by |
+| --- | --- | --- |
+| original | `http://127.0.0.1:3100` | `nuxt dev` inside `LEGACY_DIR` with `NODE_OPTIONS=--openssl-legacy-provider` (an `ssr: false` SPA). If a server already answers on the port, the harness reuses it, since booting takes minutes |
+| current | `http://127.0.0.1:43210` | Always started by the run: `apps/web/dist` is copied to `$PARITY_OUT/dist-snapshot` and served with `apps/web/scripts/serve-dist.mjs <port> <dir>`. The port must be free |
+
+The snapshot means a rebuild of `apps/web/dist` during a run cannot mix two builds into one report. The report names the snapshot by a build id: a hash of `index.html` and the hashed `_astro` asset names. The harness stops only the servers it started.
+
+### Preparing the original
+
+The original repository is read-only. Nuxt writes `.nuxt/` into its working directory, so the harness refuses to start the server inside it. Use a scratch copy:
+
+```sh
+cp -r ../Equreka /tmp/legacy-copy && cd /tmp/legacy-copy && npm ci --legacy-peer-deps
+```
+
+### Environment
+
+| Variable | Default | Purpose |
+| --- | --- | --- |
+| `LEGACY_DIR` | unset | Installed scratch copy of the original. Needed only when nothing is answering on `LEGACY_PORT` |
+| `LEGACY_PORT` | `3100` | Port of the original |
+| `CURRENT_PORT` | `43210` | Port of the built web app |
+| `PARITY_OUT` | `<os tmp>/equreka-design-parity` | Output directory |
+| `PARITY_CHROMIUM` | first of `chromium-1243`, `chromium-1208` in the `ms-playwright` cache (`PLAYWRIGHT_BROWSERS_PATH` or `%LOCALAPPDATA%\ms-playwright`) | Browser executable. `playwright-core` never downloads one |
+
+### Flags
+
+`--only=home-categories,settings` (view ids), `--area=chrome|content|interactive`, `--shell=desktop|mobile`, `--theme=light|dark`, `--no-probes`, `--skip-capture` (re-diff the PNGs already on disk; probes, unless `--no-probes`, run against the previous run's dist snapshot so the build matches the captures), `--runs=N` (the determinism check: capture and diff N times, report every metric per run, and compare every PNG byte for byte with run 1; see [Determinism](#determinism)). Any filter marks the run `partial`, and a partial run never reports `pass: true`.
+
+## What is compared
+
+- **Scenarios** (`scenarios.json`): 12 views x {light, dark} x {desktop 1280x800, mobile 390x844} = 48 captures per app. The original picks its shell by user agent, so the mobile shell sends an Android user agent with touch enabled. Each view lists, for each app, its route, setup steps (`click`, `hover`, `type`, `waitFor`, optionally limited to some `shells`) and masks. A step that times out (10 s) is an error. An `optional` step of the original that finds no element is a note: that is how a scenario records a control the original lacks. The port is the side under test, so a current-side step that does not complete, `optional` or not, makes the scenario an error in `report.json` (status `error`, with the step and the reason) and a probe page a probe error: a state the harness never reached cannot pass (`src/failures.ts`). Every mask is a `{ selector, kind, reason }` entry. `kind` is `data` (content that legitimately differs: conversion rows, the version string), `math-engine` (TeX typeset by MathJax in the original and KaTeX in the port) or `new-feature` (a port element with no counterpart in the original, such as the Relations card of branch badges). Copy and layout are never masked. A mask selector that matches no element is an error, so a stale selector cannot silently stop masking.
 - **Metrics**, each a pixelmatch percentage (threshold 0.1, anti-aliasing ignored; images of different sizes are padded with two different colors, so missing area always counts as different):
   - `chromeDiffPct`: the chrome regions (header, footer, bottom nav, selectors per app and shell), shot one by one. A region that exists in one app only counts as entirely different.
   - `aboveFoldPct`: the content band from the top of `main` down `aboveFold.heightPx` (900) CSS pixels at full viewport width, with the chrome regions made invisible. The browser does not paint these masks. The harness records the box of every masked element in both apps and paints the union of both sets the same gray in both crops. A mask that is wider in one app therefore does not count as a difference, and masked pixels leave the denominator (`aboveFoldMaskedPct` reports their share).
   - `fullDiffPct`: the whole page, with the masks painted by the browser.
 - **Gates**: views with `contentIdentical: true` (favorites-empty, favorites-edit, settings) are gated by the full page. The other views are gated by chrome plus `aboveFold`, unless their `aboveFold` entry sets `gate: false`, which needs a reason. The content of such a view is checked only by the probes, and the verdict line names it. Numbers that do not gate are still reported, for information.
 - **Probes** (`probes.json`): computed styles of matching elements in the two apps (header, page title, container, card, card title, badges, tables, buttons, inputs, select, dropdown, footer, hover colors, body). Probes run without the freeze CSS and with reduced motion off, so transitions report their authored values. Values must match exactly. The exception is the properties listed in `probeTolerantProperties`, which match within `probeLengthTolerancePx` (1px) when both sides are single px lengths. A missing element is always a mismatch.
-- **Waivers** (`waivers.json`): only for v2 features that never existed in the original: draft badge, identifiers row, path context bar, per-term unit pickers, generated-unit line. `hide` waivers set the element to `display: none` in the named app before capture, so the rest of the page is measured as if the feature were absent. `probe` waivers accept one probe or property. Every waiver needs a reason, and the report lists them.
+, section 9), which reflows every column. Their colors stay gated by probes.
+  - `probe`: accepts one probe or property.
+- **Summary**: the CLI line and `report.md` state how many waivers (per kind) and masks (per kind) the run applied, so a pass never hides what was excluded to reach it.
 - **Pass** means every scenario passes every gate, every metric is identical across `--runs`, probes ran without errors, and no probe mismatch is left unwaived.
 
 ## Thresholds and their evidence
@@ -57,22 +110,24 @@ cp -r ../Equreka /tmp/legacy-copy && cd /tmp/legacy-copy && npm ci --legacy-peer
 | chrome, full page | `scenarioMaxDiffPct` 1.5% | Unchanged. Run-to-run noise is 0.000 (see Determinism), so this is a tolerance for real chrome differences, not for noise. It is the loose gate of the three and covers only the shell and the three pages whose content is the same in both apps |
 | aboveFold | `aboveFoldMaxDiffPct` 0.1% | The run-to-run noise floor is 0.000 in every scenario: the percentage is identical to three decimals across 10 runs and across invocations (see Determinism). Content that is the same in both apps diffs at 0.000 to 0.004 between them (favorites-empty above the fold, dark theme, both shells), so cross-app rendering adds no floor either: both apps run in the same Chromium with the same Poppins files. A single 1px line across the band is 0.111% of it in both shells (1,280 of 1,152,000 pixels; 390 of 351,000), so the gate catches a one-pixel shift of a full-width edge or a wrong full-width border color. Anything above 0.1% is a visible difference |
 
-Baseline of the first `aboveFoldPct` measurement (dist snapshot `1fcb63d324ca`, 2026-10-06), as the range over light and dark. These are the gaps to close, not values to tune the gate to:
+Latest full run (dist snapshot `0f4598efe007`, 2026-10-06): 40/48 scenarios pass every gate, chrome 36/36, aboveFold 16/24, full page 12/12, 0 errored, 0 unwaived probe mismatches across 478 probed values, deterministic. It applied 7 waivers (hide 5, probe 0, legacy-flaw 2) and 12 masks (data 4, math-engine 6, new-feature 2). The gated metric per view, as the range over light and dark (aboveFold, or full page where the full page gates; ungated numbers in italics):
 
-| View | Gated by | Desktop % | Mobile % | Main cause of the difference |
-| --- | --- | ---: | ---: | --- |
-| home-categories | chrome + aboveFold | 2.302 to 2.386 | 1.060 to 1.065 | The port rewords the Mathematics, Physics and Chemistry descriptions; layout and colors match |
-| home-types | chrome + aboveFold | 16.732 to 20.724 | 10.705 to 10.814 | Different cards and order: the original shows Variables fifth, the port shows Units and Prefixes; the Magnitudes text differs |
-| unit | chrome + aboveFold | 1.332 to 1.599 | 3.063 to 3.281 | The original header has more action icons; the port adds a category badge row to the information card; inline math changes line heights |
-| equation | chrome + aboveFold | 2.436 to 3.374 | 3.229 to 3.296 | Header action icons; the port adds a badge row and a related-units card; the original prints the unit column as the raw TeX source `$J$` |
-| constant | chrome + aboveFold | 3.890 to 4.345 | 3.562 to 3.678 | Header action icons; the port adds a badge row and a status row; the approximate value is printed differently (`3×10^8` against `2.99792×10^8`) |
-| category | chrome | 2.025 to 2.135 | 0.889 to 1.100 | Not gated: chip lists are data (more magnitudes, 210 units against 77) |
-| units-list | chrome | 4.718 to 6.144 | 4.634 to 5.157 | Not gated: chip lists are data (210 units against 77, other order) |
-| search-open | chrome | 23.499 to 23.526 | 17.560 to 17.825 | Not gated: the result list is data |
-| calculator | chrome + aboveFold | 0.519 to 0.536 | 3.263 to 4.086 | The port prints 6 significant figures plus a `(6 significant figures)` line where the original prints full precision; on mobile the taller result card moves everything below it |
-| favorites-empty | full | 0.004 to 0.241 | 0.000 to 0.108 | Informational (full page gates) |
-| favorites-edit | full | 0.013 | 0.021 | Informational (full page gates) |
-| settings | full | 0.080 to 0.084 | 0.429 to 0.442 | Informational (full page gates) |
+| View | Gated by | Desktop % | Mobile % | Status | Residual difference |
+| --- | --- | ---: | ---: | --- | --- |
+| home-categories | chrome + aboveFold | 0.000 | 0.007 to 0.008 | pass | None measurable |
+| home-types | chrome + aboveFold | 0.000 | 0.006 to 0.007 | pass | None measurable |
+| unit | chrome + aboveFold | 0.026 to 0.034 | 0.010 to 0.011 | pass | Text after inline math shifts by a sub-pixel (MathJax and KaTeX box widths) |
+| equation | chrome + aboveFold | 0.660 to 0.678 | 1.515 to 1.564 | fail | The Information text: the original breaks the description before "Because the speed of light..." (its source holds a `\n` and `.card-information p` is `white-space: pre-line`). The port has the same CSS, but the migrated content folded the line break away. A content fix, not a design fix |
+| constant | chrome + aboveFold | 0.185 to 0.198 | 0.330 to 0.331 | fail | The Approximate values row: the original shows its authored inexact value `3×10^8`, the port computes `2.99792×10^8` (6 significant figures) because the v2 schema has no field for authored approximations. Also about 0.03% of text shifted by a sub-pixel after inline math |
+| category | chrome | *1.664 to 1.810* | *0.436 to 0.502* | pass | Not gated: chip lists are data |
+| units-list | chrome | *4.701 to 6.116* | *4.483 to 5.033* | pass | Not gated: chip lists are data |
+| search-open | chrome | *24.040 to 24.054* | *19.191 to 19.400* | pass | Not gated: the result list is data; the badges of the same result entry match exactly (probes) |
+| calculator | chrome + aboveFold | 0.000 | 0.000 | pass | None measurable. The term table is a `legacy-flaw` region (raw TeX in the original); its colors are gated by probes |
+| favorites-empty | full | 0.053 to 0.054 | 0.000 | pass | |
+| favorites-edit | full | 0.053 to 0.054 | 0.000 | pass | |
+| settings | full | 0.344 to 0.345 | 0.675 to 0.678 | pass | |
+
+The first `aboveFoldPct` baseline (dist snapshot `1fcb63d324ca`) ranged from 0.519% (calculator, desktop) to 20.724% (home-types, desktop). Until this run the four calculator scenarios never captured the result state: their current-side `waitFor` named a class the port no longer renders, was marked `optional`, and was skipped as a note. Such a skip is now an error.
 
 ## Determinism
 

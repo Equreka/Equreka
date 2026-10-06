@@ -17,8 +17,10 @@ import {
 	SHELLS,
 	type ShellId,
 	type Theme,
+	waivedRegions,
 } from './config.js';
 import { type DiffResult, diffImages, diffRegion, percent, type RegionDiff } from './diff.js';
+import { captureFailures, describeSkip } from './failures.js';
 import { readPng } from './image.js';
 import { type ProbeRun, runProbes } from './probes.js';
 import { buildReport, type Gate, type ScenarioResult, writeReport } from './report.js';
@@ -46,6 +48,15 @@ const waivers = loadWaivers();
 const runs = Math.max(1, Number(flags.runs));
 const baseUrls: Record<App, string> = { legacy: config.legacyUrl, current: config.currentUrl };
 const blocked = new Set<string>();
+
+for (const waiver of waivers) {
+	if (
+		waiver.kind === 'legacy-flaw' &&
+		!scenariosFile.scenarios.some((scenario) => scenario.id === waiver.scenario)
+	) {
+		throw new Error(`waivers.json: legacy-flaw waiver names unknown scenario "${waiver.scenario}"`);
+	}
+}
 
 const onlyViews = flags.only?.split(',');
 const shells = SHELLS.filter((shell) => flags.shell === undefined || flags.shell === shell);
@@ -78,9 +89,19 @@ function storageFor(app: App, fixture: string | undefined, theme: Theme): Record
 function readManifest(app: App, variantId: string): CaptureManifest {
 	const file = join(config.outDir, app, `${variantId}.json`);
 	try {
-		return JSON.parse(readFileSync(file, 'utf8')) as CaptureManifest;
+		const manifest = JSON.parse(readFileSync(file, 'utf8')) as Partial<CaptureManifest> &
+			Omit<CaptureManifest, 'skipped'>;
+		return { ...manifest, skipped: manifest.skipped ?? [] };
 	} catch {
-		return { app, variantId, url: '', notes: [], error: `no capture at ${file}`, regions: {} };
+		return {
+			app,
+			variantId,
+			url: '',
+			notes: [],
+			skipped: [],
+			error: `no capture at ${file}`,
+			regions: {},
+		};
 	}
 }
 
@@ -128,6 +149,7 @@ function evaluate(
 			? [`aboveFold not gated: ${scenario.aboveFold.reason}`]
 			: []),
 		...legacy.notes.map((note) => `legacy ${note}`),
+		...legacy.skipped.map((step) => `legacy skipped ${describeSkip(step)}`),
 		...current.notes.map((note) => `current ${note}`),
 	];
 	const base = {
@@ -143,16 +165,8 @@ function evaluate(
 		fullPctRuns: [],
 		unstable: [],
 	} satisfies Partial<ScenarioResult>;
-	if (
-		legacy.error !== undefined ||
-		current.error !== undefined ||
-		legacy.full === undefined ||
-		current.full === undefined
-	) {
-		const errors = [
-			legacy.error && `legacy: ${legacy.error}`,
-			current.error && `current: ${current.error}`,
-		];
+	const failures = captureFailures({ legacy, current });
+	if (failures.length > 0 || legacy.full === undefined || current.full === undefined) {
 		return {
 			...base,
 			diffPct: null,
@@ -162,7 +176,7 @@ function evaluate(
 			fullDiffPct: null,
 			regions: {},
 			status: 'error',
-			note: [...errors.filter(Boolean), ...notes].join('; '),
+			note: [...failures, ...notes].join('; '),
 			sheets: [],
 		};
 	}
@@ -259,6 +273,7 @@ function captureRequest(
 			heightPx: scenariosFile.aboveFold.heightPx,
 		},
 		waivers,
+		waived: waivedRegions(waivers, scenario.id, app),
 		outDir,
 		blocked,
 	};
@@ -377,6 +392,7 @@ async function main(): Promise<void> {
 			currentUrl: config.currentUrl,
 			thresholds,
 			waivers,
+			masks: scenarios.flatMap((scenario) => [...scenario.legacy.masks, ...scenario.current.masks]),
 			blocked,
 		});
 		writeReport(config.outDir, report);

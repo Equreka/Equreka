@@ -12,6 +12,7 @@ import type {
 	Waiver,
 } from './config.js';
 import { assertLoaded, firstLine } from './errors.js';
+import { skippedStepFailures } from './failures.js';
 import { runSteps } from './steps.js';
 
 const NAVIGATION_TIMEOUT_MS = 90_000;
@@ -137,7 +138,9 @@ async function collect(
 		});
 		assertLoaded(response, setup.route);
 		await settle(page);
-		await runSteps(page, setup.steps, shellId);
+		const skipped = await runSteps(page, setup.steps, shellId);
+		const failures = skippedStepFailures(app, skipped);
+		if (failures.length > 0) throw new Error(failures.join('; '));
 		const ordered = [...probes].sort(
 			(a, b) => Number(a.state === 'hover') - Number(b.state === 'hover'),
 		);

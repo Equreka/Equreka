@@ -11,6 +11,38 @@
 				"steps": [],
 				"masks": []
 			}
+		},
+		"search-planck": {
+			"legacy": {
+				"route": "/search",
+				"steps": [
+					{
+						"action": "type",
+						"selector": "main .search-bar-input",
+						"text": "planck"
+					},
+					{
+						"action": "waitFor",
+						"selector": "main .search-bar-results a.item[href='/constants/planck-constant']"
+					}
+				],
+				"masks": []
+			},
+			"current": {
+				"route": "/search/",
+				"steps": [
+					{
+						"action": "type",
+						"selector": "main .eq-search-input-lg",
+						"text": "planck"
+					},
+					{
+						"action": "waitFor",
+						"selector": "main a.eq-search-item[href='/constants/planck-constant/']"
+					}
+				],
+				"masks": []
+			}
 		}
 	},
 	"probes": [
@@ -248,8 +280,8 @@
 			"area": "badge",
 			"probe": "category-badge",
 			"page": "search-open",
-			"legacy": "main .search-bar-results .item .badge-category",
-			"current": "main .eq-search-item .eq-badge",
+			"legacy": "main .search-bar-results a.item[href='/magnitudes/energy'] .badge-category",
+			"current": "main a.eq-search-item[href='/magnitudes/energy/'] .eq-badge",
 			"properties": [
 				"padding",
 				"border-radius",
@@ -261,6 +293,14 @@
 				"color",
 				"background-color"
 			]
+		},
+		{
+			"area": "badge",
+			"probe": "category-badge-universal",
+			"page": "search-planck",
+			"legacy": "main .search-bar-results a.item[href='/constants/planck-constant'] .badge-category",
+			"current": "main a.eq-search-item[href='/constants/planck-constant/'] .eq-badge",
+			"properties": ["color", "background-color"]
 		},
 		{
 			"area": "table",
@@ -294,6 +334,22 @@
 			"legacy": "main .table-data tbody tr:nth-child(2) td",
 			"current": "main .eq-table-data tbody tr:nth-child(2) td",
 			"properties": ["background-color"]
+		},
+		{
+			"area": "table",
+			"probe": "term-hover-display",
+			"page": "equation",
+			"legacy": ".card-expression mjx-container .equreka-term-hover",
+			"current": ".eq-display-math .term-hl",
+			"properties": ["color"]
+		},
+		{
+			"area": "table",
+			"probe": "term-hover-row",
+			"page": "equation",
+			"legacy": "main .table-data tbody tr.equreka-term-hover td",
+			"current": "main .eq-table-data tbody tr.term-hl td",
+			"properties": ["color", "background-color", "border-radius"]
 		},
 		{
 			"area": "controls",
@@ -355,6 +411,22 @@
 				"color",
 				"font-size"
 			]
+		},
+		{
+			"area": "calculator",
+			"probe": "calc-term-symbol",
+			"page": "calculator",
+			"legacy": "main.calculator .card-magnitudes tbody td:first-child mjx-container",
+			"current": "main .eq-calc-tables tbody .eq-cell-symbol > .katex",
+			"properties": ["color", "font-weight"]
+		},
+		{
+			"area": "calculator",
+			"probe": "calc-unit-symbol",
+			"page": "calculator",
+			"legacy": "main.calculator .card-magnitudes tbody td:nth-child(3) .equreka-symbol",
+			"current": "main .eq-calc-tables tbody .eq-cell-unit-symbol > .katex",
+			"properties": ["color", "font-weight"]
 		},
 		{
 			"area": "controls",

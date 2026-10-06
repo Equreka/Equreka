@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { buildReport, gatingSummary, type ScenarioResult } from '../report.js';
+import { buildReport, exclusionSummary, gatingSummary, type ScenarioResult } from '../report.js';
 
 function scenario(view: string, gates: ScenarioResult['gates']): ScenarioResult {
 	return {
@@ -61,6 +61,7 @@ describe('buildReport', () => {
 			probeTolerantProperties: [],
 		},
 		waivers: [],
+		masks: [],
 		blocked: new Set<string>(),
 	};
 
@@ -85,5 +86,37 @@ describe('buildReport', () => {
 		expect(report.meta.deterministic).toBe(false);
 		expect(report.summary).toContain('NON-DETERMINISTIC');
 		expect(report.pass).toBe(false);
+	});
+});
+
+describe('exclusionSummary', () => {
+	it('counts waivers and masks by kind, zeros included', () => {
+		expect(
+			exclusionSummary(
+				[
+					{
+						kind: 'hide',
+						app: 'current',
+						selector: '.a',
+						reason: 'feature absent from the original',
+					},
+					{
+						kind: 'legacy-flaw',
+						scenario: 'equation',
+						legacy: '.b',
+						current: '.c',
+						spec: '9',
+						reason: 'raw TeX printed in the original',
+					},
+				],
+				[
+					{ selector: '.katex', kind: 'math-engine', reason: 'KaTeX against MathJax glyphs' },
+					{ selector: '.x', kind: 'new-feature', reason: 'v2-only relations card' },
+					{ selector: '.y', kind: 'new-feature', reason: 'v2-only relations card' },
+				],
+			),
+		).toBe(
+			'2 waivers (hide 1, probe 0, legacy-flaw 1), 3 masks (data 0, math-engine 1, new-feature 2)',
+		);
 	});
 });

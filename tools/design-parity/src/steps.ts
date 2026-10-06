@@ -1,21 +1,23 @@
 import type { Page } from 'playwright-core';
 import { settle } from './browser.js';
 import type { ShellId, Step } from './config.js';
+import type { SkippedStep } from './failures.js';
 
 const STEP_TIMEOUT_MS = 10_000;
 const TYPE_DELAY_MS = 60;
 
 /**
- * Runs the setup steps of one side of a scenario. A missing element on
- * an `optional` step is a recorded note, not a failure: it is how a
- * scenario states "the original has this control, the port may not".
+ * Runs the setup steps of one side of a scenario and returns the
+ * `optional` steps whose element never became visible. A non-optional
+ * step that times out throws. Whether a skip is a note or an error is
+ * decided by `captureFailures`, not here.
  */
 export async function runSteps(
 	page: Page,
 	steps: readonly Step[],
 	shell: ShellId,
-): Promise<string[]> {
-	const notes: string[] = [];
+): Promise<SkippedStep[]> {
+	const skipped: SkippedStep[] = [];
 	for (const step of steps) {
 		if (step.shells !== undefined && !step.shells.includes(shell)) continue;
 		const locator =
@@ -25,11 +27,12 @@ export async function runSteps(
 		try {
 			await locator.waitFor({ state: 'visible', timeout: STEP_TIMEOUT_MS });
 		} catch {
+			const reason = `not visible within ${STEP_TIMEOUT_MS} ms`;
 			if (step.optional === true) {
-				notes.push(`skipped ${step.action} ${step.selector} (not visible)`);
+				skipped.push({ action: step.action, selector: step.selector, reason });
 				continue;
 			}
-			throw new Error(`${step.action} ${step.selector}: element not visible`);
+			throw new Error(`${step.action} ${step.selector}: ${reason}`);
 		}
 		switch (step.action) {
 			case 'click':
@@ -47,5 +50,5 @@ export async function runSteps(
 		}
 		await settle(page);
 	}
-	return notes;
+	return skipped;
 }

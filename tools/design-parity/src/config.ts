@@ -47,8 +47,18 @@ const stepSchema = z.discriminatedUnion('action', [
 ]);
 export type Step = z.infer<typeof stepSchema>;
 
+export const MASK_KINDS = ['data', 'math-engine', 'new-feature'] as const;
+export type MaskKind = (typeof MASK_KINDS)[number];
+
+/**
+ * `data`: content that legitimately differs (conversion rows, the version
+ * string). `math-engine`: TeX typeset by MathJax in the original and by
+ * KaTeX in the port. `new-feature`: a port element with no counterpart in
+ * the original. Copy and layout are never masked.
+ */
 const maskSchema = z.object({
 	selector: z.string(),
+	kind: z.enum(MASK_KINDS),
 	reason: z.string().min(10),
 });
 export type Mask = z.infer<typeof maskSchema>;
@@ -150,8 +160,27 @@ const waiverSchema = z.discriminatedUnion('kind', [
 		property: z.string().optional(),
 		reason: z.string().min(10),
 	}),
+	z.object({
+		kind: z.literal('legacy-flaw'),
+		scenario: z.string(),
+		legacy: z.string(),
+		current: z.string(),
+		spec: z.string().regex(/^\d+(\.\d+)*$/),
+		reason: z.string().min(10),
+	}),
 ]);
 export type Waiver = z.infer<typeof waiverSchema>;
+
+/**
+ * The selectors a `legacy-flaw` waiver takes out of one app's capture of
+ * one scenario: a region of the original that shows a flaw listed in the
+ * spec as not to be reproduced, and the port's region in its place.
+ */
+export function waivedRegions(waivers: readonly Waiver[], scenarioId: string, app: App): string[] {
+	return waivers.flatMap((waiver) =>
+		waiver.kind === 'legacy-flaw' && waiver.scenario === scenarioId ? [waiver[app]] : [],
+	);
+}
 
 const waiversFileSchema = z.object({ waivers: z.array(waiverSchema) });
 

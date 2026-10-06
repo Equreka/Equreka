@@ -29,6 +29,22 @@
 			"app": "current",
 			"selector": ".eq-card-note:has(> a[href*='/prefixes/'])",
 			"reason": "Generated-unit line: prefixed units are generated in v2 (ADR 0007); the original had none."
+		},
+		{
+			"kind": "legacy-flaw",
+			"scenario": "equation",
+			"legacy": "main .card-magnitudes, main .card-constants",
+			"current": "article.eq-cards > .eq-card-row > .eq-collapse-card",
+			"spec": "9",
+			"reason": "Raw TeX in table cells: the original prints the unit symbols as TeX source ($J$, $kg$, $\\frac{m}{s}$) because its tables render after the MathJax pass; the port typesets them at build time. The wider source strings change the auto table layout, so every column of both term cards shifts, and through flex min-content so does the split of the card row."
+		},
+		{
+			"kind": "legacy-flaw",
+			"scenario": "calculator",
+			"legacy": "main.calculator .card-magnitudes, main.calculator .card-variables",
+			"current": "main .eq-calc-tables > .eq-calc-table",
+			"spec": "9",
+			"reason": "Raw TeX in table cells: the original calculator prints the unit symbols of its term tables as TeX source ($J$, $kg$) because the tables render after the MathJax pass; the port typesets them at build time. The wider source strings change the auto table layout, so every column of the term table shifts."
 		}
 	]
 }

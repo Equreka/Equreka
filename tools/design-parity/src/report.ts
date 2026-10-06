@@ -1,6 +1,13 @@
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
-import type { ShellId, Theme, Thresholds, Waiver } from './config.js';
+import {
+	MASK_KINDS,
+	type Mask,
+	type ShellId,
+	type Theme,
+	type Thresholds,
+	type Waiver,
+} from './config.js';
 import type { ProbeResult } from './probes.js';
 import type { UnstableCapture } from './stability.js';
 
@@ -57,6 +64,7 @@ export interface Report {
 		currentUrl: string;
 		thresholds: Thresholds;
 		waivers: Waiver[];
+		masks: Mask[];
 		probeCount: number;
 		probeErrors: string[];
 		blockedRequests: string[];
@@ -102,7 +110,33 @@ export interface ReportInput {
 	currentUrl: string;
 	thresholds: Thresholds;
 	waivers: Waiver[];
+	masks: Mask[];
 	blocked: Set<string>;
+}
+
+const WAIVER_KINDS = ['hide', 'probe', 'legacy-flaw'] as const satisfies readonly Waiver['kind'][];
+
+function countBy<T extends string>(kinds: readonly T[], values: readonly T[]): string {
+	return kinds
+		.map((kind) => `${kind} ${values.filter((value) => value === kind).length}`)
+		.join(', ');
+}
+
+/**
+ * Names what the run took out of the comparison, so a pass can never
+ * hide how much was excluded to reach it.
+ */
+export function exclusionSummary(waivers: readonly Waiver[], masks: readonly Mask[]): string {
+	return [
+		`${waivers.length} waivers (${countBy(
+			WAIVER_KINDS,
+			waivers.map((waiver) => waiver.kind),
+		)})`,
+		`${masks.length} masks (${countBy(
+			MASK_KINDS,
+			masks.map((mask) => mask.kind),
+		)})`,
+	].join(', ');
 }
 
 export function buildReport(input: ReportInput): Report {
@@ -161,6 +195,7 @@ export function buildReport(input: ReportInput): Report {
 		`aboveFold ${passingWith('aboveFold', (scenario) => scenario.aboveFoldPct, aboveFoldMaxDiffPct)}/${variantsWith('aboveFold').length} within ${aboveFoldMaxDiffPct}%`,
 		`full page ${passingWith('full', (scenario) => scenario.fullDiffPct, scenarioMaxDiffPct)}/${variantsWith('full').length} within ${scenarioMaxDiffPct}%`,
 		`${errors} errored`,
+		exclusionSummary(input.waivers, input.masks),
 		probesRan
 			? `${unwaived} unwaived probe mismatches (${probeMismatches.length - unwaived} waived) across ${input.probes?.length ?? 0} probed values`
 			: 'probes skipped',
@@ -184,6 +219,7 @@ export function buildReport(input: ReportInput): Report {
 			currentUrl: input.currentUrl,
 			thresholds: input.thresholds,
 			waivers: input.waivers,
+			masks: input.masks,
 			probeCount: input.probes?.length ?? 0,
 			probeErrors: input.probeErrors,
 			blockedRequests: [...input.blocked].sort(),
@@ -225,6 +261,27 @@ function markdown(report: Report): string {
 		),
 		'',
 	];
+	lines.push(
+		'## Waivers and masks',
+		'',
+		exclusionSummary(report.meta.waivers, report.meta.masks),
+		'',
+		'| Kind | Target | Reason |',
+		'| --- | --- | --- |',
+		...report.meta.waivers.map((waiver) => {
+			const target =
+				waiver.kind === 'hide'
+					? `${waiver.app} \`${waiver.selector}\``
+					: waiver.kind === 'probe'
+						? `probe ${waiver.probe}${waiver.property === undefined ? '' : ` ${waiver.property}`}`
+						: `${waiver.scenario}: legacy \`${waiver.legacy}\`, current \`${waiver.current}\` (spec section ${waiver.spec})`;
+			return `| waiver ${waiver.kind} | ${cell(target)} | ${cell(waiver.reason)} |`;
+		}),
+		...report.meta.masks.map(
+			(mask) => `| mask ${mask.kind} | \`${cell(mask.selector)}\` | ${cell(mask.reason)} |`,
+		),
+		'',
+	);
 	const unstable = report.scenarios.flatMap((scenario) =>
 		scenario.unstable.map(
 			(capture) =>
