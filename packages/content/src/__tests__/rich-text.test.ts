@@ -129,6 +129,27 @@ describe('termIdentifier', () => {
 		expect(termIdentifier('\\Delta x')).toBe('Deltax');
 		expect(termIdentifier('[\\mathrm{H}^{+}]', 'cH')).toBe('cH');
 	});
+
+	it('unwraps font and text wrappers to their content before stripping', () => {
+		expect(termIdentifier('\\mathrm{KE}')).toBe('KE');
+		expect(termIdentifier('[\\mathrm{H}^{+}]')).toBe('H');
+		expect(termIdentifier('E_{\\mathrm{k}}')).toBe('E_k');
+		expect(termIdentifier('\\text{pH}')).toBe('pH');
+		expect(termIdentifier('\\textrm{pOH}')).toBe('pOH');
+		expect(termIdentifier('\\mathit{Re}')).toBe('Re');
+		expect(termIdentifier('\\mathbf{F}_{\\mathsf{net}}')).toBe('F_net');
+		expect(termIdentifier('\\boldsymbol{\\tau}')).toBe('tau');
+		expect(termIdentifier('\\operatorname {Ma}')).toBe('Ma');
+		expect(termIdentifier('\\mathtt{x}')).toBe('x');
+		expect(termIdentifier('\\mathrm{\\mathbf{v}}_{0}')).toBe('v_0');
+	});
+
+	it('leaves keys without wrappers as before', () => {
+		expect(termIdentifier('\\theta')).toBe('theta');
+		expect(termIdentifier('\\varepsilon_0')).toBe('varepsilon_0');
+		expect(termIdentifier('\\bar{x}')).toBe('barx');
+		expect(termIdentifier('t_{1/2}')).toBe('t_12');
+	});
 });
 
 describe('splitLocalizedText', () => {

@@ -250,8 +250,9 @@ export const variable = entityBase
 /**
  * Name a term takes in solutions, the codegen'd solutions module and the
  * engine slice. Authored only to override the derivation from the term key
- * (every character outside `[A-Za-z0-9_]` dropped) when it is unreadable or
- * collides: `[\mathrm{H}^{+}]` derives `mathrmH`, so it declares `cH`.
+ * (font and text wrappers unwrapped, then every character outside
+ * `[A-Za-z0-9_]` dropped) when it is unreadable or collides:
+ * `[\mathrm{H}^{+}]` derives a bare `H`, so it declares `cH`.
  */
 export const identifierName = z
 	.string()
@@ -261,6 +262,10 @@ export const identifierName = z
  * `symbol` terms are equation-local unknowns with no wiki entity behind
  * them (the legs of a right triangle): a display label plus an optional
  * unit that fixes their dimension for the build-time consistency check.
+ * `integer` marks a term that only takes integer values (the n and k of a
+ * binomial coefficient): the verifier samples it from the integers 0–10,
+ * and the calculator receives the flag. A constant has a fixed value, so it
+ * takes no flag.
  */
 export const equationTerm = z.discriminatedUnion('kind', [
 	z
@@ -268,6 +273,7 @@ export const equationTerm = z.discriminatedUnion('kind', [
 			kind: z.literal('magnitude'),
 			ref: ref('magnitudes'),
 			identifier: identifierName.optional(),
+			integer: strictBool.default(false),
 		})
 		.strict(),
 	z
@@ -282,6 +288,7 @@ export const equationTerm = z.discriminatedUnion('kind', [
 			kind: z.literal('variable'),
 			ref: ref('variables'),
 			identifier: identifierName.optional(),
+			integer: strictBool.default(false),
 		})
 		.strict(),
 	z
@@ -290,9 +297,18 @@ export const equationTerm = z.discriminatedUnion('kind', [
 			label: localizedText,
 			unit: ref('units').optional(),
 			identifier: identifierName.optional(),
+			integer: strictBool.default(false),
 		})
 		.strict(),
 ]);
+
+/**
+ * One term's solved form: a single expression, or the roots of a
+ * multi-valued one (a quadratic, an inverse sine) in preference order —
+ * the calculator shows the first root that is real and admissible, so the
+ * physical root comes first.
+ */
+export const equationSolution = z.union([z.string().min(1), z.array(z.string().min(1)).min(2)]);
 
 /**
  * Equations and formulas share one schema (`kind` is taxonomy only).
@@ -308,7 +324,7 @@ export const equation = entityBase
 		kind: z.enum(['equation', 'formula']).default('equation'),
 		expression: z.string().min(1),
 		terms: z.record(z.string().min(1), equationTerm),
-		solutions: z.record(z.string().min(1), z.string().min(1)).default({}),
+		solutions: z.record(z.string().min(1), equationSolution).default({}),
 		calculator: z
 			.object({
 				enabled: strictBool.default(false),
@@ -414,6 +430,7 @@ export type Prefix = z.infer<typeof prefix>;
 export type Constant = z.infer<typeof constant>;
 export type Variable = z.infer<typeof variable>;
 export type EquationTerm = z.infer<typeof equationTerm>;
+export type EquationSolution = z.infer<typeof equationSolution>;
 export type Equation = z.infer<typeof equation>;
 export type PathEntryCollection = z.infer<typeof pathEntryCollection>;
 export type PathEntryRef = z.infer<typeof pathEntryRef>;

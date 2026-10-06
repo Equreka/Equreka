@@ -1,172 +1,9 @@
-export const SOLUTION_FUNCTIONS = ['abs', 'cos', 'exp', 'ln', 'sin', 'sqrt', 'tan'] as const;
-
-export type SolutionFunction = (typeof SOLUTION_FUNCTIONS)[number];
-
-export type SolutionAst =
-	| { kind: 'number'; text: string }
-	| { kind: 'identifier'; name: string }
-	| { kind: 'pi' }
-	| { kind: 'unary'; operand: SolutionAst }
-	| { kind: 'binary'; op: '+' | '-' | '*' | '/' | '^'; left: SolutionAst; right: SolutionAst }
-	| { kind: 'call'; fn: SolutionFunction; arg: SolutionAst };
-
-interface Token {
-	type: 'number' | 'identifier' | 'op';
-	text: string;
-	pos: number;
-}
-
-const NUMBER_RE = /^\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/;
-const IDENTIFIER_RE = /^[A-Za-z_][A-Za-z0-9_]*/;
-const OPERATOR_CHARS = '+-*/^()';
-
-function isFunctionName(text: string): text is SolutionFunction {
-	return (SOLUTION_FUNCTIONS as readonly string[]).includes(text);
-}
-
-function tokenize(source: string): Token[] {
-	const tokens: Token[] = [];
-	let pos = 0;
-	while (pos < source.length) {
-		const rest = source.slice(pos);
-		const ws = /^\s+/.exec(rest);
-		if (ws) {
-			pos += ws[0].length;
-			continue;
-		}
-		const number = NUMBER_RE.exec(rest);
-		if (number) {
-			tokens.push({ type: 'number', text: number[0], pos });
-			pos += number[0].length;
-			continue;
-		}
-		const identifier = IDENTIFIER_RE.exec(rest);
-		if (identifier) {
-			tokens.push({ type: 'identifier', text: identifier[0], pos });
-			pos += identifier[0].length;
-			continue;
-		}
-		const char = source[pos] ?? '';
-		if (OPERATOR_CHARS.includes(char)) {
-			tokens.push({ type: 'op', text: char, pos });
-			pos += 1;
-			continue;
-		}
-		throw new SyntaxError(`unexpected character '${char}' at position ${pos}`);
-	}
-	return tokens;
-}
-
-/**
- * The authored solution grammar (ADR 0002) re-parsed on device from the
- * presentation slice: identifiers, decimal literals, `+ - * / ^`,
- * parentheses, sqrt|abs|ln|exp|sin|cos|tan and the constant `pi`. `^` is
- * right-associative and binds tighter than unary minus, exactly as the
- * pipeline parser that verified the string at build.
- */
-export function parseSolution(source: string): SolutionAst {
-	const tokens = tokenize(source);
-	let index = 0;
-
-	const peek = (): Token | undefined => tokens[index];
-	const takeOp = (text: string): boolean => {
-		const token = tokens[index];
-		if (token !== undefined && token.type === 'op' && token.text === text) {
-			index += 1;
-			return true;
-		}
-		return false;
-	};
-	const expectOp = (text: string): void => {
-		if (!takeOp(text)) {
-			const token = tokens[index];
-			throw new SyntaxError(
-				token === undefined
-					? `expected '${text}' but reached end of input`
-					: `expected '${text}' at position ${token.pos}, got '${token.text}'`,
-			);
-		}
-	};
-
-	const parseExpr = (): SolutionAst => {
-		let left = parseTerm();
-		for (;;) {
-			if (takeOp('+')) {
-				left = { kind: 'binary', op: '+', left, right: parseTerm() };
-			} else if (takeOp('-')) {
-				left = { kind: 'binary', op: '-', left, right: parseTerm() };
-			} else {
-				return left;
-			}
-		}
-	};
-
-	const parseTerm = (): SolutionAst => {
-		let left = parseUnary();
-		for (;;) {
-			if (takeOp('*')) {
-				left = { kind: 'binary', op: '*', left, right: parseUnary() };
-			} else if (takeOp('/')) {
-				left = { kind: 'binary', op: '/', left, right: parseUnary() };
-			} else {
-				return left;
-			}
-		}
-	};
-
-	const parseUnary = (): SolutionAst => {
-		if (takeOp('-')) {
-			return { kind: 'unary', operand: parseUnary() };
-		}
-		return parsePower();
-	};
-
-	const parsePower = (): SolutionAst => {
-		const base = parseAtom();
-		if (takeOp('^')) {
-			return { kind: 'binary', op: '^', left: base, right: parseUnary() };
-		}
-		return base;
-	};
-
-	const parseAtom = (): SolutionAst => {
-		const token = peek();
-		if (token === undefined) {
-			throw new SyntaxError('unexpected end of input');
-		}
-		if (token.type === 'number') {
-			index += 1;
-			return { kind: 'number', text: token.text };
-		}
-		if (token.type === 'identifier') {
-			index += 1;
-			if (token.text === 'pi') {
-				return { kind: 'pi' };
-			}
-			if (isFunctionName(token.text)) {
-				expectOp('(');
-				const arg = parseExpr();
-				expectOp(')');
-				return { kind: 'call', fn: token.text, arg };
-			}
-			return { kind: 'identifier', name: token.text };
-		}
-		if (token.text === '(') {
-			index += 1;
-			const inner = parseExpr();
-			expectOp(')');
-			return inner;
-		}
-		throw new SyntaxError(`unexpected token '${token.text}' at position ${token.pos}`);
-	};
-
-	const ast = parseExpr();
-	const trailing = peek();
-	if (trailing !== undefined) {
-		throw new SyntaxError(`unexpected token '${trailing.text}' at position ${trailing.pos}`);
-	}
-	return ast;
-}
+import {
+	isSolutionFunction,
+	type SolutionAst,
+	type SolutionFunction,
+	tokenizeSolution,
+} from '@equreka/content/solution-grammar';
 
 const DECIMAL_LITERAL_RE = /^([+-]?)(\d+(?:\.\d+)?)(?:[eE]([+-]?\d+))?$/;
 
@@ -282,21 +119,65 @@ function emit(input: SolutionAst, options: SolutionTexOptions): Fragment {
 				trailingDigit: operand.trailingDigit,
 			};
 		}
-		case 'call': {
-			const arg = emit(node.arg, options).tex;
-			switch (node.fn) {
-				case 'sqrt':
-					return atom(`\\sqrt{${arg}}`);
-				case 'abs':
-					return atom(`\\left|${arg}\\right|`);
-				case 'exp':
-					return { tex: `e^{${arg}}`, prec: POWER, leadingDigit: false, trailingDigit: false };
-				default:
-					return atom(`\\${node.fn}\\left(${arg}\\right)`);
-			}
-		}
+		case 'call':
+			return emitCall(node.fn, emit(node.arg, options));
 		case 'binary':
 			return emitBinary(node, options);
+	}
+}
+
+/**
+ * Operator names of the functions typeset as `\name\left(…\right)`. The
+ * inverse hyperbolics take their ISO 80000-2 names (arsinh, not arcsinh):
+ * they are area functions, not arc functions.
+ */
+const OPERATOR_TEX: Record<
+	Exclude<SolutionFunction, 'sqrt' | 'cbrt' | 'abs' | 'exp' | 'factorial'>,
+	string
+> = {
+	ln: '\\ln',
+	sin: '\\sin',
+	cos: '\\cos',
+	tan: '\\tan',
+	asin: '\\arcsin',
+	acos: '\\arccos',
+	atan: '\\arctan',
+	log10: '\\log_{10}',
+	log2: '\\log_{2}',
+	sinh: '\\sinh',
+	cosh: '\\cosh',
+	tanh: '\\tanh',
+	asinh: '\\operatorname{arsinh}',
+	acosh: '\\operatorname{arcosh}',
+	atanh: '\\operatorname{artanh}',
+};
+
+/**
+ * A factorial is postfix `x!`, its operand parenthesised unless atomic
+ * (`n!`, `\left(n - k\right)!`); it counts as a power, so a power over it
+ * wraps it in turn.
+ */
+function emitCall(fn: SolutionFunction, arg: Fragment): Fragment {
+	switch (fn) {
+		case 'sqrt':
+			return atom(`\\sqrt{${arg.tex}}`);
+		case 'cbrt':
+			return atom(`\\sqrt[3]{${arg.tex}}`);
+		case 'abs':
+			return atom(`\\left|${arg.tex}\\right|`);
+		case 'exp':
+			return { tex: `e^{${arg.tex}}`, prec: POWER, leadingDigit: false, trailingDigit: false };
+		case 'factorial': {
+			const operand = arg.prec === ATOM ? arg : group(arg);
+			return {
+				tex: `${operand.tex}!`,
+				prec: POWER,
+				leadingDigit: operand.leadingDigit,
+				trailingDigit: false,
+			};
+		}
+		default:
+			return atom(`${OPERATOR_TEX[fn]}\\left(${arg.tex}\\right)`);
 	}
 }
 
@@ -385,8 +266,10 @@ export function substituteSolutionText(
 	values: Readonly<Record<string, string>>,
 ): string {
 	let text = source;
-	for (const token of tokenize(source).reverse()) {
-		if (token.type !== 'identifier' || token.text === 'pi' || isFunctionName(token.text)) continue;
+	for (const token of tokenizeSolution(source).reverse()) {
+		if (token.type !== 'identifier' || token.text === 'pi' || isSolutionFunction(token.text)) {
+			continue;
+		}
 		const value = values[token.text];
 		if (value === undefined) continue;
 		const literal = value.startsWith('-') ? `(${value})` : value;

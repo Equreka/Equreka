@@ -232,7 +232,12 @@ describe('equation', () => {
 			},
 		});
 		expect(parsed.calculator.enabled).toBe(false);
-		expect(parsed.terms.r).toEqual({ kind: 'symbol', label: { en: 'Radius' }, unit: 'metre' });
+		expect(parsed.terms.r).toEqual({
+			kind: 'symbol',
+			label: { en: 'Radius' },
+			unit: 'metre',
+			integer: false,
+		});
 		const unitless = equation.parse({
 			name: { en: 'Pythagorean theorem' },
 			expression: '\\var{a}^{2}+\\var{b}^{2}=\\var{c}^{2}',
@@ -242,7 +247,11 @@ describe('equation', () => {
 				c: { kind: 'symbol', label: { en: 'Hypotenuse' } },
 			},
 		});
-		expect(unitless.terms.c).toEqual({ kind: 'symbol', label: { en: 'Hypotenuse' } });
+		expect(unitless.terms.c).toEqual({
+			kind: 'symbol',
+			label: { en: 'Hypotenuse' },
+			integer: false,
+		});
 	});
 
 	it('rejects a symbol term carrying a ref, and a variable term carrying a label', () => {
@@ -289,6 +298,46 @@ describe('equation', () => {
 			expect(withIdentifier({ ...term, identifier: '_c' }).success, term.kind).toBe(false);
 			expect(withIdentifier({ ...term, identifier: 'c-H' }).success, term.kind).toBe(false);
 		}
+	});
+
+	it('flags integer terms on every kind but constant, coercing the failsafe string', () => {
+		const withTerm = (term: Record<string, unknown>) =>
+			equation.safeParse({ name: { en: 'Integer' }, expression: '\\var{n}', terms: { n: term } });
+		for (const term of [
+			{ kind: 'magnitude', ref: 'amount' },
+			{ kind: 'variable', ref: 'count' },
+			{ kind: 'symbol', label: { en: 'Count' } },
+		]) {
+			const parsed = withTerm({ ...term, integer: 'true' });
+			expect(parsed.success && parsed.data.terms.n, term.kind).toMatchObject({ integer: true });
+			const unflagged = withTerm(term);
+			expect(unflagged.success && unflagged.data.terms.n, term.kind).toMatchObject({
+				integer: false,
+			});
+			expect(withTerm({ ...term, integer: 'yes' }).success, term.kind).toBe(false);
+		}
+		expect(withTerm({ kind: 'constant', ref: 'pi', integer: 'true' }).success).toBe(false);
+	});
+
+	it('takes a solution as one expression or as two or more roots in preference order', () => {
+		const withSolutions = (solutions: Record<string, unknown>) =>
+			equation.safeParse({
+				name: { en: 'Roots' },
+				expression: '\\var{y}=\\var{x}^{2}',
+				terms: {
+					y: { kind: 'symbol', label: { en: 'y' } },
+					x: { kind: 'symbol', label: { en: 'x' } },
+				},
+				solutions,
+			});
+		const parsed = withSolutions({ y: 'x^2', x: ['sqrt(y)', '-sqrt(y)'] });
+		expect(parsed.success && parsed.data.solutions).toEqual({
+			y: 'x^2',
+			x: ['sqrt(y)', '-sqrt(y)'],
+		});
+		expect(withSolutions({ x: ['sqrt(y)'] }).success).toBe(false);
+		expect(withSolutions({ x: [] }).success).toBe(false);
+		expect(withSolutions({ x: ['sqrt(y)', ''] }).success).toBe(false);
 	});
 
 	it('rejects the retired hand-maintained units[] list', () => {

@@ -22,7 +22,7 @@ describe('verifyEquation', () => {
 			solutions: { E: 'm * c^2', m: 'E / c^2' },
 		});
 		expect(result.messages).toEqual([]);
-		expect(result.samples).toEqual({ E: 20, m: 20 });
+		expect(result.samples).toEqual({ E: [20], m: [20] });
 	});
 
 	it('rejects a wrong solved form, naming equation and symbol', () => {
@@ -62,7 +62,7 @@ describe('verifyEquation', () => {
 			constantValues: {},
 		});
 		expect(result.messages).toEqual([]);
-		expect(result.samples.a).toBe(20);
+		expect(result.samples.a).toEqual([20]);
 	});
 
 	it('keys verified solution ASTs by term key, never by identifier', () => {
@@ -168,7 +168,7 @@ describe('verifyEquation — synthetic term symbols', () => {
 		const result = verifyEquation(input);
 		expect(result.messages).toEqual([]);
 		for (const key of Object.keys(input.solutions)) {
-			expect(result.samples[key], key).toBe(20);
+			expect(result.samples[key], key).toEqual([20]);
 		}
 	});
 
@@ -234,7 +234,7 @@ describe('verifyEquation — scale-free tolerance', () => {
 			constantValues: {},
 		});
 		expect(result.messages).toEqual([]);
-		expect(result.samples.c).toBe(20);
+		expect(result.samples.c).toEqual([20]);
 	});
 
 	it('rejects a wrong solution against a zero side', () => {
@@ -259,6 +259,104 @@ describe('verifyEquation — complex samples', () => {
 			constantValues: {},
 		});
 		expect(result.messages).toEqual([expect.stringContaining('0/20 valid samples')]);
-		expect(result.samples.x).toBe(0);
+		expect(result.samples.x).toEqual([0]);
+	});
+});
+
+describe('verifyEquation — base-10 and base-2 logarithms', () => {
+	const logInput = (expression: string, solution: string): EquationSolutionInput => ({
+		slug: 'logarithm',
+		expression,
+		terms: symbols('y', 'x'),
+		solutions: { y: solution },
+		constantValues: {},
+	});
+
+	it('rejects a bare \\log, whose base readers and compute-engine disagree on', () => {
+		expect(verifyEquation(logInput('\\var{y}=\\log\\var{x}', 'log10(x)')).messages).toEqual([
+			'expression uses \\log without a base: write \\ln or \\log_{10}',
+		]);
+		expect(
+			verifyEquation(logInput('\\var{y}=\\log\\left(\\var{x}\\right)', 'log10(x)')).messages,
+		).toEqual([expect.stringContaining('\\log without a base')]);
+	});
+
+	it.each<[string, string]>([
+		['\\var{y}=\\log_{10}\\var{x}', 'log10(x)'],
+		['\\var{y}=\\log_{10} \\var{x}', 'log10(x)'],
+		['\\var{y}=\\log_{2}\\left(\\var{x}\\right)', 'log2(x)'],
+		['\\var{y}=\\log_2\\var{x}', 'log2(x)'],
+		['\\var{y}=\\ln\\var{x}', 'ln(x)'],
+	])('verifies %s', (expression, solution) => {
+		expect(verifyEquation(logInput(expression, solution)).messages).toEqual([]);
+	});
+
+	it('rejects a base mismatch between expression and solution', () => {
+		expect(verifyEquation(logInput('\\var{y}=\\log_{10}\\var{x}', 'ln(x)')).messages).toEqual([
+			expect.stringContaining('disagrees'),
+		]);
+	});
+});
+
+describe('verifyEquation — multi-root solutions', () => {
+	const signedSquare = (roots: string[]): EquationSolutionInput => ({
+		slug: 'signed-square',
+		expression: '\\var{x}\\left|\\var{x}\\right|=\\var{a}-\\var{b}',
+		terms: symbols('x', 'a', 'b'),
+		solutions: { x: roots },
+		constantValues: {},
+	});
+
+	it('keeps every root in authored order', () => {
+		const result = verifyEquation({
+			slug: 'square',
+			expression: '\\var{y}=\\var{x}^{2}',
+			terms: symbols('y', 'x'),
+			solutions: { x: ['sqrt(y)', '-sqrt(y)'] },
+			constantValues: {},
+		});
+		expect(result.messages).toEqual([]);
+		expect(result.asts.get('x')).toEqual([
+			{ kind: 'call', fn: 'sqrt', arg: { kind: 'identifier', name: 'y' } },
+			{
+				kind: 'unary',
+				operand: { kind: 'call', fn: 'sqrt', arg: { kind: 'identifier', name: 'y' } },
+			},
+		]);
+		expect(result.samples.x).toEqual([20, 20]);
+	});
+
+	it('verifies roots real on disjoint domains, which are never duplicates', () => {
+		const result = verifyEquation(signedSquare(['sqrt(a - b)', '-sqrt(b - a)']));
+		expect(result.messages).toEqual([]);
+		expect(result.samples.x).toEqual([20, 20]);
+	});
+
+	it('fails a root that is never real at any sample', () => {
+		const result = verifyEquation({
+			slug: 'square',
+			expression: '\\var{y}=\\var{x}^{2}',
+			terms: symbols('y', 'x'),
+			solutions: { x: ['sqrt(y)', 'sqrt(-y)'] },
+			constantValues: {},
+		});
+		expect(result.messages).toEqual([
+			"solution for 'x' root 2 of 2 produced only 0/20 valid samples in 400 attempts",
+		]);
+	});
+
+	it('rejects a literal repeat of a root', () => {
+		expect(verifyEquation(signedSquare(['sqrt(a - b)', 'sqrt(a - b)'])).messages).toEqual([
+			"solution for 'x': roots 1 and 2 are duplicate roots, equal at every sample where both are real",
+		]);
+	});
+
+	it('names an unparsable or self-referencing root by position', () => {
+		expect(verifyEquation(signedSquare(['sqrt(a - b)', 'sqrt('])).messages).toEqual([
+			"solution for 'x' root 2 of 2: unexpected end of input",
+		]);
+		expect(verifyEquation(signedSquare(['x', 'sqrt(a - b)'])).messages).toEqual([
+			"solution for 'x' root 1 of 2 references its own target 'x'",
+		]);
 	});
 });

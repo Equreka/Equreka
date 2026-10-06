@@ -1,9 +1,9 @@
 import { fileURLToPath } from 'node:url';
 import { collectionSchemas } from '@equreka/schema';
 import { describe, expect, it } from 'vitest';
+import { parseSolution } from '../../solution-grammar.js';
 import { loadContent } from '../load.js';
 import { checkSolutionDimensions, dimensionOf, termDimension } from '../solution-dimension.js';
-import { parseSolution } from '../solution-parser.js';
 import { type Corpus, validateContent } from '../validate.js';
 
 const CONTENT_DIR = fileURLToPath(new URL('../../../content/', import.meta.url));
@@ -64,7 +64,10 @@ describe('termDimension', () => {
 	it('reads a symbol term through a magnitude-less compound unit (reciprocal-mole)', () => {
 		const corpus = realCorpus();
 		expect(
-			termDimension({ kind: 'symbol', label: { en: 'Per mole' }, unit: 'reciprocal-mole' }, corpus),
+			termDimension(
+				{ kind: 'symbol', label: { en: 'Per mole' }, unit: 'reciprocal-mole', integer: false },
+				corpus,
+			),
 		).toEqual([0, 0, 0, 0, 0, -1, 0, 0]);
 		expect(termDimension({ kind: 'constant', ref: 'avogadro-constant' }, corpus)).toEqual([
 			0, 0, 0, 0, 0, -1, 0, 0,
@@ -98,5 +101,50 @@ describe('dimensionOf', () => {
 		expect(() => dim('x^k')).toThrow(/non-literal exponent/);
 		expect(() => dim('sqrt(x)')).toThrow(/non-integral/);
 		expect(dim('k^k')).toEqual([0, 0, 0, 0, 0, 0, 0, 0]);
+	});
+
+	it('takes the cube root by thirding exponents and fails a non-multiple of 3', () => {
+		expect(dim('cbrt(x * y * x)')).toEqual(L);
+		expect(dim('cbrt(t^6)')).toEqual([0, 0, 2, 0, 0, 0, 0, 0]);
+		expect(() => dim('cbrt(x * y)')).toThrow(
+			'cbrt of [2, 0, 0, 0, 0, 0, 0, 0] yields non-integral dimension exponents',
+		);
+	});
+
+	it.each([
+		'asin',
+		'acos',
+		'atan',
+		'sinh',
+		'cosh',
+		'tanh',
+		'asinh',
+		'acosh',
+		'atanh',
+		'ln',
+		'log10',
+		'log2',
+		'exp',
+		'factorial',
+	])('%s maps a dimensionless argument to dimensionless and rejects a dimensioned one', (fn) => {
+		expect(dim(`${fn}(x / y)`)).toEqual([0, 0, 0, 0, 0, 0, 0, 0]);
+		expect(() => dim(`${fn}(x)`)).toThrow(`${fn}() requires a dimensionless argument`);
+	});
+});
+
+describe('termDimension and the angle exponent', () => {
+	it('drops A from a plane-angle term, so sin(theta) and s = r theta check', () => {
+		const corpus = realCorpus();
+		const planeAngle = corpus.magnitudes.get('plane-angle');
+		expect(planeAngle?.dimension).toEqual({ A: 1 });
+		expect(
+			termDimension({ kind: 'magnitude', ref: 'plane-angle', integer: false }, corpus),
+		).toEqual([0, 0, 0, 0, 0, 0, 0, 0]);
+		expect(
+			termDimension(
+				{ kind: 'symbol', label: { en: 'Angle' }, unit: 'radian', integer: false },
+				corpus,
+			),
+		).toEqual([0, 0, 0, 0, 0, 0, 0, 0]);
 	});
 });

@@ -8,13 +8,14 @@ import {
 } from '@cortex-js/compute-engine';
 import { SCHEMA_VERSION } from '@equreka/schema';
 import { CONTENT_PIPELINE_VERSION } from '../pipeline-version.js';
-import { sha256 } from './load.js';
 import {
 	collectIdentifiers,
 	evaluateSolution,
 	parseSolution,
 	type SolutionAst,
-} from './solution-parser.js';
+	solutionRoots,
+} from '../solution-grammar.js';
+import { sha256 } from './load.js';
 import { buildIdentifierMap, type IdentityTerm, macroUses, stripMacrosWith } from './tex.js';
 import { type ContentFile, type Issue, issue } from './types.js';
 import { type Corpus, fileOf } from './validate.js';
@@ -22,6 +23,13 @@ import { type Corpus, fileOf } from './validate.js';
 const SAMPLE_TARGET = 20;
 const SAMPLE_ATTEMPT_LIMIT = 400;
 const RELATIVE_TOLERANCE = 1e-9;
+const INTEGER_SAMPLE_MAX = 10;
+
+/**
+ * `\log` with no base subscript: compute-engine reads it as base 10, many
+ * readers as base e, so an expression must name the base.
+ */
+const BARE_LOG_RE = /\\log(?![A-Za-z])(?!\s*_)/;
 
 /**
  * Compute-engine built-ins an expression may use bare, outside any
@@ -46,22 +54,31 @@ function placeholderOf(index: number): string {
  */
 const PLACEHOLDER_DERIVED_RE = /^(q\d+)(_.*)$/;
 
+/**
+ * A term as the verifier samples it: an `integer` term draws from the
+ * integers 0–INTEGER_SAMPLE_MAX instead of the reals in [0.1, 10).
+ */
+export interface SampledTerm extends IdentityTerm {
+	integer?: boolean | undefined;
+}
+
 export interface EquationSolutionInput {
 	slug: string;
 	expression: string;
-	terms: Readonly<Record<string, IdentityTerm>>;
-	solutions: Record<string, string>;
+	terms: Readonly<Record<string, SampledTerm>>;
+	solutions: Readonly<Record<string, string | readonly string[]>>;
 	constantValues: Record<string, number>;
 }
 
 /**
  * `asts` is keyed by term key — the key the solutions module is emitted
- * under and the engine looks up — never by identifier.
+ * under and the engine looks up — never by identifier, and holds every
+ * root in authored order. `samples` counts each root's valid samples.
  */
 export interface EquationVerification {
-	asts: Map<string, SolutionAst>;
+	asts: Map<string, SolutionAst[]>;
 	messages: string[];
-	samples: Record<string, number>;
+	samples: Record<string, number[]>;
 	cached: boolean;
 }
 
@@ -79,19 +96,50 @@ interface ParsedSides {
 	rhs: SignedOperand[];
 }
 
+interface SamplingContext {
+	slug: string;
+	termKeys: readonly string[];
+	terms: Readonly<Record<string, SampledTerm>>;
+	identifiers: ReadonlyMap<string, string>;
+	constants: ReadonlyMap<string, number>;
+	sides: ParsedSides;
+}
+
+/**
+ * The outcome of sampling one root. `points` are the identifier records
+ * (target excluded) of its valid samples, where the duplicate-root check
+ * evaluates the other roots.
+ */
+interface RootSampling {
+	points: Record<string, number>[];
+	message?: string;
+}
+
+/**
+ * How messages name one authored root: by term key alone for a
+ * single-root solution, with a 1-based position for a multi-root one.
+ */
+export function solutionLabel(termKey: string, root: number, rootCount: number): string {
+	return rootCount === 1
+		? `solution for '${termKey}'`
+		: `solution for '${termKey}' root ${root + 1} of ${rootCount}`;
+}
+
 /**
  * Machine-verifies hand-authored solved forms (ADR 0002, ADR 0009): for each
- * solution, seeded random substitutions must make the original equation
- * balance when the target takes the solution's value. Constants are
- * substituted at their compiled values; compute-engine is the build-time
- * oracle and never ships. Each equation gets a fresh engine: a shared one
- * leaks symbol declarations between parses, so a verdict would depend on
- * which equations were parsed before it (and on the verify cache).
+ * root of each solution, seeded random substitutions must make the
+ * original equation balance when the target takes the root's value; a
+ * root is checked only where it is real, and two roots of one solution
+ * that never differ are rejected as duplicates. Constants are substituted
+ * at their compiled values; compute-engine is the build-time oracle and
+ * never ships. Each equation gets a fresh engine: a shared one leaks symbol
+ * declarations between parses, so a verdict would depend on which
+ * equations were parsed before it (and on the verify cache).
  */
 export function verifyEquation(input: EquationSolutionInput, numeric = true): EquationVerification {
 	const messages: string[] = [];
-	const asts = new Map<string, SolutionAst>();
-	const samples: Record<string, number> = {};
+	const asts = new Map<string, SolutionAst[]>();
+	const samples: Record<string, number[]> = {};
 	const result: EquationVerification = { asts, messages, samples, cached: false };
 	const identity = buildIdentifierMap(input.terms);
 	if (identity.errors.length > 0) {
@@ -118,32 +166,19 @@ export function verifyEquation(input: EquationSolutionInput, numeric = true): Eq
 		constants.set(key, value);
 	}
 
-	for (const [targetKey, source] of Object.entries(input.solutions)) {
+	for (const [targetKey, solution] of Object.entries(input.solutions)) {
 		const targetId = identity.byTermKey.get(targetKey);
 		if (targetId === undefined) {
 			continue;
 		}
-		let ast: SolutionAst;
-		try {
-			ast = parseSolution(source);
-		} catch (error) {
-			messages.push(
-				`solution for '${targetKey}': ${error instanceof Error ? error.message : String(error)}`,
-			);
-			continue;
-		}
-		let usable = true;
-		for (const name of collectIdentifiers(ast)) {
-			if (name === targetId) {
-				messages.push(`solution for '${targetKey}' references its own target '${name}'`);
-				usable = false;
-			} else if (!keyByIdentifier.has(name)) {
-				messages.push(`solution for '${targetKey}' uses unknown identifier '${name}'`);
-				usable = false;
-			}
-		}
-		if (usable) {
-			asts.set(targetKey, ast);
+		const roots = solutionRoots(solution);
+		const parsed = roots.map((source, index) =>
+			parseRoot(source, solutionLabel(targetKey, index, roots.length), targetId, keyByIdentifier),
+		);
+		messages.push(...parsed.flatMap((root) => root.messages));
+		const usable = parsed.flatMap((root) => (root.ast === undefined ? [] : [root.ast]));
+		if (usable.length === roots.length) {
+			asts.set(targetKey, usable);
 		}
 	}
 	if (messages.length > 0 || !numeric) {
@@ -155,43 +190,153 @@ export function verifyEquation(input: EquationSolutionInput, numeric = true): Eq
 		return result;
 	}
 
-	for (const [targetKey, ast] of asts) {
-		const freeKeys = termKeys.filter((key) => key !== targetKey && !constants.has(key));
-		const random = mulberry32(fnv1a(`${input.slug}:${targetKey}`));
-		let valid = 0;
-		let failed = false;
-		for (let attempt = 0; attempt < SAMPLE_ATTEMPT_LIMIT && valid < SAMPLE_TARGET; attempt += 1) {
-			const values = new Map(constants);
-			for (const key of freeKeys) {
-				values.set(key, 0.1 + random() * 9.9);
-			}
-			const candidate = evaluateSolution(ast, identifierEnv(identity.byTermKey, values));
-			if (!Number.isFinite(candidate)) {
-				continue;
-			}
-			values.set(targetKey, candidate);
-			const balance = sideBalance(sides, placeholderEnv(termKeys, values));
-			if (balance === undefined) {
-				continue;
-			}
-			if (!balance.balanced) {
-				messages.push(
-					`solution for '${targetKey}' disagrees with the equation: ` +
-						`with ${formatValues(values)} the sides evaluate to ${balance.lhs} vs ${balance.rhs}`,
-				);
-				failed = true;
-				break;
-			}
-			valid += 1;
-		}
-		if (!failed && valid < SAMPLE_TARGET) {
-			messages.push(
-				`solution for '${targetKey}' produced only ${valid}/${SAMPLE_TARGET} valid samples in ${SAMPLE_ATTEMPT_LIMIT} attempts`,
-			);
-		}
-		samples[targetKey] = valid;
+	const context: SamplingContext = {
+		slug: input.slug,
+		termKeys,
+		terms: input.terms,
+		identifiers: identity.byTermKey,
+		constants,
+		sides,
+	};
+	for (const [targetKey, roots] of asts) {
+		const outcomes = roots.map((ast, index) =>
+			sampleRoot(context, targetKey, ast, index, roots.length),
+		);
+		samples[targetKey] = outcomes.map((outcome) => outcome.points.length);
+		messages.push(
+			...outcomes.flatMap((outcome) => (outcome.message === undefined ? [] : [outcome.message])),
+			...duplicateRootMessages(targetKey, roots, outcomes),
+		);
 	}
 	return result;
+}
+
+/**
+ * One authored root parsed and checked against the term identifiers: it
+ * may name any term but its own target.
+ */
+function parseRoot(
+	source: string,
+	label: string,
+	targetId: string,
+	keyByIdentifier: ReadonlyMap<string, string>,
+): { ast?: SolutionAst; messages: string[] } {
+	let ast: SolutionAst;
+	try {
+		ast = parseSolution(source);
+	} catch (error) {
+		return { messages: [`${label}: ${error instanceof Error ? error.message : String(error)}`] };
+	}
+	const messages = [...collectIdentifiers(ast)].flatMap((name) => {
+		if (name === targetId) {
+			return [`${label} references its own target '${name}'`];
+		}
+		return keyByIdentifier.has(name) ? [] : [`${label} uses unknown identifier '${name}'`];
+	});
+	return messages.length === 0 ? { ast, messages } : { messages };
+}
+
+function sampleValue(term: SampledTerm | undefined, random: () => number): number {
+	return term?.integer === true
+		? Math.floor(random() * (INTEGER_SAMPLE_MAX + 1))
+		: 0.1 + random() * 9.9;
+}
+
+/**
+ * Samples one root with its own seed (`slug:key#index`), so adding a root
+ * never moves the samples of the roots before it. A sample where the root
+ * is not real, or a side is not finite and real, is skipped and counts
+ * toward the attempt cap.
+ */
+function sampleRoot(
+	context: SamplingContext,
+	targetKey: string,
+	ast: SolutionAst,
+	index: number,
+	rootCount: number,
+): RootSampling {
+	const label = solutionLabel(targetKey, index, rootCount);
+	const freeKeys = context.termKeys.filter(
+		(key) => key !== targetKey && !context.constants.has(key),
+	);
+	const random = mulberry32(fnv1a(`${context.slug}:${targetKey}#${index}`));
+	const points: Record<string, number>[] = [];
+	for (
+		let attempt = 0;
+		attempt < SAMPLE_ATTEMPT_LIMIT && points.length < SAMPLE_TARGET;
+		attempt += 1
+	) {
+		const values = new Map(context.constants);
+		for (const key of freeKeys) {
+			values.set(key, sampleValue(context.terms[key], random));
+		}
+		const env = identifierEnv(context.identifiers, values);
+		const candidate = evaluateSolution(ast, env);
+		if (!Number.isFinite(candidate)) {
+			continue;
+		}
+		values.set(targetKey, candidate);
+		const balance = sideBalance(context.sides, placeholderEnv(context.termKeys, values));
+		if (balance === undefined) {
+			continue;
+		}
+		if (!balance.balanced) {
+			return {
+				points,
+				message:
+					`${label} disagrees with the equation: ` +
+					`with ${formatValues(values)} the sides evaluate to ${balance.lhs} vs ${balance.rhs}`,
+			};
+		}
+		points.push(env);
+	}
+	return points.length < SAMPLE_TARGET
+		? {
+				points,
+				message: `${label} produced only ${points.length}/${SAMPLE_TARGET} valid samples in ${SAMPLE_ATTEMPT_LIMIT} attempts`,
+			}
+		: { points };
+}
+
+/**
+ * Two verified roots are duplicates when they agree, within the relative
+ * tolerance, at every valid sample of either root where both are real.
+ * Roots never real at the same sample (disjoint domains) are distinct.
+ */
+function duplicateRootMessages(
+	targetKey: string,
+	roots: readonly SolutionAst[],
+	outcomes: readonly RootSampling[],
+): string[] {
+	return roots.flatMap((first, i) =>
+		roots.slice(i + 1).flatMap((second, offset) => {
+			const j = i + 1 + offset;
+			const firstOutcome = outcomes[i];
+			const secondOutcome = outcomes[j];
+			if (
+				firstOutcome === undefined ||
+				secondOutcome === undefined ||
+				firstOutcome.message !== undefined ||
+				secondOutcome.message !== undefined
+			) {
+				return [];
+			}
+			const shared = [...firstOutcome.points, ...secondOutcome.points]
+				.map((env) => [evaluateSolution(first, env), evaluateSolution(second, env)] as const)
+				.filter(([a, b]) => Number.isFinite(a) && Number.isFinite(b));
+			const identical = shared.length > 0 && shared.every(([a, b]) => agree(a, b));
+			return identical
+				? [
+						`solution for '${targetKey}': roots ${i + 1} and ${j + 1} are duplicate roots, equal at every sample where both are real`,
+					]
+				: [];
+		}),
+	);
+}
+
+function agree(a: number, b: number): boolean {
+	const scale = Math.max(Math.abs(a), Math.abs(b));
+	return scale === 0 || Math.abs(a - b) <= RELATIVE_TOLERANCE * scale;
 }
 
 /**
@@ -216,6 +361,12 @@ function parseSides(
 		return undefined;
 	}
 
+	const residueTex = stripMacrosWith(expression, () => '1');
+	if (BARE_LOG_RE.test(residueTex)) {
+		messages.push('expression uses \\log without a base: write \\ln or \\log_{10}');
+		return undefined;
+	}
+
 	const ce = new ComputeEngine();
 	const synthetic = stripMacrosWith(
 		expression,
@@ -228,7 +379,7 @@ function parseSides(
 		);
 		return undefined;
 	}
-	const residue = ce.parse(stripMacrosWith(expression, () => '1'));
+	const residue = ce.parse(residueTex);
 	const allowed = new Set([...placeholders.values(), ...KNOWN_CE_SYMBOLS]);
 	const keyByPlaceholder = new Map([...placeholders].map(([key, name]) => [name, key]));
 	const unannotated = new Set([
@@ -344,7 +495,7 @@ function placeholderEnv(
 }
 
 interface VerifyCache {
-	entries: Record<string, { messages: string[]; samples: Record<string, number> }>;
+	entries: Record<string, { messages: string[]; samples: Record<string, number[]> }>;
 }
 
 export interface CorpusVerification {

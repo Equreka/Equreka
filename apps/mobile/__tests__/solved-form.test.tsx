@@ -1,3 +1,4 @@
+import type { CompiledEquationMeta } from '@equreka/schema';
 import { describe, expect, it, jest } from '@jest/globals';
 import { fireEvent, screen } from '@testing-library/react-native';
 import { CalculatorScreen } from '../features/calculator/calculator-screen';
@@ -53,6 +54,35 @@ describe('buildSolvedForm', () => {
 		const { meta } = equation('pythagorean-theorem');
 		expect(buildSolvedForm(meta, {}, 'a', {})).toBeNull();
 		expect(buildSolvedForm(meta, { a: 'sqrt(' }, 'a', {})).toBeNull();
+	});
+
+	it('shows the solved form of the root the engine chose', () => {
+		const meta: CompiledEquationMeta = {
+			slug: 'projectile-range',
+			kind: 'equation',
+			name: { en: 'Projectile range' },
+			calculatorEnabled: true,
+			terms: {
+				R: { kind: 'symbol', identifier: 'R' },
+				v: { kind: 'symbol', identifier: 'v' },
+				'\\theta': { kind: 'symbol', identifier: 'theta' },
+				g: { kind: 'symbol', identifier: 'g' },
+			},
+			solvable: ['R', '\\theta'],
+		};
+		const solutions = {
+			'\\theta': ['asin(g * R / v^2) / 2', 'pi / 2 - asin(g * R / v^2) / 2'],
+		};
+		const knowns = { R: '5', v: '10', g: '9.8' };
+		expect(buildSolvedForm(meta, solutions, '\\theta', knowns)?.[0]?.text).toBe(
+			'θ = asin(g * R / v^2) / 2',
+		);
+		const second = buildSolvedForm(meta, solutions, '\\theta', knowns, 1);
+		expect(second?.[0]?.tex).toBe(
+			'\\theta = \\frac{\\pi}{2} - \\frac{\\arcsin\\left(\\frac{g R}{v^{2}}\\right)}{2}',
+		);
+		expect(second?.[1]?.text).toBe('θ = pi / 2 - asin(9.8 * 5 / 10^2) / 2');
+		expect(buildSolvedForm(meta, solutions, '\\theta', knowns, 2)).toBeNull();
 	});
 });
 

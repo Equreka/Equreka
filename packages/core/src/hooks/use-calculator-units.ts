@@ -143,13 +143,15 @@ export interface CalculatorInputs {
  * A solved term in its display unit. `exact` is true when every unit
  * conversion on the path (filled inputs in, result out) uses exact
  * factors, so the UI shows '=' rather than '≈'; `baseValue` is the
- * engine's value in the term's base unit.
+ * engine's value in the term's base unit; `root` is the authored index of
+ * the chosen root, which selects the solved form to display.
  */
 export interface CalculatorSolution {
 	symbol: string;
 	unit: string;
 	value: number;
 	baseValue: number;
+	root: number;
 	allRoots?: number[];
 	exact: boolean;
 }
@@ -209,17 +211,16 @@ export function solveInUnits(
 	});
 	if (!solved.ok) return { outcome: solved, literals };
 
-	const { symbol, value: baseValue, allRoots } = solved.value;
+	const { symbol, value: baseValue, root, allRoots } = solved.value;
 	const unit = unitOf(symbol);
 	const display = (value: number): EngineResult<number> =>
 		units === null ? ok(value) : units.fromBase(symbol, value, unit);
 	const value = display(baseValue);
 	if (!value.ok) return { outcome: value, literals };
-	const displayRoots: number[] = [];
-	for (const root of allRoots ?? []) {
-		const converted = display(root);
-		displayRoots.push(converted.ok ? converted.value : root);
-	}
+	const displayRoots = (allRoots ?? []).map((candidate) => {
+		const converted = display(candidate);
+		return converted.ok ? converted.value : candidate;
+	});
 	const resultExact = exact && (units === null || units.isExact(symbol, unit));
 	return {
 		outcome: ok({
@@ -227,6 +228,7 @@ export function solveInUnits(
 			unit,
 			value: value.value,
 			baseValue,
+			root,
 			...(allRoots === undefined ? {} : { allRoots: displayRoots }),
 			exact: resultExact,
 		}),

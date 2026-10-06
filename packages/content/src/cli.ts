@@ -32,7 +32,7 @@ console.log(
 console.log(`content hash ${report.contentHash.slice(0, 12)}…`);
 for (const [slug, verification] of report.verifications) {
 	const solved = Object.entries(verification.samples)
-		.map(([key, samples]) => `${key}×${samples}`)
+		.map(([key, samples]) => `${key}×${samples.join('/')}`)
 		.join(' ');
 	if (solved !== '') {
 		console.log(`verified ${slug}: ${solved}${verification.cached ? ' (cached)' : ''}`);
