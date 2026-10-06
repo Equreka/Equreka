@@ -1,0 +1,34 @@
+{
+	"waivers": [
+		{
+			"kind": "hide",
+			"app": "current",
+			"selector": ".eq-badge-warning",
+			"reason": "Draft badge: v2 content-status marker; the original had no draft concept."
+		},
+		{
+			"kind": "hide",
+			"app": "current",
+			"selector": ".eq-identifiers",
+			"reason": "Identifiers row (Wikidata, QUDT): v2 data the original never carried."
+		},
+		{
+			"kind": "hide",
+			"app": "current",
+			"selector": ".eq-context-bar",
+			"reason": "Learning-path context bar: learning paths do not exist in the original."
+		},
+		{
+			"kind": "hide",
+			"app": "current",
+			"selector": "select.eq-field-addon",
+			"reason": "Per-term unit pickers: the original calculator had fixed SI units per input."
+		},
+		{
+			"kind": "hide",
+			"app": "current",
+			"selector": ".eq-card-note:has(> a[href*='/prefixes/'])",
+			"reason": "Generated-unit line: prefixed units are generated in v2 (ADR 0007); the original had none."
+		}
+	]
+}

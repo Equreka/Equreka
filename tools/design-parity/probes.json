@@ -1,0 +1,510 @@
+{
+	"pages": {
+		"converter": {
+			"legacy": {
+				"route": "/calculator/units/metre",
+				"steps": [],
+				"masks": []
+			},
+			"current": {
+				"route": "/converter/",
+				"steps": [],
+				"masks": []
+			}
+		}
+	},
+	"probes": [
+		{
+			"area": "body",
+			"probe": "body",
+			"page": "favorites-empty",
+			"shells": ["desktop", "mobile"],
+			"legacy": "body",
+			"current": "body",
+			"properties": [
+				"background-color",
+				"color",
+				"font-family",
+				"font-size",
+				"font-weight",
+				"line-height"
+			]
+		},
+		{
+			"area": "body",
+			"probe": "lead-text",
+			"page": "favorites-empty",
+			"legacy": "main.favorites .main-header .lead",
+			"current": "main .eq-lead",
+			"properties": ["color", "font-family", "font-size", "font-weight", "line-height"]
+		},
+		{
+			"area": "header",
+			"probe": "header",
+			"page": "home-categories",
+			"legacy": ".layout.web > header.header",
+			"current": "header.eq-site-header",
+			"properties": [
+				"height",
+				"padding-top",
+				"padding-bottom",
+				"background-color",
+				"color",
+				"box-shadow",
+				"border-bottom"
+			]
+		},
+		{
+			"area": "header",
+			"probe": "header-logo",
+			"page": "home-categories",
+			"legacy": "header.header .left .logo",
+			"current": "header .eq-logo-link",
+			"properties": ["width", "height"]
+		},
+		{
+			"area": "header",
+			"probe": "header-icon-button",
+			"page": "home-categories",
+			"legacy": "header.header .right .btn.search",
+			"current": ".eq-primary-nav a[href='/search/']",
+			"properties": [
+				"width",
+				"height",
+				"padding",
+				"border-radius",
+				"color",
+				"background-color",
+				"font-size",
+				"transition"
+			]
+		},
+		{
+			"area": "header",
+			"probe": "header-icon-button-hover",
+			"page": "home-categories",
+			"state": "hover",
+			"legacy": "header.header .right .btn.search",
+			"current": ".eq-primary-nav a[href='/search/']",
+			"properties": ["color", "background-color"]
+		},
+		{
+			"area": "header",
+			"probe": "header-search-input",
+			"page": "home-categories",
+			"legacy": "header.header .search-bar-input",
+			"current": "header .eq-search-input",
+			"properties": [
+				"width",
+				"height",
+				"padding",
+				"border-radius",
+				"border",
+				"background-color",
+				"box-shadow",
+				"color",
+				"font-size",
+				"font-family",
+				"backdrop-filter"
+			]
+		},
+		{
+			"area": "layout",
+			"probe": "container",
+			"page": "constant",
+			"legacy": "main.data > .container",
+			"current": "main#main > .eq-container",
+			"properties": ["max-width", "width", "padding-left", "padding-right"]
+		},
+		{
+			"area": "page-header",
+			"probe": "page-header",
+			"page": "constant",
+			"legacy": "header.page-header",
+			"current": "header.eq-page-header",
+			"properties": [
+				"height",
+				"padding-top",
+				"padding-bottom",
+				"margin-bottom",
+				"background-image",
+				"background-color",
+				"box-shadow"
+			]
+		},
+		{
+			"area": "page-header",
+			"probe": "page-title",
+			"page": "constant",
+			"legacy": "header.page-header h1.title",
+			"current": ".eq-page-header-title",
+			"properties": [
+				"font-family",
+				"font-size",
+				"font-weight",
+				"letter-spacing",
+				"line-height",
+				"text-transform",
+				"color"
+			]
+		},
+		{
+			"area": "page-header",
+			"probe": "page-label",
+			"page": "constant",
+			"legacy": "header.page-header .info .type",
+			"current": ".eq-page-header-label",
+			"properties": [
+				"font-family",
+				"font-size",
+				"font-weight",
+				"letter-spacing",
+				"text-transform",
+				"color"
+			]
+		},
+		{
+			"area": "card",
+			"probe": "card",
+			"page": "units-list",
+			"legacy": "main .card.card-collapse",
+			"current": "main .eq-card",
+			"properties": [
+				"border-radius",
+				"box-shadow",
+				"border",
+				"background-color",
+				"margin-bottom",
+				"padding",
+				"backdrop-filter"
+			]
+		},
+		{
+			"area": "card",
+			"probe": "card-body",
+			"page": "units-list",
+			"legacy": "main .card.card-collapse > .card-body",
+			"current": "main .eq-collapse-card > .eq-card-body",
+			"properties": ["padding-top", "padding-bottom", "padding-left", "padding-right"]
+		},
+		{
+			"area": "card",
+			"probe": "card-title",
+			"page": "units-list",
+			"legacy": "main .card.card-collapse .card-title",
+			"current": "main .eq-card .eq-collapse-title",
+			"properties": [
+				"font-family",
+				"font-size",
+				"font-weight",
+				"letter-spacing",
+				"line-height",
+				"color",
+				"margin-bottom"
+			]
+		},
+		{
+			"area": "card",
+			"probe": "list-link",
+			"page": "category",
+			"legacy": "main .card .list a",
+			"current": "main .eq-list-link",
+			"properties": [
+				"padding",
+				"border-radius",
+				"font-family",
+				"font-size",
+				"font-weight",
+				"color",
+				"background-color"
+			]
+		},
+		{
+			"area": "card",
+			"probe": "view-all-pill",
+			"page": "units-list",
+			"legacy": "main .btn-go",
+			"current": "main .eq-collapse-card .eq-view-all",
+			"properties": [
+				"padding",
+				"border-radius",
+				"background-color",
+				"color",
+				"font-family",
+				"font-size",
+				"font-weight",
+				"letter-spacing"
+			]
+		},
+		{
+			"area": "badge",
+			"probe": "symbol-badge",
+			"page": "units-list",
+			"legacy": "main .badge-symbol",
+			"current": "main .eq-badge-symbol",
+			"properties": ["padding", "border", "border-radius", "font-size", "color", "background-color"]
+		},
+		{
+			"area": "badge",
+			"probe": "category-badge",
+			"page": "search-open",
+			"legacy": "main .search-bar-results .item .badge-category",
+			"current": "main .eq-search-item .eq-badge",
+			"properties": [
+				"padding",
+				"border-radius",
+				"font-family",
+				"font-size",
+				"font-weight",
+				"letter-spacing",
+				"text-transform",
+				"color",
+				"background-color"
+			]
+		},
+		{
+			"area": "table",
+			"probe": "table-header-cell",
+			"page": "equation",
+			"legacy": "main .table-data thead th",
+			"current": "main .eq-table-data thead th",
+			"properties": [
+				"padding",
+				"border",
+				"font-family",
+				"font-size",
+				"font-weight",
+				"letter-spacing",
+				"text-transform",
+				"color"
+			]
+		},
+		{
+			"area": "table",
+			"probe": "table-cell",
+			"page": "equation",
+			"legacy": "main .table-data tbody tr:not(.equreka-term-hover) td",
+			"current": "main .eq-table-data tbody tr:not(.term-hl) td",
+			"properties": ["padding", "border", "font-size", "color", "background-color", "white-space"]
+		},
+		{
+			"area": "table",
+			"probe": "table-striping",
+			"page": "equation",
+			"legacy": "main .table-data tbody tr:nth-child(2) td",
+			"current": "main .eq-table-data tbody tr:nth-child(2) td",
+			"properties": ["background-color"]
+		},
+		{
+			"area": "controls",
+			"probe": "primary-button",
+			"page": "home-categories",
+			"legacy": "main.home .hstack .btn-primary",
+			"current": "label[for='home-view-categories']",
+			"properties": [
+				"height",
+				"padding",
+				"border-radius",
+				"background-color",
+				"color",
+				"font-family",
+				"font-size",
+				"font-weight",
+				"letter-spacing",
+				"transition"
+			]
+		},
+		{
+			"area": "controls",
+			"probe": "dark-button",
+			"page": "home-categories",
+			"legacy": "main.home .hstack .btn-dark",
+			"current": "label[for='home-view-types']",
+			"properties": ["background-color", "color", "border-radius"]
+		},
+		{
+			"area": "controls",
+			"probe": "search-input",
+			"page": "search-open",
+			"legacy": "main .search-bar-input",
+			"current": "main .eq-search-input-lg",
+			"properties": [
+				"height",
+				"padding",
+				"border-radius",
+				"border",
+				"background-color",
+				"box-shadow",
+				"color",
+				"font-size",
+				"backdrop-filter"
+			]
+		},
+		{
+			"area": "controls",
+			"probe": "input",
+			"page": "calculator",
+			"legacy": ".card-inputs input.form-control",
+			"current": "input.eq-field-control",
+			"properties": [
+				"height",
+				"padding",
+				"border-radius",
+				"border",
+				"background-color",
+				"color",
+				"font-size"
+			]
+		},
+		{
+			"area": "controls",
+			"probe": "select",
+			"page": "converter",
+			"legacy": ".card-inputs select",
+			"current": "select.eq-field-control",
+			"properties": [
+				"height",
+				"padding",
+				"border-radius",
+				"border",
+				"background-color",
+				"color",
+				"font-size"
+			]
+		},
+		{
+			"area": "controls",
+			"probe": "dropdown-menu",
+			"page": "settings",
+			"legacy": ".dropdown-menu.show",
+			"current": "main [role='menu']",
+			"properties": [
+				"min-width",
+				"padding",
+				"border-radius",
+				"border",
+				"background-color",
+				"box-shadow",
+				"color",
+				"backdrop-filter"
+			]
+		},
+		{
+			"area": "controls",
+			"probe": "dropdown-item",
+			"page": "settings",
+			"legacy": ".dropdown-menu.show .dropdown-item",
+			"current": "main [role='menu'] [role='menuitem']",
+			"properties": ["padding", "font-family", "font-size", "color", "background-color"]
+		},
+		{
+			"area": "footer",
+			"probe": "footer",
+			"page": "favorites-empty",
+			"legacy": ".layout.web > footer",
+			"current": "footer.eq-site-footer",
+			"properties": [
+				"height",
+				"padding-top",
+				"padding-bottom",
+				"background-color",
+				"color",
+				"font-size"
+			]
+		},
+		{
+			"area": "footer",
+			"probe": "footer-link",
+			"page": "favorites-empty",
+			"legacy": ".layout.web > footer .links .nav-link",
+			"current": "footer .eq-footer-links .eq-footer-link",
+			"properties": [
+				"padding",
+				"color",
+				"font-family",
+				"font-size",
+				"text-decoration-line",
+				"transition"
+			]
+		},
+		{
+			"area": "footer",
+			"probe": "footer-link-hover",
+			"page": "favorites-empty",
+			"state": "hover",
+			"legacy": ".layout.web > footer .links .nav-link",
+			"current": "footer .eq-footer-links .eq-footer-link",
+			"properties": ["color", "text-decoration-line", "background-color"]
+		},
+		{
+			"area": "content",
+			"probe": "link-hover",
+			"page": "favorites-edit",
+			"state": "hover",
+			"legacy": "main .link-category",
+			"current": "main .eq-fav-name a",
+			"properties": ["color", "text-decoration-line", "text-decoration-color"]
+		},
+		{
+			"area": "home",
+			"probe": "home-card",
+			"page": "home-categories",
+			"legacy": "main.home .card-category.physics",
+			"current": ".eq-home-card.cat-physics",
+			"properties": [
+				"border-radius",
+				"box-shadow",
+				"background-image",
+				"background-color",
+				"color",
+				"margin-bottom"
+			]
+		},
+		{
+			"area": "home",
+			"probe": "home-card-title",
+			"page": "home-categories",
+			"legacy": "main.home .card-category.physics .card-title",
+			"current": ".eq-home-card.cat-physics .eq-home-card-title",
+			"properties": ["font-family", "font-size", "font-weight", "color", "line-height"]
+		},
+		{
+			"area": "mobile-shell",
+			"probe": "app-header",
+			"page": "home-categories",
+			"shells": ["mobile"],
+			"legacy": ".layout.app > .app-header",
+			"current": "header.eq-site-header",
+			"properties": ["height", "margin-top", "margin-bottom", "background-color"]
+		},
+		{
+			"area": "mobile-shell",
+			"probe": "bottom-nav",
+			"page": "home-categories",
+			"shells": ["mobile"],
+			"legacy": ".layout.app > .app-menu",
+			"current": "nav.eq-primary-nav",
+			"properties": [
+				"position",
+				"height",
+				"bottom",
+				"left",
+				"right",
+				"border-radius",
+				"background-color",
+				"box-shadow",
+				"z-index",
+				"backdrop-filter"
+			]
+		},
+		{
+			"area": "mobile-shell",
+			"probe": "bottom-nav-link",
+			"page": "home-categories",
+			"shells": ["mobile"],
+			"legacy": ".layout.app > .app-menu .btn.search",
+			"current": "nav.eq-primary-nav a[href='/search/']",
+			"properties": ["height", "color", "font-size"]
+		}
+	]
+}

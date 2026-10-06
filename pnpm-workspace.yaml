@@ -50,6 +50,10 @@ catalog:
   json5: ^2.2.3 # migrate-legacy only: parses the 2021-2022 corpus
   workbox-build: ^7.4.1 # web PWA: precache manifest + generateSW at astro:build:done (ADR 0002 offline strategy)
   '@playwright/test': ^1.62.1 # web offline E2E gate, chromium only; runs via test:e2e, never `pnpm test`
+  playwright-core: ^1.62.1 # design-parity browser driver with an explicit executablePath (no bundled browser download); must move in lockstep with @playwright/test
+  pixelmatch: ^7.2.0 # design-parity pixel diff; anti-aliasing-aware, ships its own types
+  pngjs: ^7.0.0 # design-parity PNG decode/encode for diffs and contact sheets
+  '@types/pngjs': ^6.0.5 # pngjs ships no types; latest DefinitelyTyped line
   '@astrojs/sitemap': ^3.7.3 # web SEO: sitemap-index with per-locale hreflang alternates
   '@testing-library/react': ^16.3.0 # @equreka/core hook tests (renderHook); needs react-dom at test time only
   jsdom: ^30.0.0 # vitest DOM environment for @equreka/core hook tests

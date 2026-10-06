@@ -13,6 +13,7 @@
 		"check": "turbo run check",
 		"dev:web": "turbo run dev --filter=web",
 		"dev:mobile": "turbo run dev --filter=mobile",
+		"design:parity": "pnpm --filter @equreka/design-parity parity",
 		"lint": "biome check .",
 		"lint:fix": "biome check --write .",
 		"test": "turbo run test",

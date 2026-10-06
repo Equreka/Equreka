@@ -1,6 +1,6 @@
 import { createReadStream, existsSync, statSync } from 'node:fs';
 import { createServer } from 'node:http';
-import { extname, join, normalize } from 'node:path';
+import { extname, join, normalize, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 /**
@@ -9,9 +9,14 @@ import { fileURLToPath } from 'node:url';
  * serve their index.html, extensionless paths that name a directory
  * redirect to the trailing-slash form, everything else is a plain file or
  * a 404. Used by the Playwright offline E2E instead of `astro preview`,
- * which daemonizes and cannot be torn down reliably on Windows.
+ * which daemonizes and cannot be torn down reliably on Windows. An
+ * optional second argument serves another directory with the same
+ * semantics (the design-parity harness serves a frozen snapshot).
  */
-const distDir = fileURLToPath(new URL('../dist/', import.meta.url));
+const distDir =
+	process.argv[3] === undefined
+		? fileURLToPath(new URL('../dist/', import.meta.url))
+		: resolve(process.argv[3]);
 const port = Number(process.argv[2] ?? '43210');
 
 const MIME_TYPES = {

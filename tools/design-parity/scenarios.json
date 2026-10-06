@@ -1,0 +1,226 @@
+{
+	"shells": {
+		"desktop": {
+			"width": 1280,
+			"height": 800,
+			"isMobile": false,
+			"userAgent": {
+				"legacy": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36",
+				"current": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
+			}
+		},
+		"mobile": {
+			"width": 390,
+			"height": 844,
+			"isMobile": true,
+			"userAgent": {
+				"legacy": "Mozilla/5.0 (Linux; Android 12; Pixel 6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36",
+				"current": "Mozilla/5.0 (Linux; Android 12; Pixel 6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36"
+			}
+		}
+	},
+	"themes": ["light", "dark"],
+	"chrome": {
+		"legacy": {
+			"desktop": {
+				"header": ".layout.web > header.header",
+				"footer": ".layout.web > footer"
+			},
+			"mobile": {
+				"header": ".layout.app > .app-header",
+				"bottomNav": ".layout.app > .app-menu"
+			}
+		},
+		"current": {
+			"desktop": {
+				"header": "header.eq-site-header",
+				"footer": "footer.eq-site-footer"
+			},
+			"mobile": {
+				"header": "header.eq-site-header",
+				"bottomNav": "nav.eq-primary-nav",
+				"footer": "footer.eq-site-footer"
+			}
+		}
+	},
+	"fixtures": {
+		"favorites": {
+			"legacy": {
+				"equreka-favorites-equations": "[\"mass-energy-equivalence\",\"pithagoras-theorem\"]",
+				"equreka-favorites-constants": "[\"speed-of-light\",\"avogadro-constant\"]",
+				"equreka-favorites-units": "[\"metre\",\"kilometre\"]"
+			},
+			"current": {
+				"equreka.v1.favorites": "[{\"collection\":\"equations\",\"slug\":\"mass-energy-equivalence\",\"addedAt\":\"2022-01-01T00:00:00.000Z\"},{\"collection\":\"equations\",\"slug\":\"pythagorean-theorem\",\"addedAt\":\"2022-01-01T00:00:01.000Z\"},{\"collection\":\"constants\",\"slug\":\"speed-of-light\",\"addedAt\":\"2022-01-01T00:00:02.000Z\"},{\"collection\":\"constants\",\"slug\":\"avogadro-constant\",\"addedAt\":\"2022-01-01T00:00:03.000Z\"},{\"collection\":\"units\",\"slug\":\"metre\",\"addedAt\":\"2022-01-01T00:00:04.000Z\"},{\"collection\":\"units\",\"slug\":\"kilometre\",\"addedAt\":\"2022-01-01T00:00:05.000Z\"}]"
+			}
+		}
+	},
+	"scenarios": [
+		{
+			"id": "home-categories",
+			"area": "chrome",
+			"contentIdentical": false,
+			"legacy": { "route": "/", "steps": [], "masks": [] },
+			"current": { "route": "/", "steps": [], "masks": [] }
+		},
+		{
+			"id": "home-types",
+			"area": "interactive",
+			"contentIdentical": false,
+			"legacy": {
+				"route": "/",
+				"steps": [{ "action": "click", "selector": "main.home .hstack button", "nth": 1 }],
+				"masks": []
+			},
+			"current": {
+				"route": "/",
+				"steps": [{ "action": "click", "selector": "label[for=\"home-view-types\"]" }],
+				"masks": []
+			}
+		},
+		{
+			"id": "unit",
+			"area": "content",
+			"contentIdentical": false,
+			"legacy": {
+				"route": "/units/metre",
+				"steps": [],
+				"masks": [".table-conversions", "mjx-container"]
+			},
+			"current": {
+				"route": "/units/metre/",
+				"steps": [],
+				"masks": [".eq-table-data", ".katex"]
+			}
+		},
+		{
+			"id": "equation",
+			"area": "interactive",
+			"contentIdentical": false,
+			"note": "first term of the display equation hovered",
+			"legacy": {
+				"route": "/equations/mass-energy-equivalence",
+				"steps": [{ "action": "hover", "selector": "mjx-container .equreka-term" }],
+				"masks": []
+			},
+			"current": {
+				"route": "/equations/mass-energy-equivalence/",
+				"steps": [{ "action": "hover", "selector": ".eq-display-math [data-term]" }],
+				"masks": []
+			}
+		},
+		{
+			"id": "constant",
+			"area": "content",
+			"contentIdentical": false,
+			"legacy": { "route": "/constants/speed-of-light", "steps": [], "masks": ["mjx-container"] },
+			"current": { "route": "/constants/speed-of-light/", "steps": [], "masks": [".katex"] }
+		},
+		{
+			"id": "category",
+			"area": "content",
+			"contentIdentical": false,
+			"legacy": { "route": "/categories/physics", "steps": [], "masks": [] },
+			"current": { "route": "/categories/physics/", "steps": [], "masks": [] }
+		},
+		{
+			"id": "units-list",
+			"area": "content",
+			"contentIdentical": false,
+			"legacy": { "route": "/units", "steps": [], "masks": [] },
+			"current": { "route": "/units/", "steps": [], "masks": [] }
+		},
+		{
+			"id": "search-open",
+			"area": "interactive",
+			"contentIdentical": false,
+			"note": "query 'ene' typed into the search page input",
+			"legacy": {
+				"route": "/search",
+				"steps": [
+					{ "action": "type", "selector": "main .search-bar-input", "text": "ene" },
+					{ "action": "waitFor", "selector": "main .search-bar-results .items" }
+				],
+				"masks": []
+			},
+			"current": {
+				"route": "/search/",
+				"steps": [
+					{ "action": "type", "selector": "main .eq-search-input-lg", "text": "ene" },
+					{ "action": "waitFor", "selector": "main .eq-search-group" }
+				],
+				"masks": []
+			}
+		},
+		{
+			"id": "calculator",
+			"area": "interactive",
+			"contentIdentical": false,
+			"note": "mass-energy equivalence solved from E = 2 J",
+			"legacy": {
+				"route": "/calculator/equations/mass-energy-equivalence",
+				"steps": [
+					{ "action": "type", "selector": ".card-inputs input", "text": "2" },
+					{ "action": "click", "selector": ".card-inputs button.btn-success" },
+					{ "action": "waitFor", "selector": "#calculator-result" }
+				],
+				"masks": []
+			},
+			"current": {
+				"route": "/calculator/mass-energy-equivalence/",
+				"steps": [
+					{ "action": "type", "selector": "input.eq-field-control", "text": "2" },
+					{ "action": "click", "selector": "main form button[type='submit']", "optional": true },
+					{ "action": "waitFor", "selector": ".eq-tool-value", "optional": true }
+				],
+				"masks": []
+			}
+		},
+		{
+			"id": "favorites-empty",
+			"area": "chrome",
+			"contentIdentical": true,
+			"legacy": { "route": "/favorites", "steps": [], "masks": [] },
+			"current": { "route": "/favorites/", "steps": [], "masks": [] }
+		},
+		{
+			"id": "favorites-edit",
+			"area": "interactive",
+			"contentIdentical": true,
+			"fixture": "favorites",
+			"note": "six seeded favorites, edit mode on (the original has no edit toggle in the mobile shell)",
+			"legacy": {
+				"route": "/favorites",
+				"steps": [
+					{
+						"action": "click",
+						"selector": "main.favorites .main-header button",
+						"optional": true
+					}
+				],
+				"masks": []
+			},
+			"current": {
+				"route": "/favorites/",
+				"steps": [{ "action": "click", "selector": ".eq-fav-edit", "optional": true }],
+				"masks": []
+			}
+		},
+		{
+			"id": "settings",
+			"area": "interactive",
+			"contentIdentical": true,
+			"note": "theme menu open; version string masked",
+			"legacy": {
+				"route": "/settings",
+				"steps": [{ "action": "click", "selector": "#dropdown-theme" }],
+				"masks": ["main.settings h2 small"]
+			},
+			"current": {
+				"route": "/settings/",
+				"steps": [{ "action": "click", "selector": "main [aria-haspopup]", "optional": true }],
+				"masks": [".eq-settings-version"]
+			}
+		}
+	]
+}
