@@ -18,7 +18,7 @@
 		"lint:fix": "biome check --write .",
 		"test": "turbo run test",
 		"typecheck": "turbo run typecheck",
-		"verify": "turbo run typecheck test --filter=\"...[origin/main]\"",
+		"verify": "turbo run typecheck test --affected",
 		"quality": "node scripts/quality/catalog-drift.mjs && node scripts/quality/contrast-check.mjs && node scripts/quality/yaml-lint.selftest.mjs && node scripts/quality/yaml-lint.mjs",
 		"env:init": "node scripts/env/init-env.mjs development",
 		"env:test:init": "node scripts/env/init-env.mjs test",
