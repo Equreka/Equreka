@@ -168,6 +168,21 @@ describe('build over the real corpus', () => {
 		expect(magnitudes.work?.externalIds).not.toEqual(magnitudes.energy?.externalIds);
 	});
 
+	it('carries verified externalIds on category and branch presentation slices', () => {
+		const categories = readJson<Record<string, { externalIds?: { wikidata?: string } }>>(
+			'presentation',
+			'categories.json',
+		);
+		const branches = readJson<Record<string, { externalIds?: { wikidata?: string } }>>(
+			'presentation',
+			'branches.json',
+		);
+		expect(categories.physics?.externalIds?.wikidata).toBe('Q413');
+		expect(categories.universal?.externalIds).toBeUndefined();
+		expect(branches.mechanics?.externalIds?.wikidata).toBe('Q41217');
+		expect(branches.measurement?.externalIds?.wikidata).toBe('Q394');
+	});
+
 	it('derives related units and canonical expression TeX into the equations presentation slice', () => {
 		const equations = readJson<
 			Record<

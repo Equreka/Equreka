@@ -3,6 +3,7 @@ import {
 	decimalString,
 	entityBase,
 	exactNumber,
+	externalIds,
 	intFromString,
 	localizedText,
 	ref,
@@ -18,6 +19,7 @@ export const category = z
 		description: localizedText.optional(),
 		aliases: z.array(z.string().min(1)).default([]),
 		order: intFromString.refine((value) => value >= 0, 'order must be nonnegative'),
+		externalIds: externalIds.optional(),
 	})
 	.strict();
 
@@ -32,6 +34,7 @@ export const branch = z
 		aliases: z.array(z.string().min(1)).default([]),
 		category: ref('categories'),
 		order: intFromString.refine((value) => value >= 0, 'order must be nonnegative'),
+		externalIds: externalIds.optional(),
 	})
 	.strict();
 

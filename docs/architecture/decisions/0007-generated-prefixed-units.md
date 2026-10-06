@@ -4,7 +4,7 @@ Date: 2026-09-28 · Status: accepted
 
 ## Context
 
-ADR 0003 backlog item 3. Before this change the corpus held 13 hand-written prefixed units (centimetre, kilometre, micrometre, millimetre, nanometre, microsecond, millisecond, nanosecond, milliampere, milligram, microgram, millilitre, millimole). Each one was a `prefixOf` file that restated its base's `unitOf`, `system` and `categories` by hand. That does not scale to the SI prefix grid. It also drifted: every one of the 13 said `system: 'si-derived'`, even the prefixed forms of base units, and kilometre carried a copy of the metre's description.
+ADR 0003 backlog item 3. Before this change the corpus held 13 hand-written prefixed units (centimetre, kilometre, micrometre, millimetre, nanometre, microsecond, millisecond, nanosecond, milliampere, milligram, microgram, millilitre, millimole). Each one was a `prefixOf` file that restated its base's `unitOf`, `system` and `categories` by hand. That does not scale to the SI prefix grid. It also drifted: 12 of the 13 said `system: 'si-derived'` (millilitre said `other`), even the prefixed forms of SI base units, and kilometre carried a copy of the metre's description.
 
 The audit claimed that all 13 descriptions were copies of the base prose. A file-by-file check found that only kilometre's was. The other 12 had prose of their own. Nine of those added nothing beyond what a template states (the prefix and the power of ten), and nanosecond's was wrong ("one millionth" for 10⁻⁹). Three held facts a generator cannot derive: centimetre (the base unit of length in CGS), micrometre (the micron) and microgram (mcg in medicine).
 
@@ -54,8 +54,10 @@ The non-3n prefixes centi, deci, deca and hecto go only on metre, gram and litre
 
 ## Consequences
 
-- Units: 77 files became 67 files plus 143 generated units, 210 in total. Of the 13 former hand files, 10 were deleted and 3 are kept as overrides. All 13 slugs resolve to byte-identical factors, offsets, exactness, dimensions and symbols (`src/__tests__/fixtures/prefixed-units-baseline.json`, captured from the pre-change build), and the 556-test engine golden suite is unchanged.
+- Units: 77 files became 67 files plus 143 generated units, 210 in total (146 prefixed units: 143 generated and 3 hand overrides). Of the 13 former hand files, 10 were deleted and 3 are kept as overrides (centimetre, micrometre, microgram, each for knowledge the generator cannot derive: the CGS base unit, the micron, the medical `mcg`).
+- Pages: the web build went from 292 to 582 pages. 266 are the 133 net new units (77 → 210) in two locales; the other 24 are the 12 branch pages from the concurrent branches taxonomy (ADR 0003 item 9), also in two locales. All 13 slugs resolve to byte-identical factors, offsets, exactness, dimensions and symbols (`src/__tests__/fixtures/prefixed-units-baseline.json`, captured from the pre-change build), and the 556-test engine golden suite is unchanged.
 - Engine-slice `system` changed for the 10 prefixed forms of SI base units, from `si-derived` to `si`, because they now copy it from their base. Kilometre is a decimal multiple of an SI base unit, not a coherent derived unit.
-- Nanometre loses the `optics-and-photometry` branch the concurrent branches pass gave it. It now copies its branches from the metre. An override file restores it if that is wanted.
+- Branches follow the base: nanometre and every other generated unit copy `branches` from their base (metre → `mechanics`). A hand override file adds a different branch where wanted, such as `optics-and-photometry` for nanometre.
 - The orphan-magnitude warning now also lists `electric-current` and `substance`. Before, only the deleted milliampere and millimole files kept them off the list. Authoring their `externalIds` clears them.
+- Size budgets hold with wide margin (`emit.ts` and the PWA integration enforce them): `engine.json` 96 KB of 500 KB, each search index about 310-320 KB of 1 MB, PWA precache manifest 1771 KiB of 6144 KiB. `presentation/units.json` (386 KB) has no budget.
 - Adding a prefixed unit is a one-word edit to its base, and correcting a base now fixes every prefixed form of it.

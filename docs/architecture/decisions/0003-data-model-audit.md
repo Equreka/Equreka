@@ -53,7 +53,7 @@ Recorded here so the next content push does not rediscover them:
 7. **Per-term calculator unit selection** — inputs are fixed to the baseUnit; symbol/magnitude terms should accept any compatible unit via the engine registry.
 8. **`es` translation sidecar files** — inline `es:` keys do not scale to full descriptions; sidecars enable translation tooling and diffing. *Implemented.*
 9. **Branches taxonomy depth** — `categories` is flat; physics needs sub-branches for navigation. *Implemented:* a `branches` collection (one `category` each, ordered within it); entities list `branches`, each of which must belong to one of the entity's own categories (integrity error, never inferred); every physics/mathematics/chemistry entry has at least one branch (artifact test with an explicit allowlist). Navigation only — the engine slice is unchanged.
-10. **External identifiers** — Wikidata QIDs and QUDT IRIs on units/magnitudes/constants for interoperability and disambiguation. *Implemented:* schema field `externalIds: { wikidata?, qudt? }` on every entity except categories and branches, and authored across the corpus — every hand-authored unit (67, overrides included; generated prefixed units carry none and do not inherit their base's), magnitude (33), constant (8) and prefix (20) has a QID; 60 units, all 33 magnitudes, 6 constants and all 20 prefixes also have a QUDT IRI. Verification: every QID was fetched from `Special:EntityData/<QID>.json` and its English label or alias matched against the entry (units additionally by P2370 conversion value); every QUDT IRI was fetched with `Accept: text/turtle` (HTTP 200, subject block present), checked non-deprecated in the published vocabulary, its `conversionMultiplier`/`conversionOffset` compared with the resolved factor (all equal), and its `qudt:wikidataMatch` or Wikidata's P2968/P8393 cross-reference compared with the chosen QID. Categories carry no IDs because their schema has no `externalIds` (physics Q413, chemistry Q2329, mathematics Q395 verified; `universal` has no counterpart). With identities authored, the orphan-magnitude warning lists nothing.
+10. **External identifiers** — Wikidata QIDs and QUDT IRIs on units/magnitudes/constants for interoperability and disambiguation. *Implemented:* schema field `externalIds: { wikidata?, qudt? }` on every entity (categories and branches gained it in the backlog closeout, below), and authored across the corpus — every hand-authored unit (67, overrides included; generated prefixed units carry none and do not inherit their base's), magnitude (33), constant (8) and prefix (20) has a QID; 60 units, all 33 magnitudes, 6 constants and all 20 prefixes also have a QUDT IRI. Verification: every QID was fetched from `Special:EntityData/<QID>.json` and its English label or alias matched against the entry (units additionally by P2370 conversion value); every QUDT IRI was fetched with `Accept: text/turtle` (HTTP 200, subject block present), checked non-deprecated in the published vocabulary, its `conversionMultiplier`/`conversionOffset` compared with the resolved factor (all equal), and its `qudt:wikidataMatch` or Wikidata's P2968/P8393 cross-reference compared with the chosen QID. Categories and branches carry `wikidata` only, authored in the backlog closeout (see *Backlog disposition*). With identities authored, the orphan-magnitude warning lists nothing.
 
     **Follow-up — reference-model disagreements found while authoring.** Recorded, not resolved:
     - *Year, decade, century, month are 365-day reckonings.* Our `year` (symbol `a`, 31 536 000 s) is the common year (Q235729, `unit/YR_Common`); QUDT `unit/YR` and Wikidata "year" (Q577) are 365.25 d, and `a` conventionally denotes the Julian annum. `century` (Q578) and `decade` (Q39911) are 100/10 common years, while Wikidata's century converts at 3 155 716 800 s. `month` (Q5151) is 1/12 common year (2 628 000 s), which matches no QUDT unit: `unit/MO` is the synodic month (Wikidata maps Q5151 to it) and `unit/MO_MeanGREGORIAN` is 2 629 746 s — so `month` has no QUDT IRI. Decide whether `year` becomes the Julian year (and `a` moves with it) or is renamed "common year".
@@ -64,3 +64,42 @@ Recorded here so the next content push does not rediscover them:
     - *Foot-pound.* QUDT deprecated `unit/FT-LB_F` (3.3.0) in favour of `FT-LB_F_Energy`/`FT-LB_F_Torque`; we cite `FT-LB_F_Energy`, while Wikidata Q730251 still points at the deprecated ID.
     - *Luminous efficacy.* Wikidata splits luminous efficacy of radiation (Q1504173, QUDT `LuminousEfficacy`, cited — the ISO 80000-7 quantity Φv/Φe) from that of a source (Q3425218, per electrical watt); our description should say which one it means.
     - *Hyperfine caesium frequency and K_cd* have QIDs (Q94196529, Q94199486) but no QUDT constant; `unitless` cites Q199 ("1"), Wikidata's unit-one convention, matching QUDT `unit/UNITLESS`.
+
+## Backlog disposition (2026-09-28)
+
+Closeout of the fix-before-scale backlog above.
+
+| # | Item | Disposition | Where |
+| --- | --- | --- | --- |
+| 1 | Magnitude-less compound units | Implemented | de0368c |
+| 2 | Quantity-kind hierarchy | Implemented | a45a648, ADR 0006 |
+| 3 | Generated prefixed-unit pages | Implemented | f45a28f, ADR 0007 |
+| 4 | Substances collection or chemistry-category removal | Deferred (product decision) | below |
+| 5 | Lesson/exercise modeling | Partially covered; graded exercises deferred | below, ADR 0004 |
+| 6 | Editorial state and numeric provenance | Implemented | de0368c |
+| 7 | Per-term calculator unit selection | Implemented | bf14ed9 |
+| 8 | `es` translation sidecar files | Implemented | bbaf4e3 |
+| 9 | Branches taxonomy depth | Implemented | de8d684 |
+| 10 | External identifiers | Implemented | de0368c (schema), 0e81c06 (corpus), backlog closeout (categories, branches) |
+
+- **Item 4 (substances), deferred.** There is no content demand: nothing in the corpus needs a substance entity. The chemistry category stays and holds the amount-of-substance content (mole, millimole, Avogadro constant). Design the `substances` collection when the first substance entry is proposed, against that entry's real fields, not ahead of it.
+- **Item 5 (exercises), partially covered.** Learning paths with `check` steps (ADR 0004) cover self-assessment inside a lesson. Graded exercises (stored answers, attempts, scoring) are new scope, deferred until a product decision names them.
+- **Item 10 closeout.** Categories and branches take `externalIds` (schema, presentation slices and the category and branch web pages through `EntryIdentifiers`; the mobile category screen does not render it). They cite `wikidata` only, because QUDT has no discipline vocabulary. Each QID was fetched from `Special:EntityData/<QID>.json` and its English label compared with the entry:
+
+  | Entity | QID | Wikidata label |
+  | --- | --- | --- |
+  | physics | Q413 | physics |
+  | mathematics | Q395 | mathematics |
+  | chemistry | Q2329 | chemistry |
+  | mechanics | Q41217 | mechanics |
+  | thermodynamics | Q11473 | thermodynamics |
+  | electromagnetism | Q11406 | electromagnetism |
+  | geometry | Q8087 | geometry |
+  | modern-physics | Q658544 | modern physics |
+  | amount-of-substance | Q104946 | amount of substance |
+  | atomic-structure | Q12355387 | atomic structure |
+  | si-system | Q12457 | International System of Units |
+  | measurement (Measurement and metrology) | Q394 | metrology |
+
+  No QID for `universal` (an internal grouping of constants and units, not a real-world concept), `arithmetic-and-algebra` (two concepts), `optics-and-photometry` (two concepts) and `waves-and-oscillations` (two concepts). `measurement` cites metrology (Q394, the science of measurement); Q12453 "measurement" is the process, not the discipline. The brief's Q7492 for metrology is wrong: it resolves to a Song dynasty emperor.
+- **Reference-model disagreements.** The follow-up note under item 10 is kept as written and remains open.

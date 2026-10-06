@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { collectionLabel, type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
 import { branchesOfCategory, groupByBranch } from '@equreka/core/taxonomy';
+import EntryIdentifiers from '../components/entry-identifiers.astro';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
 import FavoriteToggle from '../islands/favorite-toggle';
 import BaseLayout from '../layouts/base-layout.astro';
@@ -68,6 +69,7 @@ const metaDescription =
 				<FavoriteToggle client:idle collection="categories" slug={slug} locale={locale} />
 			</div>
 			{description !== undefined && <p class="mt-3 max-w-3xl leading-7">{description.value}</p>}
+			<EntryIdentifiers locale={locale} externalIds={category.externalIds} />
 		</header>
 
 		{

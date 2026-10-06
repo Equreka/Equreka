@@ -578,6 +578,21 @@ describe('branch', () => {
 		).toBe(false);
 	});
 
+	it('takes optional externalIds on branches and categories', () => {
+		const ids = { wikidata: 'Q41217' };
+		const branchBase = { name: { en: 'Mechanics' }, category: 'physics', order: '0' };
+		expect(branch.parse(branchBase).externalIds).toBeUndefined();
+		expect(branch.parse({ ...branchBase, externalIds: ids }).externalIds).toEqual(ids);
+		expect(
+			branch.safeParse({ ...branchBase, externalIds: { wikidata: 'mechanics' } }).success,
+		).toBe(false);
+		const categoryBase = { name: { en: 'Physics' }, order: '2' };
+		expect(category.parse(categoryBase).externalIds).toBeUndefined();
+		expect(
+			category.parse({ ...categoryBase, externalIds: { wikidata: 'Q413' } }).externalIds,
+		).toEqual({ wikidata: 'Q413' });
+	});
+
 	it('is listed on entities as slug refs, defaulting to none', () => {
 		const base = { name: { en: 'Kilo' }, symbol: { tex: 'k' }, value: '1e3' };
 		expect(prefix.parse(base).branches).toEqual([]);
