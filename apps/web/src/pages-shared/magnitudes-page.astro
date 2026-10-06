@@ -1,15 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
 import { type Locale, localizedName, t } from '@equreka/core/i18n';
-import { type BranchGroup, branchesOfCategory, groupByBranch } from '@equreka/core/taxonomy';
-import CollapseCard from '../components/collapse-card.astro';
+import CategoryListCards from '../components/category-list-cards.astro';
 import PageHeader from '../components/page-header.astro';
 import BaseLayout from '../layouts/base-layout.astro';
-import { asCategory, asMagnitude } from '../lib/collections';
+import { asMagnitude } from '../lib/collections';
 import { localePath } from '../lib/locale-paths';
-import { formatDimension } from '../lib/notation';
-import { engineSlice } from '../lib/server/engine-registry';
-import { branchRecords } from '../lib/server/taxonomy';
 import { renderSymbolHtml } from '../lib/tex';
 
 interface Props {
@@ -18,74 +14,18 @@ interface Props {
 
 const { locale = 'en' } = Astro.props;
 
-const categories = (await getCollection('categories'))
-	.map((entry) => ({ slug: entry.id, ...asCategory(entry.data) }))
-	.sort((a, b) => a.order - b.order);
-const magnitudes = (await getCollection('magnitudes')).map((entry) => ({
-	slug: entry.id,
-	...asMagnitude(entry.data),
-}));
-
-const byName = (
-	a: { name: { en: string; es?: string } },
-	b: { name: { en: string; es?: string } },
-) => localizedName(a, locale).localeCompare(localizedName(b, locale), locale);
-
-const branches = await branchRecords();
-
-type ListedMagnitude = (typeof magnitudes)[number];
-
-function branchSections(slug: string, group: BranchGroup<ListedMagnitude>) {
-	const branch = group.branch === null ? undefined : branches[group.branch];
+const items = (await getCollection('magnitudes')).map((entry) => {
+	const magnitude = asMagnitude(entry.data);
 	return {
-		id: `${slug}-${group.branch ?? 'general'}`,
-		title: branch === undefined ? t(locale, 'branch.general') : localizedName(branch, locale),
-		href: group.branch === null ? undefined : `/branches/${group.branch}/`,
-		magnitudes: group.entries,
+		categories: magnitude.categories,
+		name: localizedName(magnitude, locale),
+		href: localePath(locale, `/magnitudes/${entry.id}/`),
+		symbolHtml: renderSymbolHtml(
+			magnitude.symbol.tex,
+			magnitude.symbol.text ?? magnitude.symbol.tex,
+		),
 	};
-}
-
-const grouped = categories
-	.map((category) => {
-		const members = magnitudes
-			.filter((magnitude) => magnitude.categories.includes(category.slug))
-			.sort(byName);
-		return {
-			slug: category.slug,
-			title: localizedName(category, locale),
-			count: members.length,
-			sections: groupByBranch(members, branchesOfCategory(branches, category.slug)).map((group) =>
-				branchSections(category.slug, group),
-			),
-		};
-	})
-	.filter((group) => group.count > 0);
-
-const ungrouped = magnitudes
-	.filter(
-		(magnitude) => !categories.some((category) => magnitude.categories.includes(category.slug)),
-	)
-	.sort(byName);
-if (ungrouped.length > 0) {
-	grouped.push({
-		slug: 'other',
-		title: t(locale, 'group.other'),
-		count: ungrouped.length,
-		sections: [branchSections('other', { branch: null, entries: ungrouped })],
-	});
-}
-
-function dimensionTextOf(slug: string): string {
-	const compiled = engineSlice.magnitudes[slug];
-	return compiled === undefined ? '' : formatDimension(compiled.dimension);
-}
-
-function baseUnitOf(slug: string): { slug: string; name: string } | undefined {
-	const baseUnit = engineSlice.units[engineSlice.magnitudes[slug]?.baseUnit ?? ''];
-	return baseUnit === undefined
-		? undefined
-		: { slug: baseUnit.slug, name: localizedName(baseUnit, locale) };
-}
+});
 ---
 
 <BaseLayout
@@ -98,99 +38,8 @@ function baseUnitOf(slug: string): { slug: string; name: string } | undefined {
 		label={t(locale, 'design.content.header.type')}
 		title={t(locale, 'collection.magnitudes')}
 		accent="type-magnitudes"
-	>
-		<p>{t(locale, 'magnitudes.lead', { count: magnitudes.length })}</p>
-	</PageHeader>
-	<div class="type-magnitudes eq-stack">
-		{
-			grouped.map((group) => (
-				<CollapseCard
-					headingId={group.slug}
-					titleId={`${group.slug}-heading`}
-					title={group.title}
-					count={group.count}
-					chevron="start"
-					class="eq-card-accent"
-					viewAll={
-						group.slug === 'other'
-							? undefined
-							: {
-									href: localePath(locale, `/categories/${group.slug}/`),
-									label: t(locale, 'design.content.viewAll'),
-								}
-					}
-				>
-					{group.sections.map((section) => (
-						<div class="eq-table-section">
-							{(section.href !== undefined || group.sections.length > 1) && (
-								<h3 id={section.id} class="eq-subheading">
-									{section.href !== undefined ? (
-										<a href={localePath(locale, section.href)}>{section.title}</a>
-									) : (
-										section.title
-									)}
-									<span class="eq-count">{section.magnitudes.length}</span>
-								</h3>
-							)}
-							<div class="eq-table-wrap">
-								<table class="eq-table-data">
-									<thead>
-										<tr>
-											<th scope="col" class="eq-col-symbol">
-												{t(locale, 'table.symbol')}
-											</th>
-											<th scope="col">{t(locale, 'table.name')}</th>
-											<th scope="col">{t(locale, 'table.dimension')}</th>
-											<th scope="col">{t(locale, 'table.baseUnit')}</th>
-										</tr>
-									</thead>
-									<tbody>
-										{section.magnitudes.map((magnitude) => {
-											const dimension = dimensionTextOf(magnitude.slug);
-											const baseUnit = baseUnitOf(magnitude.slug);
-											return (
-												<tr>
-													<td
-														class="eq-cell-symbol"
-														set:html={renderSymbolHtml(
-															magnitude.symbol.tex,
-															magnitude.symbol.text ?? magnitude.symbol.tex,
-														)}
-													/>
-													<td>
-														<a
-															class="eq-link"
-															href={localePath(locale, `/magnitudes/${magnitude.slug}/`)}
-														>
-															{localizedName(magnitude, locale)}
-														</a>
-													</td>
-													<td class="eq-cell-value">
-														{dimension === '' ? (
-															<span class="eq-badge eq-badge-accent">
-																{t(locale, 'badge.dimensionless')}
-															</span>
-														) : (
-															dimension
-														)}
-													</td>
-													<td>
-														{baseUnit !== undefined && (
-															<a class="eq-link" href={localePath(locale, `/units/${baseUnit.slug}/`)}>
-																{baseUnit.name}
-															</a>
-														)}
-													</td>
-												</tr>
-											);
-										})}
-									</tbody>
-								</table>
-							</div>
-						</div>
-					))}
-				</CollapseCard>
-			))
-		}
+	/>
+	<div class="type-magnitudes eq-cards">
+		<CategoryListCards locale={locale} items={items} />
 	</div>
 </BaseLayout>

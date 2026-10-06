@@ -1,11 +1,13 @@
 ---
 import { getCollection } from 'astro:content';
 import { type Locale, localizedName, t } from '@equreka/core/i18n';
+import AbbrLabel from '../components/abbr-label.astro';
+import MathValue from '../components/math-value.astro';
 import PageHeader from '../components/page-header.astro';
 import PathContextBar from '../islands/path-context-bar';
 import BaseLayout from '../layouts/base-layout.astro';
 import { asPrefix } from '../lib/collections';
-import { formatFullPrecision, powerOfTenExponent, toSuperscript } from '../lib/notation';
+import { formatFullPrecision, powerOfTenExponent } from '../lib/notation';
 import { renderSymbolHtml } from '../lib/tex';
 
 interface Props {
@@ -14,12 +16,22 @@ interface Props {
 
 const { locale = 'en' } = Astro.props;
 
+/**
+ * 10ⁿ written out in full, as the original's "Number" column printed it
+ * (`toFixed()`): 1 followed by n zeros, or n−1 zeros after the point.
+ */
+function plainPowerOfTen(exponent: number): string {
+	return exponent >= 0 ? `1${'0'.repeat(exponent)}` : `0.${'0'.repeat(-exponent - 1)}1`;
+}
+
 const prefixes = (await getCollection('prefixes')).map((entry) => {
 	const prefix = asPrefix(entry.data);
+	const exponent = powerOfTenExponent(prefix.value);
 	return {
 		slug: entry.id,
 		...prefix,
-		exponent: powerOfTenExponent(prefix.value),
+		exponent,
+		number: exponent === null ? formatFullPrecision(prefix.value) : plainPowerOfTen(exponent),
 	};
 });
 
@@ -42,57 +54,58 @@ const tables = [
 >
 	<PageHeader
 		slot="hero"
-		label={t(locale, 'design.content.header.type')}
+		label={t(locale, 'design.content.header.category')}
 		title={t(locale, 'collection.prefixes')}
 		accent="type-prefixes"
-	>
-		<p>{t(locale, 'prefixes.lead', { count: prefixes.length })}</p>
-	</PageHeader>
+	/>
 	<PathContextBar slot="context" client:idle locale={locale} />
-	<div class="type-prefixes eq-card eq-card-body eq-card-accent">
-		<div class="eq-grid-2 eq-grid-2-md">
-			{
-				tables.map((table) => (
-					<section aria-labelledby={`${table.id}-heading`}>
-						<h2 id={`${table.id}-heading`} class="eq-card-title">
-							{table.title}
-							<span class="eq-count">{table.rows.length}</span>
-						</h2>
-						<div class="eq-table-wrap">
-							<table class="eq-table-data">
-								<thead>
-									<tr>
-										<th scope="col" class="eq-col-symbol">
-											{t(locale, 'table.symbol')}
-										</th>
-										<th scope="col">{t(locale, 'table.name')}</th>
-										<th scope="col">{t(locale, 'table.value')}</th>
-									</tr>
-								</thead>
-								<tbody>
-									{table.rows.map((prefix) => (
-										<tr id={prefix.slug}>
-											<td
-												class="eq-cell-symbol"
-												set:html={renderSymbolHtml(
-													prefix.symbol.tex,
-													prefix.symbol.text ?? prefix.symbol.tex,
-												)}
-											/>
-											<td>{localizedName(prefix, locale)}</td>
-											<td class="eq-cell-value">
-												{prefix.exponent === null
-													? formatFullPrecision(prefix.value)
-													: `10${toSuperscript(prefix.exponent)}`}
-											</td>
+	<div class="type-prefixes eq-data eq-cards">
+		<div class="eq-card eq-card-accent">
+			<div class="eq-card-body eq-prefix-tables">
+				{
+					tables.map((table) => (
+						<section aria-labelledby={`${table.id}-heading`}>
+							<h2 id={`${table.id}-heading`} class="sr-only">
+								{table.title}
+							</h2>
+							<div class="eq-table-wrap">
+								<table class="eq-table-data">
+									<thead>
+										<tr>
+											<th scope="col">{t(locale, 'table.name')}</th>
+											<th scope="col">
+												<AbbrLabel
+													abbr={t(locale, 'design.legacy.abbr.symbol')}
+													full={t(locale, 'table.symbol')}
+												/>
+											</th>
+											<th scope="col">{t(locale, 'design.content.prefixes.exponent')}</th>
+											<th scope="col">{t(locale, 'design.content.prefixes.number')}</th>
 										</tr>
-									))}
-								</tbody>
-							</table>
-						</div>
-					</section>
-				))
-			}
+									</thead>
+									<tbody>
+										{table.rows.map((prefix) => (
+											<tr id={prefix.slug}>
+												<td>{localizedName(prefix, locale)}</td>
+												<td
+													set:html={renderSymbolHtml(
+														prefix.symbol.tex,
+														prefix.symbol.text ?? prefix.symbol.tex,
+													)}
+												/>
+												<td>
+													<MathValue value={prefix.value} format="tex" />
+												</td>
+												<td class="eq-math-mantissa" set:html={renderSymbolHtml(prefix.number, prefix.number)} />
+											</tr>
+										))}
+									</tbody>
+								</table>
+							</div>
+						</section>
+					))
+				}
+			</div>
 		</div>
 	</div>
 </BaseLayout>

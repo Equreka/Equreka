@@ -1,8 +1,14 @@
+import { readFileSync } from 'node:fs';
+
 const AA_TEXT = 4.5;
 
 const AA_UI = 3;
 
 const THEMES = ['light', 'dark'];
+
+const RATIO_DECIMALS = 2;
+
+const BASELINE_URL = new URL('./contrast-baseline.json', import.meta.url);
 
 const { tokens } = await import(
 	new URL('../../packages/tokens/src/index.ts', import.meta.url).href
@@ -110,6 +116,7 @@ function pairsFor(theme) {
 		['inkBody', pick(c.inkBody)],
 		['inkMuted', pick(c.inkMuted)],
 		['footer', pick(c.footer)],
+		['link', pick(c.link)],
 		['accent', pick(c.accent)],
 		['danger', pick(c.danger)],
 		...Object.entries(c.category).map(([slug, value]) => [`category.${slug}`, pick(value)]),
@@ -180,19 +187,41 @@ function pairsFor(theme) {
 	return pairs;
 }
 
+function rounded(value) {
+	return Number(value.toFixed(RATIO_DECIMALS));
+}
+
+function pairKey(theme, label) {
+	return `${theme} ${label}`;
+}
+
 /**
- * WCAG 2.2 contrast gate over @equreka/tokens (SC 1.4.3 text, SC 1.4.11
+ * Accepted legacy deviations (ADR 0008): every pair the original 2022
+ * palette ships below its WCAG threshold, with the ratio it shipped at.
+ */
+function loadBaseline() {
+	const raw = JSON.parse(readFileSync(BASELINE_URL, 'utf8'));
+	return new Map(raw.accepted.map((entry) => [pairKey(entry.theme, entry.pair), entry]));
+}
+
+/**
+ * WCAG 2.2 contrast ratchet over @equreka/tokens (SC 1.4.3 text, SC 1.4.11
  * non-text UI). Every foreground role is checked against every background
- * it can sit on, in both themes; any ratio under its threshold fails the
- * process. `--suggest` prints the minimal HSL-lightness move (hue and
- * saturation kept) that makes each failing token pass, which is how the
- * legacy palette deviations recorded in docs/design/legacy-design-spec.md
- * were derived. Borders, washes and selection tints are decorative and not
- * checked. Imports the TypeScript source directly (Node type stripping).
+ * it can sit on, in both themes. A pair below its threshold passes only
+ * when contrast-baseline.json accepts it (the exact legacy colors, ADR
+ * 0008) and it is not lower than its recorded ratio; a pair absent from
+ * the baseline must meet AA. A baseline entry whose pair now passes, or
+ * no longer exists, fails too, so the list only ever shrinks. `--suggest`
+ * prints the minimal HSL-lightness move (hue and saturation kept) that
+ * makes each failing token pass. Borders, washes and selection tints are
+ * decorative and not checked. Imports the TypeScript source directly
+ * (Node type stripping).
  */
 function main() {
 	const pairs = THEMES.flatMap(pairsFor);
+	const baseline = loadBaseline();
 	const failures = pairs.filter((p) => ratio(p.fg, p.bg) < p.threshold);
+	const seen = new Set(pairs.map((p) => pairKey(p.theme, p.label)));
 
 	if (suggest) {
 		for (const p of pairs) {
@@ -216,17 +245,42 @@ function main() {
 		}
 	}
 
-	if (failures.length > 0) {
-		console.error(`contrast-check: ${failures.length} pair(s) below WCAG AA:`);
-		for (const p of failures) {
-			console.error(
-				`  [${p.theme}] ${p.label}: ${p.fg} on ${p.bg} = ${ratio(p.fg, p.bg).toFixed(2)}:1 (needs ${p.threshold}:1)`,
+	const errors = [];
+	for (const p of failures) {
+		const current = rounded(ratio(p.fg, p.bg));
+		const accepted = baseline.get(pairKey(p.theme, p.label));
+		if (accepted === undefined) {
+			errors.push(
+				`[${p.theme}] ${p.label}: ${p.fg} on ${p.bg} = ${current}:1 (needs ${p.threshold}:1; not an accepted legacy deviation)`,
+			);
+		} else if (current < accepted.ratio) {
+			errors.push(
+				`[${p.theme}] ${p.label}: ${p.fg} on ${p.bg} = ${current}:1, worse than the accepted legacy ${accepted.ratio}:1`,
 			);
 		}
+	}
+	for (const [key, entry] of baseline) {
+		if (!seen.has(key)) {
+			errors.push(`baseline entry "${key}" matches no checked pair; delete it`);
+			continue;
+		}
+		const p = pairs.find((candidate) => pairKey(candidate.theme, candidate.label) === key);
+		if (p !== undefined && ratio(p.fg, p.bg) >= p.threshold) {
+			errors.push(
+				`baseline entry "${key}" now passes (${rounded(ratio(p.fg, p.bg))}:1 >= ${entry.threshold}:1); delete it`,
+			);
+		}
+	}
+
+	if (errors.length > 0) {
+		console.error(`contrast-check: ${errors.length} violation(s):`);
+		for (const line of errors) console.error(`  ${line}`);
 		process.exit(1);
 	}
 
-	console.log(`contrast-check: ok (${pairs.length} pairs, light + dark, WCAG AA)`);
+	console.log(
+		`contrast-check: ok (${pairs.length} pairs, light + dark; ${failures.length} accepted legacy deviations, ADR 0008)`,
+	);
 }
 
 main();

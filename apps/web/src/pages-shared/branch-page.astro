@@ -1,8 +1,9 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
-import { collectionLabel, type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
+import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
 import CollapseCard from '../components/collapse-card.astro';
+import CollectionListCards from '../components/collection-list-cards.astro';
 import EntryIdentifiers from '../components/entry-identifiers.astro';
 import PageHeader from '../components/page-header.astro';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
@@ -10,7 +11,7 @@ import FavoriteToggle from '../islands/favorite-toggle';
 import BaseLayout from '../layouts/base-layout.astro';
 import { asBranch, asCategory } from '../lib/collections';
 import { localePath } from '../lib/locale-paths';
-import { byCollection, memberEntries } from '../lib/server/taxonomy';
+import { memberEntries } from '../lib/server/taxonomy';
 
 interface Props {
 	entry: CollectionEntry<'branches'>;
@@ -31,20 +32,6 @@ const categoryName =
 		: localizedName(asCategory(categoryEntry.data), locale);
 
 const members = (await memberEntries(locale)).filter((member) => member.branches.includes(slug));
-const groups = byCollection(members);
-
-/**
- * "View all" targets per member collection; variables have no list page,
- * so their card carries no pill.
- */
-const COLLECTION_INDEX: Record<string, string> = {
-	magnitudes: '/magnitudes/',
-	units: '/units/',
-	prefixes: '/prefixes/',
-	constants: '/constants/',
-	equations: '/equations/',
-	paths: '/paths/',
-};
 
 const description =
 	branch.description === undefined ? undefined : pickLocalized(branch.description, locale);
@@ -72,7 +59,9 @@ const metaDescription =
 	>
 		<FavoriteToggle slot="actions" client:idle collection="branches" slug={slug} locale={locale} />
 	</PageHeader>
-	<article class={`cat-${branch.category} eq-stack`}>
+	<article class={`cat-${branch.category} eq-cards`}>
+		<CollectionListCards locale={locale} members={members} />
+
 		{
 			(untranslated || description !== undefined || branch.externalIds !== undefined) && (
 				<CollapseCard
@@ -88,40 +77,6 @@ const metaDescription =
 					<EntryIdentifiers locale={locale} externalIds={branch.externalIds} />
 				</CollapseCard>
 			)
-		}
-
-		{
-			groups.map((group) => {
-				const index = COLLECTION_INDEX[group.collection];
-				return (
-					<CollapseCard
-						headingId={`${group.collection}-heading`}
-						title={collectionLabel(locale, group.collection)}
-						count={group.entries.length}
-						chevron="start"
-						class="eq-card-accent"
-						viewAll={
-							index === undefined
-								? undefined
-								: { href: localePath(locale, index), label: t(locale, 'design.content.viewAll') }
-						}
-					>
-						<ul class="eq-list">
-							{group.entries.map((member) => (
-								<li>
-									{member.href !== undefined ? (
-										<a class="eq-list-link" href={localePath(locale, member.href)}>
-											{member.name}
-										</a>
-									) : (
-										<span class="eq-list-link">{member.name}</span>
-									)}
-								</li>
-							))}
-						</ul>
-					</CollapseCard>
-				);
-			})
 		}
 	</article>
 </BaseLayout>

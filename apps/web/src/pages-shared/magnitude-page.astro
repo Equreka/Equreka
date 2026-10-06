@@ -3,8 +3,11 @@ import type { CollectionEntry } from 'astro:content';
 import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
 import { formatSigFigs } from '@equreka/engine/format';
 import { kindRelations } from '@equreka/engine/units';
+import AbbrLabel from '../components/abbr-label.astro';
 import BranchBadges from '../components/branch-badges.astro';
+import CodeCard from '../components/code-card.astro';
 import CollapseCard from '../components/collapse-card.astro';
+import DisplayNameSymbol from '../components/display-name-symbol.astro';
 import DraftBadge from '../components/draft-badge.astro';
 import EntryIdentifiers from '../components/entry-identifiers.astro';
 import PageHeader from '../components/page-header.astro';
@@ -88,6 +91,7 @@ const metaDescription =
 >
 	<PageHeader
 		slot="hero"
+		entry
 		label={t(locale, 'collection.magnitudes')}
 		labelHref={localePath(locale, '/magnitudes/')}
 		title={name}
@@ -96,12 +100,10 @@ const metaDescription =
 		<FavoriteToggle slot="actions" client:idle collection="magnitudes" slug={slug} locale={locale} />
 	</PageHeader>
 	<PathContextBar slot="context" client:idle locale={locale} />
-	<article class="type-magnitudes eq-stack">
+	<article class="type-magnitudes eq-data eq-cards">
 		<div class="eq-card eq-display-card">
 			<div class="eq-display-math">
-				<span class="eq-display-text">{name}</span>
-				<span class="eq-display-op" aria-hidden="true">—</span>
-				<span set:html={renderSymbolHtml(magnitude.symbol.tex, symbolText)} />
+				<DisplayNameSymbol name={name} symbolTex={magnitude.symbol.tex} symbolText={symbolText} />
 			</div>
 		</div>
 
@@ -109,6 +111,28 @@ const metaDescription =
 			headingId="magnitude-information-heading"
 			title={t(locale, 'design.content.entry.information')}
 		>
+			<div class="eq-unit-of">
+				<span class="eq-unit-of-label">{t(locale, 'table.baseUnit')}</span>
+				{
+					baseUnit !== undefined ? (
+						<a
+							class="eq-badge eq-badge-accent eq-badge-link type-units"
+							href={localePath(locale, `/units/${baseUnit.slug}/`)}
+						>
+							{localizedName(baseUnit, locale)}
+						</a>
+					) : (
+						magnitude.baseUnit
+					)
+				}
+			</div>
+
+			{
+				description !== undefined && (
+					<div class="eq-prose" set:html={renderRichTextHtml(description.value)} />
+				)
+			}
+
 			<div class="eq-chip-row">
 				<span class="eq-badge eq-badge-accent">{t(locale, 'term.magnitude')}</span>
 				{
@@ -127,62 +151,45 @@ const metaDescription =
 			</div>
 
 			{
-				description !== undefined && (
-					<div class="eq-prose" set:html={renderRichTextHtml(description.value)} />
+				(dimensionText !== '' || kindRows.length > 0 || magnitude.nonNegative === true) && (
+					<dl class="eq-definitions">
+						{
+							dimensionText !== '' && (
+								<>
+									<dt>{t(locale, 'table.dimension')}</dt>
+									<dd class="eq-display-text">{dimensionText}</dd>
+								</>
+							)
+						}
+						{
+							kindRows.map((row) => (
+								<>
+									<dt>{row.label}</dt>
+									<dd>
+										{row.links.map((link, index) => (
+											<>
+												{index > 0 && ', '}
+												<a class="eq-link" href={link.href}>
+													{link.name}
+												</a>
+											</>
+										))}
+										{row.hint !== '' && <p class="eq-definition-hint">{row.hint}</p>}
+									</dd>
+								</>
+							))
+						}
+						{
+							magnitude.nonNegative === true && (
+								<>
+									<dt>{t(locale, 'magnitude.sign')}</dt>
+									<dd class="eq-definition-muted">{t(locale, 'magnitude.nonNegative')}</dd>
+								</>
+							)
+						}
+					</dl>
 				)
 			}
-
-			<dl class="eq-definitions">
-				{
-					dimensionText !== '' && (
-						<>
-							<dt>{t(locale, 'table.dimension')}</dt>
-							<dd class="eq-display-text">{dimensionText}</dd>
-						</>
-					)
-				}
-				<dt>{t(locale, 'table.baseUnit')}</dt>
-				<dd>
-					{
-						baseUnit !== undefined ? (
-							<a
-								class="eq-link"
-								href={localePath(locale, `/units/${baseUnit.slug}/`)}
-							>
-								{localizedName(baseUnit, locale)} ({baseSymbol})
-							</a>
-						) : (
-							magnitude.baseUnit
-						)
-					}
-				</dd>
-				{
-					kindRows.map((row) => (
-						<>
-							<dt>{row.label}</dt>
-							<dd>
-								{row.links.map((link, index) => (
-									<>
-										{index > 0 && ', '}
-										<a class="eq-link" href={link.href}>
-											{link.name}
-										</a>
-									</>
-								))}
-								{row.hint !== '' && <p class="eq-definition-hint">{row.hint}</p>}
-							</dd>
-						</>
-					))
-				}
-				{
-					magnitude.nonNegative === true && (
-						<>
-							<dt>{t(locale, 'magnitude.sign')}</dt>
-							<dd class="eq-definition-muted">{t(locale, 'magnitude.nonNegative')}</dd>
-						</>
-					)
-				}
-			</dl>
 
 			<EntryIdentifiers locale={locale} externalIds={magnitude.externalIds} />
 		</CollapseCard>
@@ -191,15 +198,19 @@ const metaDescription =
 			rows.length > 0 && (
 				<CollapseCard
 					headingId="magnitude-units-heading"
-					title={t(locale, 'magnitude.unitsOf', { name: name.toLowerCase() })}
+					title={t(locale, 'collection.units')}
 				>
-					<p class="eq-card-note">{t(locale, 'magnitude.unitsLead')}</p>
 					<div class="eq-table-wrap">
 						<table class="eq-table-data">
 							<thead>
 								<tr>
-									<th scope="col">{t(locale, 'table.unit')}</th>
-									<th scope="col">{t(locale, 'table.symbol')}</th>
+									<th scope="col">{t(locale, 'table.name')}</th>
+									<th scope="col">
+										<AbbrLabel
+											abbr={t(locale, 'design.legacy.abbr.symbol')}
+											full={t(locale, 'table.symbol')}
+										/>
+									</th>
 									<th scope="col" class="eq-cell-numeric">
 										{t(locale, 'table.factorToBase')}
 									</th>
@@ -213,10 +224,7 @@ const metaDescription =
 												{localizedName(row.unit, locale)}
 											</a>
 										</td>
-										<td
-											class="eq-cell-symbol"
-											set:html={renderSymbolHtml(row.unit.symbolTex, row.unit.symbolText)}
-										/>
+										<td set:html={renderSymbolHtml(row.unit.symbolTex, row.unit.symbolText)} />
 										<td class="eq-cell-numeric eq-cell-value">
 											{row.isBase ? (
 												<span class="eq-badge eq-badge-accent type-units">
@@ -233,8 +241,11 @@ const metaDescription =
 							</tbody>
 						</table>
 					</div>
+					<p class="eq-card-note eq-card-note-after">{t(locale, 'magnitude.unitsLead')}</p>
 				</CollapseCard>
 			)
 		}
+
+		<CodeCard locale={locale} code={magnitude.symbol.tex} />
 	</article>
 </BaseLayout>

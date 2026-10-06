@@ -91,7 +91,7 @@ const local = (text: LocalizedText): string => pickLocalized(text, locale).value
 		{description !== undefined && <p>{description.value}</p>}
 		<FavoriteToggle slot="actions" client:idle collection="paths" slug={slug} locale={locale} />
 	</PageHeader>
-	<article class="type-paths eq-stack">
+	<article class="type-paths eq-cards">
 		<div class="eq-card eq-card-body eq-path-summary">
 			<div class="eq-chip-row">
 				<span class="eq-badge eq-badge-accent">{levelLabel}</span>

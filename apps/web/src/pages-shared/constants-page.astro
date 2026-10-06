@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { type Locale, localizedName, t } from '@equreka/core/i18n';
-import { formatSigFigs } from '@equreka/engine/format';
+import CategoryListCards from '../components/category-list-cards.astro';
 import PageHeader from '../components/page-header.astro';
 import BaseLayout from '../layouts/base-layout.astro';
 import { asConstant } from '../lib/collections';
@@ -15,18 +15,15 @@ interface Props {
 
 const { locale = 'en' } = Astro.props;
 
-const constants = (await getCollection('constants'))
-	.map((entry) => ({ slug: entry.id, ...asConstant(entry.data) }))
-	.sort((a, b) => localizedName(a, locale).localeCompare(localizedName(b, locale), locale));
-
-const rows = constants.map((constant) => {
-	const compiled = engineSlice.constants[constant.slug];
-	const unit = engineSlice.units[constant.unit];
+const items = (await getCollection('constants')).map((entry) => {
+	const constant = asConstant(entry.data);
+	const symbolText =
+		engineSlice.constants[entry.id]?.symbolText ?? constant.symbol.text ?? constant.symbol.tex;
 	return {
-		...constant,
-		symbolText: compiled?.symbolText ?? constant.symbol.text ?? constant.symbol.tex,
-		display: formatSigFigs(Number(constant.value)),
-		unitSymbol: unit?.symbolText ?? '',
+		categories: constant.categories,
+		name: localizedName(constant, locale),
+		href: localePath(locale, `/constants/${entry.id}/`),
+		symbolHtml: renderSymbolHtml(constant.symbol.tex, symbolText),
 	};
 });
 ---
@@ -41,49 +38,8 @@ const rows = constants.map((constant) => {
 		label={t(locale, 'design.content.header.type')}
 		title={t(locale, 'collection.constants')}
 		accent="type-constants"
-	>
-		<p>{t(locale, 'constants.lead', { count: constants.length })}</p>
-	</PageHeader>
-	<div class="type-constants eq-stack">
-		<div class="eq-card eq-card-body eq-card-accent">
-			<div class="eq-table-wrap">
-				<table class="eq-table-data">
-					<thead>
-						<tr>
-							<th scope="col" class="eq-col-symbol">{t(locale, 'table.symbol')}</th>
-							<th scope="col">{t(locale, 'table.name')}</th>
-							<th scope="col">{t(locale, 'table.value')}</th>
-							<th scope="col">{t(locale, 'table.status')}</th>
-						</tr>
-					</thead>
-					<tbody>
-						{
-							rows.map((row) => (
-								<tr>
-									<td
-										class="eq-cell-symbol"
-										set:html={renderSymbolHtml(row.symbol.tex, row.symbolText)}
-									/>
-									<td>
-										<a class="eq-link" href={localePath(locale, `/constants/${row.slug}/`)}>
-											{localizedName(row, locale)}
-										</a>
-									</td>
-									<td class="eq-cell-value">
-										{row.display}
-										{row.unitSymbol === '' ? '' : ` ${row.unitSymbol}`}
-									</td>
-									<td>
-										<span class:list={['eq-badge eq-badge-accent', !row.exact && 'sw-blue']}>
-											{row.exact ? t(locale, 'badge.exact') : t(locale, 'badge.measured')}
-										</span>
-									</td>
-								</tr>
-							))
-						}
-					</tbody>
-				</table>
-			</div>
-		</div>
+	/>
+	<div class="type-constants eq-cards">
+		<CategoryListCards locale={locale} items={items} />
 	</div>
 </BaseLayout>

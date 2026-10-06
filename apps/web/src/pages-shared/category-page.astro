@@ -1,16 +1,18 @@
 ---
 import type { CollectionEntry } from 'astro:content';
-import { collectionLabel, type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
-import { branchesOfCategory, groupByBranch } from '@equreka/core/taxonomy';
+import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
+import { branchesOfCategory } from '@equreka/core/taxonomy';
 import CollapseCard from '../components/collapse-card.astro';
+import CollectionListCards from '../components/collection-list-cards.astro';
 import EntryIdentifiers from '../components/entry-identifiers.astro';
+import ListCard from '../components/list-card.astro';
 import PageHeader from '../components/page-header.astro';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
 import FavoriteToggle from '../islands/favorite-toggle';
 import BaseLayout from '../layouts/base-layout.astro';
 import { asCategory } from '../lib/collections';
 import { localePath } from '../lib/locale-paths';
-import { branchRecords, byCollection, memberEntries } from '../lib/server/taxonomy';
+import { branchRecords, memberEntries } from '../lib/server/taxonomy';
 
 interface Props {
 	entry: CollectionEntry<'categories'>;
@@ -24,15 +26,17 @@ const name = localizedName(category, locale);
 
 const branches = await branchRecords();
 const members = (await memberEntries(locale)).filter((member) => member.categories.includes(slug));
-const branchGroups = groupByBranch(members, branchesOfCategory(branches, slug)).map((group) => {
-	const branch = group.branch === null ? undefined : branches[group.branch];
-	return {
-		id: group.branch ?? 'general',
-		title: branch === undefined ? t(locale, 'branch.general') : localizedName(branch, locale),
-		href: group.branch === null ? undefined : `/branches/${group.branch}/`,
-		count: group.entries.length,
-		collections: byCollection(group.entries),
-	};
+const branchItems = branchesOfCategory(branches, slug).flatMap((branchSlug) => {
+	const branch = branches[branchSlug];
+	return branch === undefined
+		? []
+		: [
+				{
+					id: `branch-${branchSlug}`,
+					name: localizedName(branch, locale),
+					href: localePath(locale, `/branches/${branchSlug}/`),
+				},
+			];
 });
 
 const description =
@@ -60,7 +64,19 @@ const metaDescription =
 	>
 		<FavoriteToggle slot="actions" client:idle collection="categories" slug={slug} locale={locale} />
 	</PageHeader>
-	<article class={`cat-${slug} eq-stack`}>
+	<article class={`cat-${slug} eq-cards`}>
+		<CollectionListCards locale={locale} members={members} />
+
+		{
+			branchItems.length > 0 && (
+				<ListCard
+					headingId="branches-nav-heading"
+					title={t(locale, 'category.branches')}
+					items={branchItems}
+				/>
+			)
+		}
+
 		{
 			(untranslated || description !== undefined || category.externalIds !== undefined) && (
 				<CollapseCard
@@ -76,68 +92,6 @@ const metaDescription =
 					<EntryIdentifiers locale={locale} externalIds={category.externalIds} />
 				</CollapseCard>
 			)
-		}
-
-		{
-			branchGroups.length > 1 && (
-				<nav aria-labelledby="branches-nav-heading" class="eq-card eq-card-body">
-					<h2 id="branches-nav-heading" class="eq-card-title">
-						{t(locale, 'category.branches')}
-					</h2>
-					<ul class="eq-pill-list">
-						{branchGroups.map((group) => (
-							<li>
-								<a class="eq-btn eq-btn-sm eq-btn-tint eq-btn-pill" href={`#branch-${group.id}`}>
-									{group.title}
-									<span class="eq-count">{group.count}</span>
-								</a>
-							</li>
-						))}
-					</ul>
-				</nav>
-			)
-		}
-
-		{
-			branchGroups.map((group) => (
-				<CollapseCard
-					headingId={`branch-${group.id}`}
-					title={group.title}
-					count={group.count}
-					chevron="start"
-					class="eq-card-accent"
-					viewAll={
-						group.href === undefined
-							? undefined
-							: {
-									href: localePath(locale, group.href),
-									label: t(locale, 'design.content.viewAll'),
-								}
-					}
-				>
-					{group.collections.map((members) => (
-						<>
-							<h3 id={`branch-${group.id}-${members.collection}`} class="eq-subheading">
-								{collectionLabel(locale, members.collection)}
-								<span class="eq-count">{members.entries.length}</span>
-							</h3>
-							<ul class="eq-list">
-								{members.entries.map((member) => (
-									<li>
-										{member.href !== undefined ? (
-											<a class="eq-list-link" href={localePath(locale, member.href)}>
-												{member.name}
-											</a>
-										) : (
-											<span class="eq-list-link">{member.name}</span>
-										)}
-									</li>
-								))}
-							</ul>
-						</>
-					))}
-				</CollapseCard>
-			))
 		}
 	</article>
 </BaseLayout>

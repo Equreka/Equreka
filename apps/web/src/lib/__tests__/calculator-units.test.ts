@@ -89,7 +89,7 @@ describe('calculator units over the client converter payload', () => {
 });
 
 describe('CalculatorIsland server render', () => {
-	it('renders static base-unit addons and no picker before the payload arrives', () => {
+	it('labels each field with its base unit and renders no picker before the payload arrives', () => {
 		const html = renderToString(
 			createElement(CalculatorIsland, {
 				meta: meta('mass-energy-equivalence'),
@@ -103,8 +103,24 @@ describe('CalculatorIsland server render', () => {
 				nonNegative: ['m'],
 			}),
 		);
-		expect(html).toContain('>kg</span>');
-		expect(html).toContain('>J</span>');
+		const text = html.replaceAll('<!-- -->', '');
+		expect(text).toContain('>Energy (J)</label>');
+		expect(text).toContain('>Mass (kg)</label>');
 		expect(html).not.toContain('<select');
+		expect(html).toContain('type="submit"');
+		expect(html).toContain('role="status"');
+	});
+
+	it('draws the build-rendered expression as an aria-hidden backdrop', () => {
+		const html = renderToString(
+			createElement(
+				CalculatorIsland,
+				{ meta: meta('mass-energy-equivalence'), fields: [], constants: [], nonNegative: [] },
+				createElement('span', { className: 'katex' }, 'E=mc2'),
+			),
+		);
+		expect(html).toContain(
+			'<div class="eq-calc-backdrop" aria-hidden="true"><span class="katex">E=mc2</span></div>',
+		);
 	});
 });

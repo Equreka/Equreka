@@ -1,12 +1,25 @@
 ---
 import { type Locale, t } from '@equreka/core/i18n';
+import Icon from '../components/icon.astro';
 import SettingsPanel from '../islands/settings-panel';
 import BaseLayout from '../layouts/base-layout.astro';
-import { SITE_VERSION } from '../lib/site';
+import { localePath } from '../lib/locale-paths';
+import { SITE_VERSION, SOCIAL_LINKS } from '../lib/site';
 
 interface Props {
 	locale?: Locale;
 }
+
+/**
+ * The text links the original app-shell settings page repeated under its
+ * card (the desktop footer's slots, mapped to the v2 sections the footer
+ * carries).
+ */
+const SECTION_LINKS = [
+	{ key: 'nav.paths', href: '/paths/' },
+	{ key: 'nav.calculator', href: '/calculator/' },
+	{ key: 'nav.converter', href: '/converter/' },
+] as const;
 
 const { locale = 'en' } = Astro.props;
 ---
@@ -16,9 +29,30 @@ const { locale = 'en' } = Astro.props;
 	description={t(locale, 'meta.settings')}
 	locale={locale}
 >
-	<header class="eq-tool-header">
-		<h1>{t(locale, 'settings.title')}</h1>
-		<p class="eq-lead">{t(locale, 'settings.lead')}</p>
-	</header>
 	<SettingsPanel client:load locale={locale} version={SITE_VERSION} />
+	<div class="eq-settings-links">
+		<nav aria-label={t(locale, 'design.shell.sectionsNav')} class="eq-settings-links-row">
+			{
+				SECTION_LINKS.map((item) => (
+					<a href={localePath(locale, item.href)}>{t(locale, item.key)}</a>
+				))
+			}
+		</nav>
+		<div class="eq-settings-links-row">
+			{
+				SOCIAL_LINKS.map((social) => (
+					<a
+						class={`eq-footer-${social.icon}`}
+						href={social.href}
+						target="_blank"
+						rel="noopener nofollow"
+						title={t(locale, social.key)}
+					>
+						<Icon name={social.icon} />
+						<span class="sr-only">{t(locale, social.key)}</span>
+					</a>
+				))
+			}
+		</div>
+	</div>
 </BaseLayout>

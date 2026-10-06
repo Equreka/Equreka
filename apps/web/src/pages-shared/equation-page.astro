@@ -10,17 +10,20 @@ import {
 	pickLocalized,
 	t,
 } from '@equreka/core/i18n';
+import AbbrLabel from '../components/abbr-label.astro';
 import BranchBadges from '../components/branch-badges.astro';
+import CodeCard from '../components/code-card.astro';
 import CollapseCard from '../components/collapse-card.astro';
 import DraftBadge from '../components/draft-badge.astro';
 import EntryIdentifiers from '../components/entry-identifiers.astro';
 import Icon from '../components/icon.astro';
+import MathValue from '../components/math-value.astro';
 import PageHeader from '../components/page-header.astro';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
 import FavoriteToggle from '../islands/favorite-toggle';
 import PathContextBar from '../islands/path-context-bar';
 import BaseLayout from '../layouts/base-layout.astro';
-import { asEquation } from '../lib/collections';
+import { asEquation, asVariable } from '../lib/collections';
 import { entryHref } from '../lib/entry-links';
 import { localePath } from '../lib/locale-paths';
 import { engineSlice } from '../lib/server/engine-registry';
@@ -55,12 +58,38 @@ for (const collection of Object.values(TERM_COLLECTIONS)) {
 	);
 }
 
+const variableUnits = new Map(
+	(await getCollection('variables')).map((item) => [item.id, asVariable(item.data).defaultUnit]),
+);
+
+function termUnitSlug(term: (typeof equation.terms)[string]): string | undefined {
+	switch (term.kind) {
+		case 'magnitude':
+			return engineSlice.magnitudes[term.ref]?.baseUnit;
+		case 'constant':
+			return engineSlice.constants[term.ref]?.unit;
+		case 'variable':
+			return variableUnits.get(term.ref);
+		default:
+			return term.unit;
+	}
+}
+
 const termRows = Object.entries(equation.terms).map(([key, term]) => {
+	const unit = engineSlice.units[termUnitSlug(term) ?? ''];
 	const base = {
 		key,
 		term,
 		dataValue: termDataValue(key, term),
-		kindLabel: t(locale, `term.${term.kind}`),
+		value: term.kind === 'constant' ? engineSlice.constants[term.ref]?.value : undefined,
+		unit:
+			unit === undefined
+				? undefined
+				: {
+						symbolHtml: renderSymbolHtml(unit.symbolTex, unit.symbolText),
+						name: localizedName(unit, locale),
+						href: localePath(locale, `/units/${unit.slug}/`),
+					},
 	};
 	if (term.kind === 'symbol') {
 		return { ...base, name: pickLocalized(term.label, locale).value, href: undefined };
@@ -72,6 +101,23 @@ const termRows = Object.entries(equation.terms).map(([key, term]) => {
 		href: entryHref(collection, term.ref),
 	};
 });
+
+/**
+ * Legacy term tables: one card per kind (Magnitudes, Constants,
+ * Variables), side by side from lg. Equation-local symbols have no
+ * collection of their own and read as variables, as unknowns did there.
+ */
+const TERM_GROUPS = [
+	{ id: 'magnitudes', kinds: ['magnitude'] },
+	{ id: 'constants', kinds: ['constant'] },
+	{ id: 'variables', kinds: ['variable', 'symbol'] },
+] as const;
+
+const termGroups = TERM_GROUPS.map((group) => ({
+	id: group.id,
+	title: t(locale, `collection.${group.id}`),
+	rows: termRows.filter((row) => (group.kinds as readonly string[]).includes(row.term.kind)),
+})).filter((group) => group.rows.length > 0);
 
 /**
  * Pipeline-emitted equation slice: related units are derived from the
@@ -101,6 +147,16 @@ const untranslated =
 	locale !== 'en' &&
 	(pickLocalized(equation.name, locale).untranslated || description?.untranslated === true);
 const accent = equation.kind === 'formula' ? 'type-formulas' : 'type-equations';
+
+/**
+ * The plain TeX the original's Code card showed: annotation macros reduced
+ * to their arguments, with a space after an argument that ends in a control
+ * word so `\const{\pi}\mag{r}` stays `\pi r`, not the undefined `\pir`.
+ */
+const codeTex = equation.expression.replace(
+	/\\(?:mag|const|var)\{([^{}]*)\}/g,
+	(_whole, arg: string) => (/\\[A-Za-z]+$/.test(arg) ? `${arg} ` : arg),
+);
 const metaDescription =
 	description === undefined
 		? t(locale, 'meta.equation', { name, kind: t(locale, `kind.${equation.kind}`).toLowerCase() })
@@ -116,6 +172,7 @@ const metaDescription =
 >
 	<PageHeader
 		slot="hero"
+		entry
 		label={t(locale, 'collection.equations')}
 		labelHref={localePath(locale, '/equations/')}
 		title={name}
@@ -138,52 +195,82 @@ const metaDescription =
 		</Fragment>
 	</PageHeader>
 	<PathContextBar slot="context" client:idle locale={locale} />
-	<article class={`${accent} eq-stack`}>
-		<div class="eq-card eq-display-card">
+	<article class={`${accent} eq-data eq-cards`}>
+		<div class="eq-card eq-display-card" title={t(locale, 'equation.hoverHint')}>
 			<div
 				class="eq-display-math"
 				set:html={renderExpressionHtml(equation.expression, equation.terms)}
 			/>
-			<p class="eq-display-hint">{t(locale, 'equation.hoverHint')}</p>
 		</div>
 
-		<CollapseCard headingId="equation-terms-heading" title={t(locale, 'equation.terms')}>
-			<div class="eq-table-wrap">
-				<table class="eq-table-data">
-					<thead>
-						<tr>
-							<th scope="col">{t(locale, 'table.symbol')}</th>
-							<th scope="col">{t(locale, 'table.kind')}</th>
-							<th scope="col">{t(locale, 'table.name')}</th>
-						</tr>
-					</thead>
-					<tbody>
-						{
-							termRows.map((row) => (
-								<tr data-term={row.dataValue} class={`eq-term eq-${row.term.kind}`}>
-									<td class="eq-cell-symbol" set:html={renderSymbolHtml(row.key, row.key)} />
-									<td class="eq-cell-muted">{row.kindLabel}</td>
-									<td>
-										{row.href !== undefined ? (
-											<a class="eq-link" href={localePath(locale, row.href)}>
-												{row.name}
-											</a>
-										) : (
-											row.name
-										)}
-									</td>
-								</tr>
-							))
-						}
-					</tbody>
-				</table>
-			</div>
-		</CollapseCard>
+		<div class="eq-card-row">
+			{
+				termGroups.map((group) => (
+					<CollapseCard headingId={`equation-${group.id}-heading`} title={group.title}>
+						<div class="eq-table-wrap">
+							<table class="eq-table-data">
+								<thead>
+									<tr>
+										<th scope="col">
+											<AbbrLabel
+												abbr={t(locale, 'design.legacy.abbr.symbol')}
+												full={t(locale, 'table.symbol')}
+											/>
+										</th>
+										<th scope="col">{t(locale, 'table.name')}</th>
+										{group.id === 'constants' && <th scope="col">{t(locale, 'table.value')}</th>}
+										<th scope="col" colspan="2">
+											{t(locale, 'table.unit')}
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									{group.rows.map((row) => (
+										<tr data-term={row.dataValue} class={`eq-term eq-${row.term.kind}`}>
+											<td class="eq-cell-symbol" set:html={renderSymbolHtml(row.key, row.key)} />
+											<td>
+												{row.href !== undefined ? (
+													<a class="eq-link" href={localePath(locale, row.href)}>
+														{row.name}
+													</a>
+												) : (
+													row.name
+												)}
+											</td>
+											{group.id === 'constants' && (
+												<td>{row.value !== undefined && <MathValue value={row.value} />}</td>
+											)}
+											<td class="eq-cell-unit-symbol" set:html={row.unit?.symbolHtml ?? ''} />
+											<td>
+												{row.unit !== undefined && (
+													<a class="eq-link" href={row.unit.href}>
+														{row.unit.name}
+													</a>
+												)}
+											</td>
+										</tr>
+									))}
+								</tbody>
+							</table>
+						</div>
+					</CollapseCard>
+				))
+			}
+		</div>
 
 		<CollapseCard
 			headingId="equation-information-heading"
 			title={t(locale, 'design.content.entry.information')}
 		>
+			{
+				descriptionSegments !== undefined && (
+					<div
+						class="eq-prose"
+						set:html={renderSegmentsHtml(descriptionSegments, equation.terms)}
+					/>
+				)
+			}
+
 			<div class="eq-chip-row">
 				<span class="eq-badge eq-badge-accent">{t(locale, `kind.${equation.kind}`)}</span>
 				{
@@ -195,15 +282,6 @@ const metaDescription =
 				<UntranslatedBadge locale={locale} show={untranslated} />
 				<DraftBadge locale={locale} status={equation.status} />
 			</div>
-
-			{
-				descriptionSegments !== undefined && (
-					<div
-						class="eq-prose"
-						set:html={renderSegmentsHtml(descriptionSegments, equation.terms)}
-					/>
-				)
-			}
 
 			<EntryIdentifiers locale={locale} externalIds={equation.externalIds} />
 		</CollapseCard>
@@ -219,7 +297,7 @@ const metaDescription =
 										class="eq-badge-symbol"
 										set:html={renderSymbolHtml(unit.symbolTex, unit.symbolText)}
 									/>
-									{localizedName(unit, locale)}
+									<span class="eq-list-name">{localizedName(unit, locale)}</span>
 								</a>
 							</li>
 						))}
@@ -227,5 +305,7 @@ const metaDescription =
 				</CollapseCard>
 			)
 		}
+
+		<CodeCard locale={locale} code={codeTex} />
 	</article>
 </BaseLayout>

@@ -2,12 +2,14 @@
 import Icon from './icon.astro';
 
 /**
- * Legacy CardCollapse / CardList on zero-JS `<details open>`. `chevron`
- * 'start' is the list-card look (chevron before the title), 'end' the
- * entry-page look (chevron after it, pointing down when open). The
- * "View all" pill sits outside `<summary>` so no link nests inside the
- * disclosure button. `titleId` labels the section when the heading's id
- * is reserved as a fragment target.
+ * Legacy CardCollapse / CardList on zero-JS `<details open>`: the card
+ * carries the acrylic surface and margin, the inner body the padding, as
+ * the original `.card > .card-body` did. `chevron` 'start' is the list-card
+ * look (chevron before the title), 'end' the entry-page look (chevron after
+ * it, pointing down when open). The "View all" pill sits outside
+ * `<summary>` so no link nests inside the disclosure button. `titleId`
+ * labels the section when the heading's id is reserved as a fragment
+ * target.
  */
 interface Props {
 	headingId: string;
@@ -37,33 +39,34 @@ const Heading = level === 2 ? 'h2' : 'h3';
 	aria-labelledby={titleId ?? headingId}
 	class:list={[
 		'eq-card',
-		'eq-card-body',
 		'eq-collapse-card',
 		viewAll !== undefined && 'eq-collapse-card-linked',
 		className,
 	]}
 >
-	<details open class:list={['eq-collapse', `eq-collapse-${chevron}`]}>
-		<summary>
-			<Icon
-				name={chevron === 'start' ? 'chevron-right' : 'chevron-left'}
-				class="eq-collapse-chevron"
-			/>
-			<Heading id={headingId} class="eq-collapse-title">
-				{titleId === undefined ? title : <span id={titleId}>{title}</span>}
-				{count !== undefined && <span class="eq-count">{count}</span>}
-			</Heading>
-		</summary>
-		<div class="eq-collapse-content">
-			<slot />
-		</div>
-	</details>
-	{
-		viewAll !== undefined && (
-			<a class="eq-btn eq-btn-sm eq-btn-tint eq-btn-pill eq-view-all" href={viewAll.href}>
-				<span class="eq-view-all-label">{viewAll.label}</span>
-				<Icon name="arrow-right" />
-			</a>
-		)
-	}
+	<div class="eq-card-body">
+		<details open class:list={['eq-collapse', `eq-collapse-${chevron}`]}>
+			<summary>
+				<Icon
+					name={chevron === 'start' ? 'chevron-right' : 'chevron-left'}
+					class="eq-collapse-chevron"
+				/>
+				<Heading id={headingId} class="eq-collapse-title">
+					{titleId === undefined ? title : <span id={titleId}>{title}</span>}
+					{count !== undefined && <span class="eq-count">{count}</span>}
+				</Heading>
+			</summary>
+			<div class="eq-collapse-content">
+				<slot />
+			</div>
+		</details>
+		{
+			viewAll !== undefined && (
+				<a class="eq-btn eq-btn-sm eq-btn-tint eq-btn-pill eq-view-all" href={viewAll.href}>
+					<span class="eq-view-all-label">{viewAll.label}</span>
+					<Icon name="arrow-right" />
+				</a>
+			)
+		}
+	</div>
 </section>

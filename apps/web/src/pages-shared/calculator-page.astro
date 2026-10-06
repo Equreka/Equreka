@@ -3,20 +3,37 @@ import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import { collectionLabel, type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
 import Icon from '../components/icon.astro';
+import PageHeader from '../components/page-header.astro';
 import CalculatorIsland, {
 	type CalculatorConstant,
 	type CalculatorField,
 } from '../islands/calculator-island';
+import FavoriteToggle from '../islands/favorite-toggle';
+import { LegacyAbbr } from '../islands/legacy-abbr';
 import BaseLayout from '../layouts/base-layout.astro';
 import type { CalculatorVariableUnits } from '../lib/calculator-units';
 import { asEquation, asVariable } from '../lib/collections';
+import { entryHref } from '../lib/entry-links';
 import { localePath } from '../lib/locale-paths';
 import { engineSlice } from '../lib/server/engine-registry';
-import { renderExpressionHtml } from '../lib/tex';
+import { renderExpressionHtml, renderSymbolHtml, termDataValue } from '../lib/tex';
 
 interface Props {
 	entry: CollectionEntry<'equations'>;
 	locale?: Locale;
+}
+
+/**
+ * One row of the legacy Variables / Magnitudes tables under the
+ * calculator; the original listed no constants there.
+ */
+interface TermRow {
+	key: string;
+	kind: 'magnitude' | 'variable' | 'symbol';
+	dataValue: string;
+	name: string;
+	href: string | undefined;
+	unitSlug: string | undefined;
 }
 
 const { entry, locale = 'en' } = Astro.props;
@@ -39,19 +56,31 @@ const fields: CalculatorField[] = [];
 const constants: CalculatorConstant[] = [];
 const nonNegative: string[] = [];
 const variableUnits: CalculatorVariableUnits = {};
+const variableRows: TermRow[] = [];
+const magnitudeRows: TermRow[] = [];
 for (const [key, term] of Object.entries(meta.terms)) {
 	if (term.kind === 'symbol') {
+		const label = term.label === undefined ? key : pickLocalized(term.label, locale).value;
 		fields.push({
 			key,
-			label: term.label === undefined ? key : pickLocalized(term.label, locale).value,
+			label,
 			symbolText: key,
 			unitSymbol: term.unit === undefined ? '' : (engineSlice.units[term.unit]?.symbolText ?? ''),
+		});
+		variableRows.push({
+			key,
+			kind: 'symbol',
+			dataValue: termDataValue(key, { kind: 'symbol' }),
+			name: label,
+			href: undefined,
+			unitSlug: term.unit,
 		});
 		continue;
 	}
 	if (term.ref === undefined) {
 		throw new Error(`calculator page for ${slug}: ${term.kind} term ${key} has no ref`);
 	}
+	const dataValue = termDataValue(key, { kind: term.kind, ref: term.ref });
 	if (term.kind === 'constant') {
 		const constant = engineSlice.constants[term.ref];
 		if (constant === undefined) {
@@ -71,29 +100,56 @@ for (const [key, term] of Object.entries(meta.terms)) {
 		if (magnitude === undefined) {
 			throw new Error(`calculator page for ${slug}: unknown magnitude ${term.ref}`);
 		}
+		const magnitudeName = localizedName(magnitude, locale);
 		fields.push({
 			key,
-			label: localizedName(magnitude, locale),
+			label: magnitudeName,
 			symbolText: key,
 			unitSymbol: engineSlice.units[magnitude.baseUnit]?.symbolText ?? '',
 		});
 		if (magnitude.nonNegative) nonNegative.push(key);
+		magnitudeRows.push({
+			key,
+			kind: 'magnitude',
+			dataValue,
+			name: magnitudeName,
+			href: entryHref('magnitudes', term.ref),
+			unitSlug: magnitude.baseUnit,
+		});
 		continue;
 	}
 	const variable = variables.get(term.ref);
 	if (variable?.defaultUnit !== undefined) {
 		variableUnits[term.ref] = { defaultUnit: variable.defaultUnit };
 	}
+	const variableName = variable === undefined ? key : localizedName(variable, locale);
 	fields.push({
 		key,
-		label: variable === undefined ? key : localizedName(variable, locale),
+		label: variableName,
 		symbolText: key,
 		unitSymbol:
 			variable?.defaultUnit === undefined
 				? ''
 				: (engineSlice.units[variable.defaultUnit]?.symbolText ?? ''),
 	});
+	variableRows.push({
+		key,
+		kind: 'variable',
+		dataValue,
+		name: variableName,
+		href: entryHref('variables', term.ref),
+		unitSlug: variable?.defaultUnit,
+	});
 }
+
+const termTables = [
+	{ id: 'calculator-variables-heading', collection: 'variables', rows: variableRows },
+	{ id: 'calculator-magnitudes-heading', collection: 'magnitudes', rows: magnitudeRows },
+].filter((table) => table.rows.length > 0);
+
+const unitOf = (unitSlug: string | undefined) =>
+	unitSlug === undefined ? undefined : engineSlice.units[unitSlug];
+const openEquationLabel = t(locale, 'design.interactive.openEquation');
 ---
 
 <BaseLayout
@@ -101,38 +157,22 @@ for (const [key, term] of Object.entries(meta.terms)) {
 	description={t(locale, 'meta.calculatorEquation', { name })}
 	locale={locale}
 >
-	<div slot="hero" class:list={['eq-accent-panel eq-page-header', accentClass]}>
-		<div class="eq-container eq-hero-row">
-			<div>
-				<a class="eq-page-header-label eq-hero-label" href={localePath(locale, '/equations/')}>
-					{collectionLabel(locale, 'equations')}
-				</a>
-				<h1 class="eq-page-header-title">{t(locale, 'calculator.pageTitle', { name })}</h1>
-			</div>
-			<div class="eq-hero-actions">
-				<a
-					class="eq-hero-action"
-					href={entryPath}
-					title={t(locale, 'design.interactive.openEquation')}
-				>
-					<Icon name="info-square" />
-					<span class="sr-only">{t(locale, 'design.interactive.openEquation')}</span>
-				</a>
-			</div>
-		</div>
-	</div>
-	<div class:list={['eq-tool', accentClass]}>
-		<div class="eq-card eq-calc-expression">
-			<div
-				class="eq-display-math"
-				set:html={renderExpressionHtml(equation.expression, equation.terms)}
-			/>
-		</div>
-		<p class="eq-calc-lead">
-			{t(locale, 'calculator.leadBefore')}{' '}
-			<a class="eq-link" href={entryPath}>{t(locale, 'calculator.leadLink')}</a>{' '}
-			{t(locale, 'calculator.leadAfter')}
-		</p>
+	<PageHeader
+		slot="hero"
+		label={collectionLabel(locale, 'equations')}
+		labelHref={localePath(locale, '/equations/')}
+		title={name}
+		accent={accentClass}
+	>
+		<Fragment slot="actions">
+			<a class="eq-page-action" href={entryPath} title={openEquationLabel}>
+				<Icon name="info-square" />
+				<span class="sr-only">{openEquationLabel}</span>
+			</a>
+			<FavoriteToggle client:idle collection="equations" slug={slug} locale={locale} />
+		</Fragment>
+	</PageHeader>
+	<div class:list={['eq-calc-page', 'eq-data', accentClass]}>
 		<CalculatorIsland
 			client:load
 			meta={meta}
@@ -141,6 +181,73 @@ for (const [key, term] of Object.entries(meta.terms)) {
 			nonNegative={nonNegative}
 			variables={variableUnits}
 			locale={locale}
-		/>
+		>
+			<div
+				class="eq-calc-backdrop-math"
+				set:html={renderExpressionHtml(equation.expression, equation.terms)}
+			/>
+		</CalculatorIsland>
+		{
+			termTables.length > 0 && (
+				<div class="eq-calc-tables">
+					{termTables.map((table) => (
+						<section class="eq-card eq-card-body eq-calc-table" aria-labelledby={table.id}>
+							<h2 id={table.id} class="eq-card-title">
+								{collectionLabel(locale, table.collection)}
+							</h2>
+							<div class="eq-table-wrap">
+								<table class="eq-table-data">
+									<thead>
+										<tr>
+											<th scope="col">
+												<LegacyAbbr term="symbol" label={t(locale, 'table.symbol')} locale={locale} />
+											</th>
+											<th scope="col">{t(locale, 'table.name')}</th>
+											<th scope="col" colspan="2">
+												{t(locale, 'table.unit')}
+											</th>
+										</tr>
+									</thead>
+									<tbody>
+										{table.rows.map((row) => {
+											const unit = unitOf(row.unitSlug);
+											return (
+												<tr data-term={row.dataValue} class={`eq-term eq-${row.kind}`}>
+													<td class="eq-cell-symbol" set:html={renderSymbolHtml(row.key, row.key)} />
+													<td>
+														{row.href !== undefined ? (
+															<a class="eq-link" href={localePath(locale, row.href)}>
+																{row.name}
+															</a>
+														) : (
+															row.name
+														)}
+													</td>
+													<td
+														class="eq-cell-muted"
+														set:html={
+															unit === undefined
+																? ''
+																: renderSymbolHtml(unit.symbolTex, unit.symbolText)
+														}
+													/>
+													<td>
+														{unit !== undefined && (
+															<a class="eq-link" href={localePath(locale, `/units/${unit.slug}/`)}>
+																{localizedName(unit, locale)}
+															</a>
+														)}
+													</td>
+												</tr>
+											);
+										})}
+									</tbody>
+								</table>
+							</div>
+						</section>
+					))}
+				</div>
+			)
+		}
 	</div>
 </BaseLayout>

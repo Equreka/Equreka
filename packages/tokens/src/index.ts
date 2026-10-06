@@ -45,13 +45,19 @@ export interface ThemedValue {
 export type ThemedColor = ThemedValue;
 
 /**
- * One legacy palette hue in its four uses: `fill` is the decorative legacy
- * color (gradients, shadows, tints; its HSL drives `hsla()` washes),
- * `solid` is the fill placed under text, `onSolid` the label on `solid`,
- * and `text` the hue used as text on neutral surfaces.
+ * One legacy palette hue in its uses, every value the resolved color the
+ * 2022 build shipped (docs/design/legacy-design-spec.md section 2): `fill`
+ * is the palette color (`--bs-{name}`, `--eqk-color`), `hsl` its authored
+ * `h, s%, l%` triplet (`--eqk-color-hsl`, the source of every `hsla()` wash
+ * and `hsl(h, 100%, x%)` tint), `solid` the fill placed under text,
+ * `onSolid` the badge label `hsl(h, 100%, 90%)`, and `text` the hue used as
+ * text on neutral surfaces. Legacy used the fill for all three roles; pairs
+ * below WCAG AA are accepted deviations listed in
+ * scripts/quality/contrast-baseline.json (ADR 0008).
  */
 export interface AccentSwatch {
 	fill: ThemedColor;
+	hsl: ThemedValue;
 	solid: ThemedColor;
 	onSolid: ThemedColor;
 	text: ThemedColor;
@@ -74,6 +80,7 @@ export interface DesignTokens {
 		inkMuted: ThemedColor;
 		header: ThemedColor;
 		footer: ThemedColor;
+		link: ThemedColor;
 		border: ThemedColor;
 		accent: ThemedColor;
 		accentInk: ThemedColor;
@@ -96,6 +103,10 @@ export interface DesignTokens {
 		term: Record<TermKind, SwatchName>;
 	};
 	button: Record<ButtonVariant, ButtonPalette>;
+	lightness: {
+		theme: ThemedValue;
+		inverted: ThemedValue;
+	};
 	acrylic: {
 		fallback: ThemedColor;
 		translucent: ThemedColor;
@@ -124,95 +135,109 @@ export interface DesignTokens {
 }
 
 /**
- * Legacy Equreka v1 palette (docs/design/legacy-design-spec.md section 2),
- * fills resolved from the compiled 2022 CSS, text and solid variants moved
- * the minimal lightness needed for WCAG AA (deviation table in the spec's
- * contrast section, enforced by scripts/quality/contrast-check.mjs).
+ * Legacy Equreka v1 palette exactly as the compiled 2022 CSS resolved it
+ * (docs/design/legacy-design-spec.md sections 2.3 and 2.4). `primary`
+ * text and label stay Bootstrap's literal `#0d6efd` / `#fff` in both
+ * themes because Bootstrap components compiled the light hex (spec 2.4).
  */
 const SWATCH: Record<SwatchName, AccentSwatch> = {
 	primary: {
 		fill: { light: '#0d6efd', dark: '#175bc0' },
-		solid: { light: '#175bc0', dark: '#175bc0' },
+		hsl: { light: '216, 98%, 52%', dark: '216, 78%, 42%' },
+		solid: { light: '#0d6efd', dark: '#175bc0' },
 		onSolid: { light: '#ffffff', dark: '#ffffff' },
-		text: { light: '#175bc0', dark: '#2d81fd' },
+		text: { light: '#0d6efd', dark: '#0d6efd' },
 	},
 	blue: {
 		fill: { light: '#0661e0', dark: '#164e9c' },
-		solid: { light: '#164e9c', dark: '#164e9c' },
-		onSolid: { light: '#ffffff', dark: '#ffffff' },
-		text: { light: '#164e9c', dark: '#2c82f9' },
+		hsl: { light: '215, 95%, 45%', dark: '215, 75%, 35%' },
+		solid: { light: '#0661e0', dark: '#164e9c' },
+		onSolid: { light: '#cce1ff', dark: '#cce1ff' },
+		text: { light: '#0661e0', dark: '#164e9c' },
 	},
 	indigo: {
 		fill: { light: '#8c1ff9', dark: '#731dc9' },
-		solid: { light: '#731dc9', dark: '#731dc9' },
-		onSolid: { light: '#ffffff', dark: '#ffffff' },
-		text: { light: '#731dc9', dark: '#ac5dfb' },
+		hsl: { light: '270, 95%, 55%', dark: '270, 75%, 45%' },
+		solid: { light: '#8c1ff9', dark: '#731dc9' },
+		onSolid: { light: '#e6ccff', dark: '#e6ccff' },
+		text: { light: '#8c1ff9', dark: '#731dc9' },
 	},
 	purple: {
 		fill: { light: '#5b13ec', dark: '#5024a8' },
-		solid: { light: '#5024a8', dark: '#5024a8' },
-		onSolid: { light: '#ffffff', dark: '#ffffff' },
-		text: { light: '#5024a8', dark: '#986af3' },
+		hsl: { light: '260, 85%, 50%', dark: '260, 65%, 40%' },
+		solid: { light: '#5b13ec', dark: '#5024a8' },
+		onSolid: { light: '#ddccff', dark: '#ddccff' },
+		text: { light: '#5b13ec', dark: '#5024a8' },
 	},
 	pink: {
 		fill: { light: '#e2367e', dark: '#b23468' },
-		solid: { light: '#b23468', dark: '#b23468' },
-		onSolid: { light: '#ffffff', dark: '#ffffff' },
-		text: { light: '#b23468', dark: '#e54a8b' },
+		hsl: { light: '335, 75%, 55%', dark: '335, 55%, 45%' },
+		solid: { light: '#e2367e', dark: '#b23468' },
+		onSolid: { light: '#ffcce1', dark: '#ffcce1' },
+		text: { light: '#e2367e', dark: '#b23468' },
 	},
 	red: {
 		fill: { light: '#dd3c3c', dark: '#ac3939' },
-		solid: { light: '#ac3939', dark: '#ac3939' },
-		onSolid: { light: '#ffffff', dark: '#ffffff' },
-		text: { light: '#ac3939', dark: '#e25656' },
+		hsl: { light: '0, 70%, 55%', dark: '0, 50%, 45%' },
+		solid: { light: '#dd3c3c', dark: '#ac3939' },
+		onSolid: { light: '#ffcccc', dark: '#ffcccc' },
+		text: { light: '#dd3c3c', dark: '#ac3939' },
 	},
 	orange: {
 		fill: { light: '#ee7c2b', dark: '#bd6628' },
-		solid: { light: '#ee7c2b', dark: '#ee7c2b' },
-		onSolid: { light: '#212529', dark: '#212529' },
-		text: { light: '#9b5421', dark: '#ee7c2b' },
+		hsl: { light: '25, 85%, 55%', dark: '25, 65%, 45%' },
+		solid: { light: '#ee7c2b', dark: '#bd6628' },
+		onSolid: { light: '#ffe1cc', dark: '#ffe1cc' },
+		text: { light: '#ee7c2b', dark: '#bd6628' },
 	},
 	yellow: {
 		fill: { light: '#fed401', dark: '#b79c15' },
-		solid: { light: '#fed401', dark: '#fed401' },
-		onSolid: { light: '#212529', dark: '#212529' },
-		text: { light: '#77650e', dark: '#fed401' },
+		hsl: { light: '50, 99%, 50%', dark: '50, 79%, 40%' },
+		solid: { light: '#fed401', dark: '#b79c15' },
+		onSolid: { light: '#fff6cc', dark: '#fff6cc' },
+		text: { light: '#fed401', dark: '#b79c15' },
 	},
 	green: {
 		fill: { light: '#1fad1f', dark: '#267326' },
-		solid: { light: '#267326', dark: '#267326' },
-		onSolid: { light: '#ffffff', dark: '#ffffff' },
-		text: { light: '#267326', dark: '#1fad1f' },
+		hsl: { light: '120, 70%, 40%', dark: '120, 50%, 30%' },
+		solid: { light: '#1fad1f', dark: '#267326' },
+		onSolid: { light: '#ccffcc', dark: '#ccffcc' },
+		text: { light: '#1fad1f', dark: '#267326' },
 	},
 	teal: {
 		fill: { light: '#0fbda0', dark: '#1b7e6e' },
-		solid: { light: '#1b7e6e', dark: '#1b7e6e' },
-		onSolid: { light: '#ffffff', dark: '#ffffff' },
-		text: { light: '#197264', dark: '#0fbda0' },
+		hsl: { light: '170, 85%, 40%', dark: '170, 65%, 30%' },
+		solid: { light: '#0fbda0', dark: '#1b7e6e' },
+		onSolid: { light: '#ccfff7', dark: '#ccfff7' },
+		text: { light: '#0fbda0', dark: '#1b7e6e' },
 	},
 	cyan: {
 		fill: { light: '#0f91bd', dark: '#1b657e' },
-		solid: { light: '#1b657e', dark: '#1b657e' },
-		onSolid: { light: '#ffffff', dark: '#ffffff' },
-		text: { light: '#1b657e', dark: '#0f91bd' },
+		hsl: { light: '195, 85%, 40%', dark: '195, 65%, 30%' },
+		solid: { light: '#0f91bd', dark: '#1b657e' },
+		onSolid: { light: '#ccf2ff', dark: '#ccf2ff' },
+		text: { light: '#0f91bd', dark: '#1b657e' },
 	},
 	olive: {
 		fill: { light: '#8cb31a', dark: '#627722' },
-		solid: { light: '#627722', dark: '#627722' },
-		onSolid: { light: '#ffffff', dark: '#ffffff' },
-		text: { light: '#5b6e1f', dark: '#8cb31a' },
+		hsl: { light: '75, 75%, 40%', dark: '75, 55%, 30%' },
+		solid: { light: '#8cb31a', dark: '#627722' },
+		onSolid: { light: '#f2ffcc', dark: '#f2ffcc' },
+		text: { light: '#8cb31a', dark: '#627722' },
 	},
 	magenta: {
 		fill: { light: '#b613ec', dark: '#8724a8' },
-		solid: { light: '#8724a8', dark: '#8724a8' },
-		onSolid: { light: '#ffffff', dark: '#ffffff' },
-		text: { light: '#8724a8', dark: '#c74af0' },
+		hsl: { light: '285, 85%, 50%', dark: '285, 65%, 40%' },
+		solid: { light: '#b613ec', dark: '#8724a8' },
+		onSolid: { light: '#f2ccff', dark: '#f2ccff' },
+		text: { light: '#b613ec', dark: '#8724a8' },
 	},
 	gray: {
-		fill: { light: '#5c6370', dark: '#454a54' },
-		solid: { light: '#5c6370', dark: '#5c6370' },
-		onSolid: { light: '#ffffff', dark: '#ffffff' },
-		text: { light: '#5c6370', dark: '#7e8695' },
+		fill: { light: '#5c6370', dark: '#4d4d4d' },
+		hsl: { light: '220, 10%, 40%', dark: '220, 0%, 30%' },
+		solid: { light: '#5c6370', dark: '#4d4d4d' },
+		onSolid: { light: '#ccddff', dark: '#ccddff' },
+		text: { light: '#5c6370', dark: '#4d4d4d' },
 	},
 };
 
@@ -252,14 +277,15 @@ export const tokens: DesignTokens = {
 		bgHigh: { light: '#eeeff1', dark: '#0e0f11' },
 		surface: { light: '#f7f7f8', dark: '#1c1e22' },
 		ink: { light: '#505662', dark: '#c7cad1' },
-		inkBody: { light: '#606775', dark: '#8f96a3' },
-		inkMuted: { light: '#606775', dark: '#7e8595' },
-		header: { light: '#7b8393', dark: '#626978' },
-		footer: { light: '#606775', dark: '#7e8595' },
-		border: { light: '#d5d7dd', dark: '#22252a' },
+		inkBody: { light: '#676f7e', dark: '#8f96a3' },
+		inkMuted: { light: '#9da3af', dark: '#505662' },
+		header: { light: '#9da3af', dark: '#505662' },
+		footer: { light: '#969ca9', dark: '#4b505b' },
+		link: { light: '#8c9ba7', dark: '#8c9ba7' },
+		border: { light: '#d5d7dd', dark: '#121416' },
 		accent: swatchText(ROOT_SWATCH),
-		accentInk: { light: '#ffffff', dark: '#070708' },
-		danger: { light: '#c62232', dark: '#e15562' },
+		accentInk: { light: '#ffffff', dark: '#ffffff' },
+		danger: { light: '#dc3545', dark: '#dc3545' },
 		inputBg: { light: '#f4f4f6', dark: '#151619' },
 		inputInk: { light: '#22252a', dark: '#818898' },
 		inputBorder: { light: '#d5d7dd', dark: '#22252a' },
@@ -284,9 +310,9 @@ export const tokens: DesignTokens = {
 	},
 	button: {
 		primary: {
-			bg: { light: '#0d6efd', dark: '#175bc0' },
-			bgHover: { light: '#0b5ed7', dark: '#144da3' },
-			bgActive: { light: '#0a58ca', dark: '#12499a' },
+			bg: { light: '#0d6efd', dark: '#0d6efd' },
+			bgHover: { light: '#0b5ed7', dark: '#0b5ed7' },
+			bgActive: { light: '#0a58ca', dark: '#0a58ca' },
 			ink: { light: '#ffffff', dark: '#ffffff' },
 		},
 		dark: {
@@ -296,29 +322,33 @@ export const tokens: DesignTokens = {
 			ink: { light: '#ffffff', dark: '#ffffff' },
 		},
 		success: {
-			bg: { light: '#198754', dark: '#1c5138' },
-			bgHover: { light: '#157347', dark: '#184530' },
-			bgActive: { light: '#146c43', dark: '#16412d' },
+			bg: { light: '#198754', dark: '#198754' },
+			bgHover: { light: '#157347', dark: '#157347' },
+			bgActive: { light: '#146c43', dark: '#146c43' },
 			ink: { light: '#ffffff', dark: '#ffffff' },
 		},
 		danger: {
-			bg: { light: '#dc3545', dark: '#a73742' },
-			bgHover: { light: '#bb2d3b', dark: '#8e2f38' },
-			bgActive: { light: '#b02a37', dark: '#862c35' },
+			bg: { light: '#dc3545', dark: '#dc3545' },
+			bgHover: { light: '#bb2d3b', dark: '#bb2d3b' },
+			bgActive: { light: '#b02a37', dark: '#b02a37' },
 			ink: { light: '#ffffff', dark: '#ffffff' },
 		},
 		warning: {
-			bg: { light: '#ffc107', dark: '#be9415' },
-			bgHover: { light: '#ffca2c', dark: '#c8a438' },
-			bgActive: { light: '#ffcd39', dark: '#cba944' },
+			bg: { light: '#ffc107', dark: '#ffc107' },
+			bgHover: { light: '#ffca2c', dark: '#ffca2c' },
+			bgActive: { light: '#ffcd39', dark: '#ffcd39' },
 			ink: { light: '#000000', dark: '#000000' },
 		},
 		pink: {
-			bg: { light: '#e2367e', dark: '#b23468' },
-			bgHover: { light: '#e65491', dark: '#972c58' },
-			bgActive: { light: '#e85e98', dark: '#8e2a53' },
-			ink: { light: '#000000', dark: '#ffffff' },
+			bg: { light: '#e2367e', dark: '#e2367e' },
+			bgHover: { light: '#e65491', dark: '#e65491' },
+			bgActive: { light: '#e85e98', dark: '#e85e98' },
+			ink: { light: '#000000', dark: '#000000' },
 		},
+	},
+	lightness: {
+		theme: { light: '98%', dark: '7%' },
+		inverted: { light: '5%', dark: '90%' },
 	},
 	acrylic: {
 		fallback: { light: 'hsla(220, 10%, 97%, 0.97)', dark: 'hsla(220, 10%, 12%, 0.97)' },
@@ -328,9 +358,9 @@ export const tokens: DesignTokens = {
 		shadowAlpha: '0.15',
 	},
 	font: {
-		sans: "system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
+		sans: "system-ui, -apple-system, 'Segoe UI', Roboto, Ubuntu, Cantarell, 'Noto Sans', sans-serif, 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Liberation Sans', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 		display:
-			"Poppins, 'Poppins Fallback', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif",
+			"Poppins, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji'",
 		mono: "ui-monospace, SFMono-Regular, Menlo, Consolas, 'Liberation Mono', monospace",
 		math: "'KaTeX_Main', 'Times New Roman', serif",
 	},
@@ -385,7 +415,8 @@ export const tokens: DesignTokens = {
 		pill: '50rem',
 	},
 	shadow: {
-		acrylic: '0 0.5rem 1rem -0.5rem hsla(0, 0%, 0%, 0.15)',
+		acrylic:
+			'0 0.5rem 1rem -0.5rem hsla(0, 0%, 0%, 0.15), inset 0 0 0 1px hsla(220, 10%, var(--eq-theme-lightness), 0)',
 		'accent-card': '0 0.5rem 1.25rem -1rem var(--eq-accent-fill)',
 		'home-card': '0 0.75rem 1.25rem -1rem var(--eq-accent-fill)',
 		'home-card-hover': '0 1rem 1.75rem -1rem var(--eq-accent-fill)',

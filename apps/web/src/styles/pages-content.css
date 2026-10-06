@@ -1,48 +1,84 @@
+/**
+ * Legacy literal colors with no token: the exponent sign of a math value
+ * was `$green` / `$red`, compiled to the same hex in both themes.
+ */
+:root {
+	--eq-exp-plus: #1fad1f;
+	--eq-exp-minus: #dd3c3c;
+}
+
+/**
+ * KaTeX's stylesheet is unlayered, so its `.katex { font-size: 1.21em }`
+ * beats any layered rule: these overrides stay unlayered. The original's
+ * MathJax set content math at the surrounding font size (measured: glyph
+ * widths 1/1.21 of KaTeX's default) and inline math at line-height 0, so a
+ * symbol badge or a display expression is as tall as its glyphs (MathJax
+ * glyph boxes ran 1.15px taller per side than KaTeX struts, padded back in
+ * the badge). Display math sits in the card
+ * body's padding with no block margin of its own.
+ */
+.eq-cards .katex {
+	font-size: 1em;
+}
+
+.eq-cards .eq-cell-unit-symbol > .katex {
+	font-size: 1.05em;
+}
+
+/**
+ * In prose the original's MathJax matched the body font's x-height
+ * (measured: 1.131em, every number and symbol width equal) and set the
+ * math at line-height 0, so only tall math such as a fraction grows its line.
+ */
+.eq-cards .eq-prose .katex {
+	font-size: 1.131em;
+	line-height: 0;
+}
+
+/**
+ * The original's display expression box was 0.976em tall for ordinary
+ * expressions (measured at 20px and 38.4px); taller math still grows it,
+ * centered as MathJax centered it.
+ */
+.eq-display-card .katex-display {
+	display: grid;
+	align-items: center;
+	min-height: 0.976em;
+	margin: 0;
+	padding-block: 0;
+}
+
+/**
+ * A MathJax symbol in a table cell grew the cell's line box by 1px below
+ * the text strut; the inline-block keeps the glyph where it sits and
+ * reproduces that row height.
+ */
+.eq-cards .eq-table-data td > .katex {
+	display: inline-block;
+	padding-bottom: 1.3px;
+}
+
+.eq-badge-symbol .katex,
+.eq-display-card .katex {
+	line-height: 0;
+}
+
+.eq-badge-symbol > .katex {
+	padding-block: 1.15px;
+}
+
 @layer components {
-	.eq-page-header-row {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: space-between;
-		gap: 0.75rem 1rem;
-	}
-
 	.eq-page-header-main {
-		flex: 1 1 18rem;
 		min-width: 0;
-	}
-
-	.eq-page-header-label {
-		display: inline-block;
-		margin: 0 0 0.15rem;
-	}
-
-	.eq-page-header-label-link {
-		text-decoration: none;
-	}
-
-	.eq-page-header-label-link:hover {
-		text-decoration: underline;
-		text-underline-offset: 0.2em;
 	}
 
 	.eq-page-header-title {
 		overflow-wrap: anywhere;
 	}
 
-	@media (min-width: 992px) {
-		.eq-page-header-title {
-			font-weight: 700;
-		}
-
-		.eq-page-header-label {
-			font-weight: 800;
-		}
-	}
-
 	.eq-page-header-lead {
 		max-width: 48rem;
-		margin-top: 0.5rem;
+		margin-bottom: var(--eq-space-card-gap);
 		font-size: var(--text-lead);
 	}
 
@@ -55,15 +91,9 @@
 		text-underline-offset: 0.15em;
 	}
 
-	.eq-page-header-meta {
-		font-size: 0.9rem;
-	}
-
 	.eq-page-actions {
-		display: flex;
 		flex: none;
-		align-items: center;
-		gap: 0.25rem;
+		color: hsl(var(--eq-accent-h), 100%, 85%);
 	}
 
 	.eq-page-action {
@@ -71,77 +101,206 @@
 		align-items: center;
 		justify-content: center;
 		padding: clamp(0.5rem, 1vw, 0.75rem);
-		border-radius: var(--radius-pill);
+		border-radius: 99rem;
 		color: inherit;
 		font-size: clamp(1.15rem, 2vw, 1.35rem);
 		line-height: 1;
 		text-decoration: none;
-		transition: background-color var(--eq-duration) var(--eq-ease);
+		transition:
+			color var(--eq-duration) var(--eq-ease),
+			background-color var(--eq-duration) var(--eq-ease);
 	}
 
 	.eq-page-action:hover,
-	.eq-page-action:focus-visible {
-		background-color: hsla(0, 0%, 100%, 0.18);
+	.eq-page-action:focus-visible,
+	.eq-page-header .eq-page-actions .eq-favorite-toggle:hover,
+	.eq-page-header .eq-page-actions .eq-favorite-toggle:focus-visible {
+		background-color: hsl(var(--eq-accent-h), var(--eq-accent-s), calc(var(--eq-accent-l) + 5%));
+		color: hsl(var(--eq-accent-h), 100%, 95%);
+	}
+
+	/**
+	 * The original's icon-font glyph box was 1.11em tall and 1.136em wide
+	 * around a 1em glyph; the inline SVG is exactly 1em, so the margin
+	 * restores the measured round-button size.
+	 */
+	.eq-page-actions .eq-icon {
+		margin: 0.055em 0.068em;
 	}
 
 	.eq-accent-panel :focus-visible {
 		outline-color: currentColor;
 	}
 
+	.eq-cards .eq-card {
+		margin-bottom: var(--eq-space-card-gap);
+	}
+
+	.eq-cards > :last-child,
+	.eq-cards > .eq-card-row:last-child > .eq-card:last-child,
+	.eq-cards > .eq-steps:last-child > :last-child {
+		margin-bottom: 0;
+	}
+
+	.eq-card-row {
+		display: flex;
+		flex-direction: column;
+	}
+
+	@media (min-width: 992px) {
+		.eq-card-row {
+			flex-direction: row;
+			align-items: flex-start;
+			gap: 1.5rem;
+		}
+
+		.eq-card-row > * {
+			flex: 1 0 0%;
+		}
+
+		.eq-cards > .eq-card-row:last-child > .eq-card {
+			margin-bottom: 0;
+		}
+	}
+
 	.eq-collapse-card {
 		position: relative;
 	}
 
-	.eq-collapse-start > summary {
-		justify-content: flex-start;
-		gap: 0.5rem;
+	.eq-collapse-card .eq-collapse > summary {
+		gap: 0;
+		padding: 0.5rem 0;
+		border: 1px solid transparent;
+		letter-spacing: var(--tracking-button);
+	}
+
+	.eq-collapse-card .eq-collapse-title {
+		flex: 1 1 auto;
+		min-width: 0;
+		letter-spacing: var(--tracking-button);
+		line-height: 1.2;
+	}
+
+	.eq-collapse-card .eq-collapse-chevron {
+		font-size: 1rem;
+	}
+
+	.eq-collapse-start > summary .eq-collapse-chevron {
+		margin-right: 0.5rem;
 	}
 
 	.eq-collapse-end > summary .eq-collapse-chevron {
 		order: 1;
-		margin-left: auto;
+		margin-left: 0.5rem;
 	}
 
 	.eq-collapse-end[open] > summary .eq-collapse-chevron {
 		transform: rotate(-90deg);
 	}
 
-	.eq-collapse > summary {
-		min-height: 2rem;
+	.eq-collapse-card .eq-collapse-content {
+		padding-top: 0;
 	}
 
-	.eq-collapse-card-linked > .eq-collapse > summary {
+	.eq-collapse-content > :last-child {
+		margin-bottom: 0;
+	}
+
+	.eq-collapse-card-linked .eq-collapse > summary {
 		padding-inline-end: 3rem;
 	}
 
 	.eq-view-all {
 		position: absolute;
-		top: var(--eq-space-card-pad-y);
+		top: calc(
+			var(--eq-space-card-pad-y) +
+			0.25rem +
+			(1.2 * var(--text-collapse-title) - 1.5 * var(--text-pill)) /
+			2
+		);
 		right: var(--eq-space-card-pad-x);
-		min-height: 2rem;
+		gap: 0;
 		font-size: var(--text-pill);
+		line-height: 1.5;
 	}
 
+	/**
+	 * Below 992px the original collapsed the label to zero width but kept
+	 * it in flow, so its line box still set the pill's height, and hover
+	 * expanded it; hover also gave the arrow a right margin at every width.
+	 */
 	.eq-view-all-label {
-		position: absolute;
-		width: 1px;
-		height: 1px;
+		display: block;
+		width: 0;
+		padding: 0;
 		overflow: hidden;
-		clip: rect(0, 0, 0, 0);
+		opacity: 0;
 		white-space: nowrap;
+		transform: scaleX(0);
+		transform-origin: right center;
+		transition:
+			opacity var(--eq-duration) var(--eq-ease),
+			transform var(--eq-duration) var(--eq-ease);
+	}
+
+	.eq-view-all:hover .eq-view-all-label {
+		width: auto;
+		padding: 0 0.5rem;
+		opacity: 1;
+		transform: scaleX(1);
+	}
+
+	.eq-view-all .eq-icon {
+		transition: margin var(--eq-duration) var(--eq-ease);
+	}
+
+	.eq-view-all:hover .eq-icon {
+		margin-right: 0.5rem;
 	}
 
 	@media (min-width: 992px) {
-		.eq-collapse-card-linked > .eq-collapse > summary {
+		.eq-collapse-card-linked .eq-collapse > summary {
 			padding-inline-end: 8rem;
 		}
 
 		.eq-view-all-label {
-			position: static;
 			width: auto;
-			height: auto;
-			overflow: visible;
-			clip: auto;
+			padding: 0 0.5rem;
+			opacity: 1;
+			transform: scaleX(1);
+		}
+	}
+
+	.eq-abbr {
+		display: inline-block;
+		min-width: 30px;
+	}
+
+	.eq-abbr abbr[title] {
+		cursor: help;
+		text-decoration: underline dotted;
+		text-decoration-skip-ink: none;
+	}
+
+	.eq-abbr-full {
+		display: none;
+	}
+
+	.eq-abbr-expanded > abbr {
+		display: none;
+	}
+
+	.eq-abbr-expanded > .eq-abbr-full {
+		display: inline;
+	}
+
+	@media (min-width: 768px) {
+		.eq-abbr > abbr {
+			display: none;
+		}
+
+		.eq-abbr > .eq-abbr-full {
+			display: inline;
 		}
 	}
 
@@ -155,6 +314,7 @@
 		font-family: var(--font-sans);
 		font-size: 0.6em;
 		font-weight: 400;
+		letter-spacing: 0;
 		line-height: 1;
 		vertical-align: middle;
 	}
@@ -162,6 +322,62 @@
 	.eq-accent-panel .eq-count {
 		border-color: currentColor;
 		color: inherit;
+	}
+
+	.eq-list {
+		gap: 0;
+	}
+
+	/**
+	 * The original's links were the wrapping flex items themselves, so
+	 * every link in a row stretched to the tallest one.
+	 */
+	.eq-list > li {
+		display: flex;
+	}
+
+	.eq-list-link {
+		gap: 0;
+		color: var(--eq-link);
+		font-family: var(--font-sans);
+		font-weight: 400;
+		line-height: 1.5;
+	}
+
+	.eq-list-name {
+		display: flex;
+		align-items: center;
+		font-weight: 500;
+	}
+
+	.eq-list-link .eq-badge-symbol {
+		align-items: baseline;
+		margin-right: 0.75rem;
+	}
+
+	.eq-badge-symbol:hover,
+	.eq-list-link:hover .eq-badge-symbol,
+	.eq-badge-symbol.eq-is-done {
+		border-color: var(--eq-ink);
+	}
+
+	span.eq-list-link {
+		cursor: default;
+	}
+
+	span.eq-list-link:hover {
+		background-color: transparent;
+		color: var(--eq-link);
+	}
+
+	span.eq-list-link:hover .eq-badge-symbol {
+		border-color: var(--eq-ink-muted);
+		background-color: transparent;
+		color: inherit;
+	}
+
+	.eq-badge {
+		font-weight: 700;
 	}
 
 	.eq-subheading {
@@ -187,6 +403,41 @@
 		color: var(--eq-accent);
 	}
 
+	.eq-data {
+		font-size: clamp(0.9rem, 2vw, 1rem);
+	}
+
+	.eq-data .eq-link {
+		color: var(--eq-ink-body);
+		text-decoration-thickness: auto;
+		text-underline-offset: auto;
+	}
+
+	.eq-data .eq-link:hover {
+		color: var(--eq-term, var(--eq-accent-fill));
+	}
+
+	.eq-data .eq-table-data tbody tr:hover .eq-link,
+	.eq-data .eq-table-data tbody tr.term-hl .eq-link {
+		color: hsla(var(--eq-term-hsl, var(--eq-accent-hsl)), 1);
+	}
+
+	.eq-unit-of {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem;
+		margin: 1rem 0;
+	}
+
+	.eq-unit-of-label {
+		margin-right: 0.25rem;
+		font-family: var(--font-display);
+		font-size: 1rem;
+		font-weight: 500;
+		line-height: 1.2;
+	}
+
 	.eq-chip-row {
 		display: flex;
 		flex-wrap: wrap;
@@ -195,9 +446,13 @@
 		margin: 0 0 0.85rem;
 	}
 
+	.eq-prose + .eq-chip-row,
+	.eq-card-note + .eq-chip-row {
+		margin-top: 1rem;
+	}
+
 	.eq-chip-row-label {
 		margin-right: 0.25rem;
-		color: var(--eq-ink);
 		font-family: var(--font-display);
 		font-weight: 500;
 	}
@@ -223,20 +478,39 @@
 
 	.eq-card-note {
 		margin: 0 0 0.75rem;
-		color: var(--eq-ink-body);
 		font-size: 0.9rem;
 	}
 
 	.eq-prose {
-		color: var(--eq-ink-body);
 		font-size: var(--text-body);
-		line-height: 1.65;
+		line-height: 1.5;
+		white-space: pre-line;
 	}
 
 	.eq-prose a {
-		color: var(--eq-ink);
+		color: inherit;
 		text-decoration-line: underline;
-		text-underline-offset: 0.15em;
+	}
+
+	.eq-prose + .eq-card-note {
+		margin-top: 1rem;
+	}
+
+	.eq-card-note-after {
+		margin: 0.75rem 0 0;
+	}
+
+	/**
+	 * The context slot is empty on every page outside a path, and its
+	 * margin collapsed with the page header's into 4px the original never
+	 * had; the bar itself carries the gap instead.
+	 */
+	.eq-context-slot {
+		margin-bottom: 0;
+	}
+
+	.eq-context-bar {
+		margin-bottom: 1rem;
 	}
 
 	.eq-definitions {
@@ -249,24 +523,20 @@
 		color: var(--eq-ink-muted);
 		font-family: var(--font-display);
 		font-size: 80%;
-		font-weight: 600;
-		letter-spacing: var(--tracking-button);
+		font-weight: 700;
 		text-transform: uppercase;
 	}
 
 	.eq-definitions dd {
 		margin: 0 0 0.5rem;
-		color: var(--eq-ink);
 	}
 
 	.eq-definitions .eq-definition-hint {
 		margin-top: 0.25rem;
-		color: var(--eq-ink-body);
 		font-size: 0.85rem;
 	}
 
-	.eq-definitions .eq-definition-muted {
-		color: var(--eq-ink-body);
+	.eq-definition-muted {
 		font-size: 0.95rem;
 	}
 
@@ -281,9 +551,7 @@
 		}
 	}
 
-	.eq-prose + .eq-definitions,
-	.eq-prose + .eq-card-note,
-	.eq-card-note + .eq-definitions {
+	.eq-chip-row + .eq-definitions {
 		margin-top: 1rem;
 	}
 
@@ -295,35 +563,23 @@
 		background-color: hsla(var(--eq-accent-hsl), 0.15);
 	}
 
-	span.eq-list-link {
-		cursor: default;
-	}
-
-	span.eq-list-link:hover {
-		background-color: transparent;
-		color: var(--eq-ink-body);
-	}
-
-	.eq-context-slot {
-		margin-bottom: 0;
-	}
-
-	.eq-context-slot > * > * {
-		margin-bottom: var(--eq-space-card-gap);
-	}
-
-	.eq-cell-symbol {
+	/**
+	 * The original styled the math inside a cell, not the cell: the cell
+	 * keeps the table's body color and size, so the row height and every
+	 * cell's computed style match.
+	 */
+	.eq-cell-symbol > * {
 		color: var(--eq-ink);
 		font-weight: 600;
 	}
 
-	.eq-table-data tbody tr:hover > .eq-cell-symbol,
-	.eq-table-data tbody tr.term-hl > .eq-cell-symbol {
+	.eq-table-data tbody tr:hover > .eq-cell-symbol > *,
+	.eq-table-data tbody tr.term-hl > .eq-cell-symbol > * {
 		color: var(--eq-term, var(--eq-accent));
 	}
 
-	.eq-cell-numeric {
-		text-align: right;
+	.eq-cell-unit-symbol > * {
+		color: var(--eq-accent-fill);
 	}
 
 	.eq-table-data .eq-cell-numeric {
@@ -341,25 +597,76 @@
 		font-size: 0.9em;
 	}
 
-	.eq-table-section + .eq-table-section {
-		margin-top: 0.5rem;
+	.eq-math-html {
+		color: var(--eq-ink);
+		font-family: serif;
+		font-style: normal;
+		font-weight: 400;
+	}
+
+	.eq-approx {
+		color: var(--eq-ink-muted);
+		font-family: serif;
+	}
+
+	.eq-math-mantissa {
+		color: var(--eq-ink);
+	}
+
+	.eq-math-exponent {
+		color: var(--eq-ink-body);
+	}
+
+	.eq-exp-plus {
+		color: var(--eq-exp-plus);
+	}
+
+	.eq-exp-minus {
+		color: var(--eq-exp-minus);
+	}
+
+	.eq-uncertainty,
+	.eq-source {
+		margin: 0.75rem 0 0;
+		font-size: 0.9rem;
 	}
 
 	.eq-display-card {
 		overflow: hidden;
 	}
 
-	.eq-display-card > .eq-card-title {
-		margin: 0;
-		padding: var(--eq-space-card-pad-y) var(--eq-space-card-pad-x) 0;
+	.eq-display-card .eq-display-math {
+		align-items: center;
+	}
+
+	.eq-display-block {
+		line-height: 0;
 	}
 
 	.eq-display-math > * {
 		flex: none;
 	}
 
+	/**
+	 * The original's exponent grew the value's line box to 1.575em (31.5px
+	 * at 20px, 60.5px at 38.4px), which set the constant card's height.
+	 */
+	.eq-display-card .eq-display-value {
+		line-height: 1.575;
+	}
+
 	.eq-display-text {
 		font-family: var(--font-math);
+	}
+
+	/**
+	 * The original colored a hovered term in the expression and in the
+	 * description without the row tint the tables get.
+	 */
+	.eq-display-math .term-hl,
+	.eq-prose .term-hl {
+		border-radius: 0;
+		background-color: transparent;
 	}
 
 	.eq-display-op {
@@ -367,85 +674,96 @@
 		font-family: var(--font-math);
 	}
 
-	.eq-display-value {
-		font-family: var(--font-math);
-		font-weight: 400;
+	.eq-display-text + .eq-display-op {
+		color: inherit;
 	}
 
 	.eq-display-unit {
-		color: var(--eq-accent);
-		font-family: var(--font-math);
+		color: var(--eq-accent-fill);
 		text-decoration: none;
 	}
 
-	.eq-display-unit:hover {
-		text-decoration: underline;
+	.eq-code-card .eq-card-title {
+		line-height: 1.2;
 	}
 
-	.eq-display-hint {
-		margin: 0;
-		padding: 0 var(--eq-space-card-pad-x) var(--eq-space-card-pad-y);
+	.eq-code-group {
+		display: flex;
+		align-items: stretch;
+	}
+
+	.eq-code-input {
+		flex: 1 1 auto;
+		width: 1%;
+		min-width: 0;
+		border-start-end-radius: 0;
+		border-end-end-radius: 0;
 		color: var(--eq-ink-body);
-		font-size: 0.85rem;
-		text-align: center;
+		font-size: 1rem;
 	}
 
-	.eq-display-compact {
-		padding-block: 0.75rem;
-		font-size: clamp(1.05rem, 2vw, 1.35rem);
-	}
-
-	.eq-full-precision {
-		margin: 0;
-		color: var(--eq-ink);
-		font-family: var(--font-math);
-		font-size: 1.1rem;
-		overflow-wrap: anywhere;
-	}
-
-	.eq-uncertainty {
-		margin: 0.25rem 0 0;
+	.eq-code-input:focus {
+		z-index: 1;
 		color: var(--eq-ink-body);
-		font-family: var(--font-math);
 	}
 
-	.eq-source {
-		margin: 0.75rem 0 0;
-		color: var(--eq-ink-body);
-		font-size: 0.9rem;
+	.eq-code-copy {
+		flex: none;
+		gap: 0;
+		margin-left: -1px;
+		padding: 0.5rem 1rem;
+		border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+		transition:
+			color 0.15s ease-in-out,
+			background-color 0.15s ease-in-out,
+			border-color 0.15s ease-in-out,
+			box-shadow 0.15s ease-in-out;
 	}
 
-	.eq-grid-2 {
+	.eq-code-copy-label {
+		display: none;
+	}
+
+	@media (min-width: 768px) {
+		.eq-code-copy .eq-icon {
+			margin-right: 1rem;
+		}
+
+		.eq-code-copy-label {
+			display: inline;
+		}
+	}
+
+	.eq-prefix-tables {
 		display: grid;
-		gap: var(--eq-space-card-gap);
+		gap: 0 1.5rem;
 	}
 
-	.eq-grid-2 > * {
+	.eq-prefix-tables > * {
 		min-width: 0;
 	}
 
 	@media (min-width: 768px) {
-		.eq-grid-2-md {
+		.eq-prefix-tables {
 			grid-template-columns: repeat(2, minmax(0, 1fr));
 		}
 	}
 
-	@media (min-width: 992px) {
-		.eq-grid-2-lg {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
-		}
+	.eq-home-search {
+		margin-bottom: 1rem;
 	}
 
-	.eq-home-lead {
-		max-width: 48rem;
-		margin: 0 0 1rem;
-		color: var(--eq-ink);
+	@media (min-width: 768px) {
+		.eq-home-search {
+			display: none;
+		}
 	}
 
 	.eq-home-toggle {
 		display: flex;
+		align-items: stretch;
 		gap: 0.5rem;
-		margin-bottom: var(--eq-space-card-gap);
+		margin-bottom: 1rem;
 	}
 
 	@media (min-width: 768px) {
@@ -455,10 +773,16 @@
 	}
 
 	.eq-home-toggle-btn {
-		flex: 1 1 0;
+		flex: 1 0 0%;
+		padding: 0.5rem 1rem;
 		background-color: var(--eq-btn-dark-bg);
 		color: var(--eq-btn-dark-ink);
-		font-weight: 600;
+		font-weight: 500;
+		transition:
+			color 0.15s ease-in-out,
+			background-color 0.15s ease-in-out,
+			border-color 0.15s ease-in-out,
+			box-shadow 0.15s ease-in-out;
 	}
 
 	.eq-home-toggle-btn:hover {
@@ -469,6 +793,11 @@
 	#home-view-types:checked ~ .eq-home-toggle [for="home-view-types"] {
 		background-color: var(--eq-btn-primary-bg);
 		color: var(--eq-btn-primary-ink);
+	}
+
+	#home-view-categories:checked ~ .eq-home-toggle [for="home-view-categories"]:hover,
+	#home-view-types:checked ~ .eq-home-toggle [for="home-view-types"]:hover {
+		background-color: var(--eq-btn-primary-bg-hover);
 	}
 
 	#home-view-categories:focus-visible ~ .eq-home-toggle [for="home-view-categories"],
@@ -482,46 +811,51 @@
 		display: none;
 	}
 
-	.eq-home-grid {
-		display: grid;
-		gap: var(--eq-space-card-gap);
-	}
-
 	.eq-home-card {
+		--eq-accent-panel-angle: 5deg;
 		display: block;
-		height: 100%;
-		padding: 1.25rem var(--eq-space-card-pad-x);
 		border-radius: var(--radius-home-card);
 		box-shadow: var(--shadow-home-card);
 		text-decoration: none;
 		transition:
+			color var(--eq-duration) var(--eq-ease),
 			box-shadow var(--eq-duration) var(--eq-ease),
 			transform var(--eq-duration) var(--eq-ease);
+	}
+
+	.eq-home-grid .eq-home-card {
+		margin-bottom: var(--eq-space-card-gap);
+	}
+
+	.eq-home-grid > li:last-child .eq-home-card {
+		margin-bottom: 0;
 	}
 
 	.eq-home-card:hover,
 	.eq-home-card:focus-visible {
 		box-shadow: var(--shadow-home-card-hover);
+		color: hsl(var(--eq-accent-h), 100%, 97%);
+	}
+
+	:root[data-theme="dark"] .eq-home-card {
+		box-shadow: none;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root:not([data-theme="light"]) .eq-home-card {
+			box-shadow: none;
+		}
+	}
+
+	.eq-home-card-body {
+		padding: var(--eq-space-card-pad-y) var(--eq-space-card-pad-x);
 	}
 
 	.eq-home-card-title {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: 0.5rem;
-		margin: 0 0 0.5rem;
+		margin: 0 0 clamp(0.5rem, 2vw, 0.85rem);
 		font-size: var(--text-home-card-title);
 		font-weight: 600;
-	}
-
-	.eq-home-card-count {
-		padding: 0.2em 0.55em;
-		border: 1px solid currentColor;
-		border-radius: var(--radius-pill);
-		font-family: var(--font-sans);
-		font-size: 0.55em;
-		font-weight: 500;
-		line-height: 1;
+		line-height: 1.2;
 	}
 
 	.eq-home-card-text {
@@ -529,43 +863,15 @@
 		margin: 0;
 		overflow: hidden;
 		font-size: var(--text-home-card-lead);
+		line-height: 1.5;
+		text-overflow: ellipsis;
 		-webkit-box-orient: vertical;
 		-webkit-line-clamp: 3;
 		line-clamp: 3;
 	}
 
-	.eq-entry-card-badges {
-		margin-bottom: 0.5rem;
-	}
-
-	.eq-entry-card .eq-card-title {
-		margin-bottom: 0.25rem;
-	}
-
-	.eq-entry-card .eq-card-title a {
-		color: inherit;
-		text-decoration-line: underline;
-		text-decoration-thickness: 1px;
-		text-underline-offset: 0.15em;
-	}
-
-	.eq-entry-card .eq-card-title a:hover {
-		color: var(--eq-accent);
-	}
-
-	.eq-pill-list {
-		display: flex;
-		flex-wrap: wrap;
-		gap: 0.5rem;
-	}
-
-	.eq-pill-list .eq-count {
-		font-size: 0.75em;
-	}
-
 	.eq-path-meta {
 		margin: 0.75rem 0 0;
-		color: var(--eq-ink-body);
 		font-size: 0.9rem;
 	}
 
@@ -589,7 +895,6 @@
 
 	.eq-steps {
 		display: grid;
-		gap: var(--eq-space-card-gap);
 	}
 
 	.eq-step {
@@ -612,7 +917,6 @@
 		align-items: center;
 		gap: 0.5rem;
 		margin: 0;
-		color: var(--eq-ink-body);
 		font-family: var(--font-display);
 		font-size: 0.8rem;
 		font-weight: 600;
@@ -638,7 +942,6 @@
 	}
 
 	.eq-step-symbol {
-		color: var(--eq-ink-body);
 		font-family: var(--font-math);
 		font-size: 1rem;
 	}
@@ -655,7 +958,7 @@
 		margin-top: 0.5rem;
 	}
 
-	.eq-check > summary {
+	.eq-step .eq-check > summary {
 		cursor: pointer;
 		line-height: 1.75;
 	}
@@ -692,6 +995,6 @@
 @keyframes eq-home-toggle {
 	from {
 		opacity: 0;
-		transform: translateY(-1%) scale(1.01);
+		transform: translateY(-5%) scale(1.025);
 	}
 }

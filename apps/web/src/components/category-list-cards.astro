@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import { type Locale, localizedName, t } from '@equreka/core/i18n';
+import { asCategory } from '../lib/collections';
+import { localePath } from '../lib/locale-paths';
+import ListCard, { type ListCardItem } from './list-card.astro';
+
+/**
+ * Legacy type list page body (`pages/_type/index.vue`): one list card per
+ * category in category order, each linking "View all" to the category, and
+ * a trailing card for entries outside every category. An entry in several
+ * categories is listed in each, as the original did. Entries sort by
+ * `sortKey`, then name, as the original's `sortBy('unitOf').sortBy('name')`
+ * (units pass their first magnitude; an empty key sorts first).
+ */
+export interface CategorizedItem extends ListCardItem {
+	categories: readonly string[];
+	sortKey?: string | undefined;
+}
+
+interface Props {
+	locale: Locale;
+	items: readonly CategorizedItem[];
+}
+
+const { locale, items } = Astro.props;
+
+const categories = (await getCollection('categories'))
+	.map((entry) => ({ slug: entry.id, ...asCategory(entry.data) }))
+	.sort((a, b) => a.order - b.order);
+const sorted = [...items].sort(
+	(a, b) =>
+		(a.sortKey ?? '').localeCompare(b.sortKey ?? '', 'en') || a.name.localeCompare(b.name, locale),
+);
+const grouped = categories
+	.map((category) => ({
+		slug: category.slug,
+		title: localizedName(category, locale),
+		items: sorted.filter((item) => item.categories.includes(category.slug)),
+	}))
+	.filter((group) => group.items.length > 0);
+const ungrouped = sorted.filter(
+	(item) => !categories.some((category) => item.categories.includes(category.slug)),
+);
+---
+
+{
+	grouped.map((group) => (
+		<ListCard
+			headingId={group.slug}
+			titleId={`${group.slug}-heading`}
+			title={group.title}
+			items={group.items}
+			viewAll={{
+				href: localePath(locale, `/categories/${group.slug}/`),
+				label: t(locale, 'design.content.viewAll'),
+			}}
+		/>
+	))
+}
+{
+	ungrouped.length > 0 && (
+		<ListCard headingId="other" title={t(locale, 'group.other')} items={ungrouped} />
+	)
+}

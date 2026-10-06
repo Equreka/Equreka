@@ -3,7 +3,9 @@ import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import { type Locale, localizedName, pickLocalized, t, tParts } from '@equreka/core/i18n';
 import BranchBadges from '../components/branch-badges.astro';
+import CodeCard from '../components/code-card.astro';
 import CollapseCard from '../components/collapse-card.astro';
+import DisplayNameSymbol from '../components/display-name-symbol.astro';
 import DraftBadge from '../components/draft-badge.astro';
 import EntryIdentifiers from '../components/entry-identifiers.astro';
 import PageHeader from '../components/page-header.astro';
@@ -17,7 +19,7 @@ import { asMagnitude, asPrefix, asUnit } from '../lib/collections';
 import { converterMagnitudeOf } from '../lib/entry-meta';
 import { localePath } from '../lib/locale-paths';
 import { engineSlice } from '../lib/server/engine-registry';
-import { renderRichTextHtml, renderSymbolHtml } from '../lib/tex';
+import { renderRichTextHtml } from '../lib/tex';
 import { symbolTextOf } from '../lib/unit-symbol';
 
 interface Props {
@@ -90,6 +92,7 @@ const metaDescription =
 >
 	<PageHeader
 		slot="hero"
+		entry
 		label={t(locale, 'collection.units')}
 		labelHref={localePath(locale, '/units/')}
 		title={name}
@@ -98,27 +101,30 @@ const metaDescription =
 		<FavoriteToggle slot="actions" client:idle collection="units" slug={slug} locale={locale} />
 	</PageHeader>
 	<PathContextBar slot="context" client:idle locale={locale} />
-	<article class="type-units eq-stack">
+	<article class="type-units eq-data eq-cards">
 		<div class="eq-card eq-display-card">
 			<div class="eq-display-math">
-				<span class="eq-display-text">{name}</span>
-				<span class="eq-display-op" aria-hidden="true">—</span>
-				<span set:html={renderSymbolHtml(unit.symbol.tex, symbolText)} />
+				<DisplayNameSymbol name={name} symbolTex={unit.symbol.tex} symbolText={symbolText} />
 			</div>
 		</div>
 
 		<CollapseCard headingId="unit-information-heading" title={t(locale, 'design.content.entry.information')}>
-			<div class="eq-chip-row">
-				<span class="eq-badge eq-badge-accent">{t(locale, `system.${unit.system}`)}</span>
+			<div class="eq-unit-of">
+				<span class="eq-unit-of-label">{t(locale, 'design.content.entry.unitOf')}</span>
 				{
-					unit.categories.map((category) => (
-						<span class={`eq-badge eq-badge-accent cat-${category}`}>{category}</span>
-					))
+					compound ? (
+						<span class="eq-definition-muted">{t(locale, 'unit.compoundHint')}</span>
+					) : (
+						magnitudes.map((magnitude) => (
+							<a
+								class="eq-badge eq-badge-accent eq-badge-link type-magnitudes"
+								href={localePath(locale, `/converter/?magnitude=${magnitude.slug}`)}
+							>
+								{magnitude.name}
+							</a>
+						))
+					)
 				}
-				<BranchBadges locale={locale} branches={unit.branches} />
-				{compound && <span class="eq-badge eq-badge-accent">{t(locale, 'badge.compound')}</span>}
-				<UntranslatedBadge locale={locale} show={untranslated} />
-				<DraftBadge locale={locale} status={unit.status} />
 			</div>
 
 			{
@@ -143,50 +149,39 @@ const metaDescription =
 				)
 			}
 
-			<dl class="eq-definitions">
-				<dt>{t(locale, 'table.system')}</dt>
-				<dd>{t(locale, `system.${unit.system}`)}</dd>
-				<dt>{magnitudes.length > 1 ? t(locale, 'unit.magnitudes') : t(locale, 'unit.magnitude')}</dt>
+			<div class="eq-chip-row">
+				<span class="eq-badge eq-badge-accent">{t(locale, `system.${unit.system}`)}</span>
 				{
-					compound ? (
-						<dd class="eq-definition-muted">{t(locale, 'unit.compoundHint')}</dd>
-					) : (
-						<dd class="eq-chip-row">
-							{magnitudes.map((magnitude) => (
-								<a
-									class="eq-badge eq-badge-accent eq-badge-link type-magnitudes"
-									href={localePath(locale, `/converter/?magnitude=${magnitude.slug}`)}
-								>
-									{magnitude.name}
-								</a>
-							))}
-						</dd>
-					)
+					unit.categories.map((category) => (
+						<span class={`eq-badge eq-badge-accent cat-${category}`}>{category}</span>
+					))
 				}
-			</dl>
+				<BranchBadges locale={locale} branches={unit.branches} />
+				{compound && <span class="eq-badge eq-badge-accent">{t(locale, 'badge.compound')}</span>}
+				<UntranslatedBadge locale={locale} show={untranslated} />
+				<DraftBadge locale={locale} status={unit.status} />
+			</div>
 
 			<EntryIdentifiers locale={locale} externalIds={unit.externalIds} />
 		</CollapseCard>
 
-		{
-			!unit.nonConvertible && (
-				<>
-					<UnitConversionTable unitSlug={slug} locale={locale} />
+		{!unit.nonConvertible && <UnitConversionTable unitSlug={slug} locale={locale} />}
 
-					{converterMagnitude !== undefined && (
-						<CollapseCard
-							headingId="unit-converter-heading"
-							title={t(locale, 'unit.convert', { name: name.toLowerCase() })}
-						>
-							<ConverterIsland
-								client:visible
-								initialMagnitude={converterMagnitude}
-								initialFrom={slug}
-								locale={locale}
-							/>
-						</CollapseCard>
-					)}
-				</>
+		<CodeCard locale={locale} code={unit.symbol.tex} />
+
+		{
+			!unit.nonConvertible && converterMagnitude !== undefined && (
+				<CollapseCard
+					headingId="unit-converter-heading"
+					title={t(locale, 'unit.convert', { name: name.toLowerCase() })}
+				>
+					<ConverterIsland
+						client:visible
+						initialMagnitude={converterMagnitude}
+						initialFrom={slug}
+						locale={locale}
+					/>
+				</CollapseCard>
 			)
 		}
 	</article>

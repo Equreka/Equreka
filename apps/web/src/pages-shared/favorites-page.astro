@@ -1,13 +1,82 @@
 ---
-import { type Locale, t } from '@equreka/core/i18n';
+import { getCollection } from 'astro:content';
+import { type Locale, localizedName, t } from '@equreka/core/i18n';
 import FavoritesList from '../islands/favorites-list';
 import BaseLayout from '../layouts/base-layout.astro';
+import { asCategory, asUnit } from '../lib/collections';
+import { converterMagnitudeOf } from '../lib/entry-meta';
+import { type FavoriteEntryMeta, type FavoriteTool, favoriteKey } from '../lib/favorite-rows';
+import { engineSlice } from '../lib/server/engine-registry';
 
 interface Props {
 	locale?: Locale;
 }
 
+/**
+ * Category-bearing shape shared by every favoritable entity: `categories`
+ * on wiki entities, a single `category` on branches.
+ */
+interface Categorized {
+	categories?: readonly string[];
+	category?: string;
+}
+
+/**
+ * Collections whose entries carry a category badge or a tool action;
+ * categories themselves carry neither.
+ */
+const META_COLLECTIONS = [
+	'branches',
+	'magnitudes',
+	'units',
+	'prefixes',
+	'constants',
+	'variables',
+	'equations',
+	'paths',
+] as const;
+
 const { locale = 'en' } = Astro.props;
+
+const categoryNames = Object.fromEntries(
+	(await getCollection('categories')).map((entry) => [
+		entry.id,
+		localizedName(asCategory(entry.data), locale),
+	]),
+);
+
+function toolOf(
+	collection: string,
+	slug: string,
+	data: Record<string, unknown>,
+): FavoriteTool | undefined {
+	if (collection === 'equations') {
+		return engineSlice.equations[slug]?.calculatorEnabled === true ? 'calculator' : undefined;
+	}
+	if (collection === 'units') {
+		const unit = asUnit(data);
+		return !unit.nonConvertible &&
+			converterMagnitudeOf(slug, unit.unitOf, engineSlice) !== undefined
+			? 'converter'
+			: undefined;
+	}
+	return undefined;
+}
+
+const meta: Record<string, FavoriteEntryMeta> = {};
+for (const collection of META_COLLECTIONS) {
+	for (const entry of await getCollection(collection)) {
+		const data = entry.data as Record<string, unknown>;
+		const categorized = data as Categorized;
+		const category = categorized.categories?.[0] ?? categorized.category;
+		const tool = toolOf(collection, entry.id, data);
+		if (category === undefined && tool === undefined) continue;
+		meta[favoriteKey(collection, entry.id)] = {
+			...(category === undefined ? {} : { category }),
+			...(tool === undefined ? {} : { tool }),
+		};
+	}
+}
 ---
 
 <BaseLayout
@@ -16,10 +85,10 @@ const { locale = 'en' } = Astro.props;
 	locale={locale}
 >
 	<div class="eq-fav-page">
-		<header class="eq-tool-header">
+		<header class="eq-tool-header eq-main-header">
 			<h1>{t(locale, 'favorites.title')}</h1>
-			<p class="eq-lead">{t(locale, 'favorites.lead')}</p>
+			<p class="eq-lead">{t(locale, 'design.legacy.favorites.lead')}</p>
 		</header>
-		<FavoritesList client:load locale={locale} />
+		<FavoritesList client:load locale={locale} meta={meta} categoryNames={categoryNames} />
 	</div>
 </BaseLayout>

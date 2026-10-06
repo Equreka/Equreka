@@ -27,7 +27,7 @@ export default function FavoriteToggle({ collection, slug, locale = 'en' }: Favo
 			aria-pressed={active}
 			aria-label={label}
 			title={label}
-			className="eq-favorite-toggle"
+			className="eq-page-action eq-favorite-toggle"
 			onClick={() => toggle(collection, slug)}
 		>
 			<Icon icon={heartIcon} className="eq-favorite-off" />

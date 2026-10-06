@@ -20,23 +20,71 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'nav.paths': 'Rutas',
 	'nav.favorites': 'Favoritos',
 	'nav.settings': 'Ajustes',
-	'layout.themeToggle': 'Cambiar el tema de color',
-	'footer.tagline':
-		'Equreka — una wiki educativa y calculadora de código abierto para unidades, magnitudes, constantes y ecuaciones.',
+	'footer.brand': 'Equreka',
 	'footer.github': 'GitHub',
-	'footer.license': 'Licencia GPL-3.0',
+	'footer.facebook': 'Facebook',
+	'footer.twitter': 'Twitter',
+	'footer.discord': 'Discord',
 	'design.shell.skipToContent': 'Saltar al contenido',
 	'design.shell.homeLink': 'Inicio de Equreka',
 	'design.shell.sectionsNav': 'Secciones',
-	'design.shell.localeName': 'English',
-	'design.shell.localeCode': 'EN',
 	'design.interactive.editFavorites': 'Editar favoritos',
 	'design.interactive.openEquation': 'Abrir la referencia de la ecuación',
+	'design.legacy.calculator.calculate': 'Calcular',
+	'design.legacy.calculator.needed': 'Ingresa datos para resolver',
+	'design.legacy.calculator.copy': 'Copiar al portapapeles',
+	'design.legacy.calculator.copied': 'Se copió al portapapeles',
+	'design.legacy.calculator.copyFailed': 'No se pudo copiar al portapapeles',
+	'design.legacy.favorites.actions': 'Acciones',
+	'design.legacy.favorites.openCalculator': 'Resolver en la calculadora',
+	'design.legacy.favorites.openConverter': 'Abrir el convertidor de unidades',
+	'design.legacy.favorites.lead':
+		'Sus favoritos se almacenan localmente en el navegador, por lo que no se guardan datos.',
+	'design.legacy.favorites.none': '¡No tienes ningún favorito! 💔',
+	'design.legacy.calculator.indexLead': 'Todas las ecuaciones y fórmulas disponibles.',
+	'design.legacy.calculator.formulas': 'Fórmulas',
+	'design.legacy.settings.languageChange': 'Cambia el lenguaje',
+	'design.legacy.settings.languageChoose': 'Elige un lenguaje',
+	'design.legacy.settings.themeChange': 'Cambia el tema',
+	'design.legacy.settings.themeChoose': 'Selecciona un tema',
+	'design.legacy.settings.themeSystem': 'Tema del sistema',
+	'design.legacy.abbr.universal': 'Uni',
+	'design.legacy.abbr.mathematics': 'Mat',
+	'design.legacy.abbr.physics': 'Fís',
+	'design.legacy.abbr.chemistry': 'Quím',
+	'design.legacy.abbr.symbol': 'Símb',
 	'design.content.home.types': 'Tipos',
 	'design.content.header.type': 'Tipo',
 	'design.content.header.category': 'Categoría',
 	'design.content.viewAll': 'Ver todo',
 	'design.content.entry.information': 'Información',
+	'design.content.entry.unitOf': 'Unidad de',
+	'design.content.entry.approximateValues': 'Valores aproximados',
+	'design.content.entry.exactValues': 'Valores exactos',
+	'design.content.prefixes.exponent': 'Exponente',
+	'design.content.prefixes.number': 'Número',
+	'design.content.code.title': 'Código',
+	'design.content.code.copy': 'Copiar al portapapeles',
+	'design.content.code.copied': 'Copiado al portapapeles',
+	'design.content.code.copyFailed': 'No se pudo copiar al portapapeles',
+	'design.content.abbr.value': 'Val',
+	'design.content.abbr.unit': 'Unid',
+	'design.content.abbr.conversion': 'Conv',
+	'design.content.table.conversion': 'Conversión',
+	'design.content.table.formula': 'Fórmula',
+	'design.content.home.formulas': 'Fórmulas',
+	'design.content.home.type.equations':
+		'En matemáticas, una ecuación es una declaración que afirma la igualdad de dos expresiones, que están conectadas por el signo de igualdad.',
+	'design.content.home.type.formulas':
+		'En ciencia, una fórmula es una forma concisa de expresar información simbólicamente, como en una fórmula matemática o una fórmula química. El uso informal del término fórmula en ciencia se refiere al constructo general de una relación entre cantidades dadas.',
+	'design.content.home.type.constants':
+		'Un número fijo y bien definido u otro objeto matemático que no varíe. Los términos constante matemática o constante física se utilizan a veces para distinguir este significado.',
+	'design.content.home.type.magnitudes':
+		'Una magnitud física es una cantidad medible de un sistema físico a la que se le pueden asignar distintos valores como resultado de una medición o una relación de medidas. Las magnitudes físicas se miden usando un patrón que tenga bien definida esa magnitud, y tomando como unidad la cantidad de esa propiedad que posea el objeto patrón.',
+	'design.content.home.type.units':
+		'Una unidad de medida es una cantidad estandarizada de una determinada magnitud física, definida y adoptada por convención o por ley. Cualquier valor de una cantidad física puede expresarse como un múltiplo de la unidad de medida.',
+	'design.content.home.type.prefixes':
+		'Un prefijo de unidad es un especificador o nemotécnico que se antepone a las unidades de medida para indicar múltiplos o fracciones de las unidades. Las unidades de varios tamaños se forman comúnmente mediante el uso de tales prefijos.',
 
 	'collection.categories': 'Categorías',
 	'collection.magnitudes': 'Magnitudes',
@@ -72,14 +120,12 @@ export const es: Partial<Record<MessageKey, string>> = {
 
 	'table.symbol': 'Símbolo',
 	'table.name': 'Nombre',
-	'table.system': 'Sistema',
 	'table.dimension': 'Dimensión',
 	'table.baseUnit': 'Unidad base',
 	'table.unit': 'Unidad',
 	'table.factorToBase': 'Factor a la base',
 	'table.value': 'Valor',
 	'table.status': 'Estado',
-	'table.kind': 'Tipo',
 	'group.other': 'Otros',
 	'common.sigFigs': '(6 cifras significativas)',
 
@@ -117,14 +163,11 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'conversions.title': 'Conversiones',
 	'conversions.lead':
 		'El valor de 1 {symbol} en cada unidad compatible, calculado por el motor de Equreka. Los valores aproximados se redondean a 6 cifras significativas.',
-	'conversions.header': '1 {symbol} =',
 	'conversions.baseUnit': 'unidad base',
 	'entry.identifiers': 'Identificadores',
 
 	'meta.magnitudes':
 		'Todas las magnitudes físicas de la wiki de Equreka, agrupadas por categoría y rama, con dimensiones y unidades base.',
-	'magnitudes.lead':
-		'{count} magnitudes agrupadas por categoría y rama. Cada página de magnitud lista todas sus unidades con factores a la unidad base calculados por el motor.',
 	'meta.magnitude': '{name} ({symbol}) — referencia de la magnitud con todas sus unidades.',
 	'magnitude.sign': 'Signo',
 	'magnitude.nonNegative': 'Cantidad no negativa',
@@ -139,8 +182,6 @@ export const es: Partial<Record<MessageKey, string>> = {
 
 	'meta.constants':
 		'Constantes físicas de la wiki de Equreka, con valores a precisión completa, unidades y definiciones.',
-	'constants.lead':
-		'{count} constantes físicas. Los valores aquí se redondean a 6 cifras significativas — cada página de constante lleva el valor a precisión completa.',
 	'meta.constant': '{name} ({symbol}) — referencia de constante física.',
 	'constant.value': 'Valor',
 	'constant.fullPrecision': 'Precisión completa',
@@ -150,16 +191,11 @@ export const es: Partial<Record<MessageKey, string>> = {
 
 	'meta.prefixes':
 		'Prefijos de unidades del SI — múltiplos y submúltiplos de diez, con símbolos y notación de potencias de diez.',
-	'prefixes.lead':
-		'{count} prefijos del SI. Un prefijo multiplica una unidad por una potencia de diez — un kilómetro son 10³ metros, un nanosegundo son 10⁻⁹ segundos.',
 	'prefixes.multiples': 'Múltiplos',
 	'prefixes.submultiples': 'Submúltiplos',
 
 	'meta.equations':
 		'Ecuaciones y fórmulas de la wiki de Equreka, con desglose término a término y calculadoras.',
-	'equations.lead':
-		'{count} ecuaciones y fórmulas. Pasa el cursor sobre un término para resaltarlo en toda la página; las entradas habilitadas se resuelven para cualquier término.',
-	'equations.openCalculator': 'Abrir en la calculadora →',
 	'meta.equation': '{name} — referencia de {kind}.',
 	'equation.hoverHint': 'Pasa el cursor o toca un término para resaltarlo en toda esta página.',
 	'equation.solve': 'Resolver con la calculadora',
@@ -230,7 +266,7 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'meta.search': 'Busca cualquier unidad, magnitud, constante o ecuación de la wiki de Equreka.',
 	'search.title': 'Buscar',
 	'search.lead': 'Busca por nombre, símbolo o alias — con o sin acentos.',
-	'search.placeholder': 'Busca unidades, magnitudes…',
+	'search.placeholder': 'Constantes, variables, unidades, ecuaciones o fórmulas...',
 	'search.aria': 'Buscar en la wiki',
 	'search.loading': 'Cargando el índice de búsqueda…',
 	'search.unavailable': 'La búsqueda no está disponible en este momento.',

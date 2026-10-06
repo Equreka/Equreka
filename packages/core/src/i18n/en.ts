@@ -17,23 +17,71 @@ export const en = {
 	'nav.paths': 'Paths',
 	'nav.favorites': 'Favorites',
 	'nav.settings': 'Settings',
-	'layout.themeToggle': 'Toggle color theme',
-	'footer.tagline':
-		'Equreka — an open-source educational wiki and calculator for units, magnitudes, constants, and equations.',
+	'footer.brand': 'Equreka',
 	'footer.github': 'GitHub',
-	'footer.license': 'GPL-3.0 license',
+	'footer.facebook': 'Facebook',
+	'footer.twitter': 'Twitter',
+	'footer.discord': 'Discord',
 	'design.shell.skipToContent': 'Skip to content',
 	'design.shell.homeLink': 'Equreka home',
 	'design.shell.sectionsNav': 'Sections',
-	'design.shell.localeName': 'Español',
-	'design.shell.localeCode': 'ES',
 	'design.interactive.editFavorites': 'Edit favorites',
 	'design.interactive.openEquation': 'Open the equation reference',
+	'design.legacy.calculator.calculate': 'Calculate',
+	'design.legacy.calculator.needed': 'Enter data to solve',
+	'design.legacy.calculator.copy': 'Copy to clipboard',
+	'design.legacy.calculator.copied': 'Copied to clipboard',
+	'design.legacy.calculator.copyFailed': 'Could not copy to the clipboard',
+	'design.legacy.favorites.actions': 'Actions',
+	'design.legacy.favorites.openCalculator': 'Solve this in the calculator',
+	'design.legacy.favorites.openConverter': 'Open the unit converter',
+	'design.legacy.favorites.lead':
+		'Your favorites are stored locally in the browser so no data is saved.',
+	'design.legacy.favorites.none': "You don't have any favorites! 💔",
+	'design.legacy.calculator.indexLead': 'All the equations and formulas that are available.',
+	'design.legacy.calculator.formulas': 'Formulas',
+	'design.legacy.settings.languageChange': 'Change the language',
+	'design.legacy.settings.languageChoose': 'Choose a language',
+	'design.legacy.settings.themeChange': 'Change the theme',
+	'design.legacy.settings.themeChoose': 'Choose a theme',
+	'design.legacy.settings.themeSystem': "System's theme",
+	'design.legacy.abbr.universal': 'Uni',
+	'design.legacy.abbr.mathematics': 'Math',
+	'design.legacy.abbr.physics': 'Phy',
+	'design.legacy.abbr.chemistry': 'Chem',
+	'design.legacy.abbr.symbol': 'Sym',
 	'design.content.home.types': 'Types',
 	'design.content.header.type': 'Type',
 	'design.content.header.category': 'Category',
 	'design.content.viewAll': 'View all',
 	'design.content.entry.information': 'Information',
+	'design.content.entry.unitOf': 'Unit of',
+	'design.content.entry.approximateValues': 'Approximate values',
+	'design.content.entry.exactValues': 'Exact values',
+	'design.content.prefixes.exponent': 'Exponent',
+	'design.content.prefixes.number': 'Number',
+	'design.content.code.title': 'Code',
+	'design.content.code.copy': 'Copy to clipboard',
+	'design.content.code.copied': 'Copied to clipboard',
+	'design.content.code.copyFailed': 'Could not copy to the clipboard',
+	'design.content.abbr.value': 'Val',
+	'design.content.abbr.unit': 'Unit',
+	'design.content.abbr.conversion': 'Cnv',
+	'design.content.table.conversion': 'Conversion',
+	'design.content.table.formula': 'Formula',
+	'design.content.home.formulas': 'Formulas',
+	'design.content.home.type.equations':
+		'In mathematics, an equation is a statement that asserts the equality of two expressions, which are connected by the equal sign.',
+	'design.content.home.type.formulas':
+		'In science, a formula is a concise way of expressing information symbolically, as in a mathematical formula or a chemical formula. The informal use of the term formula in science refers to the general construct of a relationship between given quantities.',
+	'design.content.home.type.constants':
+		'A well-defined, fixed number or other mathematical object that does not vary. The terms mathematical constant or physical constant are sometimes used to distinguish this meaning.',
+	'design.content.home.type.magnitudes':
+		'A physical quantity is a measurable quantity of a physical system to which different values can be assigned as a result of a measurement or a relation of measurements. Physical quantities are measured using a standard that has that quantity well defined, and taking as a unit the amount of that property that the master object possesses.',
+	'design.content.home.type.units':
+		'A unit of measure is a standardized quantity of a certain physical quantity, defined and adopted by convention or by law. Any value of a physical quantity can be expressed as a multiple of the unit of measure.',
+	'design.content.home.type.prefixes':
+		'A unit prefix is a specifier or mnemonic that is prepended to units of measurement to indicate multiples or fractions of the units. Units of various sizes are commonly formed by the use of such prefixes.',
 
 	'collection.categories': 'Categories',
 	'collection.magnitudes': 'Magnitudes',
@@ -69,14 +117,12 @@ export const en = {
 
 	'table.symbol': 'Symbol',
 	'table.name': 'Name',
-	'table.system': 'System',
 	'table.dimension': 'Dimension',
 	'table.baseUnit': 'Base unit',
 	'table.unit': 'Unit',
 	'table.factorToBase': 'Factor to base',
 	'table.value': 'Value',
 	'table.status': 'Status',
-	'table.kind': 'Kind',
 	'group.other': 'Other',
 	'common.sigFigs': '(6 significant figures)',
 
@@ -112,14 +158,11 @@ export const en = {
 	'conversions.title': 'Conversions',
 	'conversions.lead':
 		'The value of 1 {symbol} in every compatible unit, computed by the Equreka engine. Approximate values are rounded to 6 significant figures.',
-	'conversions.header': '1 {symbol} =',
 	'conversions.baseUnit': 'base unit',
 	'entry.identifiers': 'Identifiers',
 
 	'meta.magnitudes':
 		'All physical magnitudes in the Equreka wiki, grouped by category and branch, with dimensions and base units.',
-	'magnitudes.lead':
-		'{count} magnitudes grouped by category and branch. Every magnitude page lists all of its units with engine-computed factors to the base unit.',
 	'meta.magnitude': '{name} ({symbol}) — magnitude reference with all of its units.',
 	'magnitude.sign': 'Sign',
 	'magnitude.nonNegative': 'Non-negative quantity',
@@ -134,8 +177,6 @@ export const en = {
 
 	'meta.constants':
 		'Physical constants in the Equreka wiki, with full-precision values, units, and definitions.',
-	'constants.lead':
-		'{count} physical constants. Values shown here are rounded to 6 significant figures — each constant page carries the full-precision value.',
 	'meta.constant': '{name} ({symbol}) — physical constant reference.',
 	'constant.value': 'Value',
 	'constant.fullPrecision': 'Full precision',
@@ -145,16 +186,11 @@ export const en = {
 
 	'meta.prefixes':
 		'SI unit prefixes — multiples and submultiples of ten, with symbols and power-of-ten notation.',
-	'prefixes.lead':
-		'{count} SI prefixes. A prefix multiplies a unit by a power of ten — kilometre is 10³ metres, nanosecond is 10⁻⁹ seconds.',
 	'prefixes.multiples': 'Multiples',
 	'prefixes.submultiples': 'Submultiples',
 
 	'meta.equations':
 		'Equations and formulas in the Equreka wiki, with term-by-term breakdowns and calculators.',
-	'equations.lead':
-		'{count} equations and formulas. Hover a term to highlight it everywhere on the page; calculator-enabled entries solve for any term.',
-	'equations.openCalculator': 'Open in the calculator →',
 	'meta.equation': '{name} — {kind} reference.',
 	'equation.hoverHint': 'Hover or tap a term to highlight it everywhere on this page.',
 	'equation.solve': 'Solve with the calculator',
@@ -223,7 +259,7 @@ export const en = {
 	'meta.search': 'Search every unit, magnitude, constant, and equation in the Equreka wiki.',
 	'search.title': 'Search',
 	'search.lead': 'Search by name, symbol, or alias — with or without accents.',
-	'search.placeholder': 'Search units, magnitudes…',
+	'search.placeholder': 'Constants, variables, units, equations or formulas...',
 	'search.aria': 'Search the wiki',
 	'search.loading': 'Loading search index…',
 	'search.unavailable': 'Search is unavailable right now.',

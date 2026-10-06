@@ -1,6 +1,6 @@
 import { exportEnvelope, type ImportResult, importEnvelope } from '@equreka/core';
 import { type Locale, t } from '@equreka/core/i18n';
-import { useRef, useState } from 'react';
+import { useId, useRef, useState } from 'react';
 import { Icon } from '../components/react-icon';
 import { boxArrowInDownIcon, boxArrowUpIcon } from '../lib/icons';
 import { kvLocalStorage } from '../lib/kv-local-storage';
@@ -15,13 +15,14 @@ type TransferStatus =
 	| { kind: 'error' };
 
 /**
- * Export/import controls shared by the favorites page and the settings
- * page: export downloads the versioned envelope (favorites + learning-path
- * progress) as JSON, import merges an uploaded envelope into storage.
+ * Settings export/import controls: export downloads the versioned
+ * envelope (favorites + learning-path progress) as JSON, import merges an
+ * uploaded envelope into storage.
  */
 export default function FavoritesTransfer({ locale }: FavoritesTransferProps) {
 	const [status, setStatus] = useState<TransferStatus>({ kind: 'idle' });
 	const fileRef = useRef<HTMLInputElement>(null);
+	const noteId = useId();
 
 	const exportFavorites = (): void => {
 		const blob = new Blob([JSON.stringify(exportEnvelope(kvLocalStorage), null, '\t')], {
@@ -44,12 +45,17 @@ export default function FavoritesTransfer({ locale }: FavoritesTransferProps) {
 		}
 	};
 
-	const buttonClass = 'eq-btn eq-btn-primary';
+	const buttonClass = 'eq-btn eq-btn-primary eq-transfer-button';
 
 	return (
 		<div>
 			<div className="eq-transfer-actions">
-				<button type="button" className={buttonClass} onClick={exportFavorites}>
+				<button
+					type="button"
+					className={buttonClass}
+					aria-describedby={noteId}
+					onClick={exportFavorites}
+				>
 					<Icon icon={boxArrowUpIcon} />
 					{t(locale, 'favorites.export')}
 				</button>
@@ -70,7 +76,9 @@ export default function FavoritesTransfer({ locale }: FavoritesTransferProps) {
 					}}
 				/>
 			</div>
-			<p className="eq-transfer-note">{t(locale, 'favorites.transferNote')}</p>
+			<p id={noteId} className="sr-only">
+				{t(locale, 'favorites.transferNote')}
+			</p>
 			<p aria-live="polite" className="eq-transfer-status">
 				{status.kind === 'imported' && (
 					<span>

@@ -103,9 +103,8 @@ const { locale = 'en' } = Astro.props;
 				d="M330.8 309a48 48 0 11-16-66 48 48 0 0116 66zm-71.7-43.7a36 36 0 1049.5-12 36 36 0 00-49.5 12z"
 			></path>
 		</svg>
-		<header class="eq-tool-header">
+		<header class="eq-tool-header eq-main-header">
 			<h1>{t(locale, 'search.title')}</h1>
-			<p class="eq-lead">{t(locale, 'search.lead')}</p>
 		</header>
 		<SearchBox client:load variant="page" locale={locale} />
 	</div>

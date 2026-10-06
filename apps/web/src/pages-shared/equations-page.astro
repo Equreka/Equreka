@@ -1,11 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
 import { type Locale, localizedName, t } from '@equreka/core/i18n';
+import CategoryListCards from '../components/category-list-cards.astro';
 import PageHeader from '../components/page-header.astro';
 import BaseLayout from '../layouts/base-layout.astro';
 import { asEquation } from '../lib/collections';
 import { localePath } from '../lib/locale-paths';
-import { renderExpressionHtml } from '../lib/tex';
 
 interface Props {
 	locale?: Locale;
@@ -13,9 +13,14 @@ interface Props {
 
 const { locale = 'en' } = Astro.props;
 
-const equations = (await getCollection('equations'))
-	.map((entry) => ({ slug: entry.id, ...asEquation(entry.data) }))
-	.sort((a, b) => localizedName(a, locale).localeCompare(localizedName(b, locale), locale));
+const items = (await getCollection('equations')).map((entry) => {
+	const equation = asEquation(entry.data);
+	return {
+		categories: equation.categories,
+		name: localizedName(equation, locale),
+		href: localePath(locale, `/equations/${entry.id}/`),
+	};
+});
 ---
 
 <BaseLayout
@@ -28,43 +33,8 @@ const equations = (await getCollection('equations'))
 		label={t(locale, 'design.content.header.type')}
 		title={t(locale, 'collection.equations')}
 		accent="type-equations"
-	>
-		<p>{t(locale, 'equations.lead', { count: equations.length })}</p>
-	</PageHeader>
-	<ul class="type-equations eq-stack">
-		{
-			equations.map((equation) => (
-				<li
-					class:list={[
-						'eq-card eq-card-body eq-card-accent eq-entry-card',
-						equation.kind === 'formula' ? 'type-formulas' : 'type-equations',
-					]}
-				>
-					<div class="eq-chip-row eq-entry-card-badges">
-						<span class="eq-badge eq-badge-accent">{t(locale, `kind.${equation.kind}`)}</span>
-						{equation.categories.map((category) => (
-							<span class={`eq-badge eq-badge-accent cat-${category}`}>{category}</span>
-						))}
-					</div>
-					<h2 class="eq-card-title">
-						<a href={localePath(locale, `/equations/${equation.slug}/`)}>
-							{localizedName(equation, locale)}
-						</a>
-					</h2>
-					<div
-						class="eq-display-math eq-display-compact"
-						set:html={renderExpressionHtml(equation.expression, equation.terms)}
-					/>
-					{equation.calculator.enabled && (
-						<a
-							class="eq-btn eq-btn-sm eq-btn-tint eq-btn-pill"
-							href={localePath(locale, `/calculator/${equation.slug}/`)}
-						>
-							{t(locale, 'equations.openCalculator')}
-						</a>
-					)}
-				</li>
-			))
-		}
-	</ul>
+	/>
+	<div class="type-equations eq-cards">
+		<CategoryListCards locale={locale} items={items} />
+	</div>
 </BaseLayout>

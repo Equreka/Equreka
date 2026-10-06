@@ -1,65 +1,43 @@
 ---
 /**
- * The seven-circle Equreka mark (docs/brand/logo-circles.svg geometry). The
- * full-color variant approximates the legacy mesh gradient with one
- * gradient per circle group: green-yellow top-left, cyan-blue-violet on the
- * left disc, orange-red-magenta across the large disc. Gradient ids carry
- * `idPrefix` because the shells render several marks per page and a
- * gradient defined inside a hidden instance would not paint the others.
+ * The Equreka mark. `color` is the legacy full-color logo: the original
+ * file's structure (its mesh-gradient raster clipped by the seven-circle
+ * path) with the raster re-encoded at 432 px wide, 5 KB instead of 621 KB,
+ * rendering pixel-identical to the original at the 62 and 72 px display
+ * sizes; it is a separate precached file so pages do not repeat it.
+ * `mono` is the single-path mark painted with `currentColor` (the
+ * original footer mark).
  */
 interface Props {
-	idPrefix: string;
 	tone?: 'color' | 'mono';
 	class?: string;
 }
 
-const { idPrefix, tone = 'color', class: className } = Astro.props;
+const { tone = 'color', class: className } = Astro.props;
 
-const CIRCLES = [
-	{ cx: 570, cy: 250, r: 250, gradient: 'warm' },
-	{ cx: 150, cy: 350, r: 150, gradient: 'cool' },
-	{ cx: 92.5, cy: 92.5, r: 92.5, gradient: 'fresh' },
-	{ cx: 250, cy: 50, r: 50, gradient: 'sun' },
-	{ cx: 270, cy: 155, r: 30, gradient: 'sun' },
-	{ cx: 212.5, cy: 172.5, r: 12.5, gradient: 'warm' },
-	{ cx: 212.5, cy: 137.5, r: 12.5, gradient: 'fresh' },
-] as const;
-
-const fill = (gradient: string): string =>
-	tone === 'mono' ? 'currentColor' : `url(#${idPrefix}-${gradient})`;
+const MARK_PATH =
+	'M820,250c0,138.07-111.93,250-250,250S320,388.07,320,250,431.93,0,570,0,820,111.93,820,250ZM150,200A150,150,0,1,0,300,350,150,150,0,0,0,150,200ZM92.5,0A92.5,92.5,0,1,0,185,92.5,92.5,92.5,0,0,0,92.5,0ZM250,0a50,50,0,1,0,50,50A50,50,0,0,0,250,0Zm20,125a30,30,0,1,0,30,30A30,30,0,0,0,270,125Zm-57.5,0A12.5,12.5,0,1,0,225,137.5,12.5,12.5,0,0,0,212.5,125Zm0,35A12.5,12.5,0,1,0,225,172.5,12.5,12.5,0,0,0,212.5,160Z';
 ---
 
-<svg
-	xmlns="http://www.w3.org/2000/svg"
-	viewBox="0 0 820 500"
-	class:list={['eq-logo', className]}
-	aria-hidden="true"
-	focusable="false"
->
-	{
-		tone === 'color' && (
-			<defs>
-				<linearGradient id={`${idPrefix}-warm`} x1="360" y1="20" x2="790" y2="470" gradientUnits="userSpaceOnUse">
-					<stop offset="0" stop-color="#ffc21a" />
-					<stop offset="0.35" stop-color="#f7772f" />
-					<stop offset="0.7" stop-color="#e6365f" />
-					<stop offset="1" stop-color="#c22593" />
-				</linearGradient>
-				<linearGradient id={`${idPrefix}-cool`} x1="60" y1="200" x2="230" y2="500" gradientUnits="userSpaceOnUse">
-					<stop offset="0" stop-color="#16c6e6" />
-					<stop offset="0.5" stop-color="#2f5cf0" />
-					<stop offset="1" stop-color="#9a2cf2" />
-				</linearGradient>
-				<linearGradient id={`${idPrefix}-fresh`} x1="0" y1="0" x2="185" y2="185" gradientUnits="userSpaceOnUse">
-					<stop offset="0" stop-color="#e8e21c" />
-					<stop offset="1" stop-color="#2fc65a" />
-				</linearGradient>
-				<linearGradient id={`${idPrefix}-sun`} x1="200" y1="0" x2="300" y2="185" gradientUnits="userSpaceOnUse">
-					<stop offset="0" stop-color="#ffd61e" />
-					<stop offset="1" stop-color="#ff8f1f" />
-				</linearGradient>
-			</defs>
-		)
-	}
-	{CIRCLES.map((circle) => <circle cx={circle.cx} cy={circle.cy} r={circle.r} fill={fill(circle.gradient)} />)}
-</svg>
+{
+	tone === 'color' ? (
+		<img
+			src="/brand/logo.svg"
+			alt=""
+			width="72"
+			height="44"
+			decoding="async"
+			class:list={['eq-logo', className]}
+		/>
+	) : (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 820 500"
+			class:list={['eq-logo', className]}
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path fill="currentColor" d={MARK_PATH} />
+		</svg>
+	)
+}

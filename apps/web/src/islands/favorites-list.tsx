@@ -1,52 +1,34 @@
 import type { CatalogLiteEntry } from '@equreka/content/search-options';
-import { type FavoriteEntry, useFavorites } from '@equreka/core';
+import { useFavorites } from '@equreka/core';
 import { collectionLabel, type Locale, t } from '@equreka/core/i18n';
 import { useEffect, useState } from 'react';
 import { Icon } from '../components/react-icon';
-import { entryHref } from '../lib/entry-links';
-import { check2Icon, chevronRightIcon, pencilIcon, xIcon } from '../lib/icons';
+import {
+	type FavoriteMetaIndex,
+	type FavoriteRow,
+	favoriteKey,
+	shapeFavoriteGroups,
+} from '../lib/favorite-rows';
+import { check2Icon, chevronRightIcon, pencilIcon, plusIcon, xIcon } from '../lib/icons';
 import { kvLocalStorage } from '../lib/kv-local-storage';
-import { COLLECTION_ORDER } from '../lib/labels';
-import { localePath } from '../lib/locale-paths';
 import { collectionAccent } from './collection-accent';
-import FavoritesTransfer from './favorites-transfer';
+import { LegacyAbbr } from './legacy-abbr';
 
+/**
+ * `meta` and `categoryNames` are build-time props from the page (category
+ * badge and calculator/converter action per entry), so the island never
+ * fetches a presentation slice.
+ */
 export interface FavoritesListProps {
 	locale?: Locale;
-}
-
-interface FavoriteGroup {
-	collection: string;
-	entries: FavoriteEntry[];
-}
-
-interface CatalogNames {
-	names: Map<string, string>;
-	symbols: Map<string, string>;
-}
-
-function groupFavorites(favorites: readonly FavoriteEntry[]): FavoriteGroup[] {
-	const byCollection = new Map<string, FavoriteEntry[]>();
-	for (const entry of favorites) {
-		const bucket = byCollection.get(entry.collection);
-		if (bucket === undefined) {
-			byCollection.set(entry.collection, [entry]);
-		} else {
-			bucket.push(entry);
-		}
-	}
-	const order = (collection: string): number => {
-		const index = (COLLECTION_ORDER as readonly string[]).indexOf(collection);
-		return index === -1 ? COLLECTION_ORDER.length : index;
-	};
-	return [...byCollection.entries()]
-		.map(([collection, entries]) => ({ collection, entries }))
-		.sort((a, b) => order(a.collection) - order(b.collection));
+	meta?: FavoriteMetaIndex;
+	categoryNames?: Readonly<Record<string, string>>;
 }
 
 /**
- * Legacy empty-favorites heart, drawn behind nothing and tinted from theme
- * variables so it follows light and dark without its own palette.
+ * Legacy empty-favorites heart, drawn behind the page content and tinted
+ * from theme variables so it follows light and dark without its own
+ * palette.
  */
 function FavoritesEmptyArt() {
 	return (
@@ -73,16 +55,85 @@ function FavoritesEmptyArt() {
 	);
 }
 
+interface FavoriteRowViewProps {
+	row: FavoriteRow;
+	editing: boolean;
+	locale: Locale;
+	onRemove: (row: FavoriteRow) => void;
+}
+
 /**
- * The /favorites page body: favorites grouped by collection with entry
- * links and removal (behind the legacy edit toggle), plus export/import.
- * Renders as a fragment so the toggle joins the page header row through
- * the island wrapper's `display: contents`. Display names resolve from the
- * precached catalog-lite (slug is the offline-safe fallback).
+ * One legacy `table-favorites` row: category badge, entry link, then the
+ * calculator/converter action and, in edit mode, the remove button.
  */
-export default function FavoritesList({ locale = 'en' }: FavoritesListProps) {
+function FavoriteRowView({ row, editing, locale, onRemove }: FavoriteRowViewProps) {
+	const toolLabel =
+		row.tool?.kind === 'converter'
+			? t(locale, 'design.legacy.favorites.openConverter')
+			: t(locale, 'design.legacy.favorites.openCalculator');
+	return (
+		<tr>
+			<td className="eq-fav-category">
+				{row.category === undefined ? null : (
+					<a
+						className={`eq-badge eq-badge-accent eq-badge-link cat-${row.category.slug}`}
+						href={row.category.href}
+					>
+						<LegacyAbbr term={row.category.slug} label={row.category.label} locale={locale} />
+					</a>
+				)}
+			</td>
+			<td className="eq-fav-name">
+				{row.href === undefined ? (
+					<span>{row.name}</span>
+				) : (
+					<a className="eq-link eq-fav-link" href={row.href}>
+						{row.name}
+					</a>
+				)}
+			</td>
+			<td className="eq-fav-actions">
+				{row.tool === undefined ? null : (
+					<a
+						className="eq-btn eq-btn-primary eq-fav-action eq-fav-tool"
+						href={row.tool.href}
+						title={toolLabel}
+						aria-label={`${toolLabel}: ${row.name}`}
+					>
+						<Icon icon={plusIcon} />
+					</a>
+				)}
+				{editing && (
+					<button
+						type="button"
+						className="eq-btn eq-btn-danger eq-fav-action eq-fav-remove"
+						aria-label={`${t(locale, 'favorites.remove')}: ${row.name}`}
+						title={t(locale, 'favorites.removeShort')}
+						onClick={() => onRemove(row)}
+					>
+						<Icon icon={xIcon} />
+					</button>
+				)}
+			</td>
+		</tr>
+	);
+}
+
+/**
+ * The /favorites page body: one collapse card per collection holding the
+ * legacy favorites table, the edit toggle (hidden below 992px, as in the
+ * original) and the empty state; export/import lives in settings, as in
+ * the original. Renders as a fragment so the toggle joins the page header row
+ * through the island wrapper's `display: contents`. Display names resolve
+ * from the precached catalog-lite (slug is the offline-safe fallback).
+ */
+export default function FavoritesList({
+	locale = 'en',
+	meta = {},
+	categoryNames = {},
+}: FavoritesListProps) {
 	const favorites = useFavorites(kvLocalStorage);
-	const [catalog, setCatalog] = useState<CatalogNames | null>(null);
+	const [names, setNames] = useState<ReadonlyMap<string, string> | null>(null);
 	const [editing, setEditing] = useState(false);
 
 	useEffect(() => {
@@ -94,46 +145,44 @@ export default function FavoritesList({ locale = 'en' }: FavoritesListProps) {
 			})
 			.then((entries) => {
 				if (cancelled) return;
-				const names = new Map<string, string>();
-				const symbols = new Map<string, string>();
-				for (const entry of entries) {
-					names.set(`${entry.collection}:${entry.slug}`, entry.name);
-					symbols.set(`${entry.collection}:${entry.slug}`, entry.symbolText);
-				}
-				setCatalog({ names, symbols });
+				setNames(
+					new Map(entries.map((entry) => [favoriteKey(entry.collection, entry.slug), entry.name])),
+				);
 			})
 			.catch(() => {
-				if (!cancelled) setCatalog(null);
+				if (!cancelled) setNames(null);
 			});
 		return () => {
 			cancelled = true;
 		};
 	}, [locale]);
 
-	const groups = groupFavorites(favorites.favorites);
+	const groups = shapeFavoriteGroups(favorites.favorites, { locale, meta, categoryNames, names });
 	const editLabel = t(locale, 'design.interactive.editFavorites');
+	const remove = (row: FavoriteRow) => favorites.toggle(row.collection, row.slug);
 
 	return (
 		<>
-			{groups.length > 0 && (
-				<button
-					type="button"
-					className={`eq-btn eq-fav-edit ${editing ? 'eq-btn-success' : 'eq-btn-warning'}`}
-					aria-pressed={editing}
-					aria-label={editLabel}
-					title={editLabel}
-					onClick={() => setEditing((previous) => !previous)}
-				>
-					<Icon icon={editing ? check2Icon : pencilIcon} />
-				</button>
-			)}
+			<button
+				type="button"
+				className={`eq-btn eq-fav-edit ${editing ? 'eq-btn-success' : 'eq-btn-warning'}`}
+				aria-pressed={editing}
+				aria-label={editLabel}
+				title={editLabel}
+				onClick={() => setEditing((previous) => !previous)}
+			>
+				<Icon icon={editing ? check2Icon : pencilIcon} />
+			</button>
 			<div className="eq-fav-body">
 				{groups.length === 0 ? (
-					<div className="eq-card eq-fav-empty">
-						<div className="eq-card-body">
-							<p>{t(locale, 'favorites.none')}</p>
+					<>
+						<FavoritesEmptyArt />
+						<div className="eq-card eq-fav-empty">
+							<div className="eq-card-body">
+								<p>{t(locale, 'design.legacy.favorites.none')}</p>
+							</div>
 						</div>
-					</div>
+					</>
 				) : (
 					groups.map((group) => (
 						<section
@@ -144,58 +193,36 @@ export default function FavoritesList({ locale = 'en' }: FavoritesListProps) {
 							<details className="eq-card eq-collapse" open>
 								<summary className="eq-card-body eq-fav-summary">
 									<Icon icon={chevronRightIcon} className="eq-collapse-chevron" />
-									<h2 className="eq-collapse-title">
-										{collectionLabel(locale, group.collection)}
-										<span className="eq-badge eq-badge-outline eq-fav-count">
-											{group.entries.length}
-										</span>
-									</h2>
+									<h2 className="eq-collapse-title">{collectionLabel(locale, group.collection)}</h2>
 								</summary>
 								<div className="eq-card-body eq-collapse-content eq-fav-panel">
-									<ul className="eq-fav-rows">
-										{group.entries.map((entry) => {
-											const key = `${entry.collection}:${entry.slug}`;
-											const name = catalog?.names.get(key) ?? entry.slug;
-											const symbol = catalog?.symbols.get(key) ?? '';
-											const href = entryHref(entry.collection, entry.slug);
-											return (
-												<li key={key} className="eq-fav-row">
-													{symbol !== '' && <span className="eq-badge-symbol">{symbol}</span>}
-													<span className="eq-fav-name">
-														{href !== undefined ? (
-															<a className="eq-link" href={localePath(locale, href)}>
-																{name}
-															</a>
-														) : (
-															<span>{name}</span>
-														)}
-													</span>
-													{editing && (
-														<button
-															type="button"
-															className="eq-btn eq-btn-danger eq-btn-pill eq-fav-remove"
-															aria-label={`${t(locale, 'favorites.remove')}: ${name}`}
-															title={t(locale, 'favorites.removeShort')}
-															onClick={() => favorites.toggle(entry.collection, entry.slug)}
-														>
-															<Icon icon={xIcon} />
-														</button>
-													)}
-												</li>
-											);
-										})}
-									</ul>
+									<div className="eq-table-wrap">
+										<table className="eq-table-data eq-fav-table">
+											<thead className="sr-only">
+												<tr>
+													<th scope="col">{t(locale, 'design.content.header.category')}</th>
+													<th scope="col">{t(locale, 'table.name')}</th>
+													<th scope="col">{t(locale, 'design.legacy.favorites.actions')}</th>
+												</tr>
+											</thead>
+											<tbody>
+												{group.rows.map((row) => (
+													<FavoriteRowView
+														key={row.key}
+														row={row}
+														editing={editing}
+														locale={locale}
+														onRemove={remove}
+													/>
+												))}
+											</tbody>
+										</table>
+									</div>
 								</div>
 							</details>
 						</section>
 					))
 				)}
-				{groups.length === 0 && <FavoritesEmptyArt />}
-				<div className="eq-card">
-					<div className="eq-card-body">
-						<FavoritesTransfer locale={locale} />
-					</div>
-				</div>
 			</div>
 		</>
 	);

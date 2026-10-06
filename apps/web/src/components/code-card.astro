@@ -1,0 +1,65 @@
+---
+import { type Locale, t } from '@equreka/core/i18n';
+import Icon from './icon.astro';
+
+/**
+ * Legacy entry-page "Code" card: the entry's TeX source in a read-only
+ * field joined to a dark "Copy to clipboard" button (label from md, icon
+ * only below). Copy feedback is an inline live status instead of the
+ * original's window.alert.
+ */
+interface Props {
+	locale: Locale;
+	code: string;
+	headingId?: string;
+}
+
+const { locale, code, headingId = 'code-heading' } = Astro.props;
+---
+
+<section
+	aria-labelledby={headingId}
+	class="eq-card eq-code-card"
+	data-code-card
+	data-copied={t(locale, 'design.content.code.copied')}
+	data-copy-failed={t(locale, 'design.content.code.copyFailed')}
+>
+	<div class="eq-card-body">
+		<h3 id={headingId} class="eq-card-title">{t(locale, 'design.content.code.title')}</h3>
+		<div class="eq-code-group">
+			<input
+				class="eq-input eq-code-input"
+				type="text"
+				readonly
+				value={code}
+				aria-labelledby={headingId}
+				spellcheck="false"
+			/>
+			<button
+				type="button"
+				class="eq-btn eq-btn-dark eq-code-copy"
+				data-code-copy
+				title={t(locale, 'design.content.code.copy')}
+			>
+				<Icon name="clipboard" />
+				<span class="eq-code-copy-label">{t(locale, 'design.content.code.copy')}</span>
+			</button>
+		</div>
+		<p class="sr-only" role="status" aria-live="polite" data-code-status></p>
+	</div>
+</section>
+
+<script>
+	import { copyText } from '../lib/clipboard';
+
+	for (const card of document.querySelectorAll<HTMLElement>('[data-code-card]')) {
+		const input = card.querySelector<HTMLInputElement>('.eq-code-input');
+		const button = card.querySelector<HTMLButtonElement>('[data-code-copy]');
+		const status = card.querySelector<HTMLElement>('[data-code-status]');
+		if (input === null || button === null || status === null) continue;
+		button.addEventListener('click', async () => {
+			const copied = await copyText(input.value);
+			status.textContent = (copied ? card.dataset.copied : card.dataset.copyFailed) ?? '';
+		});
+	}
+</script>

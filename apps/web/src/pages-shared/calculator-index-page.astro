@@ -1,10 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
-import { type Locale, localizedName, t } from '@equreka/core/i18n';
+import { collectionLabel, type Locale, localizedName, t } from '@equreka/core/i18n';
+import CollapseCard from '../components/collapse-card.astro';
 import BaseLayout from '../layouts/base-layout.astro';
 import { asEquation } from '../lib/collections';
 import { localePath } from '../lib/locale-paths';
-import { renderExpressionHtml } from '../lib/tex';
 
 interface Props {
 	locale?: Locale;
@@ -16,6 +16,24 @@ const equations = (await getCollection('equations'))
 	.map((entry) => ({ slug: entry.id, ...asEquation(entry.data) }))
 	.filter((equation) => equation.calculator.enabled)
 	.sort((a, b) => localizedName(a, locale).localeCompare(localizedName(b, locale), locale));
+
+/**
+ * The original index's two list cards, equations then formulas, each
+ * linking every calculator-enabled entry and its type list.
+ */
+const groups = [
+	{ kind: 'equation', id: 'calculator-equations', title: collectionLabel(locale, 'equations') },
+	{
+		kind: 'formula',
+		id: 'calculator-formulas',
+		title: t(locale, 'design.legacy.calculator.formulas'),
+	},
+]
+	.map((group) => ({
+		...group,
+		entries: equations.filter((equation) => equation.kind === group.kind),
+	}))
+	.filter((group) => group.entries.length > 0);
 ---
 
 <BaseLayout
@@ -23,33 +41,34 @@ const equations = (await getCollection('equations'))
 	description={t(locale, 'meta.calculator')}
 	locale={locale}
 >
-	<header class="eq-tool-header">
+	<header class="eq-tool-header eq-main-header">
 		<h1>{t(locale, 'calculator.title')}</h1>
-		<p class="eq-lead">{t(locale, 'calculator.lead', { count: equations.length })}</p>
+		<p class="eq-lead">{t(locale, 'design.legacy.calculator.indexLead')}</p>
 	</header>
-	<ul class="eq-calc-index">
+	<div class="eq-stack">
 		{
-			equations.map((equation) => (
-				<li
-					class:list={[
-						'eq-card eq-card-accent',
-						equation.kind === 'formula' ? 'type-formulas' : 'type-equations',
-					]}
+			groups.map((group) => (
+				<CollapseCard
+					headingId={group.id}
+					title={group.title}
+					chevron="start"
+					class="eq-card-accent"
+					viewAll={{
+						href: localePath(locale, '/equations/'),
+						label: t(locale, 'design.content.viewAll'),
+					}}
 				>
-					<div class="eq-card-body">
-						<span class="eq-badge eq-badge-accent">{t(locale, `kind.${equation.kind}`)}</span>
-						<h2 class="eq-card-title">
-							<a class="eq-link" href={localePath(locale, `/calculator/${equation.slug}/`)}>
-								{localizedName(equation, locale)}
-							</a>
-						</h2>
-						<div
-							class="eq-calc-index-expr eq-scrollbar-thin"
-							set:html={renderExpressionHtml(equation.expression, equation.terms)}
-						/>
-					</div>
-				</li>
+					<ul class="eq-list">
+						{group.entries.map((equation) => (
+							<li>
+								<a class="eq-list-link" href={localePath(locale, `/calculator/${equation.slug}/`)}>
+									{localizedName(equation, locale)}
+								</a>
+							</li>
+						))}
+					</ul>
+				</CollapseCard>
 			))
 		}
-	</ul>
+	</div>
 </BaseLayout>

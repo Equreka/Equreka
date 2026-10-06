@@ -8,7 +8,7 @@ import { generateSW } from 'workbox-build';
 /**
  * Explicit precache globs per ADR 0002: app-shell routes (both locale
  * trees) + island bundles + KaTeX + the Poppins display faces + the
- * per-locale data bundles.
+ * header logo + the per-locale data bundles.
  * Deliberately not a catch-all HTML glob — entry pages are runtime-cached,
  * so a chunk change never invalidates all of them; never-visited entries
  * resolve through the offline reader and its precached reader payload.
@@ -33,6 +33,7 @@ const PRECACHE_GLOBS = [
 	'data/paths.{en,es}.json',
 	'manifest.webmanifest',
 	'icons/*.svg',
+	'brand/logo.svg',
 	'pwa-register.js',
 ];
 

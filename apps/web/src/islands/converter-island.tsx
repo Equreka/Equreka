@@ -187,24 +187,22 @@ export default function ConverterIsland({
 				<div className="eq-card-body">
 					<div className="eq-tool-fields">
 						<div className="eq-tool-wide">
-							<div className="eq-field">
+							<div className="eq-floating">
+								<select
+									id={`${fieldId}-magnitude`}
+									className="eq-field-control"
+									value={magnitude}
+									onChange={(event) => selectMagnitude(event.target.value)}
+								>
+									{magnitudes.map(([slug, entry]) => (
+										<option key={slug} value={slug}>
+											{entry.name}
+										</option>
+									))}
+								</select>
 								<label htmlFor={`${fieldId}-magnitude`} className="eq-field-caption">
 									{t(locale, 'unit.magnitude')}
 								</label>
-								<div className="eq-field-row">
-									<select
-										id={`${fieldId}-magnitude`}
-										className="eq-field-control"
-										value={magnitude}
-										onChange={(event) => selectMagnitude(event.target.value)}
-									>
-										{magnitudes.map(([slug, entry]) => (
-											<option key={slug} value={slug}>
-												{entry.name}
-											</option>
-										))}
-									</select>
-								</div>
 							</div>
 							{hiddenByKind > 0 ? (
 								<div className="eq-tool-scope">
@@ -221,59 +219,53 @@ export default function ConverterIsland({
 								</div>
 							) : null}
 						</div>
-						<div className="eq-field">
+						<div className="eq-floating">
+							<select
+								id={`${fieldId}-from`}
+								className="eq-field-control"
+								value={fromUnit}
+								onChange={(event) => setFromUnit(event.target.value)}
+							>
+								{units.map((unit) => (
+									<option key={unit.slug} value={unit.slug}>
+										{unit.name.en} ({unit.symbolText})
+									</option>
+								))}
+							</select>
 							<label htmlFor={`${fieldId}-from`} className="eq-field-caption">
 								{t(locale, 'converter.from')}
 							</label>
-							<div className="eq-field-row">
-								<select
-									id={`${fieldId}-from`}
-									className="eq-field-control"
-									value={fromUnit}
-									onChange={(event) => setFromUnit(event.target.value)}
-								>
-									{units.map((unit) => (
-										<option key={unit.slug} value={unit.slug}>
-											{unit.name.en} ({unit.symbolText})
-										</option>
-									))}
-								</select>
-							</div>
 						</div>
 						<Icon icon={chevronRightIcon} className="eq-tool-separator" />
-						<div className="eq-field">
+						<div className="eq-floating">
+							<select
+								id={`${fieldId}-to`}
+								className="eq-field-control"
+								value={toUnit}
+								onChange={(event) => setToUnit(event.target.value)}
+							>
+								{units.map((unit) => (
+									<option key={unit.slug} value={unit.slug}>
+										{unit.name.en} ({unit.symbolText})
+									</option>
+								))}
+							</select>
 							<label htmlFor={`${fieldId}-to`} className="eq-field-caption">
 								{t(locale, 'converter.to')}
 							</label>
-							<div className="eq-field-row">
-								<select
-									id={`${fieldId}-to`}
-									className="eq-field-control"
-									value={toUnit}
-									onChange={(event) => setToUnit(event.target.value)}
-								>
-									{units.map((unit) => (
-										<option key={unit.slug} value={unit.slug}>
-											{unit.name.en} ({unit.symbolText})
-										</option>
-									))}
-								</select>
-							</div>
 						</div>
-						<div className="eq-field eq-tool-wide">
+						<div className="eq-floating eq-tool-wide">
+							<input
+								id={`${fieldId}-value`}
+								className="eq-field-control"
+								type="text"
+								inputMode="decimal"
+								value={rawValue}
+								onChange={(event) => setRawValue(event.target.value)}
+							/>
 							<label htmlFor={`${fieldId}-value`} className="eq-field-caption">
 								{t(locale, 'table.value')}
 							</label>
-							<div className="eq-field-row">
-								<input
-									id={`${fieldId}-value`}
-									className="eq-field-control"
-									type="text"
-									inputMode="decimal"
-									value={rawValue}
-									onChange={(event) => setRawValue(event.target.value)}
-								/>
-							</div>
 						</div>
 					</div>
 					<div className="eq-tool-actions">

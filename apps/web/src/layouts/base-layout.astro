@@ -9,7 +9,7 @@ import SearchBox from '../islands/search-box';
 import { definedTermJsonLd, serializeJsonLd } from '../lib/entry-meta';
 import type { IconName } from '../lib/icons';
 import { localePath } from '../lib/locale-paths';
-import { GITHUB_URL, LICENSE_URL, SITE_VERSION } from '../lib/site';
+import { SOCIAL_LINKS } from '../lib/site';
 
 interface Props {
 	title: string;
@@ -58,12 +58,12 @@ const PRIMARY_ITEMS: readonly {
 	{ key: 'nav.settings', href: '/settings/', icon: 'gear', swatch: 'sw-yellow' },
 ];
 
-const SECTION_ITEMS = [
-	{ key: 'nav.units', href: '/units/' },
-	{ key: 'nav.magnitudes', href: '/magnitudes/' },
-	{ key: 'nav.constants', href: '/constants/' },
-	{ key: 'nav.prefixes', href: '/prefixes/' },
-	{ key: 'nav.equations', href: '/equations/' },
+/**
+ * The footer's three text links. Legacy linked About, Contact and Donate,
+ * pages v2 does not have; these slots carry the v2-only destinations
+ * (ADR 0008), which the header never shows.
+ */
+const FOOTER_ITEMS = [
 	{ key: 'nav.paths', href: '/paths/' },
 	{ key: 'nav.calculator', href: '/calculator/' },
 	{ key: 'nav.converter', href: '/converter/' },
@@ -74,8 +74,12 @@ const isCurrent = (href: string): boolean => {
 	const target = localePath(locale, href);
 	return target === homePath ? path === homePath : path.startsWith(target);
 };
-const alternateLocale: Locale = locale === 'es' ? 'en' : 'es';
-const alternatePath = alternateLocale === 'es' ? `/es${basePath}` : basePath;
+
+/**
+ * The search page owns the search bar, so the header leaves its center
+ * zone empty there, as the original's search page hid the header bar.
+ */
+const isSearchPage = path === localePath(locale, '/search/');
 ---
 
 <html lang={locale}>
@@ -133,66 +137,32 @@ const alternatePath = alternateLocale === 'es' ? `/es${basePath}` : basePath;
 	<body class="eq-body">
 		<a class="eq-skip-link" href="#main">{t(locale, 'design.shell.skipToContent')}</a>
 		<header class="eq-site-header">
-			<div class="eq-container">
-				<div class="eq-site-header-row">
-					<div class="eq-site-header-start">
-						<a href={homePath} class="eq-logo-link" aria-label={t(locale, 'design.shell.homeLink')}>
-							<Logo idPrefix="header-logo" />
-						</a>
-					</div>
-					<div class="eq-site-header-center">
-						<SearchBox client:idle variant="header" locale={locale} />
-					</div>
-					<div class="eq-site-header-end">
-						<nav aria-label={t(locale, 'nav.aria')} class="eq-primary-nav">
-							{
-								PRIMARY_ITEMS.map((item) => (
-									<a
-										href={localePath(locale, item.href)}
-										class:list={['eq-primary-link', item.swatch]}
-										title={t(locale, item.key)}
-										aria-current={isCurrent(item.href) ? 'page' : undefined}
-									>
-										<Icon name={item.icon} />
-										<span class="sr-only">{t(locale, item.key)}</span>
-									</a>
-								))
-							}
-						</nav>
-						<a
-							href={alternatePath}
-							class="eq-header-btn eq-locale-link"
-							hreflang={alternateLocale}
-							lang={alternateLocale}
-							title={t(locale, 'design.shell.localeName')}
-						>
-							<span aria-hidden="true">{t(locale, 'design.shell.localeCode')}</span>
-							<span class="sr-only">{t(locale, 'design.shell.localeName')}</span>
-						</a>
-						<button
-							id="theme-toggle"
-							type="button"
-							aria-label={t(locale, 'layout.themeToggle')}
-							title={t(locale, 'layout.themeToggle')}
-							class="eq-header-btn"
-						>
-							<span class="theme-toggle-dark eq-theme-icon" aria-hidden="true"><Icon name="moon" /></span>
-							<span class="theme-toggle-light eq-theme-icon" aria-hidden="true"><Icon name="sun" /></span>
-						</button>
-					</div>
+			<div class="eq-container eq-site-header-row">
+				<div class="eq-site-header-start">
+					<a href={homePath} class="eq-logo-link" aria-label={t(locale, 'design.shell.homeLink')}>
+						<Logo />
+					</a>
 				</div>
-				<nav aria-label={t(locale, 'design.shell.sectionsNav')} class="eq-section-nav">
-					{
-						SECTION_ITEMS.map((item) => (
-							<a
-								href={localePath(locale, item.href)}
-								aria-current={isCurrent(item.href) ? 'page' : undefined}
-							>
-								{t(locale, item.key)}
-							</a>
-						))
-					}
-				</nav>
+				<div class="eq-site-header-center">
+					{!isSearchPage && <SearchBox client:idle variant="header" locale={locale} />}
+				</div>
+				<div class="eq-site-header-end">
+					<nav aria-label={t(locale, 'nav.aria')} class="eq-primary-nav">
+						{
+							PRIMARY_ITEMS.map((item) => (
+								<a
+									href={localePath(locale, item.href)}
+									class:list={['eq-primary-link', item.swatch]}
+									title={t(locale, item.key)}
+									aria-current={isCurrent(item.href) ? 'page' : undefined}
+								>
+									<span class="sr-only">{t(locale, item.key)}</span>
+									<Icon name={item.icon} />
+								</a>
+							))
+						}
+					</nav>
+				</div>
 			</div>
 		</header>
 		<main id="main" class="eq-main">
@@ -210,64 +180,45 @@ const alternatePath = alternateLocale === 'es' ? `/es${basePath}` : basePath;
 		</main>
 		<footer class="eq-site-footer">
 			<div class="eq-container">
-				<nav aria-label={t(locale, 'design.shell.sectionsNav')} class="eq-footer-sections">
-					{
-						SECTION_ITEMS.map((item) => (
-							<a
-								class="eq-footer-link"
-								href={localePath(locale, item.href)}
-								aria-current={isCurrent(item.href) ? 'page' : undefined}
-							>
-								{t(locale, item.key)}
-							</a>
-						))
-					}
-				</nav>
 				<div class="eq-site-footer-row">
-					<p class="eq-footer-tagline">{t(locale, 'footer.tagline')}</p>
+					<div class="eq-footer-brand">
+						<small>{t(locale, 'footer.brand')}</small>
+					</div>
 					<div class="eq-footer-social">
-						<a class="eq-footer-link" href={GITHUB_URL} title={t(locale, 'footer.github')}>
-							<Icon name="github" />
-							<span class="sr-only">{t(locale, 'footer.github')}</span>
-						</a>
+						{
+							SOCIAL_LINKS.map((social) => (
+								<a
+									class:list={['eq-footer-link', `eq-footer-${social.icon}`]}
+									href={social.href}
+									target="_blank"
+									rel="noopener nofollow"
+									title={t(locale, social.key)}
+								>
+									<Icon name={social.icon} />
+									<span class="sr-only">{t(locale, social.key)}</span>
+								</a>
+							))
+						}
 					</div>
-					<div class="eq-footer-links">
-						<a class="eq-footer-link" href={LICENSE_URL}>{t(locale, 'footer.license')}</a>
-						<span class="eq-footer-link">v{SITE_VERSION}</span>
+					<nav aria-label={t(locale, 'design.shell.sectionsNav')} class="eq-footer-links">
+						{
+							FOOTER_ITEMS.map((item) => (
+								<a
+									class="eq-footer-link"
+									href={localePath(locale, item.href)}
+									aria-current={isCurrent(item.href) ? 'page' : undefined}
+								>
+									{t(locale, item.key)}
+								</a>
+							))
+						}
+					</nav>
+					<div class="eq-footer-mark">
+						<Logo tone="mono" />
 					</div>
-					<Logo idPrefix="footer-logo" tone="mono" class="eq-footer-mark" />
 				</div>
 			</div>
 		</footer>
-		<script>
-			/**
-			 * Header theme toggle. Writes through the same versioned settings
-			 * key the useSettings hook owns, then pings the adapter's
-			 * same-document channel so any mounted settings island re-reads.
-			 * The switching class scopes the legacy color cross-fade to the
-			 * toggle itself, so ordinary state changes never animate.
-			 */
-			const SETTINGS_KEY = 'equreka.v1.settings';
-
-			const THEME_SWITCH_MS = 350;
-
-			const toggle = document.getElementById('theme-toggle');
-			toggle?.addEventListener('click', () => {
-				const root = document.documentElement;
-				const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
-				root.classList.add('eq-theme-switching');
-				window.setTimeout(() => root.classList.remove('eq-theme-switching'), THEME_SWITCH_MS);
-				root.dataset.theme = next;
-				try {
-					const raw = localStorage.getItem(SETTINGS_KEY);
-					const settings = raw === null ? {} : JSON.parse(raw);
-					localStorage.setItem(SETTINGS_KEY, JSON.stringify({ ...settings, theme: next }));
-					window.dispatchEvent(
-						new CustomEvent('equreka:kv', { detail: { key: SETTINGS_KEY } }),
-					);
-				} catch {}
-			});
-		</script>
 		<script>
 			/**
 			 * Delegated equation-term cross-highlighting: hovering any

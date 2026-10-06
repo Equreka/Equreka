@@ -1,8 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
 import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
+import SearchBox from '../islands/search-box';
 import BaseLayout from '../layouts/base-layout.astro';
-import { asCategory, asEquation } from '../lib/collections';
+import { asCategory } from '../lib/collections';
 import { localePath } from '../lib/locale-paths';
 
 interface Props {
@@ -14,75 +15,70 @@ const { locale = 'en' } = Astro.props;
 const categories = (await getCollection('categories'))
 	.map((entry) => ({ slug: entry.id, ...asCategory(entry.data) }))
 	.sort((a, b) => a.order - b.order);
-const unitCount = (await getCollection('units')).length;
-const magnitudeCount = (await getCollection('magnitudes')).length;
-const constantCount = (await getCollection('constants')).length;
-const prefixCount = (await getCollection('prefixes')).length;
-const equations = (await getCollection('equations')).map((entry) => asEquation(entry.data));
-const equationCount = equations.length;
-const calculatorCount = equations.filter((equation) => equation.calculator.enabled).length;
-const pathCount = (await getCollection('paths')).length;
 
+/**
+ * The original's types view: its type order and encyclopedic leads.
+ * Formulas share the equations collection, so that card opens the
+ * equations list; variables have no list page in this app and no card.
+ * The v2-only destinations follow the original types.
+ */
 const collectionCards = [
 	{
-		title: t(locale, 'collection.units'),
-		count: unitCount,
-		description: t(locale, 'home.card.units'),
-		href: '/units/',
-		accent: 'type-units',
-	},
-	{
-		title: t(locale, 'collection.magnitudes'),
-		count: magnitudeCount,
-		description: t(locale, 'home.card.magnitudes'),
-		href: '/magnitudes/',
-		accent: 'type-magnitudes',
-	},
-	{
-		title: t(locale, 'collection.constants'),
-		count: constantCount,
-		description: t(locale, 'home.card.constants'),
-		href: '/constants/',
-		accent: 'type-constants',
-	},
-	{
-		title: t(locale, 'collection.prefixes'),
-		count: prefixCount,
-		description: t(locale, 'home.card.prefixes'),
-		href: '/prefixes/',
-		accent: 'type-prefixes',
-	},
-	{
 		title: t(locale, 'collection.equations'),
-		count: equationCount,
-		description: t(locale, 'home.card.equations'),
+		description: t(locale, 'design.content.home.type.equations'),
 		href: '/equations/',
 		accent: 'type-equations',
 	},
 	{
+		title: t(locale, 'design.content.home.formulas'),
+		description: t(locale, 'design.content.home.type.formulas'),
+		href: '/equations/',
+		accent: 'type-formulas',
+	},
+	{
+		title: t(locale, 'collection.constants'),
+		description: t(locale, 'design.content.home.type.constants'),
+		href: '/constants/',
+		accent: 'type-constants',
+	},
+	{
+		title: t(locale, 'collection.magnitudes'),
+		description: t(locale, 'design.content.home.type.magnitudes'),
+		href: '/magnitudes/',
+		accent: 'type-magnitudes',
+	},
+	{
+		title: t(locale, 'collection.units'),
+		description: t(locale, 'design.content.home.type.units'),
+		href: '/units/',
+		accent: 'type-units',
+	},
+	{
+		title: t(locale, 'collection.prefixes'),
+		description: t(locale, 'design.content.home.type.prefixes'),
+		href: '/prefixes/',
+		accent: 'type-prefixes',
+	},
+	{
 		title: t(locale, 'paths.title'),
-		count: pathCount,
 		description: t(locale, 'home.card.paths'),
 		href: '/paths/',
 		accent: 'type-paths',
 	},
 	{
 		title: t(locale, 'nav.calculator'),
-		count: calculatorCount,
 		description: t(locale, 'home.card.calculator'),
 		href: '/calculator/',
 		accent: 'sw-green',
 	},
 	{
 		title: t(locale, 'nav.converter'),
-		count: undefined,
 		description: t(locale, 'home.card.converter'),
 		href: '/converter/',
 		accent: 'type-units',
 	},
 	{
 		title: t(locale, 'nav.search'),
-		count: undefined,
 		description: t(locale, 'home.card.search'),
 		href: '/search/',
 		accent: 'sw-indigo',
@@ -92,7 +88,10 @@ const collectionCards = [
 
 <BaseLayout title={t(locale, 'home.title')} description={t(locale, 'meta.home')} locale={locale}>
 	<h1 class="sr-only">Equreka</h1>
-	<p class="eq-lead eq-home-lead">{t(locale, 'home.lead')}</p>
+	<p class="sr-only">{t(locale, 'home.lead')}</p>
+	<div class="eq-home-search">
+		<SearchBox client:idle variant="header" locale={locale} />
+	</div>
 
 	<input
 		type="radio"
@@ -132,12 +131,14 @@ const collectionCards = [
 							href={localePath(locale, `/categories/${category.slug}/`)}
 							class={`eq-home-card eq-accent-panel cat-${category.slug}`}
 						>
-							<h3 class="eq-home-card-title">{localizedName(category, locale)}</h3>
-							{category.description !== undefined && (
-								<p class="eq-home-card-text">
-									{pickLocalized(category.description, locale).value}
-								</p>
-							)}
+							<div class="eq-home-card-body">
+								<h3 class="eq-home-card-title">{localizedName(category, locale)}</h3>
+								{category.description !== undefined && (
+									<p class="eq-home-card-text">
+										{pickLocalized(category.description, locale).value}
+									</p>
+								)}
+							</div>
 						</a>
 					</li>
 				))
@@ -159,11 +160,10 @@ const collectionCards = [
 							href={localePath(locale, card.href)}
 							class={`eq-home-card eq-accent-panel ${card.accent}`}
 						>
-							<h3 class="eq-home-card-title">
-								{card.title}
-								{card.count !== undefined && <span class="eq-home-card-count">{card.count}</span>}
-							</h3>
-							<p class="eq-home-card-text">{card.description}</p>
+							<div class="eq-home-card-body">
+								<h3 class="eq-home-card-title">{card.title}</h3>
+								<p class="eq-home-card-text">{card.description}</p>
+							</div>
 						</a>
 					</li>
 				))

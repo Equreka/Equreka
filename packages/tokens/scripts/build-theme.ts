@@ -7,43 +7,23 @@ type Theme = keyof ThemedValue;
 
 const KEBAB_RE = /[A-Z]/g;
 
-const HEX_RE = /^#([0-9a-f]{6})$/i;
+const TRIPLET_RE = /^(-?[\d.]+), ([\d.]+%), ([\d.]+%)$/;
 
 function kebab(name: string): string {
 	return name.replace(KEBAB_RE, (letter) => `-${letter.toLowerCase()}`);
 }
 
 /**
- * Hue, saturation and lightness of an opaque hex color as the comma triplet
- * legacy CSS fed to `hsla(var(--x-hsl), alpha)`; `color-mix()` is avoided
- * because Safari 15 lacks it.
+ * Splits a swatch's authored `h, s%, l%` triplet into the three parts
+ * legacy CSS fed to `hsla(var(--x-hsl), alpha)` and `hsl(var(--x-h), ...)`;
+ * `color-mix()` is avoided because Safari 15 lacks it.
  */
-function hslParts(hex: string): [string, string, string] {
-	const match = HEX_RE.exec(hex);
-	if (match?.[1] === undefined) {
-		throw new Error(`build-theme: swatch fill "${hex}" must be #rrggbb`);
+function hslParts(triplet: string): [string, string, string] {
+	const match = TRIPLET_RE.exec(triplet);
+	if (match?.[1] === undefined || match[2] === undefined || match[3] === undefined) {
+		throw new Error(`build-theme: swatch hsl "${triplet}" must be "h, s%, l%"`);
 	}
-	const value = match[1];
-	const [r, g, b] = [0, 2, 4].map((i) => Number.parseInt(value.slice(i, i + 2), 16) / 255) as [
-		number,
-		number,
-		number,
-	];
-	const max = Math.max(r, g, b);
-	const min = Math.min(r, g, b);
-	const l = (max + min) / 2;
-	const d = max - min;
-	const s = d === 0 ? 0 : l > 0.5 ? d / (2 - max - min) : d / (max + min);
-	const h =
-		d === 0
-			? 0
-			: max === r
-				? (g - b) / d + (g < b ? 6 : 0)
-				: max === g
-					? (b - r) / d + 2
-					: (r - g) / d + 4;
-	const round = (n: number): string => String(Math.round(n * 10) / 10);
-	return [round(h * 60), `${round(s * 100)}%`, `${round(l * 100)}%`];
+	return [match[1], match[2], match[3]];
 }
 
 function block(selector: string, declarations: string[], indent = ''): string {
@@ -61,7 +41,7 @@ function colorRoles(): [string, ThemedValue][] {
 
 function swatchDeclarations(theme: Theme): string[] {
 	return Object.entries(tokens.accent.swatch).flatMap(([name, swatch]) => {
-		const [h, s, l] = hslParts(swatch.fill[theme]);
+		const [h, s, l] = hslParts(swatch.hsl[theme]);
 		return [
 			`--eq-sw-${name}-fill: ${swatch.fill[theme]};`,
 			`--eq-sw-${name}-solid: ${swatch.solid[theme]};`,
@@ -87,6 +67,8 @@ function themeDeclarations(theme: Theme): string[] {
 		`--eq-acrylic-bg: ${tokens.acrylic.fallback[theme]};`,
 		`--eq-acrylic-translucent: ${tokens.acrylic.translucent[theme]};`,
 		`--eq-acrylic-filter: ${tokens.acrylic.filter[theme]};`,
+		`--eq-theme-lightness: ${tokens.lightness.theme[theme]};`,
+		`--eq-theme-inverted-lightness: ${tokens.lightness.inverted[theme]};`,
 	];
 }
 
@@ -117,7 +99,7 @@ function staticRootDeclarations(): string[] {
 	return [
 		...root,
 		...Object.entries(tokens.accent.term).flatMap(([kind, swatch]) => [
-			`--eq-term-${kind}: var(--eq-sw-${swatch}-text);`,
+			`--eq-term-${kind}: ${tokens.accent.swatch[swatch].fill.light};`,
 			`--eq-term-${kind}-hsl: ${hslRef(swatch)};`,
 		]),
 		`--eq-acrylic-dropdown-filter: ${tokens.acrylic.dropdownFilter};`,
@@ -128,6 +110,18 @@ function staticRootDeclarations(): string[] {
 		`--eq-duration: ${tokens.motion.duration};`,
 		`--eq-ease: ${tokens.motion.ease};`,
 	];
+}
+
+/**
+ * Shadow tokens that read `--eq-accent*`. A custom property resolves its
+ * `var()` references where it is declared, so a value declared only on
+ * `:root` would freeze the root accent; re-declaring it in every slug
+ * block makes `var(--shadow-page-header)` follow the nearest accent.
+ */
+function accentShadowDeclarations(): string[] {
+	return Object.entries(tokens.shadow)
+		.filter(([, value]) => value.includes('var(--eq-accent'))
+		.map(([name, value]) => `--shadow-${name}: ${value};`);
 }
 
 /**
@@ -144,7 +138,9 @@ function slugClasses(): string[] {
 		add(`.type-${slug}`, swatch);
 	for (const swatch of Object.keys(tokens.accent.swatch) as SwatchName[])
 		add(`.sw-${swatch}`, swatch);
-	return [...selectors].map(([swatch, list]) => block(list.join(',\n'), accentAliases(swatch)));
+	return [...selectors].map(([swatch, list]) =>
+		block(list.join(',\n'), [...accentAliases(swatch), ...accentShadowDeclarations()]),
+	);
 }
 
 /**

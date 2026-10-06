@@ -5,6 +5,14 @@ import { defineConfig } from 'astro/config';
 import { equrekaAssets } from './src/integrations/equreka-assets';
 import { equrekaPwa } from './src/integrations/equreka-pwa';
 
+/**
+ * Vite's Lightning CSS minifier lowers CSS for `build.cssTarget`. Its
+ * default target (Safari 16.4) dropped `-webkit-backdrop-filter`, which
+ * Safari needs until 18; the ADR 0002 floor is Safari 15, so the targets
+ * name it explicitly.
+ */
+const CSS_TARGET = ['chrome111', 'edge111', 'firefox114', 'safari15', 'ios15'];
+
 export default defineConfig({
 	site: 'https://equreka.com',
 	i18n: {
@@ -23,5 +31,6 @@ export default defineConfig({
 	],
 	vite: {
 		plugins: [tailwindcss()],
+		build: { cssTarget: CSS_TARGET },
 	},
 });

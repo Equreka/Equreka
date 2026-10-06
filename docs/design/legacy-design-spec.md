@@ -2,6 +2,8 @@
 
 Faithful, implementable description of the original Equreka interface (2021-2022) so the Astro web app can carry the same design language. This is a visual port: content and behavior of the v2 app do not change.
 
+**Binding rule (user decision, 2026-10-05; ADR 0008):** the success criterion is measured 1:1 visual parity with the running original (`tools/design-parity`). Where the original and an earlier choice of this port disagree, the original wins. That covers exact legacy colors even where they fail WCAG AA (accepted deviations in `scripts/quality/contrast-baseline.json`), the original header and footer, and the original font weights. Rows of sections 8.3, 9 and 10 that this rule supersedes say so.
+
 ## 0. Provenance and method
 
 | Tag | Meaning |
@@ -574,7 +576,7 @@ Icons were rendered with the bootstrap-icons web font (woff2 112,440 bytes, woff
 | `_root.scss` theme mixins, palette, categories, types, terms | `packages/tokens/src/index.ts` (values) and `packages/tokens/scripts/build-theme.ts` (emits `:root`, `:root[data-theme='dark']`, `prefers-color-scheme` blocks plus per-slug `.cat-{slug}` classes that set `--eq-accent-*`) |
 | Body, selection, headings, `p` scale, links, acrylic recipe, card, badge, table, term-hover, collapse, transitions | `apps/web/src/styles/global.css` (`@layer base` for element styles, `@layer components` for `.eq-card`, `.eq-acrylic`, `.eq-badge-*`, `.eq-table-data`, term hover) |
 | `default.vue` + `WebHeader` + `WebFooter` + `AppHeader` + `AppMenu` | `apps/web/src/layouts/base-layout.astro` (both shells in markup, switched by CSS media query, see 8.2) |
-| `Logo.vue`, footer mark, loader | New `apps/web/src/components/logo.astro` (inline SVG, seven circles, gradient defs) and `apps/web/public/icons/icon.svg` |
+| `Logo.vue`, footer mark, loader | `apps/web/src/components/logo.astro`: `tone="color"` is an `<img>` of `apps/web/public/brand/logo.svg` (the original file's structure, mesh raster clipped by the seven-circle path, raster re-encoded at 432 px WebP, 5 KB, pixel-identical at 62 and 72 px; precached); `tone="mono"` is the inline single-path footer mark. PWA icons in `apps/web/public/icons/` are generated |
 | `SearchBar.vue` + `SearchResults.vue` | `apps/web/src/islands/search-box.tsx` (`variant="header"` and page variant) |
 | Home toggle and category/type cards | `apps/web/src/pages-shared/home-page.astro` |
 | `PageHeader.vue` + `PageActions.vue` | New `apps/web/src/components/page-header.astro`, used by every entry, list, category and branch page; favorite action stays `apps/web/src/islands/favorite-toggle.tsx` |
@@ -594,7 +596,7 @@ Icons were rendered with the bootstrap-icons web font (woff2 112,440 bytes, woff
 | Category/type badge class maps | `apps/web/src/lib/category-styles.ts` (and a sibling map for collection types) |
 | Term-kind colors | `apps/web/src/styles/global.css` `.term-hl` rules (replace the current mathematics/universal/chemistry mapping with magnitude/variable/constant colors from 2.7) |
 | KaTeX display (replaces MathJax CHTML) | `.katex-display` rules in `global.css`, wrapped in the display-math card |
-| Theme toggle glyphs (currently text characters) | `base-layout.astro`, using `bi-moon` / `bi-sun` SVGs |
+| Theme and language controls | Settings only (`settings-panel.tsx`), as in the original; the header carries no theme toggle or locale link (ADR 0008) |
 | Update toast (inline styles today) | `apps/web/public/pwa-register.js` (move styles to a class in `global.css`) |
 
 ### 8.2 Implementation rules
@@ -604,7 +606,7 @@ Icons were rendered with the bootstrap-icons web font (woff2 112,440 bytes, woff
 3. **Shell switch by CSS, not user agent.** Render both shells; below 768px show the app header + bottom navigation, from 768px the desktop header + footer. 768px is the threshold the legacy JS already used for touch versus pointer (`window.innerWidth >= 768` in `initTermHover`) and where abbreviations expand. Between 768px and 991px the desktop header wraps the search to a second row exactly as legacy did.
 4. **Acrylic with a floor.** Emit the opaque `--acrylic-bg` first and the translucent surface plus `backdrop-filter` inside `@supports`, including the `-webkit-backdrop-filter` prefix (Safari 15 only supports the prefixed form).
 5. **Zero-JS parity.** Collapse cards use `<details open>`; the home Categories/Types toggle uses two radio inputs styled as the pill buttons with `input:checked ~ .panel` sibling selectors (no `:has()`); both lists stay in the HTML. No `@starting-style`, `field-sizing`, `text-wrap: balance` or `mask-*`.
-6. **Fonts self-hosted.** Ship Poppins as local woff2 files (latin subset) for weights 500, 600 and 700, preloaded and precached (roughly 8 KB each, inside the 6144 KiB budget). Map the legacy 800 declarations to 700 so nothing is synthesized. Body stays on the system stack.
+6. **Fonts self-hosted.** Ship Poppins as local woff2 files (latin subset) for exactly the weights the original downloaded, 500 and 600, preloaded and precached. Legacy 700 and 800 declarations render as synthesized bold of the 600 face, as they did in 2022 (ADR 0008). The body uses the exact legacy system stack (`system-ui, -apple-system, "Segoe UI", Roboto, Ubuntu, Cantarell, "Noto Sans", sans-serif, "Segoe UI", Roboto, "Helvetica Neue", ...`) and the display stack is the legacy Poppins stack with no metric-override fallback face.
 7. **Icons as inline SVG.** Use the bootstrap-icons SVG paths (MIT) for the 25 icons in section 7 through one `icon.astro` component; no icon font, no CDN. If the package is added, it goes through the pnpm catalog with a comment, and `node scripts/quality/catalog-drift.mjs` must stay green.
 8. **Logo.** Rebuild the full-color mark as inline SVG: the seven circles filled by a few overlapping radial gradients approximating the mesh (green-yellow top-left, cyan-blue-violet left, orange-red-magenta right), or as a single optimized raster at 2x display size. Target a few KB, not 621 KB.
 9. **Motion.** Keep the 0.35s ease vocabulary but transition only `color`, `background-color`, `border-color`, `box-shadow`, `transform`, `opacity`, never `all`. Wrap the toggle, reveal, hue-rotate and rotate animations in `@media (prefers-reduced-motion: no-preference)`.
@@ -614,7 +616,7 @@ Icons were rendered with the bootstrap-icons web font (woff2 112,440 bytes, woff
 
 | Surface | Rule |
 | --- | --- |
-| Accent text contrast | Legacy fills were too light for text (section 9). Text set on an accent fill (badges, page headers, home cards) uses the dark-theme variant as the fill in both themes with `#fff` text (4.93:1 for constants up to 9.73:1 for units; the legacy 90%-lightness tint reaches only 4.34:1 on mathematics), except universal, which keeps the `#ee7c2b` fill with `#212529` text (5.55:1; `#fff` on `#bd6628` is 4.12:1). The header and card gradients keep their shape: fill at the bottom, fading toward the top. Accent used as text on cards uses the dark variant in light theme (4.61:1 to 9.08:1, universal 3.85:1 so universal text stays `--body-color-highlight` with an accent underline) and the light variant in dark theme where it passes (universal, equations, formulas, constants, magnitudes), otherwise `hsl(var(--eqk-color-h), 100%, 85%)`. |
+| Accent text contrast | **Superseded by ADR 0008:** text, solid fills and labels take the exact legacy values (fill per theme, badge label `hsl(h, 100%, 90%)`, page-header title `hsl(h, 100%, 95%)`, label `hsl(h, s, 80%)`). Former rule, kept for the record: legacy fills were too light for text (section 9). Text set on an accent fill (badges, page headers, home cards) uses the dark-theme variant as the fill in both themes with `#fff` text (4.93:1 for constants up to 9.73:1 for units; the legacy 90%-lightness tint reaches only 4.34:1 on mathematics), except universal, which keeps the `#ee7c2b` fill with `#212529` text (5.55:1; `#fff` on `#bd6628` is 4.12:1). The header and card gradients keep their shape: fill at the bottom, fading toward the top. Accent used as text on cards uses the dark variant in light theme (4.61:1 to 9.08:1, universal 3.85:1 so universal text stays `--body-color-highlight` with an accent underline) and the light variant in dark theme where it passes (universal, equations, formulas, constants, magnitudes), otherwise `hsl(var(--eqk-color-h), 100%, 85%)`. |
 | Equation cross-highlighting (kept) | Keep the hover-plus-click-lock behavior of `base-layout.astro`; restyle `.term-hl` to the legacy look: rows get the `0.15` kind tint across rounded cells, symbols and links take the kind color (magnitude orange, variable red, constant blue) under the accent text rule above. Avoid `color-mix()` (not in Safari 15); pass the `-hsl` triplet to an HSLA color with an alpha, as legacy did (`hsla(var(--term-color-hsl, var(--eqk-color-hsl)), 0.15)`). |
 | Converter | Reuse the calculator unit-conversion layout: floating number input, `bi-chevron-right` separator (hidden below sm), floating select; result in the display-math card with the units (purple) accent; reset/convert/copy action row. |
 | Paths list | Collapse or list cards per level; level badge uses the `badge-type` construction. Path accent: pink (`#e2367e` / `#b23468`), the legacy calculator/menu color not taken by any collection. |
@@ -634,8 +636,8 @@ Icons were rendered with the bootstrap-icons web font (woff2 112,440 bytes, woff
 
 | Flaw | Evidence | Port decision |
 | --- | --- | --- |
-| Muted and chrome text fail WCAG 1.4.3. Light: `--body-color-muted` on `--body-bg` 2.01:1, on cards 2.37:1; `--header-color` 2.01:1; `--footer-color` 2.17:1; `--body-color` on bare background 4.00:1. Dark: muted 2.74:1 on background, 2.28:1 on cards; footer 2.49:1. | C (computed from resolved values) | Light muted text and header/footer icons use `#5c6370` (4.78:1 on background, 5.65:1 on cards); body text on bare background uses `--body-color-highlight`. Dark muted text uses `hsl(220, 10%, 55%)` (5.67:1 on background, 4.73:1 on cards). |
-| On-accent text too light. Badge text `hsl(var(--eqk-color-h), 100%, 90%)` on light fills: universal 2.24:1, equations 2.33:1, constants 2.18:1, formulas 2.66:1, magnitudes 3.06:1. Page-header label at 80% lightness: 1.78:1 to 3.49:1. `.link-category` `#8c9ba7` on light cards 2.66:1. | C | Accent text rule in 8.3. Links use `--body-color-highlight` with underline. |
+| Muted and chrome text fail WCAG 1.4.3. Light: `--body-color-muted` on `--body-bg` 2.01:1, on cards 2.37:1; `--header-color` 2.01:1; `--footer-color` 2.17:1; `--body-color` on bare background 4.00:1. Dark: muted 2.74:1 on background, 2.28:1 on cards; footer 2.49:1. | C (computed from resolved values) | **Reproduced (ADR 0008):** exact legacy values, recorded as accepted deviations in `scripts/quality/contrast-baseline.json`. |
+| On-accent text too light. Badge text `hsl(var(--eqk-color-h), 100%, 90%)` on light fills: universal 2.24:1, equations 2.33:1, constants 2.18:1, formulas 2.66:1, magnitudes 3.06:1. Page-header label at 80% lightness: 1.78:1 to 3.49:1. `.link-category` `#8c9ba7` on light cards 2.66:1. | C | **Reproduced (ADR 0008):** exact legacy values, recorded as accepted deviations. |
 | Layout chosen by user-agent sniffing (`$device.isMobile`): narrow desktop windows get the desktop shell, tablets and iPadOS get the desktop shell, and the choice cannot follow a resize. | T | CSS media query at 768px (8.2 rule 3). |
 | Favorites edit toggle and calculator index title live in `.main-header`, which is `display: none` below lg, so mobile users cannot edit favorites. | C, O (`mobile-*-favorites-edit.jpg` shows no toggle) | Every control renders at every width. |
 | Focus indicators removed (`outline: 0`) on links, header buttons, menu links, search items, footer links, with no replacement except a few background washes. | C | Visible `:focus-visible` ring (2px `var(--eq-accent)`, offset 2px) on every interactive element. |
@@ -651,51 +653,42 @@ Icons were rendered with the bootstrap-icons web font (woff2 112,440 bytes, woff
 | Copy feedback through `window.alert`. | T | Inline status text (`role="status"`). |
 | Category badges show three-letter `<abbr>` codes below md ("PHY") that screen readers and many users cannot parse. | T, O | Full names; truncate visually if needed. |
 
-## 10. Contrast deviations (implemented)
+## 10. Contrast ratchet (implemented)
 
-`scripts/quality/contrast-check.mjs` checks every text and accent token against every background it can sit on (`bg`, `bgHigh`, opaque `surface`; inputs against their own fills; labels against their solid fills and button states) in both themes: 4.5:1 for text, 3:1 for the header icon buttons (UI components). It runs in the root `quality` script and after `@equreka/tokens` build, and fails on any violation. Where a legacy value failed, the token moved the minimal HSL lightness (hue and saturation kept) until it passed against all of its backgrounds; `node scripts/quality/contrast-check.mjs --suggest` reproduces each fix. Ratios are the minimum across the three neutral backgrounds.
+`scripts/quality/contrast-check.mjs` checks every text and accent token against every background it can sit on, in both themes:
 
-| Theme | Token | Legacy | Port | Legacy min | Port min |
-| --- | --- | --- | --- | --- | --- |
-| light | inkBody (`--body-color`) | `#676f7e` | `#606775` | 4.01:1 | 4.50:1 |
-| light | inkMuted (`--body-color-muted`) | `#9da3af` | `#606775` | 2.01:1 | 4.50:1 |
-| light | footer (`--footer-color`) | `#969ca9` | `#606775` | 2.18:1 | 4.50:1 |
-| light | header icons (`--header-color`, UI 3:1) | `#9da3af` | `#7b8393` | 2.01:1 | 3.02:1 |
-| light | danger text (`$danger`) | `#dc3545` | `#c62232` | 3.59:1 | 4.53:1 |
-| light | orange text (universal, magnitude terms) | `#bd6628` | `#9b5421` | 3.27:1 | 4.52:1 |
-| light | yellow text | `#b79c15` | `#77650e` | 2.14:1 | 4.56:1 |
-| light | teal text (constants type) | `#1b7e6e` | `#197264` | 3.91:1 | 4.58:1 |
-| light | olive text (equations type) | `#627722` | `#5b6e1f` | 3.98:1 | 4.50:1 |
-| dark | inkMuted (`--body-color-muted`) | `#505662` | `#7e8595` | 2.26:1 | 4.51:1 |
-| dark | footer (`--footer-color`) | `#4b505b` | `#7e8595` | 2.06:1 | 4.51:1 |
-| dark | header icons (`--header-color`, UI 3:1) | `#505662` | `#626978` | 2.26:1 | 3.03:1 |
-| dark | accent / primary text (`$primary`) | `#0d6efd` | `#2d81fd` | 3.71:1 | 4.51:1 |
-| dark | danger text (`$danger`) | `#dc3545` | `#e15562` | 3.69:1 | 4.51:1 |
-| dark | blue text (physics, variables, constant terms) | `#0661e0` | `#2c82f9` | 3.02:1 | 4.50:1 |
-| dark | red text (mathematics, variable terms) | `#dd3c3c` | `#e25656` | 3.80:1 | 4.53:1 |
-| dark | indigo text (chemistry) | `#8c1ff9` | `#ac5dfb` | 2.92:1 | 4.54:1 |
-| dark | purple text (units type) | `#5b13ec` | `#986af3` | 2.19:1 | 4.52:1 |
-| dark | pink text (paths) | `#e2367e` | `#e54a8b` | 4.02:1 | 4.52:1 |
-| dark | magenta text (prefixes type) | `#b613ec` | `#c74af0` | 3.41:1 | 4.50:1 |
-| dark | gray text | `#5c6370` | `#7e8695` | 2.76:1 | 4.56:1 |
+- `bg`, `bgHigh` and the opaque `surface`;
+- inputs against their own fills;
+- labels against their solid fills and button states.
 
-- Text accents start from the variant rule in 8.3 (dark variant in light theme, light variant in dark theme), so the "Legacy" column for those rows is that starting variant. Variants that already passed (light: blue, indigo, purple, pink, red, green, cyan, magenta; dark: orange, yellow, green, teal, cyan, olive) are unchanged.
-- In light theme `--body-color` and `--body-color-muted` converge on `#606775`: no lightness between the 35% highlight and the AA floor on `hsl(220, 10%, 90%)` leaves room for three distinct levels. Hierarchy comes from size, weight and case instead.
-- Decorative fills (`fill`: gradients, glows, `hsla()` tints, logo) keep the exact legacy values; text never sits on them. Solid fills under text use the dark variant with `#fff`, except orange and yellow, which keep their light fill with `#212529`. Semantic buttons resolve per theme (legacy dark custom properties, Bootstrap shade/tint states); all pass.
-- Fonts ship Poppins 500 and 600 only (the legacy download); the 600 face declares `font-weight: 600 800` so legacy 700/800 declarations render the real 600 face instead of synthesized bold.
-- Tailwind's Lightning CSS pass drops `-webkit-backdrop-filter` and rewrites `min-width` queries to range syntax for its Safari 16.4 target. Acrylic therefore degrades to the opaque `--acrylic-bg` surface before Safari 18, and engines without range media queries get the mobile shell; both stay legible, which is the ADR 0002 floor. Background, text color and font family are unlayered so engines without cascade layers keep them.
+The thresholds are 4.5:1 for text and 3:1 for the header icon buttons (UI components). It runs in the root `quality` script and after the `@equreka/tokens` build.
+
+Every token holds the exact legacy value (ADR 0008), so 147 pairs fail AA as they did in 2022. `scripts/quality/contrast-baseline.json` lists each one with the ratio it shipped at; for example, light `--body-color-muted` on the background is 2.01:1 and dark `--footer-color` is 2.06:1. The gate fails when:
+
+- a failing pair is missing from the baseline (every new pair must meet AA);
+- a baselined pair gets worse;
+- a baselined pair passes or no longer exists, so the list only shrinks.
+
+To fix a deviation: change the token, rebuild the tokens, and delete the entry. `--suggest` prints the minimal HSL-lightness move for each failing token. The 21 AA adjustments of the first pass (former table here) were reverted.
+
+- Text set on accent fills uses the legacy tints computed in CSS from the swatch's authored triplet: page-header title `hsl(var(--eq-accent-h), 100%, 95%)`, label `hsl(var(--eq-accent-h), var(--eq-accent-s), 80%)`, badges `--eq-accent-on-solid` (`hsl(h, 100%, 90%)`). Semantic buttons use Bootstrap's literal light values in both themes, as the original compiled them.
+- Fonts ship Poppins 500 and 600 only (the legacy download), and 700/800 are synthesized as in the original.
+- Vite's Lightning CSS minifier takes its targets from `build.cssTarget`. `apps/web/astro.config.ts` sets it to include Safari 15, so `-webkit-backdrop-filter` survives the build (acrylic blur works on Safari 15 to 17) and `min-width` queries stay in the classic syntax. Background, text color and font family are unlayered, so engines without cascade layers keep them.
+- Shadow tokens that read `--eq-accent*` (`--shadow-page-header`, `--shadow-accent-card`, `--shadow-home-card(-hover)`, `--shadow-accent-focus`) are re-declared in every slug class. A custom property resolves its `var()` references where it is declared, so a `:root`-only declaration froze the root accent.
 
 ## 11. Foundation API (implemented)
 
 Tokens: `packages/tokens/src/index.ts` generates `theme.css`. Utilities follow the roles: `bg-bg`, `bg-bg-high`, `bg-surface`, `text-ink` (highlight), `text-ink-body`, `text-ink-muted`, `text-accent`, `bg-accent-solid text-accent-on-solid`, `text-physics` and the other categories, `shadow-page-header` / `shadow-accent-card` / `shadow-home-card(-hover)`, `rounded-card` / `rounded-home-card` / `rounded-pill`, `text-h1`...`text-h6`, `text-lead`, `text-card-title`, `text-page-title`, `text-display-math`, `font-display`, `font-math`, `tracking-label`. Breakpoints are the legacy ones (`sm` 576, `md` 768, `lg` 992, `xl` 1200, `2xl` 1400).
 
-Accent: put `cat-{category}`, `type-{collection}` (`equations`, `formulas`, `constants`, `magnitudes`, `variables`, `units`, `prefixes`, `paths`) or `sw-{swatch}` on a container; it sets `--eq-accent` (AA text), `--eq-accent-fill` (legacy decorative), `--eq-accent-solid` / `--eq-accent-on-solid` (fill under text and its label), `--eq-accent-h|s|l` and `--eq-accent-hsl` (for `hsla(var(--eq-accent-hsl), a)`). Term kinds resolve from `data-term` / `eq-{kind}` to `--eq-term` and `--eq-term-hsl`.
+Shell (`base-layout.astro`, ADR 0008): the header is logo, search and the four icon buttons; the bottom navigation (below 768px) is the same four links; the footer (768px and up only) is "Equreka", the GitHub/Facebook/Twitter/Discord row (`SOCIAL_LINKS` in `lib/site.ts`) and three text links (Paths, Calculator, Converter) in the slots the original used for About, Contact and Donate.
+
+Accent: put `cat-{category}`, `type-{collection}` (`equations`, `formulas`, `constants`, `magnitudes`, `variables`, `units`, `prefixes`, `paths`) or `sw-{swatch}` on a container; it sets `--eq-accent` (text), `--eq-accent-fill` (palette color), `--eq-accent-solid` / `--eq-accent-on-solid` (fill under text and its label), all exact legacy values (ADR 0008), `--eq-accent-h|s|l` and `--eq-accent-hsl` (for `hsla(var(--eq-accent-hsl), a)`). Term kinds resolve from `data-term` / `eq-{kind}` to `--eq-term` (the light hex in both themes, as legacy) and `--eq-term-hsl` (theme-varying). Neutral roles add `--eq-link` (`#8c9ba7`, Bootstrap's `--bs-link-color` override), `--eq-theme-lightness` and `--eq-theme-inverted-lightness` (98% / 7%, 5% / 90%; feed the hover washes and the acrylic inset ring).
 
 | Class | Use |
 | --- | --- |
 | `eq-container`, `eq-stack` | Legacy container widths and gutter; vertical card stack with the fluid card gap |
 | `eq-acrylic`, `eq-card`, `eq-card-body`, `eq-card-title`, `eq-card-accent` | Acrylic surface, card (no shadow in dark), padding, title, accent-tinted shadow |
-| `eq-accent-panel`, `eq-page-header`, `eq-page-header-label`, `eq-page-header-title` | Solid accent band with top highlight (page header, home cards); header spacing and type |
+| `eq-accent-panel`, `eq-page-header`, `eq-page-header-row`, `eq-page-header-label`, `eq-page-header-title`, `eq-page-actions` | Legacy accent band: `linear-gradient(var(--eq-accent-panel-angle, 0deg), var(--eq-accent-fill), transparent 250%)` with `hsl(h, 100%, 95%)` text (set `--eq-accent-panel-angle: 5deg` for the home cards); page-header spacing, legacy label/title tints and weights. The band holds only label, title and actions; a lead passed to `page-header.astro` renders below the band in the container |
 | `eq-label`, `eq-lead`, `eq-text-body`, `eq-display`, `eq-link`, `eq-accent-text` | Uppercase Poppins label, lead, fluid body text, Poppins, underlined link, accent text |
 | `eq-badge` + `eq-badge-accent` / `-warning` / `-outline`; `eq-badge-symbol` (`eq-is-done` inverts) | Category/type, draft, identifier/count, symbol badges |
 | `eq-list`, `eq-list-link` | List-card links with tint hover and symbol inversion |

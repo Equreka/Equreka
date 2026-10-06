@@ -1,13 +1,11 @@
 ---
 import { getCollection } from 'astro:content';
 import { type Locale, localizedName, t } from '@equreka/core/i18n';
-import { type BranchGroup, branchesOfCategory, groupByBranch } from '@equreka/core/taxonomy';
-import CollapseCard from '../components/collapse-card.astro';
+import CategoryListCards from '../components/category-list-cards.astro';
 import PageHeader from '../components/page-header.astro';
 import BaseLayout from '../layouts/base-layout.astro';
-import { asCategory, asUnit } from '../lib/collections';
+import { asUnit } from '../lib/collections';
 import { localePath } from '../lib/locale-paths';
-import { branchRecords } from '../lib/server/taxonomy';
 import { renderSymbolHtml } from '../lib/tex';
 import { symbolTextOf } from '../lib/unit-symbol';
 
@@ -17,58 +15,16 @@ interface Props {
 
 const { locale = 'en' } = Astro.props;
 
-const categories = (await getCollection('categories'))
-	.map((entry) => ({ slug: entry.id, ...asCategory(entry.data) }))
-	.sort((a, b) => a.order - b.order);
-const units = (await getCollection('units')).map((entry) => ({
-	slug: entry.id,
-	...asUnit(entry.data),
-}));
-
-const byName = (
-	a: { name: { en: string; es?: string } },
-	b: { name: { en: string; es?: string } },
-) => localizedName(a, locale).localeCompare(localizedName(b, locale), locale);
-
-const branches = await branchRecords();
-
-type ListedUnit = (typeof units)[number];
-
-function branchSections(slug: string, group: BranchGroup<ListedUnit>) {
-	const branch = group.branch === null ? undefined : branches[group.branch];
+const items = (await getCollection('units')).map((entry) => {
+	const unit = asUnit(entry.data);
 	return {
-		id: `${slug}-${group.branch ?? 'general'}`,
-		title: branch === undefined ? t(locale, 'branch.general') : localizedName(branch, locale),
-		href: group.branch === null ? undefined : `/branches/${group.branch}/`,
-		units: group.entries,
+		categories: unit.categories,
+		sortKey: unit.unitOf[0],
+		name: localizedName(unit, locale),
+		href: localePath(locale, `/units/${entry.id}/`),
+		symbolHtml: renderSymbolHtml(unit.symbol.tex, symbolTextOf({ ...unit, slug: entry.id })),
 	};
-}
-
-const grouped = categories
-	.map((category) => {
-		const members = units.filter((unit) => unit.categories.includes(category.slug)).sort(byName);
-		return {
-			slug: category.slug,
-			title: localizedName(category, locale),
-			count: members.length,
-			sections: groupByBranch(members, branchesOfCategory(branches, category.slug)).map((group) =>
-				branchSections(category.slug, group),
-			),
-		};
-	})
-	.filter((group) => group.count > 0);
-
-const ungrouped = units
-	.filter((unit) => !categories.some((category) => unit.categories.includes(category.slug)))
-	.sort(byName);
-if (ungrouped.length > 0) {
-	grouped.push({
-		slug: 'other',
-		title: t(locale, 'group.other'),
-		count: ungrouped.length,
-		sections: [branchSections('other', { branch: null, entries: ungrouped })],
-	});
-}
+});
 ---
 
 <BaseLayout
@@ -81,71 +37,8 @@ if (ungrouped.length > 0) {
 		label={t(locale, 'design.content.header.type')}
 		title={t(locale, 'collection.units')}
 		accent="type-units"
-	>
-		<p>{t(locale, 'units.lead', { count: units.length })}</p>
-	</PageHeader>
-	<div class="type-units eq-stack">
-		{
-			grouped.map((group) => (
-				<CollapseCard
-					headingId={group.slug}
-					titleId={`${group.slug}-heading`}
-					title={group.title}
-					count={group.count}
-					chevron="start"
-					class="eq-card-accent"
-					viewAll={
-						group.slug === 'other'
-							? undefined
-							: {
-									href: localePath(locale, `/categories/${group.slug}/`),
-									label: t(locale, 'design.content.viewAll'),
-								}
-					}
-				>
-					{group.sections.map((section) => (
-						<div class="eq-table-section">
-							{(section.href !== undefined || group.sections.length > 1) && (
-								<h3 id={section.id} class="eq-subheading">
-									{section.href !== undefined ? (
-										<a href={localePath(locale, section.href)}>{section.title}</a>
-									) : (
-										section.title
-									)}
-									<span class="eq-count">{section.units.length}</span>
-								</h3>
-							)}
-							<div class="eq-table-wrap">
-								<table class="eq-table-data">
-									<thead>
-										<tr>
-											<th scope="col" class="eq-col-symbol">{t(locale, 'table.symbol')}</th>
-											<th scope="col">{t(locale, 'table.name')}</th>
-											<th scope="col">{t(locale, 'table.system')}</th>
-										</tr>
-									</thead>
-									<tbody>
-										{section.units.map((unit) => (
-											<tr>
-												<td
-													class="eq-cell-symbol"
-													set:html={renderSymbolHtml(unit.symbol.tex, symbolTextOf(unit))}
-												/>
-												<td>
-													<a class="eq-link" href={localePath(locale, `/units/${unit.slug}/`)}>
-														{localizedName(unit, locale)}
-													</a>
-												</td>
-												<td class="eq-cell-muted">{t(locale, `system.${unit.system}`)}</td>
-											</tr>
-										))}
-									</tbody>
-								</table>
-							</div>
-						</div>
-					))}
-				</CollapseCard>
-			))
-		}
+	/>
+	<div class="type-units eq-cards">
+		<CategoryListCards locale={locale} items={items} />
 	</div>
 </BaseLayout>
