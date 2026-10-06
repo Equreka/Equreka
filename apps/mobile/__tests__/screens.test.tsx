@@ -131,9 +131,9 @@ describe('BranchScreen', () => {
 		await renderWithProvider(<BranchScreen slug="thermodynamics" />);
 		expect(screen.getByText('Thermodynamics')).toBeTruthy();
 		expect(screen.getByText('Branch of Physics')).toBeTruthy();
-		expect(screen.getByText(/^Kelvin/)).toBeTruthy();
-		expect(screen.getByText(/^Boltzmann constant/)).toBeTruthy();
-		expect(screen.queryByText(/^Metre/)).toBeNull();
+		expect(screen.getByText(/^Kelvin\s+K$/)).toBeTruthy();
+		expect(screen.getByText(/^Boltzmann constant\s+k$/)).toBeTruthy();
+		expect(screen.queryByText(/^Metre\s+m$/)).toBeNull();
 	});
 
 	it('reports an unknown branch instead of crashing', async () => {

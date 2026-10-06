@@ -20,19 +20,17 @@ describe('constantValueCards', () => {
 		});
 	});
 
-	it('leaves the precision card alone for every constant without approximations', () => {
+	it('leaves the precision card alone for exactly the constants without approximations', () => {
 		const single = Object.entries(constants)
 			.filter(([, constant]) => constantValueCards(constant).length === 1)
 			.map(([slug]) => slug)
 			.sort();
-		expect(single).toEqual([
-			'avogadro-constant',
-			'boltzmann-constant',
-			'elementary-charge',
-			'hyperfine-transition-frequency-of-caesium',
-			'luminous-efficacy-of-radiation',
-			'planck-constant',
-		]);
+		const unapproximated = Object.entries(constants)
+			.filter(([, constant]) => constant.approximations === undefined)
+			.map(([slug]) => slug)
+			.sort();
+		expect(unapproximated.length).toBeGreaterThan(0);
+		expect(single).toEqual(unapproximated);
 		for (const slug of single) {
 			expect(constantValueCards(constants[slug] ?? { value: '' })).toEqual([
 				{ kind: 'precision', values: [constants[slug]?.value] },
