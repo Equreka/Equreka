@@ -5,10 +5,14 @@
  * packages' Node-ESM-style relative imports. MathJax's `#default-font`
  * subpath import targets the font's ESM build; jest's CommonJS graph takes
  * the CJS twin so the output jax and the font share one module instance.
+ * Tests are located through `roots`, not a `<rootDir>` glob: a checkout
+ * path such as a `.claude` worktree turns into glob syntax and matches
+ * nothing.
  */
 module.exports = {
 	preset: 'jest-expo',
-	testMatch: ['<rootDir>/__tests__/**/*.test.ts', '<rootDir>/__tests__/**/*.test.tsx'],
+	roots: ['<rootDir>/__tests__'],
+	testMatch: ['**/*.test.ts', '**/*.test.tsx'],
 	setupFiles: ['@shopify/flash-list/jestSetup'],
 	moduleNameMapper: {
 		'^(\\.{1,2}/.*)\\.js$': '$1',
