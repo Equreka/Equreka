@@ -301,6 +301,19 @@ describe('build over the real corpus', () => {
 		).toMatchObject({ branches: [] });
 	});
 
+	it('badges catalog-lite rows with their categories: own, parent for branches, none for categories', () => {
+		const catalog = readJson<{ collection: string; slug: string; categories: string[] }[]>(
+			'search',
+			'catalog-lite.en.json',
+		);
+		const categoriesOf = (collection: string, slug: string): string[] | undefined =>
+			catalog.find((row) => row.collection === collection && row.slug === slug)?.categories;
+		expect(categoriesOf('units', 'kelvin')).toEqual(['physics']);
+		expect(categoriesOf('branches', 'thermodynamics')).toEqual(['physics']);
+		expect(categoriesOf('categories', 'physics')).toEqual([]);
+		expect(catalog.every((row) => Array.isArray(row.categories))).toBe(true);
+	});
+
 	it('emits a draft-07 authoring JSON Schema per collection for editors', () => {
 		for (const collection of COLLECTIONS) {
 			const path = join(outDir, 'schemas', `${collection}.schema.json`);

@@ -19,6 +19,10 @@ export interface SearchDocument {
 	branches: string[];
 }
 
+/**
+ * `categories` holds category slugs in authored order; the first one badges
+ * the entry's search result row, as the original's `categories[0]` did.
+ */
 export interface CatalogLiteEntry {
 	collection: string;
 	slug: string;
@@ -26,6 +30,7 @@ export interface CatalogLiteEntry {
 	symbolText: string;
 	aliases: string[];
 	branches: string[];
+	categories: string[];
 }
 
 /**

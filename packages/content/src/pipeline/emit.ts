@@ -166,6 +166,7 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 			symbolText: document.symbolText,
 			aliases: document.aliases,
 			branches: document.branches,
+			categories: catalogCategoriesOf(corpus, document.collection, document.slug),
 		}));
 		write(
 			`search/catalog-lite.${locale}.json`,
@@ -341,6 +342,23 @@ function searchDocuments(corpus: Corpus, locale: SearchLocale): SearchDocument[]
 		}
 	}
 	return documents;
+}
+
+/**
+ * Category slugs a catalog row is badged with: a branch carries its parent
+ * category, a category carries none (it is the category), every other
+ * entry its own `categories` in authored order.
+ */
+function catalogCategoriesOf(corpus: Corpus, collection: string, slug: string): string[] {
+	if (collection === 'categories') return [];
+	if (collection === 'branches') {
+		const branch = corpus.branches.get(slug);
+		return branch === undefined ? [] : [branch.category];
+	}
+	const entity = (
+		corpus[collection as CollectionName] as Map<string, { categories?: string[] }>
+	).get(slug);
+	return entity?.categories ?? [];
 }
 
 function searchDocumentOf(

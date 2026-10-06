@@ -179,8 +179,13 @@
 		}
 	}
 
+	/**
+	 * The original never declared a dark color scheme, so the native clear
+	 * button of its search field kept the light rendering in both themes.
+	 */
 	.eq-search-page .eq-search-input-lg {
 		display: block;
+		color-scheme: light;
 		padding-block: 0.65rem;
 		font-size: 1rem;
 		line-height: 1.5;
@@ -188,6 +193,57 @@
 
 	.eq-search-page .eq-search-input-lg ~ .eq-search-icon {
 		top: 1.4rem;
+	}
+
+	/**
+	 * The original's results panel inherited the body color, capped the
+	 * floating panel at 60vh on home (500px under the header), and its
+	 * pressed row took a 50% wash; hover and focus took the 20% wash.
+	 */
+	.eq-search-results {
+		color: var(--eq-ink-body);
+	}
+
+	.eq-home-search .eq-search-results-floating {
+		max-height: 60vh;
+	}
+
+	a.eq-search-item:focus {
+		background-color: hsla(var(--eq-accent-h), 85%, 50%, 0.2);
+	}
+
+	a.eq-search-item:active {
+		background-color: hsla(var(--eq-accent-h), 85%, 50%, 0.5);
+	}
+
+	/**
+	 * The original's results scrollbar: 5px wide (its global scrollbar rule),
+	 * transparent track, primary thumb with 10px radius. Blink and WebKit
+	 * ignore `::-webkit-scrollbar` while `scrollbar-width` or
+	 * `scrollbar-color` is set, so those reset where the pseudo-elements
+	 * exist; other engines keep the thin standard scrollbar.
+	 */
+	@supports selector(::-webkit-scrollbar) {
+		.eq-search-results {
+			scrollbar-width: auto;
+			scrollbar-color: auto;
+		}
+
+		.eq-search-results::-webkit-scrollbar {
+			width: 5px;
+			background: transparent;
+		}
+
+		.eq-search-results::-webkit-scrollbar-button {
+			display: none;
+			width: 0;
+			height: 0;
+		}
+
+		.eq-search-results::-webkit-scrollbar-thumb {
+			border-radius: 10px;
+			background: var(--eq-btn-primary-bg);
+		}
 	}
 
 	.eq-search-group + .eq-search-group {
@@ -229,11 +285,16 @@
 		color: var(--eq-ink-body);
 	}
 
-	.eq-search-symbol {
+	.eq-search-category {
+		box-sizing: border-box;
 		flex: none;
-		color: var(--eq-ink-body);
-		font-family: var(--font-math);
-		font-size: 0.95em;
+		min-width: 30px;
+		font-weight: 700;
+		text-align: center;
+		text-decoration: none;
+		transition:
+			color var(--eq-duration) var(--eq-ease),
+			background-color var(--eq-duration) var(--eq-ease);
 	}
 
 	.eq-search-message {
@@ -943,6 +1004,12 @@
 
 	.eq-dropdown > summary::-webkit-details-marker {
 		display: none;
+	}
+
+	.eq-search-category > .eq-legacy-abbr {
+		display: inline;
+		min-width: 0;
+		text-align: inherit;
 	}
 
 	.eq-settings .eq-dropdown-toggle {

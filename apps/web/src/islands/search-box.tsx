@@ -10,9 +10,9 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import { Icon } from '../components/react-icon';
 import { entryHref } from '../lib/entry-links';
 import { searchIcon } from '../lib/icons';
-import { COLLECTION_ORDER } from '../lib/labels';
 import { localePath } from '../lib/locale-paths';
 import { collectionAccent } from './collection-accent';
+import { LegacyAbbr } from './legacy-abbr';
 
 export interface SearchBoxProps {
 	variant: 'header' | 'page';
@@ -25,17 +25,27 @@ interface FoldedCatalogEntry extends CatalogLiteEntry {
 	foldedAliases: string[];
 }
 
+/**
+ * `byKey` resolves a BM25 hit (which stores only name and collection) to
+ * its catalog row for the category badge; `categoryNames` maps a category
+ * slug to its localized name, read from the catalog's own category rows.
+ */
 interface SearchLanes {
 	catalog: FoldedCatalogEntry[];
+	byKey: ReadonlyMap<string, FoldedCatalogEntry>;
+	categoryNames: ReadonlyMap<string, string>;
 	index: MiniSearch<SearchDocument>;
 }
 
+/**
+ * `category` is the first category slug, the one the original badged.
+ */
 interface ResultRow {
 	key: string;
 	collection: string;
 	slug: string;
 	name: string;
-	symbolText: string;
+	category: string | undefined;
 	pinned: boolean;
 }
 
@@ -46,6 +56,23 @@ interface ResultGroup {
 
 const PINNED_LIMIT = 8;
 const TOTAL_LIMIT = 20;
+
+/**
+ * The original's fixed group order (equations, formulas, constants,
+ * magnitudes, variables, units, prefixes; v2 has no formulas), then the
+ * collections only v2 indexes.
+ */
+const GROUP_ORDER: readonly string[] = [
+	'equations',
+	'constants',
+	'magnitudes',
+	'variables',
+	'units',
+	'prefixes',
+	'paths',
+	'categories',
+	'branches',
+];
 
 /**
  * Two-lane search per ADR 0002: an exact/startsWith pass over the folded
@@ -75,7 +102,7 @@ function runSearch(lanes: SearchLanes, query: string): ResultRow[] {
 				collection: entry.collection,
 				slug: entry.slug,
 				name: entry.name,
-				symbolText: entry.symbolText,
+				category: entry.categories[0],
 				pinned: true,
 			},
 		});
@@ -94,7 +121,7 @@ function runSearch(lanes: SearchLanes, query: string): ResultRow[] {
 			collection: String(hit.collection ?? key.slice(0, separator)),
 			slug: key.slice(separator + 1),
 			name: String(hit.name ?? key),
-			symbolText: '',
+			category: lanes.byKey.get(key)?.categories[0],
 			pinned: false,
 		});
 		if (pinned.length + rest.length >= TOTAL_LIMIT) break;
@@ -113,16 +140,37 @@ function groupRows(rows: ResultRow[]): ResultGroup[] {
 		}
 	}
 	const order = (collection: string): number => {
-		const index = (COLLECTION_ORDER as readonly string[]).indexOf(collection);
-		return index === -1 ? COLLECTION_ORDER.length : index;
+		const index = GROUP_ORDER.indexOf(collection);
+		return index === -1 ? GROUP_ORDER.length : index;
 	};
 	return [...byCollection.entries()]
 		.map(([collection, groupRows]) => ({ collection, rows: groupRows }))
-		.sort((a, b) => {
-			const aPinned = a.rows.some((row) => row.pinned) ? 0 : 1;
-			const bPinned = b.rows.some((row) => row.pinned) ? 0 : 1;
-			return aPinned - bPinned || order(a.collection) - order(b.collection);
-		});
+		.sort((a, b) => order(a.collection) - order(b.collection));
+}
+
+interface ResultRowContentProps {
+	row: ResultRow;
+	categoryNames: ReadonlyMap<string, string>;
+	locale: Locale;
+}
+
+/**
+ * The original `SearchResults` row body: the name, then the `Abbr` badge
+ * of the entry's first category (short code below 768px, full name from
+ * 768px).
+ */
+function ResultRowContent({ row, categoryNames, locale }: ResultRowContentProps) {
+	const label = row.category === undefined ? undefined : categoryNames.get(row.category);
+	return (
+		<>
+			<span>{row.name}</span>
+			{row.category === undefined || label === undefined ? null : (
+				<span className="eq-badge eq-badge-accent eq-search-category">
+					<LegacyAbbr term={row.category} label={label} locale={locale} />
+				</span>
+			)}
+		</>
+	);
 }
 
 export default function SearchBox({ variant, locale = 'en' }: SearchBoxProps) {
@@ -149,7 +197,16 @@ export default function SearchBox({ variant, locale = 'en' }: SearchBoxProps) {
 				foldedSymbol: foldSearchTerm(entry.symbolText),
 				foldedAliases: entry.aliases.map(foldSearchTerm),
 			}));
-			setLanes({ catalog, index: MiniSearch.loadJSON<SearchDocument>(indexJson, searchOptions) });
+			setLanes({
+				catalog,
+				byKey: new Map(catalog.map((entry) => [`${entry.collection}:${entry.slug}`, entry])),
+				categoryNames: new Map(
+					catalog
+						.filter((entry) => entry.collection === 'categories')
+						.map((entry) => [entry.slug, entry.name]),
+				),
+				index: MiniSearch.loadJSON<SearchDocument>(indexJson, searchOptions),
+			});
 		})().catch(() => {
 			loadRef.current = null;
 			setFailed(true);
@@ -187,22 +244,21 @@ export default function SearchBox({ variant, locale = 'en' }: SearchBoxProps) {
 					<ul>
 						{group.rows.map((row) => {
 							const href = entryHref(row.collection, row.slug);
+							const className =
+								row.category === undefined
+									? 'eq-search-item'
+									: `eq-search-item cat-${row.category}`;
+							const content = (
+								<ResultRowContent row={row} categoryNames={lanes.categoryNames} locale={locale} />
+							);
 							return (
 								<li key={row.key}>
 									{href !== undefined ? (
-										<a className="eq-search-item" href={localePath(locale, href)}>
-											<span>{row.name}</span>
-											{row.symbolText !== '' && (
-												<span className="eq-search-symbol">{row.symbolText}</span>
-											)}
+										<a className={className} href={localePath(locale, href)}>
+											{content}
 										</a>
 									) : (
-										<span className="eq-search-item">
-											<span>{row.name}</span>
-											{row.symbolText !== '' && (
-												<span className="eq-search-symbol">{row.symbolText}</span>
-											)}
-										</span>
+										<span className={className}>{content}</span>
 									)}
 								</li>
 							);
