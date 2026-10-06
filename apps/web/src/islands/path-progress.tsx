@@ -1,5 +1,7 @@
 import { usePathProgress } from '@equreka/core';
 import { type Locale, t } from '@equreka/core/i18n';
+import { Icon } from '../components/react-icon';
+import { arrowClockwiseIcon } from '../lib/icons';
 import { kvLocalStorage } from '../lib/kv-local-storage';
 
 export interface PathProgressProps {
@@ -29,9 +31,7 @@ export default function PathProgress({
 		if (done.size === 0) return null;
 		return (
 			<span
-				className={`rounded-full px-2.5 py-0.5 text-xs font-medium ${
-					complete ? 'bg-accent text-accent-ink' : 'bg-accent/10 text-accent'
-				}`}
+				className={`eq-badge type-paths ${complete ? 'eq-badge-accent' : 'eq-path-badge-progress'}`}
 			>
 				{complete ? t(locale, 'path.completed') : `${done.size}/${total} · ${percent}%`}
 			</span>
@@ -39,9 +39,13 @@ export default function PathProgress({
 	}
 
 	return (
-		<div className="mt-4 max-w-xl">
-			<div className="flex items-baseline justify-between gap-4 text-sm">
-				<span className={complete ? 'font-medium text-accent' : 'text-ink-muted'}>
+		<div className="eq-path-progress">
+			<div className="eq-path-progress-row">
+				<span
+					className={
+						complete ? 'eq-path-progress-status eq-is-complete' : 'eq-path-progress-status'
+					}
+				>
 					{complete
 						? t(locale, 'path.completed')
 						: t(locale, 'path.progress', { done: done.size, total })}
@@ -49,15 +53,16 @@ export default function PathProgress({
 				{done.size > 0 && (
 					<button
 						type="button"
-						className="text-sm text-ink-muted hover:text-danger"
+						className="eq-btn eq-btn-text eq-btn-sm eq-path-progress-reset"
 						onClick={reset}
 					>
+						<Icon icon={arrowClockwiseIcon} />
 						{t(locale, 'path.reset')}
 					</button>
 				)}
 			</div>
 			<progress
-				className="path-progress mt-1 h-2 w-full"
+				className={complete ? 'path-progress eq-is-complete' : 'path-progress'}
 				aria-label={t(locale, 'path.progressAria')}
 				max={total}
 				value={done.size}

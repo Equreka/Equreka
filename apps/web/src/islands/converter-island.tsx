@@ -4,8 +4,10 @@ import type { EngineError } from '@equreka/engine';
 import { formatSigFigs } from '@equreka/engine/format';
 import { createUnitRegistry, type UnitRegistry } from '@equreka/engine/units';
 import { useEffect, useId, useMemo, useState } from 'react';
+import { Icon } from '../components/react-icon';
 import type { ConverterPayload } from '../integrations/equreka-assets';
 import { converterSliceOf } from '../lib/converter-slice';
+import { chevronRightIcon } from '../lib/icons';
 
 export interface ConverterIslandProps {
 	initialMagnitude?: string;
@@ -102,10 +104,24 @@ export default function ConverterIsland({
 	}, [state, registry, initialMagnitude, initialFrom]);
 
 	if (state.status === 'loading') {
-		return <p className="text-ink-muted">{t(locale, 'converter.loading')}</p>;
+		return (
+			<div className="eq-card">
+				<div className="eq-tool-result">
+					<p className="eq-tool-message">{t(locale, 'converter.loading')}</p>
+				</div>
+			</div>
+		);
 	}
 	if (state.status === 'error' || registry === null) {
-		return <p role="alert">{t(locale, 'converter.loadError')}</p>;
+		return (
+			<div className="eq-card">
+				<div className="eq-tool-result">
+					<p role="alert" className="eq-tool-error">
+						{t(locale, 'converter.loadError')}
+					</p>
+				</div>
+			</div>
+		);
 	}
 
 	const { payload } = state;
@@ -143,133 +159,136 @@ export default function ConverterIsland({
 	const toSymbol = payload.units[toUnit]?.symbolText ?? '';
 	const fromSymbol = payload.units[fromUnit]?.symbolText ?? '';
 
-	const selectClass =
-		'w-full rounded-md border border-border bg-surface px-3 py-2 text-base text-ink';
-
 	return (
-		<div className="rounded-lg border border-border bg-surface p-6">
-			<div className="grid gap-4 sm:grid-cols-2">
-				<div className="sm:col-span-2">
-					<label
-						htmlFor={`${fieldId}-magnitude`}
-						className="mb-1 block text-sm font-medium text-ink-muted"
-					>
-						{t(locale, 'unit.magnitude')}
-					</label>
-					<select
-						id={`${fieldId}-magnitude`}
-						className={selectClass}
-						value={magnitude}
-						onChange={(event) => selectMagnitude(event.target.value)}
-					>
-						{magnitudes.map(([slug, entry]) => (
-							<option key={slug} value={slug}>
-								{entry.name}
-							</option>
-						))}
-					</select>
-					{hiddenByKind > 0 ? (
-						<div className="mt-2">
-							<label className="flex items-center gap-2 text-sm text-ink">
-								<input
-									type="checkbox"
-									checked={showAllDimension}
-									aria-describedby={`${fieldId}-scope-hint`}
-									onChange={(event) => toggleScope(event.target.checked)}
-								/>
-								{t(locale, 'converter.showAllDimension', { count: hiddenByKind })}
-							</label>
-							<p id={`${fieldId}-scope-hint`} className="mt-1 text-xs text-ink-muted">
-								{t(locale, 'converter.showAllDimensionHint')}
+		<div className="eq-tool type-units">
+			<div className="eq-card eq-card-accent">
+				<div className="eq-tool-result" aria-live="polite">
+					{conversion === null ? (
+						<p className="eq-tool-message">{t(locale, 'converter.enterValue')}</p>
+					) : conversion.ok ? (
+						<>
+							<p className="eq-tool-value">
+								<span>{rawValue.trim()}</span>
+								<span className="eq-tool-unit">{fromSymbol}</span>
+								<span>{exact ? '=' : '≈'}</span>
+								<strong>{formatSigFigs(conversion.value)}</strong>
+								<span className="eq-tool-unit">{toSymbol}</span>
 							</p>
-						</div>
-					) : null}
-				</div>
-				<div>
-					<label
-						htmlFor={`${fieldId}-from`}
-						className="mb-1 block text-sm font-medium text-ink-muted"
-					>
-						{t(locale, 'converter.from')}
-					</label>
-					<select
-						id={`${fieldId}-from`}
-						className={selectClass}
-						value={fromUnit}
-						onChange={(event) => setFromUnit(event.target.value)}
-					>
-						{units.map((unit) => (
-							<option key={unit.slug} value={unit.slug}>
-								{unit.name.en} ({unit.symbolText})
-							</option>
-						))}
-					</select>
-				</div>
-				<div>
-					<label
-						htmlFor={`${fieldId}-to`}
-						className="mb-1 block text-sm font-medium text-ink-muted"
-					>
-						{t(locale, 'converter.to')}
-					</label>
-					<select
-						id={`${fieldId}-to`}
-						className={selectClass}
-						value={toUnit}
-						onChange={(event) => setToUnit(event.target.value)}
-					>
-						{units.map((unit) => (
-							<option key={unit.slug} value={unit.slug}>
-								{unit.name.en} ({unit.symbolText})
-							</option>
-						))}
-					</select>
-				</div>
-				<div>
-					<label
-						htmlFor={`${fieldId}-value`}
-						className="mb-1 block text-sm font-medium text-ink-muted"
-					>
-						{t(locale, 'table.value')}
-					</label>
-					<input
-						id={`${fieldId}-value`}
-						className={selectClass}
-						type="text"
-						inputMode="decimal"
-						value={rawValue}
-						onChange={(event) => setRawValue(event.target.value)}
-					/>
-				</div>
-				<div className="flex items-end">
-					<button
-						type="button"
-						className="rounded-md border border-border px-4 py-2 text-sm font-medium text-ink hover:bg-bg"
-						onClick={() => {
-							setFromUnit(toUnit);
-							setToUnit(fromUnit);
-						}}
-					>
-						{t(locale, 'converter.swap')}
-					</button>
+							{exact ? null : <p className="eq-tool-note">{t(locale, 'common.sigFigs')}</p>}
+						</>
+					) : (
+						<p role="alert" className="eq-tool-error">
+							{errorMessage(conversion.error)}
+						</p>
+					)}
 				</div>
 			</div>
-			<div className="mt-6 border-t border-border pt-4" aria-live="polite">
-				{conversion === null ? (
-					<p className="text-ink-muted">{t(locale, 'converter.enterValue')}</p>
-				) : conversion.ok ? (
-					<p className="text-xl">
-						{rawValue.trim()} {fromSymbol} {exact ? '=' : '≈'}{' '}
-						<strong>{formatSigFigs(conversion.value)}</strong> {toSymbol}
-						{exact ? null : (
-							<span className="ml-2 text-sm text-ink-muted">{t(locale, 'common.sigFigs')}</span>
-						)}
-					</p>
-				) : (
-					<p role="alert" className="text-danger">
-						{errorMessage(conversion.error)}
-					</p>
-				)}
+			<div className="eq-card eq-tool-form">
+				<div className="eq-card-body">
+					<div className="eq-tool-fields">
+						<div className="eq-tool-wide">
+							<div className="eq-field">
+								<label htmlFor={`${fieldId}-magnitude`} className="eq-field-caption">
+									{t(locale, 'unit.magnitude')}
+								</label>
+								<div className="eq-field-row">
+									<select
+										id={`${fieldId}-magnitude`}
+										className="eq-field-control"
+										value={magnitude}
+										onChange={(event) => selectMagnitude(event.target.value)}
+									>
+										{magnitudes.map(([slug, entry]) => (
+											<option key={slug} value={slug}>
+												{entry.name}
+											</option>
+										))}
+									</select>
+								</div>
+							</div>
+							{hiddenByKind > 0 ? (
+								<div className="eq-tool-scope">
+									<label>
+										<input
+											type="checkbox"
+											checked={showAllDimension}
+											aria-describedby={`${fieldId}-scope-hint`}
+											onChange={(event) => toggleScope(event.target.checked)}
+										/>
+										{t(locale, 'converter.showAllDimension', { count: hiddenByKind })}
+									</label>
+									<p id={`${fieldId}-scope-hint`}>{t(locale, 'converter.showAllDimensionHint')}</p>
+								</div>
+							) : null}
+						</div>
+						<div className="eq-field">
+							<label htmlFor={`${fieldId}-from`} className="eq-field-caption">
+								{t(locale, 'converter.from')}
+							</label>
+							<div className="eq-field-row">
+								<select
+									id={`${fieldId}-from`}
+									className="eq-field-control"
+									value={fromUnit}
+									onChange={(event) => setFromUnit(event.target.value)}
+								>
+									{units.map((unit) => (
+										<option key={unit.slug} value={unit.slug}>
+											{unit.name.en} ({unit.symbolText})
+										</option>
+									))}
+								</select>
+							</div>
+						</div>
+						<Icon icon={chevronRightIcon} className="eq-tool-separator" />
+						<div className="eq-field">
+							<label htmlFor={`${fieldId}-to`} className="eq-field-caption">
+								{t(locale, 'converter.to')}
+							</label>
+							<div className="eq-field-row">
+								<select
+									id={`${fieldId}-to`}
+									className="eq-field-control"
+									value={toUnit}
+									onChange={(event) => setToUnit(event.target.value)}
+								>
+									{units.map((unit) => (
+										<option key={unit.slug} value={unit.slug}>
+											{unit.name.en} ({unit.symbolText})
+										</option>
+									))}
+								</select>
+							</div>
+						</div>
+						<div className="eq-field eq-tool-wide">
+							<label htmlFor={`${fieldId}-value`} className="eq-field-caption">
+								{t(locale, 'table.value')}
+							</label>
+							<div className="eq-field-row">
+								<input
+									id={`${fieldId}-value`}
+									className="eq-field-control"
+									type="text"
+									inputMode="decimal"
+									value={rawValue}
+									onChange={(event) => setRawValue(event.target.value)}
+								/>
+							</div>
+						</div>
+					</div>
+					<div className="eq-tool-actions">
+						<button
+							type="button"
+							className="eq-btn eq-btn-dark eq-btn-pill px-6"
+							onClick={() => {
+								setFromUnit(toUnit);
+								setToUnit(fromUnit);
+							}}
+						>
+							{t(locale, 'converter.swap')}
+						</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	);

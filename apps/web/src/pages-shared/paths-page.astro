@@ -1,11 +1,12 @@
 ---
 import { getCollection } from 'astro:content';
 import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
+import CollapseCard from '../components/collapse-card.astro';
+import PageHeader from '../components/page-header.astro';
 import PathProgress from '../islands/path-progress';
 import BaseLayout from '../layouts/base-layout.astro';
 import { asPath } from '../lib/collections';
 import { localePath } from '../lib/locale-paths';
-import { LEVEL_BADGE } from '../lib/path-styles';
 
 interface Props {
 	locale?: Locale;
@@ -22,6 +23,10 @@ const paths = (await getCollection('paths'))
 			LEVEL_ORDER.indexOf(a.level) - LEVEL_ORDER.indexOf(b.level) ||
 			localizedName(a, locale).localeCompare(localizedName(b, locale), locale),
 	);
+const levels = LEVEL_ORDER.map((level) => ({
+	level,
+	paths: paths.filter((path) => path.level === level),
+})).filter((group) => group.paths.length > 0);
 ---
 
 <BaseLayout
@@ -29,43 +34,59 @@ const paths = (await getCollection('paths'))
 	description={t(locale, 'meta.paths')}
 	locale={locale}
 >
-	<h1 class="text-3xl font-bold tracking-tight">{t(locale, 'paths.title')}</h1>
-	<p class="mt-2 max-w-2xl text-ink-muted">{t(locale, 'paths.lead', { count: paths.length })}</p>
-	<ul class="mt-8 grid gap-4 sm:grid-cols-2">
+	<PageHeader
+		slot="hero"
+		label={t(locale, 'design.content.header.type')}
+		title={t(locale, 'paths.title')}
+		accent="type-paths"
+	>
+		<p>{t(locale, 'paths.lead', { count: paths.length })}</p>
+	</PageHeader>
+	<div class="type-paths eq-stack">
 		{
-			paths.map((path) => (
-				<li>
-					<article class="flex h-full flex-col rounded-lg border border-border bg-surface p-5 hover:shadow-md">
-						<div class="flex flex-wrap items-center gap-2 text-xs font-medium">
-							<span class={`rounded-full px-2.5 py-0.5 ${LEVEL_BADGE[path.level] ?? LEVEL_BADGE.intro}`}>
-								{t(locale, `path.level.${path.level}`)}
-							</span>
-							<PathProgress
-								client:idle
-								variant="badge"
-								pathSlug={path.slug}
-								stepIds={path.steps.map((step) => step.id)}
-								locale={locale}
-							/>
-						</div>
-						<h2 class="mt-3 text-lg font-semibold">
-							<a class="text-accent hover:underline" href={localePath(locale, `/paths/${path.slug}/`)}>
-								{localizedName(path, locale)}
-							</a>
-						</h2>
-						{path.description !== undefined && (
-							<p class="mt-2 line-clamp-3 text-sm text-ink-muted">
-								{pickLocalized(path.description, locale).value}
-							</p>
-						)}
-						<p class="mt-auto pt-4 text-sm text-ink-muted">
-							{t(locale, 'path.steps', { count: path.steps.length })}
-							{path.estimatedMinutes !== undefined &&
-								` · ${t(locale, 'path.minutes', { count: path.estimatedMinutes })}`}
-						</p>
-					</article>
-				</li>
+			levels.map((group) => (
+				<CollapseCard
+					headingId={`level-${group.level}`}
+					title={t(locale, `path.level.${group.level}`)}
+					count={group.paths.length}
+					chevron="start"
+					class="eq-card-accent"
+				>
+					<ul class="eq-path-list">
+						{group.paths.map((path) => (
+							<li>
+								<article>
+									<div class="eq-chip-row">
+										<span class="eq-badge eq-badge-accent">
+											{t(locale, `path.level.${path.level}`)}
+										</span>
+										<PathProgress
+											client:idle
+											variant="badge"
+											pathSlug={path.slug}
+											stepIds={path.steps.map((step) => step.id)}
+											locale={locale}
+										/>
+									</div>
+									<h3 class="eq-subheading">
+										<a href={localePath(locale, `/paths/${path.slug}/`)}>
+											{localizedName(path, locale)}
+										</a>
+									</h3>
+									{path.description !== undefined && (
+										<p class="eq-prose">{pickLocalized(path.description, locale).value}</p>
+									)}
+									<p class="eq-path-meta">
+										{t(locale, 'path.steps', { count: path.steps.length })}
+										{path.estimatedMinutes !== undefined &&
+											` · ${t(locale, 'path.minutes', { count: path.estimatedMinutes })}`}
+									</p>
+								</article>
+							</li>
+						))}
+					</ul>
+				</CollapseCard>
 			))
 		}
-	</ul>
+	</div>
 </BaseLayout>

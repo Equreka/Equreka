@@ -1,6 +1,8 @@
 import { type ThemeSetting, useSettings } from '@equreka/core';
 import { LOCALES, type Locale, t } from '@equreka/core/i18n';
 import { useId } from 'react';
+import { Icon } from '../components/react-icon';
+import { gearWideIcon, type IconDefinition, moonIcon, sunIcon, translateIcon } from '../lib/icons';
 import { kvLocalStorage } from '../lib/kv-local-storage';
 import { localePath } from '../lib/locale-paths';
 import FavoritesTransfer from './favorites-transfer';
@@ -17,6 +19,12 @@ const THEME_LABEL_KEYS = {
 	light: 'settings.theme.light',
 	dark: 'settings.theme.dark',
 } as const;
+
+const THEME_ICONS: Record<ThemeSetting, IconDefinition> = {
+	system: gearWideIcon,
+	light: sunIcon,
+	dark: moonIcon,
+};
 
 /**
  * Native language names for the switcher — always shown in their own
@@ -42,69 +50,74 @@ export default function SettingsPanel({ locale = 'en', version }: SettingsPanelP
 	const { settings, setTheme, setLocale } = useSettings(kvLocalStorage);
 	const groupId = useId();
 
-	const sectionClass = 'rounded-lg border border-border bg-surface p-6';
-	const headingClass = 'text-xl font-semibold';
-
 	return (
-		<div className="mt-6 grid max-w-2xl gap-6">
-			<section className={sectionClass} aria-labelledby={`${groupId}-theme`}>
-				<h2 id={`${groupId}-theme`} className={headingClass}>
-					{t(locale, 'settings.theme')}
-				</h2>
-				<div className="mt-3 flex flex-wrap gap-4" role="radiogroup">
-					{THEME_OPTIONS.map((option) => (
-						<label key={option} className="flex items-center gap-2 text-sm">
-							<input
-								type="radio"
-								name={`${groupId}-theme-option`}
-								value={option}
-								checked={settings.theme === option}
-								onChange={() => {
-									setTheme(option);
-									applyTheme(option);
-								}}
-							/>
-							{t(locale, THEME_LABEL_KEYS[option])}
-						</label>
-					))}
-				</div>
-			</section>
-			<section className={sectionClass} aria-labelledby={`${groupId}-language`}>
-				<h2 id={`${groupId}-language`} className={headingClass}>
-					{t(locale, 'settings.language')}
-				</h2>
-				<ul className="mt-3 flex flex-wrap gap-4 text-sm">
-					{LOCALES.map((option) => (
-						<li key={option}>
-							{option === locale ? (
-								<span className="font-medium" aria-current="true">
-									{LOCALE_NAMES[option]}
+		<div className="eq-card">
+			<div className="eq-card-body">
+				<section className="eq-settings-section" aria-labelledby={`${groupId}-theme`}>
+					<h2 id={`${groupId}-theme`} className="eq-settings-label">
+						{t(locale, 'settings.theme')}
+					</h2>
+					<div className="eq-choices" role="radiogroup" aria-labelledby={`${groupId}-theme`}>
+						{THEME_OPTIONS.map((option) => (
+							<label key={option} className="eq-choice">
+								<input
+									type="radio"
+									className="eq-choice-input"
+									name={`${groupId}-theme-option`}
+									value={option}
+									checked={settings.theme === option}
+									onChange={() => {
+										setTheme(option);
+										applyTheme(option);
+									}}
+								/>
+								<span className="eq-btn eq-btn-dark eq-btn-pill eq-choice-face">
+									<Icon icon={THEME_ICONS[option]} />
+									{t(locale, THEME_LABEL_KEYS[option])}
 								</span>
-							) : (
-								<a
-									className="text-accent hover:underline"
-									href={localePath(option, '/settings/')}
-									lang={option}
-									onClick={() => setLocale(option)}
-								>
-									{LOCALE_NAMES[option]}
-								</a>
-							)}
-						</li>
-					))}
-				</ul>
-			</section>
-			<section className={sectionClass} aria-labelledby={`${groupId}-favorites`}>
-				<h2 id={`${groupId}-favorites`} className={headingClass}>
-					{t(locale, 'settings.favorites')}
-				</h2>
-				<div className="mt-3">
+							</label>
+						))}
+					</div>
+				</section>
+				<section className="eq-settings-section" aria-labelledby={`${groupId}-language`}>
+					<h2 id={`${groupId}-language`} className="eq-settings-label">
+						<Icon icon={translateIcon} />
+						{t(locale, 'settings.language')}
+					</h2>
+					<ul className="eq-choices">
+						{LOCALES.map((option) => (
+							<li key={option}>
+								{option === locale ? (
+									<span
+										className="eq-btn eq-btn-primary eq-btn-pill eq-choice-face"
+										aria-current="true"
+									>
+										{LOCALE_NAMES[option]}
+									</span>
+								) : (
+									<a
+										className="eq-btn eq-btn-dark eq-btn-pill eq-choice-face"
+										href={localePath(option, '/settings/')}
+										lang={option}
+										onClick={() => setLocale(option)}
+									>
+										{LOCALE_NAMES[option]}
+									</a>
+								)}
+							</li>
+						))}
+					</ul>
+				</section>
+				<section className="eq-settings-section" aria-labelledby={`${groupId}-favorites`}>
+					<h2 id={`${groupId}-favorites`} className="eq-settings-label">
+						{t(locale, 'settings.favorites')}
+					</h2>
 					<FavoritesTransfer locale={locale} />
-				</div>
-			</section>
-			<p className="text-sm text-ink-muted">
-				{t(locale, 'settings.version')}: v{version}
-			</p>
+				</section>
+				<p className="eq-settings-version">
+					{t(locale, 'settings.version')}: v{version}
+				</p>
+			</div>
 		</div>
 	);
 }

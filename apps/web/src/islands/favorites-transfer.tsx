@@ -1,6 +1,8 @@
 import { exportEnvelope, type ImportResult, importEnvelope } from '@equreka/core';
 import { type Locale, t } from '@equreka/core/i18n';
 import { useRef, useState } from 'react';
+import { Icon } from '../components/react-icon';
+import { boxArrowInDownIcon, boxArrowUpIcon } from '../lib/icons';
 import { kvLocalStorage } from '../lib/kv-local-storage';
 
 export interface FavoritesTransferProps {
@@ -42,16 +44,17 @@ export default function FavoritesTransfer({ locale }: FavoritesTransferProps) {
 		}
 	};
 
-	const buttonClass =
-		'rounded-md border border-border px-4 py-2 text-sm font-medium text-ink hover:bg-bg';
+	const buttonClass = 'eq-btn eq-btn-primary';
 
 	return (
 		<div>
-			<div className="flex flex-wrap gap-3">
+			<div className="eq-transfer-actions">
 				<button type="button" className={buttonClass} onClick={exportFavorites}>
+					<Icon icon={boxArrowUpIcon} />
 					{t(locale, 'favorites.export')}
 				</button>
 				<button type="button" className={buttonClass} onClick={() => fileRef.current?.click()}>
+					<Icon icon={boxArrowInDownIcon} />
 					{t(locale, 'favorites.import')}
 				</button>
 				<input
@@ -67,17 +70,17 @@ export default function FavoritesTransfer({ locale }: FavoritesTransferProps) {
 					}}
 				/>
 			</div>
-			<p className="mt-2 text-xs text-ink-muted">{t(locale, 'favorites.transferNote')}</p>
-			<p aria-live="polite" className="mt-1 min-h-5 text-sm">
+			<p className="eq-transfer-note">{t(locale, 'favorites.transferNote')}</p>
+			<p aria-live="polite" className="eq-transfer-status">
 				{status.kind === 'imported' && (
-					<span className="text-ink-muted">
+					<span>
 						{t(locale, 'favorites.imported', { count: status.result.favorites })}
 						{status.result.steps > 0 &&
 							` ${t(locale, 'favorites.importedProgress', { count: status.result.steps })}`}
 					</span>
 				)}
 				{status.kind === 'error' && (
-					<span role="alert" className="text-danger">
+					<span role="alert" className="eq-transfer-error">
 						{t(locale, 'favorites.importError')}
 					</span>
 				)}

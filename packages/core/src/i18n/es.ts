@@ -30,6 +30,13 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'design.shell.sectionsNav': 'Secciones',
 	'design.shell.localeName': 'English',
 	'design.shell.localeCode': 'EN',
+	'design.interactive.editFavorites': 'Editar favoritos',
+	'design.interactive.openEquation': 'Abrir la referencia de la ecuación',
+	'design.content.home.types': 'Tipos',
+	'design.content.header.type': 'Tipo',
+	'design.content.header.category': 'Categoría',
+	'design.content.viewAll': 'Ver todo',
+	'design.content.entry.information': 'Información',
 
 	'collection.categories': 'Categorías',
 	'collection.magnitudes': 'Magnitudes',

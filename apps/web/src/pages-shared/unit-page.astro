@@ -3,15 +3,16 @@ import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import { type Locale, localizedName, pickLocalized, t, tParts } from '@equreka/core/i18n';
 import BranchBadges from '../components/branch-badges.astro';
+import CollapseCard from '../components/collapse-card.astro';
 import DraftBadge from '../components/draft-badge.astro';
 import EntryIdentifiers from '../components/entry-identifiers.astro';
+import PageHeader from '../components/page-header.astro';
 import UnitConversionTable from '../components/unit-conversion-table.astro';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
 import ConverterIsland from '../islands/converter-island';
 import FavoriteToggle from '../islands/favorite-toggle';
 import PathContextBar from '../islands/path-context-bar';
 import BaseLayout from '../layouts/base-layout.astro';
-import { CATEGORY_BADGE } from '../lib/category-styles';
 import { asMagnitude, asPrefix, asUnit } from '../lib/collections';
 import { converterMagnitudeOf } from '../lib/entry-meta';
 import { localePath } from '../lib/locale-paths';
@@ -87,86 +88,85 @@ const metaDescription =
 	locale={locale}
 	ogType="article"
 >
-	<article>
-		<PathContextBar client:idle locale={locale} />
-		<header class="border-b border-border pb-6">
-			<div class="flex flex-wrap items-center gap-2 text-xs font-medium">
-				<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">
-					{t(locale, `system.${unit.system}`)}
-				</span>
+	<PageHeader
+		slot="hero"
+		label={t(locale, 'collection.units')}
+		labelHref={localePath(locale, '/units/')}
+		title={name}
+		accent="type-units"
+	>
+		<FavoriteToggle slot="actions" client:idle collection="units" slug={slug} locale={locale} />
+	</PageHeader>
+	<PathContextBar slot="context" client:idle locale={locale} />
+	<article class="type-units eq-stack">
+		<div class="eq-card eq-display-card">
+			<div class="eq-display-math">
+				<span class="eq-display-text">{name}</span>
+				<span class="eq-display-op" aria-hidden="true">—</span>
+				<span set:html={renderSymbolHtml(unit.symbol.tex, symbolText)} />
+			</div>
+		</div>
+
+		<CollapseCard headingId="unit-information-heading" title={t(locale, 'design.content.entry.information')}>
+			<div class="eq-chip-row">
+				<span class="eq-badge eq-badge-accent">{t(locale, `system.${unit.system}`)}</span>
 				{
 					unit.categories.map((category) => (
-						<span
-							class={`rounded-full px-2.5 py-0.5 ${CATEGORY_BADGE[category] ?? CATEGORY_BADGE.universal}`}
-						>
-							{category}
-						</span>
+						<span class={`eq-badge eq-badge-accent cat-${category}`}>{category}</span>
 					))
 				}
 				<BranchBadges locale={locale} branches={unit.branches} />
-				{
-					compound && (
-						<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">
-							{t(locale, 'badge.compound')}
-						</span>
-					)
-				}
+				{compound && <span class="eq-badge eq-badge-accent">{t(locale, 'badge.compound')}</span>}
 				<UntranslatedBadge locale={locale} show={untranslated} />
 				<DraftBadge locale={locale} status={unit.status} />
 			</div>
-			<div class="mt-3 flex flex-wrap items-baseline gap-4">
-				<h1 class="text-3xl font-bold tracking-tight">{name}</h1>
-				<span class="text-2xl" set:html={renderSymbolHtml(unit.symbol.tex, symbolText)} />
-				<FavoriteToggle client:idle collection="units" slug={slug} locale={locale} />
-			</div>
-			<EntryIdentifiers locale={locale} externalIds={unit.externalIds} />
-		</header>
 
-		{
-			description !== undefined && (
-				<div class="mt-6 max-w-3xl leading-7" set:html={renderRichTextHtml(description.value)} />
-			)
-		}
-
-		{
-			derivation !== undefined && (
-				<p class="mt-4 max-w-3xl text-sm text-ink-muted">
-					{tParts(locale, 'unit.derivedFrom').map((part) => {
-						if (part.kind === 'text') return part.text;
-						const link = part.name === 'base' ? derivation.base : derivation.prefix;
-						return (
-							<a class="text-accent hover:underline" href={link.href}>
-								{link.label}
-							</a>
-						);
-					})}
-				</p>
-			)
-		}
-
-		<dl class="mt-6 grid max-w-3xl gap-x-8 gap-y-3 sm:grid-cols-[10rem_1fr]">
-			<dt class="text-sm font-medium text-ink-muted">{t(locale, 'table.system')}</dt>
-			<dd>{t(locale, `system.${unit.system}`)}</dd>
-			<dt class="text-sm font-medium text-ink-muted">
-				{magnitudes.length > 1 ? t(locale, 'unit.magnitudes') : t(locale, 'unit.magnitude')}
-			</dt>
 			{
-				compound ? (
-					<dd class="text-ink-muted">{t(locale, 'unit.compoundHint')}</dd>
-				) : (
-					<dd class="flex flex-wrap gap-3">
-						{magnitudes.map((magnitude) => (
-							<a
-								class="text-accent hover:underline"
-								href={localePath(locale, `/converter/?magnitude=${magnitude.slug}`)}
-							>
-								{magnitude.name}
-							</a>
-						))}
-					</dd>
+				description !== undefined && (
+					<div class="eq-prose" set:html={renderRichTextHtml(description.value)} />
 				)
 			}
-		</dl>
+
+			{
+				derivation !== undefined && (
+					<p class="eq-card-note">
+						{tParts(locale, 'unit.derivedFrom').map((part) => {
+							if (part.kind === 'text') return part.text;
+							const link = part.name === 'base' ? derivation.base : derivation.prefix;
+							return (
+								<a class="eq-link" href={link.href}>
+									{link.label}
+								</a>
+							);
+						})}
+					</p>
+				)
+			}
+
+			<dl class="eq-definitions">
+				<dt>{t(locale, 'table.system')}</dt>
+				<dd>{t(locale, `system.${unit.system}`)}</dd>
+				<dt>{magnitudes.length > 1 ? t(locale, 'unit.magnitudes') : t(locale, 'unit.magnitude')}</dt>
+				{
+					compound ? (
+						<dd class="eq-definition-muted">{t(locale, 'unit.compoundHint')}</dd>
+					) : (
+						<dd class="eq-chip-row">
+							{magnitudes.map((magnitude) => (
+								<a
+									class="eq-badge eq-badge-accent eq-badge-link type-magnitudes"
+									href={localePath(locale, `/converter/?magnitude=${magnitude.slug}`)}
+								>
+									{magnitude.name}
+								</a>
+							))}
+						</dd>
+					)
+				}
+			</dl>
+
+			<EntryIdentifiers locale={locale} externalIds={unit.externalIds} />
+		</CollapseCard>
 
 		{
 			!unit.nonConvertible && (
@@ -174,19 +174,17 @@ const metaDescription =
 					<UnitConversionTable unitSlug={slug} locale={locale} />
 
 					{converterMagnitude !== undefined && (
-						<section aria-labelledby="unit-converter-heading" class="mt-10">
-							<h2 id="unit-converter-heading" class="text-2xl font-semibold">
-								{t(locale, 'unit.convert', { name: name.toLowerCase() })}
-							</h2>
-							<div class="mt-4">
-								<ConverterIsland
-									client:visible
-									initialMagnitude={converterMagnitude}
-									initialFrom={slug}
-									locale={locale}
-								/>
-							</div>
-						</section>
+						<CollapseCard
+							headingId="unit-converter-heading"
+							title={t(locale, 'unit.convert', { name: name.toLowerCase() })}
+						>
+							<ConverterIsland
+								client:visible
+								initialMagnitude={converterMagnitude}
+								initialFrom={slug}
+								locale={locale}
+							/>
+						</CollapseCard>
 					)}
 				</>
 			)

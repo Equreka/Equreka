@@ -13,11 +13,7 @@ const { locale, status } = Astro.props;
 
 {
 	isDraft(status) && (
-		<span
-			class="rounded-full border border-border px-2.5 py-0.5 text-ink-muted"
-			title={t(locale, 'badge.draftHint')}
-			data-status="draft"
-		>
+		<span class="eq-badge eq-badge-warning" title={t(locale, 'badge.draftHint')} data-status="draft">
 			{t(locale, 'badge.draft')}
 		</span>
 	)

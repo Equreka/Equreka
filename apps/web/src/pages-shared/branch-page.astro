@@ -2,11 +2,12 @@
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import { collectionLabel, type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
+import CollapseCard from '../components/collapse-card.astro';
 import EntryIdentifiers from '../components/entry-identifiers.astro';
+import PageHeader from '../components/page-header.astro';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
 import FavoriteToggle from '../islands/favorite-toggle';
 import BaseLayout from '../layouts/base-layout.astro';
-import { CATEGORY_BADGE, CATEGORY_BORDER, CATEGORY_TEXT } from '../lib/category-styles';
 import { asBranch, asCategory } from '../lib/collections';
 import { localePath } from '../lib/locale-paths';
 import { byCollection, memberEntries } from '../lib/server/taxonomy';
@@ -32,6 +33,19 @@ const categoryName =
 const members = (await memberEntries(locale)).filter((member) => member.branches.includes(slug));
 const groups = byCollection(members);
 
+/**
+ * "View all" targets per member collection; variables have no list page,
+ * so their card carries no pill.
+ */
+const COLLECTION_INDEX: Record<string, string> = {
+	magnitudes: '/magnitudes/',
+	units: '/units/',
+	prefixes: '/prefixes/',
+	constants: '/constants/',
+	equations: '/equations/',
+	paths: '/paths/',
+};
+
 const description =
 	branch.description === undefined ? undefined : pickLocalized(branch.description, locale);
 const untranslated =
@@ -49,53 +63,65 @@ const metaDescription =
 	locale={locale}
 	ogType="article"
 >
-	<article>
-		<header
-			class={`rounded-lg border border-border ${CATEGORY_BORDER[branch.category] ?? CATEGORY_BORDER.universal} border-t-4 bg-surface p-6`}
-		>
-			<div class="mb-3 flex flex-wrap items-center gap-2 text-xs font-medium">
-				<a
-					class={`rounded-full px-2.5 py-0.5 hover:underline ${CATEGORY_BADGE[branch.category] ?? CATEGORY_BADGE.universal}`}
-					href={localePath(locale, `/categories/${branch.category}/#branch-${slug}`)}
+	<PageHeader
+		slot="hero"
+		label={t(locale, 'branch.of', { category: categoryName })}
+		labelHref={localePath(locale, `/categories/${branch.category}/#branch-${slug}`)}
+		title={name}
+		accent={`cat-${branch.category}`}
+	>
+		<FavoriteToggle slot="actions" client:idle collection="branches" slug={slug} locale={locale} />
+	</PageHeader>
+	<article class={`cat-${branch.category} eq-stack`}>
+		{
+			(untranslated || description !== undefined || branch.externalIds !== undefined) && (
+				<CollapseCard
+					headingId="branch-information-heading"
+					title={t(locale, 'design.content.entry.information')}
 				>
-					{t(locale, 'branch.of', { category: categoryName })}
-				</a>
-				<UntranslatedBadge locale={locale} show={untranslated} />
-			</div>
-			<div class="flex flex-wrap items-baseline gap-4">
-				<h1
-					class={`text-3xl font-bold tracking-tight ${CATEGORY_TEXT[branch.category] ?? 'text-ink'}`}
-				>
-					{name}
-				</h1>
-				<FavoriteToggle client:idle collection="branches" slug={slug} locale={locale} />
-			</div>
-			{description !== undefined && <p class="mt-3 max-w-3xl leading-7">{description.value}</p>}
-			<EntryIdentifiers locale={locale} externalIds={branch.externalIds} />
-		</header>
+					{untranslated && (
+						<div class="eq-chip-row">
+							<UntranslatedBadge locale={locale} show={untranslated} />
+						</div>
+					)}
+					{description !== undefined && <p class="eq-prose">{description.value}</p>}
+					<EntryIdentifiers locale={locale} externalIds={branch.externalIds} />
+				</CollapseCard>
+			)
+		}
 
 		{
-			groups.map((group) => (
-				<section aria-labelledby={`${group.collection}-heading`} class="mt-10">
-					<h2 id={`${group.collection}-heading`} class="text-2xl font-semibold">
-						{collectionLabel(locale, group.collection)}
-						<span class="ml-2 text-sm font-normal text-ink-muted">{group.entries.length}</span>
-					</h2>
-					<ul class="mt-4 grid gap-x-8 gap-y-2 sm:grid-cols-2 lg:grid-cols-3">
-						{group.entries.map((member) => (
-							<li>
-								{member.href !== undefined ? (
-									<a class="text-accent hover:underline" href={localePath(locale, member.href)}>
-										{member.name}
-									</a>
-								) : (
-									member.name
-								)}
-							</li>
-						))}
-					</ul>
-				</section>
-			))
+			groups.map((group) => {
+				const index = COLLECTION_INDEX[group.collection];
+				return (
+					<CollapseCard
+						headingId={`${group.collection}-heading`}
+						title={collectionLabel(locale, group.collection)}
+						count={group.entries.length}
+						chevron="start"
+						class="eq-card-accent"
+						viewAll={
+							index === undefined
+								? undefined
+								: { href: localePath(locale, index), label: t(locale, 'design.content.viewAll') }
+						}
+					>
+						<ul class="eq-list">
+							{group.entries.map((member) => (
+								<li>
+									{member.href !== undefined ? (
+										<a class="eq-list-link" href={localePath(locale, member.href)}>
+											{member.name}
+										</a>
+									) : (
+										<span class="eq-list-link">{member.name}</span>
+									)}
+								</li>
+							))}
+						</ul>
+					</CollapseCard>
+				);
+			})
 		}
 	</article>
 </BaseLayout>

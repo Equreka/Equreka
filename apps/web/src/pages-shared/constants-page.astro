@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { type Locale, localizedName, t } from '@equreka/core/i18n';
 import { formatSigFigs } from '@equreka/engine/format';
+import PageHeader from '../components/page-header.astro';
 import BaseLayout from '../layouts/base-layout.astro';
 import { asConstant } from '../lib/collections';
 import { localePath } from '../lib/locale-paths';
@@ -35,46 +36,54 @@ const rows = constants.map((constant) => {
 	description={t(locale, 'meta.constants')}
 	locale={locale}
 >
-	<h1 class="text-3xl font-bold tracking-tight">{t(locale, 'collection.constants')}</h1>
-	<p class="mt-2 text-ink-muted">{t(locale, 'constants.lead', { count: constants.length })}</p>
-	<div class="mt-6 overflow-x-auto rounded-lg border border-border">
-		<table class="w-full border-collapse bg-surface text-left">
-			<thead>
-				<tr class="border-b border-border text-sm text-ink-muted">
-					<th scope="col" class="w-24 px-4 py-2 font-medium">{t(locale, 'table.symbol')}</th>
-					<th scope="col" class="px-4 py-2 font-medium">{t(locale, 'table.name')}</th>
-					<th scope="col" class="px-4 py-2 font-medium">{t(locale, 'table.value')}</th>
-					<th scope="col" class="px-4 py-2 font-medium">{t(locale, 'table.status')}</th>
-				</tr>
-			</thead>
-			<tbody>
-				{
-					rows.map((row) => (
-						<tr class="border-b border-border last:border-b-0">
-							<td class="px-4 py-2" set:html={renderSymbolHtml(row.symbol.tex, row.symbolText)} />
-							<td class="px-4 py-2">
-								<a
-									class="text-accent hover:underline"
-									href={localePath(locale, `/constants/${row.slug}/`)}
-								>
-									{localizedName(row, locale)}
-								</a>
-							</td>
-							<td class="px-4 py-2 font-mono text-sm">
-								{row.display}
-								{row.unitSymbol === '' ? '' : ` ${row.unitSymbol}`}
-							</td>
-							<td class="px-4 py-2">
-								<span
-									class={`rounded-full px-2.5 py-0.5 text-xs font-medium ${row.exact ? 'bg-accent/10 text-accent' : 'bg-physics/10 text-physics'}`}
-								>
-									{row.exact ? t(locale, 'badge.exact') : t(locale, 'badge.measured')}
-								</span>
-							</td>
+	<PageHeader
+		slot="hero"
+		label={t(locale, 'design.content.header.type')}
+		title={t(locale, 'collection.constants')}
+		accent="type-constants"
+	>
+		<p>{t(locale, 'constants.lead', { count: constants.length })}</p>
+	</PageHeader>
+	<div class="type-constants eq-stack">
+		<div class="eq-card eq-card-body eq-card-accent">
+			<div class="eq-table-wrap">
+				<table class="eq-table-data">
+					<thead>
+						<tr>
+							<th scope="col" class="eq-col-symbol">{t(locale, 'table.symbol')}</th>
+							<th scope="col">{t(locale, 'table.name')}</th>
+							<th scope="col">{t(locale, 'table.value')}</th>
+							<th scope="col">{t(locale, 'table.status')}</th>
 						</tr>
-					))
-				}
-			</tbody>
-		</table>
+					</thead>
+					<tbody>
+						{
+							rows.map((row) => (
+								<tr>
+									<td
+										class="eq-cell-symbol"
+										set:html={renderSymbolHtml(row.symbol.tex, row.symbolText)}
+									/>
+									<td>
+										<a class="eq-link" href={localePath(locale, `/constants/${row.slug}/`)}>
+											{localizedName(row, locale)}
+										</a>
+									</td>
+									<td class="eq-cell-value">
+										{row.display}
+										{row.unitSymbol === '' ? '' : ` ${row.unitSymbol}`}
+									</td>
+									<td>
+										<span class:list={['eq-badge eq-badge-accent', !row.exact && 'sw-blue']}>
+											{row.exact ? t(locale, 'badge.exact') : t(locale, 'badge.measured')}
+										</span>
+									</td>
+								</tr>
+							))
+						}
+					</tbody>
+				</table>
+			</div>
+		</div>
 	</div>
 </BaseLayout>

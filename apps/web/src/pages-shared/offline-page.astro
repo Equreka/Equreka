@@ -15,7 +15,9 @@ const { locale = 'en' } = Astro.props;
 	description={t(locale, 'meta.offline')}
 	locale={locale}
 >
-	<h1 class="text-3xl font-bold tracking-tight">{t(locale, 'offline.title')}</h1>
-	<p class="mt-2 max-w-2xl text-ink-muted">{t(locale, 'offline.lead')}</p>
+	<header class="eq-tool-header">
+		<h1>{t(locale, 'offline.title')}</h1>
+		<p class="eq-lead">{t(locale, 'offline.lead')}</p>
+	</header>
 	<OfflineReader client:load locale={locale} />
 </BaseLayout>

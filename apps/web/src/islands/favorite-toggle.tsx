@@ -1,5 +1,7 @@
 import { useFavorites } from '@equreka/core';
 import { type Locale, t } from '@equreka/core/i18n';
+import { Icon } from '../components/react-icon';
+import { heartFillIcon, heartIcon } from '../lib/icons';
 import { kvLocalStorage } from '../lib/kv-local-storage';
 
 export interface FavoriteToggleProps {
@@ -9,8 +11,10 @@ export interface FavoriteToggleProps {
 }
 
 /**
- * Heart toggle for one entry-page header. Renders unfavorited during SSR
- * (storage is client-only); useSyncExternalStore reconciles on hydration.
+ * Heart toggle for one entry-page header. Both glyphs render; CSS shows
+ * the filled one when saved or hovered (the legacy preview). Renders
+ * unfavorited during SSR (storage is client-only); useSyncExternalStore
+ * reconciles on hydration.
  */
 export default function FavoriteToggle({ collection, slug, locale = 'en' }: FavoriteToggleProps) {
 	const { isFavorite, toggle } = useFavorites(kvLocalStorage);
@@ -23,12 +27,11 @@ export default function FavoriteToggle({ collection, slug, locale = 'en' }: Favo
 			aria-pressed={active}
 			aria-label={label}
 			title={label}
-			className={`rounded-md border border-border px-2.5 py-1.5 text-sm ${
-				active ? 'text-danger' : 'text-ink-muted hover:text-ink'
-			}`}
+			className="eq-favorite-toggle"
 			onClick={() => toggle(collection, slug)}
 		>
-			<span aria-hidden="true">{active ? '♥' : '♡'}</span>
+			<Icon icon={heartIcon} className="eq-favorite-off" />
+			<Icon icon={heartFillIcon} className="eq-favorite-on" />
 		</button>
 	);
 }

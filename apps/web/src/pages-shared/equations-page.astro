@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content';
 import { type Locale, localizedName, t } from '@equreka/core/i18n';
+import PageHeader from '../components/page-header.astro';
 import BaseLayout from '../layouts/base-layout.astro';
-import { CATEGORY_BADGE } from '../lib/category-styles';
 import { asEquation } from '../lib/collections';
 import { localePath } from '../lib/locale-paths';
 import { renderExpressionHtml } from '../lib/tex';
@@ -23,38 +23,41 @@ const equations = (await getCollection('equations'))
 	description={t(locale, 'meta.equations')}
 	locale={locale}
 >
-	<h1 class="text-3xl font-bold tracking-tight">{t(locale, 'collection.equations')}</h1>
-	<p class="mt-2 max-w-2xl text-ink-muted">
-		{t(locale, 'equations.lead', { count: equations.length })}
-	</p>
-	<ul class="mt-6 grid gap-4">
+	<PageHeader
+		slot="hero"
+		label={t(locale, 'design.content.header.type')}
+		title={t(locale, 'collection.equations')}
+		accent="type-equations"
+	>
+		<p>{t(locale, 'equations.lead', { count: equations.length })}</p>
+	</PageHeader>
+	<ul class="type-equations eq-stack">
 		{
 			equations.map((equation) => (
-				<li class="rounded-lg border border-border bg-surface p-5">
-					<div class="flex flex-wrap items-center gap-2 text-xs font-medium">
-						<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">
-							{t(locale, `kind.${equation.kind}`)}
-						</span>
+				<li
+					class:list={[
+						'eq-card eq-card-body eq-card-accent eq-entry-card',
+						equation.kind === 'formula' ? 'type-formulas' : 'type-equations',
+					]}
+				>
+					<div class="eq-chip-row eq-entry-card-badges">
+						<span class="eq-badge eq-badge-accent">{t(locale, `kind.${equation.kind}`)}</span>
 						{equation.categories.map((category) => (
-							<span
-								class={`rounded-full px-2.5 py-0.5 ${CATEGORY_BADGE[category] ?? CATEGORY_BADGE.universal}`}
-							>
-								{category}
-							</span>
+							<span class={`eq-badge eq-badge-accent cat-${category}`}>{category}</span>
 						))}
 					</div>
-					<h2 class="mt-2 text-xl font-semibold">
-						<a
-							class="text-accent hover:underline"
-							href={localePath(locale, `/equations/${equation.slug}/`)}
-						>
+					<h2 class="eq-card-title">
+						<a href={localePath(locale, `/equations/${equation.slug}/`)}>
 							{localizedName(equation, locale)}
 						</a>
 					</h2>
-					<div class="mt-2" set:html={renderExpressionHtml(equation.expression, equation.terms)} />
+					<div
+						class="eq-display-math eq-display-compact"
+						set:html={renderExpressionHtml(equation.expression, equation.terms)}
+					/>
 					{equation.calculator.enabled && (
 						<a
-							class="mt-2 inline-block text-sm text-accent hover:underline"
+							class="eq-btn eq-btn-sm eq-btn-tint eq-btn-pill"
 							href={localePath(locale, `/calculator/${equation.slug}/`)}
 						>
 							{t(locale, 'equations.openCalculator')}

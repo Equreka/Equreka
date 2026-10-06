@@ -27,6 +27,13 @@ export const en = {
 	'design.shell.sectionsNav': 'Sections',
 	'design.shell.localeName': 'Español',
 	'design.shell.localeCode': 'ES',
+	'design.interactive.editFavorites': 'Edit favorites',
+	'design.interactive.openEquation': 'Open the equation reference',
+	'design.content.home.types': 'Types',
+	'design.content.header.type': 'Type',
+	'design.content.header.category': 'Category',
+	'design.content.viewAll': 'View all',
+	'design.content.entry.information': 'Information',
 
 	'collection.categories': 'Categories',
 	'collection.magnitudes': 'Magnitudes',

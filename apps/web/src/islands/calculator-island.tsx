@@ -5,12 +5,14 @@ import type { EngineError } from '@equreka/engine';
 import { formatSigFigs } from '@equreka/engine/format';
 import type { CompiledEquationMeta } from '@equreka/schema';
 import { useEffect, useId, useMemo, useState } from 'react';
+import { Icon } from '../components/react-icon';
 import type { ConverterPayload } from '../integrations/equreka-assets';
 import {
 	type CalculatorVariableUnits,
 	calculatorUnitSourceOf,
 	loadConverterPayload,
 } from '../lib/calculator-units';
+import { arrowClockwiseIcon } from '../lib/icons';
 
 /**
  * One user-facing input, resolved at build from the equation's terms map:
@@ -127,13 +129,6 @@ export default function CalculatorIsland({
 	const solvedField =
 		result?.ok === true ? fields.find((field) => field.key === result.value.symbol) : undefined;
 
-	const inputClass =
-		'w-full min-w-0 rounded-md border border-border bg-surface px-3 py-2 text-base text-ink';
-	const addonClass =
-		'flex items-center rounded-r-md border border-l-0 border-border bg-bg px-3 text-sm text-ink-muted';
-	const selectAddonClass =
-		'max-w-40 shrink-0 rounded-r-md border border-l-0 border-border bg-bg px-2 text-sm text-ink';
-
 	const unitPicker = (key: string, label: string, className: string) => (
 		<select
 			aria-label={label}
@@ -150,122 +145,134 @@ export default function CalculatorIsland({
 	);
 
 	return (
-		<div className="rounded-lg border border-border bg-surface p-6">
-			<div className="grid gap-4 sm:grid-cols-2">
-				{fields.map((field) => {
-					const { units: offered, hiddenByKind } = unitState.optionsFor(field.key);
-					const inputId = `${fieldId}-${field.key}`;
-					return (
-						<div key={field.key}>
-							<label htmlFor={inputId} className="mb-1 block text-sm font-medium text-ink-muted">
-								{field.label} ({field.symbolText})
-							</label>
-							<div className="flex items-stretch">
-								<input
-									id={inputId}
-									className={field.unitSymbol === '' ? inputClass : `${inputClass} rounded-r-none`}
-									type="text"
-									inputMode="decimal"
-									placeholder={t(locale, 'calculator.placeholder')}
-									value={values[field.key] ?? ''}
-									onChange={(event) =>
-										setValues((previous) => ({ ...previous, [field.key]: event.target.value }))
-									}
-								/>
-								{offered.length > 1
-									? unitPicker(
-											field.key,
-											t(locale, 'calculator.unitFor', {
-												name: `${field.label} (${field.symbolText})`,
-											}),
-											selectAddonClass,
-										)
-									: field.unitSymbol !== '' && (
-											<span className={addonClass}>{field.unitSymbol}</span>
-										)}
-							</div>
-							{hiddenByKind > 0 ? (
-								<div className="mt-2">
-									<label className="flex items-center gap-2 text-xs text-ink">
-										<input
-											type="checkbox"
-											checked={unitState.showAllFor(field.key)}
-											aria-describedby={`${inputId}-scope-hint`}
-											onChange={(event) => unitState.setShowAll(field.key, event.target.checked)}
-										/>
-										{t(locale, 'converter.showAllDimension', { count: hiddenByKind })}
-									</label>
-									<p id={`${inputId}-scope-hint`} className="mt-1 text-xs text-ink-muted">
-										{t(locale, 'converter.showAllDimensionHint')}
-									</p>
-								</div>
-							) : null}
-						</div>
-					);
-				})}
-			</div>
-			{state.status === 'error' ? (
-				<p className="mt-3 text-sm text-ink-muted">{t(locale, 'calculator.unitsUnavailable')}</p>
-			) : null}
-			<div className="mt-4 flex flex-wrap items-center gap-4">
-				<button
-					type="button"
-					className="rounded-md border border-border px-4 py-2 text-sm font-medium text-ink hover:bg-bg"
-					onClick={() => setValues({})}
-				>
-					{t(locale, 'calculator.reset')}
-				</button>
-				{constants.length > 0 && (
-					<p className="text-sm text-ink-muted">
-						{t(locale, 'calculator.autoFilled')}{' '}
-						{constants.map((constant, index) => (
-							<span key={constant.key}>
-								{index > 0 && ', '}
-								{constant.name} {constant.symbolText} = {formatSigFigs(Number(constant.value))}
-								{constant.unitSymbol === '' ? '' : ` ${constant.unitSymbol}`}
-							</span>
-						))}
-					</p>
-				)}
-			</div>
-			<div className="mt-6 border-t border-border pt-4" aria-live="polite">
-				{result === null ? (
-					<p className="text-ink-muted">{t(locale, 'calculator.hint')}</p>
-				) : result.ok ? (
-					<>
-						<p className="flex flex-wrap items-baseline gap-x-2 text-xl">
-							<span>
-								{solvedField?.label ?? result.value.symbol} ({result.value.symbol}){' '}
-								{result.value.exact ? '=' : '≈'}{' '}
+		<div className="eq-tool">
+			<div className="eq-card eq-card-accent">
+				<div className="eq-tool-result" aria-live="polite">
+					{result === null ? (
+						<p className="eq-tool-message">{t(locale, 'calculator.hint')}</p>
+					) : result.ok ? (
+						<>
+							<p className="eq-tool-value">
+								<span>
+									{solvedField?.label ?? result.value.symbol} ({result.value.symbol})
+								</span>
+								<span>{result.value.exact ? '=' : '≈'}</span>
 								<strong>{formatSigFigs(result.value.value)}</strong>
-							</span>
-							{unitState.optionsFor(result.value.symbol).units.length > 1
-								? unitPicker(
-										result.value.symbol,
-										t(locale, 'calculator.resultUnit'),
-										'rounded-md border border-border bg-bg px-2 py-1 text-sm text-ink',
-									)
-								: solvedField !== undefined &&
-									solvedField.unitSymbol !== '' && (
-										<span>{symbolOf(result.value.unit, solvedField.unitSymbol)}</span>
-									)}
-							<span className="text-sm text-ink-muted">{t(locale, 'common.sigFigs')}</span>
-						</p>
-						{result.value.allRoots !== undefined && result.value.allRoots.length > 1 && (
-							<p className="mt-2 text-sm text-ink-muted">
-								{t(locale, 'calculator.allRoots', {
-									roots: result.value.allRoots.map((root) => formatSigFigs(root)).join(', '),
-								})}
+								{unitState.optionsFor(result.value.symbol).units.length > 1
+									? unitPicker(result.value.symbol, t(locale, 'calculator.resultUnit'), 'eq-select')
+									: solvedField !== undefined &&
+										solvedField.unitSymbol !== '' && (
+											<span className="eq-tool-unit">
+												{symbolOf(result.value.unit, solvedField.unitSymbol)}
+											</span>
+										)}
 							</p>
-						)}
-					</>
-				) : ENGINE_HINT_CODES.has(result.error.code) ? (
-					<p className="text-ink-muted">{messageFor(result.error)}</p>
-				) : (
-					<p role="alert" className="text-danger">
-						{messageFor(result.error)}
-					</p>
-				)}
+							<p className="eq-tool-note">{t(locale, 'common.sigFigs')}</p>
+							{result.value.allRoots !== undefined && result.value.allRoots.length > 1 && (
+								<p className="eq-tool-note">
+									{t(locale, 'calculator.allRoots', {
+										roots: result.value.allRoots.map((root) => formatSigFigs(root)).join(', '),
+									})}
+								</p>
+							)}
+						</>
+					) : ENGINE_HINT_CODES.has(result.error.code) ? (
+						<p className="eq-tool-message">{messageFor(result.error)}</p>
+					) : (
+						<p role="alert" className="eq-tool-error">
+							{messageFor(result.error)}
+						</p>
+					)}
+				</div>
+			</div>
+			<div className="eq-card eq-tool-form">
+				<div className="eq-card-body">
+					<div className="eq-tool-fields">
+						{fields.map((field) => {
+							const { units: offered, hiddenByKind } = unitState.optionsFor(field.key);
+							const inputId = `${fieldId}-${field.key}`;
+							return (
+								<div key={field.key}>
+									<div className="eq-field">
+										<label htmlFor={inputId} className="eq-field-caption">
+											{field.label} ({field.symbolText})
+										</label>
+										<div className="eq-field-row">
+											<input
+												id={inputId}
+												className="eq-field-control"
+												type="text"
+												inputMode="decimal"
+												placeholder={t(locale, 'calculator.placeholder')}
+												value={values[field.key] ?? ''}
+												onChange={(event) =>
+													setValues((previous) => ({
+														...previous,
+														[field.key]: event.target.value,
+													}))
+												}
+											/>
+											{offered.length > 1
+												? unitPicker(
+														field.key,
+														t(locale, 'calculator.unitFor', {
+															name: `${field.label} (${field.symbolText})`,
+														}),
+														'eq-field-addon',
+													)
+												: field.unitSymbol !== '' && (
+														<span className="eq-field-addon">{field.unitSymbol}</span>
+													)}
+										</div>
+									</div>
+									{hiddenByKind > 0 ? (
+										<div className="eq-tool-scope">
+											<label>
+												<input
+													type="checkbox"
+													checked={unitState.showAllFor(field.key)}
+													aria-describedby={`${inputId}-scope-hint`}
+													onChange={(event) =>
+														unitState.setShowAll(field.key, event.target.checked)
+													}
+												/>
+												{t(locale, 'converter.showAllDimension', { count: hiddenByKind })}
+											</label>
+											<p id={`${inputId}-scope-hint`}>
+												{t(locale, 'converter.showAllDimensionHint')}
+											</p>
+										</div>
+									) : null}
+								</div>
+							);
+						})}
+					</div>
+					{state.status === 'error' ? (
+						<p className="eq-tool-aside">{t(locale, 'calculator.unitsUnavailable')}</p>
+					) : null}
+					<div className="eq-tool-actions">
+						<button
+							type="button"
+							className="eq-btn eq-btn-danger eq-btn-pill px-6"
+							onClick={() => setValues({})}
+						>
+							<Icon icon={arrowClockwiseIcon} />
+							{t(locale, 'calculator.reset')}
+						</button>
+					</div>
+					{constants.length > 0 && (
+						<p className="eq-tool-aside">
+							{t(locale, 'calculator.autoFilled')}{' '}
+							{constants.map((constant, index) => (
+								<span key={constant.key}>
+									{index > 0 && ', '}
+									{constant.name} {constant.symbolText} = {formatSigFigs(Number(constant.value))}
+									{constant.unitSymbol === '' ? '' : ` ${constant.unitSymbol}`}
+								</span>
+							))}
+						</p>
+					)}
+				</div>
 			</div>
 		</div>
 	);

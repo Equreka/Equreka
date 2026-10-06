@@ -2,8 +2,9 @@
 import { getCollection } from 'astro:content';
 import { type Locale, localizedName, t } from '@equreka/core/i18n';
 import { type BranchGroup, branchesOfCategory, groupByBranch } from '@equreka/core/taxonomy';
+import CollapseCard from '../components/collapse-card.astro';
+import PageHeader from '../components/page-header.astro';
 import BaseLayout from '../layouts/base-layout.astro';
-import { CATEGORY_TEXT } from '../lib/category-styles';
 import { asCategory, asUnit } from '../lib/collections';
 import { localePath } from '../lib/locale-paths';
 import { branchRecords } from '../lib/server/taxonomy';
@@ -75,73 +76,76 @@ if (ungrouped.length > 0) {
 	description={t(locale, 'meta.units')}
 	locale={locale}
 >
-	<h1 class="text-3xl font-bold tracking-tight">{t(locale, 'collection.units')}</h1>
-	<p class="mt-2 text-ink-muted">{t(locale, 'units.lead', { count: units.length })}</p>
-	{
-		grouped.map((group) => (
-			<section aria-labelledby={`${group.slug}-heading`} class="mt-10">
-				<h2
-					id={group.slug}
-					class={`text-2xl font-semibold ${CATEGORY_TEXT[group.slug] ?? 'text-ink'}`}
+	<PageHeader
+		slot="hero"
+		label={t(locale, 'design.content.header.type')}
+		title={t(locale, 'collection.units')}
+		accent="type-units"
+	>
+		<p>{t(locale, 'units.lead', { count: units.length })}</p>
+	</PageHeader>
+	<div class="type-units eq-stack">
+		{
+			grouped.map((group) => (
+				<CollapseCard
+					headingId={group.slug}
+					titleId={`${group.slug}-heading`}
+					title={group.title}
+					count={group.count}
+					chevron="start"
+					class="eq-card-accent"
+					viewAll={
+						group.slug === 'other'
+							? undefined
+							: {
+									href: localePath(locale, `/categories/${group.slug}/`),
+									label: t(locale, 'design.content.viewAll'),
+								}
+					}
 				>
-					<span id={`${group.slug}-heading`}>{group.title}</span>
-					<span class="ml-2 text-sm font-normal text-ink-muted">{group.count}</span>
-				</h2>
-				{group.sections.map((section) => (
-					<>
-						{(section.href !== undefined || group.sections.length > 1) && (
-							<h3 id={section.id} class="mt-6 text-lg font-medium">
-								{section.href !== undefined ? (
-									<a class="hover:underline" href={localePath(locale, section.href)}>
-										{section.title}
-									</a>
-								) : (
-									section.title
-								)}
-								<span class="ml-2 text-sm font-normal text-ink-muted">{section.units.length}</span>
-							</h3>
-						)}
-						<div class="mt-4 overflow-x-auto rounded-lg border border-border">
-							<table class="w-full border-collapse bg-surface text-left">
-								<thead>
-									<tr class="border-b border-border text-sm text-ink-muted">
-										<th scope="col" class="w-24 px-4 py-2 font-medium">
-											{t(locale, 'table.symbol')}
-										</th>
-										<th scope="col" class="px-4 py-2 font-medium">
-											{t(locale, 'table.name')}
-										</th>
-										<th scope="col" class="px-4 py-2 font-medium">
-											{t(locale, 'table.system')}
-										</th>
-									</tr>
-								</thead>
-								<tbody>
-									{section.units.map((unit) => (
-										<tr class="border-b border-border last:border-b-0">
-											<td
-												class="px-4 py-2"
-												set:html={renderSymbolHtml(unit.symbol.tex, symbolTextOf(unit))}
-											/>
-											<td class="px-4 py-2">
-												<a
-													class="text-accent hover:underline"
-													href={localePath(locale, `/units/${unit.slug}/`)}
-												>
-													{localizedName(unit, locale)}
-												</a>
-											</td>
-											<td class="px-4 py-2 text-sm text-ink-muted">
-												{t(locale, `system.${unit.system}`)}
-											</td>
+					{group.sections.map((section) => (
+						<div class="eq-table-section">
+							{(section.href !== undefined || group.sections.length > 1) && (
+								<h3 id={section.id} class="eq-subheading">
+									{section.href !== undefined ? (
+										<a href={localePath(locale, section.href)}>{section.title}</a>
+									) : (
+										section.title
+									)}
+									<span class="eq-count">{section.units.length}</span>
+								</h3>
+							)}
+							<div class="eq-table-wrap">
+								<table class="eq-table-data">
+									<thead>
+										<tr>
+											<th scope="col" class="eq-col-symbol">{t(locale, 'table.symbol')}</th>
+											<th scope="col">{t(locale, 'table.name')}</th>
+											<th scope="col">{t(locale, 'table.system')}</th>
 										</tr>
-									))}
-								</tbody>
-							</table>
+									</thead>
+									<tbody>
+										{section.units.map((unit) => (
+											<tr>
+												<td
+													class="eq-cell-symbol"
+													set:html={renderSymbolHtml(unit.symbol.tex, symbolTextOf(unit))}
+												/>
+												<td>
+													<a class="eq-link" href={localePath(locale, `/units/${unit.slug}/`)}>
+														{localizedName(unit, locale)}
+													</a>
+												</td>
+												<td class="eq-cell-muted">{t(locale, `system.${unit.system}`)}</td>
+											</tr>
+										))}
+									</tbody>
+								</table>
+							</div>
 						</div>
-					</>
-				))}
-			</section>
-		))
-	}
+					))}
+				</CollapseCard>
+			))
+		}
+	</div>
 </BaseLayout>

@@ -3,6 +3,7 @@ import { type CatalogLiteEntry, foldSearchTerm } from '@equreka/content/search-o
 import { collectionLabel, type Locale, type MessageKey, t } from '@equreka/core/i18n';
 import { type ReactNode, useEffect, useMemo, useState } from 'react';
 import type { ReaderPayload } from '../integrations/equreka-assets';
+import { collectionAccent } from './collection-accent';
 
 type ReaderState =
 	| { status: 'loading' }
@@ -110,11 +111,11 @@ export default function OfflineReader({ locale = 'en' }: OfflineReaderProps) {
 	}, [state, filter]);
 
 	if (state.status === 'loading') {
-		return <p className="text-ink-muted">{t(locale, 'offline.loading')}</p>;
+		return <p className="eq-tool-message">{t(locale, 'offline.loading')}</p>;
 	}
 	if (state.status === 'error') {
 		return (
-			<p role="alert" className="text-danger">
+			<p role="alert" className="eq-tool-error">
 				{t(locale, 'offline.error')}
 			</p>
 		);
@@ -124,96 +125,96 @@ export default function OfflineReader({ locale = 'en' }: OfflineReaderProps) {
 		selected === null ? undefined : state.entries[selected.collection]?.[selected.slug];
 
 	return (
-		<div className="mt-6 grid gap-8">
+		<div className="eq-reader">
 			{selected !== null && (
-				<article className="rounded-lg border border-border bg-surface p-6">
-					{selectedEntry === undefined ? (
-						<p className="text-ink-muted">{t(locale, 'offline.notCached')}</p>
-					) : (
-						<>
-							<div className="flex flex-wrap items-baseline gap-3">
-								<h2 className="text-2xl font-bold tracking-tight">{selectedEntry.name}</h2>
-								{selectedEntry.symbolText !== '' && (
-									<span className="font-mono text-xl text-ink-muted">
-										{selectedEntry.symbolText}
+				<article className={`eq-card eq-card-accent ${collectionAccent(selected.collection)}`}>
+					<div className="eq-card-body">
+						{selectedEntry === undefined ? (
+							<p className="eq-tool-message">{t(locale, 'offline.notCached')}</p>
+						) : (
+							<>
+								<div className="eq-reader-heading">
+									<h2>{selectedEntry.name}</h2>
+									{selectedEntry.symbolText !== '' && (
+										<span className="eq-reader-symbol">{selectedEntry.symbolText}</span>
+									)}
+									<span className="eq-badge eq-badge-accent">
+										{collectionLabel(locale, selected.collection)}
 									</span>
+								</div>
+								{selectedEntry.description !== '' && (
+									<p className="eq-reader-description">
+										{plainMathText(selectedEntry.description)}
+									</p>
 								)}
-								<span className="ml-auto text-xs text-ink-muted uppercase tracking-wide">
-									{collectionLabel(locale, selected.collection)}
-								</span>
-							</div>
-							{selectedEntry.description !== '' && (
-								<p className="mt-3 leading-7">{plainMathText(selectedEntry.description)}</p>
-							)}
-							{selectedEntry.outline !== undefined && (
-								<section aria-labelledby="offline-outline-heading" className="mt-4">
-									<h3 id="offline-outline-heading" className="text-sm font-semibold">
-										{t(locale, 'offline.outline')}
-									</h3>
-									<ol className="mt-2 list-decimal space-y-1 pl-6 text-sm">
-										{selectedEntry.outline.map((item, index) => (
-											<li key={`${index}-${item.kind}`}>
-												<span className="text-xs text-ink-muted uppercase tracking-wide">
-													{t(locale, STEP_KIND_KEYS[item.kind] ?? 'path.steps')}
-												</span>
-												{item.title !== '' && (
-													<span className="ml-2">{plainMathText(item.title)}</span>
-												)}
-											</li>
-										))}
-									</ol>
-								</section>
-							)}
-						</>
-					)}
+								{selectedEntry.outline !== undefined && (
+									<section aria-labelledby="offline-outline-heading" className="eq-reader-outline">
+										<h3 id="offline-outline-heading">{t(locale, 'offline.outline')}</h3>
+										<ol>
+											{selectedEntry.outline.map((item, index) => (
+												<li key={`${index}-${item.kind}`}>
+													<span className="eq-label">
+														{t(locale, STEP_KIND_KEYS[item.kind] ?? 'path.steps')}
+													</span>
+													{item.title !== '' && <span>{plainMathText(item.title)}</span>}
+												</li>
+											))}
+										</ol>
+									</section>
+								)}
+							</>
+						)}
+					</div>
 				</article>
 			)}
-			<section aria-labelledby="offline-library-heading">
-				<h2 id="offline-library-heading" className="text-xl font-semibold">
-					{t(locale, 'offline.browse')}
-				</h2>
-				<input
-					type="search"
-					aria-label={t(locale, 'offline.filterAria')}
-					placeholder={t(locale, 'offline.filterPlaceholder')}
-					className="mt-3 w-full max-w-md rounded-md border border-border bg-surface px-3 py-1.5 text-base text-ink placeholder:text-ink-muted"
-					value={filter}
-					onChange={(event) => setFilter(event.target.value)}
-				/>
-				<ul className="mt-4 divide-y divide-border rounded-md border border-border bg-surface">
-					{rows.map((entry) => (
-						<li key={`${entry.collection}:${entry.slug}`}>
-							{state.entries[entry.collection]?.[entry.slug] !== undefined ? (
-								<button
-									type="button"
-									className="flex w-full items-baseline gap-2 px-3 py-2 text-left hover:bg-bg"
-									onClick={() => setSelected({ collection: entry.collection, slug: entry.slug })}
-								>
-									<span className="text-accent">{entry.name}</span>
-									{entry.symbolText !== '' && (
-										<span className="font-mono text-sm text-ink-muted">{entry.symbolText}</span>
-									)}
-									<span className="ml-auto text-xs text-ink-muted">
-										{collectionLabel(locale, entry.collection)}
+			<section aria-labelledby="offline-library-heading" className="eq-card">
+				<div className="eq-card-body">
+					<h2 id="offline-library-heading" className="eq-collapse-title mb-3">
+						{t(locale, 'offline.browse')}
+					</h2>
+					<input
+						type="search"
+						aria-label={t(locale, 'offline.filterAria')}
+						placeholder={t(locale, 'offline.filterPlaceholder')}
+						className="eq-input eq-reader-filter"
+						value={filter}
+						onChange={(event) => setFilter(event.target.value)}
+					/>
+					<ul className="eq-reader-rows">
+						{rows.map((entry) => (
+							<li key={`${entry.collection}:${entry.slug}`}>
+								{state.entries[entry.collection]?.[entry.slug] !== undefined ? (
+									<button
+										type="button"
+										className="eq-reader-row"
+										onClick={() => setSelected({ collection: entry.collection, slug: entry.slug })}
+									>
+										{entry.symbolText !== '' && (
+											<span className="eq-badge-symbol">{entry.symbolText}</span>
+										)}
+										<span className="eq-reader-name">{entry.name}</span>
+										<span className="eq-reader-collection">
+											{collectionLabel(locale, entry.collection)}
+										</span>
+									</button>
+								) : (
+									<span className="eq-reader-row">
+										{entry.symbolText !== '' && (
+											<span className="eq-badge-symbol">{entry.symbolText}</span>
+										)}
+										<span className="eq-reader-name">{entry.name}</span>
+										<span className="eq-reader-collection">
+											{collectionLabel(locale, entry.collection)}
+										</span>
 									</span>
-								</button>
-							) : (
-								<span className="flex items-baseline gap-2 px-3 py-2">
-									<span>{entry.name}</span>
-									{entry.symbolText !== '' && (
-										<span className="font-mono text-sm text-ink-muted">{entry.symbolText}</span>
-									)}
-									<span className="ml-auto text-xs text-ink-muted">
-										{collectionLabel(locale, entry.collection)}
-									</span>
-								</span>
-							)}
-						</li>
-					))}
-					{rows.length === 0 && (
-						<li className="px-3 py-2 text-sm text-ink-muted">{t(locale, 'offline.noMatch')}</li>
-					)}
-				</ul>
+								)}
+							</li>
+						))}
+						{rows.length === 0 && (
+							<li className="eq-reader-empty">{t(locale, 'offline.noMatch')}</li>
+						)}
+					</ul>
+				</div>
 			</section>
 		</div>
 	);

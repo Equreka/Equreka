@@ -23,28 +23,31 @@ const equations = (await getCollection('equations'))
 	description={t(locale, 'meta.calculator')}
 	locale={locale}
 >
-	<h1 class="text-3xl font-bold tracking-tight">{t(locale, 'calculator.title')}</h1>
-	<p class="mt-2 max-w-2xl text-ink-muted">
-		{t(locale, 'calculator.lead', { count: equations.length })}
-	</p>
-	<ul class="mt-6 grid gap-4">
+	<header class="eq-tool-header">
+		<h1>{t(locale, 'calculator.title')}</h1>
+		<p class="eq-lead">{t(locale, 'calculator.lead', { count: equations.length })}</p>
+	</header>
+	<ul class="eq-calc-index">
 		{
 			equations.map((equation) => (
-				<li class="rounded-lg border border-border bg-surface p-5">
-					<div class="flex flex-wrap items-center gap-2 text-xs font-medium">
-						<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">
-							{t(locale, `kind.${equation.kind}`)}
-						</span>
+				<li
+					class:list={[
+						'eq-card eq-card-accent',
+						equation.kind === 'formula' ? 'type-formulas' : 'type-equations',
+					]}
+				>
+					<div class="eq-card-body">
+						<span class="eq-badge eq-badge-accent">{t(locale, `kind.${equation.kind}`)}</span>
+						<h2 class="eq-card-title">
+							<a class="eq-link" href={localePath(locale, `/calculator/${equation.slug}/`)}>
+								{localizedName(equation, locale)}
+							</a>
+						</h2>
+						<div
+							class="eq-calc-index-expr eq-scrollbar-thin"
+							set:html={renderExpressionHtml(equation.expression, equation.terms)}
+						/>
 					</div>
-					<h2 class="mt-2 text-xl font-semibold">
-						<a
-							class="text-accent hover:underline"
-							href={localePath(locale, `/calculator/${equation.slug}/`)}
-						>
-							{localizedName(equation, locale)}
-						</a>
-					</h2>
-					<div class="mt-2" set:html={renderExpressionHtml(equation.expression, equation.terms)} />
 				</li>
 			))
 		}

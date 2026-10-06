@@ -3,13 +3,14 @@ import type { CollectionEntry } from 'astro:content';
 import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
 import { formatSigFigs } from '@equreka/engine/format';
 import BranchBadges from '../components/branch-badges.astro';
+import CollapseCard from '../components/collapse-card.astro';
 import DraftBadge from '../components/draft-badge.astro';
 import EntryIdentifiers from '../components/entry-identifiers.astro';
+import PageHeader from '../components/page-header.astro';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
 import FavoriteToggle from '../islands/favorite-toggle';
 import PathContextBar from '../islands/path-context-bar';
 import BaseLayout from '../layouts/base-layout.astro';
-import { CATEGORY_BADGE } from '../lib/category-styles';
 import { asConstant } from '../lib/collections';
 import { localePath } from '../lib/locale-paths';
 import { formatFullPrecision } from '../lib/notation';
@@ -53,84 +54,49 @@ const metaDescription =
 	locale={locale}
 	ogType="article"
 >
-	<article>
-		<PathContextBar client:idle locale={locale} />
-		<header class="border-b border-border pb-6">
-			<div class="flex flex-wrap items-center gap-2 text-xs font-medium">
-				<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">
-					{t(locale, 'term.constant')}
-				</span>
-				<span
-					class={`rounded-full px-2.5 py-0.5 ${constant.exact ? 'bg-accent/10 text-accent' : 'bg-physics/10 text-physics'}`}
-				>
-					{constant.exact ? t(locale, 'badge.exact') : t(locale, 'badge.measured')}
-				</span>
-				{
-					constant.categories.map((category) => (
-						<span
-							class={`rounded-full px-2.5 py-0.5 ${CATEGORY_BADGE[category] ?? CATEGORY_BADGE.universal}`}
-						>
-							{category}
-						</span>
-					))
-				}
-				<BranchBadges locale={locale} branches={constant.branches} />
-				<UntranslatedBadge locale={locale} show={untranslated} />
-				<DraftBadge locale={locale} status={constant.status} />
-			</div>
-			<div class="mt-3 flex flex-wrap items-baseline gap-4">
-				<h1 class="text-3xl font-bold tracking-tight">{name}</h1>
-				<span class="text-2xl" set:html={renderSymbolHtml(constant.symbol.tex, symbolText)} />
-				<FavoriteToggle client:idle collection="constants" slug={slug} locale={locale} />
-			</div>
-			<EntryIdentifiers locale={locale} externalIds={constant.externalIds} />
-		</header>
-
-		<section aria-labelledby="constant-value-heading" class="mt-6">
-			<h2 id="constant-value-heading" class="text-2xl font-semibold">
-				{t(locale, 'constant.value')}
-			</h2>
-			<p class="mt-3 text-2xl">
+	<PageHeader
+		slot="hero"
+		label={t(locale, 'collection.constants')}
+		labelHref={localePath(locale, '/constants/')}
+		title={name}
+		accent="type-constants"
+	>
+		<FavoriteToggle slot="actions" client:idle collection="constants" slug={slug} locale={locale} />
+	</PageHeader>
+	<PathContextBar slot="context" client:idle locale={locale} />
+	<article class="type-constants eq-stack">
+		<section aria-labelledby="constant-value-heading" class="eq-card eq-display-card">
+			<h2 id="constant-value-heading" class="eq-card-title">{t(locale, 'constant.value')}</h2>
+			<p class="eq-display-math">
 				<span set:html={renderSymbolHtml(constant.symbol.tex, symbolText)} />
-				{displayIsExact ? ' = ' : ' ≈ '}
-				<strong>{display}</strong>
+				<span class="eq-display-op">{displayIsExact ? '=' : '≈'}</span>
+				<strong class="eq-display-value">{display}</strong>
 				{
 					unit !== undefined && (
-						<a
-							class="ml-2 text-accent hover:underline"
-							href={localePath(locale, `/units/${unit.slug}/`)}
-						>
+						<a class="eq-display-unit" href={localePath(locale, `/units/${unit.slug}/`)}>
 							{unitSymbol}
 						</a>
 					)
 				}
-				{
-					!displayIsExact && (
-						<span class="ml-2 text-sm text-ink-muted">{t(locale, 'common.sigFigs')}</span>
-					)
-				}
 			</p>
-			<div class="mt-3 max-w-3xl rounded-lg border border-border bg-surface p-4">
-				<p class="text-xs font-medium text-ink-muted uppercase tracking-wide">
-					{t(locale, 'constant.fullPrecision')}
-				</p>
-				<p class="mt-1 break-words font-mono text-sm leading-6">
-					{fullPrecision}{unitSymbol === '' ? '' : ` ${unitSymbol}`}
-				</p>
-				{
-					constant.uncertainty !== undefined && (
-						<p class="mt-1 font-mono text-sm text-ink-muted">
-							± {formatFullPrecision(constant.uncertainty)}
-						</p>
-					)
-				}
-			</div>
+			{!displayIsExact && <p class="eq-display-hint">{t(locale, 'common.sigFigs')}</p>}
+		</section>
+
+		<CollapseCard headingId="constant-precision-heading" title={t(locale, 'constant.fullPrecision')}>
+			<p class="eq-full-precision">
+				{fullPrecision}{unitSymbol === '' ? '' : ` ${unitSymbol}`}
+			</p>
+			{
+				constant.uncertainty !== undefined && (
+					<p class="eq-uncertainty">± {formatFullPrecision(constant.uncertainty)}</p>
+				)
+			}
 			{
 				constant.source !== undefined && (
-					<p class="mt-2 text-sm text-ink-muted">
+					<p class="eq-source">
 						{t(locale, 'constant.source')}{' '}
 						{constant.source.url !== undefined ? (
-							<a class="text-accent hover:underline" href={constant.source.url}>
+							<a class="eq-link" href={constant.source.url}>
 								{constant.source.name}
 							</a>
 						) : (
@@ -139,34 +105,56 @@ const metaDescription =
 					</p>
 				)
 			}
-		</section>
+		</CollapseCard>
 
-		{
-			description !== undefined && (
-				<div class="mt-6 max-w-3xl leading-7" set:html={renderRichTextHtml(description.value)} />
-			)
-		}
-
-		<dl class="mt-6 grid max-w-3xl gap-x-8 gap-y-3 sm:grid-cols-[10rem_1fr]">
-			<dt class="text-sm font-medium text-ink-muted">{t(locale, 'table.unit')}</dt>
-			<dd>
+		<CollapseCard
+			headingId="constant-information-heading"
+			title={t(locale, 'design.content.entry.information')}
+		>
+			<div class="eq-chip-row">
+				<span class="eq-badge eq-badge-accent">{t(locale, 'term.constant')}</span>
+				<span class:list={['eq-badge eq-badge-accent', !constant.exact && 'sw-blue']}>
+					{constant.exact ? t(locale, 'badge.exact') : t(locale, 'badge.measured')}
+				</span>
 				{
-					unit !== undefined ? (
-						<a
-							class="text-accent hover:underline"
-							href={localePath(locale, `/units/${unit.slug}/`)}
-						>
-							{localizedName(unit, locale)} ({unitSymbol})
-						</a>
-					) : (
-						constant.unit
-					)
+					constant.categories.map((category) => (
+						<span class={`eq-badge eq-badge-accent cat-${category}`}>{category}</span>
+					))
 				}
-			</dd>
-			<dt class="text-sm font-medium text-ink-muted">{t(locale, 'table.status')}</dt>
-			<dd class="text-sm">
-				{constant.exact ? t(locale, 'constant.statusExact') : t(locale, 'constant.statusMeasured')}
-			</dd>
-		</dl>
+				<BranchBadges locale={locale} branches={constant.branches} />
+				<UntranslatedBadge locale={locale} show={untranslated} />
+				<DraftBadge locale={locale} status={constant.status} />
+			</div>
+
+			{
+				description !== undefined && (
+					<div class="eq-prose" set:html={renderRichTextHtml(description.value)} />
+				)
+			}
+
+			<dl class="eq-definitions">
+				<dt>{t(locale, 'table.unit')}</dt>
+				<dd>
+					{
+						unit !== undefined ? (
+							<a
+								class="eq-link"
+								href={localePath(locale, `/units/${unit.slug}/`)}
+							>
+								{localizedName(unit, locale)} ({unitSymbol})
+							</a>
+						) : (
+							constant.unit
+						)
+					}
+				</dd>
+				<dt>{t(locale, 'table.status')}</dt>
+				<dd class="eq-definition-muted">
+					{constant.exact ? t(locale, 'constant.statusExact') : t(locale, 'constant.statusMeasured')}
+				</dd>
+			</dl>
+
+			<EntryIdentifiers locale={locale} externalIds={constant.externalIds} />
+		</CollapseCard>
 	</article>
 </BaseLayout>

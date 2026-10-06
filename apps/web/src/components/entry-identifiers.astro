@@ -14,10 +14,10 @@ const links = externalLinks(externalIds);
 
 {
 	links.length > 0 && (
-		<p class="mt-3 flex flex-wrap items-center gap-3 text-sm text-ink-muted">
-			<span>{t(locale, 'entry.identifiers')}</span>
+		<p class="eq-chip-row eq-identifiers">
+			<span class="eq-chip-row-label">{t(locale, 'entry.identifiers')}</span>
 			{links.map((link) => (
-				<a class="text-accent hover:underline" href={link.href} rel="external noopener">
+				<a class="eq-badge eq-badge-outline eq-badge-link" href={link.href} rel="external noopener">
 					{link.label}
 				</a>
 			))}

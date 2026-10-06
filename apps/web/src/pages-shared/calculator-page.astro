@@ -1,7 +1,8 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
-import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
+import { collectionLabel, type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
+import Icon from '../components/icon.astro';
 import CalculatorIsland, {
 	type CalculatorConstant,
 	type CalculatorField,
@@ -22,6 +23,8 @@ const { entry, locale = 'en' } = Astro.props;
 const equation = asEquation(entry.data);
 const slug = entry.id;
 const name = localizedName(equation, locale);
+const entryPath = localePath(locale, `/equations/${slug}/`);
+const accentClass = equation.kind === 'formula' ? 'type-formulas' : 'type-equations';
 
 const meta = engineSlice.equations[slug];
 if (meta === undefined || !meta.calculatorEnabled) {
@@ -98,16 +101,38 @@ for (const [key, term] of Object.entries(meta.terms)) {
 	description={t(locale, 'meta.calculatorEquation', { name })}
 	locale={locale}
 >
-	<h1 class="text-3xl font-bold tracking-tight">{t(locale, 'calculator.pageTitle', { name })}</h1>
-	<div class="mt-4" set:html={renderExpressionHtml(equation.expression, equation.terms)} />
-	<p class="mt-2 max-w-2xl text-ink-muted">
-		{t(locale, 'calculator.leadBefore')}
-		<a class="text-accent hover:underline" href={localePath(locale, `/equations/${slug}/`)}>
-			{t(locale, 'calculator.leadLink')}
-		</a>
-		{t(locale, 'calculator.leadAfter')}
-	</p>
-	<div class="mt-6 max-w-2xl">
+	<div slot="hero" class:list={['eq-accent-panel eq-page-header', accentClass]}>
+		<div class="eq-container eq-hero-row">
+			<div>
+				<a class="eq-page-header-label eq-hero-label" href={localePath(locale, '/equations/')}>
+					{collectionLabel(locale, 'equations')}
+				</a>
+				<h1 class="eq-page-header-title">{t(locale, 'calculator.pageTitle', { name })}</h1>
+			</div>
+			<div class="eq-hero-actions">
+				<a
+					class="eq-hero-action"
+					href={entryPath}
+					title={t(locale, 'design.interactive.openEquation')}
+				>
+					<Icon name="info-square" />
+					<span class="sr-only">{t(locale, 'design.interactive.openEquation')}</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class:list={['eq-tool', accentClass]}>
+		<div class="eq-card eq-calc-expression">
+			<div
+				class="eq-display-math"
+				set:html={renderExpressionHtml(equation.expression, equation.terms)}
+			/>
+		</div>
+		<p class="eq-calc-lead">
+			{t(locale, 'calculator.leadBefore')}{' '}
+			<a class="eq-link" href={entryPath}>{t(locale, 'calculator.leadLink')}</a>{' '}
+			{t(locale, 'calculator.leadAfter')}
+		</p>
 		<CalculatorIsland
 			client:load
 			meta={meta}

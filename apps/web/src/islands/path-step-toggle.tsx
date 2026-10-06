@@ -28,7 +28,7 @@ export default function PathStepToggle({
 	return (
 		<input
 			type="checkbox"
-			className="mt-1.5 size-5 shrink-0 cursor-pointer accent-accent"
+			className="eq-step-toggle"
 			checked={done}
 			aria-label={label}
 			title={label}

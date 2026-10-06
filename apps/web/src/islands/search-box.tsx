@@ -7,9 +7,12 @@ import {
 import { collectionLabel, type Locale, t } from '@equreka/core/i18n';
 import MiniSearch from 'minisearch';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { Icon } from '../components/react-icon';
 import { entryHref } from '../lib/entry-links';
+import { searchIcon } from '../lib/icons';
 import { COLLECTION_ORDER } from '../lib/labels';
 import { localePath } from '../lib/locale-paths';
+import { collectionAccent } from './collection-accent';
 
 export interface SearchBoxProps {
 	variant: 'header' | 'page';
@@ -163,21 +166,23 @@ export default function SearchBox({ variant, locale = 'en' }: SearchBoxProps) {
 	const showPanel = variant === 'page' || (focused && active);
 
 	const results = !active ? null : failed ? (
-		<p role="alert" className="px-3 py-2 text-sm text-danger">
+		<p role="alert" className="eq-search-message eq-search-message-error">
 			{t(locale, 'search.unavailable')}
 		</p>
 	) : lanes === null ? (
-		<p className="px-3 py-2 text-sm text-ink-muted">{t(locale, 'search.loading')}</p>
+		<p className="eq-search-message">{t(locale, 'search.loading')}</p>
 	) : groups.length === 0 ? (
-		<p className="px-3 py-2 text-sm text-ink-muted">
-			{t(locale, 'search.noResults', { query: query.trim() })}
-		</p>
+		<p className="eq-search-message">{t(locale, 'search.noResults', { query: query.trim() })}</p>
 	) : (
-		<ul className="divide-y divide-border">
+		<ul>
 			{groups.map((group) => (
-				<li key={group.collection} className="py-1">
-					<p className="px-3 pt-1 text-xs font-semibold tracking-wide text-ink-muted uppercase">
-						{collectionLabel(locale, group.collection)}
+				<li
+					key={group.collection}
+					className={`eq-search-group ${collectionAccent(group.collection)}`}
+				>
+					<p className="eq-search-group-title">
+						<span>{collectionLabel(locale, group.collection)}</span>
+						<span className="eq-badge eq-badge-outline eq-search-count">{group.rows.length}</span>
 					</p>
 					<ul>
 						{group.rows.map((row) => {
@@ -185,20 +190,17 @@ export default function SearchBox({ variant, locale = 'en' }: SearchBoxProps) {
 							return (
 								<li key={row.key}>
 									{href !== undefined ? (
-										<a
-											className="flex items-baseline gap-2 px-3 py-1.5 hover:bg-bg"
-											href={localePath(locale, href)}
-										>
+										<a className="eq-search-item" href={localePath(locale, href)}>
 											<span>{row.name}</span>
 											{row.symbolText !== '' && (
-												<span className="font-mono text-sm text-ink-muted">{row.symbolText}</span>
+												<span className="eq-search-symbol">{row.symbolText}</span>
 											)}
 										</a>
 									) : (
-										<span className="flex items-baseline gap-2 px-3 py-1.5 text-ink-muted">
+										<span className="eq-search-item">
 											<span>{row.name}</span>
 											{row.symbolText !== '' && (
-												<span className="font-mono text-sm">{row.symbolText}</span>
+												<span className="eq-search-symbol">{row.symbolText}</span>
 											)}
 										</span>
 									)}
@@ -214,7 +216,7 @@ export default function SearchBox({ variant, locale = 'en' }: SearchBoxProps) {
 	return (
 		// biome-ignore lint/a11y/noStaticElementInteractions: focus tracking on the search container is composite-widget focus management, not a pointer interaction
 		<div
-			className={variant === 'header' ? 'relative w-full max-w-xs' : 'w-full'}
+			className="eq-search"
 			onFocus={() => {
 				setFocused(true);
 				ensureLanes();
@@ -230,16 +232,17 @@ export default function SearchBox({ variant, locale = 'en' }: SearchBoxProps) {
 				type="search"
 				placeholder={t(locale, 'search.placeholder')}
 				aria-label={t(locale, 'search.aria')}
-				className="w-full rounded-md border border-border bg-surface px-3 py-1.5 text-base text-ink placeholder:text-ink-muted"
+				className={variant === 'header' ? 'eq-search-input' : 'eq-search-input eq-search-input-lg'}
 				value={query}
 				onChange={(event) => setQuery(event.target.value)}
 			/>
+			<Icon icon={searchIcon} className="eq-search-icon" />
 			{showPanel && results !== null && (
 				<div
 					className={
 						variant === 'header'
-							? 'absolute top-full right-0 left-0 z-10 mt-1 max-h-96 overflow-y-auto rounded-md border border-border bg-surface shadow-lg'
-							: 'mt-4 rounded-md border border-border bg-surface'
+							? 'eq-search-results eq-search-results-floating'
+							: 'eq-search-results'
 					}
 				>
 					{results}

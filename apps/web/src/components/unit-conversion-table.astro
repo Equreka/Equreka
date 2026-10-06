@@ -4,6 +4,7 @@ import { formatSigFigs } from '@equreka/engine/format';
 import { localePath } from '../lib/locale-paths';
 import { unitRegistry } from '../lib/server/engine-registry';
 import { renderSymbolHtml } from '../lib/tex';
+import CollapseCard from './collapse-card.astro';
 
 interface Props {
 	unitSlug: string;
@@ -35,43 +36,31 @@ const rows = targets.flatMap((target) => {
 
 {
 	unit !== undefined && rows.length > 0 && (
-		<section aria-labelledby="conversions-heading" class="mt-10">
-			<h2 id="conversions-heading" class="text-2xl font-semibold">
-				{t(locale, 'conversions.title')}
-			</h2>
-			<p class="mt-1 text-sm text-ink-muted">
-				{t(locale, 'conversions.lead', { symbol: unit.symbolText })}
-			</p>
-			<div class="mt-4 overflow-x-auto rounded-lg border border-border">
-				<table class="w-full border-collapse bg-surface text-left">
+		<CollapseCard headingId="conversions-heading" title={t(locale, 'conversions.title')}>
+			<p class="eq-card-note">{t(locale, 'conversions.lead', { symbol: unit.symbolText })}</p>
+			<div class="eq-table-wrap">
+				<table class="eq-table-data">
 					<thead>
-						<tr class="border-b border-border text-sm text-ink-muted">
-							<th scope="col" class="px-4 py-2 font-medium">
-								{t(locale, 'table.unit')}
-							</th>
-							<th scope="col" class="px-4 py-2 font-medium">
-								{t(locale, 'table.symbol')}
-							</th>
-							<th scope="col" class="px-4 py-2 font-medium">
+						<tr>
+							<th scope="col">{t(locale, 'table.unit')}</th>
+							<th scope="col">{t(locale, 'table.symbol')}</th>
+							<th scope="col" class="eq-cell-numeric">
 								{t(locale, 'conversions.header', { symbol: unit.symbolText })}
 							</th>
 						</tr>
 					</thead>
 					<tbody>
 						{rows.map((row) => (
-							<tr class="border-b border-border last:border-b-0">
-								<td class="px-4 py-2">
-									<a
-										class="text-accent hover:underline"
-										href={localePath(locale, `/units/${row.target.slug}/`)}
-									>
+							<tr>
+								<td>
+									<a class="eq-link" href={localePath(locale, `/units/${row.target.slug}/`)}>
 										{localizedName(row.target, locale)}
 									</a>
 								</td>
-								<td class="px-4 py-2">
+								<td class="eq-cell-symbol">
 									<span set:html={renderSymbolHtml(row.target.symbolTex, row.target.symbolText)} />
 								</td>
-								<td class="px-4 py-2 font-mono text-sm">
+								<td class="eq-cell-numeric eq-cell-value">
 									{row.exact ? '' : '≈ '}
 									{row.value} {row.target.symbolText}
 								</td>
@@ -80,6 +69,6 @@ const rows = targets.flatMap((target) => {
 					</tbody>
 				</table>
 			</div>
-		</section>
+		</CollapseCard>
 	)
 }

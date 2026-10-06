@@ -11,13 +11,15 @@ import {
 	t,
 } from '@equreka/core/i18n';
 import BranchBadges from '../components/branch-badges.astro';
+import CollapseCard from '../components/collapse-card.astro';
 import DraftBadge from '../components/draft-badge.astro';
 import EntryIdentifiers from '../components/entry-identifiers.astro';
+import Icon from '../components/icon.astro';
+import PageHeader from '../components/page-header.astro';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
 import FavoriteToggle from '../islands/favorite-toggle';
 import PathContextBar from '../islands/path-context-bar';
 import BaseLayout from '../layouts/base-layout.astro';
-import { CATEGORY_BADGE } from '../lib/category-styles';
 import { asEquation } from '../lib/collections';
 import { entryHref } from '../lib/entry-links';
 import { localePath } from '../lib/locale-paths';
@@ -98,6 +100,7 @@ if (description !== undefined && descriptionSegments === undefined) {
 const untranslated =
 	locale !== 'en' &&
 	(pickLocalized(equation.name, locale).untranslated || description?.untranslated === true);
+const accent = equation.kind === 'formula' ? 'type-formulas' : 'type-equations';
 const metaDescription =
 	description === undefined
 		? t(locale, 'meta.equation', { name, kind: t(locale, `kind.${equation.kind}`).toLowerCase() })
@@ -111,72 +114,58 @@ const metaDescription =
 	locale={locale}
 	ogType="article"
 >
-	<article>
-		<PathContextBar client:idle locale={locale} />
-		<header class="border-b border-border pb-6">
-			<div class="flex flex-wrap items-center gap-2 text-xs font-medium">
-				<span class="rounded-full bg-accent/10 px-2.5 py-0.5 text-accent">
-					{t(locale, `kind.${equation.kind}`)}
-				</span>
-				{
-					equation.categories.map((category) => (
-						<span
-							class={`rounded-full px-2.5 py-0.5 ${CATEGORY_BADGE[category] ?? CATEGORY_BADGE.universal}`}
-						>
-							{category}
-						</span>
-					))
-				}
-				<BranchBadges locale={locale} branches={equation.branches} />
-				<UntranslatedBadge locale={locale} show={untranslated} />
-				<DraftBadge locale={locale} status={equation.status} />
-			</div>
-			<div class="mt-3 flex flex-wrap items-baseline gap-4">
-				<h1 class="text-3xl font-bold tracking-tight">{name}</h1>
-				<FavoriteToggle client:idle collection="equations" slug={slug} locale={locale} />
-			</div>
-			<EntryIdentifiers locale={locale} externalIds={equation.externalIds} />
-		</header>
+	<PageHeader
+		slot="hero"
+		label={t(locale, 'collection.equations')}
+		labelHref={localePath(locale, '/equations/')}
+		title={name}
+		accent={accent}
+	>
+		<Fragment slot="actions">
+			{
+				equation.calculator.enabled && (
+					<a
+						class="eq-page-action"
+						href={localePath(locale, `/calculator/${slug}/`)}
+						title={t(locale, 'equation.solve')}
+					>
+						<Icon name="plus-square" />
+						<span class="sr-only">{t(locale, 'equation.solve')}</span>
+					</a>
+				)
+			}
+			<FavoriteToggle client:idle collection="equations" slug={slug} locale={locale} />
+		</Fragment>
+	</PageHeader>
+	<PathContextBar slot="context" client:idle locale={locale} />
+	<article class={`${accent} eq-stack`}>
+		<div class="eq-card eq-display-card">
+			<div
+				class="eq-display-math"
+				set:html={renderExpressionHtml(equation.expression, equation.terms)}
+			/>
+			<p class="eq-display-hint">{t(locale, 'equation.hoverHint')}</p>
+		</div>
 
-		<div class="mt-6 text-xl" set:html={renderExpressionHtml(equation.expression, equation.terms)} />
-		<p class="text-sm text-ink-muted">{t(locale, 'equation.hoverHint')}</p>
-
-		{
-			equation.calculator.enabled && (
-				<a
-					class="mt-4 inline-block rounded-md bg-accent px-4 py-2 text-sm font-medium text-accent-ink hover:opacity-90"
-					href={localePath(locale, `/calculator/${slug}/`)}
-				>
-					{t(locale, 'equation.solve')}
-				</a>
-			)
-		}
-
-		<section aria-labelledby="equation-terms-heading" class="mt-10">
-			<h2 id="equation-terms-heading" class="text-2xl font-semibold">
-				{t(locale, 'equation.terms')}
-			</h2>
-			<div class="mt-4 overflow-x-auto rounded-lg border border-border">
-				<table class="w-full border-collapse bg-surface text-left">
+		<CollapseCard headingId="equation-terms-heading" title={t(locale, 'equation.terms')}>
+			<div class="eq-table-wrap">
+				<table class="eq-table-data">
 					<thead>
-						<tr class="border-b border-border text-sm text-ink-muted">
-							<th scope="col" class="w-24 px-4 py-2 font-medium">{t(locale, 'table.symbol')}</th>
-							<th scope="col" class="px-4 py-2 font-medium">{t(locale, 'table.kind')}</th>
-							<th scope="col" class="px-4 py-2 font-medium">{t(locale, 'table.name')}</th>
+						<tr>
+							<th scope="col">{t(locale, 'table.symbol')}</th>
+							<th scope="col">{t(locale, 'table.kind')}</th>
+							<th scope="col">{t(locale, 'table.name')}</th>
 						</tr>
 					</thead>
 					<tbody>
 						{
 							termRows.map((row) => (
-								<tr
-									data-term={row.dataValue}
-									class={`eq-term eq-${row.term.kind} border-b border-border last:border-b-0`}
-								>
-									<td class="px-4 py-2" set:html={renderSymbolHtml(row.key, row.key)} />
-									<td class="px-4 py-2 text-sm text-ink-muted">{row.kindLabel}</td>
-									<td class="px-4 py-2">
+								<tr data-term={row.dataValue} class={`eq-term eq-${row.term.kind}`}>
+									<td class="eq-cell-symbol" set:html={renderSymbolHtml(row.key, row.key)} />
+									<td class="eq-cell-muted">{row.kindLabel}</td>
+									<td>
 										{row.href !== undefined ? (
-											<a class="text-accent hover:underline" href={localePath(locale, row.href)}>
+											<a class="eq-link" href={localePath(locale, row.href)}>
 												{row.name}
 											</a>
 										) : (
@@ -189,36 +178,53 @@ const metaDescription =
 					</tbody>
 				</table>
 			</div>
-		</section>
+		</CollapseCard>
 
-		{
-			descriptionSegments !== undefined && (
-				<div
-					class="mt-8 max-w-3xl leading-7"
-					set:html={renderSegmentsHtml(descriptionSegments, equation.terms)}
-				/>
-			)
-		}
+		<CollapseCard
+			headingId="equation-information-heading"
+			title={t(locale, 'design.content.entry.information')}
+		>
+			<div class="eq-chip-row">
+				<span class="eq-badge eq-badge-accent">{t(locale, `kind.${equation.kind}`)}</span>
+				{
+					equation.categories.map((category) => (
+						<span class={`eq-badge eq-badge-accent cat-${category}`}>{category}</span>
+					))
+				}
+				<BranchBadges locale={locale} branches={equation.branches} />
+				<UntranslatedBadge locale={locale} show={untranslated} />
+				<DraftBadge locale={locale} status={equation.status} />
+			</div>
+
+			{
+				descriptionSegments !== undefined && (
+					<div
+						class="eq-prose"
+						set:html={renderSegmentsHtml(descriptionSegments, equation.terms)}
+					/>
+				)
+			}
+
+			<EntryIdentifiers locale={locale} externalIds={equation.externalIds} />
+		</CollapseCard>
 
 		{
 			relatedUnits.length > 0 && (
-				<section aria-labelledby="equation-units-heading" class="mt-10">
-					<h2 id="equation-units-heading" class="text-2xl font-semibold">
-						{t(locale, 'equation.relatedUnits')}
-					</h2>
-					<ul class="mt-3 flex flex-wrap gap-3">
+				<CollapseCard headingId="equation-units-heading" title={t(locale, 'equation.relatedUnits')}>
+					<ul class="eq-list">
 						{relatedUnits.map((unit) => (
 							<li>
-								<a
-									class="text-accent hover:underline"
-									href={localePath(locale, `/units/${unit.slug}/`)}
-								>
-									{localizedName(unit, locale)} ({unit.symbolText})
+								<a class="eq-list-link" href={localePath(locale, `/units/${unit.slug}/`)}>
+									<span
+										class="eq-badge-symbol"
+										set:html={renderSymbolHtml(unit.symbolTex, unit.symbolText)}
+									/>
+									{localizedName(unit, locale)}
 								</a>
 							</li>
 						))}
 					</ul>
-				</section>
+				</CollapseCard>
 			)
 		}
 	</article>

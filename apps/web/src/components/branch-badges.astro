@@ -1,6 +1,5 @@
 ---
 import { type Locale, localizedName } from '@equreka/core/i18n';
-import { CATEGORY_BADGE } from '../lib/category-styles';
 import { localePath } from '../lib/locale-paths';
 import { branchRecords } from '../lib/server/taxonomy';
 
@@ -22,7 +21,7 @@ const links = branches.flatMap((slug) => {
 {
 	links.map((link) => (
 		<a
-			class={`rounded-full px-2.5 py-0.5 hover:underline ${CATEGORY_BADGE[link.category] ?? CATEGORY_BADGE.universal}`}
+			class={`eq-badge eq-badge-accent eq-badge-link cat-${link.category}`}
 			href={localePath(locale, `/branches/${link.slug}/`)}
 		>
 			{link.name}

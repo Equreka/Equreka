@@ -2,7 +2,6 @@
 import { getCollection } from 'astro:content';
 import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
 import BaseLayout from '../layouts/base-layout.astro';
-import { CATEGORY_BORDER } from '../lib/category-styles';
 import { asCategory, asEquation } from '../lib/collections';
 import { localePath } from '../lib/locale-paths';
 
@@ -30,77 +29,112 @@ const collectionCards = [
 		count: unitCount,
 		description: t(locale, 'home.card.units'),
 		href: '/units/',
+		accent: 'type-units',
 	},
 	{
 		title: t(locale, 'collection.magnitudes'),
 		count: magnitudeCount,
 		description: t(locale, 'home.card.magnitudes'),
 		href: '/magnitudes/',
+		accent: 'type-magnitudes',
 	},
 	{
 		title: t(locale, 'collection.constants'),
 		count: constantCount,
 		description: t(locale, 'home.card.constants'),
 		href: '/constants/',
+		accent: 'type-constants',
 	},
 	{
 		title: t(locale, 'collection.prefixes'),
 		count: prefixCount,
 		description: t(locale, 'home.card.prefixes'),
 		href: '/prefixes/',
+		accent: 'type-prefixes',
 	},
 	{
 		title: t(locale, 'collection.equations'),
 		count: equationCount,
 		description: t(locale, 'home.card.equations'),
 		href: '/equations/',
+		accent: 'type-equations',
 	},
 	{
 		title: t(locale, 'paths.title'),
 		count: pathCount,
 		description: t(locale, 'home.card.paths'),
 		href: '/paths/',
+		accent: 'type-paths',
 	},
 	{
 		title: t(locale, 'nav.calculator'),
 		count: calculatorCount,
 		description: t(locale, 'home.card.calculator'),
 		href: '/calculator/',
+		accent: 'sw-green',
 	},
 	{
 		title: t(locale, 'nav.converter'),
 		count: undefined,
 		description: t(locale, 'home.card.converter'),
 		href: '/converter/',
+		accent: 'type-units',
 	},
 	{
 		title: t(locale, 'nav.search'),
 		count: undefined,
 		description: t(locale, 'home.card.search'),
 		href: '/search/',
+		accent: 'sw-indigo',
 	},
 ];
 ---
 
 <BaseLayout title={t(locale, 'home.title')} description={t(locale, 'meta.home')} locale={locale}>
-	<section class="py-6">
-		<h1 class="text-4xl font-bold tracking-tight">Equreka</h1>
-		<p class="mt-3 max-w-2xl text-lg text-ink-muted">{t(locale, 'home.lead')}</p>
-	</section>
+	<h1 class="sr-only">Equreka</h1>
+	<p class="eq-lead eq-home-lead">{t(locale, 'home.lead')}</p>
 
-	<section aria-labelledby="categories-heading" class="py-6">
-		<h2 id="categories-heading" class="text-2xl font-semibold">{t(locale, 'home.categories')}</h2>
-		<ul class="mt-4 grid gap-4 sm:grid-cols-2">
+	<input
+		type="radio"
+		name="home-view"
+		id="home-view-categories"
+		class="sr-only"
+		aria-controls="home-panel-categories"
+		checked
+	/>
+	<input
+		type="radio"
+		name="home-view"
+		id="home-view-types"
+		class="sr-only"
+		aria-controls="home-panel-types"
+	/>
+	<div class="eq-home-toggle">
+		<label for="home-view-categories" class="eq-btn eq-btn-pill eq-home-toggle-btn">
+			{t(locale, 'home.categories')}
+		</label>
+		<label for="home-view-types" class="eq-btn eq-btn-pill eq-home-toggle-btn">
+			{t(locale, 'design.content.home.types')}
+		</label>
+	</div>
+
+	<section
+		id="home-panel-categories"
+		aria-labelledby="categories-heading"
+		class="eq-home-panel eq-home-panel-categories"
+	>
+		<h2 id="categories-heading" class="sr-only">{t(locale, 'home.categories')}</h2>
+		<ul class="eq-home-grid">
 			{
 				categories.map((category) => (
 					<li>
 						<a
 							href={localePath(locale, `/categories/${category.slug}/`)}
-							class={`block h-full rounded-lg border border-border ${CATEGORY_BORDER[category.slug] ?? CATEGORY_BORDER.universal} border-t-4 bg-surface p-5 hover:shadow-md`}
+							class={`eq-home-card eq-accent-panel cat-${category.slug}`}
 						>
-							<h3 class="text-lg font-semibold">{localizedName(category, locale)}</h3>
+							<h3 class="eq-home-card-title">{localizedName(category, locale)}</h3>
 							{category.description !== undefined && (
-								<p class="mt-2 line-clamp-3 text-sm text-ink-muted">
+								<p class="eq-home-card-text">
 									{pickLocalized(category.description, locale).value}
 								</p>
 							)}
@@ -111,23 +145,25 @@ const collectionCards = [
 		</ul>
 	</section>
 
-	<section aria-labelledby="browse-heading" class="py-6">
-		<h2 id="browse-heading" class="text-2xl font-semibold">{t(locale, 'home.browse')}</h2>
-		<ul class="mt-4 grid gap-4 sm:grid-cols-2">
+	<section
+		id="home-panel-types"
+		aria-labelledby="browse-heading"
+		class="eq-home-panel eq-home-panel-types"
+	>
+		<h2 id="browse-heading" class="sr-only">{t(locale, 'home.browse')}</h2>
+		<ul class="eq-home-grid">
 			{
 				collectionCards.map((card) => (
 					<li>
 						<a
 							href={localePath(locale, card.href)}
-							class="block h-full rounded-lg border border-border bg-surface p-5 hover:shadow-md"
+							class={`eq-home-card eq-accent-panel ${card.accent}`}
 						>
-							<h3 class="text-lg font-semibold text-accent">
+							<h3 class="eq-home-card-title">
 								{card.title}
-								{card.count !== undefined && (
-									<span class="ml-2 text-sm font-normal text-ink-muted">{card.count}</span>
-								)}
+								{card.count !== undefined && <span class="eq-home-card-count">{card.count}</span>}
 							</h3>
-							<p class="mt-2 text-sm text-ink-muted">{card.description}</p>
+							<p class="eq-home-card-text">{card.description}</p>
 						</a>
 					</li>
 				))

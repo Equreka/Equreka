@@ -1,0 +1,41 @@
+---
+/**
+ * Legacy PageHeader: full-bleed accent band (render it into the layout's
+ * `hero` slot) with the uppercase label, the page's only h1, an optional
+ * lead (default slot) and round actions (`actions` slot). `accent` is the
+ * slug class (`type-units`, `cat-physics`) that colors the band.
+ */
+interface Props {
+	label: string;
+	labelHref?: string | undefined;
+	title: string;
+	accent?: string | undefined;
+}
+
+const { label, labelHref, title, accent } = Astro.props;
+---
+
+<header class:list={['eq-accent-panel', 'eq-page-header', accent]}>
+	<div class="eq-container eq-page-header-row">
+		<div class="eq-page-header-main">
+			{
+				labelHref === undefined ? (
+					<p class="eq-page-header-label">{label}</p>
+				) : (
+					<a class="eq-page-header-label eq-page-header-label-link" href={labelHref}>
+						{label}
+					</a>
+				)
+			}
+			<h1 class="eq-page-header-title">{title}</h1>
+			{Astro.slots.has('default') && <div class="eq-page-header-lead"><slot /></div>}
+		</div>
+		{
+			Astro.slots.has('actions') && (
+				<div class="eq-page-actions">
+					<slot name="actions" />
+				</div>
+			)
+		}
+	</div>
+</header>

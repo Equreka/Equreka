@@ -9,10 +9,4 @@ interface Props {
 const { locale, show } = Astro.props;
 ---
 
-{
-	show && (
-		<span class="rounded-full bg-physics/10 px-2.5 py-0.5 text-physics">
-			{t(locale, 'badge.untranslated')}
-		</span>
-	)
-}
+{show && <span class="eq-badge eq-badge-quiet">{t(locale, 'badge.untranslated')}</span>}
