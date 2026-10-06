@@ -2,7 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import equationsPresentation from '@equreka/content/artifact/presentation/equations.json';
-import type { LocalizedSegments } from '@equreka/content/rich-text';
+import { type LocalizedSegments, termMacroPattern } from '@equreka/content/rich-text';
 import {
 	type Locale,
 	type LocalizedText,
@@ -151,8 +151,8 @@ const accent = equation.kind === 'formula' ? 'type-formulas' : 'type-equations';
  * word so `\const{\pi}\mag{r}` stays `\pi r`, not the undefined `\pir`.
  */
 const codeTex = equation.expression.replace(
-	/\\(?:mag|const|var)\{([^{}]*)\}/g,
-	(_whole, arg: string) => (/\\[A-Za-z]+$/.test(arg) ? `${arg} ` : arg),
+	termMacroPattern(),
+	(_whole, _macro: string, arg: string) => (/\\[A-Za-z]+$/.test(arg) ? `${arg} ` : arg),
 );
 const metaDescription =
 	description === undefined

@@ -270,6 +270,27 @@ describe('equation', () => {
 		).toBe(false);
 	});
 
+	it('takes an optional identifier override on every term kind, validated as an identifier', () => {
+		const withIdentifier = (term: Record<string, unknown>) =>
+			equation.safeParse({
+				name: { en: 'Override' },
+				expression: '\\var{x}',
+				terms: { x: term },
+			});
+		for (const term of [
+			{ kind: 'magnitude', ref: 'energy' },
+			{ kind: 'constant', ref: 'planck-constant' },
+			{ kind: 'variable', ref: 'radius' },
+			{ kind: 'symbol', label: { en: 'Hydronium' } },
+		]) {
+			expect(withIdentifier({ ...term, identifier: 'cH' }).success, term.kind).toBe(true);
+			expect(withIdentifier({ ...term, identifier: 'c_H2' }).success, term.kind).toBe(true);
+			expect(withIdentifier({ ...term, identifier: '2c' }).success, term.kind).toBe(false);
+			expect(withIdentifier({ ...term, identifier: '_c' }).success, term.kind).toBe(false);
+			expect(withIdentifier({ ...term, identifier: 'c-H' }).success, term.kind).toBe(false);
+		}
+	});
+
 	it('rejects the retired hand-maintained units[] list', () => {
 		const result = equation.safeParse({
 			name: { en: 'Square area' },

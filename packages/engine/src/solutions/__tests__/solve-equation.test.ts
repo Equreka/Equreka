@@ -77,6 +77,48 @@ describe('solveEquation — solving', () => {
 	});
 });
 
+describe('solveEquation — term keys that are not identifiers', () => {
+	const arcLength: CompiledEquationMeta = {
+		slug: 'arc-length',
+		kind: 'formula',
+		name: { en: 'Arc length' },
+		calculatorEnabled: true,
+		terms: {
+			s: { kind: 'symbol', identifier: 's' },
+			'r_{0}': { kind: 'symbol', identifier: 'r_0' },
+			'\\theta': { kind: 'symbol', identifier: 'theta' },
+		},
+		solvable: ['\\theta', 'r_{0}', 's'],
+	};
+
+	const arcLengthFns: SolutionsModule = {
+		'arc-length': {
+			'\\theta': (v) => Number(v.s) / Number(v.r_0),
+			'r_{0}': (v) => Number(v.s) / Number(v.theta),
+			s: (v) => Number(v.r_0) * Number(v.theta),
+		},
+	};
+
+	it('looks the solution up by term key and passes arguments by identifier', () => {
+		const solved = unwrap(solveEquation(arcLength, arcLengthFns, { s: 3, 'r_{0}': 2 }));
+		expect(solved).toEqual({ symbol: '\\theta', value: 1.5 });
+	});
+
+	it('solves for a braced key', () => {
+		const solved = unwrap(solveEquation(arcLength, arcLengthFns, { s: 3, '\\theta': 1.5 }));
+		expect(solved).toEqual({ symbol: 'r_{0}', value: 2 });
+	});
+
+	it('does not find a module keyed by identifier', () => {
+		const byIdentifier: SolutionsModule = {
+			'arc-length': { theta: (v) => Number(v.s) / Number(v.r_0) },
+		};
+		expect(unwrapErr(solveEquation(arcLength, byIdentifier, { s: 3, 'r_{0}': 2 })).code).toBe(
+			'internal/unsupported',
+		);
+	});
+});
+
 describe('solveEquation — unknown inference error paths', () => {
 	it('all solvable terms empty → inputs/empty', () => {
 		const error = unwrapErr(solveEquation(massEnergy, massEnergyFns, { c: SPEED_OF_LIGHT }));

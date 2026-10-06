@@ -1,9 +1,13 @@
-import { canonicalTex, type RichTextSegment, splitRichText } from '@equreka/content/rich-text';
+import {
+	canonicalTex,
+	type RichTextSegment,
+	splitRichText,
+	termIdentifier,
+	termMacroPattern,
+} from '@equreka/content/rich-text';
 import katex from 'katex';
 
 const TRUSTED_COMMANDS = ['\\htmlClass', '\\htmlData'];
-
-const MACRO_RE = /\\(mag|const|var)\{([^{}]*)\}/g;
 
 /**
  * ADR 0002 name-validation patterns for the KaTeX HTML extension: anything
@@ -35,11 +39,13 @@ const strictAllowHtmlExtension = (errorCode: string): 'ignore' | 'error' =>
 /**
  * Structural subset of one authored equation term (@equreka/schema
  * equationTerm): wiki-backed kinds carry `ref`; equation-local symbols have
- * none and key their highlighting on the term identifier instead.
+ * none and key their highlighting on the term identifier instead, so they
+ * carry its authored override when there is one.
  */
 export interface TermAnnotation {
 	kind: 'magnitude' | 'constant' | 'variable' | 'symbol';
-	ref?: string;
+	ref?: string | undefined;
+	identifier?: string | undefined;
 }
 
 const HTML_ESCAPES: Record<string, string> = {
@@ -57,14 +63,14 @@ export function escapeHtml(text: string): string {
 /**
  * Canonical data-term value for one term — the equation page's expression
  * spans, terms-table rows, and the base layout's highlighting script all key
- * off this exact string. Symbol terms use the key's identifier form (the
- * same normalization as the pipeline's solution identifiers).
+ * off this exact string. Symbol terms use their effective identifier, the
+ * same one the pipeline's solutions and engine slice use.
  */
 export function termDataValue(key: string, term: TermAnnotation): string {
 	if (term.ref !== undefined) {
 		return `${term.kind}:${term.ref}`;
 	}
-	const identifier = key.replace(/[^A-Za-z0-9_]/g, '');
+	const identifier = termIdentifier(key, term.identifier);
 	if (identifier === '') {
 		throw new Error(`term key ${JSON.stringify(key)} normalizes to an empty identifier`);
 	}
@@ -81,7 +87,7 @@ export function termDataValue(key: string, term: TermAnnotation): string {
  * ADR validation patterns.
  */
 export function expandSemanticMacros(tex: string, terms: Record<string, TermAnnotation>): string {
-	return tex.replace(MACRO_RE, (whole, macro: string, arg: string) => {
+	return tex.replace(termMacroPattern(), (whole, macro: string, arg: string) => {
 		const term = terms[arg];
 		if (term === undefined) {
 			throw new Error(`tex macro ${whole} has no matching term key "${arg}"`);

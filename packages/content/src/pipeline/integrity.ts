@@ -1,7 +1,14 @@
 import type { CollectionName } from '@equreka/schema';
 import { dimensionsEqual, formatDimension, magnitudeDimension } from './dimension.js';
 import { ratFromExact, ratIsZero } from './rational.js';
-import { type MacroUse, macroUses } from './tex.js';
+import {
+	buildIdentifierMap,
+	type IdentityTerm,
+	isCarriableTermKey,
+	isPrototypeName,
+	type MacroUse,
+	macroUses,
+} from './tex.js';
 import { type Issue, issue } from './types.js';
 import { type Corpus, fileOf } from './validate.js';
 
@@ -55,7 +62,7 @@ interface TaxonomyFields {
  * Stage 3: cross-entity referential integrity plus the structural rules a
  * per-file schema cannot see (branch ⊂ category membership, baseUnit linkage, the quantity-kind
  * hierarchy, the affine ban, the derivation whitelist, nonConvertible
- * isolation, equation term/macro agreement). Numeric anchor rules land in
+ * isolation, equation term/macro agreement, term identity). Numeric anchor rules land in
  * stage 4 resolution.
  */
 export function checkIntegrity(corpus: Corpus): Issue[] {
@@ -316,6 +323,7 @@ export function checkIntegrity(corpus: Corpus): Issue[] {
 				);
 			}
 		}
+		issues.push(...termKeyIssues(file, equation.terms));
 		for (const [key, term] of Object.entries(equation.terms)) {
 			if (term.kind === 'symbol') {
 				ref(file, `terms.${key}.unit`, 'units', term.unit);
@@ -378,6 +386,41 @@ export function checkIntegrity(corpus: Corpus): Issue[] {
 	}
 
 	return issues;
+}
+
+/**
+ * Term identity (ADR 0009). A key is TeX rendered on web and mobile, the
+ * argument of its annotation macros and a record key on every platform, so
+ * it must be trimmed, free of `$` (prose math delimiter) and line breaks,
+ * no Object.prototype property name, and carriable by the macro pattern;
+ * its effective identifier must satisfy `buildIdentifierMap`.
+ */
+export function termKeyIssues(
+	file: string,
+	terms: Readonly<Record<string, IdentityTerm>>,
+): Issue[] {
+	const messages: string[] = [];
+	for (const key of Object.keys(terms)) {
+		if (key.trim() !== key || key === '') {
+			messages.push(`term key '${key}' must be non-empty with no leading or trailing whitespace`);
+		}
+		if (key.includes('$')) {
+			messages.push(`term key '${key}' must not contain '$'`);
+		}
+		if (/[\r\n]/.test(key)) {
+			messages.push(`term key ${JSON.stringify(key)} must not contain a line break`);
+		}
+		if (isPrototypeName(key)) {
+			messages.push(`term key '${key}' is an Object.prototype property name`);
+		}
+		if (!isCarriableTermKey(key)) {
+			messages.push(
+				`term key '${key}' has unbalanced braces or nests them deeper than one level; annotation macros cannot carry it`,
+			);
+		}
+	}
+	messages.push(...buildIdentifierMap(terms).errors);
+	return messages.map((message) => issue('error', 'integrity', file, message));
 }
 
 /**

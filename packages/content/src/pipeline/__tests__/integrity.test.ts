@@ -7,6 +7,7 @@ import {
 	DERIVATION_FREE_UNITS,
 	emptyBranches,
 	orphanMagnitudes,
+	termKeyIssues,
 } from '../integrity.js';
 import { loadContent } from '../load.js';
 import { type Corpus, validateContent } from '../validate.js';
@@ -213,6 +214,19 @@ describe('equation terms', () => {
 		);
 		expect(messages(corpus)).toEqual([
 			expect.stringContaining("annotates 's' as magnitude but terms declares symbol"),
+		]);
+	});
+
+	it('reports term identity through checkIntegrity', () => {
+		const corpus = equationWith(
+			{
+				sin: { kind: 'symbol', label: { en: 'Sine' } },
+				s: { kind: 'symbol', label: { en: 'Side' } },
+			},
+			'\\var{sin}=\\var{s}',
+		);
+		expect(messages(corpus)).toEqual([
+			expect.stringContaining("'sin', which is reserved for the solution function sin()"),
 		]);
 	});
 
@@ -556,5 +570,87 @@ describe('branches', () => {
 		const { corpus } = validateContent(loadContent(CONTENT_DIR));
 		expect(corpus.branches.size).toBeGreaterThan(0);
 		expect(emptyBranches(corpus)).toEqual([]);
+	});
+});
+
+describe('termKeyIssues (ADR 0009)', () => {
+	const symbol = (identifier?: string) => ({
+		kind: 'symbol' as const,
+		...(identifier === undefined ? {} : { identifier }),
+	});
+	const keyMessages = (terms: Parameters<typeof termKeyIssues>[1]): string[] =>
+		termKeyIssues('equations/sample.yaml', terms).map((entry) => entry.message);
+
+	it('accepts any carriable TeX key whose identifier is valid and unique', () => {
+		expect(
+			keyMessages({
+				KE: symbol(),
+				'v_{0}': symbol(),
+				'\\Delta x': symbol(),
+				'\\hbar': symbol(),
+				'[\\mathrm{H}^{+}]': symbol('cH'),
+				'\\pi': { kind: 'constant', ref: 'pi' },
+			}),
+		).toEqual([]);
+	});
+
+	it('rejects identifiers that collide with a grammar function, current or reserved', () => {
+		expect(keyMessages({ sin: symbol(), x: symbol('asinh'), y: symbol('factorial') })).toEqual([
+			expect.stringContaining('reserved for the solution function sin()'),
+			expect.stringContaining('reserved for the solution function asinh()'),
+			expect.stringContaining('reserved for the solution function factorial()'),
+		]);
+	});
+
+	it('rejects Object.prototype names as identifiers and as keys', () => {
+		expect(keyMessages({ c: symbol('constructor') })).toEqual([
+			expect.stringContaining(
+				"identifier 'constructor', which is an Object.prototype property name",
+			),
+		]);
+		expect(keyMessages({ toString: symbol('s') })).toEqual([
+			"term key 'toString' is an Object.prototype property name",
+		]);
+	});
+
+	it('reserves pi for the constant term whose ref is pi', () => {
+		expect(keyMessages({ '\\pi': symbol() })).toEqual([
+			expect.stringContaining('reads as the constant pi'),
+		]);
+		expect(keyMessages({ p: { kind: 'constant', ref: 'golden-ratio', identifier: 'pi' } })).toEqual(
+			[expect.stringContaining('reads as the constant pi')],
+		);
+	});
+
+	it('rejects duplicate effective identifiers', () => {
+		expect(keyMessages({ v_0: symbol(), 'v_{0}': symbol() })).toEqual([
+			expect.stringContaining("term keys 'v_0' and 'v_{0}' share identifier 'v_0'"),
+		]);
+		expect(keyMessages({ a: symbol(), b: symbol('a') })).toEqual([
+			expect.stringContaining("share identifier 'a'"),
+		]);
+	});
+
+	it('rejects a key whose derived identifier is invalid', () => {
+		expect(keyMessages({ '2x': symbol(), '\\{\\}': symbol() })).toEqual([
+			expect.stringContaining(
+				"term key '2x' derives identifier '2x', which is not a valid identifier",
+			),
+			expect.stringContaining("derives identifier '', which is not a valid identifier"),
+		]);
+	});
+
+	it('rejects untrimmed, $-bearing, multi-line and deeply nested keys', () => {
+		expect(keyMessages({ ' x': symbol('x') })).toEqual([
+			expect.stringContaining('no leading or trailing whitespace'),
+		]);
+		expect(keyMessages({ $x$: symbol('x') })).toEqual([expect.stringContaining("contain '$'")]);
+		expect(keyMessages({ 'a\nb': symbol('ab') })).toEqual([expect.stringContaining('line break')]);
+		expect(keyMessages({ 'x_{a_{b}}': symbol('x') })).toEqual([
+			expect.stringContaining('deeper than one level'),
+		]);
+		expect(keyMessages({ 'x}': symbol('x') })).toEqual([
+			expect.stringContaining('unbalanced braces'),
+		]);
 	});
 });

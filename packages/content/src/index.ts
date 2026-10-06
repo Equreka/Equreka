@@ -22,6 +22,8 @@ export {
 	splitRichText,
 	stripMacros,
 	stripMacrosToText,
+	termIdentifier,
+	termMacroPattern,
 } from './rich-text.js';
 export {
 	type CatalogLiteEntry,
