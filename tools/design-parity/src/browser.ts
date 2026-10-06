@@ -3,6 +3,7 @@ import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 import { type Browser, type BrowserContext, chromium, type Page } from 'playwright-core';
 import type { App, RuntimeConfig, Shell, Theme, Waiver } from './config.js';
+import { FontLoadError } from './errors.js';
 
 const CHROMIUM_BUILDS = ['1243', '1208'] as const;
 const CHROMIUM_EXECUTABLES = [
@@ -87,6 +88,33 @@ function fontFile(name: string): Buffer {
 	return readFileSync(join(root, 'files', name));
 }
 
+const LEGACY_CONTENT_API = '/api/';
+
+/**
+ * The original fills list pages from parallel `$content` queries and
+ * keys its result object in the order the responses land, so the
+ * category order of `/units` changed between identical loads (measured:
+ * Physics and Chemistry swapped in 1 of 10 runs). Answering the content
+ * API strictly in request order yields the authored order every time.
+ */
+async function serializeLegacyContentApi(context: BrowserContext): Promise<void> {
+	let queue: Promise<unknown> = Promise.resolve();
+	await context.route(
+		(url) => url.pathname.startsWith(LEGACY_CONTENT_API),
+		async (route) => {
+			const response = route.fetch();
+			response.catch(() => undefined);
+			const turn = queue.then(async () => route.fulfill({ response: await response }));
+			queue = turn.catch(() => undefined);
+			try {
+				await turn;
+			} catch {
+				await route.abort('failed').catch(() => undefined);
+			}
+		},
+	);
+}
+
 export interface ContextOptions {
 	app: App;
 	baseUrl: string;
@@ -149,6 +177,7 @@ export async function newAppContext(
 			await route.abort('blockedbyclient');
 		},
 	);
+	if (app === 'legacy') await serializeLegacyContentApi(context);
 	await context.addInitScript({ content: KEEP_NAMES_SHIM });
 	const css = (options.freeze ? FREEZE_CSS : '') + hideCss(app, options.waivers);
 	await context.addInitScript(
@@ -180,10 +209,13 @@ export async function newAppContext(
 /**
  * Waits for web fonts, decoded images, MathJax typesetting and a DOM
  * with no mutations for SETTLE_QUIET_MS, the union of every signal
- * either app gives that its first paint is final.
+ * either app gives that its first paint is final. Every declared font
+ * face is loaded explicitly at the end, because `document.fonts.ready`
+ * only covers loads already started, and a face that failed is an
+ * error: a capture in the fallback font is not a measurement.
  */
 export async function settle(page: Page): Promise<void> {
-	await page.evaluate(
+	const failedFonts = await page.evaluate(
 		async ({ quietMs, maxMs }) => {
 			await document.fonts.ready;
 			const mathJax = (
@@ -216,7 +248,47 @@ export async function settle(page: Page): Promise<void> {
 				setTimeout(done, maxMs);
 			});
 			await document.fonts.ready;
+			const faces = [...document.fonts];
+			await Promise.all(faces.map((face) => face.load().catch(() => undefined)));
+			return faces
+				.filter((face) => face.status === 'error')
+				.map((face) => `${face.family} ${face.weight} ${face.style} ${face.unicodeRange}`);
 		},
 		{ quietMs: SETTLE_QUIET_MS, maxMs: SETTLE_MAX_MS },
 	);
+	if (failedFonts.length > 0) {
+		throw new FontLoadError(`web fonts failed to load: ${failedFonts.join('; ')}`);
+	}
+}
+
+/**
+ * Scrolls the whole page one viewport at a time and back to the top.
+ * The port hydrates islands on visibility and both apps lazy-load
+ * images, so without this sweep the first region screenshot that
+ * scrolled them into view grew the page mid-capture (measured: the
+ * footer shot of /units/metre landed on the half-hydrated converter in
+ * 1 of 10 runs). The page also ends at scroll 0, because fixed elements
+ * are painted at the current scroll offset in a full-page screenshot.
+ */
+export async function sweepScroll(page: Page): Promise<void> {
+	await page.evaluate(async () => {
+		const frame = () => new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+		for (let y = 0; y < document.documentElement.scrollHeight; y += window.innerHeight) {
+			window.scrollTo(0, y);
+			await frame();
+			await frame();
+		}
+		window.scrollTo(0, document.documentElement.scrollHeight);
+		await frame();
+		window.scrollTo(0, 0);
+		await frame();
+	});
+	await settle(page);
+}
+
+export async function scrollToTop(page: Page): Promise<void> {
+	await page.evaluate(async () => {
+		window.scrollTo(0, 0);
+		await new Promise<void>((resolve) => requestAnimationFrame(() => resolve()));
+	});
 }

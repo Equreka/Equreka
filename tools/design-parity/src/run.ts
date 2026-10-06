@@ -2,9 +2,10 @@ import { mkdirSync, readdirSync, readFileSync, rmSync } from 'node:fs';
 import { join } from 'node:path';
 import { parseArgs } from 'node:util';
 import type { Browser } from 'playwright-core';
-import { launchBrowser, newAppContext, resolveChromium, settle } from './browser.js';
-import { type CaptureManifest, captureVariant } from './capture.js';
+import { launchBrowser, resolveChromium } from './browser.js';
+import { type CaptureManifest, type CaptureRequest, captureVariant } from './capture.js';
 import {
+	APPS,
 	type App,
 	loadProbes,
 	loadScenarios,
@@ -17,12 +18,13 @@ import {
 	type ShellId,
 	type Theme,
 } from './config.js';
-import { diffImages, diffRegion, percent, type RegionDiff } from './diff.js';
+import { type DiffResult, diffImages, diffRegion, percent, type RegionDiff } from './diff.js';
 import { readPng } from './image.js';
 import { type ProbeRun, runProbes } from './probes.js';
-import { buildReport, type ScenarioResult, writeReport } from './report.js';
+import { buildReport, type Gate, type ScenarioResult, writeReport } from './report.js';
 import { ensureServers } from './servers.js';
-import { writeRegionSheet, writeSheets } from './sheets.js';
+import { writeAboveFoldSheet, writeRegionSheet, writeSheets } from './sheets.js';
+import { StabilityTracker } from './stability.js';
 
 const { values: flags } = parseArgs({
 	options: {
@@ -88,6 +90,26 @@ function clearSheets(dir: string, variantId: string): void {
 	}
 }
 
+/**
+ * What gates a scenario: the full page when the content is the same in
+ * both apps; otherwise the chrome regions plus, unless the scenario
+ * opts out with a reason, the above-the-fold band of the content.
+ */
+function gatesFor(scenario: Scenario): Gate[] {
+	if (scenario.contentIdentical) return ['full'];
+	return scenario.aboveFold?.gate === true ? ['chrome', 'aboveFold'] : ['chrome'];
+}
+
+function diffAboveFold(legacy: CaptureManifest, current: CaptureManifest): DiffResult | undefined {
+	if (legacy.aboveFold === undefined || current.aboveFold === undefined) return undefined;
+	return diffImages(
+		readPng(legacy.aboveFold.file),
+		readPng(current.aboveFold.file),
+		thresholds.pixelmatchThreshold,
+		[...legacy.aboveFold.masks, ...current.aboveFold.masks],
+	);
+}
+
 function evaluate(
 	scenario: Scenario,
 	file: ScenariosFile,
@@ -99,8 +121,12 @@ function evaluate(
 	writeImages: boolean,
 ): ScenarioResult {
 	const mode = scenario.contentIdentical ? 'full' : 'chrome';
+	const gates = gatesFor(scenario);
 	const notes = [
 		...(scenario.note === undefined ? [] : [scenario.note]),
+		...(scenario.aboveFold?.gate === false
+			? [`aboveFold not gated: ${scenario.aboveFold.reason}`]
+			: []),
 		...legacy.notes.map((note) => `legacy ${note}`),
 		...current.notes.map((note) => `current ${note}`),
 	];
@@ -111,7 +137,12 @@ function evaluate(
 		theme,
 		area: scenario.area,
 		mode,
-	} as const;
+		gates,
+		diffPctRuns: [],
+		aboveFoldPctRuns: [],
+		fullPctRuns: [],
+		unstable: [],
+	} satisfies Partial<ScenarioResult>;
 	if (
 		legacy.error !== undefined ||
 		current.error !== undefined ||
@@ -125,8 +156,10 @@ function evaluate(
 		return {
 			...base,
 			diffPct: null,
-			diffPctRuns: [],
 			chromeDiffPct: null,
+			aboveFoldPct: null,
+			aboveFoldMaskedPct: null,
+			fullDiffPct: null,
 			regions: {},
 			status: 'error',
 			note: [...errors.filter(Boolean), ...notes].join('; '),
@@ -158,6 +191,13 @@ function evaluate(
 	const chromeTotal = regionDiffs.reduce((sum, region) => sum + region.totalPixels, 0);
 	const chromeDiffPct = chromeTotal === 0 ? null : percent(chromeDiff, chromeTotal);
 	const fullDiffPct = percent(full.diffPixels, full.totalPixels);
+	const aboveFold = diffAboveFold(legacy, current);
+	const aboveFoldPct =
+		aboveFold === undefined ? null : percent(aboveFold.diffPixels, aboveFold.totalPixels);
+	const aboveFoldMaskedPct =
+		aboveFold === undefined
+			? null
+			: percent(aboveFold.maskedPixels, aboveFold.totalPixels + aboveFold.maskedPixels);
 	const diffPct = mode === 'full' ? fullDiffPct : chromeDiffPct;
 	const regions: ScenarioResult['regions'] = {};
 	for (const region of regionDiffs) {
@@ -166,7 +206,11 @@ function evaluate(
 		if (region.presence !== 'both')
 			notes.push(`${region.name} region exists in ${region.presence}`);
 	}
-	if (mode === 'chrome') notes.push(`full-page diff ${fullDiffPct}% (informational)`);
+	const gatePasses: Record<Gate, boolean> = {
+		full: fullDiffPct <= thresholds.scenarioMaxDiffPct,
+		chrome: chromeDiffPct !== null && chromeDiffPct <= thresholds.scenarioMaxDiffPct,
+		aboveFold: aboveFoldPct !== null && aboveFoldPct <= thresholds.aboveFoldMaxDiffPct,
+	};
 	const sheets: string[] = [];
 	if (writeImages) {
 		const dir = join(config.outDir, 'sheets');
@@ -175,47 +219,71 @@ function evaluate(
 		if (regionDiffs.some((region) => region.result !== undefined)) {
 			sheets.push(writeRegionSheet(dir, variantId, regionDiffs));
 		}
+		if (aboveFold !== undefined) sheets.push(writeAboveFoldSheet(dir, variantId, aboveFold));
 	}
 	return {
 		...base,
 		diffPct,
-		diffPctRuns: [],
 		chromeDiffPct,
+		aboveFoldPct,
+		aboveFoldMaskedPct,
+		fullDiffPct,
 		regions,
-		status: diffPct !== null && diffPct <= thresholds.scenarioMaxDiffPct ? 'pass' : 'fail',
+		status: gates.every((gate) => gatePasses[gate]) ? 'pass' : 'fail',
 		note: notes.join('; '),
 		sheets,
 	};
 }
 
+function captureRequest(
+	browser: Browser,
+	app: App,
+	scenario: Scenario,
+	shell: ShellId,
+	theme: Theme,
+	outDir: string,
+): CaptureRequest {
+	return {
+		browser,
+		app,
+		baseUrl: baseUrls[app],
+		variantId: `${scenario.id}--${shell}-${theme}`,
+		setup: scenario[app],
+		shellId: shell,
+		shell: scenariosFile.shells[shell],
+		theme,
+		storage: storageFor(app, scenario.fixture, theme),
+		regions: scenariosFile.chrome[app][shell],
+		aboveFold: {
+			selector: scenariosFile.aboveFold[app],
+			heightPx: scenariosFile.aboveFold.heightPx,
+		},
+		waivers,
+		outDir,
+		blocked,
+	};
+}
+
 /**
- * The first request to a route in a fresh dev server or browser profile
- * renders differently from every later one (webpack lazy chunks, the
- * content API's first query, font and image caches). One untimed visit
- * per route makes the first measured capture equal to the second.
+ * One unmeasured capture of every variant, written to `warm-up/` and
+ * discarded. The first request to a cold dev server or browser profile
+ * renders differently (webpack lazy chunks, the content API's first
+ * query, font and image caches), and a visit per route does not reach
+ * what the setup steps load or the full-page screenshot at each page
+ * size, so the first measured capture takes no code path for the first
+ * time.
  */
 async function warmUp(browser: Browser): Promise<void> {
-	for (const app of ['legacy', 'current'] as const) {
-		const routes = [...new Set(scenarios.map((scenario) => scenario[app].route))];
-		const context = await newAppContext(browser, {
-			app,
-			baseUrl: baseUrls[app],
-			shell: scenariosFile.shells.desktop,
-			theme: 'light',
-			storage: storageFor(app, undefined, 'light'),
-			waivers,
-			freeze: true,
-			blocked,
-		});
-		try {
-			const page = await context.newPage();
-			for (const route of routes) {
-				console.log(`[warm-up] ${app} ${route}`);
-				await page.goto(`${baseUrls[app]}${route}`, { waitUntil: 'load', timeout: 90_000 });
-				await settle(page);
+	const outDir = join(config.outDir, 'warm-up');
+	for (const app of APPS) mkdirSync(join(outDir, app), { recursive: true });
+	for (const scenario of scenarios) {
+		for (const shell of shells) {
+			for (const theme of themes) {
+				console.log(`[warm-up] ${scenario.id}--${shell}-${theme}`);
+				for (const app of APPS) {
+					await captureVariant(captureRequest(browser, app, scenario, shell, theme, outDir));
+				}
 			}
-		} finally {
-			await context.close();
 		}
 	}
 }
@@ -231,6 +299,7 @@ async function main(): Promise<void> {
 			: await ensureServers(config, flags['skip-capture']);
 	const browser = await launchBrowser(chromium.path);
 	const results = new Map<string, ScenarioResult>();
+	const stability = new StabilityTracker(config.outDir);
 	try {
 		if (!flags['skip-capture']) await warmUp(browser);
 		for (let run = 1; run <= runs; run += 1) {
@@ -243,21 +312,18 @@ async function main(): Promise<void> {
 						for (const app of ['legacy', 'current'] as const) {
 							manifests[app] = flags['skip-capture']
 								? readManifest(app, variantId)
-								: await captureVariant({
-										browser,
-										app,
-										baseUrl: baseUrls[app],
-										variantId,
-										setup: scenario[app],
-										shellId: shell,
-										shell: scenariosFile.shells[shell],
-										theme,
-										storage: storageFor(app, scenario.fixture, theme),
-										regions: scenariosFile.chrome[app][shell],
-										waivers,
-										outDir: config.outDir,
-										blocked,
-									});
+								: await captureVariant(
+										captureRequest(browser, app, scenario, shell, theme, config.outDir),
+									);
+							const { full, regions, aboveFold } = manifests[app];
+							if (!flags['skip-capture'] && full !== undefined) {
+								const files: Record<string, string> = { full };
+								if (aboveFold !== undefined) files.aboveFold = aboveFold.file;
+								for (const [name, file] of Object.entries(regions)) {
+									if (file !== undefined) files[name] = file;
+								}
+								stability.observe(run, app, variantId, files);
+							}
 						}
 						const result = evaluate(
 							scenario,
@@ -269,10 +335,16 @@ async function main(): Promise<void> {
 							manifests.current,
 							run === runs,
 						);
-						const previous = results.get(variantId)?.diffPctRuns ?? [];
-						results.set(variantId, { ...result, diffPctRuns: [...previous, result.diffPct] });
+						const previous = results.get(variantId);
+						results.set(variantId, {
+							...result,
+							diffPctRuns: [...(previous?.diffPctRuns ?? []), result.diffPct],
+							aboveFoldPctRuns: [...(previous?.aboveFoldPctRuns ?? []), result.aboveFoldPct],
+							fullPctRuns: [...(previous?.fullPctRuns ?? []), result.fullDiffPct],
+							unstable: stability.unstableFor(variantId),
+						});
 						console.log(
-							`  ${result.status} diff=${result.diffPct}% chrome=${result.chromeDiffPct}%`,
+							`  ${result.status} [gates ${result.gates.join('+')}] chrome=${result.chromeDiffPct}% aboveFold=${result.aboveFoldPct}% full=${result.fullDiffPct}%`,
 						);
 					}
 				}

@@ -11,3 +11,9 @@ export function assertLoaded(response: { status(): number } | null, url: string)
 		throw new Error(`${url} answered HTTP ${response.status()}`);
 	}
 }
+
+/**
+ * A capture whose web fonts did not load is a fault of the environment,
+ * not a property of the page, so the capture is retried from scratch.
+ */
+export class FontLoadError extends Error {}

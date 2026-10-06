@@ -47,10 +47,16 @@ const stepSchema = z.discriminatedUnion('action', [
 ]);
 export type Step = z.infer<typeof stepSchema>;
 
+const maskSchema = z.object({
+	selector: z.string(),
+	reason: z.string().min(10),
+});
+export type Mask = z.infer<typeof maskSchema>;
+
 const pageSetupSchema = z.object({
 	route: z.string().startsWith('/'),
 	steps: z.array(stepSchema).default([]),
-	masks: z.array(z.string()).default([]),
+	masks: z.array(maskSchema).default([]),
 });
 export type PageSetup = z.infer<typeof pageSetupSchema>;
 
@@ -64,20 +70,31 @@ const shellSchema = z.object({
 });
 export type Shell = z.infer<typeof shellSchema>;
 
-const scenarioSchema = z.object({
-	id: z.string().regex(/^[a-z0-9-]+$/),
-	area: z.enum(['chrome', 'content', 'interactive']),
-	contentIdentical: z.boolean(),
-	fixture: z.string().optional(),
-	note: z.string().optional(),
-	legacy: pageSetupSchema,
-	current: pageSetupSchema,
-});
+const scenarioSchema = z
+	.object({
+		id: z.string().regex(/^[a-z0-9-]+$/),
+		area: z.enum(['chrome', 'content', 'interactive']),
+		contentIdentical: z.boolean(),
+		aboveFold: z.object({ gate: z.boolean(), reason: z.string().min(10) }).optional(),
+		fixture: z.string().optional(),
+		note: z.string().optional(),
+		legacy: pageSetupSchema,
+		current: pageSetupSchema,
+	})
+	.refine((scenario) => scenario.contentIdentical || scenario.aboveFold !== undefined, {
+		message: 'a scenario that diffs only chrome must state whether aboveFold gates it, and why',
+		path: ['aboveFold'],
+	});
 export type Scenario = z.infer<typeof scenarioSchema>;
 
 const scenariosFileSchema = z.object({
 	shells: z.object({ desktop: shellSchema, mobile: shellSchema }),
 	themes: z.array(z.enum(THEMES)).min(1),
+	aboveFold: z.object({
+		legacy: z.string(),
+		current: z.string(),
+		heightPx: z.number().int().positive(),
+	}),
 	chrome: z.object({
 		legacy: z.object({ desktop: regionMapSchema, mobile: regionMapSchema }),
 		current: z.object({ desktop: regionMapSchema, mobile: regionMapSchema }),
@@ -114,6 +131,7 @@ export type ProbesFile = z.infer<typeof probesFileSchema>;
 const thresholdsSchema = z.object({
 	pixelmatchThreshold: z.number().min(0).max(1),
 	scenarioMaxDiffPct: z.number().nonnegative(),
+	aboveFoldMaxDiffPct: z.number().nonnegative(),
 	probeLengthTolerancePx: z.number().nonnegative(),
 	probeTolerantProperties: z.array(z.string()),
 });

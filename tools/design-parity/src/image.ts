@@ -60,6 +60,39 @@ export function crop(source: Image, y: number, height: number): Image {
 	};
 }
 
+/**
+ * Returns a copy with every box (clipped to the image) filled, and the
+ * number of distinct pixels the boxes covered. Without boxes the source
+ * is returned as is.
+ */
+export function fillBoxes(
+	source: Image,
+	boxes: readonly { x: number; y: number; width: number; height: number }[],
+	fill: Rgb,
+): { image: Image; filled: number } {
+	if (boxes.length === 0) return { image: source, filled: 0 };
+	const image = { width: source.width, height: source.height, data: source.data.slice() };
+	const covered = new Uint8Array(source.width * source.height);
+	let filled = 0;
+	for (const box of boxes) {
+		const x0 = Math.max(0, box.x);
+		const y0 = Math.max(0, box.y);
+		const x1 = Math.min(source.width, box.x + box.width);
+		const y1 = Math.min(source.height, box.y + box.height);
+		for (let y = y0; y < y1; y += 1) {
+			for (let x = x0; x < x1; x += 1) {
+				const index = y * source.width + x;
+				if (covered[index] === 0) {
+					covered[index] = 1;
+					filled += 1;
+				}
+				image.data.set([fill[0], fill[1], fill[2], 255], index * 4);
+			}
+		}
+	}
+	return { image, filled };
+}
+
 export function pad(source: Image, width: number, height: number, fill: Rgb): Image {
 	if (source.width === width && source.height === height) return source;
 	const target = createImage(width, height, fill);

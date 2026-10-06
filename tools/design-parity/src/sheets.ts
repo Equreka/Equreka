@@ -70,3 +70,9 @@ export function writeRegionSheet(dir: string, id: string, regions: readonly Regi
 	writePng(file, sheet);
 	return file;
 }
+
+export function writeAboveFoldSheet(dir: string, id: string, result: DiffResult): string {
+	const file = join(dir, `${id}--above-fold.png`);
+	writePng(file, triptych([result.legacy, result.current, result.diff]));
+	return file;
+}
