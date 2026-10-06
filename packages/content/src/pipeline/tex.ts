@@ -1,6 +1,6 @@
 import type { Symbol as AuthoredSymbol } from '@equreka/schema';
 import { termIdentifier, termMacroPattern } from '../rich-text.js';
-import { RESERVED_FUNCTION_NAMES } from './solution-parser.js';
+import { RESERVED_FUNCTION_NAMES } from '../solution-grammar.js';
 
 export interface MacroUse {
 	kind: 'magnitude' | 'constant' | 'variable';

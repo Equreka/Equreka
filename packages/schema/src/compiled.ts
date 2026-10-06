@@ -76,7 +76,9 @@ export const compiledConstant = z.object({
  * display contract of equation-local `symbol` terms so calculator UIs need
  * no second lookup. `identifier` is the effective one (authored override,
  * else derived from the term key): the key of the term's value in the
- * argument record a solution function receives.
+ * argument record a solution function receives. `integer` is present, and
+ * true, only on a term authored `integer: true`, so the calculator can
+ * refuse a fractional input.
  */
 export const compiledEquationTerm = z.object({
 	kind: z.enum(['magnitude', 'constant', 'variable', 'symbol']),
@@ -84,6 +86,7 @@ export const compiledEquationTerm = z.object({
 	label: localizedText.optional(),
 	unit: slug.optional(),
 	identifier: identifierName,
+	integer: z.literal(true).optional(),
 });
 
 /**

@@ -1,4 +1,5 @@
 import type { CompiledDimension, EquationTerm } from '@equreka/schema';
+import { parseSolution, type SolutionAst, solutionRoots } from '../solution-grammar.js';
 import {
 	DIMENSION_ZERO,
 	dimensionAdd,
@@ -9,9 +10,10 @@ import {
 	isDimensionless,
 	magnitudeDimension,
 	unitDimension,
+	withoutAngle,
 } from './dimension.js';
 import { type Rat, ratFromDecimal, ratToDecimal } from './rational.js';
-import { parseSolution, type SolutionAst } from './solution-parser.js';
+import { solutionLabel } from './solution-verify.js';
 import { buildIdentifierMap } from './tex.js';
 import { type Issue, issue } from './types.js';
 import { type Corpus, fileOf } from './validate.js';
@@ -19,14 +21,14 @@ import { type Corpus, fileOf } from './validate.js';
 class DimensionError extends Error {}
 
 /**
- * Stage 4b: every authored solution must be dimensionally consistent with
- * the term it solves for. The solution AST is walked with dimension
- * algebra — `*` adds exponent vectors, `/` subtracts, `^` by a literal
- * scales (non-integral results are errors, so sqrt of an odd power fails),
- * `+`/`-` require equal operands, transcendental functions require and
- * yield dimensionless, `abs` preserves its argument. A wrong solved form
- * that happens to balance numerically at the sampled points still fails
- * here when its units do not.
+ * Stage 4b: every authored root must be dimensionally consistent with the
+ * term it solves for. The solution AST is walked with dimension algebra —
+ * `*` adds exponent vectors, `/` subtracts, `^` by a literal scales
+ * (non-integral results are errors, so sqrt of an odd power fails), `sqrt`
+ * halves and `cbrt` thirds, `+`/`-` require equal operands, `abs` preserves
+ * its argument, and every other function requires and yields
+ * dimensionless. A wrong solved form that happens to balance numerically
+ * at the sampled points still fails here when its units do not.
  */
 export function checkSolutionDimensions(corpus: Corpus): Issue[] {
 	const issues: Issue[] = [];
@@ -50,37 +52,25 @@ export function checkSolutionDimensions(corpus: Corpus): Issue[] {
 		if (!complete) {
 			continue;
 		}
-		for (const [targetKey, source] of Object.entries(equation.solutions)) {
+		for (const [targetKey, solution] of Object.entries(equation.solutions)) {
 			const targetId = identifierMap.byTermKey.get(targetKey);
 			const target = targetId === undefined ? undefined : env[targetId];
 			if (target === undefined) {
 				continue;
 			}
-			let ast: SolutionAst;
-			try {
-				ast = parseSolution(source);
-			} catch {
-				continue;
-			}
-			try {
-				const result = dimensionOf(ast, env);
-				if (!dimensionsEqual(result, target)) {
+			const roots = solutionRoots(solution);
+			for (const [index, source] of roots.entries()) {
+				const message = rootDimensionMessage(source, env, target);
+				if (message !== undefined) {
 					issues.push(
 						issue(
 							'error',
 							'dimensions',
 							file,
-							`solution for '${targetKey}' has dimension ${formatDimension(result)} but the term has ${formatDimension(target)}`,
+							`${solutionLabel(targetKey, index, roots.length)}${message}`,
 						),
 					);
 				}
-			} catch (error) {
-				if (!(error instanceof DimensionError)) {
-					throw error;
-				}
-				issues.push(
-					issue('error', 'dimensions', file, `solution for '${targetKey}': ${error.message}`),
-				);
 			}
 		}
 	}
@@ -88,12 +78,47 @@ export function checkSolutionDimensions(corpus: Corpus): Issue[] {
 }
 
 /**
- * A term's dimension: magnitude → its vector; constant → its unit's;
+ * The tail of a dimension error for one authored root, or undefined when
+ * the root is consistent or does not parse (the verify stage reports
+ * syntax).
+ */
+function rootDimensionMessage(
+	source: string,
+	env: Record<string, CompiledDimension>,
+	target: CompiledDimension,
+): string | undefined {
+	let ast: SolutionAst;
+	try {
+		ast = parseSolution(source);
+	} catch {
+		return undefined;
+	}
+	try {
+		const result = dimensionOf(ast, env);
+		return dimensionsEqual(result, target)
+			? undefined
+			: ` has dimension ${formatDimension(result)} but the term has ${formatDimension(target)}`;
+	} catch (error) {
+		if (!(error instanceof DimensionError)) {
+			throw error;
+		}
+		return `: ${error.message}`;
+	}
+}
+
+/**
+ * A term's dimension as equation checks see it, the angle exponent dropped
+ * (`withoutAngle`): magnitude → its vector; constant → its unit's;
  * variable → its defaultUnit's (dimensionless without one); symbol → its
  * unit's (dimensionless without one). Undefined only for dangling refs,
  * which the integrity stage already reports.
  */
 export function termDimension(term: EquationTerm, corpus: Corpus): CompiledDimension | undefined {
+	const declared = declaredTermDimension(term, corpus);
+	return declared === undefined ? undefined : withoutAngle(declared);
+}
+
+function declaredTermDimension(term: EquationTerm, corpus: Corpus): CompiledDimension | undefined {
 	const viaUnit = (unitSlug: string | undefined): CompiledDimension | undefined => {
 		if (unitSlug === undefined) {
 			return DIMENSION_ZERO;
@@ -157,26 +182,33 @@ export function dimensionOf(
 		}
 		case 'call': {
 			const arg = dimensionOf(ast.arg, env);
-			if (ast.fn === 'sqrt') {
-				const half = dimensionScale(arg, 1n, 2n);
-				if (half === undefined) {
-					throw new DimensionError(
-						`sqrt of ${formatDimension(arg)} yields non-integral dimension exponents`,
-					);
-				}
-				return half;
+			switch (ast.fn) {
+				case 'sqrt':
+					return rootOf(arg, 2n, ast.fn);
+				case 'cbrt':
+					return rootOf(arg, 3n, ast.fn);
+				case 'abs':
+					return arg;
+				default:
+					if (!isDimensionless(arg)) {
+						throw new DimensionError(
+							`${ast.fn}() requires a dimensionless argument, got ${formatDimension(arg)}`,
+						);
+					}
+					return DIMENSION_ZERO;
 			}
-			if (ast.fn === 'abs') {
-				return arg;
-			}
-			if (!isDimensionless(arg)) {
-				throw new DimensionError(
-					`${ast.fn}() requires a dimensionless argument, got ${formatDimension(arg)}`,
-				);
-			}
-			return DIMENSION_ZERO;
 		}
 	}
+}
+
+function rootOf(arg: CompiledDimension, degree: bigint, fn: string): CompiledDimension {
+	const root = dimensionScale(arg, 1n, degree);
+	if (root === undefined) {
+		throw new DimensionError(
+			`${fn} of ${formatDimension(arg)} yields non-integral dimension exponents`,
+		);
+	}
+	return root;
 }
 
 function power(

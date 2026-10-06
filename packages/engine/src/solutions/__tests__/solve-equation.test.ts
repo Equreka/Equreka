@@ -62,11 +62,12 @@ describe('solveEquation — solving', () => {
 		expect(solved.symbol).toBe('E');
 		expect(solved.value).toBe(2 * SPEED_OF_LIGHT ** 2);
 		expect(solved.allRoots).toBeUndefined();
+		expect(solved.root).toBe(0);
 	});
 
 	it('solves for m when E is known', () => {
 		const solved = unwrap(solveEquation(massEnergy, massEnergyFns, { E: 9e16, m: null, c: 3e8 }));
-		expect(solved).toEqual({ symbol: 'm', value: 1 });
+		expect(solved).toEqual({ symbol: 'm', value: 1, root: 0 });
 	});
 
 	it('treats the empty string as not provided', () => {
@@ -101,12 +102,12 @@ describe('solveEquation — term keys that are not identifiers', () => {
 
 	it('looks the solution up by term key and passes arguments by identifier', () => {
 		const solved = unwrap(solveEquation(arcLength, arcLengthFns, { s: 3, 'r_{0}': 2 }));
-		expect(solved).toEqual({ symbol: '\\theta', value: 1.5 });
+		expect(solved).toEqual({ symbol: '\\theta', value: 1.5, root: 0 });
 	});
 
 	it('solves for a braced key', () => {
 		const solved = unwrap(solveEquation(arcLength, arcLengthFns, { s: 3, '\\theta': 1.5 }));
-		expect(solved).toEqual({ symbol: 'r_{0}', value: 2 });
+		expect(solved).toEqual({ symbol: 'r_{0}', value: 2, root: 0 });
 	});
 
 	it('does not find a module keyed by identifier', () => {
@@ -196,7 +197,7 @@ describe('solveEquation — domain and roots', () => {
 		const solved = unwrap(
 			solveEquation(pythagorean, pythagoreanFns, { b: 4, c: 5 }, { nonNegative: new Set(['a']) }),
 		);
-		expect(solved).toEqual({ symbol: 'a', value: 3, allRoots: [3, -3] });
+		expect(solved).toEqual({ symbol: 'a', value: 3, root: 0, allRoots: [3, -3] });
 	});
 
 	it('multi-root without the flag returns the first root as emitted', () => {
@@ -204,7 +205,7 @@ describe('solveEquation — domain and roots', () => {
 			'pythagorean-theorem': { a: () => [-3, 3] },
 		};
 		const solved = unwrap(solveEquation(pythagorean, negativeFirst, { b: 4, c: 5 }));
-		expect(solved).toEqual({ symbol: 'a', value: -3, allRoots: [-3, 3] });
+		expect(solved).toEqual({ symbol: 'a', value: -3, root: 0, allRoots: [-3, 3] });
 	});
 
 	it('nonNegative flag skips a leading negative root', () => {
@@ -215,6 +216,7 @@ describe('solveEquation — domain and roots', () => {
 			solveEquation(pythagorean, negativeFirst, { b: 4, c: 5 }, { nonNegative: new Set(['a']) }),
 		);
 		expect(solved.value).toBe(3);
+		expect(solved.root).toBe(1);
 	});
 
 	it('nonNegative with only negative roots → solve/no-real-solution with allRoots', () => {
@@ -232,5 +234,48 @@ describe('solveEquation — domain and roots', () => {
 		const rootless: SolutionsModule = { 'pythagorean-theorem': { a: () => [] } };
 		const error = unwrapErr(solveEquation(pythagorean, rootless, { b: 4, c: 5 }));
 		expect(error.code).toBe('solve/no-real-solution');
+	});
+});
+
+describe('solveEquation — authored root order (grammar v2)', () => {
+	const roots = (...values: number[]): SolutionsModule => ({
+		'pythagorean-theorem': { a: () => values },
+	});
+	const solve = (fns: SolutionsModule, nonNegative?: Set<string>) =>
+		solveEquation(
+			pythagorean,
+			fns,
+			{ b: 4, c: 5 },
+			nonNegative === undefined ? {} : { nonNegative },
+		);
+
+	it('skips a root outside its domain and reports the authored index of the chosen one', () => {
+		expect(unwrap(solve(roots(Number.NaN, 0.5, 2)))).toEqual({
+			symbol: 'a',
+			value: 0.5,
+			root: 1,
+			allRoots: [0.5, 2],
+		});
+	});
+
+	it('lists only the finite roots, in authored order', () => {
+		const solved = unwrap(solve(roots(1, Number.NaN, Number.POSITIVE_INFINITY, -1)));
+		expect(solved.allRoots).toEqual([1, -1]);
+		expect(solved.root).toBe(0);
+	});
+
+	it('combines the domain and nonNegative filters, counting skipped roots in the index', () => {
+		const solved = unwrap(solve(roots(Number.NaN, -2, 3), new Set(['a'])));
+		expect(solved).toEqual({ symbol: 'a', value: 3, root: 2, allRoots: [-2, 3] });
+	});
+
+	it('keeps the preference order when a later root is the smaller one', () => {
+		expect(unwrap(solve(roots(5, 1), new Set(['a']))).value).toBe(5);
+	});
+
+	it('reports the finite roots when none is admissible', () => {
+		const error = unwrapErr(solve(roots(Number.NaN, -1), new Set(['a'])));
+		expect(error.code).toBe('solve/no-real-solution');
+		expect(error.details).toMatchObject({ allRoots: [-1] });
 	});
 });

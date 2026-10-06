@@ -255,6 +255,23 @@ describe('solveInUnits', () => {
 		expect(both.outcome?.ok === false && both.outcome.error.code).toBe('inputs/overdetermined');
 	});
 
+	it('carries the chosen root index and converts every listed root to the display unit', () => {
+		const multiRoot: SolutionsModule = {
+			'mass-energy': { m: () => [Number.NaN, -1, 2] },
+		};
+		const run = solveInUnits(
+			MASS_ENERGY,
+			multiRoot,
+			{ ...inputs({ E: '1' }, { m: 'gram' }), nonNegative: new Set(['m']) },
+			units,
+		);
+		if (run.outcome?.ok !== true) throw new Error('expected a solution');
+		expect(run.outcome.value.root).toBe(2);
+		expect(run.outcome.value.baseValue).toBe(2);
+		expect(run.outcome.value.value).toBeCloseTo(2000, 9);
+		expect(run.outcome.value.allRoots?.map((root) => Math.round(root))).toEqual([-1000, 2000]);
+	});
+
 	it('solves in base units when no registry is available', () => {
 		const run = solveInUnits(MASS_ENERGY, FNS, inputs({ m: '2' }), null);
 		if (run.outcome?.ok !== true) throw new Error('expected a solution');

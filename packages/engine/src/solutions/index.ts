@@ -2,13 +2,14 @@ import type { CompiledEquationMeta } from '@equreka/schema';
 import { type EngineResult, err, ok } from '../errors.js';
 
 /**
- * One codegen'd solved form. Returns the solved value, an array of candidate
- * roots when the closed form is multi-valued, or null when the inputs leave
- * the equation's real domain. The argument record is keyed by term
- * IDENTIFIER (meta.terms[key].identifier), not by term key — identifiers are
+ * One codegen'd solved form. Returns the solved value, every authored root
+ * in preference order when the closed form is multi-valued (NaN for a root
+ * outside its real domain), or null when the inputs leave the equation's
+ * real domain. The argument record is keyed by term IDENTIFIER
+ * (meta.terms[key].identifier), not by term key — identifiers are
  * guaranteed valid JS names for destructuring in generated code.
  */
-export type SolutionFn = (values: Record<string, number>) => number | number[] | null;
+export type SolutionFn = (values: Record<string, number>) => number | readonly number[] | null;
 
 /**
  * Shape of @equreka/content's codegen'd solutions module: outer key is the
@@ -26,21 +27,23 @@ export type KnownValue = number | '' | null | undefined;
 
 /**
  * `nonNegative` lists term keys whose magnitude is nonNegative-flagged in
- * the slice; multi-root solutions then discard negative roots instead of
- * returning the first one.
+ * the slice; multi-root solutions then skip negative roots.
  */
 export interface SolveOptions {
 	nonNegative?: Set<string>;
 }
 
 /**
- * `symbol` is the solved term key. `allRoots` is present only when the
- * solution fn returned multiple candidate roots; `value` is the selected
- * root per SolveOptions.nonNegative.
+ * `symbol` is the solved term key and `value` the selected root: the first
+ * finite root in authored order that SolveOptions.nonNegative admits.
+ * `root` is that root's authored index (0 for a single-root solution).
+ * `allRoots`, present only for a multi-root solution, lists its finite
+ * roots in authored order.
  */
 export interface SolveSuccess {
 	symbol: string;
 	value: number;
+	root: number;
 	allRoots?: number[];
 }
 
@@ -111,7 +114,7 @@ export function solveEquation(
 		});
 	}
 
-	let result: number | number[] | null;
+	let result: number | readonly number[] | null;
 	try {
 		result = fn(args);
 	} catch (thrown) {
@@ -141,21 +144,21 @@ export function solveEquation(
 				result: String(result),
 			});
 		}
-		return ok({ symbol: unknown, value: result });
+		return ok({ symbol: unknown, value: result, root: 0 });
 	}
 
-	const allRoots = [...result];
-	const finiteRoots = allRoots.filter((root) => Number.isFinite(root));
-	const candidates = opts?.nonNegative?.has(unknown)
-		? finiteRoots.filter((root) => root >= 0)
-		: finiteRoots;
-	const chosen = candidates[0];
-	if (chosen === undefined) {
+	const allRoots = result.filter((candidate) => Number.isFinite(candidate));
+	const nonNegative = opts?.nonNegative?.has(unknown) === true;
+	const root = result.findIndex(
+		(candidate) => Number.isFinite(candidate) && (!nonNegative || candidate >= 0),
+	);
+	const value = result[root];
+	if (value === undefined) {
 		return err('solve/no-real-solution', `no admissible root for ${meta.slug}.${unknown}`, {
 			equation: meta.slug,
 			term: unknown,
 			allRoots,
 		});
 	}
-	return ok({ symbol: unknown, value: chosen, allRoots });
+	return ok({ symbol: unknown, value, root, allRoots });
 }

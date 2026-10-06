@@ -31,6 +31,6 @@ describe('verifyEquation — engine isolation', () => {
 			constantValues: {},
 		});
 		expect(result.messages).toEqual([]);
-		expect(result.samples.c).toBe(20);
+		expect(result.samples.c).toEqual([20]);
 	});
 });

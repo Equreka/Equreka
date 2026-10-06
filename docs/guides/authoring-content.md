@@ -181,8 +181,9 @@ calculator: { enabled: true }
 
 - `expression` is TeX annotated with `\mag{}` (magnitude terms), `\const{}` (constant terms) and `\var{}` (variable **or** symbol terms). Every macro argument is a `terms` key and vice versa. Everything that is a quantity goes inside a macro, subscripts and accents included: `\var{v_{0}}`, never `\var{v}_{0}`.
 - **Term kinds:** `magnitude`/`constant`/`variable` reference wiki entities; `symbol` is equation-local — a `label` (localized) and an optional `unit`. Symbol terms without a unit are dimensionless.
+- **Integer terms.** A magnitude, variable or symbol term that only takes whole values (the `n` and `k` of a binomial coefficient, a count of turns) declares `integer: true`. The verifier then samples it from the integers 0–10, which is what makes `factorial` verifiable, and the calculator receives the flag. Constants take no flag.
 - **Term keys** (ADR 0009) are the term's symbol as TeX, rendered on its own on web and mobile, so any key that renders under strict KaTeX works: `v_{0}`, `t_{1/2}`, `\Delta x`, `\hbar`, `\varepsilon_0`, `[\mathrm{H}^{+}]`. Braces nest at most one level inside a key (`v_{0}` yes, `x_{a_{b}}` no). A key has no `$`, no line break, no leading or trailing space, and is never an `Object.prototype` name (`constructor`, `toString`, …). Single-quote a key that starts with `{` or `[` (`'[\mathrm{H}^{+}]':`) — unquoted, YAML reads it as a flow collection. A key with a bare run of two or more letters (`KE`) warns, because it typesets as K times E: write `\mathrm{KE}`.
-- **Identifiers.** Solutions name terms by identifier: the key with every character outside `[A-Za-z0-9_]` dropped (`\pi` → `pi`, `v_{0}` → `v_0`, `\Delta x` → `Deltax`), or an authored `identifier` override. Author the override when the derivation is unreadable (`\mathrm{KE}` → `mathrmKE`, `[\mathrm{H}^{+}]` → `mathrmH`), collides (`v_0` and `v_{0}` both derive `v_0`) or is reserved:
+- **Identifiers.** Solutions name terms by identifier: the key with its font and text wrappers (`\mathrm \text \textrm \mathit \mathbf \boldsymbol \operatorname \mathsf \mathtt`) unwrapped to their content, then every character outside `[A-Za-z0-9_]` dropped (`\pi` → `pi`, `v_{0}` → `v_0`, `\Delta x` → `Deltax`, `\mathrm{KE}` → `KE`, `E_{\mathrm{k}}` → `E_k`), or an authored `identifier` override. Author the override when the derivation is unreadable (`[\mathrm{H}^{+}]` → a bare `H`), collides (`v_0` and `v_{0}` both derive `v_0`) or is reserved:
 
   ```yaml
   terms:
@@ -192,9 +193,41 @@ calculator: { enabled: true }
       identifier: 'cH'
   ```
 
-  An identifier is a letter followed by letters, digits or `_`, unique within the equation. Reserved, as identifier or override: the grammar's function names, current and announced (`sqrt abs ln exp sin cos tan asin acos atan log10 log2 cbrt sinh cosh tanh asinh acosh atanh factorial`), every `Object.prototype` property name, and `pi`, which only the constant term with `ref: 'pi'` may use (the grammar reads `pi` as π). Violations fail the integrity stage.
-- **Solutions** use the grammar `+ - * / ^ ( )`, `sqrt abs ln exp sin cos tan`, decimal literals, `pi`, and term identifiers. Each solution is (a) numerically verified against the expression and (b) **dimensionally checked**: `*`/`/` add/subtract exponent vectors, `^` by a literal scales them (non-integral results fail — no `sqrt` of an odd power), `+`/`-` require equal dimensions, transcendental functions require dimensionless arguments, `abs` preserves its argument, and the result must equal the target term's dimension.
-- **Numeric verification.** Each macro is replaced by a synthetic symbol before compute-engine parses the expression, so a key's own TeX never affects the check. A symbol left outside every macro fails as *unannotated symbol* — only `\pi` and `e` (Euler's number) may stand bare. Every solution is evaluated at 20 seeded random samples (free terms in [0.1, 10), constants at their compiled values) and must balance the equation **relative to its largest additive term**: |lhs − rhs| ≤ 1e-9 × the largest absolute value among the `+`/`-` operands of both sides. Tiny constants such as h get no absolute slack, and a side that is exactly `0` (`a x^2 + b x + c = 0`) still verifies. A sample where the solution is undefined or a side is non-finite or complex is discarded; fewer than 20 valid samples in 400 attempts fails.
+  An identifier is a letter followed by letters, digits or `_`, unique within the equation. Reserved, as identifier or override: the grammar's function names (`sqrt abs ln exp sin cos tan asin acos atan log10 log2 cbrt sinh cosh tanh asinh acosh atanh factorial`), every `Object.prototype` property name, and `pi`, which only the constant term with `ref: 'pi'` may use (the grammar reads `pi` as π). Violations fail the integrity stage.
+- **Solutions** use the grammar `+ - * / ^ ( )`, decimal literals, `pi`, term identifiers and the functions below (ADR 0009, grammar v2). The expression and the solution spell each function differently; write the expression column in `expression` and the solution column in `solutions`:
+
+  | In `expression` (TeX) | In `solutions` | Notes |
+  | --- | --- | --- |
+  | `\sqrt{x}` | `sqrt(x)` | halves dimension exponents |
+  | `\sqrt[3]{x}` | `cbrt(x)` | thirds dimension exponents; real for negative x |
+  | `\left\|x\right\|` | `abs(x)` | keeps the dimension |
+  | `e^{x}` | `exp(x)` | |
+  | `\ln x` | `ln(x)` | natural logarithm |
+  | `\log_{10} x` | `log10(x)` | pH, decibels |
+  | `\log_{2} x` | `log2(x)` | |
+  | `\sin \cos \tan` | `sin cos tan` | argument in radians |
+  | `\arcsin \arccos \arctan` | `asin acos atan` | result in radians |
+  | `\sinh \cosh \tanh` | `sinh cosh tanh` | |
+  | `\operatorname{arsinh}` `\operatorname{arcosh}` `\operatorname{artanh}` | `asinh acosh atanh` | ISO 80000-2 names; `\arsinh` does not render |
+  | `n!`, `\left(n-k\right)!` | `factorial(n)`, `factorial(n - k)` | integers 0–170 only; declare the terms `integer` |
+
+  **Never write a bare `\log`** in an expression: readers disagree on its base (compute-engine takes 10), so the build fails with *write \ln or \log_{10}*.
+
+  Each root is (a) numerically verified against the expression and (b) **dimensionally checked**: `*`/`/` add/subtract exponent vectors, `^` by a literal scales them (non-integral results fail — no `sqrt` of an odd power, no `cbrt` of an area), `+`/`-` require equal dimensions, `abs` keeps its argument's dimension, every other function requires a dimensionless argument and yields dimensionless, and the result must equal the target term's dimension. **Angles count as dimensionless** in these checks (the SI's rad = 1), so `\sin\mag{\theta}` over a plane-angle term, `s = r\theta` and `\omega = 2\pi f` all check; unit conversion still keeps degrees and radians apart from plain numbers.
+- **Multiple roots.** When solving for a term has more than one root, list them; a list has at least two:
+
+  ```yaml
+  solutions:
+    t:
+      - '(-v_0 + sqrt(v_0^2 + 2 * a * x)) / a'   # forward in time: listed first
+      - '(-v_0 - sqrt(v_0^2 + 2 * a * x)) / a'
+    \theta:
+      - 'asin(g * R / v^2) / 2'                  # low launch angle
+      - 'pi / 2 - asin(g * R / v^2) / 2'         # high launch angle
+  ```
+
+  **Order is preference.** The calculator answers with the first root that is real for the inputs (and non-negative, when the term's magnitude is `nonNegative`), shows that root's solved form, and lists every other real root beside it. Put the physical root first. Each root must verify on its own, and two roots that never differ are rejected as *duplicate roots*.
+- **Numeric verification.** Each macro is replaced by a synthetic symbol before compute-engine parses the expression, so a key's own TeX never affects the check. A symbol left outside every macro fails as *unannotated symbol* — only `\pi` and `e` (Euler's number) may stand bare. Every root is evaluated at 20 seeded random samples of its own (free terms in [0.1, 10), integer terms in the integers 0–10, constants at their compiled values) and must balance the equation **relative to its largest additive term**: |lhs − rhs| ≤ 1e-9 × the largest absolute value among the `+`/`-` operands of both sides. Tiny constants such as h get no absolute slack, and a side that is exactly `0` (`a x^2 + b x + c = 0`) still verifies. A sample where the root is undefined (outside its real domain, such as `asin` of a value above 1) or a side is non-finite or complex is discarded; fewer than 20 valid samples in 400 attempts fails.
 - Related units are **derived** from terms at build time (magnitude → baseUnit, constant → unit, variable → defaultUnit, symbol → unit). There is no `units:` list to maintain.
 
 ### paths

@@ -217,7 +217,13 @@ function CalculatorForm({ slug, model, renderer }: CalculatorFormProps) {
 	const expressionTex = presentation?.expressionTex;
 	const solvedForm =
 		result?.ok === true
-			? buildSolvedForm(meta, presentation?.solutions ?? {}, result.value.symbol, literals)
+			? buildSolvedForm(
+					meta,
+					presentation?.solutions ?? {},
+					result.value.symbol,
+					literals,
+					result.value.root,
+				)
 			: null;
 	const nonBaseSelected = Object.entries(unitState.selected).some(
 		([key, unit]) => unit !== unitState.units?.baseUnit(key),

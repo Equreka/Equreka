@@ -425,6 +425,9 @@ importers:
       '@equreka/config':
         specifier: workspace:*
         version: link:../config
+      '@equreka/engine':
+        specifier: workspace:*
+        version: link:../engine
       '@types/node':
         specifier: 'catalog:'
         version: 22.20.1
