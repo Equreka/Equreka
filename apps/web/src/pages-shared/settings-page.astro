@@ -1,5 +1,12 @@
 ---
-import { type Locale, t } from '@equreka/core/i18n';
+import { type Locale, type MessageKey, t, tParts } from '@equreka/core/i18n';
+import {
+	CODE_LICENSE,
+	CONTENT_ATTRIBUTION,
+	CONTENT_LICENSE,
+	type LicenseLink,
+	REPOSITORY_LINK,
+} from '@equreka/core/license';
 import Icon from '../components/icon.astro';
 import SettingsPanel from '../islands/settings-panel';
 import BaseLayout from '../layouts/base-layout.astro';
@@ -22,6 +29,33 @@ const SECTION_LINKS = [
 ] as const;
 
 const { locale = 'en' } = Astro.props;
+
+/**
+ * The License card (ADR 0011): attribution lives here and in page
+ * metadata, never in the footer, which stays identical to the original
+ * (ADR 0008). Each line is a localized template whose params are links,
+ * except `attribution`, the credit string kept verbatim in every locale.
+ */
+const LICENSE_LINES: readonly {
+	key: MessageKey;
+	links: Readonly<Record<string, LicenseLink>>;
+}[] = [
+	{ key: 'license.content', links: { license: CONTENT_LICENSE } },
+	{ key: 'license.code', links: { license: CODE_LICENSE } },
+	{ key: 'license.repository', links: { repository: REPOSITORY_LINK } },
+];
+
+const licenseLines = LICENSE_LINES.map(({ key, links }) =>
+	tParts(locale, key).map((part): { text: string } | { link: LicenseLink } => {
+		if (part.kind === 'text') return { text: part.text };
+		if (part.name === 'attribution') return { text: CONTENT_ATTRIBUTION };
+		const link = links[part.name];
+		if (link === undefined) {
+			throw new Error(`settings: ${key} has a {${part.name}} param with no link`);
+		}
+		return { link };
+	}),
+);
 ---
 
 <BaseLayout
@@ -30,6 +64,26 @@ const { locale = 'en' } = Astro.props;
 	locale={locale}
 >
 	<SettingsPanel client:load locale={locale} version={SITE_VERSION} />
+	<section class="eq-card eq-settings-license" aria-labelledby="settings-license-heading">
+		<div class="eq-card-body">
+			<h2 id="settings-license-heading" class="eq-settings-label">{t(locale, 'license.title')}</h2>
+			{
+				licenseLines.map((parts) => (
+					<p class="eq-card-note">
+						{parts.map((part) =>
+							'link' in part ? (
+								<a class="eq-link" href={part.link.url} rel="external noopener">
+									{part.link.label}
+								</a>
+							) : (
+								part.text
+							),
+						)}
+					</p>
+				))
+			}
+		</div>
+	</section>
 	<div class="eq-settings-links">
 		<nav aria-label={t(locale, 'design.shell.sectionsNav')} class="eq-settings-links-row">
 			{

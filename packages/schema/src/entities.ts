@@ -10,6 +10,7 @@ import {
 	slug,
 	strictBool,
 	symbol,
+	textSources,
 	valueSource,
 } from './common.js';
 
@@ -20,6 +21,7 @@ export const category = z
 		aliases: z.array(z.string().min(1)).default([]),
 		order: intFromString.refine((value) => value >= 0, 'order must be nonnegative'),
 		externalIds: externalIds.optional(),
+		textSources,
 	})
 	.strict();
 
@@ -35,6 +37,7 @@ export const branch = z
 		category: ref('categories'),
 		order: intFromString.refine((value) => value >= 0, 'order must be nonnegative'),
 		externalIds: externalIds.optional(),
+		textSources,
 	})
 	.strict();
 

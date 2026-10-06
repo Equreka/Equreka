@@ -1,6 +1,6 @@
 import engineArtifact from '@equreka/content/artifact/engine.json';
 import unitsPresentation from '@equreka/content/artifact/presentation/units.json';
-import type { EngineSlice } from '@equreka/schema';
+import type { EngineSlice, TextSource } from '@equreka/schema';
 import { describe, expect, it } from 'vitest';
 import {
 	converterMagnitudeOf,
@@ -41,7 +41,7 @@ describe('externalLinks', () => {
 describe('definedTermJsonLd', () => {
 	const base = { name: 'Metre', url: 'https://equreka.com/units/metre/', inLanguage: 'en' };
 
-	it('omits sameAs when no identifier is authored', () => {
+	it('declares the content license and omits sameAs and isBasedOn when none is authored', () => {
 		const jsonLd = definedTermJsonLd(base);
 		expect(jsonLd).toEqual({
 			'@context': 'https://schema.org',
@@ -49,7 +49,45 @@ describe('definedTermJsonLd', () => {
 			name: 'Metre',
 			url: 'https://equreka.com/units/metre/',
 			inLanguage: 'en',
+			license: 'https://creativecommons.org/licenses/by-sa/4.0/',
 		});
+		expect(definedTermJsonLd({ ...base, textSources: [] })).toEqual(jsonLd);
+	});
+
+	it('lists every credited text source as isBasedOn with its license deed', () => {
+		const jsonLd = definedTermJsonLd({
+			...base,
+			textSources: [
+				{
+					title: 'Wikipedia: Metre',
+					url: 'https://en.wikipedia.org/wiki/Metre',
+					license: 'CC-BY-SA-4.0',
+				},
+				{ title: 'A public-domain text', url: 'https://example.org/pd', license: 'public-domain' },
+			],
+		});
+		expect(jsonLd.isBasedOn).toEqual([
+			{
+				'@type': 'CreativeWork',
+				name: 'Wikipedia: Metre',
+				url: 'https://en.wikipedia.org/wiki/Metre',
+				license: 'https://creativecommons.org/licenses/by-sa/4.0/',
+			},
+			{
+				'@type': 'CreativeWork',
+				name: 'A public-domain text',
+				url: 'https://example.org/pd',
+				license: 'https://creativecommons.org/publicdomain/mark/1.0/',
+			},
+		]);
+	});
+
+	it('follows the textSources the pipeline emits (metre credits its Wikipedia article)', () => {
+		const metre = (unitsPresentation as unknown as Record<string, { textSources: TextSource[] }>)
+			.metre;
+		expect(metre?.textSources.map((source) => source.url)).toContain(
+			'https://en.wikipedia.org/wiki/Metre',
+		);
 	});
 
 	it('adds sameAs from the Wikidata QID and QUDT IRI', () => {

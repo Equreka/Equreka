@@ -14,6 +14,7 @@ import BranchBadges from '../components/branch-badges.astro';
 import DraftBadge from '../components/draft-badge.astro';
 import Icon from '../components/icon.astro';
 import PageHeader from '../components/page-header.astro';
+import TextSources from '../components/text-sources.astro';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
 import FavoriteToggle from '../islands/favorite-toggle';
 import PathProgress from '../islands/path-progress';
@@ -126,6 +127,7 @@ const local = (text: LocalizedText): string => pickLocalized(text, locale).value
 					</p>
 				)
 			}
+			<TextSources locale={locale} sources={path.textSources} />
 			<PathProgress client:idle variant="bar" pathSlug={slug} stepIds={stepIds} locale={locale} />
 		</div>
 

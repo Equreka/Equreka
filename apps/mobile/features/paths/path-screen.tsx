@@ -14,6 +14,7 @@ import { Button } from '../../shared/ui/button';
 import { Badge, Card, Row } from '../../shared/ui/card';
 import { HStack, Screen, VStack } from '../../shared/ui/screen';
 import { AppText, Lead, Muted, SectionTitle, Title } from '../../shared/ui/text';
+import { TextSources } from '../../shared/ui/text-sources';
 
 export interface PathScreenProps {
 	slug: string;
@@ -130,6 +131,7 @@ function PathBody({ slug, path }: { slug: string; path: PresentationPath }) {
 					)}
 				</HStack>
 				<Prose text={pickSegments(path.descriptionSegments, locale)} />
+				<TextSources sources={path.textSources} />
 			</VStack>
 			<VStack gap={1}>
 				<HStack style={styles.between}>

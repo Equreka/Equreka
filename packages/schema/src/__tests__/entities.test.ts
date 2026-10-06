@@ -760,6 +760,46 @@ describe('external identifiers', () => {
 	});
 });
 
+describe('text sources', () => {
+	const metre = { name: { en: 'Metre' }, symbol: { tex: 'm' }, unitOf: ['length'] };
+	const source = {
+		title: 'Wikipedia: Metre',
+		url: 'https://en.wikipedia.org/wiki/Metre',
+		license: 'CC-BY-SA-4.0',
+	};
+
+	it('defaults to none and accepts a credited work on every entity kind', () => {
+		expect(unit.parse(metre).textSources).toEqual([]);
+		expect(unit.parse({ ...metre, textSources: [source] }).textSources).toEqual([source]);
+		expect(
+			category.parse({ name: { en: 'Physics' }, order: '2', textSources: [source] }).textSources,
+		).toEqual([source]);
+		expect(
+			branch.parse({
+				name: { en: 'Optics' },
+				category: 'physics',
+				order: '0',
+				textSources: [source],
+			}).textSources,
+		).toEqual([source]);
+	});
+
+	it('rejects an unlisted license, a non-http URL and unknown keys', () => {
+		const withSource = (textSource: unknown) =>
+			unit.safeParse({ ...metre, textSources: [textSource] }).success;
+		expect(withSource({ ...source, license: 'GFDL-1.3' })).toBe(false);
+		expect(withSource({ ...source, license: 'CC-BY-NC-4.0' })).toBe(false);
+		expect(withSource({ ...source, url: 'ftp://en.wikipedia.org/wiki/Metre' })).toBe(false);
+		expect(withSource({ ...source, title: '' })).toBe(false);
+		expect(withSource({ ...source, author: 'Wikipedia contributors' })).toBe(false);
+		expect(withSource({ ...source, license: 'public-domain' })).toBe(true);
+	});
+
+	it('credits a work once', () => {
+		expect(unit.safeParse({ ...metre, textSources: [source, source] }).success).toBe(false);
+	});
+});
+
 describe('branch', () => {
 	it('accepts a failsafe-parsed branch and coerces its order', () => {
 		const parsed = branch.parse({
@@ -772,6 +812,7 @@ describe('branch', () => {
 			category: 'physics',
 			order: 2,
 			aliases: [],
+			textSources: [],
 		});
 	});
 

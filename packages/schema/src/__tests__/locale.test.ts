@@ -32,6 +32,12 @@ describe('locale trees', () => {
 		}
 	});
 
+	it('leaves textSources out of every locale tree: a credited title is not translated', () => {
+		for (const collection of COLLECTIONS) {
+			expect(collectionLocaleTrees[collection].fields.textSources, collection).toBeUndefined();
+		}
+	});
+
 	it('keys path steps by id with the union of every step kind prose field', () => {
 		expect(outline(collectionLocaleTrees.paths)).toEqual({
 			name: 'text',

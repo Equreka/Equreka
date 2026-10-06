@@ -10,6 +10,7 @@ import { categoryColor } from '../../shared/theme/theme';
 import { Badge } from '../../shared/ui/card';
 import { HStack, Screen, VStack } from '../../shared/ui/screen';
 import { Muted, Title } from '../../shared/ui/text';
+import { TextSources } from '../../shared/ui/text-sources';
 import { FavoriteButton } from '../favorites/favorite-button';
 import { ConstantDetails } from './constant-details';
 import { EquationDetails } from './equation-details';
@@ -108,6 +109,7 @@ export function EntryScreen({ collection, slug }: EntryScreenProps) {
 				<VStack>
 					<RichText segments={description.segments} />
 					{description.untranslated ? <Muted>{t('badge.untranslated')}</Muted> : null}
+					<TextSources sources={entity.textSources} />
 				</VStack>
 			)}
 			<DetailsOf entry={entry} />

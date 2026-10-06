@@ -24,7 +24,29 @@ Run `pnpm --filter @equreka/content build` once so `dist/schemas/*.schema.json` 
 - **Failsafe parse.** The pipeline parses YAML 1.2 with the failsafe schema: every scalar arrives as a string. Booleans are exactly `true`/`false` (never `yes`/`on`); integers are digit strings; both coerce in the schema.
 - **Quoting.** Single quotes or plain scalars for short values. Never double quotes around TeX: `"\mu"` is an illegal YAML escape. Apostrophes inside single quotes are doubled (`'it''s'`), which is why prose uses block scalars instead.
 - **Prose.** `description.en` uses a folded block scalar `>-` for ordinary wrapped prose: single line breaks fold to spaces, so wrap the source freely, and a blank line is a paragraph break. Use a literal block scalar `|-` only when a hard line break inside a paragraph is intended (the line before *Because the speed of light...* in `equations/mass-energy-equivalence.yaml`, the symbol lines of `units/nautical-mile.yaml`): every newline is kept, so each source line is exactly one rendered line and must not be wrapped. Every description container renders with `white-space: pre-line`, as the original's `.card-information p` did, so a kept newline is a visible break on web, and React Native `Text` breaks on it on mobile. Search indexing folds every whitespace run to one space, so a break never glues two words into one token. Block scalars carry TeX, `#`, and apostrophes byte-literally. Inline math is `$...$` and cannot span a line break; display math is `$$...$$`; every fragment must pass strict KaTeX at build.
-- **Comments.** Only the schema header. Rationale belongs in `description`, sources in `references`, numeric provenance in `toBase.source` (units) or `source` (constants).
+- **Comments.** Only the schema header. Rationale belongs in `description`, sources in `references`, numeric provenance in `toBase.source` (units) or `source` (constants), credits for adapted text in `textSources`.
+- **License.** Everything in `packages/content/content/` is CC BY-SA 4.0 (`packages/content/content/LICENSE`, ADR 0011). The code beside it is GPL-3.0-or-later. By authoring an entry you license it under CC BY-SA 4.0. Reusers credit "Equreka contributors, https://github.com/Equreka/Equreka".
+- **Originality.** Write every description, label and path step in your own words: explain the concept for a learner, cite the numbers in `references` and `source`, and leave the encyclopedia's phrasing behind. Run the check on what you wrote before you open a PR:
+
+  ```
+  node scripts/content/originality.mjs packages/content/content/units/metre.yaml --check
+  ```
+
+  The check fetches the Wikipedia article linked from the entry's `externalIds.wikidata` item (enwiki for the English description, eswiki for the `.es.yaml` one). It also phrase-searches the wiki for the description. A description is flagged when it shares a run of 8 or more words with the entry's own article, or 15% of its 8-word shingles. A search hit must meet both rules. `--check` exits 1 for a flagged description with no credit, and 2 when the network is down, since a skipped check is not a pass. `docs/content/originality-baseline.md` lists the legacy descriptions still awaiting a rewrite.
+- **`textSources`.** Text you adapt from a third-party work needs a credit. Rewrite instead whenever you can. A credit is one item per work, and its license must let the adaptation be published under CC BY-SA 4.0. That means one of `CC-BY-SA-4.0` (Wikipedia today), `CC-BY-SA-3.0`, `CC-BY-4.0`, `CC0-1.0` or `public-domain`. GFDL-only, NC and ND texts cannot be adapted at all.
+
+  ```yaml
+  textSources:
+    - title: 'Wikipedia: Metre'
+      url: 'https://en.wikipedia.org/wiki/Metre'
+      license: 'CC-BY-SA-4.0'
+  ```
+
+  - `title` names the work as credited and is not translated: a Spanish source keeps its own title, and its URL points at es.wikipedia.org.
+  - A URL is credited once per entry.
+  - `originality.mjs --apply` writes these items for every flagged description.
+  - The entry page shows each credit under the description ("Text adapted from …") and lists it as `isBasedOn` in its JSON-LD.
+  - When you rewrite a credited description in your own words, re-run the check. Once it no longer flags the description, delete that source in the same change.
 - **Localization.** Entity files carry English only: every localized field is `{ en: ... }`. Translations live in one sidecar per locale beside the entity (`<slug>.es.yaml`, see *Translations*); an inline `es:` key is rejected by both yaml-lint and the loader, so each language has exactly one home. A missing translation falls back to English with an untranslated notice.
 - **Aliases.** `aliases` feeds the exact-match search lane: US spellings (`meter`), ASCII forms of Greek (`mu`, `ohm`), degree-text forms (`degC`), symbol variants users type (`m/s`, `J/K`), nicknames (`avogadro number`). Lowercase-insensitive; diacritics are folded at index and query time.
 - **Taxonomy.** Every entity except categories and branches takes `categories` and `branches` (see *branches*).
@@ -318,6 +340,7 @@ Localizable fields are derived from the schema — every `localizedText` positio
 pnpm --filter @equreka/content check   # load → validate → integrity → resolve → anchors → dimensions → solutions → tex
 pnpm quality                            # yaml-lint (raw-text hazards) + catalog drift
 pnpm --filter @equreka/content build    # emits dist/ (engine.json, presentation/*, search/*, schemas/*)
+node scripts/content/originality.mjs <files> --check   # network: prose overlap with Wikipedia (see Originality)
 ```
 
 Issues are aggregated per file with the failing stage in brackets; the build refuses to emit while any error stands.

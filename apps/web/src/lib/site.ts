@@ -1,3 +1,4 @@
+import { REPOSITORY_URL } from '@equreka/core/license';
 import rootPackage from '../../../../package.json';
 import type { IconName } from './icons';
 
@@ -7,7 +8,7 @@ import type { IconName } from './icons';
  */
 export const SITE_VERSION: string = rootPackage.version;
 
-export const GITHUB_URL = 'https://github.com/Equreka/Equreka';
+export const GITHUB_URL = REPOSITORY_URL;
 
 /**
  * The legacy footer's social row, in its order and with its destinations

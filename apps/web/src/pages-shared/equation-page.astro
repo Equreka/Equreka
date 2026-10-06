@@ -19,6 +19,7 @@ import EntryActions from '../components/entry-actions.astro';
 import EntryIdentifiers from '../components/entry-identifiers.astro';
 import MathValue from '../components/math-value.astro';
 import PageHeader from '../components/page-header.astro';
+import TextSources from '../components/text-sources.astro';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
 import FavoriteToggle from '../islands/favorite-toggle';
 import PathContextBar from '../islands/path-context-bar';
@@ -160,7 +161,7 @@ const metaDescription =
 ---
 
 <BaseLayout
-	definedTerm={{ name, externalIds: equation.externalIds }}
+	definedTerm={{ name, externalIds: equation.externalIds, textSources: equation.textSources }}
 	title={`${name} — Equreka`}
 	description={metaDescription}
 	locale={locale}
@@ -265,6 +266,8 @@ const metaDescription =
 					/>
 				)
 			}
+
+			<TextSources locale={locale} sources={equation.textSources} />
 
 			<EntryIdentifiers locale={locale} externalIds={equation.externalIds} />
 		</CollapseCard>

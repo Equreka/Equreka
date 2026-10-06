@@ -2,6 +2,7 @@
 	"name": "@equreka/core",
 	"version": "0.0.0",
 	"private": true,
+	"license": "GPL-3.0-or-later",
 	"type": "module",
 	"sideEffects": false,
 	"exports": {
@@ -10,7 +11,8 @@
 		"./search": "./src/search/index.ts",
 		"./converter": "./src/converter.ts",
 		"./taxonomy": "./src/taxonomy.ts",
-		"./i18n": "./src/i18n/index.ts"
+		"./i18n": "./src/i18n/index.ts",
+		"./license": "./src/license.ts"
 	},
 	"scripts": {
 		"typecheck": "tsc --noEmit -p tsconfig.json",

@@ -12,6 +12,7 @@ import DraftBadge from '../components/draft-badge.astro';
 import EntryActions from '../components/entry-actions.astro';
 import EntryIdentifiers from '../components/entry-identifiers.astro';
 import PageHeader from '../components/page-header.astro';
+import TextSources from '../components/text-sources.astro';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
 import FavoriteToggle from '../islands/favorite-toggle';
 import PathContextBar from '../islands/path-context-bar';
@@ -84,7 +85,7 @@ const metaDescription =
 ---
 
 <BaseLayout
-	definedTerm={{ name, externalIds: magnitude.externalIds }}
+	definedTerm={{ name, externalIds: magnitude.externalIds, textSources: magnitude.textSources }}
 	title={`${name} (${symbolText}) — Equreka`}
 	description={metaDescription}
 	locale={locale}
@@ -141,6 +142,8 @@ const metaDescription =
 					<div class="eq-prose" set:html={renderRichTextHtml(description.value)} />
 				)
 			}
+
+			<TextSources locale={locale} sources={magnitude.textSources} />
 
 			<EntryIdentifiers locale={locale} externalIds={magnitude.externalIds} />
 		</CollapseCard>
