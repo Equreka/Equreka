@@ -1,6 +1,6 @@
+import { texToFallbackText } from '@equreka/content/plain-symbol';
 import type { LocalizedSegments, RichTextSegment } from '@equreka/content/rich-text';
 import type { Locale } from '@equreka/core/i18n';
-import { texToFallbackText } from '../../shared/math/plain-symbol';
 
 /**
  * Pre-split prose resolved for one locale, flagged when it fell back to the

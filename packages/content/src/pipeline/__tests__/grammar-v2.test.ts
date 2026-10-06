@@ -45,7 +45,7 @@ function corpusOf(equations: Record<string, Record<string, unknown>>): Corpus {
 		equations: new Map(
 			Object.entries(equations).map(([slug, equation]) => [
 				slug,
-				collectionSchemas.equations.parse({ name: { en: slug }, ...equation }),
+				collectionSchemas.equations.parse({ name: { en: slug }, level: 'intro', ...equation }),
 			]),
 		),
 		paths: new Map(),

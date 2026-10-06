@@ -13,7 +13,15 @@ function corpusWithEquation(expression: string, terms: Record<string, unknown>):
 		constants: new Map(),
 		variables: new Map(),
 		equations: new Map([
-			['sample', collectionSchemas.equations.parse({ name: { en: 'Sample' }, expression, terms })],
+			[
+				'sample',
+				collectionSchemas.equations.parse({
+					name: { en: 'Sample' },
+					level: 'intro',
+					expression,
+					terms,
+				}),
+			],
 		]),
 		paths: new Map(),
 	};

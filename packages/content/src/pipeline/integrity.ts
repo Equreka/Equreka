@@ -1,4 +1,4 @@
-import type { CollectionName } from '@equreka/schema';
+import type { CollectionName, Equation } from '@equreka/schema';
 import { dimensionsEqual, formatDimension, magnitudeDimension } from './dimension.js';
 import { ratFromExact, ratIsZero } from './rational.js';
 import {
@@ -62,8 +62,8 @@ interface TaxonomyFields {
  * Stage 3: cross-entity referential integrity plus the structural rules a
  * per-file schema cannot see (branch ⊂ category membership, baseUnit linkage, the quantity-kind
  * hierarchy, the affine ban, the derivation whitelist, nonConvertible
- * isolation, equation term/macro agreement, term identity). Numeric anchor rules land in
- * stage 4 resolution.
+ * isolation, equation term/macro agreement, term identity, solution
+ * coverage). Numeric anchor rules land in stage 4 resolution.
  */
 export function checkIntegrity(corpus: Corpus): Issue[] {
 	const issues: Issue[] = [];
@@ -331,28 +331,7 @@ export function checkIntegrity(corpus: Corpus): Issue[] {
 				ref(file, `terms.${key}.ref`, TERM_COLLECTION[term.kind], term.ref);
 			}
 		}
-		for (const key of Object.keys(equation.solutions)) {
-			if (!termKeys.has(key)) {
-				issues.push(issue('error', 'integrity', file, `solutions key '${key}' is not a terms key`));
-			}
-		}
-		if (equation.calculator.enabled && Object.keys(equation.solutions).length === 0) {
-			issues.push(
-				issue('error', 'integrity', file, 'calculator.enabled requires at least one solution'),
-			);
-		}
-		for (const key of equation.calculator.solveFor ?? []) {
-			if (equation.solutions[key] === undefined) {
-				issues.push(
-					issue(
-						'error',
-						'integrity',
-						file,
-						`calculator.solveFor '${key}' has no authored solution`,
-					),
-				);
-			}
-		}
+		issues.push(...coverageIssues(file, equation));
 	}
 
 	for (const [slug, path] of corpus.paths) {
@@ -386,6 +365,70 @@ export function checkIntegrity(corpus: Corpus): Issue[] {
 	}
 
 	return issues;
+}
+
+/**
+ * The terms the calculator may leave unknown: `calculator.solveFor` when
+ * authored, else every non-constant term (constants are injected, never
+ * solved for), in authored order.
+ */
+export function calculatorTargets(equation: Equation): string[] {
+	return (
+		equation.calculator.solveFor ??
+		Object.entries(equation.terms)
+			.filter(([, term]) => term.kind !== 'constant')
+			.map(([key]) => key)
+	);
+}
+
+/**
+ * Coverage rules (ADR 0009): solutions solve for non-constant terms only;
+ * an algebraic equation authors at least one; `solveFor` names distinct
+ * non-constant terms; and an enabled calculator has a solution for every
+ * term it may leave unknown, so no unknown it offers ends in an
+ * unsupported-term error.
+ */
+export function coverageIssues(file: string, equation: Equation): Issue[] {
+	const messages: string[] = [];
+	const solutionKeys = Object.keys(equation.solutions);
+	for (const key of solutionKeys) {
+		const term = equation.terms[key];
+		if (term === undefined) {
+			messages.push(`solutions key '${key}' is not a terms key`);
+		} else if (term.kind === 'constant') {
+			messages.push(
+				`solutions key '${key}' is a constant term; constants are injected, never solved for`,
+			);
+		}
+	}
+	if (equation.algebraic && solutionKeys.length === 0) {
+		messages.push(
+			'an algebraic equation authors at least one solution; mark notation no solver reads algebraic: false',
+		);
+	}
+	const solveFor = equation.calculator.solveFor ?? [];
+	if (new Set(solveFor).size !== solveFor.length) {
+		messages.push('calculator.solveFor must not repeat a term');
+	}
+	for (const key of new Set(solveFor)) {
+		const term = equation.terms[key];
+		if (term === undefined) {
+			messages.push(`calculator.solveFor '${key}' is not a terms key`);
+		} else if (term.kind === 'constant') {
+			messages.push(`calculator.solveFor '${key}' is a constant term, which is never unknown`);
+		}
+	}
+	if (equation.calculator.enabled) {
+		const uncovered = calculatorTargets(equation).filter(
+			(key) => equation.terms[key] !== undefined && equation.solutions[key] === undefined,
+		);
+		if (uncovered.length > 0) {
+			messages.push(
+				`the calculator may leave ${uncovered.map((key) => `'${key}'`).join(', ')} unknown but no solution is authored for ${uncovered.length === 1 ? 'it' : 'them'}; author the solution or narrow calculator.solveFor`,
+			);
+		}
+	}
+	return messages.map((message) => issue('error', 'integrity', file, message));
 }
 
 /**

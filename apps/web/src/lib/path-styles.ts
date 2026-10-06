@@ -1,6 +1,6 @@
 /**
  * Level badge utilities as full literal class names (Tailwind's scanner
- * only sees statically written classes). Keyed by the schema's pathLevel.
+ * only sees statically written classes). Keyed by the schema's contentLevel.
  */
 export const LEVEL_BADGE: Record<string, string> = {
 	intro: 'bg-accent/10 text-accent',

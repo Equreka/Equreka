@@ -1,3 +1,4 @@
+import { texToFallbackText, texToUnicode } from '@equreka/content/plain-symbol';
 import type { RichTextSegment } from '@equreka/content/rich-text';
 import { memo, type ReactNode } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
@@ -7,7 +8,6 @@ import { useTheme } from '../providers/equreka-provider';
 import type { TextSize } from '../theme/theme';
 import { AppText } from '../ui/text';
 import { type HydratedMath, hydrateForSvg } from './hydrate';
-import { texToFallbackText, texToUnicode } from './plain-symbol';
 
 export interface HydratedMathViewProps {
 	hydrated: HydratedMath;

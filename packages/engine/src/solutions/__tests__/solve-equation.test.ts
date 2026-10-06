@@ -56,6 +56,28 @@ const pythagoreanFns: SolutionsModule = {
 
 const SPEED_OF_LIGHT = 299792458;
 
+const combinations: CompiledEquationMeta = {
+	slug: 'combinations',
+	kind: 'formula',
+	name: { en: 'Combinations' },
+	calculatorEnabled: true,
+	terms: {
+		C: { kind: 'symbol', identifier: 'C' },
+		n: { kind: 'symbol', identifier: 'n', integer: true },
+		k: { kind: 'symbol', identifier: 'k', integer: true },
+	},
+	solvable: ['C'],
+};
+
+const combinationsFns: SolutionsModule = {
+	combinations: {
+		C: ({ n = Number.NaN, k = Number.NaN }) => {
+			const factorial = (x: number): number => (x <= 1 ? 1 : x * factorial(x - 1));
+			return factorial(n) / (factorial(k) * factorial(n - k));
+		},
+	},
+};
+
 describe('solveEquation — solving', () => {
 	it('solves for E when m is known (constant injected by the caller)', () => {
 		const solved = unwrap(solveEquation(massEnergy, massEnergyFns, { m: 2, c: SPEED_OF_LIGHT }));
@@ -152,6 +174,29 @@ describe('solveEquation — unknown inference error paths', () => {
 				}),
 			).code,
 		).toBe('inputs/not-a-number');
+	});
+
+	it('every input empty → inputs/empty, even with terms outside solvable', () => {
+		expect(unwrapErr(solveEquation(combinations, combinationsFns, {})).code).toBe('inputs/empty');
+	});
+
+	it('a term outside solvable left empty → inputs/required, naming it and the solvable set', () => {
+		const error = unwrapErr(solveEquation(combinations, combinationsFns, { n: 5 }));
+		expect(error.code).toBe('inputs/required');
+		expect(error.details).toEqual({ keys: ['k'], solvable: ['C'] });
+		const asUnknown = unwrapErr(solveEquation(combinations, combinationsFns, { C: 10, n: 5 }));
+		expect(asUnknown).toMatchObject({ code: 'inputs/required', details: { keys: ['k'] } });
+	});
+
+	it('a fractional value on an integer term → inputs/not-integer, before solving', () => {
+		const error = unwrapErr(solveEquation(combinations, combinationsFns, { n: 5, k: 2.5 }));
+		expect(error.code).toBe('inputs/not-integer');
+		expect(error.details).toEqual({ keys: ['k'] });
+		expect(unwrap(solveEquation(combinations, combinationsFns, { n: 5, k: 2 }))).toEqual({
+			symbol: 'C',
+			value: 10,
+			root: 0,
+		});
 	});
 
 	it('missing constant injection → internal/unsupported (caller contract)', () => {

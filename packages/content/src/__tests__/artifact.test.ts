@@ -502,6 +502,57 @@ describe('build over the real corpus', () => {
 		const massEnergy = module.solutions['mass-energy-equivalence'];
 		expect(massEnergy?.E?.({ m: 1, c: 299792458 })).toBeCloseTo(8.987551787368176e16, 4);
 	});
+
+	it('codegens a solution for every term a calculator may leave unknown', async () => {
+		const module = (await import(pathToFileURL(join(outDir, 'solutions.js')).href)) as {
+			solutions: Record<string, Record<string, unknown>>;
+		};
+		const parsed = engineSlice.parse(readJson('engine.json'));
+		const enabled = Object.values(parsed.equations).filter((meta) => meta.calculatorEnabled);
+		expect(enabled.map((meta) => meta.slug)).toContain('area-circle');
+		for (const meta of enabled) {
+			const inputs = Object.entries(meta.terms)
+				.filter(([, term]) => term.kind !== 'constant')
+				.map(([key]) => key);
+			expect(meta.solvable.length, meta.slug).toBeGreaterThan(0);
+			for (const key of meta.solvable) {
+				expect(inputs, `${meta.slug}.${key}`).toContain(key);
+				expect(typeof module.solutions[meta.slug]?.[key], `${meta.slug}.${key}`).toBe('function');
+			}
+		}
+		expect(parsed.equations['area-circle']?.solvable).toEqual(['A', 'r']);
+	});
+
+	it('carries level, algebraic and truncated into the presentation slices only', () => {
+		const equations = readJson<Record<string, { level?: string; algebraic?: boolean }>>(
+			'presentation',
+			'equations.json',
+		);
+		for (const [slug, equation] of report.corpus.equations) {
+			expect(equations[slug], slug).toMatchObject({
+				level: equation.level,
+				algebraic: equation.algebraic,
+			});
+		}
+		const constants = readJson<Record<string, { truncated?: boolean; irrational?: boolean }>>(
+			'presentation',
+			'constants.json',
+		);
+		expect(constants.pi?.truncated).toBe(true);
+		for (const [slug, constant] of Object.entries(constants)) {
+			expect(!constant.irrational || constant.truncated, slug).toBe(true);
+		}
+		const engine = readJson<{
+			constants: Record<string, Record<string, unknown>>;
+			equations: Record<string, Record<string, unknown>>;
+		}>('engine.json');
+		for (const constant of Object.values(engine.constants)) {
+			expect(constant).not.toHaveProperty('truncated');
+		}
+		for (const equation of Object.values(engine.equations)) {
+			expect(equation).not.toHaveProperty('level');
+		}
+	});
 });
 
 describe('generated prefixed units (ADR 0007)', () => {

@@ -226,6 +226,13 @@ export const constantApproximations = z
 		message: 'approximations must not repeat',
 	});
 
+/**
+ * `truncated` marks an authored `value` that cuts off a true value with no
+ * finite decimal form: an irrational number (π) or an exactly defined value
+ * with endless digits (ħ = h/2π, the molar volume). Presentation appends an
+ * ellipsis to it. A measured value is a rounding with an uncertainty, never
+ * a truncation, so the flag needs `exact` or `irrational`.
+ */
 export const constant = entityBase
 	.extend({
 		symbol,
@@ -235,10 +242,28 @@ export const constant = entityBase
 		unit: ref('units'),
 		exact: strictBool.default(false),
 		irrational: strictBool.default(false),
+		truncated: strictBool.default(false),
 		uncertainty: decimalString.optional(),
 		source: valueSource.optional(),
 	})
-	.strict();
+	.strict()
+	.superRefine((value, ctx) => {
+		if (value.irrational && !value.truncated) {
+			ctx.addIssue({
+				code: 'custom',
+				path: ['truncated'],
+				message: 'an irrational value has no finite decimal form: declare truncated: true',
+			});
+		}
+		if (value.truncated && !value.exact && !value.irrational) {
+			ctx.addIssue({
+				code: 'custom',
+				path: ['truncated'],
+				message:
+					'truncated applies to an exact or irrational value; a measured value is rounded, not truncated',
+			});
+		}
+	});
 
 export const variable = entityBase
 	.extend({
@@ -264,8 +289,10 @@ export const identifierName = z
  * unit that fixes their dimension for the build-time consistency check.
  * `integer` marks a term that only takes integer values (the n and k of a
  * binomial coefficient): the verifier samples it from the integers 0–10,
- * and the calculator receives the flag. A constant has a fixed value, so it
- * takes no flag.
+ * and the calculator receives the flag. `delta` marks a term that is a
+ * difference (ΔT): the calculator converts it without the affine offset,
+ * so 10 °C of warming is 10 K, not 283.15 K. A constant has a fixed value,
+ * so it takes neither flag.
  */
 export const equationTerm = z.discriminatedUnion('kind', [
 	z
@@ -274,6 +301,7 @@ export const equationTerm = z.discriminatedUnion('kind', [
 			ref: ref('magnitudes'),
 			identifier: identifierName.optional(),
 			integer: strictBool.default(false),
+			delta: strictBool.default(false),
 		})
 		.strict(),
 	z
@@ -289,6 +317,7 @@ export const equationTerm = z.discriminatedUnion('kind', [
 			ref: ref('variables'),
 			identifier: identifierName.optional(),
 			integer: strictBool.default(false),
+			delta: strictBool.default(false),
 		})
 		.strict(),
 	z
@@ -298,6 +327,7 @@ export const equationTerm = z.discriminatedUnion('kind', [
 			unit: ref('units').optional(),
 			identifier: identifierName.optional(),
 			integer: strictBool.default(false),
+			delta: strictBool.default(false),
 		})
 		.strict(),
 ]);
@@ -311,29 +341,59 @@ export const equationTerm = z.discriminatedUnion('kind', [
 export const equationSolution = z.union([z.string().min(1), z.array(z.string().min(1)).min(2)]);
 
 /**
+ * The teaching level of a learning path or an equation, shared so both
+ * read on one scale.
+ */
+export const contentLevel = z.enum(['intro', 'intermediate', 'advanced']);
+
+/**
  * Equations and formulas share one schema (`kind` is taxonomy only).
  * `expression` is annotated TeX using \mag{}/\const{}/\var{} macros; every
  * macro argument must be a key of `terms` and vice versa (pipeline-enforced).
  * `solutions` are hand-authored per-variable solved forms in a small
  * expression grammar, machine-verified at build (ADR 0002) — the calculator
- * can only solve for symbols listed here. Related units are derived from
- * terms at build time, never authored.
+ * can only solve for symbols listed here. `calculator.solveFor` narrows the
+ * terms the calculator may leave unknown (default: every non-constant
+ * term). `algebraic: false` marks notation no solver reads (∇, ∂, ∫): it
+ * takes no solutions and no calculator, and the verifier never parses it.
+ * Related units are derived from terms at build time, never authored.
  */
 export const equation = entityBase
 	.extend({
 		kind: z.enum(['equation', 'formula']).default('equation'),
+		level: contentLevel,
+		algebraic: strictBool.default(true),
 		expression: z.string().min(1),
 		terms: z.record(z.string().min(1), equationTerm),
 		solutions: z.record(z.string().min(1), equationSolution).default({}),
 		calculator: z
 			.object({
 				enabled: strictBool.default(false),
-				solveFor: z.array(z.string().min(1)).optional(),
+				solveFor: z.array(z.string().min(1)).min(1).optional(),
 			})
 			.strict()
 			.default({ enabled: false }),
 	})
-	.strict();
+	.strict()
+	.superRefine((value, ctx) => {
+		if (value.algebraic) {
+			return;
+		}
+		if (Object.keys(value.solutions).length > 0) {
+			ctx.addIssue({
+				code: 'custom',
+				path: ['solutions'],
+				message: 'a non-algebraic equation (algebraic: false) authors no solutions',
+			});
+		}
+		if (value.calculator.enabled) {
+			ctx.addIssue({
+				code: 'custom',
+				path: ['calculator', 'enabled'],
+				message: 'a non-algebraic equation (algebraic: false) has no calculator',
+			});
+		}
+	});
 
 /**
  * Wiki collections a path step may point at; `paths` and `categories` are
@@ -392,15 +452,13 @@ export const pathStep = z.discriminatedUnion('kind', [
 		.strict(),
 ]);
 
-export const pathLevel = z.enum(['intro', 'intermediate', 'advanced']);
-
 /**
  * `prerequisites` reference other paths (resolved and cycle-checked by the
  * pipeline). `estimatedMinutes` is an authored reading-time estimate.
  */
 export const path = entityBase
 	.extend({
-		level: pathLevel,
+		level: contentLevel,
 		prerequisites: z.array(ref('paths')).default([]),
 		estimatedMinutes: intFromString
 			.refine((value) => value > 0, 'estimatedMinutes must be positive')
@@ -434,6 +492,6 @@ export type EquationSolution = z.infer<typeof equationSolution>;
 export type Equation = z.infer<typeof equation>;
 export type PathEntryCollection = z.infer<typeof pathEntryCollection>;
 export type PathEntryRef = z.infer<typeof pathEntryRef>;
-export type PathLevel = z.infer<typeof pathLevel>;
+export type ContentLevel = z.infer<typeof contentLevel>;
 export type PathStep = z.infer<typeof pathStep>;
 export type Path = z.infer<typeof path>;

@@ -25,7 +25,6 @@ import PathContextBar from '../islands/path-context-bar';
 import BaseLayout from '../layouts/base-layout.astro';
 import { asEquation, asVariable } from '../lib/collections';
 import { entryHref } from '../lib/entry-links';
-import { isDraft } from '../lib/entry-meta';
 import { localePath } from '../lib/locale-paths';
 import { engineSlice } from '../lib/server/engine-registry';
 import {
@@ -272,20 +271,19 @@ const metaDescription =
 
 		<CodeCard locale={locale} code={codeTex} />
 
-		{
-			(equation.branches.length > 0 || untranslated || isDraft(equation.status)) && (
-				<CollapseCard
-					headingId="equation-relations-heading"
-					title={t(locale, 'design.content.entry.relations')}
-					class="eq-relations-card"
-				>
-					<div class="eq-chip-row">
-						<BranchBadges locale={locale} branches={equation.branches} />
-						<UntranslatedBadge locale={locale} show={untranslated} />
-						<DraftBadge locale={locale} status={equation.status} />
-					</div>
-				</CollapseCard>
-			)
-		}
+		<CollapseCard
+			headingId="equation-relations-heading"
+			title={t(locale, 'design.content.entry.relations')}
+			class="eq-relations-card"
+		>
+			<div class="eq-chip-row">
+				<span class="eq-badge eq-badge-accent" data-level={equation.level}>
+					{t(locale, `level.${equation.level}`)}
+				</span>
+				<BranchBadges locale={locale} branches={equation.branches} />
+				<UntranslatedBadge locale={locale} show={untranslated} />
+				<DraftBadge locale={locale} status={equation.status} />
+			</div>
+		</CollapseCard>
 	</article>
 </BaseLayout>

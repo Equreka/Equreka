@@ -71,7 +71,7 @@ const untranslated =
 	(pickLocalized(path.name, locale).untranslated ||
 		description?.untranslated === true ||
 		steps.some((step) => stepProse(step).some((text) => pickLocalized(text, locale).untranslated)));
-const levelLabel = t(locale, `path.level.${path.level}`);
+const levelLabel = t(locale, `level.${path.level}`);
 const metaDescription =
 	description === undefined
 		? t(locale, 'meta.path', { name, level: levelLabel.toLowerCase(), count: steps.length })

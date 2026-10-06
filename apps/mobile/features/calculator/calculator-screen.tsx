@@ -1,3 +1,4 @@
+import { texToFallbackText } from '@equreka/content/plain-symbol';
 import {
 	type CalculatorUnitSource,
 	solveInUnits,
@@ -6,7 +7,7 @@ import {
 } from '@equreka/core/hooks/use-calculator-units';
 import {
 	ENGINE_HINT_CODES,
-	engineMessage,
+	engineErrorMessage,
 	type Locale,
 	localizedName,
 	pickLocalized,
@@ -39,10 +40,16 @@ export interface CalculatorScreenProps {
  * One editable term: `unitTex` is the canonical TeX of the term's unit
  * (magnitude → baseUnit, variable → defaultUnit, symbol → its unit) so the
  * field decoration and the result line render the symbol from the atlas.
+ * `symbolText` is the term key as plain text (`\theta` → θ), since a field
+ * label is plain text and raw TeX would read as source. `solvable` is
+ * false for a term the calculator never leaves unknown, which the reader
+ * must fill.
  */
 interface CalculatorField {
 	key: string;
 	label: string;
+	symbolText: string;
+	solvable: boolean;
 	unitTex: string;
 	unitText: string;
 }
@@ -76,6 +83,14 @@ function buildModel(slug: string, locale: Locale): CalculatorModel | undefined {
 	const fields: CalculatorField[] = [];
 	const constants: CalculatorConstant[] = [];
 	const nonNegative = new Set<string>();
+	const field = (key: string, label: string, unit: { tex: string; text: string }) => ({
+		key,
+		label,
+		symbolText: texToFallbackText(key),
+		solvable: meta.solvable.includes(key),
+		unitTex: unit.tex,
+		unitText: unit.text,
+	});
 	for (const [key, term] of Object.entries(meta.terms)) {
 		switch (term.kind) {
 			case 'constant': {
@@ -93,35 +108,35 @@ function buildModel(slug: string, locale: Locale): CalculatorModel | undefined {
 			case 'magnitude': {
 				const magnitude = term.ref === undefined ? undefined : slice.magnitudes[term.ref];
 				if (magnitude?.nonNegative) nonNegative.add(key);
-				const unit = unitOf(magnitude?.baseUnit);
-				fields.push({
-					key,
-					label: magnitude === undefined ? key : localizedName(magnitude, locale),
-					unitTex: unit.tex,
-					unitText: unit.text,
-				});
+				fields.push(
+					field(
+						key,
+						magnitude === undefined ? key : localizedName(magnitude, locale),
+						unitOf(magnitude?.baseUnit),
+					),
+				);
 				break;
 			}
 			case 'variable': {
 				const variable =
 					term.ref === undefined ? undefined : getPresentation('variables')[term.ref];
-				const unit = unitOf(variable?.defaultUnit);
-				fields.push({
-					key,
-					label: variable === undefined ? key : localizedName(variable, locale),
-					unitTex: unit.tex,
-					unitText: unit.text,
-				});
+				fields.push(
+					field(
+						key,
+						variable === undefined ? key : localizedName(variable, locale),
+						unitOf(variable?.defaultUnit),
+					),
+				);
 				break;
 			}
 			case 'symbol': {
-				const unit = unitOf(term.unit);
-				fields.push({
-					key,
-					label: term.label === undefined ? key : pickLocalized(term.label, locale).value,
-					unitTex: unit.tex,
-					unitText: unit.text,
-				});
+				fields.push(
+					field(
+						key,
+						term.label === undefined ? key : pickLocalized(term.label, locale).value,
+						unitOf(term.unit),
+					),
+				);
 				break;
 			}
 		}
@@ -230,6 +245,16 @@ function CalculatorForm({ slug, model, renderer }: CalculatorFormProps) {
 	);
 	const resultOptions =
 		result?.ok === true ? unitState.optionsFor(result.value.symbol).units : undefined;
+	const termName = (key: string): string =>
+		fields.find((field) => field.key === key)?.symbolText ?? key;
+	const solvableOnly = fields.some((field) => !field.solvable)
+		? fields
+				.filter((field) => field.solvable)
+				.map((field) => field.symbolText)
+				.join(', ')
+		: '';
+	const errorMessage =
+		result?.ok === false ? engineErrorMessage(locale, result.error, termName) : '';
 
 	return (
 		<Screen>
@@ -237,6 +262,9 @@ function CalculatorForm({ slug, model, renderer }: CalculatorFormProps) {
 				<Title>{t('calculator.pageTitle', { name: localizedName(meta, locale) })}</Title>
 				{expressionTex === undefined ? null : <MathSvg tex={expressionTex} size="xl" scroll />}
 				<Lead>{t('calculator.hint')}</Lead>
+				{solvableOnly === '' ? null : (
+					<Muted>{t('calculator.solvableOnly', { terms: solvableOnly })}</Muted>
+				)}
 				<HStack>
 					<Button
 						label={t('calculator.leadLink')}
@@ -248,7 +276,7 @@ function CalculatorForm({ slug, model, renderer }: CalculatorFormProps) {
 			<Card>
 				{fields.map((field) => {
 					const { units: offered, hiddenByKind } = unitState.optionsFor(field.key);
-					const name = `${field.label} (${field.key})`;
+					const name = `${field.label} (${field.symbolText})`;
 					return (
 						<Fragment key={field.key}>
 							<DecimalField
@@ -257,7 +285,7 @@ function CalculatorForm({ slug, model, renderer }: CalculatorFormProps) {
 								onChangeText={(text) =>
 									setValues((previous) => ({ ...previous, [field.key]: text }))
 								}
-								placeholder={t('calculator.placeholder')}
+								placeholder={t(field.solvable ? 'calculator.placeholder' : 'calculator.required')}
 								unit={<UnitSymbol tex={selectedUnitTex(unitState, field.key, field.unitTex)} />}
 							/>
 							{offered.length > 1 ? (
@@ -302,7 +330,7 @@ function CalculatorForm({ slug, model, renderer }: CalculatorFormProps) {
 					<VStack gap={1}>
 						<HStack gap={1.5}>
 							<AppText size="xl" accessibilityLiveRegion="polite">
-								{solved?.label ?? result.value.symbol} ({result.value.symbol}){' '}
+								{solved?.label ?? result.value.symbol} ({termName(result.value.symbol)}){' '}
 								{result.value.exact ? '=' : '≈'}{' '}
 								<AppText size="xl" weight="700">
 									{formatSigFigs(result.value.value)}
@@ -335,10 +363,10 @@ function CalculatorForm({ slug, model, renderer }: CalculatorFormProps) {
 						) : null}
 					</VStack>
 				) : ENGINE_HINT_CODES.has(result.error.code) ? (
-					<Muted>{engineMessage(locale, result.error.code)}</Muted>
+					<Muted>{errorMessage}</Muted>
 				) : (
 					<AppText tone="danger" accessibilityLiveRegion="assertive">
-						{engineMessage(locale, result.error.code)}
+						{errorMessage}
 					</AppText>
 				)}
 			</Card>

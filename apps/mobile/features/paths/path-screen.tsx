@@ -123,7 +123,7 @@ function PathBody({ slug, path }: { slug: string; path: PresentationPath }) {
 			<VStack>
 				<Title>{localizedName(path, locale)}</Title>
 				<HStack gap={1.5}>
-					<Badge label={t(`path.level.${path.level}`)} color={theme.color.accent} />
+					<Badge label={t(`level.${path.level}`)} color={theme.color.accent} />
 					<Badge label={t('path.steps', { count: total })} />
 					{path.estimatedMinutes === undefined ? null : (
 						<Badge label={t('path.minutes', { count: path.estimatedMinutes })} />

@@ -189,7 +189,7 @@ describe('equation terms', () => {
 				radius: { name: { en: 'Radius' }, symbol: { tex: 'r' }, defaultUnit: 'metre' },
 			},
 			equations: {
-				sample: { name: { en: 'Sample' }, expression, terms },
+				sample: { name: { en: 'Sample' }, level: 'intro', algebraic: false, expression, terms },
 			},
 		});
 
@@ -240,6 +240,103 @@ describe('equation terms', () => {
 		);
 		expect(messages(corpus)).toEqual([
 			expect.stringContaining("terms.s.unit: unknown units ref 'furlong'"),
+		]);
+	});
+});
+
+describe('solution coverage (ADR 0009)', () => {
+	const ofEquation = (equation: Record<string, unknown>): string[] =>
+		messages(
+			corpusWith({
+				magnitudes: MAGNITUDES,
+				units: UNITS,
+				constants: {
+					pi: {
+						name: { en: 'Pi' },
+						symbol: { tex: '\\pi' },
+						value: '3.14159',
+						unit: 'unitless',
+						irrational: true,
+						truncated: true,
+					},
+				},
+				equations: {
+					sample: { name: { en: 'Sample' }, level: 'intro', ...equation },
+				},
+			}),
+		).map((message) => message.replace(/^equations\/sample\.yaml: /, ''));
+	const COMBINATIONS = {
+		expression: '\\var{C}=\\frac{\\var{n}!}{\\var{k}!\\left(\\var{n}-\\var{k}\\right)!}',
+		terms: {
+			C: { kind: 'symbol', label: { en: 'Combinations' } },
+			n: { kind: 'symbol', label: { en: 'Items' }, integer: true },
+			k: { kind: 'symbol', label: { en: 'Chosen' }, integer: true },
+		},
+		solutions: { C: 'factorial(n) / (factorial(k) * factorial(n - k))' },
+	};
+	const CIRCLE = {
+		expression: '\\var{A}=\\const{\\pi}\\var{r}^{2}',
+		terms: {
+			A: { kind: 'symbol', label: { en: 'Area' } },
+			'\\pi': { kind: 'constant', ref: 'pi' },
+			r: { kind: 'symbol', label: { en: 'Radius' } },
+		},
+	};
+
+	it('requires at least one solution on an algebraic equation only', () => {
+		expect(ofEquation(CIRCLE)).toEqual([
+			'an algebraic equation authors at least one solution; mark notation no solver reads algebraic: false',
+		]);
+		expect(ofEquation({ ...CIRCLE, algebraic: false })).toEqual([]);
+		expect(ofEquation({ ...CIRCLE, solutions: { A: 'pi * r^2' } })).toEqual([]);
+	});
+
+	it('covers every non-constant term when the calculator has no solveFor', () => {
+		expect(
+			ofEquation({ ...CIRCLE, solutions: { A: 'pi * r^2' }, calculator: { enabled: true } }),
+		).toEqual([
+			"the calculator may leave 'r' unknown but no solution is authored for it; author the solution or narrow calculator.solveFor",
+		]);
+		expect(
+			ofEquation({
+				...CIRCLE,
+				solutions: { A: 'pi * r^2', r: 'sqrt(A / pi)' },
+				calculator: { enabled: true },
+			}),
+		).toEqual([]);
+		expect(ofEquation({ ...COMBINATIONS, calculator: { enabled: true } })).toEqual([
+			"the calculator may leave 'n', 'k' unknown but no solution is authored for them; author the solution or narrow calculator.solveFor",
+		]);
+	});
+
+	it('covers only calculator.solveFor when it is authored', () => {
+		expect(ofEquation({ ...COMBINATIONS, calculator: { enabled: true, solveFor: ['C'] } })).toEqual(
+			[],
+		);
+		expect(
+			ofEquation({ ...COMBINATIONS, calculator: { enabled: true, solveFor: ['C', 'n'] } }),
+		).toEqual([
+			"the calculator may leave 'n' unknown but no solution is authored for it; author the solution or narrow calculator.solveFor",
+		]);
+	});
+
+	it('rejects a solveFor that repeats, names no term, or names a constant', () => {
+		expect(
+			ofEquation({
+				...CIRCLE,
+				solutions: { A: 'pi * r^2' },
+				calculator: { solveFor: ['A', 'A', 'x', '\\pi'] },
+			}),
+		).toEqual([
+			'calculator.solveFor must not repeat a term',
+			"calculator.solveFor 'x' is not a terms key",
+			"calculator.solveFor '\\pi' is a constant term, which is never unknown",
+		]);
+	});
+
+	it('rejects a solution for a constant term', () => {
+		expect(ofEquation({ ...CIRCLE, solutions: { A: 'pi * r^2', '\\pi': 'A / r^2' } })).toEqual([
+			"solutions key '\\pi' is a constant term; constants are injected, never solved for",
 		]);
 	});
 });
@@ -457,6 +554,8 @@ describe('orphan magnitudes', () => {
 			equations: {
 				sample: {
 					name: { en: 'Sample' },
+					level: 'intro',
+					algebraic: false,
 					expression: '\\var{s}=\\var{s}',
 					terms: { s: { kind: 'symbol', label: { en: 'Side' }, unit: 'metre' } },
 				},

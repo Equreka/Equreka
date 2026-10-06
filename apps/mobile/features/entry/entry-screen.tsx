@@ -36,7 +36,7 @@ function badgesOf(entry: PresentationEntry, t: (key: MessageKey) => string): str
 				? [t('badge.dimensionless')]
 				: [];
 		case 'equations':
-			return [t(`kind.${entry.entity.kind}`)];
+			return [t(`kind.${entry.entity.kind}`), t(`level.${entry.entity.level}`)];
 		default:
 			return [];
 	}

@@ -90,6 +90,21 @@ const MIXED = equation('mixed', {
 	n: { kind: 'symbol', identifier: 'n' },
 });
 
+const HEATING = equation('heating', {
+	Q: { kind: 'magnitude', ref: 'energy', identifier: 'Q' },
+	C: { kind: 'symbol', identifier: 'C' },
+	'\\Delta T': { kind: 'magnitude', ref: 'temperature', identifier: 'DeltaT', delta: true },
+});
+
+const COMBINATIONS: CompiledEquationMeta = {
+	...equation('combinations', {
+		C: { kind: 'symbol', identifier: 'C' },
+		n: { kind: 'symbol', identifier: 'n', integer: true },
+		k: { kind: 'symbol', identifier: 'k', integer: true },
+	}),
+	solvable: ['C'],
+};
+
 const SLICE: EngineSlice = {
 	schemaVersion: 2,
 	contentHash: 'calculator-units-test',
@@ -112,6 +127,13 @@ const SLICE: EngineSlice = {
 		'rough-pound': unit('rough-pound', ['mass'], MASS, '0.45', { exact: false }),
 		kelvin: unit('kelvin', ['temperature'], TEMPERATURE, '1'),
 		celsius: unit('celsius', ['temperature'], TEMPERATURE, '1', { offset: '273.15' }),
+		fahrenheit: unit(
+			'fahrenheit',
+			['temperature'],
+			TEMPERATURE,
+			'0.555555555555555555555555555555555556',
+			{ offset: '255.372222222222222222222222222222222', exact: false },
+		),
 		rankine: unit(
 			'rankine',
 			['temperature'],
@@ -195,9 +217,26 @@ describe('createCalculatorUnits', () => {
 		expect(mass.units.map((u) => u.slug)).toEqual(['gram', 'rough-pound', 'kilogram']);
 	});
 
-	it('never offers affine units, in either scope', () => {
+	it('never offers affine units on an absolute term, in either scope', () => {
 		expect(slugs(mixed.options('T', false).units)).toEqual(['kelvin', 'rankine']);
 		expect(slugs(mixed.options('T', true).units)).toEqual(['kelvin', 'rankine']);
+	});
+
+	it('offers affine units on a delta term and converts it without the offset', () => {
+		const heating = createCalculatorUnits(HEATING, SOURCE);
+		expect(slugs(heating.options('\\Delta T', false).units)).toEqual([
+			'celsius',
+			'fahrenheit',
+			'kelvin',
+			'rankine',
+		]);
+		expect(heating.toBase('\\Delta T', 10, 'celsius')).toEqual({ ok: true, value: 10 });
+		const fromFahrenheit = heating.toBase('\\Delta T', 18, 'fahrenheit');
+		expect(fromFahrenheit.ok && fromFahrenheit.value).toBeCloseTo(10, 12);
+		const toFahrenheit = heating.fromBase('\\Delta T', 10, 'fahrenheit');
+		expect(toFahrenheit.ok && toFahrenheit.value).toBeCloseTo(18, 12);
+		const absolute = mixed.toBase('T', 10, 'celsius');
+		expect(absolute.ok && absolute.value).toBeCloseTo(283.15, 12);
 	});
 
 	it('converts in and out of the base unit and flags inexact factors', () => {
@@ -270,6 +309,78 @@ describe('solveInUnits', () => {
 		expect(run.outcome.value.baseValue).toBe(2);
 		expect(run.outcome.value.value).toBeCloseTo(2000, 9);
 		expect(run.outcome.value.allRoots?.map((root) => Math.round(root))).toEqual([-1000, 2000]);
+	});
+
+	it('converts a delta input and the delta result with no affine offset', () => {
+		const heating = createCalculatorUnits(HEATING, SOURCE);
+		const heatingFns: SolutionsModule = {
+			heating: {
+				Q: ({ C = Number.NaN, DeltaT = Number.NaN }) => C * DeltaT,
+				'\\Delta T': ({ Q = Number.NaN, C = Number.NaN }) => Q / C,
+			},
+		};
+		const heatingInputs = (
+			raw: Record<string, string>,
+			selected: Record<string, string>,
+		): CalculatorInputs => ({ fields: ['Q', 'C', '\\Delta T'], raw, constants: {}, selected });
+		const forward = solveInUnits(
+			HEATING,
+			heatingFns,
+			heatingInputs({ C: '1000', '\\Delta T': '18' }, { '\\Delta T': 'fahrenheit' }),
+			heating,
+		);
+		if (forward.outcome?.ok !== true) throw new Error('expected a solution');
+		expect(forward.outcome.value.value).toBeCloseTo(10000, 8);
+		expect(Number(forward.literals['\\Delta T'])).toBeCloseTo(10, 12);
+		const backward = solveInUnits(
+			HEATING,
+			heatingFns,
+			heatingInputs({ Q: '10000', C: '1000' }, { '\\Delta T': 'celsius' }),
+			heating,
+		);
+		if (backward.outcome?.ok !== true) throw new Error('expected a solution');
+		expect(backward.outcome.value).toMatchObject({ symbol: '\\Delta T', unit: 'celsius' });
+		expect(backward.outcome.value.value).toBeCloseTo(10, 12);
+	});
+
+	it('asks for a term outside the solvable set instead of failing internally', () => {
+		const combinationsFns: SolutionsModule = {
+			combinations: { C: ({ n = Number.NaN, k = Number.NaN }) => (n * (n - 1)) / (k * (k - 1)) },
+		};
+		const run = (raw: Record<string, string>) =>
+			solveInUnits(
+				COMBINATIONS,
+				combinationsFns,
+				{ fields: ['C', 'n', 'k'], raw, constants: {}, selected: {} },
+				null,
+			).outcome;
+		expect(run({ n: '5' })).toEqual({
+			ok: false,
+			error: expect.objectContaining({
+				code: 'inputs/required',
+				details: { keys: ['k'], solvable: ['C'] },
+			}),
+		});
+		expect(run({ C: '10', n: '5' })).toMatchObject({
+			ok: false,
+			error: { code: 'inputs/required' },
+		});
+	});
+
+	it('rejects a fractional input on an integer term before solving', () => {
+		const combinationsFns: SolutionsModule = {
+			combinations: { C: () => Number.NaN },
+		};
+		const outcome = solveInUnits(
+			COMBINATIONS,
+			combinationsFns,
+			{ fields: ['C', 'n', 'k'], raw: { n: '5', k: '2.5' }, constants: {}, selected: {} },
+			null,
+		).outcome;
+		expect(outcome).toMatchObject({
+			ok: false,
+			error: { code: 'inputs/not-integer', details: { keys: ['k'] } },
+		});
 	});
 
 	it('solves in base units when no registry is available', () => {

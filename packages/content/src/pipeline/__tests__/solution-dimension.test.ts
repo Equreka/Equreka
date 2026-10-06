@@ -15,11 +15,11 @@ function realCorpus(): Corpus {
 }
 
 describe('checkSolutionDimensions over the real corpus', () => {
-	it('solves every equation for at least one term and passes every authored solution', () => {
+	it('solves every algebraic equation for at least one term and passes every authored solution', () => {
 		const corpus = realCorpus();
 		expect(corpus.equations.size).toBeGreaterThan(0);
 		const unsolved = [...corpus.equations]
-			.filter(([, equation]) => Object.keys(equation.solutions).length === 0)
+			.filter(([, equation]) => equation.algebraic && Object.keys(equation.solutions).length === 0)
 			.map(([slug]) => slug);
 		expect(unsolved).toEqual([]);
 		expect(checkSolutionDimensions(corpus)).toEqual([]);
@@ -65,7 +65,13 @@ describe('termDimension', () => {
 		const corpus = realCorpus();
 		expect(
 			termDimension(
-				{ kind: 'symbol', label: { en: 'Per mole' }, unit: 'reciprocal-mole', integer: false },
+				{
+					kind: 'symbol',
+					label: { en: 'Per mole' },
+					unit: 'reciprocal-mole',
+					integer: false,
+					delta: false,
+				},
 				corpus,
 			),
 		).toEqual([0, 0, 0, 0, 0, -1, 0, 0]);
@@ -138,11 +144,14 @@ describe('termDimension and the angle exponent', () => {
 		const planeAngle = corpus.magnitudes.get('plane-angle');
 		expect(planeAngle?.dimension).toEqual({ A: 1 });
 		expect(
-			termDimension({ kind: 'magnitude', ref: 'plane-angle', integer: false }, corpus),
+			termDimension(
+				{ kind: 'magnitude', ref: 'plane-angle', integer: false, delta: false },
+				corpus,
+			),
 		).toEqual([0, 0, 0, 0, 0, 0, 0, 0]);
 		expect(
 			termDimension(
-				{ kind: 'symbol', label: { en: 'Angle' }, unit: 'radian', integer: false },
+				{ kind: 'symbol', label: { en: 'Angle' }, unit: 'radian', integer: false, delta: false },
 				corpus,
 			),
 		).toEqual([0, 0, 0, 0, 0, 0, 0, 0]);

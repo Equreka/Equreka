@@ -68,6 +68,22 @@ describe('EntryScreen', () => {
 		expect(screen.getByText('Full precision')).toBeTruthy();
 	});
 
+	it('ends the full-precision value of a truncated constant in an ellipsis', async () => {
+		await renderWithProvider(<EntryScreen collection="constants" slug="pi" />);
+		expect(screen.getByText(/^3\.141 592 653 .*…/)).toBeTruthy();
+	});
+
+	it('prints an exact constant with finite digits without an ellipsis', async () => {
+		await renderWithProvider(<EntryScreen collection="constants" slug="speed-of-light" />);
+		expect(screen.getByText('Full precision')).toBeTruthy();
+		expect(screen.queryByText(/…/)).toBeNull();
+	});
+
+	it('badges an equation with its level', async () => {
+		await renderWithProvider(<EntryScreen collection="equations" slug="area-circle" />);
+		expect(screen.getByText('Intro')).toBeTruthy();
+	});
+
 	it('marks a draft entry', async () => {
 		await renderWithProvider(<EntryScreen collection="units" slug="metre" />);
 		expect(screen.getByText('draft')).toBeTruthy();

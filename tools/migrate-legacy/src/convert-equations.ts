@@ -147,6 +147,7 @@ export function convertEquations(
 		const entity: Record<string, unknown> = {
 			name: { en: normalizeProse(entry.data.name) },
 			kind: entry.kind,
+			level: 'intro',
 			expression: entry.data.expressionIntern,
 			terms,
 			solutions,

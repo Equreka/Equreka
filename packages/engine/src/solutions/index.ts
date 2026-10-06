@@ -55,10 +55,17 @@ function isEmpty(raw: KnownValue): raw is '' | null | undefined {
  * Solves `meta`'s equation for the single unfilled solvable term.
  *
  * Caller contract: `knowns` is keyed by term key (the keys of `meta.terms`,
- * which `meta.solvable` indexes into). Every non-solvable term — constants
- * above all — must be injected by the caller as a finite number under its
- * term key; the engine does no constant lookup here. solveEquation maps term
- * keys to `meta.terms[key].identifier` before invoking the solution fn.
+ * which `meta.solvable` indexes into). Constants must be injected by the
+ * caller as finite numbers under their term keys; the engine does no
+ * constant lookup here. solveEquation maps term keys to
+ * `meta.terms[key].identifier` before invoking the solution fn.
+ *
+ * Input errors, in order: a non-finite value (`inputs/not-a-number`); a
+ * fractional value on an `integer` term (`inputs/not-integer`); no
+ * non-constant term filled (`inputs/empty`); a term outside `solvable`
+ * left empty, which the user must fill because no solution exists for it
+ * (`inputs/required`, details `keys` and `solvable`); then the
+ * fill-all-but-one rule over the solvable terms.
  */
 export function solveEquation(
 	meta: CompiledEquationMeta,
@@ -76,15 +83,39 @@ export function solveEquation(
 		});
 	}
 
+	const notInteger = Object.entries(meta.terms)
+		.filter(([key, term]) => {
+			const raw = knowns[key];
+			return term.integer === true && !isEmpty(raw) && !Number.isInteger(raw);
+		})
+		.map(([key]) => key);
+	if (notInteger.length > 0) {
+		return err('inputs/not-integer', `non-integer input for: ${notInteger.join(', ')}`, {
+			keys: notInteger,
+		});
+	}
+
+	const inputKeys = Object.entries(meta.terms)
+		.filter(([, term]) => term.kind !== 'constant')
+		.map(([key]) => key);
+	if (inputKeys.every((key) => isEmpty(knowns[key]))) {
+		return err('inputs/empty', 'no inputs provided', { solvable: meta.solvable });
+	}
+	const solvable = new Set(meta.solvable);
+	const required = inputKeys.filter((key) => !solvable.has(key) && isEmpty(knowns[key]));
+	if (required.length > 0) {
+		return err('inputs/required', `no solution for unfilled terms: ${required.join(', ')}`, {
+			keys: required,
+			solvable: meta.solvable,
+		});
+	}
+
 	const missing = meta.solvable.filter((key) => isEmpty(knowns[key]));
 	if (missing.length !== 1) {
 		if (missing.length === 0) {
 			return err('inputs/overdetermined', 'every solvable term already has a value', {
 				solvable: meta.solvable,
 			});
-		}
-		if (missing.length === meta.solvable.length) {
-			return err('inputs/empty', 'no inputs provided', { solvable: meta.solvable });
 		}
 		return err('inputs/underdetermined', `multiple terms are unfilled: ${missing.join(', ')}`, {
 			missing,

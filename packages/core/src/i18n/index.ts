@@ -1,4 +1,4 @@
-import type { ErrorCode } from '@equreka/engine';
+import type { EngineError, ErrorCode } from '@equreka/engine';
 import { en, type MessageKey } from './en';
 import { es } from './es';
 
@@ -87,6 +87,30 @@ export function engineMessage(locale: Locale, code: ErrorCode): string {
 	return t(locale, `engine.${code}`);
 }
 
+function stringList(value: unknown): string[] {
+	return Array.isArray(value)
+		? value.filter((item): item is string => typeof item === 'string')
+		: [];
+}
+
+/**
+ * `engineMessage` for a whole error: messages that name terms
+ * (`inputs/required`, `inputs/not-integer`) interpolate `{terms}` from
+ * `details.keys` and `{solvable}` from `details.solvable`, each key
+ * rendered by `termName`, since only the UI knows how a term key reads.
+ */
+export function engineErrorMessage(
+	locale: Locale,
+	error: EngineError,
+	termName: (key: string) => string,
+): string {
+	const names = (value: unknown): string => stringList(value).map(termName).join(', ');
+	return t(locale, `engine.${error.code}`, {
+		terms: names(error.details?.keys),
+		solvable: names(error.details?.solvable),
+	});
+}
+
 const COLLECTION_KEYS: Record<string, MessageKey> = {
 	categories: 'collection.categories',
 	branches: 'collection.branches',
@@ -117,6 +141,7 @@ export const ENGINE_HINT_CODES: ReadonlySet<ErrorCode> = new Set<ErrorCode>([
 	'inputs/empty',
 	'inputs/underdetermined',
 	'inputs/overdetermined',
+	'inputs/required',
 ]);
 
 /**

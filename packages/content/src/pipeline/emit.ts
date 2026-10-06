@@ -23,6 +23,7 @@ import {
 	searchOptions,
 } from '../search-options.js';
 import type { SolutionAst } from '../solution-grammar.js';
+import { calculatorTargets } from './integrity.js';
 import type { MathArtifact } from './math-artifact.js';
 import { presentationSteps } from './path-targets.js';
 import { deriveRelatedUnits } from './related-units.js';
@@ -272,6 +273,9 @@ function buildEngineSlice(input: EmitInput): EngineSlice {
 			if (term.kind !== 'constant' && term.integer) {
 				compiled.integer = true;
 			}
+			if (term.kind !== 'constant' && term.delta) {
+				compiled.delta = true;
+			}
 			terms[key] = compiled;
 		}
 		slice.equations[slug] = {
@@ -280,7 +284,9 @@ function buildEngineSlice(input: EmitInput): EngineSlice {
 			name: equation.name,
 			calculatorEnabled: equation.calculator.enabled,
 			terms,
-			solvable: Object.keys(equation.solutions).sort(),
+			solvable: calculatorTargets(equation)
+				.filter((key) => equation.solutions[key] !== undefined)
+				.sort(),
 		};
 	}
 	return slice;
