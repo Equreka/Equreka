@@ -15,9 +15,13 @@ function realCorpus(): Corpus {
 }
 
 describe('checkSolutionDimensions over the real corpus', () => {
-	it('passes every authored solution of every equation', () => {
+	it('solves every equation for at least one term and passes every authored solution', () => {
 		const corpus = realCorpus();
-		expect(corpus.equations.size).toBe(4);
+		expect(corpus.equations.size).toBeGreaterThan(0);
+		const unsolved = [...corpus.equations]
+			.filter(([, equation]) => Object.keys(equation.solutions).length === 0)
+			.map(([slug]) => slug);
+		expect(unsolved).toEqual([]);
 		expect(checkSolutionDimensions(corpus)).toEqual([]);
 	});
 

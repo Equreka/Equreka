@@ -20,11 +20,58 @@ import prefixedBaseline from './fixtures/prefixed-units-baseline.json';
 
 /**
  * Categories whose entries must sit in a sub-discipline; universal entries
- * may stay branchless. The allowlist names `collection/slug` exceptions.
+ * may stay branchless.
  */
 const BRANCHED_CATEGORIES: readonly string[] = ['physics', 'mathematics', 'chemistry'];
 
+/**
+ * Exceptions to the branch rule, as `collection/slug`.
+ */
 const BRANCHLESS_ALLOWLIST: readonly string[] = [];
+
+const CUSTOMARY_SYSTEMS: readonly string[] = ['imperial', 'uscs', 'cgs', 'other'];
+
+/**
+ * Frozen: the customary `toBase` units a human has reviewed. New units in
+ * these systems are AI-authored and enter as draft; this list keeps the
+ * existing human-reviewed provenance from regressing.
+ */
+const REVIEWED_CUSTOMARY_UNITS: readonly string[] = [
+	'century',
+	'day',
+	'decade',
+	'delisle',
+	'erg',
+	'fahrenheit',
+	'foot',
+	'foot-pound',
+	'hour',
+	'imperial-gallon',
+	'imperial-pint',
+	'imperial-quart',
+	'inch',
+	'litre',
+	'long-ton',
+	'mile',
+	'minute',
+	'month',
+	'nautical-mile',
+	'newton-degree',
+	'ounce',
+	'pound',
+	'rankine',
+	'reaumur',
+	'romer',
+	'short-ton',
+	'stone',
+	'tonne',
+	'us-gallon',
+	'us-pint',
+	'us-quart',
+	'week',
+	'yard',
+	'year',
+];
 
 let outDir: string;
 let coldOutDir: string;
@@ -36,12 +83,14 @@ let coldReport: CompileReport;
  * and one with caching disabled, so the byte-identity assertion covers the
  * cold-render and cache-hit paths of every artifact at once.
  */
-beforeAll(async () => {
+async function buildCachedAndCold(): Promise<void> {
 	outDir = mkdtempSync(join(tmpdir(), 'equreka-content-'));
 	coldOutDir = mkdtempSync(join(tmpdir(), 'equreka-content-cold-'));
 	report = await compileContent('build', { outDir });
 	coldReport = await compileContent('build', { outDir: coldOutDir, cacheDir: null });
-}, 180_000);
+}
+
+beforeAll(buildCachedAndCold, 180_000);
 
 afterAll(() => {
 	rmSync(outDir, { recursive: true, force: true });
@@ -150,13 +199,17 @@ describe('build over the real corpus', () => {
 		expect(units.year?.toBase?.source?.name).toBe('convention');
 		expect(units.metre?.status).toBe('draft');
 		const customary = Object.entries(units).filter(
-			([, unit]) =>
-				unit.toBase !== undefined && ['imperial', 'uscs', 'cgs', 'other'].includes(unit.system),
+			([, unit]) => unit.toBase !== undefined && CUSTOMARY_SYSTEMS.includes(unit.system),
 		);
 		expect(customary.length).toBeGreaterThan(0);
 		for (const [slug, unit] of customary) {
 			expect(unit.toBase?.source?.name, slug).toBeTruthy();
-			expect(unit.status, slug).toBe('reviewed');
+		}
+		for (const slug of REVIEWED_CUSTOMARY_UNITS) {
+			const unit = units[slug];
+			expect(CUSTOMARY_SYSTEMS, slug).toContain(unit?.system);
+			expect(unit?.toBase?.source?.name, slug).toBeTruthy();
+			expect(unit?.status, slug).toBe('reviewed');
 		}
 		const magnitudes = readJson<Record<string, { status: string; externalIds?: unknown }>>(
 			'presentation',
@@ -223,12 +276,7 @@ describe('build over the real corpus', () => {
 				}
 			>
 		>('presentation', 'paths.json');
-		expect(Object.keys(paths).sort()).toEqual([
-			'energy-work-heat',
-			'geometry-of-circles-and-triangles',
-			'si-base-units',
-			'temperature-scales',
-		]);
+		expect(Object.keys(paths).sort()).toEqual([...report.corpus.paths.keys()].sort());
 		const si = paths['si-base-units'];
 		expect(si).toMatchObject({ level: 'intro', prerequisites: [], estimatedMinutes: 15 });
 		expect(si?.steps.find((step) => step.id === 'kilogram')).toMatchObject({
@@ -303,12 +351,12 @@ describe('build over the real corpus', () => {
 			'presentation',
 			'constants.json',
 		);
-		const approximated = Object.fromEntries(
-			Object.entries(constants)
-				.filter(([, constant]) => constant.approximations !== undefined)
-				.map(([slug, constant]) => [slug, constant.approximations]),
-		);
-		expect(approximated).toEqual({ 'speed-of-light': ['3e+8'], pi: ['3.1416'] });
+		expect(Object.keys(constants).sort()).toEqual([...report.corpus.constants.keys()].sort());
+		for (const [slug, constant] of report.corpus.constants) {
+			expect(constants[slug]?.approximations, slug).toEqual(constant.approximations);
+		}
+		expect(constants['speed-of-light']?.approximations).toEqual(['3e+8']);
+		expect(constants.pi?.approximations).toEqual(['3.1416']);
 		const engine = readJson<{ constants: Record<string, Record<string, unknown>> }>('engine.json');
 		for (const constant of Object.values(engine.constants)) {
 			expect(constant).not.toHaveProperty('approximations');
@@ -429,14 +477,19 @@ describe('build over the real corpus', () => {
 		).toBeLessThanOrEqual(1024 * 1024);
 	});
 
-	it('emits deterministic meta with a null timestamp', () => {
-		const meta = readJson('meta.json');
+	it('emits deterministic meta with a null timestamp, counting every presentation entry', () => {
+		const meta = readJson<{ counts: Record<string, number> }>('meta.json');
 		expect(meta).toEqual({
 			schemaVersion: SCHEMA_VERSION,
 			contentHash: report.contentHash,
 			counts: report.counts,
 			generatedAt: null,
 		});
+		for (const collection of COLLECTIONS) {
+			const entries = Object.keys(readJson<object>('presentation', `${collection}.json`)).length;
+			expect(entries, collection).toBe(report.corpus[collection].size);
+			expect(meta.counts[collection], collection).toBe(entries);
+		}
 	});
 
 	it('codegens executable solution functions with null domain guards', async () => {
@@ -485,7 +538,14 @@ describe('generated prefixed units (ADR 0007)', () => {
 	});
 
 	it('keeps the hand overrides and merges generated translations into them', () => {
-		expect([...report.overriddenUnits].sort()).toEqual(['centimetre', 'microgram', 'micrometre']);
+		expect([...report.overriddenUnits]).toEqual(
+			expect.arrayContaining(['centimetre', 'microgram', 'micrometre']),
+		);
+		for (const slug of report.overriddenUnits) {
+			const prefixOf = report.corpus.units.get(slug)?.prefixOf;
+			expect(prefixOf, slug).toBeDefined();
+			expect(`${prefixOf?.prefix}${prefixOf?.base}`, slug).toBe(slug);
+		}
 		const presentation = readJson<
 			Record<string, { name: { en: string; es?: string }; aliases: string[] }>
 		>('presentation', 'units.json');

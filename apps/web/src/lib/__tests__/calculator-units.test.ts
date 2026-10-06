@@ -2,6 +2,7 @@ import engineArtifact from '@equreka/content/artifact/engine.json';
 import { solutions } from '@equreka/content/artifact/solutions.js';
 import { createCalculatorUnits, solveInUnits } from '@equreka/core/hooks/use-calculator-units';
 import { formatSigFigs } from '@equreka/engine/format';
+import { createUnitRegistry } from '@equreka/engine/units';
 import type { CompiledEquationMeta, EngineSlice } from '@equreka/schema';
 import { createElement } from 'react';
 import { renderToString } from 'react-dom/server';
@@ -22,14 +23,16 @@ function meta(slug: string): CompiledEquationMeta {
 
 const slugs = (units: readonly { slug: string }[]): string[] => units.map((u) => u.slug).sort();
 
+const fullRegistry = createUnitRegistry(slice);
+
+const fullSliceKindFamily = (magnitude: string): string[] =>
+	slugs(fullRegistry.unitsForMagnitude(magnitude).filter((unit) => !unit.affine));
+
 describe('calculator units over the client converter payload', () => {
 	it('offers the kind family of each magnitude term from the trimmed payload', () => {
 		const units = createCalculatorUnits(meta('mass-energy-equivalence'), source);
 		const energyFamily = slugs(units.options('E', false).units);
-		const expectedEnergyFamily = slugs(
-			Object.values(slice.units).filter((unit) => unit.magnitudes.includes('energy')),
-		);
-		expect(energyFamily).toEqual(expectedEnergyFamily);
+		expect(energyFamily).toEqual(fullSliceKindFamily('energy'));
 		expect(energyFamily).toEqual(expect.arrayContaining(['erg', 'foot-pound', 'joule']));
 		expect(units.options('m', false).units.map((unit) => unit.slug)).toContain('gram');
 		expect(units.options('c', false).units).toEqual([]);
@@ -61,7 +64,9 @@ describe('calculator units over the client converter payload', () => {
 	it('converts a symbol term with a unit (area of a square from centimetres)', () => {
 		const equation = meta('area-square');
 		const units = createCalculatorUnits(equation, source);
-		expect(units.options('A', false).units.map((unit) => unit.slug)).toEqual(['square-metre']);
+		const areaFamily = slugs(units.options('A', false).units);
+		expect(areaFamily).toContain('square-metre');
+		expect(areaFamily).toEqual(fullSliceKindFamily('area'));
 		expect(units.options('l', false).units.map((unit) => unit.slug)).toContain('centimetre');
 		const outcome = solveInUnits(
 			equation,

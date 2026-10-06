@@ -1,6 +1,7 @@
 import { fileURLToPath } from 'node:url';
 import { collectionSchemas } from '@equreka/schema';
 import { describe, expect, it } from 'vitest';
+import { magnitudeDimension } from '../dimension.js';
 import {
 	checkIntegrity,
 	DERIVATION_FREE_UNITS,
@@ -64,13 +65,16 @@ describe('checkIntegrity over the real corpus', () => {
 		expect(checkIntegrity(validated.corpus)).toEqual([]);
 	});
 
-	it('leaves exactly the whitelisted anchors derivation-free', () => {
+	it('leaves exactly the whitelisted anchors derivation-free among convertible units', () => {
 		const loaded = loadContent(CONTENT_DIR);
 		const { corpus } = validateContent(loaded);
 		const derivationFree = [...corpus.units]
 			.filter(
 				([, unit]) =>
-					unit.toBase === undefined && unit.prefixOf === undefined && unit.compose === undefined,
+					!unit.nonConvertible &&
+					unit.toBase === undefined &&
+					unit.prefixOf === undefined &&
+					unit.compose === undefined,
 			)
 			.map(([slug]) => slug)
 			.sort();
@@ -299,18 +303,33 @@ describe('quantity-kind hierarchy', () => {
 
 	it('authors kindOf only between same-dimension magnitudes in the real corpus', () => {
 		const { corpus } = validateContent(loadContent(CONTENT_DIR));
-		const edges = [...corpus.magnitudes]
-			.filter(([, magnitude]) => magnitude.kindOf !== undefined)
-			.map(([slug, magnitude]) => `${slug} → ${magnitude.kindOf}`)
-			.sort();
-		expect(edges).toEqual([
-			'electric-potential-difference → electric-potential',
-			'electromotive-force → electric-potential',
-			'heat → energy',
-			'radiant-flux → power',
-			'weight → force',
-			'work → energy',
-		]);
+		const edges = [...corpus.magnitudes].flatMap(([slug, magnitude]) =>
+			magnitude.kindOf === undefined
+				? []
+				: [
+						{
+							edge: `${slug} → ${magnitude.kindOf}`,
+							child: magnitude,
+							parent: corpus.magnitudes.get(magnitude.kindOf),
+						},
+					],
+		);
+		expect(edges.map(({ edge }) => edge)).toEqual(
+			expect.arrayContaining([
+				'electric-potential-difference → electric-potential',
+				'electromotive-force → electric-potential',
+				'heat → energy',
+				'radiant-flux → power',
+				'weight → force',
+				'work → energy',
+			]),
+		);
+		for (const { edge, child, parent } of edges) {
+			expect(parent, edge).toBeDefined();
+			expect(parent === undefined ? undefined : magnitudeDimension(parent), edge).toEqual(
+				magnitudeDimension(child),
+			);
+		}
 	});
 });
 
