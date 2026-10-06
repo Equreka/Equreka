@@ -1,7 +1,6 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
-import { formatSigFigs } from '@equreka/engine/format';
 import AbbrLabel from '../components/abbr-label.astro';
 import BranchBadges from '../components/branch-badges.astro';
 import CodeCard from '../components/code-card.astro';
@@ -16,6 +15,7 @@ import FavoriteToggle from '../islands/favorite-toggle';
 import PathContextBar from '../islands/path-context-bar';
 import BaseLayout from '../layouts/base-layout.astro';
 import { asConstant } from '../lib/collections';
+import { constantValueCards } from '../lib/constant-values';
 import { isDraft } from '../lib/entry-meta';
 import { localePath } from '../lib/locale-paths';
 import { formatFullPrecision } from '../lib/notation';
@@ -36,21 +36,18 @@ const name = localizedName(constant, locale);
 
 const unit = engineSlice.units[constant.unit];
 const unitSymbolHtml = unit === undefined ? '' : renderSymbolHtml(unit.symbolTex, unit.symbolText);
-const approximate = formatSigFigs(Number(constant.value));
-const valueRows = [
-	{
-		id: 'constant-approximate-heading',
-		title: t(locale, 'design.content.entry.approximateValues'),
-		value: approximate,
-	},
-	{
-		id: 'constant-precision-heading',
-		title: constant.exact
-			? t(locale, 'design.content.entry.exactValues')
-			: t(locale, 'constant.fullPrecision'),
-		value: constant.value,
-	},
-];
+const precisionTitle = constant.exact
+	? t(locale, 'design.content.entry.exactValues')
+	: t(locale, 'constant.fullPrecision');
+const valueCards = constantValueCards(constant).map((card) =>
+	card.kind === 'approximate'
+		? {
+				id: 'constant-approximate-heading',
+				title: t(locale, 'design.content.entry.approximateValues'),
+				values: card.values,
+			}
+		: { id: 'constant-precision-heading', title: precisionTitle, values: card.values },
+);
 
 const description =
 	constant.description === undefined ? undefined : pickLocalized(constant.description, locale);
@@ -111,7 +108,7 @@ const metaDescription =
 
 		<div class="eq-card-row">
 			{
-				valueRows.map((row) => (
+				valueCards.map((row) => (
 					<CollapseCard headingId={row.id} title={row.title}>
 						<div class="eq-table-wrap">
 							<table class="eq-table-data">
@@ -138,21 +135,23 @@ const metaDescription =
 									</tr>
 								</thead>
 								<tbody>
-									<tr>
-										<td>
-											<MathValue value={row.value} />
-										</td>
-										<td class="eq-cell-unit-symbol" set:html={unitSymbolHtml} />
-										<td>
-											{unit !== undefined ? (
-												<a class="eq-link" href={localePath(locale, `/units/${unit.slug}/`)}>
-													{localizedName(unit, locale)}
-												</a>
-											) : (
-												constant.unit
-											)}
-										</td>
-									</tr>
+									{row.values.map((value) => (
+										<tr>
+											<td>
+												<MathValue value={value} />
+											</td>
+											<td class="eq-cell-unit-symbol" set:html={unitSymbolHtml} />
+											<td>
+												{unit !== undefined ? (
+													<a class="eq-link" href={localePath(locale, `/units/${unit.slug}/`)}>
+														{localizedName(unit, locale)}
+													</a>
+												) : (
+													constant.unit
+												)}
+											</td>
+										</tr>
+									))}
 								</tbody>
 							</table>
 						</div>

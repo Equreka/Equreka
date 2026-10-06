@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import equationsPresentation from '@equreka/content/artifact/presentation/equations.json';
 import unitsPresentation from '@equreka/content/artifact/presentation/units.json';
 import { type LocalizedSegments, splitRichText } from '@equreka/content/rich-text';
@@ -81,5 +82,29 @@ describe('renderRichTextHtml', () => {
 		const html = renderRichTextHtml('where $\\mag{E}$ is energy');
 		expect(html).toContain('katex');
 		expect(html).not.toContain('data-term=');
+	});
+});
+
+describe('authored hard line breaks', () => {
+	it('survive KaTeX segment rendering as a raw newline in the text after the math', () => {
+		const equation = entity(equations, 'mass-energy-equivalence');
+		const html = renderSegmentsHtml(segmentsOf(equation, 'en'), termsOf(equation));
+		expect(html).toMatch(/<\/span>\.\nBecause the speed of light/);
+		expect(html.split('\n').filter((line) => line.startsWith('Because')).length).toBe(1);
+		const nauticalMile = renderRichTextHtml(entity(units, 'nautical-mile').description.en ?? '');
+		expect(nauticalMile).toContain('several symbols in use.\n- ');
+	});
+
+	it('render as visible breaks because every description container is pre-line', () => {
+		const containers: Record<string, string> = {
+			'pages-content.css': '.eq-prose',
+			'pages-interactive.css': '.eq-reader-description',
+		};
+		for (const [file, selector] of Object.entries(containers)) {
+			const css = readFileSync(new URL(`../../styles/${file}`, import.meta.url), 'utf8');
+			const escaped = selector.replace(/[.]/g, '\\.');
+			const rule = new RegExp(`\\n\\s*${escaped} \\{([^}]*)\\}`).exec(css);
+			expect(rule?.[1], selector).toMatch(/white-space: pre-line;/);
+		}
 	});
 });

@@ -110,15 +110,15 @@ cp -r ../Equreka /tmp/legacy-copy && cd /tmp/legacy-copy && npm ci --legacy-peer
 | chrome, full page | `scenarioMaxDiffPct` 1.5% | Unchanged. Run-to-run noise is 0.000 (see Determinism), so this is a tolerance for real chrome differences, not for noise. It is the loose gate of the three and covers only the shell and the three pages whose content is the same in both apps |
 | aboveFold | `aboveFoldMaxDiffPct` 0.1% | The run-to-run noise floor is 0.000 in every scenario: the percentage is identical to three decimals across 10 runs and across invocations (see Determinism). Content that is the same in both apps diffs at 0.000 to 0.004 between them (favorites-empty above the fold, dark theme, both shells), so cross-app rendering adds no floor either: both apps run in the same Chromium with the same Poppins files. A single 1px line across the band is 0.111% of it in both shells (1,280 of 1,152,000 pixels; 390 of 351,000), so the gate catches a one-pixel shift of a full-width edge or a wrong full-width border color. Anything above 0.1% is a visible difference |
 
-Latest full run (dist snapshot `0f4598efe007`, 2026-10-06): 40/48 scenarios pass every gate, chrome 36/36, aboveFold 16/24, full page 12/12, 0 errored, 0 unwaived probe mismatches across 478 probed values, deterministic. It applied 7 waivers (hide 5, probe 0, legacy-flaw 2) and 12 masks (data 4, math-engine 6, new-feature 2). The gated metric per view, as the range over light and dark (aboveFold, or full page where the full page gates; ungated numbers in italics):
+Latest full run (dist snapshot `71aba3de1682`, 2026-10-06): 48/48 scenarios pass every gate, chrome 36/36, aboveFold 24/24, full page 12/12, 0 errored, 0 unwaived probe mismatches across 478 probed values, deterministic. It applied 7 waivers (hide 5, probe 0, legacy-flaw 2) and 12 masks (data 4, math-engine 6, new-feature 2). The gated metric per view, as the range over light and dark (aboveFold, or full page where the full page gates; ungated numbers in italics):
 
 | View | Gated by | Desktop % | Mobile % | Status | Residual difference |
 | --- | --- | ---: | ---: | --- | --- |
 | home-categories | chrome + aboveFold | 0.000 | 0.007 to 0.008 | pass | None measurable |
 | home-types | chrome + aboveFold | 0.000 | 0.006 to 0.007 | pass | None measurable |
 | unit | chrome + aboveFold | 0.026 to 0.034 | 0.010 to 0.011 | pass | Text after inline math shifts by a sub-pixel (MathJax and KaTeX box widths) |
-| equation | chrome + aboveFold | 0.660 to 0.678 | 1.515 to 1.564 | fail | The Information text: the original breaks the description before "Because the speed of light..." (its source holds a `\n` and `.card-information p` is `white-space: pre-line`). The port has the same CSS, but the migrated content folded the line break away. A content fix, not a design fix |
-| constant | chrome + aboveFold | 0.185 to 0.198 | 0.330 to 0.331 | fail | The Approximate values row: the original shows its authored inexact value `3×10^8`, the port computes `2.99792×10^8` (6 significant figures) because the v2 schema has no field for authored approximations. Also about 0.03% of text shifted by a sub-pixel after inline math |
+| equation | chrome + aboveFold | 0.051 to 0.068 | 0.011 | pass | Text after inline math in the Information text shifts by a sub-pixel (MathJax and KaTeX box widths) |
+| constant | chrome + aboveFold | 0.056 to 0.065 | 0.000 to 0.001 | pass | Text after inline math in the Information text shifts by a sub-pixel. Chrome is 0.916 to 0.921, the highest of any view: the footer region diffs 2.066% because the footer's top lands on a different sub-pixel offset in each app (the footer link labels differ by design, ADR 0008) |
 | category | chrome | *1.664 to 1.810* | *0.436 to 0.502* | pass | Not gated: chip lists are data |
 | units-list | chrome | *4.701 to 6.116* | *4.483 to 5.033* | pass | Not gated: chip lists are data |
 | search-open | chrome | *24.040 to 24.054* | *19.191 to 19.400* | pass | Not gated: the result list is data; the badges of the same result entry match exactly (probes) |
@@ -126,6 +126,8 @@ Latest full run (dist snapshot `0f4598efe007`, 2026-10-06): 40/48 scenarios pass
 | favorites-empty | full | 0.053 to 0.054 | 0.000 | pass | |
 | favorites-edit | full | 0.053 to 0.054 | 0.000 | pass | |
 | settings | full | 0.344 to 0.345 | 0.675 to 0.678 | pass | |
+
+The run before (dist snapshot `0f4598efe007`) failed 8 scenarios. Equation measured 0.660 to 0.678 desktop and 1.515 to 1.564 mobile: the migration had folded the description's hard line break before "Because the speed of light..." into a space, where the original renders its `\n` through `.card-information p { white-space: pre-line }`. Constant measured 0.185 to 0.198 desktop and 0.330 to 0.331 mobile: the port computed a 6-significant-figure approximation (`2.99792×10^8`) instead of the authored `3×10^8`. Both were content and schema fixes, with no waiver or mask added: the break is a literal `|-` block scalar in the YAML, and constants carry authored `approximations` (`docs/guides/authoring-content.md`).
 
 The first `aboveFoldPct` baseline (dist snapshot `1fcb63d324ca`) ranged from 0.519% (calculator, desktop) to 20.724% (home-types, desktop). Until this run the four calculator scenarios never captured the result state: their current-side `waitFor` named a class the port no longer renders, was marked `optional`, and was skipped as a note. Such a skip is now an error.
 

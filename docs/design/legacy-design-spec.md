@@ -422,7 +422,7 @@ Shared: `.table-responsive` wrapper (thin accent scrollbar), `.table.table-data`
 | --- | --- |
 | `table-constants` | symbol, name (link), value (HTML scientific), unit symbol, unit name (link). Rows carry `equreka-term equreka-constant equreka-{symbol}`. |
 | `table-variables` (also magnitudes) | symbol, name, unit symbol, unit name. Rows carry `equreka-term equreka-{variable or magnitude} equreka-{symbol}`. |
-| `table-values` | value (full precision when exact), unit symbol, unit name; split into "Approximate values" and "Exact values" cards side by side from lg. |
+| `table-values` | value (full precision when exact), unit symbol, unit name; split into "Approximate values" (inexact rows, card omitted when there are none) and "Exact values" cards side by side from lg (see 6.2). |
 | `table-units` | name, symbol. |
 | `table-conversions` | name, conversion `(1 {unit})` right-aligned with `≈` operator when inexact, symbol, formula (TeX). |
 | `table-prefixes` | name, symbol, exponent (`10^n`), full number; two tables (positive, negative) in a two-column card. |
@@ -496,8 +496,8 @@ Card order, top to bottom:
 1. Page header in the entry's type color: uppercase type label linking to the type list, title, actions (5.6). Background `linear-gradient(0, var(--eqk-color), transparent 250%)`, shadow per 4.7.
 2. Expression card (`.card-mathjax`, full width): equation, constant equality, or "Name - symbol".
 3. Term tables in one row, equal columns from lg: Magnitudes, Constants, Variables.
-4. Values: "Approximate values" and "Exact values" side by side (constants).
-5. Information (collapse card): "Unit of" chips or "Base unit" chip, then the markdown description with inline math (terms highlightable).
+4. Values (constants): "Approximate values" and "Exact values" side by side from lg, each `col-6`. The approximate card lists the inexact rows of `values[]` (`exact` false or absent, for example `3e+8` for c and `3.1416` for π) and is rendered only when such a row exists; otherwise the exact card is alone and `col-12` (full width). Values print through `MathValue` in exponent form (`3×10⁺⁸`, a zero exponent as the plain number). The port reads the inexact rows from the constant's authored `approximations` and never computes one.
+5. Information (collapse card): "Unit of" chips or "Base unit" chip, then the markdown description with inline math (terms highlightable). `.card-information p` is `white-space: pre-line`, so a single newline inside a paragraph (`\n` in the JSON5 source) renders as a line break; a blank line starts a new `<p>`.
 6. Units table (variables, magnitudes, units).
 7. Conversions table (units).
 8. Relations (title only, when present).
