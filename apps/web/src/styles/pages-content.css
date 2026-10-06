@@ -740,18 +740,9 @@
 		background-color: hsla(var(--eq-accent-hsl), 0.15);
 	}
 
-	.eq-calc-tables .eq-cell-symbol > * {
-		color: var(--eq-ink);
-		font-weight: 600;
-	}
-
 	.eq-calc-tables .eq-table-data tbody tr:hover > .eq-cell-symbol > *,
 	.eq-calc-tables .eq-table-data tbody tr.term-hl > .eq-cell-symbol > * {
 		color: var(--eq-term, var(--eq-accent));
-	}
-
-	.eq-calc-tables .eq-cell-unit-symbol > * {
-		color: var(--eq-accent-fill);
 	}
 
 	.eq-table-data .eq-cell-numeric {

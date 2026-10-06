@@ -454,7 +454,7 @@ Shared: `.table-responsive` wrapper (thin accent scrollbar), `.table.table-data`
 1. Page header (entry color, actions start with `bi-info-square` back to the entry).
 2. Result card `.card-calculator`: min-height `clamp(100px, 15vw, 155px)`; behind it the expression rendered as outlined TeX (`-webkit-text-fill-color: transparent; -webkit-text-stroke: 1px var(--body-color-muted)`, bold, `translateY(-7.5%)`, fading to opacity 0.1); in front the centered serif result `symbol = value unit` with `gap: 0.35em`. Errors replace the result with a centered message (type in Poppins 600, muted).
 3. Inputs card, centered, `col-lg-6`: floating inputs (one per magnitude or variable, `col-md-auto`, min-width 150px); for unit conversions, input, a `bi-chevron-right` muted separator (sm+), and a floating select "Convert to". Actions row: round `btn-danger p-3` reset (`bi-arrow-clockwise`), `btn-success` pill "Calculate" (`px-sm-5`, fills the middle), round `btn-dark p-3` copy (`bi-clipboard`).
-4. Variables and magnitudes tables in plain cards, `col-lg-6`.
+4. Variables and magnitudes tables in plain cards, `col-lg-6`. The same `TableVariables` as the entry page: symbols and unit symbols inherit the table cell color (measured `rgb(103, 111, 126)` light, `rgb(143, 150, 163)` dark), weight 400, with no accent tint [C, measured by the `calc-term-symbol` and `calc-unit-symbol` probes].
 
 ### 5.10 Favorites list and edit mode [T, C, O]
 
@@ -647,7 +647,7 @@ Icons were rendered with the bootstrap-icons web font (woff2 112,440 bytes, woff
 | Google Fonts CDN (`fonts.googleapis.com`, `fonts.gstatic.com`) blocks offline use and leaks requests; only weights 500/600 fetched, so 700/800 are synthesized. | T, O | Self-hosted Poppins 500/600/700 (8.2 rule 6). |
 | `polyfill.io` script injected in `<head>` (`polyfill.min.js?features=es6`): third-party code execution; the domain changed owners in 2024 and served malicious payloads. | T | No third-party scripts. |
 | MathJax could load from jsDelivr when `source` was not `local`; local copy shipped the full MathJax tree. | T | KaTeX, self-hosted, already in v2. |
-| Inline TeX in tables printed raw (for example `$J$`, `$\frac{m}{s}$`) when tables rendered after the typeset pass. | O (`desktop-dark-equation.jpg`, `*-calculator.jpg`) | Render math at build time (v2 already does). |
+| Inline TeX in tables printed raw (for example `$J$`, `$\frac{m}{s}$`) when tables rendered after the typeset pass. | O (`desktop-dark-equation.jpg`, `*-calculator.jpg`) | Render math at build time (v2 already does). The wider TeX source reflows the whole table, so the parity harness waives the term-table cards of the equation and calculator scenarios as a `legacy-flaw` region (`tools/design-parity/waivers.json`); their colors stay gated by probes. |
 | Global scrollbar forced to a white 5px track (`background: white`) in both themes. | C | Native scrollbars; keep only the thin accent scrollbar on overflow areas, with `scrollbar-width: thin` and `scrollbar-color`. |
 | `--alpha-dropdown` referenced in `$dropdown-bg` but never defined (declaration invalid, masked by the acrylic mixin); `:root --bs-gutter-x` override never reaches `.container`; `hsla(var(--eqk-color-hsl, 220, 20%, 40), 0.35)` fallback lacks a `%`. | C | Drop dead declarations; define every variable a rule reads. |
 | Copy feedback through `window.alert`. | T | Inline status text (`role="status"`). |
