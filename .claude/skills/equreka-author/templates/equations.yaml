@@ -1,0 +1,49 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: '<Conventional name, sentence case>'
+kind: '<equation | formula>'
+level: '<intro | intermediate>'
+expression: '\mag{<A>}=\const{<k>}\var{<b_{0}>}\mag{<\theta>}'
+terms:
+  <A>:
+    kind: 'magnitude'
+    ref: '<magnitude slug>'
+  <k>:
+    kind: 'constant'
+    ref: '<constant slug>'
+  <b_{0}>:
+    kind: 'symbol'
+    label:
+      en: '<Label>'
+    unit: '<SI-coherent unit slug; omit when dimensionless>'
+  <\theta>:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+solutions:
+  <A>: '<k * b_0 * theta>'
+  <b_{0}>: '<A / (k * theta)>'
+  <\theta>: '<A / (k * b_0)>'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: '<QID of the law or formula, fetched and matched; omit when none is exact>'
+categories:
+  - '<category>'
+branches:
+  - '<branch>'
+aliases:
+  - '<other name the relation goes by>'
+references:
+  - title: '<Publication, locator>'
+    url: '<fetched URL>'
+description:
+  en: >-
+    <Lede: what the relation states and its name.>
+
+    <Every term: $\mag{<A>}$, $\var{<b_{0}>}$ … with SI unit and sign convention.>
+
+    <Meaning, with a derivation sketch when it fits in three sentences.>
+
+    <Assumptions and validity limits.>
+
+    <History in at most three referenced sentences; applications with at most one one-line numeric example.>

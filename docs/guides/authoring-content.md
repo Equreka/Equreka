@@ -2,6 +2,8 @@
 
 Content lives in `packages/content/content/<collection>/<slug>.yaml`. The filename is the slug (kebab-case) and is never repeated inside the file. Every file is validated by `@equreka/schema`, cross-checked by the pipeline (`pnpm --filter @equreka/content check`), and compiled into the sharded artifact by `build`. Nothing ships that the pipeline cannot verify.
 
+This guide is the field and YAML contract. How prose reads (length, structure, tone, sources, TeX) is in [`docs/content/style-guide.md`](../content/style-guide.md); Spanish names and terms are in [`docs/content/glossary-es.md`](../content/glossary-es.md).
+
 ## Editor setup
 
 Every file starts with a schema header pointing at the JSON Schema the build emits:

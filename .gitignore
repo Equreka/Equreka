@@ -20,3 +20,9 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Claude Code: local state stays untracked, project skills are versioned.
+# `!.claude/` outranks a contributor's .git/info/exclude entry for `.claude/`.
+!.claude/
+.claude/*
+!.claude/skills/

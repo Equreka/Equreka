@@ -24,3 +24,4 @@ Open-source, offline-first educational wiki + calculator (equations, constants, 
 - Conventional Commits (commit-msg hook enforces; type `content` exists for data-only changes).
 - main is protected; PRs only. Skip idiom for hooks: `LEFTHOOK=0 git commit` (exceptional, not routine).
 - Env files: `envs/<environment>/.env`, bootstrapped by `pnpm env:init`, consumed via explicit dotenv-cli.
+- Content program: `docs/content/` (roadmap, style guide, Spanish glossary); skills `equreka-author`, `equreka-verify`, `equreka-content-wave` in `.claude/skills/`.

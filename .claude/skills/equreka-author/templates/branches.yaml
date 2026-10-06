@@ -1,0 +1,17 @@
+# yaml-language-server: $schema=../../dist/schemas/branches.schema.json
+name:
+  en: '<Name>'
+category: '<category slug>'
+order: <n from the roadmap note>
+externalIds:
+  wikidata: '<QID of the discipline, fetched and matched; omit when none is exact>'
+aliases:
+  - '<english sub-discipline>'
+  - '<spanish sub-discipline>'
+description:
+  en: >-
+    <What the branch studies.>
+
+    <Its central quantities and laws, named as the entries they link to.>
+
+    <How it relates to neighbouring branches. No dates, no attributions.>

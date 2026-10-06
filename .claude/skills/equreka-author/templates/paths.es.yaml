@@ -1,0 +1,16 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.locale.schema.json
+name: '<Nombre>'
+description: >-
+  <Qué cubre la ruta.>
+steps:
+  <intro>:
+    body: >-
+      <Texto de transición.>
+  <entry-slug>:
+    note: >-
+      <Por qué esta entrada, aquí.>
+  <check-topic>:
+    prompt: >-
+      <¿Pregunta?>
+    answer: >-
+      <Respuesta razonada.>

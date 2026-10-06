@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.schema.json
+name:
+  en: '<Name>'
+level: 'intro'
+prerequisites:
+  - '<existing path slug, optional>'
+estimatedMinutes: '<integer>'
+categories:
+  - '<category>'
+branches:
+  - '<branch>'
+description:
+  en: >-
+    <One or two sentences: what the path covers and what the reader can do after it.>
+steps:
+  - id: '<intro>'
+    kind: 'prose'
+    body:
+      en: >-
+        <Transition text, imperative register, never "you".>
+  - id: '<entry-slug>'
+    kind: 'entry'
+    ref:
+      collection: '<magnitudes | units | prefixes | constants | variables | equations>'
+      slug: '<existing slug>'
+    note:
+      en: >-
+        <Why this entry, here.>
+  - id: '<check-topic>'
+    kind: 'check'
+    prompt:
+      en: >-
+        <A question the previous steps let the reader answer.>
+    answer:
+      en: >-
+        <The answer, with the reasoning.>

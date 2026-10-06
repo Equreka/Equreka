@@ -1,0 +1,13 @@
+# yaml-language-server: $schema=../../dist/schemas/categories.schema.json
+name:
+  en: '<Name>'
+order: <n>
+externalIds:
+  wikidata: '<QID, fetched and matched; omit for internal groupings>'
+description:
+  en: >-
+    <What the discipline studies.>
+
+    <Its central quantities and laws, named as the entries they link to.>
+
+    <How it relates to the other categories. No dates, no attributions.>

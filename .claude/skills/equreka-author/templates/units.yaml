@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: '<Name>'
+symbol:
+  tex: '<symbol, valid inside \mathrm{}>'
+unitOf:
+  - '<magnitude>'
+system: '<si | si-derived | imperial | uscs | cgs | other>'
+toBase:
+  factor: '<decimal string, or a num/den rational>'
+  exact: <true | false>
+  source:
+    name: '<NIST SP 811 | BIPM SI Brochure 9th ed. | convention>'
+    url: '<fetched URL>'
+    ref: '<table and row, e.g. B.8: torr (Torr)>'
+externalIds:
+  wikidata: '<QID, fetched and matched>'
+  qudt: 'http://qudt.org/vocab/unit/<ID>'
+categories:
+  - '<category>'
+branches:
+  - '<branch>'
+aliases:
+  - '<US spelling, ASCII form, symbol variant>'
+references:
+  - title: '<Publication, locator>'
+    url: '<fetched URL>'
+description:
+  en: >-
+    <What it measures and which system it belongs to.>
+
+    <The exact current definition and the document that defines it.>
+
+    <Relations to other units, exact factors in math.>
+
+    <Where it is used today; history, each claim referenced; spelling and symbol notes.>
