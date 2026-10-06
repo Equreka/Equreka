@@ -58,10 +58,12 @@ function childPath(at: string, key: string): string {
  * One localized position a raw entity fills, with its `{ en, ... }` map.
  * `path` addresses array items by id and records by key — the sidecar form —
  * so every finding about the text names the sidecar key a translator edits.
+ * `prose` mirrors the locale tree: rich text that may embed math.
  */
 export interface LocalizedPosition {
 	path: string;
 	text: Record<string, unknown>;
+	prose: boolean;
 }
 
 /**
@@ -73,7 +75,7 @@ export interface LocalizedPosition {
 export function localizedPositions(node: LocaleNode, value: unknown, at = ''): LocalizedPosition[] {
 	switch (node.kind) {
 		case 'text':
-			return isRecord(value) ? [{ path: at, text: value }] : [];
+			return isRecord(value) ? [{ path: at, text: value, prose: node.prose }] : [];
 		case 'object':
 			return isRecord(value)
 				? Object.entries(node.fields).flatMap(([key, child]) =>

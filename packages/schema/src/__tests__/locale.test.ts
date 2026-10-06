@@ -1,13 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import { z } from 'zod';
-import { localizedText } from '../common.js';
+import { localizedProse, localizedText } from '../common.js';
 import { COLLECTIONS, collectionLocaleTrees, localeSidecarSchemas } from '../index.js';
 import { type LocaleNode, localeTreeOf, SOURCE_LOCALE, TRANSLATION_LOCALES } from '../locale.js';
 
 function outline(node: LocaleNode): unknown {
 	switch (node.kind) {
 		case 'text':
-			return 'text';
+			return node.prose ? 'prose' : 'text';
 		case 'object':
 			return Object.fromEntries(
 				Object.entries(node.fields).map(([key, child]) => [key, outline(child)]),
@@ -21,13 +21,14 @@ describe('locale trees', () => {
 	it('keeps TRANSLATION_LOCALES in step with the optional keys of localizedText', () => {
 		const keys = Object.keys(localizedText.shape).filter((key) => key !== SOURCE_LOCALE);
 		expect([...TRANSLATION_LOCALES]).toEqual(keys);
+		expect(Object.keys(localizedProse.shape)).toEqual(Object.keys(localizedText.shape));
 	});
 
-	it('localizes name and description in every collection', () => {
+	it('localizes name as plain text and description as prose in every collection', () => {
 		for (const collection of COLLECTIONS) {
 			expect(collectionLocaleTrees[collection].fields, collection).toMatchObject({
-				name: { kind: 'text' },
-				description: { kind: 'text' },
+				name: { kind: 'text', prose: false },
+				description: { kind: 'text', prose: true },
 			});
 		}
 	});
@@ -41,17 +42,28 @@ describe('locale trees', () => {
 	it('keys path steps by id with the union of every step kind prose field', () => {
 		expect(outline(collectionLocaleTrees.paths)).toEqual({
 			name: 'text',
-			description: 'text',
-			steps: { by: 'id', item: { note: 'text', body: 'text', prompt: 'text', answer: 'text' } },
+			description: 'prose',
+			steps: {
+				by: 'id',
+				item: { note: 'prose', body: 'prose', prompt: 'prose', answer: 'prose' },
+			},
 		});
 	});
 
 	it('keys equation symbol-term labels by term key', () => {
 		expect(outline(collectionLocaleTrees.equations)).toEqual({
 			name: 'text',
-			description: 'text',
+			description: 'prose',
 			terms: { by: 'key', item: { label: 'text' } },
 		});
+	});
+
+	it('refuses union options that disagree on whether a field is prose', () => {
+		const schema = z.union([
+			z.object({ name: localizedText, note: localizedText }),
+			z.object({ name: localizedText, note: localizedProse }),
+		]);
+		expect(() => localeTreeOf(schema)).toThrow(/union options disagree .* at \(root\)\.note/);
 	});
 
 	it('refuses a list of localized items that carry no id to key them by', () => {

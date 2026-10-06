@@ -434,6 +434,9 @@ importers:
       '@types/node':
         specifier: 'catalog:'
         version: 22.20.1
+      fast-check:
+        specifier: 'catalog:'
+        version: 4.9.0
       katex:
         specifier: 'catalog:'
         version: 0.18.4

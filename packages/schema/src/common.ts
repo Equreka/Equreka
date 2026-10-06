@@ -1,22 +1,7 @@
 import { z } from 'zod';
+import type { CollectionName } from './collections.js';
 
-/**
- * Content collections, in canonical display order. The folder name under
- * packages/content/content/ doubles as the collection name.
- */
-export const COLLECTIONS = [
-	'categories',
-	'branches',
-	'magnitudes',
-	'units',
-	'prefixes',
-	'constants',
-	'variables',
-	'equations',
-	'paths',
-] as const;
-
-export type CollectionName = (typeof COLLECTIONS)[number];
+export { COLLECTIONS, type CollectionName } from './collections.js';
 
 /**
  * Kebab-case identifier; the filename (minus extension) is the slug and is
@@ -25,8 +10,10 @@ export type CollectionName = (typeof COLLECTIONS)[number];
 export const slug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'slug must be kebab-case');
 
 /**
- * Slug reference to another collection. The `ref:<collection>` description is
- * machine-read by the pipeline's referential-integrity pass — do not remove.
+ * Slug reference to another collection. The `ref:<collection>` description
+ * only surfaces as an editor hint in the emitted JSON Schemas; nothing reads
+ * it back. The integrity stage checks each reference field explicitly, so a
+ * new `ref()` field also needs its check in `integrity.ts`.
  */
 export const ref = (collection: CollectionName) => slug.describe(`ref:${collection}`);
 
@@ -81,13 +68,21 @@ export const rational = z.object({
 export const exactNumber = z.union([decimalString, rational]);
 
 /**
- * Localized prose: English is the source language, Spanish lands
- * incrementally (missing es falls back to en with an untranslated notice).
+ * Localized plain text (names, labels): English is the source language,
+ * Spanish lands incrementally (missing es falls back to en with an
+ * untranslated notice).
  */
 export const localizedText = z.object({
 	en: z.string().min(1),
 	es: z.string().min(1).optional(),
 });
+
+/**
+ * Localized rich text: prose that may embed `$…$`/`$$…$$` math, which the
+ * pipeline lints and renders at build. Same shape as `localizedText`; the
+ * distinct instance is what marks the position as prose in the locale tree.
+ */
+export const localizedProse = z.object(localizedText.shape);
 
 /**
  * Authored symbol: TeX is the single source; plain-text form is derived from
@@ -183,7 +178,7 @@ export const textSources = z
  */
 export const entityBase = z.object({
 	name: localizedText,
-	description: localizedText.optional(),
+	description: localizedProse.optional(),
 	categories: z.array(ref('categories')).default([]),
 	branches: z.array(ref('branches')).default([]),
 	aliases: z.array(z.string().min(1)).default([]),

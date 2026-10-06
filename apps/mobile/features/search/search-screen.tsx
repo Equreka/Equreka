@@ -1,9 +1,10 @@
+import { collectionRank, SEARCH_GROUP_ORDER } from '@equreka/core/collections';
 import { collectionLabel } from '@equreka/core/i18n';
 import { FlashList } from '@shopify/flash-list';
 import { useRouter } from 'expo-router';
 import { useCallback, useMemo, useState } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
-import { collectionRank, entryHref } from '../../entities/content/routes';
+import { entryHref } from '../../entities/content/routes';
 import { useLocale, useT, useTheme } from '../../shared/providers/equreka-provider';
 import { Row } from '../../shared/ui/card';
 import { Screen } from '../../shared/ui/screen';
@@ -16,7 +17,7 @@ type ListItem =
 
 /**
  * Flattens grouped results for FlashList: one header item per collection
- * (pinned groups first, then canonical order) followed by its rows.
+ * (pinned groups first, then search group order) followed by its rows.
  */
 function toListItems(rows: ResultRow[]): ListItem[] {
 	const byCollection = new Map<string, ResultRow[]>();
@@ -28,7 +29,10 @@ function toListItems(rows: ResultRow[]): ListItem[] {
 	const groups = [...byCollection.entries()].sort(([a, rowsA], [b, rowsB]) => {
 		const pinnedA = rowsA.some((row) => row.pinned) ? 0 : 1;
 		const pinnedB = rowsB.some((row) => row.pinned) ? 0 : 1;
-		return pinnedA - pinnedB || collectionRank(a) - collectionRank(b);
+		return (
+			pinnedA - pinnedB ||
+			collectionRank(SEARCH_GROUP_ORDER.mobile, a) - collectionRank(SEARCH_GROUP_ORDER.mobile, b)
+		);
 	});
 	const items: ListItem[] = [];
 	for (const [collection, groupRows] of groups) {

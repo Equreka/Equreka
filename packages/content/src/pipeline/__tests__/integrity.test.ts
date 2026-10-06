@@ -1,5 +1,4 @@
 import { fileURLToPath } from 'node:url';
-import { collectionSchemas } from '@equreka/schema';
 import { describe, expect, it } from 'vitest';
 import { magnitudeDimension } from '../dimension.js';
 import {
@@ -11,29 +10,9 @@ import {
 } from '../integrity.js';
 import { loadContent } from '../load.js';
 import { type Corpus, validateContent } from '../validate.js';
+import { corpusWith } from './corpus-with.js';
 
 const CONTENT_DIR = fileURLToPath(new URL('../../../content/', import.meta.url));
-
-function corpusWith(overrides: Partial<Record<keyof Corpus, Record<string, unknown>>>): Corpus {
-	const corpus: Corpus = {
-		categories: new Map(),
-		branches: new Map(),
-		magnitudes: new Map(),
-		units: new Map(),
-		prefixes: new Map(),
-		constants: new Map(),
-		variables: new Map(),
-		equations: new Map(),
-		paths: new Map(),
-	};
-	for (const [collection, entities] of Object.entries(overrides)) {
-		const schema = collectionSchemas[collection as keyof typeof collectionSchemas];
-		for (const [slug, data] of Object.entries(entities ?? {})) {
-			(corpus[collection as keyof Corpus] as Map<string, unknown>).set(slug, schema.parse(data));
-		}
-	}
-	return corpus;
-}
 
 const MAGNITUDES = {
 	length: {

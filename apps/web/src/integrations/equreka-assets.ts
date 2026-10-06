@@ -3,6 +3,7 @@ import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { stripMacrosToText } from '@equreka/content/rich-text';
+import { COLLECTION_ORDER } from '@equreka/core/collections';
 import type { EngineSlice } from '@equreka/schema';
 import type { AstroIntegration } from 'astro';
 
@@ -159,18 +160,6 @@ export type PathsPayload = Record<
 	}
 >;
 
-const READER_COLLECTIONS = [
-	'categories',
-	'branches',
-	'magnitudes',
-	'units',
-	'prefixes',
-	'constants',
-	'variables',
-	'equations',
-	'paths',
-] as const;
-
 /**
  * Structural subset of @equreka/content's PresentationPathStep: entry steps
  * carry the pipeline-resolved target.
@@ -216,7 +205,7 @@ function outlineTitle(step: PresentationPathStep, locale: PayloadLocale): string
 
 function buildReaderPayload(locale: PayloadLocale): string {
 	const payload: ReaderPayload = {};
-	for (const collection of READER_COLLECTIONS) {
+	for (const collection of COLLECTION_ORDER) {
 		const slice: Record<string, ReaderEntry> = {};
 		for (const [slug, entry] of Object.entries(readPresentation(collection))) {
 			const description = entry.description?.[locale] ?? entry.description?.en ?? '';

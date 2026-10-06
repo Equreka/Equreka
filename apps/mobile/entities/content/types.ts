@@ -65,11 +65,7 @@ export interface PresentationSlices {
 
 export type EntryCollection = keyof PresentationSlices;
 
-/**
- * Collections whose entities carry `categories` and `branches`: everything
- * but the two taxonomy collections themselves.
- */
-export type MemberCollection = Exclude<EntryCollection, 'categories' | 'branches'>;
+export type { MemberCollection } from '@equreka/core/collections';
 
 export type PresentationEntry = {
 	[K in EntryCollection]: { collection: K; slug: string; entity: PresentationSlices[K][string] };

@@ -1,11 +1,12 @@
 import { type FavoriteEntry, useFavorites } from '@equreka/core';
+import { collectionRank, FAVORITE_GROUP_ORDER } from '@equreka/core/collections';
 import { collectionLabel } from '@equreka/core/i18n';
 import Ionicons from '@expo/vector-icons/Ionicons';
 import { FlashList } from '@shopify/flash-list';
 import { useRouter } from 'expo-router';
 import { useCallback, useMemo } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
-import { collectionRank, entryHref } from '../../entities/content/routes';
+import { entryHref } from '../../entities/content/routes';
 import { getCatalogLite } from '../../shared/content/artifact';
 import { useLocale, useStorage, useT, useTheme } from '../../shared/providers/equreka-provider';
 import { Row } from '../../shared/ui/card';
@@ -29,7 +30,9 @@ function toListItems(
 	}
 	const items: ListItem[] = [];
 	for (const [collection, entries] of [...byCollection.entries()].sort(
-		([a], [b]) => collectionRank(a) - collectionRank(b),
+		([a], [b]) =>
+			collectionRank(FAVORITE_GROUP_ORDER.mobile, a) -
+			collectionRank(FAVORITE_GROUP_ORDER.mobile, b),
 	)) {
 		items.push({ kind: 'header', key: `h:${collection}`, collection, count: entries.length });
 		for (const entry of entries) {

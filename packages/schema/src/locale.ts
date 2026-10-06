@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { localizedText } from './common.js';
+import { localizedProse, localizedText } from './common.js';
 
 /**
  * The language every entity file is authored in; translations live only in
@@ -17,13 +17,14 @@ export type TranslationLocale = (typeof TRANSLATION_LOCALES)[number];
 
 /**
  * Where localized text sits inside an entity, derived from its Zod schema so
- * a new `localizedText` field is translatable without touching the sidecar
- * contract. `keyed` marks a collection whose sidecar form is a map: array
- * items are keyed by their `id` (never by index, so reordering steps cannot
+ * a new `localizedText` or `localizedProse` field is translatable without
+ * touching the sidecar contract. `prose` marks rich text that may embed
+ * math. `keyed` marks a collection whose sidecar form is a map: array items
+ * are keyed by their `id` (never by index, so reordering steps cannot
  * misattach a translation) and records by their own key.
  */
 export type LocaleNode =
-	| { readonly kind: 'text' }
+	| { readonly kind: 'text'; readonly prose: boolean }
 	| { readonly kind: 'object'; readonly fields: Readonly<Record<string, LocaleNode>> }
 	| {
 			readonly kind: 'keyed';
@@ -35,7 +36,7 @@ export type LocaleNode =
 export type LocaleObjectNode = Extract<LocaleNode, { kind: 'object' }>;
 
 function mergeNodes(left: LocaleNode, right: LocaleNode, at: string): LocaleNode {
-	if (left.kind === 'text' && right.kind === 'text') {
+	if (left.kind === 'text' && right.kind === 'text' && left.prose === right.prose) {
 		return left;
 	}
 	if (left.kind === 'object' && right.kind === 'object') {
@@ -77,8 +78,8 @@ function itemIdSchema(element: z.ZodType): z.ZodType<string> | null {
  * not as a silently untranslatable field.
  */
 export function localeTreeOf(schema: z.ZodType, at = '(root)'): LocaleNode | null {
-	if (schema === localizedText) {
-		return { kind: 'text' };
+	if (schema === localizedText || schema === localizedProse) {
+		return { kind: 'text', prose: schema === localizedProse };
 	}
 	if (
 		schema instanceof z.ZodOptional ||

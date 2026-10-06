@@ -6,7 +6,8 @@ import { fileURLToPath } from 'node:url';
  * Raw-text lint for content YAML — catches hazards that are invisible after
  * parsing (ADR 0002): TeX inside double-quoted scalars (\m is an illegal
  * YAML escape, including scalars wrapped across lines), unquoted numerics on
- * decimal-string fields (silent float64 truncation), ' #' comment-swallowing
+ * decimal-string fields in block or flow mappings (silent float64
+ * truncation), ' #' comment-swallowing
  * inside plain scalars, and %YAML/%TAG directives (parser re-typing). Per
  * file it also requires the editor schema header and bans inline
  * translations in entity files (they live in `<slug>.<locale>.yaml`
@@ -37,12 +38,19 @@ const localeAlternation = TRANSLATION_LOCALES.join('|');
 const sidecarFilename = new RegExp(`^[a-z0-9]+(?:-[a-z0-9]+)*\\.(?:${localeAlternation})\\.yaml$`);
 const flowTranslationKey = new RegExp(`[{,]\\s*(?:${localeAlternation})\\s*:`);
 
+const decimalFieldAlternation = DECIMAL_FIELDS.join('|');
+const bareNumberStart = '(?:-?\\d|\\.\\d)';
 const decimalFieldPattern = new RegExp(
-	`^\\s*(?:- )?(${DECIMAL_FIELDS.join('|')}):\\s*(-?\\d|\\.\\d)`,
+	`^\\s*(?:- )?(?:${decimalFieldAlternation}):\\s*${bareNumberStart}`,
+);
+const flowDecimalFieldPattern = new RegExp(
+	`[{,]\\s*(?:${decimalFieldAlternation})\\s*:\\s*${bareNumberStart}`,
 );
 const doubleQuotedBackslash = /"[^"]*\\[^"]*"/;
 const blockScalarHeader = /^[|>][0-9+-]{0,2}(?:[ \t]+#.*)?$/;
 const lineDecomposition = /^(\s*)((?:- )*)(?:([^\s:#'"][^\s:]*):(?:[ \t]+|$))?(.*)$/;
+
+const UNQUOTED_DECIMAL_MESSAGE = 'unquoted numeric on a decimal-string field — quote it';
 
 const INLINE_TRANSLATION_MESSAGE =
 	'inline translation key — move the text into the <slug>.<locale>.yaml sidecar';
@@ -109,13 +117,16 @@ export function lintText(text, options = {}) {
 			continue;
 		}
 		if (decimalFieldPattern.test(line)) {
-			flag(index, 'unquoted numeric on a decimal-string field — quote it');
+			flag(index, UNQUOTED_DECIMAL_MESSAGE);
 		}
 		const parts = lineDecomposition.exec(line);
 		if (parts?.[3] !== undefined && forbiddenKeys.has(parts[3])) {
 			flag(index, INLINE_TRANSLATION_MESSAGE);
 		}
 		const value = parts === null ? line.trimStart() : parts[4];
+		if (/^[{[]/.test(value) && flowDecimalFieldPattern.test(value)) {
+			flag(index, UNQUOTED_DECIMAL_MESSAGE);
+		}
 		if (forbiddenKeys.size > 0 && value.startsWith('{') && flowTranslationKey.test(value)) {
 			flag(index, INLINE_TRANSLATION_MESSAGE);
 		}

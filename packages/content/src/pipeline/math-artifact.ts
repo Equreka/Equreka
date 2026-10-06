@@ -1,6 +1,6 @@
 import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
-import type { Symbol as AuthoredSymbol, LocalizedText, PathStep } from '@equreka/schema';
+import { type Symbol as AuthoredSymbol, COLLECTIONS, type CollectionName } from '@equreka/schema';
 import { CONTENT_PIPELINE_VERSION } from '../pipeline-version.js';
 import {
 	canonicalTex,
@@ -16,6 +16,7 @@ import {
 	MATHJAX_VERSION,
 	MathRenderError,
 } from './math-render.js';
+import { isEntityLevel, type ProseField, proseFields } from './prose-fields.js';
 import { type Issue, issue } from './types.js';
 import { type Corpus, fileOf } from './validate.js';
 
@@ -59,8 +60,10 @@ interface MathCache {
 /**
  * Everything the mobile app may render as static math: every symbol and
  * alternate symbol, every equation expression (display) and term key, every
- * math segment of every localized description and path-step prose field.
- * Keys are canonical TeX — the exact strings the presentation slices carry.
+ * math segment of every localized prose field. Keys are canonical TeX — the
+ * exact strings the presentation slices carry. Every entity's own text is
+ * collected before any part-level prose, which fixes the first source a
+ * render failure cites.
  */
 export function collectMathUses(corpus: Corpus): Map<string, MathUse> {
 	const uses = new Map<string, MathUse>();
@@ -74,23 +77,19 @@ export function collectMathUses(corpus: Corpus): Map<string, MathUse> {
 			existing.sources.push(source);
 		}
 	};
-	const addProse = (text: LocalizedText | undefined, source: string): void => {
-		if (text === undefined) {
-			return;
-		}
-		for (const [locale, localized] of Object.entries(text)) {
-			if (localized === undefined) {
-				continue;
-			}
-			for (const segment of splitRichText(localized)) {
-				if (segment.t === 'math') {
-					add(segment.tex, segment.display, `${source}.${locale}`);
-				}
+	const addProse = (collection: CollectionName, slug: string, field: ProseField): void => {
+		for (const segment of splitRichText(field.text)) {
+			if (segment.t === 'math') {
+				add(
+					segment.tex,
+					segment.display,
+					`${fileOf(collection, slug)} ${field.path}.${field.locale}`,
+				);
 			}
 		}
 	};
 
-	for (const collection of Object.keys(corpus) as (keyof Corpus)[]) {
+	for (const collection of COLLECTIONS) {
 		for (const [slug, entity] of corpus[collection] as Map<
 			string,
 			{
@@ -98,7 +97,6 @@ export function collectMathUses(corpus: Corpus): Map<string, MathUse> {
 				symbolAlt?: AuthoredSymbol;
 				expression?: string;
 				terms?: Record<string, unknown>;
-				description?: LocalizedText;
 			}
 		>) {
 			const file = fileOf(collection, slug);
@@ -114,32 +112,21 @@ export function collectMathUses(corpus: Corpus): Map<string, MathUse> {
 			for (const key of Object.keys(entity.terms ?? {})) {
 				add(key, false, `${file} terms.${key}`);
 			}
-			addProse(entity.description, `${file} description`);
+			for (const field of proseFields(collection, entity).filter(isEntityLevel)) {
+				addProse(collection, slug, field);
+			}
 		}
 	}
-	for (const [slug, path] of corpus.paths) {
-		const file = fileOf('paths', slug);
-		for (const step of path.steps) {
-			for (const [field, text] of stepProse(step)) {
-				addProse(text, `${file} steps.${step.id}.${field}`);
+	for (const collection of COLLECTIONS) {
+		for (const [slug, entity] of corpus[collection] as Map<string, unknown>) {
+			for (const field of proseFields(collection, entity)) {
+				if (!isEntityLevel(field)) {
+					addProse(collection, slug, field);
+				}
 			}
 		}
 	}
 	return uses;
-}
-
-function stepProse(step: PathStep): [string, LocalizedText | undefined][] {
-	switch (step.kind) {
-		case 'entry':
-			return [['note', step.note]];
-		case 'prose':
-			return [['body', step.body]];
-		case 'check':
-			return [
-				['prompt', step.prompt],
-				['answer', step.answer],
-			];
-	}
 }
 
 /**

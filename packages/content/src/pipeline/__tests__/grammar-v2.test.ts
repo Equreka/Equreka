@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { checkSolutionDimensions } from '../solution-dimension.js';
 import { verifyCorpusSolutions } from '../solution-verify.js';
 import type { Corpus } from '../validate.js';
+import { corpusWith } from './corpus-with.js';
 
 const MAGNITUDES: Record<string, Record<string, unknown>> = {
 	length: { dimension: { L: '1' } },
@@ -23,33 +24,20 @@ const MAGNITUDES: Record<string, Record<string, unknown>> = {
  * authored schema so defaults and coercions apply as they do for YAML.
  */
 function corpusOf(equations: Record<string, Record<string, unknown>>): Corpus {
-	const magnitudes = new Map(
-		Object.entries(MAGNITUDES).map(([slug, { dimension }]) => [
-			slug,
-			collectionSchemas.magnitudes.parse({
-				name: { en: slug },
-				symbol: { tex: 'x' },
-				baseUnit: 'unit',
-				dimension,
-			}),
-		]),
-	);
-	return {
-		categories: new Map(),
-		branches: new Map(),
-		magnitudes,
-		units: new Map(),
-		prefixes: new Map(),
-		constants: new Map(),
-		variables: new Map(),
-		equations: new Map(
-			Object.entries(equations).map(([slug, equation]) => [
+	return corpusWith({
+		magnitudes: Object.fromEntries(
+			Object.entries(MAGNITUDES).map(([slug, { dimension }]) => [
 				slug,
-				collectionSchemas.equations.parse({ name: { en: slug }, level: 'intro', ...equation }),
+				{ name: { en: slug }, symbol: { tex: 'x' }, baseUnit: 'unit', dimension },
 			]),
 		),
-		paths: new Map(),
-	};
+		equations: Object.fromEntries(
+			Object.entries(equations).map(([slug, equation]) => [
+				slug,
+				{ name: { en: slug }, level: 'intro', ...equation },
+			]),
+		),
+	});
 }
 
 const magnitude = (ref: string) => ({ kind: 'magnitude', ref });

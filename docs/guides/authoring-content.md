@@ -325,7 +325,7 @@ steps:
       A $373.15\ \text{K}$, es decir $100\ ^{\circ}\text{C}$.
 ```
 
-Localizable fields are derived from the schema — every `localizedText` position: `name` and `description` everywhere, `namePlural` of units, `label` of equation symbol terms (keyed by term key: `terms: { c: { label: 'Hipotenusa' } }`), and the step prose of paths (`note`, `body`, `prompt`, `answer`, keyed by step id). The loader merges each sidecar into its entity *before* validation, so every downstream stage — TeX lint, math rendering, search, presentation — sees the translation exactly as if it were inline.
+Localizable fields are derived from the schema — every `localizedText` or `localizedProse` position: `name` and `description` everywhere, `namePlural` of units, `label` of equation symbol terms (keyed by term key: `terms: { c: { label: 'Hipotenusa' } }`), and the step prose of paths (`note`, `body`, `prompt`, `answer`, keyed by step id). The `localizedProse` positions (`description` and the step prose) are rich text: only they render `$...$` math, and the TeX lint and math artifact read exactly those. The loader merges each sidecar into its entity *before* validation, so every downstream stage — TeX lint, math rendering, search, presentation — sees the translation exactly as if it were inline.
 
 **Translator workflow.**
 
