@@ -213,11 +213,25 @@ export const prefix = entityBase
 	})
 	.strict();
 
+/**
+ * Authored rounded forms of a constant's value, in the constant's own unit
+ * and in display order (`'3e+8'` for c, `'3.1416'` for π). They are the
+ * values a reader quotes, never computed from `value`, and only
+ * presentation reads them; absent means the entry has none.
+ */
+export const constantApproximations = z
+	.array(decimalString)
+	.min(1)
+	.refine((values) => new Set(values).size === values.length, {
+		message: 'approximations must not repeat',
+	});
+
 export const constant = entityBase
 	.extend({
 		symbol,
 		symbolAlt: symbol.optional(),
 		value: decimalString,
+		approximations: constantApproximations.optional(),
 		unit: ref('units'),
 		exact: strictBool.default(false),
 		irrational: strictBool.default(false),

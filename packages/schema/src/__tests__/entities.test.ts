@@ -165,6 +165,31 @@ describe('decimal-string discipline', () => {
 		expect(parsed.value).toBe(digits);
 	});
 
+	it('keeps authored constant approximations verbatim and leaves them absent by default', () => {
+		const base = {
+			name: { en: 'Speed of light' },
+			symbol: { tex: 'c' },
+			value: '299792458',
+			unit: 'metre-per-second',
+			exact: 'true',
+		};
+		expect(constant.parse({ ...base, approximations: ['3e+8'] }).approximations).toEqual(['3e+8']);
+		expect(constant.parse(base)).not.toHaveProperty('approximations');
+	});
+
+	it('rejects numeric, empty and repeated constant approximations', () => {
+		const base = {
+			name: { en: 'Pi' },
+			symbol: { tex: '\\pi' },
+			value: '3.14159',
+			unit: 'unitless',
+		};
+		expect(constant.safeParse({ ...base, approximations: [300000000] }).success).toBe(false);
+		expect(constant.safeParse({ ...base, approximations: ['≈3.14'] }).success).toBe(false);
+		expect(constant.safeParse({ ...base, approximations: [] }).success).toBe(false);
+		expect(constant.safeParse({ ...base, approximations: ['3.14', '3.14'] }).success).toBe(false);
+	});
+
 	it('accepts scientific notation strings (elementary charge)', () => {
 		const parsed = prefix.parse({
 			name: { en: 'Quecto' },

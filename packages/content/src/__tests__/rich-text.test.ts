@@ -71,6 +71,16 @@ describe('splitRichText', () => {
 	it('does not span inline math across lines', () => {
 		expect(splitRichText('a $b\nc$ d')).toEqual([{ t: 'text', v: 'a $b\nc$ d' }]);
 	});
+
+	it('keeps a hard line break after inline math in the following text segment', () => {
+		expect(splitRichText('squared $(\\const{c}^{2})$.\nBecause $c$ is large')).toEqual([
+			{ t: 'text', v: 'squared ' },
+			{ t: 'math', tex: '({c}^{2})', raw: '(\\const{c}^{2})', display: false },
+			{ t: 'text', v: '.\nBecause ' },
+			{ t: 'math', tex: 'c', raw: 'c', display: false },
+			{ t: 'text', v: ' is large' },
+		]);
+	});
 });
 
 describe('canonicalTex', () => {

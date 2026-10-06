@@ -4,6 +4,7 @@ import { tmpdir } from 'node:os';
 import { join, relative } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { COLLECTIONS, engineSlice, SCHEMA_VERSION } from '@equreka/schema';
+import MiniSearch from 'minisearch';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import { type CompileReport, compileContent } from '../pipeline/compile.js';
 import {
@@ -14,6 +15,7 @@ import {
 	type MathBodies,
 	type RichTextSegment,
 } from '../rich-text.js';
+import { type SearchDocument, searchOptions } from '../search-options.js';
 import prefixedBaseline from './fixtures/prefixed-units-baseline.json';
 
 /**
@@ -253,6 +255,64 @@ describe('build over the real corpus', () => {
 		);
 		expect(row).toMatchObject({ name: 'Las siete unidades base del SI' });
 		expect(row?.aliases).toContain('unidades base');
+	});
+
+	it('keeps authored hard line breaks through the presentation slices and folds them for search', () => {
+		const equations = readJson<
+			Record<string, { description: { en: string }; descriptionSegments: LocalizedSegments }>
+		>('presentation', 'equations.json');
+		const equation = equations['mass-energy-equivalence'];
+		expect(equation?.description.en).toContain('$(\\const{c}^{2})$.\nBecause the speed of light');
+		const text = (equation?.descriptionSegments.en ?? [])
+			.map((segment) => (segment.t === 'text' ? segment.v : `$${segment.raw}$`))
+			.join('');
+		expect(text).toBe(equation?.description.en);
+		expect(equation?.descriptionSegments.en?.at(-1)).toMatchObject({
+			t: 'text',
+			v: expect.stringMatching(/^\.\nBecause /),
+		});
+		const units = readJson<Record<string, { description: { en: string } }>>(
+			'presentation',
+			'units.json',
+		);
+		expect(units['nautical-mile']?.description.en.split('\n')).toEqual([
+			expect.stringMatching(/^A nautical mile /),
+			'',
+			'**There is no single internationally agreed symbol**, with several symbols in use.',
+			expect.stringMatching(/^- \$M\$ is used /),
+			expect.stringMatching(/^- \$NM\$ is used /),
+			expect.stringMatching(/^- \$nmi\$ is used /),
+			expect.stringMatching(/^- \$nm\$ is a non-standard /),
+		]);
+		const index = MiniSearch.loadJSON<SearchDocument>(
+			readFileSync(join(outDir, 'search', 'en.json'), 'utf8'),
+			searchOptions,
+		);
+		for (const word of ['squared', 'because']) {
+			const ids = index.search(word, { fields: ['description'] }).map((hit) => hit.id);
+			expect(ids, word).toContain('equations:mass-energy-equivalence');
+		}
+		for (const word of ['use', 'abbreviation']) {
+			const ids = index.search(word, { fields: ['description'] }).map((hit) => hit.id);
+			expect(ids, word).toContain('units:nautical-mile');
+		}
+	});
+
+	it('carries authored constant approximations into the presentation slice only', () => {
+		const constants = readJson<Record<string, { approximations?: string[] }>>(
+			'presentation',
+			'constants.json',
+		);
+		const approximated = Object.fromEntries(
+			Object.entries(constants)
+				.filter(([, constant]) => constant.approximations !== undefined)
+				.map(([slug, constant]) => [slug, constant.approximations]),
+		);
+		expect(approximated).toEqual({ 'speed-of-light': ['3e+8'], pi: ['3.1416'] });
+		const engine = readJson<{ constants: Record<string, Record<string, unknown>> }>('engine.json');
+		for (const constant of Object.values(engine.constants)) {
+			expect(constant).not.toHaveProperty('approximations');
+		}
 	});
 
 	it('files every physics, mathematics and chemistry entry under at least one branch', () => {

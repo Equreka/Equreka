@@ -23,7 +23,7 @@ Run `pnpm --filter @equreka/content build` once so `dist/schemas/*.schema.json` 
 - **Decimal strings.** Every physical value (`value`, `factor`, `offset`, `uncertainty`, rational `num`/`den`, prefix `value`) is a quoted string: `'0.3048'`, `'6.62607015e-34'`, `num: '5'`. Unquoted numbers are rejected by `scripts/quality/yaml-lint.mjs` and would truncate to float64 at parse time (ADR 0002). Values are parsed exactly once, at the engine's float64 boundary.
 - **Failsafe parse.** The pipeline parses YAML 1.2 with the failsafe schema: every scalar arrives as a string. Booleans are exactly `true`/`false` (never `yes`/`on`); integers are digit strings; both coerce in the schema.
 - **Quoting.** Single quotes or plain scalars for short values. Never double quotes around TeX: `"\mu"` is an illegal YAML escape. Apostrophes inside single quotes are doubled (`'it''s'`), which is why prose uses block scalars instead.
-- **Prose.** `description.en` uses a folded block scalar `>-` (or literal `|-` when paragraphs matter). Block scalars carry TeX, `#`, and apostrophes byte-literally. Inline math is `$...$`, display math `$$...$$`; every fragment must pass strict KaTeX at build.
+- **Prose.** `description.en` uses a folded block scalar `>-` for ordinary wrapped prose: single line breaks fold to spaces, so wrap the source freely, and a blank line is a paragraph break. Use a literal block scalar `|-` only when a hard line break inside a paragraph is intended (the line before *Because the speed of light...* in `equations/mass-energy-equivalence.yaml`, the symbol lines of `units/nautical-mile.yaml`): every newline is kept, so each source line is exactly one rendered line and must not be wrapped. Every description container renders with `white-space: pre-line`, as the original's `.card-information p` did, so a kept newline is a visible break on web, and React Native `Text` breaks on it on mobile. Search indexing folds every whitespace run to one space, so a break never glues two words into one token. Block scalars carry TeX, `#`, and apostrophes byte-literally. Inline math is `$...$` and cannot span a line break; display math is `$$...$$`; every fragment must pass strict KaTeX at build.
 - **Comments.** Only the schema header. Rationale belongs in `description`, sources in `references`, numeric provenance in `toBase.source` (units) or `source` (constants).
 - **Localization.** Entity files carry English only: every localized field is `{ en: ... }`. Translations live in one sidecar per locale beside the entity (`<slug>.es.yaml`, see *Translations*); an inline `es:` key is rejected by both yaml-lint and the loader, so each language has exactly one home. A missing translation falls back to English with an untranslated notice.
 - **Aliases.** `aliases` feeds the exact-match search lane: US spellings (`meter`), ASCII forms of Greek (`mu`, `ohm`), degree-text forms (`degC`), symbol variants users type (`m/s`, `J/K`), nicknames (`avogadro number`). Lowercase-insensitive; diacritics are folded at index and query time.
@@ -145,6 +145,16 @@ Each generated unit has slug `<prefix><base>` (`kilometre`), name prefix + base 
 ### constants
 
 `name`, `symbol`, `symbolAlt?`, `value` (decimal string, full precision), `unit` (ref), `exact?` (default false), `irrational?` (default false), `uncertainty?`, `source? { name, url?, ref? }`. `exact: true` is only for values fixed by definition (SI 2019 defining constants). π is `exact: false, irrational: true`.
+
+`approximations?` lists authored rounded forms of the value, as decimal strings in the constant's own `unit`, in display order, at least one and none repeated:
+
+```yaml
+value: '299792458'
+approximations:
+  - '3e+8'
+```
+
+They are the values a reader quotes (`3e+8` for c, `3.1416` for π), not a rounding the build computes, so write them exactly as they should print: the page formats each in the legacy notation (`3×10⁺⁸`; a zero exponent prints the plain number, `3.1416`). The entry page shows an *Approximate values* card beside the exact one only when the list is present; without it the exact card spans the full width. Only presentation reads the field: the engine slice and the calculator always use `value`.
 
 ### variables
 
