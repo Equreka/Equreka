@@ -1,0 +1,19 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.5.8/schema.json",
+	"root": false,
+	"linter": {
+		"rules": {
+			"style": {
+				"noRestrictedImports": {
+					"level": "error",
+					"options": {
+						"paths": {
+							"react-dom": "@equreka/core is platform-neutral: hooks + logic only. DOM rendering lives in apps/web.",
+							"react-native": "@equreka/core is platform-neutral: hooks + logic only. Native rendering lives in apps/mobile."
+						}
+					}
+				}
+			}
+		}
+	}
+}

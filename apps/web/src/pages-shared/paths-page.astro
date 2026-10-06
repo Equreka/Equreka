@@ -1,0 +1,92 @@
+---
+import { getCollection } from 'astro:content';
+import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
+import CollapseCard from '../components/collapse-card.astro';
+import PageHeader from '../components/page-header.astro';
+import PathProgress from '../islands/path-progress';
+import BaseLayout from '../layouts/base-layout.astro';
+import { asPath } from '../lib/collections';
+import { localePath } from '../lib/locale-paths';
+
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
+
+const LEVEL_ORDER = ['intro', 'intermediate', 'advanced'] as const;
+
+const paths = (await getCollection('paths'))
+	.map((entry) => ({ slug: entry.id, ...asPath(entry.data) }))
+	.sort(
+		(a, b) =>
+			LEVEL_ORDER.indexOf(a.level) - LEVEL_ORDER.indexOf(b.level) ||
+			localizedName(a, locale).localeCompare(localizedName(b, locale), locale),
+	);
+const levels = LEVEL_ORDER.map((level) => ({
+	level,
+	paths: paths.filter((path) => path.level === level),
+})).filter((group) => group.paths.length > 0);
+---
+
+<BaseLayout
+	title={`${t(locale, 'paths.title')} — Equreka`}
+	description={t(locale, 'meta.paths')}
+	locale={locale}
+>
+	<PageHeader
+		slot="hero"
+		label={t(locale, 'design.content.header.type')}
+		title={t(locale, 'paths.title')}
+		accent="type-paths"
+	>
+		<p>{t(locale, 'paths.lead', { count: paths.length })}</p>
+	</PageHeader>
+	<div class="type-paths eq-cards">
+		{
+			levels.map((group) => (
+				<CollapseCard
+					headingId={`level-${group.level}`}
+					title={t(locale, `level.${group.level}`)}
+					count={group.paths.length}
+					chevron="start"
+					class="eq-card-accent"
+				>
+					<ul class="eq-path-list">
+						{group.paths.map((path) => (
+							<li>
+								<article>
+									<div class="eq-chip-row">
+										<span class="eq-badge eq-badge-accent">
+											{t(locale, `level.${path.level}`)}
+										</span>
+										<PathProgress
+											client:idle
+											variant="badge"
+											pathSlug={path.slug}
+											stepIds={path.steps.map((step) => step.id)}
+											locale={locale}
+										/>
+									</div>
+									<h3 class="eq-subheading">
+										<a href={localePath(locale, `/paths/${path.slug}/`)}>
+											{localizedName(path, locale)}
+										</a>
+									</h3>
+									{path.description !== undefined && (
+										<p class="eq-prose">{pickLocalized(path.description, locale).value}</p>
+									)}
+									<p class="eq-path-meta">
+										{t(locale, 'path.steps', { count: path.steps.length })}
+										{path.estimatedMinutes !== undefined &&
+											` · ${t(locale, 'path.minutes', { count: path.estimatedMinutes })}`}
+									</p>
+								</article>
+							</li>
+						))}
+					</ul>
+				</CollapseCard>
+			))
+		}
+	</div>
+</BaseLayout>

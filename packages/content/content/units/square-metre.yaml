@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Square metre'
+symbol:
+  tex: 'm^{2}'
+  text: 'm²'
+unitOf:
+  - 'area'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'metre'
+      exp: 2
+externalIds:
+  wikidata: 'Q25343'
+  qudt: 'http://qudt.org/vocab/unit/M2'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'square meter'
+  - 'm2'
+  - 'm^2'
+description:
+  en: >-
+    The square metre (international spelling as used by the International Bureau of Weights and
+    Measures) or square meter (American spelling) is the SI derived unit of area with symbol $m^{2}$

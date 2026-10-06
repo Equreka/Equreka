@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Litre'
+namePlural:
+  en: 'litres'
+symbol:
+  tex: 'l'
+unitOf:
+  - 'volume'
+system: 'other'
+prefixes:
+  - 'femto'
+  - 'pico'
+  - 'nano'
+  - 'micro'
+  - 'milli'
+  - 'centi'
+  - 'deci'
+  - 'deca'
+  - 'hecto'
+  - 'mega'
+  - 'giga'
+  - 'tera'
+toBase:
+  factor: '0.001'
+  source:
+    name: 'SI Brochure (9th ed.)'
+    url: 'https://www.bipm.org/en/publications/si-brochure'
+    ref: 'Table 8: litre, 1 L = 1 dm³'
+status: 'reviewed'
+externalIds:
+  wikidata: 'Q11582'
+  qudt: 'http://qudt.org/vocab/unit/L'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'liter'
+  - 'liters'
+  - 'L'
+description:
+  en: >-
+    The litre (British English spelling) or liter (American English spelling) (SI symbols $l$ and
+    $L$, other symbol used: $ℓ$) is a metric unit of volume. It is equal to 1 cubic decimetre
+    ($dm^{3}$), 1000 cubic centimetres ($cm^{3}$) or 0.001 cubic metre ($m^{3}$). A cubic decimetre
+    (or litre) occupies a volume of $10 cm × 10 cm × 10 cm$ and is thus equal to one-thousandth of a
+    cubic metre.

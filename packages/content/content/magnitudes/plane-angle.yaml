@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Plane angle'
+symbol:
+  tex: '\theta'
+  text: 'θ'
+baseUnit: 'radian'
+dimension:
+  A: 1
+externalIds:
+  wikidata: 'Q2849635'
+  qudt: 'http://qudt.org/vocab/quantitykind/PlaneAngle'
+categories:
+  - 'universal'
+  - 'mathematics'
+  - 'physics'
+branches:
+  - 'geometry'
+  - 'mechanics'
+aliases:
+  - 'angle'
+description:
+  en: |-
+    In Euclidean geometry, an angle is the figure formed by two rays, called the sides of the angle, sharing a common endpoint, called the vertex of the angle. Angles formed by two rays lie in the plane that contains the rays. Angles are also formed by the intersection of two planes. These are called dihedral angles. Two intersecting curves define also an angle, which is the angle of the tangents at the intersection point. For example, the spherical angle formed by two great circles on a sphere equals the dihedral angle between the planes containing the great circles.
+
+    Angle is also used to designate the measure of an angle or of a rotation. This measure is the ratio of the length of a circular arc to its radius. In the case of a geometric angle, the arc is centered at the vertex and delimited by the sides. In the case of a rotation, the arc is centered at the center of the rotation and delimited by any other point and its image by the rotation.

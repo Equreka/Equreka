@@ -1,0 +1,40 @@
+---
+import { getCollection } from 'astro:content';
+import { type Locale, localizedName, t } from '@equreka/core/i18n';
+import CategoryListCards from '../components/category-list-cards.astro';
+import PageHeader from '../components/page-header.astro';
+import BaseLayout from '../layouts/base-layout.astro';
+import { asEquation } from '../lib/collections';
+import { localePath } from '../lib/locale-paths';
+
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
+
+const items = (await getCollection('equations')).map((entry) => {
+	const equation = asEquation(entry.data);
+	return {
+		categories: equation.categories,
+		name: localizedName(equation, locale),
+		href: localePath(locale, `/equations/${entry.id}/`),
+	};
+});
+---
+
+<BaseLayout
+	title={`${t(locale, 'collection.equations')} — Equreka`}
+	description={t(locale, 'meta.equations')}
+	locale={locale}
+>
+	<PageHeader
+		slot="hero"
+		label={t(locale, 'design.content.header.type')}
+		title={t(locale, 'collection.equations')}
+		accent="type-equations"
+	/>
+	<div class="type-equations eq-cards">
+		<CategoryListCards locale={locale} items={items} />
+	</div>
+</BaseLayout>

@@ -1,0 +1,64 @@
+---
+import CollapseCard from './collapse-card.astro';
+
+/**
+ * Legacy CardList: a list collapse card whose body is a wrapping run of
+ * links, each an optional symbol badge (pre-rendered KaTeX) then the name.
+ * An item without `href` (a collection without pages) renders inert. The
+ * card shadow takes the accent of the nearest slug class, as the original
+ * tinted every list card with the page's type or category color.
+ */
+export interface ListCardItem {
+	name: string;
+	href?: string | undefined;
+	symbolHtml?: string | undefined;
+	id?: string | undefined;
+}
+
+interface Props {
+	headingId: string;
+	title: string;
+	titleId?: string | undefined;
+	items: readonly ListCardItem[];
+	viewAll?: { href: string; label: string } | undefined;
+	class?: string | undefined;
+}
+
+const { headingId, title, titleId, items, viewAll, class: className } = Astro.props;
+---
+
+<CollapseCard
+	headingId={headingId}
+	title={title}
+	titleId={titleId}
+	chevron="start"
+	viewAll={viewAll}
+	class={['eq-card-accent', className].filter(Boolean).join(' ')}
+>
+	<ul class="eq-list">
+		{
+			items.map((item) => {
+				const content = (
+					<>
+						{item.symbolHtml !== undefined && (
+							<span class="eq-badge-symbol" set:html={item.symbolHtml} />
+						)}
+						<span class="eq-list-name">{item.name}</span>
+					</>
+				);
+				return (
+					<li id={item.id}>
+						{item.href === undefined ? (
+							<span class="eq-list-link">{content}</span>
+						) : (
+							<a class="eq-list-link" href={item.href}>
+								{content}
+							</a>
+						)}
+					</li>
+				);
+			})
+		}
+	</ul>
+	<slot />
+</CollapseCard>

@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Week'
+symbol:
+  tex: 'wk'
+unitOf:
+  - 'time'
+system: 'other'
+toBase:
+  factor: '604800'
+  source:
+    name: 'convention'
+    ref: '1 week = 7 d'
+status: 'reviewed'
+externalIds:
+  wikidata: 'Q23387'
+  qudt: 'http://qudt.org/vocab/unit/WK'
+categories:
+  - 'universal'
+  - 'physics'
+branches:
+  - 'mechanics'
+  - 'measurement'
+description:
+  en: >-
+    A week is a time unit equal to seven days. It is the standard time period used for cycles of
+    rest days in most parts of the world, mostly alongside—although not strictly part of—the
+    Gregorian calendar.

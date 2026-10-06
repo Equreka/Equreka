@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Pythagorean theorem'
+kind: 'equation'
+level: 'intro'
+expression: '\var{a}^{2}+\var{b}^{2}=\var{c}^{2}'
+terms:
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Leg'
+  b:
+    kind: 'symbol'
+    label:
+      en: 'Leg'
+  c:
+    kind: 'symbol'
+    label:
+      en: 'Hypotenuse'
+solutions:
+  a: 'sqrt(c^2 - b^2)'
+  b: 'sqrt(c^2 - a^2)'
+  c: 'sqrt(a^2 + b^2)'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+  - 'arithmetic-and-algebra'
+description:
+  en: >-
+    Where $\var{c}$ represents the length of the hypotenuse and $\var{a}$ and $\var{b}$ the lengths
+    of the triangle's other two sides. The theorem, whose history is the subject of much debate, is
+    named for the Greek thinker Pythagoras, born around 570 BC.

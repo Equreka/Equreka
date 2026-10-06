@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Elementary charge'
+symbol:
+  tex: 'e'
+symbolAlt:
+  tex: 'q_{e}'
+  text: 'qe'
+value: '1.602176634e-19'
+unit: 'coulomb'
+exact: true
+externalIds:
+  wikidata: 'Q2101'
+  qudt: 'http://qudt.org/vocab/constant/ElementaryCharge'
+categories:
+  - 'universal'
+  - 'chemistry'
+  - 'physics'
+branches:
+  - 'electromagnetism'
+  - 'modern-physics'
+  - 'atomic-structure'
+  - 'si-system'
+aliases:
+  - 'electron charge'
+  - 'e'
+description:
+  en: >-
+    The elementary charge, usually denoted by $e$ or sometimes $q_{e}$ is the electric charge
+    carried by a single proton or, equivalently, the magnitude of the negative electric charge
+    carried by a single electron, which has charge −1 $e$. This elementary charge is a fundamental
+    physical constant. To avoid confusion over its sign, $e$ is sometimes called the elementary
+    positive charge.

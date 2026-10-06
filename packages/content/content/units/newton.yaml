@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Newton'
+namePlural:
+  en: 'newtons'
+symbol:
+  tex: 'N'
+unitOf:
+  - 'force'
+  - 'weight'
+system: 'si-derived'
+prefixes:
+  - 'femto'
+  - 'pico'
+  - 'nano'
+  - 'micro'
+  - 'milli'
+  - 'kilo'
+  - 'mega'
+  - 'giga'
+  - 'tera'
+compose:
+  of:
+    - unit: 'kilogram'
+      exp: 1
+    - unit: 'metre'
+      exp: 1
+    - unit: 'second'
+      exp: -2
+externalIds:
+  wikidata: 'Q12438'
+  qudt: 'http://qudt.org/vocab/unit/N'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+description:
+  en: |-
+    The newton (symbol: $N$) is the International System of Units (SI) derived unit of force. It is named after Isaac Newton in recognition of his work on classical mechanics, specifically Newton's second law of motion.
+
+    *A newton is defined as the force which gives a mass of 1 kilogram an acceleration of 1 metre per second, per second:
+
+    $$1 \frac{kg⋅m}{s^{2}}$$

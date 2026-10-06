@@ -1,0 +1,30 @@
+# Composite setup: pnpm + Node 22 + store cache. setup-node's built-in cache
+# is not used because it caches per-lockfile-hash only on exact match; the
+# explicit restore-keys chain below restores partial stores on lockfile drift.
+name: Setup
+description: pnpm + Node + dependency install with store caching
+
+runs:
+  using: composite
+  steps:
+    - uses: pnpm/action-setup@v4
+
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 22
+
+    - name: Resolve pnpm store path
+      id: store
+      shell: bash
+      run: echo "path=$(pnpm store path --silent)" >> "$GITHUB_OUTPUT"
+
+    - uses: actions/cache@v4
+      with:
+        path: ${{ steps.store.outputs.path }}
+        key: pnpm-store-${{ runner.os }}-${{ hashFiles('pnpm-lock.yaml') }}
+        restore-keys: |
+          pnpm-store-${{ runner.os }}-
+
+    - name: Install
+      shell: bash
+      run: pnpm install --frozen-lockfile

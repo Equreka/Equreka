@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Stone'
+symbol:
+  tex: 'st'
+unitOf:
+  - 'mass'
+system: 'imperial'
+toBase:
+  factor: '6.35029318'
+  source:
+    name: 'Weights and Measures Act 1985 (UK)'
+    url: 'https://www.legislation.gov.uk/ukpga/1985/72/schedule/1'
+    ref: 'Schedule 1: stone = 14 pounds'
+status: 'reviewed'
+externalIds:
+  wikidata: 'Q1131660'
+  qudt: 'http://qudt.org/vocab/unit/Stone_UK'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+description:
+  en: >-
+    The stone or stone weight (abbreviation: $st$) is an English and imperial unit of mass equal to
+    14 pounds (approximately 6.35 kg). The stone continues in customary use in the United Kingdom
+    and Ireland for body weight.
+references:
+  - title: 'Pound (mass)'
+    url: 'https://en.wikipedia.org/wiki/Pound_(unit)'

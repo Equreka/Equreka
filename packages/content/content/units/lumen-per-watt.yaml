@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Lumen per watt'
+symbol:
+  tex: '\frac{lm}{W}'
+  text: 'lm/W'
+unitOf:
+  - 'luminous-efficacy'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'lumen'
+      exp: 1
+    - unit: 'watt'
+      exp: -1
+externalIds:
+  wikidata: 'Q83386886'
+  qudt: 'http://qudt.org/vocab/unit/LM-PER-W'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'lm/W'

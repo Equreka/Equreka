@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Power'
+symbol:
+  tex: 'P'
+baseUnit: 'watt'
+dimension:
+  L: 2
+  M: 1
+  T: -3
+externalIds:
+  wikidata: 'Q25342'
+  qudt: 'http://qudt.org/vocab/quantitykind/Power'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+  - 'electromagnetism'
+aliases:
+  - 'wattage'
+description:
+  en: >-
+    In physics, power is the amount of energy transferred or converted per unit time. In the
+    International System of Units, the unit of power is the watt, equal to one joule per second. In
+    older works, power is sometimes called activity. Power is a scalar quantity.

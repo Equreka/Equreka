@@ -1,0 +1,144 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.schema.json
+name:
+  en: 'Temperature scales'
+level: 'intro'
+prerequisites:
+  - 'si-base-units'
+estimatedMinutes: '15'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'temperature conversion'
+  - 'celsius to fahrenheit'
+  - 'conversion de temperatura'
+  - 'grados'
+description:
+  en: >-
+    From the kelvin to Celsius and Fahrenheit: why temperature units carry an offset as well as a
+    factor, how to convert between them, and why an affine unit cannot be multiplied by another.
+steps:
+  - id: 'intro'
+    kind: 'prose'
+    body:
+      en: >-
+        Most unit conversions are a single multiplication: $1\ \text{km} = 1000\ \text{m}$. Temperature
+        scales are different. Their zeros sit at different physical points, so converting one to
+        another needs a factor and an offset: $y = a\,x + b$. Mathematicians call such a map affine.
+        In this wiki every temperature unit is authored as exactly that pair, and the engine composes
+        them through the kelvin.
+  - id: 'kelvin'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'kelvin'
+    note:
+      en: >-
+        The SI base unit and the reference every other scale maps onto. Its zero is absolute zero,
+        the state of minimum thermal energy, so kelvin values are never negative and carry no degree
+        sign.
+  - id: 'celsius'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'celsius'
+    note:
+      en: >-
+        The same size of degree as the kelvin, shifted so that $0\ \text{°C}$ is the freezing point
+        of water: $T_{\text{K}} = t_{\text{°C}} + 273.15$, exactly.
+  - id: 'celsius-offset'
+    kind: 'prose'
+    body:
+      en: >-
+        Celsius was originally the centigrade scale, pinned to two fixed points of water at standard
+        pressure: freezing at $0$ and boiling at $100$. Since 1954 it is defined from the kelvin
+        instead, with an exact offset of $273.15$. A temperature difference is the same number in
+        both units, which is why heat capacities are quoted per kelvin and per degree Celsius
+        interchangeably; only absolute readings differ.
+  - id: 'fahrenheit'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'fahrenheit'
+    note:
+      en: >-
+        A smaller degree and a different zero: $1\ \text{°F}$ is $\frac{5}{9}\ \text{K}$, and
+        $T_{\text{K}} = \frac{5}{9}\,(t_{\text{°F}} + 459.67)$. Water freezes at $32\ \text{°F}$ and
+        boils at $212\ \text{°F}$, a span of $180$ degrees.
+  - id: 'composing'
+    kind: 'prose'
+    body:
+      en: >-
+        Converting Fahrenheit to Celsius never needs its own formula: go through the kelvin. Apply
+        the Fahrenheit map, then invert the Celsius one, and the offsets combine into the familiar
+        $t_{\text{°C}} = \frac{5}{9}\,(t_{\text{°F}} - 32)$. The engine does exactly this
+        composition for every pair of units, so a scale added tomorrow converts to all the others
+        without anyone typing a table.
+  - id: 'check-boiling'
+    kind: 'check'
+    prompt:
+      en: >-
+        Water boils at $100\ \text{°C}$ at standard pressure. What is that in kelvin and in degrees
+        Fahrenheit?
+    answer:
+      en: >-
+        $373.15\ \text{K}$ and $212\ \text{°F}$: add $273.15$ for the kelvin, and for Fahrenheit
+        multiply by $\frac{9}{5}$ and add $32$.
+  - id: 'curiosities'
+    kind: 'prose'
+    body:
+      en: >-
+        Two historical scales show the same idea from opposite ends. Rankine keeps the Fahrenheit
+        degree but moves the zero to absolute zero, so it is a pure factor with no offset:
+        $T_{\text{K}} = \frac{5}{9}\,T_{\text{°R}}$. Réaumur keeps the Celsius zero but divides the
+        freezing-to-boiling span into $80$ degrees instead of $100$:
+        $t_{\text{°C}} = \frac{5}{4}\,t_{\text{°Ré}}$.
+  - id: 'rankine'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'rankine'
+    note:
+      en: >-
+        Still used in some US thermodynamics texts because absolute temperatures in Fahrenheit-sized
+        degrees keep the gas laws free of offsets.
+  - id: 'reaumur'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'reaumur'
+    note:
+      en: >-
+        Widespread in eighteenth-century Europe, today it survives mostly in traditional cheese and
+        syrup making.
+  - id: 'try-converter'
+    kind: 'prose'
+    body:
+      en: >-
+        Open the Converter from the navigation, choose thermodynamic temperature, and convert
+        $-40$ between Celsius and Fahrenheit. The two scales agree at exactly that value; the
+        converter also marks which conversions are exact and which are rounded.
+  - id: 'check-affine'
+    kind: 'check'
+    prompt:
+      en: >-
+        Why can't you compose $\text{°C}$ with another unit, for example a temperature gradient in
+        degrees Celsius per metre?
+    answer:
+      en: >-
+        Because $\text{°C}$ is affine: its map to the kelvin has a nonzero offset, and an offset has
+        no meaning under multiplication. A product of units multiplies scale factors only, so
+        $1\ \text{°C m}$ would be $274.15\ \text{K m}$ by one reading and $1\ \text{K m}$ by another.
+        Gradients are differences, and a difference of one degree Celsius is one kelvin, so the
+        coherent unit is $\text{K/m}$. This build rejects affine units inside compose forms for
+        exactly that reason.
+  - id: 'check-absolute'
+    kind: 'check'
+    prompt:
+      en: >-
+        Which of the scales in this path are absolute, with their zero at absolute zero?
+    answer:
+      en: >-
+        Kelvin and Rankine. Both convert to the base unit with a factor alone; Celsius, Fahrenheit
+        and Réaumur all need an offset.

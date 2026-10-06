@@ -1,0 +1,1585 @@
+/**
+ * Interactive pages and islands (search, converter, calculator, favorites,
+ * settings, learning-path controls, offline reader). Plain
+ * `@layer components` sits above the foundation sublayer, so these rules
+ * refine foundation classes at equal specificity. Values are the original
+ * app's compiled Bootstrap 5.2 output (ADR 0008).
+ */
+@layer components {
+	.eq-tool-header {
+		margin-bottom: 1rem;
+	}
+
+	.eq-tool-header h1 {
+		margin: 0 0 0.5rem;
+		color: var(--eq-ink-body);
+		font-size: var(--text-h2);
+	}
+
+	.eq-tool-header .eq-lead {
+		margin: 0;
+		color: var(--eq-ink-body);
+	}
+
+	@media (max-width: 991.98px) {
+		.eq-main-header {
+			margin-bottom: 0;
+		}
+
+		.eq-main-header h1 {
+			position: absolute;
+			width: 1px;
+			height: 1px;
+			margin: -1px;
+			padding: 0;
+			overflow: hidden;
+			clip: rect(0, 0, 0, 0);
+			border: 0;
+			white-space: nowrap;
+		}
+
+		.eq-main-header .eq-lead {
+			display: none;
+		}
+	}
+
+	:where(.eq-tool, .eq-fav-page, .eq-settings) .eq-btn {
+		padding: 0.5rem 1rem;
+		transition:
+			color 0.15s ease-in-out,
+			background-color 0.15s ease-in-out,
+			border-color 0.15s ease-in-out,
+			box-shadow 0.15s ease-in-out;
+	}
+
+	:where(.eq-tool, .eq-fav-page, .eq-settings) .eq-btn-primary {
+		border-color: var(--eq-btn-primary-bg);
+	}
+
+	:where(.eq-tool, .eq-fav-page, .eq-settings) .eq-btn-primary:hover {
+		border-color: var(--eq-btn-primary-bg-active);
+	}
+
+	:where(.eq-tool, .eq-fav-page, .eq-settings) .eq-btn-primary:active {
+		border-color: #0a53be;
+	}
+
+	:where(.eq-tool, .eq-fav-page, .eq-settings) .eq-btn-success {
+		border-color: var(--eq-btn-success-bg);
+	}
+
+	:where(.eq-tool, .eq-fav-page, .eq-settings) .eq-btn-success:hover {
+		border-color: var(--eq-btn-success-bg-active);
+	}
+
+	:where(.eq-tool, .eq-fav-page, .eq-settings) .eq-btn-success:active {
+		border-color: #13653f;
+	}
+
+	:where(.eq-tool, .eq-fav-page, .eq-settings) .eq-btn-danger {
+		border-color: var(--eq-btn-danger-bg);
+	}
+
+	:where(.eq-tool, .eq-fav-page, .eq-settings) .eq-btn-danger:hover {
+		border-color: var(--eq-btn-danger-bg-active);
+	}
+
+	:where(.eq-tool, .eq-fav-page, .eq-settings) .eq-btn-danger:active {
+		border-color: #a52834;
+	}
+
+	:where(.eq-tool, .eq-fav-page, .eq-settings) .eq-btn-warning {
+		border-color: var(--eq-btn-warning-bg);
+	}
+
+	:where(.eq-tool, .eq-fav-page, .eq-settings) .eq-btn-warning:hover,
+	:where(.eq-tool, .eq-fav-page, .eq-settings) .eq-btn-warning:active {
+		border-color: #ffc720;
+	}
+
+	:where(.eq-tool, .eq-fav-page, .eq-settings) .eq-btn-dark {
+		border-color: var(--eq-btn-dark-bg);
+	}
+
+	:where(.eq-tool, .eq-fav-page, .eq-settings) .eq-btn-dark:hover,
+	:where(.eq-tool, .eq-fav-page, .eq-settings) .eq-btn-dark:active {
+		border-color: #373b3e;
+	}
+
+	.eq-favorite-toggle {
+		border: 0;
+		background-color: transparent;
+		cursor: pointer;
+	}
+
+	.eq-favorite-toggle .eq-favorite-on,
+	.eq-favorite-toggle[aria-pressed="true"] .eq-favorite-off,
+	.eq-favorite-toggle:hover .eq-favorite-off {
+		display: none;
+	}
+
+	.eq-favorite-toggle[aria-pressed="true"] .eq-favorite-on,
+	.eq-favorite-toggle:hover .eq-favorite-on {
+		display: inline-block;
+	}
+
+	.eq-search-page > :not(.eq-art) {
+		position: relative;
+	}
+
+	.eq-art {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		display: block;
+		max-width: 100%;
+		opacity: 0.25;
+		pointer-events: none;
+		transform: translate(-50%, -50%);
+		user-select: none;
+	}
+
+	.eq-art-search {
+		width: 50%;
+		max-width: 300px;
+	}
+
+	.eq-art-favorites {
+		width: 80%;
+		max-width: 500px;
+	}
+
+	.eq-art-accent-purple {
+		fill: var(--eq-sw-purple-fill);
+	}
+
+	.eq-art-accent-red {
+		fill: var(--eq-sw-red-fill);
+	}
+
+	.eq-art-bg {
+		fill: var(--eq-bg);
+	}
+
+	.eq-art-ink {
+		fill: var(--eq-ink-body);
+	}
+
+	.eq-art-ink-high {
+		fill: var(--eq-ink);
+	}
+
+	.eq-art-shade {
+		opacity: 0.15;
+	}
+
+	@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+		.eq-search-results {
+			background-color: var(--eq-acrylic-translucent);
+		}
+	}
+
+	/**
+	 * The original never declared a dark color scheme, so the native clear
+	 * button of its search field kept the light rendering in both themes.
+	 */
+	.eq-search-page .eq-search-input-lg {
+		display: block;
+		color-scheme: light;
+		padding-block: 0.65rem;
+		font-size: 1rem;
+		line-height: 1.5;
+	}
+
+	.eq-search-page .eq-search-input-lg ~ .eq-search-icon {
+		top: 1.4rem;
+	}
+
+	/**
+	 * The original's results panel inherited the body color, capped the
+	 * floating panel at 60vh on home (500px under the header), and its
+	 * pressed row took a 50% wash; hover and focus took the 20% wash.
+	 */
+	.eq-search-results {
+		color: var(--eq-ink-body);
+	}
+
+	.eq-home-search .eq-search-results-floating {
+		max-height: 60vh;
+	}
+
+	a.eq-search-item:focus {
+		background-color: hsla(var(--eq-accent-h), 85%, 50%, 0.2);
+	}
+
+	a.eq-search-item:active {
+		background-color: hsla(var(--eq-accent-h), 85%, 50%, 0.5);
+	}
+
+	/**
+	 * The original's results scrollbar: 5px wide (its global scrollbar rule),
+	 * transparent track, primary thumb with 10px radius. Blink and WebKit
+	 * ignore `::-webkit-scrollbar` while `scrollbar-width` or
+	 * `scrollbar-color` is set, so those reset where the pseudo-elements
+	 * exist; other engines keep the thin standard scrollbar.
+	 */
+	@supports selector(::-webkit-scrollbar) {
+		.eq-search-results {
+			scrollbar-width: auto;
+			scrollbar-color: auto;
+		}
+
+		.eq-search-results::-webkit-scrollbar {
+			width: 5px;
+			background: transparent;
+		}
+
+		.eq-search-results::-webkit-scrollbar-button {
+			display: none;
+			width: 0;
+			height: 0;
+		}
+
+		.eq-search-results::-webkit-scrollbar-thumb {
+			border-radius: 10px;
+			background: var(--eq-btn-primary-bg);
+		}
+	}
+
+	.eq-search-group + .eq-search-group {
+		margin-top: 0;
+	}
+
+	.eq-search-group-title {
+		justify-content: flex-start;
+		gap: 0;
+		margin: 1rem 0 0.5rem;
+		padding: 0 1rem;
+		font-weight: 700;
+		line-height: 1;
+	}
+
+	.eq-search-group:first-child .eq-search-group-title {
+		margin-top: 0;
+	}
+
+	.eq-search-count {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		margin-left: auto;
+		padding: 0.45rem 0.35rem;
+		font-family: inherit;
+		font-size: 0.75rem;
+		font-weight: 700;
+		letter-spacing: normal;
+		line-height: 0;
+		text-transform: none;
+	}
+
+	.eq-search-item {
+		align-items: center;
+	}
+
+	span.eq-search-item {
+		color: var(--eq-ink-body);
+	}
+
+	.eq-search-category {
+		box-sizing: border-box;
+		flex: none;
+		min-width: 30px;
+		font-weight: 700;
+		text-align: center;
+		text-decoration: none;
+		transition:
+			color var(--eq-duration) var(--eq-ease),
+			background-color var(--eq-duration) var(--eq-ease);
+	}
+
+	.eq-search-message {
+		margin: 0;
+		padding: 0 1rem;
+		color: var(--eq-ink);
+		font-family: var(--font-display);
+		font-weight: 600;
+		line-height: 1;
+	}
+
+	.eq-tool {
+		display: flex;
+		flex-direction: column;
+		gap: var(--eq-space-card-gap);
+	}
+
+	.eq-tool-result {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+		min-height: clamp(100px, 15vw, 155px);
+		padding: 1.25rem 1rem;
+		color: var(--eq-ink);
+		text-align: center;
+	}
+
+	.eq-tool-value {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 0.35em;
+		margin: 0;
+		font-family: var(--font-math);
+		font-size: var(--text-display-math);
+		line-height: 1.5;
+	}
+
+	.eq-tool-value strong {
+		font-weight: 400;
+	}
+
+	.eq-tool-value .eq-tool-unit {
+		color: var(--eq-accent);
+	}
+
+	.eq-tool-note {
+		margin: 0;
+		color: var(--eq-ink-body);
+		font-size: 0.875rem;
+	}
+
+	.eq-tool-message,
+	.eq-tool-error {
+		margin: 0;
+		padding-inline: 1rem;
+		color: var(--eq-ink-muted);
+		font-family: var(--font-display);
+		font-size: var(--text-calculator-message);
+		font-weight: 600;
+	}
+
+	.eq-tool-error {
+		color: var(--eq-danger);
+	}
+
+	.eq-tool-form {
+		box-sizing: border-box;
+		width: 100%;
+		margin-inline: auto;
+	}
+
+	@media (min-width: 992px) {
+		.eq-tool-form {
+			width: 50%;
+		}
+	}
+
+	.eq-tool-fields {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: flex-start;
+		justify-content: center;
+		column-gap: 0.5rem;
+	}
+
+	.eq-tool-fields > * {
+		flex: 0 0 100%;
+		min-width: 0;
+		margin-bottom: 1rem;
+	}
+
+	.eq-tool-separator {
+		display: none;
+	}
+
+	@media (min-width: 576px) {
+		.eq-tool-fields > * {
+			flex: 1 0 0%;
+		}
+
+		.eq-tool-fields > .eq-tool-wide {
+			flex-basis: 100%;
+		}
+
+		.eq-tool-fields > .eq-tool-separator {
+			box-sizing: content-box;
+			display: block;
+			flex: none;
+			width: 1.5rem;
+			height: 1.5rem;
+			padding: 1.0625rem 0.25rem;
+			color: #6c757d;
+		}
+	}
+
+	.eq-tool-scope {
+		margin-top: 0.5rem;
+		font-size: 0.875rem;
+	}
+
+	.eq-tool-scope label {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--eq-ink);
+	}
+
+	.eq-tool-scope input {
+		width: 1rem;
+		height: 1rem;
+		margin: 0;
+		accent-color: var(--eq-accent);
+	}
+
+	.eq-tool-scope p {
+		margin: 0.25rem 0 0;
+		color: var(--eq-ink-body);
+		font-size: 0.8rem;
+	}
+
+	.eq-tool-actions {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5rem;
+	}
+
+	.eq-tool-aside {
+		margin: 0 0 1rem;
+		color: var(--eq-ink-body);
+		font-size: 0.875rem;
+		text-align: center;
+	}
+
+	.eq-floating {
+		position: relative;
+	}
+
+	.eq-floating > .eq-field-control {
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		height: calc(3.5rem + 2px);
+		min-height: calc(3.5rem + 2px);
+		margin: 0;
+		padding: 1.625rem 0.75rem 0.625rem;
+		border: 1px solid var(--eq-input-border);
+		border-radius: var(--radius-sm);
+		background-color: var(--eq-input-bg);
+		color: var(--eq-ink-body);
+		font-family: inherit;
+		font-size: 1rem;
+		font-weight: 400;
+		line-height: 1.25;
+		-webkit-appearance: none;
+		appearance: none;
+		transition:
+			border-color 0.15s ease-in-out,
+			box-shadow 0.15s ease-in-out;
+	}
+
+	.eq-floating > select.eq-field-control {
+		padding-right: 2.25rem;
+		background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+		background-position: right 0.75rem center;
+		background-repeat: no-repeat;
+		background-size: 16px 12px;
+		cursor: pointer;
+	}
+
+	.eq-floating > .eq-field-control:focus {
+		border-color: var(--eq-sw-primary-fill);
+		background-color: var(--eq-input-focus-bg);
+		box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+		color: var(--eq-input-focus-ink);
+		outline: 2px solid transparent;
+	}
+
+	.eq-floating > .eq-field-caption {
+		position: absolute;
+		top: 0;
+		left: 0;
+		box-sizing: border-box;
+		width: 100%;
+		height: 100%;
+		margin: 0;
+		padding: 1rem 0.75rem;
+		overflow: hidden;
+		border: 1px solid transparent;
+		color: var(--eq-ink-body);
+		font-size: inherit;
+		line-height: 1.5;
+		text-align: start;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		pointer-events: none;
+		opacity: 0.65;
+		transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem);
+		transform-origin: 0 0;
+		transition:
+			opacity 0.1s ease-in-out,
+			transform 0.1s ease-in-out;
+	}
+
+	select.eq-field-addon {
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		margin-top: 0.35rem;
+		padding: 0.25rem 0.5rem;
+		border: 0;
+		border-radius: var(--radius-sm);
+		background-color: transparent;
+		color: var(--eq-ink-body);
+		cursor: pointer;
+		font: inherit;
+		font-size: 0.875rem;
+	}
+
+	select.eq-field-addon:hover {
+		background-color: var(--eq-wash);
+	}
+
+	.eq-calc-page {
+		display: flex;
+		flex-direction: column;
+		gap: var(--eq-space-card-gap);
+	}
+
+	.eq-calc-result-card {
+		position: relative;
+		overflow: hidden;
+		font-size: var(--text-display-math);
+	}
+
+	/**
+	 * The original's backdrop always ran its opacity animation, so it sat on
+	 * its own compositor layer above the in-flow result line, and only the
+	 * positioned exponent painted over it (grayscale antialiased, as every
+	 * layer without an opaque background). `will-change` keeps that layer
+	 * when reduced motion skips the animation; the result area stays in flow.
+	 */
+	.eq-calc-backdrop {
+		position: absolute;
+		inset: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		overflow: hidden;
+		border-radius: inherit;
+		color: var(--eq-ink-muted);
+		opacity: 0.1;
+		pointer-events: none;
+		user-select: none;
+		will-change: opacity;
+	}
+
+	.eq-calc-backdrop-math {
+		font-size: clamp(5.5em, 8vw, 10em);
+		font-weight: 700;
+		white-space: nowrap;
+		-webkit-text-fill-color: transparent;
+		-webkit-text-stroke: 1px var(--eq-ink-muted);
+		transform: translateY(-7.5%);
+	}
+
+	@keyframes eq-calc-backdrop-in {
+		from {
+			opacity: 0;
+		}
+
+		to {
+			opacity: 0.1;
+		}
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		.eq-calc-backdrop {
+			opacity: 0;
+			animation: eq-calc-backdrop-in 1s var(--eq-ease) 0.5s forwards;
+		}
+	}
+
+	.eq-calc-result-area {
+		box-sizing: border-box;
+		display: grid;
+		grid-template-rows: 1fr auto 1fr;
+		justify-items: center;
+		align-items: center;
+		row-gap: 0;
+	}
+
+	.eq-calc-result-area::before {
+		content: "";
+	}
+
+	.eq-calc-result-area > .eq-tool-note {
+		align-self: start;
+		margin: 0.25rem 0 -0.75rem;
+	}
+
+	.eq-calc-result {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		justify-content: center;
+		gap: 0.35em;
+		margin: 0;
+		color: var(--eq-ink);
+		font-family: serif;
+		line-height: 1.5;
+	}
+
+	.eq-calc-symbol {
+		font-style: normal;
+	}
+
+	.eq-calc-operator {
+		color: var(--eq-ink-muted);
+	}
+
+	.eq-calc-result sup {
+		position: relative;
+		top: -0.5em;
+		font-size: 0.75em;
+		line-height: 0;
+		vertical-align: baseline;
+	}
+
+	.eq-calc-exponent {
+		color: var(--eq-ink-body);
+	}
+
+	/**
+	 * The original's `$green` and `$red` SCSS constants, the same hex in
+	 * both themes (the dark swatches are darker).
+	 */
+	.eq-calc-exponent-sign {
+		color: var(--eq-exp-plus, #1fad1f);
+	}
+
+	.eq-calc-exponent-minus {
+		color: var(--eq-exp-minus, #dd3c3c);
+	}
+
+	.eq-calc-message {
+		margin: 0;
+		padding-inline: 1rem;
+		color: var(--eq-ink-muted);
+		font-family: var(--font-display);
+		font-size: var(--text-calculator-message);
+		font-weight: 600;
+		line-height: 1.5;
+		text-align: center;
+	}
+
+	.eq-calc-form {
+		box-sizing: border-box;
+		width: 100%;
+		margin-inline: auto;
+	}
+
+	@media (min-width: 992px) {
+		.eq-calc-form {
+			width: 50%;
+		}
+	}
+
+	.eq-calc-fields {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		column-gap: 0.5rem;
+	}
+
+	.eq-calc-field {
+		flex: 0 0 100%;
+		min-width: 0;
+		margin-bottom: 1rem;
+	}
+
+	@media (min-width: 768px) {
+		.eq-calc-field {
+			flex: 0 1 12.95rem;
+			min-width: 150px;
+		}
+	}
+
+	.eq-calc-actions {
+		position: relative;
+		display: flex;
+		justify-content: center;
+		margin-inline: -0.25rem;
+	}
+
+	.eq-calc-action-side {
+		box-sizing: border-box;
+		display: flex;
+		flex: 1 0 0%;
+		align-items: center;
+		justify-content: center;
+		max-width: 55px;
+		padding-inline: 0.25rem;
+	}
+
+	@media (min-width: 768px) {
+		.eq-calc-action-side {
+			justify-content: flex-end;
+		}
+	}
+
+	.eq-calc-action-main {
+		box-sizing: border-box;
+		display: flex;
+		flex: 1 0 0%;
+		align-items: center;
+		justify-content: center;
+		padding-inline: 0.25rem;
+	}
+
+	@media (min-width: 576px) {
+		.eq-calc-action-main {
+			flex: 0 0 auto;
+		}
+	}
+
+	.eq-tool .eq-calc-round {
+		flex: none;
+		padding: 1rem;
+		border-radius: var(--radius-pill);
+		line-height: 1;
+	}
+
+	.eq-calc-round .eq-glyph {
+		line-height: 0;
+	}
+
+	.eq-tool .eq-calc-submit {
+		width: 100%;
+		height: 100%;
+		border-radius: var(--radius-pill);
+	}
+
+	@media (min-width: 576px) {
+		.eq-tool .eq-calc-submit {
+			padding-inline: 3rem;
+		}
+	}
+
+	.eq-calc-copy-status {
+		position: absolute;
+		top: calc(100% + 0.5rem);
+		left: 50%;
+		z-index: 1;
+		margin: 0;
+		padding: 0.25rem 0.75rem;
+		border-radius: var(--radius-pill);
+		background-color: var(--eq-acrylic-bg);
+		box-shadow: var(--shadow-acrylic);
+		color: var(--eq-ink);
+		font-size: 0.875rem;
+		white-space: nowrap;
+		pointer-events: none;
+		transform: translateX(-50%);
+		transition: opacity var(--eq-duration) var(--eq-ease);
+	}
+
+	.eq-calc-copy-status[data-state="idle"] {
+		opacity: 0;
+	}
+
+	/**
+	 * The original's calculator index cards sat under no type or category
+	 * class, so their shadow took the root `--eqk-color`, hsl(220, 10%, 25%);
+	 * dark cards have no shadow.
+	 */
+	:root[data-theme="light"] .eq-calc-index .eq-card-accent {
+		box-shadow: 0 0.5rem 1.25rem -1rem hsl(220, 10%, 25%);
+	}
+
+	@media (prefers-color-scheme: light) {
+		:root:not([data-theme="dark"]) .eq-calc-index .eq-card-accent {
+			box-shadow: 0 0.5rem 1.25rem -1rem hsl(220, 10%, 25%);
+		}
+	}
+
+	.eq-calc-tables {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: var(--eq-space-card-gap) 1.5rem;
+	}
+
+	.eq-calc-table {
+		box-sizing: border-box;
+		flex: 0 0 100%;
+		min-width: 0;
+		margin: 0;
+	}
+
+	@media (min-width: 992px) {
+		.eq-calc-table {
+			flex-basis: calc(50% - 0.75rem);
+		}
+	}
+
+	.eq-fav-page {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr) auto;
+		column-gap: 1rem;
+		align-items: start;
+		align-content: start;
+	}
+
+	.eq-fav-page > * {
+		grid-column: 1 / -1;
+	}
+
+	.eq-fav-page > .eq-tool-header {
+		grid-row: 1;
+		grid-column: 1;
+	}
+
+	.eq-fav-page .eq-fav-edit {
+		grid-row: 1;
+		grid-column: 2;
+		margin-top: calc((var(--text-h2) * 1.2 + 0.5rem - 2.125rem) / 2);
+		line-height: 1;
+	}
+
+	.eq-fav-body {
+		display: flex;
+		flex-direction: column;
+		gap: 1rem;
+		grid-row: 2;
+		grid-column: 1 / -1;
+	}
+
+	@media (max-width: 991.98px) {
+		.eq-fav-page .eq-fav-edit {
+			display: none;
+		}
+	}
+
+	.eq-fav-body > :not(.eq-art) {
+		position: relative;
+	}
+
+	.eq-fav-summary {
+		justify-content: flex-start;
+		gap: 8px;
+		padding: calc(var(--eq-space-card-pad-y) + 9px) var(--eq-space-card-pad-x) 9px
+			calc(var(--eq-space-card-pad-x) + 1px);
+	}
+
+	/**
+	 * The original drew the chevron as the collapse button's block
+	 * `::before`: one 1rem glyph box, line-height 1, so it never sets the
+	 * header height, widened by the button's 0.5px letter spacing, which
+	 * moves the rotation center. The summary's extra 1px start inset puts the
+	 * rotated glyph on the pixels the original rasterized (measured in both
+	 * shells against the running original).
+	 */
+	.eq-fav-summary .eq-collapse-chevron {
+		font-size: 1rem;
+		letter-spacing: 0.5px;
+		line-height: 1;
+	}
+
+	.eq-fav-summary .eq-collapse-chevron::before {
+		display: block;
+	}
+
+	.eq-fav-panel {
+		padding-top: 0;
+	}
+
+	.eq-fav-table {
+		font-size: 0.95rem;
+	}
+
+	.eq-fav-table td {
+		padding-block: 0.35rem;
+	}
+
+	.eq-fav-table .eq-fav-name {
+		width: 100%;
+		white-space: normal;
+		overflow-wrap: anywhere;
+	}
+
+	.eq-fav-table .eq-fav-actions {
+		text-align: right;
+	}
+
+	.eq-fav-table .eq-badge {
+		font-weight: 700;
+	}
+
+	.eq-fav-summary .eq-collapse-title {
+		letter-spacing: 0.5px;
+	}
+
+	.eq-fav-link {
+		color: var(--eq-link);
+		text-decoration-thickness: auto;
+		text-underline-offset: auto;
+	}
+
+	.eq-fav-table tbody tr:hover .eq-fav-link {
+		color: var(--eq-term, var(--eq-accent));
+	}
+
+	.eq-fav-table tbody tr:hover a.eq-badge-accent {
+		color: var(--eq-accent-on-solid);
+	}
+
+	.eq-fav-action {
+		box-sizing: border-box;
+		color: #f8f9fa;
+		width: 22.5px;
+		height: 1.375rem;
+		padding: 0;
+		font-size: 1.25rem;
+		line-height: 1;
+		vertical-align: middle;
+	}
+
+	/**
+	 * Bootstrap's `.btn .bi { line-height: 0 }` in the original: the glyph
+	 * adds no line box of its own to the favorites buttons.
+	 */
+	.eq-fav-edit .eq-glyph,
+	.eq-fav-action .eq-glyph {
+		line-height: 0;
+	}
+
+	.eq-fav-tool {
+		margin-right: 0.5rem;
+		border-radius: var(--radius-sm);
+	}
+
+	.eq-fav-remove {
+		border-radius: var(--radius-pill);
+	}
+
+	.eq-legacy-abbr {
+		display: inline-block;
+		min-width: 30px;
+		text-align: center;
+	}
+
+	.eq-legacy-abbr-short > abbr[title] {
+		cursor: help;
+		text-decoration: underline dotted;
+		text-decoration-skip-ink: none;
+	}
+
+	.eq-legacy-abbr > .eq-legacy-abbr-full {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		overflow: hidden;
+		clip: rect(0, 0, 0, 0);
+		border: 0;
+		white-space: nowrap;
+	}
+
+	@media (min-width: 768px) {
+		.eq-legacy-abbr > .eq-legacy-abbr-short {
+			display: none;
+		}
+
+		.eq-legacy-abbr > .eq-legacy-abbr-full {
+			position: static;
+			width: auto;
+			height: auto;
+			margin: 0;
+			overflow: visible;
+			clip: auto;
+			white-space: inherit;
+		}
+	}
+
+	.eq-search-category > .eq-legacy-abbr {
+		display: inline;
+		min-width: 0;
+		text-align: inherit;
+	}
+
+	/**
+	 * The original's empty message was an `h4`, which kept Bootstrap's
+	 * 0.5rem bottom margin inside the card body.
+	 */
+	.eq-fav-empty p {
+		margin: 0 0 0.5rem;
+		color: var(--eq-ink-body);
+		font-family: var(--font-display);
+		font-size: var(--text-h4);
+		font-weight: 500;
+		line-height: 1.2;
+	}
+
+	.eq-transfer-actions {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 1rem;
+	}
+
+	.eq-settings .eq-transfer-button {
+		padding-inline: 1.5rem;
+	}
+
+	.eq-transfer-status {
+		min-height: 1.25rem;
+		margin: 0.25rem 0 0;
+		color: var(--eq-ink-body);
+		font-size: 0.875rem;
+	}
+
+	.eq-transfer-status:empty {
+		min-height: 0;
+		margin: 0;
+	}
+
+	.eq-transfer-error {
+		color: var(--eq-danger);
+	}
+
+	.eq-settings-title {
+		margin: 0 0 1.5rem;
+		color: var(--eq-ink-body);
+		font-size: var(--text-h2);
+	}
+
+	.eq-settings-version {
+		margin-left: 0.5rem;
+		font-size: 75%;
+	}
+
+	.eq-settings-label {
+		margin: 0 0 1rem;
+		color: var(--eq-ink-body);
+		font-size: var(--text-h6);
+		font-weight: 500;
+		line-height: 1.2;
+	}
+
+	.eq-dropdown {
+		position: relative;
+		margin-bottom: 1.5rem;
+	}
+
+	.eq-dropdown > summary {
+		list-style: none;
+	}
+
+	.eq-dropdown > summary::-webkit-details-marker {
+		display: none;
+	}
+
+	.eq-settings .eq-dropdown-toggle {
+		padding-inline: 1.5rem;
+	}
+
+	.eq-dropdown-toggle::after {
+		content: "";
+		display: block;
+		border-top: 0.3em solid;
+		border-right: 0.3em solid transparent;
+		border-bottom: 0;
+		border-left: 0.3em solid transparent;
+	}
+
+	.eq-settings .eq-dropdown[open] > .eq-dropdown-toggle {
+		border-color: #0a53be;
+		background-color: var(--eq-btn-primary-bg-active);
+	}
+
+	.eq-dropdown-menu {
+		position: absolute;
+		top: calc(100% + 2px);
+		left: 0;
+		z-index: 1000;
+		box-sizing: border-box;
+		min-width: 200px;
+		margin: 0;
+		padding: 0.5rem 0;
+		border: 0;
+		border-radius: var(--radius-lg);
+		background-color: var(--eq-acrylic-bg);
+		box-shadow: var(--shadow-acrylic);
+		color: var(--eq-ink-body);
+		font-size: 1rem;
+		list-style: none;
+		text-align: left;
+	}
+
+	@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+		.eq-dropdown-menu {
+			background-color: var(--eq-acrylic-translucent);
+			-webkit-backdrop-filter: var(--eq-acrylic-filter);
+			backdrop-filter: var(--eq-acrylic-filter);
+		}
+	}
+
+	@keyframes eq-dropdown {
+		from {
+			opacity: 0;
+			margin-top: -1rem;
+		}
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		.eq-dropdown[open] > .eq-dropdown-menu {
+			animation: eq-dropdown 0.5s ease;
+		}
+	}
+
+	.eq-dropdown-header {
+		display: block;
+		margin: 0;
+		padding: 0.5rem 1rem;
+		color: var(--eq-ink);
+		font-family: var(--font-display);
+		font-size: 0.8rem;
+		font-weight: 800;
+		letter-spacing: 1px;
+		line-height: 1.2;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+
+	.eq-dropdown-item {
+		box-sizing: border-box;
+		display: block;
+		width: 100%;
+		padding: 0.5rem 1rem;
+		border: 0;
+		background-color: transparent;
+		color: var(--eq-ink);
+		cursor: pointer;
+		font-family: var(--font-sans);
+		font-size: 1rem;
+		font-weight: 400;
+		line-height: 1.5;
+		text-align: inherit;
+		text-decoration: none;
+		white-space: nowrap;
+		transition:
+			color var(--eq-duration) var(--eq-ease),
+			background-color var(--eq-duration) var(--eq-ease);
+	}
+
+	.eq-dropdown-item .eq-glyph {
+		margin-right: 0.5rem;
+	}
+
+	.eq-settings .eq-btn .eq-glyph {
+		line-height: 0;
+	}
+
+	.eq-dropdown-item:hover,
+	.eq-dropdown-item:focus-visible {
+		background-color: hsla(220, 10%, var(--eq-theme-inverted-lightness), 0.15);
+	}
+
+	.eq-dropdown-item:active {
+		background-color: var(--eq-btn-primary-bg);
+		color: var(--eq-btn-primary-ink);
+	}
+
+	.eq-settings-links {
+		display: none;
+	}
+
+	@media (max-width: 767.98px) {
+		.eq-settings-links {
+			display: block;
+		}
+	}
+
+	.eq-settings-links-row {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 1rem;
+		font-size: 0.875rem;
+		line-height: 1.5;
+	}
+
+	.eq-settings-links-row:first-child {
+		margin: 1.5rem 0 1rem;
+	}
+
+	.eq-settings-links a {
+		display: block;
+		color: var(--eq-ink-muted);
+		text-decoration: none;
+		transition: color var(--eq-duration) var(--eq-ease);
+	}
+
+	.eq-settings-links a:hover {
+		color: var(--eq-ink-body);
+	}
+
+	.eq-path-progress {
+		max-width: 36rem;
+		margin-top: 1rem;
+	}
+
+	.eq-path-progress-row {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: 1rem;
+		margin-bottom: 0.4rem;
+		font-size: 0.875rem;
+	}
+
+	.eq-path-progress-status {
+		color: inherit;
+	}
+
+	.eq-path-progress-status.eq-is-complete {
+		font-family: var(--font-display);
+		font-weight: 600;
+		letter-spacing: var(--tracking-label);
+		text-transform: uppercase;
+	}
+
+	.eq-path-progress-reset {
+		gap: 0.35rem;
+		padding-block: 0.125rem;
+		color: inherit;
+		font-size: 0.8rem;
+	}
+
+	.eq-path-progress-reset:hover {
+		color: inherit;
+		text-decoration: underline;
+	}
+
+	progress.path-progress {
+		display: block;
+		width: 100%;
+	}
+
+	progress.path-progress.eq-is-complete::-webkit-progress-value {
+		background-image: var(--eq-gradient-rainbow);
+	}
+
+	progress.path-progress.eq-is-complete::-moz-progress-bar {
+		background-image: var(--eq-gradient-rainbow);
+	}
+
+	.eq-accent-panel progress.path-progress,
+	.eq-accent-panel progress.path-progress::-webkit-progress-bar {
+		background-color: hsla(0, 0%, 100%, 0.25);
+	}
+
+	.eq-accent-panel progress.path-progress::-webkit-progress-value {
+		background-color: var(--eq-accent-on-solid);
+	}
+
+	.eq-accent-panel progress.path-progress::-moz-progress-bar {
+		background-color: var(--eq-accent-on-solid);
+	}
+
+	.eq-path-badge-progress {
+		border: 1px solid var(--eq-accent);
+		color: var(--eq-accent);
+	}
+
+	.eq-step-toggle {
+		-webkit-appearance: none;
+		appearance: none;
+		display: inline-grid;
+		flex: none;
+		place-content: center;
+		width: 1.5rem;
+		height: 1.5rem;
+		margin: 0.15rem 0 0;
+		border: 1px solid var(--eq-ink-muted);
+		border-radius: var(--radius-sm);
+		background-color: transparent;
+		cursor: pointer;
+		transition:
+			background-color var(--eq-duration) var(--eq-ease),
+			border-color var(--eq-duration) var(--eq-ease);
+	}
+
+	.eq-step-toggle::before {
+		content: "";
+		width: 0.85rem;
+		height: 0.85rem;
+		background-color: var(--eq-bg);
+		-webkit-clip-path: polygon(14% 44%, 0 65%, 40% 100%, 100% 22%, 84% 8%, 38% 68%);
+		clip-path: polygon(14% 44%, 0 65%, 40% 100%, 100% 22%, 84% 8%, 38% 68%);
+		transform: scale(0);
+		transition: transform var(--eq-duration) var(--eq-ease);
+	}
+
+	.eq-step-toggle:hover {
+		border-color: var(--eq-ink);
+	}
+
+	.eq-step-toggle:checked {
+		border-color: var(--eq-ink);
+		background-color: var(--eq-ink);
+	}
+
+	.eq-step-toggle:checked::before {
+		transform: scale(1);
+	}
+
+	@media (forced-colors: active) {
+		.eq-step-toggle {
+			-webkit-appearance: auto;
+			appearance: auto;
+		}
+
+		.eq-step-toggle::before {
+			content: none;
+		}
+	}
+
+	.eq-path-context {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem 1rem;
+		margin-bottom: var(--eq-space-card-gap);
+		padding: 0.6rem 1rem;
+		color: var(--eq-ink-body);
+		font-size: 0.875rem;
+	}
+
+	@supports ((-webkit-backdrop-filter: blur(1px)) or (backdrop-filter: blur(1px))) {
+		.eq-path-context {
+			background-color: var(--eq-acrylic-translucent);
+			-webkit-backdrop-filter: var(--eq-acrylic-filter);
+			backdrop-filter: var(--eq-acrylic-filter);
+		}
+	}
+
+	.eq-context-slot .eq-path-context {
+		margin-bottom: 0;
+	}
+
+	.eq-path-context-name {
+		color: var(--eq-accent);
+		font-family: var(--font-display);
+		font-weight: 600;
+		text-decoration: none;
+	}
+
+	.eq-path-context-name:hover {
+		text-decoration: underline;
+	}
+
+	.eq-path-context-nav {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25rem 1rem;
+		margin-left: auto;
+	}
+
+	.eq-path-context-nav a {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.35rem;
+		color: var(--eq-ink);
+		text-decoration: none;
+	}
+
+	.eq-path-context-nav a:hover {
+		color: var(--eq-accent);
+		text-decoration: underline;
+	}
+
+	.eq-reader {
+		display: flex;
+		flex-direction: column;
+		gap: var(--eq-space-card-gap);
+	}
+
+	.eq-reader-heading {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.5rem 0.75rem;
+	}
+
+	.eq-reader-heading h2 {
+		margin: 0;
+		font-size: var(--text-page-title);
+		font-weight: 600;
+	}
+
+	.eq-reader-symbol {
+		color: var(--eq-ink-body);
+		font-family: var(--font-math);
+		font-size: 1.25rem;
+	}
+
+	.eq-reader-heading .eq-badge {
+		margin-left: auto;
+	}
+
+	.eq-reader-description {
+		margin: 0.85rem 0 0;
+		font-size: var(--text-body);
+		line-height: 1.7;
+		white-space: pre-line;
+	}
+
+	.eq-reader-outline {
+		margin-top: 1rem;
+	}
+
+	.eq-reader-outline h3 {
+		margin: 0 0 0.5rem;
+		font-size: var(--text-h6);
+		font-weight: 600;
+	}
+
+	.eq-reader-outline ol {
+		margin: 0;
+		padding-left: 1.5rem;
+		list-style: decimal;
+		font-size: 0.9rem;
+	}
+
+	.eq-reader-outline li + li {
+		margin-top: 0.25rem;
+	}
+
+	.eq-reader-outline .eq-label {
+		margin-right: 0.5rem;
+		color: var(--eq-ink-body);
+		font-size: 0.7rem;
+	}
+
+	.eq-reader-filter {
+		max-width: 28rem;
+		margin-bottom: 0.75rem;
+		border-radius: var(--radius-pill);
+		padding-inline: 1.25rem;
+	}
+
+	.eq-reader-rows {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.eq-reader-row {
+		box-sizing: border-box;
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		width: 100%;
+		padding: 0.5rem 0.75rem;
+		border: 0;
+		border-radius: var(--radius-md);
+		background-color: transparent;
+		color: var(--eq-ink-body);
+		font: inherit;
+		text-align: left;
+		transition:
+			color var(--eq-duration) var(--eq-ease),
+			background-color var(--eq-duration) var(--eq-ease);
+	}
+
+	button.eq-reader-row {
+		cursor: pointer;
+	}
+
+	button.eq-reader-row:hover {
+		background-color: var(--eq-tint);
+		color: var(--eq-ink);
+	}
+
+	.eq-reader-row .eq-badge-symbol {
+		font-family: var(--font-math);
+	}
+
+	button.eq-reader-row:hover .eq-badge-symbol {
+		background-color: var(--eq-ink);
+		color: var(--eq-bg);
+	}
+
+	.eq-reader-name {
+		font-family: var(--font-display);
+		font-weight: 500;
+	}
+
+	button.eq-reader-row .eq-reader-name {
+		color: var(--eq-ink);
+	}
+
+	.eq-reader-collection {
+		margin-left: auto;
+		color: var(--eq-ink-body);
+		font-size: 0.75rem;
+	}
+
+	.eq-reader-empty {
+		padding: 0.5rem 0.75rem;
+		color: var(--eq-ink-body);
+		font-size: 0.875rem;
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		.eq-tool-result > * {
+			animation: eq-fade-in 0.5s var(--eq-ease);
+		}
+	}
+}
+
+/**
+ * KaTeX's stylesheet loads unlayered, and unlayered rules beat every
+ * layered one, so resetting its display margin (the original zeroed the
+ * MathJax container margin in the backdrop) has to be unlayered too.
+ */
+.eq-calc-backdrop .katex-display {
+	margin: 0;
+	padding: 0;
+	overflow: visible;
+}
+
+/**
+ * The calculator's term tables are the original's `TableVariables`, the
+ * component the equation page also renders, so they take the same MathJax
+ * metrics the equation page measured: math at the surrounding size and
+ * line-height 0, a zero-width serif run that sets the row's line box, unit
+ * symbols at 1.05em, and no italic correction after an italic letter.
+ */
+.eq-calc-tables .katex {
+	font-size: 1em;
+}
+
+.eq-calc-tables .eq-cell-unit-symbol > .katex {
+	font-size: 1.05em;
+}
+
+.eq-calc-tables .eq-table-data td::before {
+	content: "\200b";
+	font-family: serif;
+}
+
+.eq-calc-tables .eq-table-data td > .katex {
+	line-height: 0;
+}
+
+.eq-calc-tables .katex .mathnormal:not(.mord > :first-child:nth-last-child(2)) {
+	/* biome-ignore lint/complexity/noImportantStyles: KaTeX writes the margin as an inline style */
+	margin-right: 0 !important;
+}

@@ -1,0 +1,12 @@
+---
+import { type Locale, t } from '@equreka/core/i18n';
+
+interface Props {
+	locale: Locale;
+	show: boolean;
+}
+
+const { locale, show } = Astro.props;
+---
+
+{show && <span class="eq-badge eq-badge-quiet">{t(locale, 'badge.untranslated')}</span>}

@@ -1,0 +1,212 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import pathsPresentation from '@equreka/content/artifact/presentation/paths.json';
+import {
+	type Locale,
+	type LocalizedText,
+	localizedName,
+	pickLocalized,
+	t,
+} from '@equreka/core/i18n';
+import type { Path } from '@equreka/schema';
+import BranchBadges from '../components/branch-badges.astro';
+import DraftBadge from '../components/draft-badge.astro';
+import Icon from '../components/icon.astro';
+import PageHeader from '../components/page-header.astro';
+import UntranslatedBadge from '../components/untranslated-badge.astro';
+import FavoriteToggle from '../islands/favorite-toggle';
+import PathProgress from '../islands/path-progress';
+import PathStepToggle from '../islands/path-step-toggle';
+import BaseLayout from '../layouts/base-layout.astro';
+import { asPath } from '../lib/collections';
+import { entryHref, withPathContext } from '../lib/entry-links';
+import { localePath } from '../lib/locale-paths';
+import { renderRichTextHtml } from '../lib/tex';
+
+interface Props {
+	entry: CollectionEntry<'paths'>;
+	locale?: Locale;
+}
+
+/**
+ * Pipeline-emitted step shape: entry steps carry their resolved target so
+ * this page needs no lookup into the target collection.
+ */
+type PresentationStep = Path['steps'][number] & {
+	target?: { name: LocalizedText; symbolText: string };
+};
+
+const { entry, locale = 'en' } = Astro.props;
+const path = asPath(entry.data);
+const slug = entry.id;
+const name = localizedName(path, locale);
+const steps =
+	(pathsPresentation as Record<string, { steps: PresentationStep[] }>)[slug]?.steps ?? path.steps;
+const stepIds = steps.map((step) => step.id);
+
+const allPaths = await getCollection('paths');
+const prerequisites = path.prerequisites.map((prerequisite) => {
+	const match = allPaths.find((candidate) => candidate.id === prerequisite);
+	return {
+		slug: prerequisite,
+		name: match === undefined ? prerequisite : localizedName(asPath(match.data), locale),
+	};
+});
+
+const description =
+	path.description === undefined ? undefined : pickLocalized(path.description, locale);
+const stepProse = (step: PresentationStep): LocalizedText[] => {
+	switch (step.kind) {
+		case 'entry':
+			return step.note === undefined ? [] : [step.note];
+		case 'prose':
+			return [step.body];
+		case 'check':
+			return [step.prompt, step.answer];
+	}
+};
+const untranslated =
+	locale !== 'en' &&
+	(pickLocalized(path.name, locale).untranslated ||
+		description?.untranslated === true ||
+		steps.some((step) => stepProse(step).some((text) => pickLocalized(text, locale).untranslated)));
+const levelLabel = t(locale, `level.${path.level}`);
+const metaDescription =
+	description === undefined
+		? t(locale, 'meta.path', { name, level: levelLabel.toLowerCase(), count: steps.length })
+		: `${description.value.replaceAll('$', '').slice(0, 157)}…`;
+
+const local = (text: LocalizedText): string => pickLocalized(text, locale).value;
+---
+
+<BaseLayout title={`${name} — Equreka`} description={metaDescription} locale={locale} ogType="article">
+	<PageHeader
+		slot="hero"
+		label={t(locale, 'paths.title')}
+		labelHref={localePath(locale, '/paths/')}
+		title={name}
+		accent="type-paths"
+	>
+		{description !== undefined && <p>{description.value}</p>}
+		<FavoriteToggle slot="actions" client:idle collection="paths" slug={slug} locale={locale} />
+	</PageHeader>
+	<article class="type-paths eq-cards">
+		<div class="eq-card eq-card-body eq-path-summary">
+			<div class="eq-chip-row">
+				<span class="eq-badge eq-badge-accent">{levelLabel}</span>
+				{
+					path.categories.map((category) => (
+						<span class={`eq-badge eq-badge-accent cat-${category}`}>{category}</span>
+					))
+				}
+				<BranchBadges locale={locale} branches={path.branches} />
+				<UntranslatedBadge locale={locale} show={untranslated} />
+				<DraftBadge locale={locale} status={path.status} />
+			</div>
+			<p class="eq-path-meta">
+				{t(locale, 'path.steps', { count: steps.length })}
+				{
+					path.estimatedMinutes !== undefined &&
+						` · ${t(locale, 'path.minutes', { count: path.estimatedMinutes })}`
+				}
+			</p>
+			{
+				prerequisites.length > 0 && (
+					<p class="eq-path-meta">
+						<span>{t(locale, 'path.prerequisites')}: </span>
+						{prerequisites.map((prerequisite, index) => (
+							<>
+								{index > 0 && ', '}
+								<a class="eq-link" href={localePath(locale, `/paths/${prerequisite.slug}/`)}>
+									{prerequisite.name}
+								</a>
+							</>
+						))}
+					</p>
+				)
+			}
+			<PathProgress client:idle variant="bar" pathSlug={slug} stepIds={stepIds} locale={locale} />
+		</div>
+
+		<ol class="eq-steps">
+			{
+				steps.map((step, index) => {
+					const kindLabel = t(locale, `path.kind.${step.kind}`);
+					const href =
+						step.kind === 'entry' ? entryHref(step.ref.collection, step.ref.slug) : undefined;
+					const linked =
+						href === undefined ? undefined : localePath(locale, withPathContext(href, slug, step.id));
+					const targetName =
+						step.kind === 'entry'
+							? step.target === undefined
+								? step.ref.slug
+								: local(step.target.name)
+							: '';
+					const targetSymbol = step.kind === 'entry' ? (step.target?.symbolText ?? '') : '';
+					return (
+						<li id={`step-${step.id}`} class="eq-card eq-card-body eq-step">
+							<div class="eq-step-row">
+								<PathStepToggle
+									client:idle
+									pathSlug={slug}
+									stepId={step.id}
+									stepIds={stepIds}
+									locale={locale}
+								/>
+								<div class="eq-step-body">
+									<p class="eq-step-kind">
+										<span class="eq-badge-symbol eq-step-number">{index + 1}</span>
+										<span class="sr-only"> · </span>
+										{kindLabel}
+									</p>
+									{step.kind === 'entry' && (
+										<>
+											<h2 class="eq-card-title eq-step-title">
+												{linked !== undefined ? (
+													<a class="eq-link" href={linked}>
+														{targetName}
+													</a>
+												) : (
+													<span>{targetName}</span>
+												)}
+												{targetSymbol !== '' && <span class="eq-step-symbol">{targetSymbol}</span>}
+											</h2>
+											{step.note !== undefined && (
+												<div class="eq-prose" set:html={renderRichTextHtml(local(step.note))} />
+											)}
+											{linked !== undefined && (
+												<a class="eq-btn eq-btn-sm eq-btn-tint eq-btn-pill eq-step-link" href={linked}>
+													{t(locale, 'path.openEntry')}
+													<Icon name="arrow-right" />
+												</a>
+											)}
+										</>
+									)}
+									{step.kind === 'prose' && (
+										<div class="eq-prose" set:html={renderRichTextHtml(local(step.body))} />
+									)}
+									{step.kind === 'check' && (
+										<details class="eq-check">
+											<summary>
+												<span
+													class="eq-check-prompt"
+													set:html={renderRichTextHtml(local(step.prompt))}
+												/>
+												<span class="eq-check-reveal">{t(locale, 'path.reveal')}</span>
+											</summary>
+											<div
+												class="eq-prose eq-check-answer"
+												set:html={renderRichTextHtml(local(step.answer))}
+											/>
+										</details>
+									)}
+								</div>
+							</div>
+						</li>
+					);
+				})
+			}
+		</ol>
+	</article>
+</BaseLayout>

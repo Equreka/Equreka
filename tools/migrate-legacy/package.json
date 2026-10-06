@@ -1,0 +1,21 @@
+{
+	"name": "@equreka/migrate-legacy",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"migrate": "tsx src/migrate.ts",
+		"typecheck": "tsc --noEmit -p tsconfig.json"
+	},
+	"dependencies": {
+		"@equreka/schema": "workspace:*",
+		"json5": "catalog:",
+		"yaml": "catalog:"
+	},
+	"devDependencies": {
+		"@equreka/config": "workspace:*",
+		"@types/node": "catalog:",
+		"tsx": "catalog:",
+		"typescript": "catalog:"
+	}
+}

@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Erg'
+symbol:
+  tex: 'erg'
+unitOf:
+  - 'energy'
+system: 'cgs'
+toBase:
+  factor: '1e-7'
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811'
+    ref: 'B.8: erg (erg)'
+status: 'reviewed'
+externalIds:
+  wikidata: 'Q185153'
+  qudt: 'http://qudt.org/vocab/unit/ERG'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+description:
+  en: >-
+    The erg is a unit of energy equal to $10^{−7} ~joules$ ($100 ~nJ$). It originated in the
+    centimetre–gram–second (CGS) system of units. It has the symbol erg. The erg is not an SI unit.

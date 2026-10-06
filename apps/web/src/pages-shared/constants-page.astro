@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import { type Locale, localizedName, t } from '@equreka/core/i18n';
+import CategoryListCards from '../components/category-list-cards.astro';
+import PageHeader from '../components/page-header.astro';
+import BaseLayout from '../layouts/base-layout.astro';
+import { asConstant } from '../lib/collections';
+import { localePath } from '../lib/locale-paths';
+import { engineSlice } from '../lib/server/engine-registry';
+import { renderSymbolHtml } from '../lib/tex';
+
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
+
+const items = (await getCollection('constants')).map((entry) => {
+	const constant = asConstant(entry.data);
+	const symbolText =
+		engineSlice.constants[entry.id]?.symbolText ?? constant.symbol.text ?? constant.symbol.tex;
+	return {
+		categories: constant.categories,
+		name: localizedName(constant, locale),
+		href: localePath(locale, `/constants/${entry.id}/`),
+		symbolHtml: renderSymbolHtml(constant.symbol.tex, symbolText),
+	};
+});
+---
+
+<BaseLayout
+	title={`${t(locale, 'collection.constants')} — Equreka`}
+	description={t(locale, 'meta.constants')}
+	locale={locale}
+>
+	<PageHeader
+		slot="hero"
+		label={t(locale, 'design.content.header.type')}
+		title={t(locale, 'collection.constants')}
+		accent="type-constants"
+	/>
+	<div class="type-constants eq-cards">
+		<CategoryListCards locale={locale} items={items} />
+	</div>
+</BaseLayout>

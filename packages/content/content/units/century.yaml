@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Century'
+symbol:
+  tex: 'c'
+unitOf:
+  - 'time'
+system: 'other'
+toBase:
+  factor: '3153600000'
+  exact: false
+  source:
+    name: 'convention'
+    ref: '1 century = 100 common years of 365 d'
+status: 'reviewed'
+externalIds:
+  wikidata: 'Q578'
+categories:
+  - 'universal'
+  - 'physics'
+branches:
+  - 'mechanics'
+  - 'measurement'
+description:
+  en: >-
+    A century is a period of 100 years. Centuries are numbered ordinally in English and many other
+    languages. The word century comes from the Latin centum, meaning one hundred. Century is
+    sometimes abbreviated as c.

@@ -1,0 +1,30 @@
+{
+	"name": "@equreka/engine",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"sideEffects": false,
+	"exports": {
+		".": "./src/index.ts",
+		"./units": "./src/units/index.ts",
+		"./constants": "./src/constants/index.ts",
+		"./solutions": "./src/solutions/index.ts",
+		"./format": "./src/format/index.ts"
+	},
+	"scripts": {
+		"typecheck": "tsc --noEmit -p tsconfig.json",
+		"test": "vitest run --passWithNoTests",
+		"test:hermes": "node scripts/hermes-smoke.mjs"
+	},
+	"dependencies": {
+		"@equreka/schema": "workspace:*"
+	},
+	"devDependencies": {
+		"@equreka/config": "workspace:*",
+		"@types/node": "catalog:",
+		"esbuild": "catalog:",
+		"fast-check": "catalog:",
+		"typescript": "catalog:",
+		"vitest": "catalog:"
+	}
+}

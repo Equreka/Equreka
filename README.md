@@ -1,77 +1,30 @@
-<div align="center">
+# Equreka
 
-![Logo](./assets/brand/logo.png)
+Your free and open-source app for equations, formulas, constants, magnitudes, variables and units — an offline-first web app (Astro) and mobile app (Expo) sharing one typed domain core.
 
-# Equreka 
-[![Discord](https://img.shields.io/discord/812053915356364811?style=social&logo=discord&label=Discord&labelColor=f2f2f2)](https://discord.gg/NZypuxvAB6)
-[![Twitter Follow](https://img.shields.io/twitter/follow/Equreka?style=social)](https://twitter.com/Equreka)
-[![Sponsor](https://img.shields.io/github/sponsors/DerianAndre?style=social)](https://github.com/sponsors/DerianAndre)
-[![GitHub](https://img.shields.io/github/license/Equreka/Equreka?color=green&label=License)](https://github.com//Equreka)
+> **Status: v2 rebuild in progress.** The previous Nuxt 2 application lives in the git history of this organization's original repository.
 
-### Your free and open-source app for equations, formulas, constants, magnitudes, variables and units.
-
-**Sponsor Equreka** https://github.com/sponsors/DerianAndre
-
-</div>
-
-#####
-
-## You can help and we need you!
-Join us at Discord: https://discord.gg/NZypuxvAB6
-
-
-## Build Setup
+## Development
 
 ```bash
-# install dependencies
-$ npm install
-
-# serve with hot reload at localhost:3000
-$ npm run dev
-
-# build for production and launch server
-$ npm run build 
-$ npm run start
-
-# generate static project
-$ npm run generate
+pnpm install
+pnpm env:init
+pnpm dev:web
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+| Command                                      | Action                                                 |
+| -------------------------------------------- | ------------------------------------------------------ |
+| `pnpm dev:web` / `pnpm dev:mobile`           | Run an app in dev mode                                 |
+| `pnpm build`                                 | Build everything (Turborepo, cached)                   |
+| `pnpm lint` / `pnpm typecheck` / `pnpm test` | Quality gates                                          |
+| `pnpm check`                                 | Content validation (schema, integrity, TeX, solutions) |
 
-## To-do
+## Repository layout
 
-### Data
-- [X] SI basic units
-- [X] SI basic constants
-- [ ] SI derivated units
-- [ ] Get at least 100 mixed data
-- [ ] Add subCategories or tags
-### App
-- [X] App for Android (WIP)
-- [ ] App for iOS (WIP)
-- [ ] Beta test
-### UI
-- [ ] Improve UX/UI (always doing it!)
-- [X] Add content for everything
-- [ ] Add copy-to-clipboard for conversions
-### Calculator
-- [X] Automatically create inputs, import function file and get constants
-- [X] Error message system
-- [X] Copy to clipboard
-- [ ] Unit input for equations/formulas
-- [X] Unit ratio conversion-system
-- [X] Unit formula conversion-system
-- [ ] Computer Algebra System (Future)
-### Scripts
-- [X] Hover system for web
-- [ ] Hover: Better hover system for app
-- [X] Languages: Save in localStorage
-- [X] Favorites: System with localStorage
-- [X] Favorites: Add export
-- [ ] Favorites: Add import
-- [ ] Favorites: Fix export for capacitor
-- [ ] Report system
-### Code
-- [ ] Clean code
-- [ ] Optimizations and refactors
+- `apps/` — `web` (Astro 7 + React islands, offline PWA) · `mobile` (Expo SDK 57)
+- `packages/` — `schema`, `content`, `engine`, `core`, `tokens`, `config`
+- `docs/architecture/decisions/` — architecture decision records
+
+## License
+
+GPL-3.0

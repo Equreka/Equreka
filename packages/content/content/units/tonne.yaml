@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Tonne'
+symbol:
+  tex: 't'
+unitOf:
+  - 'mass'
+system: 'other'
+toBase:
+  factor: '1000'
+  source:
+    name: 'SI Brochure (9th ed.)'
+    url: 'https://www.bipm.org/en/publications/si-brochure'
+    ref: 'Table 8: tonne, 1 t = 1000 kg'
+status: 'reviewed'
+externalIds:
+  wikidata: 'Q191118'
+  qudt: 'http://qudt.org/vocab/unit/TONNE'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'metric ton'
+  - 'metric tonne'
+description:
+  en: >-
+    The tonne (/tʌn/ or /tɒn/; symbol: t) is a metric unit of mass equal to 1,000 kilograms. It is
+    also referred to as a metric ton. It is equivalent to approximately 2,204.6 pounds; 1.102 short
+    tons (US), and 0.984 long tons (UK). The official SI unit is the megagram (symbol: Mg), a less
+    common way to express the same mass.
+references:
+  - title: 'Tonne'
+    url: 'https://en.wikipedia.org/wiki/Tonne'

@@ -1,0 +1,80 @@
+---
+import { renderSymbolHtml } from '../lib/tex';
+
+/**
+ * Legacy MathValue: a decimal string in normalized scientific notation,
+ * `mantissa ×10^±n`, with the exponent sign green (+) or red (-); a zero
+ * exponent prints the plain number. `tex` renders KaTeX for display math,
+ * `html` the original's serif HTML form used in tables. The value stays a
+ * string end to end: normalization is digit manipulation, never parsing.
+ * `truncated` appends an ellipsis to the digits (before any ×10ⁿ) for a
+ * value that cuts off a longer true value (π, ħ).
+ */
+interface Props {
+	value: string;
+	format?: 'tex' | 'html';
+	truncated?: boolean | undefined;
+	class?: string | undefined;
+}
+
+const { value, format = 'html', truncated = false, class: className } = Astro.props;
+
+const DECIMAL_RE = /^([+-]?)(\d*)(?:\.(\d*))?(?:[eE]([+-]?\d+))?$/;
+
+function scientific(raw: string): { sign: string; mantissa: string; exponent: number } | null {
+	const match = DECIMAL_RE.exec(raw.trim());
+	if (match === null) return null;
+	const [, sign = '', integer = '', fraction = '', exponentText] = match;
+	const digits = integer + fraction;
+	const firstSignificant = digits.search(/[1-9]/);
+	if (firstSignificant === -1) return { sign: '', mantissa: '0', exponent: 0 };
+	const significant = digits.slice(firstSignificant).replace(/0+$/, '');
+	const exponent =
+		integer.length - 1 - firstSignificant + (exponentText === undefined ? 0 : Number(exponentText));
+	const rest = significant.slice(1);
+	return {
+		sign: sign === '-' ? '-' : '',
+		mantissa: rest === '' ? significant.charAt(0) : `${significant.charAt(0)}.${rest}`,
+		exponent,
+	};
+}
+
+const parts = scientific(value);
+const exponentSign = parts === null || parts.exponent >= 0 ? '+' : '-';
+const exponentDigits = parts === null ? '' : String(Math.abs(parts.exponent));
+const signClass = exponentSign === '+' ? 'eq-exp-plus' : 'eq-exp-minus';
+const texEllipsis = truncated ? '\\ldots' : '';
+const htmlEllipsis = truncated ? '…' : '';
+const texHtml =
+	format === 'tex'
+		? renderSymbolHtml(
+				parts === null
+					? `${value}${texEllipsis}`
+					: parts.exponent === 0
+						? `\\htmlClass{eq-math-mantissa}{${parts.sign}${parts.mantissa}${texEllipsis}}`
+						: `\\htmlClass{eq-math-mantissa}{${parts.sign}${parts.mantissa}${texEllipsis}}\\htmlClass{eq-math-exponent}{\\times 10}^{\\htmlClass{${signClass}}{${exponentSign}}\\htmlClass{eq-math-mantissa}{${exponentDigits}}}`,
+				`${value}${htmlEllipsis}`,
+			)
+		: '';
+---
+
+{
+	format === 'tex' ? (
+		<span class:list={['eq-math-value', className]} set:html={texHtml} />
+	) : parts === null || parts.exponent === 0 ? (
+		<span class:list={['eq-math-value', 'eq-math-html', className]}>
+			{parts === null ? `${value}${htmlEllipsis}` : `${parts.sign}${parts.mantissa}${htmlEllipsis}`}
+		</span>
+	) : (
+		<span class:list={['eq-math-value', 'eq-math-html', className]}>
+			{`${parts.sign}${parts.mantissa}${htmlEllipsis}`}
+			<span class="eq-math-exponent">×10</span>
+			<sup>
+				<span class:list={['eq-exp-sign', signClass]}>
+					{exponentSign}
+				</span>
+				<span class="eq-math-mantissa">{exponentDigits}</span>
+			</sup>
+		</span>
+	)
+}

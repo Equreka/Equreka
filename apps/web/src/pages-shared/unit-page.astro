@@ -1,0 +1,200 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import { type Locale, localizedName, pickLocalized, t, tParts } from '@equreka/core/i18n';
+import BranchBadges from '../components/branch-badges.astro';
+import CodeCard from '../components/code-card.astro';
+import CollapseCard from '../components/collapse-card.astro';
+import DisplayNameSymbol from '../components/display-name-symbol.astro';
+import DraftBadge from '../components/draft-badge.astro';
+import EntryActions from '../components/entry-actions.astro';
+import EntryIdentifiers from '../components/entry-identifiers.astro';
+import PageHeader from '../components/page-header.astro';
+import UnitConversionTable from '../components/unit-conversion-table.astro';
+import UntranslatedBadge from '../components/untranslated-badge.astro';
+import ConverterIsland from '../islands/converter-island';
+import FavoriteToggle from '../islands/favorite-toggle';
+import PathContextBar from '../islands/path-context-bar';
+import BaseLayout from '../layouts/base-layout.astro';
+import { asMagnitude, asPrefix, asUnit } from '../lib/collections';
+import { converterMagnitudeOf, isDraft } from '../lib/entry-meta';
+import { localePath } from '../lib/locale-paths';
+import { engineSlice } from '../lib/server/engine-registry';
+import { renderRichTextHtml } from '../lib/tex';
+import { symbolTextOf } from '../lib/unit-symbol';
+
+interface Props {
+	entry: CollectionEntry<'units'>;
+	locale?: Locale;
+}
+
+const { entry, locale = 'en' } = Astro.props;
+const unit = asUnit(entry.data);
+const slug = entry.id;
+const symbolText = symbolTextOf({ ...unit, slug });
+const name = localizedName(unit, locale);
+
+const magnitudeEntries = await getCollection('magnitudes');
+const magnitudes = unit.unitOf.map((magnitudeSlug) => {
+	const match = magnitudeEntries.find((candidate) => candidate.id === magnitudeSlug);
+	return {
+		slug: magnitudeSlug,
+		name: match === undefined ? magnitudeSlug : localizedName(asMagnitude(match.data), locale),
+	};
+});
+
+const prefixOf = unit.prefixOf;
+const baseEntry =
+	prefixOf === undefined
+		? undefined
+		: (await getCollection('units')).find((candidate) => candidate.id === prefixOf.base);
+const prefixEntry =
+	prefixOf === undefined
+		? undefined
+		: (await getCollection('prefixes')).find((candidate) => candidate.id === prefixOf.prefix);
+const derivation =
+	prefixOf === undefined
+		? undefined
+		: {
+				base: {
+					href: localePath(locale, `/units/${prefixOf.base}/`),
+					label:
+						baseEntry === undefined ? prefixOf.base : localizedName(asUnit(baseEntry.data), locale),
+				},
+				prefix: {
+					href: localePath(locale, `/prefixes/#${prefixOf.prefix}`),
+					label:
+						prefixEntry === undefined
+							? prefixOf.prefix
+							: localizedName(asPrefix(prefixEntry.data), locale).toLowerCase(),
+				},
+			};
+
+const compound = unit.unitOf.length === 0;
+const converterMagnitude = converterMagnitudeOf(slug, unit.unitOf, engineSlice);
+
+const description =
+	unit.description === undefined ? undefined : pickLocalized(unit.description, locale);
+const untranslated =
+	locale !== 'en' &&
+	(pickLocalized(unit.name, locale).untranslated || description?.untranslated === true);
+const converterLabel = t(locale, 'unit.convert', { name: name.toLowerCase() });
+const hasConverter = !unit.nonConvertible && converterMagnitude !== undefined;
+const metaDescription =
+	description === undefined
+		? t(locale, 'meta.unit', { name, symbol: symbolText })
+		: `${description.value.replaceAll('$', '').slice(0, 157)}…`;
+---
+
+<BaseLayout
+	definedTerm={{ name, externalIds: unit.externalIds }}
+	title={`${name} (${symbolText}) — Equreka`}
+	description={metaDescription}
+	locale={locale}
+	ogType="article"
+>
+	<PageHeader
+		slot="hero"
+		entry
+		label={t(locale, 'collection.units')}
+		labelHref={localePath(locale, '/units/')}
+		title={name}
+		accent="type-units"
+	>
+		<EntryActions
+			slot="actions"
+			locale={locale}
+			collection="units"
+			slug={slug}
+			data={entry.data}
+			calculator={hasConverter ? { href: '#unit-converter-heading', label: converterLabel } : undefined}
+		>
+			<FavoriteToggle client:idle collection="units" slug={slug} locale={locale} />
+		</EntryActions>
+	</PageHeader>
+	<PathContextBar slot="context" client:idle locale={locale} />
+	<article class="type-units eq-data eq-cards">
+		<div class="eq-card eq-display-card">
+			<div class="eq-display-math">
+				<DisplayNameSymbol name={name} symbolTex={unit.symbol.tex} symbolText={symbolText} />
+			</div>
+		</div>
+
+		<CollapseCard headingId="unit-information-heading" title={t(locale, 'design.content.entry.information')}>
+			<div class="eq-unit-of">
+				<span class="eq-unit-of-label">{t(locale, 'design.content.entry.unitOf')}</span>
+				{
+					compound ? (
+						<span class="eq-definition-muted">{t(locale, 'unit.compoundHint')}</span>
+					) : (
+						magnitudes.map((magnitude) => (
+							<a
+								class="eq-badge eq-badge-accent eq-badge-link type-magnitudes"
+								href={localePath(locale, `/magnitudes/${magnitude.slug}/`)}
+							>
+								{magnitude.name}
+							</a>
+						))
+					)
+				}
+			</div>
+
+			{
+				description !== undefined && (
+					<div class="eq-prose" set:html={renderRichTextHtml(description.value)} />
+				)
+			}
+
+			{
+				derivation !== undefined && (
+					<p class="eq-card-note">
+						{tParts(locale, 'unit.derivedFrom').map((part) => {
+							if (part.kind === 'text') return part.text;
+							const link = part.name === 'base' ? derivation.base : derivation.prefix;
+							return (
+								<a class="eq-link" href={link.href}>
+									{link.label}
+								</a>
+							);
+						})}
+					</p>
+				)
+			}
+
+			<EntryIdentifiers locale={locale} externalIds={unit.externalIds} />
+		</CollapseCard>
+
+		{!unit.nonConvertible && <UnitConversionTable unitSlug={slug} locale={locale} />}
+
+		<CodeCard locale={locale} code={unit.symbol.tex} />
+
+		{
+			(unit.branches.length > 0 || untranslated || isDraft(unit.status)) && (
+				<CollapseCard
+					headingId="unit-relations-heading"
+					title={t(locale, 'design.content.entry.relations')}
+					class="eq-relations-card"
+				>
+					<div class="eq-chip-row">
+						<BranchBadges locale={locale} branches={unit.branches} />
+						<UntranslatedBadge locale={locale} show={untranslated} />
+						<DraftBadge locale={locale} status={unit.status} />
+					</div>
+				</CollapseCard>
+			)
+		}
+
+		{
+			hasConverter && converterMagnitude !== undefined && (
+				<CollapseCard headingId="unit-converter-heading" title={converterLabel}>
+					<ConverterIsland
+						client:visible
+						initialMagnitude={converterMagnitude}
+						initialFrom={slug}
+						locale={locale}
+					/>
+				</CollapseCard>
+			)
+		}
+	</article>
+</BaseLayout>

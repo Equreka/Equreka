@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Cubic metre'
+symbol:
+  tex: 'm^{3}'
+  text: 'm³'
+unitOf:
+  - 'volume'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'metre'
+      exp: 3
+externalIds:
+  wikidata: 'Q25517'
+  qudt: 'http://qudt.org/vocab/unit/M3'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'cubic meter'
+  - 'm3'
+  - 'm^3'
+description:
+  en: >-
+    The cubic metre (in Commonwealth English and international spelling as used by the International
+    Bureau of Weights and Measures) or cubic meter (in American English) is the SI derived unit of
+    volume. Its SI symbol is $m^{3}$. It is the volume of a cube with edges one metre in length. An
+    alternative name, which allowed a different usage with metric prefixes, was the stère, still
+    sometimes used for dry measure (for instance, in reference to wood). Another alternative name,
+    no longer widely used, was the kilolitre.

@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'U.S. Pint'
+symbol:
+  tex: 'US\ pt'
+  text: 'US pt'
+unitOf:
+  - 'volume'
+system: 'uscs'
+toBase:
+  factor: '0.000473176473'
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811'
+    ref: 'B.8: pint (U.S. liquid) (pt); exact as 1/8 gal'
+status: 'reviewed'
+externalIds:
+  wikidata: 'Q32750621'
+  qudt: 'http://qudt.org/vocab/unit/PINT_US'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'pint'
+  - 'pt'
+  - 'US pt'
+description:
+  en: >-
+    The pint (/ˈpaɪnt/, symbol $pt$, sometimes abbreviated as $p$) is a unit of volume or capacity
+    in both the imperial and United States customary measurement systems. In both of those systems
+    it is traditionally one eighth of a gallon. The British imperial pint is about 20% larger than
+    the American pint because the two systems are defined differently. Almost all other countries
+    have standardized on the metric system, so the size of what may be called a pint, from the
+    French la pinte, varies depending on local custom.

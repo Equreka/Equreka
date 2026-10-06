@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Kelvin'
+symbol:
+  tex: 'K'
+unitOf:
+  - 'thermodynamic-temperature'
+system: 'si'
+externalIds:
+  wikidata: 'Q11579'
+  qudt: 'http://qudt.org/vocab/unit/K'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+description:
+  en: >-
+    The kelvin is the base unit of temperature in the International System of Units (SI), having the
+    unit symbol $K$. It is named after the Belfast-born Glasgow University engineer and physicist
+    William Thomson, 1st Baron Kelvin (1824–1907).

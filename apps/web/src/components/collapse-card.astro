@@ -1,0 +1,73 @@
+---
+import IconGlyph from './icon-glyph.astro';
+
+/**
+ * Legacy CardCollapse / CardList on zero-JS `<details open>`: the card
+ * carries the acrylic surface and margin, the inner body the padding, as
+ * the original `.card > .card-body` did. `chevron` 'start' is the list-card
+ * look (chevron before the title), 'end' the entry-page look (chevron after
+ * it, pointing down when open). The "View all" pill sits outside
+ * `<summary>` so no link nests inside the disclosure button. `titleId`
+ * labels the section when the heading's id is reserved as a fragment
+ * target. The chevron and the arrow are glyphs of the legacy icon font,
+ * as the original drew them.
+ */
+interface Props {
+	headingId: string;
+	title: string;
+	titleId?: string | undefined;
+	level?: 2 | 3;
+	count?: number | undefined;
+	chevron?: 'start' | 'end';
+	viewAll?: { href: string; label: string } | undefined;
+	class?: string | undefined;
+}
+
+const {
+	headingId,
+	title,
+	titleId,
+	level = 2,
+	count,
+	chevron = 'end',
+	viewAll,
+	class: className,
+} = Astro.props;
+const Heading = level === 2 ? 'h2' : 'h3';
+---
+
+<section
+	aria-labelledby={titleId ?? headingId}
+	class:list={[
+		'eq-card',
+		'eq-collapse-card',
+		viewAll !== undefined && 'eq-collapse-card-linked',
+		className,
+	]}
+>
+	<div class="eq-card-body">
+		<details open class:list={['eq-collapse', `eq-collapse-${chevron}`]}>
+			<summary>
+				<IconGlyph
+					name={chevron === 'start' ? 'chevron-right' : 'chevron-left'}
+					class="eq-collapse-chevron"
+				/>
+				<Heading id={headingId} class="eq-collapse-title">
+					{titleId === undefined ? title : <span id={titleId}>{title}</span>}
+					{count !== undefined && <span class="eq-count">{count}</span>}
+				</Heading>
+			</summary>
+			<div class="eq-collapse-content">
+				<slot />
+			</div>
+		</details>
+		{
+			viewAll !== undefined && (
+				<a class="eq-btn eq-btn-sm eq-btn-tint eq-btn-pill eq-view-all" href={viewAll.href}>
+					<span class="eq-view-all-label">{viewAll.label}</span>
+					<IconGlyph name="arrow-right" />
+				</a>
+			)
+		}
+	</div>
+</section>

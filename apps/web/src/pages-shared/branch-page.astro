@@ -1,0 +1,82 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
+import CollapseCard from '../components/collapse-card.astro';
+import CollectionListCards from '../components/collection-list-cards.astro';
+import EntryIdentifiers from '../components/entry-identifiers.astro';
+import PageHeader from '../components/page-header.astro';
+import UntranslatedBadge from '../components/untranslated-badge.astro';
+import FavoriteToggle from '../islands/favorite-toggle';
+import BaseLayout from '../layouts/base-layout.astro';
+import { asBranch, asCategory } from '../lib/collections';
+import { localePath } from '../lib/locale-paths';
+import { memberEntries } from '../lib/server/taxonomy';
+
+interface Props {
+	entry: CollectionEntry<'branches'>;
+	locale?: Locale;
+}
+
+const { entry, locale = 'en' } = Astro.props;
+const branch = asBranch(entry.data);
+const slug = entry.id;
+const name = localizedName(branch, locale);
+
+const categoryEntry = (await getCollection('categories')).find(
+	(item) => item.id === branch.category,
+);
+const categoryName =
+	categoryEntry === undefined
+		? branch.category
+		: localizedName(asCategory(categoryEntry.data), locale);
+
+const members = (await memberEntries(locale)).filter((member) => member.branches.includes(slug));
+
+const description =
+	branch.description === undefined ? undefined : pickLocalized(branch.description, locale);
+const untranslated =
+	locale !== 'en' &&
+	(pickLocalized(branch.name, locale).untranslated || description?.untranslated === true);
+const metaDescription =
+	description === undefined
+		? t(locale, 'meta.branch', { name, category: categoryName })
+		: `${description.value.slice(0, 157)}…`;
+---
+
+<BaseLayout
+	title={`${name} — Equreka`}
+	description={metaDescription}
+	locale={locale}
+	ogType="article"
+>
+	<PageHeader
+		slot="hero"
+		label={t(locale, 'branch.of', { category: categoryName })}
+		labelHref={localePath(locale, `/categories/${branch.category}/#branch-${slug}`)}
+		title={name}
+		accent={`cat-${branch.category}`}
+	>
+		<FavoriteToggle slot="actions" client:idle collection="branches" slug={slug} locale={locale} />
+	</PageHeader>
+	<article class={`cat-${branch.category} eq-cards`}>
+		<CollectionListCards locale={locale} members={members} />
+
+		{
+			(untranslated || description !== undefined || branch.externalIds !== undefined) && (
+				<CollapseCard
+					headingId="branch-information-heading"
+					title={t(locale, 'design.content.entry.information')}
+				>
+					{untranslated && (
+						<div class="eq-chip-row">
+							<UntranslatedBadge locale={locale} show={untranslated} />
+						</div>
+					)}
+					{description !== undefined && <p class="eq-prose">{description.value}</p>}
+					<EntryIdentifiers locale={locale} externalIds={branch.externalIds} />
+				</CollapseCard>
+			)
+		}
+	</article>
+</BaseLayout>

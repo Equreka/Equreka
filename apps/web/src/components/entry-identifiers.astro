@@ -1,0 +1,26 @@
+---
+import { type Locale, t } from '@equreka/core/i18n';
+import type { ExternalIds } from '@equreka/schema';
+import { externalLinks } from '../lib/entry-meta';
+
+interface Props {
+	locale: Locale;
+	externalIds: ExternalIds | undefined;
+}
+
+const { locale, externalIds } = Astro.props;
+const links = externalLinks(externalIds);
+---
+
+{
+	links.length > 0 && (
+		<p class="eq-chip-row eq-identifiers">
+			<span class="eq-chip-row-label">{t(locale, 'entry.identifiers')}</span>
+			{links.map((link) => (
+				<a class="eq-badge eq-badge-outline eq-badge-link" href={link.href} rel="external noopener">
+					{link.label}
+				</a>
+			))}
+		</p>
+	)
+}

@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import type { InferGetStaticPropsType } from 'astro';
+import ConstantPage from '../../pages-shared/constant-page.astro';
+
+export async function getStaticPaths() {
+	const constants = await getCollection('constants');
+	return constants.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { entry } = Astro.props;
+---
+
+<ConstantPage entry={entry} />

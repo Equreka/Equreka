@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Imperial Gallon'
+symbol:
+  tex: 'imp\ gal'
+  text: 'imp gal'
+unitOf:
+  - 'volume'
+system: 'imperial'
+toBase:
+  factor: '0.00454609'
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811'
+    ref: 'B.8: gallon [Canadian and U.K. (Imperial)] (gal)'
+status: 'reviewed'
+externalIds:
+  wikidata: 'Q23925410'
+  qudt: 'http://qudt.org/vocab/unit/GAL_IMP'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'UK gallon'
+  - 'imp gal'
+description:
+  en: >-
+    The imperial gallon ($imp gal$), defined as 4.54609 litres, which is or was used in the United
+    Kingdom, Canada, and some Caribbean countries.

@@ -1,0 +1,30 @@
+---
+import { type Locale, localizedName } from '@equreka/core/i18n';
+import { localePath } from '../lib/locale-paths';
+import { branchRecords } from '../lib/server/taxonomy';
+
+interface Props {
+	locale: Locale;
+	branches: readonly string[];
+}
+
+const { locale, branches } = Astro.props;
+const records = await branchRecords();
+const links = branches.flatMap((slug) => {
+	const branch = records[slug];
+	return branch === undefined
+		? []
+		: [{ slug, name: localizedName(branch, locale), category: branch.category }];
+});
+---
+
+{
+	links.map((link) => (
+		<a
+			class={`eq-badge eq-badge-accent eq-badge-link cat-${link.category}`}
+			href={localePath(locale, `/branches/${link.slug}/`)}
+		>
+			{link.name}
+		</a>
+	))
+}

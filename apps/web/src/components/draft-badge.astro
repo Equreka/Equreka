@@ -1,0 +1,20 @@
+---
+import { type Locale, t } from '@equreka/core/i18n';
+import type { EditorialStatus } from '@equreka/schema';
+import { isDraft } from '../lib/entry-meta';
+
+interface Props {
+	locale: Locale;
+	status: EditorialStatus | undefined;
+}
+
+const { locale, status } = Astro.props;
+---
+
+{
+	isDraft(status) && (
+		<span class="eq-badge eq-badge-warning" title={t(locale, 'badge.draftHint')} data-status="draft">
+			{t(locale, 'badge.draft')}
+		</span>
+	)
+}

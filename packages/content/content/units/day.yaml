@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Day'
+symbol:
+  tex: 'd'
+unitOf:
+  - 'time'
+system: 'other'
+toBase:
+  factor: '86400'
+  source:
+    name: 'SI Brochure (9th ed.)'
+    url: 'https://www.bipm.org/en/publications/si-brochure'
+    ref: 'Table 8: day, 1 d = 86400 s'
+status: 'reviewed'
+externalIds:
+  wikidata: 'Q573'
+  qudt: 'http://qudt.org/vocab/unit/DAY'
+categories:
+  - 'universal'
+  - 'physics'
+branches:
+  - 'mechanics'
+  - 'measurement'
+description:
+  en: >-
+    As a term in physics and astronomy it is approximately the period during which the Earth
+    completes one rotation around its axis, which takes about 24 hours.

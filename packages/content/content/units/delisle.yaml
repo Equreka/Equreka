@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Delisle'
+symbol:
+  tex: '°De'
+unitOf:
+  - 'thermodynamic-temperature'
+system: 'other'
+toBase:
+  factor:
+    num: '-2'
+    den: '3'
+  offset:
+    num: '7463'
+    den: '20'
+  source:
+    name: 'convention'
+    ref: 'Delisle scale: 0 °De = 100 °C, 150 °De = 0 °C'
+status: 'reviewed'
+externalIds:
+  wikidata: 'Q68726230'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'degDe'
+description:
+  en: >-
+    The Delisle scale is a way of measuring temperature conceived in 1732 by the French astronomer
+    Joseph-Nicolas Delisle (1688-1768). Its units are degrees Delisle, they are represented by the
+    symbol $°D$ and each one is equal to −2/3 of a degree Celsius or Kelvin. The zero of the scale
+    is at the boiling temperature of water and measures 150 $°D$ for the melting of water, it
+    increases as the other scales descend until it reaches absolute zero at 559.725 $°D$.

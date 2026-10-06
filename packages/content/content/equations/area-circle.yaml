@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Circle area'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{A}=\const{\pi}\var{r}^{2}'
+terms:
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Radius'
+    unit: 'metre'
+solutions:
+  A: 'pi * r^2'
+  r: 'sqrt(A / pi)'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+description:
+  en: >-
+    In geometry, the area enclosed by a circle of radius $r$ is $\pi r^{2}$. Here the Greek letter π
+    represents the constant ratio of the circumference of any circle to its diameter, approximately
+    equal to 3.1416. One method of deriving this formula, which originated with Archimedes, involves
+    viewing the circle as the limit of a sequence of regular polygons.

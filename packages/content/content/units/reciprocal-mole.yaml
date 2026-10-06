@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Reciprocal mole'
+symbol:
+  tex: 'mol^{-1}'
+unitOf: []
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'mole'
+      exp: -1
+externalIds:
+  wikidata: 'Q68712008'
+  qudt: 'http://qudt.org/vocab/unit/PER-MOL'
+categories:
+  - 'chemistry'
+branches:
+  - 'amount-of-substance'
+aliases:
+  - '1/mol'
+  - 'per mole'
+  - 'mol^-1'
+description:
+  en: >-
+    The reciprocal of the mole, used for quantities that count entities per amount of substance —
+    most prominently the Avogadro constant ($6.02214076 \times 10^{23}\,mol^{-1}$).

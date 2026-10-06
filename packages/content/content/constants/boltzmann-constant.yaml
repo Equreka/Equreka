@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Boltzmann constant'
+symbol:
+  tex: 'k'
+symbolAlt:
+  tex: 'k_{\rm {B}}'
+  text: 'kB'
+value: '1.380649e-23'
+unit: 'joule-per-kelvin'
+exact: true
+externalIds:
+  wikidata: 'Q5962'
+  qudt: 'http://qudt.org/vocab/constant/BoltzmannConstant'
+categories:
+  - 'universal'
+  - 'physics'
+branches:
+  - 'thermodynamics'
+  - 'si-system'
+aliases:
+  - 'boltzmann'
+  - 'kB'
+  - 'k_B'
+description:
+  en: >-
+    Boltzmann's constant ($k$ or $k_{\rm {B}}$) is the physical constant that relates absolute
+    temperature and energy. Named after the Austrian physicist Ludwig Boltzmann, who made important
+    contributions to the theory of statistical mechanics, in fundamental equations this constant
+    plays a central role. Its value is a fixed number without uncertainty (November 26, 2018 CGPM,
+    effective from May 20, 2019)

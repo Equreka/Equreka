@@ -1,0 +1,26 @@
+{
+	"name": "@equreka/design-parity",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"parity": "tsx src/run.ts",
+		"typecheck": "tsc --noEmit -p tsconfig.json",
+		"test": "vitest run"
+	},
+	"dependencies": {
+		"@fontsource/poppins": "catalog:",
+		"pixelmatch": "catalog:",
+		"playwright-core": "catalog:",
+		"pngjs": "catalog:",
+		"zod": "catalog:"
+	},
+	"devDependencies": {
+		"@equreka/config": "workspace:*",
+		"@types/node": "catalog:",
+		"@types/pngjs": "catalog:",
+		"tsx": "catalog:",
+		"typescript": "catalog:",
+		"vitest": "catalog:"
+	}
+}

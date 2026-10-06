@@ -1,41 +1,74 @@
-name: ci
+# CI shape: gated jobs closed by a `validate` job with if: always() —
+# a skipped upstream gate is a failure, never a silent pass.
+name: CI
 
 on:
   push:
-    branches:
-      - main
-      - master
+    branches: [main]
   pull_request:
-    branches:
-      - main
-      - master
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  ci:
-    runs-on: ${{ matrix.os }}
-
-    strategy:
-      matrix:
-        os: [ubuntu-latest]
-        node: [14]
-
+  static-checks:
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎
-        uses: actions/checkout@master
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - run: pnpm lint
+      - run: pnpm quality
 
-      - name: Setup node env 🏗
-        uses: actions/setup-node@v2.1.2
+  typecheck:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - uses: actions/cache@v4
         with:
-          node-version: ${{ matrix.node }}
+          path: .turbo
+          key: turbo-${{ runner.os }}-${{ github.sha }}
+          restore-keys: turbo-${{ runner.os }}-
+      - run: pnpm typecheck
 
-      - name: Cache node_modules 📦
-        uses: actions/cache@v2
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - uses: actions/cache@v4
         with:
-          path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            ${{ runner.os }}-node-
+          path: .turbo
+          key: turbo-test-${{ runner.os }}-${{ github.sha }}
+          restore-keys: turbo-test-${{ runner.os }}-
+      - run: pnpm test
 
-      - name: Install dependencies 👨🏻‍💻
-        run: npm ci
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/setup
+      - uses: actions/cache@v4
+        with:
+          path: .turbo
+          key: turbo-build-${{ runner.os }}-${{ github.sha }}
+          restore-keys: turbo-build-${{ runner.os }}-
+      - run: pnpm build
+      - run: pnpm check
 
+  validate:
+    runs-on: ubuntu-latest
+    needs: [static-checks, typecheck, test, build]
+    if: always()
+    steps:
+      - name: Fail if any gate failed or was skipped
+        run: |
+          results='${{ join(needs.*.result, ' ') }}'
+          echo "gate results: $results"
+          for r in $results; do
+            if [ "$r" != "success" ]; then
+              echo "gate not green: $r"
+              exit 1
+            fi
+          done

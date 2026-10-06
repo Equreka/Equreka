@@ -1,0 +1,1177 @@
+/**
+ * Legacy literal colors with no token: the exponent sign of a math value
+ * was `$green` / `$red`, compiled to the same hex in both themes.
+ */
+:root {
+	--eq-exp-plus: #1fad1f;
+	--eq-exp-minus: #dd3c3c;
+}
+
+/**
+ * KaTeX's stylesheet is unlayered, so its `.katex { font-size: 1.21em }`
+ * beats any layered rule: these overrides stay unlayered. The original's
+ * MathJax set content math at the surrounding font size (measured: glyph
+ * widths 1/1.21 of KaTeX's default) and inline math at line-height 0, so a
+ * symbol badge or a display expression is as tall as its glyphs (MathJax
+ * glyph boxes ran 1.15px taller per side than KaTeX struts, padded back in
+ * the badge). Display math sits in the card
+ * body's padding with no block margin of its own.
+ */
+.eq-cards .katex {
+	font-size: 1em;
+}
+
+/**
+ * In prose the original's MathJax matched the body font's x-height
+ * (measured: 1.131em, every number and symbol width equal) and set the
+ * math at line-height 0, so only tall math such as a fraction grows its line.
+ */
+.eq-cards .eq-prose .katex {
+	font-size: 1.131em;
+	line-height: 0;
+}
+
+/**
+ * MathJax padded every inline math box 1px above and below (`mjx-math`),
+ * so a fraction in prose grows its line by that much more than its glyphs.
+ */
+.eq-cards .eq-prose .katex-base {
+	padding-block: 1px;
+}
+
+/**
+ * MathJax set a fraction 0.22em from its neighbors on each side (measured
+ * at 18.096px); KaTeX's null delimiters give 0.12em.
+ */
+.eq-cards .eq-prose .katex .mfrac {
+	padding-inline: 0.1em;
+}
+
+/**
+ * MathJax set scripts, numerators and denominators at 0.707 of the base
+ * size (measured 12.7939px at 18.096px), KaTeX at 0.7.
+ */
+.eq-cards .katex .katex-sizing.reset-size6.size3 {
+	font-size: 0.707em;
+}
+
+/**
+ * MathJax drew an italic letter at its font's full advance (measured per
+ * letter at 100px); KaTeX draws a narrower glyph plus its italic
+ * correction as an inline right margin. Lowercase letters and B, D, O, R
+ * need no gap, the other capitals and a few Greek letters part of KaTeX's
+ * (E: 0.764em against 0.738em + 0.0576em). The margin's value names the
+ * glyph group, so the gap is re-set per value; a value shared by several
+ * letters takes the commoner one's (I over X) or their mean (within
+ * 0.014em). A script base (first of exactly two children, the second its
+ * scripts) keeps KaTeX's margin: MathJax dropped the correction there and
+ * KaTeX pulls the subscript back by it, which lands where MathJax set it.
+ */
+.eq-cards .katex .mathnormal:not(.mord > :first-child:nth-last-child(2)) {
+	/* biome-ignore lint/complexity/noImportantStyles: KaTeX writes the margin as an inline style */
+	margin-right: var(--eq-math-italic-gap, 0) !important;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.0556em"] {
+	--eq-math-italic-gap: 0.0248em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.0576em"] {
+	--eq-math-italic-gap: 0.029em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.0637em"] {
+	--eq-math-italic-gap: 0.0359em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.0715em"] {
+	--eq-math-italic-gap: 0.0415em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.0738em"] {
+	--eq-math-italic-gap: 0.0329em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.0785em"] {
+	--eq-math-italic-gap: 0.0639em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.0813em"] {
+	--eq-math-italic-gap: 0.0569em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.0962em"] {
+	--eq-math-italic-gap: 0.078em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.1076em"] {
+	--eq-math-italic-gap: 0.06em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.109em"] {
+	--eq-math-italic-gap: 0.083em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.1132em"] {
+	--eq-math-italic-gap: 0.08em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.1389em"] {
+	--eq-math-italic-gap: 0.1096em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.2222em"] {
+	--eq-math-italic-gap: 0.184em;
+}
+
+/**
+ * MathJax set a script flush against what follows (measured: the `)`
+ * after `c^{2}` starts where the 2 ends); KaTeX adds its 0.05em
+ * script space as an inline margin.
+ */
+.eq-cards .katex .msupsub .vlist > span[style*="margin-right:0.05em"] {
+	/* biome-ignore lint/complexity/noImportantStyles: KaTeX writes the margin as an inline style */
+	margin-right: 0 !important;
+}
+
+/**
+ * The original's display equation sat in a serif `.math` span, and
+ * MathJax matched that font's x-height: glyphs at 1.012em (measured
+ * 38.8608px at 38.4px), as in the name-symbol block.
+ */
+.eq-cards .eq-display-card .katex-display > .katex {
+	font-size: 1.012em;
+}
+
+/**
+ * The original's display expression box for ordinary expressions,
+ * measured 19.52px at 20px and 37.52px at 38.4px; taller math still grows
+ * it, centered as MathJax centered it.
+ */
+.eq-display-card .katex-display {
+	display: grid;
+	align-items: center;
+	min-height: calc(0.9783em - 0.05px);
+	margin: 0;
+	padding-block: 0;
+}
+
+/**
+ * The original wrapped the math of every row in a serif `.math` span at the
+ * table's line height, and the serif's half-leading grew each row's line
+ * box (25px at 16px). A zero-width serif run reproduces that box whatever
+ * the glyphs; the math itself adds no height.
+ */
+.eq-cards .eq-table-data td::before {
+	content: "\200b";
+	font-family: serif;
+}
+
+/**
+ * Table math sat in the original's serif `.math` span, and MathJax
+ * matched that font's x-height: glyphs at 1.011em (measured 16.176px at
+ * 16px), in a box padded 1px per side, which grows a row only when its
+ * math is taller than the line (a power of ten: 42.078px rows).
+ */
+.eq-cards .eq-table-data td .katex {
+	font-size: 1.011em;
+	line-height: 0;
+}
+
+.eq-cards .eq-table-data td .katex-base {
+	padding-block: 1px;
+}
+
+/**
+ * MathJax's box for a power of ten (`×10^{±n}`) reached 4.25px above
+ * KaTeX's strut at 16.176px, so the original's prefix rows were 41.95px
+ * tall against 41px; the ink sits at the same height in both.
+ */
+.eq-cards .eq-table-data td > .eq-math-value .katex-base {
+	padding-top: 0.3243em;
+}
+
+.eq-badge-symbol .katex,
+.eq-display-card .katex {
+	line-height: 0;
+}
+
+/**
+ * The original's display card wrapped math in a serif `.math` span, and
+ * MathJax matched that font's x-height: glyphs at 1.012em (measured
+ * 38.8608px at 38.4px), which sets the name-symbol block's height.
+ */
+.eq-cards .eq-display-block > .katex {
+	font-size: 1.012em;
+}
+
+.eq-badge-symbol > .katex {
+	padding-block: 1.15px;
+}
+
+/**
+ * In a symbol badge MathJax matched the serif's x-height at 16px: glyphs
+ * at 1.011em (measured 16.176px) in a box padded 1px per side. KaTeX's
+ * strut omits the glyph depth MathJax counted, so 1.087px keeps the badge
+ * 26.578px tall around `k`, as measured in the original.
+ */
+.eq-cards .eq-badge-symbol > .katex {
+	font-size: 1.011em;
+	padding-block: 1.087px;
+}
+
+@layer components {
+	.eq-page-header-main {
+		min-width: 0;
+	}
+
+	.eq-page-header-title {
+		overflow-wrap: anywhere;
+	}
+
+	.eq-page-header-lead {
+		max-width: 48rem;
+		margin-bottom: var(--eq-space-card-gap);
+		font-size: var(--text-lead);
+	}
+
+	.eq-page-header-lead > * + * {
+		margin-top: 0.35rem;
+	}
+
+	.eq-page-header-lead a {
+		text-decoration-line: underline;
+		text-underline-offset: 0.15em;
+	}
+
+	.eq-page-actions {
+		flex: none;
+		color: hsl(var(--eq-accent-h), 100%, 85%);
+	}
+
+	.eq-page-action {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: clamp(0.5rem, 1vw, 0.75rem);
+		border-radius: 99rem;
+		color: inherit;
+		font-size: clamp(1.15rem, 2vw, 1.35rem);
+		letter-spacing: var(--tracking-button);
+		line-height: 1;
+		text-decoration: none;
+		transition:
+			color var(--eq-duration) var(--eq-ease),
+			background-color var(--eq-duration) var(--eq-ease);
+	}
+
+	.eq-page-action:hover,
+	.eq-page-action:focus-visible,
+	.eq-page-header .eq-page-actions .eq-favorite-toggle:hover,
+	.eq-page-header .eq-page-actions .eq-favorite-toggle:focus-visible {
+		background-color: hsl(var(--eq-accent-h), var(--eq-accent-s), calc(var(--eq-accent-l) + 5%));
+		color: hsl(var(--eq-accent-h), 100%, 95%);
+	}
+
+	/**
+	 * The original's `.btn .bi` glyph box: line-height 0 around the 1em
+	 * glyph, widened by the button's 0.5px letter spacing (measured 22.11 x
+	 * 21.59px at 21.6px), inside the button's 1px transparent border.
+	 */
+	.eq-page-action .eq-glyph {
+		line-height: 0;
+	}
+
+	.eq-page-actions .eq-page-action {
+		border: 1px solid transparent;
+	}
+
+	.eq-page-actions .eq-page-action-md {
+		display: none;
+	}
+
+	@media (min-width: 768px) {
+		.eq-page-actions .eq-page-action-md {
+			display: inline-flex;
+		}
+	}
+
+	.eq-accent-panel :focus-visible {
+		outline-color: currentColor;
+	}
+
+	.eq-cards .eq-card {
+		margin-bottom: var(--eq-space-card-gap);
+	}
+
+	.eq-cards > :last-child,
+	.eq-cards > .eq-card-row:last-child > .eq-card:last-child,
+	.eq-cards > .eq-steps:last-child > :last-child {
+		margin-bottom: 0;
+	}
+
+	.eq-card-row {
+		display: flex;
+		flex-direction: column;
+	}
+
+	@media (min-width: 992px) {
+		.eq-card-row {
+			flex-direction: row;
+			align-items: flex-start;
+			gap: 1.5rem;
+		}
+
+		.eq-card-row > * {
+			flex: 1 0 0%;
+		}
+
+		.eq-cards > .eq-card-row:last-child > .eq-card {
+			margin-bottom: 0;
+		}
+	}
+
+	.eq-collapse-card {
+		position: relative;
+	}
+
+	.eq-collapse-card .eq-collapse > summary {
+		gap: 0;
+		padding: 0.5rem 0;
+		border: 1px solid transparent;
+		letter-spacing: var(--tracking-button);
+	}
+
+	.eq-collapse-card .eq-collapse-title {
+		flex: 1 1 auto;
+		min-width: 0;
+		letter-spacing: var(--tracking-button);
+		line-height: 1.2;
+	}
+
+	.eq-collapse-card .eq-collapse-chevron {
+		font-size: 1rem;
+	}
+
+	/**
+	 * The original drew the chevron as the summary button's block
+	 * `::before`, one line-height-1 glyph box tall.
+	 */
+	.eq-collapse-card .eq-collapse-chevron::before {
+		display: block;
+	}
+
+	.eq-collapse-start > summary .eq-collapse-chevron {
+		margin-right: 0.5rem;
+	}
+
+	.eq-collapse-end > summary .eq-collapse-chevron {
+		order: 1;
+		margin-left: 0.5rem;
+	}
+
+	.eq-collapse-end[open] > summary .eq-collapse-chevron {
+		transform: rotate(-90deg);
+	}
+
+	.eq-collapse-card .eq-collapse-content {
+		padding-top: 0;
+	}
+
+	.eq-collapse-content > :last-child {
+		margin-bottom: 0;
+	}
+
+	.eq-collapse-card-linked .eq-collapse > summary {
+		padding-inline-end: 3rem;
+	}
+
+	.eq-view-all {
+		position: absolute;
+		top: calc(
+			var(--eq-space-card-pad-y) +
+			0.25rem +
+			(1.2 * var(--text-collapse-title) - 1.5 * var(--text-pill)) /
+			2
+		);
+		right: var(--eq-space-card-pad-x);
+		gap: 0;
+		font-size: var(--text-pill);
+		line-height: 1.5;
+	}
+
+	/**
+	 * Below 992px the original collapsed the label to zero width but kept
+	 * it in flow, so its line box still set the pill's height, and hover
+	 * expanded it; hover also gave the arrow a right margin at every width.
+	 */
+	.eq-view-all-label {
+		display: block;
+		width: 0;
+		padding: 0;
+		overflow: hidden;
+		opacity: 0;
+		white-space: nowrap;
+		transform: scaleX(0);
+		transform-origin: right center;
+		transition:
+			opacity var(--eq-duration) var(--eq-ease),
+			transform var(--eq-duration) var(--eq-ease);
+	}
+
+	.eq-view-all:hover .eq-view-all-label {
+		width: auto;
+		padding: 0 0.5rem;
+		opacity: 1;
+		transform: scaleX(1);
+	}
+
+	.eq-view-all .eq-glyph {
+		line-height: 0;
+		transition: margin var(--eq-duration) var(--eq-ease);
+	}
+
+	.eq-view-all:hover .eq-glyph {
+		margin-right: 0.5rem;
+	}
+
+	@media (min-width: 992px) {
+		.eq-collapse-card-linked .eq-collapse > summary {
+			padding-inline-end: 8rem;
+		}
+
+		.eq-view-all-label {
+			width: auto;
+			padding: 0 0.5rem;
+			opacity: 1;
+			transform: scaleX(1);
+		}
+	}
+
+	.eq-abbr {
+		display: inline-block;
+		min-width: 30px;
+	}
+
+	.eq-abbr abbr[title] {
+		cursor: help;
+		text-decoration: underline dotted;
+		text-decoration-skip-ink: none;
+	}
+
+	.eq-abbr-full {
+		display: none;
+	}
+
+	.eq-abbr-expanded > abbr {
+		display: none;
+	}
+
+	.eq-abbr-expanded > .eq-abbr-full {
+		display: inline;
+	}
+
+	@media (min-width: 768px) {
+		.eq-abbr > abbr {
+			display: none;
+		}
+
+		.eq-abbr > .eq-abbr-full {
+			display: inline;
+		}
+	}
+
+	.eq-count {
+		display: inline-block;
+		margin-left: 0.5rem;
+		padding: 0.2em 0.5em;
+		border: 1px solid var(--eq-ink-body);
+		border-radius: var(--radius-pill);
+		color: var(--eq-ink-body);
+		font-family: var(--font-sans);
+		font-size: 0.6em;
+		font-weight: 400;
+		letter-spacing: 0;
+		line-height: 1;
+		vertical-align: middle;
+	}
+
+	.eq-accent-panel .eq-count {
+		border-color: currentColor;
+		color: inherit;
+	}
+
+	.eq-list {
+		gap: 0;
+	}
+
+	/**
+	 * The original's links were the wrapping flex items themselves, so
+	 * every link in a row stretched to the tallest one.
+	 */
+	.eq-list > li {
+		display: flex;
+	}
+
+	.eq-list-link {
+		gap: 0;
+		color: var(--eq-link);
+		font-family: var(--font-sans);
+		font-weight: 400;
+		line-height: 1.5;
+	}
+
+	.eq-list-name {
+		display: flex;
+		align-items: center;
+		font-weight: 500;
+	}
+
+	.eq-list-link .eq-badge-symbol {
+		align-items: baseline;
+		margin-right: 0.75rem;
+	}
+
+	.eq-badge-symbol:hover,
+	.eq-list-link:hover .eq-badge-symbol,
+	.eq-badge-symbol.eq-is-done {
+		border-color: var(--eq-ink);
+	}
+
+	span.eq-list-link {
+		cursor: default;
+	}
+
+	span.eq-list-link:hover {
+		background-color: transparent;
+		color: var(--eq-link);
+	}
+
+	span.eq-list-link:hover .eq-badge-symbol {
+		border-color: var(--eq-ink-muted);
+		background-color: transparent;
+		color: inherit;
+	}
+
+	.eq-badge {
+		font-weight: 700;
+	}
+
+	.eq-subheading {
+		margin: 1.25rem 0 0.5rem;
+		color: var(--eq-ink);
+		font-family: var(--font-display);
+		font-size: 1.05rem;
+		font-weight: 500;
+	}
+
+	.eq-collapse-content > .eq-subheading:first-child {
+		margin-top: 0.25rem;
+	}
+
+	.eq-subheading a {
+		color: inherit;
+		text-decoration-line: underline;
+		text-decoration-thickness: 1px;
+		text-underline-offset: 0.15em;
+	}
+
+	.eq-subheading a:hover {
+		color: var(--eq-accent);
+	}
+
+	.eq-data {
+		font-size: clamp(0.9rem, 2vw, 1rem);
+	}
+
+	.eq-data .eq-link {
+		color: var(--eq-ink-body);
+		text-decoration-thickness: auto;
+		text-underline-offset: auto;
+	}
+
+	.eq-data .eq-link:hover {
+		color: var(--eq-term, var(--eq-accent-fill));
+	}
+
+	.eq-data .eq-table-data tbody tr:hover .eq-link,
+	.eq-data .eq-table-data tbody tr.term-hl .eq-link {
+		color: hsla(var(--eq-term-hsl, var(--eq-accent-hsl)), 1);
+	}
+
+	.eq-unit-of {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.5rem;
+		margin: 1rem 0;
+	}
+
+	.eq-unit-of-label {
+		margin-right: 0.25rem;
+		font-family: var(--font-display);
+		font-size: 1rem;
+		font-weight: 500;
+		line-height: 1.2;
+	}
+
+	.eq-chip-row {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		gap: 0.4rem;
+		margin: 0 0 0.85rem;
+	}
+
+	.eq-prose + .eq-chip-row,
+	.eq-card-note + .eq-chip-row {
+		margin-top: 1rem;
+	}
+
+	.eq-chip-row-label {
+		margin-right: 0.25rem;
+		font-family: var(--font-display);
+		font-weight: 500;
+	}
+
+	.eq-identifiers {
+		margin: 0.85rem 0 0;
+		font-size: 0.95rem;
+	}
+
+	.eq-badge-quiet {
+		border: 1px solid var(--eq-ink-muted);
+		color: inherit;
+	}
+
+	.eq-badge-link {
+		text-decoration: none;
+	}
+
+	.eq-badge-link:hover {
+		text-decoration: underline;
+		text-underline-offset: 0.15em;
+	}
+
+	.eq-card-note {
+		margin: 0 0 0.75rem;
+		font-size: 0.9rem;
+	}
+
+	.eq-prose {
+		font-size: var(--text-body);
+		line-height: 1.5;
+		white-space: pre-line;
+	}
+
+	.eq-prose a {
+		color: inherit;
+		text-decoration-line: underline;
+	}
+
+	.eq-prose + .eq-card-note {
+		margin-top: 1rem;
+	}
+
+	.eq-card-note-after {
+		margin: 0.75rem 0 0;
+	}
+
+	/**
+	 * The context slot is empty on every page outside a path, and its
+	 * margin collapsed with the page header's into 4px the original never
+	 * had; the bar itself carries the gap instead.
+	 */
+	.eq-context-slot {
+		margin-bottom: 0;
+	}
+
+	.eq-context-bar {
+		margin-bottom: 1rem;
+	}
+
+	.eq-definitions {
+		display: grid;
+		gap: 0.35rem 2rem;
+		margin: 0;
+	}
+
+	.eq-definitions dt {
+		color: var(--eq-ink-muted);
+		font-family: var(--font-display);
+		font-size: 80%;
+		font-weight: 700;
+		text-transform: uppercase;
+	}
+
+	.eq-definitions dd {
+		margin: 0 0 0.5rem;
+	}
+
+	.eq-definitions .eq-definition-hint {
+		margin-top: 0.25rem;
+		font-size: 0.85rem;
+	}
+
+	.eq-definition-muted {
+		font-size: 0.95rem;
+	}
+
+	@media (min-width: 576px) {
+		.eq-definitions {
+			grid-template-columns: 11rem 1fr;
+			align-items: baseline;
+		}
+
+		.eq-definitions dd {
+			margin-bottom: 0;
+		}
+	}
+
+	.eq-chip-row + .eq-definitions {
+		margin-top: 1rem;
+	}
+
+	.eq-table-data .eq-col-symbol {
+		width: 6rem;
+	}
+
+	.eq-table-data tbody tr:target > td {
+		background-color: hsla(var(--eq-accent-hsl), 0.15);
+	}
+
+	.eq-calc-tables .eq-table-data tbody tr:hover > .eq-cell-symbol > *,
+	.eq-calc-tables .eq-table-data tbody tr.term-hl > .eq-cell-symbol > * {
+		color: var(--eq-term, var(--eq-accent));
+	}
+
+	.eq-table-data .eq-cell-numeric {
+		text-align: right;
+	}
+
+	.eq-cell-value {
+		color: var(--eq-ink);
+		font-family: var(--font-math);
+		font-size: 1.05em;
+	}
+
+	.eq-cell-muted {
+		color: var(--eq-ink-body);
+		font-size: 0.9em;
+	}
+
+	.eq-math-html {
+		color: var(--eq-ink);
+		font-family: serif;
+		font-style: normal;
+		font-weight: 400;
+	}
+
+	.eq-approx {
+		color: var(--eq-ink-muted);
+		font-family: serif;
+	}
+
+	.eq-math-mantissa {
+		color: var(--eq-ink);
+	}
+
+	.eq-math-exponent {
+		color: var(--eq-ink-body);
+	}
+
+	.eq-exp-plus {
+		color: var(--eq-exp-plus);
+	}
+
+	.eq-exp-minus {
+		color: var(--eq-exp-minus);
+	}
+
+	.eq-uncertainty,
+	.eq-source {
+		margin: 0.75rem 0 0;
+		font-size: 0.9rem;
+	}
+
+	.eq-display-card {
+		overflow: hidden;
+	}
+
+	.eq-display-card .eq-display-math {
+		align-items: center;
+	}
+
+	/**
+	 * The original's centering spacers were also 1rem tall, so a display
+	 * expression shorter than 1rem left the card body 1rem tall.
+	 */
+	.eq-display-card .eq-display-math::before,
+	.eq-display-card .eq-display-math::after {
+		min-height: 1rem;
+	}
+
+	.eq-display-block {
+		line-height: 0;
+	}
+
+	.eq-display-math > * {
+		flex: none;
+	}
+
+	/**
+	 * The original's exponent grew the value's line box past the serif
+	 * strut (measured 31.47px at 20px, 60.17px at 38.4px), which set the
+	 * constant card's height.
+	 */
+	.eq-display-card .eq-display-value {
+		line-height: calc(1.5599em + 0.27px);
+	}
+
+	.eq-display-text {
+		font-family: var(--font-math);
+	}
+
+	/**
+	 * The original colored a hovered term in the expression and in the
+	 * description without the row tint the tables get.
+	 */
+	.eq-display-math .term-hl,
+	.eq-prose .term-hl {
+		border-radius: 0;
+		background-color: transparent;
+	}
+
+	.eq-display-op {
+		color: var(--eq-ink-muted);
+		font-family: var(--font-math);
+	}
+
+	.eq-display-text + .eq-display-op {
+		color: inherit;
+	}
+
+	.eq-display-unit {
+		color: inherit;
+		text-decoration: none;
+	}
+
+	.eq-code-card .eq-card-title {
+		line-height: 1.2;
+	}
+
+	.eq-code-group {
+		display: flex;
+		align-items: stretch;
+	}
+
+	.eq-code-input {
+		flex: 1 1 auto;
+		width: 1%;
+		min-width: 0;
+		border-start-end-radius: 0;
+		border-end-end-radius: 0;
+		color: var(--eq-ink-body);
+		font-size: 1rem;
+	}
+
+	.eq-code-input:focus {
+		z-index: 1;
+		color: var(--eq-ink-body);
+	}
+
+	.eq-code-copy {
+		flex: none;
+		gap: 0;
+		margin-left: -1px;
+		padding: 0.5rem 1rem;
+		border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+		transition:
+			color 0.15s ease-in-out,
+			background-color 0.15s ease-in-out,
+			border-color 0.15s ease-in-out,
+			box-shadow 0.15s ease-in-out;
+	}
+
+	.eq-code-copy-label {
+		display: none;
+	}
+
+	.eq-code-copy .eq-glyph {
+		line-height: 0;
+	}
+
+	@media (min-width: 768px) {
+		.eq-code-copy .eq-glyph {
+			margin-right: 1rem;
+		}
+
+		.eq-code-copy-label {
+			display: inline;
+		}
+	}
+
+	.eq-prefix-tables {
+		display: grid;
+		gap: 0 1.5rem;
+	}
+
+	.eq-prefix-tables > * {
+		min-width: 0;
+	}
+
+	@media (min-width: 768px) {
+		.eq-prefix-tables {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	.eq-home-search {
+		margin-bottom: 1rem;
+	}
+
+	@media (min-width: 768px) {
+		.eq-home-search {
+			display: none;
+		}
+	}
+
+	.eq-home-toggle {
+		display: flex;
+		align-items: stretch;
+		gap: 0.5rem;
+		margin-bottom: 1rem;
+	}
+
+	@media (min-width: 768px) {
+		.eq-home-toggle {
+			max-width: 300px;
+		}
+	}
+
+	.eq-home-toggle-btn {
+		flex: 1 0 0%;
+		padding: 0.5rem 1rem;
+		background-color: var(--eq-btn-dark-bg);
+		color: var(--eq-btn-dark-ink);
+		font-weight: 500;
+		transition:
+			color 0.15s ease-in-out,
+			background-color 0.15s ease-in-out,
+			border-color 0.15s ease-in-out,
+			box-shadow 0.15s ease-in-out;
+	}
+
+	.eq-home-toggle-btn:hover {
+		background-color: var(--eq-btn-dark-bg-hover);
+	}
+
+	#home-view-categories:checked ~ .eq-home-toggle [for="home-view-categories"],
+	#home-view-types:checked ~ .eq-home-toggle [for="home-view-types"] {
+		background-color: var(--eq-btn-primary-bg);
+		color: var(--eq-btn-primary-ink);
+	}
+
+	#home-view-categories:checked ~ .eq-home-toggle [for="home-view-categories"]:hover,
+	#home-view-types:checked ~ .eq-home-toggle [for="home-view-types"]:hover {
+		background-color: var(--eq-btn-primary-bg-hover);
+	}
+
+	#home-view-categories:focus-visible ~ .eq-home-toggle [for="home-view-categories"],
+	#home-view-types:focus-visible ~ .eq-home-toggle [for="home-view-types"] {
+		outline: 2px solid var(--eq-btn-primary-bg);
+		outline-offset: 2px;
+	}
+
+	#home-view-categories:checked ~ .eq-home-panel-types,
+	#home-view-types:checked ~ .eq-home-panel-categories {
+		display: none;
+	}
+
+	.eq-home-card {
+		--eq-accent-panel-angle: 5deg;
+		display: block;
+		border-radius: var(--radius-home-card);
+		box-shadow: var(--shadow-home-card);
+		text-decoration: none;
+		transition:
+			color var(--eq-duration) var(--eq-ease),
+			box-shadow var(--eq-duration) var(--eq-ease),
+			transform var(--eq-duration) var(--eq-ease);
+	}
+
+	.eq-home-grid .eq-home-card {
+		margin-bottom: var(--eq-space-card-gap);
+	}
+
+	.eq-home-grid > li:last-child .eq-home-card {
+		margin-bottom: 0;
+	}
+
+	.eq-home-card:hover,
+	.eq-home-card:focus-visible {
+		box-shadow: var(--shadow-home-card-hover);
+		color: hsl(var(--eq-accent-h), 100%, 97%);
+	}
+
+	:root[data-theme="dark"] .eq-home-card {
+		box-shadow: none;
+	}
+
+	@media (prefers-color-scheme: dark) {
+		:root:not([data-theme="light"]) .eq-home-card {
+			box-shadow: none;
+		}
+	}
+
+	.eq-home-card-body {
+		padding: var(--eq-space-card-pad-y) var(--eq-space-card-pad-x);
+	}
+
+	.eq-home-card-title {
+		margin: 0 0 clamp(0.5rem, 2vw, 0.85rem);
+		font-size: var(--text-home-card-title);
+		font-weight: 600;
+		line-height: 1.2;
+	}
+
+	.eq-home-card-text {
+		display: -webkit-box;
+		margin: 0;
+		overflow: hidden;
+		font-size: var(--text-home-card-lead);
+		line-height: 1.5;
+		text-overflow: ellipsis;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 3;
+		line-clamp: 3;
+	}
+
+	.eq-path-meta {
+		margin: 0.75rem 0 0;
+		font-size: 0.9rem;
+	}
+
+	.eq-path-list {
+		display: grid;
+		gap: 1.25rem;
+	}
+
+	.eq-path-list > li + li {
+		padding-top: 1.25rem;
+		border-top: 1px solid var(--eq-border);
+	}
+
+	.eq-path-list .eq-subheading {
+		margin-top: 0.5rem;
+	}
+
+	.eq-path-summary > * + * {
+		margin-top: 0.75rem;
+	}
+
+	.eq-steps {
+		display: grid;
+	}
+
+	.eq-step {
+		scroll-margin-top: 1.5rem;
+	}
+
+	.eq-step-row {
+		display: flex;
+		align-items: flex-start;
+		gap: 1rem;
+	}
+
+	.eq-step-body {
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+
+	.eq-step-kind {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		margin: 0;
+		font-family: var(--font-display);
+		font-size: 0.8rem;
+		font-weight: 600;
+		letter-spacing: var(--tracking-label);
+		text-transform: uppercase;
+	}
+
+	.eq-step-number {
+		justify-content: center;
+		min-width: 1.75rem;
+		color: var(--eq-ink);
+		font-family: var(--font-display);
+		font-size: 0.85rem;
+		letter-spacing: 0;
+	}
+
+	.eq-step-title {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: baseline;
+		gap: 0.75rem;
+		margin: 0.5rem 0 0;
+	}
+
+	.eq-step-symbol {
+		font-family: var(--font-math);
+		font-size: 1rem;
+	}
+
+	.eq-step .eq-prose {
+		margin-top: 0.5rem;
+	}
+
+	.eq-step-link {
+		margin-top: 0.75rem;
+	}
+
+	.eq-check {
+		margin-top: 0.5rem;
+	}
+
+	.eq-step .eq-check > summary {
+		cursor: pointer;
+		line-height: 1.75;
+	}
+
+	.eq-check-prompt {
+		color: var(--eq-ink);
+		font-weight: 500;
+	}
+
+	.eq-check-reveal {
+		margin-left: 0.5rem;
+		color: var(--eq-accent);
+		font-size: 0.9rem;
+	}
+
+	.eq-check-answer {
+		margin-top: 0.75rem;
+		padding-left: 1rem;
+		border-left: 2px solid hsla(var(--eq-accent-hsl), 0.5);
+	}
+
+	@media (prefers-reduced-motion: no-preference) {
+		.eq-home-card:hover,
+		.eq-home-card:focus-visible {
+			transform: scale(1.025);
+		}
+
+		.eq-home-panel {
+			animation: eq-home-toggle 0.5s var(--eq-ease);
+		}
+	}
+}
+
+@keyframes eq-home-toggle {
+	from {
+		opacity: 0;
+		transform: translateY(-5%) scale(1.025);
+	}
+}

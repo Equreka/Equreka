@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Inch'
+symbol:
+  tex: 'in'
+unitOf:
+  - 'length'
+system: 'imperial'
+toBase:
+  factor: '0.0254'
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811'
+    ref: 'B.8: inch (in)'
+status: 'reviewed'
+externalIds:
+  wikidata: 'Q218593'
+  qudt: 'http://qudt.org/vocab/unit/IN'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'inches'
+description:
+  en: >-
+    The inch (symbol: in or ″) is a unit of length in the British imperial and the United States
+    customary systems of measurement. It is equal to 1/36 yard or 1/12 of a foot. Derived from the
+    Roman uncia ("twelfth"), the word inch is also sometimes used to translate similar units in
+    other measurement systems, usually understood as deriving from the width of the human thumb.

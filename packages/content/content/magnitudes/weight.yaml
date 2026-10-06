@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Weight'
+symbol:
+  tex: 'W'
+baseUnit: 'newton'
+dimension:
+  L: 1
+  M: 1
+  T: -2
+kindOf: 'force'
+externalIds:
+  wikidata: 'Q25288'
+  qudt: 'http://qudt.org/vocab/quantitykind/Weight'
+categories:
+  - 'universal'
+  - 'physics'
+branches:
+  - 'mechanics'
+description:
+  en: >-
+    In science and engineering, the weight of an object is the force acting on the object due to
+    gravity.

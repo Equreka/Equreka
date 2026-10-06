@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Luminous intensity'
+symbol:
+  tex: 'I_{v}'
+  text: 'Iv'
+baseUnit: 'candela'
+dimension:
+  J: 1
+nonNegative: true
+externalIds:
+  wikidata: 'Q104831'
+  qudt: 'http://qudt.org/vocab/quantitykind/LuminousIntensity'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+description:
+  en: >-
+    In photometry, luminous intensity is a measure of the wavelength-weighted power emitted by a
+    light source in a particular direction per unit solid angle, based on the luminosity function, a
+    standardized model of the sensitivity of the human eye. The SI unit of luminous intensity is the
+    candela (cd), an SI base unit.

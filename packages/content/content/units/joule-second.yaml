@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Joule-second'
+symbol:
+  tex: 'J⋅s'
+unitOf:
+  - 'angular-momentum'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'joule'
+      exp: 1
+    - unit: 'second'
+      exp: 1
+externalIds:
+  wikidata: 'Q1709783'
+  qudt: 'http://qudt.org/vocab/unit/J-SEC'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+  - 'modern-physics'
+aliases:
+  - 'J s'
+  - 'Js'
+description:
+  en: >-
+    The joule-second (symbol $J⋅s$ or $J s$) is the product of an SI derived unit, the joule ($J$),
+    and an SI base unit, the second ($s$). The joule-second is a unit of action or of angular
+    momentum. The joule-second also appears in quantum mechanics within the definition of Planck's
+    constant.

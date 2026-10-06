@@ -1,0 +1,18 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Centimetre'
+symbol:
+  tex: 'cm'
+unitOf:
+  - 'length'
+prefixOf:
+  prefix: 'centi'
+  base: 'metre'
+externalIds:
+  wikidata: 'Q174728'
+  qudt: 'http://qudt.org/vocab/unit/CentiM'
+description:
+  en: >-
+    The centimetre is one hundredth of a metre ($1\ \mathrm{cm} = 10^{-2}\ \mathrm{m}$), formed with
+    the SI prefix centi. It was the base unit of length of the centimetre–gram–second (CGS) system,
+    which is why CGS units such as the erg, the dyne and the gal are defined through it.

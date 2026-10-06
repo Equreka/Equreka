@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import type { InferGetStaticPropsType } from 'astro';
+import BranchPage from '../../../pages-shared/branch-page.astro';
+
+export async function getStaticPaths() {
+	const branches = await getCollection('branches');
+	return branches.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { entry } = Astro.props;
+---
+
+<BranchPage entry={entry} locale="es" />

@@ -1,0 +1,3714 @@
+[
+	{
+		"from": "ampere",
+		"to": "milliampere",
+		"input": "1",
+		"expected": "1000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "celsius",
+		"to": "kelvin",
+		"input": "1",
+		"expected": "274.15",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "celsius",
+		"to": "fahrenheit",
+		"input": "1",
+		"expected": "33.8",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "celsius",
+		"to": "rankine",
+		"input": "1",
+		"expected": "493.47",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "celsius",
+		"to": "delisle",
+		"input": "1",
+		"expected": "148.5",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "celsius",
+		"to": "newton-degree",
+		"input": "1",
+		"expected": "0.33",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "celsius",
+		"to": "reaumur",
+		"input": "1",
+		"expected": "0.8",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "celsius",
+		"to": "romer",
+		"input": "1",
+		"expected": "8.025",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "centimetre",
+		"to": "kilometre",
+		"input": "1",
+		"expected": "1e-5",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "centimetre",
+		"to": "metre",
+		"input": "1",
+		"expected": "0.01",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "centimetre",
+		"to": "millimetre",
+		"input": "1",
+		"expected": "10",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "centimetre",
+		"to": "micrometre",
+		"input": "1",
+		"expected": "10000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "centimetre",
+		"to": "nanometre",
+		"input": "1",
+		"expected": "1e+7",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "centimetre",
+		"to": "mile",
+		"input": "1",
+		"expected": "6.2137e-6",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "centimetre",
+		"to": "yard",
+		"input": "1",
+		"expected": "0.0109361",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "centimetre",
+		"to": "foot",
+		"input": "1",
+		"expected": "0.0328084",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "centimetre",
+		"to": "inch",
+		"input": "1",
+		"expected": "0.393700787",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "centimetre",
+		"to": "nautical-mile",
+		"input": "1",
+		"expected": "5.3996e-6",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "century",
+		"to": "decade",
+		"input": "1",
+		"expected": "10",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "century",
+		"to": "year",
+		"input": "1",
+		"expected": "100",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "century",
+		"to": "month",
+		"input": "1",
+		"expected": "1200",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "century",
+		"to": "week",
+		"input": "1",
+		"expected": "5214.29",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "century",
+		"to": "day",
+		"input": "1",
+		"expected": "36500",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "century",
+		"to": "hour",
+		"input": "1",
+		"expected": "876000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "century",
+		"to": "minute",
+		"input": "1",
+		"expected": "5.256e+7",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "century",
+		"to": "second",
+		"input": "1",
+		"expected": "3.154e+9",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "century",
+		"to": "millisecond",
+		"input": "1",
+		"expected": "3.154e+12",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "century",
+		"to": "microsecond",
+		"input": "1",
+		"expected": "3.154e+15",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "century",
+		"to": "nanosecond",
+		"input": "1",
+		"expected": "3.154e+18",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "cubic-metre",
+		"to": "litre",
+		"input": "1",
+		"expected": "1000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "cubic-metre",
+		"to": "millilitre",
+		"input": "1",
+		"expected": "1e+6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "cubic-metre",
+		"to": "us-gallon",
+		"input": "1",
+		"expected": "264.172",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "cubic-metre",
+		"to": "us-quart",
+		"input": "1",
+		"expected": "1056.69",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "cubic-metre",
+		"to": "us-pint",
+		"input": "1",
+		"expected": "2113.38",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "cubic-metre",
+		"to": "imperial-gallon",
+		"input": "1",
+		"expected": "219.969157",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "cubic-metre",
+		"to": "imperial-quart",
+		"input": "1",
+		"expected": "879.877",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "cubic-metre",
+		"to": "imperial-pint",
+		"input": "1",
+		"expected": "1759.75",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "day",
+		"to": "century",
+		"input": "1",
+		"expected": "2.7397e-5",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "day",
+		"to": "decade",
+		"input": "1",
+		"expected": "0.000273973",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "day",
+		"to": "year",
+		"input": "1",
+		"expected": "0.00273973",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "day",
+		"to": "month",
+		"input": "1",
+		"expected": "0.0328767",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "day",
+		"to": "week",
+		"input": "1",
+		"expected": "0.142857",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "day",
+		"to": "hour",
+		"input": "1",
+		"expected": "24",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "day",
+		"to": "minute",
+		"input": "1",
+		"expected": "1440",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "day",
+		"to": "second",
+		"input": "1",
+		"expected": "86400",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "day",
+		"to": "millisecond",
+		"input": "1",
+		"expected": "8.64e+7",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "day",
+		"to": "microsecond",
+		"input": "1",
+		"expected": "8.64e+10",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "day",
+		"to": "nanosecond",
+		"input": "1",
+		"expected": "8.64e+13",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "decade",
+		"to": "century",
+		"input": "1",
+		"expected": "0.1",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "decade",
+		"to": "year",
+		"input": "1",
+		"expected": "10",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "decade",
+		"to": "month",
+		"input": "1",
+		"expected": "120",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "decade",
+		"to": "week",
+		"input": "1",
+		"expected": "521.429",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "decade",
+		"to": "day",
+		"input": "1",
+		"expected": "3650",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "decade",
+		"to": "hour",
+		"input": "1",
+		"expected": "87600",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "decade",
+		"to": "minute",
+		"input": "1",
+		"expected": "5.256e+6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "decade",
+		"to": "second",
+		"input": "1",
+		"expected": "3.154e+8",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "decade",
+		"to": "millisecond",
+		"input": "1",
+		"expected": "3.154e+11",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "decade",
+		"to": "microsecond",
+		"input": "1",
+		"expected": "3.154e+14",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "decade",
+		"to": "nanosecond",
+		"input": "1",
+		"expected": "3.154e+17",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "delisle",
+		"to": "kelvin",
+		"input": "1",
+		"expected": "372.483333333333",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "delisle",
+		"to": "celsius",
+		"input": "1",
+		"expected": "99.33333",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "delisle",
+		"to": "fahrenheit",
+		"input": "1",
+		"expected": "210.8",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "delisle",
+		"to": "rankine",
+		"input": "1",
+		"expected": "670.47",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "delisle",
+		"to": "newton-degree",
+		"input": "1",
+		"expected": "32.78",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "delisle",
+		"to": "reaumur",
+		"input": "1",
+		"expected": "79.466666666667",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "delisle",
+		"to": "romer",
+		"input": "1",
+		"expected": "59.65",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "erg",
+		"to": "joule",
+		"input": "1",
+		"expected": "1e-7",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "fahrenheit",
+		"to": "kelvin",
+		"input": "1",
+		"expected": "255.927777777778",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "fahrenheit",
+		"to": "celsius",
+		"input": "1",
+		"expected": "-17.222222222222",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "fahrenheit",
+		"to": "rankine",
+		"input": "1",
+		"expected": "460.67",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "fahrenheit",
+		"to": "delisle",
+		"input": "1",
+		"expected": "175.833333333333",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "fahrenheit",
+		"to": "newton-degree",
+		"input": "1",
+		"expected": "-5.6833333333333",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "fahrenheit",
+		"to": "reaumur",
+		"input": "1",
+		"expected": "-13.777777777778",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "fahrenheit",
+		"to": "romer",
+		"input": "1",
+		"expected": "-1.5416666666667",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "foot-pound",
+		"to": "joule",
+		"input": "1",
+		"expected": "1.3558179483314004",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "foot-pound",
+		"to": "erg",
+		"input": "1",
+		"expected": "13558179.483314004",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "foot",
+		"to": "kilometre",
+		"input": "1",
+		"expected": "0.0003048",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "foot",
+		"to": "metre",
+		"input": "1",
+		"expected": "0.3048",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "foot",
+		"to": "centimetre",
+		"input": "1",
+		"expected": "30.48",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "foot",
+		"to": "millimetre",
+		"input": "1",
+		"expected": "304.8",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "foot",
+		"to": "micrometre",
+		"input": "1",
+		"expected": "304800",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "foot",
+		"to": "nanometre",
+		"input": "1",
+		"expected": "3.048e+8",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "foot",
+		"to": "mile",
+		"input": "1",
+		"expected": "0.000189394",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "foot",
+		"to": "yard",
+		"input": "1",
+		"expected": "0.333333333",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "foot",
+		"to": "inch",
+		"input": "1",
+		"expected": "12",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "foot",
+		"to": "nautical-mile",
+		"input": "1",
+		"expected": "0.000164579",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "gram",
+		"to": "tonne",
+		"input": "1",
+		"expected": "1e-6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "gram",
+		"to": "kilogram",
+		"input": "1",
+		"expected": "0.001",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "gram",
+		"to": "milligram",
+		"input": "1",
+		"expected": "1000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "gram",
+		"to": "microgram",
+		"input": "1",
+		"expected": "1e+6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "gram",
+		"to": "long-ton",
+		"input": "1",
+		"expected": "9.8421e-7",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "gram",
+		"to": "short-ton",
+		"input": "1",
+		"expected": "1.1023e-6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "gram",
+		"to": "stone",
+		"input": "1",
+		"expected": "0.000157473",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "gram",
+		"to": "pound",
+		"input": "1",
+		"expected": "0.00220462",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "gram",
+		"to": "ounce",
+		"input": "1",
+		"expected": "0.035274",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "hour",
+		"to": "century",
+		"input": "1",
+		"expected": "1.1416e-6",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "hour",
+		"to": "decade",
+		"input": "1",
+		"expected": "1.1416e-5",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "hour",
+		"to": "year",
+		"input": "1",
+		"expected": "0.000114155",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "hour",
+		"to": "month",
+		"input": "1",
+		"expected": "0.00136986",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "hour",
+		"to": "week",
+		"input": "1",
+		"expected": "0.00595238",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "hour",
+		"to": "day",
+		"input": "1",
+		"expected": "0.0416667",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "hour",
+		"to": "minute",
+		"input": "1",
+		"expected": "60",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "hour",
+		"to": "second",
+		"input": "1",
+		"expected": "3600",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "hour",
+		"to": "millisecond",
+		"input": "1",
+		"expected": "3.6e+6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "hour",
+		"to": "microsecond",
+		"input": "1",
+		"expected": "3.6e+9",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "hour",
+		"to": "nanosecond",
+		"input": "1",
+		"expected": "3.6e+12",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-gallon",
+		"to": "cubic-metre",
+		"input": "1",
+		"expected": "0.00454609",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-gallon",
+		"to": "litre",
+		"input": "1",
+		"expected": "4.54609",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-gallon",
+		"to": "millilitre",
+		"input": "1",
+		"expected": "4546.09",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-gallon",
+		"to": "us-gallon",
+		"input": "1",
+		"expected": "1.20095",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-gallon",
+		"to": "us-quart",
+		"input": "1",
+		"expected": "4.8038",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-gallon",
+		"to": "us-pint",
+		"input": "1",
+		"expected": "9.6076",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-gallon",
+		"to": "imperial-quart",
+		"input": "1",
+		"expected": "4",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-gallon",
+		"to": "imperial-pint",
+		"input": "1",
+		"expected": "8",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-pint",
+		"to": "cubic-metre",
+		"input": "1",
+		"expected": "0.000568261",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-pint",
+		"to": "litre",
+		"input": "1",
+		"expected": "0.568261",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-pint",
+		"to": "millilitre",
+		"input": "1",
+		"expected": "568.261",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-pint",
+		"to": "us-gallon",
+		"input": "1",
+		"expected": "0.150119",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-pint",
+		"to": "us-quart",
+		"input": "1",
+		"expected": "0.600475",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-pint",
+		"to": "us-pint",
+		"input": "1",
+		"expected": "1.20095",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-pint",
+		"to": "imperial-gallon",
+		"input": "1",
+		"expected": "0.125",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-pint",
+		"to": "imperial-quart",
+		"input": "1",
+		"expected": "0.5",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-quart",
+		"to": "cubic-metre",
+		"input": "1",
+		"expected": "0.00113652",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-quart",
+		"to": "litre",
+		"input": "1",
+		"expected": "1.13652",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-quart",
+		"to": "millilitre",
+		"input": "1",
+		"expected": "1136.52",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-quart",
+		"to": "us-gallon",
+		"input": "1",
+		"expected": "0.300237",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-quart",
+		"to": "us-quart",
+		"input": "1",
+		"expected": "1.20095",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-quart",
+		"to": "us-pint",
+		"input": "1",
+		"expected": "2.4019",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-quart",
+		"to": "imperial-gallon",
+		"input": "1",
+		"expected": "0.25",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "imperial-quart",
+		"to": "imperial-pint",
+		"input": "1",
+		"expected": "2",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "inch",
+		"to": "kilometre",
+		"input": "1",
+		"expected": "2.54e-5",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "inch",
+		"to": "metre",
+		"input": "1",
+		"expected": "0.0254",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "inch",
+		"to": "centimetre",
+		"input": "1",
+		"expected": "2.54",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "inch",
+		"to": "millimetre",
+		"input": "1",
+		"expected": "25.4",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "inch",
+		"to": "micrometre",
+		"input": "1",
+		"expected": "25400",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "inch",
+		"to": "nanometre",
+		"input": "1",
+		"expected": "2.54e+7",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "inch",
+		"to": "mile",
+		"input": "1",
+		"expected": "1.5783e-5",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "inch",
+		"to": "yard",
+		"input": "1",
+		"expected": "0.0277778",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "inch",
+		"to": "foot",
+		"input": "1",
+		"expected": "0.0833333",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "inch",
+		"to": "nautical-mile",
+		"input": "1",
+		"expected": "1.3715e-5",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "joule-per-second",
+		"to": "watt",
+		"input": "1",
+		"expected": "1",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "kelvin",
+		"to": "celsius",
+		"input": "1",
+		"expected": "-272.15",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "kelvin",
+		"to": "fahrenheit",
+		"input": "1",
+		"expected": "-457.87",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "kelvin",
+		"to": "rankine",
+		"input": "1",
+		"expected": "1.8",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "kelvin",
+		"to": "delisle",
+		"input": "1",
+		"expected": "558.225",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "kelvin",
+		"to": "newton-degree",
+		"input": "1",
+		"expected": "-89.8095",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "kelvin",
+		"to": "reaumur",
+		"input": "1",
+		"expected": "-217.72",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "kelvin",
+		"to": "romer",
+		"input": "1",
+		"expected": "-135.37875",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "kilogram",
+		"to": "tonne",
+		"input": "1",
+		"expected": "0.001",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "kilogram",
+		"to": "gram",
+		"input": "1",
+		"expected": "1000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "kilogram",
+		"to": "milligram",
+		"input": "1",
+		"expected": "1e+6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "kilogram",
+		"to": "microgram",
+		"input": "1",
+		"expected": "1e+9",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "kilogram",
+		"to": "long-ton",
+		"input": "1",
+		"expected": "0.000984206527611061",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "kilogram",
+		"to": "short-ton",
+		"input": "1",
+		"expected": "0.00110231",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "kilogram",
+		"to": "stone",
+		"input": "1",
+		"expected": "0.157473",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "kilogram",
+		"to": "pound",
+		"input": "1",
+		"expected": "2.2046226218487757",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "kilogram",
+		"to": "ounce",
+		"input": "1",
+		"expected": "35.274",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "kilometre",
+		"to": "metre",
+		"input": "1",
+		"expected": "1000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "kilometre",
+		"to": "centimetre",
+		"input": "1",
+		"expected": "100000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "kilometre",
+		"to": "millimetre",
+		"input": "1",
+		"expected": "1e+6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "kilometre",
+		"to": "micrometre",
+		"input": "1",
+		"expected": "1e+9",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "kilometre",
+		"to": "nanometre",
+		"input": "1",
+		"expected": "1e+12",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "kilometre",
+		"to": "mile",
+		"input": "1",
+		"expected": "0.621371",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "kilometre",
+		"to": "yard",
+		"input": "1",
+		"expected": "1093.61",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "kilometre",
+		"to": "foot",
+		"input": "1",
+		"expected": "3280.84",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "kilometre",
+		"to": "inch",
+		"input": "1",
+		"expected": "39370.0787",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "kilometre",
+		"to": "nautical-mile",
+		"input": "1",
+		"expected": "0.539957",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "litre",
+		"to": "cubic-metre",
+		"input": "1",
+		"expected": "0.001",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "litre",
+		"to": "millilitre",
+		"input": "1",
+		"expected": "1000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "litre",
+		"to": "us-gallon",
+		"input": "1",
+		"expected": "0.264172052",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "litre",
+		"to": "us-quart",
+		"input": "1",
+		"expected": "1.05669",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "litre",
+		"to": "us-pint",
+		"input": "1",
+		"expected": "2.11338",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "litre",
+		"to": "imperial-gallon",
+		"input": "1",
+		"expected": "0.219969157",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "litre",
+		"to": "imperial-quart",
+		"input": "1",
+		"expected": "0.879877",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "litre",
+		"to": "imperial-pint",
+		"input": "1",
+		"expected": "1.75975",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "long-ton",
+		"to": "tonne",
+		"input": "1",
+		"expected": "1.0160469088",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "long-ton",
+		"to": "kilogram",
+		"input": "1",
+		"expected": "1016.05",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "long-ton",
+		"to": "gram",
+		"input": "1",
+		"expected": "1.016e+6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "long-ton",
+		"to": "milligram",
+		"input": "1",
+		"expected": "1.016e+9",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "long-ton",
+		"to": "microgram",
+		"input": "1",
+		"expected": "1.016e+12",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "long-ton",
+		"to": "short-ton",
+		"input": "1",
+		"expected": "1.12",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "long-ton",
+		"to": "stone",
+		"input": "1",
+		"expected": "160",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "long-ton",
+		"to": "pound",
+		"input": "1",
+		"expected": "2240",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "long-ton",
+		"to": "ounce",
+		"input": "1",
+		"expected": "35840",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "metre",
+		"to": "kilometre",
+		"input": "1",
+		"expected": "0.001",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "metre",
+		"to": "centimetre",
+		"input": "1",
+		"expected": "100",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "metre",
+		"to": "millimetre",
+		"input": "1",
+		"expected": "1000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "metre",
+		"to": "micrometre",
+		"input": "1",
+		"expected": "1e+6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "metre",
+		"to": "nanometre",
+		"input": "1",
+		"expected": "1e+9",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "metre",
+		"to": "mile",
+		"input": "1",
+		"expected": "0.000621371",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "metre",
+		"to": "yard",
+		"input": "1",
+		"expected": "1.09361",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "metre",
+		"to": "foot",
+		"input": "1",
+		"expected": "3.28084",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "metre",
+		"to": "inch",
+		"input": "1",
+		"expected": "39.3700787",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "metre",
+		"to": "nautical-mile",
+		"input": "1",
+		"expected": "0.000539957",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "microgram",
+		"to": "tonne",
+		"input": "1",
+		"expected": "1e-12",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "microgram",
+		"to": "kilogram",
+		"input": "1",
+		"expected": "1e-9",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "microgram",
+		"to": "gram",
+		"input": "1",
+		"expected": "1e-6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "microgram",
+		"to": "milligram",
+		"input": "1",
+		"expected": "0.001",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "microgram",
+		"to": "long-ton",
+		"input": "1",
+		"expected": "9.8421e-13",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "microgram",
+		"to": "short-ton",
+		"input": "1",
+		"expected": "1.1023e-12",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "microgram",
+		"to": "stone",
+		"input": "1",
+		"expected": "1.5747e-10",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "microgram",
+		"to": "pound",
+		"input": "1",
+		"expected": "2.2046e-9",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "microgram",
+		"to": "ounce",
+		"input": "1",
+		"expected": "3.5274e-8",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "micrometre",
+		"to": "kilometre",
+		"input": "1",
+		"expected": "1e-9",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "micrometre",
+		"to": "metre",
+		"input": "1",
+		"expected": "1e-6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "micrometre",
+		"to": "centimetre",
+		"input": "1",
+		"expected": "1e-4",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "micrometre",
+		"to": "millimetre",
+		"input": "1",
+		"expected": "0.001",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "micrometre",
+		"to": "nanometre",
+		"input": "1",
+		"expected": "1000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "micrometre",
+		"to": "mile",
+		"input": "1",
+		"expected": "6.2137e-10",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "micrometre",
+		"to": "yard",
+		"input": "1",
+		"expected": "1.0936e-6",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "micrometre",
+		"to": "foot",
+		"input": "1",
+		"expected": "3.2808e-6",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "micrometre",
+		"to": "inch",
+		"input": "1",
+		"expected": "3.93700787e-5",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "micrometre",
+		"to": "nautical-mile",
+		"input": "1",
+		"expected": "5.3996e-10",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "microsecond",
+		"to": "century",
+		"input": "1",
+		"expected": "3.171e-16",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "microsecond",
+		"to": "decade",
+		"input": "1",
+		"expected": "3.171e-15",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "microsecond",
+		"to": "year",
+		"input": "1",
+		"expected": "3.171e-14",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "microsecond",
+		"to": "month",
+		"input": "1",
+		"expected": "3.8052e-13",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "microsecond",
+		"to": "week",
+		"input": "1",
+		"expected": "1.6534e-12",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "microsecond",
+		"to": "day",
+		"input": "1",
+		"expected": "1.1574e-11",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "microsecond",
+		"to": "hour",
+		"input": "1",
+		"expected": "2.7778e-10",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "microsecond",
+		"to": "minute",
+		"input": "1",
+		"expected": "1.6667e-8",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "microsecond",
+		"to": "second",
+		"input": "1",
+		"expected": "1e-6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "microsecond",
+		"to": "millisecond",
+		"input": "1",
+		"expected": "0.001",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "microsecond",
+		"to": "nanosecond",
+		"input": "1",
+		"expected": "1000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "mile",
+		"to": "kilometre",
+		"input": "1",
+		"expected": "1.60934",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "mile",
+		"to": "metre",
+		"input": "1",
+		"expected": "1609.34",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "mile",
+		"to": "centimetre",
+		"input": "1",
+		"expected": "160934",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "mile",
+		"to": "millimetre",
+		"input": "1",
+		"expected": "1.60934e+6",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "mile",
+		"to": "micrometre",
+		"input": "1",
+		"expected": "1.60934e+9",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "mile",
+		"to": "nanometre",
+		"input": "1",
+		"expected": "1.60934e+12",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "mile",
+		"to": "yard",
+		"input": "1",
+		"expected": "1760",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "mile",
+		"to": "foot",
+		"input": "1",
+		"expected": "5280",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "mile",
+		"to": "inch",
+		"input": "1",
+		"expected": "63360",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "mile",
+		"to": "nautical-mile",
+		"input": "1",
+		"expected": "0.868976",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "milligram",
+		"to": "tonne",
+		"input": "1",
+		"expected": "1e-9",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "milligram",
+		"to": "kilogram",
+		"input": "1",
+		"expected": "1e-6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "milligram",
+		"to": "gram",
+		"input": "1",
+		"expected": "0.001",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "milligram",
+		"to": "microgram",
+		"input": "1",
+		"expected": "1000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "milligram",
+		"to": "long-ton",
+		"input": "1",
+		"expected": "9.8421e-10",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "milligram",
+		"to": "short-ton",
+		"input": "1",
+		"expected": "1.1023e-9",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "milligram",
+		"to": "stone",
+		"input": "1",
+		"expected": "1.5747e-7",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "milligram",
+		"to": "pound",
+		"input": "1",
+		"expected": "2.2046e-6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "milligram",
+		"to": "ounce",
+		"input": "1",
+		"expected": "3.5274e-5",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "millilitre",
+		"to": "cubic-metre",
+		"input": "1",
+		"expected": "1e-6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "millilitre",
+		"to": "litre",
+		"input": "1",
+		"expected": "0.001",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "millilitre",
+		"to": "us-gallon",
+		"input": "1",
+		"expected": "0.000264172",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "millilitre",
+		"to": "us-quart",
+		"input": "1",
+		"expected": "0.00105669",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "millilitre",
+		"to": "us-pint",
+		"input": "1",
+		"expected": "0.00211338",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "millilitre",
+		"to": "imperial-gallon",
+		"input": "1",
+		"expected": "0.000219969",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "millilitre",
+		"to": "imperial-quart",
+		"input": "1",
+		"expected": "0.000879877",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "millilitre",
+		"to": "imperial-pint",
+		"input": "1",
+		"expected": "0.00175975",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "millimetre",
+		"to": "kilometre",
+		"input": "1",
+		"expected": "1e-6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "millimetre",
+		"to": "metre",
+		"input": "1",
+		"expected": "0.001",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "millimetre",
+		"to": "centimetre",
+		"input": "1",
+		"expected": "0.1",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "millimetre",
+		"to": "micrometre",
+		"input": "1",
+		"expected": "1000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "millimetre",
+		"to": "nanometre",
+		"input": "1",
+		"expected": "1e+6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "millimetre",
+		"to": "mile",
+		"input": "1",
+		"expected": "6.2137e-7",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "millimetre",
+		"to": "yard",
+		"input": "1",
+		"expected": "0.00109361",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "millimetre",
+		"to": "foot",
+		"input": "1",
+		"expected": "0.00328084",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "millimetre",
+		"to": "inch",
+		"input": "1",
+		"expected": "0.0393700787",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "millimetre",
+		"to": "nautical-mile",
+		"input": "1",
+		"expected": "5.3996e-7",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "millimole",
+		"to": "mole",
+		"input": "1",
+		"expected": "0.001",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "millisecond",
+		"to": "century",
+		"input": "1",
+		"expected": "3.171e-13",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "millisecond",
+		"to": "decade",
+		"input": "1",
+		"expected": "3.171e-12",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "millisecond",
+		"to": "year",
+		"input": "1",
+		"expected": "3.171e-11",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "millisecond",
+		"to": "month",
+		"input": "1",
+		"expected": "3.8052e-10",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "millisecond",
+		"to": "week",
+		"input": "1",
+		"expected": "1.6534e-9",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "millisecond",
+		"to": "day",
+		"input": "1",
+		"expected": "1.1574e-8",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "millisecond",
+		"to": "hour",
+		"input": "1",
+		"expected": "2.7778e-7",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "millisecond",
+		"to": "minute",
+		"input": "1",
+		"expected": "1.6667e-5",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "millisecond",
+		"to": "second",
+		"input": "1",
+		"expected": "0.001",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "millisecond",
+		"to": "microsecond",
+		"input": "1",
+		"expected": "1000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "millisecond",
+		"to": "nanosecond",
+		"input": "1",
+		"expected": "1e+6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "minute",
+		"to": "century",
+		"input": "1",
+		"expected": "1.9026e-8",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "minute",
+		"to": "decade",
+		"input": "1",
+		"expected": "1.9026e-7",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "minute",
+		"to": "year",
+		"input": "1",
+		"expected": "1.9026e-6",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "minute",
+		"to": "month",
+		"input": "1",
+		"expected": "2.2831e-5",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "minute",
+		"to": "week",
+		"input": "1",
+		"expected": "9.9206e-5",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "minute",
+		"to": "day",
+		"input": "1",
+		"expected": "0.000694444",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "minute",
+		"to": "hour",
+		"input": "1",
+		"expected": "0.0166667",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "minute",
+		"to": "second",
+		"input": "1",
+		"expected": "60",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "minute",
+		"to": "millisecond",
+		"input": "1",
+		"expected": "60000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "minute",
+		"to": "microsecond",
+		"input": "1",
+		"expected": "6e+7",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "minute",
+		"to": "nanosecond",
+		"input": "1",
+		"expected": "6e+10",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "mole",
+		"to": "millimole",
+		"input": "1",
+		"expected": "1000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "month",
+		"to": "century",
+		"input": "1",
+		"expected": "0.000833334",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "month",
+		"to": "decade",
+		"input": "1",
+		"expected": "0.00833334",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "month",
+		"to": "year",
+		"input": "1",
+		"expected": "0.0833334",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "month",
+		"to": "week",
+		"input": "1",
+		"expected": "4.34524",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "month",
+		"to": "day",
+		"input": "1",
+		"expected": "30.4167",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "month",
+		"to": "hour",
+		"input": "1",
+		"expected": "730.001",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "month",
+		"to": "minute",
+		"input": "1",
+		"expected": "43800",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "month",
+		"to": "second",
+		"input": "1",
+		"expected": "2.628e+6",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "month",
+		"to": "millisecond",
+		"input": "1",
+		"expected": "2.628e+9",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "nanometre",
+		"to": "kilometre",
+		"input": "1",
+		"expected": "1e-12",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "nanometre",
+		"to": "metre",
+		"input": "1",
+		"expected": "1e-9",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "nanometre",
+		"to": "centimetre",
+		"input": "1",
+		"expected": "1e-7",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "nanometre",
+		"to": "millimetre",
+		"input": "1",
+		"expected": "1e-6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "nanometre",
+		"to": "micrometre",
+		"input": "1",
+		"expected": "0.001",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "nanometre",
+		"to": "mile",
+		"input": "1",
+		"expected": "6.2137e-13",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "nanometre",
+		"to": "yard",
+		"input": "1",
+		"expected": "1.0936e-9",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "nanometre",
+		"to": "foot",
+		"input": "1",
+		"expected": "3.2808e-9",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "nanometre",
+		"to": "inch",
+		"input": "1",
+		"expected": "3.93700787e-8",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "nanometre",
+		"to": "nautical-mile",
+		"input": "1",
+		"expected": "5.3996e-13",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "nanosecond",
+		"to": "century",
+		"input": "1",
+		"expected": "3.171e-19",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "nanosecond",
+		"to": "decade",
+		"input": "1",
+		"expected": "3.171e-18",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "nanosecond",
+		"to": "year",
+		"input": "1",
+		"expected": "3.171e-17",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "nanosecond",
+		"to": "month",
+		"input": "1",
+		"expected": "3.8052e-16",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "nanosecond",
+		"to": "week",
+		"input": "1",
+		"expected": "1.6534e-15",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "nanosecond",
+		"to": "day",
+		"input": "1",
+		"expected": "1.1574e-14",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "nanosecond",
+		"to": "hour",
+		"input": "1",
+		"expected": "2.7778e-13",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "nanosecond",
+		"to": "minute",
+		"input": "1",
+		"expected": "1.6667e-11",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "nanosecond",
+		"to": "second",
+		"input": "1",
+		"expected": "1e-9",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "nanosecond",
+		"to": "millisecond",
+		"input": "1",
+		"expected": "1e-6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "nanosecond",
+		"to": "microsecond",
+		"input": "1",
+		"expected": "0.001",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "nautical-mile",
+		"to": "kilometre",
+		"input": "1",
+		"expected": "1.852",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "nautical-mile",
+		"to": "metre",
+		"input": "1",
+		"expected": "1852",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "nautical-mile",
+		"to": "centimetre",
+		"input": "1",
+		"expected": "185200",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "nautical-mile",
+		"to": "millimetre",
+		"input": "1",
+		"expected": "1.852e+6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "nautical-mile",
+		"to": "micrometre",
+		"input": "1",
+		"expected": "1.852e+9",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "nautical-mile",
+		"to": "nanometre",
+		"input": "1",
+		"expected": "1.852e+12",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "nautical-mile",
+		"to": "mile",
+		"input": "1",
+		"expected": "1.15078",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "nautical-mile",
+		"to": "yard",
+		"input": "1",
+		"expected": "2025.37",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "nautical-mile",
+		"to": "foot",
+		"input": "1",
+		"expected": "6076.12",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "nautical-mile",
+		"to": "inch",
+		"input": "1",
+		"expected": "72913.4",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "newton-degree",
+		"to": "kelvin",
+		"input": "1",
+		"expected": "276.180303030303",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "newton-degree",
+		"to": "celsius",
+		"input": "1",
+		"expected": "3.030303030303",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "newton-degree",
+		"to": "fahrenheit",
+		"input": "1",
+		"expected": "37.454545454545",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "newton-degree",
+		"to": "rankine",
+		"input": "1",
+		"expected": "497.124545454545",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "newton-degree",
+		"to": "delisle",
+		"input": "1",
+		"expected": "145.454545454545",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "newton-degree",
+		"to": "reaumur",
+		"input": "1",
+		"expected": "2.424242424242",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "newton-degree",
+		"to": "romer",
+		"input": "1",
+		"expected": "9.090909090909",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "ounce",
+		"to": "tonne",
+		"input": "1",
+		"expected": "2.8349523125e-5",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "ounce",
+		"to": "kilogram",
+		"input": "1",
+		"expected": "0.028349523125",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "ounce",
+		"to": "gram",
+		"input": "1",
+		"expected": "28.349523125",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "ounce",
+		"to": "milligram",
+		"input": "1",
+		"expected": "28349.523125",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "ounce",
+		"to": "microgram",
+		"input": "1",
+		"expected": "2.835e+7",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "ounce",
+		"to": "long-ton",
+		"input": "1",
+		"expected": "2.7902e-5",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "ounce",
+		"to": "short-ton",
+		"input": "1",
+		"expected": "3.125e-5",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "ounce",
+		"to": "stone",
+		"input": "1",
+		"expected": "0.00446429",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "ounce",
+		"to": "pound",
+		"input": "1",
+		"expected": "0.0625",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "pound",
+		"to": "tonne",
+		"input": "1",
+		"expected": "0.000453592",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "pound",
+		"to": "kilogram",
+		"input": "1",
+		"expected": "0.45359237",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "pound",
+		"to": "gram",
+		"input": "1",
+		"expected": "453.592",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "pound",
+		"to": "milligram",
+		"input": "1",
+		"expected": "453592",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "pound",
+		"to": "microgram",
+		"input": "1",
+		"expected": "4.536e+8",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "pound",
+		"to": "long-ton",
+		"input": "1",
+		"expected": "0.000446429",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "pound",
+		"to": "short-ton",
+		"input": "1",
+		"expected": "0.0005",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "pound",
+		"to": "stone",
+		"input": "1",
+		"expected": "0.0714286",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "pound",
+		"to": "ounce",
+		"input": "1",
+		"expected": "16",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "rankine",
+		"to": "kelvin",
+		"input": "1",
+		"expected": "0.555555555555556",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "rankine",
+		"to": "celsius",
+		"input": "1",
+		"expected": "-272.594444444444",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "rankine",
+		"to": "fahrenheit",
+		"input": "1",
+		"expected": "-458.67",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "rankine",
+		"to": "delisle",
+		"input": "1",
+		"expected": "558.8916666666667",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "rankine",
+		"to": "newton-degree",
+		"input": "1",
+		"expected": "-89.9561666666667",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "rankine",
+		"to": "reaumur",
+		"input": "1",
+		"expected": "-218.075555555556",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "rankine",
+		"to": "romer",
+		"input": "1",
+		"expected": "-135.612083333333",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "reaumur",
+		"to": "kelvin",
+		"input": "1",
+		"expected": "274.4",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "reaumur",
+		"to": "celsius",
+		"input": "1",
+		"expected": "1.25",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "reaumur",
+		"to": "fahrenheit",
+		"input": "1",
+		"expected": "34.25",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "reaumur",
+		"to": "rankine",
+		"input": "1",
+		"expected": "493.92",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "reaumur",
+		"to": "delisle",
+		"input": "1",
+		"expected": "148.125",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "reaumur",
+		"to": "newton-degree",
+		"input": "1",
+		"expected": "0.4125",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "reaumur",
+		"to": "romer",
+		"input": "1",
+		"expected": "8.15625",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "romer",
+		"to": "kelvin",
+		"input": "1",
+		"expected": "260.769047619048",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "romer",
+		"to": "celsius",
+		"input": "1",
+		"expected": "-12.380952380952",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "romer",
+		"to": "fahrenheit",
+		"input": "1",
+		"expected": "9.714285714286",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "romer",
+		"to": "rankine",
+		"input": "1",
+		"expected": "469.384285714286",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "romer",
+		"to": "delisle",
+		"input": "1",
+		"expected": "168.571428571429",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "romer",
+		"to": "newton-degree",
+		"input": "1",
+		"expected": "-4.085714285714",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "romer",
+		"to": "reaumur",
+		"input": "1",
+		"expected": "-9.904761904762",
+		"exact": true,
+		"viaFormula": true
+	},
+	{
+		"from": "second",
+		"to": "century",
+		"input": "1",
+		"expected": "3.171e-10",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "second",
+		"to": "decade",
+		"input": "1",
+		"expected": "3.171e-9",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "second",
+		"to": "year",
+		"input": "1",
+		"expected": "3.171e-8",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "second",
+		"to": "month",
+		"input": "1",
+		"expected": "3.8052e-7",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "second",
+		"to": "week",
+		"input": "1",
+		"expected": "1.6534e-6",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "second",
+		"to": "day",
+		"input": "1",
+		"expected": "1.1574e-5",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "second",
+		"to": "hour",
+		"input": "1",
+		"expected": "0.000277778",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "second",
+		"to": "minute",
+		"input": "1",
+		"expected": "0.0166666667",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "second",
+		"to": "millisecond",
+		"input": "1",
+		"expected": "1000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "second",
+		"to": "microsecond",
+		"input": "1",
+		"expected": "1e+6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "second",
+		"to": "nanosecond",
+		"input": "1",
+		"expected": "1e+9",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "short-ton",
+		"to": "tonne",
+		"input": "1",
+		"expected": "0.90718474",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "short-ton",
+		"to": "kilogram",
+		"input": "1",
+		"expected": "907.18474",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "short-ton",
+		"to": "gram",
+		"input": "1",
+		"expected": "907184.74",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "short-ton",
+		"to": "milligram",
+		"input": "1",
+		"expected": "9.072e+8",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "short-ton",
+		"to": "microgram",
+		"input": "1",
+		"expected": "9.072e+11",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "short-ton",
+		"to": "stone",
+		"input": "1",
+		"expected": "142.857",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "short-ton",
+		"to": "pound",
+		"input": "1",
+		"expected": "2000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "short-ton",
+		"to": "ounce",
+		"input": "1",
+		"expected": "32000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "stone",
+		"to": "tonne",
+		"input": "1",
+		"expected": "0.00635029",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "stone",
+		"to": "kilogram",
+		"input": "1",
+		"expected": "6.35029",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "stone",
+		"to": "gram",
+		"input": "1",
+		"expected": "6350.29",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "stone",
+		"to": "milligram",
+		"input": "1",
+		"expected": "6.35029e+6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "stone",
+		"to": "microgram",
+		"input": "1",
+		"expected": "6.35029e+9",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "stone",
+		"to": "long-ton",
+		"input": "1",
+		"expected": "0.00625",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "stone",
+		"to": "short-ton",
+		"input": "1",
+		"expected": "0.007",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "stone",
+		"to": "pound",
+		"input": "1",
+		"expected": "14",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "stone",
+		"to": "ounce",
+		"input": "1",
+		"expected": "224",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "tonne",
+		"to": "kilogram",
+		"input": "1",
+		"expected": "1000",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "tonne",
+		"to": "gram",
+		"input": "1",
+		"expected": "1e+6",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "tonne",
+		"to": "milligram",
+		"input": "1",
+		"expected": "1e+9",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "tonne",
+		"to": "microgram",
+		"input": "1",
+		"expected": "1e+12",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "tonne",
+		"to": "long-ton",
+		"input": "1",
+		"expected": "0.9842065276110608",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "tonne",
+		"to": "short-ton",
+		"input": "1",
+		"expected": "1.1023113109243878",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "tonne",
+		"to": "stone",
+		"input": "1",
+		"expected": "157.473",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "tonne",
+		"to": "pound",
+		"input": "1",
+		"expected": "2204.622621848776",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "us-gallon",
+		"to": "cubic-metre",
+		"input": "1",
+		"expected": "0.003785411784",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "us-gallon",
+		"to": "litre",
+		"input": "1",
+		"expected": "3.785411784",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "us-gallon",
+		"to": "millilitre",
+		"input": "1",
+		"expected": "3785.411784",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "us-gallon",
+		"to": "us-quart",
+		"input": "1",
+		"expected": "4",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "us-gallon",
+		"to": "us-pint",
+		"input": "1",
+		"expected": "8",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "us-gallon",
+		"to": "imperial-gallon",
+		"input": "1",
+		"expected": "0.832674",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "us-gallon",
+		"to": "imperial-quart",
+		"input": "1",
+		"expected": "3.3307",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "us-gallon",
+		"to": "imperial-pint",
+		"input": "1",
+		"expected": "6.66139",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "us-pint",
+		"to": "cubic-metre",
+		"input": "1",
+		"expected": "0.000473176",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "us-pint",
+		"to": "litre",
+		"input": "1",
+		"expected": "0.473176",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "us-pint",
+		"to": "millilitre",
+		"input": "1",
+		"expected": "473.176",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "us-pint",
+		"to": "us-gallon",
+		"input": "1",
+		"expected": "0.125",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "us-pint",
+		"to": "us-quart",
+		"input": "1",
+		"expected": "0.5",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "us-pint",
+		"to": "imperial-gallon",
+		"input": "1",
+		"expected": "0.104084",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "us-pint",
+		"to": "imperial-quart",
+		"input": "1",
+		"expected": "0.416337",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "us-pint",
+		"to": "imperial-pint",
+		"input": "1",
+		"expected": "0.832674",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "us-quart",
+		"to": "cubic-metre",
+		"input": "1",
+		"expected": "0.0009463529460",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "us-quart",
+		"to": "litre",
+		"input": "1",
+		"expected": "0.9463529460",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "us-quart",
+		"to": "millilitre",
+		"input": "1",
+		"expected": "946.3529460",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "us-quart",
+		"to": "us-gallon",
+		"input": "1",
+		"expected": "0.25",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "us-quart",
+		"to": "us-pint",
+		"input": "1",
+		"expected": "2",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "us-quart",
+		"to": "imperial-gallon",
+		"input": "1",
+		"expected": "0.208169",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "us-quart",
+		"to": "imperial-quart",
+		"input": "1",
+		"expected": "0.832674",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "us-quart",
+		"to": "imperial-pint",
+		"input": "1",
+		"expected": "1.66535",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "watt",
+		"to": "joule-per-second",
+		"input": "1",
+		"expected": "1",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "week",
+		"to": "century",
+		"input": "1",
+		"expected": "0.000191781",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "week",
+		"to": "decade",
+		"input": "1",
+		"expected": "0.00191781",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "week",
+		"to": "year",
+		"input": "1",
+		"expected": "0.0191781",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "week",
+		"to": "month",
+		"input": "1",
+		"expected": "0.230137",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "week",
+		"to": "day",
+		"input": "1",
+		"expected": "7",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "week",
+		"to": "hour",
+		"input": "1",
+		"expected": "168",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "week",
+		"to": "minute",
+		"input": "1",
+		"expected": "10080",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "week",
+		"to": "second",
+		"input": "1",
+		"expected": "604800",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "week",
+		"to": "millisecond",
+		"input": "1",
+		"expected": "6.048e+8",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "week",
+		"to": "microsecond",
+		"input": "1",
+		"expected": "6.048e+11",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "week",
+		"to": "nanosecond",
+		"input": "1",
+		"expected": "6.048e+14",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "yard",
+		"to": "kilometre",
+		"input": "1",
+		"expected": "0.0009144",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "yard",
+		"to": "metre",
+		"input": "1",
+		"expected": "0.9144",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "yard",
+		"to": "centimetre",
+		"input": "1",
+		"expected": "91.44",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "yard",
+		"to": "millimetre",
+		"input": "1",
+		"expected": "914.4",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "yard",
+		"to": "micrometre",
+		"input": "1",
+		"expected": "914400",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "yard",
+		"to": "nanometre",
+		"input": "1",
+		"expected": "9.144e+8",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "yard",
+		"to": "mile",
+		"input": "1",
+		"expected": "0.000568182",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "yard",
+		"to": "foot",
+		"input": "1",
+		"expected": "3",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "yard",
+		"to": "inch",
+		"input": "1",
+		"expected": "36",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "yard",
+		"to": "nautical-mile",
+		"input": "1",
+		"expected": "0.000493737",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "year",
+		"to": "century",
+		"input": "1",
+		"expected": "0.01",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "year",
+		"to": "decade",
+		"input": "1",
+		"expected": "0.1",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "year",
+		"to": "month",
+		"input": "1",
+		"expected": "12",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "year",
+		"to": "week",
+		"input": "1",
+		"expected": "52.1429",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "year",
+		"to": "day",
+		"input": "1",
+		"expected": "365",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "year",
+		"to": "hour",
+		"input": "1",
+		"expected": "8760",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "year",
+		"to": "minute",
+		"input": "1",
+		"expected": "525600",
+		"exact": true,
+		"viaFormula": false
+	},
+	{
+		"from": "year",
+		"to": "second",
+		"input": "1",
+		"expected": "3.154e+7",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "year",
+		"to": "millisecond",
+		"input": "1",
+		"expected": "3.154e+10",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "year",
+		"to": "microsecond",
+		"input": "1",
+		"expected": "3.154e+13",
+		"exact": false,
+		"viaFormula": false
+	},
+	{
+		"from": "year",
+		"to": "nanosecond",
+		"input": "1",
+		"expected": "3.154e+16",
+		"exact": false,
+		"viaFormula": false
+	}
+]

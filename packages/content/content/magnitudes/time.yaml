@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Time'
+symbol:
+  tex: 't'
+baseUnit: 'second'
+dimension:
+  T: 1
+nonNegative: true
+externalIds:
+  wikidata: 'Q2199864'
+  qudt: 'http://qudt.org/vocab/quantitykind/Time'
+categories:
+  - 'universal'
+  - 'physics'
+branches:
+  - 'mechanics'
+  - 'measurement'
+aliases:
+  - 'duration'
+description:
+  en: >-
+    Time in physics is defined by its measurement: time is what a clock reads. In classical,
+    non-relativistic physics, it is a scalar quantity (often denoted by the symbol $t$) and, like
+    length, mass, and charge, is usually described as a fundamental quantity.

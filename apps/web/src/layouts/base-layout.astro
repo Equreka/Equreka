@@ -1,0 +1,276 @@
+---
+import '../styles/global.css';
+import { type Locale, t } from '@equreka/core/i18n';
+import type { ExternalIds } from '@equreka/schema';
+import { tokens } from '@equreka/tokens';
+import IconGlyph from '../components/icon-glyph.astro';
+import Logo from '../components/logo.astro';
+import SearchBox from '../islands/search-box';
+import { definedTermJsonLd, serializeJsonLd } from '../lib/entry-meta';
+import type { IconName } from '../lib/icons';
+import { localePath } from '../lib/locale-paths';
+import { SOCIAL_LINKS } from '../lib/site';
+
+interface Props {
+	title: string;
+	description?: string;
+	locale?: Locale;
+	ogType?: 'website' | 'article';
+	definedTerm?: { name: string; externalIds?: ExternalIds | undefined };
+}
+
+const { title, description, locale = 'en', ogType = 'website', definedTerm } = Astro.props;
+
+const site = Astro.site ?? new URL('https://equreka.com');
+const rawPath = Astro.url.pathname;
+const path = rawPath.endsWith('/') ? rawPath : `${rawPath}/`;
+const basePath = locale === 'es' ? path.replace(/^\/es(?=\/)/, '') : path;
+const canonicalUrl = new URL(path, site);
+const enUrl = new URL(basePath, site);
+const esUrl = new URL(`/es${basePath}`, site);
+const jsonLd =
+	definedTerm === undefined
+		? undefined
+		: serializeJsonLd(
+				definedTermJsonLd({
+					name: definedTerm.name,
+					description,
+					url: canonicalUrl.href,
+					inLanguage: locale,
+					externalIds: definedTerm.externalIds,
+				}),
+			);
+
+/**
+ * The legacy icon menu, rendered once: header buttons from 768px, the
+ * fixed bottom navigation below it (CSS only). `swatch` is the legacy
+ * per-item accent the bottom navigation shows on the active link.
+ */
+const PRIMARY_ITEMS: readonly {
+	key: 'nav.home' | 'nav.search' | 'nav.favorites' | 'nav.settings';
+	href: string;
+	icon: IconName;
+	swatch: string;
+}[] = [
+	{ key: 'nav.home', href: '/', icon: 'house', swatch: 'sw-blue' },
+	{ key: 'nav.search', href: '/search/', icon: 'search', swatch: 'sw-indigo' },
+	{ key: 'nav.favorites', href: '/favorites/', icon: 'heart', swatch: 'sw-red' },
+	{ key: 'nav.settings', href: '/settings/', icon: 'gear', swatch: 'sw-yellow' },
+];
+
+/**
+ * The footer's three text links. Legacy linked About, Contact and Donate,
+ * pages v2 does not have; these slots carry the v2-only destinations
+ * (ADR 0008), which the header never shows.
+ */
+const FOOTER_ITEMS = [
+	{ key: 'nav.paths', href: '/paths/' },
+	{ key: 'nav.calculator', href: '/calculator/' },
+	{ key: 'nav.converter', href: '/converter/' },
+] as const;
+
+const homePath = localePath(locale, '/');
+const isCurrent = (href: string): boolean => {
+	const target = localePath(locale, href);
+	return target === homePath ? path === homePath : path.startsWith(target);
+};
+
+/**
+ * The search page owns the search bar, so the header leaves its center
+ * zone empty there, as the original's search page hid the header bar.
+ */
+const isSearchPage = path === localePath(locale, '/search/');
+---
+
+<html lang={locale}>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+		<title>{title}</title>
+		{description !== undefined && <meta name="description" content={description} />}
+		<link rel="canonical" href={canonicalUrl.href} />
+		<link rel="alternate" hreflang="en" href={enUrl.href} />
+		<link rel="alternate" hreflang="es" href={esUrl.href} />
+		<link rel="alternate" hreflang="x-default" href={enUrl.href} />
+		<meta property="og:title" content={title} />
+		{description !== undefined && <meta property="og:description" content={description} />}
+		<meta property="og:type" content={ogType} />
+		<meta property="og:url" content={canonicalUrl.href} />
+		{jsonLd !== undefined && <script is:inline type="application/ld+json" set:html={jsonLd} />}
+		<meta name="theme-color" media="(prefers-color-scheme: light)" content={tokens.color.bg.light} />
+		<meta name="theme-color" media="(prefers-color-scheme: dark)" content={tokens.color.bg.dark} />
+		<link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
+		<link rel="manifest" href="/manifest.webmanifest" />
+		<link
+			rel="preload"
+			href="/fonts/poppins-latin-500-normal.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="/fonts/poppins-latin-600-normal.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="/fonts/bootstrap-icons.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link rel="stylesheet" href="/katex/katex.min.css" />
+		<script is:inline defer src="/pwa-register.js"></script>
+		<script is:inline>
+			(() => {
+				let stored = null;
+				try {
+					const raw = localStorage.getItem('equreka.v1.settings');
+					if (raw !== null) stored = JSON.parse(raw).theme ?? null;
+				} catch {}
+				const theme =
+					stored === 'light' || stored === 'dark'
+						? stored
+						: matchMedia('(prefers-color-scheme: dark)').matches
+							? 'dark'
+							: 'light';
+				document.documentElement.dataset.theme = theme;
+			})();
+		</script>
+	</head>
+	<body class="eq-body">
+		<a class="eq-skip-link" href="#main">{t(locale, 'design.shell.skipToContent')}</a>
+		<header class="eq-site-header">
+			<div class="eq-container eq-site-header-row">
+				<div class="eq-site-header-start">
+					<a href={homePath} class="eq-logo-link" aria-label={t(locale, 'design.shell.homeLink')}>
+						<Logo />
+					</a>
+				</div>
+				<div class="eq-site-header-center">
+					{!isSearchPage && <SearchBox client:idle variant="header" locale={locale} />}
+				</div>
+				<div class="eq-site-header-end">
+					<nav aria-label={t(locale, 'nav.aria')} class="eq-primary-nav">
+						{
+							PRIMARY_ITEMS.map((item) => (
+								<a
+									href={localePath(locale, item.href)}
+									class:list={['eq-primary-link', item.swatch]}
+									title={t(locale, item.key)}
+									aria-current={isCurrent(item.href) ? 'page' : undefined}
+								>
+									<span class="sr-only">{t(locale, item.key)}</span>
+									<IconGlyph name={item.icon} />
+								</a>
+							))
+						}
+					</nav>
+				</div>
+			</div>
+		</header>
+		<main id="main" class="eq-main">
+			<slot name="hero" />
+			<div class="eq-container">
+				{
+					Astro.slots.has('context') && (
+						<div class="eq-context-slot">
+							<slot name="context" />
+						</div>
+					)
+				}
+				<slot />
+			</div>
+		</main>
+		<footer class="eq-site-footer">
+			<div class="eq-container">
+				<div class="eq-site-footer-row">
+					<div class="eq-footer-brand">
+						<small>{t(locale, 'footer.brand')}</small>
+					</div>
+					<div class="eq-footer-social">
+						{
+							SOCIAL_LINKS.map((social) => (
+								<a
+									class:list={['eq-footer-link', `eq-footer-${social.icon}`]}
+									href={social.href}
+									target="_blank"
+									rel="noopener nofollow"
+									title={t(locale, social.key)}
+								>
+									<IconGlyph name={social.icon} />
+									<span class="sr-only">{t(locale, social.key)}</span>
+								</a>
+							))
+						}
+					</div>
+					<nav aria-label={t(locale, 'design.shell.sectionsNav')} class="eq-footer-links">
+						{
+							FOOTER_ITEMS.map((item) => (
+								<a
+									class="eq-footer-link"
+									href={localePath(locale, item.href)}
+									aria-current={isCurrent(item.href) ? 'page' : undefined}
+								>
+									{t(locale, item.key)}
+								</a>
+							))
+						}
+					</nav>
+					<div class="eq-footer-mark">
+						<Logo tone="mono" />
+					</div>
+				</div>
+			</div>
+		</footer>
+		<script>
+			/**
+			 * Delegated equation-term cross-highlighting: hovering any
+			 * [data-term] element (KaTeX expression span, terms-table row)
+			 * toggles .term-hl on every element sharing that data-term value;
+			 * clicking locks the highlight until clicked again. Clicks that
+			 * land on links keep navigating untouched.
+			 */
+			const lockedTerms = new Set<string>();
+
+			const termElementOf = (target: EventTarget | null): HTMLElement | null =>
+				target instanceof Element ? target.closest<HTMLElement>('[data-term]') : null;
+
+			const setTermHighlight = (term: string, on: boolean): void => {
+				for (const element of document.querySelectorAll(`[data-term="${term}"]`)) {
+					element.classList.toggle('term-hl', on);
+				}
+			};
+
+			document.addEventListener('pointerover', (event) => {
+				const term = termElementOf(event.target)?.dataset.term;
+				if (term !== undefined) setTermHighlight(term, true);
+			});
+
+			document.addEventListener('pointerout', (event) => {
+				const element = termElementOf(event.target);
+				const term = element?.dataset.term;
+				if (element === null || term === undefined || lockedTerms.has(term)) return;
+				const next = event.relatedTarget instanceof Node ? event.relatedTarget : null;
+				if (next !== null && element.contains(next)) return;
+				setTermHighlight(term, false);
+			});
+
+			document.addEventListener('click', (event) => {
+				const term = termElementOf(event.target)?.dataset.term;
+				if (term === undefined) return;
+				if (event.target instanceof Element && event.target.closest('a') !== null) return;
+				const on = !lockedTerms.has(term);
+				if (on) {
+					lockedTerms.add(term);
+				} else {
+					lockedTerms.delete(term);
+				}
+				setTermHighlight(term, on);
+			});
+		</script>
+	</body>
+</html>

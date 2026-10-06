@@ -1,0 +1,102 @@
+---
+import { type Locale, localizedName, t } from '@equreka/core/i18n';
+import { formatSigFigs } from '@equreka/engine/format';
+import { localePath } from '../lib/locale-paths';
+import { unitRegistry } from '../lib/server/engine-registry';
+import { renderSymbolHtml } from '../lib/tex';
+import AbbrLabel from './abbr-label.astro';
+import CollapseCard from './collapse-card.astro';
+import MathValue from './math-value.astro';
+
+interface Props {
+	unitSlug: string;
+	locale?: Locale;
+}
+
+const { unitSlug, locale = 'en' } = Astro.props;
+const unit = unitRegistry.getUnit(unitSlug);
+const targets =
+	unit === undefined
+		? []
+		: unitRegistry
+				.compatibleUnits(unitSlug)
+				.filter((target) => target.slug !== unitSlug)
+				.sort((a, b) => localizedName(a, locale).localeCompare(localizedName(b, locale), locale));
+/**
+ * The original's formula column: `[unit] * ratio` for a plain ratio, a
+ * dash when the ratio is 1, and the offset form for affine scales
+ * (temperatures), which the original authored as `value × a + b`.
+ */
+function conversionFormula(symbolTex: string, ratio: number, offset: number): string {
+	const source = `[${symbolTex}]`;
+	if (offset === 0) return ratio === 1 ? '-' : `${source} * ${formatSigFigs(ratio)}`;
+	const scale = ratio - offset;
+	const shift = `${offset < 0 ? '-' : '+'} ${formatSigFigs(Math.abs(offset))}`;
+	return scale === 1 ? `${source} ${shift}` : `${source} \\times ${formatSigFigs(scale)} ${shift}`;
+}
+
+const rows = targets.flatMap((target) => {
+	const converted = unitRegistry.convert(1, unitSlug, target.slug);
+	const origin = unitRegistry.convert(0, unitSlug, target.slug);
+	if (!converted.ok || unit === undefined) return [];
+	const formula = conversionFormula(unit.symbolTex, converted.value, origin.ok ? origin.value : 0);
+	return [
+		{
+			target,
+			value: formatSigFigs(converted.value),
+			exact: unitRegistry.isExactPath(unitSlug, target.slug),
+			formulaHtml: renderSymbolHtml(formula, formula),
+		},
+	];
+});
+---
+
+{
+	unit !== undefined && rows.length > 0 && (
+		<CollapseCard headingId="conversions-heading" title={t(locale, 'conversions.title')}>
+			<div class="eq-table-wrap">
+				<table class="eq-table-data">
+					<thead>
+						<tr>
+							<th scope="col">{t(locale, 'table.name')}</th>
+							<th scope="col" class="eq-cell-numeric">
+								<AbbrLabel
+									abbr={t(locale, 'design.content.abbr.conversion')}
+									full={t(locale, 'design.content.table.conversion')}
+								/>{' '}
+								<small>(1 {unit.symbolText})</small>
+							</th>
+							<th scope="col">
+								<AbbrLabel
+									abbr={t(locale, 'design.legacy.abbr.symbol')}
+									full={t(locale, 'table.symbol')}
+								/>
+							</th>
+							<th scope="col">{t(locale, 'design.content.table.formula')}</th>
+						</tr>
+					</thead>
+					<tbody>
+						{rows.map((row) => (
+							<tr>
+								<td>
+									<a class="eq-link" href={localePath(locale, `/units/${row.target.slug}/`)}>
+										{localizedName(row.target, locale)}
+									</a>
+								</td>
+								<td class="eq-cell-numeric">
+									{!row.exact && <span class="eq-approx">≈ </span>}
+									<MathValue value={row.value} />
+								</td>
+								<td set:html={renderSymbolHtml(row.target.symbolTex, row.target.symbolText)} />
+								<td set:html={row.formulaHtml} />
+							</tr>
+						))}
+					</tbody>
+				</table>
+			</div>
+			<p class="eq-card-note eq-card-note-after">
+				{t(locale, 'conversions.lead', { symbol: unit.symbolText })}
+			</p>
+		</CollapseCard>
+	)
+}

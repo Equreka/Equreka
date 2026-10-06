@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Joule per second'
+symbol:
+  tex: '\frac{J}{s}'
+  text: 'J/s'
+unitOf:
+  - 'power'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'joule'
+      exp: 1
+    - unit: 'second'
+      exp: -1
+externalIds:
+  wikidata: 'Q92711514'
+  qudt: 'http://qudt.org/vocab/unit/J-PER-SEC'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+  - 'electromagnetism'
+aliases:
+  - 'J/s'
+description:
+  en: >-
+    The SI units for work and time are Joules and seconds, respectively.

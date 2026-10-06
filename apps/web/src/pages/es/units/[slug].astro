@@ -1,0 +1,16 @@
+---
+import { getCollection } from 'astro:content';
+import type { InferGetStaticPropsType } from 'astro';
+import UnitPage from '../../../pages-shared/unit-page.astro';
+
+export async function getStaticPaths() {
+	const units = await getCollection('units');
+	return units.map((entry) => ({ params: { slug: entry.id }, props: { entry } }));
+}
+
+type Props = InferGetStaticPropsType<typeof getStaticPaths>;
+
+const { entry } = Astro.props;
+---
+
+<UnitPage entry={entry} locale="es" />

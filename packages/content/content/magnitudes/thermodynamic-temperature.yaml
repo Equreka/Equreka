@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Thermodynamic temperature'
+symbol:
+  tex: 'T'
+baseUnit: 'kelvin'
+dimension:
+  Th: 1
+nonNegative: true
+externalIds:
+  wikidata: 'Q264647'
+  qudt: 'http://qudt.org/vocab/quantitykind/ThermodynamicTemperature'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'temperature'
+description:
+  en: >-
+    Thermodynamic temperature is the measure of absolute temperature and is one of the principal
+    parameters of thermodynamics. A thermodynamic temperature reading of zero denotes the point at
+    which the fundamental physical property that imbues matter with a temperature, transferable
+    kinetic energy due to atomic motion, begins. In science, thermodynamic temperature is measured
+    on the Kelvin scale and the unit of measure is the $kelvin$ ($K$).

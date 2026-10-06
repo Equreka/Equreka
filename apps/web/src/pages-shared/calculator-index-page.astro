@@ -1,0 +1,66 @@
+---
+import { getCollection } from 'astro:content';
+import { collectionLabel, type Locale, localizedName, t } from '@equreka/core/i18n';
+import ListCard from '../components/list-card.astro';
+import BaseLayout from '../layouts/base-layout.astro';
+import { asEquation } from '../lib/collections';
+import { localePath } from '../lib/locale-paths';
+
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
+
+const equations = (await getCollection('equations'))
+	.map((entry) => ({ slug: entry.id, ...asEquation(entry.data) }))
+	.filter((equation) => equation.calculator.enabled)
+	.sort((a, b) => localizedName(a, locale).localeCompare(localizedName(b, locale), locale));
+
+/**
+ * The original index's two list cards, equations then formulas, each
+ * linking every calculator-enabled entry and its type list.
+ */
+const groups = [
+	{ kind: 'equation', id: 'calculator-equations', title: collectionLabel(locale, 'equations') },
+	{
+		kind: 'formula',
+		id: 'calculator-formulas',
+		title: t(locale, 'design.legacy.calculator.formulas'),
+	},
+]
+	.map((group) => ({
+		...group,
+		entries: equations.filter((equation) => equation.kind === group.kind),
+	}))
+	.filter((group) => group.entries.length > 0);
+---
+
+<BaseLayout
+	title={`${t(locale, 'calculator.title')} — Equreka`}
+	description={t(locale, 'meta.calculator')}
+	locale={locale}
+>
+	<header class="eq-tool-header eq-main-header">
+		<h1>{t(locale, 'calculator.title')}</h1>
+		<p class="eq-lead">{t(locale, 'design.legacy.calculator.indexLead')}</p>
+	</header>
+	<div class="eq-stack eq-calc-index">
+		{
+			groups.map((group) => (
+				<ListCard
+					headingId={group.id}
+					title={group.title}
+					items={group.entries.map((equation) => ({
+						name: localizedName(equation, locale),
+						href: localePath(locale, `/calculator/${equation.slug}/`),
+					}))}
+					viewAll={{
+						href: localePath(locale, '/equations/'),
+						label: t(locale, 'design.content.viewAll'),
+					}}
+				/>
+			))
+		}
+	</div>
+</BaseLayout>

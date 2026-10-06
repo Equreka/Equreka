@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Ounce'
+symbol:
+  tex: 'oz'
+unitOf:
+  - 'mass'
+system: 'uscs'
+toBase:
+  factor: '0.028349523125'
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811'
+    ref: 'B.8: ounce (avoirdupois) (oz); exact as 1/16 lb'
+status: 'reviewed'
+externalIds:
+  wikidata: 'Q48013'
+  qudt: 'http://qudt.org/vocab/unit/OZ'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+description:
+  en: >-
+    The international avoirdupois ounce (abbreviated oz) is defined as exactly 28.349523125 g under
+    the international yard and pound agreement of 1959, signed by the United States and countries of
+    the Commonwealth of Nations.

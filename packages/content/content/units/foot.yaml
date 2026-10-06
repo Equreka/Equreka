@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Foot'
+symbol:
+  tex: 'ft'
+unitOf:
+  - 'length'
+system: 'imperial'
+toBase:
+  factor: '0.3048'
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811'
+    ref: 'B.8: foot (ft)'
+status: 'reviewed'
+externalIds:
+  wikidata: 'Q3710'
+  qudt: 'http://qudt.org/vocab/unit/FT'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'feet'
+description:
+  en: >-
+    The foot (pural feet), standard symbol: $ft$, is a unit of length in the British imperial and
+    United States customary systems of measurement. The prime symbol, ′, is a customarily used
+    alternative symbol. Since the International Yard and Pound Agreement of 1959, one foot is
+    defined as 0.3048 meters exactly. In both, customary and imperial units, one foot comprises 12
+    inches and one yard comprises three feet.

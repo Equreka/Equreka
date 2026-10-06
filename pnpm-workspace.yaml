@@ -1,0 +1,86 @@
+# Workspace layout: two globs, one level deep. Apps are unscoped ("web",
+# "mobile") for short --filter; packages are @equreka/*.
+packages:
+  - apps/*
+  - packages/*
+  - tools/*
+
+# Postinstall scripts are opt-in; every entry carries a reason.
+allowBuilds:
+  esbuild: true # places its platform binary; tsx depends on it
+  lefthook: true # installs the git-hooks binary
+
+# Catalogs are the version SSOT (ADR 0002). `pnpm add` rejects off-catalog
+# versions (catalogMode: strict); scripts/quality/catalog-drift.mjs gates
+# manual package.json edits. Convention: caret by default; EXACT where a
+# minor could silently change behavior or output baked into artifacts.
+catalog:
+  # --- exact pins (reason on each line) ---
+  typescript: 6.0.3 # canonical compiler; TS 7 has no stable API until 7.1 (ADR 0002) — flip is a tracked task
+  '@biomejs/biome': 2.5.8 # lint verdicts must not drift under contributors; upgrades are reviewed PRs
+  katex: 0.18.4 # rendered HTML is baked into the content artifact; \htmlData CVE class — never float
+  mathjax: 4.1.3 # SVG output is baked into the content artifact; font metrics must not drift
+  '@mathjax/src': 4.1.3 # on-device calculator renderer (ADR 0005 runtime leg) — the source the mathjax bundle is built from; must equal the mathjax pin so runtime output matches the build-rendered atlas
+  '@mathjax/mathjax-newcm-font': 4.1.3 # glyph tables of the on-device renderer; must equal the mathjax pin for the same reason
+  minisearch: 7.2.0 # serialized index format changed at majors before (v4, v6); dormant upstream
+  '@cortex-js/compute-engine': 0.105.0 # 0.x with weekly breaking changes; build-assistant + web playground only
+  react: 19.2.3 # must match Expo SDK 57's pinned React (expo-template SDK 57 → react 19.2.3)
+  react-dom: 19.2.3 # renderer must be version-locked to react
+  '@fontsource/poppins': 5.3.0 # self-hosted Poppins woff2 copied into the web build and precached; exact so glyph metrics never drift from the files the design-parity harness serves to the original app
+  bootstrap-icons: 1.9.1 # web icon SVG path data vendored into apps/web/src/lib/icons.ts, plus the web font and code-point map the shell glyphs use (the legacy app's version, byte-identical font); exact so the vendor-sync test and the measured glyph parity only move on a reviewed upgrade
+  # --- caret (behavior drift acceptable, caught by tests) ---
+  astro: ^7.2.1
+  '@astrojs/react': ^6.0.2
+  '@astrojs/check': ^0.9.10
+  tailwindcss: ^4.1.0 # 4.1 floor per ADR 0002 (degradation contract written against 4.1)
+  '@tailwindcss/vite': ^4.1.0
+  '@types/react': ^19.2.18
+  '@types/react-dom': ^19.2.4
+  zod: ^4.4.3
+  yaml: ^2.9.0 # eemeli yaml only — YAML 1.2 core schema; js-yaml is forbidden in this workspace
+  turbo: ^2.10.9
+  vitest: ^4.1.10
+  lefthook: ^2.1.10
+  tsx: ^4.23.12
+  dotenv-cli: ^11.0.0
+  esbuild: ^0.28.0 # engine's optional test:hermes smoke bundle; binary already opted into allowBuilds via tsx
+  '@types/node': ^22.0.0 # matches the Node 22 floor in engines
+  decimal.js: ^10.6.0 # BUILD-TIME ONLY (factor composition); runtime is float64 (ADR 0002)
+  fast-check: ^4.9.0
+  json5: ^2.2.3 # migrate-legacy only: parses the 2021-2022 corpus
+  workbox-build: ^7.4.1 # web PWA: precache manifest + generateSW at astro:build:done (ADR 0002 offline strategy)
+  '@playwright/test': ^1.62.1 # web offline E2E gate, chromium only; runs via test:e2e, never `pnpm test`
+  playwright-core: ^1.62.1 # design-parity browser driver with an explicit executablePath (no bundled browser download); must move in lockstep with @playwright/test
+  pixelmatch: ^7.2.0 # design-parity pixel diff; anti-aliasing-aware, ships its own types
+  pngjs: ^7.0.0 # design-parity PNG decode/encode for diffs and contact sheets
+  '@types/pngjs': ^6.0.5 # pngjs ships no types; latest DefinitelyTyped line
+  '@astrojs/sitemap': ^3.7.3 # web SEO: sitemap-index with per-locale hreflang alternates
+  '@testing-library/react': ^16.3.0 # @equreka/core hook tests (renderHook); needs react-dom at test time only
+  jsdom: ^30.0.0 # vitest DOM environment for @equreka/core hook tests
+  # --- mobile: pinned by Expo SDK 57 bundledNativeModules (expo@57.0.21); `expo install --check` validates against these ranges ---
+  expo: ~57.0.21 # pinned by Expo SDK 57 bundledNativeModules
+  react-native: 0.86.3 # pinned by Expo SDK 57 bundledNativeModules
+  expo-router: ~57.0.20 # pinned by Expo SDK 57 bundledNativeModules
+  expo-sqlite: ~57.0.2 # pinned by Expo SDK 57 bundledNativeModules; kv-store is the KVStorage adapter (ADR 0002: not MMKV)
+  react-native-svg: 15.15.4 # pinned by Expo SDK 57 bundledNativeModules; SvgXml renders the MathJax glyph atlas
+  expo-updates: ~57.0.21 # pinned by Expo SDK 57 bundledNativeModules; EAS Update under the fingerprint runtime policy
+  react-native-screens: ~4.26.0 # pinned by Expo SDK 57 bundledNativeModules
+  react-native-safe-area-context: ~5.7.0 # pinned by Expo SDK 57 bundledNativeModules
+  expo-constants: ~57.0.17 # pinned by Expo SDK 57 bundledNativeModules
+  expo-linking: ~57.0.9 # pinned by Expo SDK 57 bundledNativeModules
+  expo-status-bar: ~57.0.1 # pinned by Expo SDK 57 bundledNativeModules
+  expo-splash-screen: ~57.0.8 # pinned by Expo SDK 57 bundledNativeModules
+  expo-sharing: ~57.0.18 # pinned by Expo SDK 57 bundledNativeModules; favorites export via the share sheet
+  expo-document-picker: ~57.0.1 # pinned by Expo SDK 57 bundledNativeModules; favorites import
+  expo-file-system: ~57.0.6 # pinned by Expo SDK 57 bundledNativeModules; writes the export envelope before sharing
+  '@expo/vector-icons': ^15.0.2 # pinned by Expo SDK 57 bundledNativeModules
+  '@shopify/flash-list': 2.0.2 # pinned by Expo SDK 57 bundledNativeModules (v2 is JS-only; the SDK-validated version wins over latest)
+  jest-expo: ~57.0.5 # pinned by Expo SDK 57 bundledNativeModules
+  jest: ~29.7.0 # jest-expo 57 is built on jest 29 (babel-jest/jest-snapshot 29 deps)
+  '@testing-library/react-native': ^14.0.1 # expo-router 57 peer >= 13.2.0; 14 targets react 19.2 + RN 0.86
+  '@jest/globals': ^29.7.0 # typed describe/it/expect for the mobile jest suite (jest 29 line)
+  react-native-worklets: 0.10.1 # pinned by Expo SDK 57 bundledNativeModules; expo-modules-core peer — without the pin pnpm auto-installs a newer major
+  '@react-native/metro-config': 0.86.3 # peer of @react-native/community-cli-plugin@0.86.3; locked to the react-native minor
+# pnpm settings live here, not .npmrc (single commented SSOT).
+catalogMode: strict
+linkWorkspacePackages: true

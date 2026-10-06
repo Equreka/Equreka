@@ -1,0 +1,20 @@
+---
+/**
+ * Legacy Abbr: the abbreviation (with its full form as the `abbr` title)
+ * below 768px and the full word from 768px, swapped by CSS so both stay
+ * zero-JS. `expanded` always shows the full word, as the original's
+ * `expanded` prop did.
+ */
+interface Props {
+	abbr: string;
+	full: string;
+	expanded?: boolean;
+}
+
+const { abbr, full, expanded = false } = Astro.props;
+---
+
+<span class:list={['eq-abbr', expanded && 'eq-abbr-expanded']}>
+	<abbr title={full}>{abbr}</abbr>
+	<span class="eq-abbr-full">{full}</span>
+</span>

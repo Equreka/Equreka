@@ -1,0 +1,220 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
+import AbbrLabel from '../components/abbr-label.astro';
+import BranchBadges from '../components/branch-badges.astro';
+import CodeCard from '../components/code-card.astro';
+import CollapseCard from '../components/collapse-card.astro';
+import DraftBadge from '../components/draft-badge.astro';
+import EntryActions from '../components/entry-actions.astro';
+import EntryIdentifiers from '../components/entry-identifiers.astro';
+import MathValue from '../components/math-value.astro';
+import PageHeader from '../components/page-header.astro';
+import UntranslatedBadge from '../components/untranslated-badge.astro';
+import FavoriteToggle from '../islands/favorite-toggle';
+import PathContextBar from '../islands/path-context-bar';
+import BaseLayout from '../layouts/base-layout.astro';
+import { asConstant } from '../lib/collections';
+import { constantValueCards } from '../lib/constant-values';
+import { isDraft } from '../lib/entry-meta';
+import { localePath } from '../lib/locale-paths';
+import { formatFullPrecision } from '../lib/notation';
+import { engineSlice } from '../lib/server/engine-registry';
+import { renderRichTextHtml, renderSymbolHtml } from '../lib/tex';
+
+interface Props {
+	entry: CollectionEntry<'constants'>;
+	locale?: Locale;
+}
+
+const { entry, locale = 'en' } = Astro.props;
+const constant = asConstant(entry.data);
+const slug = entry.id;
+const symbolText =
+	engineSlice.constants[slug]?.symbolText ?? constant.symbol.text ?? constant.symbol.tex;
+const name = localizedName(constant, locale);
+
+const unit = engineSlice.units[constant.unit];
+const unitSymbolHtml = unit === undefined ? '' : renderSymbolHtml(unit.symbolTex, unit.symbolText);
+const precisionTitle = constant.exact
+	? t(locale, 'design.content.entry.exactValues')
+	: t(locale, 'constant.fullPrecision');
+const valueCards = constantValueCards(constant).map((card) =>
+	card.kind === 'approximate'
+		? {
+				id: 'constant-approximate-heading',
+				title: t(locale, 'design.content.entry.approximateValues'),
+				values: card.values,
+				truncated: card.truncated,
+			}
+		: {
+				id: 'constant-precision-heading',
+				title: precisionTitle,
+				values: card.values,
+				truncated: card.truncated,
+			},
+);
+
+const description =
+	constant.description === undefined ? undefined : pickLocalized(constant.description, locale);
+const untranslated =
+	locale !== 'en' &&
+	(pickLocalized(constant.name, locale).untranslated || description?.untranslated === true);
+const metaDescription =
+	description === undefined
+		? t(locale, 'meta.constant', { name, symbol: symbolText })
+		: `${description.value.replaceAll('$', '').slice(0, 157)}…`;
+---
+
+<BaseLayout
+	definedTerm={{ name, externalIds: constant.externalIds }}
+	title={`${name} (${symbolText}) — Equreka`}
+	description={metaDescription}
+	locale={locale}
+	ogType="article"
+>
+	<PageHeader
+		slot="hero"
+		entry
+		label={t(locale, 'collection.constants')}
+		labelHref={localePath(locale, '/constants/')}
+		title={name}
+		accent="type-constants"
+	>
+		<EntryActions
+			slot="actions"
+			locale={locale}
+			collection="constants"
+			slug={slug}
+			data={entry.data}
+		>
+			<FavoriteToggle client:idle collection="constants" slug={slug} locale={locale} />
+		</EntryActions>
+	</PageHeader>
+	<PathContextBar slot="context" client:idle locale={locale} />
+	<article class="type-constants eq-data eq-cards">
+		<section aria-labelledby="constant-value-heading" class="eq-card eq-display-card">
+			<h2 id="constant-value-heading" class="sr-only">{t(locale, 'constant.value')}</h2>
+			<p class="eq-display-math">
+				<span set:html={renderSymbolHtml(constant.symbol.tex, symbolText)} />
+				<span class="eq-display-op" set:html={renderSymbolHtml('=', '=')} />
+				<MathValue
+					value={constant.value}
+					format="tex"
+					truncated={constant.truncated}
+					class="eq-display-value"
+				/>
+				{
+					unit !== undefined && (
+						<a
+							class="eq-display-unit"
+							href={localePath(locale, `/units/${unit.slug}/`)}
+							title={localizedName(unit, locale)}
+							set:html={unitSymbolHtml}
+						/>
+					)
+				}
+			</p>
+		</section>
+
+		<div class="eq-card-row">
+			{
+				valueCards.map((row) => (
+					<CollapseCard headingId={row.id} title={row.title}>
+						<div class="eq-table-wrap">
+							<table class="eq-table-data">
+								<thead>
+									<tr>
+										<th scope="col">
+											<AbbrLabel
+												abbr={t(locale, 'design.content.abbr.value')}
+												full={t(locale, 'table.value')}
+											/>
+										</th>
+										<th scope="col">
+											<AbbrLabel
+												abbr={t(locale, 'design.legacy.abbr.symbol')}
+												full={t(locale, 'table.symbol')}
+											/>
+										</th>
+										<th scope="col">
+											<AbbrLabel
+												abbr={t(locale, 'design.content.abbr.unit')}
+												full={t(locale, 'table.unit')}
+											/>
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									{row.values.map((value) => (
+										<tr>
+											<td>
+												<MathValue value={value} truncated={row.truncated} />
+											</td>
+											<td class="eq-cell-unit-symbol" set:html={unitSymbolHtml} />
+											<td>
+												{unit !== undefined ? (
+													<a class="eq-link" href={localePath(locale, `/units/${unit.slug}/`)}>
+														{localizedName(unit, locale)}
+													</a>
+												) : (
+													constant.unit
+												)}
+											</td>
+										</tr>
+									))}
+								</tbody>
+							</table>
+						</div>
+						{row.id === 'constant-precision-heading' && constant.uncertainty !== undefined && (
+							<p class="eq-uncertainty">± {formatFullPrecision(constant.uncertainty)}</p>
+						)}
+						{row.id === 'constant-precision-heading' && constant.source !== undefined && (
+							<p class="eq-source">
+								{t(locale, 'constant.source')}{' '}
+								{constant.source.url !== undefined ? (
+									<a class="eq-link" href={constant.source.url}>
+										{constant.source.name}
+									</a>
+								) : (
+									constant.source.name
+								)}
+							</p>
+						)}
+					</CollapseCard>
+				))
+			}
+		</div>
+
+		<CollapseCard
+			headingId="constant-information-heading"
+			title={t(locale, 'design.content.entry.information')}
+		>
+			{
+				description !== undefined && (
+					<div class="eq-prose" set:html={renderRichTextHtml(description.value)} />
+				)
+			}
+
+			<EntryIdentifiers locale={locale} externalIds={constant.externalIds} />
+		</CollapseCard>
+
+		<CodeCard locale={locale} code={constant.symbol.tex} />
+
+		{
+			(constant.branches.length > 0 || untranslated || isDraft(constant.status)) && (
+				<CollapseCard
+					headingId="constant-relations-heading"
+					title={t(locale, 'design.content.entry.relations')}
+					class="eq-relations-card"
+				>
+					<div class="eq-chip-row">
+						<BranchBadges locale={locale} branches={constant.branches} />
+						<UntranslatedBadge locale={locale} show={untranslated} />
+						<DraftBadge locale={locale} status={constant.status} />
+					</div>
+				</CollapseCard>
+			)
+		}
+	</article>
+</BaseLayout>

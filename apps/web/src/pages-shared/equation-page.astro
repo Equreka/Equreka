@@ -1,0 +1,289 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import equationsPresentation from '@equreka/content/artifact/presentation/equations.json';
+import { type LocalizedSegments, termMacroPattern } from '@equreka/content/rich-text';
+import {
+	type Locale,
+	type LocalizedText,
+	localizedName,
+	pickLocalized,
+	t,
+} from '@equreka/core/i18n';
+import AbbrLabel from '../components/abbr-label.astro';
+import BranchBadges from '../components/branch-badges.astro';
+import CodeCard from '../components/code-card.astro';
+import CollapseCard from '../components/collapse-card.astro';
+import DraftBadge from '../components/draft-badge.astro';
+import EntryActions from '../components/entry-actions.astro';
+import EntryIdentifiers from '../components/entry-identifiers.astro';
+import MathValue from '../components/math-value.astro';
+import PageHeader from '../components/page-header.astro';
+import UntranslatedBadge from '../components/untranslated-badge.astro';
+import FavoriteToggle from '../islands/favorite-toggle';
+import PathContextBar from '../islands/path-context-bar';
+import BaseLayout from '../layouts/base-layout.astro';
+import { asEquation, asVariable } from '../lib/collections';
+import { entryHref } from '../lib/entry-links';
+import { localePath } from '../lib/locale-paths';
+import { engineSlice } from '../lib/server/engine-registry';
+import {
+	renderExpressionHtml,
+	renderSegmentsHtml,
+	renderSymbolHtml,
+	termDataValue,
+} from '../lib/tex';
+
+interface Props {
+	entry: CollectionEntry<'equations'>;
+	locale?: Locale;
+}
+
+const { entry, locale = 'en' } = Astro.props;
+const equation = asEquation(entry.data);
+const slug = entry.id;
+const name = localizedName(equation, locale);
+
+const TERM_COLLECTIONS = {
+	magnitude: 'magnitudes',
+	constant: 'constants',
+	variable: 'variables',
+} as const;
+
+const namesByCollection: Record<string, Map<string, string>> = {};
+for (const collection of Object.values(TERM_COLLECTIONS)) {
+	const entries = await getCollection(collection);
+	namesByCollection[collection] = new Map(
+		entries.map((item) => [item.id, localizedName(item.data as { name: LocalizedText }, locale)]),
+	);
+}
+
+const variableUnits = new Map(
+	(await getCollection('variables')).map((item) => [item.id, asVariable(item.data).defaultUnit]),
+);
+
+function termUnitSlug(term: (typeof equation.terms)[string]): string | undefined {
+	switch (term.kind) {
+		case 'magnitude':
+			return engineSlice.magnitudes[term.ref]?.baseUnit;
+		case 'constant':
+			return engineSlice.constants[term.ref]?.unit;
+		case 'variable':
+			return variableUnits.get(term.ref);
+		default:
+			return term.unit;
+	}
+}
+
+const termRows = Object.entries(equation.terms).map(([key, term]) => {
+	const unit = engineSlice.units[termUnitSlug(term) ?? ''];
+	const base = {
+		key,
+		term,
+		dataValue: termDataValue(key, term),
+		value: term.kind === 'constant' ? engineSlice.constants[term.ref]?.value : undefined,
+		unit:
+			unit === undefined
+				? undefined
+				: {
+						symbolHtml: renderSymbolHtml(unit.symbolTex, unit.symbolText),
+						name: localizedName(unit, locale),
+						href: localePath(locale, `/units/${unit.slug}/`),
+					},
+	};
+	if (term.kind === 'symbol') {
+		return { ...base, name: pickLocalized(term.label, locale).value, href: undefined };
+	}
+	const collection = TERM_COLLECTIONS[term.kind];
+	return {
+		...base,
+		name: namesByCollection[collection]?.get(term.ref) ?? term.ref,
+		href: entryHref(collection, term.ref),
+	};
+});
+
+/**
+ * Legacy term tables: one card per kind (Magnitudes, Constants,
+ * Variables), side by side from lg. Equation-local symbols have no
+ * collection of their own and read as variables, as unknowns did there.
+ */
+const TERM_GROUPS = [
+	{ id: 'magnitudes', kinds: ['magnitude'] },
+	{ id: 'constants', kinds: ['constant'] },
+	{ id: 'variables', kinds: ['variable', 'symbol'] },
+] as const;
+
+const termGroups = TERM_GROUPS.map((group) => ({
+	id: group.id,
+	title: t(locale, `collection.${group.id}`),
+	rows: termRows.filter((row) => (group.kinds as readonly string[]).includes(row.term.kind)),
+})).filter((group) => group.rows.length > 0);
+
+/**
+ * Pipeline-emitted equation slice: the description comes pre-split with
+ * `raw` math for term cross-highlighting. The slice's related units are
+ * the term tables' units, which the original listed only in those tables.
+ */
+interface EquationPresentation {
+	descriptionSegments?: LocalizedSegments;
+}
+
+const presentation = (equationsPresentation as Record<string, EquationPresentation>)[slug];
+
+const description =
+	equation.description === undefined ? undefined : pickLocalized(equation.description, locale);
+const descriptionSegments =
+	description === undefined
+		? undefined
+		: presentation?.descriptionSegments?.[description.untranslated ? 'en' : locale];
+if (description !== undefined && descriptionSegments === undefined) {
+	throw new Error(`equations/${slug}: presentation slice has no ${locale} descriptionSegments`);
+}
+const untranslated =
+	locale !== 'en' &&
+	(pickLocalized(equation.name, locale).untranslated || description?.untranslated === true);
+const accent = equation.kind === 'formula' ? 'type-formulas' : 'type-equations';
+
+/**
+ * The plain TeX the original's Code card showed: annotation macros reduced
+ * to their arguments, with a space after an argument that ends in a control
+ * word so `\const{\pi}\mag{r}` stays `\pi r`, not the undefined `\pir`.
+ */
+const codeTex = equation.expression.replace(
+	termMacroPattern(),
+	(_whole, _macro: string, arg: string) => (/\\[A-Za-z]+$/.test(arg) ? `${arg} ` : arg),
+);
+const metaDescription =
+	description === undefined
+		? t(locale, 'meta.equation', { name, kind: t(locale, `kind.${equation.kind}`).toLowerCase() })
+		: `${description.value.replaceAll('$', '').slice(0, 157)}…`;
+---
+
+<BaseLayout
+	definedTerm={{ name, externalIds: equation.externalIds }}
+	title={`${name} — Equreka`}
+	description={metaDescription}
+	locale={locale}
+	ogType="article"
+>
+	<PageHeader
+		slot="hero"
+		entry
+		label={t(locale, 'collection.equations')}
+		labelHref={localePath(locale, '/equations/')}
+		title={name}
+		accent={accent}
+	>
+		<EntryActions
+			slot="actions"
+			locale={locale}
+			collection="equations"
+			slug={slug}
+			data={entry.data}
+			calculator={
+				equation.calculator.enabled
+					? { href: localePath(locale, `/calculator/${slug}/`), label: t(locale, 'equation.solve') }
+					: undefined
+			}
+		>
+			<FavoriteToggle client:idle collection="equations" slug={slug} locale={locale} />
+		</EntryActions>
+	</PageHeader>
+	<PathContextBar slot="context" client:idle locale={locale} />
+	<article class={`${accent} eq-data eq-cards`}>
+		<div class="eq-card eq-display-card" title={t(locale, 'equation.hoverHint')}>
+			<div
+				class="eq-display-math"
+				set:html={renderExpressionHtml(equation.expression, equation.terms)}
+			/>
+		</div>
+
+		<div class="eq-card-row">
+			{
+				termGroups.map((group) => (
+					<CollapseCard headingId={`equation-${group.id}-heading`} title={group.title}>
+						<div class="eq-table-wrap">
+							<table class="eq-table-data">
+								<thead>
+									<tr>
+										<th scope="col">
+											<AbbrLabel
+												abbr={t(locale, 'design.legacy.abbr.symbol')}
+												full={t(locale, 'table.symbol')}
+											/>
+										</th>
+										<th scope="col">{t(locale, 'table.name')}</th>
+										{group.id === 'constants' && <th scope="col">{t(locale, 'table.value')}</th>}
+										<th scope="col" colspan="2">
+											{t(locale, 'table.unit')}
+										</th>
+									</tr>
+								</thead>
+								<tbody>
+									{group.rows.map((row) => (
+										<tr data-term={row.dataValue} class={`eq-term eq-${row.term.kind}`}>
+											<td class="eq-cell-symbol" set:html={renderSymbolHtml(row.key, row.key)} />
+											<td>
+												{row.href !== undefined ? (
+													<a class="eq-link" href={localePath(locale, row.href)}>
+														{row.name}
+													</a>
+												) : (
+													row.name
+												)}
+											</td>
+											{group.id === 'constants' && (
+												<td>{row.value !== undefined && <MathValue value={row.value} />}</td>
+											)}
+											<td class="eq-cell-unit-symbol" set:html={row.unit?.symbolHtml ?? ''} />
+											<td>
+												{row.unit !== undefined && (
+													<a class="eq-link" href={row.unit.href}>
+														{row.unit.name}
+													</a>
+												)}
+											</td>
+										</tr>
+									))}
+								</tbody>
+							</table>
+						</div>
+					</CollapseCard>
+				))
+			}
+		</div>
+
+		<CollapseCard
+			headingId="equation-information-heading"
+			title={t(locale, 'design.content.entry.information')}
+		>
+			{
+				descriptionSegments !== undefined && (
+					<div
+						class="eq-prose"
+						set:html={renderSegmentsHtml(descriptionSegments, equation.terms)}
+					/>
+				)
+			}
+
+			<EntryIdentifiers locale={locale} externalIds={equation.externalIds} />
+		</CollapseCard>
+
+		<CodeCard locale={locale} code={codeTex} />
+
+		<CollapseCard
+			headingId="equation-relations-heading"
+			title={t(locale, 'design.content.entry.relations')}
+			class="eq-relations-card"
+		>
+			<div class="eq-chip-row">
+				<span class="eq-badge eq-badge-accent" data-level={equation.level}>
+					{t(locale, `level.${equation.level}`)}
+				</span>
+				<BranchBadges locale={locale} branches={equation.branches} />
+				<UntranslatedBadge locale={locale} show={untranslated} />
+				<DraftBadge locale={locale} status={equation.status} />
+			</div>
+		</CollapseCard>
+	</article>
+</BaseLayout>

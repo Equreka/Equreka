@@ -1,0 +1,38 @@
+{
+	"name": "@equreka/content",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"exports": {
+		".": "./src/index.ts",
+		"./search-options": "./src/search-options.ts",
+		"./rich-text": "./src/rich-text.ts",
+		"./plain-symbol": "./src/plain-symbol.ts",
+		"./solution-grammar": "./src/solution-grammar.ts",
+		"./astro": "./src/astro/loader.ts",
+		"./artifact/*": "./dist/*"
+	},
+	"scripts": {
+		"build": "tsx src/cli.ts build",
+		"check": "tsx src/cli.ts check",
+		"typecheck": "tsc --noEmit -p tsconfig.json",
+		"test": "vitest run --passWithNoTests"
+	},
+	"dependencies": {
+		"@equreka/schema": "workspace:*",
+		"minisearch": "catalog:",
+		"yaml": "catalog:",
+		"zod": "catalog:"
+	},
+	"devDependencies": {
+		"@cortex-js/compute-engine": "catalog:",
+		"@equreka/config": "workspace:*",
+		"@equreka/engine": "workspace:*",
+		"@types/node": "catalog:",
+		"katex": "catalog:",
+		"mathjax": "catalog:",
+		"tsx": "catalog:",
+		"typescript": "catalog:",
+		"vitest": "catalog:"
+	}
+}

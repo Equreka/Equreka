@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Pound'
+symbol:
+  tex: 'lb'
+unitOf:
+  - 'mass'
+system: 'imperial'
+toBase:
+  factor: '0.45359237'
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811'
+    ref: 'B.8: pound (avoirdupois) (lb)'
+status: 'reviewed'
+externalIds:
+  wikidata: 'Q100995'
+  qudt: 'http://qudt.org/vocab/unit/LB'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'lbs'
+  - 'pound-mass'
+  - 'lbm'
+description:
+  en: >-
+    The pound or pound-mass is a unit of mass used in British imperial and United States customary
+    systems of measurement. Various definitions have been used; the most common today is the
+    international avoirdupois pound, which is legally defined as exactly 0.45359237 kilograms, and
+    which is divided into 16 avoirdupois ounces. The international standard symbol for the
+    avoirdupois pound is lb; an alternative symbol is lb<sub>m</sub> (for most pound definitions), #
+    (chiefly in the U.S.), and ℔ or ″̶ (specifically for the apothecaries' pound).
+references:
+  - title: 'Pound (mass)'
+    url: 'https://en.wikipedia.org/wiki/Pound_(unit)'

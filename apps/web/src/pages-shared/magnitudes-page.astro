@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import { type Locale, localizedName, t } from '@equreka/core/i18n';
+import CategoryListCards from '../components/category-list-cards.astro';
+import PageHeader from '../components/page-header.astro';
+import BaseLayout from '../layouts/base-layout.astro';
+import { asMagnitude } from '../lib/collections';
+import { localePath } from '../lib/locale-paths';
+import { renderSymbolHtml } from '../lib/tex';
+
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
+
+const items = (await getCollection('magnitudes')).map((entry) => {
+	const magnitude = asMagnitude(entry.data);
+	return {
+		categories: magnitude.categories,
+		name: localizedName(magnitude, locale),
+		href: localePath(locale, `/magnitudes/${entry.id}/`),
+		symbolHtml: renderSymbolHtml(
+			magnitude.symbol.tex,
+			magnitude.symbol.text ?? magnitude.symbol.tex,
+		),
+	};
+});
+---
+
+<BaseLayout
+	title={`${t(locale, 'collection.magnitudes')} — Equreka`}
+	description={t(locale, 'meta.magnitudes')}
+	locale={locale}
+>
+	<PageHeader
+		slot="hero"
+		label={t(locale, 'design.content.header.type')}
+		title={t(locale, 'collection.magnitudes')}
+		accent="type-magnitudes"
+	/>
+	<div class="type-magnitudes eq-cards">
+		<CategoryListCards locale={locale} items={items} />
+	</div>
+</BaseLayout>

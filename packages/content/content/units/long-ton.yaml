@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Long ton'
+symbol:
+  tex: 'lt'
+unitOf:
+  - 'mass'
+system: 'imperial'
+toBase:
+  factor: '1016.0469088'
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811'
+    ref: 'B.8: ton, long (2240 lb); exact as 2240 lb'
+status: 'reviewed'
+externalIds:
+  wikidata: 'Q667419'
+  qudt: 'http://qudt.org/vocab/unit/TON_LONG'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'imperial ton'
+  - 'UK ton'
+description:
+  en: >-
+    Long ton, also known as the imperial ton or displacement ton, is the name for the unit called
+    the "ton" in the avoirdupois system of weights or Imperial system of measurements. It was
+    standardised in the thirteenth century. It is used in the United Kingdom and several other
+    Commonwealth of Nations countries alongside the mass-based metric tonne defined in 1799, as well
+    as in the United States for bulk commodities.
+references:
+  - title: 'Long ton'
+    url: 'https://en.wikipedia.org/wiki/Long_ton'

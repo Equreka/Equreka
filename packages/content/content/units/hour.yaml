@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Hour'
+symbol:
+  tex: 'h'
+unitOf:
+  - 'time'
+system: 'other'
+toBase:
+  factor: '3600'
+  source:
+    name: 'SI Brochure (9th ed.)'
+    url: 'https://www.bipm.org/en/publications/si-brochure'
+    ref: 'Table 8: hour, 1 h = 3600 s'
+status: 'reviewed'
+externalIds:
+  wikidata: 'Q25235'
+  qudt: 'http://qudt.org/vocab/unit/HR'
+categories:
+  - 'universal'
+  - 'physics'
+branches:
+  - 'mechanics'
+  - 'measurement'
+aliases:
+  - 'hr'
+  - 'hrs'
+description:
+  en: >-
+    An hour (symbol: $h$; also abbreviated hr) is a unit of time conventionally reckoned as
+    $\frac{1}{24}$ of a day and scientifically reckoned as 3,599–3,601 seconds, depending on
+    conditions. There are 60 minutes in an hour, and 24 hours in a day.

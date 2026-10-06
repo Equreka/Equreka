@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Mole'
+namePlural:
+  en: 'moles'
+symbol:
+  tex: 'mol'
+unitOf:
+  - 'substance'
+system: 'si'
+prefixes:
+  - 'femto'
+  - 'pico'
+  - 'nano'
+  - 'micro'
+  - 'milli'
+  - 'kilo'
+  - 'mega'
+  - 'giga'
+  - 'tera'
+externalIds:
+  wikidata: 'Q41509'
+  qudt: 'http://qudt.org/vocab/unit/MOL'
+categories:
+  - 'chemistry'
+branches:
+  - 'amount-of-substance'
+description:
+  en: >-
+    The mole (symbol: $mol$) is the base unit of amount of substance in the International System of
+    Units (SI). It is defined as exactly $6.02214076×10^{23}$ particles, which may be atoms,
+    molecules, ions, or electrons.

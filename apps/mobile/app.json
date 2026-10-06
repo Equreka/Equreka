@@ -1,0 +1,53 @@
+{
+	"expo": {
+		"name": "Equreka",
+		"slug": "equreka",
+		"version": "2.0.0",
+		"scheme": "equreka",
+		"orientation": "portrait",
+		"icon": "./assets/icon.png",
+		"userInterfaceStyle": "automatic",
+		"newArchEnabled": true,
+		"ios": {
+			"supportsTablet": true,
+			"bundleIdentifier": "org.equreka.app"
+		},
+		"android": {
+			"package": "org.equreka.app",
+			"edgeToEdgeEnabled": true,
+			"adaptiveIcon": {
+				"foregroundImage": "./assets/adaptive-icon.png",
+				"backgroundColor": "#4f46e5"
+			}
+		},
+		"plugins": [
+			"expo-router",
+			[
+				"expo-splash-screen",
+				{
+					"image": "./assets/splash-icon.png",
+					"imageWidth": 200,
+					"resizeMode": "contain",
+					"backgroundColor": "#f8fafc",
+					"dark": {
+						"backgroundColor": "#0b1120"
+					}
+				}
+			]
+		],
+		"runtimeVersion": {
+			"policy": "fingerprint"
+		},
+		"updates": {
+			"url": "https://u.expo.dev/00000000-0000-0000-0000-000000000000",
+			"checkAutomatically": "ON_LOAD",
+			"fallbackToCacheTimeout": 0
+		},
+		"extra": {
+			"router": {},
+			"eas": {
+				"projectId": "00000000-0000-0000-0000-000000000000"
+			}
+		}
+	}
+}

@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Month'
+symbol:
+  tex: 'm'
+unitOf:
+  - 'time'
+system: 'other'
+toBase:
+  factor: '2.628e+6'
+  exact: false
+  source:
+    name: 'convention'
+    ref: '1 month = 1/12 of a 365 d common year'
+status: 'reviewed'
+externalIds:
+  wikidata: 'Q5151'
+categories:
+  - 'universal'
+  - 'physics'
+branches:
+  - 'mechanics'
+  - 'measurement'
+aliases:
+  - 'mo'
+description:
+  en: >-
+    A month is a unit of time, used with calendars, that is approximately as long as a natural
+    orbital period of the Moon; the words month and Moon are cognates.

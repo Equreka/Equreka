@@ -1,0 +1,260 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
+import { formatSigFigs } from '@equreka/engine/format';
+import { kindRelations } from '@equreka/engine/units';
+import AbbrLabel from '../components/abbr-label.astro';
+import BranchBadges from '../components/branch-badges.astro';
+import CodeCard from '../components/code-card.astro';
+import CollapseCard from '../components/collapse-card.astro';
+import DisplayNameSymbol from '../components/display-name-symbol.astro';
+import DraftBadge from '../components/draft-badge.astro';
+import EntryActions from '../components/entry-actions.astro';
+import EntryIdentifiers from '../components/entry-identifiers.astro';
+import PageHeader from '../components/page-header.astro';
+import UntranslatedBadge from '../components/untranslated-badge.astro';
+import FavoriteToggle from '../islands/favorite-toggle';
+import PathContextBar from '../islands/path-context-bar';
+import BaseLayout from '../layouts/base-layout.astro';
+import { asMagnitude } from '../lib/collections';
+import { localePath } from '../lib/locale-paths';
+import { formatDimension } from '../lib/notation';
+import { engineSlice, unitRegistry } from '../lib/server/engine-registry';
+import { renderRichTextHtml, renderSymbolHtml } from '../lib/tex';
+
+interface Props {
+	entry: CollectionEntry<'magnitudes'>;
+	locale?: Locale;
+}
+
+const { entry, locale = 'en' } = Astro.props;
+const magnitude = asMagnitude(entry.data);
+const slug = entry.id;
+const symbolText = magnitude.symbol.text ?? magnitude.symbol.tex;
+const name = localizedName(magnitude, locale);
+
+const compiled = engineSlice.magnitudes[slug];
+const dimensionText = compiled === undefined ? '' : formatDimension(compiled.dimension);
+const baseUnit = engineSlice.units[magnitude.baseUnit];
+const baseSymbol = baseUnit?.symbolText ?? '';
+
+const units = unitRegistry
+	.unitsForMagnitude(slug)
+	.sort((a, b) => localizedName(a, locale).localeCompare(localizedName(b, locale), locale));
+const relations = kindRelations(engineSlice.magnitudes, slug);
+const kindRows = [
+	{ label: t(locale, 'magnitude.broaderKind'), slugs: relations.broader.slice(0, 1), hint: '' },
+	{ label: t(locale, 'magnitude.narrowerKinds'), slugs: relations.narrower, hint: '' },
+	{
+		label: t(locale, 'magnitude.sameDimension'),
+		slugs: relations.sameDimension,
+		hint: t(locale, 'magnitude.sameDimensionHint'),
+	},
+]
+	.map((row) => ({
+		...row,
+		links: row.slugs
+			.map((related) => engineSlice.magnitudes[related])
+			.filter((related) => related !== undefined)
+			.map((related) => ({
+				href: localePath(locale, `/magnitudes/${related.slug}/`),
+				name: localizedName(related, locale),
+			})),
+	}))
+	.filter((row) => row.links.length > 0);
+const rows = units.map((unit) => {
+	const converted = unitRegistry.convert(1, unit.slug, magnitude.baseUnit);
+	return {
+		unit,
+		isBase: unit.slug === magnitude.baseUnit,
+		value: converted.ok ? formatSigFigs(converted.value) : undefined,
+		exact: unitRegistry.isExactPath(unit.slug, magnitude.baseUnit),
+	};
+});
+
+const description =
+	magnitude.description === undefined ? undefined : pickLocalized(magnitude.description, locale);
+const untranslated =
+	locale !== 'en' &&
+	(pickLocalized(magnitude.name, locale).untranslated || description?.untranslated === true);
+const metaDescription =
+	description === undefined
+		? t(locale, 'meta.magnitude', { name, symbol: symbolText })
+		: `${description.value.replaceAll('$', '').slice(0, 157)}…`;
+---
+
+<BaseLayout
+	definedTerm={{ name, externalIds: magnitude.externalIds }}
+	title={`${name} (${symbolText}) — Equreka`}
+	description={metaDescription}
+	locale={locale}
+	ogType="article"
+>
+	<PageHeader
+		slot="hero"
+		entry
+		label={t(locale, 'collection.magnitudes')}
+		labelHref={localePath(locale, '/magnitudes/')}
+		title={name}
+		accent="type-magnitudes"
+	>
+		<EntryActions
+			slot="actions"
+			locale={locale}
+			collection="magnitudes"
+			slug={slug}
+			data={entry.data}
+		>
+			<FavoriteToggle client:idle collection="magnitudes" slug={slug} locale={locale} />
+		</EntryActions>
+	</PageHeader>
+	<PathContextBar slot="context" client:idle locale={locale} />
+	<article class="type-magnitudes eq-data eq-cards">
+		<div class="eq-card eq-display-card">
+			<div class="eq-display-math">
+				<DisplayNameSymbol name={name} symbolTex={magnitude.symbol.tex} symbolText={symbolText} />
+			</div>
+		</div>
+
+		<CollapseCard
+			headingId="magnitude-information-heading"
+			title={t(locale, 'design.content.entry.information')}
+		>
+			<div class="eq-unit-of">
+				<span class="eq-unit-of-label">{t(locale, 'table.baseUnit')}</span>
+				{
+					baseUnit !== undefined ? (
+						<a
+							class="eq-badge eq-badge-accent eq-badge-link type-units"
+							href={localePath(locale, `/units/${baseUnit.slug}/`)}
+						>
+							{localizedName(baseUnit, locale)}
+						</a>
+					) : (
+						magnitude.baseUnit
+					)
+				}
+			</div>
+
+			{
+				description !== undefined && (
+					<div class="eq-prose" set:html={renderRichTextHtml(description.value)} />
+				)
+			}
+
+			<EntryIdentifiers locale={locale} externalIds={magnitude.externalIds} />
+		</CollapseCard>
+
+		{
+			rows.length > 0 && (
+				<CollapseCard
+					headingId="magnitude-units-heading"
+					title={t(locale, 'collection.units')}
+				>
+					<div class="eq-table-wrap">
+						<table class="eq-table-data">
+							<thead>
+								<tr>
+									<th scope="col">{t(locale, 'table.name')}</th>
+									<th scope="col">
+										<AbbrLabel
+											abbr={t(locale, 'design.legacy.abbr.symbol')}
+											full={t(locale, 'table.symbol')}
+										/>
+									</th>
+									<th scope="col" class="eq-cell-numeric">
+										{t(locale, 'table.factorToBase')}
+									</th>
+								</tr>
+							</thead>
+							<tbody>
+								{rows.map((row) => (
+									<tr>
+										<td>
+											<a class="eq-link" href={localePath(locale, `/units/${row.unit.slug}/`)}>
+												{localizedName(row.unit, locale)}
+											</a>
+										</td>
+										<td set:html={renderSymbolHtml(row.unit.symbolTex, row.unit.symbolText)} />
+										<td class="eq-cell-numeric eq-cell-value">
+											{row.isBase ? (
+												<span class="eq-badge eq-badge-accent type-units">
+													{t(locale, 'conversions.baseUnit')}
+												</span>
+											) : row.value === undefined ? (
+												''
+											) : (
+												`1 ${row.unit.symbolText} ${row.exact ? '=' : '≈'} ${row.value} ${baseSymbol}`
+											)}
+										</td>
+									</tr>
+								))}
+							</tbody>
+						</table>
+					</div>
+					<p class="eq-card-note eq-card-note-after">{t(locale, 'magnitude.unitsLead')}</p>
+				</CollapseCard>
+			)
+		}
+
+		<CodeCard locale={locale} code={magnitude.symbol.tex} />
+
+		<CollapseCard
+			headingId="magnitude-relations-heading"
+			title={t(locale, 'design.content.entry.relations')}
+			class="eq-relations-card"
+		>
+			<div class="eq-chip-row">
+				<BranchBadges locale={locale} branches={magnitude.branches} />
+				{
+					dimensionText === '' && (
+						<span class="eq-badge eq-badge-accent">{t(locale, 'badge.dimensionless')}</span>
+					)
+				}
+				<UntranslatedBadge locale={locale} show={untranslated} />
+				<DraftBadge locale={locale} status={magnitude.status} />
+			</div>
+
+			{
+				(dimensionText !== '' || kindRows.length > 0 || magnitude.nonNegative === true) && (
+					<dl class="eq-definitions">
+						{
+							dimensionText !== '' && (
+								<>
+									<dt>{t(locale, 'table.dimension')}</dt>
+									<dd class="eq-display-text">{dimensionText}</dd>
+								</>
+							)
+						}
+						{
+							kindRows.map((row) => (
+								<>
+									<dt>{row.label}</dt>
+									<dd>
+										{row.links.map((link, index) => (
+											<>
+												{index > 0 && ', '}
+												<a class="eq-link" href={link.href}>
+													{link.name}
+												</a>
+											</>
+										))}
+										{row.hint !== '' && <p class="eq-definition-hint">{row.hint}</p>}
+									</dd>
+								</>
+							))
+						}
+						{
+							magnitude.nonNegative === true && (
+								<>
+									<dt>{t(locale, 'magnitude.sign')}</dt>
+									<dd class="eq-definition-muted">{t(locale, 'magnitude.nonNegative')}</dd>
+								</>
+							)
+						}
+					</dl>
+				)
+			}
+		</CollapseCard>
+	</article>
+</BaseLayout>

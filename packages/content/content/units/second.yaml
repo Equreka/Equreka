@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Second'
+namePlural:
+  en: 'seconds'
+symbol:
+  tex: 's'
+unitOf:
+  - 'time'
+system: 'si'
+prefixes:
+  - 'femto'
+  - 'pico'
+  - 'nano'
+  - 'micro'
+  - 'milli'
+  - 'kilo'
+  - 'mega'
+  - 'giga'
+  - 'tera'
+externalIds:
+  wikidata: 'Q11574'
+  qudt: 'http://qudt.org/vocab/unit/SEC'
+categories:
+  - 'universal'
+  - 'physics'
+branches:
+  - 'mechanics'
+  - 'si-system'
+aliases:
+  - 'sec'
+description:
+  en: >-
+    The second, symbol $s$, is the SI unit of $time$. It is defined by taking the fixed numerical
+    value of the caesium frequency $Δν_{Cs}$ the unperturbed ground-state hyperfine transition
+    frequency of the caesium-133 atom, to be 9 192 631 770 when expressed in the unit Hz, which is
+    equal to $s^{–1}$.
+references:
+  - title: 'SI base unit: second (s)'
+    url: 'https://www.bipm.org/en/si-base-units/second'

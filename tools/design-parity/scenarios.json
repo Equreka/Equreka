@@ -1,0 +1,446 @@
+{
+	"shells": {
+		"desktop": {
+			"width": 1280,
+			"height": 800,
+			"isMobile": false,
+			"userAgent": {
+				"legacy": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36",
+				"current": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Safari/537.36"
+			}
+		},
+		"mobile": {
+			"width": 390,
+			"height": 844,
+			"isMobile": true,
+			"userAgent": {
+				"legacy": "Mozilla/5.0 (Linux; Android 12; Pixel 6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36",
+				"current": "Mozilla/5.0 (Linux; Android 12; Pixel 6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/106.0.0.0 Mobile Safari/537.36"
+			}
+		}
+	},
+	"themes": ["light", "dark"],
+	"aboveFold": {
+		"legacy": "main",
+		"current": "main",
+		"heightPx": 900
+	},
+	"chrome": {
+		"legacy": {
+			"desktop": {
+				"header": ".layout.web > header.header",
+				"footer": ".layout.web > footer"
+			},
+			"mobile": {
+				"header": ".layout.app > .app-header",
+				"bottomNav": ".layout.app > .app-menu"
+			}
+		},
+		"current": {
+			"desktop": {
+				"header": "header.eq-site-header",
+				"footer": "footer.eq-site-footer"
+			},
+			"mobile": {
+				"header": "header.eq-site-header",
+				"bottomNav": "nav.eq-primary-nav",
+				"footer": "footer.eq-site-footer"
+			}
+		}
+	},
+	"fixtures": {
+		"favorites": {
+			"legacy": {
+				"equreka-favorites-equations": "[\"mass-energy-equivalence\",\"pithagoras-theorem\"]",
+				"equreka-favorites-constants": "[\"speed-of-light\",\"avogadro-constant\"]",
+				"equreka-favorites-units": "[\"metre\",\"kilometre\"]"
+			},
+			"current": {
+				"equreka.v1.favorites": "[{\"collection\":\"equations\",\"slug\":\"mass-energy-equivalence\",\"addedAt\":\"2022-01-01T00:00:00.000Z\"},{\"collection\":\"equations\",\"slug\":\"pythagorean-theorem\",\"addedAt\":\"2022-01-01T00:00:01.000Z\"},{\"collection\":\"constants\",\"slug\":\"speed-of-light\",\"addedAt\":\"2022-01-01T00:00:02.000Z\"},{\"collection\":\"constants\",\"slug\":\"avogadro-constant\",\"addedAt\":\"2022-01-01T00:00:03.000Z\"},{\"collection\":\"units\",\"slug\":\"metre\",\"addedAt\":\"2022-01-01T00:00:04.000Z\"},{\"collection\":\"units\",\"slug\":\"kilometre\",\"addedAt\":\"2022-01-01T00:00:05.000Z\"}]"
+			}
+		}
+	},
+	"scenarios": [
+		{
+			"id": "home-categories",
+			"area": "chrome",
+			"contentIdentical": false,
+			"aboveFold": {
+				"gate": true,
+				"reason": "category cards carry the same four categories and the authored descriptions; any wording change in the port is a parity gap, not data"
+			},
+			"legacy": {
+				"route": "/",
+				"steps": [],
+				"masks": []
+			},
+			"current": {
+				"route": "/",
+				"steps": [],
+				"masks": []
+			}
+		},
+		{
+			"id": "home-types",
+			"area": "interactive",
+			"contentIdentical": false,
+			"aboveFold": {
+				"gate": true,
+				"reason": "type cards carry the same six types and descriptions, so order, color and spacing are all design"
+			},
+			"legacy": {
+				"route": "/",
+				"steps": [
+					{
+						"action": "click",
+						"selector": "main.home .hstack button",
+						"nth": 1
+					}
+				],
+				"masks": []
+			},
+			"current": {
+				"route": "/",
+				"steps": [
+					{
+						"action": "click",
+						"selector": "label[for=\"home-view-types\"]"
+					}
+				],
+				"masks": []
+			}
+		},
+		{
+			"id": "unit",
+			"area": "content",
+			"contentIdentical": false,
+			"aboveFold": {
+				"gate": true,
+				"reason": "header band, expression card and information card are the same metre text in both apps; only math and conversion rows are masked"
+			},
+			"legacy": {
+				"route": "/units/metre",
+				"steps": [],
+				"masks": [
+					{
+						"selector": ".table-conversions",
+						"kind": "data",
+						"reason": "conversion table rows: the original converts to 77 units, v2 to 210, so the rows legitimately differ"
+					},
+					{
+						"selector": "mjx-container",
+						"kind": "math-engine",
+						"reason": "math: the original typesets TeX with MathJax CHTML, v2 with KaTeX, so glyph outlines and box widths differ by engine"
+					}
+				]
+			},
+			"current": {
+				"route": "/units/metre/",
+				"steps": [],
+				"masks": [
+					{
+						"selector": ".eq-table-data",
+						"kind": "data",
+						"reason": "conversion table rows: the original converts to 77 units, v2 to 210, so the rows legitimately differ"
+					},
+					{
+						"selector": ".katex",
+						"kind": "math-engine",
+						"reason": "math: the original typesets TeX with MathJax CHTML, v2 with KaTeX, so glyph outlines and box widths differ by engine"
+					}
+				]
+			}
+		},
+		{
+			"id": "equation",
+			"area": "interactive",
+			"contentIdentical": false,
+			"aboveFold": {
+				"gate": true,
+				"reason": "header band, display equation, terms tables and information card are the same mass-energy text in both apps"
+			},
+			"note": "first term of the display equation hovered",
+			"legacy": {
+				"route": "/equations/mass-energy-equivalence",
+				"steps": [
+					{
+						"action": "hover",
+						"selector": ".card-expression mjx-container .equreka-term"
+					}
+				],
+				"masks": [
+					{
+						"selector": "mjx-container",
+						"kind": "math-engine",
+						"reason": "math: the original typesets TeX with MathJax CHTML, v2 with KaTeX, so glyph outlines and box widths differ by engine"
+					}
+				]
+			},
+			"current": {
+				"route": "/equations/mass-energy-equivalence/",
+				"steps": [
+					{
+						"action": "hover",
+						"selector": ".eq-display-math [data-term]"
+					}
+				],
+				"masks": [
+					{
+						"selector": ".katex",
+						"kind": "math-engine",
+						"reason": "math: the original typesets TeX with MathJax CHTML, v2 with KaTeX, so glyph outlines and box widths differ by engine"
+					},
+					{
+						"selector": ".eq-relations-card",
+						"kind": "new-feature",
+						"reason": "new feature: the Relations card lists v2 branch badges (and untranslated or draft markers); the original has no branches, and its own relations card renders only for entries with authored relations, which this entry has none of"
+					}
+				]
+			}
+		},
+		{
+			"id": "constant",
+			"area": "content",
+			"contentIdentical": false,
+			"aboveFold": {
+				"gate": true,
+				"reason": "header band, value cards and information card are the same speed-of-light text in both apps; only math is masked"
+			},
+			"legacy": {
+				"route": "/constants/speed-of-light",
+				"steps": [],
+				"masks": [
+					{
+						"selector": "mjx-container",
+						"kind": "math-engine",
+						"reason": "math: the original typesets TeX with MathJax CHTML, v2 with KaTeX, so glyph outlines and box widths differ by engine"
+					}
+				]
+			},
+			"current": {
+				"route": "/constants/speed-of-light/",
+				"steps": [],
+				"masks": [
+					{
+						"selector": ".katex",
+						"kind": "math-engine",
+						"reason": "math: the original typesets TeX with MathJax CHTML, v2 with KaTeX, so glyph outlines and box widths differ by engine"
+					},
+					{
+						"selector": ".eq-relations-card",
+						"kind": "new-feature",
+						"reason": "new feature: the Relations card lists v2 branch badges (and untranslated or draft markers); the original has no branches, and its own relations card renders only for entries with authored relations, which this entry has none of"
+					}
+				]
+			}
+		},
+		{
+			"id": "category",
+			"area": "content",
+			"contentIdentical": false,
+			"aboveFold": {
+				"gate": false,
+				"reason": "every card below the first lists data: v2 carries more magnitudes and 210 units (ADR 0007 generated prefixed units) against 77, so each list height shifts every card under it; content is checked by probes"
+			},
+			"legacy": {
+				"route": "/categories/physics",
+				"steps": [],
+				"masks": []
+			},
+			"current": {
+				"route": "/categories/physics/",
+				"steps": [],
+				"masks": []
+			}
+		},
+		{
+			"id": "units-list",
+			"area": "content",
+			"contentIdentical": false,
+			"aboveFold": {
+				"gate": false,
+				"reason": "the chip lists are data: v2 lists 210 units (ADR 0007 generated prefixed units) against 77, in a different order, so from the first card on the band measures data, not design; content is checked by probes"
+			},
+			"legacy": {
+				"route": "/units",
+				"steps": [],
+				"masks": []
+			},
+			"current": {
+				"route": "/units/",
+				"steps": [],
+				"masks": []
+			}
+		},
+		{
+			"id": "search-open",
+			"area": "interactive",
+			"contentIdentical": false,
+			"aboveFold": {
+				"gate": false,
+				"reason": "the result list is data (each app ranks its own index: v2 also indexes paths, branches and 210 units) and fills the band from 60px below the title, and its length sets where the page ends, so the band measures data; the title and the search input are covered by the input probes"
+			},
+			"note": "query 'ene' typed into the search page input",
+			"legacy": {
+				"route": "/search",
+				"steps": [
+					{
+						"action": "type",
+						"selector": "main .search-bar-input",
+						"text": "ene"
+					},
+					{
+						"action": "waitFor",
+						"selector": "main .search-bar-results a.item[href='/magnitudes/energy']"
+					}
+				],
+				"masks": []
+			},
+			"current": {
+				"route": "/search/",
+				"steps": [
+					{
+						"action": "type",
+						"selector": "main .eq-search-input-lg",
+						"text": "ene"
+					},
+					{
+						"action": "waitFor",
+						"selector": "main a.eq-search-item[href='/magnitudes/energy/']"
+					}
+				],
+				"masks": []
+			}
+		},
+		{
+			"id": "calculator",
+			"area": "interactive",
+			"contentIdentical": false,
+			"aboveFold": {
+				"gate": true,
+				"reason": "header band, result card, inputs and terms table come from the same equation and the same input, so every difference is design or formatting"
+			},
+			"note": "mass-energy equivalence solved from E = 2 J",
+			"legacy": {
+				"route": "/calculator/equations/mass-energy-equivalence",
+				"steps": [
+					{
+						"action": "type",
+						"selector": ".card-inputs input",
+						"text": "2"
+					},
+					{
+						"action": "click",
+						"selector": ".card-inputs button.btn-success"
+					},
+					{
+						"action": "waitFor",
+						"selector": "#calculator-result"
+					}
+				],
+				"masks": []
+			},
+			"current": {
+				"route": "/calculator/mass-energy-equivalence/",
+				"steps": [
+					{
+						"action": "type",
+						"selector": "input.eq-field-control",
+						"text": "2"
+					},
+					{
+						"action": "click",
+						"selector": "main form button[type='submit']"
+					},
+					{
+						"action": "waitFor",
+						"selector": ".eq-tool-result .eq-calc-result"
+					}
+				],
+				"masks": []
+			}
+		},
+		{
+			"id": "favorites-empty",
+			"area": "chrome",
+			"contentIdentical": true,
+			"legacy": {
+				"route": "/favorites",
+				"steps": [],
+				"masks": []
+			},
+			"current": {
+				"route": "/favorites/",
+				"steps": [],
+				"masks": []
+			}
+		},
+		{
+			"id": "favorites-edit",
+			"area": "interactive",
+			"contentIdentical": true,
+			"fixture": "favorites",
+			"note": "six seeded favorites, edit mode on in the desktop shell (the original has no edit toggle in the mobile shell, and the port hides it there too)",
+			"legacy": {
+				"route": "/favorites",
+				"steps": [
+					{
+						"action": "click",
+						"selector": "main.favorites .main-header button",
+						"shells": ["desktop"]
+					}
+				],
+				"masks": []
+			},
+			"current": {
+				"route": "/favorites/",
+				"steps": [
+					{
+						"action": "click",
+						"selector": ".eq-fav-edit",
+						"shells": ["desktop"]
+					}
+				],
+				"masks": []
+			}
+		},
+		{
+			"id": "settings",
+			"area": "interactive",
+			"contentIdentical": true,
+			"note": "theme menu open; version string masked",
+			"legacy": {
+				"route": "/settings",
+				"steps": [
+					{
+						"action": "click",
+						"selector": "#dropdown-theme"
+					}
+				],
+				"masks": [
+					{
+						"selector": "main.settings h2 small",
+						"kind": "data",
+						"reason": "version string: the app version legitimately differs between the original and v2"
+					}
+				]
+			},
+			"current": {
+				"route": "/settings/",
+				"steps": [
+					{
+						"action": "click",
+						"selector": "main [aria-haspopup]"
+					}
+				],
+				"masks": [
+					{
+						"selector": ".eq-settings-version",
+						"kind": "data",
+						"reason": "version string: the app version legitimately differs between the original and v2"
+					}
+				]
+			}
+		}
+	]
+}

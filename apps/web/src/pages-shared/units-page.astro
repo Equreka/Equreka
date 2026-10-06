@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import { type Locale, localizedName, t } from '@equreka/core/i18n';
+import CategoryListCards from '../components/category-list-cards.astro';
+import PageHeader from '../components/page-header.astro';
+import BaseLayout from '../layouts/base-layout.astro';
+import { asUnit } from '../lib/collections';
+import { localePath } from '../lib/locale-paths';
+import { renderSymbolHtml } from '../lib/tex';
+import { symbolTextOf } from '../lib/unit-symbol';
+
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
+
+const items = (await getCollection('units')).map((entry) => {
+	const unit = asUnit(entry.data);
+	return {
+		categories: unit.categories,
+		sortKey: unit.unitOf[0],
+		name: localizedName(unit, locale),
+		href: localePath(locale, `/units/${entry.id}/`),
+		symbolHtml: renderSymbolHtml(unit.symbol.tex, symbolTextOf({ ...unit, slug: entry.id })),
+	};
+});
+---
+
+<BaseLayout
+	title={`${t(locale, 'collection.units')} — Equreka`}
+	description={t(locale, 'meta.units')}
+	locale={locale}
+>
+	<PageHeader
+		slot="hero"
+		label={t(locale, 'design.content.header.type')}
+		title={t(locale, 'collection.units')}
+		accent="type-units"
+	/>
+	<div class="type-units eq-cards">
+		<CategoryListCards locale={locale} items={items} />
+	</div>
+</BaseLayout>

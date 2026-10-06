@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Metre per second'
+symbol:
+  tex: '\frac{m}{s}'
+  text: 'm/s'
+unitOf:
+  - 'speed'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'metre'
+      exp: 1
+    - unit: 'second'
+      exp: -1
+externalIds:
+  wikidata: 'Q182429'
+  qudt: 'http://qudt.org/vocab/unit/M-PER-SEC'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'meter per second'
+  - 'm/s'
+  - 'mps'
+description:
+  en: >-
+    Is an SI derived unit of both speed (scalar quantity) and velocity (vector quantity (which have
+    direction and magnitude)), equal to the speed of a body covering a distance of one metre in a
+    time of one second.

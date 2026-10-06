@@ -1,0 +1,100 @@
+---
+import { getCollection } from 'astro:content';
+import { collectionLabel, type Locale, t } from '@equreka/core/i18n';
+import { localePath } from '../lib/locale-paths';
+import type { MemberCollection, MemberEntry } from '../lib/server/taxonomy';
+import { renderSymbolHtml } from '../lib/tex';
+import ListCard from './list-card.astro';
+
+/**
+ * Legacy category page body (`pages/categories/_slug.vue`): one list card
+ * per collection in the original's type order, entries with a symbol badge
+ * where the collection has symbols, "View all" to the collection's list
+ * page (variables have none). Paths, a v2 collection, close the run.
+ */
+interface Props {
+	locale: Locale;
+	members: readonly MemberEntry[];
+	idPrefix?: string;
+}
+
+const { locale, members, idPrefix = '' } = Astro.props;
+
+const LEGACY_ORDER: readonly MemberCollection[] = [
+	'equations',
+	'constants',
+	'magnitudes',
+	'variables',
+	'units',
+	'prefixes',
+	'paths',
+];
+
+const COLLECTION_INDEX: Partial<Record<MemberCollection, string>> = {
+	equations: '/equations/',
+	constants: '/constants/',
+	magnitudes: '/magnitudes/',
+	units: '/units/',
+	prefixes: '/prefixes/',
+	paths: '/paths/',
+};
+
+const SYMBOL_COLLECTIONS = ['constants', 'magnitudes', 'variables', 'units', 'prefixes'] as const;
+
+const symbols = new Map<string, string>();
+for (const collection of SYMBOL_COLLECTIONS) {
+	for (const entry of await getCollection(collection)) {
+		const symbol = (entry.data as { symbol: { tex: string; text?: string } }).symbol;
+		symbols.set(
+			`${collection}/${entry.id}`,
+			renderSymbolHtml(symbol.tex, symbol.text ?? symbol.tex),
+		);
+	}
+}
+
+/**
+ * The original listed units by `sortBy('unitOf').sortBy('name')`: first
+ * magnitude, then name (members arrive name-sorted, the sort is stable).
+ */
+const unitOf = new Map(
+	(await getCollection('units')).map((entry) => [
+		entry.id,
+		(entry.data as { unitOf: readonly string[] }).unitOf[0] ?? '',
+	]),
+);
+
+const groups = LEGACY_ORDER.map((collection) => {
+	const entries = members.filter((member) => member.collection === collection);
+	return {
+		collection,
+		entries:
+			collection === 'units'
+				? [...entries].sort((a, b) =>
+						(unitOf.get(a.slug) ?? '').localeCompare(unitOf.get(b.slug) ?? '', 'en'),
+					)
+				: entries,
+	};
+}).filter((group) => group.entries.length > 0);
+---
+
+{
+	groups.map((group) => {
+		const index = COLLECTION_INDEX[group.collection];
+		return (
+			<ListCard
+				headingId={`${idPrefix}${group.collection}-heading`}
+				title={collectionLabel(locale, group.collection)}
+				items={group.entries.map((member) => ({
+					name: member.name,
+					href: member.href === undefined ? undefined : localePath(locale, member.href),
+					symbolHtml: symbols.get(`${member.collection}/${member.slug}`),
+				}))}
+				viewAll={
+					index === undefined
+						? undefined
+						: { href: localePath(locale, index), label: t(locale, 'design.content.viewAll') }
+				}
+			/>
+		);
+	})
+}

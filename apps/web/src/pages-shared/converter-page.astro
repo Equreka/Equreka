@@ -1,0 +1,23 @@
+---
+import { type Locale, t } from '@equreka/core/i18n';
+import ConverterIsland from '../islands/converter-island';
+import BaseLayout from '../layouts/base-layout.astro';
+
+interface Props {
+	locale?: Locale;
+}
+
+const { locale = 'en' } = Astro.props;
+---
+
+<BaseLayout
+	title={`${t(locale, 'converter.title')} — Equreka`}
+	description={t(locale, 'meta.converter')}
+	locale={locale}
+>
+	<header class="eq-tool-header">
+		<h1>{t(locale, 'converter.title')}</h1>
+		<p class="eq-lead">{t(locale, 'converter.lead')}</p>
+	</header>
+	<ConverterIsland client:load locale={locale} />
+</BaseLayout>

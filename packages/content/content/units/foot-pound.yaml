@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Foot-pound'
+symbol:
+  tex: 'ft⋅lb'
+unitOf:
+  - 'energy'
+system: 'imperial'
+toBase:
+  factor: '1.3558179483314004'
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811'
+    ref: 'B.8: foot pound-force (ft·lbf); exact via g_n = 9.80665 m/s²'
+status: 'reviewed'
+externalIds:
+  wikidata: 'Q730251'
+  qudt: 'http://qudt.org/vocab/unit/FT-LB_F_Energy'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'ft-lb'
+  - 'ft lbf'
+  - 'foot-pound force'
+description:
+  en: >-
+    The foot-pound force (symbol: $ft⋅lbf$, $ft⋅lbf$, or $ft⋅lb$) is a unit of work or energy in the
+    engineering and gravitational systems in United States customary and imperial units of measure.
+    It is the energy transferred upon applying a force of one pound-force (lbf) through a linear
+    displacement of one foot. The corresponding SI unit is the joule.

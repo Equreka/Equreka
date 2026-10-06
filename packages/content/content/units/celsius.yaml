@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Celsius'
+symbol:
+  tex: '°C'
+unitOf:
+  - 'thermodynamic-temperature'
+system: 'si-derived'
+toBase:
+  factor: '1'
+  offset:
+    num: '5463'
+    den: '20'
+externalIds:
+  wikidata: 'Q25267'
+  qudt: 'http://qudt.org/vocab/unit/DEG_C'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'degC'
+  - 'C'
+  - 'centigrade'
+  - 'degrees celsius'
+description:
+  en: >-
+    The degree Celsius is a unit of temperature on the Celsius scale, a temperature scale originally
+    known as the centigrade scale. The degree Celsius ($°C$) can refer to a specific temperature on
+    the Celsius scale or a unit to indicate a difference or range between two temperatures.

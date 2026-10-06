@@ -1,0 +1,43 @@
+---
+/**
+ * The Equreka mark. `color` is the legacy full-color logo: the original
+ * file's structure (its mesh-gradient raster clipped by the seven-circle
+ * path) with the raster re-encoded at 432 px wide, 5 KB instead of 621 KB,
+ * rendering pixel-identical to the original at the 62 and 72 px display
+ * sizes; it is a separate precached file so pages do not repeat it.
+ * `mono` is the single-path mark painted with `currentColor` (the
+ * original footer mark).
+ */
+interface Props {
+	tone?: 'color' | 'mono';
+	class?: string;
+}
+
+const { tone = 'color', class: className } = Astro.props;
+
+const MARK_PATH =
+	'M820,250c0,138.07-111.93,250-250,250S320,388.07,320,250,431.93,0,570,0,820,111.93,820,250ZM150,200A150,150,0,1,0,300,350,150,150,0,0,0,150,200ZM92.5,0A92.5,92.5,0,1,0,185,92.5,92.5,92.5,0,0,0,92.5,0ZM250,0a50,50,0,1,0,50,50A50,50,0,0,0,250,0Zm20,125a30,30,0,1,0,30,30A30,30,0,0,0,270,125Zm-57.5,0A12.5,12.5,0,1,0,225,137.5,12.5,12.5,0,0,0,212.5,125Zm0,35A12.5,12.5,0,1,0,225,172.5,12.5,12.5,0,0,0,212.5,160Z';
+---
+
+{
+	tone === 'color' ? (
+		<img
+			src="/brand/logo.svg"
+			alt=""
+			width="72"
+			height="44"
+			decoding="async"
+			class:list={['eq-logo', className]}
+		/>
+	) : (
+		<svg
+			xmlns="http://www.w3.org/2000/svg"
+			viewBox="0 0 820 500"
+			class:list={['eq-logo', className]}
+			aria-hidden="true"
+			focusable="false"
+		>
+			<path fill="currentColor" d={MARK_PATH} />
+		</svg>
+	)
+}

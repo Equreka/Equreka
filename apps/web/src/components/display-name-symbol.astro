@@ -1,0 +1,49 @@
+---
+import { renderSymbolHtml } from '../lib/tex';
+
+/**
+ * Legacy MathExpression for units and magnitudes: one TeX expression
+ * `\text{Name} - symbol`, so the name, the minus and the symbol share the
+ * math font and baseline and the block is as tall as its glyphs, as the
+ * original's block MathJax container was. A symbol that KaTeX
+ * cannot typeset inside the expression falls back to separate spans.
+ */
+interface Props {
+	name: string;
+	symbolTex: string;
+	symbolText: string;
+}
+
+const { name, symbolTex, symbolText } = Astro.props;
+
+const TEX_TEXT_ESCAPES: Record<string, string> = {
+	'\\': '\\textbackslash{}',
+	'{': '\\{',
+	'}': '\\}',
+	'#': '\\#',
+	$: '\\$',
+	'%': '\\%',
+	'&': '\\&',
+	_: '\\_',
+	'^': '\\textasciicircum{}',
+	'~': '\\textasciitilde{}',
+};
+
+const escapedName = name.replace(/[\\{}#$%&_^~]/g, (char) => TEX_TEXT_ESCAPES[char] ?? char);
+const combined = renderSymbolHtml(`\\text{${escapedName}} - ${symbolTex}`, '');
+const ok = !combined.includes('symbol-fallback');
+---
+
+{
+	ok ? (
+		<span class="eq-display-block" set:html={combined} />
+	) : (
+		<>
+			<span class="eq-display-text">{name}</span>
+			<span class="eq-display-op" aria-hidden="true">
+				−
+			</span>
+			<span set:html={renderSymbolHtml(symbolTex, symbolText)} />
+		</>
+	)
+}

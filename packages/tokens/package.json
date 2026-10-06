@@ -1,0 +1,21 @@
+{
+	"name": "@equreka/tokens",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"sideEffects": false,
+	"exports": {
+		".": "./src/index.ts",
+		"./theme.css": "./dist/theme.css"
+	},
+	"scripts": {
+		"build": "tsx scripts/build-theme.ts && node ../../scripts/quality/contrast-check.mjs",
+		"typecheck": "tsc --noEmit -p tsconfig.json"
+	},
+	"devDependencies": {
+		"@equreka/config": "workspace:*",
+		"@types/node": "catalog:",
+		"tsx": "catalog:",
+		"typescript": "catalog:"
+	}
+}

@@ -1,0 +1,127 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.schema.json
+name:
+  en: 'Geometry of circles and triangles'
+level: 'intro'
+estimatedMinutes: '12'
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'circle area'
+  - 'pythagoras'
+  - 'area del circulo'
+  - 'teorema de pitagoras'
+description:
+  en: >-
+    Three formulas every measurement rests on: the area of a circle, the area of a square and the
+    Pythagorean theorem, with the radius and the constant pi that tie them together.
+steps:
+  - id: 'intro'
+    kind: 'prose'
+    body:
+      en: >-
+        Two shapes and three formulas carry most of everyday geometry. Along the way notice the
+        units: an area always comes out in square metres because it multiplies two lengths, and a
+        theorem about lengths alone holds in any unit as long as every side uses the same one.
+  - id: 'radius'
+    kind: 'entry'
+    ref:
+      collection: 'variables'
+      slug: 'radius'
+    note:
+      en: >-
+        The segment from the centre of a circle to any point on it, and by extension its length
+        $r$. The diameter is twice the radius, $d = 2r$.
+  - id: 'pi'
+    kind: 'entry'
+    ref:
+      collection: 'constants'
+      slug: 'pi'
+    note:
+      en: >-
+        The ratio of any circle's circumference to its diameter, $\pi = \frac{C}{d} \approx 3.14159$.
+        It is irrational, so no fraction or finite decimal is exact; $\frac{22}{7}$ is a classical
+        approximation good to two decimals.
+  - id: 'circle-formulas'
+    kind: 'prose'
+    body:
+      en: >-
+        Unrolling the circumference gives $C = 2\pi r$. Cutting the disc into many thin wedges and
+        laying them head to tail forms a near-rectangle of height $r$ and width $\pi r$ (half the
+        circumference), so the area is $A = \pi r^{2}$. Archimedes squeezed $\pi$ between
+        $\frac{223}{71}$ and $\frac{22}{7}$ with inscribed and circumscribed 96-sided polygons, the
+        idea behind this limit argument.
+  - id: 'area-circle'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'area-circle'
+    note:
+      en: >-
+        Solve it both ways in the calculator: given $r$ find $A$, or given an area find the radius
+        that produces it.
+  - id: 'check-double-radius'
+    kind: 'check'
+    prompt:
+      en: >-
+        Doubling the radius of a circle multiplies its area by what factor?
+    answer:
+      en: >-
+        By four. Area grows with the square of the radius: $\pi (2r)^{2} = 4\pi r^{2}$. The
+        circumference, linear in $r$, merely doubles.
+  - id: 'area-square'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'area-square'
+    note:
+      en: >-
+        The simplest area, $A = l^{2}$, and the reason the unit of area is the square metre: a
+        square one metre on each side.
+  - id: 'compare'
+    kind: 'prose'
+    body:
+      en: >-
+        Put the two together. A circle of radius $r$ fits exactly inside a square of side $2r$. The
+        square's area is $4r^{2}$, the circle's is $\pi r^{2}$, so the circle covers
+        $\frac{\pi}{4} \approx 78.5\%$ of the square, whatever the size. Ratios like this are
+        dimensionless: the square metres cancel.
+  - id: 'pythagorean-theorem'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'pythagorean-theorem'
+    note:
+      en: >-
+        In a right triangle the square on the hypotenuse equals the sum of the squares on the legs,
+        $a^{2} + b^{2} = c^{2}$. Its terms are bare lengths with no fixed unit: any unit works as long
+        as all three sides share it.
+  - id: 'check-triple'
+    kind: 'check'
+    prompt:
+      en: >-
+        A right triangle has legs of $5$ and $12$. How long is the hypotenuse?
+    answer:
+      en: >-
+        $13$, since $5^{2} + 12^{2} = 25 + 144 = 169 = 13^{2}$. Whole-number solutions like
+        $(3, 4, 5)$ and $(5, 12, 13)$ are called Pythagorean triples.
+  - id: 'check-no-units'
+    kind: 'check'
+    prompt:
+      en: >-
+        The circle-area calculator shows metres and square metres, but the Pythagorean calculator
+        shows no units at all. Why?
+    answer:
+      en: >-
+        The circle formula relates a length to an area, two different dimensions, so its terms are
+        tied to units. The theorem relates three lengths of the same kind and holds in any unit, so
+        its terms are authored as unitless symbols: the answer comes out in whatever unit the inputs
+        share.
+  - id: 'closing'
+    kind: 'prose'
+    body:
+      en: >-
+        The two ideas meet on the coordinate plane. The distance between two points is the
+        Pythagorean theorem applied to their coordinate differences, and a circle is the set of
+        points at one distance $r$ from the centre: $x^{2} + y^{2} = r^{2}$.

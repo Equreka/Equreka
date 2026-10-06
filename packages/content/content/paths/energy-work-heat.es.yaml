@@ -1,0 +1,90 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.locale.schema.json
+name: 'Energía, trabajo y calor'
+description: >-
+  Tres magnitudes, una dimensión: por qué energía, trabajo y calor usan el joule sin ser lo mismo,
+  cómo la potencia mide la tasa de transferencia y qué afirma la equivalencia masa-energía.
+steps:
+  intro:
+    body: >-
+      La energía es la magnitud conservada de la física: cambia de forma pero nunca se crea ni se
+      destruye. El trabajo y el calor son las dos maneras en que la energía cruza la frontera de un
+      sistema, una mediante una fuerza que actúa a lo largo de un desplazamiento y la otra mediante
+      una diferencia de temperatura. La primera ley de la termodinámica las relaciona: el cambio en
+      la energía interna de un sistema es igual al calor suministrado menos el trabajo que realiza,
+      $\Delta U = Q - W$. Las tres comparten la dimensión $\mathsf{L}^{2}\mathsf{M}\mathsf{T}^{-2}$
+      y la unidad joule.
+  energy:
+    note: >-
+      Una magnitud de estado: un sistema tiene una energía definida en cada instante, ya sea
+      cinética, potencial, térmica o química.
+  joule:
+    note: >-
+      Un joule es el trabajo que realiza una fuerza de un newton a lo largo de un metro: $\text{J} =
+      \text{N m} = \text{kg m}^{2}\text{ s}^{-2}$. Esta wiki escribe el joule como esa composición
+      de unidades base, de modo que su dimensión se verifica en lugar de teclearse.
+  work:
+    note: >-
+      Una magnitud de proceso: $W = F\,d\cos\theta$ para una fuerza constante $F$ a lo largo de un
+      desplazamiento $d$ con ángulo $\theta$. El trabajo se realiza sobre un sistema o por él; un
+      sistema no contiene trabajo.
+  heat:
+    note: >-
+      También una magnitud de proceso: energía en tránsito debida a una diferencia de temperatura.
+      Una vez dentro del sistema es simplemente energía interna, ya no calor.
+  check-same-unit:
+    prompt: >-
+      Energía, trabajo y calor se miden en joules. ¿Eso los convierte en la misma magnitud?
+    answer: >-
+      No. Tener la misma dimensión es necesario para que dos magnitudes sean de la misma clase, pero
+      no suficiente. La energía es un estado de un sistema; el trabajo y el calor son transferencias
+      a través de su frontera. El torque es otra advertencia: también es $\text{kg m}^{2}\text{
+      s}^{-2}$, escrito $\text{N m}$, y sin embargo no es una energía. El convertidor de esta wiki
+      solo comprueba dimensiones, así que convertirá sin problema un joule de calor en un joule de
+      trabajo; que esa transferencia pueda ocurrir es asunto de la segunda ley, no de la aritmética.
+  power-intro:
+    body: >-
+      La potencia es la rapidez con que la energía se transfiere o se convierte: $P =
+      \frac{dE}{dt}$. Su unidad, el watt, es un joule por segundo, y en unidades base $\text{W} =
+      \text{kg m}^{2}\text{ s}^{-3}$. Los recibos de electricidad invierten la relación: un
+      kilowatt-hora es potencia por tiempo, una energía de $1\ \text{kW} \times 3600\ \text{s} =
+      3.6\ \text{MJ}$.
+  watt:
+    note: >-
+      Aquí se escribe como $\text{J s}^{-1}$, de modo que la compilación deriva su dimensión de la
+      del joule.
+  check-lamp:
+    prompt: >-
+      Una lámpara de $60\ \text{W}$ funciona durante una hora. ¿Cuánta energía convierte, en joules
+      y en kilowatt-hora?
+    answer: >-
+      $60\ \text{W} \times 3600\ \text{s} = 216\,000\ \text{J} = 216\ \text{kJ}$, es decir, $0.06\
+      \text{kWh}$.
+  mass-energy-intro:
+    body: >-
+      En 1905 Einstein mostró que la masa misma es una forma de energía. Un cuerpo de masa $m$ en
+      reposo tiene energía $E = m c^{2}$, donde $c$ es la velocidad de la luz en el vacío. El factor
+      $c^{2}$ es de unos $9 \times 10^{16}\ \text{m}^{2}\text{ s}^{-2}$, y por eso una masa diminuta
+      corresponde a una energía enorme y las reacciones nucleares liberan mucho más que las
+      químicas.
+  speed-of-light:
+    note: >-
+      Exacta por definición desde 1983: fijar $c$ es lo que define al metro, así que la
+      incertidumbre pasó de la constante a la realización de la unidad.
+  mass-energy:
+    note: >-
+      Comprueba las dimensiones: $\text{kg} \times (\text{m/s})^{2} = \text{kg m}^{2}\text{ s}^{-2}
+      = \text{J}$. La compilación realiza esta comprobación en cada solución escrita.
+  try-calculator:
+    body: >-
+      Abre la calculadora de la equivalencia masa-energía desde la página de la ecuación. Escribe $m
+      = 0.001$ (un gramo, en kilogramos) y deja $E$ vacío. El motor devuelve alrededor de $8.988
+      \times 10^{13}\ \text{J}$, unos $25\ \text{GWh}$: la electricidad que una ciudad pequeña usa
+      en un día, encerrada en un gramo de materia.
+  check-exact:
+    prompt: >-
+      ¿Por qué la velocidad de la luz aparece como exacta cuando la mayoría de las constantes
+      físicas tienen incertidumbre?
+    answer: >-
+      Porque el metro se define fijando $c = 299\,792\,458\ \text{m/s}$. Una constante definitoria
+      no tiene incertidumbre por construcción; la incertidumbre experimental ahora está en la
+      precisión con que un laboratorio puede realizar el metro, no en $c$.

@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'U.S. Quart'
+symbol:
+  tex: 'US\ qt'
+  text: 'US qt'
+unitOf:
+  - 'volume'
+system: 'uscs'
+toBase:
+  factor: '0.000946352946'
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811'
+    ref: 'B.8: quart (U.S. liquid) (qt); exact as 1/4 gal'
+status: 'reviewed'
+externalIds:
+  wikidata: 'Q98793408'
+  qudt: 'http://qudt.org/vocab/unit/QT_US'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'quart'
+  - 'qt'
+  - 'US qt'
+description:
+  en: >-
+    The quart (symbol: $qt$) is an English unit of volume equal to a quarter gallon. Three kinds of
+    quarts are currently used: the liquid quart and dry quart of the US customary system and the
+    imperial quart of the British imperial system. All are roughly equal to one liter. It is divided
+    into two pints or (in the US) four cups. Historically, the exact size of the quart has varied
+    with the different values of gallons over time and in reference to different commodities.

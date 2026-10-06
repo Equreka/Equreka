@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Electric current'
+symbol:
+  tex: 'I'
+baseUnit: 'ampere'
+dimension:
+  I: 1
+externalIds:
+  wikidata: 'Q29996'
+  qudt: 'http://qudt.org/vocab/quantitykind/ElectricCurrent'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'current'
+  - 'amperage'
+description:
+  en: >-
+    An electric current is a stream of charged particles, such as electrons or ions, moving through
+    an electrical conductor or space. It is measured as the net rate of flow of electric charge
+    through a surface or into a control volume.

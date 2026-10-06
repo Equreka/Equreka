@@ -1,0 +1,160 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.schema.json
+name:
+  en: 'Energy, work and heat'
+level: 'intermediate'
+prerequisites:
+  - 'si-base-units'
+estimatedMinutes: '20'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+  - 'thermodynamics'
+  - 'modern-physics'
+aliases:
+  - 'E=mc2'
+  - 'energy'
+  - 'joule and watt'
+  - 'energia'
+description:
+  en: >-
+    Three quantities, one dimension: why energy, work and heat all use the joule yet are not the
+    same thing, how power measures the rate of transfer, and what mass-energy equivalence says.
+steps:
+  - id: 'intro'
+    kind: 'prose'
+    body:
+      en: >-
+        Energy is the conserved quantity of physics: it changes form but is never created or
+        destroyed. Work and heat are the two ways energy crosses the boundary of a system, one
+        through a force acting along a displacement, the other through a temperature difference.
+        The first law of thermodynamics ties them together: the change in a system's internal energy
+        equals the heat supplied minus the work it does, $\Delta U = Q - W$. All three share the
+        dimension $\mathsf{L}^{2}\mathsf{M}\mathsf{T}^{-2}$ and the unit joule.
+  - id: 'energy'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'energy'
+    note:
+      en: >-
+        A state quantity: a system has a definite energy at each instant, whether kinetic, potential,
+        thermal or chemical.
+  - id: 'joule'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'joule'
+    note:
+      en: >-
+        One joule is the work done by a force of one newton over one metre:
+        $\text{J} = \text{N m} = \text{kg m}^{2}\text{ s}^{-2}$. This wiki authors the joule as that
+        composition of base units, so its dimension is verified rather than typed.
+  - id: 'work'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'work'
+    note:
+      en: >-
+        A process quantity: $W = F\,d\cos\theta$ for a constant force $F$ along a displacement $d$
+        at angle $\theta$. Work is done on or by a system; a system does not contain work.
+  - id: 'heat'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'heat'
+    note:
+      en: >-
+        Also a process quantity: energy in transit because of a temperature difference. Once inside
+        the system it is simply internal energy, no longer heat.
+  - id: 'check-same-unit'
+    kind: 'check'
+    prompt:
+      en: >-
+        Energy, work and heat are all measured in joules. Does that make them the same quantity?
+    answer:
+      en: >-
+        No. Equal dimension is necessary for two quantities to be of the same kind, not sufficient.
+        Energy is a state of a system; work and heat are transfers across its boundary. Torque is
+        another warning: it is also $\text{kg m}^{2}\text{ s}^{-2}$, written $\text{N m}$, yet it is
+        not an energy at all. The converter in this wiki checks dimensions only, so it will happily
+        convert a joule of heat into a joule of work; whether that transfer can actually happen is
+        the second law's business, not arithmetic.
+  - id: 'power-intro'
+    kind: 'prose'
+    body:
+      en: >-
+        Power is how fast energy is transferred or converted: $P = \frac{dE}{dt}$. Its unit, the
+        watt, is one joule per second, and in base units $\text{W} = \text{kg m}^{2}\text{ s}^{-3}$.
+        Utility bills invert the relation: a kilowatt-hour is power times time, an energy of
+        $1\ \text{kW} \times 3600\ \text{s} = 3.6\ \text{MJ}$.
+  - id: 'power'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'power'
+  - id: 'watt'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'watt'
+    note:
+      en: >-
+        Authored here as $\text{J s}^{-1}$, so the build derives its dimension from the joule's.
+  - id: 'check-lamp'
+    kind: 'check'
+    prompt:
+      en: >-
+        A $60\ \text{W}$ lamp runs for one hour. How much energy does it convert, in joules and in
+        kilowatt-hours?
+    answer:
+      en: >-
+        $60\ \text{W} \times 3600\ \text{s} = 216\,000\ \text{J} = 216\ \text{kJ}$, which is
+        $0.06\ \text{kWh}$.
+  - id: 'mass-energy-intro'
+    kind: 'prose'
+    body:
+      en: >-
+        In 1905 Einstein showed that mass itself is a form of energy. A body of mass $m$ at rest
+        has energy $E = m c^{2}$, where $c$ is the speed of light in vacuum. The factor $c^{2}$ is
+        about $9 \times 10^{16}\ \text{m}^{2}\text{ s}^{-2}$, which is why a tiny mass corresponds to
+        an enormous energy and why nuclear reactions release so much more than chemical ones.
+  - id: 'speed-of-light'
+    kind: 'entry'
+    ref:
+      collection: 'constants'
+      slug: 'speed-of-light'
+    note:
+      en: >-
+        Exact by definition since 1983: fixing $c$ is what defines the metre, so the uncertainty
+        moved from the constant into the realization of the unit.
+  - id: 'mass-energy'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'mass-energy-equivalence'
+    note:
+      en: >-
+        Check the dimensions:
+        $\text{kg} \times (\text{m/s})^{2} = \text{kg m}^{2}\text{ s}^{-2} = \text{J}$. The build
+        performs this check on every authored solution.
+  - id: 'try-calculator'
+    kind: 'prose'
+    body:
+      en: >-
+        Open the calculator for mass-energy equivalence from the equation page. Enter
+        $m = 0.001$ (one gram, in kilograms) and leave $E$ empty. The engine returns about
+        $8.988 \times 10^{13}\ \text{J}$, roughly $25\ \text{GWh}$: the electricity a small city uses
+        in a day, locked in a gram of matter.
+  - id: 'check-exact'
+    kind: 'check'
+    prompt:
+      en: >-
+        Why is the speed of light listed as exact when most physical constants carry an
+        uncertainty?
+    answer:
+      en: >-
+        Because the metre is defined by fixing $c = 299\,792\,458\ \text{m/s}$. A defining constant
+        has no uncertainty by construction; the experimental uncertainty now lives in how precisely a
+        laboratory can realize the metre, not in $c$.

@@ -1,0 +1,20 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Microgram'
+symbol:
+  tex: 'μg'
+unitOf:
+  - 'mass'
+prefixOf:
+  prefix: 'micro'
+  base: 'gram'
+externalIds:
+  wikidata: 'Q1645498'
+  qudt: 'http://qudt.org/vocab/unit/MicroGM'
+aliases:
+  - 'mcg'
+description:
+  en: >-
+    The microgram is one millionth of a gram ($1\ \mathrm{μg} = 10^{-9}\ \mathrm{kg}$), formed with
+    the SI prefix micro. Medicine and nutrition labelling write it mcg rather than μg, because a
+    handwritten μ is easily misread as m, which would denote a dose a thousand times larger.

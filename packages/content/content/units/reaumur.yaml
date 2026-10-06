@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Réaumur'
+symbol:
+  tex: '°Ré'
+unitOf:
+  - 'thermodynamic-temperature'
+system: 'other'
+toBase:
+  factor:
+    num: '5'
+    den: '4'
+  offset:
+    num: '5463'
+    den: '20'
+  source:
+    name: 'convention'
+    ref: 'Réaumur scale: 0 °Ré = 0 °C, 80 °Ré = 100 °C'
+status: 'reviewed'
+externalIds:
+  wikidata: 'Q68725243'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'reaumur'
+  - 'degRe'
+description:
+  en: >-
+    The degree Réaumur (°Ré, °Re, °r) is an unused unit of temperature. Named in honor of René
+    Antoine Ferchault de Réaumur (1683-1757) who proposed it as a unit in 1731. A value of 0 °
+    Réaumur corresponds to the freezing point of water and 80 ° Réaumur to the boiling point of
+    water.

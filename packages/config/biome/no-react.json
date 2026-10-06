@@ -1,0 +1,20 @@
+{
+	"$schema": "https://biomejs.dev/schemas/2.5.8/schema.json",
+	"root": false,
+	"linter": {
+		"rules": {
+			"style": {
+				"noRestrictedImports": {
+					"level": "error",
+					"options": {
+						"paths": {
+							"react": "This package is platform-free logic. React belongs in @equreka/core or the apps — if you need a hook here, the code is in the wrong package.",
+							"react-dom": "This package is platform-free logic; no DOM.",
+							"react-native": "This package is platform-free logic; no React Native."
+						}
+					}
+				}
+			}
+		}
+	}
+}
