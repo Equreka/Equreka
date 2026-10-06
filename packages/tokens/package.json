@@ -9,7 +9,7 @@
 		"./theme.css": "./dist/theme.css"
 	},
 	"scripts": {
-		"build": "tsx scripts/build-theme.ts",
+		"build": "tsx scripts/build-theme.ts && node ../../scripts/quality/contrast-check.mjs",
 		"typecheck": "tsc --noEmit -p tsconfig.json"
 	},
 	"devDependencies": {

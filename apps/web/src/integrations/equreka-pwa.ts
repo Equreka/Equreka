@@ -7,7 +7,8 @@ import { generateSW } from 'workbox-build';
 
 /**
  * Explicit precache globs per ADR 0002: app-shell routes (both locale
- * trees) + island bundles + KaTeX + the per-locale data bundles.
+ * trees) + island bundles + KaTeX + the Poppins display faces + the
+ * per-locale data bundles.
  * Deliberately not a catch-all HTML glob — entry pages are runtime-cached,
  * so a chunk change never invalidates all of them; never-visited entries
  * resolve through the offline reader and its precached reader payload.
@@ -24,6 +25,7 @@ const PRECACHE_GLOBS = [
 	'_astro/*.css',
 	'katex/katex.min.css',
 	'katex/fonts/*.woff2',
+	'fonts/*.woff2',
 	'search/{en,es}.json',
 	'search/catalog-lite.{en,es}.json',
 	'data/converter.{en,es}.json',
@@ -80,7 +82,7 @@ function webManifest(): string {
 			scope: '/',
 			display: 'standalone',
 			background_color: tokens.color.bg.light,
-			theme_color: tokens.color.accent.light,
+			theme_color: tokens.color.bg.light,
 			icons: [
 				{ src: '/icons/icon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any' },
 				{

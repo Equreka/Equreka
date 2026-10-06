@@ -22,6 +22,11 @@ export const en = {
 		'Equreka — an open-source educational wiki and calculator for units, magnitudes, constants, and equations.',
 	'footer.github': 'GitHub',
 	'footer.license': 'GPL-3.0 license',
+	'design.shell.skipToContent': 'Skip to content',
+	'design.shell.homeLink': 'Equreka home',
+	'design.shell.sectionsNav': 'Sections',
+	'design.shell.localeName': 'Español',
+	'design.shell.localeCode': 'ES',
 
 	'collection.categories': 'Categories',
 	'collection.magnitudes': 'Magnitudes',

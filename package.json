@@ -18,7 +18,7 @@
 		"test": "turbo run test",
 		"typecheck": "turbo run typecheck",
 		"verify": "turbo run typecheck test --filter=\"...[origin/main]\"",
-		"quality": "node scripts/quality/catalog-drift.mjs && node scripts/quality/yaml-lint.selftest.mjs && node scripts/quality/yaml-lint.mjs",
+		"quality": "node scripts/quality/catalog-drift.mjs && node scripts/quality/contrast-check.mjs && node scripts/quality/yaml-lint.selftest.mjs && node scripts/quality/yaml-lint.mjs",
 		"env:init": "node scripts/env/init-env.mjs development",
 		"env:test:init": "node scripts/env/init-env.mjs test",
 		"prepare": "node -e \"if(process.env.LEFTHOOK!=='0'){try{require('child_process').execSync('lefthook install',{stdio:'inherit'})}catch{}}\""

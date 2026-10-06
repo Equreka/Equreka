@@ -3,8 +3,11 @@ import '../styles/global.css';
 import { type Locale, t } from '@equreka/core/i18n';
 import type { ExternalIds } from '@equreka/schema';
 import { tokens } from '@equreka/tokens';
+import Icon from '../components/icon.astro';
+import Logo from '../components/logo.astro';
 import SearchBox from '../islands/search-box';
 import { definedTermJsonLd, serializeJsonLd } from '../lib/entry-meta';
+import type { IconName } from '../lib/icons';
 import { localePath } from '../lib/locale-paths';
 import { GITHUB_URL, LICENSE_URL, SITE_VERSION } from '../lib/site';
 
@@ -38,7 +41,24 @@ const jsonLd =
 				}),
 			);
 
-const NAV_ITEMS = [
+/**
+ * The legacy icon menu, rendered once: header buttons from 768px, the
+ * fixed bottom navigation below it (CSS only). `swatch` is the legacy
+ * per-item accent the bottom navigation shows on the active link.
+ */
+const PRIMARY_ITEMS: readonly {
+	key: 'nav.home' | 'nav.search' | 'nav.favorites' | 'nav.settings';
+	href: string;
+	icon: IconName;
+	swatch: string;
+}[] = [
+	{ key: 'nav.home', href: '/', icon: 'house', swatch: 'sw-blue' },
+	{ key: 'nav.search', href: '/search/', icon: 'search', swatch: 'sw-indigo' },
+	{ key: 'nav.favorites', href: '/favorites/', icon: 'heart', swatch: 'sw-red' },
+	{ key: 'nav.settings', href: '/settings/', icon: 'gear', swatch: 'sw-yellow' },
+];
+
+const SECTION_ITEMS = [
 	{ key: 'nav.units', href: '/units/' },
 	{ key: 'nav.magnitudes', href: '/magnitudes/' },
 	{ key: 'nav.constants', href: '/constants/' },
@@ -47,16 +67,21 @@ const NAV_ITEMS = [
 	{ key: 'nav.paths', href: '/paths/' },
 	{ key: 'nav.calculator', href: '/calculator/' },
 	{ key: 'nav.converter', href: '/converter/' },
-	{ key: 'nav.search', href: '/search/' },
-	{ key: 'nav.favorites', href: '/favorites/' },
-	{ key: 'nav.settings', href: '/settings/' },
 ] as const;
+
+const homePath = localePath(locale, '/');
+const isCurrent = (href: string): boolean => {
+	const target = localePath(locale, href);
+	return target === homePath ? path === homePath : path.startsWith(target);
+};
+const alternateLocale: Locale = locale === 'es' ? 'en' : 'es';
+const alternatePath = alternateLocale === 'es' ? `/es${basePath}` : basePath;
 ---
 
 <html lang={locale}>
 	<head>
 		<meta charset="utf-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
 		<title>{title}</title>
 		{description !== undefined && <meta name="description" content={description} />}
 		<link rel="canonical" href={canonicalUrl.href} />
@@ -68,9 +93,24 @@ const NAV_ITEMS = [
 		<meta property="og:type" content={ogType} />
 		<meta property="og:url" content={canonicalUrl.href} />
 		{jsonLd !== undefined && <script is:inline type="application/ld+json" set:html={jsonLd} />}
-		<meta name="theme-color" content={tokens.color.accent.light} />
+		<meta name="theme-color" media="(prefers-color-scheme: light)" content={tokens.color.bg.light} />
+		<meta name="theme-color" media="(prefers-color-scheme: dark)" content={tokens.color.bg.dark} />
 		<link rel="icon" href="/icons/icon.svg" type="image/svg+xml" />
 		<link rel="manifest" href="/manifest.webmanifest" />
+		<link
+			rel="preload"
+			href="/fonts/poppins-latin-500-normal.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
+		<link
+			rel="preload"
+			href="/fonts/poppins-latin-600-normal.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
 		<link rel="stylesheet" href="/katex/katex.min.css" />
 		<script is:inline defer src="/pwa-register.js"></script>
 		<script is:inline>
@@ -90,68 +130,134 @@ const NAV_ITEMS = [
 			})();
 		</script>
 	</head>
-	<body class="flex min-h-screen flex-col bg-bg font-sans text-ink">
-		<header class="border-b border-border bg-surface">
-			<div class="mx-auto flex max-w-5xl flex-wrap items-center gap-4 px-4 py-3">
-				<a href={localePath(locale, '/')} class="text-xl font-bold tracking-tight text-accent">
-					Equreka
-				</a>
-				<nav aria-label={t(locale, 'nav.aria')} class="flex flex-wrap gap-4 text-sm">
+	<body class="eq-body">
+		<a class="eq-skip-link" href="#main">{t(locale, 'design.shell.skipToContent')}</a>
+		<header class="eq-site-header">
+			<div class="eq-container">
+				<div class="eq-site-header-row">
+					<div class="eq-site-header-start">
+						<a href={homePath} class="eq-logo-link" aria-label={t(locale, 'design.shell.homeLink')}>
+							<Logo idPrefix="header-logo" />
+						</a>
+					</div>
+					<div class="eq-site-header-center">
+						<SearchBox client:idle variant="header" locale={locale} />
+					</div>
+					<div class="eq-site-header-end">
+						<nav aria-label={t(locale, 'nav.aria')} class="eq-primary-nav">
+							{
+								PRIMARY_ITEMS.map((item) => (
+									<a
+										href={localePath(locale, item.href)}
+										class:list={['eq-primary-link', item.swatch]}
+										title={t(locale, item.key)}
+										aria-current={isCurrent(item.href) ? 'page' : undefined}
+									>
+										<Icon name={item.icon} />
+										<span class="sr-only">{t(locale, item.key)}</span>
+									</a>
+								))
+							}
+						</nav>
+						<a
+							href={alternatePath}
+							class="eq-header-btn eq-locale-link"
+							hreflang={alternateLocale}
+							lang={alternateLocale}
+							title={t(locale, 'design.shell.localeName')}
+						>
+							<span aria-hidden="true">{t(locale, 'design.shell.localeCode')}</span>
+							<span class="sr-only">{t(locale, 'design.shell.localeName')}</span>
+						</a>
+						<button
+							id="theme-toggle"
+							type="button"
+							aria-label={t(locale, 'layout.themeToggle')}
+							title={t(locale, 'layout.themeToggle')}
+							class="eq-header-btn"
+						>
+							<span class="theme-toggle-dark eq-theme-icon" aria-hidden="true"><Icon name="moon" /></span>
+							<span class="theme-toggle-light eq-theme-icon" aria-hidden="true"><Icon name="sun" /></span>
+						</button>
+					</div>
+				</div>
+				<nav aria-label={t(locale, 'design.shell.sectionsNav')} class="eq-section-nav">
 					{
-						NAV_ITEMS.map((item) => (
-							<a href={localePath(locale, item.href)} class="text-ink-muted hover:text-ink">
+						SECTION_ITEMS.map((item) => (
+							<a
+								href={localePath(locale, item.href)}
+								aria-current={isCurrent(item.href) ? 'page' : undefined}
+							>
 								{t(locale, item.key)}
 							</a>
 						))
 					}
 				</nav>
-				<div class="ml-auto flex items-center gap-2">
-					<SearchBox client:idle variant="header" locale={locale} />
-					<button
-						id="theme-toggle"
-						type="button"
-						aria-label={t(locale, 'layout.themeToggle')}
-						class="rounded-md border border-border px-2.5 py-1.5 text-sm text-ink-muted hover:text-ink"
-					>
-						<span class="theme-toggle-dark" aria-hidden="true">☾</span>
-						<span class="theme-toggle-light" aria-hidden="true">☀</span>
-					</button>
-				</div>
 			</div>
 		</header>
-		<main class="mx-auto w-full max-w-5xl flex-1 px-4 py-8">
-			<slot />
+		<main id="main" class="eq-main">
+			<slot name="hero" />
+			<div class="eq-container">
+				{
+					Astro.slots.has('context') && (
+						<div class="eq-context-slot">
+							<slot name="context" />
+						</div>
+					)
+				}
+				<slot />
+			</div>
 		</main>
-		<footer class="border-t border-border bg-surface">
-			<div
-				class="mx-auto flex max-w-5xl flex-wrap items-baseline gap-x-6 gap-y-2 px-4 py-6 text-sm text-ink-muted"
-			>
-				<p class="w-full">{t(locale, 'footer.tagline')}</p>
-				<a class="text-accent hover:underline" href={GITHUB_URL}>{t(locale, 'footer.github')}</a>
-				<a class="text-accent hover:underline" href={LICENSE_URL}>{t(locale, 'footer.license')}</a>
-				<span>v{SITE_VERSION}</span>
+		<footer class="eq-site-footer">
+			<div class="eq-container">
+				<nav aria-label={t(locale, 'design.shell.sectionsNav')} class="eq-footer-sections">
+					{
+						SECTION_ITEMS.map((item) => (
+							<a
+								class="eq-footer-link"
+								href={localePath(locale, item.href)}
+								aria-current={isCurrent(item.href) ? 'page' : undefined}
+							>
+								{t(locale, item.key)}
+							</a>
+						))
+					}
+				</nav>
+				<div class="eq-site-footer-row">
+					<p class="eq-footer-tagline">{t(locale, 'footer.tagline')}</p>
+					<div class="eq-footer-social">
+						<a class="eq-footer-link" href={GITHUB_URL} title={t(locale, 'footer.github')}>
+							<Icon name="github" />
+							<span class="sr-only">{t(locale, 'footer.github')}</span>
+						</a>
+					</div>
+					<div class="eq-footer-links">
+						<a class="eq-footer-link" href={LICENSE_URL}>{t(locale, 'footer.license')}</a>
+						<span class="eq-footer-link">v{SITE_VERSION}</span>
+					</div>
+					<Logo idPrefix="footer-logo" tone="mono" class="eq-footer-mark" />
+				</div>
 			</div>
 		</footer>
-		<style is:global>
-			:root[data-theme='dark'] .theme-toggle-dark {
-				display: none;
-			}
-			:root:not([data-theme='dark']) .theme-toggle-light {
-				display: none;
-			}
-		</style>
 		<script>
 			/**
 			 * Header theme toggle. Writes through the same versioned settings
 			 * key the useSettings hook owns, then pings the adapter's
 			 * same-document channel so any mounted settings island re-reads.
+			 * The switching class scopes the legacy color cross-fade to the
+			 * toggle itself, so ordinary state changes never animate.
 			 */
 			const SETTINGS_KEY = 'equreka.v1.settings';
 
+			const THEME_SWITCH_MS = 350;
+
 			const toggle = document.getElementById('theme-toggle');
 			toggle?.addEventListener('click', () => {
-				const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-				document.documentElement.dataset.theme = next;
+				const root = document.documentElement;
+				const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+				root.classList.add('eq-theme-switching');
+				window.setTimeout(() => root.classList.remove('eq-theme-switching'), THEME_SWITCH_MS);
+				root.dataset.theme = next;
 				try {
 					const raw = localStorage.getItem(SETTINGS_KEY);
 					const settings = raw === null ? {} : JSON.parse(raw);

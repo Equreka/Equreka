@@ -25,6 +25,11 @@ export const es: Partial<Record<MessageKey, string>> = {
 		'Equreka — una wiki educativa y calculadora de código abierto para unidades, magnitudes, constantes y ecuaciones.',
 	'footer.github': 'GitHub',
 	'footer.license': 'Licencia GPL-3.0',
+	'design.shell.skipToContent': 'Saltar al contenido',
+	'design.shell.homeLink': 'Inicio de Equreka',
+	'design.shell.sectionsNav': 'Secciones',
+	'design.shell.localeName': 'English',
+	'design.shell.localeCode': 'EN',
 
 	'collection.categories': 'Categorías',
 	'collection.magnitudes': 'Magnitudes',

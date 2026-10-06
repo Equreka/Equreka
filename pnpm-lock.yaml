@@ -24,6 +24,9 @@ catalogs:
     '@expo/vector-icons':
       specifier: ^15.0.2
       version: 15.1.1
+    '@fontsource/poppins':
+      specifier: 5.3.0
+      version: 5.3.0
     '@jest/globals':
       specifier: ^29.7.0
       version: 29.7.0
@@ -63,6 +66,9 @@ catalogs:
     astro:
       specifier: ^7.2.1
       version: 7.2.1
+    bootstrap-icons:
+      specifier: 1.9.1
+      version: 1.9.1
     esbuild:
       specifier: ^0.28.0
       version: 0.28.2
@@ -321,6 +327,9 @@ importers:
       '@equreka/tokens':
         specifier: workspace:*
         version: link:../../packages/tokens
+      '@fontsource/poppins':
+        specifier: 'catalog:'
+        version: 5.3.0
       '@tailwindcss/vite':
         specifier: 'catalog:'
         version: 4.3.3(vite@8.2.1(@types/node@22.20.1)(esbuild@0.28.2)(jiti@2.7.0)(terser@5.50.0)(tsx@4.23.12)(yaml@2.9.0))
@@ -361,6 +370,9 @@ importers:
       '@types/react-dom':
         specifier: 'catalog:'
         version: 19.2.4(@types/react@19.2.18)
+      bootstrap-icons:
+        specifier: 'catalog:'
+        version: 1.9.1
       typescript:
         specifier: 'catalog:'
         version: 6.0.3
@@ -1911,6 +1923,9 @@ packages:
   '@expo/xcpretty@4.4.5':
     resolution: {integrity: sha512-J3eL4n4h5QTwfD0SIz8OIk6/+sOL/hFZAMacgCM07UNlxBQfJipEpIC2AQxvGkbYeStByJ0TVhQAJo+DeNgaSQ==}
     hasBin: true
+
+  '@fontsource/poppins@5.3.0':
+    resolution: {integrity: sha512-cms1nM7U6SN8epIV1WMVOV8VsA645aSm3wHfzIQnkk188U341ThbJGSl2Sv54V29gnDbT2arMPfLzvVIIVCceQ==}
 
   '@img/colour@1.1.0':
     resolution: {integrity: sha512-Td76q7j57o/tLVdgS746cYARfSyxk8iEfRxewL9h4OMzYhbW4TAcppl0mT4eyqXddh6L/jwoM75mo7ixa/pCeQ==}
@@ -3479,6 +3494,9 @@ packages:
 
   boolbase@1.0.0:
     resolution: {integrity: sha512-JZOSA7Mo9sNGB8+UjSgzdLtokWAky1zbztM3WRLCbZ70/3cTANmQmOdR7y2g+J0e2WXywy1yS468tY+IruqEww==}
+
+  bootstrap-icons@1.9.1:
+    resolution: {integrity: sha512-d4ZkO30MIkAhQ2nNRJqKXJVEQorALGbLWTuRxyCTJF96lRIV6imcgMehWGJUiJMJhglN0o2tqLIeDnMdiQEE9g==}
 
   bplist-creator@0.1.0:
     resolution: {integrity: sha512-sXaHZicyEEmY86WyueLTQesbeoH/mquvarJaQNbjuOQO+7gbFcDEWqKmcWA4cOTLzFlfgvkiVxolk1k5bBIpmg==}
@@ -9064,6 +9082,8 @@ snapshots:
       chalk: 4.1.2
       js-yaml: 4.3.1
 
+  '@fontsource/poppins@5.3.0': {}
+
   '@img/colour@1.1.0':
     optional: true
 
@@ -10765,6 +10785,8 @@ snapshots:
   big-integer@1.6.52: {}
 
   boolbase@1.0.0: {}
+
+  bootstrap-icons@1.9.1: {}
 
   bplist-creator@0.1.0:
     dependencies:

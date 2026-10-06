@@ -1,0 +1,33 @@
+---
+import { ICONS, type IconName } from '../lib/icons';
+
+/**
+ * Inline bootstrap-icons glyph sized in `em` so it follows the surrounding
+ * font size. Decorative by default (hidden from assistive tech); passing
+ * `label` makes it a standalone image with that accessible name.
+ */
+interface Props {
+	name: IconName;
+	label?: string | undefined;
+	size?: string;
+	class?: string;
+}
+
+const { name, label, size = '1em', class: className } = Astro.props;
+const icon = ICONS[name];
+---
+
+<svg
+	xmlns="http://www.w3.org/2000/svg"
+	viewBox={icon.viewBox}
+	width={size}
+	height={size}
+	fill="currentColor"
+	focusable="false"
+	class:list={['eq-icon', className]}
+	role={label === undefined ? undefined : 'img'}
+	aria-label={label}
+	aria-hidden={label === undefined ? 'true' : undefined}
+>
+	{icon.paths.map((path) => <path d={path.d} fill-rule={path.fillRule} />)}
+</svg>

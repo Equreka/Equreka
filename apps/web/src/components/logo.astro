@@ -1,0 +1,65 @@
+---
+/**
+ * The seven-circle Equreka mark (docs/brand/logo-circles.svg geometry). The
+ * full-color variant approximates the legacy mesh gradient with one
+ * gradient per circle group: green-yellow top-left, cyan-blue-violet on the
+ * left disc, orange-red-magenta across the large disc. Gradient ids carry
+ * `idPrefix` because the shells render several marks per page and a
+ * gradient defined inside a hidden instance would not paint the others.
+ */
+interface Props {
+	idPrefix: string;
+	tone?: 'color' | 'mono';
+	class?: string;
+}
+
+const { idPrefix, tone = 'color', class: className } = Astro.props;
+
+const CIRCLES = [
+	{ cx: 570, cy: 250, r: 250, gradient: 'warm' },
+	{ cx: 150, cy: 350, r: 150, gradient: 'cool' },
+	{ cx: 92.5, cy: 92.5, r: 92.5, gradient: 'fresh' },
+	{ cx: 250, cy: 50, r: 50, gradient: 'sun' },
+	{ cx: 270, cy: 155, r: 30, gradient: 'sun' },
+	{ cx: 212.5, cy: 172.5, r: 12.5, gradient: 'warm' },
+	{ cx: 212.5, cy: 137.5, r: 12.5, gradient: 'fresh' },
+] as const;
+
+const fill = (gradient: string): string =>
+	tone === 'mono' ? 'currentColor' : `url(#${idPrefix}-${gradient})`;
+---
+
+<svg
+	xmlns="http://www.w3.org/2000/svg"
+	viewBox="0 0 820 500"
+	class:list={['eq-logo', className]}
+	aria-hidden="true"
+	focusable="false"
+>
+	{
+		tone === 'color' && (
+			<defs>
+				<linearGradient id={`${idPrefix}-warm`} x1="360" y1="20" x2="790" y2="470" gradientUnits="userSpaceOnUse">
+					<stop offset="0" stop-color="#ffc21a" />
+					<stop offset="0.35" stop-color="#f7772f" />
+					<stop offset="0.7" stop-color="#e6365f" />
+					<stop offset="1" stop-color="#c22593" />
+				</linearGradient>
+				<linearGradient id={`${idPrefix}-cool`} x1="60" y1="200" x2="230" y2="500" gradientUnits="userSpaceOnUse">
+					<stop offset="0" stop-color="#16c6e6" />
+					<stop offset="0.5" stop-color="#2f5cf0" />
+					<stop offset="1" stop-color="#9a2cf2" />
+				</linearGradient>
+				<linearGradient id={`${idPrefix}-fresh`} x1="0" y1="0" x2="185" y2="185" gradientUnits="userSpaceOnUse">
+					<stop offset="0" stop-color="#e8e21c" />
+					<stop offset="1" stop-color="#2fc65a" />
+				</linearGradient>
+				<linearGradient id={`${idPrefix}-sun`} x1="200" y1="0" x2="300" y2="185" gradientUnits="userSpaceOnUse">
+					<stop offset="0" stop-color="#ffd61e" />
+					<stop offset="1" stop-color="#ff8f1f" />
+				</linearGradient>
+			</defs>
+		)
+	}
+	{CIRCLES.map((circle) => <circle cx={circle.cx} cy={circle.cy} r={circle.r} fill={fill(circle.gradient)} />)}
+</svg>

@@ -26,6 +26,8 @@ catalog:
   '@cortex-js/compute-engine': 0.105.0 # 0.x with weekly breaking changes; build-assistant + web playground only
   react: 19.2.3 # must match Expo SDK 57's pinned React (expo-template SDK 57 → react 19.2.3)
   react-dom: 19.2.3 # renderer must be version-locked to react
+  '@fontsource/poppins': 5.3.0 # self-hosted Poppins woff2 copied into the web build and precached; exact so glyph metrics behind the fallback overrides never drift
+  bootstrap-icons: 1.9.1 # web icon SVG path data vendored into apps/web/src/lib/icons.ts (the legacy app's version); exact so the vendor-sync test only moves on a reviewed upgrade
   # --- caret (behavior drift acceptable, caught by tests) ---
   astro: ^7.2.1
   '@astrojs/react': ^6.0.2

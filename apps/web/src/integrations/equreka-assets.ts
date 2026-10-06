@@ -9,6 +9,12 @@ import type { AstroIntegration } from 'astro';
 const requireFromHere = createRequire(import.meta.url);
 
 /**
+ * Poppins weights the legacy design downloaded (headings and chrome only);
+ * latin subset woff2, served from public/fonts/ and precached.
+ */
+const POPPINS_FILES = ['poppins-latin-500-normal.woff2', 'poppins-latin-600-normal.woff2'] as const;
+
+/**
  * Locales with runtime payloads — one search index, converter payload,
  * reader payload and paths payload each. Mirrors @equreka/core/i18n LOCALES.
  */
@@ -232,7 +238,8 @@ export function buildConverterPayload(slice: EngineSlice, locale: PayloadLocale)
 
 /**
  * Materializes the static assets the pages and islands fetch at runtime:
- * self-hosted KaTeX CSS + woff2 fonts (no CDN per ADR 0002), the per-locale
+ * self-hosted KaTeX CSS + woff2 fonts and the Poppins display faces (no CDN
+ * per ADR 0002), the per-locale
  * MiniSearch index + catalog-lite shards, the trimmed converter payloads,
  * the offline reader payloads and the learning-path context payloads. Runs
  * at config setup so both `astro dev` and `astro build` serve them from
@@ -253,6 +260,16 @@ export function equrekaAssets(): AstroIntegration {
 				const woff2Fonts = readdirSync(katexFontsDir).filter((name) => name.endsWith('.woff2'));
 				for (const font of woff2Fonts) {
 					copyFileSync(join(katexFontsDir, font), join(katexOutDir, 'fonts', font));
+				}
+
+				const poppinsDir = join(
+					dirname(requireFromHere.resolve('@fontsource/poppins/package.json')),
+					'files',
+				);
+				const fontsOutDir = join(publicDir, 'fonts');
+				mkdirSync(fontsOutDir, { recursive: true });
+				for (const font of POPPINS_FILES) {
+					copyFileSync(join(poppinsDir, font), join(fontsOutDir, font));
 				}
 
 				const searchOutDir = join(publicDir, 'search');
@@ -285,7 +302,7 @@ export function equrekaAssets(): AstroIntegration {
 				}
 
 				logger.info(
-					`katex css + ${woff2Fonts.length} woff2 fonts, ${LOCALES.length}-locale search index, converter + reader + paths payloads (${payloadBytes} bytes)`,
+					`katex css + ${woff2Fonts.length} woff2 fonts, ${POPPINS_FILES.length} Poppins faces, ${LOCALES.length}-locale search index, converter + reader + paths payloads (${payloadBytes} bytes)`,
 				);
 			},
 		},
