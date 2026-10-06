@@ -5,6 +5,11 @@ import { COLLECTIONS } from '@equreka/schema';
 import { type EmittedArtifact, emitArtifacts } from './emit.js';
 import { checkIntegrity, emptyBranches, orphanMagnitudes } from './integrity.js';
 import { loadContent } from './load.js';
+import {
+	checkLocaleCompleteness,
+	type LocaleCoverage,
+	readLocaleDebt,
+} from './locale-completeness.js';
 import { buildMathArtifact, type MathStats } from './math-artifact.js';
 import { expandCorpus } from './prefix-expansion.js';
 import { type ResolvedUnit, resolveUnits } from './resolve.js';
@@ -33,6 +38,7 @@ export interface CompileReport {
 	corpus: Corpus;
 	generatedUnits: ReadonlySet<string>;
 	overriddenUnits: ReadonlySet<string>;
+	locale: LocaleCoverage[];
 	resolved: Map<string, ResolvedUnit>;
 	verifications: Map<string, EquationVerification>;
 	math: MathStats;
@@ -45,11 +51,12 @@ function defaultPackageRoot(): string {
 
 /**
  * Orchestrates the pipeline. `check` runs stages 1–4 (load, validate,
- * prefix expansion, integrity, resolve + term anchors + dimensional
- * consistency + verify math + TeX lint + MathJax render) with no output;
- * `build` adds stage 5 emission into dist/. The orphan-magnitude warning
- * reads the unexpanded corpus: a generated unit's unitOf is copied from its
- * base and is no independent use of a magnitude.
+ * locale completeness, prefix expansion, integrity, resolve + term anchors +
+ * dimensional consistency + verify math + TeX lint + MathJax render) with no
+ * output; `build` adds stage 5 emission into dist/. Locale completeness and
+ * the orphan-magnitude warning read the unexpanded corpus: a generated unit
+ * is no authored text to translate, and its unitOf is copied from its base
+ * and is no independent use of a magnitude.
  * Every stage aggregates issues — nothing fails fast — but emission is
  * skipped when any prior stage errored. Async only because MathJax boots
  * asynchronously; every other stage is synchronous.
@@ -72,6 +79,10 @@ export async function compileContent(
 
 	const validated = validateContent(loaded);
 	issues.push(...validated.issues);
+	const localeDebt = readLocaleDebt(packageRoot);
+	issues.push(...localeDebt.issues);
+	const locale = checkLocaleCompleteness(loaded, localeDebt.debt);
+	issues.push(...locale.issues);
 	const expansion = expandCorpus(validated.corpus, loaded);
 	issues.push(...expansion.issues);
 	const corpus = expansion.corpus;
@@ -123,6 +134,7 @@ export async function compileContent(
 		corpus,
 		generatedUnits: expansion.generated,
 		overriddenUnits: expansion.overridden,
+		locale: locale.coverage,
 		resolved: resolution.resolved,
 		verifications: verification.equations,
 		math: math.artifact.stats,

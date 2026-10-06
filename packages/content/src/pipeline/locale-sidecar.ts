@@ -55,40 +55,60 @@ function childPath(at: string, key: string): string {
 }
 
 /**
- * Every key other than the source locale found at a localized position of a
- * raw entity file — translations belong in sidecars only, so each hit is an
- * error; the paths address array items by id, matching the sidecar form.
+ * One localized position a raw entity fills, with its `{ en, ... }` map.
+ * `path` addresses array items by id and records by key — the sidecar form —
+ * so every finding about the text names the sidecar key a translator edits.
  */
-export function inlineLocaleKeys(node: LocaleNode, value: unknown, at = ''): string[] {
+export interface LocalizedPosition {
+	path: string;
+	text: Record<string, unknown>;
+}
+
+/**
+ * Every localized position present in raw entity data, in schema field
+ * order; an optional field the entity omits contributes nothing. An array
+ * item without a string id falls back to its index, which validation
+ * rejects anyway.
+ */
+export function localizedPositions(node: LocaleNode, value: unknown, at = ''): LocalizedPosition[] {
 	switch (node.kind) {
 		case 'text':
-			return isRecord(value)
-				? Object.keys(value)
-						.filter((key) => key !== SOURCE_LOCALE)
-						.map((key) => childPath(at, key))
-				: [];
+			return isRecord(value) ? [{ path: at, text: value }] : [];
 		case 'object':
 			return isRecord(value)
 				? Object.entries(node.fields).flatMap(([key, child]) =>
-						inlineLocaleKeys(child, value[key], childPath(at, key)),
+						localizedPositions(child, value[key], childPath(at, key)),
 					)
 				: [];
 		case 'keyed': {
 			if (node.by === 'key') {
 				return isRecord(value)
 					? Object.entries(value).flatMap(([key, item]) =>
-							inlineLocaleKeys(node.item, item, childPath(at, key)),
+							localizedPositions(node.item, item, childPath(at, key)),
 						)
 					: [];
 			}
 			return Array.isArray(value)
 				? value.flatMap((item: unknown, index) => {
 						const id = isRecord(item) && typeof item.id === 'string' ? item.id : String(index);
-						return inlineLocaleKeys(node.item, item, childPath(at, id));
+						return localizedPositions(node.item, item, childPath(at, id));
 					})
 				: [];
 		}
 	}
+}
+
+/**
+ * Every key other than the source locale found at a localized position of a
+ * raw entity file — translations belong in sidecars only, so each hit is an
+ * error.
+ */
+export function inlineLocaleKeys(node: LocaleNode, value: unknown): string[] {
+	return localizedPositions(node, value).flatMap(({ path, text }) =>
+		Object.keys(text)
+			.filter((key) => key !== SOURCE_LOCALE)
+			.map((key) => childPath(path, key)),
+	);
 }
 
 export interface SidecarMerge {

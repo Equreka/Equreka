@@ -1,16 +1,18 @@
-import { mkdirSync, mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { type CollectionName, collectionLocaleTrees } from '@equreka/schema';
+import { type CollectionName, collectionLocaleTrees, TRANSLATION_LOCALES } from '@equreka/schema';
 import { afterEach, describe, expect, it } from 'vitest';
 import { parse as parseYaml } from 'yaml';
 import { loadCollection, loadContent } from '../load.js';
-import { mergeSidecar, parseContentFilename } from '../locale-sidecar.js';
+import { localeGaps, readLocaleDebt } from '../locale-completeness.js';
+import { inlineLocaleKeys, mergeSidecar, parseContentFilename } from '../locale-sidecar.js';
 import { lintTex } from '../tex-lint.js';
 import { validateContent } from '../validate.js';
 
-const CONTENT_DIR = fileURLToPath(new URL('../../../content/', import.meta.url));
+const PACKAGE_ROOT = fileURLToPath(new URL('../../../', import.meta.url));
+const CONTENT_DIR = join(PACKAGE_ROOT, 'content');
 
 const dirs: string[] = [];
 
@@ -260,6 +262,23 @@ describe('translated-text findings', () => {
 	});
 });
 
+describe('inlineLocaleKeys', () => {
+	it('addresses record entries by key and array items by id', () => {
+		expect(
+			inlineLocaleKeys(collectionLocaleTrees.equations, {
+				name: { en: 'Leg', es: 'Cateto' },
+				terms: { 'v_{0}': { kind: 'symbol', label: { en: 'Speed', fr: 'Vitesse' } } },
+			}),
+		).toEqual(['name.es', 'terms.v_{0}.label.fr']);
+		expect(
+			inlineLocaleKeys(collectionLocaleTrees.paths, {
+				name: { en: 'Scales' },
+				steps: [{ id: 'composing', kind: 'prose', body: { en: 'Compose.', es: 'Compón.' } }],
+			}),
+		).toEqual(['steps.composing.body.es']);
+	});
+});
+
 describe('mergeSidecar', () => {
 	it('returns new values and never mutates the entity', () => {
 		const entity = { name: { en: 'Leg' }, terms: { a: { kind: 'symbol', label: { en: 'Leg' } } } };
@@ -298,27 +317,15 @@ describe('migrated corpus round-trip', () => {
 		expect(issues).toEqual([]);
 	});
 
-	it('carries a sidecar for every path, and every path prose field is translated', () => {
-		const pathSidecars = readdirSync(join(CONTENT_DIR, 'paths')).filter((name) =>
-			name.endsWith('.es.yaml'),
-		);
-		expect(pathSidecars.length).toBe(corpus.paths.size);
-		for (const [slug, path] of corpus.paths) {
-			expect(path.name.es, slug).toBeDefined();
-			expect(path.description?.es, slug).toBeDefined();
-			for (const step of path.steps) {
-				const prose =
-					step.kind === 'entry'
-						? [step.note]
-						: step.kind === 'prose'
-							? [step.body]
-							: [step.prompt, step.answer];
-				for (const text of prose) {
-					if (text !== undefined) {
-						expect(text.es, `${slug}.${step.id}`).toBeDefined();
-					}
-				}
-			}
+	it('translates every path completely, with no path in the locale debt', () => {
+		const { debt } = readLocaleDebt(PACKAGE_ROOT);
+		for (const locale of TRANSLATION_LOCALES) {
+			const isPath = (id: string): boolean => id.startsWith('paths/');
+			expect(
+				localeGaps(loaded, locale).filter((gap) => isPath(gap.id)),
+				locale,
+			).toEqual([]);
+			expect((debt[locale] ?? []).filter(isPath), locale).toEqual([]);
 		}
 	});
 
