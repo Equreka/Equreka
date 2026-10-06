@@ -2,7 +2,6 @@ import { describe, expect, it } from 'vitest';
 import {
 	canonicalTex,
 	hydrateMathBody,
-	splitLocalizedText,
 	splitRichText,
 	stripMacros,
 	stripMacrosToText,
@@ -149,17 +148,6 @@ describe('termIdentifier', () => {
 		expect(termIdentifier('\\varepsilon_0')).toBe('varepsilon_0');
 		expect(termIdentifier('\\bar{x}')).toBe('barx');
 		expect(termIdentifier('t_{1/2}')).toBe('t_12');
-	});
-});
-
-describe('splitLocalizedText', () => {
-	it('splits present locales only', () => {
-		const segments = splitLocalizedText({ en: 'x $y$', es: undefined });
-		expect(Object.keys(segments)).toEqual(['en']);
-		expect(segments.en).toEqual([
-			{ t: 'text', v: 'x ' },
-			{ t: 'math', tex: 'y', raw: 'y', display: false },
-		]);
 	});
 });
 

@@ -2,7 +2,7 @@ import { collectionLabel, localizedName, type MessageKey } from '@equreka/core/i
 import { View } from 'react-native';
 import { getEntry } from '../../entities/content/lookup';
 import { isEntryCollection } from '../../entities/content/routes';
-import { pickSegments } from '../../entities/content/text';
+import { pickRichText } from '../../entities/content/text';
 import type { PresentationEntry } from '../../entities/content/types';
 import { MathSvg, RichText } from '../../shared/math/math-view';
 import { useLocale, useT, useTheme } from '../../shared/providers/equreka-provider';
@@ -81,7 +81,7 @@ export function EntryScreen({ collection, slug }: EntryScreenProps) {
 	}
 	const { entity } = entry;
 	const symbolTex = 'symbolTex' in entity ? entity.symbolTex : undefined;
-	const description = pickSegments(entity.descriptionSegments, locale);
+	const description = pickRichText(entity.description, locale);
 	const categories = 'categories' in entity ? entity.categories : [];
 	const draft = 'status' in entity && entity.status !== 'reviewed';
 	return (

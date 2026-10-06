@@ -1,7 +1,7 @@
 import { readFileSync } from 'node:fs';
 import equationsPresentation from '@equreka/content/artifact/presentation/equations.json';
 import unitsPresentation from '@equreka/content/artifact/presentation/units.json';
-import { type LocalizedSegments, splitRichText } from '@equreka/content/rich-text';
+import { splitRichText } from '@equreka/content/rich-text';
 import { describe, expect, it } from 'vitest';
 import {
 	renderExpressionHtml,
@@ -13,7 +13,6 @@ import {
 
 interface DescribedEntity {
 	description: Record<string, string>;
-	descriptionSegments: LocalizedSegments;
 	terms?: Record<string, TermAnnotation>;
 }
 
@@ -30,11 +29,11 @@ function entity(slice: Record<string, DescribedEntity>, slug: string): Described
 }
 
 function segmentsOf(described: DescribedEntity, locale: string) {
-	const segments = described.descriptionSegments[locale];
-	if (segments === undefined) {
-		throw new Error(`no ${locale} descriptionSegments`);
+	const text = described.description[locale];
+	if (text === undefined) {
+		throw new Error(`no ${locale} description`);
 	}
-	return segments;
+	return splitRichText(text);
 }
 
 function termsOf(described: DescribedEntity): Record<string, TermAnnotation> {
@@ -45,10 +44,8 @@ function termsOf(described: DescribedEntity): Record<string, TermAnnotation> {
 }
 
 describe('renderSegmentsHtml', () => {
-	it('renders slice segments identically to the raw text for macro-free prose', () => {
-		const ampere = entity(units, 'ampere');
-		const fromSegments = renderSegmentsHtml(segmentsOf(ampere, 'en'));
-		expect(fromSegments).toBe(renderRichTextHtml(ampere.description.en ?? ''));
+	it('renders macro-free prose with its math through KaTeX and its text escaped', () => {
+		const fromSegments = renderSegmentsHtml(segmentsOf(entity(units, 'ampere'), 'en'));
 		expect(fromSegments).toContain('katex');
 		expect(fromSegments).toContain('The ampere, symbol ');
 	});

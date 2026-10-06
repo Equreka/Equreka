@@ -1,8 +1,7 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
-import equationsPresentation from '@equreka/content/artifact/presentation/equations.json';
-import { type LocalizedSegments, termMacroPattern } from '@equreka/content/rich-text';
+import { splitRichText, termMacroPattern } from '@equreka/content/rich-text';
 import {
 	type Locale,
 	type LocalizedText,
@@ -120,26 +119,15 @@ const termGroups = TERM_GROUPS.map((group) => ({
 	rows: termRows.filter((row) => (group.kinds as readonly string[]).includes(row.term.kind)),
 })).filter((group) => group.rows.length > 0);
 
-/**
- * Pipeline-emitted equation slice: the description comes pre-split with
- * `raw` math for term cross-highlighting. The slice's related units are
- * the term tables' units, which the original listed only in those tables.
- */
-interface EquationPresentation {
-	descriptionSegments?: LocalizedSegments;
-}
-
-const presentation = (equationsPresentation as Record<string, EquationPresentation>)[slug];
-
 const description =
 	equation.description === undefined ? undefined : pickLocalized(equation.description, locale);
+
+/**
+ * Split here, not shipped pre-split (ADR 0010); each math segment keeps its
+ * `raw` fragment so the terms map can cross-highlight it.
+ */
 const descriptionSegments =
-	description === undefined
-		? undefined
-		: presentation?.descriptionSegments?.[description.untranslated ? 'en' : locale];
-if (description !== undefined && descriptionSegments === undefined) {
-	throw new Error(`equations/${slug}: presentation slice has no ${locale} descriptionSegments`);
-}
+	description === undefined ? undefined : splitRichText(description.value);
 const untranslated =
 	locale !== 'en' &&
 	(pickLocalized(equation.name, locale).untranslated || description?.untranslated === true);

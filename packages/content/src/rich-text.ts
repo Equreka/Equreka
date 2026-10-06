@@ -100,8 +100,9 @@ export function stripMacrosToText(text: string): string {
  * The exact TeX string that is rendered and used as a `bodies.json` key:
  * annotation macros reduced to their arguments, dash-like Unicode (en dash,
  * em dash, minus sign) folded to '-'. Idempotent; every TeX-bearing string
- * in a presentation slice (`symbolTex`, `expressionTex`, math segments) is
- * already canonical, so consumers index bodies with the slice value as-is.
+ * of a presentation slice (`symbolTex`, `expressionTex`) and every math
+ * segment of `splitRichText` is already canonical, so consumers index
+ * bodies with the value as-is.
  */
 export function canonicalTex(tex: string): string {
 	return stripMacros(tex).replace(DASH_RE, '-');
@@ -112,7 +113,8 @@ export function canonicalTex(tex: string): string {
  * segment, `$$...$$` a display one, everything else literal text (kept
  * byte-for-byte — apostrophes, backslashes, unmatched `$`). Math segments
  * carry canonical TeX, so `bodies[segment.tex]` resolves directly, plus the
- * authored fragment in `raw`.
+ * authored fragment in `raw`. Presentation slices ship prose raw, so every
+ * reader splits at render time (ADR 0010).
  */
 export function splitRichText(text: string): RichTextSegment[] {
 	const segments: RichTextSegment[] = [];
@@ -128,22 +130,6 @@ export function splitRichText(text: string): RichTextSegment[] {
 	}
 	if (cursor < text.length) {
 		segments.push({ t: 'text', v: text.slice(cursor) });
-	}
-	return segments;
-}
-
-export type LocalizedSegments = Record<string, RichTextSegment[]>;
-
-/**
- * Splits every present locale of a localized prose field; absent locales
- * stay absent so readers fall back exactly as they do for the raw text.
- */
-export function splitLocalizedText(text: Record<string, string | undefined>): LocalizedSegments {
-	const segments: LocalizedSegments = {};
-	for (const [locale, localized] of Object.entries(text)) {
-		if (localized !== undefined) {
-			segments[locale] = splitRichText(localized);
-		}
 	}
 	return segments;
 }

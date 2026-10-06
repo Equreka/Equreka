@@ -30,6 +30,46 @@ const LOCALES = ['en', 'es'] as const;
 
 type PayloadLocale = (typeof LOCALES)[number];
 
+/**
+ * Raw-byte ceiling per locale of each derived payload (ADR 0010). Islands
+ * fetch them and the PWA precaches all of them, so every byte is paid on
+ * first install and counts against the 6 MiB precache budget.
+ */
+const PAYLOAD_BUDGETS = {
+	converter: 256 * 1024,
+	reader: 1024 * 1024,
+	paths: 128 * 1024,
+} as const;
+
+type PayloadKind = keyof typeof PAYLOAD_BUDGETS;
+
+/**
+ * Share of a payload budget at which the build warns, matching the content
+ * pipeline's artifact budgets.
+ */
+const PAYLOAD_WARN_RATIO = 0.8;
+
+/**
+ * Fails the build over budget and warns from PAYLOAD_WARN_RATIO of it.
+ */
+function enforcePayloadBudget(
+	relPath: string,
+	kind: PayloadKind,
+	text: string,
+	warn: (message: string) => void,
+): void {
+	const bytes = Buffer.byteLength(text, 'utf8');
+	const maxBytes = PAYLOAD_BUDGETS[kind];
+	if (bytes > maxBytes) {
+		throw new Error(`${relPath} is ${bytes} bytes, over its ${maxBytes}-byte budget (ADR 0010)`);
+	}
+	if (bytes >= maxBytes * PAYLOAD_WARN_RATIO) {
+		warn(
+			`${relPath} is ${bytes} bytes, ${((bytes / maxBytes) * 100).toFixed(1)}% of its ${maxBytes}-byte budget`,
+		);
+	}
+}
+
 interface LocalizedField {
 	en: string;
 	es?: string;
@@ -246,12 +286,13 @@ export function buildConverterPayload(slice: EngineSlice, locale: PayloadLocale)
 
 /**
  * Materializes the static assets the pages and islands fetch at runtime:
- * self-hosted KaTeX CSS + woff2 fonts, the Poppins display faces and the icon font (no CDN
- * per ADR 0002), the per-locale
- * MiniSearch index + catalog-lite shards, the trimmed converter payloads,
- * the offline reader payloads and the learning-path context payloads. Runs
- * at config setup so both `astro dev` and `astro build` serve them from
- * public/ (the generated paths are gitignored).
+ * self-hosted KaTeX CSS + woff2 fonts, the Poppins display faces and the
+ * icon font (no CDN per ADR 0002), the per-locale MiniSearch index +
+ * catalog-lite shards, the trimmed converter payloads, the offline reader
+ * payloads and the learning-path context payloads, each derived payload
+ * held to its PAYLOAD_BUDGETS entry. Runs at config setup so both
+ * `astro dev` and `astro build` serve them from public/ (the generated
+ * paths are gitignored).
  */
 export function equrekaAssets(): AstroIntegration {
 	return {
@@ -304,13 +345,18 @@ export function equrekaAssets(): AstroIntegration {
 						requireFromHere.resolve(`@equreka/content/artifact/search/catalog-lite.${locale}.json`),
 						join(searchOutDir, `catalog-lite.${locale}.json`),
 					);
-					const converterPayload = JSON.stringify(buildConverterPayload(slice, locale));
-					writeFileSync(join(dataOutDir, `converter.${locale}.json`), converterPayload);
-					const readerPayload = buildReaderPayload(locale);
-					writeFileSync(join(dataOutDir, `reader.${locale}.json`), readerPayload);
-					const pathsPayload = buildPathsPayload(locale);
-					writeFileSync(join(dataOutDir, `paths.${locale}.json`), pathsPayload);
-					payloadBytes += converterPayload.length + readerPayload.length + pathsPayload.length;
+					const payloads: Record<PayloadKind, string> = {
+						converter: JSON.stringify(buildConverterPayload(slice, locale)),
+						reader: buildReaderPayload(locale),
+						paths: buildPathsPayload(locale),
+					};
+					for (const kind of Object.keys(PAYLOAD_BUDGETS) as PayloadKind[]) {
+						const text = payloads[kind];
+						const fileName = `${kind}.${locale}.json`;
+						enforcePayloadBudget(`data/${fileName}`, kind, text, (message) => logger.warn(message));
+						writeFileSync(join(dataOutDir, fileName), text);
+						payloadBytes += Buffer.byteLength(text, 'utf8');
+					}
 				}
 
 				logger.info(

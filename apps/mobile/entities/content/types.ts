@@ -1,4 +1,3 @@
-import type { LocalizedSegments } from '@equreka/content/rich-text';
 import type {
 	Branch,
 	Category,
@@ -14,10 +13,9 @@ import type {
 } from '@equreka/schema';
 
 /**
- * Fields the pipeline adds to every presentation entity: the authored
- * `symbol`/`symbolAlt` objects are replaced by canonical TeX (the exact
- * `math/bodies.json` key) plus a plain-text form, and every description is
- * mirrored as pre-split segments per locale.
+ * Fields the pipeline puts in place of the authored `symbol`/`symbolAlt`
+ * objects: canonical TeX (the exact `math/bodies.json` key) plus a
+ * plain-text form. Prose stays raw; screens split it with `pickRichText`.
  */
 export interface PresentedSymbol {
 	symbolTex: string;
@@ -26,25 +24,20 @@ export interface PresentedSymbol {
 	symbolAltText?: string;
 }
 
-export interface PresentedDescription {
-	descriptionSegments?: LocalizedSegments;
-}
+type Presented<T> = Omit<T, 'symbol' | 'symbolAlt'> & PresentedSymbol;
 
-type Presented<T> = Omit<T, 'symbol' | 'symbolAlt'> & PresentedSymbol & PresentedDescription;
-
-export type PresentationCategory = Category & PresentedDescription;
-export type PresentationBranch = Branch & PresentedDescription;
+export type PresentationCategory = Category;
+export type PresentationBranch = Branch;
 export type PresentationMagnitude = Presented<Magnitude>;
 export type PresentationUnit = Presented<Unit>;
 export type PresentationPrefix = Presented<Prefix>;
 export type PresentationConstant = Presented<Constant>;
 export type PresentationVariable = Presented<Variable>;
 
-export type PresentationEquation = Equation &
-	PresentedDescription & {
-		expressionTex: string;
-		relatedUnits: string[];
-	};
+export type PresentationEquation = Equation & {
+	expressionTex: string;
+	relatedUnits: string[];
+};
 
 export interface PathStepTarget {
 	name: LocalizedText;
@@ -52,18 +45,11 @@ export interface PathStepTarget {
 }
 
 export type PresentationPathStep =
-	| (Extract<PathStep, { kind: 'entry' }> & {
-			target: PathStepTarget;
-			noteSegments?: LocalizedSegments;
-	  })
-	| (Extract<PathStep, { kind: 'prose' }> & { bodySegments: LocalizedSegments })
-	| (Extract<PathStep, { kind: 'check' }> & {
-			promptSegments: LocalizedSegments;
-			answerSegments: LocalizedSegments;
-	  });
+	| (Extract<PathStep, { kind: 'entry' }> & { target: PathStepTarget })
+	| Extract<PathStep, { kind: 'prose' }>
+	| Extract<PathStep, { kind: 'check' }>;
 
-export type PresentationPath = Omit<Path, 'steps'> &
-	PresentedDescription & { steps: PresentationPathStep[] };
+export type PresentationPath = Omit<Path, 'steps'> & { steps: PresentationPathStep[] };
 
 export interface PresentationSlices {
 	categories: Record<string, PresentationCategory>;

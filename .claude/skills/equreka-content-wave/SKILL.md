@@ -57,7 +57,7 @@ node scripts/content/originality.mjs <every file the wave wrote> --format json -
 
 The originality report must show `flagged: false` for every new or rewritten description (legacy entries outside the wave may still flag until W1.5–W1.7 rewrite them).
 
-Measure the artifact delta against the preflight baseline. Budgets (`packages/content/src/pipeline/emit.ts`): `engine.json` 500 KB, `presentation/math/bodies.json` 1 MB, `presentation/math/atlas.json` 200 KB, each `search/*.json` 1 MB. If any artifact passes 90% of its budget, stop before committing and raise it with the user: the README records the open budget decision.
+Measure the artifact delta against the preflight baseline. `pnpm --filter @equreka/content build` prints every artifact's size, gzip size and share of its budget (`ARTIFACT_BUDGETS` in `packages/content/src/pipeline/emit.ts`, ADR 0010), then the mobile-bundled total against 8 MiB; the web build checks its derived payloads the same way. The build warns from 80% of a budget and fails over it. If any artifact passes 90% of its budget, stop before committing and raise it with the user: the README records the open budget decision.
 
 ## 6. Commit and PR
 

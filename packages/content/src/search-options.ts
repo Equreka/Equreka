@@ -5,8 +5,11 @@ export const SEARCH_LOCALES = ['en', 'es'] as const;
 export type SearchLocale = (typeof SEARCH_LOCALES)[number];
 
 /**
- * `branches` holds the locale-resolved names of the entry's branches, so a
- * query for a sub-discipline ("termodinámica") reaches its members.
+ * `description` holds the `searchLeadOf` of the localized description, not
+ * the full text; the field keeps its name so serialized indexes and
+ * `searchOptions` stay interchangeable. `branches` holds the
+ * locale-resolved names of the entry's branches, so a query for a
+ * sub-discipline ("termodinámica") reaches its members.
  */
 export interface SearchDocument {
 	id: string;
@@ -43,6 +46,50 @@ export function foldSearchTerm(term: string): string {
 		.toLowerCase()
 		.normalize('NFD')
 		.replace(/\p{M}+/gu, '');
+}
+
+/**
+ * Longest lead a description contributes to the index. Full text would
+ * push each locale's serialized index past its 1 MiB budget about 240
+ * equations into the content program (ADR 0010).
+ */
+export const SEARCH_LEAD_MAX_CHARS = 480;
+
+const BLANK_LINE_RE = /\n[ \t]*\n/;
+
+/**
+ * Prose reduced to index tokens: math fragments and control words dropped,
+ * every whitespace run (hard and paragraph breaks included) folded to one
+ * space, so the words on either side of a break never glue together.
+ */
+export function stripTexForSearch(text: string): string {
+	return text
+		.replace(/\$\$[^$]+\$\$/g, ' ')
+		.replace(/\$[^$\n]+\$/g, ' ')
+		.replace(/\\[a-zA-Z]+/g, ' ')
+		.replace(/\s+/g, ' ')
+		.trim();
+}
+
+/**
+ * What search indexes of a description, identically on every platform
+ * (ADR 0010): the first paragraph, TeX stripped, cut to
+ * SEARCH_LEAD_MAX_CHARS at a word boundary. A folded (`>-`) block parses
+ * each blank-line paragraph break to one newline, while a literal (`|-`)
+ * block keeps blank lines and uses single newlines for hard breaks inside
+ * a paragraph; text holding a blank line therefore ends its first
+ * paragraph there, any other text at its first newline.
+ */
+export function searchLeadOf(text: string): string {
+	const body = text.trimStart();
+	const blankLine = BLANK_LINE_RE.exec(body);
+	const end = blankLine === null ? body.indexOf('\n') : blankLine.index;
+	const lead = stripTexForSearch(end === -1 ? body : body.slice(0, end));
+	if (lead.length <= SEARCH_LEAD_MAX_CHARS) {
+		return lead;
+	}
+	const wordEnd = lead.lastIndexOf(' ', SEARCH_LEAD_MAX_CHARS);
+	return lead.slice(0, wordEnd > 0 ? wordEnd : SEARCH_LEAD_MAX_CHARS);
 }
 
 /**

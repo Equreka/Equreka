@@ -2,7 +2,7 @@ import { localizedName } from '@equreka/core/i18n';
 import { useRouter } from 'expo-router';
 import { branchSectionsInCategory } from '../../entities/content/lookup';
 import { entryHref } from '../../entities/content/routes';
-import { pickSegments } from '../../entities/content/text';
+import { pickRichText } from '../../entities/content/text';
 import { getPresentation } from '../../shared/content/artifact';
 import { RichText } from '../../shared/math/math-view';
 import { useLocale, useT, useTheme } from '../../shared/providers/equreka-provider';
@@ -37,7 +37,7 @@ export function CategoryScreen({ slug }: CategoryScreenProps) {
 	}
 	const branches = getPresentation('branches');
 	const color = categoryColor(theme, slug);
-	const description = pickSegments(category.descriptionSegments, locale);
+	const description = pickRichText(category.description, locale);
 	const sections = branchSectionsInCategory(slug, locale);
 	return (
 		<Screen>
