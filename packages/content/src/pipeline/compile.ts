@@ -10,6 +10,7 @@ import { expandCorpus } from './prefix-expansion.js';
 import { type ResolvedUnit, resolveUnits } from './resolve.js';
 import { checkSolutionDimensions } from './solution-dimension.js';
 import { type EquationVerification, verifyCorpusSolutions } from './solution-verify.js';
+import { checkTermAnchors } from './term-units.js';
 import { lintTex } from './tex-lint.js';
 import { hasErrors, type Issue } from './types.js';
 import { type Corpus, validateContent } from './validate.js';
@@ -44,11 +45,11 @@ function defaultPackageRoot(): string {
 
 /**
  * Orchestrates the pipeline. `check` runs stages 1–4 (load, validate,
- * prefix expansion, integrity, resolve + dimensional consistency + verify
- * math + TeX lint + MathJax render) with no output; `build` adds stage 5
- * emission into dist/. The orphan-magnitude warning reads the unexpanded
- * corpus: a generated unit's unitOf is copied from its base and is no
- * independent use of a magnitude.
+ * prefix expansion, integrity, resolve + term anchors + dimensional
+ * consistency + verify math + TeX lint + MathJax render) with no output;
+ * `build` adds stage 5 emission into dist/. The orphan-magnitude warning
+ * reads the unexpanded corpus: a generated unit's unitOf is copied from its
+ * base and is no independent use of a magnitude.
  * Every stage aggregates issues — nothing fails fast — but emission is
  * skipped when any prior stage errored. Async only because MathJax boots
  * asynchronously; every other stage is synchronous.
@@ -81,6 +82,7 @@ export async function compileContent(
 
 	const resolution = resolveUnits(corpus);
 	issues.push(...resolution.issues);
+	issues.push(...checkTermAnchors(corpus, resolution.resolved));
 
 	issues.push(...checkSolutionDimensions(corpus));
 

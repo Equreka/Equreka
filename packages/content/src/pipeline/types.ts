@@ -6,6 +6,7 @@ export type Stage =
 	| 'expand'
 	| 'integrity'
 	| 'resolve'
+	| 'anchors'
 	| 'dimensions'
 	| 'solutions'
 	| 'tex'

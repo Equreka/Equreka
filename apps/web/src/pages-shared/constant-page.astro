@@ -45,8 +45,14 @@ const valueCards = constantValueCards(constant).map((card) =>
 				id: 'constant-approximate-heading',
 				title: t(locale, 'design.content.entry.approximateValues'),
 				values: card.values,
+				truncated: card.truncated,
 			}
-		: { id: 'constant-precision-heading', title: precisionTitle, values: card.values },
+		: {
+				id: 'constant-precision-heading',
+				title: precisionTitle,
+				values: card.values,
+				truncated: card.truncated,
+			},
 );
 
 const description =
@@ -92,7 +98,12 @@ const metaDescription =
 			<p class="eq-display-math">
 				<span set:html={renderSymbolHtml(constant.symbol.tex, symbolText)} />
 				<span class="eq-display-op" set:html={renderSymbolHtml('=', '=')} />
-				<MathValue value={constant.value} format="tex" class="eq-display-value" />
+				<MathValue
+					value={constant.value}
+					format="tex"
+					truncated={constant.truncated}
+					class="eq-display-value"
+				/>
 				{
 					unit !== undefined && (
 						<a
@@ -138,7 +149,7 @@ const metaDescription =
 									{row.values.map((value) => (
 										<tr>
 											<td>
-												<MathValue value={value} />
+												<MathValue value={value} truncated={row.truncated} />
 											</td>
 											<td class="eq-cell-unit-symbol" set:html={unitSymbolHtml} />
 											<td>

@@ -29,10 +29,11 @@ export interface CalculatorUnitOptions {
 /**
  * Per-term unit logic over one equation. Every term's base unit is what
  * solveEquation expects (magnitude → baseUnit, variable → defaultUnit,
- * symbol → its unit; '' when the term is unitless). Affine units (°C, °F)
- * are never offered: a term does not say whether it is an absolute value
- * or an interval, and convert() and convertDelta() agree only on linear
- * units, so offering them would silently mis-solve ΔT terms.
+ * symbol → its unit; '' when the term is unitless). A `delta` term (ΔT)
+ * converts with convertDelta, factors only, and is offered affine units
+ * (°C, °F), since an interval of 10 °C is 10 K. Every other term is
+ * offered linear units only: convert() and convertDelta() agree on those,
+ * so an interval the content forgot to flag can never take an offset.
  */
 export interface CalculatorUnits {
 	baseUnit(key: string): string;
@@ -43,10 +44,6 @@ export interface CalculatorUnits {
 }
 
 const NO_OPTIONS: CalculatorUnitOptions = { units: [], hiddenByKind: 0 };
-
-function isLinear(unit: CompiledUnit): boolean {
-	return !unit.affine;
-}
 
 /**
  * Smallest to largest, so a picker reads μg · mg · g · kg · t. Factors are
@@ -96,10 +93,17 @@ export function createCalculatorUnits(
 		return slugs;
 	}
 
+	function isDelta(key: string): boolean {
+		return meta.terms[key]?.delta === true;
+	}
+
 	function options(key: string, showAllDimension: boolean): CalculatorUnitOptions {
 		const base = baseUnit(key);
 		if (base === '') return NO_OPTIONS;
-		const byDimension = registry.compatibleUnits(base).filter(isLinear).sort(byScale);
+		const byDimension = registry
+			.compatibleUnits(base)
+			.filter((unit) => isDelta(key) || !unit.affine)
+			.sort(byScale);
 		const inKind = kindSlugs(key, base);
 		const byKind = byDimension.filter((unit) => inKind.has(unit.slug));
 		return {
@@ -108,14 +112,19 @@ export function createCalculatorUnits(
 		};
 	}
 
+	function convert(key: string, value: number, from: string, to: string): EngineResult<number> {
+		if (from === '' || to === '' || from === to) return ok(value);
+		return isDelta(key)
+			? registry.convertDelta(value, from, to)
+			: registry.convert(value, from, to);
+	}
+
 	function toBase(key: string, value: number, unit: string): EngineResult<number> {
-		const base = baseUnit(key);
-		return base === '' || unit === base ? ok(value) : registry.convert(value, unit, base);
+		return convert(key, value, unit, baseUnit(key));
 	}
 
 	function fromBase(key: string, value: number, unit: string): EngineResult<number> {
-		const base = baseUnit(key);
-		return base === '' || unit === base ? ok(value) : registry.convert(value, base, unit);
+		return convert(key, value, baseUnit(key), unit);
 	}
 
 	function isExact(key: string, unit: string): boolean {

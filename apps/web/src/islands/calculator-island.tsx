@@ -4,7 +4,7 @@ import {
 	solveInUnits,
 	useCalculatorUnits,
 } from '@equreka/core/hooks/use-calculator-units';
-import { ENGINE_HINT_CODES, engineMessage, type Locale, t } from '@equreka/core/i18n';
+import { ENGINE_HINT_CODES, engineErrorMessage, type Locale, t } from '@equreka/core/i18n';
 import { formatSigFigs } from '@equreka/engine/format';
 import type { CompiledEquationMeta } from '@equreka/schema';
 import {
@@ -17,6 +17,7 @@ import {
 	useState,
 } from 'react';
 import type { ConverterPayload } from '../integrations/equreka-assets';
+import type { CalculatorField } from '../lib/calculator-fields';
 import {
 	type CalculatorView,
 	calculatorFormReducer,
@@ -32,19 +33,6 @@ import {
 import { copyText } from '../lib/clipboard';
 import { toSuperscript } from '../lib/notation';
 import { LegacyGlyph } from './legacy-glyph';
-
-/**
- * One user-facing input, resolved at build from the equation's terms map:
- * constant-kind terms are excluded (they inject automatically) and
- * `unitSymbol` comes from the term's magnitude baseUnit or variable
- * defaultUnit ('' when the term has no unit).
- */
-export interface CalculatorField {
-	key: string;
-	label: string;
-	symbolText: string;
-	unitSymbol: string;
-}
 
 /**
  * A constant term auto-injected into every solve. `value` stays the
@@ -152,6 +140,12 @@ export default function CalculatorIsland({
 		field.unitSymbol === '' ? '' : symbolOf(unitState.unitFor(field.key), field.unitSymbol);
 	const fieldOf = (key: string): CalculatorField | undefined =>
 		fields.find((field) => field.key === key);
+	const solvableOnly = fields.some((field) => !field.solvable)
+		? fields
+				.filter((field) => field.solvable)
+				.map((field) => field.symbolText)
+				.join(', ')
+		: '';
 
 	const submit = (event: SubmitEvent<HTMLFormElement>) => {
 		event.preventDefault();
@@ -231,6 +225,11 @@ export default function CalculatorIsland({
 			<div className="eq-card eq-calc-form">
 				<div className="eq-card-body">
 					<form onSubmit={submit} noValidate>
+						{solvableOnly === '' ? null : (
+							<p className="eq-tool-note">
+								{t(locale, 'calculator.solvableOnly', { terms: solvableOnly })}
+							</p>
+						)}
 						<div className="eq-calc-fields">
 							{fields.map((field) => {
 								const { units: offered, hiddenByKind } = unitState.optionsFor(field.key);
@@ -245,6 +244,7 @@ export default function CalculatorIsland({
 												type="text"
 												inputMode="decimal"
 												autoComplete="off"
+												aria-required={field.solvable ? undefined : true}
 												value={form.values[field.key] ?? ''}
 												onChange={(event) =>
 													dispatch({ type: 'edit', key: field.key, value: event.target.value })
@@ -389,7 +389,11 @@ function ResultView({ view, locale, fieldOf }: ResultViewProps) {
 		return <p className="eq-calc-message">{t(locale, 'design.legacy.calculator.needed')}</p>;
 	}
 	if (view.status === 'failed') {
-		const message = engineMessage(locale, view.error.code);
+		const message = engineErrorMessage(
+			locale,
+			view.error,
+			(key) => fieldOf(key)?.symbolText ?? key,
+		);
 		return ENGINE_HINT_CODES.has(view.error.code) ? (
 			<p className="eq-calc-message">{message}</p>
 		) : (

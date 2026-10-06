@@ -1,5 +1,14 @@
+import { collectionSchemas } from '@equreka/schema';
 import { describe, expect, it } from 'vitest';
-import { type EquationSolutionInput, verifyEquation } from '../solution-verify.js';
+import { checkIntegrity } from '../integrity.js';
+import { checkSolutionDimensions } from '../solution-dimension.js';
+import {
+	type EquationSolutionInput,
+	verifyCorpusSolutions,
+	verifyEquation,
+} from '../solution-verify.js';
+import { lintTex } from '../tex-lint.js';
+import type { Corpus } from '../validate.js';
 
 const baseInput: Omit<EquationSolutionInput, 'solutions'> = {
 	slug: 'mass-energy-equivalence',
@@ -255,7 +264,7 @@ describe('verifyEquation — complex samples', () => {
 			slug: 'imaginary-agreement',
 			expression: '\\var{y}+\\sqrt{\\var{x}}=\\var{y}',
 			terms: symbols('y', 'x'),
-			solutions: { x: '-4' },
+			solutions: { x: 'y - y - 4' },
 			constantValues: {},
 		});
 		expect(result.messages).toEqual([expect.stringContaining('0/20 valid samples')]);
@@ -355,8 +364,123 @@ describe('verifyEquation — multi-root solutions', () => {
 		expect(verifyEquation(signedSquare(['sqrt(a - b)', 'sqrt('])).messages).toEqual([
 			"solution for 'x' root 2 of 2: unexpected end of input",
 		]);
-		expect(verifyEquation(signedSquare(['x', 'sqrt(a - b)'])).messages).toEqual([
+		expect(verifyEquation(signedSquare(['x * (a - b)', 'sqrt(a - b)'])).messages).toEqual([
 			"solution for 'x' root 1 of 2 references its own target 'x'",
 		]);
+	});
+});
+
+describe('verifyEquation — non-algebraic equations', () => {
+	const FIELD_TERMS: EquationSolutionInput['terms'] = {
+		'\\vec{E}': { kind: 'symbol' },
+		'\\vec{B}': { kind: 'symbol' },
+		'\\vec{l}': { kind: 'symbol' },
+		'\\rho': { kind: 'symbol' },
+		t: { kind: 'symbol' },
+		I: { kind: 'symbol' },
+		'\\varepsilon_0': { kind: 'constant' },
+		'\\mu_0': { kind: 'constant' },
+	};
+	const field = (expression: string, algebraic: boolean): EquationSolutionInput => ({
+		slug: 'maxwell',
+		expression,
+		algebraic,
+		terms: FIELD_TERMS,
+		solutions: {},
+		constantValues: { '\\varepsilon_0': 8.8541878188e-12, '\\mu_0': 1.25663706127e-6 },
+	});
+
+	it.each([
+		['Gauss (nabla)', '\\nabla\\cdot\\var{\\vec{E}}=\\frac{\\var{\\rho}}{\\const{\\varepsilon_0}}'],
+		[
+			'Faraday (partial)',
+			'\\nabla\\times\\var{\\vec{E}}=-\\frac{\\partial\\var{\\vec{B}}}{\\partial\\var{t}}',
+		],
+		[
+			'Ampere (contour integral)',
+			'\\oint\\var{\\vec{B}}\\cdot\\mathrm{d}\\var{\\vec{l}}=\\const{\\mu_0}\\var{I}',
+		],
+	])('never hands %s notation to compute-engine, which cannot read it', (_name, expression) => {
+		expect(verifyEquation(field(expression, true)).messages).toHaveLength(1);
+		expect(verifyEquation(field(expression, false)).messages).toEqual([]);
+	});
+
+	it('still rejects a bare \\log in a non-algebraic expression', () => {
+		expect(
+			verifyEquation(
+				field('\\var{I}=\\log\\oint\\var{\\vec{B}}\\cdot\\mathrm{d}\\var{\\vec{l}}', false),
+			).messages,
+		).toEqual(['expression uses \\log without a base: write \\ln or \\log_{10}']);
+	});
+
+	it('builds through integrity, dimensions, verification and TeX lint over a corpus', () => {
+		const gauss = collectionSchemas.equations.parse({
+			name: { en: 'Gauss law' },
+			level: 'advanced',
+			algebraic: 'false',
+			expression: '\\nabla\\cdot\\var{\\vec{E}}=\\frac{\\var{\\rho}}{\\var{\\varepsilon_0}}',
+			terms: {
+				'\\vec{E}': { kind: 'symbol', label: { en: 'Electric field' } },
+				'\\rho': { kind: 'symbol', label: { en: 'Charge density' } },
+				'\\varepsilon_0': { kind: 'symbol', label: { en: 'Vacuum permittivity' } },
+			},
+		});
+		const corpus: Corpus = {
+			categories: new Map(),
+			branches: new Map(),
+			magnitudes: new Map(),
+			units: new Map(),
+			prefixes: new Map(),
+			constants: new Map(),
+			variables: new Map(),
+			equations: new Map([['gauss-law', gauss]]),
+			paths: new Map(),
+		};
+		const errors = [
+			...checkIntegrity(corpus),
+			...checkSolutionDimensions(corpus),
+			...verifyCorpusSolutions(corpus, [], null).issues,
+			...lintTex(corpus, new Set()),
+		].filter((entry) => entry.severity === 'error');
+		expect(errors).toEqual([]);
+	});
+});
+
+describe('verifyEquation — influence rule', () => {
+	it('rejects a root that ignores a term the equation cancels out', () => {
+		expect(
+			verifyEquation({
+				slug: 'cancelled',
+				expression: '\\var{F}=\\var{m}\\var{a}+\\var{b}-\\var{b}',
+				terms: symbols('F', 'm', 'a', 'b'),
+				solutions: { F: 'm * a', m: 'F / a' },
+				constantValues: {},
+			}).messages,
+		).toEqual([
+			"solution for 'F' does not reference 'b'; every root uses every other non-constant term, so a term that cancels out does not belong in the equation",
+			"solution for 'm' does not reference 'b'; every root uses every other non-constant term, so a term that cancels out does not belong in the equation",
+		]);
+	});
+
+	it('names the term a typo drops, root by root', () => {
+		const messages = verifyEquation({
+			slug: 'pythagorean-theorem',
+			expression: '\\var{a}^{2}+\\var{b}^{2}=\\var{c}^{2}',
+			terms: symbols('a', 'b', 'c'),
+			solutions: { c: 'sqrt(a^2 + a^2)', a: ['sqrt(c^2 - b^2)', '-sqrt(c^2 - c^2)'] },
+			constantValues: {},
+		}).messages;
+		expect(messages).toEqual([
+			expect.stringMatching(/^solution for 'c' does not reference 'b';/),
+			expect.stringMatching(/^solution for 'a' root 2 of 2 does not reference 'b';/),
+		]);
+	});
+
+	it('exempts constant terms, whose value never varies', () => {
+		const result = verifyEquation({
+			...baseInput,
+			solutions: { E: 'm * 299792458^2', m: 'E / c^2' },
+		});
+		expect(result.messages).toEqual([]);
 	});
 });

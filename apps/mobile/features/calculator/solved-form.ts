@@ -1,6 +1,6 @@
+import { texToFallbackText } from '@equreka/content/plain-symbol';
 import { parseSolution, solutionRoots } from '@equreka/content/solution-grammar';
 import type { CompiledEquationMeta, EquationSolution } from '@equreka/schema';
-import { texToFallbackText } from '../../shared/math/plain-symbol';
 import { solutionToTex, substituteSolutionText } from '../../shared/math/solution-tex';
 
 export interface SolvedFormLine {

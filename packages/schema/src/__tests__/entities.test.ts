@@ -161,6 +161,7 @@ describe('decimal-string discipline', () => {
 			unit: 'unitless',
 			exact: false,
 			irrational: true,
+			truncated: true,
 		});
 		expect(parsed.value).toBe(digits);
 	});
@@ -190,6 +191,28 @@ describe('decimal-string discipline', () => {
 		expect(constant.safeParse({ ...base, approximations: ['3.14', '3.14'] }).success).toBe(false);
 	});
 
+	it('requires truncated on an irrational value and allows it only on exact or irrational ones', () => {
+		const base = {
+			name: { en: 'Reduced Planck constant' },
+			symbol: { tex: '\\hbar' },
+			value: '1.054571817646156391262428003302280744722826330020413122421923470',
+			unit: 'joule-second',
+		};
+		expect(constant.parse({ ...base, exact: true }).truncated).toBe(false);
+		expect(constant.parse({ ...base, exact: true, truncated: 'true' }).truncated).toBe(true);
+		expect(constant.parse({ ...base, irrational: true, truncated: true }).truncated).toBe(true);
+		const messages = (input: Record<string, unknown>) => {
+			const result = constant.safeParse(input);
+			return result.success ? [] : result.error.issues.map((issue) => issue.message);
+		};
+		expect(messages({ ...base, irrational: true })).toEqual([
+			'an irrational value has no finite decimal form: declare truncated: true',
+		]);
+		expect(messages({ ...base, truncated: true })).toEqual([
+			'truncated applies to an exact or irrational value; a measured value is rounded, not truncated',
+		]);
+	});
+
 	it('accepts scientific notation strings (elementary charge)', () => {
 		const parsed = prefix.parse({
 			name: { en: 'Quecto' },
@@ -204,6 +227,7 @@ describe('equation', () => {
 	it('accepts mass-energy equivalence with terms and solutions', () => {
 		const parsed = equation.parse({
 			name: { en: 'Mass-energy equivalence' },
+			level: 'intro',
 			expression: '\\mag{E} = \\mag{m} \\const{c}^{2}',
 			terms: {
 				E: { kind: 'magnitude', ref: 'energy' },
@@ -223,6 +247,7 @@ describe('equation', () => {
 	it('accepts equation-local symbol terms with and without a unit', () => {
 		const parsed = equation.parse({
 			name: { en: 'Area of a circle' },
+			level: 'intro',
 			kind: 'formula',
 			expression: '\\mag{A} = \\const{\\pi} \\var{r}^{2}',
 			terms: {
@@ -237,9 +262,11 @@ describe('equation', () => {
 			label: { en: 'Radius' },
 			unit: 'metre',
 			integer: false,
+			delta: false,
 		});
 		const unitless = equation.parse({
 			name: { en: 'Pythagorean theorem' },
+			level: 'intro',
 			expression: '\\var{a}^{2}+\\var{b}^{2}=\\var{c}^{2}',
 			terms: {
 				a: { kind: 'symbol', label: { en: 'Leg' } },
@@ -251,12 +278,14 @@ describe('equation', () => {
 			kind: 'symbol',
 			label: { en: 'Hypotenuse' },
 			integer: false,
+			delta: false,
 		});
 	});
 
 	it('rejects a symbol term carrying a ref, and a variable term carrying a label', () => {
 		const base = {
 			name: { en: 'Broken' },
+			level: 'intro',
 			expression: '\\var{x}=\\var{y}',
 		};
 		expect(
@@ -283,6 +312,7 @@ describe('equation', () => {
 		const withIdentifier = (term: Record<string, unknown>) =>
 			equation.safeParse({
 				name: { en: 'Override' },
+				level: 'intro',
 				expression: '\\var{x}',
 				terms: { x: term },
 			});
@@ -302,7 +332,12 @@ describe('equation', () => {
 
 	it('flags integer terms on every kind but constant, coercing the failsafe string', () => {
 		const withTerm = (term: Record<string, unknown>) =>
-			equation.safeParse({ name: { en: 'Integer' }, expression: '\\var{n}', terms: { n: term } });
+			equation.safeParse({
+				name: { en: 'Integer' },
+				level: 'intro',
+				expression: '\\var{n}',
+				terms: { n: term },
+			});
 		for (const term of [
 			{ kind: 'magnitude', ref: 'amount' },
 			{ kind: 'variable', ref: 'count' },
@@ -323,6 +358,7 @@ describe('equation', () => {
 		const withSolutions = (solutions: Record<string, unknown>) =>
 			equation.safeParse({
 				name: { en: 'Roots' },
+				level: 'intro',
 				expression: '\\var{y}=\\var{x}^{2}',
 				terms: {
 					y: { kind: 'symbol', label: { en: 'y' } },
@@ -340,9 +376,90 @@ describe('equation', () => {
 		expect(withSolutions({ x: ['sqrt(y)', ''] }).success).toBe(false);
 	});
 
+	it('requires a level on the shared intro | intermediate | advanced scale', () => {
+		const withLevel = (level: unknown) =>
+			equation.safeParse({
+				name: { en: 'Level' },
+				...(level === undefined ? {} : { level }),
+				expression: '\\var{x}',
+				terms: { x: { kind: 'symbol', label: { en: 'x' } } },
+			});
+		for (const level of ['intro', 'intermediate', 'advanced']) {
+			expect(withLevel(level).success, level).toBe(true);
+		}
+		expect(withLevel(undefined).success).toBe(false);
+		expect(withLevel('expert').success).toBe(false);
+	});
+
+	it('defaults to algebraic and lets a non-algebraic equation carry no solutions or calculator', () => {
+		const maxwell = {
+			name: { en: 'Gauss law' },
+			level: 'advanced',
+			expression: '\\nabla\\cdot\\var{E}=\\var{\\rho}/\\const{\\varepsilon_0}',
+			terms: {
+				E: { kind: 'symbol', label: { en: 'Electric field' } },
+				'\\rho': { kind: 'symbol', label: { en: 'Charge density' } },
+				'\\varepsilon_0': { kind: 'constant', ref: 'vacuum-electric-permittivity' },
+			},
+		};
+		const parsed = equation.parse({ ...maxwell, algebraic: 'false' });
+		expect(parsed.algebraic).toBe(false);
+		expect(equation.parse({ ...maxwell, solutions: { E: 'rho' } }).algebraic).toBe(true);
+		const issues = (input: Record<string, unknown>) => {
+			const result = equation.safeParse(input);
+			return result.success ? [] : result.error.issues.map((issue) => issue.message);
+		};
+		expect(issues({ ...maxwell, algebraic: false, solutions: { E: 'rho' } })).toEqual([
+			'a non-algebraic equation (algebraic: false) authors no solutions',
+		]);
+		expect(issues({ ...maxwell, algebraic: false, calculator: { enabled: true } })).toEqual([
+			'a non-algebraic equation (algebraic: false) has no calculator',
+		]);
+	});
+
+	it('flags delta terms on every kind but constant, defaulting to false', () => {
+		const withTerm = (term: Record<string, unknown>) =>
+			equation.safeParse({
+				name: { en: 'Delta' },
+				level: 'intro',
+				expression: '\\var{\\Delta T}',
+				terms: { '\\Delta T': term },
+			});
+		for (const term of [
+			{ kind: 'magnitude', ref: 'thermodynamic-temperature' },
+			{ kind: 'variable', ref: 'temperature' },
+			{ kind: 'symbol', label: { en: 'Temperature change' }, unit: 'kelvin' },
+		]) {
+			const flagged = withTerm({ ...term, delta: 'true' });
+			expect(flagged.success && flagged.data.terms['\\Delta T'], term.kind).toMatchObject({
+				delta: true,
+			});
+			const unflagged = withTerm(term);
+			expect(unflagged.success && unflagged.data.terms['\\Delta T'], term.kind).toMatchObject({
+				delta: false,
+			});
+		}
+		expect(withTerm({ kind: 'constant', ref: 'pi', delta: 'true' }).success).toBe(false);
+	});
+
+	it('rejects an empty calculator.solveFor', () => {
+		const base = {
+			name: { en: 'Combinations' },
+			level: 'intro',
+			expression: '\\var{C}=\\var{n}',
+			terms: {
+				C: { kind: 'symbol', label: { en: 'C' } },
+				n: { kind: 'symbol', label: { en: 'n' } },
+			},
+		};
+		expect(equation.safeParse({ ...base, calculator: { solveFor: ['C'] } }).success).toBe(true);
+		expect(equation.safeParse({ ...base, calculator: { solveFor: [] } }).success).toBe(false);
+	});
+
 	it('rejects the retired hand-maintained units[] list', () => {
 		const result = equation.safeParse({
 			name: { en: 'Square area' },
+			level: 'intro',
 			expression: '\\mag{A}=\\var{l}^{2}',
 			terms: {
 				A: { kind: 'magnitude', ref: 'area' },

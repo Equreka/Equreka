@@ -17,7 +17,7 @@ export interface ConstantDetailsProps {
 /**
  * Six-figure display beside the unit symbol, then the decimal string from
  * content at full precision — the value never passes through float64
- * before the reader sees it.
+ * before the reader sees it — ending in an ellipsis when it is truncated.
  */
 export function ConstantDetails({ constant }: ConstantDetailsProps) {
 	const locale = useLocale();
@@ -39,7 +39,7 @@ export function ConstantDetails({ constant }: ConstantDetailsProps) {
 			<VStack>
 				<SectionTitle>{t('constant.fullPrecision')}</SectionTitle>
 				<AppText mono>
-					{formatFullPrecision(constant.value)}
+					{formatFullPrecision(constant.value, constant.truncated)}
 					{unitSymbol === '' ? '' : ` ${unitSymbol}`}
 				</AppText>
 				{constant.uncertainty === undefined ? null : (

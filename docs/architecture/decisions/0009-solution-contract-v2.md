@@ -1,6 +1,6 @@
 # 0009 — Solution contract v2: term identity and scale-free verification
 
-Date: 2026-10-06 · Status: accepted · Amended 2026-10-06 (grammar v2 and multi-root solutions)
+Date: 2026-10-06 · Status: accepted · Amended 2026-10-06 (grammar v2 and multi-root solutions; coverage and calculator rules)
 
 ## Context
 
@@ -101,6 +101,48 @@ A solution is a string or a list of at least two roots: `solutions: { t: ['(-v_0
 
 `CONTENT_PIPELINE_VERSION` goes from 3 to 4 (sample record shape, seeds and codegen changed).
 
+## Coverage and calculator rules
+
+Amended 2026-10-06. Roughly 390 equations will be authored at scale, largely by AI authors. Verification proves that an authored root agrees with its expression; it does not prove that the equation is usable, that the calculator can answer for every unknown it offers, or that the numbers it receives are in the units its formulas assume. These rules close those gaps, so no wrong or unusable equation ships.
+
+### Non-algebraic equations
+
+`algebraic` (strictBool, default true). `false` marks notation no solver reads: Maxwell's equations, the Schrödinger equation, anything with ∇, ∂ or ∫. Probed against compute-engine 0.105.0, `\nabla` parses as an `unexpected-command` error and `\oint` leaves a `Nothing` symbol, so such an expression could never pass verification. A non-algebraic equation authors no `solutions` and no calculator (both schema errors). The verifier never hands its expression to compute-engine; the bare-`\log` rule (a notation rule, not a parse), strict-KaTeX lint and math rendering still apply. The CLI summary counts non-algebraic equations, so their share of the corpus stays visible.
+
+### At least one solution
+
+Every algebraic equation authors at least one solution (integrity). An algebraic equation without one is unfinished; notation that cannot be solved is `algebraic: false`.
+
+### The solvable set
+
+The terms the calculator may leave unknown are `calculator.solveFor` when authored, else every non-constant term (constants are injected, never unknown). `solveFor` is non-empty and names distinct non-constant terms. When `calculator.enabled`, every member has an authored solution (integrity; previously only an explicit `solveFor` was checked), so no unknown the calculator offers can end in `internal/unsupported`. The engine slice's `solvable` is this set restricted to authored solutions and sorted, which equals the set itself whenever the calculator is enabled. A solution keyed by a constant term is an error. The case `solveFor` exists for: C = n!/(k!(n−k)!) over integer n and k is solved for C only (`solveFor: ['C']`); n and k have no closed form.
+
+### Influence rule
+
+Every root names, by identifier, every other non-constant term of its equation. A root that ignores an input returns the same value whatever that input is, so either the term cancels out of the expression (`F = m a + b − b`: numeric verification passes, because `b` really has no effect) and does not belong in the equation, or the root is mistyped (`c = sqrt(a^2 + a^2)`, which verification reports only as a disagreement). The error names the missing terms. Constants are exempt. The rule is syntactic, so a root that is constant for every input, such as x = 0 of x(ax + b) = 0, cannot be authored; it is no calculator answer.
+
+### SI-coherent anchors
+
+Every term anchors on a unit that resolves to factor 1 and offset 0 (`term-units.ts`, stage `anchors`, after resolution): a constant term on its constant's `unit`, a variable term on its `defaultUnit`, a symbol term on its `unit`. Magnitude terms anchor on their magnitude's `baseUnit`, which resolution already holds to factor 1. A nonConvertible anchor is an error too. The reason is three facts together: solutions are verified as plain numbers, the calculator converts every input to its term's anchor and injects constants exactly as authored, and equation dimension checks treat the angle as dimensionless (rad = 1, *Grammar and roots*). A degree-anchored angle term would pass every check and feed degrees into `sin`; a constant authored in electronvolts would enter a joule formula unconverted.
+
+### Calculator term semantics
+
+- **Delta terms.** `delta` (strictBool, default false) on magnitude, variable and symbol terms marks a difference (ΔT). The engine slice carries `delta: true` only on such terms. The calculator converts a delta term with the registry's `convertDelta` (factors only), for its input and for its solved value, and offers it affine units: 18 °F of warming is 10 K, not 265.37 K. Every other term keeps the linear-only unit list. `convert` would be right for an absolute temperature in °C, but if absolute terms were offered affine units, an interval the content forgot to flag would silently take an offset; with the linear-only list the failure is a missing unit choice, never a wrong answer.
+- **Engine input errors**, checked in this order before any solution runs: a non-finite value (`inputs/not-a-number`); a fractional value on an `integer` term (`inputs/not-integer`, details `keys`); no non-constant term filled (`inputs/empty`); a non-constant term outside `solvable` left empty (`inputs/required`, details `keys` and `solvable`; previously `internal/unsupported`); then the fill-all-but-one rule over `solvable`. A missing constant stays `internal/unsupported`: it is a caller bug, not an input. `inputs/required` is guidance, like the other fill-all-but-one codes; `inputs/not-integer` is an alert.
+- **Messages and labels.** `engineErrorMessage` in `@equreka/core/i18n` interpolates `{terms}` and `{solvable}` from the error's details, each key rendered by the UI. Every UI string that names a term (field labels, the result line, the copied result, error messages) uses the key's plain-text form from `texToFallbackText` (`\theta` → θ, `v_{0}` → v₀), now `@equreka/content/plain-symbol` and shared by web and mobile; the web calculator previously printed the raw key. Both calculators mark a field outside `solvable` as required and state the solvable set when it is narrower than the fields.
+
+### Truncated constants
+
+`truncated` (strictBool, default false) marks an authored `value` that cuts off a true value with no finite decimal form: an irrational number (π) or an exact value with endless digits (ħ = h/2π, the Stefan–Boltzmann constant, Wien's b, the molar volume). `irrational: true` requires it, and it requires `exact` or `irrational`: a measured value is rounded and carries an uncertainty, it is not truncated (schema rules). The web constant page and mobile constant details print the full-precision value with a trailing ellipsis (before any power of ten). Presentation only: the engine slice and the calculator read `value`.
+
+### Level
+
+Equations take a required `level` on the scale learning paths already use, now one shared enum (`contentLevel`: intro, intermediate, advanced; the i18n keys moved from `path.level.*` to `level.*`). Presentation only: the web equation page and the mobile equation entry show it as a badge.
+
+### Versions
+
+`SCHEMA_VERSION` goes from 3 to 4: the engine slice carries `delta`, which a consumer must honor (ignoring it applies an offset to an interval), and `solvable` changed meaning (scoped by `solveFor`, never a constant). `CONTENT_PIPELINE_VERSION` goes from 4 to 5: verification messages changed (influence rule, non-algebraic skip), so every cached verification is invalid.
+
 ## Consequences
 
 - Authors may use the TeX a textbook uses for a term key. The derivation unwraps font and text wrappers but stays lossy for anything else (`[\mathrm{H}^{+}]` derives a bare `H`), and the `identifier` override is the escape hatch.
@@ -108,5 +150,6 @@ A solution is a string or a list of at least two roots: `solutions: { t: ['(-v_0
 - `integer` is a sampling and input contract only; nothing checks that a solution *for* an integer term yields an integer.
 - A bare letter in an expression is now an error rather than an accident: `\mag{F}=m\var{a}` fails until `m` is annotated.
 - Verification is order-independent and cache-independent, and a wrong coefficient on a quantity of order 1e-34 fails like any other.
-- Every expression is still parsed by compute-engine, whether or not it has solutions, as before. Non-algebraic notation (∇, ∂, ∫) will need a decision before such equations enter the corpus.
+- Every algebraic expression is parsed by compute-engine, whether or not it has solutions. Non-algebraic notation (∇, ∂, ∫) is declared with `algebraic: false` and is rendered and linted but never parsed, solved or offered to the calculator (*Coverage and calculator rules*).
+- An algebraic equation with an enabled calculator answers for every unknown it offers, every root depends on every input, and every number the calculator handles is in SI-coherent units; a degenerate, incomplete or mis-anchored equation fails the build instead of shipping.
 - Cold verification costs one engine and two parses per equation, plus one evaluation per additive operand per sample.

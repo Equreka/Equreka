@@ -62,9 +62,15 @@ export interface SampledTerm extends IdentityTerm {
 	integer?: boolean | undefined;
 }
 
+/**
+ * `algebraic: false` (default true) marks notation no solver reads (∇, ∂,
+ * ∫): the expression is never handed to compute-engine, so only the
+ * bare-`\log` rule applies to it.
+ */
 export interface EquationSolutionInput {
 	slug: string;
 	expression: string;
+	algebraic?: boolean | undefined;
 	terms: Readonly<Record<string, SampledTerm>>;
 	solutions: Readonly<Record<string, string | readonly string[]>>;
 	constantValues: Record<string, number>;
@@ -134,7 +140,9 @@ export function solutionLabel(termKey: string, root: number, rootCount: number):
  * at their compiled values; compute-engine is the build-time oracle and
  * never ships. Each equation gets a fresh engine: a shared one leaks symbol
  * declarations between parses, so a verdict would depend on which
- * equations were parsed before it (and on the verify cache).
+ * equations were parsed before it (and on the verify cache). Every root
+ * must name every other non-constant term (`parseRoot`), and a
+ * non-algebraic expression is never parsed.
  */
 export function verifyEquation(input: EquationSolutionInput, numeric = true): EquationVerification {
 	const messages: string[] = [];
@@ -152,6 +160,9 @@ export function verifyEquation(input: EquationSolutionInput, numeric = true): Eq
 	const termKeys = Object.keys(input.terms);
 	const keyByIdentifier = new Map(
 		[...identity.byTermKey].map(([key, identifier]) => [identifier, key]),
+	);
+	const influencers = new Map(
+		[...keyByIdentifier].filter(([, key]) => input.terms[key]?.kind !== 'constant'),
 	);
 	const constants = new Map<string, number>();
 	for (const [key, term] of Object.entries(input.terms)) {
@@ -173,7 +184,10 @@ export function verifyEquation(input: EquationSolutionInput, numeric = true): Eq
 		}
 		const roots = solutionRoots(solution);
 		const parsed = roots.map((source, index) =>
-			parseRoot(source, solutionLabel(targetKey, index, roots.length), targetId, keyByIdentifier),
+			parseRoot(source, solutionLabel(targetKey, index, roots.length), targetId, {
+				keyByIdentifier,
+				influencers,
+			}),
 		);
 		messages.push(...parsed.flatMap((root) => root.messages));
 		const usable = parsed.flatMap((root) => (root.ast === undefined ? [] : [root.ast]));
@@ -182,6 +196,10 @@ export function verifyEquation(input: EquationSolutionInput, numeric = true): Eq
 		}
 	}
 	if (messages.length > 0 || !numeric) {
+		return result;
+	}
+	if (input.algebraic === false) {
+		messages.push(...bareLogMessages(input.expression));
 		return result;
 	}
 
@@ -212,14 +230,26 @@ export function verifyEquation(input: EquationSolutionInput, numeric = true): Eq
 }
 
 /**
+ * Identifier → term key, over every term (`keyByIdentifier`) and over the
+ * non-constant terms only (`influencers`).
+ */
+interface RootIdentity {
+	keyByIdentifier: ReadonlyMap<string, string>;
+	influencers: ReadonlyMap<string, string>;
+}
+
+/**
  * One authored root parsed and checked against the term identifiers: it
- * may name any term but its own target.
+ * may name any term but its own target, and must name every other
+ * non-constant term. A root that ignores an input answers the same for
+ * every value of it, so either the term cancels out of the equation (and
+ * does not belong in it) or the root is mistyped.
  */
 function parseRoot(
 	source: string,
 	label: string,
 	targetId: string,
-	keyByIdentifier: ReadonlyMap<string, string>,
+	identity: RootIdentity,
 ): { ast?: SolutionAst; messages: string[] } {
 	let ast: SolutionAst;
 	try {
@@ -227,13 +257,32 @@ function parseRoot(
 	} catch (error) {
 		return { messages: [`${label}: ${error instanceof Error ? error.message : String(error)}`] };
 	}
-	const messages = [...collectIdentifiers(ast)].flatMap((name) => {
+	const used = collectIdentifiers(ast);
+	const messages = [...used].flatMap((name) => {
 		if (name === targetId) {
 			return [`${label} references its own target '${name}'`];
 		}
-		return keyByIdentifier.has(name) ? [] : [`${label} uses unknown identifier '${name}'`];
+		return identity.keyByIdentifier.has(name) ? [] : [`${label} uses unknown identifier '${name}'`];
 	});
+	const ignored = [...identity.influencers]
+		.filter(([identifier]) => identifier !== targetId && !used.has(identifier))
+		.map(([, key]) => `'${key}'`);
+	if (ignored.length > 0) {
+		messages.push(
+			`${label} does not reference ${ignored.join(', ')}; every root uses every other non-constant term, so a term that cancels out does not belong in the equation`,
+		);
+	}
 	return messages.length === 0 ? { ast, messages } : { messages };
+}
+
+/**
+ * The bare-`\log` rule, checked on the macro-free residue so a term key can
+ * never trigger it.
+ */
+function bareLogMessages(expression: string): string[] {
+	return BARE_LOG_RE.test(stripMacrosWith(expression, () => '1'))
+		? ['expression uses \\log without a base: write \\ln or \\log_{10}']
+		: [];
 }
 
 function sampleValue(term: SampledTerm | undefined, random: () => number): number {
@@ -361,11 +410,12 @@ function parseSides(
 		return undefined;
 	}
 
-	const residueTex = stripMacrosWith(expression, () => '1');
-	if (BARE_LOG_RE.test(residueTex)) {
-		messages.push('expression uses \\log without a base: write \\ln or \\log_{10}');
+	const bareLog = bareLogMessages(expression);
+	if (bareLog.length > 0) {
+		messages.push(...bareLog);
 		return undefined;
 	}
+	const residueTex = stripMacrosWith(expression, () => '1');
 
 	const ce = new ComputeEngine();
 	const synthetic = stripMacrosWith(
@@ -529,6 +579,7 @@ export function verifyCorpusSolutions(
 		const input: EquationSolutionInput = {
 			slug,
 			expression: equation.expression,
+			algebraic: equation.algebraic,
 			terms: equation.terms,
 			solutions: equation.solutions,
 			constantValues,
