@@ -5,26 +5,28 @@ import {
 	TRANSLATION_LOCALES,
 } from '@equreka/schema';
 import katex from 'katex';
-import { extractTexFragments, normalizeDashes, stripMacros } from './tex.js';
+import { extractTexFragments, italicLetterRun, normalizeDashes, stripMacros } from './tex.js';
 import { type Issue, issue } from './types.js';
 import { type Corpus, fileOf } from './validate.js';
 
-/**
- * Stage 4 TeX lint: every equation expression (annotation macros stripped)
- * and every `$...$`/`$$...$$` fragment of every description must pass
- * strict KaTeX — these strings are baked into rendered pages at build time,
- * so a parse failure here is a broken page later. Dash-like Unicode is
- * normalized to '-' first (warning) because the legacy corpus authored
- * en dashes inside math. Files listed in tex-allowlist.json downgrade
- * description-fragment failures to warnings — a pragmatic escape hatch for
- * legacy prose, never applicable to equation expressions. Findings in
- * translated text name the sidecar the text came from; the allowlist stays
- * keyed by entity file.
- */
 const LOCALES = [SOURCE_LOCALE, ...TRANSLATION_LOCALES] as const;
 
 type Locale = (typeof LOCALES)[number];
 
+/**
+ * Stage 4 TeX lint: every equation expression (annotation macros stripped),
+ * every equation term key (rendered alone as the term's symbol on web and
+ * mobile) and every `$...$`/`$$...$$` fragment of every description must
+ * pass strict KaTeX — these strings are baked into rendered pages at build
+ * time, so a parse failure here is a broken page later. A term key with a
+ * bare multi-letter run warns: it typesets as a product of italic letters.
+ * Dash-like Unicode is normalized to '-' first (warning) because the legacy
+ * corpus authored en dashes inside math. Files listed in tex-allowlist.json
+ * downgrade description-fragment failures to warnings — a pragmatic escape
+ * hatch for legacy prose, never applicable to equation expressions or term
+ * keys. Findings in translated text name the sidecar the text came from;
+ * the allowlist stays keyed by entity file.
+ */
 export function lintTex(corpus: Corpus, allowlist: ReadonlySet<string>): Issue[] {
 	const issues: Issue[] = [];
 	const dashFiles = new Set<string>();
@@ -78,6 +80,24 @@ export function lintTex(corpus: Corpus, allowlist: ReadonlySet<string>): Issue[]
 						true,
 					);
 				}
+			}
+		}
+	}
+
+	for (const [slug, equation] of corpus.equations) {
+		const file = fileOf('equations', slug);
+		for (const key of Object.keys(equation.terms)) {
+			lintFragment(file, file, `terms key '${key}'`, key, false, false);
+			const run = italicLetterRun(key);
+			if (run !== undefined) {
+				issues.push(
+					issue(
+						'warning',
+						'tex',
+						file,
+						`terms key '${key}' sets '${run}' as a product of italic letters; wrap it in \\mathrm{} (an identifier override keeps solutions readable)`,
+					),
+				);
 			}
 		}
 	}

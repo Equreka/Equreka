@@ -71,7 +71,7 @@ for (const [key, term] of Object.entries(meta.terms)) {
 		variableRows.push({
 			key,
 			kind: 'symbol',
-			dataValue: termDataValue(key, { kind: 'symbol' }),
+			dataValue: termDataValue(key, { kind: 'symbol', identifier: term.identifier }),
 			name: label,
 			href: undefined,
 			unitSlug: term.unit,

@@ -32,7 +32,7 @@ export function checkSolutionDimensions(corpus: Corpus): Issue[] {
 	const issues: Issue[] = [];
 	for (const [slug, equation] of corpus.equations) {
 		const file = fileOf('equations', slug);
-		const identifierMap = buildIdentifierMap(Object.keys(equation.terms));
+		const identifierMap = buildIdentifierMap(equation.terms);
 		if (identifierMap.errors.length > 0) {
 			continue;
 		}
@@ -40,7 +40,7 @@ export function checkSolutionDimensions(corpus: Corpus): Issue[] {
 		let complete = true;
 		for (const [key, term] of Object.entries(equation.terms)) {
 			const dimension = termDimension(term, corpus);
-			const identifier = identifierMap.byTermKey[key];
+			const identifier = identifierMap.byTermKey.get(key);
 			if (dimension === undefined || identifier === undefined) {
 				complete = false;
 				continue;
@@ -51,7 +51,7 @@ export function checkSolutionDimensions(corpus: Corpus): Issue[] {
 			continue;
 		}
 		for (const [targetKey, source] of Object.entries(equation.solutions)) {
-			const targetId = identifierMap.byTermKey[targetKey];
+			const targetId = identifierMap.byTermKey.get(targetKey);
 			const target = targetId === undefined ? undefined : env[targetId];
 			if (target === undefined) {
 				continue;

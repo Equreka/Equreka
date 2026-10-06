@@ -2,6 +2,28 @@ export const SOLUTION_FUNCTIONS = ['abs', 'cos', 'exp', 'ln', 'sin', 'sqrt', 'ta
 
 export type SolutionFunction = (typeof SOLUTION_FUNCTIONS)[number];
 
+/**
+ * Every name the solution grammar claims for a function, implemented or
+ * announced: a term identifier may never take one, so a grammar extension
+ * can never reinterpret an identifier already authored in a solution.
+ */
+export const RESERVED_FUNCTION_NAMES: readonly string[] = [
+	...SOLUTION_FUNCTIONS,
+	'asin',
+	'acos',
+	'atan',
+	'log10',
+	'log2',
+	'cbrt',
+	'sinh',
+	'cosh',
+	'tanh',
+	'asinh',
+	'acosh',
+	'atanh',
+	'factorial',
+];
+
 export type SolutionAst =
 	| { kind: 'number'; text: string }
 	| { kind: 'identifier'; name: string }

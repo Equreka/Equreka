@@ -14,7 +14,7 @@ import {
 } from '@equreka/schema';
 import MiniSearch from 'minisearch';
 import { z } from 'zod';
-import { canonicalTex, splitLocalizedText } from '../rich-text.js';
+import { canonicalTex, splitLocalizedText, termIdentifier } from '../rich-text.js';
 import {
 	type CatalogLiteEntry,
 	SEARCH_LOCALES,
@@ -193,7 +193,7 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 }
 
 function buildEngineSlice(input: EmitInput): EngineSlice {
-	const { corpus, resolved, verifications } = input;
+	const { corpus, resolved } = input;
 	const slice: EngineSlice = {
 		schemaVersion: SCHEMA_VERSION,
 		contentHash: input.contentHash,
@@ -255,12 +255,11 @@ function buildEngineSlice(input: EmitInput): EngineSlice {
 		};
 	}
 	for (const [slug, equation] of corpus.equations) {
-		const identifierByTermKey = verifications.get(slug)?.identifierByTermKey ?? {};
 		const terms: EngineSlice['equations'][string]['terms'] = {};
 		for (const [key, term] of Object.entries(equation.terms)) {
 			const compiled: CompiledEquationTerm = {
 				kind: term.kind,
-				identifier: identifierByTermKey[key] ?? key,
+				identifier: termIdentifier(key, term.identifier),
 			};
 			if (term.kind === 'symbol') {
 				compiled.label = term.label;

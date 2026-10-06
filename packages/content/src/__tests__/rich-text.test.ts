@@ -6,6 +6,8 @@ import {
 	splitRichText,
 	stripMacros,
 	stripMacrosToText,
+	termIdentifier,
+	termMacroPattern,
 } from '../rich-text.js';
 
 describe('splitRichText', () => {
@@ -100,6 +102,32 @@ describe('stripMacros / stripMacrosToText', () => {
 
 	it('leaves macro-free text untouched', () => {
 		expect(stripMacrosToText('plain $x^{2}$')).toBe('plain $x^{2}$');
+	});
+
+	it('carries term keys with one level of nested braces', () => {
+		expect(stripMacros('\\var{v_{0}}^{2}+\\var{[\\mathrm{H}^{+}]}')).toBe(
+			'{v_{0}}^{2}+{[\\mathrm{H}^{+}]}',
+		);
+		expect(stripMacrosToText('$\\mag{v_{0}}$')).toBe('$v_{0}$');
+	});
+});
+
+describe('termMacroPattern', () => {
+	it('returns an independent global RegExp per call', () => {
+		const first = termMacroPattern();
+		first.exec('\\var{x} \\var{y}');
+		expect(first.lastIndex).toBeGreaterThan(0);
+		expect(termMacroPattern().lastIndex).toBe(0);
+		expect(termMacroPattern().exec('\\var{y}')?.[2]).toBe('y');
+	});
+});
+
+describe('termIdentifier', () => {
+	it('derives from the key and lets an override win', () => {
+		expect(termIdentifier('\\pi')).toBe('pi');
+		expect(termIdentifier('v_{0}')).toBe('v_0');
+		expect(termIdentifier('\\Delta x')).toBe('Deltax');
+		expect(termIdentifier('[\\mathrm{H}^{+}]', 'cH')).toBe('cH');
 	});
 });
 

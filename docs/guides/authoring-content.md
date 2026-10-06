@@ -179,9 +179,22 @@ solutions:
 calculator: { enabled: true }
 ```
 
-- `expression` is TeX annotated with `\mag{}` (magnitude terms), `\const{}` (constant terms) and `\var{}` (variable **or** symbol terms). Every macro argument is a `terms` key and vice versa.
+- `expression` is TeX annotated with `\mag{}` (magnitude terms), `\const{}` (constant terms) and `\var{}` (variable **or** symbol terms). Every macro argument is a `terms` key and vice versa. Everything that is a quantity goes inside a macro, subscripts and accents included: `\var{v_{0}}`, never `\var{v}_{0}`.
 - **Term kinds:** `magnitude`/`constant`/`variable` reference wiki entities; `symbol` is equation-local — a `label` (localized) and an optional `unit`. Symbol terms without a unit are dimensionless.
-- **Solutions** use the grammar `+ - * / ^ ( )`, `sqrt abs ln exp sin cos tan`, decimal literals, `pi`, and term identifiers (keys with non-alphanumerics stripped: `\pi` → `pi`). Each solution is (a) numerically verified against the expression by random substitution and (b) **dimensionally checked**: `*`/`/` add/subtract exponent vectors, `^` by a literal scales them (non-integral results fail — no `sqrt` of an odd power), `+`/`-` require equal dimensions, transcendental functions require dimensionless arguments, `abs` preserves its argument, and the result must equal the target term's dimension.
+- **Term keys** (ADR 0009) are the term's symbol as TeX, rendered on its own on web and mobile, so any key that renders under strict KaTeX works: `v_{0}`, `t_{1/2}`, `\Delta x`, `\hbar`, `\varepsilon_0`, `[\mathrm{H}^{+}]`. Braces nest at most one level inside a key (`v_{0}` yes, `x_{a_{b}}` no). A key has no `$`, no line break, no leading or trailing space, and is never an `Object.prototype` name (`constructor`, `toString`, …). Single-quote a key that starts with `{` or `[` (`'[\mathrm{H}^{+}]':`) — unquoted, YAML reads it as a flow collection. A key with a bare run of two or more letters (`KE`) warns, because it typesets as K times E: write `\mathrm{KE}`.
+- **Identifiers.** Solutions name terms by identifier: the key with every character outside `[A-Za-z0-9_]` dropped (`\pi` → `pi`, `v_{0}` → `v_0`, `\Delta x` → `Deltax`), or an authored `identifier` override. Author the override when the derivation is unreadable (`\mathrm{KE}` → `mathrmKE`, `[\mathrm{H}^{+}]` → `mathrmH`), collides (`v_0` and `v_{0}` both derive `v_0`) or is reserved:
+
+  ```yaml
+  terms:
+    '[\mathrm{H}^{+}]':
+      kind: 'symbol'
+      label: { en: 'Hydronium concentration' }
+      identifier: 'cH'
+  ```
+
+  An identifier is a letter followed by letters, digits or `_`, unique within the equation. Reserved, as identifier or override: the grammar's function names, current and announced (`sqrt abs ln exp sin cos tan asin acos atan log10 log2 cbrt sinh cosh tanh asinh acosh atanh factorial`), every `Object.prototype` property name, and `pi`, which only the constant term with `ref: 'pi'` may use (the grammar reads `pi` as π). Violations fail the integrity stage.
+- **Solutions** use the grammar `+ - * / ^ ( )`, `sqrt abs ln exp sin cos tan`, decimal literals, `pi`, and term identifiers. Each solution is (a) numerically verified against the expression and (b) **dimensionally checked**: `*`/`/` add/subtract exponent vectors, `^` by a literal scales them (non-integral results fail — no `sqrt` of an odd power), `+`/`-` require equal dimensions, transcendental functions require dimensionless arguments, `abs` preserves its argument, and the result must equal the target term's dimension.
+- **Numeric verification.** Each macro is replaced by a synthetic symbol before compute-engine parses the expression, so a key's own TeX never affects the check. A symbol left outside every macro fails as *unannotated symbol* — only `\pi` and `e` (Euler's number) may stand bare. Every solution is evaluated at 20 seeded random samples (free terms in [0.1, 10), constants at their compiled values) and must balance the equation **relative to its largest additive term**: |lhs − rhs| ≤ 1e-9 × the largest absolute value among the `+`/`-` operands of both sides. Tiny constants such as h get no absolute slack, and a side that is exactly `0` (`a x^2 + b x + c = 0`) still verifies. A sample where the solution is undefined or a side is non-finite or complex is discarded; fewer than 20 valid samples in 400 attempts fails.
 - Related units are **derived** from terms at build time (magnitude → baseUnit, constant → unit, variable → defaultUnit, symbol → unit). There is no `units:` list to maintain.
 
 ### paths

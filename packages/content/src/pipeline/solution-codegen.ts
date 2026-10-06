@@ -17,8 +17,12 @@ export interface SolutionsModule {
 
 /**
  * Codegen from verified solution ASTs to a plain ESM module — no eval, no
- * runtime parser (ADR 0002). Domain violations surface as NaN under IEEE 754
- * (sqrt of negative, division by zero times zero) and are mapped to null.
+ * runtime parser (ADR 0002). The module is `solutions[slug][termKey]`, the
+ * shape the engine looks up (ADR 0009); each function reads its arguments
+ * by identifier. Keys are emitted as JSON string literals because a term key
+ * is arbitrary TeX (`\theta`, `v_{0}`). Domain violations surface as NaN
+ * under IEEE 754 (sqrt of negative, division by zero times zero) and are
+ * mapped to null.
  */
 export function generateSolutionsModule(
 	equations: ReadonlyMap<string, ReadonlyMap<string, SolutionAst>>,
@@ -26,17 +30,17 @@ export function generateSolutionsModule(
 	const lines: string[] = ['export const solutions = {'];
 	const slugs = [...equations.keys()].sort();
 	for (const slug of slugs) {
-		const bySolution = equations.get(slug);
-		if (bySolution === undefined || bySolution.size === 0) {
+		const byTermKey = equations.get(slug);
+		if (byTermKey === undefined || byTermKey.size === 0) {
 			continue;
 		}
-		lines.push(`\t'${slug}': {`);
-		for (const identifier of [...bySolution.keys()].sort()) {
-			const ast = bySolution.get(identifier);
+		lines.push(`\t${JSON.stringify(slug)}: {`);
+		for (const termKey of [...byTermKey.keys()].sort()) {
+			const ast = byTermKey.get(termKey);
 			if (ast === undefined) {
 				continue;
 			}
-			lines.push(`\t\t'${identifier}': (v) => {`);
+			lines.push(`\t\t${JSON.stringify(termKey)}: (v) => {`);
 			lines.push(`\t\t\tconst value = ${generateExpression(ast)};`);
 			lines.push('\t\t\treturn Number.isFinite(value) ? value : null;');
 			lines.push('\t\t},');

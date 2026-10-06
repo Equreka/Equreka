@@ -248,16 +248,49 @@ export const variable = entityBase
 	.strict();
 
 /**
+ * Name a term takes in solutions, the codegen'd solutions module and the
+ * engine slice. Authored only to override the derivation from the term key
+ * (every character outside `[A-Za-z0-9_]` dropped) when it is unreadable or
+ * collides: `[\mathrm{H}^{+}]` derives `mathrmH`, so it declares `cH`.
+ */
+export const identifierName = z
+	.string()
+	.regex(/^[A-Za-z][A-Za-z0-9_]*$/, 'identifier: a letter, then letters, digits or _');
+
+/**
  * `symbol` terms are equation-local unknowns with no wiki entity behind
  * them (the legs of a right triangle): a display label plus an optional
  * unit that fixes their dimension for the build-time consistency check.
  */
 export const equationTerm = z.discriminatedUnion('kind', [
-	z.object({ kind: z.literal('magnitude'), ref: ref('magnitudes') }).strict(),
-	z.object({ kind: z.literal('constant'), ref: ref('constants') }).strict(),
-	z.object({ kind: z.literal('variable'), ref: ref('variables') }).strict(),
 	z
-		.object({ kind: z.literal('symbol'), label: localizedText, unit: ref('units').optional() })
+		.object({
+			kind: z.literal('magnitude'),
+			ref: ref('magnitudes'),
+			identifier: identifierName.optional(),
+		})
+		.strict(),
+	z
+		.object({
+			kind: z.literal('constant'),
+			ref: ref('constants'),
+			identifier: identifierName.optional(),
+		})
+		.strict(),
+	z
+		.object({
+			kind: z.literal('variable'),
+			ref: ref('variables'),
+			identifier: identifierName.optional(),
+		})
+		.strict(),
+	z
+		.object({
+			kind: z.literal('symbol'),
+			label: localizedText,
+			unit: ref('units').optional(),
+			identifier: identifierName.optional(),
+		})
 		.strict(),
 ]);
 

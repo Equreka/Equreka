@@ -4,7 +4,27 @@
  * No Node imports: mobile bundles this file as-is.
  */
 
-const MACRO_RE = /\\(mag|const|var)\{([^{}]*)\}/g;
+/**
+ * The single definition of an annotation macro (`\mag{}`/`\const{}`/`\var{}`):
+ * group 1 is the macro name, group 2 the term key. The key may hold one
+ * level of nested braces (`v_{0}`, `[\mathrm{H}^{+}]`); a deeper key is
+ * rejected by the pipeline instead of being silently unmatched. A factory,
+ * because a shared global RegExp carries `lastIndex` state between callers.
+ */
+export function termMacroPattern(): RegExp {
+	return /\\(mag|const|var)\{((?:[^{}]|\{[^{}]*\})*)\}/g;
+}
+
+/**
+ * Plain identifier of an equation term, shared by the solution grammar,
+ * the codegen'd solutions module, the engine slice and the web's term
+ * highlighting: the authored override, else the key with every character
+ * outside `[A-Za-z0-9_]` dropped (`\pi` → `pi`, `v_{0}` → `v_0`). Validity
+ * (identifier syntax, uniqueness, reserved names) is the pipeline's job.
+ */
+export function termIdentifier(key: string, override?: string): string {
+	return override ?? key.replace(/[^A-Za-z0-9_]/g, '');
+}
 
 const DASH_RE = /[–—−]/g;
 
@@ -50,7 +70,7 @@ export type MathBodies = Record<string, MathBody>;
  * token under downstream parsers instead of fusing with neighbours.
  */
 export function stripMacros(tex: string): string {
-	return tex.replace(MACRO_RE, (_whole, _kind: string, arg: string) => `{${arg}}`);
+	return tex.replace(termMacroPattern(), (_whole, _kind: string, arg: string) => `{${arg}}`);
 }
 
 /**
@@ -59,7 +79,7 @@ export function stripMacros(tex: string): string {
  * would leak into visible text.
  */
 export function stripMacrosToText(text: string): string {
-	return text.replace(MACRO_RE, (_whole, _kind: string, arg: string) => arg);
+	return text.replace(termMacroPattern(), (_whole, _kind: string, arg: string) => arg);
 }
 
 /**
