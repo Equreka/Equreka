@@ -1,9 +1,8 @@
 import { exportEnvelope, type ImportResult, importEnvelope } from '@equreka/core';
 import { type Locale, t } from '@equreka/core/i18n';
 import { useId, useRef, useState } from 'react';
-import { Icon } from '../components/react-icon';
-import { boxArrowInDownIcon, boxArrowUpIcon } from '../lib/icons';
 import { kvLocalStorage } from '../lib/kv-local-storage';
+import { LegacyGlyph } from './legacy-glyph';
 
 export interface FavoritesTransferProps {
 	locale: Locale;
@@ -56,11 +55,11 @@ export default function FavoritesTransfer({ locale }: FavoritesTransferProps) {
 					aria-describedby={noteId}
 					onClick={exportFavorites}
 				>
-					<Icon icon={boxArrowUpIcon} />
+					<LegacyGlyph name="box-arrow-up" />
 					{t(locale, 'favorites.export')}
 				</button>
 				<button type="button" className={buttonClass} onClick={() => fileRef.current?.click()}>
-					<Icon icon={boxArrowInDownIcon} />
+					<LegacyGlyph name="box-arrow-in-down" />
 					{t(locale, 'favorites.import')}
 				</button>
 				<input

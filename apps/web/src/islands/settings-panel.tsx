@@ -1,11 +1,10 @@
 import { type ThemeSetting, useSettings } from '@equreka/core';
 import { LOCALES, type Locale, t } from '@equreka/core/i18n';
 import { type MouseEvent, useId } from 'react';
-import { Icon } from '../components/react-icon';
-import { gearWideIcon, type IconDefinition, moonIcon, sunIcon, translateIcon } from '../lib/icons';
 import { kvLocalStorage } from '../lib/kv-local-storage';
 import { localePath } from '../lib/locale-paths';
 import FavoritesTransfer from './favorites-transfer';
+import { LegacyGlyph, type LegacyGlyphName } from './legacy-glyph';
 
 export interface SettingsPanelProps {
 	locale?: Locale;
@@ -20,10 +19,14 @@ const THEME_LABEL_KEYS = {
 	dark: 'settings.theme.dark',
 } as const;
 
-const THEME_ICONS: Record<ThemeSetting, IconDefinition> = {
-	system: gearWideIcon,
-	light: sunIcon,
-	dark: moonIcon,
+/**
+ * The original's `bi-light`, `bi-dark` and `bi-system` classes, which its
+ * stylesheet pointed at the sun, moon and gear-wide glyphs.
+ */
+const THEME_GLYPHS: Record<ThemeSetting, LegacyGlyphName> = {
+	system: 'gear-wide',
+	light: 'sun',
+	dark: 'moon',
 };
 
 /**
@@ -76,7 +79,7 @@ export default function SettingsPanel({ locale = 'en', version }: SettingsPanelP
 					</h2>
 					<details className="eq-dropdown">
 						<summary className="eq-btn eq-btn-primary eq-dropdown-toggle">
-							<Icon icon={translateIcon} />
+							<LegacyGlyph name="translate" />
 							{t(locale, 'design.legacy.settings.languageChange')}
 						</summary>
 						<ul className="eq-dropdown-menu" aria-labelledby={`${groupId}-language`}>
@@ -114,7 +117,7 @@ export default function SettingsPanel({ locale = 'en', version }: SettingsPanelP
 							aria-haspopup="menu"
 							title={t(locale, 'design.legacy.settings.themeChange')}
 						>
-							<Icon icon={THEME_ICONS[settings.theme]} />
+							<LegacyGlyph name={THEME_GLYPHS[settings.theme]} />
 							{t(locale, 'design.legacy.settings.themeChange')}
 						</summary>
 						<div
@@ -138,7 +141,7 @@ export default function SettingsPanel({ locale = 'en', version }: SettingsPanelP
 										closeMenu(event);
 									}}
 								>
-									<Icon icon={THEME_ICONS[option]} /> {t(locale, THEME_LABEL_KEYS[option])}
+									<LegacyGlyph name={THEME_GLYPHS[option]} /> {t(locale, THEME_LABEL_KEYS[option])}
 								</button>
 							))}
 						</div>

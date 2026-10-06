@@ -510,7 +510,7 @@
 		overflow: hidden;
 		border: 1px solid transparent;
 		color: var(--eq-ink-body);
-		font-size: 1rem;
+		font-size: inherit;
 		line-height: 1.5;
 		text-align: start;
 		text-overflow: ellipsis;
@@ -555,6 +555,13 @@
 		font-size: var(--text-display-math);
 	}
 
+	/**
+	 * The original's backdrop always ran its opacity animation, so it sat on
+	 * its own compositor layer above the in-flow result line, and only the
+	 * positioned exponent painted over it (grayscale antialiased, as every
+	 * layer without an opaque background). `will-change` keeps that layer
+	 * when reduced motion skips the animation; the result area stays in flow.
+	 */
 	.eq-calc-backdrop {
 		position: absolute;
 		inset: 0;
@@ -567,6 +574,7 @@
 		opacity: 0.1;
 		pointer-events: none;
 		user-select: none;
+		will-change: opacity;
 	}
 
 	.eq-calc-backdrop-math {
@@ -596,7 +604,6 @@
 	}
 
 	.eq-calc-result-area {
-		position: relative;
 		box-sizing: border-box;
 		display: grid;
 		grid-template-rows: 1fr auto 1fr;
@@ -635,8 +642,27 @@
 	}
 
 	.eq-calc-result sup {
-		font-size: 0.6em;
+		position: relative;
+		top: -0.5em;
+		font-size: 0.75em;
 		line-height: 0;
+		vertical-align: baseline;
+	}
+
+	.eq-calc-exponent {
+		color: var(--eq-ink-body);
+	}
+
+	/**
+	 * The original's `$green` and `$red` SCSS constants, the same hex in
+	 * both themes (the dark swatches are darker).
+	 */
+	.eq-calc-exponent-sign {
+		color: var(--eq-exp-plus, #1fad1f);
+	}
+
+	.eq-calc-exponent-minus {
+		color: var(--eq-exp-minus, #dd3c3c);
 	}
 
 	.eq-calc-message {
@@ -727,8 +753,8 @@
 		line-height: 1;
 	}
 
-	.eq-calc-round .eq-icon {
-		display: block;
+	.eq-calc-round .eq-glyph {
+		line-height: 0;
 	}
 
 	.eq-tool .eq-calc-submit {
@@ -763,6 +789,21 @@
 
 	.eq-calc-copy-status[data-state="idle"] {
 		opacity: 0;
+	}
+
+	/**
+	 * The original's calculator index cards sat under no type or category
+	 * class, so their shadow took the root `--eqk-color`, hsl(220, 10%, 25%);
+	 * dark cards have no shadow.
+	 */
+	:root[data-theme="light"] .eq-calc-index .eq-card-accent {
+		box-shadow: 0 0.5rem 1.25rem -1rem hsl(220, 10%, 25%);
+	}
+
+	@media (prefers-color-scheme: light) {
+		:root:not([data-theme="dark"]) .eq-calc-index .eq-card-accent {
+			box-shadow: 0 0.5rem 1.25rem -1rem hsl(220, 10%, 25%);
+		}
 	}
 
 	.eq-calc-tables {
@@ -829,9 +870,27 @@
 
 	.eq-fav-summary {
 		justify-content: flex-start;
-		gap: 8.5px;
+		gap: 8px;
 		padding: calc(var(--eq-space-card-pad-y) + 9px) var(--eq-space-card-pad-x) 9px
 			calc(var(--eq-space-card-pad-x) + 1px);
+	}
+
+	/**
+	 * The original drew the chevron as the collapse button's block
+	 * `::before`: one 1rem glyph box, line-height 1, so it never sets the
+	 * header height, widened by the button's 0.5px letter spacing, which
+	 * moves the rotation center. The summary's extra 1px start inset puts the
+	 * rotated glyph on the pixels the original rasterized (measured in both
+	 * shells against the running original).
+	 */
+	.eq-fav-summary .eq-collapse-chevron {
+		font-size: 1rem;
+		letter-spacing: 0.5px;
+		line-height: 1;
+	}
+
+	.eq-fav-summary .eq-collapse-chevron::before {
+		display: block;
 	}
 
 	.eq-fav-panel {
@@ -889,6 +948,15 @@
 		vertical-align: middle;
 	}
 
+	/**
+	 * Bootstrap's `.btn .bi { line-height: 0 }` in the original: the glyph
+	 * adds no line box of its own to the favorites buttons.
+	 */
+	.eq-fav-edit .eq-glyph,
+	.eq-fav-action .eq-glyph {
+		line-height: 0;
+	}
+
 	.eq-fav-tool {
 		margin-right: 0.5rem;
 		border-radius: var(--radius-sm);
@@ -938,8 +1006,18 @@
 		}
 	}
 
+	.eq-search-category > .eq-legacy-abbr {
+		display: inline;
+		min-width: 0;
+		text-align: inherit;
+	}
+
+	/**
+	 * The original's empty message was an `h4`, which kept Bootstrap's
+	 * 0.5rem bottom margin inside the card body.
+	 */
 	.eq-fav-empty p {
-		margin: 0;
+		margin: 0 0 0.5rem;
 		color: var(--eq-ink-body);
 		font-family: var(--font-display);
 		font-size: var(--text-h4);
@@ -1004,12 +1082,6 @@
 
 	.eq-dropdown > summary::-webkit-details-marker {
 		display: none;
-	}
-
-	.eq-search-category > .eq-legacy-abbr {
-		display: inline;
-		min-width: 0;
-		text-align: inherit;
 	}
 
 	.eq-settings .eq-dropdown-toggle {
@@ -1105,8 +1177,12 @@
 			background-color var(--eq-duration) var(--eq-ease);
 	}
 
-	.eq-dropdown-item .eq-icon {
+	.eq-dropdown-item .eq-glyph {
 		margin-right: 0.5rem;
+	}
+
+	.eq-settings .eq-btn .eq-glyph {
+		line-height: 0;
 	}
 
 	.eq-dropdown-item:hover,
@@ -1476,4 +1552,33 @@
 	margin: 0;
 	padding: 0;
 	overflow: visible;
+}
+
+/**
+ * The calculator's term tables are the original's `TableVariables`, the
+ * component the equation page also renders, so they take the same MathJax
+ * metrics the equation page measured: math at the surrounding size and
+ * line-height 0, a zero-width serif run that sets the row's line box, unit
+ * symbols at 1.05em, and no italic correction after an italic letter.
+ */
+.eq-calc-tables .katex {
+	font-size: 1em;
+}
+
+.eq-calc-tables .eq-cell-unit-symbol > .katex {
+	font-size: 1.05em;
+}
+
+.eq-calc-tables .eq-table-data td::before {
+	content: "\200b";
+	font-family: serif;
+}
+
+.eq-calc-tables .eq-table-data td > .katex {
+	line-height: 0;
+}
+
+.eq-calc-tables .katex .mathnormal:not(.mord > :first-child:nth-last-child(2)) {
+	/* biome-ignore lint/complexity/noImportantStyles: KaTeX writes the margin as an inline style */
+	margin-right: 0 !important;
 }

@@ -1,5 +1,5 @@
 ---
-import Icon from './icon.astro';
+import IconGlyph from './icon-glyph.astro';
 
 /**
  * Legacy CardCollapse / CardList on zero-JS `<details open>`: the card
@@ -9,7 +9,8 @@ import Icon from './icon.astro';
  * it, pointing down when open). The "View all" pill sits outside
  * `<summary>` so no link nests inside the disclosure button. `titleId`
  * labels the section when the heading's id is reserved as a fragment
- * target.
+ * target. The chevron and the arrow are glyphs of the legacy icon font,
+ * as the original drew them.
  */
 interface Props {
 	headingId: string;
@@ -47,7 +48,7 @@ const Heading = level === 2 ? 'h2' : 'h3';
 	<div class="eq-card-body">
 		<details open class:list={['eq-collapse', `eq-collapse-${chevron}`]}>
 			<summary>
-				<Icon
+				<IconGlyph
 					name={chevron === 'start' ? 'chevron-right' : 'chevron-left'}
 					class="eq-collapse-chevron"
 				/>
@@ -64,7 +65,7 @@ const Heading = level === 2 ? 'h2' : 'h3';
 			viewAll !== undefined && (
 				<a class="eq-btn eq-btn-sm eq-btn-tint eq-btn-pill eq-view-all" href={viewAll.href}>
 					<span class="eq-view-all-label">{viewAll.label}</span>
-					<Icon name="arrow-right" />
+					<IconGlyph name="arrow-right" />
 				</a>
 			)
 		}

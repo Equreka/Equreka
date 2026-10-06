@@ -1,8 +1,7 @@
 import { useFavorites } from '@equreka/core';
 import { type Locale, t } from '@equreka/core/i18n';
-import { Icon } from '../components/react-icon';
-import { heartFillIcon, heartIcon } from '../lib/icons';
 import { kvLocalStorage } from '../lib/kv-local-storage';
+import { LegacyGlyph } from './legacy-glyph';
 
 export interface FavoriteToggleProps {
 	collection: string;
@@ -11,10 +10,10 @@ export interface FavoriteToggleProps {
 }
 
 /**
- * Heart toggle for one entry-page header. Both glyphs render; CSS shows
- * the filled one when saved or hovered (the legacy preview). Renders
- * unfavorited during SSR (storage is client-only); useSyncExternalStore
- * reconciles on hydration.
+ * Heart toggle for one entry-page header. Both glyphs of the legacy icon
+ * font render; CSS shows the filled one when saved or hovered (the legacy
+ * preview). Renders unfavorited during SSR (storage is client-only);
+ * useSyncExternalStore reconciles on hydration.
  */
 export default function FavoriteToggle({ collection, slug, locale = 'en' }: FavoriteToggleProps) {
 	const { isFavorite, toggle } = useFavorites(kvLocalStorage);
@@ -30,8 +29,8 @@ export default function FavoriteToggle({ collection, slug, locale = 'en' }: Favo
 			className="eq-page-action eq-favorite-toggle"
 			onClick={() => toggle(collection, slug)}
 		>
-			<Icon icon={heartIcon} className="eq-favorite-off" />
-			<Icon icon={heartFillIcon} className="eq-favorite-on" />
+			<LegacyGlyph name="heart" className="eq-favorite-off" />
+			<LegacyGlyph name="heart-fill" className="eq-favorite-on" />
 		</button>
 	);
 }

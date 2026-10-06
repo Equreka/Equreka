@@ -1,0 +1,53 @@
+---
+import { type Locale, t } from '@equreka/core/i18n';
+import { GITHUB_URL } from '../lib/site';
+import IconGlyph from './icon-glyph.astro';
+
+/**
+ * Legacy PageActions for an entry header, in the original's order:
+ * calculator (only when the entry has one), the favorite toggle passed as
+ * the default slot, then download JSON and report, both from md only.
+ * Icons are glyphs of the legacy icon font, as the original drew them.
+ * Download serializes the entry as a data URI, as the original did, so it
+ * needs no route and no request. The original's report page does not exist
+ * in v2, so report opens a prefilled issue in the project repository.
+ */
+interface Props {
+	locale: Locale;
+	collection: string;
+	slug: string;
+	data: object;
+	calculator?: { href: string; label: string } | undefined;
+}
+
+const { locale, collection, slug, data, calculator } = Astro.props;
+const download = `data:application/json;charset=utf-8,${encodeURIComponent(
+	JSON.stringify({ slug, ...data }, null, 2),
+)}`;
+const report = `${GITHUB_URL}/issues/new?title=${encodeURIComponent(`${collection}/${slug}`)}`;
+const downloadLabel = t(locale, 'design.content.actions.download');
+const reportLabel = t(locale, 'design.content.actions.report');
+---
+
+{
+	calculator !== undefined && (
+		<a class="eq-page-action" href={calculator.href} title={calculator.label}>
+			<IconGlyph name="plus-square" />
+			<span class="sr-only">{calculator.label}</span>
+		</a>
+	)
+}
+<slot />
+<a
+	class="eq-page-action eq-page-action-md"
+	href={download}
+	download={`equreka.${collection}.${slug}.json`}
+	title={downloadLabel}
+>
+	<IconGlyph name="cloud-download" />
+	<span class="sr-only">{downloadLabel}</span>
+</a>
+<a class="eq-page-action eq-page-action-md" href={report} title={reportLabel}>
+	<IconGlyph name="flag" />
+	<span class="sr-only">{reportLabel}</span>
+</a>

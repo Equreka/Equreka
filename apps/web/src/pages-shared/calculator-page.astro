@@ -2,7 +2,8 @@
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import { collectionLabel, type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
-import Icon from '../components/icon.astro';
+import EntryActions from '../components/entry-actions.astro';
+import IconGlyph from '../components/icon-glyph.astro';
 import PageHeader from '../components/page-header.astro';
 import CalculatorIsland, {
 	type CalculatorConstant,
@@ -159,18 +160,25 @@ const openEquationLabel = t(locale, 'design.interactive.openEquation');
 >
 	<PageHeader
 		slot="hero"
+		entry
 		label={collectionLabel(locale, 'equations')}
 		labelHref={localePath(locale, '/equations/')}
 		title={name}
 		accent={accentClass}
 	>
-		<Fragment slot="actions">
+		<EntryActions
+			slot="actions"
+			locale={locale}
+			collection="equations"
+			slug={slug}
+			data={entry.data}
+		>
 			<a class="eq-page-action" href={entryPath} title={openEquationLabel}>
-				<Icon name="info-square" />
+				<IconGlyph name="info-square" />
 				<span class="sr-only">{openEquationLabel}</span>
 			</a>
 			<FavoriteToggle client:idle collection="equations" slug={slug} locale={locale} />
-		</Fragment>
+		</EntryActions>
 	</PageHeader>
 	<div class:list={['eq-calc-page', 'eq-data', accentClass]}>
 		<CalculatorIsland
@@ -224,7 +232,7 @@ const openEquationLabel = t(locale, 'design.interactive.openEquation');
 														)}
 													</td>
 													<td
-														class="eq-cell-muted"
+														class="eq-cell-unit-symbol"
 														set:html={
 															unit === undefined
 																? ''

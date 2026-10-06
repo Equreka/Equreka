@@ -81,10 +81,23 @@ export const es: Partial<Record<MessageKey, string>> = {
 		'Un número fijo y bien definido u otro objeto matemático que no varíe. Los términos constante matemática o constante física se utilizan a veces para distinguir este significado.',
 	'design.content.home.type.magnitudes':
 		'Una magnitud física es una cantidad medible de un sistema físico a la que se le pueden asignar distintos valores como resultado de una medición o una relación de medidas. Las magnitudes físicas se miden usando un patrón que tenga bien definida esa magnitud, y tomando como unidad la cantidad de esa propiedad que posea el objeto patrón.',
+	'design.content.home.type.variables':
+		'Una variable es un símbolo que funciona como marcador de posición para expresiones o cantidades que pueden variar o cambiar; se utiliza a menudo para representar el argumento de una función o un elemento arbitrario de un conjunto. Además de los números, las variables se utilizan comúnmente para representar vectores, matrices y funciones.',
 	'design.content.home.type.units':
 		'Una unidad de medida es una cantidad estandarizada de una determinada magnitud física, definida y adoptada por convención o por ley. Cualquier valor de una cantidad física puede expresarse como un múltiplo de la unidad de medida.',
 	'design.content.home.type.prefixes':
 		'Un prefijo de unidad es un especificador o nemotécnico que se antepone a las unidades de medida para indicar múltiplos o fracciones de las unidades. Las unidades de varios tamaños se forman comúnmente mediante el uso de tales prefijos.',
+	'design.content.home.category.universal':
+		'Dentro de la ciencia existen propiedades que se pueden aplicar a diferentes ramas, a esto se le conoce como propiedad universal, por ejemplo las constantes y unidades. En esta categoria puedes encontrarlas todas.',
+	'design.content.home.category.mathematics':
+		"Las matemáticas (del griego: μάθημα, máthēma, 'conocimiento, estudio, aprendizaje') incluyen el estudio de temas como cantidad (teoría de números), estructura (álgebra), espacio (geometría) y cambio (análisis). No tiene una definición generalmente aceptada.",
+	'design.content.home.category.physics':
+		"La física (del griego antiguo: φυσική (ἐπιστήμη), romanizado: physikḗ (epistḗmē), literalmente 'conocimiento de la naturaleza', de φύσις phýsis 'naturaleza') es la ciencia natural que estudia la materia, su movimiento y comportamiento a través del espacio y el tiempo, y las entidades relacionadas de energía y fuerza. La física es una de las disciplinas científicas más fundamentales y su principal objetivo es comprender cómo se comporta el universo.",
+	'design.content.home.category.chemistry':
+		'La química es la disciplina científica involucrada con elementos y compuestos compuestos por átomos, moléculas e iones: su composición, estructura, propiedades, comportamiento y los cambios que experimentan durante una reacción con otras sustancias.',
+	'design.content.entry.relations': 'Relaciones',
+	'design.content.actions.download': 'Descargar archivo json',
+	'design.content.actions.report': 'Reportar un error',
 
 	'collection.categories': 'Categorías',
 	'collection.magnitudes': 'Magnitudes',
@@ -125,7 +138,6 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'table.unit': 'Unidad',
 	'table.factorToBase': 'Factor a la base',
 	'table.value': 'Valor',
-	'table.status': 'Estado',
 	'group.other': 'Otros',
 	'common.sigFigs': '(6 cifras significativas)',
 

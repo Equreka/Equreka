@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import { collectionLabel, type Locale, localizedName, t } from '@equreka/core/i18n';
-import CollapseCard from '../components/collapse-card.astro';
+import ListCard from '../components/list-card.astro';
 import BaseLayout from '../layouts/base-layout.astro';
 import { asEquation } from '../lib/collections';
 import { localePath } from '../lib/locale-paths';
@@ -45,29 +45,21 @@ const groups = [
 		<h1>{t(locale, 'calculator.title')}</h1>
 		<p class="eq-lead">{t(locale, 'design.legacy.calculator.indexLead')}</p>
 	</header>
-	<div class="eq-stack">
+	<div class="eq-stack eq-calc-index">
 		{
 			groups.map((group) => (
-				<CollapseCard
+				<ListCard
 					headingId={group.id}
 					title={group.title}
-					chevron="start"
-					class="eq-card-accent"
+					items={group.entries.map((equation) => ({
+						name: localizedName(equation, locale),
+						href: localePath(locale, `/calculator/${equation.slug}/`),
+					}))}
 					viewAll={{
 						href: localePath(locale, '/equations/'),
 						label: t(locale, 'design.content.viewAll'),
 					}}
-				>
-					<ul class="eq-list">
-						{group.entries.map((equation) => (
-							<li>
-								<a class="eq-list-link" href={localePath(locale, `/calculator/${equation.slug}/`)}>
-									{localizedName(equation, locale)}
-								</a>
-							</li>
-						))}
-					</ul>
-				</CollapseCard>
+				/>
 			))
 		}
 	</div>

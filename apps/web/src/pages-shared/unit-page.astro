@@ -7,6 +7,7 @@ import CodeCard from '../components/code-card.astro';
 import CollapseCard from '../components/collapse-card.astro';
 import DisplayNameSymbol from '../components/display-name-symbol.astro';
 import DraftBadge from '../components/draft-badge.astro';
+import EntryActions from '../components/entry-actions.astro';
 import EntryIdentifiers from '../components/entry-identifiers.astro';
 import PageHeader from '../components/page-header.astro';
 import UnitConversionTable from '../components/unit-conversion-table.astro';
@@ -16,7 +17,7 @@ import FavoriteToggle from '../islands/favorite-toggle';
 import PathContextBar from '../islands/path-context-bar';
 import BaseLayout from '../layouts/base-layout.astro';
 import { asMagnitude, asPrefix, asUnit } from '../lib/collections';
-import { converterMagnitudeOf } from '../lib/entry-meta';
+import { converterMagnitudeOf, isDraft } from '../lib/entry-meta';
 import { localePath } from '../lib/locale-paths';
 import { engineSlice } from '../lib/server/engine-registry';
 import { renderRichTextHtml } from '../lib/tex';
@@ -77,6 +78,8 @@ const description =
 const untranslated =
 	locale !== 'en' &&
 	(pickLocalized(unit.name, locale).untranslated || description?.untranslated === true);
+const converterLabel = t(locale, 'unit.convert', { name: name.toLowerCase() });
+const hasConverter = !unit.nonConvertible && converterMagnitude !== undefined;
 const metaDescription =
 	description === undefined
 		? t(locale, 'meta.unit', { name, symbol: symbolText })
@@ -98,7 +101,16 @@ const metaDescription =
 		title={name}
 		accent="type-units"
 	>
-		<FavoriteToggle slot="actions" client:idle collection="units" slug={slug} locale={locale} />
+		<EntryActions
+			slot="actions"
+			locale={locale}
+			collection="units"
+			slug={slug}
+			data={entry.data}
+			calculator={hasConverter ? { href: '#unit-converter-heading', label: converterLabel } : undefined}
+		>
+			<FavoriteToggle client:idle collection="units" slug={slug} locale={locale} />
+		</EntryActions>
 	</PageHeader>
 	<PathContextBar slot="context" client:idle locale={locale} />
 	<article class="type-units eq-data eq-cards">
@@ -118,7 +130,7 @@ const metaDescription =
 						magnitudes.map((magnitude) => (
 							<a
 								class="eq-badge eq-badge-accent eq-badge-link type-magnitudes"
-								href={localePath(locale, `/converter/?magnitude=${magnitude.slug}`)}
+								href={localePath(locale, `/magnitudes/${magnitude.slug}/`)}
 							>
 								{magnitude.name}
 							</a>
@@ -149,19 +161,6 @@ const metaDescription =
 				)
 			}
 
-			<div class="eq-chip-row">
-				<span class="eq-badge eq-badge-accent">{t(locale, `system.${unit.system}`)}</span>
-				{
-					unit.categories.map((category) => (
-						<span class={`eq-badge eq-badge-accent cat-${category}`}>{category}</span>
-					))
-				}
-				<BranchBadges locale={locale} branches={unit.branches} />
-				{compound && <span class="eq-badge eq-badge-accent">{t(locale, 'badge.compound')}</span>}
-				<UntranslatedBadge locale={locale} show={untranslated} />
-				<DraftBadge locale={locale} status={unit.status} />
-			</div>
-
 			<EntryIdentifiers locale={locale} externalIds={unit.externalIds} />
 		</CollapseCard>
 
@@ -170,11 +169,24 @@ const metaDescription =
 		<CodeCard locale={locale} code={unit.symbol.tex} />
 
 		{
-			!unit.nonConvertible && converterMagnitude !== undefined && (
+			(unit.branches.length > 0 || untranslated || isDraft(unit.status)) && (
 				<CollapseCard
-					headingId="unit-converter-heading"
-					title={t(locale, 'unit.convert', { name: name.toLowerCase() })}
+					headingId="unit-relations-heading"
+					title={t(locale, 'design.content.entry.relations')}
+					class="eq-relations-card"
 				>
+					<div class="eq-chip-row">
+						<BranchBadges locale={locale} branches={unit.branches} />
+						<UntranslatedBadge locale={locale} show={untranslated} />
+						<DraftBadge locale={locale} status={unit.status} />
+					</div>
+				</CollapseCard>
+			)
+		}
+
+		{
+			hasConverter && converterMagnitude !== undefined && (
+				<CollapseCard headingId="unit-converter-heading" title={converterLabel}>
 					<ConverterIsland
 						client:visible
 						initialMagnitude={converterMagnitude}

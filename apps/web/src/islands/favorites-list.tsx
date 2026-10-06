@@ -2,17 +2,16 @@ import type { CatalogLiteEntry } from '@equreka/content/search-options';
 import { useFavorites } from '@equreka/core';
 import { collectionLabel, type Locale, t } from '@equreka/core/i18n';
 import { useEffect, useState } from 'react';
-import { Icon } from '../components/react-icon';
 import {
 	type FavoriteMetaIndex,
 	type FavoriteRow,
 	favoriteKey,
 	shapeFavoriteGroups,
 } from '../lib/favorite-rows';
-import { check2Icon, chevronRightIcon, pencilIcon, plusIcon, xIcon } from '../lib/icons';
 import { kvLocalStorage } from '../lib/kv-local-storage';
 import { collectionAccent } from './collection-accent';
 import { LegacyAbbr } from './legacy-abbr';
+import { LegacyGlyph } from './legacy-glyph';
 
 /**
  * `meta` and `categoryNames` are build-time props from the page (category
@@ -100,7 +99,7 @@ function FavoriteRowView({ row, editing, locale, onRemove }: FavoriteRowViewProp
 						title={toolLabel}
 						aria-label={`${toolLabel}: ${row.name}`}
 					>
-						<Icon icon={plusIcon} />
+						<LegacyGlyph name="plus" />
 					</a>
 				)}
 				{editing && (
@@ -111,7 +110,7 @@ function FavoriteRowView({ row, editing, locale, onRemove }: FavoriteRowViewProp
 						title={t(locale, 'favorites.removeShort')}
 						onClick={() => onRemove(row)}
 					>
-						<Icon icon={xIcon} />
+						<LegacyGlyph name="x" />
 					</button>
 				)}
 			</td>
@@ -171,7 +170,7 @@ export default function FavoritesList({
 				title={editLabel}
 				onClick={() => setEditing((previous) => !previous)}
 			>
-				<Icon icon={editing ? check2Icon : pencilIcon} />
+				<LegacyGlyph name={editing ? 'check2' : 'pencil'} />
 			</button>
 			<div className="eq-fav-body">
 				{groups.length === 0 ? (
@@ -192,7 +191,7 @@ export default function FavoritesList({
 						>
 							<details className="eq-card eq-collapse" open>
 								<summary className="eq-card-body eq-fav-summary">
-									<Icon icon={chevronRightIcon} className="eq-collapse-chevron" />
+									<LegacyGlyph name="chevron-right" className="eq-collapse-chevron" />
 									<h2 className="eq-collapse-title">{collectionLabel(locale, group.collection)}</h2>
 								</summary>
 								<div className="eq-card-body eq-collapse-content eq-fav-panel">

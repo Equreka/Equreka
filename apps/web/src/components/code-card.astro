@@ -1,6 +1,6 @@
 ---
 import { type Locale, t } from '@equreka/core/i18n';
-import Icon from './icon.astro';
+import IconGlyph from './icon-glyph.astro';
 
 /**
  * Legacy entry-page "Code" card: the entry's TeX source in a read-only
@@ -41,7 +41,7 @@ const { locale, code, headingId = 'code-heading' } = Astro.props;
 				data-code-copy
 				title={t(locale, 'design.content.code.copy')}
 			>
-				<Icon name="clipboard" />
+				<IconGlyph name="clipboard" />
 				<span class="eq-code-copy-label">{t(locale, 'design.content.code.copy')}</span>
 			</button>
 		</div>

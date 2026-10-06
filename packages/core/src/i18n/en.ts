@@ -77,11 +77,24 @@ export const en = {
 	'design.content.home.type.constants':
 		'A well-defined, fixed number or other mathematical object that does not vary. The terms mathematical constant or physical constant are sometimes used to distinguish this meaning.',
 	'design.content.home.type.magnitudes':
-		'A physical quantity is a measurable quantity of a physical system to which different values can be assigned as a result of a measurement or a relation of measurements. Physical quantities are measured using a standard that has that quantity well defined, and taking as a unit the amount of that property that the master object possesses.',
+		'A physical quantity is a measurable quantity of a physical system to which different values can be assigned as a result of a measurement or a relation of measurements. Physical quantities are measured using a standard that has that quantity well defined. , and taking as a unit the amount of that property that the master object possesses.',
+	'design.content.home.type.variables':
+		'A variable is a symbol that functions as a placeholder for expressions or quantities that can vary or change; it is often used to represent the argument of a function or an arbitrary element of a set. In addition to numbers, variables are commonly used to represent vectors, matrices, and functions.',
 	'design.content.home.type.units':
 		'A unit of measure is a standardized quantity of a certain physical quantity, defined and adopted by convention or by law. Any value of a physical quantity can be expressed as a multiple of the unit of measure.',
 	'design.content.home.type.prefixes':
 		'A unit prefix is a specifier or mnemonic that is prepended to units of measurement to indicate multiples or fractions of the units. Units of various sizes are commonly formed by the use of such prefixes.',
+	'design.content.home.category.universal':
+		'Within science there are properties that can be applied to different branches, this is known as a universal property, for example constants and units. In this category you can find them all.',
+	'design.content.home.category.mathematics':
+		"Mathematics (from Greek: μάθημα, máthēma, 'knowledge, study, learning') includes the study of such topics as quantity (number theory), structure (algebra), space (geometry) and change (analysis) . It does not have a generally accepted definition.",
+	'design.content.home.category.physics':
+		"Physics (from ancient Greek: φυσική (ἐπιστήμη), romanized: physikḗ (epistḗmē), literally 'knowledge of nature', from φύσις phýsis 'nature') is the natural science that studies matter, its movement and behavior across space and time, and the related entities of energy and force. Physics is one of the most fundamental scientific disciplines and its main objective is to understand how the universe behaves.",
+	'design.content.home.category.chemistry':
+		'Chemistry is the scientific discipline involved with elements and compounds made up of atoms, molecules and ions: their composition, structure, properties, behavior and the changes they undergo during a reaction with other substances.',
+	'design.content.entry.relations': 'Relations',
+	'design.content.actions.download': 'Download json file',
+	'design.content.actions.report': 'Report an error',
 
 	'collection.categories': 'Categories',
 	'collection.magnitudes': 'Magnitudes',
@@ -122,7 +135,6 @@ export const en = {
 	'table.unit': 'Unit',
 	'table.factorToBase': 'Factor to base',
 	'table.value': 'Value',
-	'table.status': 'Status',
 	'group.other': 'Other',
 	'common.sigFigs': '(6 significant figures)',
 

@@ -15,8 +15,8 @@ import BranchBadges from '../components/branch-badges.astro';
 import CodeCard from '../components/code-card.astro';
 import CollapseCard from '../components/collapse-card.astro';
 import DraftBadge from '../components/draft-badge.astro';
+import EntryActions from '../components/entry-actions.astro';
 import EntryIdentifiers from '../components/entry-identifiers.astro';
-import Icon from '../components/icon.astro';
 import MathValue from '../components/math-value.astro';
 import PageHeader from '../components/page-header.astro';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
@@ -25,6 +25,7 @@ import PathContextBar from '../islands/path-context-bar';
 import BaseLayout from '../layouts/base-layout.astro';
 import { asEquation, asVariable } from '../lib/collections';
 import { entryHref } from '../lib/entry-links';
+import { isDraft } from '../lib/entry-meta';
 import { localePath } from '../lib/locale-paths';
 import { engineSlice } from '../lib/server/engine-registry';
 import {
@@ -120,19 +121,15 @@ const termGroups = TERM_GROUPS.map((group) => ({
 })).filter((group) => group.rows.length > 0);
 
 /**
- * Pipeline-emitted equation slice: related units are derived from the
- * terms (never authored — the hand-maintained list drifted) and the
- * description comes pre-split with `raw` math for term cross-highlighting.
+ * Pipeline-emitted equation slice: the description comes pre-split with
+ * `raw` math for term cross-highlighting. The slice's related units are
+ * the term tables' units, which the original listed only in those tables.
  */
 interface EquationPresentation {
-	relatedUnits: string[];
 	descriptionSegments?: LocalizedSegments;
 }
 
 const presentation = (equationsPresentation as Record<string, EquationPresentation>)[slug];
-const relatedUnits = (presentation?.relatedUnits ?? [])
-	.map((unitSlug) => engineSlice.units[unitSlug])
-	.filter((unit) => unit !== undefined);
 
 const description =
 	equation.description === undefined ? undefined : pickLocalized(equation.description, locale);
@@ -178,21 +175,20 @@ const metaDescription =
 		title={name}
 		accent={accent}
 	>
-		<Fragment slot="actions">
-			{
-				equation.calculator.enabled && (
-					<a
-						class="eq-page-action"
-						href={localePath(locale, `/calculator/${slug}/`)}
-						title={t(locale, 'equation.solve')}
-					>
-						<Icon name="plus-square" />
-						<span class="sr-only">{t(locale, 'equation.solve')}</span>
-					</a>
-				)
+		<EntryActions
+			slot="actions"
+			locale={locale}
+			collection="equations"
+			slug={slug}
+			data={entry.data}
+			calculator={
+				equation.calculator.enabled
+					? { href: localePath(locale, `/calculator/${slug}/`), label: t(locale, 'equation.solve') }
+					: undefined
 			}
+		>
 			<FavoriteToggle client:idle collection="equations" slug={slug} locale={locale} />
-		</Fragment>
+		</EntryActions>
 	</PageHeader>
 	<PathContextBar slot="context" client:idle locale={locale} />
 	<article class={`${accent} eq-data eq-cards`}>
@@ -271,41 +267,25 @@ const metaDescription =
 				)
 			}
 
-			<div class="eq-chip-row">
-				<span class="eq-badge eq-badge-accent">{t(locale, `kind.${equation.kind}`)}</span>
-				{
-					equation.categories.map((category) => (
-						<span class={`eq-badge eq-badge-accent cat-${category}`}>{category}</span>
-					))
-				}
-				<BranchBadges locale={locale} branches={equation.branches} />
-				<UntranslatedBadge locale={locale} show={untranslated} />
-				<DraftBadge locale={locale} status={equation.status} />
-			</div>
-
 			<EntryIdentifiers locale={locale} externalIds={equation.externalIds} />
 		</CollapseCard>
 
+		<CodeCard locale={locale} code={codeTex} />
+
 		{
-			relatedUnits.length > 0 && (
-				<CollapseCard headingId="equation-units-heading" title={t(locale, 'equation.relatedUnits')}>
-					<ul class="eq-list">
-						{relatedUnits.map((unit) => (
-							<li>
-								<a class="eq-list-link" href={localePath(locale, `/units/${unit.slug}/`)}>
-									<span
-										class="eq-badge-symbol"
-										set:html={renderSymbolHtml(unit.symbolTex, unit.symbolText)}
-									/>
-									<span class="eq-list-name">{localizedName(unit, locale)}</span>
-								</a>
-							</li>
-						))}
-					</ul>
+			(equation.branches.length > 0 || untranslated || isDraft(equation.status)) && (
+				<CollapseCard
+					headingId="equation-relations-heading"
+					title={t(locale, 'design.content.entry.relations')}
+					class="eq-relations-card"
+				>
+					<div class="eq-chip-row">
+						<BranchBadges locale={locale} branches={equation.branches} />
+						<UntranslatedBadge locale={locale} show={untranslated} />
+						<DraftBadge locale={locale} status={equation.status} />
+					</div>
 				</CollapseCard>
 			)
 		}
-
-		<CodeCard locale={locale} code={codeTex} />
 	</article>
 </BaseLayout>

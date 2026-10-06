@@ -1,5 +1,9 @@
 import { solutions } from '@equreka/content/artifact/solutions.js';
-import { solveInUnits, useCalculatorUnits } from '@equreka/core/hooks/use-calculator-units';
+import {
+	type CalculatorSolution,
+	solveInUnits,
+	useCalculatorUnits,
+} from '@equreka/core/hooks/use-calculator-units';
 import { ENGINE_HINT_CODES, engineMessage, type Locale, t } from '@equreka/core/i18n';
 import { formatSigFigs } from '@equreka/engine/format';
 import type { CompiledEquationMeta } from '@equreka/schema';
@@ -12,16 +16,13 @@ import {
 	useReducer,
 	useState,
 } from 'react';
-import { Icon } from '../components/react-icon';
 import type { ConverterPayload } from '../integrations/equreka-assets';
 import {
 	type CalculatorView,
 	calculatorFormReducer,
-	calculatorResultText,
 	calculatorViewOf,
 	INITIAL_CALCULATOR_FORM,
 	resultOperator,
-	scientificParts,
 } from '../lib/calculator-form';
 import {
 	type CalculatorVariableUnits,
@@ -29,7 +30,8 @@ import {
 	loadConverterPayload,
 } from '../lib/calculator-units';
 import { copyText } from '../lib/clipboard';
-import { arrowClockwiseIcon, clipboardIcon } from '../lib/icons';
+import { toSuperscript } from '../lib/notation';
+import { LegacyGlyph } from './legacy-glyph';
 
 /**
  * One user-facing input, resolved at build from the equation's terms map:
@@ -183,7 +185,7 @@ export default function CalculatorIsland({
 	const copy = (view: CalculatorView) => {
 		if (view.status !== 'solved') return;
 		const symbol = fieldOf(view.solution.symbol)?.symbolText ?? view.solution.symbol;
-		copyText(calculatorResultText(symbol, view.solution, view.unitSymbol)).then(
+		copyText(legacyResultText(symbol, view.solution, view.unitSymbol)).then(
 			(copied) => setCopyStatus(copied ? 'copied' : 'failed'),
 			() => setCopyStatus('failed'),
 		);
@@ -294,7 +296,7 @@ export default function CalculatorIsland({
 									title={resetLabel}
 									onClick={reset}
 								>
-									<Icon icon={arrowClockwiseIcon} />
+									<LegacyGlyph name="arrow-clockwise" />
 								</button>
 							</div>
 							<div className="eq-calc-action-main">
@@ -311,7 +313,7 @@ export default function CalculatorIsland({
 									disabled={view.status !== 'solved'}
 									onClick={() => copy(view)}
 								>
-									<Icon icon={clipboardIcon} />
+									<LegacyGlyph name="clipboard" />
 								</button>
 							</div>
 							<p role="status" className="eq-calc-copy-status" data-state={copyStatus}>
@@ -323,6 +325,51 @@ export default function CalculatorIsland({
 			</div>
 		</div>
 	);
+}
+
+/**
+ * A value split the way the original's `MathValue` printed it.
+ * `exponent` is null when the decimal exponent is 0 (plain digits); its
+ * `sign` is kept, "+" included, because the original printed both signs.
+ */
+export interface LegacyValueParts {
+	mantissa: string;
+	exponent: { sign: '+' | '-'; digits: string } | null;
+}
+
+/**
+ * The original formatted every result through decimal.js with
+ * `toExpPos: 0` and `toExpNeg: 0`: the shortest round-trip digits of the
+ * float64, always in scientific notation, falling back to plain digits
+ * when the exponent is 0. `Number#toExponential()` without an argument
+ * yields exactly those digits.
+ */
+export function legacyValueParts(value: number): LegacyValueParts {
+	if (!Number.isFinite(value)) return { mantissa: String(value), exponent: null };
+	const [mantissa = '', exponent = '+0'] = value.toExponential().split('e');
+	const digits = exponent.slice(1);
+	if (Number(digits) === 0) return { mantissa: String(value), exponent: null };
+	return { mantissa, exponent: { sign: exponent.startsWith('-') ? '-' : '+', digits } };
+}
+
+/**
+ * Plain-text twin of the result card for the clipboard, with the same
+ * digits the card shows; superscript digits keep the exponent readable
+ * once pasted ("m = 2.225300112107237 × 10⁻¹⁷ kg").
+ */
+export function legacyResultText(
+	symbol: string,
+	solution: CalculatorSolution,
+	unitSymbol: string,
+): string {
+	const { mantissa, exponent } = legacyValueParts(solution.value);
+	const value =
+		exponent === null
+			? mantissa
+			: `${mantissa} × 10${toSuperscript(Number(`${exponent.sign}${exponent.digits}`))}`;
+	const parts = [symbol, resultOperator(solution), value];
+	if (unitSymbol !== '') parts.push(unitSymbol);
+	return parts.join(' ');
 }
 
 interface ResultViewProps {
@@ -353,7 +400,7 @@ function ResultView({ view, locale, fieldOf }: ResultViewProps) {
 	}
 	const { solution, unitSymbol } = view;
 	const field = fieldOf(solution.symbol);
-	const { mantissa, exponent } = scientificParts(formatSigFigs(solution.value));
+	const { mantissa, exponent } = legacyValueParts(solution.value);
 	return (
 		<>
 			<p className="eq-calc-result">
@@ -368,13 +415,24 @@ function ResultView({ view, locale, fieldOf }: ResultViewProps) {
 					{mantissa}
 					{exponent === null ? null : (
 						<>
-							×10<sup>{exponent}</sup>
+							<span className="eq-calc-exponent">×10</span>
+							<sup>
+								<span
+									className={
+										exponent.sign === '-'
+											? 'eq-calc-exponent-sign eq-calc-exponent-minus'
+											: 'eq-calc-exponent-sign'
+									}
+								>
+									{exponent.sign}
+								</span>
+								<span>{exponent.digits}</span>
+							</sup>
 						</>
 					)}
 				</span>
 				{unitSymbol === '' ? null : <span>{unitSymbol}</span>}
 			</p>
-			<p className="eq-tool-note">{t(locale, 'common.sigFigs')}</p>
 			{solution.allRoots !== undefined && solution.allRoots.length > 1 && (
 				<p className="eq-tool-note">
 					{t(locale, 'calculator.allRoots', {

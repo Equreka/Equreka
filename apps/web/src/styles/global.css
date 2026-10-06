@@ -32,6 +32,19 @@
 }
 
 /**
+ * The legacy icon web font (bootstrap-icons 1.9.1, the file the original
+ * bundled), drawn through `icon-glyph.astro`. `block` as in the original:
+ * a swap would flash private-use code points as boxes.
+ */
+@font-face {
+	font-family: "bootstrap-icons";
+	font-style: normal;
+	font-weight: 400;
+	font-display: block;
+	src: url("/fonts/bootstrap-icons.woff2") format("woff2");
+}
+
+/**
  * Unlayered floor: engines without cascade layers (Safari before 15.4)
  * drop every layered rule, so legibility (background, ink, family) must not
  * depend on them.
@@ -969,6 +982,21 @@ body {
 			vertical-align: -0.125em;
 		}
 
+		.eq-glyph::before {
+			content: attr(data-glyph);
+			display: inline-block;
+			/* biome-ignore lint/a11y/useGenericFontNames: an icon font has no generic equivalent; any fallback draws private-use code points as boxes */
+			font-family: "bootstrap-icons";
+			font-style: normal;
+			font-weight: normal;
+			font-variant: normal;
+			line-height: 1;
+			text-transform: none;
+			vertical-align: -0.125em;
+			-webkit-font-smoothing: antialiased;
+			-moz-osx-font-smoothing: grayscale;
+		}
+
 		.eq-skip-link {
 			position: absolute;
 			top: -100px;
@@ -1091,6 +1119,7 @@ body {
 			color: var(--eq-ink-body);
 			font-size: 1.5rem;
 			line-height: 1.5;
+			letter-spacing: 0.5px;
 			text-decoration: none;
 			outline: 0;
 			transition:
@@ -1100,9 +1129,9 @@ body {
 				box-shadow 0.15s ease-in-out;
 		}
 
-		.eq-primary-link .eq-icon {
+		.eq-primary-link .eq-glyph {
 			display: block;
-			width: calc(1em + 0.5px);
+			line-height: 0;
 		}
 
 		.eq-primary-link::after {
@@ -1184,6 +1213,14 @@ body {
 				background-image: linear-gradient(transparent, var(--eq-bg) 95%);
 				pointer-events: none;
 			}
+
+			.eq-primary-link .eq-glyph {
+				transform: rotate(0deg);
+			}
+
+			.eq-primary-link[aria-current="page"] .eq-glyph {
+				transform: rotate(360deg);
+			}
 		}
 
 		@media (min-width: 768px) {
@@ -1262,8 +1299,7 @@ body {
 				transition: all 0.35s ease;
 			}
 
-			.eq-primary-link .eq-icon {
-				height: 26px;
+			.eq-primary-link .eq-glyph {
 				margin-bottom: -2px;
 				font-size: 26px;
 			}
@@ -1356,9 +1392,10 @@ body {
 				text-decoration: underline;
 			}
 
-			.eq-footer-social .eq-icon {
+			.eq-footer-social .eq-glyph {
 				display: block;
 				font-size: clamp(0.85rem, 2vw, 1.15rem);
+				line-height: 1;
 			}
 
 			.eq-footer-github:hover,
@@ -1418,12 +1455,8 @@ body {
 				filter: hue-rotate(1turn);
 			}
 
-			.eq-primary-link .eq-icon {
+			.eq-primary-link .eq-glyph {
 				transition: transform 0.35s ease;
-			}
-
-			.eq-primary-link[aria-current="page"] .eq-icon {
-				transform: rotate(360deg);
 			}
 
 			.eq-search-results {

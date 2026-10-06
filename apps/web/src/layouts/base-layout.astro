@@ -3,7 +3,7 @@ import '../styles/global.css';
 import { type Locale, t } from '@equreka/core/i18n';
 import type { ExternalIds } from '@equreka/schema';
 import { tokens } from '@equreka/tokens';
-import Icon from '../components/icon.astro';
+import IconGlyph from '../components/icon-glyph.astro';
 import Logo from '../components/logo.astro';
 import SearchBox from '../islands/search-box';
 import { definedTermJsonLd, serializeJsonLd } from '../lib/entry-meta';
@@ -115,6 +115,13 @@ const isSearchPage = path === localePath(locale, '/search/');
 			type="font/woff2"
 			crossorigin
 		/>
+		<link
+			rel="preload"
+			href="/fonts/bootstrap-icons.woff2"
+			as="font"
+			type="font/woff2"
+			crossorigin
+		/>
 		<link rel="stylesheet" href="/katex/katex.min.css" />
 		<script is:inline defer src="/pwa-register.js"></script>
 		<script is:inline>
@@ -157,7 +164,7 @@ const isSearchPage = path === localePath(locale, '/search/');
 									aria-current={isCurrent(item.href) ? 'page' : undefined}
 								>
 									<span class="sr-only">{t(locale, item.key)}</span>
-									<Icon name={item.icon} />
+									<IconGlyph name={item.icon} />
 								</a>
 							))
 						}
@@ -194,7 +201,7 @@ const isSearchPage = path === localePath(locale, '/search/');
 									rel="noopener nofollow"
 									title={t(locale, social.key)}
 								>
-									<Icon name={social.icon} />
+									<IconGlyph name={social.icon} />
 									<span class="sr-only">{t(locale, social.key)}</span>
 								</a>
 							))

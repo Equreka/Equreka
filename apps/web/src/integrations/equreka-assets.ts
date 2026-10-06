@@ -15,6 +15,14 @@ const requireFromHere = createRequire(import.meta.url);
 const POPPINS_FILES = ['poppins-latin-500-normal.woff2', 'poppins-latin-600-normal.woff2'] as const;
 
 /**
+ * The legacy icon web font, served from public/fonts/ and precached. The
+ * shell draws its icons as glyphs of this font because the original did,
+ * and text rasterization (LCD antialiasing on opaque surfaces) differs
+ * from SVG paths: the parity harness measures 0 diff only with the font.
+ */
+const ICON_FONT_FILE = 'bootstrap-icons.woff2';
+
+/**
  * Locales with runtime payloads — one search index, converter payload,
  * reader payload and paths payload each. Mirrors @equreka/core/i18n LOCALES.
  */
@@ -238,7 +246,7 @@ export function buildConverterPayload(slice: EngineSlice, locale: PayloadLocale)
 
 /**
  * Materializes the static assets the pages and islands fetch at runtime:
- * self-hosted KaTeX CSS + woff2 fonts and the Poppins display faces (no CDN
+ * self-hosted KaTeX CSS + woff2 fonts, the Poppins display faces and the icon font (no CDN
  * per ADR 0002), the per-locale
  * MiniSearch index + catalog-lite shards, the trimmed converter payloads,
  * the offline reader payloads and the learning-path context payloads. Runs
@@ -271,6 +279,10 @@ export function equrekaAssets(): AstroIntegration {
 				for (const font of POPPINS_FILES) {
 					copyFileSync(join(poppinsDir, font), join(fontsOutDir, font));
 				}
+				copyFileSync(
+					requireFromHere.resolve(`bootstrap-icons/font/fonts/${ICON_FONT_FILE}`),
+					join(fontsOutDir, ICON_FONT_FILE),
+				);
 
 				const searchOutDir = join(publicDir, 'search');
 				mkdirSync(searchOutDir, { recursive: true });
@@ -302,7 +314,7 @@ export function equrekaAssets(): AstroIntegration {
 				}
 
 				logger.info(
-					`katex css + ${woff2Fonts.length} woff2 fonts, ${POPPINS_FILES.length} Poppins faces, ${LOCALES.length}-locale search index, converter + reader + paths payloads (${payloadBytes} bytes)`,
+					`katex css + ${woff2Fonts.length} woff2 fonts, ${POPPINS_FILES.length} Poppins faces, icon font, ${LOCALES.length}-locale search index, converter + reader + paths payloads (${payloadBytes} bytes)`,
 				);
 			},
 		},

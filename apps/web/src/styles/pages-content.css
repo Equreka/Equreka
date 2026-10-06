@@ -21,10 +21,6 @@
 	font-size: 1em;
 }
 
-.eq-cards .eq-cell-unit-symbol > .katex {
-	font-size: 1.05em;
-}
-
 /**
  * In prose the original's MathJax matched the body font's x-height
  * (measured: 1.131em, every number and symbol width equal) and set the
@@ -36,26 +32,163 @@
 }
 
 /**
- * The original's display expression box was 0.976em tall for ordinary
- * expressions (measured at 20px and 38.4px); taller math still grows it,
- * centered as MathJax centered it.
+ * MathJax padded every inline math box 1px above and below (`mjx-math`),
+ * so a fraction in prose grows its line by that much more than its glyphs.
+ */
+.eq-cards .eq-prose .katex-base {
+	padding-block: 1px;
+}
+
+/**
+ * MathJax set a fraction 0.22em from its neighbors on each side (measured
+ * at 18.096px); KaTeX's null delimiters give 0.12em.
+ */
+.eq-cards .eq-prose .katex .mfrac {
+	padding-inline: 0.1em;
+}
+
+/**
+ * MathJax set scripts, numerators and denominators at 0.707 of the base
+ * size (measured 12.7939px at 18.096px), KaTeX at 0.7.
+ */
+.eq-cards .katex .katex-sizing.reset-size6.size3 {
+	font-size: 0.707em;
+}
+
+/**
+ * MathJax drew an italic letter at its font's full advance (measured per
+ * letter at 100px); KaTeX draws a narrower glyph plus its italic
+ * correction as an inline right margin. Lowercase letters and B, D, O, R
+ * need no gap, the other capitals and a few Greek letters part of KaTeX's
+ * (E: 0.764em against 0.738em + 0.0576em). The margin's value names the
+ * glyph group, so the gap is re-set per value; a value shared by several
+ * letters takes the commoner one's (I over X) or their mean (within
+ * 0.014em). A script base (first of exactly two children, the second its
+ * scripts) keeps KaTeX's margin: MathJax dropped the correction there and
+ * KaTeX pulls the subscript back by it, which lands where MathJax set it.
+ */
+.eq-cards .katex .mathnormal:not(.mord > :first-child:nth-last-child(2)) {
+	/* biome-ignore lint/complexity/noImportantStyles: KaTeX writes the margin as an inline style */
+	margin-right: var(--eq-math-italic-gap, 0) !important;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.0556em"] {
+	--eq-math-italic-gap: 0.0248em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.0576em"] {
+	--eq-math-italic-gap: 0.029em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.0637em"] {
+	--eq-math-italic-gap: 0.0359em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.0715em"] {
+	--eq-math-italic-gap: 0.0415em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.0738em"] {
+	--eq-math-italic-gap: 0.0329em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.0785em"] {
+	--eq-math-italic-gap: 0.0639em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.0813em"] {
+	--eq-math-italic-gap: 0.0569em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.0962em"] {
+	--eq-math-italic-gap: 0.078em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.1076em"] {
+	--eq-math-italic-gap: 0.06em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.109em"] {
+	--eq-math-italic-gap: 0.083em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.1132em"] {
+	--eq-math-italic-gap: 0.08em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.1389em"] {
+	--eq-math-italic-gap: 0.1096em;
+}
+
+.eq-cards .katex .mathnormal[style*="margin-right:0.2222em"] {
+	--eq-math-italic-gap: 0.184em;
+}
+
+/**
+ * MathJax set a script flush against what follows (measured: the `)`
+ * after `c^{2}` starts where the 2 ends); KaTeX adds its 0.05em
+ * script space as an inline margin.
+ */
+.eq-cards .katex .msupsub .vlist > span[style*="margin-right:0.05em"] {
+	/* biome-ignore lint/complexity/noImportantStyles: KaTeX writes the margin as an inline style */
+	margin-right: 0 !important;
+}
+
+/**
+ * The original's display equation sat in a serif `.math` span, and
+ * MathJax matched that font's x-height: glyphs at 1.012em (measured
+ * 38.8608px at 38.4px), as in the name-symbol block.
+ */
+.eq-cards .eq-display-card .katex-display > .katex {
+	font-size: 1.012em;
+}
+
+/**
+ * The original's display expression box for ordinary expressions,
+ * measured 19.52px at 20px and 37.52px at 38.4px; taller math still grows
+ * it, centered as MathJax centered it.
  */
 .eq-display-card .katex-display {
 	display: grid;
 	align-items: center;
-	min-height: 0.976em;
+	min-height: calc(0.9783em - 0.05px);
 	margin: 0;
 	padding-block: 0;
 }
 
 /**
- * A MathJax symbol in a table cell grew the cell's line box by 1px below
- * the text strut; the inline-block keeps the glyph where it sits and
- * reproduces that row height.
+ * The original wrapped the math of every row in a serif `.math` span at the
+ * table's line height, and the serif's half-leading grew each row's line
+ * box (25px at 16px). A zero-width serif run reproduces that box whatever
+ * the glyphs; the math itself adds no height.
  */
-.eq-cards .eq-table-data td > .katex {
-	display: inline-block;
-	padding-bottom: 1.3px;
+.eq-cards .eq-table-data td::before {
+	content: "\200b";
+	font-family: serif;
+}
+
+/**
+ * Table math sat in the original's serif `.math` span, and MathJax
+ * matched that font's x-height: glyphs at 1.011em (measured 16.176px at
+ * 16px), in a box padded 1px per side, which grows a row only when its
+ * math is taller than the line (a power of ten: 42.078px rows).
+ */
+.eq-cards .eq-table-data td .katex {
+	font-size: 1.011em;
+	line-height: 0;
+}
+
+.eq-cards .eq-table-data td .katex-base {
+	padding-block: 1px;
+}
+
+/**
+ * MathJax's box for a power of ten (`×10^{±n}`) reached 4.25px above
+ * KaTeX's strut at 16.176px, so the original's prefix rows were 41.95px
+ * tall against 41px; the ink sits at the same height in both.
+ */
+.eq-cards .eq-table-data td > .eq-math-value .katex-base {
+	padding-top: 0.3243em;
 }
 
 .eq-badge-symbol .katex,
@@ -63,8 +196,28 @@
 	line-height: 0;
 }
 
+/**
+ * The original's display card wrapped math in a serif `.math` span, and
+ * MathJax matched that font's x-height: glyphs at 1.012em (measured
+ * 38.8608px at 38.4px), which sets the name-symbol block's height.
+ */
+.eq-cards .eq-display-block > .katex {
+	font-size: 1.012em;
+}
+
 .eq-badge-symbol > .katex {
 	padding-block: 1.15px;
+}
+
+/**
+ * In a symbol badge MathJax matched the serif's x-height at 16px: glyphs
+ * at 1.011em (measured 16.176px) in a box padded 1px per side. KaTeX's
+ * strut omits the glyph depth MathJax counted, so 1.087px keeps the badge
+ * 26.578px tall around `k`, as measured in the original.
+ */
+.eq-cards .eq-badge-symbol > .katex {
+	font-size: 1.011em;
+	padding-block: 1.087px;
 }
 
 @layer components {
@@ -104,6 +257,7 @@
 		border-radius: 99rem;
 		color: inherit;
 		font-size: clamp(1.15rem, 2vw, 1.35rem);
+		letter-spacing: var(--tracking-button);
 		line-height: 1;
 		text-decoration: none;
 		transition:
@@ -120,12 +274,26 @@
 	}
 
 	/**
-	 * The original's icon-font glyph box was 1.11em tall and 1.136em wide
-	 * around a 1em glyph; the inline SVG is exactly 1em, so the margin
-	 * restores the measured round-button size.
+	 * The original's `.btn .bi` glyph box: line-height 0 around the 1em
+	 * glyph, widened by the button's 0.5px letter spacing (measured 22.11 x
+	 * 21.59px at 21.6px), inside the button's 1px transparent border.
 	 */
-	.eq-page-actions .eq-icon {
-		margin: 0.055em 0.068em;
+	.eq-page-action .eq-glyph {
+		line-height: 0;
+	}
+
+	.eq-page-actions .eq-page-action {
+		border: 1px solid transparent;
+	}
+
+	.eq-page-actions .eq-page-action-md {
+		display: none;
+	}
+
+	@media (min-width: 768px) {
+		.eq-page-actions .eq-page-action-md {
+			display: inline-flex;
+		}
 	}
 
 	.eq-accent-panel :focus-visible {
@@ -183,6 +351,14 @@
 
 	.eq-collapse-card .eq-collapse-chevron {
 		font-size: 1rem;
+	}
+
+	/**
+	 * The original drew the chevron as the summary button's block
+	 * `::before`, one line-height-1 glyph box tall.
+	 */
+	.eq-collapse-card .eq-collapse-chevron::before {
+		display: block;
 	}
 
 	.eq-collapse-start > summary .eq-collapse-chevron {
@@ -250,11 +426,12 @@
 		transform: scaleX(1);
 	}
 
-	.eq-view-all .eq-icon {
+	.eq-view-all .eq-glyph {
+		line-height: 0;
 		transition: margin var(--eq-duration) var(--eq-ease);
 	}
 
-	.eq-view-all:hover .eq-icon {
+	.eq-view-all:hover .eq-glyph {
 		margin-right: 0.5rem;
 	}
 
@@ -563,22 +740,17 @@
 		background-color: hsla(var(--eq-accent-hsl), 0.15);
 	}
 
-	/**
-	 * The original styled the math inside a cell, not the cell: the cell
-	 * keeps the table's body color and size, so the row height and every
-	 * cell's computed style match.
-	 */
-	.eq-cell-symbol > * {
+	.eq-calc-tables .eq-cell-symbol > * {
 		color: var(--eq-ink);
 		font-weight: 600;
 	}
 
-	.eq-table-data tbody tr:hover > .eq-cell-symbol > *,
-	.eq-table-data tbody tr.term-hl > .eq-cell-symbol > * {
+	.eq-calc-tables .eq-table-data tbody tr:hover > .eq-cell-symbol > *,
+	.eq-calc-tables .eq-table-data tbody tr.term-hl > .eq-cell-symbol > * {
 		color: var(--eq-term, var(--eq-accent));
 	}
 
-	.eq-cell-unit-symbol > * {
+	.eq-calc-tables .eq-cell-unit-symbol > * {
 		color: var(--eq-accent-fill);
 	}
 
@@ -639,6 +811,15 @@
 		align-items: center;
 	}
 
+	/**
+	 * The original's centering spacers were also 1rem tall, so a display
+	 * expression shorter than 1rem left the card body 1rem tall.
+	 */
+	.eq-display-card .eq-display-math::before,
+	.eq-display-card .eq-display-math::after {
+		min-height: 1rem;
+	}
+
 	.eq-display-block {
 		line-height: 0;
 	}
@@ -648,11 +829,12 @@
 	}
 
 	/**
-	 * The original's exponent grew the value's line box to 1.575em (31.5px
-	 * at 20px, 60.5px at 38.4px), which set the constant card's height.
+	 * The original's exponent grew the value's line box past the serif
+	 * strut (measured 31.47px at 20px, 60.17px at 38.4px), which set the
+	 * constant card's height.
 	 */
 	.eq-display-card .eq-display-value {
-		line-height: 1.575;
+		line-height: calc(1.5599em + 0.27px);
 	}
 
 	.eq-display-text {
@@ -679,7 +861,7 @@
 	}
 
 	.eq-display-unit {
-		color: var(--eq-accent-fill);
+		color: inherit;
 		text-decoration: none;
 	}
 
@@ -724,8 +906,12 @@
 		display: none;
 	}
 
+	.eq-code-copy .eq-glyph {
+		line-height: 0;
+	}
+
 	@media (min-width: 768px) {
-		.eq-code-copy .eq-icon {
+		.eq-code-copy .eq-glyph {
 			margin-right: 1rem;
 		}
 

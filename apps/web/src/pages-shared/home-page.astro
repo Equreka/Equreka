@@ -1,6 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
-import { type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
+import { type Locale, localizedName, type MessageKey, pickLocalized, t } from '@equreka/core/i18n';
 import SearchBox from '../islands/search-box';
 import BaseLayout from '../layouts/base-layout.astro';
 import { asCategory } from '../lib/collections';
@@ -12,15 +12,41 @@ interface Props {
 
 const { locale = 'en' } = Astro.props;
 
+/**
+ * The original's category cards printed UI-catalog leads, not the content
+ * description, so the four legacy categories keep that wording; any other
+ * category falls back to its content description.
+ */
+const LEGACY_CATEGORY_LEADS: Readonly<Record<string, MessageKey>> = {
+	universal: 'design.content.home.category.universal',
+	mathematics: 'design.content.home.category.mathematics',
+	physics: 'design.content.home.category.physics',
+	chemistry: 'design.content.home.category.chemistry',
+};
+
 const categories = (await getCollection('categories'))
-	.map((entry) => ({ slug: entry.id, ...asCategory(entry.data) }))
+	.map((entry) => {
+		const category = asCategory(entry.data);
+		const leadKey = LEGACY_CATEGORY_LEADS[entry.id];
+		return {
+			slug: entry.id,
+			order: category.order,
+			name: localizedName(category, locale),
+			lead:
+				leadKey !== undefined
+					? t(locale, leadKey)
+					: category.description === undefined
+						? undefined
+						: pickLocalized(category.description, locale).value,
+		};
+	})
 	.sort((a, b) => a.order - b.order);
 
 /**
  * The original's types view: its type order and encyclopedic leads.
- * Formulas share the equations collection, so that card opens the
- * equations list; variables have no list page in this app and no card.
- * The v2-only destinations follow the original types.
+ * Formulas share the equations collection and variables have no list page
+ * in this app (they live as equation terms), so both cards open the
+ * equations list. The v2-only destinations follow the original types.
  */
 const collectionCards = [
 	{
@@ -46,6 +72,12 @@ const collectionCards = [
 		description: t(locale, 'design.content.home.type.magnitudes'),
 		href: '/magnitudes/',
 		accent: 'type-magnitudes',
+	},
+	{
+		title: t(locale, 'collection.variables'),
+		description: t(locale, 'design.content.home.type.variables'),
+		href: '/equations/',
+		accent: 'type-variables',
 	},
 	{
 		title: t(locale, 'collection.units'),
@@ -132,12 +164,8 @@ const collectionCards = [
 							class={`eq-home-card eq-accent-panel cat-${category.slug}`}
 						>
 							<div class="eq-home-card-body">
-								<h3 class="eq-home-card-title">{localizedName(category, locale)}</h3>
-								{category.description !== undefined && (
-									<p class="eq-home-card-text">
-										{pickLocalized(category.description, locale).value}
-									</p>
-								)}
+								<h3 class="eq-home-card-title">{category.name}</h3>
+								{category.lead !== undefined && <p class="eq-home-card-text">{category.lead}</p>}
 							</div>
 						</a>
 					</li>

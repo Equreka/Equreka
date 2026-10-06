@@ -7,6 +7,7 @@ import BranchBadges from '../components/branch-badges.astro';
 import CodeCard from '../components/code-card.astro';
 import CollapseCard from '../components/collapse-card.astro';
 import DraftBadge from '../components/draft-badge.astro';
+import EntryActions from '../components/entry-actions.astro';
 import EntryIdentifiers from '../components/entry-identifiers.astro';
 import MathValue from '../components/math-value.astro';
 import PageHeader from '../components/page-header.astro';
@@ -15,6 +16,7 @@ import FavoriteToggle from '../islands/favorite-toggle';
 import PathContextBar from '../islands/path-context-bar';
 import BaseLayout from '../layouts/base-layout.astro';
 import { asConstant } from '../lib/collections';
+import { isDraft } from '../lib/entry-meta';
 import { localePath } from '../lib/locale-paths';
 import { formatFullPrecision } from '../lib/notation';
 import { engineSlice } from '../lib/server/engine-registry';
@@ -76,7 +78,15 @@ const metaDescription =
 		title={name}
 		accent="type-constants"
 	>
-		<FavoriteToggle slot="actions" client:idle collection="constants" slug={slug} locale={locale} />
+		<EntryActions
+			slot="actions"
+			locale={locale}
+			collection="constants"
+			slug={slug}
+			data={entry.data}
+		>
+			<FavoriteToggle client:idle collection="constants" slug={slug} locale={locale} />
+		</EntryActions>
 	</PageHeader>
 	<PathContextBar slot="context" client:idle locale={locale} />
 	<article class="type-constants eq-data eq-cards">
@@ -176,31 +186,25 @@ const metaDescription =
 				)
 			}
 
-			<div class="eq-chip-row">
-				<span class="eq-badge eq-badge-accent">{t(locale, 'term.constant')}</span>
-				<span class:list={['eq-badge eq-badge-accent', !constant.exact && 'sw-blue']}>
-					{constant.exact ? t(locale, 'badge.exact') : t(locale, 'badge.measured')}
-				</span>
-				{
-					constant.categories.map((category) => (
-						<span class={`eq-badge eq-badge-accent cat-${category}`}>{category}</span>
-					))
-				}
-				<BranchBadges locale={locale} branches={constant.branches} />
-				<UntranslatedBadge locale={locale} show={untranslated} />
-				<DraftBadge locale={locale} status={constant.status} />
-			</div>
-
-			<dl class="eq-definitions">
-				<dt>{t(locale, 'table.status')}</dt>
-				<dd class="eq-definition-muted">
-					{constant.exact ? t(locale, 'constant.statusExact') : t(locale, 'constant.statusMeasured')}
-				</dd>
-			</dl>
-
 			<EntryIdentifiers locale={locale} externalIds={constant.externalIds} />
 		</CollapseCard>
 
 		<CodeCard locale={locale} code={constant.symbol.tex} />
+
+		{
+			(constant.branches.length > 0 || untranslated || isDraft(constant.status)) && (
+				<CollapseCard
+					headingId="constant-relations-heading"
+					title={t(locale, 'design.content.entry.relations')}
+					class="eq-relations-card"
+				>
+					<div class="eq-chip-row">
+						<BranchBadges locale={locale} branches={constant.branches} />
+						<UntranslatedBadge locale={locale} show={untranslated} />
+						<DraftBadge locale={locale} status={constant.status} />
+					</div>
+				</CollapseCard>
+			)
+		}
 	</article>
 </BaseLayout>

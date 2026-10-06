@@ -9,6 +9,7 @@ import CodeCard from '../components/code-card.astro';
 import CollapseCard from '../components/collapse-card.astro';
 import DisplayNameSymbol from '../components/display-name-symbol.astro';
 import DraftBadge from '../components/draft-badge.astro';
+import EntryActions from '../components/entry-actions.astro';
 import EntryIdentifiers from '../components/entry-identifiers.astro';
 import PageHeader from '../components/page-header.astro';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
@@ -97,7 +98,15 @@ const metaDescription =
 		title={name}
 		accent="type-magnitudes"
 	>
-		<FavoriteToggle slot="actions" client:idle collection="magnitudes" slug={slug} locale={locale} />
+		<EntryActions
+			slot="actions"
+			locale={locale}
+			collection="magnitudes"
+			slug={slug}
+			data={entry.data}
+		>
+			<FavoriteToggle client:idle collection="magnitudes" slug={slug} locale={locale} />
+		</EntryActions>
 	</PageHeader>
 	<PathContextBar slot="context" client:idle locale={locale} />
 	<article class="type-magnitudes eq-data eq-cards">
@@ -130,64 +139,6 @@ const metaDescription =
 			{
 				description !== undefined && (
 					<div class="eq-prose" set:html={renderRichTextHtml(description.value)} />
-				)
-			}
-
-			<div class="eq-chip-row">
-				<span class="eq-badge eq-badge-accent">{t(locale, 'term.magnitude')}</span>
-				{
-					magnitude.categories.map((category) => (
-						<span class={`eq-badge eq-badge-accent cat-${category}`}>{category}</span>
-					))
-				}
-				<BranchBadges locale={locale} branches={magnitude.branches} />
-				{
-					dimensionText === '' && (
-						<span class="eq-badge eq-badge-accent">{t(locale, 'badge.dimensionless')}</span>
-					)
-				}
-				<UntranslatedBadge locale={locale} show={untranslated} />
-				<DraftBadge locale={locale} status={magnitude.status} />
-			</div>
-
-			{
-				(dimensionText !== '' || kindRows.length > 0 || magnitude.nonNegative === true) && (
-					<dl class="eq-definitions">
-						{
-							dimensionText !== '' && (
-								<>
-									<dt>{t(locale, 'table.dimension')}</dt>
-									<dd class="eq-display-text">{dimensionText}</dd>
-								</>
-							)
-						}
-						{
-							kindRows.map((row) => (
-								<>
-									<dt>{row.label}</dt>
-									<dd>
-										{row.links.map((link, index) => (
-											<>
-												{index > 0 && ', '}
-												<a class="eq-link" href={link.href}>
-													{link.name}
-												</a>
-											</>
-										))}
-										{row.hint !== '' && <p class="eq-definition-hint">{row.hint}</p>}
-									</dd>
-								</>
-							))
-						}
-						{
-							magnitude.nonNegative === true && (
-								<>
-									<dt>{t(locale, 'magnitude.sign')}</dt>
-									<dd class="eq-definition-muted">{t(locale, 'magnitude.nonNegative')}</dd>
-								</>
-							)
-						}
-					</dl>
 				)
 			}
 
@@ -247,5 +198,63 @@ const metaDescription =
 		}
 
 		<CodeCard locale={locale} code={magnitude.symbol.tex} />
+
+		<CollapseCard
+			headingId="magnitude-relations-heading"
+			title={t(locale, 'design.content.entry.relations')}
+			class="eq-relations-card"
+		>
+			<div class="eq-chip-row">
+				<BranchBadges locale={locale} branches={magnitude.branches} />
+				{
+					dimensionText === '' && (
+						<span class="eq-badge eq-badge-accent">{t(locale, 'badge.dimensionless')}</span>
+					)
+				}
+				<UntranslatedBadge locale={locale} show={untranslated} />
+				<DraftBadge locale={locale} status={magnitude.status} />
+			</div>
+
+			{
+				(dimensionText !== '' || kindRows.length > 0 || magnitude.nonNegative === true) && (
+					<dl class="eq-definitions">
+						{
+							dimensionText !== '' && (
+								<>
+									<dt>{t(locale, 'table.dimension')}</dt>
+									<dd class="eq-display-text">{dimensionText}</dd>
+								</>
+							)
+						}
+						{
+							kindRows.map((row) => (
+								<>
+									<dt>{row.label}</dt>
+									<dd>
+										{row.links.map((link, index) => (
+											<>
+												{index > 0 && ', '}
+												<a class="eq-link" href={link.href}>
+													{link.name}
+												</a>
+											</>
+										))}
+										{row.hint !== '' && <p class="eq-definition-hint">{row.hint}</p>}
+									</dd>
+								</>
+							))
+						}
+						{
+							magnitude.nonNegative === true && (
+								<>
+									<dt>{t(locale, 'magnitude.sign')}</dt>
+									<dd class="eq-definition-muted">{t(locale, 'magnitude.nonNegative')}</dd>
+								</>
+							)
+						}
+					</dl>
+				)
+			}
+		</CollapseCard>
 	</article>
 </BaseLayout>

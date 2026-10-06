@@ -1,0 +1,25 @@
+---
+import codepoints from 'bootstrap-icons/font/bootstrap-icons.json';
+import type { IconName } from '../lib/icons';
+
+/**
+ * A bootstrap-icons glyph drawn from the legacy icon web font, as the
+ * original drew every `bi` icon. The shell uses it instead of `icon.astro`
+ * because a font glyph rasterizes as text (LCD antialiasing on opaque
+ * surfaces, text pixel snapping), which an SVG path cannot reproduce.
+ * The code point comes from the package that ships the font, so the two
+ * cannot drift. Always decorative: the owning control carries the label.
+ */
+interface Props {
+	name: IconName;
+	class?: string;
+}
+
+const { name, class: className } = Astro.props;
+---
+
+<i
+	class:list={['eq-glyph', className]}
+	data-glyph={String.fromCodePoint(codepoints[name])}
+	aria-hidden="true"
+></i>
