@@ -14,7 +14,7 @@ import {
 } from '@equreka/schema';
 import MiniSearch from 'minisearch';
 import { z } from 'zod';
-import { canonicalTex, splitLocalizedText } from '../rich-text.js';
+import { canonicalTex, splitLocalizedText, termIdentifier } from '../rich-text.js';
 import {
 	type CatalogLiteEntry,
 	SEARCH_LOCALES,
@@ -22,12 +22,13 @@ import {
 	type SearchLocale,
 	searchOptions,
 } from '../search-options.js';
+import type { SolutionAst } from '../solution-grammar.js';
+import { calculatorTargets } from './integrity.js';
 import type { MathArtifact } from './math-artifact.js';
 import { presentationSteps } from './path-targets.js';
 import { deriveRelatedUnits } from './related-units.js';
 import type { ResolvedUnit } from './resolve.js';
 import { generateSolutionsModule } from './solution-codegen.js';
-import type { SolutionAst } from './solution-parser.js';
 import type { EquationVerification } from './solution-verify.js';
 import { stableStringify } from './stable-json.js';
 import { stripTexForSearch, symbolText } from './tex.js';
@@ -96,7 +97,7 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 	}
 	write('engine.json', `${stableStringify(slice)}\n`, ENGINE_BUDGET_BYTES);
 
-	const solutionAsts = new Map<string, ReadonlyMap<string, SolutionAst>>();
+	const solutionAsts = new Map<string, ReadonlyMap<string, readonly SolutionAst[]>>();
 	for (const [slug, verification] of input.verifications) {
 		solutionAsts.set(slug, verification.asts);
 	}
@@ -193,7 +194,7 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 }
 
 function buildEngineSlice(input: EmitInput): EngineSlice {
-	const { corpus, resolved, verifications } = input;
+	const { corpus, resolved } = input;
 	const slice: EngineSlice = {
 		schemaVersion: SCHEMA_VERSION,
 		contentHash: input.contentHash,
@@ -255,12 +256,11 @@ function buildEngineSlice(input: EmitInput): EngineSlice {
 		};
 	}
 	for (const [slug, equation] of corpus.equations) {
-		const identifierByTermKey = verifications.get(slug)?.identifierByTermKey ?? {};
 		const terms: EngineSlice['equations'][string]['terms'] = {};
 		for (const [key, term] of Object.entries(equation.terms)) {
 			const compiled: CompiledEquationTerm = {
 				kind: term.kind,
-				identifier: identifierByTermKey[key] ?? key,
+				identifier: termIdentifier(key, term.identifier),
 			};
 			if (term.kind === 'symbol') {
 				compiled.label = term.label;
@@ -270,6 +270,12 @@ function buildEngineSlice(input: EmitInput): EngineSlice {
 			} else {
 				compiled.ref = term.ref;
 			}
+			if (term.kind !== 'constant' && term.integer) {
+				compiled.integer = true;
+			}
+			if (term.kind !== 'constant' && term.delta) {
+				compiled.delta = true;
+			}
 			terms[key] = compiled;
 		}
 		slice.equations[slug] = {
@@ -278,7 +284,9 @@ function buildEngineSlice(input: EmitInput): EngineSlice {
 			name: equation.name,
 			calculatorEnabled: equation.calculator.enabled,
 			terms,
-			solvable: Object.keys(equation.solutions).sort(),
+			solvable: calculatorTargets(equation)
+				.filter((key) => equation.solutions[key] !== undefined)
+				.sort(),
 		};
 	}
 	return slice;

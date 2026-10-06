@@ -1,5 +1,15 @@
 import { describe, expect, it } from 'vitest';
-import { type Catalogs, en, engineMessage, es, pickLocalized, t, tParts } from '../i18n/index';
+import {
+	type Catalogs,
+	ENGINE_HINT_CODES,
+	en,
+	engineErrorMessage,
+	engineMessage,
+	es,
+	pickLocalized,
+	t,
+	tParts,
+} from '../i18n/index';
 
 describe('t', () => {
 	it('returns the localized string when the locale catalog has the key', () => {
@@ -50,6 +60,41 @@ describe('engineMessage', () => {
 		expect(engineMessage('es', 'solve/no-real-solution')).toBe(
 			'No existe una solución real para estos valores.',
 		);
+	});
+});
+
+describe('engineErrorMessage', () => {
+	const termName = (key: string) => (key === '\\theta' ? 'θ' : key);
+
+	it('names the terms to fill and the ones that may stay empty', () => {
+		const error = {
+			code: 'inputs/required' as const,
+			message: 'no solution for unfilled terms: k',
+			details: { keys: ['k', '\\theta'], solvable: ['C'] },
+		};
+		expect(engineErrorMessage('en', error, termName)).toBe(
+			'Fill in k, θ. The field to leave empty must be one of: C.',
+		);
+		expect(engineErrorMessage('es', error, termName)).toBe(
+			'Llena k, θ. El campo que dejes vacío debe ser uno de estos: C.',
+		);
+		expect(ENGINE_HINT_CODES.has('inputs/required')).toBe(true);
+	});
+
+	it('names an integer term given a fraction, as an alert', () => {
+		const error = {
+			code: 'inputs/not-integer' as const,
+			message: 'non-integer input for: n',
+			details: { keys: ['n'] },
+		};
+		expect(engineErrorMessage('en', error, termName)).toBe('Enter a whole number for n.');
+		expect(ENGINE_HINT_CODES.has('inputs/not-integer')).toBe(false);
+	});
+
+	it('reads like engineMessage for codes without term parameters', () => {
+		expect(
+			engineErrorMessage('es', { code: 'solve/domain', message: 'out of domain' }, termName),
+		).toBe(engineMessage('es', 'solve/domain'));
 	});
 });
 

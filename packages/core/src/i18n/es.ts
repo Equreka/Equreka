@@ -234,6 +234,8 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'calculator.leadLink': 'referencia de la ecuación',
 	'calculator.leadAfter': 'para el desglose término a término.',
 	'calculator.placeholder': 'Déjalo vacío para despejar',
+	'calculator.required': 'Obligatorio',
+	'calculator.solvableOnly': 'Esta calculadora solo despeja {terms}: llena todos los demás campos.',
 	'calculator.reset': 'Restablecer',
 	'calculator.autoFilled': 'Completado automáticamente:',
 	'calculator.hint':
@@ -250,7 +252,10 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'engine.inputs/empty': 'Llena todos los valores excepto el que quieres despejar.',
 	'engine.inputs/underdetermined': 'Deja exactamente un campo vacío — el que quieres despejar.',
 	'engine.inputs/overdetermined': 'Todos los campos están llenos. Borra el que quieres despejar.',
+	'engine.inputs/required':
+		'Llena {terms}. El campo que dejes vacío debe ser uno de estos: {solvable}.',
 	'engine.inputs/not-a-number': 'Introduce solo valores numéricos.',
+	'engine.inputs/not-integer': 'Introduce un número entero para {terms}.',
 	'engine.units/unknown': 'Esta ecuación hace referencia a una unidad desconocida.',
 	'engine.units/incompatible-dimensions': 'Estas unidades miden cantidades diferentes.',
 	'engine.solve/no-real-solution': 'No existe una solución real para estos valores.',
@@ -304,9 +309,9 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'paths.lead':
 		'{count} rutas guiadas. Cada una recorre unas cuantas entradas en orden, con transiciones y preguntas de autoevaluación. El progreso se guarda en este dispositivo.',
 	'meta.path': '{name} — ruta de aprendizaje de nivel {level} en {count} pasos.',
-	'path.level.intro': 'Introductorio',
-	'path.level.intermediate': 'Intermedio',
-	'path.level.advanced': 'Avanzado',
+	'level.intro': 'Introductorio',
+	'level.intermediate': 'Intermedio',
+	'level.advanced': 'Avanzado',
 	'path.steps': '{count} pasos',
 	'path.minutes': '{count} min',
 	'path.prerequisites': 'Antes de esta ruta',

@@ -1,9 +1,10 @@
 /**
- * Inline math tiering (ADR 0002): TeX that reduces to a single run of
- * Unicode — letters, digits, Greek, operators, super/subscripts with
- * Unicode forms — renders as styled Text inline. Anything two-dimensional
- * (fractions, radicals, accents, big operators, arrays) is not plain and
- * goes to the SVG lane or a lossy text fallback.
+ * TeX that reduces to a single run of Unicode — letters, digits, Greek,
+ * operators, super/subscripts with Unicode forms — is plain: mobile sets
+ * it as inline text (ADR 0002 tiering) and both calculators name terms
+ * with it. Anything two-dimensional (fractions, radicals, accents, big
+ * operators, arrays) is not plain: `strict` refuses it, `lenient` reduces
+ * it to a lossy single line.
  */
 export type TexMode = 'strict' | 'lenient';
 

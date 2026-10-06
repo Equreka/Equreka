@@ -29,10 +29,11 @@ export interface CalculatorUnitOptions {
 /**
  * Per-term unit logic over one equation. Every term's base unit is what
  * solveEquation expects (magnitude → baseUnit, variable → defaultUnit,
- * symbol → its unit; '' when the term is unitless). Affine units (°C, °F)
- * are never offered: a term does not say whether it is an absolute value
- * or an interval, and convert() and convertDelta() agree only on linear
- * units, so offering them would silently mis-solve ΔT terms.
+ * symbol → its unit; '' when the term is unitless). A `delta` term (ΔT)
+ * converts with convertDelta, factors only, and is offered affine units
+ * (°C, °F), since an interval of 10 °C is 10 K. Every other term is
+ * offered linear units only: convert() and convertDelta() agree on those,
+ * so an interval the content forgot to flag can never take an offset.
  */
 export interface CalculatorUnits {
 	baseUnit(key: string): string;
@@ -43,10 +44,6 @@ export interface CalculatorUnits {
 }
 
 const NO_OPTIONS: CalculatorUnitOptions = { units: [], hiddenByKind: 0 };
-
-function isLinear(unit: CompiledUnit): boolean {
-	return !unit.affine;
-}
 
 /**
  * Smallest to largest, so a picker reads μg · mg · g · kg · t. Factors are
@@ -96,10 +93,17 @@ export function createCalculatorUnits(
 		return slugs;
 	}
 
+	function isDelta(key: string): boolean {
+		return meta.terms[key]?.delta === true;
+	}
+
 	function options(key: string, showAllDimension: boolean): CalculatorUnitOptions {
 		const base = baseUnit(key);
 		if (base === '') return NO_OPTIONS;
-		const byDimension = registry.compatibleUnits(base).filter(isLinear).sort(byScale);
+		const byDimension = registry
+			.compatibleUnits(base)
+			.filter((unit) => isDelta(key) || !unit.affine)
+			.sort(byScale);
 		const inKind = kindSlugs(key, base);
 		const byKind = byDimension.filter((unit) => inKind.has(unit.slug));
 		return {
@@ -108,14 +112,19 @@ export function createCalculatorUnits(
 		};
 	}
 
+	function convert(key: string, value: number, from: string, to: string): EngineResult<number> {
+		if (from === '' || to === '' || from === to) return ok(value);
+		return isDelta(key)
+			? registry.convertDelta(value, from, to)
+			: registry.convert(value, from, to);
+	}
+
 	function toBase(key: string, value: number, unit: string): EngineResult<number> {
-		const base = baseUnit(key);
-		return base === '' || unit === base ? ok(value) : registry.convert(value, unit, base);
+		return convert(key, value, unit, baseUnit(key));
 	}
 
 	function fromBase(key: string, value: number, unit: string): EngineResult<number> {
-		const base = baseUnit(key);
-		return base === '' || unit === base ? ok(value) : registry.convert(value, base, unit);
+		return convert(key, value, baseUnit(key), unit);
 	}
 
 	function isExact(key: string, unit: string): boolean {
@@ -143,13 +152,15 @@ export interface CalculatorInputs {
  * A solved term in its display unit. `exact` is true when every unit
  * conversion on the path (filled inputs in, result out) uses exact
  * factors, so the UI shows '=' rather than '≈'; `baseValue` is the
- * engine's value in the term's base unit.
+ * engine's value in the term's base unit; `root` is the authored index of
+ * the chosen root, which selects the solved form to display.
  */
 export interface CalculatorSolution {
 	symbol: string;
 	unit: string;
 	value: number;
 	baseValue: number;
+	root: number;
 	allRoots?: number[];
 	exact: boolean;
 }
@@ -209,17 +220,16 @@ export function solveInUnits(
 	});
 	if (!solved.ok) return { outcome: solved, literals };
 
-	const { symbol, value: baseValue, allRoots } = solved.value;
+	const { symbol, value: baseValue, root, allRoots } = solved.value;
 	const unit = unitOf(symbol);
 	const display = (value: number): EngineResult<number> =>
 		units === null ? ok(value) : units.fromBase(symbol, value, unit);
 	const value = display(baseValue);
 	if (!value.ok) return { outcome: value, literals };
-	const displayRoots: number[] = [];
-	for (const root of allRoots ?? []) {
-		const converted = display(root);
-		displayRoots.push(converted.ok ? converted.value : root);
-	}
+	const displayRoots = (allRoots ?? []).map((candidate) => {
+		const converted = display(candidate);
+		return converted.ok ? converted.value : candidate;
+	});
 	const resultExact = exact && (units === null || units.isExact(symbol, unit));
 	return {
 		outcome: ok({
@@ -227,6 +237,7 @@ export function solveInUnits(
 			unit,
 			value: value.value,
 			baseValue,
+			root,
 			...(allRoots === undefined ? {} : { allRoots: displayRoots }),
 			exact: resultExact,
 		}),

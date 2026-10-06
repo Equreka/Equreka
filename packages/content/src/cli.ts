@@ -30,9 +30,15 @@ console.log(
 	`prefix expansion: ${report.generatedUnits.size + report.overriddenUnits.size} prefixed units (${report.generatedUnits.size} generated, ${report.overriddenUnits.size} hand overrides)`,
 );
 console.log(`content hash ${report.contentHash.slice(0, 12)}…`);
+const nonAlgebraic = [...report.corpus.equations.values()].filter(
+	(equation) => !equation.algebraic,
+).length;
+console.log(
+	`equations: ${report.corpus.equations.size} (${nonAlgebraic} non-algebraic: rendered and linted, never solved or parsed by the verifier)`,
+);
 for (const [slug, verification] of report.verifications) {
 	const solved = Object.entries(verification.samples)
-		.map(([key, samples]) => `${key}×${samples}`)
+		.map(([key, samples]) => `${key}×${samples.join('/')}`)
 		.join(' ');
 	if (solved !== '') {
 		console.log(`verified ${slug}: ${solved}${verification.cached ? ' (cached)' : ''}`);

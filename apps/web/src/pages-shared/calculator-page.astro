@@ -5,13 +5,11 @@ import { collectionLabel, type Locale, localizedName, pickLocalized, t } from '@
 import EntryActions from '../components/entry-actions.astro';
 import IconGlyph from '../components/icon-glyph.astro';
 import PageHeader from '../components/page-header.astro';
-import CalculatorIsland, {
-	type CalculatorConstant,
-	type CalculatorField,
-} from '../islands/calculator-island';
+import CalculatorIsland, { type CalculatorConstant } from '../islands/calculator-island';
 import FavoriteToggle from '../islands/favorite-toggle';
 import { LegacyAbbr } from '../islands/legacy-abbr';
 import BaseLayout from '../layouts/base-layout.astro';
+import { type CalculatorField, calculatorField } from '../lib/calculator-fields';
 import type { CalculatorVariableUnits } from '../lib/calculator-units';
 import { asEquation, asVariable } from '../lib/collections';
 import { entryHref } from '../lib/entry-links';
@@ -62,16 +60,18 @@ const magnitudeRows: TermRow[] = [];
 for (const [key, term] of Object.entries(meta.terms)) {
 	if (term.kind === 'symbol') {
 		const label = term.label === undefined ? key : pickLocalized(term.label, locale).value;
-		fields.push({
-			key,
-			label,
-			symbolText: key,
-			unitSymbol: term.unit === undefined ? '' : (engineSlice.units[term.unit]?.symbolText ?? ''),
-		});
+		fields.push(
+			calculatorField(
+				meta,
+				key,
+				label,
+				term.unit === undefined ? '' : (engineSlice.units[term.unit]?.symbolText ?? ''),
+			),
+		);
 		variableRows.push({
 			key,
 			kind: 'symbol',
-			dataValue: termDataValue(key, { kind: 'symbol' }),
+			dataValue: termDataValue(key, { kind: 'symbol', identifier: term.identifier }),
 			name: label,
 			href: undefined,
 			unitSlug: term.unit,
@@ -102,12 +102,14 @@ for (const [key, term] of Object.entries(meta.terms)) {
 			throw new Error(`calculator page for ${slug}: unknown magnitude ${term.ref}`);
 		}
 		const magnitudeName = localizedName(magnitude, locale);
-		fields.push({
-			key,
-			label: magnitudeName,
-			symbolText: key,
-			unitSymbol: engineSlice.units[magnitude.baseUnit]?.symbolText ?? '',
-		});
+		fields.push(
+			calculatorField(
+				meta,
+				key,
+				magnitudeName,
+				engineSlice.units[magnitude.baseUnit]?.symbolText ?? '',
+			),
+		);
 		if (magnitude.nonNegative) nonNegative.push(key);
 		magnitudeRows.push({
 			key,
@@ -124,15 +126,16 @@ for (const [key, term] of Object.entries(meta.terms)) {
 		variableUnits[term.ref] = { defaultUnit: variable.defaultUnit };
 	}
 	const variableName = variable === undefined ? key : localizedName(variable, locale);
-	fields.push({
-		key,
-		label: variableName,
-		symbolText: key,
-		unitSymbol:
+	fields.push(
+		calculatorField(
+			meta,
+			key,
+			variableName,
 			variable?.defaultUnit === undefined
 				? ''
 				: (engineSlice.units[variable.defaultUnit]?.symbolText ?? ''),
-	});
+		),
+	);
 	variableRows.push({
 		key,
 		kind: 'variable',

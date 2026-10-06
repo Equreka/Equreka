@@ -36,9 +36,9 @@ describe('deriveRelatedUnits', () => {
 		expect(
 			deriveRelatedUnits(
 				{
-					r: { kind: 'variable', ref: 'radius' },
-					l: { kind: 'symbol', label: { en: 'Side' }, unit: 'metre' },
-					x: { kind: 'symbol', label: { en: 'Ratio' } },
+					r: { kind: 'variable', ref: 'radius', integer: false, delta: false },
+					l: { kind: 'symbol', label: { en: 'Side' }, unit: 'metre', integer: false, delta: false },
+					x: { kind: 'symbol', label: { en: 'Ratio' }, integer: false, delta: false },
 				},
 				corpus,
 			),

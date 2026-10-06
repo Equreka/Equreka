@@ -7,6 +7,8 @@
 		".": "./src/index.ts",
 		"./search-options": "./src/search-options.ts",
 		"./rich-text": "./src/rich-text.ts",
+		"./plain-symbol": "./src/plain-symbol.ts",
+		"./solution-grammar": "./src/solution-grammar.ts",
 		"./astro": "./src/astro/loader.ts",
 		"./artifact/*": "./dist/*"
 	},
@@ -25,6 +27,7 @@
 	"devDependencies": {
 		"@cortex-js/compute-engine": "catalog:",
 		"@equreka/config": "workspace:*",
+		"@equreka/engine": "workspace:*",
 		"@types/node": "catalog:",
 		"katex": "catalog:",
 		"mathjax": "catalog:",

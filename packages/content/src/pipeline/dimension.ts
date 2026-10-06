@@ -13,6 +13,18 @@ export function compileDimension(vector: DimensionVector): CompiledDimension {
 
 export const DIMENSION_ZERO: CompiledDimension = [0, 0, 0, 0, 0, 0, 0, 0];
 
+const ANGLE_INDEX = DIMENSION_KEYS.indexOf('A');
+
+/**
+ * The dimension with its synthetic angle exponent cleared: equation checks
+ * take the SI view that the radian is the number 1 (`s = r θ`, `ω = 2π f`,
+ * `sin θ`), while unit conversion keeps `A` strict so 30° never converts to
+ * a bare number.
+ */
+export function withoutAngle(dimension: CompiledDimension): CompiledDimension {
+	return dimension.map((value, index) => (index === ANGLE_INDEX ? 0 : value)) as CompiledDimension;
+}
+
 export function dimensionsEqual(a: CompiledDimension, b: CompiledDimension): boolean {
 	return a.every((value, index) => value === b[index]);
 }

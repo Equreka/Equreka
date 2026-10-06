@@ -9,6 +9,7 @@ import { renderToString } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import { buildConverterPayload } from '../../integrations/equreka-assets';
 import CalculatorIsland from '../../islands/calculator-island';
+import { calculatorField } from '../calculator-fields';
 import { calculatorUnitSourceOf } from '../calculator-units';
 
 const slice = engineArtifact as unknown as EngineSlice;
@@ -99,8 +100,8 @@ describe('CalculatorIsland server render', () => {
 			createElement(CalculatorIsland, {
 				meta: meta('mass-energy-equivalence'),
 				fields: [
-					{ key: 'E', label: 'Energy', symbolText: 'E', unitSymbol: 'J' },
-					{ key: 'm', label: 'Mass', symbolText: 'm', unitSymbol: 'kg' },
+					{ key: 'E', label: 'Energy', symbolText: 'E', unitSymbol: 'J', solvable: true },
+					{ key: 'm', label: 'Mass', symbolText: 'm', unitSymbol: 'kg', solvable: true },
 				],
 				constants: [
 					{ key: 'c', name: 'Speed of light', symbolText: 'c', value: C, unitSymbol: 'm/s' },
@@ -114,6 +115,27 @@ describe('CalculatorIsland server render', () => {
 		expect(html).not.toContain('<select');
 		expect(html).toContain('type="submit"');
 		expect(html).toContain('role="status"');
+		expect(html).not.toContain('aria-required');
+		expect(text).not.toContain('only: fill in every other field');
+	});
+
+	it('marks a field outside the solvable set as required and names the solvable terms', () => {
+		const equation = { ...meta('mass-energy-equivalence'), solvable: ['E'] };
+		const html = renderToString(
+			createElement(CalculatorIsland, {
+				meta: equation,
+				fields: [
+					calculatorField(equation, 'E', 'Energy', 'J'),
+					calculatorField(equation, 'm', 'Mass', 'kg'),
+				],
+				constants: [],
+				nonNegative: [],
+			}),
+		);
+		expect(html.replaceAll('<!-- -->', '')).toContain(
+			'This calculator solves for E only: fill in every other field.',
+		);
+		expect(html.match(/aria-required="true"/g)).toHaveLength(1);
 	});
 
 	it('draws the build-rendered expression as an aria-hidden backdrop', () => {

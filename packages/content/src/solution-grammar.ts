@@ -1,6 +1,46 @@
-export const SOLUTION_FUNCTIONS = ['abs', 'cos', 'exp', 'ln', 'sin', 'sqrt', 'tan'] as const;
+/**
+ * Functions of the authored solution grammar (ADR 0002, ADR 0009). This
+ * module is the grammar's one platform-free definition: the pipeline
+ * parses, verifies and codegens with it, and mobile re-parses presentation
+ * solutions with it to typeset solved forms. It has no imports, so every
+ * bundler takes the file as-is.
+ */
+export const SOLUTION_FUNCTIONS = [
+	'sqrt',
+	'abs',
+	'ln',
+	'exp',
+	'sin',
+	'cos',
+	'tan',
+	'asin',
+	'acos',
+	'atan',
+	'log10',
+	'log2',
+	'cbrt',
+	'sinh',
+	'cosh',
+	'tanh',
+	'asinh',
+	'acosh',
+	'atanh',
+	'factorial',
+] as const;
 
 export type SolutionFunction = (typeof SOLUTION_FUNCTIONS)[number];
+
+/**
+ * Names a term identifier may never take: the parser reads a function name
+ * followed by `(` as a call, so an identifier spelled like one could not be
+ * referenced from a solution.
+ */
+export const RESERVED_FUNCTION_NAMES: readonly string[] = SOLUTION_FUNCTIONS;
+
+/**
+ * Largest n whose factorial is finite in float64 (171! overflows).
+ */
+export const FACTORIAL_MAX = 170;
 
 export type SolutionAst =
 	| { kind: 'number'; text: string }
@@ -10,7 +50,7 @@ export type SolutionAst =
 	| { kind: 'binary'; op: '+' | '-' | '*' | '/' | '^'; left: SolutionAst; right: SolutionAst }
 	| { kind: 'call'; fn: SolutionFunction; arg: SolutionAst };
 
-interface Token {
+export interface SolutionToken {
 	type: 'number' | 'identifier' | 'op';
 	text: string;
 	pos: number;
@@ -18,9 +58,22 @@ interface Token {
 
 const NUMBER_RE = /^\d+(?:\.\d+)?(?:[eE][+-]?\d+)?/;
 const IDENTIFIER_RE = /^[A-Za-z_][A-Za-z0-9_]*/;
+const OPERATOR_CHARS = '+-*/^()';
 
-function tokenize(source: string): Token[] {
-	const tokens: Token[] = [];
+export function isSolutionFunction(name: string): name is SolutionFunction {
+	return (SOLUTION_FUNCTIONS as readonly string[]).includes(name);
+}
+
+/**
+ * The authored root list of one solution: a single solved form, or the
+ * roots of a multi-valued one in preference order.
+ */
+export function solutionRoots(solution: string | readonly string[]): readonly string[] {
+	return typeof solution === 'string' ? [solution] : solution;
+}
+
+export function tokenizeSolution(source: string): SolutionToken[] {
+	const tokens: SolutionToken[] = [];
 	let pos = 0;
 	while (pos < source.length) {
 		const rest = source.slice(pos);
@@ -42,7 +95,7 @@ function tokenize(source: string): Token[] {
 			continue;
 		}
 		const char = source[pos] ?? '';
-		if ('+-*/^()'.includes(char)) {
+		if (OPERATOR_CHARS.includes(char)) {
 			tokens.push({ type: 'op', text: char, pos });
 			pos += 1;
 			continue;
@@ -53,16 +106,16 @@ function tokenize(source: string): Token[] {
 }
 
 /**
- * Parses the authored solution grammar (ADR 0002): identifiers, decimal
- * literals, `+ - * / ^`, parentheses, sqrt|abs|ln|exp|sin|cos|tan, and the
- * constant `pi`. `^` is right-associative and binds tighter than unary
- * minus, matching mathematical convention (`-x^2` is `-(x^2)`).
+ * Parses identifiers, decimal literals, `+ - * / ^`, parentheses, the
+ * `SOLUTION_FUNCTIONS` calls and the constant `pi`. `^` is right-associative
+ * and binds tighter than unary minus, matching mathematical convention
+ * (`-x^2` is `-(x^2)`).
  */
 export function parseSolution(source: string): SolutionAst {
-	const tokens = tokenize(source);
+	const tokens = tokenizeSolution(source);
 	let index = 0;
 
-	const peek = (): Token | undefined => tokens[index];
+	const peek = (): SolutionToken | undefined => tokens[index];
 	const takeOp = (text: string): boolean => {
 		const token = tokens[index];
 		if (token !== undefined && token.type === 'op' && token.text === text) {
@@ -137,11 +190,11 @@ export function parseSolution(source: string): SolutionAst {
 			if (token.text === 'pi') {
 				return { kind: 'pi' };
 			}
-			if ((SOLUTION_FUNCTIONS as readonly string[]).includes(token.text)) {
+			if (isSolutionFunction(token.text)) {
 				expectOp('(');
 				const arg = parseExpr();
 				expectOp(')');
-				return { kind: 'call', fn: token.text as SolutionFunction, arg };
+				return { kind: 'call', fn: token.text, arg };
 			}
 			return { kind: 'identifier', name: token.text };
 		}
@@ -183,17 +236,51 @@ export function collectIdentifiers(ast: SolutionAst, into = new Set<string>()): 
 	return into;
 }
 
-const FUNCTION_IMPL: Record<SolutionFunction, (x: number) => number> = {
-	abs: Math.abs,
-	cos: Math.cos,
-	exp: Math.exp,
-	ln: Math.log,
-	sin: Math.sin,
+/**
+ * n! as an iterated float64 product for an integer n in [0, FACTORIAL_MAX];
+ * NaN elsewhere, so a non-integer or negative argument is out of domain
+ * rather than silently extended to the gamma function.
+ */
+export function factorial(n: number): number {
+	if (!Number.isInteger(n) || n < 0 || n > FACTORIAL_MAX) {
+		return Number.NaN;
+	}
+	let product = 1;
+	for (let factor = 2; factor <= n; factor += 1) {
+		product *= factor;
+	}
+	return product;
+}
+
+/**
+ * Every function's float64 implementation. The codegen'd module calls the
+ * same `Math` functions and an equivalent `factorial`, so a verified value
+ * is the value the calculator computes.
+ */
+export const SOLUTION_FUNCTION_IMPL: Readonly<Record<SolutionFunction, (x: number) => number>> = {
 	sqrt: Math.sqrt,
+	abs: Math.abs,
+	ln: Math.log,
+	exp: Math.exp,
+	sin: Math.sin,
+	cos: Math.cos,
 	tan: Math.tan,
+	asin: Math.asin,
+	acos: Math.acos,
+	atan: Math.atan,
+	log10: Math.log10,
+	log2: Math.log2,
+	cbrt: Math.cbrt,
+	sinh: Math.sinh,
+	cosh: Math.cosh,
+	tanh: Math.tanh,
+	asinh: Math.asinh,
+	acosh: Math.acosh,
+	atanh: Math.atanh,
+	factorial,
 };
 
-export function evaluateSolution(ast: SolutionAst, env: Record<string, number>): number {
+export function evaluateSolution(ast: SolutionAst, env: Readonly<Record<string, number>>): number {
 	switch (ast.kind) {
 		case 'number':
 			return Number(ast.text);
@@ -221,7 +308,7 @@ export function evaluateSolution(ast: SolutionAst, env: Record<string, number>):
 			break;
 		}
 		case 'call':
-			return FUNCTION_IMPL[ast.fn](evaluateSolution(ast.arg, env));
+			return SOLUTION_FUNCTION_IMPL[ast.fn](evaluateSolution(ast.arg, env));
 	}
 	return Number.NaN;
 }

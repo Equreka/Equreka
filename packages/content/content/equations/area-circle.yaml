@@ -2,6 +2,7 @@
 name:
   en: 'Circle area'
 kind: 'formula'
+level: 'intro'
 expression: '\mag{A}=\const{\pi}\var{r}^{2}'
 terms:
   A:
@@ -18,6 +19,8 @@ terms:
 solutions:
   A: 'pi * r^2'
   r: 'sqrt(A / pi)'
+calculator:
+  enabled: true
 categories:
   - 'mathematics'
 branches:

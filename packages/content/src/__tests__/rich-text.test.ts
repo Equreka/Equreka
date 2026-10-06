@@ -6,6 +6,8 @@ import {
 	splitRichText,
 	stripMacros,
 	stripMacrosToText,
+	termIdentifier,
+	termMacroPattern,
 } from '../rich-text.js';
 
 describe('splitRichText', () => {
@@ -100,6 +102,53 @@ describe('stripMacros / stripMacrosToText', () => {
 
 	it('leaves macro-free text untouched', () => {
 		expect(stripMacrosToText('plain $x^{2}$')).toBe('plain $x^{2}$');
+	});
+
+	it('carries term keys with one level of nested braces', () => {
+		expect(stripMacros('\\var{v_{0}}^{2}+\\var{[\\mathrm{H}^{+}]}')).toBe(
+			'{v_{0}}^{2}+{[\\mathrm{H}^{+}]}',
+		);
+		expect(stripMacrosToText('$\\mag{v_{0}}$')).toBe('$v_{0}$');
+	});
+});
+
+describe('termMacroPattern', () => {
+	it('returns an independent global RegExp per call', () => {
+		const first = termMacroPattern();
+		first.exec('\\var{x} \\var{y}');
+		expect(first.lastIndex).toBeGreaterThan(0);
+		expect(termMacroPattern().lastIndex).toBe(0);
+		expect(termMacroPattern().exec('\\var{y}')?.[2]).toBe('y');
+	});
+});
+
+describe('termIdentifier', () => {
+	it('derives from the key and lets an override win', () => {
+		expect(termIdentifier('\\pi')).toBe('pi');
+		expect(termIdentifier('v_{0}')).toBe('v_0');
+		expect(termIdentifier('\\Delta x')).toBe('Deltax');
+		expect(termIdentifier('[\\mathrm{H}^{+}]', 'cH')).toBe('cH');
+	});
+
+	it('unwraps font and text wrappers to their content before stripping', () => {
+		expect(termIdentifier('\\mathrm{KE}')).toBe('KE');
+		expect(termIdentifier('[\\mathrm{H}^{+}]')).toBe('H');
+		expect(termIdentifier('E_{\\mathrm{k}}')).toBe('E_k');
+		expect(termIdentifier('\\text{pH}')).toBe('pH');
+		expect(termIdentifier('\\textrm{pOH}')).toBe('pOH');
+		expect(termIdentifier('\\mathit{Re}')).toBe('Re');
+		expect(termIdentifier('\\mathbf{F}_{\\mathsf{net}}')).toBe('F_net');
+		expect(termIdentifier('\\boldsymbol{\\tau}')).toBe('tau');
+		expect(termIdentifier('\\operatorname {Ma}')).toBe('Ma');
+		expect(termIdentifier('\\mathtt{x}')).toBe('x');
+		expect(termIdentifier('\\mathrm{\\mathbf{v}}_{0}')).toBe('v_0');
+	});
+
+	it('leaves keys without wrappers as before', () => {
+		expect(termIdentifier('\\theta')).toBe('theta');
+		expect(termIdentifier('\\varepsilon_0')).toBe('varepsilon_0');
+		expect(termIdentifier('\\bar{x}')).toBe('barx');
+		expect(termIdentifier('t_{1/2}')).toBe('t_12');
 	});
 });
 

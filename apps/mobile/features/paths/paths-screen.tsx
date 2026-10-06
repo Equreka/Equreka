@@ -37,7 +37,7 @@ function PathCard({ slug, path }: { slug: string; path: PresentationPath }) {
 	const router = useRouter();
 	const description = pickSegments(path.descriptionSegments, locale);
 	const detail = [
-		t(`path.level.${path.level}`),
+		t(`level.${path.level}`),
 		t('path.steps', { count: path.steps.length }),
 		path.estimatedMinutes === undefined
 			? null

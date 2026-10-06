@@ -1,5 +1,5 @@
-import { describe, expect, it } from '@jest/globals';
-import { isPlainSymbol, texToFallbackText, texToUnicode } from '../shared/math/plain-symbol';
+import { describe, expect, it } from 'vitest';
+import { isPlainSymbol, texToFallbackText, texToUnicode } from '../plain-symbol.js';
 
 describe('texToUnicode', () => {
 	it('maps single letters, Greek commands and simple scripts to Unicode', () => {

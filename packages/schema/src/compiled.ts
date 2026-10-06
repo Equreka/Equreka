@@ -1,6 +1,6 @@
 import { z } from 'zod';
 import { decimalString, localizedText, slug } from './common.js';
-import { unitSystem } from './entities.js';
+import { identifierName, unitSystem } from './entities.js';
 
 /**
  * Full 8-component dimension exponent vector [L, M, T, I, Th, N, J, A] as a
@@ -74,21 +74,32 @@ export const compiledConstant = z.object({
  * Engine-slice equation term. `ref` is present for wiki-backed kinds
  * (magnitude/constant/variable); `label` and optional `unit` carry the
  * display contract of equation-local `symbol` terms so calculator UIs need
- * no second lookup.
+ * no second lookup. `identifier` is the effective one (authored override,
+ * else derived from the term key): the key of the term's value in the
+ * argument record a solution function receives. `integer` is present, and
+ * true, only on a term authored `integer: true`, so the calculator can
+ * refuse a fractional input. `delta` likewise marks a difference (ΔT),
+ * which the calculator converts with `convertDelta`: an affine offset
+ * applied to an interval is a wrong answer, not a rounding.
  */
 export const compiledEquationTerm = z.object({
 	kind: z.enum(['magnitude', 'constant', 'variable', 'symbol']),
 	ref: slug.optional(),
 	label: localizedText.optional(),
 	unit: slug.optional(),
-	identifier: z.string().regex(/^[A-Za-z][A-Za-z0-9_]*$/),
+	identifier: identifierName,
+	integer: z.literal(true).optional(),
+	delta: z.literal(true).optional(),
 });
 
 /**
  * Engine-slice equation metadata. The solved-form implementations live in
- * the codegen'd solutions module (dist/solutions.js) keyed by
- * `${slug}.${termKey}`; this record carries everything else the calculator
- * UI and the engine need to wire inputs.
+ * the codegen'd solutions module (dist/solutions.js) as
+ * `solutions[slug][termKey]` — keyed by term key, never by identifier;
+ * this record carries everything else the calculator UI and the engine
+ * need to wire inputs. `solvable` lists, sorted, the terms the calculator
+ * may leave unknown: `calculator.solveFor`, else every non-constant term,
+ * each with a verified solution. Every other term is an input.
  */
 export const compiledEquationMeta = z.object({
 	slug,

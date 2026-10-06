@@ -55,6 +55,7 @@ const solution = (overrides: Partial<CalculatorSolution> = {}): CalculatorSoluti
 	unit: 'kilogram',
 	value: 2.2253e-17,
 	baseValue: 2.2253e-17,
+	root: 0,
 	exact: true,
 	...overrides,
 });

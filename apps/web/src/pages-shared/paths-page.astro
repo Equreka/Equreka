@@ -47,7 +47,7 @@ const levels = LEVEL_ORDER.map((level) => ({
 			levels.map((group) => (
 				<CollapseCard
 					headingId={`level-${group.level}`}
-					title={t(locale, `path.level.${group.level}`)}
+					title={t(locale, `level.${group.level}`)}
 					count={group.paths.length}
 					chevron="start"
 					class="eq-card-accent"
@@ -58,7 +58,7 @@ const levels = LEVEL_ORDER.map((level) => ({
 								<article>
 									<div class="eq-chip-row">
 										<span class="eq-badge eq-badge-accent">
-											{t(locale, `path.level.${path.level}`)}
+											{t(locale, `level.${path.level}`)}
 										</span>
 										<PathProgress
 											client:idle

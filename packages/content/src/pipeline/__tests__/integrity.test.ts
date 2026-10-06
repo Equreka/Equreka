@@ -7,6 +7,7 @@ import {
 	DERIVATION_FREE_UNITS,
 	emptyBranches,
 	orphanMagnitudes,
+	termKeyIssues,
 } from '../integrity.js';
 import { loadContent } from '../load.js';
 import { type Corpus, validateContent } from '../validate.js';
@@ -188,7 +189,7 @@ describe('equation terms', () => {
 				radius: { name: { en: 'Radius' }, symbol: { tex: 'r' }, defaultUnit: 'metre' },
 			},
 			equations: {
-				sample: { name: { en: 'Sample' }, expression, terms },
+				sample: { name: { en: 'Sample' }, level: 'intro', algebraic: false, expression, terms },
 			},
 		});
 
@@ -216,6 +217,19 @@ describe('equation terms', () => {
 		]);
 	});
 
+	it('reports term identity through checkIntegrity', () => {
+		const corpus = equationWith(
+			{
+				sin: { kind: 'symbol', label: { en: 'Sine' } },
+				s: { kind: 'symbol', label: { en: 'Side' } },
+			},
+			'\\var{sin}=\\var{s}',
+		);
+		expect(messages(corpus)).toEqual([
+			expect.stringContaining("'sin', which is reserved for the solution function sin()"),
+		]);
+	});
+
 	it('checks the unit ref of a symbol term', () => {
 		const corpus = equationWith(
 			{
@@ -226,6 +240,103 @@ describe('equation terms', () => {
 		);
 		expect(messages(corpus)).toEqual([
 			expect.stringContaining("terms.s.unit: unknown units ref 'furlong'"),
+		]);
+	});
+});
+
+describe('solution coverage (ADR 0009)', () => {
+	const ofEquation = (equation: Record<string, unknown>): string[] =>
+		messages(
+			corpusWith({
+				magnitudes: MAGNITUDES,
+				units: UNITS,
+				constants: {
+					pi: {
+						name: { en: 'Pi' },
+						symbol: { tex: '\\pi' },
+						value: '3.14159',
+						unit: 'unitless',
+						irrational: true,
+						truncated: true,
+					},
+				},
+				equations: {
+					sample: { name: { en: 'Sample' }, level: 'intro', ...equation },
+				},
+			}),
+		).map((message) => message.replace(/^equations\/sample\.yaml: /, ''));
+	const COMBINATIONS = {
+		expression: '\\var{C}=\\frac{\\var{n}!}{\\var{k}!\\left(\\var{n}-\\var{k}\\right)!}',
+		terms: {
+			C: { kind: 'symbol', label: { en: 'Combinations' } },
+			n: { kind: 'symbol', label: { en: 'Items' }, integer: true },
+			k: { kind: 'symbol', label: { en: 'Chosen' }, integer: true },
+		},
+		solutions: { C: 'factorial(n) / (factorial(k) * factorial(n - k))' },
+	};
+	const CIRCLE = {
+		expression: '\\var{A}=\\const{\\pi}\\var{r}^{2}',
+		terms: {
+			A: { kind: 'symbol', label: { en: 'Area' } },
+			'\\pi': { kind: 'constant', ref: 'pi' },
+			r: { kind: 'symbol', label: { en: 'Radius' } },
+		},
+	};
+
+	it('requires at least one solution on an algebraic equation only', () => {
+		expect(ofEquation(CIRCLE)).toEqual([
+			'an algebraic equation authors at least one solution; mark notation no solver reads algebraic: false',
+		]);
+		expect(ofEquation({ ...CIRCLE, algebraic: false })).toEqual([]);
+		expect(ofEquation({ ...CIRCLE, solutions: { A: 'pi * r^2' } })).toEqual([]);
+	});
+
+	it('covers every non-constant term when the calculator has no solveFor', () => {
+		expect(
+			ofEquation({ ...CIRCLE, solutions: { A: 'pi * r^2' }, calculator: { enabled: true } }),
+		).toEqual([
+			"the calculator may leave 'r' unknown but no solution is authored for it; author the solution or narrow calculator.solveFor",
+		]);
+		expect(
+			ofEquation({
+				...CIRCLE,
+				solutions: { A: 'pi * r^2', r: 'sqrt(A / pi)' },
+				calculator: { enabled: true },
+			}),
+		).toEqual([]);
+		expect(ofEquation({ ...COMBINATIONS, calculator: { enabled: true } })).toEqual([
+			"the calculator may leave 'n', 'k' unknown but no solution is authored for them; author the solution or narrow calculator.solveFor",
+		]);
+	});
+
+	it('covers only calculator.solveFor when it is authored', () => {
+		expect(ofEquation({ ...COMBINATIONS, calculator: { enabled: true, solveFor: ['C'] } })).toEqual(
+			[],
+		);
+		expect(
+			ofEquation({ ...COMBINATIONS, calculator: { enabled: true, solveFor: ['C', 'n'] } }),
+		).toEqual([
+			"the calculator may leave 'n' unknown but no solution is authored for it; author the solution or narrow calculator.solveFor",
+		]);
+	});
+
+	it('rejects a solveFor that repeats, names no term, or names a constant', () => {
+		expect(
+			ofEquation({
+				...CIRCLE,
+				solutions: { A: 'pi * r^2' },
+				calculator: { solveFor: ['A', 'A', 'x', '\\pi'] },
+			}),
+		).toEqual([
+			'calculator.solveFor must not repeat a term',
+			"calculator.solveFor 'x' is not a terms key",
+			"calculator.solveFor '\\pi' is a constant term, which is never unknown",
+		]);
+	});
+
+	it('rejects a solution for a constant term', () => {
+		expect(ofEquation({ ...CIRCLE, solutions: { A: 'pi * r^2', '\\pi': 'A / r^2' } })).toEqual([
+			"solutions key '\\pi' is a constant term; constants are injected, never solved for",
 		]);
 	});
 });
@@ -443,6 +554,8 @@ describe('orphan magnitudes', () => {
 			equations: {
 				sample: {
 					name: { en: 'Sample' },
+					level: 'intro',
+					algebraic: false,
 					expression: '\\var{s}=\\var{s}',
 					terms: { s: { kind: 'symbol', label: { en: 'Side' }, unit: 'metre' } },
 				},
@@ -556,5 +669,87 @@ describe('branches', () => {
 		const { corpus } = validateContent(loadContent(CONTENT_DIR));
 		expect(corpus.branches.size).toBeGreaterThan(0);
 		expect(emptyBranches(corpus)).toEqual([]);
+	});
+});
+
+describe('termKeyIssues (ADR 0009)', () => {
+	const symbol = (identifier?: string) => ({
+		kind: 'symbol' as const,
+		...(identifier === undefined ? {} : { identifier }),
+	});
+	const keyMessages = (terms: Parameters<typeof termKeyIssues>[1]): string[] =>
+		termKeyIssues('equations/sample.yaml', terms).map((entry) => entry.message);
+
+	it('accepts any carriable TeX key whose identifier is valid and unique', () => {
+		expect(
+			keyMessages({
+				KE: symbol(),
+				'v_{0}': symbol(),
+				'\\Delta x': symbol(),
+				'\\hbar': symbol(),
+				'[\\mathrm{H}^{+}]': symbol('cH'),
+				'\\pi': { kind: 'constant', ref: 'pi' },
+			}),
+		).toEqual([]);
+	});
+
+	it('rejects identifiers that collide with a grammar function, current or reserved', () => {
+		expect(keyMessages({ sin: symbol(), x: symbol('asinh'), y: symbol('factorial') })).toEqual([
+			expect.stringContaining('reserved for the solution function sin()'),
+			expect.stringContaining('reserved for the solution function asinh()'),
+			expect.stringContaining('reserved for the solution function factorial()'),
+		]);
+	});
+
+	it('rejects Object.prototype names as identifiers and as keys', () => {
+		expect(keyMessages({ c: symbol('constructor') })).toEqual([
+			expect.stringContaining(
+				"identifier 'constructor', which is an Object.prototype property name",
+			),
+		]);
+		expect(keyMessages({ toString: symbol('s') })).toEqual([
+			"term key 'toString' is an Object.prototype property name",
+		]);
+	});
+
+	it('reserves pi for the constant term whose ref is pi', () => {
+		expect(keyMessages({ '\\pi': symbol() })).toEqual([
+			expect.stringContaining('reads as the constant pi'),
+		]);
+		expect(keyMessages({ p: { kind: 'constant', ref: 'golden-ratio', identifier: 'pi' } })).toEqual(
+			[expect.stringContaining('reads as the constant pi')],
+		);
+	});
+
+	it('rejects duplicate effective identifiers', () => {
+		expect(keyMessages({ v_0: symbol(), 'v_{0}': symbol() })).toEqual([
+			expect.stringContaining("term keys 'v_0' and 'v_{0}' share identifier 'v_0'"),
+		]);
+		expect(keyMessages({ a: symbol(), b: symbol('a') })).toEqual([
+			expect.stringContaining("share identifier 'a'"),
+		]);
+	});
+
+	it('rejects a key whose derived identifier is invalid', () => {
+		expect(keyMessages({ '2x': symbol(), '\\{\\}': symbol() })).toEqual([
+			expect.stringContaining(
+				"term key '2x' derives identifier '2x', which is not a valid identifier",
+			),
+			expect.stringContaining("derives identifier '', which is not a valid identifier"),
+		]);
+	});
+
+	it('rejects untrimmed, $-bearing, multi-line and deeply nested keys', () => {
+		expect(keyMessages({ ' x': symbol('x') })).toEqual([
+			expect.stringContaining('no leading or trailing whitespace'),
+		]);
+		expect(keyMessages({ $x$: symbol('x') })).toEqual([expect.stringContaining("contain '$'")]);
+		expect(keyMessages({ 'a\nb': symbol('ab') })).toEqual([expect.stringContaining('line break')]);
+		expect(keyMessages({ 'x_{a_{b}}': symbol('x') })).toEqual([
+			expect.stringContaining('deeper than one level'),
+		]);
+		expect(keyMessages({ 'x}': symbol('x') })).toEqual([
+			expect.stringContaining('unbalanced braces'),
+		]);
 	});
 });

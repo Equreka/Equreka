@@ -56,15 +56,18 @@ function groupFractionDigits(digits: string): string {
 /**
  * A decimal string at full precision with digits grouped in thousands on
  * both sides of the point; a scientific-notation exponent renders as
- * " × 10ⁿ". Falls back to the raw string when the input is not a decimal
- * string.
+ * " × 10ⁿ". `truncated` appends an ellipsis to the digits, before the
+ * exponent, for a value that cuts off a longer true value (π). Falls back
+ * to the raw string when the input is not a decimal string.
  */
-export function formatFullPrecision(value: string): string {
+export function formatFullPrecision(value: string, truncated = false): string {
+	const ellipsis = truncated ? '…' : '';
 	const match = DECIMAL_STRING_RE.exec(value);
-	if (match === null) return value;
+	if (match === null) return `${value}${ellipsis}`;
 	const [, sign, integer = '', fraction, exponent] = match;
 	let text = sign + groupIntegerDigits(integer);
 	if (fraction !== undefined) text += `.${groupFractionDigits(fraction)}`;
+	text += ellipsis;
 	if (exponent !== undefined) text += ` × 10${toSuperscript(Number(exponent))}`;
 	return text;
 }

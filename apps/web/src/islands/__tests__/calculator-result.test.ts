@@ -4,7 +4,15 @@ import { legacyResultText, legacyValueParts } from '../calculator-island';
 
 function solution(overrides: Partial<CalculatorSolution> = {}): CalculatorSolution {
 	const value = 2 / 299_792_458 ** 2;
-	return { symbol: 'm', value, baseValue: value, unit: 'kilogram', exact: true, ...overrides };
+	return {
+		symbol: 'm',
+		value,
+		baseValue: value,
+		root: 0,
+		unit: 'kilogram',
+		exact: true,
+		...overrides,
+	};
 }
 
 describe('legacy calculator result format', () => {

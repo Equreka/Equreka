@@ -3,7 +3,13 @@ import equationsPresentation from '@equreka/content/artifact/presentation/equati
 import unitsPresentation from '@equreka/content/artifact/presentation/units.json';
 import { type LocalizedSegments, splitRichText } from '@equreka/content/rich-text';
 import { describe, expect, it } from 'vitest';
-import { renderRichTextHtml, renderSegmentsHtml, type TermAnnotation } from '../tex';
+import {
+	renderExpressionHtml,
+	renderRichTextHtml,
+	renderSegmentsHtml,
+	type TermAnnotation,
+	termDataValue,
+} from '../tex';
 
 interface DescribedEntity {
 	description: Record<string, string>;
@@ -74,6 +80,27 @@ describe('renderSegmentsHtml', () => {
 		expect(renderSegmentsHtml(splitRichText('bad $\\undefinedmacro$ here'))).toBe(
 			'bad <code>$\\undefinedmacro$</code> here',
 		);
+	});
+});
+
+describe('term annotations', () => {
+	it('key symbol terms by their effective identifier, override included', () => {
+		expect(termDataValue('v_{0}', { kind: 'symbol' })).toBe('symbol:v_0');
+		expect(termDataValue('[\\mathrm{H}^{+}]', { kind: 'symbol', identifier: 'cH' })).toBe(
+			'symbol:cH',
+		);
+		expect(termDataValue('E', { kind: 'magnitude', ref: 'energy' })).toBe('magnitude:energy');
+	});
+
+	it('expand macros whose keys carry nested braces', () => {
+		const html = renderExpressionHtml('\\var{K}=\\var{[\\mathrm{H}^{+}]}\\var{v_{0}}', {
+			K: { kind: 'symbol' },
+			'[\\mathrm{H}^{+}]': { kind: 'symbol', identifier: 'cH' },
+			'v_{0}': { kind: 'symbol' },
+		});
+		expect(html).toContain('data-term="symbol:cH"');
+		expect(html).toContain('data-term="symbol:v_0"');
+		expect(html).toContain('data-term="symbol:K"');
 	});
 });
 
