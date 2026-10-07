@@ -316,6 +316,23 @@ describe('solution coverage (ADR 0009)', () => {
 		]);
 	});
 
+	it('checks description macros against the terms like the expression', () => {
+		const solved = { ...CIRCLE, solutions: { A: 'pi * r^2', r: 'sqrt(A / pi)' } };
+		expect(
+			ofEquation({ ...solved, description: { en: 'Doubling $\\var{r}$ quadruples $\\var{A}$.' } }),
+		).toEqual([]);
+		expect(
+			ofEquation({
+				...solved,
+				description: { en: 'For $\\var{a}\\var{x}^{2}$ and $\\mag{r}$.' },
+			}),
+		).toEqual([
+			"description macro argument 'a' is not a terms key",
+			"description macro argument 'x' is not a terms key",
+			"description annotates 'r' as magnitude but terms declares symbol",
+		]);
+	});
+
 	it('rejects a solution for a constant term', () => {
 		expect(ofEquation({ ...CIRCLE, solutions: { A: 'pi * r^2', '\\pi': 'A / r^2' } })).toEqual([
 			"solutions key '\\pi' is a constant term; constants are injected, never solved for",
