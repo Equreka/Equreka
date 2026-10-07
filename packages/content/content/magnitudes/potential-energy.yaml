@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Potential energy'
+symbol:
+  tex: 'E_{\mathrm{p}}'
+  text: 'Ep'
+symbolAlt:
+  tex: 'U'
+baseUnit: 'joule'
+dimension:
+  L: 2
+  M: 1
+  T: -2
+kindOf: 'energy'
+externalIds:
+  wikidata: 'Q155640'
+  qudt: 'http://qudt.org/vocab/quantitykind/PotentialEnergy'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'PE'
+  - 'gravitational potential energy'
+  - 'elastic potential energy'
+  - 'energía potencial gravitatoria'
+  - 'energía potencial elástica'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 8.1 Potential Energy of a System'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/8-1-potential-energy-of-a-system'
+  - title: 'HyperPhysics, Georgia State University, Potential Energy'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/pegrav.html'
+  - title: 'QUDT, quantity kind PotentialEnergy'
+    url: 'https://qudt.org/vocab/quantitykind/PotentialEnergy'
+description:
+  en: >-
+    Potential energy is the energy a system stores because of the positions or arrangement of its
+    parts, such as a body raised against gravity or a stretched spring. It is defined for
+    conservative forces, whose work depends only on the starting and final positions and not on the
+    path between them: the change in potential energy between two configurations is the negative of
+    the work those forces do from one to the other.
+
+    Its SI unit is the joule, and its dimension is mass times length squared divided by time
+    squared. Near the surface of the Earth, the gravitational potential energy of a body grows in
+    proportion to its mass, the acceleration due to gravity and its height; an ideal spring stores
+    energy in proportion to the square of its stretch or compression.
+
+    Potential energy is a scalar, and only its differences have physical meaning. Its zero is a free
+    choice, such as the lowest point in a problem or, for bodies in space, a point very far from the
+    system, so a potential energy can be positive, zero or negative. With the zero at the foot of a
+    hill, a hiker standing on a summit above it has a positive value, and the same hiker at a lower
+    point has a negative one.
+
+    It is never read directly from an instrument; it is computed from the force law and the chosen
+    reference, or inferred from the kinetic energy a body gains as the stored energy is released.
+    A hiker of $75\,\mathrm{kg}$ who climbs $147\,\mathrm{m}$ gains about $108\,\mathrm{kJ}$.
+    Without friction or air resistance, the sum of kinetic and potential energy stays constant, so
+    a falling ball turns potential energy into kinetic energy and a rising one does the reverse.
+
+    Potential energy belongs to a system of interacting bodies rather than to one body alone: the
+    energy of a raised book is shared by the book and the Earth. Gravitational, elastic, electric
+    and magnetic potential energy are all forms of it.

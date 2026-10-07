@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Force per area'
+symbol:
+  tex: 'p'
+symbolAlt:
+  tex: '\sigma'
+  text: 'σ'
+baseUnit: 'pascal'
+dimension:
+  L: -1
+  M: 1
+  T: -2
+externalIds:
+  qudt: 'http://qudt.org/vocab/quantitykind/ForcePerArea'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+  - 'fluid-mechanics'
+aliases:
+  - 'force per unit area'
+  - 'pressure or stress'
+references:
+  - title: 'QUDT, quantity kind ForcePerArea'
+    url: 'https://qudt.org/vocab/quantitykind/ForcePerArea'
+  - title: 'QUDT, quantity kind Pressure'
+    url: 'https://qudt.org/vocab/quantitykind/Pressure'
+  - title: 'QUDT, quantity kind Stress'
+    url: 'https://qudt.org/vocab/quantitykind/Stress'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 and Appendix 1 (14th CGPM, 1971)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+description:
+  en: >-
+    Force per area is the general quantity kind obtained by dividing a force by the area of the
+    surface on which it acts. It groups two narrower kinds that share its unit and dimension:
+    pressure, the normal push of a fluid or a contact on a surface, and mechanical stress, the
+    internal force carried across any surface cut through a loaded solid.
+
+    Its SI unit is the pascal, the special name that the 14th CGPM gave in 1971 to the newton per
+    square metre; in base units one pascal is $\mathrm{kg\,m^{-1}\,s^{-2}}$. The SI Brochure lists
+    the pascal for both pressure and stress. Pressure is a scalar, and in a fluid at rest it acts
+    equally in every direction. Stress in general is a tensor that links the force on a surface to
+    the orientation of that surface, so a single number describes it only for a chosen plane; by
+    the usual sign convention a tensile stress is positive and a compressive one negative. Gauge
+    pressure, measured against the surrounding air, is negative under a partial vacuum.
+
+    Barometers and manometers measure pressure, often by balancing it against a column of liquid,
+    while strain gauges infer stress from the small deformation it produces. The standard
+    atmosphere, $101\,325\,\mathrm{Pa}$, sets the scale of everyday air pressure; tyres, hydraulic
+    presses and deep-ocean water reach many times that, and engineering metals withstand far
+    larger stresses before they yield.
+
+    Force per area should not be confused with force itself: a small force on a needle point gives
+    a far larger pressure than a large force spread over a snowshoe. Pressure and stress are kept
+    apart because a fluid at rest cannot sustain shear, while a solid can. Many traditional pressure
+    units, such as the bar, the torr and the millimetre of mercury, measure pressure only, whereas
+    the pascal and the pound per square inch serve both kinds.

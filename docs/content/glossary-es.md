@@ -10,7 +10,7 @@ Conventions for every `<slug>.es.yaml` sidecar. Companion to the [style guide](s
 - **Regional unit names only in `aliases`**: *joule, watt, ampere, volt, ohm, coulomb, farad, hertz, henry, electronvolt, kilowatt*, and *capacitancia*. `node scripts/content/roadmap.mjs --entry <collection>/<slug>` lists any lowercase regional unit name left in a sidecar (`regional`); a rewrite is not done until the list is empty. A capitalized person's name stays legal: *efecto Joule*, *ley de Ohm*.
 - **Sentence case**: *Segunda ley de Newton*, *Ley de Ohm*, *Constante de Planck*, *Teorema de Pitágoras*. Mid-sentence: *la ley de Ohm*, *el principio de Pascal*.
 - **Unit names are lowercase common nouns**, also when they come from a person (*el newton*, *dos pascales*); *grado Celsius* keeps the capital of the scale.
-- **Plurals** follow the shipped sidecars (*metros, amperios, hercios, litros, faradios, gramos, julios, culombios, ohmios, vatios, segundos, moles, newtons, voltios, pascales*). For a new `namePlural`, confirm the RAE plural in a fetched source; *siemens* and *lux* are invariable.
+- **Plurals** follow the shipped sidecars (*metros, amperios, hercios, litros, faradios, gramos, julios, culombios, ohmios, vatios, segundos, moles, newtons, voltios, pascales*). For a new `namePlural`, confirm the RAE plural in a fetched source; *siemens* and *lux* are invariable. A name of two nouns where the second qualifies the first pluralizes only the first ([RAE, *El plural de los compuestos*](https://www.rae.es/buen-uso-espa%C3%B1ol/el-plural-de-los-compuestos)): *kilogramos fuerza*, *libras fuerza*. Product names (*newton metro*, *kilogramo metro por segundo*) have no confirmed plural yet: write them in the singular (*se expresa con el newton metro*) until a fetched source settles it.
 - **Compound unit names** follow CEM: *metro por segundo*, *metro por segundo al cuadrado*, *julio por kilogramo y kelvin*, *vatio por metro y kelvin*, *newton metro*, *pascal segundo*.
 - **Symbols are international** and never translated or abbreviated differently: `s` (not *seg*), `h` (not *hr*), `min`, `L` or `l`.
 - **Decimal separator: the point**, in both languages. CEM writes the comma, which the 22nd CGPM (2003, Resolution 10) allows alongside the point; this project uses the point so every `$…$` fragment is byte-identical to the English one and matches what the calculator accepts. Digit groups use a thin space (`101\,325`), never a point or a comma, which CEM also prescribes.
@@ -68,7 +68,7 @@ Conventions for every `<slug>.es.yaml` sidecar. Companion to the [style guide](s
 | bar, torr | bar (bares), torr | usage |
 | standard atmosphere | atmósfera estándar (*atmósfera normal* in `aliases`) | usage |
 | millimetre of mercury | milímetro de mercurio | usage |
-| ångström | ångström | usage |
+| ångström | ángstrom (ángstroms; *ångström* in `aliases`) | RAE (DLE headword *ángstrom*), Wikidata Q81454 `es` label |
 | light-year, parsec | año luz (años luz), pársec | usage |
 | knot, nautical mile, mile | nudo, milla náutica, milla | usage |
 | foot, inch, yard | pie, pulgada, yarda | usage |
@@ -122,6 +122,7 @@ Prefix names are already shipped (*mili, ato, zeta, yota* per RAE; the rest unch
 | coefficient of restitution | coeficiente de restitución | usage |
 | Newton's second law | segunda ley de Newton | usage |
 | Newtonian constant of gravitation | constante de gravitación universal | usage |
+| standard acceleration of gravity | aceleración normal de la gravedad (*gravedad normal* in prose after first mention); *standard* is *normal* here but *estándar* in *atmósfera estándar*, a deliberate split that follows each term's usage | CEM |
 | gravitational field strength | intensidad del campo gravitatorio | usage |
 | escape velocity, orbital period | velocidad de escape, periodo orbital | usage |
 | orbital speed | rapidez orbital (scalar: *rapidez*, per the speed row) | usage |
@@ -132,6 +133,7 @@ Prefix names are already shipped (*mili, ato, zeta, yota* per RAE; the rest unch
 | --- | --- | --- |
 | density, mass density | densidad, densidad másica | CEM |
 | pressure, gauge pressure | presión, presión manométrica | CEM (presión) |
+| force per area (head kind of pressure and stress) | fuerza por unidad de superficie | usage |
 | buoyant force | empuje | usage |
 | volumetric flow rate | caudal | usage |
 | dynamic viscosity | viscosidad dinámica | CEM |
@@ -140,7 +142,7 @@ Prefix names are already shipped (*mili, ato, zeta, yota* per RAE; the rest unch
 | period, frequency | periodo, frecuencia | CEM (frecuencia) |
 | wave speed | rapidez de propagación (scalar: *rapidez*, per the speed row) | usage |
 | wavelength, wavenumber | longitud de onda, número de ondas | CEM (número de ondas) |
-| amplitude, harmonic, beat | amplitud, armónico, pulsación | usage |
+| amplitude, harmonic, beat | amplitud, armónico, pulsación (also the QUDT Spanish label of angular frequency, so *pulsación* is an alias of `magnitudes/angular-frequency` too) | usage |
 | simple harmonic motion | movimiento armónico simple | usage |
 | sound intensity level | nivel de intensidad sonora | usage |
 | refractive index | índice de refracción | usage |

@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Dyne'
+symbol:
+  tex: 'dyn'
+unitOf:
+  - 'force'
+system: 'cgs'
+toBase:
+  factor: '1e-5'
+  exact: true
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+    ref: 'B.8: dyne (dyn)'
+externalIds:
+  wikidata: 'Q201933'
+  qudt: 'http://qudt.org/vocab/unit/DYN'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'dynes'
+  - 'dyn'
+references:
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: dyne, dyne centimeter, dyne per square centimeter'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (9th CGPM, 1948, Resolution 7) and Appendix 4'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, unit DYN'
+    url: 'https://qudt.org/vocab/unit/DYN'
+description:
+  en: >-
+    The dyne, symbol $\mathrm{dyn}$, is the unit of force of the centimetre-gram-second (CGS)
+    system: the force that gives a mass of one gram an acceleration of one centimetre per second
+    squared. It is not an SI unit.
+
+    One dyne equals exactly $10^{-5}\,\mathrm{N}$, a factor that NIST Special Publication 811 marks
+    as exact in its Appendix B.8, so one newton is a hundred thousand dynes. The factor follows
+    from the units involved: the gram is a thousandth of a kilogram and the centimetre a hundredth
+    of a metre.
+
+    Other CGS units are built on it. The erg, the CGS unit of energy and work, is the work of one
+    dyne acting over one centimetre, exactly $10^{-7}\,\mathrm{J}$; the dyne per square centimetre, a unit of pressure,
+    is exactly one tenth of a pascal; and the dyne per centimetre, used for surface tension, is
+    one thousandth of a newton per metre.
+
+    The British Association, a scientific society, introduced the CGS system in 1874 as a
+    coherent set of mechanical units built on the centimetre, the gram and the second. In 1948 the
+    9th General Conference on Weights and Measures included the dyne, with the symbol
+    $\mathrm{dyn}$, in its list of unit symbols, alongside the erg and the newton. The plural of
+    the name is dynes.

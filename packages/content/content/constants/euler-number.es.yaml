@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.locale.schema.json
+name: 'Número e'
+description: >-
+  El número e, o número de Euler, escrito $e$, es la constante matemática que sirve de base al
+  logaritmo natural, aproximadamente 2.71828. Es irracional y además trascendente, de modo que su
+  desarrollo decimal no termina ni se repite y no es raíz de ninguna ecuación polinómica de
+  coeficientes enteros. Cualquier valor decimal de $e$ es, por tanto, una aproximación.
+
+  El número surge como el límite de $\left(1+1/n\right)^{n}$ cuando $n$ crece sin cota, que
+  describe un interés compuesto con una frecuencia cada vez mayor, y como la suma de los inversos
+  de los factoriales, $e=\sum_{k=0}^{\infty}1/k!$, una serie que converge lo bastante deprisa para
+  calcular muchas cifras a mano. La función exponencial de base $e$ crece a un ritmo igual a su
+  propio valor, lo que la convierte en el modelo natural de cualquier cantidad cuyo cambio sea
+  proporcional a su tamaño.
+
+  Esa propiedad lleva el número $e$ al interés compuesto continuo, al crecimiento de poblaciones,
+  a la desintegración radiactiva, a la carga de un condensador, al enfriamiento de un objeto
+  caliente y a la atenuación de la luz en un medio. El logaritmo natural, escrito ln, deshace la
+  exponencial de esta base, y cualquier exponencial de otra base puede reescribirse en función de
+  ella.
+
+  En 1618 apareció, en un apéndice de una obra de Napier sobre logaritmos, una tabla que equivalía
+  a logaritmos naturales, pero el número en sí surgió en 1683, cuando Jacob Bernoulli estudió el
+  interés compuesto de forma continua y demostró que el límite está entre 2 y 3. Euler introdujo
+  la letra $e$ en una carta a Goldbach de 1731 y trató el número a fondo en su Introductio in
+  analysin infinitorum, de 1748. Hermite demostró en 1873 que es trascendente.

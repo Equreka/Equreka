@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Gram per cubic centimetre'
+symbol:
+  tex: 'g/cm^{3}'
+  text: 'g/cm³'
+unitOf:
+  - 'density'
+system: 'cgs'
+compose:
+  of:
+    - unit: 'gram'
+      exp: 1
+    - unit: 'centimetre'
+      exp: -3
+externalIds:
+  wikidata: 'Q13147228'
+  qudt: 'http://qudt.org/vocab/unit/GM-PER-CentiM3'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+  - 'fluid-mechanics'
+aliases:
+  - 'gram per cubic centimeter'
+  - 'g/cm3'
+  - 'g/cm^3'
+  - 'g/cc'
+  - 'g cm-3'
+references:
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: gram per cubic centimeter'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 and Appendix 4'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Office of Weights and Measures, SI Units: Mass'
+    url: 'https://www.nist.gov/pml/owm/si-units-mass'
+  - title: 'OpenStax, University Physics Volume 1, 14.1 Fluids, Density, and Pressure'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure'
+  - title: 'QUDT, unit GM-PER-CentiM3'
+    url: 'https://qudt.org/vocab/unit/GM-PER-CentiM3'
+description:
+  en: >-
+    The gram per cubic centimetre, symbol $\mathrm{g/cm^{3}}$, is the unit of density of the
+    centimetre-gram-second (CGS) system: the density of a material of which one cubic centimetre
+    has a mass of one gram. It is not a coherent SI unit, but both of its parts are decimal
+    submultiples of SI units, the gram of the kilogram and the centimetre of the metre.
+
+    It equals exactly $1000\,\mathrm{kg/m^{3}}$, a factor that NIST Special Publication 811 marks
+    as exact in its Appendix B.8. Because the SI Brochure defines the litre as one cubic decimetre,
+    a millilitre is one cubic centimetre, so one gram per cubic centimetre is also one gram per
+    millilitre and one kilogram per litre.
+
+    The unit suits liquids and solids because the kilogram was first set as the mass of a cubic
+    decimetre of water at its densest, so water comes out close to one gram per cubic centimetre.
+    Densities in this unit therefore read almost the same as specific gravity, the density
+    relative to water: aluminium has about 2.70 grams per cubic centimetre and gold about
+    $19.3\,\mathrm{g/cm^{3}}$.
+
+    The CGS system to which the unit belongs was introduced in 1874 by the British Association, a
+    scientific society, and was built on the centimetre, the gram and the second, and much of the
+    later growth of experimental physics was based on it.
+
+    The symbol may also be written with a negative exponent; the informal abbreviation g/cc does
+    not follow the rules for unit symbols. The plural is grams per cubic centimetre.

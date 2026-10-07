@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/branches.schema.json
+name:
+  en: 'Algebra'
+category: 'mathematics'
+order: 1
+externalIds:
+  wikidata: 'Q3968'
+aliases:
+  - 'elementary algebra'
+  - 'school algebra'
+  - 'equations'
+  - 'logarithms'
+  - 'sequences and series'
+  - 'álgebra elemental'
+  - 'ecuaciones'
+  - 'logaritmos'
+  - 'sucesiones y series'
+description:
+  en: >-
+    Algebra is the part of mathematics that represents numbers with letters and other symbols, so
+    that a rule can be stated once for every value and an unknown can be found from the conditions
+    it satisfies. School algebra, also called elementary algebra, covers linear and quadratic
+    equations, systems of equations, exponential and logarithmic functions, and sequences and
+    series.
+
+    Solving an equation means isolating the unknown. A linear equation in one unknown has a single
+    root, and a quadratic equation has at most two real roots, given by the quadratic formula,
+    whose discriminant tells how many exist; Vieta's relations tie those roots to the coefficients.
+    The slope-intercept form writes a straight line as an equation in two variables. Exponential
+    growth multiplies a quantity by a constant factor in equal steps, and the logarithm undoes it,
+    turning an unknown exponent into a value that can be computed; the change-of-base rule moves
+    between bases. Arithmetic and geometric sequences add a constant difference or apply a constant
+    ratio from one term to the next, and their sums have closed forms.
+
+    Algebra generalizes arithmetic: a percentage or interest calculation becomes a formula once its
+    amounts are written as symbols. Analytic geometry turns figures into equations, trigonometry
+    relies on algebraic manipulation to solve triangles, and every formula of physics and chemistry
+    is rearranged by algebraic rules to isolate the quantity sought.

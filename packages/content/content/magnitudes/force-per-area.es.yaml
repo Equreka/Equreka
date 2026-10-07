@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Fuerza por unidad de superficie'
+description: >-
+  La fuerza por unidad de superficie es la clase general de magnitud obtenida al dividir una fuerza entre
+  el área de la superficie sobre la que actúa. Agrupa dos clases más específicas que
+  comparten su unidad y su dimensión: la presión, el empuje normal de un fluido o de un contacto
+  sobre una superficie, y la tensión mecánica, la fuerza interna a través de cualquier superficie
+  dentro de un sólido cargado.
+
+  Su unidad SI es el pascal, nombre especial que la 14.ª CGPM dio en 1971 al newton por metro
+  cuadrado; en unidades básicas, un pascal es $\mathrm{kg\,m^{-1}\,s^{-2}}$. El folleto del SI
+  asigna el pascal tanto a la presión como a la tensión mecánica. La presión es un escalar y, en un
+  fluido en reposo, actúa por igual en todas las direcciones. La tensión mecánica es en general un
+  tensor que relaciona la fuerza sobre una superficie con la orientación de esa superficie, de modo
+  que un solo número la describe únicamente para un plano elegido; según el convenio de signos
+  habitual, la tensión de tracción es positiva y la de compresión, negativa. La presión
+  manométrica, relativa al aire circundante, es negativa en un vacío parcial.
+
+  Los barómetros y los manómetros miden la presión, a menudo equilibrándola con una columna de
+  líquido, mientras que las galgas extensométricas deducen la tensión a partir de la pequeña
+  deformación que produce. La atmósfera estándar, $101\,325\,\mathrm{Pa}$, fija la escala de la
+  presión del aire cotidiana; los neumáticos, las prensas hidráulicas y el agua de las fosas
+  oceánicas alcanzan muchas veces ese valor, y los metales de ingeniería soportan tensiones mucho
+  mayores antes de ceder.
+
+  La fuerza por unidad de superficie no debe confundirse con la fuerza: una fuerza pequeña sobre
+  la punta de una aguja produce una presión mucho mayor que una fuerza grande repartida sobre una
+  raqueta de nieve. Presión y tensión mecánica se distinguen porque un fluido en reposo no resiste
+  esfuerzos cortantes y un sólido sí. Muchas unidades tradicionales, como el bar, el torr y el
+  milímetro de mercurio, miden solo presión, mientras que el pascal y la libra por pulgada cuadrada
+  sirven para ambas clases.

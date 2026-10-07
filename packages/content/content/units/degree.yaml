@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Degree'
+symbol:
+  tex: '^{\circ}'
+  text: '°'
+unitOf:
+  - 'plane-angle'
+system: 'other'
+toBase:
+  factor: '0.0174532925199432957692369076848861271'
+  exact: false
+  source:
+    name: 'BIPM SI Brochure 9th ed.'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+    ref: 'Table 8: degree, 1° = (π/180) rad; π/180 rounded to 36 significant digits'
+externalIds:
+  wikidata: 'Q28390'
+  qudt: 'http://qudt.org/vocab/unit/DEG'
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+  - 'trigonometry'
+aliases:
+  - 'deg'
+  - 'degrees'
+  - 'degree of arc'
+  - 'arc degree'
+  - 'arcdegree'
+  - 'angular degree'
+  - 'sexagesimal degree'
+  - 'grado sexagesimal'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8: degree'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Section 5.4.3: formatting the value of a quantity'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Chapter 5, Table 6: non-SI units accepted for use with the SI'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si'
+  - title: 'NIST SP 811, Appendix B.8: degree (angle)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'OEIS A000796, decimal expansion of pi'
+    url: 'https://oeis.org/A000796'
+description:
+  en: >-
+    The degree is a unit of plane angle equal to one 360th of a full turn. It is not an SI unit, but
+    the SI Brochure lists it among the non-SI units that remain in use alongside the SI, and it is
+    the angle unit of school geometry, trigonometry, navigation and maps.
+
+    The SI Brochure defines the degree in terms of the radian: one degree equals $\pi/180$ radian.
+    Because $\pi$ is irrational, this factor has no finite decimal form; the value used for
+    conversion here is rounded to 36 significant digits, about 0.017 453 radian.
+
+    A right angle is 90 degrees, a straight angle 180 degrees and a full turn 360 degrees, or
+    $2\pi$ radians. Each degree divides into 60 arcminutes, and each arcminute into 60 arcseconds,
+    so a degree holds 3600 arcseconds. One radian is a little more than 57 degrees.
+
+    Degrees describe latitude and longitude, compass bearings, the slope of roads and roofs, the
+    angles of a triangle and the settings of protractors and theodolites. Pocket calculators offer
+    a degree mode alongside a radian mode, and the trigonometric functions of a calculator give
+    wrong results when the two are mixed up. The SI Brochure advises dividing the degree decimally,
+    as in 12.25° rather than 12°15′, except in navigation, cartography, astronomy and the measurement of very small
+    angles, where degrees, minutes and seconds remain customary.
+
+    The symbol ° follows the number with no space, unlike most unit symbols: 30° rather than 30 °.
+    The same rule applies to the arcminute and arcsecond. The degree of plane angle is distinct
+    from the degree Celsius, a unit of temperature that does take a space before its symbol.

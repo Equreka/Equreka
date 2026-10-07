@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Frecuencia angular'
+description: >-
+  La frecuencia angular es el ritmo al que avanza con el tiempo la fase de un proceso periódico.
+  Para una oscilación o una onda vale $2\pi$ veces la frecuencia, o $2\pi$ dividido entre el
+  periodo, porque la fase crece una vuelta completa de $2\pi$ radianes en cada ciclo. Es el ritmo
+  natural en las ecuaciones del movimiento armónico simple, de las ondas y de los circuitos de
+  corriente alterna.
+
+  La unidad SI de frecuencia angular es el radián por segundo, con la dimensión de un ángulo plano
+  dividido entre un tiempo. El folleto del SI reserva el hercio para la frecuencia y pide expresar
+  la frecuencia angular explícitamente en radianes por segundo, no como un simple segundo a la menos
+  uno, porque los valores numéricos de ambas magnitudes difieren en un factor $2\pi$ y mezclarlas es
+  una fuente habitual de errores.
+
+  La frecuencia angular es un escalar y aquí se trata como no negativa. El sentido en que se propaga
+  una onda lo indica el signo que precede al término temporal de su función de onda, no la propia
+  frecuencia angular.
+
+  Se obtiene a partir de un periodo o una frecuencia medidos. Un bloque unido a un resorte que oscila
+  con un periodo de 1.57 segundos tiene una frecuencia angular de unos $4.00\,\mathrm{rad/s}$; un
+  transductor de ultrasonidos que oscila con un periodo de 0.400 microsegundos alcanza unos
+  $1.57\times10^{7}\,\mathrm{rad/s}$. En una masa unida a un resorte depende solo de la rigidez y de
+  la masa, no de la amplitud.
+
+  La frecuencia angular comparte su unidad y el símbolo omega con la velocidad angular, y QUDT
+  registra ambas como tipos de magnitud equivalentes. La diferencia está en el significado: la
+  velocidad angular describe una rotación física alrededor de un eje, mientras que la frecuencia
+  angular describe lo deprisa que avanza la fase de cualquier oscilación, aunque nada gire.

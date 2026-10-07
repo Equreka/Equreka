@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Aceleración'
+description: >-
+  La aceleración es el ritmo al que cambia la velocidad de un cuerpo con el tiempo. Es una magnitud
+  vectorial de la cinemática que registra cualquier cambio de la velocidad, ya sea en módulo, en
+  dirección o en ambos. La aceleración instantánea es la derivada temporal de la velocidad; la
+  aceleración media en un intervalo es la variación de la velocidad dividida entre el tiempo
+  empleado.
+
+  La unidad SI de aceleración es el metro por segundo al cuadrado, con la dimensión de una longitud
+  dividida entre un tiempo al cuadrado: una aceleración de un metro por segundo al cuadrado suma un
+  metro por segundo a la velocidad cada segundo. La geodesia y la geofísica aún emplean el gal del
+  sistema CGS, la centésima parte de la unidad SI.
+
+  La aceleración apunta en la dirección de la variación de la velocidad, que no tiene por qué
+  coincidir con la del movimiento. En una recta es una componente con signo, y ese signo por sí solo
+  no indica si el cuerpo acelera o frena: el cuerpo gana rapidez cuando aceleración y velocidad
+  tienen el mismo signo y la pierde cuando los signos difieren. Un cuerpo que recorre una
+  circunferencia con rapidez constante también está acelerado, hacia el centro, porque la dirección
+  de su velocidad cambia sin cesar.
+
+  Los acelerómetros la miden directamente, y también puede obtenerse de la pendiente de una gráfica
+  velocidad–tiempo. Sus módulos típicos van desde unos $0.25\,\mathrm{m/s^{2}}$ en un tren de alta
+  velocidad hasta $1.9\times10^{9}\,\mathrm{m/s^{2}}$ para un protón en el Gran
+  Colisionador de Hadrones. La caída libre cerca de la superficie terrestre se aproxima a la
+  aceleración normal de la gravedad, $9.806\,65\,\mathrm{m/s^{2}}$, el valor convencional adoptado
+  por la 3.ª CGPM en 1901.
+
+  La aceleración no es la velocidad: una piedra lanzada hacia arriba, sin rozamiento del aire, tiene velocidad nula en lo
+  alto de su trayectoria, pero su aceleración allí es la misma, dirigida hacia abajo, que en
+  cualquier otro punto del vuelo. Deceleración es una palabra cotidiana para el frenado, no una
+  magnitud distinta.

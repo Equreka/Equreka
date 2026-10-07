@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Arcsecond'
+symbol:
+  tex: '^{\prime\prime}'
+  text: '″'
+unitOf:
+  - 'plane-angle'
+system: 'other'
+compose:
+  factor:
+    num: '1'
+    den: '3600'
+  of:
+    - unit: 'degree'
+      exp: 1
+externalIds:
+  wikidata: 'Q829073'
+  qudt: 'http://qudt.org/vocab/unit/ARCSEC'
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'arcsec'
+  - 'arc second'
+  - 'second of arc'
+  - 'angular second'
+  - 'second (angle)'
+  - 'segundo sexagesimal'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8: second (plane angle), note (a)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Section 5.4.3: formatting the value of a quantity'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Chapter 5, Table 6: non-SI units accepted for use with the SI'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si'
+  - title: 'NIST SP 811, Appendix B.8: second (angle)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+description:
+  en: >-
+    The arcsecond, or second of arc, is a unit of plane angle equal to one sixtieth of an arcminute,
+    and so one 3600th of a degree. It is the smallest step of the sexagesimal division of the degree
+    and a non-SI unit that the SI Brochure lists for use alongside the SI, where it is named the
+    second of plane angle.
+
+    The SI Brochure defines one arcsecond as one sixtieth of an arcminute, which equals
+    $\pi/648\,000$ radian. The factor is irrational and is carried to the same 36 significant digits
+    as the degree, about $4.848\times10^{-6}$ radian, or a little under five microradians.
+
+    A degree holds 3600 arcseconds and a full turn 1 296 000. An arcsecond is roughly the angle
+    that a coin a couple of centimetres across subtends from a distance of four kilometres, which
+    is why the unit suits very small angles.
+
+    Astronomy uses arcseconds to express the positions, apparent sizes and parallaxes of celestial
+    objects, together with the milliarcsecond, microarcsecond and picoarcsecond for still smaller
+    angles, as the SI Brochure notes. Geodesy and surveying give coordinates to fractions of an
+    arcsecond, and the quality of a telescope image is often quoted as its resolution in arcseconds.
+
+    The symbol is the double prime, ″, written directly after the number with no space, as in
+    30°22′8″; the SI Brochure also gives as, the symbol that takes prefixes in mas and μas. A
+    straight double quotation mark often replaces the double prime in plain text. The word second
+    alone also names the SI unit of time, so arcsecond or second of arc is used where confusion
+    could arise.

@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Velocidad'
+description: >-
+  La velocidad es el ritmo al que cambia la posición de un cuerpo con el tiempo. Es una magnitud
+  vectorial de la cinemática: indica a la vez cuán deprisa se mueve un cuerpo y en qué dirección.
+  La velocidad instantánea es la derivada temporal del vector de posición, mientras que la velocidad
+  media en un intervalo es el desplazamiento dividido entre el tiempo empleado.
+
+  La unidad SI de velocidad es el metro por segundo, una unidad derivada coherente con la dimensión
+  de una longitud dividida entre un tiempo. Los velocímetros de los coches, los anemómetros de
+  las aeronaves y las corredoras de los barcos marcan kilómetros por hora, millas por hora o nudos, y todas estas unidades se convierten de forma
+  exacta al metro por segundo.
+
+  Como vector, la velocidad tiene módulo y dirección. En un movimiento rectilíneo se reduce a una
+  sola componente con signo: positiva cuando el cuerpo avanza hacia el lado elegido como positivo
+  en el eje, negativa cuando se mueve en sentido contrario y nula en un instante de reposo. Una
+  piedra lanzada verticalmente hacia arriba, tomando ese sentido como positivo, tiene velocidad
+  positiva mientras sube, velocidad nula en lo alto de su trayectoria y velocidad negativa al caer.
+
+  La velocidad se obtiene a partir de posiciones registradas en instantes conocidos, mediante
+  sensores de movimiento, análisis de vídeo o receptores de navegación por satélite. Su módulo abarca
+  muchos órdenes de magnitud: unos $1.7\,\mathrm{m/s}$ en una caminata enérgica,
+  $343\,\mathrm{m/s}$ para el sonido en el aire al nivel del mar y $29\,783\,\mathrm{m/s}$ para el
+  movimiento orbital de la Tierra alrededor del Sol. Ningún cuerpo material llega a moverse tan
+  deprisa como la luz en el vacío.
+
+  La velocidad suele confundirse con la rapidez. La rapidez es el módulo de la velocidad, un escalar
+  que nunca es negativo. En un recorrido cerrado, como una vuelta a una pista de atletismo, el
+  desplazamiento es nulo, de modo que la velocidad media es cero mientras que la rapidez media, la
+  distancia recorrida dividida entre el tiempo, no lo es.

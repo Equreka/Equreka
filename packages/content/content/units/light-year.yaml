@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Light-year'
+symbol:
+  tex: 'ly'
+unitOf:
+  - 'length'
+system: 'other'
+toBase:
+  factor: '9460730472580800'
+  exact: true
+  source:
+    name: 'IAU'
+    url: 'https://iauarchive.eso.org/public/themes/measuring/'
+    ref: 'light-year: distance travelled by light in vacuum in one Julian year of 365.25 d, 9 460 730 472 580.8 km; NIST SP 811 B.8: light year (l.y.), 9.460 73 E+15 m, footnote 18'
+externalIds:
+  wikidata: 'Q531'
+  qudt: 'http://qudt.org/vocab/unit/LY'
+categories:
+  - 'physics'
+branches:
+  - 'gravitation'
+aliases:
+  - 'light year'
+  - 'lightyear'
+  - 'light-years'
+  - 'l.y.'
+references:
+  - title: 'IAU, Measuring the Universe: the IAU and astronomical units'
+    url: 'https://iauarchive.eso.org/public/themes/measuring/'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: light year'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST SP 811, Appendix B footnotes, footnote 18: day and Julian century'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-footnotes'
+  - title: 'IAU 2015 Resolution B2, note 4: definition of the parsec (arXiv:1510.06262)'
+    url: 'https://arxiv.org/abs/1510.06262'
+description:
+  en: >-
+    The light-year, symbol ly, is a unit of length: the length of the path that light covers
+    through empty space during one Julian year. Despite its name it measures distance, not time. It sits outside
+    the International System of Units and appears mostly in popular astronomy, where it gives a
+    feeling for the distances to stars and galaxies.
+
+    The International Astronomical Union takes a year, unless stated otherwise, to be the Julian
+    year of $365.25\,\mathrm{d}$, each day lasting $86\,400\,\mathrm{s}$. Multiplying that interval by the exact speed of
+    light in vacuum, $c$, gives $1\,\mathrm{ly}=9\,460\,730\,472\,580\,800\,\mathrm{m}$ exactly,
+    since both factors are fixed by definition. NIST Special Publication 811 prints the factor
+    rounded to six digits and notes that it rests on the day of $86\,400\,\mathrm{s}$ and on the
+    Julian reckoning of the year.
+
+    A light-year is about 63 241 times the astronomical unit, and the parsec, the unit astronomers
+    prefer for distances across the Milky Way and beyond, is about 3.26 times longer than the
+    light-year. A distance in light-years also tells how long ago the light now arriving set out:
+    light from a star ten light-years away left it ten years earlier.
+
+    The IAU notes that the light-year is sometimes used in research papers but is chiefly a unit
+    of popular publications and the media, and the parsec is the usual choice in professional work.
+    The name is written light-year or light year; the plural is light-years. NIST writes the symbol
+    l.y., while ly is the more common form, and neither takes a plural ending.

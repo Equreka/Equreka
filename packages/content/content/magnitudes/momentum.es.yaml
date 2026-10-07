@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Cantidad de movimiento'
+description: >-
+  La cantidad de movimiento, también llamada momento lineal, es la magnitud vectorial de la
+  mecánica que combina la masa de un cuerpo con su velocidad: es igual a su producto,
+  $\vec{p}=m\vec{v}$. Para un sistema de varios cuerpos es la suma vectorial de las partes, que
+  coincide con la masa total multiplicada por la velocidad del centro de masas.
+
+  Su unidad SI es el kilogramo metro por segundo, idéntico al newton segundo, y su dimensión es
+  masa por longitud dividida entre tiempo. La segunda ley de Newton adopta su forma más general
+  con esta magnitud: la fuerza externa neta sobre un sistema es igual al ritmo con que cambia su
+  cantidad de movimiento.
+
+  Como vector, apunta siempre en la dirección de la velocidad. Sobre un eje elegido, su
+  componente es positiva si el cuerpo avanza en el sentido positivo y negativa si avanza en el
+  contrario, de modo que dos carritos iguales que se separan con la misma rapidez suman una
+  cantidad de movimiento nula. Si ninguna fuerza externa neta actúa sobre un sistema, su
+  cantidad de movimiento total se mantiene constante en choques y explosiones.
+
+  Ningún instrumento la lee directamente: se calcula a partir de una masa y una velocidad
+  medidas, o se deduce del impulso necesario para detener el cuerpo. Sus valores abarcan un
+  intervalo enorme: una molécula de nitrógeno del aire a temperatura ambiente tiene unos
+  $2.4\times10^{-23}\,\mathrm{kg\,m/s}$, mientras que un automóvil corriente que circula por la
+  ciudad tiene cerca de $2.1\times10^{4}\,\mathrm{kg\,m/s}$, unos 27 órdenes de magnitud más.
+
+  Se confunde a menudo con la energía cinética, que también crece con la masa y la rapidez. La
+  energía cinética es un escalar proporcional al cuadrado de la rapidez y parte de ella se pierde
+  en un choque inelástico, mientras que la cantidad de movimiento total de un sistema aislado no
+  cambia en ningún choque. El momento angular es su análogo en la rotación. Newton enunció su
+  segunda ley en los Principia en términos de esta magnitud, a la que llamó cantidad de
+  movimiento.

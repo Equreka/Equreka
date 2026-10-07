@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Momento de una fuerza'
+description: >-
+  El momento de una fuerza, también llamado momento de fuerza, es el efecto de giro de
+  una fuerza respecto de un punto o de un eje: el análogo rotacional de la fuerza en la mecánica.
+  Es el producto vectorial del vector de posición, trazado desde el pivote hasta el punto donde se
+  aplica la fuerza, por la propia fuerza. Su módulo es la fuerza multiplicada por el brazo de
+  palanca, la distancia perpendicular del eje a la recta de acción de la fuerza.
+
+  Su unidad SI es el newton metro, y su dimensión es masa por longitud al cuadrado dividida entre
+  tiempo al cuadrado, la misma que la de la energía. Aun así, el folleto del SI establece que el
+  julio nunca se usa para el momento de una fuerza, y recuerda que este se define como el producto
+  vectorial de una posición por una fuerza y no como una cantidad de energía.
+
+  Es un vector perpendicular al plano que contiene el vector de posición y la fuerza, con el
+  sentido dado por la regla de la mano derecha. En la rotación alrededor de un eje fijo se trata
+  como un número con signo: según el convenio habitual, es positivo si tiende a girar el cuerpo en
+  sentido antihorario visto desde el extremo positivo del eje, negativo si lo hace en sentido
+  horario, y los momentos respecto de un mismo eje se suman para dar el momento neto.
+
+  Una fuerza produce el máximo momento cuando actúa perpendicular al brazo de palanca, y ninguno
+  cuando apunta directamente hacia el pivote. Por eso una puerta se abre con facilidad si se
+  empuja lejos de las bisagras, y una llave larga afloja un perno rebelde que una corta no mueve.
+  Una fuerza de $40\,\mathrm{N}$ aplicada perpendicularmente a $4\,\mathrm{m}$ de un pivote produce
+  $160\,\mathrm{N\,m}$.
+
+  Se confunde con facilidad con el trabajo y la energía porque comparten dimensión. El trabajo es
+  una transferencia escalar de energía a lo largo de un desplazamiento, mientras que el momento de
+  una fuerza es un vector que puede actuar sin ningún movimiento, como cuando un perno resiste a una
+  llave. Un sólido rígido está en equilibrio solo si la fuerza neta y el momento neto sobre él son
+  nulos.

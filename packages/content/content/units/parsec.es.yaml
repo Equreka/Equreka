@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Pársec'
+description: >-
+  El pársec, de símbolo pc, es una unidad de longitud que la astronomía profesional usa para las
+  distancias a las estrellas y las galaxias. Un pársec es la distancia desde la cual una unidad
+  astronómica, aproximadamente la distancia de la Tierra al Sol, se ve con una abertura de un
+  segundo de arco; por eso una estrella situada a un pársec muestra una paralaje anual de exactamente un
+  segundo de arco.
+
+  La nota al pie 4 de la Resolución B2 de la Unión Astronómica Internacional, adoptada en 2015, enuncia la
+  definición como exactamente $(648\,000/\pi)\,\mathrm{au}$. Como la unidad astronómica es un
+  número exacto de metros desde 2012, el pársec en metros también queda fijado, pero el factor
+  contiene $\pi$ y por eso carece de forma decimal finita:
+  $1\,\mathrm{pc}\approx3.085\,677\,581\times10^{16}\,\mathrm{m}$. La publicación especial 811 del
+  NIST da el factor redondeado a siete cifras significativas.
+
+  Un pársec equivale a unas 206 265 veces la unidad astronómica y a unas 3.26 veces el año luz.
+  Sus múltiplos decimales recorren la escala del universo: el kilopársec para las distancias dentro
+  de la Vía Láctea y el megapársec para las distancias entre galaxias. La misma resolución de la
+  UAI sitúa el cero de la escala de magnitud bolométrica absoluta a una distancia estándar de diez
+  pársecs, de modo que el pársec interviene en la propia definición del brillo intrínseco de una
+  estrella.
+
+  La UAI describe el pársec como la opción habitual para estudiar la estructura de la Vía Láctea,
+  mientras que el año luz aparece sobre todo en la divulgación. La definición se deduce
+  directamente de la medida de la paralaje: cuanto más cerca está una estrella, mayor es el
+  desplazamiento anual de su posición respecto a los objetos lejanos del fondo, y la distancia en
+  pársecs es casi exactamente el inverso de la paralaje en segundos de arco.

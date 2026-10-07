@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Radián por segundo'
+description: >-
+  El radián por segundo es la unidad derivada coherente del SI de la velocidad angular y de la
+  frecuencia angular. Mide cuántos radianes avanza en cada segundo un ángulo de giro o una fase, y
+  se forma dividiendo el radián, la unidad SI de ángulo plano, entre el segundo.
+
+  Un cuerpo que gira a un radián por segundo barre un ángulo de un radián cada segundo, de modo que
+  una vuelta completa de $2\pi$ radianes le lleva unos 6.28 segundos. El folleto del SI incluye la
+  unidad entre las unidades derivadas coherentes cuyo nombre contiene el radián, y recomienda
+  expresar la velocidad angular y la frecuencia angular en radianes por segundo y no como un simple
+  segundo a la menos uno, para que no se confundan con la frecuencia en hercios.
+
+  Una revolución por segundo equivale a $2\pi$ radianes por segundo, y una revolución por minuto,
+  a $\pi/30$ radianes por segundo, unos 0.1047 radianes por segundo. Un grado por segundo equivale
+  a $\pi/180$ radianes por segundo. El hercio tiene la
+  misma dimensión en unidades básicas pero cuenta ciclos, así que un hercio de rotación corresponde
+  a $2\pi$ radianes por segundo.
+
+  La unidad se usa en toda la mecánica de rotación, en las ecuaciones del movimiento armónico simple
+  y de las ondas, y en electrotecnia, donde la frecuencia angular de una corriente alterna fija la
+  reactancia de condensadores y bobinas.
+
+  Su símbolo es rad/s, que también se escribe $\mathrm{rad\,s^{-1}}$. Como el radián es igual a uno,
+  a veces el símbolo se abrevia a $\mathrm{s^{-1}}$, una práctica que el folleto del SI desaconseja
+  para estas magnitudes.

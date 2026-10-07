@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Acre'
+symbol:
+  tex: 'ac'
+unitOf:
+  - 'area'
+system: 'imperial'
+compose:
+  factor: '43560'
+  of:
+    - unit: 'foot'
+      exp: 2
+externalIds:
+  wikidata: 'Q81292'
+  qudt: 'http://qudt.org/vocab/unit/AC'
+categories:
+  - 'mathematics'
+  - 'physics'
+branches:
+  - 'geometry'
+  - 'mechanics'
+aliases:
+  - 'acres'
+  - 'international acre'
+references:
+  - title: 'NIST, U.S. Survey Foot: Revised Unit Conversion Factors, units based on the foot: acre'
+    url: 'https://www.nist.gov/pml/us-surveyfoot/revised-unit-conversion-factors'
+  - title: 'NIST, Putting the Best Foot Forward: Ending the Era of the U.S. Survey Foot'
+    url: 'https://www.nist.gov/pml/us-surveyfoot'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: acre (based on U.S. survey foot)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'QUDT, unit AC (acre)'
+    url: 'https://qudt.org/vocab/unit/AC'
+description:
+  en: >-
+    The acre, symbol ac, is a unit of area of the United States customary and British imperial
+    systems, used above all for land: farms, building lots and parks in the United States are
+    measured in acres. It belongs to neither the
+    International System of Units nor the units accepted for use with it.
+
+    NIST defines the acre through the foot, as exactly forty-three thousand five hundred and sixty
+    square feet, which with the international foot gives
+    $1\,\mathrm{ac}=43\,560\,\mathrm{ft^{2}}=4046.856\,422\,4\,\mathrm{m^{2}}$ exactly. The same
+    NIST table relates it to the older land-surveying units: ten square chains make one acre, and six hundred and forty acres make one square mile.
+
+    One acre is a little more than four tenths of a hectare, and a hectare is close to two and a
+    half acres. Because the acre is defined by area and not by shape, an acre of land can be a long
+    strip or a square; an acre shaped as a square measures a little under sixty-four metres on each
+    side.
+
+    Until the end of 2022 land in the United States was surveyed with the U.S. survey foot, which
+    is slightly longer than the international foot, and the acre based on it was
+    $4046.872\,609\,874\,\mathrm{m^{2}}$. NIST declared the survey foot obsolete from 1 January
+    2023, except for historical and legacy work, so a single acre now applies. NIST Special
+    Publication 811 still lists the survey-foot acre in its conversion appendix. NIST writes the
+    symbol ac, which takes no plural ending, although many texts write the name in full.

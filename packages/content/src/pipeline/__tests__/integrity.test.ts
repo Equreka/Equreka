@@ -9,6 +9,7 @@ import {
 	termKeyIssues,
 } from '../integrity.js';
 import { loadContent } from '../load.js';
+import { expandCorpus } from '../prefix-expansion.js';
 import { type Corpus, validateContent } from '../validate.js';
 import { corpusWith } from './corpus-with.js';
 
@@ -42,7 +43,9 @@ describe('checkIntegrity over the real corpus', () => {
 		const loaded = loadContent(CONTENT_DIR);
 		const validated = validateContent(loaded);
 		expect(validated.issues).toEqual([]);
-		expect(checkIntegrity(validated.corpus)).toEqual([]);
+		const expansion = expandCorpus(validated.corpus, loaded);
+		expect(expansion.issues).toEqual([]);
+		expect(checkIntegrity(expansion.corpus)).toEqual([]);
 	});
 
 	it('leaves exactly the whitelisted anchors derivation-free among convertible units', () => {

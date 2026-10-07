@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Kinetic energy'
+symbol:
+  tex: 'E_{\mathrm{k}}'
+  text: 'Ek'
+symbolAlt:
+  tex: 'K'
+baseUnit: 'joule'
+dimension:
+  L: 2
+  M: 1
+  T: -2
+kindOf: 'energy'
+nonNegative: true
+externalIds:
+  wikidata: 'Q46276'
+  qudt: 'http://qudt.org/vocab/quantitykind/KineticEnergy'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'energy of motion'
+  - 'KE'
+  - 'translational kinetic energy'
+  - 'energía de movimiento'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 7.2 Kinetic Energy'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/7-2-kinetic-energy'
+  - title: 'OpenStax, University Physics Volume 1, 7.3 Work-Energy Theorem'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/7-3-work-energy-theorem'
+  - title: 'HyperPhysics, Georgia State University, Kinetic Energy'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/ke.html'
+  - title: 'QUDT, quantity kind KineticEnergy'
+    url: 'https://qudt.org/vocab/quantitykind/KineticEnergy'
+description:
+  en: >-
+    Kinetic energy is the energy a body has because of its motion: the work needed to bring it from
+    rest to its present velocity, which it can give back as work on whatever slows it down. For a
+    particle moving much more slowly than light, it is one half of the mass times the square of the
+    speed, $E_{\mathrm{k}}=\tfrac{1}{2}mv^{2}$, and for a system it is the sum over all its particles.
+
+    Its SI unit is the joule, and its dimension is mass times length squared divided by time
+    squared. It is a form of energy, and the work-energy theorem ties it to work: whatever net work
+    acts on a particle appears as an equal change in its kinetic energy.
+
+    Kinetic energy is a scalar that is never negative, and it is zero only for a body at rest in
+    the chosen frame of reference. Because velocity depends on the observer, so does kinetic
+    energy: a passenger walking along the aisle of a moving train has little of it relative to the
+    carriage and much more relative to the track. A body that both moves and spins has the
+    translational kinetic energy of its centre of mass plus the rotational kinetic energy about it.
+
+    It is not measured directly but computed from mass and speed, or from the work a moving body
+    does as it is brought to rest. A sprinting athlete carries about $4.0\,\mathrm{kJ}$; the
+    asteroid that made the Chicxulub crater is estimated to have released about
+    $4.2\times10^{23}\,\mathrm{J}$ of kinetic energy on impact.
+
+    Kinetic energy is often confused with momentum, since both grow with mass and speed. Momentum
+    is a vector proportional to the speed, whereas kinetic energy is a scalar proportional to its
+    square, so doubling the speed of a body quadruples its kinetic energy. At speeds approaching
+    that of light, the classical expression fails and special relativity supplies the correct one.
+    Kinetic and potential energy together make up the mechanical energy of a system.

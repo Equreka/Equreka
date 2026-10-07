@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Radián por segundo al cuadrado'
+description: >-
+  El radián por segundo al cuadrado es la unidad derivada coherente del SI de la aceleración
+  angular. Mide lo deprisa que cambia la velocidad angular de un cuerpo que gira, y se forma con el
+  radián dividido entre el cuadrado del segundo o, de forma equivalente, con el radián por segundo
+  dividido entre el segundo.
+
+  Una aceleración angular de un radián por segundo al cuadrado aumenta la velocidad angular en un
+  radián por segundo durante cada segundo. El folleto del SI incluye la unidad en su tabla de
+  unidades derivadas coherentes cuyo nombre contiene el radián, junto al radián por segundo de la
+  velocidad angular, de modo que ambas unidades de rotación reflejan el metro por segundo y el metro
+  por segundo al cuadrado del movimiento lineal.
+
+  Multiplicar un valor en esta unidad por una distancia al eje en metros da la aceleración
+  tangencial de ese punto en metros por segundo al cuadrado, porque el radián es igual a uno.
+  Ganar una revolución por segundo en cada segundo equivale a $2\pi$ radianes por segundo al
+  cuadrado, y un grado por segundo al cuadrado equivale a $\pi/180$
+  radianes por segundo al cuadrado.
+
+  La unidad aparece en la dinámica de rotación, donde la aceleración angular de un sólido rígido es
+  el momento resultante de las fuerzas dividido entre su momento de inercia, y en las especificaciones de
+  motores, platos giratorios, centrifugadoras y sistemas de control de actitud de naves espaciales.
+  Una rueda de bicicleta que pasa del reposo a 250 revoluciones por minuto en cinco segundos gana
+  unos $5.24\,\mathrm{rad/s^{2}}$.
+
+  Su símbolo es rad/s², que también se escribe con exponente negativo como $\mathrm{rad\,s^{-2}}$. Como otras
+  unidades basadas en el radián, conserva el radián en el símbolo para mostrar que lo que cambia es
+  un ángulo y no un número puro.

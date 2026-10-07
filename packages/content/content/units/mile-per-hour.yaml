@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Mile per hour'
+symbol:
+  tex: 'mi/h'
+unitOf:
+  - 'speed'
+  - 'velocity'
+system: 'imperial'
+compose:
+  of:
+    - unit: 'mile'
+      exp: 1
+    - unit: 'hour'
+      exp: -1
+externalIds:
+  wikidata: 'Q211256'
+  qudt: 'http://qudt.org/vocab/unit/MI-PER-HR'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'mph'
+  - 'miles per hour'
+  - 'mi/hr'
+  - 'mile/h'
+  - 'international mile per hour'
+references:
+  - title: 'NIST SP 811, Appendix B.8: mile per hour (mi/h)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'OpenStax, University Physics Volume 1, 3.2 Instantaneous Velocity and Speed, Table 3.1'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-2-instantaneous-velocity-and-speed'
+  - title: 'QUDT, unit MI-PER-HR'
+    url: 'https://qudt.org/vocab/unit/MI-PER-HR'
+description:
+  en: >-
+    The mile per hour, abbreviated mph, is a unit of speed and velocity equal to a distance of one
+    international mile covered in one hour. It belongs to the imperial and US customary systems
+    rather than to the SI, and it is the everyday unit for road speeds in countries that measure
+    road distances in miles.
+
+    Its value follows from its parts. The international mile is exactly 1609.344 metres and the
+    hour exactly 3600 seconds, so one mile per hour is exactly 0.447 04 metre per second, a factor
+    that NIST SP 811 marks as exact. It is also exactly 1.609 344 kilometres per hour.
+
+    In the other direction, one metre per second is about 2.237 miles per hour, and one kilometre
+    per hour is about 0.6214 mile per hour. A knot, one nautical mile per hour, is about 1.151 miles
+    per hour, because the nautical mile is longer than the international mile. A brisk walk is
+    about 3.8 miles per hour and the speed of sound in air at sea level about 767 miles per hour.
+
+    The unit appears on speed limit signs, speedometers and vehicle specifications wherever the mile
+    remains the road unit, and in sports reports for the speed of a pitched or served ball.
+    Science and engineering normally convert it to metres per second.
+
+    The common abbreviation mph is not a formal unit symbol; NIST SP 811 writes mi/h, and mi/hr also
+    appears. Values other than one are read in the plural, miles per hour, and the unit is never
+    written as m/h, which would mean metres per hour.

@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Velocity'
+symbol:
+  tex: 'v'
+baseUnit: 'metre-per-second'
+dimension:
+  L: 1
+  T: -1
+externalIds:
+  wikidata: 'Q11465'
+  qudt: 'http://qudt.org/vocab/quantitykind/Velocity'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'velocity vector'
+  - 'linear velocity'
+  - 'instantaneous velocity'
+  - 'average velocity'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 5: speed, velocity'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 3.2 Instantaneous Velocity and Speed, Table 3.1'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-2-instantaneous-velocity-and-speed'
+  - title: 'OpenStax, University Physics Volume 1, 3.1 Position, Displacement, and Average Velocity'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-1-position-displacement-and-average-velocity'
+  - title: 'QUDT, quantity kind Velocity'
+    url: 'https://qudt.org/vocab/quantitykind/Velocity'
+description:
+  en: >-
+    Velocity is the rate at which the position of a body changes with time. It is a vector quantity
+    of kinematics: it tells both how fast a body moves and in which direction. The instantaneous
+    velocity is the time derivative of the position vector, while the average velocity over an
+    interval is the displacement divided by the time taken.
+
+    The SI unit of velocity is the metre per second, a coherent derived unit with the dimension of a
+    length divided by a time. Road speedometers, aircraft airspeed indicators and ship logs
+    read in kilometres per hour, miles per hour or knots, all of which convert exactly to the metre per second.
+
+    As a vector, velocity has a magnitude and a direction. For motion along a straight line it
+    reduces to one signed component: positive when the body moves towards the side chosen as
+    positive on the axis, negative when it moves the other way, and zero at an instant of rest. A
+    stone thrown straight up, with up taken as positive, has a positive velocity while rising, zero
+    velocity at the top of its path and a negative velocity while falling back.
+
+    Velocity is found from positions recorded at known times, by motion sensors, video analysis or
+    satellite navigation receivers. Its magnitude spans many orders: about $1.7\,\mathrm{m/s}$ for a
+    brisk walk, $343\,\mathrm{m/s}$ for sound in air at sea level and $29\,783\,\mathrm{m/s}$ for the
+    orbital motion of the Earth around the Sun. No material body reaches the speed of light in
+    vacuum.
+
+    Velocity is often confused with speed. Speed is the magnitude of the velocity, a scalar that is
+    never negative. Over a closed loop, such as one lap of a running track, the displacement is zero,
+    so the average velocity is zero while the average speed, the distance covered divided by the
+    time, is not.

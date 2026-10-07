@@ -19,17 +19,21 @@ const CONTENT_DIR = fileURLToPath(new URL('../../../content/', import.meta.url))
 
 const SAMPLE_SIZE = 10;
 
+const FRACTION_OR_ROOT = /\\(frac|dfrac|sqrt)/;
+
 let samples: [string, MathUse][];
 let global: MathRenderer;
 
 beforeAll(async () => {
 	const corpus = validateContent(loadContent(CONTENT_DIR)).corpus;
 	const uses = [...collectMathUses(corpus)].sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0));
-	const stride = Math.floor(uses.length / SAMPLE_SIZE);
-	samples = Array.from(
-		{ length: SAMPLE_SIZE },
+	const stride = Math.floor(uses.length / (SAMPLE_SIZE - 1));
+	const strided = Array.from(
+		{ length: SAMPLE_SIZE - 1 },
 		(_, index) => uses[index * stride] as [string, MathUse],
 	);
+	const fraction = uses.find(([tex]) => FRACTION_OR_ROOT.test(tex));
+	samples = fraction ? [...strided, fraction] : strided;
 	global = await createMathRenderer();
 }, 60_000);
 
@@ -50,7 +54,7 @@ describe('math renderer', () => {
 	it('hydrates atlas + body, rendered and lean, back to the fontCache:local rendering for sampled corpus math', async () => {
 		const local = await createMathRenderer({ fontCache: 'local' });
 		expect(samples.length).toBe(SAMPLE_SIZE);
-		expect(samples.some(([tex]) => /\\(frac|dfrac|sqrt)/.test(tex))).toBe(true);
+		expect(samples.some(([tex]) => FRACTION_OR_ROOT.test(tex))).toBe(true);
 		for (const [tex, use] of samples) {
 			const body = await global.render(tex, use.display);
 			const atlas = atlasOf(global);

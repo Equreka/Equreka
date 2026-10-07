@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Astronomical unit'
+symbol:
+  tex: 'au'
+unitOf:
+  - 'length'
+system: 'other'
+toBase:
+  factor: '149597870700'
+  exact: true
+  source:
+    name: 'BIPM SI Brochure 9th ed.'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+    ref: 'Table 8: astronomical unit, 1 au = 149 597 870 700 m, note (j): IAU 2012 Resolution B2'
+externalIds:
+  wikidata: 'Q1811'
+categories:
+  - 'physics'
+branches:
+  - 'gravitation'
+aliases:
+  - 'AU'
+  - 'ua'
+  - 'astronomical units'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 and note (j)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'IAU, Measuring the Universe: the IAU and astronomical units'
+    url: 'https://iauarchive.eso.org/public/themes/measuring/'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: astronomical unit'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'IAU 2015 Resolution B2, note 4: definition of the parsec (arXiv:1510.06262)'
+    url: 'https://arxiv.org/abs/1510.06262'
+  - title: 'NIST SP 811, Chapter 5, Units outside the SI, Table 8: atomic units'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si'
+description:
+  en: >-
+    The astronomical unit, symbol au, is a unit of length used for distances within the Solar
+    System. It is close to the average distance between the Earth and the Sun, but it is now a
+    fixed conventional length rather than a measured one. The SI Brochure lists it among the
+    non-SI units in common use, next to the hectare, the bar and the electronvolt.
+
+    Resolution B2 of the 28th General Assembly of the International Astronomical Union, held in
+    2012, defined the unit as exactly $1\,\mathrm{au}=149\,597\,870\,700\,\mathrm{m}$. The value
+    holds whatever time scale an astronomer works in, and the IAU names au as the one symbol for
+    the unit. NIST Special Publication 811 still prints a factor rounded to seven digits, which
+    agrees with the exact definition.
+
+    Longer units of astronomical length are built on it. The parsec is defined as exactly
+    $(648\,000/\pi)\,\mathrm{au}$, the distance from which one astronomical unit would appear one
+    arcsecond wide, which makes the parsec about 206 265 times longer. The light-year, the distance
+    light travels in one Julian year, is roughly 63 241 times longer than the astronomical unit.
+
+    The unit keeps the sizes of planetary orbits in small numbers, which is why planetary science
+    and celestial mechanics state distances inside the Solar System in it. The International
+    Astronomical Union set up its system of astronomical units in 1976, with the astronomical unit
+    as one of its central members. Other texts write AU or ua; the IAU prefers au, and the form
+    a.u. is best avoided because the NIST guide uses it for the atomic units of physics.

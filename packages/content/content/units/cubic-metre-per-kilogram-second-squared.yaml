@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Cubic metre per kilogram second squared'
+symbol:
+  tex: 'm^{3}\,kg^{-1}\,s^{-2}'
+  text: 'm³·kg⁻¹·s⁻²'
+unitOf: []
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'metre'
+      exp: 3
+    - unit: 'kilogram'
+      exp: -1
+    - unit: 'second'
+      exp: -2
+externalIds:
+  wikidata: 'Q78336909'
+  qudt: 'http://qudt.org/vocab/unit/M3-PER-KiloGM-SEC2'
+categories:
+  - 'physics'
+branches:
+  - 'gravitation'
+aliases:
+  - 'cubic meter per kilogram second squared'
+  - 'm3/(kg s2)'
+  - 'm^3 kg^-1 s^-2'
+  - 'm3 kg-1 s-2'
+  - 'N m2/kg2'
+  - 'N m^2 kg^-2'
+references:
+  - title: 'NIST, CODATA 2022 value: Newtonian constant of gravitation'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?bg'
+  - title: 'QUDT, unit M3-PER-KiloGM-SEC2'
+    url: 'https://qudt.org/vocab/unit/M3-PER-KiloGM-SEC2'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.4 and Table 4'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+description:
+  en: >-
+    The cubic metre per kilogram second squared, symbol $\mathrm{m^{3}\,kg^{-1}\,s^{-2}}$, is the
+    coherent SI unit in which the Newtonian constant of gravitation is expressed. It is a compound
+    unit built from three SI base units, the metre, the kilogram and the second, and it has no
+    special name of its own. Because it is a product of base units with a numerical factor of one,
+    the SI Brochure counts it among the coherent derived units.
+
+    The unit follows from Newton's law of universal gravitation. The force between two masses is
+    proportional to the product of the masses divided by the square of their separation, so the
+    constant that turns that ratio into newtons must carry newtons times square metres per square
+    kilogram. Writing the newton in base units, as a kilogram metre per second squared, reduces
+    this to the cubic metre per kilogram second squared, and the two forms
+    $\mathrm{N\,m^{2}\,kg^{-2}}$ and $\mathrm{m^{3}\,kg^{-1}\,s^{-2}}$ are identical.
+
+    No quantity kind of its own is measured in this unit: its dimension belongs to the
+    gravitational coupling rather than to any everyday property of matter, which is why it is
+    treated as a compound unit with no magnitude attached. NIST lists the CODATA value of the
+    gravitational constant in this form, and the constant itself, about $6.674\times10^{-11}$ of
+    these units, shows how weak gravity is between laboratory masses.

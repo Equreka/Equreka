@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.locale.schema.json
+name: 'Aceleración normal de la gravedad'
+description: >-
+  La aceleración normal de la gravedad, de símbolo $g_{\mathrm{n}}$, es un valor de referencia
+  convencional para la aceleración con que cae libremente un cuerpo cerca de la superficie
+  terrestre,
+  fijado en exactamente $9.806\,65\,\mathrm{m/s^{2}}$. Es exacta por definición, no por medición:
+  CODATA 2022 la da sin incertidumbre, porque se adoptó por acuerdo y nunca necesita volver a
+  medirse.
+
+  La aceleración de caída libre real cambia de un lugar a otro, sobre todo con la latitud y la
+  altitud, de modo que ningún número medido describe todo el planeta. El valor normal ofrece a
+  ingenieros y metrólogos una cifra acordada para cualquier cálculo que necesite una aceleración
+  de la gravedad independiente del lugar donde se haga. Es una magnitud de la misma clase que
+  cualquier otra aceleración y se mide en metros por segundo al cuadrado.
+
+  Varias unidades y magnitudes se apoyan en ella. El peso normal de un cuerpo es el producto de su
+  masa por $g_{\mathrm{n}}$. El obsoleto kilogramo fuerza es el peso de un kilogramo bajo la
+  gravedad normal, $1\,\mathrm{kgf}=9.806\,65\,\mathrm{N}$, y la libra fuerza se define del mismo
+  modo a partir de la libra avoirdupois. El milímetro de mercurio convencional y el milímetro de
+  agua convencional también la usan para convertir la altura de una columna de líquido en una
+  presión.
+
+  La 3.ª CGPM adoptó el valor en 1901, en la misma declaración que zanjó la diferencia entre masa y
+  peso, y lo expresó como $980.665\,\mathrm{cm/s^{2}}$, una cifra que ya figuraba en las leyes de
+  algunos países. El folleto del SI señala que el valor sirvió de referencia para el kilogramo
+  fuerza, que la guía del NIST incluye hoy entre las unidades que sus autores no deben usar.

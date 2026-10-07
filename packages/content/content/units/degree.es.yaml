@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Grado'
+description: >-
+  El grado es una unidad de ángulo plano igual a la 360.ª parte de una vuelta
+  completa. No es una unidad SI, pero el folleto del SI la incluye entre las unidades no SI que
+  siguen en uso junto al SI, y es la unidad de ángulo de la geometría escolar, la trigonometría, la
+  navegación y los mapas.
+
+  El folleto del SI define el grado a partir del radián: un grado equivale a $\pi/180$ radián.
+  Como $\pi$ es irracional, este factor no tiene expresión decimal finita; el valor que se usa aquí
+  para convertir está redondeado a 36 cifras significativas, unos 0.017 453 radianes.
+
+  Un ángulo recto mide 90 grados, un ángulo llano 180 grados y una vuelta completa 360 grados, o
+  $2\pi$ radianes. Cada grado se divide en 60 minutos de arco y cada minuto de arco en 60 segundos de
+  arco, así que un grado contiene 3600 segundos de arco. Un radián equivale a algo más de 57 grados.
+
+  Los grados expresan la latitud y la longitud, los rumbos de la brújula, la pendiente de carreteras
+  y tejados, los ángulos de un triángulo y las lecturas de transportadores y teodolitos. Las
+  calculadoras de bolsillo ofrecen un modo en grados junto a un modo en radianes, y sus funciones
+  trigonométricas dan resultados erróneos cuando se confunden. El folleto del SI aconseja dividir el
+  grado de forma decimal, como en 12.25° en lugar de 12°15′, salvo en navegación, cartografía,
+  astronomía y medida de ángulos muy pequeños, donde siguen siendo habituales los grados, minutos y
+  segundos.
+
+  El símbolo ° sigue al número sin espacio, a diferencia de la mayoría de los símbolos de unidades:
+  30° y no 30 °. La misma regla se aplica al minuto y al segundo de arco. El grado de ángulo plano es
+  distinto del grado Celsius, una unidad de temperatura que sí lleva un espacio antes de su símbolo.

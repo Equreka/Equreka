@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Pound-force'
+symbol:
+  tex: 'lbf'
+unitOf:
+  - 'force'
+system: 'imperial'
+toBase:
+  factor: '4.4482216152605'
+  exact: true
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+    ref: 'B.8: pound-force (lbf), 4.448 222 E+00; footnote 23 gives the exact factor 4.448 221 615 260 5 E+00 with g_n = 9.806 65 m/s²'
+externalIds:
+  wikidata: 'Q1194225'
+  qudt: 'http://qudt.org/vocab/unit/LB_F'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'pound force'
+  - 'pound of force'
+  - 'pound-weight'
+  - 'pound weight'
+  - 'lb-f'
+  - 'libra-fuerza'
+references:
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: pound-force and pound (avoirdupois)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B footnotes 22 and 23'
+    url: 'https://www.nist.gov/physical-measurement-laboratory/nist-guide-si-footnotes'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (3rd CGPM, 1901, declaration on mass and weight)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, unit LB_F'
+    url: 'https://qudt.org/vocab/unit/LB_F'
+description:
+  en: >-
+    The pound-force, symbol $\mathrm{lbf}$, is the unit of force that goes with the avoirdupois
+    pound in the imperial and US customary systems: the weight of a mass of one pound under the
+    standard acceleration of gravity. It is not an SI unit.
+
+    Its value follows from two exact definitions: the avoirdupois pound of exactly
+    $0.453\,592\,37\,\mathrm{kg}$, and the standard acceleration of gravity, a conventional value
+    adopted by the General Conference on Weights and Measures in 1901. Their product makes one
+    pound-force exactly $4.448\,221\,615\,260\,5\,\mathrm{N}$. NIST Special Publication 811 lists
+    the rounded factor 4.448 222 in its Appendix B.8 and gives the exact value in the accompanying
+    footnote, on the condition that the standard value of gravity is used.
+
+    Many customary units are built on it. NIST converts the pound-force foot, a unit of torque, and
+    the pound-force per inch to the newton metre and the newton per metre with factors of about
+    1.355 818 and 175.126 8; the pound-force per square inch, a unit of pressure, is the
+    pound-force acting on one square inch. Because the kilogram-force is defined from the kilogram
+    with the same standard gravity, one pound-force equals as many kilograms-force as the pound has
+    kilograms.
+
+    The pound-force is a force and the pound is a mass; writing lbf for the force keeps the two
+    apart. On the surface of the Earth a mass of one pound weighs about one pound-force, but the two
+    match exactly only where the local acceleration of gravity equals the standard value. The
+    plural is pounds-force.

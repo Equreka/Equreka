@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Kilómetro por hora'
+description: >-
+  El kilómetro por hora mide la rapidez y la velocidad: corresponde a recorrer una distancia de un
+  kilómetro en una hora. Combina el kilómetro, un múltiplo del metro del SI, con la hora,
+  una unidad de tiempo no SI aceptada para su uso con el SI, de modo que no es una unidad SI
+  coherente. Es la unidad cotidiana de la rapidez de los vehículos de carretera en la mayor parte del
+  mundo.
+
+  Su definición se deduce de sus partes: un kilómetro son exactamente 1000 metros y una hora,
+  exactamente 3600 segundos. Por tanto, un kilómetro por hora equivale exactamente a $5/18$ de metro
+  por segundo, unos 0.2778 metros por segundo; NIST SP 811 da el factor redondeado.
+
+  La conversión suele hacerse de cabeza: dividir entre 3.6 pasa de kilómetros por hora a metros por
+  segundo, y multiplicar por 3.6 hace lo contrario, así que 36 kilómetros por hora son 10 metros por
+  segundo y 90 kilómetros por hora, 25 metros por segundo. Una milla por hora equivale exactamente a
+  1.609 344 kilómetros por hora, y un nudo, exactamente a 1.852 kilómetros por hora.
+
+  Los límites de velocidad, los velocímetros, los partes meteorológicos de viento y los horarios de
+  trenes de los países que usan el sistema métrico emplean el kilómetro por hora. Los problemas de
+  física suelen pasar a metros por segundo antes de aplicar las ecuaciones del movimiento, porque el
+  metro por segundo es la unidad coherente.
+
+  El símbolo SI es km/h. Formas como kph, kmh y km/hr aparecen en el uso informal y comercial, pero
+  no son símbolos SI; el SI también escribe $\mathrm{km\,h^{-1}}$.

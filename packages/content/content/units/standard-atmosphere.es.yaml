@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Atmósfera estándar'
+description: >-
+  La atmósfera estándar, de símbolo atm, es una unidad de presión fijada por convenio en
+  $101\,325\,\mathrm{Pa}$ exactos, un valor próximo a la presión del aire al nivel del mar. Queda
+  fuera del Sistema Internacional de Unidades y se establece por acuerdo, no por medición, de modo
+  que es una unidad y no una constante física: la presión real del aire en cualquier lugar cambia
+  con la altitud y el tiempo meteorológico.
+
+  La definición vigente la adoptó la 10.ª CGPM en 1954, en su Resolución 4, que fijó
+  $1\,\mathrm{atm}=101\,325\,\mathrm{Pa}$ y dio el mismo valor en dinas por centímetro cuadrado.
+  Una definición anterior, redactada por la 9.ª CGPM dentro de la escala de temperatura, había
+  llevado a algunos físicos a creer que solo valía para la termometría de precisión, y la
+  resolución de 1954 la adoptó para todos los usos. La publicación especial 811 del NIST da el
+  factor de conversión como exacto.
+
+  Otras unidades de presión dependen de ella. El torr se define como la 760.ª parte de la
+  atmósfera estándar, de modo que la atmósfera es exactamente setecientas sesenta veces mayor, y
+  equivale a $1.013\,25\,\mathrm{bar}$, algo más de un bar. Ambas relaciones se deducen de
+  definiciones exactas y no implican redondeo.
+
+  Los cursos de química y de física siguen expresando presiones de gases y condiciones de
+  referencia en atmósferas, porque la unidad compara una presión directamente con la del aire
+  libre. Aun así, la guía del NIST sobre el SI incluye la atmósfera estándar entre las unidades que
+  sus autores no deben usar y recomienda en su lugar el pascal y sus múltiplos. El símbolo atm se
+  escribe en letra redonda minúscula y nunca lleva marca de plural; el nombre forma el plural
+  atmósferas.

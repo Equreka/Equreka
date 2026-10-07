@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Angular acceleration'
+symbol:
+  tex: '\alpha'
+  text: 'α'
+baseUnit: 'radian-per-second-squared'
+dimension:
+  A: 1
+  T: -2
+externalIds:
+  wikidata: 'Q186300'
+  qudt: 'http://qudt.org/vocab/quantitykind/AngularAcceleration'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'rotational acceleration'
+  - 'alpha'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 6: radian per second squared'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 10.1 Rotational Variables'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-1-rotational-variables'
+  - title: 'OpenStax, University Physics Volume 1, 10.7 Newton''s Second Law for Rotation'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-7-newtons-second-law-for-rotation'
+  - title: 'QUDT, quantity kind AngularAcceleration'
+    url: 'https://qudt.org/vocab/quantitykind/AngularAcceleration'
+description:
+  en: >-
+    Angular acceleration measures how quickly the angular velocity of a rotating body changes with
+    time. It is the time derivative of angular velocity, and so the second time derivative of the
+    angle of rotation: the rotational counterpart of linear acceleration in mechanics. A wheel that
+    spins up, a fan that slows after being switched off and a skater who pulls in the arms all show
+    a nonzero angular acceleration.
+
+    The SI unit of angular acceleration is the radian per second squared, a coherent derived unit
+    with the dimension of a plane angle divided by a time squared. One radian per second squared
+    adds one radian per second to the angular velocity every second.
+
+    Like angular velocity, angular acceleration is a vector along the axis of rotation. About a
+    fixed axis it is one signed component. When it has the same sign as the angular velocity the
+    rotation speeds up; when the signs are opposite the rotation slows down, whichever way the body
+    turns. A point at a distance from the axis then has a tangential acceleration equal to that
+    distance times the angular acceleration.
+
+    It is obtained from successive readings of angular velocity, for example from a rotary encoder
+    or a gyroscope. A bicycle wheel brought from rest to 250 revolutions per minute in five seconds
+    has an average angular acceleration of about $5.24\,\mathrm{rad/s^{2}}$; braking the same wheel
+    hard, from that rate to rest in 0.3 seconds, gives about $-87.3\,\mathrm{rad/s^{2}}$, the minus sign showing that the rotation is
+    slowing.
+
+    Angular acceleration is distinct from centripetal acceleration. A body turning at constant
+    angular velocity has zero angular acceleration, yet every point off the axis still accelerates
+    towards it, at a rate measured in metres per second squared rather than radians per second
+    squared. In rotational dynamics a net torque on a rigid body produces angular acceleration in
+    proportion to the inverse of its moment of inertia.

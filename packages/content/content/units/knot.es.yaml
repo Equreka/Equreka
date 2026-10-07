@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Nudo'
+description: >-
+  El nudo es una unidad de rapidez y de velocidad igual a una milla náutica por hora. Es una unidad
+  no SI que el folleto del SI recoge para la navegación marítima y aérea, donde tradicionalmente se
+  miden con ella barcos, aeronaves, vientos y corrientes oceánicas.
+
+  Su definición se apoya en la milla náutica, fijada en exactamente 1852 metros, y en la hora de 3600
+  segundos. Por tanto, un nudo equivale exactamente a $1852/3600$ metros por segundo, una razón que se
+  reduce a $463/900$ y cuya forma decimal se repite sin fin, unos 0.514 444 metros por segundo. NIST
+  SP 811 da ese decimal redondeado como factor de conversión.
+
+  Un nudo equivale exactamente a 1.852 kilómetros por hora y a unas 1.151 millas por hora. A la
+  inversa, un metro por segundo son unos 1.944 nudos. Como el nudo está ligado a la milla náutica,
+  cuya longitud fijó la 1.ª Conferencia Hidrográfica Internacional Extraordinaria en 1929, las
+  rapideces en nudos se combinan directamente con distancias en millas náuticas: un barco a diez
+  nudos recorre diez millas náuticas en una hora.
+
+  Los cuadernos de bitácora, los indicadores de velocidad de las aeronaves, el control del tráfico
+  aéreo y los partes meteorológicos para navegantes expresan en nudos la rapidez. En 1978 el CIPM
+  consideró que el nudo, junto con la milla náutica, podía seguir usándose con el SI en los campos
+  que ya lo empleaban, aunque desaconsejó introducirlo en otros.
+
+  No existe un símbolo acordado internacionalmente para el nudo, como señala el folleto del SI. El
+  símbolo kn está muy extendido, también aparece kt, y el plural se escribe a menudo kts. Como el
+  nudo ya contiene la hora, la expresión nudos por hora es un uso redundante e incorrecto salvo que
+  describa un cambio de rapidez.

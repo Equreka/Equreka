@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Energía potencial'
+description: >-
+  La energía potencial es la energía que almacena un sistema por la posición o la disposición de
+  sus partes, como un cuerpo elevado contra la gravedad o un resorte estirado. Se define para las
+  fuerzas conservativas, cuyo trabajo depende solo de dónde empieza y dónde termina el
+  movimiento, no del camino seguido: el cambio de energía potencial al pasar de una configuración
+  a otra es el opuesto del trabajo que esas fuerzas realizan entre ambas.
+
+  Su unidad SI es el julio, y su dimensión es masa por longitud al cuadrado dividida entre tiempo
+  al cuadrado. Junto a la superficie terrestre, la energía potencial gravitatoria de un cuerpo
+  crece en proporción a su masa, a la aceleración de la gravedad y a su altura; un resorte ideal
+  almacena energía en proporción al cuadrado de su estiramiento o compresión.
+
+  Es un escalar, y solo sus diferencias tienen significado físico. Su cero se elige libremente,
+  por ejemplo en el punto más bajo de un problema o, para cuerpos en el espacio, en un punto muy
+  alejado del sistema, así que puede ser positiva, nula o negativa. Con el cero al pie de una
+  colina, un excursionista en la cima tiene un valor positivo, y el mismo excursionista en un
+  punto más bajo tiene uno negativo.
+
+  Nunca se lee directamente en un instrumento: se calcula a partir de la ley de fuerza y de la
+  referencia elegida, o se deduce de la energía cinética que gana un cuerpo cuando se libera la
+  energía almacenada. Un excursionista de $75\,\mathrm{kg}$ que sube $147\,\mathrm{m}$ gana unos
+  $108\,\mathrm{kJ}$. Sin rozamiento ni resistencia del aire, la suma de energía cinética y
+  potencial se mantiene constante, de modo que una pelota que cae transforma energía potencial en
+  cinética y una que sube hace lo contrario.
+
+  La energía potencial pertenece a un sistema de cuerpos que interactúan y no a un cuerpo aislado:
+  la energía de un libro elevado es compartida por el libro y la Tierra. Las energías potenciales
+  gravitatoria, elástica, eléctrica y magnética son formas de ella.

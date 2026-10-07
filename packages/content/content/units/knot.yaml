@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Knot'
+symbol:
+  tex: 'kn'
+unitOf:
+  - 'speed'
+  - 'velocity'
+system: 'other'
+compose:
+  of:
+    - unit: 'nautical-mile'
+      exp: 1
+    - unit: 'hour'
+      exp: -1
+externalIds:
+  wikidata: 'Q128822'
+  qudt: 'http://qudt.org/vocab/unit/KN'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'knots'
+  - 'kt'
+  - 'kts'
+  - 'nautical mile per hour'
+  - 'international knot'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8: knot, note (k)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Chapter 5, Section 5.2 and Table 9: knot'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si'
+  - title: 'NIST SP 811, Appendix B.8: knot (nautical mile per hour)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'QUDT, unit KN'
+    url: 'https://qudt.org/vocab/unit/KN'
+description:
+  en: >-
+    The knot is a unit of speed and velocity equal to one nautical mile per hour. It is a non-SI
+    unit that the SI Brochure lists for marine and aerial navigation, where ships, aircraft, winds
+    and ocean currents are traditionally measured in it.
+
+    Its definition rests on the nautical mile, fixed at exactly 1852 metres, and on the hour of 3600
+    seconds. One knot is therefore exactly $1852/3600$ metre per second, a ratio that reduces to
+    $463/900$ and whose decimal form repeats without end, about 0.514 444 metre per second. NIST SP
+    811 lists that rounded decimal as its conversion factor.
+
+    One knot is exactly 1.852 kilometres per hour and about 1.151 miles per hour. Conversely, one
+    metre per second is about 1.944 knots. Since the knot is tied to the nautical mile, whose length
+    was fixed in 1929 by the first extraordinary International Hydrographic Conference, speeds in knots
+    combine directly with distances given in nautical miles: a ship at ten knots covers ten nautical
+    miles in an hour.
+
+    Ships' logs, aviation airspeed indicators, air traffic control and weather reports for sailors
+    give speeds in knots. In 1978 the CIPM considered that the knot, with the nautical mile, could
+    remain in use alongside the SI in the fields that already used it, while advising against
+    introducing it elsewhere.
+
+    There is no internationally agreed symbol for the knot, as the SI Brochure notes. The symbol kn
+    is widespread, kt also appears, and the plural knots is often written kts. Because the knot
+    already contains the hour, the expression knots per hour is a redundant misuse unless it
+    describes a change of speed.

@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Wavelength'
+symbol:
+  tex: '\lambda'
+  text: 'λ'
+baseUnit: 'metre'
+dimension:
+  L: 1
+kindOf: 'length'
+nonNegative: true
+externalIds:
+  wikidata: 'Q41364'
+  qudt: 'http://qudt.org/vocab/quantitykind/Wavelength'
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+  - 'optics-and-photometry'
+aliases:
+  - 'wave length'
+  - 'lambda'
+references:
+  - title: 'QUDT, quantity kind Wavelength (skos:broader Length)'
+    url: 'https://qudt.org/vocab/quantitykind/Wavelength'
+  - title: 'OpenStax, University Physics Volume 1, 16.1 Traveling Waves'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/16-1-traveling-waves'
+  - title: 'OpenStax, University Physics Volume 1, 16.2 Mathematics of Waves'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/16-2-mathematics-of-waves'
+  - title: 'OpenStax, University Physics Volume 2, 16.5 The Electromagnetic Spectrum'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/16-5-the-electromagnetic-spectrum'
+description:
+  en: >-
+    Wavelength is the distance over which a periodic wave repeats itself in space, measured along
+    the direction of propagation between two neighbouring points in the same phase, such as two
+    successive crests of a water wave or two compressions of a sound wave. It describes sound,
+    light, radio and every other kind of wave.
+
+    The SI unit of wavelength is the metre, and its dimension is that of length. Wavelength is a
+    specific kind of length, and QUDT files it under length as a narrower quantity kind. Light is
+    usually described in nanometres and radio in metres or kilometres. Its reciprocal, multiplied
+    by $2\pi$, is the angular wavenumber that appears in the wave function.
+
+    Wavelength is a positive scalar. It links the period of a wave to its speed: in one period the
+    wave advances by exactly one wavelength, so the speed equals the wavelength divided by the
+    period, or the wavelength times the frequency. The source fixes the frequency; when a wave
+    passes into a medium where it travels more slowly, its wavelength shortens.
+
+    Wavelengths are measured with rulers on standing waves, with interferometers and with
+    diffraction gratings, which turn a difference in wavelength into a difference in angle. Visible
+    light spans roughly 400 to 750 nanometres, ultraviolet reaches down to about 10 nanometres,
+    and radio waves begin at about a tenth of a metre and have no upper limit. A
+    wave sent along a string at two cycles per second and five metres per second is 2.5 metres long.
+
+    Wavelength is not amplitude, which measures how far the medium moves from equilibrium, and it is
+    the spatial counterpart of the period: the period repeats in time, the wavelength in space.

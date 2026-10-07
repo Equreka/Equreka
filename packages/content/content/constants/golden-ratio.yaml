@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Golden ratio'
+symbol:
+  tex: '\varphi'
+  text: 'φ'
+value: '1.61803398874989484820458683436563811772030917980576286213544862270526046281890244970720720418939113748475'
+approximations:
+  - '1.618'
+unit: 'unitless'
+exact: false
+irrational: true
+truncated: true
+externalIds:
+  wikidata: 'Q41690'
+categories:
+  - 'mathematics'
+branches:
+  - 'algebra'
+  - 'geometry'
+aliases:
+  - 'phi'
+  - 'golden mean'
+  - 'golden section'
+  - 'golden number'
+  - 'divine proportion'
+  - 'extreme and mean ratio'
+  - '1.618'
+  - 'razón áurea'
+  - 'sección áurea'
+  - 'divina proporción'
+references:
+  - title: 'MacTutor History of Mathematics, The golden ratio'
+    url: 'https://mathshistory.st-andrews.ac.uk/HistTopics/Golden_ratio/'
+  - title: 'OEIS A001622, Decimal expansion of golden ratio phi = (1 + sqrt(5))/2'
+    url: 'https://oeis.org/A001622'
+description:
+  en: >-
+    The golden ratio, usually written $\varphi$, is the irrational number
+    $\varphi=(1+\sqrt{5})/2$, approximately 1.618. A line is cut in the golden ratio when the whole
+    line is to its longer part as the longer part is to the shorter one; the number is also known
+    as the golden mean, the golden section and, in older texts, the extreme and mean ratio or the
+    divine proportion.
+
+    Because it involves the square root of five, the golden ratio has no finite or repeating
+    decimal expansion, so every decimal value of it is an approximation. It is the positive root of
+    the quadratic equation in which a number's square equals the number plus one, which gives it
+    two unusual properties: its square exceeds
+    it by exactly one, $\varphi^{2}=\varphi+1$, and its reciprocal falls short of it by exactly one,
+    $1/\varphi=\varphi-1$. The other root of the same equation is negative and equals one minus the
+    golden ratio.
+
+    In geometry the ratio appears in the regular pentagon, where a diagonal is $\varphi$ times as
+    long as a side, and therefore in the pentagram, the regular dodecahedron and the icosahedron.
+    In algebra it is the limit of the quotients of consecutive Fibonacci numbers, 1, 1, 2, 3, 5,
+    8 and so on, and the closed formula for the Fibonacci numbers is written with powers of
+    $\varphi$.
+
+    Euclid's Elements defines the division of a line in extreme and mean ratio and uses it to
+    construct the regular pentagon and two of the regular solids. Pacioli called it the
+    divine proportion in a book of that title, and in 1597 Michael Mästlin gave the first known
+    decimal value, in a letter to his former student Kepler. The name golden section appears in
+    print from about 1835. Claims that ancient architects and painters built on the ratio are
+    widely repeated but remain a matter of debate.

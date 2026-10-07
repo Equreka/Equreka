@@ -2,10 +2,11 @@
 name:
   en: 'Metre per second'
 symbol:
-  tex: '\frac{m}{s}'
+  tex: 'm/s'
   text: 'm/s'
 unitOf:
   - 'speed'
+  - 'velocity'
 system: 'si-derived'
 compose:
   of:

@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Pound per square inch'
+symbol:
+  tex: 'psi'
+symbolAlt:
+  tex: 'lbf/in^{2}'
+  text: 'lbf/in²'
+unitOf:
+  - 'force-per-area'
+system: 'imperial'
+compose:
+  of:
+    - unit: 'pound-force'
+      exp: 1
+    - unit: 'inch'
+      exp: -2
+externalIds:
+  wikidata: 'Q626299'
+  qudt: 'http://qudt.org/vocab/unit/LB_F-PER-IN2'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'pound-force per square inch'
+  - 'pounds per square inch'
+  - 'lbf/in2'
+  - 'lbf/in^2'
+  - 'lb/in2'
+references:
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: pound-force per square inch (psi), inch, kip per square inch'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST SP 811, Appendix B footnotes: exact factor of the pound-force'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-footnotes'
+  - title: 'QUDT, unit LB_F-PER-IN2 (pound force per square inch)'
+    url: 'https://qudt.org/vocab/unit/LB_F-PER-IN2'
+  - title: 'BIPM, The International System of Units, 9th ed., sections 5.2 and 5.4.2'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+description:
+  en: >-
+    The pound per square inch, symbol psi, is the customary unit of pressure and stress in the
+    United States, where tyre, hydraulic and boiler pressures are stated in it. Its full name is pound-force
+    per square inch, because it measures the force that a weight of one pound exerts under standard
+    gravity when spread over one square inch.
+
+    The unit is defined through two exact units: the pound-force, the weight of one avoirdupois
+    pound under the standard acceleration of gravity, and the inch, which NIST lists as an exact
+    fraction of the metre.
+    Their quotient fixes $1\,\mathrm{psi}\approx6894.757\,\mathrm{Pa}$, a value that NIST Special
+    Publication 811 prints to seven digits in its table of conversion factors. The quotient is
+    exact but not a terminating decimal, because dividing by the square of the inch brings in the
+    factor 127, so the value is quoted rounded.
+
+    One psi is a small pressure: the standard atmosphere is close to fifteen of them. For larger
+    loads, engineers in the United States use the kip per square inch, or ksi, one thousand times
+    larger, to state the strength and stiffness of steel and other structural materials. The
+    pound per square inch therefore serves both kinds of force per area: the pressure of a fluid
+    against a wall and the stress inside a loaded solid.
+
+    Gauges often add a letter to the symbol, writing psig for a reading above the surrounding air
+    and psia for an absolute reading. The SI Brochure rejects that practice for its own units,
+    since a unit symbol must not carry information about the quantity: the reference belongs in
+    the name of the quantity, as gauge pressure or absolute pressure. The symbol psi itself is an
+    abbreviation, while the symbol that follows the rules for compound units is lbf/in².

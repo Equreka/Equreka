@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Periodo'
+description: >-
+  El periodo es la duración de un ciclo completo de un fenómeno periódico: el menor tiempo tras el
+  cual una oscilación, una rotación, una órbita o una onda en un punto fijo vuelve al mismo estado.
+  Es el inverso de la frecuencia, de modo que un movimiento que se repite dos veces por segundo
+  tiene un periodo de medio segundo.
+
+  La unidad SI del periodo es el segundo, y su dimensión es la del tiempo. El periodo es un tipo
+  concreto de tiempo, la duración de un ciclo, y QUDT lo clasifica bajo el tiempo como un tipo de
+  magnitud más específico. Los periodos largos suelen expresarse en minutos, horas, días o años.
+
+  El periodo es un escalar y nunca es negativo. En el movimiento armónico simple no depende de la
+  amplitud: un resorte más rígido acorta el periodo y una carga más pesada lo alarga, pero una
+  oscilación más amplia lo deja igual. En una onda, el periodo es también el tiempo que tarda una
+  longitud de onda completa en pasar por un punto dado, de modo que la rapidez de propagación es la
+  longitud de onda dividida entre el periodo.
+
+  Un periodo se mide cronometrando muchos ciclos y dividiendo entre su número, lo que reduce el
+  efecto del tiempo de reacción. Los periodos van desde unos $1.088\times10^{-10}\,\mathrm{s}$ para
+  la radiación de la transición hiperfina del cesio 133, pasando por 0.400 microsegundos en un
+  transductor médico de ultrasonidos, hasta unos $86\,164\,\mathrm{s}$ para una rotación de la
+  Tierra respecto de las estrellas, el valor que se deduce de su velocidad angular nominal.
+
+  El periodo es el inverso de la frecuencia, no una frecuencia, y se distingue de la semivida, que
+  describe una desintegración y no una repetición. En 1967 la 13.ª CGPM igualó el segundo a
+  9 192 631 770 ciclos de la radiación del cesio; desde 2019 ese mismo número fija en
+  su lugar la frecuencia del cesio.

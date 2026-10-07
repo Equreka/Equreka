@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Impulso'
+description: >-
+  El impulso es la magnitud vectorial de la mecánica que mide el efecto acumulado de una fuerza
+  durante el tiempo en que actúa. Para una fuerza constante es la fuerza multiplicada por la
+  duración de su acción, $\vec{J}=\vec{F}\,\Delta t$; para una fuerza variable es la integral de
+  la fuerza respecto del tiempo, igual a la fuerza media multiplicada por la duración. El
+  teorema del impulso establece que el impulso de la fuerza neta sobre un cuerpo es igual a la
+  variación de su cantidad de movimiento.
+
+  Su unidad SI es el newton segundo, que es la misma unidad que el kilogramo metro por segundo, y
+  su dimensión es masa por longitud dividida entre tiempo, la misma que la de la cantidad de
+  movimiento.
+
+  El impulso es un vector que apunta en la dirección de la fuerza media. Sobre un eje elegido, un
+  impulso positivo aumenta la componente de la cantidad de movimiento en ese eje y uno negativo la
+  reduce, por lo que dos impulsos iguales de signo contrario producen cambios exactamente
+  opuestos. Un impulso nunca crea cantidad de movimiento por sí solo; solo altera la que el
+  cuerpo ya tiene.
+
+  Durante un impacto, las fuerzas suelen variar demasiado deprisa para registrarlas en detalle,
+  así que el impulso se obtiene de la variación de la cantidad de movimiento, a partir de la masa
+  y de las velocidades antes y después del choque; al dividirlo entre el tiempo de contacto se
+  obtiene la fuerza media. Airbags, cinturones de seguridad y superficies acolchadas se
+  basan en esta relación: en un choque la variación de la cantidad de movimiento está fijada,
+  y alargar el tiempo de frenado reduce la fuerza media en la misma proporción.
+
+  Impulso y cantidad de movimiento comparten unidad y dimensión, pero son magnitudes distintas.
+  La cantidad de movimiento describe el movimiento de un cuerpo en un instante, mientras que el
+  impulso describe una interacción que dura un intervalo de tiempo y equivale a una variación de
+  la cantidad de movimiento, no a la cantidad de movimiento en sí.

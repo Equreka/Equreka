@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Vuelta'
+description: >-
+  La vuelta, también llamada revolución, es una unidad de ángulo plano igual a una rotación completa
+  alrededor de un centro o de un eje. Es la unidad natural para contar cuántas veces gira una rueda,
+  un eje o un rotor, y en ella se basa la revolución por minuto con que se especifican motores. No
+  forma parte del SI.
+
+  Una vuelta equivale a $2\pi$ radianes, porque la longitud de una circunferencia es $2\pi$ veces su
+  radio y el radián es el ángulo cuyo arco es igual al radio. NIST SP 811 da el factor redondeado a
+  siete cifras; como $\pi$ es irracional, el valor que se usa aquí para convertir está redondeado a
+  36 cifras significativas, unos 6.283 radianes.
+
+  Una vuelta son 360 grados, 21 600 minutos de arco o 1 296 000 segundos de arco. Media vuelta es un
+  ángulo llano y un cuarto de vuelta, un ángulo recto, que el folleto del SI expresa también como
+  $\pi/2$ radián.
+
+  Las vueltas cuentan los giros de ruedas, engranajes, hélices, platos giratorios y discos duros, y
+  la rotación de un cuerpo a lo largo de varias vueltas completas, cuando un ángulo de giro puede
+  superar $2\pi$ radianes. Los ritmos en revoluciones por segundo o por minuto se convierten en
+  velocidad angular multiplicando por $2\pi$.
+
+  El folleto del SI señala que revolución y rev no son unidades del SI, aunque en algunos países las
+  frecuencias se expresen en revoluciones por segundo en lugar de hercios, y pide dar esos valores en
+  hercios o en radianes por segundo. El símbolo rev está muy extendido, mientras que NIST SP 811
+  escribe r, como en r/min. En matemáticas se habla a veces de vueltas para medir un ángulo
+  completo.

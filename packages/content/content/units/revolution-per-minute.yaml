@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Revolution per minute'
+symbol:
+  tex: 'rev/min'
+unitOf:
+  - 'angular-velocity'
+system: 'other'
+compose:
+  of:
+    - unit: 'revolution'
+      exp: 1
+    - unit: 'minute'
+      exp: -1
+externalIds:
+  wikidata: 'Q206037'
+  qudt: 'http://qudt.org/vocab/unit/REV-PER-MIN'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'rpm'
+  - 'r/min'
+  - 'revolutions per minute'
+  - 'rotations per minute'
+references:
+  - title: 'NIST SP 811, Appendix B.8: revolution per minute (rpm) (r/min)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'BIPM, The International System of Units, 9th ed., Section 2.3.4: hertz and radian per second'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 10.1 Rotational Variables'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-1-rotational-variables'
+  - title: 'QUDT, unit REV-PER-MIN'
+    url: 'https://qudt.org/vocab/unit/REV-PER-MIN'
+description:
+  en: >-
+    The revolution per minute, abbreviated rpm, is a unit of rotation rate: the number of complete
+    turns a shaft, wheel or rotor makes in one minute. It is not an SI unit, but it is the usual
+    rating for engines, electric motors, drills, fans, centrifuges, record players and disk drives.
+
+    It is composed of the revolution, one full turn of $2\pi$ radians, divided by the minute of 60
+    seconds. One revolution per minute therefore equals $\pi/30$ radian per second, about 0.1047
+    radian per second, the factor that NIST SP 811 lists for converting it to the SI unit of
+    angular velocity. Because it contains $\pi$, the conversion is not exact in decimal form.
+
+    Sixty revolutions per minute make one revolution per second. A bicycle wheel at 250 revolutions per minute turns at
+    about 26.2 radians per second, and to convert a rotation rate into angular velocity in radians
+    per second it is multiplied by $2\pi$ and divided by 60.
+
+    Here the unit measures angular velocity, matching the conversion factor that NIST gives. The
+    same rate can also be read as a rotational frequency, a count of turns per unit time; QUDT
+    files the unit under that kind, although its conversion multiplier is the radian-per-second
+    factor. Read as a frequency, one revolution per minute is one sixtieth of a hertz. The SI
+    Brochure warns that confusing a frequency in hertz with an angular quantity in radians per
+    second introduces an error of a factor of $2\pi$, and asks for values to be given explicitly
+    in hertz or in radians per second.
+
+    The symbol rev/min is common; NIST SP 811 writes r/min and lists rpm beside it. Engine
+    instruments that display this unit are called tachometers or rev counters.
