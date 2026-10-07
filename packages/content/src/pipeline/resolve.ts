@@ -201,12 +201,23 @@ export function resolveUnits(corpus: Corpus): ResolveResult {
 	return { resolved, issues };
 }
 
+function isComposeDerived(corpus: Corpus, slug: string): boolean {
+	const unit = corpus.units.get(slug);
+	if (unit?.compose !== undefined) {
+		return true;
+	}
+	return (
+		unit?.prefixOf !== undefined && corpus.units.get(unit.prefixOf.base)?.compose !== undefined
+	);
+}
+
 /**
  * The identity mapping (factor 1, offset 0) of a dimension belongs to the
  * magnitudes' baseUnit. Any other unit landing on it is either a duplicate
  * entity (`unit` next to `unitless`) or a compose form whose identity is a
- * verified consequence of its operands (J·s⁻¹ = W) — only the former is an
- * error, and it names the anchor(s) it collides with.
+ * verified consequence of its operands (J·s⁻¹ = W), directly or through a
+ * prefix on a compose base (mmol/L = mol/m³) — only the former is an error,
+ * and it names the anchor(s) it collides with.
  */
 function checkIdentityAnchors(
 	corpus: Corpus,
@@ -218,7 +229,7 @@ function checkIdentityAnchors(
 		if (!ratIsOne(resolution.factor) || !ratIsZero(resolution.offset) || anchors.has(slug)) {
 			continue;
 		}
-		if (corpus.units.get(slug)?.compose !== undefined) {
+		if (isComposeDerived(corpus, slug)) {
 			continue;
 		}
 		const collidingAnchors = [

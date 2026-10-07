@@ -37,7 +37,7 @@ The audit claimed that all 13 descriptions were copies of the base prose. A file
    - a hand file with a generated slug that is not that unit's override;
    - a `prefixOf` file for a pair its base does not declare, or under a slug other than `<prefix><base>`.
 
-   A generated unit still passes every later stage. The identity-anchor rule is one example: it rejected `kilolitre`, since 1 kL = 1 m³ duplicates the cubic metre.
+   A generated unit still passes every later stage. The identity-anchor rule is one example: it rejected `kilolitre`, since 1 kL = 1 m³ duplicates the cubic metre. A prefixed form of a compose base is exempt, as the compose form itself is, because its identity follows from verified operands: the millimole per litre lands on the mole per cubic metre by construction.
 7. **Artifact.** Generated units enter the engine slice, the presentation slices, search and catalog-lite. `presentation/units.json` marks them `generated: true`; overrides have their own file and are not marked. The engine-slice shape is unchanged, so `SCHEMA_VERSION` stays 2. The orphan-magnitude warning reads the unexpanded corpus, because a generated unit's `unitOf` is copied from its base and is not an independent use.
 8. **UI.** Generated units render like any other unit and get no badge. The draft badge follows the status copied from the base. Every prefixed unit's page has the line "Derived from <base> with the SI prefix <prefix>", which links to both on web and mobile. The shared `tParts` helper in `@equreka/core/i18n` splits the localized template so each platform can insert its own links.
 
