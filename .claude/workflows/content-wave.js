@@ -189,6 +189,7 @@ Follow the \`equreka-author\` skill rules. Apply EVERY blocker and major finding
 Apply the requested sharedEdits when correct and in scope; author a missing prerequisite only if it is small and clearly in this wave's scope, otherwise defer the dependent entries with the reason.
 Then loop: run \`pnpm --filter @equreka/content check\`, fix, repeat — at most 6 rounds. Then run \`pnpm quality\`.
 If an entry still cannot pass, defer it: delete its files and record slug + reason (the roadmap will mark it).
+Locale debt (ADR 0012): a rewritten legacy entity that now has a complete Spanish sidecar makes the check report "stale locale debt". Remove those ids from packages/content/locale-debt.json and lower LOCALE_DEBT_CEILING in packages/content/src/pipeline/__tests__/locale-completeness.test.ts to the new list length (the test requires equality).
 Verifier + critic findings: ${JSON.stringify([...findings, ...(critic?.findings ?? [])])}
 Check issues reported so far: ${JSON.stringify(issues)}
 Shared edits requested: ${JSON.stringify(shared)}
