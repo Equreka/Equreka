@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Surface area of a cylinder'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{A}=2\const{\pi}\var{r}^{2}+2\const{\pi}\var{r}\var{h}'
+terms:
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+  h:
+    kind: 'symbol'
+    label:
+      en: 'Height'
+    unit: 'metre'
+solutions:
+  A: '2 * pi * r^2 + 2 * pi * r * h'
+  r:
+    - '(sqrt(h^2 + 2 * A / pi) - h) / 2'
+    - '-(sqrt(h^2 + 2 * A / pi) + h) / 2'
+  h: 'A / (2 * pi * r) - r'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q30090856'
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'cylinder surface area'
+  - 'total surface area of a cylinder'
+  - 'surface area of a closed cylinder'
+  - 'area of a cylinder'
+  - 'área de un cilindro'
+  - 'área de la superficie del cilindro'
+references:
+  - title: 'OpenStax, Prealgebra 2e, 9.6 Solve Geometry Applications: Volume and Surface Area'
+    url: 'https://openstax.org/books/prealgebra-2e/pages/9-6-solve-geometry-applications-volume-and-surface-area'
+  - title: 'OpenStax, Contemporary Mathematics, 10.7 Volume and Surface Area'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/10-7-volume-and-surface-area'
+description:
+  en: >-
+    The surface area of a cylinder is the total area of its two circular bases and its curved side:
+    twice pi times the radius squared, plus twice pi times the radius times the height. For a
+    closed right circular cylinder, this formula of solid geometry gives the material needed to
+    make a can, a drum or a tank together with its lids.
+
+    In the formula, $\mag{A}$ is the total surface area, measured in square metres, $\var{r}$ is the
+    radius of each base and $\var{h}$ is the height, the distance between the bases, both measured
+    in metres. The constant $\const{\pi}$ is a pure number close to 3.14159. None of the quantities
+    is negative. The first term counts the two bases, each a disc with an area of pi times the
+    radius squared; the second term is the lateral area, the curved side alone.
+
+    Cutting the curved side along a straight line and unrolling it gives a rectangle whose height
+    is that of the cylinder and whose width is the circumference of the base, two pi times the
+    radius, so its area is that width times the height. Adding the two discs gives the total.
+    Solving for the height is direct, but solving for the radius means solving a quadratic
+    equation, which has one positive root, the geometric answer listed first, and one negative
+    root with no geometric meaning.
+
+    The rule holds for a right circular cylinder with both ends closed. An open tube has only the
+    lateral area, and a cup with one base has the lateral area plus a single disc. The height must
+    be measured at right angles to the bases, and radius and height must share a unit, so that the
+    area comes out in that unit squared.
+
+    The formula estimates the sheet metal for cans and the paint for tanks and pillars. A closed
+    cylinder with a radius of 1 metre and a height of 2 metres has a surface area of six pi, about
+    18.85 square metres.

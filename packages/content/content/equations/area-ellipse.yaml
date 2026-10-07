@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Area of an ellipse'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{A}=\const{\pi}\var{a}\var{b}'
+terms:
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Semi-major axis'
+    unit: 'metre'
+  b:
+    kind: 'symbol'
+    label:
+      en: 'Semi-minor axis'
+    unit: 'metre'
+solutions:
+  A: 'pi * a * b'
+  a: 'A / (pi * b)'
+  b: 'A / (pi * a)'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'ellipse area'
+  - 'area of an oval'
+  - 'pi a b'
+  - 'área de la elipse'
+references:
+  - title: 'E. W. Weisstein, Ellipse, MathWorld'
+    url: 'https://mathworld.wolfram.com/Ellipse.html'
+  - title: 'OpenStax, Precalculus 2e, 10.1 The Ellipse'
+    url: 'https://openstax.org/books/precalculus-2e/pages/10-1-the-ellipse'
+description:
+  en: >-
+    The area of an ellipse equals pi times the product of its two semi-axes. An ellipse is a closed
+    oval curve of plane geometry, the shape of a circle stretched evenly in one direction; its
+    longest diameter is the major axis and the shortest, at right angles to it, is the minor axis.
+    The semi-axes are half of each, measured from the centre.
+
+    In the formula, $\mag{A}$ is the enclosed area in square metres, $\var{a}$ is the semi-major
+    axis and $\var{b}$ the semi-minor axis, both in metres and both positive. The constant
+    $\const{\pi}$ is the same pure number as in the circle, close to 3.14159. The two semi-axes may
+    be swapped without changing the result, although by convention the longer one is named first.
+
+    Stretching a circle of radius equal to the semi-minor axis along one direction, by the factor
+    that turns that radius into the semi-major axis, produces the ellipse; every strip of the disc
+    is stretched by the same factor, so the area is multiplied by it as well. Starting from the area
+    of that circle, pi times the semi-minor axis squared, the factor replaces one semi-minor axis by
+    the semi-major axis. When the two semi-axes are equal the ellipse is a circle and the rule
+    becomes pi times the radius squared.
+
+    The formula gives the area exactly, but the perimeter of an ellipse has no comparable
+    elementary expression and is computed with an elliptic integral or an approximation. Using the
+    full axes in place of the semi-axes makes the result four times too large.
+
+    Apollonius gave the curve its name, and Kepler published in 1609 that the orbit of Mars is an
+    ellipse with the Sun at one focus. An elliptical table with semi-axes of 1 and 0.6 metres has a
+    top of about 1.88 square metres.

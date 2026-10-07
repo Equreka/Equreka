@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Área del rombo'
+terms:
+  d_{1}:
+    label: 'Primera diagonal'
+  d_{2}:
+    label: 'Segunda diagonal'
+description: >-
+  El área del rombo es igual a la mitad del producto de sus dos diagonales. Un rombo es una figura
+  plana de cuatro lados que tienen todos la misma longitud, un paralelogramo de lados iguales, a
+  menudo dibujado como un diamante. Sus diagonales, los segmentos que unen vértices opuestos, se
+  cortan en ángulo recto, y eso permite que la fórmula de la geometría plana las use en lugar de un
+  lado y una altura.
+
+  En la fórmula, $\mag{A}$ es el área en metros cuadrados, y $\var{d_{1}}$ y $\var{d_{2}}$ son las
+  longitudes de las dos diagonales en metros. Las tres son positivas, y las diagonales pueden
+  numerarse en cualquier orden. En general las diagonales tienen longitudes distintas; solo son
+  iguales cuando el rombo es un cuadrado.
+
+  Las dos diagonales se cortan en su punto medio y en ángulo recto, así que dividen el rombo en
+  cuatro triángulos rectángulos iguales cuyos catetos son la mitad de cada diagonal. Esos cuatro
+  triángulos caben exactamente dentro del rectángulo cuyos lados son las dos diagonales y ocupan la
+  mitad, lo que da la mitad del producto. El mismo argumento del rectángulo vale para una cometa
+  o deltoide, un cuadrilátero con dos pares de lados contiguos iguales cuyas diagonales también son
+  perpendiculares.
+
+  La regla vale para cualquier cuadrilátero cuyas diagonales se corten en ángulo recto, pero para
+  otras figuras, como un rectángulo que no es cuadrado, la mitad del producto de las
+  diagonales no es el área. Un rombo también puede tratarse como paralelogramo, así que su área es
+  igualmente un lado por la altura perpendicular entre lados opuestos. Ambas diagonales deben estar
+  en la misma unidad.
+
+  La fórmula se usa para baldosas, celosías y cometas, donde las diagonales se miden con
+  más facilidad que la altura. Un rombo con diagonales de 6 y 4 metros cubre 12 metros cuadrados.

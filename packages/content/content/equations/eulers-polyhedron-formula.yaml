@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Euler''s polyhedron formula'
+kind: 'equation'
+level: 'intro'
+expression: '\var{V}-\var{E}+\var{F}=2'
+terms:
+  V:
+    kind: 'symbol'
+    label:
+      en: 'Number of vertices'
+    integer: true
+  E:
+    kind: 'symbol'
+    label:
+      en: 'Number of edges'
+    integer: true
+  F:
+    kind: 'symbol'
+    label:
+      en: 'Number of faces'
+    integer: true
+solutions:
+  V: '2 + E - F'
+  E: 'V + F - 2'
+  F: '2 + E - V'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q516403'
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'Euler''s formula for polyhedra'
+  - 'Euler''s polyhedral formula'
+  - 'Euler polyhedron formula'
+  - 'V - E + F = 2'
+  - 'teorema de Euler para poliedros'
+  - 'relación de Euler'
+references:
+  - title: 'MacTutor History of Mathematics, A history of Topology'
+    url: 'https://mathshistory.st-andrews.ac.uk/HistTopics/Topology_in_mathematics/'
+  - title: 'American Mathematical Society, Feature Column, Euler''s Polyhedral Formula'
+    url: 'https://www.ams.org/publicoutreach/feature-column/fcarc-eulers-formula'
+  - title: 'E. W. Weisstein, Cube, MathWorld'
+    url: 'https://mathworld.wolfram.com/Cube.html'
+description:
+  en: >-
+    Euler's polyhedron formula states that the vertices and the faces of any convex polyhedron,
+    taken together, outnumber its edges by exactly two. Also called Euler's formula for
+    polyhedra, it is a theorem of solid geometry and an early result of topology that links the
+    corners, edges and flat faces of solids such as the cube, the prism and the pyramid.
+
+    In the equation, $\var{V}$ is the number of vertices, the corners where edges meet, $\var{E}$ is
+    the number of edges, the segments where two faces meet, and $\var{F}$ is the number of faces,
+    the flat polygons that bound the solid. All three are whole numbers, pure numbers without a
+    unit, and none can be negative. The alternating sum on the left is the Euler characteristic of
+    the surface, and the theorem says that it equals two for every solid without holes.
+
+    A cube has eight vertices, 12 edges and six faces, and its alternating sum is two; a square
+    pyramid, with five vertices, eight edges and five faces, gives two as well. The count does not
+    depend on lengths or angles: stretching the solid changes none of the three numbers, and
+    splitting a face in two with a new edge adds one edge and one face, which leaves the sum
+    unchanged. Any two of the three numbers fix the third.
+
+    The formula requires a polyhedron with the shape of a sphere in the topological sense: every
+    convex polyhedron qualifies, but a solid with a tunnel through it does not. Lhuilier showed that
+    for a solid with a number of holes the same alternating sum equals two minus twice that number,
+    so a polyhedron shaped like a ring gives zero.
+
+    Euler stated the formula in a letter to Christian Goldbach in 1750 and published it in two
+    papers in 1752, the second with a proof that cut solids into tetrahedra. The relation seems to
+    have escaped Archimedes and Descartes, although both studied polyhedra at length.

@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Volume of a cylinder'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{V}=\const{\pi}\var{r}^{2}\var{h}'
+terms:
+  V:
+    kind: 'magnitude'
+    ref: 'volume'
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+  h:
+    kind: 'symbol'
+    label:
+      en: 'Height'
+    unit: 'metre'
+solutions:
+  V: 'pi * r^2 * h'
+  r: 'sqrt(V / (pi * h))'
+  h: 'V / (pi * r^2)'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'cylinder volume'
+  - 'volume of a right circular cylinder'
+  - 'pi r squared h'
+  - 'volumen de un cilindro'
+references:
+  - title: 'OpenStax, Prealgebra 2e, 9.6 Solve Geometry Applications: Volume and Surface Area'
+    url: 'https://openstax.org/books/prealgebra-2e/pages/9-6-solve-geometry-applications-volume-and-surface-area'
+  - title: 'OpenStax, Contemporary Mathematics, 10.7 Volume and Surface Area'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/10-7-volume-and-surface-area'
+  - title: 'D. E. Joyce, Euclid''s Elements, Book XII, Proposition 10'
+    url: 'https://mathcs.clarku.edu/~djoyce/java/elements/bookXII/propXII10.html'
+description:
+  en: >-
+    The volume of a cylinder equals pi times the square of the base radius times the height: the
+    area of the circular base multiplied by the height of the solid. A right circular cylinder is
+    the solid bounded by two equal parallel discs and the curved surface joining their edges, and
+    this rule of solid geometry gives the capacity of cans, pipes, tanks and columns.
+
+    In the formula, $\mag{V}$ is the volume, measured in cubic metres, $\var{r}$ is the radius of
+    the circular base, measured in metres, and $\var{h}$ is the height, measured at right angles
+    between the planes of the bases, also in metres. The constant $\const{\pi}$ is a pure number
+    close to 3.14159. None of the quantities is negative, so no sign convention arises; when the
+    diameter is known instead of the radius, the radius is half of it.
+
+    A cylinder is a prism with a circular base, and every right prism holds the area of its base
+    once for each unit of height. The base is a disc whose area is pi times the radius squared, so
+    stacking that disc up to the height gives the volume. Because the radius enters squared,
+    doubling it multiplies the volume by four, whereas doubling the height only doubles it. Solving
+    for the radius takes the square root of the volume divided by pi and by the height.
+
+    The formula assumes circular bases parallel to each other, with the height measured at right
+    angles to them. A hollow pipe needs the volume of the inner cylinder subtracted from that of
+    the outer one. All lengths must share one unit, which then fixes the unit of the volume.
+
+    Euclid's Elements proved that a cylinder holds exactly three times the volume of a cone sharing
+    its base and height. A tank with a radius of 0.5 metres and a height of 2 metres holds about
+    1.57 cubic metres.

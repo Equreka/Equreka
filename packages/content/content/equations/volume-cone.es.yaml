@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Volumen del cono'
+terms:
+  h:
+    label: 'Altura'
+description: >-
+  El volumen del cono es igual a un tercio de pi por el cuadrado del radio de la base por la altura,
+  es decir, la tercera parte del volumen del cilindro con la misma base y altura. Un cono circular
+  recto es el sólido formado por una base circular y todos los segmentos rectos que unen su borde
+  con un punto, el vértice, situado justo encima de su centro, y esta regla de la geometría del
+  espacio da la capacidad de embudos, vasos, montones de arena y tejados cónicos.
+
+  En la fórmula, $\mag{V}$ es el volumen, medido en metros cúbicos, $\var{r}$ es el radio de la base
+  circular y $\var{h}$ es la altura, la distancia perpendicular del vértice a la base, ambos
+  medidos en metros. La constante $\const{\pi}$ es un número puro cercano a 3.14159. Ninguna de las
+  magnitudes es negativa. La altura no es la generatriz, la longitud de un segmento que va del
+  vértice al borde de la base, que siempre es mayor.
+
+  El área de la base es pi por el radio al cuadrado, y un cono contiene la tercera parte de lo que
+  contendría un cilindro con la misma base y altura; una pirámide guarda la misma relación con su
+  prisma. Duplicar el radio multiplica el volumen por cuatro y duplicar la altura lo duplica;
+  despejar el radio exige la raíz cuadrada del triple del volumen dividido entre pi y entre la
+  altura.
+
+  La fórmula supone una base circular y una altura medida perpendicularmente a ella desde el
+  vértice. Todas las longitudes deben compartir una unidad. Un tronco de cono, la parte que queda al
+  cortar la punta paralelamente a la base, necesita una fórmula propia.
+
+  Demócrito enunció la relación de un tercio entre cono y cilindro, y Eudoxo la demostró más tarde
+  con rigor, una demostración que Arquímedes le atribuyó en Sobre la esfera y el cilindro. Los
+  Elementos de Euclides recogen el resultado como proposición 10 del libro XII. Un cono de 3 metros
+  de radio de la base y 4 metros de altura contiene 12 pi, unos 37.70 metros cúbicos.

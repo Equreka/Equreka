@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Área de la elipse'
+terms:
+  a:
+    label: 'Semieje mayor'
+  b:
+    label: 'Semieje menor'
+description: >-
+  El área de la elipse es igual a pi por el producto de sus dos semiejes. Una elipse es una curva
+  cerrada y ovalada de la geometría plana, la forma de una circunferencia estirada de manera
+  uniforme en una dirección; su diámetro más largo es el eje mayor y el más corto, perpendicular a
+  él, es el eje menor. Los semiejes son la mitad de cada uno, medidos desde el centro.
+
+  En la fórmula, $\mag{A}$ es el área encerrada en metros cuadrados, $\var{a}$ es el semieje mayor
+  y $\var{b}$ el semieje menor, ambos en metros y ambos positivos. La constante $\const{\pi}$ es el
+  mismo número puro que en el círculo, cercano a 3.14159. Los dos semiejes pueden intercambiarse
+  sin cambiar el resultado, aunque por convenio el más largo se nombra primero.
+
+  Al estirar un círculo de radio igual al semieje menor en una dirección, por el factor que
+  convierte ese radio en el semieje mayor, se obtiene la elipse; cada franja del círculo se estira
+  por el mismo factor, así que el área también queda multiplicada por él. Partiendo del área de ese
+  círculo, pi por el semieje menor al cuadrado, el factor sustituye un semieje menor por el semieje
+  mayor. Cuando los dos semiejes son iguales, la elipse es una circunferencia y la regla pasa a ser
+  pi por el radio al cuadrado.
+
+  La fórmula da el área de forma exacta, pero el perímetro de una elipse no tiene una expresión
+  elemental comparable y se calcula con una integral elíptica o con una aproximación. Usar los ejes
+  completos en lugar de los semiejes multiplica el resultado por cuatro.
+
+  Apolonio dio nombre a la curva, y Kepler publicó en 1609 que la órbita de Marte es una elipse con
+  el Sol en uno de sus focos. Una mesa elíptica con semiejes de 1 y 0.6 metros tiene un tablero de
+  unos 1.88 metros cuadrados.

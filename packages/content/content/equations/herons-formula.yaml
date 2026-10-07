@@ -1,0 +1,83 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Heron''s formula'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{A}=\frac{1}{4}\sqrt{\left(\var{a}+\var{b}+\var{c}\right)\left(-\var{a}+\var{b}+\var{c}\right)\left(\var{a}-\var{b}+\var{c}\right)\left(\var{a}+\var{b}-\var{c}\right)}'
+terms:
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Side a'
+    unit: 'metre'
+  b:
+    kind: 'symbol'
+    label:
+      en: 'Side b'
+    unit: 'metre'
+  c:
+    kind: 'symbol'
+    label:
+      en: 'Side c'
+    unit: 'metre'
+solutions:
+  A: 'sqrt((a + b + c) * (-a + b + c) * (a - b + c) * (a + b - c)) / 4'
+  a:
+    - 'sqrt(b^2 + c^2 - 2 * sqrt(b^2 * c^2 - 4 * A^2))'
+    - 'sqrt(b^2 + c^2 + 2 * sqrt(b^2 * c^2 - 4 * A^2))'
+  b:
+    - 'sqrt(a^2 + c^2 - 2 * sqrt(a^2 * c^2 - 4 * A^2))'
+    - 'sqrt(a^2 + c^2 + 2 * sqrt(a^2 * c^2 - 4 * A^2))'
+  c:
+    - 'sqrt(a^2 + b^2 - 2 * sqrt(a^2 * b^2 - 4 * A^2))'
+    - 'sqrt(a^2 + b^2 + 2 * sqrt(a^2 * b^2 - 4 * A^2))'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q182714'
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'Hero''s formula'
+  - 'Heron formula'
+  - 'triangle area from three sides'
+  - 'fórmula de Herón'
+references:
+  - title: 'E. W. Weisstein, Heron''s Formula, MathWorld'
+    url: 'https://mathworld.wolfram.com/HeronsFormula.html'
+  - title: 'MacTutor History of Mathematics, Heron of Alexandria'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Heron/'
+description:
+  en: >-
+    Heron's formula computes the area of a triangle from the lengths of its three sides alone, with
+    no height or angle needed. In its usual statement the area is the square root of the product of
+    the semiperimeter and the three differences between the semiperimeter and each side. It is a
+    result of plane geometry named after Heron of Alexandria.
+
+    Here $\mag{A}$ is the area in square metres and $\var{a}$, $\var{b}$ and $\var{c}$ are the side
+    lengths in metres, all positive. Writing the semiperimeter as
+    $s=\frac{\var{a}+\var{b}+\var{c}}{2}$, the classic form reads
+    $\mag{A}=\sqrt{s\left(s-\var{a}\right)\left(s-\var{b}\right)\left(s-\var{c}\right)}$; the
+    expression above is the same rule with each factor doubled and the factor of 16 taken out of the
+    root. The sides may be labelled in any order.
+
+    Each factor such as the sum of two sides minus the third is positive exactly when the three
+    lengths can form a triangle, so the formula also tests the triangle inequality: when one side
+    equals the sum of the other two, the triangle is flat and its area is zero. Solving for a side
+    leads to a quadratic in that side's square, with two roots. Both describe real triangles with
+    the same area and the same two other sides: the first root is the shorter side, opposite an
+    acute angle between the known sides, and the second is the longer one, opposite an obtuse angle.
+
+    The formula holds for any triangle in the flat plane. For nearly flat triangles, with one side
+    close to the sum of the others, rounding in the factors can make a computed area inaccurate.
+    When a height is known, half the base times the height is simpler, and when two sides and the
+    angle between them are known, half their product times the sine of that angle gives the area.
+
+    Heron of Alexandria, who lived in the first century AD, proves the formula in Book I of his
+    Metrica, a treatise on measurement; al-Biruni later credited it to Archimedes. Sides of 13,
+    14 and 15 metres enclose 84 square metres.

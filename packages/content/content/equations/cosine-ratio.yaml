@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Cosine ratio'
+kind: 'formula'
+level: 'intro'
+expression: '\cos\mag{\theta}=\frac{\var{b}}{\var{c}}'
+terms:
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  b:
+    kind: 'symbol'
+    label:
+      en: 'Adjacent side'
+    unit: 'metre'
+  c:
+    kind: 'symbol'
+    label:
+      en: 'Hypotenuse'
+    unit: 'metre'
+solutions:
+  \theta: 'acos(b / c)'
+  b: 'c * cos(theta)'
+  c: 'b / cos(theta)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q1256164'
+categories:
+  - 'mathematics'
+branches:
+  - 'trigonometry'
+aliases:
+  - 'cosine'
+  - 'cos'
+  - 'cosine of an angle'
+  - 'adjacent over hypotenuse'
+  - 'coseno'
+  - 'razón coseno'
+  - 'cateto adyacente sobre hipotenusa'
+  - 'coseno de un ángulo'
+references:
+  - title: 'OpenStax, Algebra and Trigonometry 2e, 7.2 Right Triangle Trigonometry'
+    url: 'https://openstax.org/books/algebra-and-trigonometry-2e/pages/7-2-right-triangle-trigonometry'
+  - title: 'OpenStax, Precalculus 2e, 5.4 Right Triangle Trigonometry'
+    url: 'https://openstax.org/books/precalculus-2e/pages/5-4-right-triangle-trigonometry'
+  - title: 'MacTutor History of Mathematics, The trigonometric functions'
+    url: 'https://mathshistory.st-andrews.ac.uk/HistTopics/Trigonometric_functions/'
+description:
+  en: >-
+    The cosine ratio defines the cosine of an acute angle in a right triangle as the length of the
+    side adjacent to that angle divided by the length of the hypotenuse. With the sine and tangent
+    ratios it forms the core of right-triangle trigonometry, the CAH of the mnemonic SOH CAH TOA,
+    and it tells what fraction of the hypotenuse lies along the adjacent side.
+
+    In the formula, $\mag{\theta}$ is one of the two acute angles, measured in radians in the SI
+    and commonly entered in degrees. The adjacent side $\var{b}$ is the leg that forms the angle
+    together with the hypotenuse, and $\var{c}$ is the hypotenuse, opposite the right angle. Both
+    are lengths in metres, or in any unit the two share. All three quantities are positive, and the
+    adjacent side is always shorter than the hypotenuse.
+
+    Because right triangles with equal acute angles are similar, the quotient depends only on the
+    angle. Geometrically, the adjacent side is the shadow that the hypotenuse casts on the line of
+    that leg, so multiplying a length by the cosine projects it onto a direction. The cosine of one
+    acute angle equals the sine of the other, since the two angles are complementary. Rearranged,
+    the relation gives the adjacent side as the hypotenuse times the cosine, the hypotenuse as the
+    adjacent side divided by the cosine, and the angle through the inverse cosine, arccos.
+
+    For angles between zero and a right angle the cosine falls from 1 towards 0 as the angle opens.
+    The inverse cosine returns a single angle for every ratio between 0 and 1, so there is no
+    ambiguity. On the unit circle the cosine extends to all angles and turns negative for obtuse
+    ones, the sign on which the law of cosines relies.
+
+    Viète called the quantity the sinus residuae, and Edmund Gunter proposed the name co-sinus in
+    1620. In the right triangle with sides 3, 4 and 5, the angle facing the side of 4 has a cosine
+    of 0.6.

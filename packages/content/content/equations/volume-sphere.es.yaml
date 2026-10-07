@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Volumen de la esfera'
+description: >-
+  El volumen de la esfera es igual a cuatro tercios de pi por el cubo de su radio. En sentido
+  estricto, una esfera es la superficie de todos los puntos situados a una misma distancia de un
+  centro, y el sólido que limita es una bola, así que la fórmula da el volumen de una bola; la
+  geometría escolar lo llama volumen de la esfera, y mide la capacidad de pelotas, burbujas,
+  depósitos redondos y planetas.
+
+  En la fórmula, $\mag{V}$ es el volumen, medido en metros cúbicos, y $\var{r}$ es el radio, la
+  distancia del centro a la superficie, medido en metros. La constante $\const{\pi}$ es un número
+  puro cercano a 3.14159. Ni el volumen ni el radio son negativos; el diámetro es el doble del
+  radio, así que un diámetro conocido se divide entre dos antes de usarlo.
+
+  Como el radio aparece al cubo, duplicarlo multiplica el volumen por ocho, y todas las esferas son
+  copias a escala unas de otras. Una esfera llena dos tercios del cilindro que la encierra
+  exactamente, cuyo radio es el mismo y cuya altura es el diámetro: ese cilindro contiene pi por el
+  radio al cuadrado por el doble del radio, y sus dos tercios son la fórmula. Despejar el radio
+  exige la raíz cúbica del triple del volumen dividido entre cuatro pi.
+
+  La fórmula vale para una esfera perfecta en el espacio plano ordinario. Las frutas, las gotas y
+  los planetas solo son aproximadamente redondos, así que el resultado es tan bueno como el radio
+  elegido para ellos. Como el radio está al cubo, un pequeño error relativo en él se triplica
+  aproximadamente en el volumen: un radio un 1 por ciento mayor da un volumen alrededor de un 3 por
+  ciento mayor. Todas las longitudes deben compartir una unidad.
+
+  Arquímedes demostró en Sobre la esfera y el cilindro que una esfera tiene dos tercios del volumen
+  de su cilindro circunscrito, y pidió que esa figura se grabara en su tumba. Una bola de 1 metro de
+  radio tiene un volumen de unos 4.19 metros cúbicos.

@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Suma de los ángulos interiores de un polígono'
+terms:
+  n:
+    label: 'Número de lados'
+description: >-
+  La suma de los ángulos interiores de un polígono de n lados es igual a n menos dos ángulos llanos,
+  es decir, n menos dos veces pi radianes, o n menos dos veces 180 grados. Un polígono es una
+  figura plana cerrada formada por lados rectos, y sus ángulos interiores son los ángulos dentro de
+  la figura en cada vértice. La regla de la geometría plana depende solo del número de lados, no
+  de sus longitudes ni de la forma.
+
+  En la fórmula, $\mag{S}$ es el total de los ángulos interiores, un ángulo plano expresado en
+  radianes, y $\var{n}$ es el número de lados, que coincide con el número de vértices: un número
+  entero, al menos tres, y un número puro. La constante $\const{\pi}$ es el ángulo llano en
+  radianes. En grados, la misma regla se escribe $\left(\var{n}-2\right)\times180^{\circ}$, así que
+  un triángulo suma 180 grados y un cuadrilátero 360.
+
+  Trazar todas las diagonales desde un vértice divide un polígono convexo en triángulos, dos menos
+  que lados, y los ángulos de esos triángulos forman juntos exactamente los ángulos interiores del
+  polígono. Cada triángulo aporta un ángulo llano, lo que da la fórmula. En un polígono regular
+  todos los ángulos son iguales, así que cada uno es la suma dividida entre el número de lados. Al
+  despejar el número de lados se obtiene la suma de ángulos dividida entre pi, más dos; un total
+  que no es un múltiplo entero del ángulo llano no corresponde a ningún polígono.
+
+  La regla vale para todo polígono simple del plano, convexo o no, pero no para figuras que se
+  cruzan a sí mismas, como una estrella trazada de un solo trazo. Sobre una esfera, los ángulos de
+  un polígono suman más. Los ángulos exteriores de un polígono convexo suman siempre una vuelta
+  completa.
+
+  Los Elementos de Euclides demuestran que los ángulos de un triángulo suman dos rectos, y Proclo
+  extrajo de ahí la regla general para las figuras rectilíneas convexas. Los ángulos de un hexágono
+  suman 720 grados.

@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Perímetro del rectángulo'
+terms:
+  P:
+    label: 'Perímetro'
+  l:
+    label: 'Largo'
+  w:
+    label: 'Ancho'
+description: >-
+  El perímetro del rectángulo es la longitud total de su contorno, y es igual al doble de la suma
+  de su largo y su ancho. Recorrer una vez el borde de un rectángulo pasa por sus cuatro lados, y
+  como los lados opuestos son iguales, el recorrido consta de dos largos y dos anchos. La regla es
+  la fórmula de la geometría plana para cercar, enmarcar o rodear cualquier figura rectangular.
+
+  En la fórmula, $\var{P}$ es el perímetro, y $\var{l}$ y $\var{w}$ son el largo y el ancho, las
+  longitudes de dos lados que se encuentran en una esquina. Las tres son longitudes, medidas en
+  metros en el SI, y las tres son positivas. Intercambiar los nombres de los dos lados no cambia el
+  resultado, porque su suma es la misma en cualquier orden.
+
+  Sumar los cuatro lados uno a uno da largo más ancho más largo más ancho, y agrupar los términos
+  iguales da la suma duplicada. Al despejar un lado, la relación dice que el largo es la mitad del
+  perímetro menos el ancho; por eso un semiperímetro que no supera al lado conocido no describe
+  ningún rectángulo. Un perímetro y un área juntos fijan ambos lados, pero el perímetro solo no lo
+  hace: muchos rectángulos comparten la misma longitud de contorno, y entre ellos el cuadrado es el
+  que encierra mayor área.
+
+  La fórmula supone lados rectos que se cortan en ángulo recto, aunque la misma suma duplicada da
+  también el perímetro de cualquier paralelogramo con esas dos longitudes de lado. Todas las
+  longitudes deben compartir una unidad, y el perímetro queda en esa unidad, nunca en una unidad
+  cuadrada: es una longitud, mientras que el área es una superficie.
+
+  En un cuadrado, ambos lados son iguales y el perímetro es cuatro veces el lado. Un jardín de 5
+  metros de largo y 3 metros de ancho necesita 16 metros de valla para cercarlo.

@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Surface area of a cube'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{A}=6\var{a}^{2}'
+terms:
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Edge length'
+    unit: 'metre'
+solutions:
+  A: '6 * a^2'
+  a: 'sqrt(A / 6)'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'cube surface area'
+  - 'total surface area of a cube'
+  - 'area of a cube'
+  - 'área de un cubo'
+  - 'área de la superficie del cubo'
+references:
+  - title: 'OpenStax, Prealgebra 2e, 9.6 Solve Geometry Applications: Volume and Surface Area'
+    url: 'https://openstax.org/books/prealgebra-2e/pages/9-6-solve-geometry-applications-volume-and-surface-area'
+  - title: 'E. W. Weisstein, Cube, MathWorld'
+    url: 'https://mathworld.wolfram.com/Cube.html'
+description:
+  en: >-
+    The surface area of a cube is six times the square of its edge length: the total area of the
+    six square faces that bound the solid. It measures how much material would cover a cube
+    completely, such as the cardboard of a box or the paint on a block, and it is one of the first
+    surface rules of solid geometry.
+
+    In the formula, $\mag{A}$ is the total surface area, measured in square metres, and $\var{a}$
+    is the edge length of the cube, measured in metres. Neither is ever negative, so no sign
+    convention is needed. The area counts every face, the base and the top included; the lateral
+    area, the four side faces alone, is four sixths of it.
+
+    Each face of a cube is a square whose side is the edge, so each has the area of the edge
+    squared, and the cube has six faces of that size. Unfolding the cube into a flat net of six
+    joined squares shows the same sum. Because the edge enters squared, doubling it multiplies the
+    surface area by four while the volume grows eightfold, so the ratio of surface to volume falls
+    as a cube gets larger. The edge follows from a known area as the square root of one sixth of
+    it.
+
+    The rule holds for a solid whose six faces are equal squares meeting at right angles. A box
+    with unequal edges has three pairs of rectangular faces instead, and its area is twice the sum
+    of the three products of pairs of edges. Edge and area must use matching units: an edge in
+    centimetres gives an area in square centimetres. The surface area is distinct from the volume,
+    which measures the space inside and grows with the cube of the edge.
+
+    The formula estimates packaging, paint and the heat a cube exchanges through its faces. A cube
+    with edges of 2 metres has a surface area of 24 square metres.

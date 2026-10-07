@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Area of a rectangle'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{A}=\var{l}\var{w}'
+terms:
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  l:
+    kind: 'symbol'
+    label:
+      en: 'Length'
+    unit: 'metre'
+  w:
+    kind: 'symbol'
+    label:
+      en: 'Width'
+    unit: 'metre'
+solutions:
+  A: 'l * w'
+  l: 'A / w'
+  w: 'A / l'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'rectangle area'
+  - 'length times width'
+  - 'area of an oblong'
+  - 'área del rectángulo'
+references:
+  - title: 'OpenStax, Prealgebra 2e, 9.4 Use Properties of Rectangles, Triangles, and Trapezoids'
+    url: 'https://openstax.org/books/prealgebra-2e/pages/9-4-use-properties-of-rectangles-triangles-and-trapezoids'
+  - title: 'E. W. Weisstein, Rectangle, MathWorld'
+    url: 'https://mathworld.wolfram.com/Rectangle.html'
+description:
+  en: >-
+    The area of a rectangle equals its length multiplied by its width. A rectangle is a flat
+    four-sided figure with four right angles, so its opposite sides are parallel and equal in
+    length, and the product of two sides that meet at a corner measures the surface it covers. The
+    rule is the starting point of plane geometry for measuring regions with straight edges.
+
+    In the formula, $\mag{A}$ is the area, measured in square metres, while $\var{l}$ and $\var{w}$
+    are the lengths of two adjacent sides, called the length and the width, each measured in
+    metres. All three quantities are positive. Which side is named the length and which the width
+    is only a convention, because a product does not depend on the order of its factors.
+
+    A rectangle whose sides are whole numbers of metres can be tiled with unit squares of one square
+    metre each, in as many rows as one side has metres and as many columns as the other; counting
+    the tiles gives the product. Dividing the unit square into smaller squares extends the argument
+    to sides that are fractions. When the area and one side are known, the other side is the area
+    divided by the known side.
+
+    The formula needs exact right angles on a flat surface. A parallelogram with the same sides but
+    slanted corners covers less surface, and its rule uses the perpendicular height in place of a
+    side. Both lengths must be expressed in the same unit, and the area then comes out in the square
+    of that unit. The area is a different quantity from the perimeter, the distance around the
+    figure.
+
+    The square is the special case in which both sides are equal. Builders, painters and gardeners
+    use the rule to estimate flooring, paint and turf. A room 4 metres long and 3 metres wide has a
+    floor area of 12 square metres.

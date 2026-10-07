@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Sum of the interior angles of a polygon'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{S}=\left(\var{n}-2\right)\const{\pi}'
+terms:
+  S:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  n:
+    kind: 'symbol'
+    label:
+      en: 'Number of sides'
+    integer: true
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+solutions:
+  S: '(n - 2) * pi'
+  n: 'S / pi + 2'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'polygon angle sum'
+  - 'interior angle sum'
+  - 'angle sum of a polygon'
+  - '(n - 2) times 180 degrees'
+  - 'suma de los ángulos interiores'
+references:
+  - title: 'OpenStax, Contemporary Mathematics, 10.4 Polygons, Perimeter, and Circumference'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/10-4-polygons-perimeter-and-circumference'
+  - title: 'E. W. Weisstein, Regular Polygon, MathWorld'
+    url: 'https://mathworld.wolfram.com/RegularPolygon.html'
+  - title: 'D. E. Joyce, Euclid''s Elements, Book I, Proposition 32'
+    url: 'https://mathcs.clarku.edu/~djoyce/java/elements/bookI/propI32.html'
+description:
+  en: >-
+    The sum of the interior angles of a polygon with n sides equals n minus two straight angles,
+    that is, n minus two times pi radians, or n minus two times 180 degrees. A polygon is a closed
+    plane figure made of straight sides, and its interior angles are the angles inside the figure at
+    each corner. The rule of plane geometry depends only on the number of sides, not on their
+    lengths or on the shape.
+
+    In the formula, $\mag{S}$ is the total of the interior angles, a plane angle stored in radians,
+    and $\var{n}$ is the number of sides, which equals the number of corners: a whole number, at
+    least three, and a pure number. The constant $\const{\pi}$ is the straight angle in radians. In
+    degrees the same rule reads $\left(\var{n}-2\right)\times180^{\circ}$, so a triangle totals 180
+    degrees and a quadrilateral 360.
+
+    Drawing every diagonal from one corner splits a convex polygon into triangles, two fewer than it
+    has sides, and the angles of those triangles together make up exactly the interior angles of
+    the polygon. Each triangle contributes a straight angle, which gives the formula. In a regular
+    polygon all angles are equal, so each one is the sum divided by the number of sides. Solving for
+    the number of sides gives the angle sum divided by pi, plus two; a total that is not a whole
+    multiple of the straight angle matches no polygon.
+
+    The rule holds for every simple polygon in the flat plane, convex or not, but not for
+    self-crossing figures such as a star drawn in one stroke. On a sphere the angles of a polygon
+    add up to more. The exterior angles of a convex polygon always total one full turn.
+
+    Euclid's Elements proves that the angles of a triangle total two right angles, and Proclus drew
+    the general rule for convex rectilinear figures from it. A hexagon has angles totalling 720
+    degrees.

@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ecuación de la circunferencia'
+terms:
+  x:
+    label: 'Coordenada x de un punto de la circunferencia'
+  y:
+    label: 'Coordenada y de un punto de la circunferencia'
+  h:
+    label: 'Coordenada x del centro'
+  k:
+    label: 'Coordenada y del centro'
+description: >-
+  La ecuación de la circunferencia en forma ordinaria establece que un punto pertenece a la
+  circunferencia exactamente cuando las diferencias al cuadrado entre sus coordenadas y las del
+  centro suman el cuadrado del radio. Describe una circunferencia en el plano cartesiano de la
+  geometría analítica como el conjunto de todos los puntos situados a una distancia fija de un
+  centro.
+
+  En la ecuación, $\var{x}$ e $\var{y}$ son las coordenadas de cualquier punto de la circunferencia,
+  $\var{h}$ y $\var{k}$ son las coordenadas del centro, y $\var{r}$ es el radio, todos medidos en
+  metros o en cualquier otra unidad de longitud habitual. Las coordenadas pueden ser positivas,
+  negativas o cero según el lado de cada eje en que esté el punto, mientras que el radio es
+  positivo. Cada diferencia al cuadrado toma el mismo valor a ambos lados del centro, así que una
+  sola ecuación abarca toda la circunferencia.
+
+  La ecuación es la fórmula de la distancia entre un punto y el centro, con ambos miembros al
+  cuadrado. Despejar una coordenada del punto da dos valores, los puntos a cada lado del centro a la
+  misma altura o a la misma anchura; se lista primero la raíz de arriba o de la derecha, y las dos
+  raíces solo coinciden en los puntos situados más a la izquierda, a la derecha, arriba y abajo de
+  la circunferencia. Con el centro en el origen, la ecuación se reduce a la suma de los cuadrados de
+  las coordenadas igual al radio al cuadrado.
+
+  La forma supone ejes perpendiculares con escalas iguales; dibujado con escalas desiguales, el
+  mismo conjunto de puntos parece una elipse. Desarrollar los cuadrados da la forma general de la
+  circunferencia, de la que el centro y el radio se recuperan completando el cuadrado.
+
+  La geometría analítica, que escribe las curvas como ecuaciones en coordenadas, nace de la
+  aplicación del álgebra a la geometría en La Géométrie, que René Descartes publicó en 1637. La
+  circunferencia de radio 5 centrada en el origen pasa por el punto de coordenadas 3 y 4.

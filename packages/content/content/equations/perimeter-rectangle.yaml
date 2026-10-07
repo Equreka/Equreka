@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Perimeter of a rectangle'
+kind: 'formula'
+level: 'intro'
+expression: '\var{P}=2\left(\var{l}+\var{w}\right)'
+terms:
+  P:
+    kind: 'symbol'
+    label:
+      en: 'Perimeter'
+    unit: 'metre'
+  l:
+    kind: 'symbol'
+    label:
+      en: 'Length'
+    unit: 'metre'
+  w:
+    kind: 'symbol'
+    label:
+      en: 'Width'
+    unit: 'metre'
+solutions:
+  P: '2 * (l + w)'
+  l: 'P / 2 - w'
+  w: 'P / 2 - l'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'rectangle perimeter'
+  - 'distance around a rectangle'
+  - 'perímetro del rectángulo'
+references:
+  - title: 'OpenStax, Prealgebra 2e, 9.4 Use Properties of Rectangles, Triangles, and Trapezoids'
+    url: 'https://openstax.org/books/prealgebra-2e/pages/9-4-use-properties-of-rectangles-triangles-and-trapezoids'
+  - title: 'OpenStax, Contemporary Mathematics, 10.4 Polygons, Perimeter, and Circumference'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/10-4-polygons-perimeter-and-circumference'
+description:
+  en: >-
+    The perimeter of a rectangle is the total length of its boundary, and it equals twice the sum
+    of its length and its width. Walking once around a rectangle covers each of its four sides, and
+    because opposite sides are equal, the trip consists of two lengths and two widths. The rule is
+    the plane geometry formula for fencing, framing or edging any rectangular shape.
+
+    In the formula, $\var{P}$ is the perimeter, and $\var{l}$ and $\var{w}$ are the length and the
+    width, the lengths of two sides that meet at a corner. All three are lengths, measured in metres
+    in the SI, and all three are positive. Swapping the names of the two sides leaves the result
+    unchanged, because their sum is the same in either order.
+
+    Adding the four sides one by one gives length plus width plus length plus width, and grouping
+    the equal terms gives the doubled sum. Solved for one side, the relation says that the length is
+    half the perimeter minus the width; a half perimeter that is not larger than the known side
+    therefore describes no rectangle. A perimeter and an area together fix both sides, but the
+    perimeter alone does not: many rectangles share the same boundary length, and among them the
+    square encloses the largest area.
+
+    The formula assumes straight sides meeting at right angles, although the same doubled sum also
+    gives the perimeter of any parallelogram with those two side lengths. All lengths must share one
+    unit, and the perimeter is then in that unit, never in a square unit: it is a length, whereas
+    the area is a surface.
+
+    For a square, both sides are equal and the perimeter is four times the side. A garden 5 metres
+    long and 3 metres wide needs 16 metres of fence to enclose it.

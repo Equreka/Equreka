@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Area of a trapezoid'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{A}=\frac{1}{2}\left(\var{a}+\var{b}\right)\var{h}'
+terms:
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Base a'
+    unit: 'metre'
+  b:
+    kind: 'symbol'
+    label:
+      en: 'Base b'
+    unit: 'metre'
+  h:
+    kind: 'symbol'
+    label:
+      en: 'Height'
+    unit: 'metre'
+solutions:
+  A: '(a + b) * h / 2'
+  a: '2 * A / h - b'
+  b: '2 * A / h - a'
+  h: '2 * A / (a + b)'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'area of a trapezium'
+  - 'trapezoid area'
+  - 'trapezium area'
+  - 'área del trapecio'
+references:
+  - title: 'OpenStax, Prealgebra 2e, 9.4 Use Properties of Rectangles, Triangles, and Trapezoids'
+    url: 'https://openstax.org/books/prealgebra-2e/pages/9-4-use-properties-of-rectangles-triangles-and-trapezoids'
+  - title: 'OpenStax, Contemporary Mathematics, 10.6 Area'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/10-6-area'
+  - title: 'E. W. Weisstein, Trapezium, MathWorld'
+    url: 'https://mathworld.wolfram.com/Trapezium.html'
+description:
+  en: >-
+    The area of a trapezoid equals the average of its two parallel sides multiplied by the distance
+    between them. A trapezoid is a four-sided plane figure with one pair of parallel sides, the
+    bases; the other two sides, the legs, may slant at any angle. In British usage the same figure
+    is called a trapezium. The rule is the plane geometry formula for the surface of such a figure.
+
+    In the formula, $\mag{A}$ is the area in square metres, $\var{a}$ and $\var{b}$ are the lengths
+    of the two bases in metres, and $\var{h}$ is the height in metres, the perpendicular distance
+    between the two parallel lines on which the bases lie. All are positive. The bases can be named
+    in either order, since only their sum enters, and the lengths of the slanted legs do not appear
+    at all.
+
+    A diagonal splits the trapezoid into two triangles that share the same height, one standing on
+    each base; adding their areas, each half a base times the height, gives the formula. Another
+    view places a second copy upside down beside the first, forming a parallelogram whose base is
+    the sum of the two bases, of which the trapezoid is half. The mean of the bases equals the
+    length of the segment that joins the midpoints of the legs.
+
+    The rule needs the perpendicular height, not a leg length. As one base shrinks toward zero the
+    figure approaches a triangle and the formula tends to half the base times the height; as the
+    bases approach equality the figure approaches a parallelogram, and the formula tends to base
+    times height. A trapezoid whose legs are equal is called isosceles, and
+    the same rule applies to it unchanged.
+
+    The formula estimates the cross-section of ditches and embankments and the area of irregular
+    plots split into strips. Bases of 5 and 3 metres with a 2 metre height enclose 8 square metres.

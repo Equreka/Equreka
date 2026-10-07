@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Surface area of a cone'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{A}=\const{\pi}\var{r}^{2}+\const{\pi}\var{r}\var{s}'
+terms:
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+  s:
+    kind: 'symbol'
+    label:
+      en: 'Slant height'
+    unit: 'metre'
+solutions:
+  A: 'pi * r^2 + pi * r * s'
+  r:
+    - '(sqrt(s^2 + 4 * A / pi) - s) / 2'
+    - '-(sqrt(s^2 + 4 * A / pi) + s) / 2'
+  s: 'A / (pi * r) - r'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'cone surface area'
+  - 'total surface area of a cone'
+  - 'area of a cone'
+  - 'área de un cono'
+  - 'área de la superficie del cono'
+references:
+  - title: 'AMSI, Cones, Pyramids and Spheres, Teacher Module, Surface area of a cone'
+    url: 'https://amsi.org.au/teacher_modules/Cones_Pyramids_and_Spheres.html'
+  - title: 'E. W. Weisstein, Cone, MathWorld'
+    url: 'https://mathworld.wolfram.com/Cone.html'
+description:
+  en: >-
+    The surface area of a cone is the area of its circular base plus the area of its curved side:
+    pi times the radius squared, plus pi times the radius times the slant height. For a right
+    circular cone, this formula of solid geometry gives the material needed to cover the closed
+    solid completely, base included.
+
+    In the formula, $\mag{A}$ is the total surface area, measured in square metres, $\var{r}$ is the
+    radius of the base and $\var{s}$ is the slant height, the length of the segment that runs from
+    the apex to the edge of the base, both measured in metres. The constant $\const{\pi}$ is a pure
+    number close to 3.14159. None of the quantities is negative. The slant height is the hypotenuse
+    of the right triangle whose legs are the radius and the perpendicular height, so it is always
+    longer than either. The first term is the base and the second term is the lateral area.
+
+    Cutting the curved side along one slant line and laying it flat gives a circular sector whose
+    radius is the slant height and whose arc has the length of the base circumference. The sector
+    is the fraction of a full disc of that radius set by the ratio of its arc to the full circle,
+    which works out to pi times the radius times the slant height. Solving for the slant height is
+    direct; solving for the radius leads to a quadratic equation with one positive root, the
+    geometric answer listed first, and one negative root with no geometric meaning.
+
+    The rule requires a right circular cone, whose apex lies directly above the centre of the base,
+    so that every slant line has the same length; an oblique cone has no single slant height. An
+    open cone, such as a paper cup, has only the lateral area. Radius and slant height must share a
+    unit.
+
+    The formula sizes conical roofs, funnels and lamp shades. A cone with a base radius of 3 metres
+    and a slant height of 5 metres has a surface area of 24 pi, about 75.40 square metres.

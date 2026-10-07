@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Teorema del seno'
+terms:
+  a:
+    label: 'Lado a'
+  b:
+    label: 'Lado b'
+description: >-
+  El teorema del seno establece que en cualquier triángulo cada lado dividido entre el seno del
+  ángulo opuesto da el mismo valor para los tres lados. También llamado ley de los senos, es la
+  herramienta trigonométrica para resolver un triángulo oblicuángulo, uno sin ángulo recto, cuando
+  se conocen un ángulo y el lado opuesto junto con otro lado u otro ángulo.
+
+  En la ecuación, $\var{a}$ y $\var{b}$ son dos lados del triángulo, longitudes en metros o en
+  cualquier unidad común, y $\mag{\alpha}$ y $\mag{\beta}$ son los ángulos opuestos a ellos, en
+  radianes. Los lados son positivos, cada ángulo está estrictamente entre cero y un ángulo llano, y
+  dos ángulos de un mismo triángulo siempre suman menos que un ángulo llano. El tercer lado y su
+  ángulo opuesto cumplen la misma igualdad; la calculadora trabaja con un par cada vez.
+
+  La altura trazada desde el tercer vértice sobre el tercer lado es igual a $\var{b}$ por el seno de
+  $\mag{\alpha}$ y también a $\var{a}$ por el seno de $\mag{\beta}$. Igualar ambas expresiones y
+  dividir da el teorema. El valor común de los cocientes es el diámetro de la circunferencia que
+  pasa por los tres vértices.
+
+  Despejar un lado siempre da una sola respuesta. Despejar un ángulo a partir de dos lados y un
+  ángulo que no está entre ellos es el caso ambiguo: el seno inverso devuelve un ángulo agudo, y su
+  suplementario tiene el mismo seno, así que cero, uno o dos triángulos se ajustan a los datos. La
+  raíz aguda aparece primero, pero incluso ella solo vale si deja sitio para el ángulo dado, ya que
+  ambos deben sumar menos que un ángulo llano; la obtusa es un segundo triángulo válido con la misma
+  condición. Cuando se conocen dos lados y el ángulo que forman, o los tres lados, se aplica en
+  cambio el teorema del coseno. El teorema vale para triángulos en un plano.
+
+  Ptolomeo ya conocía la relación, escrita con cuerdas de una circunferencia en lugar de senos. Un
+  ángulo de 50 grados opuesto a un lado de 10 unidades y un segundo ángulo de 100 grados dan un lado
+  de unas 12.9 unidades opuesto al ángulo mayor.

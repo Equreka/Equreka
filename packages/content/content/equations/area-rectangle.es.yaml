@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Área del rectángulo'
+terms:
+  l:
+    label: 'Largo'
+  w:
+    label: 'Ancho'
+description: >-
+  El área del rectángulo es igual a su largo multiplicado por su ancho. Un rectángulo es una figura
+  plana de cuatro lados con cuatro ángulos rectos, de modo que sus lados opuestos son paralelos e
+  iguales, y el producto de dos lados que se encuentran en una esquina mide la superficie que
+  cubre. La regla es el punto de partida de la geometría plana para medir regiones de bordes
+  rectos.
+
+  En la fórmula, $\mag{A}$ es el área, medida en metros cuadrados, mientras que $\var{l}$ y
+  $\var{w}$ son las longitudes de dos lados contiguos, llamados largo y ancho, cada una medida en
+  metros. Las tres magnitudes son positivas. Qué lado se llama largo y cuál ancho es solo un
+  convenio, porque un producto no depende del orden de sus factores.
+
+  Un rectángulo cuyos lados miden un número entero de metros puede cubrirse con cuadrados unidad
+  de un metro cuadrado cada uno, en tantas filas como metros tiene un lado y tantas columnas como
+  tiene el otro; contar las baldosas da el producto. Dividir el cuadrado unidad en cuadrados más
+  pequeños extiende el argumento a lados fraccionarios. Si se conocen el área y un lado, el otro
+  lado es el área dividida entre el lado conocido.
+
+  La fórmula exige ángulos rectos exactos sobre una superficie plana. Un paralelogramo con los
+  mismos lados pero con las esquinas inclinadas cubre menos superficie, y su regla usa la altura
+  perpendicular en lugar de un lado. Ambas longitudes deben expresarse en la misma unidad, y el
+  área resulta entonces en el cuadrado de esa unidad. El área es una magnitud distinta del
+  perímetro, la distancia alrededor de la figura.
+
+  El cuadrado es el caso particular en que ambos lados son iguales. Albañiles, pintores y
+  jardineros usan la regla para calcular suelo, pintura y césped. Una habitación de 4 metros de
+  largo y 3 metros de ancho tiene una superficie de 12 metros cuadrados.

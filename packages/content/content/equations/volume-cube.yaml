@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Volume of a cube'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{V}=\var{a}^{3}'
+terms:
+  V:
+    kind: 'magnitude'
+    ref: 'volume'
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Edge length'
+    unit: 'metre'
+solutions:
+  V: 'a^3'
+  a: 'cbrt(V)'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'cube volume'
+  - 'edge cubed'
+  - 'side cubed'
+  - 'volume of a regular hexahedron'
+  - 'volumen de un cubo'
+  - 'arista al cubo'
+references:
+  - title: 'OpenStax, Prealgebra 2e, 9.6 Solve Geometry Applications: Volume and Surface Area'
+    url: 'https://openstax.org/books/prealgebra-2e/pages/9-6-solve-geometry-applications-volume-and-surface-area'
+  - title: 'E. W. Weisstein, Cube, MathWorld'
+    url: 'https://mathworld.wolfram.com/Cube.html'
+description:
+  en: >-
+    The volume of a cube equals the length of one of its edges raised to the third power, the edge
+    cubed. A cube is a solid bounded by six equal square faces that meet at right angles, also
+    called a regular hexahedron, and this formula of solid geometry measures the space it encloses
+    from a single length.
+
+    In the formula, $\mag{V}$ is the volume of the cube, measured in cubic metres, and $\var{a}$ is
+    the edge length, the side of any one of the square faces, measured in metres. Neither can be
+    negative, so no sign convention arises. Volume is a cubic measure: one cubic metre is the space
+    inside a cube whose edge is one metre, and any volume states how many such unit cubes would
+    fill the solid.
+
+    A cube is a rectangular box whose length, width and height are all equal, so the box rule,
+    length times width times height, becomes the edge multiplied by itself three times. Counting
+    unit cubes gives the same result: a cube with edges of three metres holds three layers of nine
+    unit cubes, 27 cubic metres in all. Because the edge enters cubed, doubling it multiplies the
+    volume by eight, and the edge follows from a known volume as its cube root.
+
+    The formula assumes flat faces that are exact squares meeting at right angles. A box whose
+    edges differ needs the product of its three dimensions instead, and a solid with curved faces
+    needs a rule of its own. Edge and volume must use matching units: an edge measured in
+    centimetres gives a volume in cubic centimetres.
+
+    The cube is one of the five Platonic solids, with eight vertices, 12 edges and six faces. The
+    formula sizes boxes, storage tanks, dice and building blocks; a cube with edges of 2 metres
+    encloses 8 cubic metres.

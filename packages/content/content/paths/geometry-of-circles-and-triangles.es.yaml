@@ -49,23 +49,24 @@ steps:
   pythagorean-theorem:
     note: >-
       En un triángulo rectángulo el cuadrado de la hipotenusa es igual a la suma de los cuadrados de
-      los catetos, $a^{2} + b^{2} = c^{2}$. Sus términos son longitudes sin unidad fija: cualquier
-      unidad sirve mientras los tres lados la compartan.
+      los catetos, $a^{2} + b^{2} = c^{2}$. Sus lados son longitudes: la calculadora los muestra en
+      metros, pero cualquier unidad sirve mientras los tres lados la compartan.
   check-triple:
     prompt: >-
       Un triángulo rectángulo tiene catetos de $5$ y $12$. ¿Cuánto mide la hipotenusa?
     answer: >-
       $13$, porque $5^{2} + 12^{2} = 25 + 144 = 169 = 13^{2}$. Las soluciones enteras como $(3, 4,
       5)$ y $(5, 12, 13)$ se llaman ternas pitagóricas.
-  check-no-units:
+  check-any-unit:
     prompt: >-
-      La calculadora del área del círculo muestra metros y metros cuadrados, pero la del teorema de
-      Pitágoras no muestra ninguna unidad. ¿Por qué?
+      La calculadora del teorema de Pitágoras muestra los lados en metros. ¿Necesita el teorema
+      longitudes en metros?
     answer: >-
-      La fórmula del círculo relaciona una longitud con un área, dos dimensiones distintas, así que
-      sus términos están ligados a unidades. El teorema relaciona tres longitudes de la misma clase
-      y vale en cualquier unidad, por lo que sus términos se escriben como símbolos sin unidad: la
-      respuesta sale en la unidad que compartan las entradas.
+      No. El teorema relaciona tres longitudes de la misma clase, así que vale en cualquier unidad
+      siempre que los tres lados la compartan: catetos de 3 y 4 pies dan una hipotenusa de 5 pies.
+      El metro aparece porque es la unidad de longitud del SI. La fórmula del círculo es distinta:
+      convierte una longitud en un área, así que sus dos términos llevan unidades diferentes, metros
+      y metros cuadrados.
   closing:
     body: >-
       Las dos ideas se encuentran en el plano coordenado. La distancia entre dos puntos es el

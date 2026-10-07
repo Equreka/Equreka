@@ -9,14 +9,17 @@ terms:
     kind: 'symbol'
     label:
       en: 'Leg a'
+    unit: 'metre'
   b:
     kind: 'symbol'
     label:
       en: 'Leg b'
+    unit: 'metre'
   c:
     kind: 'symbol'
     label:
       en: 'Hypotenuse'
+    unit: 'metre'
 solutions:
   a: 'sqrt(c^2 - b^2)'
   b: 'sqrt(c^2 - a^2)'
@@ -46,15 +49,16 @@ references:
 description:
   en: >-
     The Pythagorean theorem states that in a right triangle the square of the hypotenuse equals the
-    squares of both legs added together. A right triangle is a triangle with one angle of 90 degrees;
-    its legs are the two sides that form that right angle, and its hypotenuse is the third side,
-    opposite the right angle. The theorem is the basic rule of Euclidean geometry for finding one
-    side of such a triangle from the other two.
+    squares of both legs added together. A right triangle is a triangle with one angle of 90
+    degrees; its legs are the two sides that form that right angle, and its hypotenuse is the third
+    side, opposite the right angle. The theorem is the basic rule of Euclidean geometry for finding
+    one side of such a triangle from the other two.
 
     In the equation, $\var{a}$ and $\var{b}$ are the lengths of the two legs and $\var{c}$ is the
     length of the hypotenuse. The relation holds in any unit of length, provided all three use the
-    same one; in the SI that is the metre. All three are positive. The two legs may be named in either order, but the hypotenuse must be the
-    side facing the right angle, and it is always the longest side of the triangle.
+    same one; in the SI that is the metre. All three are positive. The two legs may be named in
+    either order, but the hypotenuse must be the side facing the right angle, and it is always the
+    longest side of the triangle.
 
     In geometric terms, the square built on the hypotenuse has the same area as the squares built
     on the two legs taken together. Solving the relation gives the hypotenuse as the square root of
@@ -67,5 +71,6 @@ description:
     relation fails. In a coordinate plane it gives the straight-line distance between two points.
 
     The Babylonians applied the relation between about 1900 and 1600 BC, roughly a thousand years
-    before Pythagoras, who was born about 570 BC and was possibly the first to give a proof; Euclid's
-    Elements states it as Proposition 47 of Book I. Legs of 3 and 4 units give a hypotenuse of 5.
+    before Pythagoras, who was born about 570 BC and was possibly the first to give a proof;
+    Euclid's Elements states it as Proposition 47 of Book I. Legs of 3 and 4 units give a hypotenuse
+    of 5.

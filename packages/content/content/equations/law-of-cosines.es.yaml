@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Teorema del coseno'
+terms:
+  c:
+    label: 'Lado c'
+  a:
+    label: 'Lado a'
+  b:
+    label: 'Lado b'
+description: >-
+  El teorema del coseno relaciona los tres lados de un triángulo con uno de sus ángulos: el lado
+  opuesto al ángulo, elevado al cuadrado, es igual al total pitagórico de los dos lados que lo
+  encierran, reducido en el doble del producto de esos dos lados multiplicado por el coseno del
+  ángulo. También llamado ley de los cosenos, extiende el teorema de Pitágoras a triángulos de
+  cualquier forma y resuelve un triángulo cuando se conocen dos lados y el ángulo comprendido, o los
+  tres lados.
+
+  En la ecuación, $\var{a}$ y $\var{b}$ son los dos lados que encierran el ángulo $\mag{\gamma}$, y
+  $\var{c}$ es el lado opuesto a ese ángulo. Los lados son longitudes positivas en metros o en
+  cualquier unidad común; el ángulo, en radianes, está estrictamente entre cero y un ángulo llano.
+  Su coseno es positivo para un ángulo agudo, cero para uno recto y negativo para uno obtuso, de
+  modo que el último término acorta $\var{c}$ por debajo del valor pitagórico cuando el ángulo es
+  agudo y lo alarga cuando es obtuso.
+
+  Con un ángulo recto el coseno se anula y queda el teorema de Pitágoras. Para deducir el teorema,
+  se coloca el vértice del ángulo en el origen con un lado sobre el eje horizontal; el extremo libre
+  del otro lado tiene entonces por coordenadas su longitud por el coseno y por el seno del ángulo, y
+  la distancia entre los dos vértices libres, al cuadrado, da el teorema una vez que los cuadrados
+  del seno y del coseno suman uno.
+
+  Despejar el ángulo usa el coseno inverso y da un solo ángulo, porque el coseno toma cada valor una
+  sola vez entre cero y un ángulo llano; tres longitudes que incumplen la desigualdad triangular no
+  dan ningún ángulo real. Despejar uno de los lados que encierran el ángulo lleva a una ecuación de
+  segundo grado con dos raíces, con la mayor primero. Cada raíz es una longitud de lado solo cuando
+  es positiva: en el caso ambiguo pueden serlo las dos, y un resultado negativo significa que ningún
+  triángulo se ajusta a los datos. El teorema vale en el plano.
+
+  Los Elementos de Euclides enuncian versiones geométricas en el libro II, proposiciones 12 y 13,
+  expresadas con áreas de rectángulos. Lados de 8 y 10 unidades que encierran 160 grados dejan un
+  tercer lado de unas 17.7 unidades.

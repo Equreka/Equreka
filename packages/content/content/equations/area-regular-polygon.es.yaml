@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Área del polígono regular'
+terms:
+  a:
+    label: 'Apotema'
+  P:
+    label: 'Perímetro'
+description: >-
+  El área del polígono regular es igual a la mitad del producto de su apotema por su perímetro. Un
+  polígono regular es una figura plana de lados rectos todos iguales y ángulos interiores todos
+  iguales, como el triángulo equilátero, el cuadrado o el hexágono regular. La apotema es el
+  segmento que va del centro, perpendicular, hasta un lado, y la fórmula de la geometría plana se
+  lee como la mitad de la apotema por el perímetro.
+
+  En la fórmula, $\mag{A}$ es el área en metros cuadrados, $\var{a}$ es la apotema en metros y
+  $\var{P}$ es el perímetro en metros, la longitud total del contorno, que en un polígono de lados
+  iguales es el número de lados por la longitud del lado. Las tres son positivas. La apotema es
+  también el radio de la circunferencia inscrita en el polígono, que toca cada lado en su punto
+  medio.
+
+  Las rectas que van del centro a cada vértice cortan el polígono en tantos triángulos isósceles
+  iguales como lados tiene. Cada triángulo tiene un lado del polígono como base y la apotema como
+  altura, así que su área es la mitad del lado por la apotema; sumarlas todas sustituye los lados
+  por su suma, el perímetro. Al crecer el número de lados, el polígono se aproxima a un círculo, la
+  apotema al radio y el perímetro a la longitud de la circunferencia, lo que da el área del
+  círculo.
+
+  La regla necesita un polígono regular, porque solo así todos los lados están a la misma distancia
+  de un centro. En un polígono de lados desiguales, los triángulos tienen alturas distintas y el
+  área debe hallarse por partes. La apotema es más corta que la distancia del centro a un vértice,
+  y confundirlas exagera el área.
+
+  La fórmula sirve para dimensionar baldosas hexagonales, tuercas y suelos de cenadores. Un hexágono
+  regular de 2 metros de lado tiene una apotema de unos 1.73 metros y un área de unos 10.4 metros
+  cuadrados.

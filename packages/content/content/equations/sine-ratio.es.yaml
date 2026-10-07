@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Razón seno'
+terms:
+  a:
+    label: 'Cateto opuesto'
+  c:
+    label: 'Hipotenusa'
+description: >-
+  La razón seno define el seno de un ángulo agudo de un triángulo rectángulo como la longitud del
+  cateto opuesto a ese ángulo dividida entre la longitud de la hipotenusa. Es la primera de las tres
+  razones trigonométricas básicas de la trigonometría escolar, la SOH de la regla mnemotécnica SOH
+  CAH TOA, y convierte un ángulo en un número puro entre cero y uno.
+
+  En la fórmula, $\mag{\theta}$ es uno de los dos ángulos agudos del triángulo, medido en radianes
+  en el SI y habitualmente introducido en grados. El cateto $\var{a}$ está enfrente de ese ángulo y
+  $\var{c}$ es la hipotenusa, el lado opuesto al ángulo recto. Ambos son longitudes en metros,
+  aunque sirve cualquier unidad común, ya que las unidades se cancelan en el cociente. Las tres
+  cantidades son positivas, y el cateto opuesto siempre es más corto que la hipotenusa.
+
+  Todo triángulo rectángulo con el mismo ángulo agudo es una copia a escala de cualquier otro, así
+  que el cociente de estos dos lados depende solo del ángulo y no del tamaño del triángulo. Al
+  despejar, el cateto opuesto es la hipotenusa por el seno, la hipotenusa es el cateto opuesto
+  dividido entre el seno, y el ángulo se obtiene con el seno inverso, escrito arcsen o arcsin.
+
+  La definición en el triángulo rectángulo abarca los ángulos estrictamente comprendidos entre cero
+  y un ángulo recto, en los que el seno crece de 0 hacia 1. Aquí el seno inverso solo devuelve
+  ángulos de ese intervalo; el suplementario del ángulo tiene el mismo seno, pero no cabe en un
+  triángulo rectángulo. La circunferencia unidad extiende el seno a cualquier ángulo, incluidos los
+  obtusos y los negativos, con valores de -1 a 1.
+
+  La razón nació de las tablas de cuerdas: hacia el año 500, Aryabhata tabuló semicuerdas, que en la
+  práctica son senos, con el nombre sánscrito jya. Los autores árabes la escribieron jiba y después
+  jaib, que significa pliegue, y los traductores latinos la vertieron como sinus, origen de la
+  palabra actual. En el triángulo rectángulo de lados 3, 4 y 5, el ángulo opuesto al lado de 4 tiene
+  un seno de 0.8.

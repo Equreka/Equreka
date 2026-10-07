@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Fórmula de Herón'
+terms:
+  a:
+    label: 'Lado a'
+  b:
+    label: 'Lado b'
+  c:
+    label: 'Lado c'
+description: >-
+  La fórmula de Herón da el área de un triángulo solo a partir de las longitudes de sus tres lados,
+  sin necesidad de altura ni de ángulo. En su enunciado habitual, el área es la raíz cuadrada del
+  producto del semiperímetro por las tres diferencias entre el semiperímetro y cada lado. Es un
+  resultado de la geometría plana que lleva el nombre de Herón de Alejandría.
+
+  Aquí $\mag{A}$ es el área en metros cuadrados y $\var{a}$, $\var{b}$ y $\var{c}$ son las
+  longitudes de los lados en metros, todas positivas. Si se escribe el semiperímetro como
+  $s=\frac{\var{a}+\var{b}+\var{c}}{2}$, la forma clásica queda
+  $\mag{A}=\sqrt{s\left(s-\var{a}\right)\left(s-\var{b}\right)\left(s-\var{c}\right)}$; la
+  expresión de arriba es la misma regla con cada factor duplicado y el factor 16 sacado de la raíz.
+  Los lados pueden nombrarse en cualquier orden.
+
+  Cada factor, como la suma de dos lados menos el tercero, es positivo exactamente cuando las tres
+  longitudes pueden formar un triángulo, así que la fórmula comprueba también la desigualdad
+  triangular: cuando un lado es igual a la suma de los otros dos, el triángulo es plano y su área es
+  cero. Despejar un lado lleva a una ecuación de segundo grado en el cuadrado de ese lado, con dos
+  raíces. Ambas describen triángulos reales con la misma área y los mismos otros dos lados: la
+  primera raíz es el lado más corto, opuesto a un ángulo agudo entre los lados conocidos, y la
+  segunda es el más largo, opuesto a un ángulo obtuso.
+
+  La fórmula vale para cualquier triángulo del plano. En triángulos casi planos, con un lado
+  cercano a la suma de los otros, el redondeo de los factores puede volver impreciso el área
+  calculada. Si se conoce una altura, el semiproducto de base y altura es más sencillo, y si se
+  conocen dos lados y el ángulo que forman, la mitad de su producto por el seno de ese ángulo da el
+  área.
+
+  Herón de Alejandría, que vivió en el siglo I d. C., demuestra la fórmula en el libro I de su
+  Métrica, un tratado de medición; más tarde al-Biruni la atribuyó a Arquímedes. Unos
+  lados de 13, 14 y 15 metros encierran 84 metros cuadrados.

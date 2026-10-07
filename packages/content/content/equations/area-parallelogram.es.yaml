@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Área del paralelogramo'
+terms:
+  b:
+    label: 'Base'
+  h:
+    label: 'Altura'
+description: >-
+  El área del paralelogramo es igual a la longitud de una base multiplicada por la altura medida
+  perpendicularmente a ella. Un paralelogramo es una figura plana de cuatro lados cuyos lados
+  opuestos son paralelos, lo que los hace iguales dos a dos; rectángulos, rombos y cuadrados son
+  paralelogramos particulares. En geometría plana la regla suele enunciarse como base por altura.
+
+  En la fórmula, $\mag{A}$ es el área en metros cuadrados, $\var{b}$ es la longitud del lado tomado
+  como base en metros y $\var{h}$ es la altura en metros: la distancia perpendicular entre la base y
+  el lado opuesto, que está sobre una recta paralela. Las tres son positivas. Cualquiera de los dos
+  pares de lados paralelos puede hacer de base, cada uno con su propia altura, y ambas elecciones
+  dan la misma área.
+
+  Al cortar un triángulo rectángulo de un extremo inclinado y llevarlo al otro extremo, el
+  paralelogramo se convierte en un rectángulo con la misma base y la misma altura, sin cambiar su
+  superficie. Por eso la inclinación de los lados no interviene: dos paralelogramos cualesquiera
+  apoyados en la misma base entre las mismas dos rectas paralelas tienen áreas iguales, por mucho
+  que uno se incline. Una diagonal divide la figura en dos triángulos iguales, cada uno con la mitad
+  del área.
+
+  La altura no es el lado inclinado. Usar la longitud del lado en lugar de la altura exagera el
+  área, salvo en un rectángulo, donde ambas coinciden. Si en vez de la altura se conoce el ángulo
+  entre dos lados, la altura es el lado inclinado por el seno de ese ángulo. La regla vale solo en
+  el plano, y ambas longitudes deben usar la misma unidad.
+
+  Los Elementos de Euclides muestran que los paralelogramos con la misma base y entre las mismas
+  paralelas son iguales, cortando y recolocando piezas. Un paralelogramo de 5 metros de base y 3
+  metros de altura cubre 15 metros cuadrados.

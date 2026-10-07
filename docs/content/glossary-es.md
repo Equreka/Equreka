@@ -289,3 +289,11 @@ Prefix names: *mili* per RAE; *atto* per the DLE entry *atto-* and, with *zetta*
 | law of sines, law of cosines | teorema del seno, teorema del coseno | usage |
 | Pythagorean theorem | teorema de Pitágoras | usage |
 | plane angle, solid angle | ángulo plano, ángulo sólido | CEM |
+| straight angle | ángulo llano | usage |
+| length, width (of a rectangle or box) | largo, ancho (as term labels); *longitud del lado* for the side of a square | usage |
+| edge (of a solid), apothem, slant height (of a cone) | arista, apotema, generatriz | usage |
+| annulus | corona circular | usage |
+| semi-major axis, semi-minor axis | semieje mayor, semieje menor | usage |
+| rectangular prism (cuboid), space diagonal | prisma rectangular (*ortoedro* and *paralelepípedo rectangular* in `aliases`), diagonal espacial | usage |
+| lateral area, surface area | área lateral, área total; the sphere follows its siblings (*Área total de la esfera*) | usage |
+| opposite leg, adjacent leg | cateto opuesto, cateto contiguo (*cateto adyacente* in `aliases`) | usage |

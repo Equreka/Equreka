@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Área del triángulo'
+terms:
+  b:
+    label: 'Base'
+  h:
+    label: 'Altura'
+description: >-
+  El área del triángulo es igual a la mitad del producto de una base por la altura trazada sobre
+  esa base. Cualquier lado del triángulo puede servir de base, y la altura es la distancia
+  perpendicular desde la base, o desde la recta que la prolonga, hasta el vértice opuesto. Es la
+  fórmula habitual de la geometría plana para la superficie que encierran tres lados rectos.
+
+  En la fórmula, $\mag{A}$ es el área en metros cuadrados, $\var{b}$ es la longitud de la base
+  elegida en metros y $\var{h}$ es la altura correspondiente en metros, medida en ángulo recto con
+  la base. Las tres son positivas. Cada uno de los tres lados tiene su propia altura, y cada base
+  con su altura da la misma área, lo que permite hallar una altura difícil de medir a partir de
+  otro par.
+
+  Dos copias del mismo triángulo, una girada media vuelta, encajan en un paralelogramo con la misma
+  base y la misma altura, así que el triángulo ocupa exactamente la mitad. En un triángulo
+  rectángulo, los dos catetos son una base y su altura, y el área es la mitad de su producto.
+  Cuando el vértice opuesto queda más allá del extremo de la base, como en un triángulo
+  obtusángulo, la altura cae fuera de la figura y corta la prolongación de la base, pero la fórmula
+  sigue valiendo.
+
+  La fórmula exige la verdadera altura perpendicular; un lado inclinado usado en su lugar da un área
+  demasiado grande. Vale en el plano, no sobre una superficie curva. Cuando solo se conocen los tres
+  lados, la fórmula de Herón da el área sin necesidad de altura, y cuando se conocen dos lados y el
+  ángulo que forman, el área es la mitad de su producto por el seno de ese ángulo.
+
+  Los Elementos de Euclides demuestran que un paralelogramo es el doble de un triángulo con la misma
+  base y comprendido entre las mismas paralelas. Una vela triangular de 4 metros de base y 6 metros
+  de altura tiene un área de 12 metros cuadrados.

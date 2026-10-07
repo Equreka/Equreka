@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Volume of a pyramid'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{V}=\frac{1}{3}\mag{B}\var{h}'
+terms:
+  V:
+    kind: 'magnitude'
+    ref: 'volume'
+  B:
+    kind: 'magnitude'
+    ref: 'area'
+  h:
+    kind: 'symbol'
+    label:
+      en: 'Height'
+    unit: 'metre'
+solutions:
+  V: 'B * h / 3'
+  B: '3 * V / h'
+  h: '3 * V / B'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'pyramid volume'
+  - 'one third base times height'
+  - 'volume of a square pyramid'
+  - 'volumen de una pirámide'
+references:
+  - title: 'E. W. Weisstein, Pyramid, MathWorld'
+    url: 'https://mathworld.wolfram.com/Pyramid.html'
+  - title: 'AMSI, Cones, Pyramids and Spheres, Teacher Module, Volume of a pyramid'
+    url: 'https://amsi.org.au/teacher_modules/Cones_Pyramids_and_Spheres.html'
+  - title: 'D. E. Joyce, Euclid''s Elements, Book XII, Proposition 7 and its corollary'
+    url: 'https://mathcs.clarku.edu/~djoyce/java/elements/bookXII/propXII7.html'
+  - title: 'MacTutor History of Mathematics, Eudoxus of Cnidus'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Eudoxus/'
+description:
+  en: >-
+    The volume of a pyramid equals one third of the area of its base times its height. A pyramid is
+    a solid formed by a flat polygonal base and triangular faces that rise from the edges of the
+    base to a single point, the apex, and this rule of solid geometry gives the space it encloses
+    whatever the shape of the base: a triangle, a square or any other polygon.
+
+    In the formula, $\mag{V}$ is the volume, measured in cubic metres, $\mag{B}$ is the area of the
+    base, measured in square metres, and $\var{h}$ is the height, the perpendicular distance from
+    the apex to the plane of the base, measured in metres. None of the quantities is negative. The
+    height is measured straight down from the apex, not along a sloping face or edge, which are
+    longer.
+
+    A pyramid holds one third of the volume of a prism sharing its base and height. A cube can be
+    cut from its centre into six equal pyramids, each with one face of the cube as its base and half
+    the edge as its height, which shows the factor of one third in that case. Cavalieri's principle,
+    under which solids whose cross-sections at every level have equal areas also have equal volumes,
+    extends the result to every pyramid. The base area or the height follows from the other two by
+    tripling the volume and dividing.
+
+    The formula does not depend on where the apex lies above the base: a slanted pyramid with the
+    same base area and height has the same volume as a right one. The base must be flat and all
+    lengths must use one unit. A cone obeys the same rule with a circular base, while a truncated
+    pyramid needs a separate formula.
+
+    Democritus stated the one-third relation between pyramid and prism, and Eudoxus gave a
+    rigorous proof. Euclid's Elements derives it as a corollary of Proposition 7 of Book XII. A
+    pyramid with a square base of side 3 metres and a height of 4 metres encloses 12 cubic metres.

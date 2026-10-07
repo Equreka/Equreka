@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Longitud de arco de una circunferencia'
+terms:
+  s:
+    label: 'Longitud de arco'
+description: >-
+  La longitud de arco de una circunferencia es la distancia medida a lo largo de la curva entre dos
+  de sus puntos, y es igual al radio multiplicado por el ángulo central en radianes. El ángulo
+  central es el ángulo en el centro entre los dos radios que terminan en esos puntos. En geometría
+  plana, la relación es también la que define el radián como medida de ángulo.
+
+  En la fórmula, $\var{s}$ es la longitud del arco y $\var{r}$ el radio, ambos en metros, y
+  $\mag{\theta}$ es el ángulo central en radianes. Todos se toman positivos. Un ángulo medido en
+  grados debe convertirse primero, multiplicándolo por pi y dividiéndolo entre 180; con el ángulo en
+  grados, el producto directo da una longitud errónea. Una vuelta completa son dos pi radianes, lo
+  que devuelve la longitud de toda la circunferencia.
+
+  Un radián es el ángulo cuyo arco mide exactamente lo mismo que el radio, de modo que un ángulo en
+  radianes cuenta cuántos radios caben a lo largo de su arco. Como los arcos del mismo ángulo en
+  circunferencias distintas son copias a escala, el arco crece en proporción tanto al radio como al
+  ángulo. La razón entre el arco y el radio es un cociente de dos longitudes, y por eso el radián se
+  comporta como un número puro en los cálculos.
+
+  La regla se aplica a arcos de circunferencia en el plano, con el ángulo entre cero y una vuelta
+  completa para un arco que no se superpone a sí mismo; los ángulos mayores que una vuelta describen
+  un arco enrollado más de una vez. Para una curva que no es circular, la longitud debe hallarse por
+  otros medios, y la cuerda recta entre los extremos es siempre más corta que el arco.
+
+  La relación convierte giro en distancia en ruedas, poleas y engranajes, y da distancias a lo
+  largo de un meridiano a partir de diferencias de latitud. Un cuarto de vuelta en una
+  circunferencia de 10 metros de radio recorre un arco de unos 15.7 metros.

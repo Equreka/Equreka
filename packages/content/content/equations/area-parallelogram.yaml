@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Area of a parallelogram'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{A}=\var{b}\var{h}'
+terms:
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  b:
+    kind: 'symbol'
+    label:
+      en: 'Base'
+    unit: 'metre'
+  h:
+    kind: 'symbol'
+    label:
+      en: 'Height'
+    unit: 'metre'
+solutions:
+  A: 'b * h'
+  b: 'A / h'
+  h: 'A / b'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'parallelogram area'
+  - 'base times height'
+  - 'área del paralelogramo'
+references:
+  - title: 'OpenStax, Contemporary Mathematics, 10.6 Area'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/10-6-area'
+  - title: 'E. W. Weisstein, Parallelogram, MathWorld'
+    url: 'https://mathworld.wolfram.com/Parallelogram.html'
+  - title: 'D. E. Joyce, Euclid''s Elements, Book I, Proposition 35'
+    url: 'https://mathcs.clarku.edu/~djoyce/java/elements/bookI/propI35.html'
+description:
+  en: >-
+    The area of a parallelogram equals the length of a base multiplied by the height measured
+    perpendicular to it. A parallelogram is a four-sided plane figure whose opposite sides are
+    parallel, which makes them equal in pairs; rectangles, rhombuses and squares are all special
+    parallelograms. In plane geometry the rule is usually stated as base times height.
+
+    In the formula, $\mag{A}$ is the area in square metres, $\var{b}$ is the length of the side
+    taken as the base in metres, and $\var{h}$ is the height in metres: the perpendicular distance
+    between the base and the opposite side, which lies on a parallel line. All three are positive.
+    Either pair of parallel sides can act as the base, each with its own height, and both choices
+    give the same area.
+
+    Cutting a right triangle off one slanted end and moving it to the other end turns the
+    parallelogram into a rectangle with the same base and the same height, without changing its
+    surface. For this reason the slant of the sides plays no part: any two parallelograms that stand
+    on the same base between the same two parallel lines have equal areas, however far one leans.
+    A diagonal splits the figure into two equal triangles, each with half the area.
+
+    The height is not the slanted side. Using the side length in place of the height overstates the
+    area, except in a rectangle, where the two coincide. When the angle between two sides is known
+    instead of the height, the height is the slanted side times the sine of that angle. The rule
+    holds only in the flat plane, and both lengths must use the same unit.
+
+    Euclid's Elements shows that parallelograms on the same base and between the same parallels are
+    equal, by cutting and rearranging pieces. A parallelogram with a 5 metre base and a 3 metre
+    height covers 15 square metres.

@@ -95,8 +95,8 @@ steps:
     note:
       en: >-
         In a right triangle the square on the hypotenuse equals the sum of the squares on the legs,
-        $a^{2} + b^{2} = c^{2}$. Its terms are bare lengths with no fixed unit: any unit works as long
-        as all three sides share it.
+        $a^{2} + b^{2} = c^{2}$. Its sides are lengths: the calculator shows them in metres, but any
+        unit works as long as all three sides share it.
   - id: 'check-triple'
     kind: 'check'
     prompt:
@@ -106,18 +106,18 @@ steps:
       en: >-
         $13$, since $5^{2} + 12^{2} = 25 + 144 = 169 = 13^{2}$. Whole-number solutions like
         $(3, 4, 5)$ and $(5, 12, 13)$ are called Pythagorean triples.
-  - id: 'check-no-units'
+  - id: 'check-any-unit'
     kind: 'check'
     prompt:
       en: >-
-        The circle-area calculator shows metres and square metres, but the Pythagorean calculator
-        shows no units at all. Why?
+        The Pythagorean calculator shows its sides in metres. Does the theorem need lengths in
+        metres?
     answer:
       en: >-
-        The circle formula relates a length to an area, two different dimensions, so its terms are
-        tied to units. The theorem relates three lengths of the same kind and holds in any unit, so
-        its terms are authored as unitless symbols: the answer comes out in whatever unit the inputs
-        share.
+        No. The theorem relates three lengths of the same kind, so it holds in any unit as long as
+        all three sides share it: legs of 3 and 4 feet give a hypotenuse of 5 feet. The metre
+        appears because it is the SI unit of length. The circle formula differs: it turns a length
+        into an area, so its two terms carry different units, metres and square metres.
   - id: 'closing'
     kind: 'prose'
     body:

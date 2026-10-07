@@ -1,0 +1,82 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Law of sines'
+kind: 'equation'
+level: 'intro'
+expression: '\frac{\var{a}}{\sin\mag{\alpha}}=\frac{\var{b}}{\sin\mag{\beta}}'
+terms:
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Side a'
+    unit: 'metre'
+  b:
+    kind: 'symbol'
+    label:
+      en: 'Side b'
+    unit: 'metre'
+  \alpha:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  \beta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+solutions:
+  a: 'b * sin(alpha) / sin(beta)'
+  b: 'a * sin(beta) / sin(alpha)'
+  \alpha:
+    - 'asin(a * sin(beta) / b)'
+    - 'pi - asin(a * sin(beta) / b)'
+  \beta:
+    - 'asin(b * sin(alpha) / a)'
+    - 'pi - asin(b * sin(alpha) / a)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q170181'
+categories:
+  - 'mathematics'
+branches:
+  - 'trigonometry'
+aliases:
+  - 'sine rule'
+  - 'sine law'
+  - 'rule of sines'
+  - 'ley de los senos'
+  - 'ley de senos'
+references:
+  - title: 'OpenStax, Algebra and Trigonometry 2e, 10.1 Non-right Triangles: Law of Sines'
+    url: 'https://openstax.org/books/algebra-and-trigonometry-2e/pages/10-1-non-right-triangles-law-of-sines'
+  - title: 'E. W. Weisstein, Law of Sines, MathWorld'
+    url: 'https://mathworld.wolfram.com/LawofSines.html'
+  - title: 'MacTutor History of Mathematics, The trigonometric functions'
+    url: 'https://mathshistory.st-andrews.ac.uk/HistTopics/Trigonometric_functions/'
+description:
+  en: >-
+    The law of sines states that in any triangle each side divided by the sine of the angle facing
+    it gives the same value for all three sides. Also called the sine rule, it is the trigonometric
+    tool for solving an oblique triangle, one without a right angle, when an angle and the side
+    facing it are known together with one more side or angle.
+
+    In the equation, $\var{a}$ and $\var{b}$ are two sides of the triangle, lengths in metres or in
+    any shared unit, and $\mag{\alpha}$ and $\mag{\beta}$ are the angles facing them, in radians.
+    Sides are positive, each angle lies strictly between zero and a straight angle, and two angles
+    of one triangle always add up to less than a straight angle. The third side and its opposite
+    angle obey the same equality; the calculator handles one pair at a time.
+
+    The height dropped from the third vertex onto the third side equals $\var{b}$ times the sine of
+    $\mag{\alpha}$ and also $\var{a}$ times the sine of $\mag{\beta}$. Setting the two expressions
+    equal and dividing gives the law. The common value of the quotients is the diameter of the
+    circle through the three vertices.
+
+    Solving for a side always gives one answer. Solving for an angle from two sides and an angle not
+    between them is the ambiguous case: the inverse sine returns an acute angle, and its supplement
+    has the same sine, so zero, one or two triangles fit the data. The acute root is listed first,
+    but even it fits only when it leaves room for the given angle, since the two must add up to less
+    than a straight angle; the obtuse root is a second valid triangle under the same condition. When
+    two sides and the angle between them, or all three sides, are known, the law of cosines applies
+    instead. The law holds for triangles in a flat plane.
+
+    Ptolemy already knew the relation, written with chords of a circle instead of sines. An angle of
+    50 degrees facing a side of 10 units and a second angle of 100 degrees give a side of about 12.9
+    units facing the larger angle.

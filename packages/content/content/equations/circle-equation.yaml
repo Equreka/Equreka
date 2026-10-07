@@ -1,0 +1,93 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Equation of a circle'
+kind: 'equation'
+level: 'intro'
+expression: '\left(\var{x}-\var{h}\right)^{2}+\left(\var{y}-\var{k}\right)^{2}=\var{r}^{2}'
+terms:
+  x:
+    kind: 'symbol'
+    label:
+      en: 'x-coordinate of a point on the circle'
+    unit: 'metre'
+  y:
+    kind: 'symbol'
+    label:
+      en: 'y-coordinate of a point on the circle'
+    unit: 'metre'
+  h:
+    kind: 'symbol'
+    label:
+      en: 'x-coordinate of the centre'
+    unit: 'metre'
+  k:
+    kind: 'symbol'
+    label:
+      en: 'y-coordinate of the centre'
+    unit: 'metre'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+solutions:
+  r: 'sqrt((x - h)^2 + (y - k)^2)'
+  x:
+    - 'h + sqrt(r^2 - (y - k)^2)'
+    - 'h - sqrt(r^2 - (y - k)^2)'
+  y:
+    - 'k + sqrt(r^2 - (x - h)^2)'
+    - 'k - sqrt(r^2 - (x - h)^2)'
+  h:
+    - 'x - sqrt(r^2 - (y - k)^2)'
+    - 'x + sqrt(r^2 - (y - k)^2)'
+  k:
+    - 'y - sqrt(r^2 - (x - h)^2)'
+    - 'y + sqrt(r^2 - (x - h)^2)'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'circle equation'
+  - 'standard form of a circle'
+  - 'standard equation of a circle'
+  - 'centre-radius form'
+  - 'center-radius form'
+  - 'ecuación ordinaria de la circunferencia'
+  - 'ecuación canónica de la circunferencia'
+references:
+  - title: 'OpenStax, Intermediate Algebra 2e, 11.1 Distance and Midpoint Formulas; Circles'
+    url: 'https://openstax.org/books/intermediate-algebra-2e/pages/11-1-distance-and-midpoint-formulas-circles'
+  - title: 'E. W. Weisstein, Circle, MathWorld'
+    url: 'https://mathworld.wolfram.com/Circle.html'
+  - title: 'MacTutor History of Mathematics, René Descartes'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Descartes/'
+description:
+  en: >-
+    The equation of a circle in standard form states that a point lies on the circle exactly when
+    the squared differences between its coordinates and those of the centre add up to the square of
+    the radius. It describes a circle in the Cartesian plane of analytic geometry as the set of all
+    points at one fixed distance from a centre, and it is also called the centre-radius form.
+
+    In the equation, $\var{x}$ and $\var{y}$ are the coordinates of any point on the circle,
+    $\var{h}$ and $\var{k}$ are the coordinates of the centre, and $\var{r}$ is the radius, all
+    measured in metres or in any other common unit of length. Coordinates may be positive, negative
+    or zero according to the side of each axis on which a point lies, while the radius is positive.
+    Each squared difference takes the same value on either side of the centre, so one equation
+    covers the whole circle.
+
+    The equation is the distance formula between a point and the centre, with both sides squared.
+    Solving for one coordinate of the point gives two values, the points on either side of the
+    centre at the same height or across the same width; the root above or to the right is listed
+    first, and the two roots coincide only at the leftmost, rightmost, highest and lowest points of
+    the circle. With the centre at the origin, the equation reduces to the sum of the squares of the
+    coordinates equal to the radius squared.
+
+    The form assumes perpendicular axes with equal scales; drawn with unequal scales, the same set
+    of points looks like an ellipse. Expanding the squares gives the general form of the circle,
+    from which the centre and the radius are recovered by completing the square.
+
+    Analytic geometry, which writes curves as equations in coordinates, grew from the application of
+    algebra to geometry in La Géométrie, which René Descartes published in 1637. The circle of
+    radius 5 centred at the origin passes through the point with coordinates 3 and 4.

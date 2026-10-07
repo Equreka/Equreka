@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Diagonal espacial del prisma rectangular'
+terms:
+  d:
+    label: 'Diagonal espacial'
+  l:
+    label: 'Largo'
+  w:
+    label: 'Ancho'
+  h:
+    label: 'Altura'
+description: >-
+  La diagonal del prisma rectangular es el segmento recto que une dos vértices opuestos atravesando
+  el interior del sólido, y su longitud es la raíz cuadrada de la suma de los cuadrados del largo,
+  el ancho y la altura. También llamada diagonal espacial del ortoedro o de la caja, es el segmento
+  más largo que cabe dentro del sólido, y la fórmula extiende el teorema de Pitágoras del plano a
+  tres dimensiones.
+
+  En la fórmula, $\var{d}$ es la longitud de la diagonal espacial, y $\var{l}$, $\var{w}$ y
+  $\var{h}$ son el largo, el ancho y la altura del prisma, todos medidos en metros. Todos son
+  positivos, así que no hace falta ningún convenio de signos. La diagonal une dos vértices que no
+  comparten ninguna cara, y un prisma rectangular tiene cuatro diagonales de este tipo, todas de la
+  misma longitud.
+
+  La fórmula se obtiene aplicando dos veces el teorema de Pitágoras. La diagonal del rectángulo de
+  la base tiene un cuadrado igual al largo al cuadrado más el ancho al cuadrado; esa diagonal de la
+  cara y la arista vertical forman los catetos de un triángulo rectángulo cuya hipotenusa es la
+  diagonal espacial, y sumar la altura al cuadrado da la suma de los tres cuadrados. Despejar una
+  arista resta los cuadrados de las otras dos del cuadrado de la diagonal, así que la diagonal
+  siempre es más larga que cualquier arista.
+
+  La relación exige ángulos rectos en todos los vértices, y las cuatro longitudes deben compartir
+  una unidad. En un cubo, cuyas tres aristas son iguales, la diagonal espacial es la arista por la
+  raíz cuadrada de tres. La misma suma de cuadrados, aplicada a diferencias de coordenadas, da la
+  distancia entre dos puntos del espacio.
+
+  La fórmula indica si una barra, un poste o un tubo cabe dentro de una caja, una habitación o el
+  compartimiento de carga de un vehículo. Una caja de 3 metros de largo, 4 metros de ancho y 12
+  metros de alto tiene una diagonal espacial de 13 metros.

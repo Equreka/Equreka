@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Tangent ratio'
+kind: 'formula'
+level: 'intro'
+expression: '\tan\mag{\theta}=\frac{\var{a}}{\var{b}}'
+terms:
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Opposite side'
+    unit: 'metre'
+  b:
+    kind: 'symbol'
+    label:
+      en: 'Adjacent side'
+    unit: 'metre'
+solutions:
+  \theta: 'atan(a / b)'
+  a: 'b * tan(theta)'
+  b: 'a / tan(theta)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q1129196'
+categories:
+  - 'mathematics'
+branches:
+  - 'trigonometry'
+aliases:
+  - 'tangent'
+  - 'tan'
+  - 'tangent of an angle'
+  - 'opposite over adjacent'
+  - 'tangente'
+  - 'razón tangente'
+  - 'cateto opuesto sobre cateto adyacente'
+  - 'tangente de un ángulo'
+references:
+  - title: 'OpenStax, Algebra and Trigonometry 2e, 7.2 Right Triangle Trigonometry'
+    url: 'https://openstax.org/books/algebra-and-trigonometry-2e/pages/7-2-right-triangle-trigonometry'
+  - title: 'OpenStax, Precalculus 2e, 5.4 Right Triangle Trigonometry'
+    url: 'https://openstax.org/books/precalculus-2e/pages/5-4-right-triangle-trigonometry'
+  - title: 'MacTutor History of Mathematics, The trigonometric functions'
+    url: 'https://mathshistory.st-andrews.ac.uk/HistTopics/Trigonometric_functions/'
+description:
+  en: >-
+    The tangent ratio defines the tangent of an acute angle in a right triangle as the length of the
+    side opposite that angle divided by the length of the side adjacent to it. It is the TOA of the
+    mnemonic SOH CAH TOA and, unlike the sine and cosine, it compares the two legs and leaves the
+    hypotenuse out, which makes it the ratio behind slopes, gradients and heights measured from a
+    distance.
+
+    In the formula, $\mag{\theta}$ is one of the two acute angles, measured in radians in the SI
+    and commonly entered in degrees. The opposite side $\var{a}$ faces the angle, and the adjacent
+    side $\var{b}$ is the leg that forms the angle with the hypotenuse. Both are lengths in metres,
+    or in any unit the two share. All three quantities are positive.
+
+    Seen as a ramp, the hypotenuse rises by the opposite side over a horizontal run equal to the
+    adjacent side, so the tangent is the slope of a line inclined at that angle. Dividing the sine
+    ratio by the cosine ratio cancels the hypotenuse and leaves the tangent. Rearranged, the
+    relation gives the opposite side as the adjacent side times the tangent, the adjacent side as
+    the opposite side divided by the tangent, and the angle through the inverse tangent, arctan.
+
+    Over acute angles the tangent grows from 0 without bound: equal legs give 1 at an eighth of a
+    turn, and near a right angle a tiny change in the angle produces a huge change in the ratio, so
+    measurements taken looking almost straight up are unreliable. The unit circle extends the
+    tangent to other angles, except odd multiples of a right angle, where the cosine is zero and the
+    ratio is undefined.
+
+    The tangent began as a measure of shadows, and Arabic tables of shadow lengths existed by about
+    860. Thomas Fincke introduced the name tangent in 1583, and Albert Girard first wrote the
+    abbreviation tan in 1626. In the right triangle with sides 3, 4 and 5, the angle facing the side
+    of 4 has a tangent of 4/3.

@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Área del trapecio'
+terms:
+  a:
+    label: 'Base a'
+  b:
+    label: 'Base b'
+  h:
+    label: 'Altura'
+description: >-
+  El área del trapecio es igual a la media de sus dos lados paralelos multiplicada por la distancia
+  entre ellos. Un trapecio es una figura plana de cuatro lados con un par de lados paralelos, las
+  bases; los otros dos lados, llamados lados no paralelos, pueden tener cualquier inclinación. En el
+  inglés británico la misma figura se llama trapezium. La regla es la fórmula de la geometría plana
+  para la superficie de esa figura.
+
+  En la fórmula, $\mag{A}$ es el área en metros cuadrados, $\var{a}$ y $\var{b}$ son las longitudes
+  de las dos bases en metros, y $\var{h}$ es la altura en metros, la distancia perpendicular entre
+  las dos rectas paralelas sobre las que están las bases. Todas son positivas. Las bases pueden
+  nombrarse en cualquier orden, ya que solo interviene su suma, y las longitudes de los lados
+  inclinados no aparecen.
+
+  Una diagonal divide el trapecio en dos triángulos con la misma altura, cada uno apoyado en una
+  base; sumar sus áreas, cada una la mitad de una base por la altura, da la fórmula. Otra forma de
+  verlo coloca una segunda copia invertida junto a la primera, formando un paralelogramo cuya base
+  es la suma de las dos bases, del que el trapecio es la mitad. La media de las bases es igual a la
+  longitud del segmento que une los puntos medios de los lados no paralelos.
+
+  La regla necesita la altura perpendicular, no la longitud de un lado inclinado. A medida que una
+  base se reduce hacia cero, la figura se aproxima a un triángulo y la fórmula tiende a la mitad de
+  la base por la altura; a medida que las bases se igualan, la figura se aproxima a un
+  paralelogramo, y la fórmula tiende a la base por la altura. Un trapecio cuyos lados no paralelos
+  son iguales se llama isósceles, y la misma regla se le aplica sin cambios.
+
+  La fórmula sirve para estimar la sección de zanjas y terraplenes y el área de parcelas
+  irregulares divididas en franjas. Unas bases de 5 y 3 metros con una altura de 2 metros encierran
+  8 metros cuadrados.

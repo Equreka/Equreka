@@ -1,0 +1,88 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Law of cosines'
+kind: 'equation'
+level: 'intro'
+expression: '\var{c}^{2}=\var{a}^{2}+\var{b}^{2}-2\var{a}\var{b}\cos\mag{\gamma}'
+terms:
+  c:
+    kind: 'symbol'
+    label:
+      en: 'Side c'
+    unit: 'metre'
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Side a'
+    unit: 'metre'
+  b:
+    kind: 'symbol'
+    label:
+      en: 'Side b'
+    unit: 'metre'
+  \gamma:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+solutions:
+  c: 'sqrt(a^2 + b^2 - 2 * a * b * cos(gamma))'
+  \gamma: 'acos((a^2 + b^2 - c^2) / (2 * a * b))'
+  a:
+    - 'b * cos(gamma) + sqrt(c^2 - b^2 * sin(gamma)^2)'
+    - 'b * cos(gamma) - sqrt(c^2 - b^2 * sin(gamma)^2)'
+  b:
+    - 'a * cos(gamma) + sqrt(c^2 - a^2 * sin(gamma)^2)'
+    - 'a * cos(gamma) - sqrt(c^2 - a^2 * sin(gamma)^2)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q164321'
+categories:
+  - 'mathematics'
+branches:
+  - 'trigonometry'
+aliases:
+  - 'cosine rule'
+  - 'cosine law'
+  - 'cosine formula'
+  - 'ley de los cosenos'
+  - 'ley de cosenos'
+references:
+  - title: 'OpenStax, Algebra and Trigonometry 2e, 10.2 Non-right Triangles: Law of Cosines'
+    url: 'https://openstax.org/books/algebra-and-trigonometry-2e/pages/10-2-non-right-triangles-law-of-cosines'
+  - title: 'E. W. Weisstein, Law of Cosines, MathWorld'
+    url: 'https://mathworld.wolfram.com/LawofCosines.html'
+  - title: 'D. E. Joyce, Euclid''s Elements, Book II, Proposition 12'
+    url: 'https://mathcs.clarku.edu/~djoyce/java/elements/bookII/propII12.html'
+  - title: 'D. E. Joyce, Euclid''s Elements, Book II, Proposition 13'
+    url: 'https://mathcs.clarku.edu/~djoyce/java/elements/bookII/propII13.html'
+description:
+  en: >-
+    The law of cosines relates the three sides of a triangle to one of its angles: the side facing
+    the angle, squared, equals the Pythagorean total of the two enclosing sides, reduced by twice
+    the product of those two sides multiplied by the cosine of the angle. Also called the cosine
+    rule, it extends the Pythagorean theorem to triangles of any shape and solves
+    a triangle when two sides and the included angle, or all three sides, are known.
+
+    In the equation, $\var{a}$ and $\var{b}$ are the two sides that enclose the angle
+    $\mag{\gamma}$, and $\var{c}$ is the side facing that angle. The sides are positive lengths in
+    metres or in any shared unit; the angle, in radians, lies strictly between zero and a straight
+    angle. Its cosine is positive for an acute angle, zero for a right angle and negative for an
+    obtuse one, so the last term shortens $\var{c}$ below the Pythagorean value when the angle is
+    acute and lengthens it when the angle is obtuse.
+
+    For a right angle the cosine vanishes and the Pythagorean theorem remains. To derive the law,
+    place the vertex of the angle at the origin with one side along the horizontal axis; the free
+    end of the other side then has coordinates given by its length times the cosine and the sine of
+    the angle, and the distance between the two free vertices, squared, yields the law once the
+    squares of sine and cosine are added to one.
+
+    Solving for the angle uses the inverse cosine and gives one angle, because the cosine takes each
+    value once between zero and a straight angle; three lengths that break the triangle inequality
+    give no real angle. Solving for one enclosing side leads to a quadratic with two roots, listed
+    with the larger first. Each root is a side length only when it is positive: in the ambiguous
+    case both can be, and a negative result means that no triangle fits the data. The law holds in
+    the flat plane.
+
+    Euclid's Elements states geometric versions in Book II, Propositions 12 and 13, phrased with
+    areas of rectangles. Sides of 8 and 10 units enclosing 160 degrees leave a third side of about
+    17.7 units.
