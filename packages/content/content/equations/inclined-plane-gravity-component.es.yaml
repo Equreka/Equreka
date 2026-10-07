@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Componente del peso a lo largo de un plano inclinado'
+terms:
+  F_{\parallel}:
+    label: 'Componente del peso a lo largo del plano'
+  g:
+    label: 'Aceleración de la gravedad'
+description: >-
+  En un plano inclinado, la componente del peso de un cuerpo a lo largo de la pendiente es igual a
+  su masa por la aceleración de la gravedad por el seno del ángulo del plano. Es la parte de la
+  gravedad que impulsa al cuerpo pendiente abajo, la fuerza que el rozamiento, una cuerda o un
+  empujón deben equilibrar para mantenerlo en su sitio, y el punto de partida de todo problema de
+  plano inclinado.
+
+  Aquí $\var{F_{\parallel}}$ es el módulo de la componente del peso paralela al plano, en newtons,
+  dirigida pendiente abajo; $\mag{m}$ es la masa en kilogramos; $\var{g}$ es el módulo de la
+  aceleración de la gravedad en metros por segundo al cuadrado, introducido como número positivo; y
+  $\mag{\theta}$ es el ángulo del plano sobre la horizontal, introducido en grados o radianes, desde
+  cero para un terreno llano hasta 90 grados para una pared vertical. Todos los términos son no
+  negativos.
+
+  El peso apunta en vertical hacia abajo. Con un eje a lo largo de la pendiente y otro perpendicular
+  a ella, el peso se descompone en dos componentes, y el ángulo entre el peso y el eje perpendicular
+  es igual al ángulo del plano, de modo que la componente a lo largo de la pendiente lleva el seno y
+  la que presiona contra la superficie lleva el coseno. La componente crece desde cero en terreno
+  llano hasta el peso completo en una pared vertical, y a 30 grados es exactamente la mitad del
+  peso. Despejar el ángulo requiere el arcoseno; de los dos ángulos con el mismo seno, solo el
+  comprendido entre 0 y 90 grados describe un plano inclinado, y ese es el que se devuelve.
+
+  La fórmula supone un plano recto, rígido y en reposo, y un campo gravitatorio uniforme. Da una
+  componente del peso, no la fuerza neta: el rozamiento y cualquier fuerza aplicada suman sus
+  propias componentes a lo largo de la pendiente. Vale tanto si el cuerpo está en reposo como si
+  desliza o es arrastrado, porque el peso no depende del movimiento.
+
+  Una caja de 20 kilogramos sobre una rampa inclinada 30 grados tiene unos 98 newtons de su peso
+  actuando a lo largo de la rampa, la mitad de su peso completo.

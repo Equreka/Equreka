@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Conservación de la cantidad de movimiento en dos cuerpos'
+terms:
+  m_{1}:
+    label: 'Masa del cuerpo 1'
+  m_{2}:
+    label: 'Masa del cuerpo 2'
+  u_{1}:
+    label: 'Velocidad inicial del cuerpo 1'
+  u_{2}:
+    label: 'Velocidad inicial del cuerpo 2'
+  v_{1}:
+    label: 'Velocidad final del cuerpo 1'
+  v_{2}:
+    label: 'Velocidad final del cuerpo 2'
+description: >-
+  La conservación de la cantidad de movimiento en dos cuerpos establece que, cuando dos cuerpos
+  interactúan sin ninguna fuerza externa neta sobre ellos, su cantidad de movimiento total antes de
+  la interacción es igual a su cantidad de movimiento total después. Esta forma de la ley de
+  conservación de la cantidad de movimiento rige los choques, los rebotes, las explosiones y los
+  empujones entre pares de objetos en mecánica, se conserve o no la energía cinética.
+
+  En la ecuación, $\var{m_{1}}$ y $\var{m_{2}}$ son las masas en kilogramos; $\var{u_{1}}$ y
+  $\var{u_{2}}$ son las velocidades de los dos cuerpos antes de la interacción, y $\var{v_{1}}$ y
+  $\var{v_{2}}$ sus velocidades después, todas en metros por segundo. El movimiento ocurre a lo
+  largo de una recta con un sentido positivo elegido; una velocidad que apunta en sentido contrario
+  es negativa, así que dos cuerpos que se acercan de frente tienen velocidades iniciales de signo
+  opuesto.
+
+  Durante la interacción los dos cuerpos se empujan con fuerzas de igual módulo y sentido opuesto,
+  por la tercera ley de Newton, que actúan durante el mismo tiempo. Sus impulsos son, por tanto,
+  iguales y opuestos, de modo que la cantidad de movimiento que gana un cuerpo la pierde el otro, y
+  la suma no cambia. Despejar una velocidad final exige conocer la otra; para hallar ambas hace
+  falta una segunda relación, como la conservación de la energía cinética en un choque elástico.
+
+  La ley se cumple exactamente para un par aislado. Las fuerzas externas como el rozamiento o la
+  gravedad a lo largo de la recta la alteran, pero en un impacto breve su impulso suele ser lo
+  bastante pequeño para despreciarlo. Despejar una masa exige un cuerpo cuya velocidad cambie.
+
+  En 1668 la Royal Society, por medio de Henry Oldenburg, invitó a Christiaan Huygens, John Wallis y
+  Christopher Wren a dar cuenta de sus trabajos sobre las leyes del choque; las reglas que envió
+  Huygens mantenían sin cambio la cantidad de movimiento a lo largo de una dirección dada, lo que él
+  confirmó con experimentos. En un choque perfectamente elástico, un disco de 12 gramos que avanza a
+  2.5 metros por segundo golpea otro de 15 gramos en reposo y rebota a 0.28 metros por segundo,
+  mientras que el disco golpeado sale a 2.22 metros por segundo.

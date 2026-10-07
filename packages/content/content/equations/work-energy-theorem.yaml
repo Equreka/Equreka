@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Work-energy theorem'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{W}=\frac{1}{2}\mag{m}\var{v}^{2}-\frac{1}{2}\mag{m}\var{v_{0}}^{2}'
+terms:
+  W:
+    kind: 'magnitude'
+    ref: 'work'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  v:
+    kind: 'symbol'
+    label:
+      en: 'Final speed'
+    unit: 'metre-per-second'
+  v_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial speed'
+    unit: 'metre-per-second'
+solutions:
+  W: 'm * (v^2 - v_0^2) / 2'
+  m: '2 * W / (v^2 - v_0^2)'
+  v: 'sqrt(v_0^2 + 2 * W / m)'
+  v_{0}: 'sqrt(v^2 - 2 * W / m)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'work-energy principle'
+  - 'work energy theorem'
+  - 'net work and kinetic energy'
+  - 'W = ΔKE'
+  - 'W net = delta KE'
+  - 'teorema de la energía cinética'
+  - 'teorema de las fuerzas vivas'
+  - 'teorema del trabajo y la energía'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 7.3 Work-Energy Theorem'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/7-3-work-energy-theorem'
+  - title: 'OpenStax, College Physics 2e, 7.2 Kinetic Energy and the Work-Energy Theorem, Examples 7.3 and 7.4'
+    url: 'https://openstax.org/books/college-physics-2e/pages/7-2-kinetic-energy-and-the-work-energy-theorem'
+  - title: 'OpenStax, Physics, 9.1 Work, Power, and the Work-Energy Theorem, Worked Example (ice skater)'
+    url: 'https://openstax.org/books/physics/pages/9-1-work-power-and-the-work-energy-theorem'
+  - title: 'R. Nave, HyperPhysics, Work-energy principle'
+    url: 'https://hyperphysics.gsu.edu/hbase/work.html'
+  - title: 'OpenStax, Física universitaria volumen 1, 7.3 Teorema de trabajo-energía'
+    url: 'https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/7-3-teorema-de-trabajo-energia'
+externalIds:
+  wikidata: 'Q2642081'
+description:
+  en: >-
+    The work-energy theorem states that the net work done on a body by all the forces acting on it
+    equals the change in its kinetic energy, the final kinetic energy minus the initial one. Also
+    called the work-energy principle, it links forces acting over a distance to changes of speed and
+    often solves mechanics problems without any need to follow the motion in time.
+
+    $\mag{W}$ is the net work in joules, the sum of the work done by every force on the body,
+    gravity, friction and normal forces included; $\mag{m}$ is the mass in kilograms; $\var{v_{0}}$
+    and $\var{v}$ are the initial and final speeds in metres per second, both non-negative. Positive
+    net work speeds the body up, negative net work slows it down, and zero net work leaves the speed
+    unchanged even when the direction changes, as in uniform circular motion.
+
+    For a constant net force along a straight line, the work is the force times the displacement.
+    Newton's second law writes the force as mass times acceleration, and the constant-acceleration
+    relation between the squares of the speeds and the displacement turns that product into the
+    difference of the two kinetic energies. The result also holds for forces that change in size and
+    direction along a curved path.
+
+    Solving for a speed keeps only the non-negative square root, because a speed is never negative;
+    in motion along a line the velocity with that speed may point either way. A negative number
+    under the root means the given net work is not consistent with the other speed: for the final
+    speed, negative work would remove more kinetic energy than the body had at the start, and for
+    the initial speed, positive work would exceed the kinetic energy at the end. The theorem applies
+    to a particle, or to a rigid body in translation, at speeds far below the speed of light; a
+    deformable body or a rotating one needs internal work and rotational energy as well.
+
+    A skater of 50 kilograms who speeds up from 8 to 12 metres per second receives 2000 joules of
+    net work.

@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Maximum speed on a flat curve'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{v_{\max}}=\sqrt{\var{\mu}\var{g}\var{r}}'
+terms:
+  v_{\max}:
+    kind: 'magnitude'
+    ref: 'speed'
+  \mu:
+    kind: 'symbol'
+    label:
+      en: 'Coefficient of static friction'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+solutions:
+  v_{\max}: 'sqrt(mu * g * r)'
+  \mu: 'v_max^2 / (g * r)'
+  g: 'v_max^2 / (mu * r)'
+  r: 'v_max^2 / (mu * g)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'maximum speed on an unbanked curve'
+  - 'safe speed on a curve'
+  - 'skidding speed'
+  - 'car on a flat curve'
+  - 'v = sqrt(mu g r)'
+  - 'velocidad máxima en una curva'
+references:
+  - title: 'OpenStax, College Physics 2e, 6.3 Centripetal Force (Example 6.6, flat curve)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/6-3-centripetal-force'
+  - title: 'OpenStax, University Physics Volume 1, 6.3 Centripetal Force'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/6-3-centripetal-force'
+  - title: 'OpenStax, University Physics Volume 1, 6.2 Friction (Table 6.1)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/6-2-friction'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Centripetal Force'
+    url: 'https://hyperphysics.gsu.edu/hbase/cf.html'
+description:
+  en: >-
+    The maximum speed on a flat curve is the highest speed at which a vehicle can follow an unbanked
+    bend of a given radius without skidding: the square root of the coefficient of static friction
+    times the gravitational acceleration times the radius. Above it, friction between the tyres and
+    the road cannot supply the centripetal force that the turn requires.
+
+    Here $\mag{v_{\max}}$ is the maximum speed in metres per second, $\var{\mu}$ the coefficient of
+    static friction between tyres and road, a non-negative dimensionless number, $\var{g}$ the size
+    of the gravitational acceleration, entered as a positive number, and $\var{r}$ the radius of the
+    curve in metres. All four are non-negative; the speed is the non-negative square root, since
+    only that root is a speed.
+
+    On a level road the only horizontal force on the vehicle is friction, so friction alone must
+    provide the centripetal force, the mass times the speed squared over the radius. Friction can
+    reach at most the static coefficient times the normal force, which on level ground equals the
+    weight. Setting the required force equal to that ceiling and cancelling the mass gives the
+    relation, so a light car and a heavy lorry with the same tyres share the same limit. The
+    coefficient is the static one because a tyre that rolls without slipping does not slide over the
+    road at the point of contact.
+
+    The relation assumes a flat, horizontal curve with no banking, a constant speed and tyres that
+    grip until the limit. A wet or icy road has a lower coefficient and therefore a lower safe
+    speed, and a banked curve lets part of the normal force help turn the vehicle, raising the
+    limit.
+
+    On a curve of radius 500 metres, a car travelling at 25.0 metres per second needs a static
+    coefficient of only about 0.13, well below the value for rubber on dry concrete.

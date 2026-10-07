@@ -1,0 +1,282 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.schema.json
+name:
+  en: 'Newton''s laws'
+level: 'intro'
+prerequisites:
+  - 'kinematics'
+estimatedMinutes: '60'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'dynamics'
+  - 'forces'
+  - 'laws of motion'
+  - 'dinámica'
+  - 'leyes de Newton'
+references:
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Newton''s Laws'
+    url: 'https://hyperphysics.gsu.edu/hbase/newt.html'
+  - title: 'OpenStax, University Physics Volume 1, 5.3 Newton''s Second Law'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law'
+  - title: 'OpenStax, University Physics Volume 1, 5.4 Mass and Weight'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/5-4-mass-and-weight'
+  - title: 'OpenStax, University Physics Volume 1, 6.3 Centripetal Force'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/6-3-centripetal-force'
+description:
+  en: >-
+    Why motion changes: force, mass and Newton's three laws, then weight, friction, springs,
+    inclines, pulleys and curves, each with a worked check.
+steps:
+  - id: 'intro'
+    kind: 'prose'
+    body:
+      en: >-
+        Dynamics explains why motion changes. Three laws carry it. A body keeps its state of rest or
+        of uniform straight-line motion unless a net external force acts on it. The net force equals
+        the mass times the acceleration. Forces come in pairs: when one body pushes or pulls
+        another, the second pushes or pulls back on the first with a force of equal size and
+        opposite direction. Before every problem, pick the body, draw every force acting on it and
+        choose axes.
+  - id: 'force'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'force'
+    note:
+      en: >-
+        A push or a pull, with a size and a direction. Along a line it becomes a signed number, like
+        velocity in kinematics.
+  - id: 'mass'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'mass'
+    note:
+      en: >-
+        The measure of inertia: how strongly a body resists a change in its velocity. It is never
+        negative and does not depend on where the body is.
+  - id: 'newtons-second-law'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'newtons-second-law'
+    note:
+      en: >-
+        The net force, not any single force, sets the acceleration, and the two always point the
+        same way. With balanced forces the acceleration is zero, which is the first law.
+  - id: 'newton'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'newton'
+    note:
+      en: >-
+        The force that gives one kilogram an acceleration of one metre per second squared, so a
+        newton is a kilogram metre per second squared.
+  - id: 'check-cart'
+    kind: 'check'
+    prompt:
+      en: >-
+        A net force of 12 newtons acts on a cart of 3.0 kilograms. What is its acceleration, and
+        what net force would give a 6.0-kilogram cart the same acceleration?
+    answer:
+      en: >-
+        4.0 metres per second squared: 12 divided by 3.0. Twice the mass needs twice the force for
+        the same acceleration, so 24 newtons.
+  - id: 'weight'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'weight'
+    note:
+      en: >-
+        The gravitational pull on a body, a force measured in newtons, not in kilograms.
+  - id: 'weight-formula'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'weight-formula'
+    note:
+      en: >-
+        Mass times g. Enter g as a positive number; the weight always points down.
+  - id: 'check-moon'
+    kind: 'check'
+    prompt:
+      en: >-
+        An astronaut has a mass of 80 kilograms. What is the weight on the Earth, with the standard
+        g, and on the Moon, where g is 1.62 metres per second squared? What is the mass on the Moon?
+    answer:
+      en: >-
+        About 785 newtons on the Earth, 80 times 9.80665, and about 130 newtons on the Moon, 80
+        times 1.62. The mass stays 80 kilograms: only the pull of gravity changes.
+  - id: 'apparent-weight-elevator'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'apparent-weight-elevator'
+    note:
+      en: >-
+        A scale reads the normal force, not the weight. In a lift it rises when the acceleration
+        points up and falls when it points down, reaching zero in free fall.
+  - id: 'check-lift'
+    kind: 'check'
+    prompt:
+      en: >-
+        A passenger of 60 kilograms stands on a scale in a lift that accelerates downward at 2.0
+        metres per second squared. What does the scale read, and what would it read at rest? Use the
+        standard g.
+    answer:
+      en: >-
+        With upward positive the acceleration is minus 2.0, so the reading is 60 times 7.80665,
+        about 468 newtons. At rest it is 60 times 9.80665, about 588 newtons.
+  - id: 'contact-forces'
+    kind: 'prose'
+    body:
+      en: >-
+        Most everyday forces act through contact. A surface pushes back perpendicular to itself with
+        the normal force and resists sliding along itself with friction; a taut string pulls along
+        its length with a tension. By the third law, the floor pushes up on a box exactly as hard as
+        the box pushes down on the floor, but the two forces act on different bodies, so they never
+        cancel each other.
+  - id: 'friction-force'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'friction-force'
+    note:
+      en: >-
+        Friction is proportional to the normal force. Static friction holds a body still up to a
+        ceiling; kinetic friction acts once it slides, and its coefficient is usually smaller.
+  - id: 'check-crate'
+    kind: 'check'
+    prompt:
+      en: >-
+        A crate of 25 kilograms rests on a level floor, with a static coefficient of 0.50 and a
+        kinetic coefficient of 0.30. What horizontal push starts it moving, and what push keeps it
+        sliding at constant velocity? Use the standard g.
+    answer:
+      en: >-
+        The normal force equals the weight, about 245 newtons. Starting it takes a push above 0.50
+        times that, about 123 newtons; keeping it sliding at constant velocity takes 0.30 times
+        that, about 74 newtons, since the net force must then be zero.
+  - id: 'hookes-law'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'hookes-law'
+    note:
+      en: >-
+        A spring pulls back in proportion to its displacement from equilibrium. Enter the
+        displacement with its sign: the force comes out with the opposite sign.
+  - id: 'check-spring'
+    kind: 'check'
+    prompt:
+      en: >-
+        A spring with a spring constant of 200 newtons per metre is stretched 0.15 metres in the
+        positive direction. What force does it exert?
+    answer:
+      en: >-
+        Minus 30 newtons: 200 times 0.15 is 30, and the minus sign means the spring pulls back
+        toward equilibrium, in the negative direction.
+  - id: 'inclines'
+    kind: 'prose'
+    body:
+      en: >-
+        On a slope, turn the axes: one along the incline, one perpendicular to it. The weight then
+        splits into a component down the slope, with the sine of the angle, and one into the
+        surface, with the cosine. Nothing moves perpendicular to the surface, so the normal force
+        balances the second component, and the motion along the slope follows from the first
+        component and friction.
+  - id: 'inclined-plane-gravity-component'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'inclined-plane-gravity-component'
+    note:
+      en: >-
+        The pull down the slope, from zero on level ground to the full weight on a vertical wall.
+  - id: 'normal-force-incline'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'normal-force-incline'
+    note:
+      en: >-
+        The surface pushes back less on a steeper slope, so the friction it can provide shrinks as
+        well.
+  - id: 'inclined-plane-acceleration'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'inclined-plane-acceleration'
+    note:
+      en: >-
+        Newton's second law along the slope for a body sliding down. The mass cancels, so a heavy
+        and a light block of the same material slide down together.
+  - id: 'check-ramp'
+    kind: 'check'
+    prompt:
+      en: >-
+        A block slides down a 30-degree ramp with a kinetic coefficient of 0.10. What is its
+        acceleration, and what would it be without friction? Use the standard g.
+    answer:
+      en: >-
+        About 4.05 metres per second squared: g times 0.5 minus 0.10 times 0.866. Without friction
+        it is g times 0.5, about 4.90 metres per second squared.
+  - id: 'atwood-machine-acceleration'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'atwood-machine-acceleration'
+    note:
+      en: >-
+        Two masses on one string share one acceleration: the difference of their weights drives the
+        total mass.
+  - id: 'check-atwood'
+    kind: 'check'
+    prompt:
+      en: >-
+        An Atwood machine carries 3.0 kilograms on one side and 5.0 kilograms on the other. What are
+        the acceleration and the tension in the string? Use the standard g.
+    answer:
+      en: >-
+        The acceleration is 2.0 over 8.0 times g, about 2.45 metres per second squared, with the
+        heavier side going down. The tension is twice 3.0 times 5.0 over 8.0, times g, about 36.8
+        newtons, between the two weights of about 29.4 and 49.0 newtons.
+  - id: 'circular-motion'
+    kind: 'prose'
+    body:
+      en: >-
+        A body on a circle accelerates toward the centre even at constant speed, so a net inward
+        force must act on it. That force is not a new kind of force: tension, friction, gravity or a
+        normal force supplies it.
+  - id: 'centripetal-force'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'centripetal-force'
+    note:
+      en: >-
+        Mass times the speed squared over the radius. Doubling the speed on the same circle takes
+        four times the force.
+  - id: 'maximum-speed-flat-curve'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'maximum-speed-flat-curve'
+    note:
+      en: >-
+        On a flat bend only static friction turns the car, so the grip of the tyres sets a speed
+        limit. The mass cancels.
+  - id: 'check-curve'
+    kind: 'check'
+    prompt:
+      en: >-
+        A flat bend has a radius of 80 metres and a static coefficient of 0.50 between tyres and
+        road. What is the maximum speed without skidding? Use the standard g.
+    answer:
+      en: >-
+        The square root of 0.50 times 9.80665 times 80, about 19.8 metres per second, or about 71
+        kilometres per hour.

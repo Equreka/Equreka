@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Hooke''s law'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{F}=-\var{k}\var{x}'
+terms:
+  F:
+    kind: 'magnitude'
+    ref: 'force'
+  k:
+    kind: 'symbol'
+    label:
+      en: 'Spring constant'
+    unit: 'newton-per-metre'
+  x:
+    kind: 'symbol'
+    label:
+      en: 'Displacement from natural length'
+    unit: 'metre'
+solutions:
+  F: '-k * x'
+  k: '-F / x'
+  x: '-F / k'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q170282'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'F = -kx'
+  - 'F=-kx'
+  - 'spring force'
+  - 'law of elasticity'
+  - 'restoring force of a spring'
+  - 'ley de elasticidad de Hooke'
+  - 'fuerza elástica'
+references:
+  - title: 'OpenStax, College Physics 2e, 16.1 Hooke''s Law: Stress and Strain Revisited (car suspension example)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/16-1-hookes-law-stress-and-strain-revisited'
+  - title: 'OpenStax, University Physics Volume 1, 15.1 Simple Harmonic Motion'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/15-1-simple-harmonic-motion'
+  - title: 'OpenStax, College Physics 2e, 5.3 Elasticity: Stress and Strain'
+    url: 'https://openstax.org/books/college-physics-2e/pages/5-3-elasticity-stress-and-strain'
+  - title: 'MacTutor History of Mathematics, Robert Hooke (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Hooke/'
+description:
+  en: >-
+    Hooke's law states that the force exerted by a spring is proportional to how far its end is
+    pulled or pushed from the relaxed position, and points back toward that position. The constant
+    of proportionality is the spring constant. The law is the basic model of elastic springs in
+    mechanics and also describes small deformations of wires, rods and other elastic solids.
+
+    This entry uses the signed restoring form. Here $\var{x}$ is the displacement of the end of the
+    spring from its natural length, where the spring is neither stretched nor compressed, in metres,
+    signed along a chosen axis; $\mag{F}$ is the force the spring exerts on whatever holds its end,
+    in newtons, signed along the same axis; and $\var{k}$ is the spring constant in newtons per
+    metre, always positive and larger for a stiffer spring. The minus sign makes force and
+    displacement opposite: a spring stretched toward the positive side pulls toward the negative
+    side, and a compressed one pushes outward. A force and a displacement entered with their signs
+    give a positive spring constant; their sizes alone would give a negative one. The same signed
+    displacement appears in the elastic potential energy of the spring.
+
+    A mass on a spring pulled away from its rest position is pushed back, overshoots it and returns,
+    and the linear restoring force makes that oscillation simple harmonic.
+
+    The law holds only for small deformations: most materials follow it while the strain stays below
+    about one part in a thousand. Beyond that the force stops growing in proportion, and larger
+    loads deform the material permanently and finally break it.
+
+    Robert Hooke came upon the relation around 1660, when his work on spiral balance springs for
+    clocks showed it in one case; he stated it for elastic bodies in general in a 1678 lecture on
+    springs. Taking the gravitational acceleration as 9.80 metres per second squared, a car that
+    settles 1.20 centimetres when an 80.0-kilogram person gets in has a suspension spring constant
+    of about 65 300 newtons per metre.

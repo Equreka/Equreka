@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Impulso de una fuerza constante'
+description: >-
+  El impulso de una fuerza constante es el producto de la fuerza por el tiempo durante el que actúa.
+  Esta fórmula de mecánica mide cuánto cambia un empuje o un tirón el movimiento de un cuerpo: una
+  fuerza pequeña aplicada durante mucho tiempo puede dar el mismo impulso que una fuerza grande
+  aplicada un instante.
+
+  En la fórmula, $\mag{J}$ es el impulso, expresado en newton segundo, $\mag{F}$ la fuerza en
+  newtons y $\mag{t}$ el intervalo de tiempo durante el que actúa la fuerza, en segundos, nunca
+  negativo. El impulso es un vector con la misma dirección y sentido que la fuerza. En una recta con
+  un sentido positivo elegido, una fuerza en sentido negativo da un impulso negativo. El newton
+  segundo equivale al kilogramo metro por segundo, la unidad de la cantidad de movimiento.
+
+  El impulso de la fuerza neta sobre un cuerpo es igual a la variación de su cantidad de movimiento,
+  que es lo que afirma el teorema del impulso. Repartir la misma variación de la cantidad de
+  movimiento en un tiempo más largo reduce, por tanto, la fuerza. Los airbags, las zonas de
+  deformación de los automóviles, los cascos acolchados y flexionar las rodillas al caer funcionan
+  así: alargan el tiempo de contacto, de modo que la fuerza sobre el cuerpo es menor para el mismo
+  impulso. Despejar la fuerza divide el impulso entre el tiempo, y despejar el tiempo exige una
+  fuerza distinta de cero.
+
+  La fórmula es exacta solo para una fuerza que se mantiene constante mientras actúa. Cuando la
+  fuerza varía, como al golpear un bate una pelota, el impulso es el área bajo la gráfica de la
+  fuerza frente al tiempo, y el mismo producto vale con la fuerza media del intervalo en lugar de la
+  constante; así se estima la fuerza media de un impacto a partir de su duración.
+
+  Una fuerza de 948 newtons que actúa durante 2.5 segundos, la fuerza media de un airbag que detiene
+  a un conductor, da un impulso de unos $2370\,\mathrm{N\,s}$.

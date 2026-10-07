@@ -1,0 +1,87 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Centre of mass of two particles'
+kind: 'formula'
+level: 'intro'
+expression: '\var{x_\mathrm{cm}}=\frac{\var{m_{1}}\var{x_{1}}+\var{m_{2}}\var{x_{2}}}{\var{m_{1}}+\var{m_{2}}}'
+terms:
+  x_\mathrm{cm}:
+    kind: 'symbol'
+    label:
+      en: 'Position of the centre of mass'
+    unit: 'metre'
+  m_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of particle 1'
+    unit: 'kilogram'
+  m_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of particle 2'
+    unit: 'kilogram'
+  x_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Position of particle 1'
+    unit: 'metre'
+  x_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Position of particle 2'
+    unit: 'metre'
+solutions:
+  x_\mathrm{cm}: '(m_1 * x_1 + m_2 * x_2) / (m_1 + m_2)'
+  x_{1}: '((m_1 + m_2) * x_cm - m_2 * x_2) / m_1'
+  x_{2}: '((m_1 + m_2) * x_cm - m_1 * x_1) / m_2'
+  m_{1}: 'm_2 * (x_2 - x_cm) / (x_cm - x_1)'
+  m_{2}: 'm_1 * (x_cm - x_1) / (x_2 - x_cm)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'center of mass of two particles'
+  - 'center of mass formula'
+  - 'centre of mass formula'
+  - 'two-body centre of mass'
+  - 'barycentre of two masses'
+  - 'barycenter'
+  - 'centro de masa de dos partículas'
+  - 'centro de masas'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 9.6 Center of Mass, Earth-Moon example'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/9-6-center-of-mass'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Center of Mass'
+    url: 'https://hyperphysics.gsu.edu/hbase/cm.html'
+  - title: 'NASA Goddard Space Flight Center, Moon Fact Sheet (mass)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/moonfact.html'
+description:
+  en: >-
+    The centre of mass of two particles is the point on the line joining them whose position is the
+    average of their positions, each weighted by its mass. Also called the barycentre, it is the
+    single point whose motion represents the motion of the pair as a whole in mechanics, and it lies
+    closer to the heavier particle.
+
+    In the formula, $\var{x_\mathrm{cm}}$ is the position of the centre of mass, and $\var{x_{1}}$
+    and $\var{x_{2}}$ the positions of the two particles, all in metres measured from the same
+    origin along one line, positive on one side of it and negative on the other. The masses
+    $\var{m_{1}}$ and $\var{m_{2}}$ are in kilograms and positive. The result does not depend on
+    where the origin is placed: moving the origin shifts all three positions by the same amount.
+
+    When the masses are equal, the centre of mass is the midpoint. Otherwise its distances from the
+    two particles are in the inverse ratio of their masses, the same condition that balances a
+    seesaw on a pivot. With no net external force on the pair, the velocity of the centre of mass
+    never changes, however the internal forces push the particles about; this is another face of the
+    conservation of momentum.
+
+    The formula treats each body as a point. For extended bodies, each one is replaced by a point
+    mass at its own centre of mass, and the result is still exact; the same weighted sum, taken over
+    three coordinates and many particles, gives the centre of mass of any system. Solving for a mass
+    needs a centre of mass that does not coincide with either particle.
+
+    For the Earth and the Moon, with masses of $5.97\times10^{24}\,\mathrm{kg}$ and
+    $7.346\times10^{22}\,\mathrm{kg}$ about 382 000 kilometres apart, the centre of mass lies about
+    4640 kilometres from the centre of the Earth, inside the planet.

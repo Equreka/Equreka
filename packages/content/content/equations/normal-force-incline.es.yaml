@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Fuerza normal en un plano inclinado'
+terms:
+  F_\mathrm{N}:
+    label: 'Fuerza normal'
+  g:
+    label: 'Aceleración de la gravedad'
+description: >-
+  En un plano inclinado, la fuerza normal sobre un cuerpo en reposo o deslizando sobre la superficie
+  es igual a su masa por la aceleración de la gravedad por el coseno del ángulo del plano, siempre
+  que ninguna otra fuerza empuje al cuerpo contra la pendiente o lo separe de ella. La fuerza normal
+  es el empuje de la superficie perpendicular a sí misma, y en una superficie inclinada es menor que
+  el peso.
+
+  Aquí $\var{F_\mathrm{N}}$ es el módulo de la fuerza normal en newtons, dirigida hacia fuera de la
+  superficie y perpendicular a ella; $\mag{m}$ es la masa en kilogramos; $\var{g}$ es el módulo de
+  la aceleración de la gravedad en metros por segundo al cuadrado, introducido como número positivo;
+  y $\mag{\theta}$ es el ángulo del plano sobre la horizontal, introducido en grados o radianes,
+  desde cero para un terreno llano hasta 90 grados para una pared vertical. Todos los términos son
+  no negativos.
+
+  El cuerpo ni se hunde en la superficie ni se separa de ella, así que su aceleración perpendicular
+  a la pendiente es nula y, por la segunda ley de Newton, la fuerza normal equilibra la componente
+  del peso que presiona contra la superficie, la que lleva el coseno del ángulo. Es igual al peso
+  completo en terreno llano y se anula en una pared vertical. Como el rozamiento al deslizar es
+  proporcional a la fuerza normal, un cuerpo sufre menos rozamiento en una pendiente pronunciada que
+  en terreno llano. Despejar el ángulo requiere el arcocoseno, que devuelve el único ángulo entre 0
+  y 90 grados.
+
+  La fórmula supone un plano rígido y sin curvatura que no acelera y un campo gravitatorio uniforme.
+  Cualquier otra fuerza con componente perpendicular a la pendiente cambia el resultado: un empujón
+  contra la superficie aumenta la fuerza normal, y una cuerda que tira en parte hacia arriba la
+  reduce.
+
+  Una caja de 20 kilogramos sobre una rampa inclinada 30 grados es apretada contra la rampa con una
+  fuerza normal de unos 170 newtons, menos que su peso de unos 196 newtons.

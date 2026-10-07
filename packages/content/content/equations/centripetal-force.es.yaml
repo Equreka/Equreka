@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Fuerza centrípeta'
+terms:
+  F_\mathrm{c}:
+    label: 'Fuerza centrípeta'
+description: >-
+  La fuerza centrípeta es la fuerza neta que mantiene a un cuerpo en movimiento sobre una
+  circunferencia con rapidez constante: la masa del cuerpo por el cuadrado de su rapidez, dividida
+  entre el radio de la circunferencia. Apunta hacia el centro de la circunferencia, y es la segunda
+  ley de Newton aplicada al movimiento circular uniforme, con la aceleración centrípeta como
+  aceleración.
+
+  Aquí $\var{F_\mathrm{c}}$ es el módulo de la fuerza centrípeta en newtons, $\mag{m}$ la masa en
+  kilogramos, $\mag{v}$ la rapidez a lo largo de la circunferencia en metros por segundo y $\var{r}$
+  el radio de la trayectoria en metros. Las cuatro son valores no negativos; la dirección de la
+  fuerza, perpendicular a la velocidad y hacia el centro, la da la geometría y no un signo. Despejar
+  la rapidez requiere una raíz cuadrada, y solo su valor no negativo es una rapidez.
+
+  La fuerza centrípeta no es un tipo de fuerza aparte, sino un papel que desempeñan fuerzas reales:
+  la tensión de una cuerda que hace girar una piedra, el rozamiento entre neumáticos y carretera en
+  una curva sin peralte, la gravedad que mantiene un satélite en órbita. Sea cual sea su origen, la
+  fuerza neta hacia el centro debe igualar este valor para que el cuerpo siga en la circunferencia;
+  si es menor, el cuerpo pasa a una trayectoria más abierta. Duplicar la rapidez en la misma
+  circunferencia exige el cuádruple de fuerza, mientras que duplicar el radio a la misma rapidez la
+  reduce a la mitad.
+
+  La relación supone movimiento circular uniforme, rapidez constante sobre una circunferencia de
+  radio fijo, vista desde un sistema de referencia inercial. Cuando la rapidez cambia, actúa además
+  una fuerza tangencial y la fuerza neta ya no apunta al centro. La fuerza centrífuga hacia fuera
+  que siente un pasajero es un efecto inercial del sistema de referencia giratorio del vehículo, no
+  una fuerza en el sistema inercial usado aquí.
+
+  Isaac Newton introdujo el término fuerza centrípeta en los Principia, publicados en 1687, donde
+  analizó el movimiento de los cuerpos sometidos a tales fuerzas. Un coche de 900 kilogramos que
+  toma una curva sin peralte de 500 metros de radio a 25.0 metros por segundo necesita 1125 newtons
+  de fuerza centrípeta, que aporta el rozamiento.

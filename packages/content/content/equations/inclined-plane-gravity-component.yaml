@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Component of weight along an incline'
+kind: 'formula'
+level: 'intro'
+expression: '\var{F_{\parallel}}=\mag{m}\var{g}\sin\mag{\theta}'
+terms:
+  F_{\parallel}:
+    kind: 'symbol'
+    label:
+      en: 'Weight component along the incline'
+    unit: 'newton'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+solutions:
+  F_{\parallel}: 'm * g * sin(theta)'
+  m: 'F_parallel / (g * sin(theta))'
+  g: 'F_parallel / (m * sin(theta))'
+  \theta: 'asin(F_parallel / (m * g))'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'mg sin theta'
+  - 'parallel component of weight'
+  - 'downhill force'
+  - 'force down a slope'
+  - 'inclined plane'
+  - 'componente tangencial del peso'
+references:
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Mass on Incline'
+    url: 'https://hyperphysics.gsu.edu/hbase/mincl.html'
+  - title: 'R. Fitzpatrick, Classical Mechanics (University of Texas at Austin lecture notes), Strings, pulleys, and inclines'
+    url: 'https://farside.ph.utexas.edu/teaching/301/lectures/node48.html'
+  - title: 'OpenStax, University Physics Volume 1, 6.2 Friction (motion on an incline)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/6-2-friction'
+description:
+  en: >-
+    On an inclined plane, the component of a body's weight along the slope equals its mass times the
+    gravitational acceleration times the sine of the angle of the incline. It is the part of gravity
+    that drives the body down the slope, the force that friction, a rope or a push must balance to
+    hold the body in place, and the starting point of every inclined-plane problem.
+
+    Here $\var{F_{\parallel}}$ is the size of the weight component parallel to the incline, in
+    newtons, directed down the slope; $\mag{m}$ is the mass in kilograms; $\var{g}$ is the size of
+    the gravitational acceleration in metres per second squared, entered as a positive number; and
+    $\mag{\theta}$ is the angle of the incline above the horizontal, entered in degrees or radians,
+    from zero for level ground to 90 degrees for a vertical face. All the terms are non-negative.
+
+    The weight points straight down. With one axis along the slope and the other perpendicular to
+    it, the weight splits into two components, and the angle between the weight and the
+    perpendicular axis equals the angle of the incline, so the component along the slope takes the
+    sine and the one pressing into the surface takes the cosine. The component grows from nothing on
+    level ground to the full weight on a vertical face, and at 30 degrees it is exactly half the
+    weight. Solving for the angle uses the inverse sine; of the two angles with the same sine, only
+    the one between 0 and 90 degrees describes an incline, and that is the one returned.
+
+    The formula assumes a flat, rigid incline at rest and a uniform gravitational field. It gives
+    one component of the weight, not the net force: friction and any applied force add their own
+    components along the slope. It holds whether the body rests, slides or is pulled, because the
+    weight does not depend on the motion.
+
+    A crate of 20 kilograms on a ramp tilted at 30 degrees has about 98 newtons of its weight acting
+    along the ramp, half of its full weight.

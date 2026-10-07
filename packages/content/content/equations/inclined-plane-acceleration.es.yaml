@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Aceleración en un plano inclinado'
+terms:
+  g:
+    label: 'Aceleración de la gravedad'
+  \mu:
+    label: 'Coeficiente de rozamiento cinético'
+description: >-
+  Un cuerpo que desliza pendiente abajo por un plano inclinado con rozamiento cinético acelera con
+  la aceleración de la gravedad multiplicada por la diferencia entre el seno del ángulo del plano y
+  el coeficiente de rozamiento cinético por su coseno. Sin rozamiento la aceleración se reduce a la
+  aceleración de la gravedad por el seno del ángulo, y en ambos casos la masa del cuerpo se cancela.
+
+  Aquí $\mag{a}$ es la aceleración en metros por segundo al cuadrado, medida a lo largo de la
+  pendiente con el sentido descendente como positivo; $\var{g}$ es el módulo de la aceleración de la
+  gravedad, introducido como número positivo; $\mag{\theta}$ es el ángulo del plano sobre la
+  horizontal, introducido en grados o radianes; y $\var{\mu}$ es el coeficiente de rozamiento
+  cinético, un número adimensional no negativo, cero para una pendiente sin rozamiento. Un resultado
+  negativo significa que el cuerpo que desliza se frena mientras baja.
+
+  A lo largo de la pendiente actúan dos fuerzas sobre el cuerpo: la componente del peso, la masa por
+  g por el seno del ángulo, tira de él hacia abajo, y el rozamiento cinético, el coeficiente por la
+  fuerza normal, la masa por g por el coseno, lo retiene. El término de rozamiento domina en
+  pendientes suaves, donde la tangente del ángulo es menor que el coeficiente. Despejar el ángulo da
+  la arcotangente del coeficiente más el arcoseno de la aceleración dividida entre g por la raíz
+  cuadrada de uno más el coeficiente al cuadrado; la otra rama del arcoseno da un ángulo mayor de 90
+  grados, así que esta es la única solución para un plano inclinado real.
+
+  La relación solo vale mientras el cuerpo desliza pendiente abajo. Un cuerpo empujado pendiente
+  arriba sufre un rozamiento dirigido hacia abajo, así que el signo del término de rozamiento se
+  invierte, y un cuerpo en reposo queda sujeto por el rozamiento estático, que lo mantiene quieto
+  mientras la tangente del ángulo no supere el coeficiente estático. Se supone un plano recto,
+  rígido y fijo, y una resistencia del aire despreciable.
+
+  Un practicante de snowboard en una pendiente de 13 grados con un coeficiente cinético de 0.20
+  acelera a unos 0.29 metros por segundo al cuadrado.

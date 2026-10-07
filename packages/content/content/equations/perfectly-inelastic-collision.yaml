@@ -1,0 +1,91 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Perfectly inelastic collision'
+kind: 'equation'
+level: 'intro'
+expression: '\var{m_{1}}\var{u_{1}}+\var{m_{2}}\var{u_{2}}=\left(\var{m_{1}}+\var{m_{2}}\right)\var{v}'
+terms:
+  m_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of body 1'
+    unit: 'kilogram'
+  m_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of body 2'
+    unit: 'kilogram'
+  u_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Initial velocity of body 1'
+    unit: 'metre-per-second'
+  u_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Initial velocity of body 2'
+    unit: 'metre-per-second'
+  v:
+    kind: 'symbol'
+    label:
+      en: 'Common final velocity'
+    unit: 'metre-per-second'
+solutions:
+  v: '(m_1 * u_1 + m_2 * u_2) / (m_1 + m_2)'
+  u_{1}: '((m_1 + m_2) * v - m_2 * u_2) / m_1'
+  u_{2}: '((m_1 + m_2) * v - m_1 * u_1) / m_2'
+  m_{1}: 'm_2 * (v - u_2) / (u_1 - v)'
+  m_{2}: 'm_1 * (u_1 - v) / (v - u_2)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'completely inelastic collision'
+  - 'totally inelastic collision'
+  - 'sticky collision'
+  - 'plastic collision'
+  - 'velocity after bodies stick together'
+  - 'choque perfectamente inelástico'
+  - 'choque plástico'
+  - 'colisión perfectamente inelástica'
+externalIds:
+  wikidata: 'Q2983515'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 9.4 Types of Collisions'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/9-4-types-of-collisions'
+  - title: 'OpenStax, University Physics Volume 1, 9.3 Conservation of Linear Momentum, Example 9.6 (colliding carts)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/9-3-conservation-of-linear-momentum'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Perfectly Inelastic Collision'
+    url: 'https://hyperphysics.gsu.edu/hbase/inecol.html'
+description:
+  en: >-
+    A perfectly inelastic collision is a collision in which two bodies stick together and move off
+    as one with a common final velocity. Conservation of momentum fixes that velocity: the total
+    momentum of the two bodies before impact equals the combined mass times the common velocity
+    after it. Coupling railway wagons, a dart hitting a board and a tackle in rugby are everyday
+    cases in mechanics.
+
+    In the equation, $\var{m_{1}}$ and $\var{m_{2}}$ are the masses of the two bodies in kilograms,
+    $\var{u_{1}}$ and $\var{u_{2}}$ their velocities before the collision, and $\var{v}$ the common
+    velocity afterwards, all velocities in metres per second. The motion is taken along one line
+    with a chosen positive direction; a body moving the other way has a negative velocity, and a
+    negative result means the joined pair moves in the negative direction.
+
+    The equation is the case of two-body momentum conservation in which both final velocities are
+    equal. The common velocity is the mass-weighted average of the initial velocities, so it always
+    lies between them and sits closer to the velocity of the heavier body. Momentum is conserved,
+    but kinetic energy is not: part of it goes into deforming the bodies, heating them and making
+    sound. Sticking together is the case of the largest possible loss consistent with momentum
+    conservation. When a small body hits a large one at rest, almost all of its kinetic energy is
+    lost; when a large body hits a small one, little is.
+
+    The equation assumes that no net external force acts on the pair during the brief collision, so
+    that friction and gravity along the line of motion can be neglected for that instant. Solving
+    for a mass needs a common velocity different from both initial velocities.
+
+    In a laboratory example, a cart of 0.675 kilograms moving at 0.75 metres per second joins a cart
+    of 0.5 kilograms moving at 1.33 metres per second in the same direction, and the pair moves on
+    at about 0.997 metres per second.

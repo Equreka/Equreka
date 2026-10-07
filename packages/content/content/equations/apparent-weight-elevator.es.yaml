@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Peso aparente en un ascensor con aceleración'
+terms:
+  W_\mathrm{a}:
+    label: 'Peso aparente'
+  g:
+    label: 'Aceleración de la gravedad'
+description: >-
+  El peso aparente de una persona en un ascensor que acelera, la lectura de una báscula bajo sus
+  pies, es igual a su masa por la suma de la aceleración de la gravedad y la aceleración del
+  ascensor. Un ascensor que acelera hacia arriba hace que sus pasajeros se sientan más pesados, uno
+  que acelera hacia abajo hace que se sientan más ligeros, y en caída libre la lectura baja a cero.
+
+  Aquí $\var{W_\mathrm{a}}$ es el peso aparente en newtons, la fuerza normal hacia arriba que ejerce
+  el suelo o la báscula; $\mag{m}$ es la masa en kilogramos; $\var{g}$ es el módulo de la
+  aceleración de la gravedad, introducido como número positivo; y $\mag{a}$ es la aceleración del
+  ascensor en metros por segundo al cuadrado, con signo y hacia arriba como sentido positivo. Un
+  ascensor que frena mientras sube o que arranca hacia abajo tiene aceleración negativa, y uno que
+  se mueve con velocidad constante no tiene ninguna, vaya en el sentido que vaya.
+
+  Sobre el pasajero actúan dos fuerzas: el peso real, la masa por g, hacia abajo, y la fuerza normal
+  del suelo, hacia arriba. El pasajero comparte la aceleración del ascensor, así que por la segunda
+  ley de Newton la fuerza normal menos el peso es igual a la masa por esa aceleración, lo que da la
+  relación. El peso real no cambia; lo que cambia es la fuerza que debe aportar el suelo, y esa
+  fuerza es la que lee la báscula y la que el cuerpo percibe como pesadez.
+
+  La relación supone un ascensor que acelera en vertical y un observador en el suelo, que es un
+  sistema de referencia inercial. Cuando la aceleración hacia abajo es igual a g, la fuerza normal
+  se anula y el pasajero queda en ingravidez, como en un ascensor con el cable roto o una nave en
+  órbita; una aceleración hacia abajo aún mayor separaría al pasajero del suelo, y un resultado
+  negativo carece de sentido.
+
+  Un pasajero de 75.0 kilogramos en un ascensor que acelera hacia arriba a 1.20 metros por segundo
+  al cuadrado marca 825 newtons en una báscula, frente a 735 newtons en reposo, con g igual a 9.80.

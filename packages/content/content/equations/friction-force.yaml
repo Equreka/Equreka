@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Friction force'
+kind: 'equation'
+level: 'intro'
+expression: '\var{F_\mathrm{f}}=\var{\mu}\var{F_\mathrm{N}}'
+terms:
+  F_\mathrm{f}:
+    kind: 'symbol'
+    label:
+      en: 'Friction force'
+    unit: 'newton'
+  \mu:
+    kind: 'symbol'
+    label:
+      en: 'Coefficient of friction'
+  F_\mathrm{N}:
+    kind: 'symbol'
+    label:
+      en: 'Normal force'
+    unit: 'newton'
+solutions:
+  F_\mathrm{f}: 'mu * F_N'
+  \mu: 'F_f / F_N'
+  F_\mathrm{N}: 'F_f / mu'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'law of friction'
+  - 'dry friction'
+  - 'Coulomb friction'
+  - 'kinetic friction'
+  - 'static friction'
+  - 'f = μN'
+  - 'f = mu N'
+  - 'fuerza de fricción'
+  - 'fricción'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 6.2 Friction (Table 6.1)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/6-2-friction'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Friction'
+    url: 'https://hyperphysics.gsu.edu/hbase/frict.html'
+  - title: 'R. Fitzpatrick, Classical Mechanics (University of Texas at Austin lecture notes), Friction'
+    url: 'https://farside.ph.utexas.edu/teaching/301/lectures/node49.html'
+  - title: 'I. M. Hutchings, Leonardo da Vinci''s studies of friction, Wear 360-361 (2016) 51-66, section 1'
+    url: 'https://www.ifm.eng.cam.ac.uk/uploads/Hutchings_Leonardo_Friction_2016_v2.pdf'
+description:
+  en: >-
+    The friction force between two dry solid surfaces is proportional to the normal force pressing
+    them together, with the coefficient of friction as the constant of proportionality. This
+    empirical rule, the standard model of dry friction, gives the kinetic friction on a sliding body
+    and the largest static friction that a body at rest can withstand before it starts to slide.
+
+    Here $\var{F_\mathrm{f}}$ is the size of the friction force and $\var{F_\mathrm{N}}$ the size of
+    the normal force, both in newtons, and $\var{\mu}$ is the coefficient of friction, a
+    dimensionless number that is never negative; all three are entered as non-negative sizes. The
+    friction force acts along the contact surface, against the sliding or against the motion that
+    would occur without it, while the normal force acts perpendicular to the surface.
+
+    Each pair of surfaces has two coefficients. The static one applies while the surfaces do not
+    slip: static friction then takes whatever value balances the other forces, up to a ceiling equal
+    to the static coefficient times the normal force, and the relation gives that ceiling. The
+    kinetic one applies once sliding has begun, and the relation then gives the friction force
+    itself. The static coefficient is usually the larger, so starting a crate moving takes more
+    force than keeping it moving. Typical values are about 1.0 static and 0.7 kinetic for rubber on
+    dry concrete and 0.5 and 0.3 for wood on wood.
+
+    The rule is an approximation. In this model friction does not depend on the area of contact, and
+    the coefficient is a measured property of the two materials and the state of their surfaces, not
+    a derived one.
+
+    Leonardo da Vinci recorded the proportionality to the load in notebooks that stayed unknown to
+    later workers; Guillaume Amontons stated it independently in 1699, and the rule usually carries
+    his name, while Charles Augustin de Coulomb developed it further with his own measurements. On a
+    level floor the normal force equals the weight, so a 10-kilogram box sliding over wood with a
+    kinetic coefficient of 0.3 meets a friction force of about 29 newtons.

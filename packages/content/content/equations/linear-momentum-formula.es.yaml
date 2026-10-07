@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Cantidad de movimiento de un cuerpo'
+description: >-
+  La cantidad de movimiento es la masa de un cuerpo multiplicada por su velocidad. También llamada
+  momento lineal, mide cuánto movimiento lleva un objeto en mecánica, y es la magnitud que los
+  choques, las explosiones y los impulsos reparten entre los cuerpos.
+
+  En la fórmula, $\mag{p}$ es la cantidad de movimiento, expresada en kilogramo metro por segundo,
+  $\mag{m}$ la masa en kilogramos, siempre positiva, y $\mag{v}$ la velocidad en metros por segundo.
+  La cantidad de movimiento es un vector con la misma dirección y sentido que la velocidad. En un
+  movimiento rectilíneo se elige un sentido positivo, y un cuerpo que se mueve en sentido contrario
+  tiene velocidad negativa y, por tanto, una cantidad de movimiento negativa.
+
+  Duplicar la masa a velocidad fija duplica la cantidad de movimiento, igual que duplicar la
+  velocidad a masa fija, de modo que un cuerpo lento de gran masa puede llevar tanta cantidad de
+  movimiento como uno rápido de poca masa. Un cuerpo en reposo tiene cantidad de movimiento nula.
+  Las cantidades de movimiento de las partes de un sistema se suman como vectores, así que dos
+  carritos iguales que se acercan con la misma rapidez suman cero. Despejar la velocidad divide la
+  cantidad de movimiento entre la masa; despejar la masa exige una velocidad distinta de cero.
+
+  El producto de la masa por la velocidad es la cantidad de movimiento clásica, precisa a las
+  velocidades cotidianas. Cuando la rapidez se acerca a la de la luz, la relatividad especial la
+  sustituye por un valor mayor, el producto clásico multiplicado por el factor de Lorentz.
+
+  Isaac Newton definió la cantidad de movimiento como la que surge de la velocidad y la cantidad de
+  materia juntas, la segunda definición de sus Principia, publicados en 1687. Un automóvil de 1400
+  kilogramos que avanza a 15 metros por segundo tiene una cantidad de movimiento de
+  $21\,000\,\mathrm{kg\,m/s}$.

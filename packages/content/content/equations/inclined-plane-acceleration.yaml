@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Acceleration down an inclined plane'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{a}=\var{g}\left(\sin\mag{\theta}-\var{\mu}\cos\mag{\theta}\right)'
+terms:
+  a:
+    kind: 'magnitude'
+    ref: 'acceleration'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  \mu:
+    kind: 'symbol'
+    label:
+      en: 'Coefficient of kinetic friction'
+solutions:
+  a: 'g * (sin(theta) - mu * cos(theta))'
+  g: 'a / (sin(theta) - mu * cos(theta))'
+  \theta: 'atan(mu) + asin(a / (g * sqrt(1 + mu^2)))'
+  \mu: '(g * sin(theta) - a) / (g * cos(theta))'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'block sliding down a slope'
+  - 'acceleration on a slope'
+  - 'a = g sin theta'
+  - 'a = g(sin theta - mu cos theta)'
+  - 'frictionless incline'
+  - 'aceleración en una pendiente'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 6.2 Friction (snowboarder on a 13-degree slope)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/6-2-friction'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Mass on Incline With Friction'
+    url: 'https://hyperphysics.gsu.edu/hbase/mincl2.html'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Mass on Incline'
+    url: 'https://hyperphysics.gsu.edu/hbase/mincl.html'
+  - title: 'R. Fitzpatrick, Classical Mechanics (University of Texas at Austin lecture notes), Friction'
+    url: 'https://farside.ph.utexas.edu/teaching/301/lectures/node49.html'
+description:
+  en: >-
+    A body sliding down an inclined plane with kinetic friction accelerates at the gravitational
+    acceleration times the difference between the sine of the angle of the incline and the
+    coefficient of kinetic friction times its cosine. Without friction the acceleration reduces to
+    the gravitational acceleration times the sine of the angle, and in both cases the mass of the
+    body cancels out.
+
+    Here $\mag{a}$ is the acceleration in metres per second squared, measured along the slope with
+    the downhill direction positive; $\var{g}$ is the size of the gravitational acceleration,
+    entered as a positive number; $\mag{\theta}$ is the angle of the incline above the horizontal,
+    entered in degrees or radians; and $\var{\mu}$ is the coefficient of kinetic friction, a
+    non-negative dimensionless number, zero for a frictionless slope. A negative result means that
+    the sliding body slows down as it descends.
+
+    Along the slope two forces act on the body: the component of the weight, mass times g times the
+    sine of the angle, pulls it down, and kinetic friction, the coefficient times the normal force,
+    mass times g times the cosine, holds it back. The friction term wins on gentle slopes, where the
+    tangent of the angle is smaller than the coefficient. Solving for the angle gives the inverse
+    tangent of the coefficient plus the inverse sine of the acceleration divided by g times the
+    square root of one plus the coefficient squared; the other branch of the inverse sine gives an
+    angle above 90 degrees, so this is the only solution for a real incline.
+
+    The relation holds only while the body slides downhill. A body pushed up the slope meets
+    friction pointing downhill, so the sign of the friction term reverses, and a body at rest is
+    held by static friction, which keeps it still as long as the tangent of the angle does not
+    exceed the static coefficient. The incline is assumed flat and fixed, and air resistance
+    negligible.
+
+    A snowboarder on a 13-degree slope with a kinetic coefficient of 0.20 accelerates at about 0.29
+    metres per second squared.

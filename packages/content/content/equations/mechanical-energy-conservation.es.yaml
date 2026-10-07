@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Conservación de la energía mecánica'
+terms:
+  v_{0}:
+    label: 'Rapidez inicial'
+  h_{0}:
+    label: 'Altura inicial'
+  v:
+    label: 'Rapidez final'
+  h:
+    label: 'Altura final'
+  g:
+    label: 'Aceleración de la gravedad'
+description: >-
+  La conservación de la energía mecánica establece que, cuando la gravedad es la única fuerza que
+  realiza trabajo sobre un cuerpo, la suma de su energía cinética y su energía potencial
+  gravitatoria no cambia: lo que el cuerpo pierde en altura lo gana en rapidez, y al revés. Escrita
+  por unidad de masa, da la rapidez de una piedra que cae, la lenteja de un péndulo o una montaña
+  rusa sin rozamiento a cualquier altura.
+
+  $\var{v_{0}}$ y $\var{h_{0}}$ son la rapidez y la altura al principio, $\var{v}$ y $\var{h}$ la
+  rapidez y la altura al final. Las rapideces se expresan en metros por segundo y son no negativas;
+  las alturas, en metros, se miden hacia arriba desde cualquier nivel de referencia y son negativas
+  por debajo de él. $\var{g}$ es el módulo de la aceleración de la gravedad en metros por segundo al
+  cuadrado, un número positivo. Cada miembro es la energía mecánica por kilogramo, cinética más
+  potencial, en julios por kilogramo.
+
+  Multiplicando ambos miembros por la masa se obtiene la forma habitual: la energía cinética más la
+  potencial iniciales es igual a la energía cinética más la potencial finales. Como la masa se
+  cancela, un cuerpo pesado y uno ligero soltados con la misma rapidez desde la misma altura llegan
+  a cada nivel inferior con la misma rapidez, y la rapidez final depende solo de la variación de
+  altura, no de la forma del camino.
+
+  Al despejar una rapidez solo se conserva la raíz no negativa, ya que una rapidez nunca es
+  negativa. Un número negativo bajo la raíz significa que los dos estados no pueden compartir una
+  misma energía mecánica: el cuerpo tendría que subir más de lo que su energía permite. La relación
+  supone un campo uniforme y que el rozamiento, la resistencia del aire y cualquier otra fuerza no
+  conservativa no realizan trabajo; pueden actuar fuerzas perpendiculares al movimiento, como la
+  normal. Con un resorte, la energía potencial elástica se suma al total; con rozamiento, la energía
+  mecánica disminuye y se transforma en energía térmica.
+
+  Hermann von Helmholtz expuso los principios matemáticos de la conservación de la energía en su
+  artículo de 1847 Über die Erhaltung der Kraft. Un péndulo soltado desde el reposo 0.134 metros por
+  encima de su punto más bajo pasa por él a unos 1.62 metros por segundo.

@@ -1,0 +1,103 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Conservation of momentum for two bodies'
+kind: 'equation'
+level: 'intro'
+expression: '\var{m_{1}}\var{u_{1}}+\var{m_{2}}\var{u_{2}}=\var{m_{1}}\var{v_{1}}+\var{m_{2}}\var{v_{2}}'
+terms:
+  m_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of body 1'
+    unit: 'kilogram'
+  m_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of body 2'
+    unit: 'kilogram'
+  u_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Initial velocity of body 1'
+    unit: 'metre-per-second'
+  u_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Initial velocity of body 2'
+    unit: 'metre-per-second'
+  v_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Final velocity of body 1'
+    unit: 'metre-per-second'
+  v_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Final velocity of body 2'
+    unit: 'metre-per-second'
+solutions:
+  v_{1}: '(m_1 * u_1 + m_2 * u_2 - m_2 * v_2) / m_1'
+  v_{2}: '(m_1 * u_1 + m_2 * u_2 - m_1 * v_1) / m_2'
+  u_{1}: '(m_1 * v_1 + m_2 * v_2 - m_2 * u_2) / m_1'
+  u_{2}: '(m_1 * v_1 + m_2 * v_2 - m_1 * u_1) / m_2'
+  m_{1}: 'm_2 * (v_2 - u_2) / (u_1 - v_1)'
+  m_{2}: 'm_1 * (u_1 - v_1) / (v_2 - u_2)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'conservation of linear momentum'
+  - 'law of conservation of momentum'
+  - 'momentum conservation'
+  - 'total momentum before equals total momentum after'
+  - 'two-body collision momentum'
+  - 'conservación de la cantidad de movimiento'
+  - 'conservación del momento lineal'
+externalIds:
+  wikidata: 'Q2305665'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 9.3 Conservation of Linear Momentum'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/9-3-conservation-of-linear-momentum'
+  - title: 'OpenStax, University Physics Volume 1, 9.4 Types of Collisions, hockey puck example'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/9-4-types-of-collisions'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Conservation of Momentum'
+    url: 'https://hyperphysics.gsu.edu/hbase/conser.html'
+  - title: 'I. Newton, The Mathematical Principles of Natural Philosophy, trans. A. Motte (1846), Axioms, or Laws of Motion, Law III and Corollary III'
+    url: 'https://en.wikisource.org/wiki/The_Mathematical_Principles_of_Natural_Philosophy_(1846)/Axioms,_or_Laws_of_Motion'
+  - title: 'MacTutor History of Mathematics, Christiaan Huygens (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Huygens/'
+  - title: 'J. F. Scott, Wren, Christopher, Complete Dictionary of Scientific Biography (Encyclopedia.com)'
+    url: 'https://www.encyclopedia.com/people/literature-and-arts/architecture-biographies/sir-christopher-wren'
+description:
+  en: >-
+    The conservation of momentum for two bodies states that, when two bodies interact with no net
+    external force on them, their total momentum before the interaction equals their total momentum
+    after it. This form of the law of conservation of linear momentum governs collisions, bounces,
+    explosions and pushes between pairs of objects in mechanics, whether or not kinetic energy is
+    conserved.
+
+    In the equation, $\var{m_{1}}$ and $\var{m_{2}}$ are the masses in kilograms; $\var{u_{1}}$ and
+    $\var{u_{2}}$ are the velocities of the two bodies before the interaction, and $\var{v_{1}}$ and
+    $\var{v_{2}}$ their velocities after it, all in metres per second. The motion lies along one
+    line with a chosen positive direction; a velocity pointing the other way is negative, so two
+    bodies approaching head-on have initial velocities of opposite signs.
+
+    During the interaction the two bodies push on each other with forces that are equal in size and
+    opposite in direction, by Newton's third law, and they act for the same time. Their impulses are
+    therefore equal and opposite, so whatever momentum one body gains the other loses, and the sum
+    stays the same. Solving for one final velocity needs the other; a second relation, such as
+    conservation of kinetic energy in an elastic collision, is required to find both.
+
+    The law holds exactly for an isolated pair. External forces such as friction or gravity along
+    the line spoil it, but in a brief impact their impulse is often small enough to neglect. Solving
+    for a mass needs a body whose velocity changes.
+
+    In 1668 the Royal Society, through Henry Oldenburg, invited Christiaan Huygens, John Wallis and
+    Christopher Wren to report their work on the laws of impact; the rules Huygens sent kept the
+    momentum along a given direction unchanged by a collision, which he confirmed by experiment. In
+    a perfectly elastic collision, a puck of 12 grams moving at 2.5 metres per second hits a puck of
+    15 grams at rest and rebounds at 0.28 metres per second, while the struck puck leaves at 2.22
+    metres per second.

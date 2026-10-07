@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Acceleration of an Atwood machine'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{a}=\frac{\var{m_{2}}-\var{m_{1}}}{\var{m_{1}}+\var{m_{2}}}\var{g}'
+terms:
+  a:
+    kind: 'magnitude'
+    ref: 'acceleration'
+  m_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of body 1'
+    unit: 'kilogram'
+  m_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of body 2'
+    unit: 'kilogram'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+solutions:
+  a: '(m_2 - m_1) * g / (m_1 + m_2)'
+  m_{1}: 'm_2 * (g - a) / (g + a)'
+  m_{2}: 'm_1 * (g + a) / (g - a)'
+  g: 'a * (m_1 + m_2) / (m_2 - m_1)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'Atwood machine'
+  - 'Atwood''s machine'
+  - 'two masses over a pulley'
+  - 'pulley system acceleration'
+  - 'máquina de Atwood'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 6.1 Solving Problems with Newton''s Laws, Example 6.5 (Atwood machine)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/6-1-solving-problems-with-newtons-laws'
+  - title: 'R. Fitzpatrick, Classical Mechanics (University of Texas at Austin lecture notes), Strings, pulleys, and inclines'
+    url: 'https://farside.ph.utexas.edu/teaching/301/lectures/node48.html'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Atwood''s Machine'
+    url: 'https://hyperphysics.gsu.edu/hbase/atwd.html'
+  - title: 'MacTutor History of Mathematics, George Atwood (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Atwood/'
+description:
+  en: >-
+    An Atwood machine is two masses hung from the ends of a string that passes over a pulley. Its
+    acceleration equals the difference of the two masses divided by their sum, times the
+    gravitational acceleration: the heavier side descends and the lighter rises, both at the same
+    rate, which is always smaller than that of free fall.
+
+    Here $\mag{a}$ is the acceleration of the masses in metres per second squared, positive when the
+    second mass $\var{m_{2}}$ descends and the first mass $\var{m_{1}}$ rises, negative when the
+    motion runs the other way; $\var{m_{1}}$ and $\var{m_{2}}$ are the masses in kilograms; and
+    $\var{g}$ is the size of the gravitational acceleration, entered as a positive number. Equal
+    masses give zero acceleration: the system stays at rest or keeps a constant velocity.
+
+    The two masses move together, so they act as one body of the combined mass. The only force
+    driving it is the difference between the two weights, the second mass times g minus the first
+    mass times g, while the tension in the string is internal and cancels. Newton's second law for
+    the whole system then divides that difference by the total mass. Writing the law for each mass
+    separately gives the tension too: twice the product of the masses times g, divided by their sum,
+    a value between the two weights.
+
+    The result assumes a string that neither stretches nor has mass, and a pulley that is massless
+    and frictionless. A pulley with mass or with friction in its bearing lowers the acceleration
+    below this value.
+
+    George Atwood described the machine in A Treatise on the Rectilinear Motion and Rotation of
+    Bodies, published in Cambridge in 1784, as an apparatus that slows a fall enough to show its
+    uniform acceleration. With masses of 2.00 and 4.00 kilograms the acceleration is about 3.27
+    metres per second squared, a third of g.
