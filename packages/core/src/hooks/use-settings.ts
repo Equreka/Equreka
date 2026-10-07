@@ -13,7 +13,6 @@ const THEMES: readonly ThemeSetting[] = ['system', 'light', 'dark'];
  * Device-local preferences. The hook owns state + persistence only —
  * applying the theme (data-theme on web, appearance on mobile) stays
  * per-platform; web's inline head script reads this same key.
- * `numberFormat` picks how calculator results print.
  */
 export interface Settings {
 	theme: ThemeSetting;
