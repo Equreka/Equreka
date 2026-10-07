@@ -42,8 +42,8 @@ description:
     Like angular velocity, angular acceleration is a vector along the axis of rotation. About a
     fixed axis it is one signed component. When it has the same sign as the angular velocity the
     rotation speeds up; when the signs are opposite the rotation slows down, whichever way the body
-    turns. A point at a distance from the axis then has a tangential acceleration equal to that
-    distance times the angular acceleration.
+    turns. The tangential acceleration of any point off the axis then equals its distance from the
+    axis times the angular acceleration.
 
     It is obtained from successive readings of angular velocity, for example from a rotary encoder
     or a gyroscope. A bicycle wheel brought from rest to 250 revolutions per minute in five seconds

@@ -54,11 +54,12 @@ description:
     called the explicit or nth-term formula of a geometric progression, it is the step-by-step
     counterpart of exponential growth and decay.
 
-    Here $\var{a_{n}}$ is the term in position $\var{n}$, $\var{a_{1}}$ the first term and $\var{r}$
-    the common ratio; the position is a positive whole number counted from 1. The terms are pure
-    numbers or share one unit, and the ratio is always a pure number. With a positive first term, a
-    ratio above 1 makes the terms grow, a ratio between 0 and 1 makes them shrink toward zero, and a
-    negative ratio makes them alternate in sign. Neither the ratio nor the first term is zero.
+    Here $\var{a_{n}}$ is the term in position $\var{n}$, $\var{a_{1}}$ is the first term, and
+    $\var{r}$ is the common ratio. The position is a positive whole number counted from 1. The
+    terms are pure numbers or share one unit, and the ratio is always a pure number. With a positive
+    first term, a ratio above 1 makes the terms grow, a ratio between 0 and 1 makes them shrink
+    toward zero, and a negative ratio makes them alternate in sign. Neither the ratio nor the first
+    term is zero.
 
     The first term is multiplied by the ratio once to reach the second term, twice to reach the
     third, and so on, so the term in a given position carries the ratio raised to one less than the
