@@ -1,3 +1,4 @@
+import { DEFAULT_NUMBER_FORMAT, NUMBER_FORMATS, type NumberFormat } from '@equreka/engine/format';
 import { useCallback, useMemo, useSyncExternalStore } from 'react';
 import { DEFAULT_LOCALE, LOCALES, type Locale } from '../i18n/index';
 import type { KVStorage } from '../ports/kv-storage';
@@ -16,10 +17,20 @@ const THEMES: readonly ThemeSetting[] = ['system', 'light', 'dark'];
 export interface Settings {
 	theme: ThemeSetting;
 	locale: Locale;
+	numberFormat: NumberFormat;
 }
 
-export const DEFAULT_SETTINGS: Settings = { theme: 'system', locale: DEFAULT_LOCALE };
+export const DEFAULT_SETTINGS: Settings = {
+	theme: 'system',
+	locale: DEFAULT_LOCALE,
+	numberFormat: DEFAULT_NUMBER_FORMAT,
+};
 
+/**
+ * Each field falls back to its default on its own, so a value stored
+ * before a field existed, or one this build does not know, keeps the
+ * other fields.
+ */
 function parseSettings(raw: string | null): Settings {
 	if (raw === null) return DEFAULT_SETTINGS;
 	try {
@@ -33,6 +44,9 @@ function parseSettings(raw: string | null): Settings {
 			locale: LOCALES.includes(record.locale as Locale)
 				? (record.locale as Locale)
 				: DEFAULT_SETTINGS.locale,
+			numberFormat: NUMBER_FORMATS.includes(record.numberFormat as NumberFormat)
+				? (record.numberFormat as NumberFormat)
+				: DEFAULT_SETTINGS.numberFormat,
 		};
 	} catch {
 		return DEFAULT_SETTINGS;
@@ -43,6 +57,7 @@ export interface UseSettings {
 	settings: Settings;
 	setTheme(theme: ThemeSetting): void;
 	setLocale(locale: Locale): void;
+	setNumberFormat(numberFormat: NumberFormat): void;
 }
 
 export function useSettings(storage: KVStorage): UseSettings {
@@ -63,6 +78,10 @@ export function useSettings(storage: KVStorage): UseSettings {
 
 	const setTheme = useCallback((theme: ThemeSetting) => persist({ theme }), [persist]);
 	const setLocale = useCallback((locale: Locale) => persist({ locale }), [persist]);
+	const setNumberFormat = useCallback(
+		(numberFormat: NumberFormat) => persist({ numberFormat }),
+		[persist],
+	);
 
-	return { settings, setTheme, setLocale };
+	return { settings, setTheme, setLocale, setNumberFormat };
 }

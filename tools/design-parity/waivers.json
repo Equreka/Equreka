@@ -31,6 +31,12 @@
 			"reason": "Generated-unit line: prefixed units are generated in v2 (ADR 0007); the original had none."
 		},
 		{
+			"kind": "hide",
+			"app": "current",
+			"selector": ".eq-settings-format",
+			"reason": "Result-format setting: the original always printed calculator results in full-precision scientific notation, with no choice."
+		},
+		{
 			"kind": "legacy-flaw",
 			"scenario": "equation",
 			"legacy": "main .card-magnitudes, main .card-constants",

@@ -75,11 +75,21 @@ const partial =
 	flags.theme !== undefined ||
 	flags['no-probes'] === true;
 
+/**
+ * The port runs with `numberFormat: 'scientific'`, the only notation the
+ * original printed, so the calculator result card compares like with like.
+ */
 function storageFor(app: App, fixture: string | undefined, theme: Theme): Record<string, string> {
 	const themeStorage: Record<string, string> =
 		app === 'legacy'
 			? { 'nuxt-color-mode': theme }
-			: { 'equreka.v1.settings': JSON.stringify({ theme, locale: 'en' }) };
+			: {
+					'equreka.v1.settings': JSON.stringify({
+						theme,
+						locale: 'en',
+						numberFormat: 'scientific',
+					}),
+				};
 	if (fixture === undefined) return themeStorage;
 	const data = scenariosFile.fixtures[fixture];
 	if (data === undefined) throw new Error(`unknown fixture "${fixture}"`);

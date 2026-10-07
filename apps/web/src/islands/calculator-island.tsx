@@ -1,11 +1,8 @@
 import { loadSolutions } from '@equreka/content/artifact/solutions/index.js';
-import {
-	type CalculatorSolution,
-	solveInUnits,
-	useCalculatorUnits,
-} from '@equreka/core/hooks/use-calculator-units';
+import { solveInUnits, useCalculatorUnits } from '@equreka/core/hooks/use-calculator-units';
+import { useSettings } from '@equreka/core/hooks/use-settings';
 import { ENGINE_HINT_CODES, engineErrorMessage, type Locale, t } from '@equreka/core/i18n';
-import { formatSigFigs } from '@equreka/engine/format';
+import { formatResult, type NumberFormat, resultText } from '@equreka/engine/format';
 import type { SolutionsModule } from '@equreka/engine/solutions';
 import type { CompiledEquationMeta } from '@equreka/schema';
 import {
@@ -22,6 +19,7 @@ import { type CalculatorField, termIdFragment } from '../lib/calculator-fields';
 import {
 	type CalculatorView,
 	calculatorFormReducer,
+	calculatorResultText,
 	calculatorViewOf,
 	INITIAL_CALCULATOR_FORM,
 	resultOperator,
@@ -32,7 +30,7 @@ import {
 	loadConverterPayload,
 } from '../lib/calculator-units';
 import { copyText } from '../lib/clipboard';
-import { toSuperscript } from '../lib/notation';
+import { kvLocalStorage } from '../lib/kv-local-storage';
 import { LegacyGlyph } from './legacy-glyph';
 
 /**
@@ -95,6 +93,8 @@ const COPY_STATUS_MS = 2500;
  * stays disabled until the equation's solution chunk has loaded. Unit
  * pickers appear once the converter payload arrives; until then, or when
  * it cannot load, every field solves in the base unit its label shows.
+ * The result prints in the reader's `numberFormat` setting, and Copy
+ * copies it in that same format.
  */
 export default function CalculatorIsland({
 	meta,
@@ -112,6 +112,7 @@ export default function CalculatorIsland({
 		needsUnits ? { status: 'loading' } : { status: 'idle' },
 	);
 	const [solver, setSolver] = useState<SolverState>({ status: 'loading' });
+	const { numberFormat } = useSettings(kvLocalStorage).settings;
 	const fieldId = useId();
 
 	useEffect(() => {
@@ -211,7 +212,7 @@ export default function CalculatorIsland({
 	const copy = (view: CalculatorView) => {
 		if (view.status !== 'solved') return;
 		const symbol = fieldOf(view.solution.symbol)?.symbolText ?? view.solution.symbol;
-		copyText(legacyResultText(symbol, view.solution, view.unitSymbol)).then(
+		copyText(calculatorResultText(symbol, view.solution, view.unitSymbol, numberFormat)).then(
 			(copied) => setCopyStatus(copied ? 'copied' : 'failed'),
 			() => setCopyStatus('failed'),
 		);
@@ -251,7 +252,7 @@ export default function CalculatorIsland({
 					</div>
 				)}
 				<div className="eq-tool-result eq-calc-result-area" aria-live="polite">
-					<ResultView view={view} locale={locale} fieldOf={fieldOf} />
+					<ResultView view={view} locale={locale} format={numberFormat} fieldOf={fieldOf} />
 				</div>
 			</div>
 			<div className="eq-card eq-calc-form">
@@ -368,63 +369,20 @@ export default function CalculatorIsland({
 	);
 }
 
-/**
- * A value split the way the original's `MathValue` printed it.
- * `exponent` is null when the decimal exponent is 0 (plain digits); its
- * `sign` is kept, "+" included, because the original printed both signs.
- */
-export interface LegacyValueParts {
-	mantissa: string;
-	exponent: { sign: '+' | '-'; digits: string } | null;
-}
-
-/**
- * The original formatted every result through decimal.js with
- * `toExpPos: 0` and `toExpNeg: 0`: the shortest round-trip digits of the
- * float64, always in scientific notation, falling back to plain digits
- * when the exponent is 0. `Number#toExponential()` without an argument
- * yields exactly those digits.
- */
-export function legacyValueParts(value: number): LegacyValueParts {
-	if (!Number.isFinite(value)) return { mantissa: String(value), exponent: null };
-	const [mantissa = '', exponent = '+0'] = value.toExponential().split('e');
-	const digits = exponent.slice(1);
-	if (Number(digits) === 0) return { mantissa: String(value), exponent: null };
-	return { mantissa, exponent: { sign: exponent.startsWith('-') ? '-' : '+', digits } };
-}
-
-/**
- * Plain-text twin of the result card for the clipboard, with the same
- * digits the card shows; superscript digits keep the exponent readable
- * once pasted ("m = 2.225300112107237 × 10⁻¹⁷ kg").
- */
-export function legacyResultText(
-	symbol: string,
-	solution: CalculatorSolution,
-	unitSymbol: string,
-): string {
-	const { mantissa, exponent } = legacyValueParts(solution.value);
-	const value =
-		exponent === null
-			? mantissa
-			: `${mantissa} × 10${toSuperscript(Number(`${exponent.sign}${exponent.digits}`))}`;
-	const parts = [symbol, resultOperator(solution), value];
-	if (unitSymbol !== '') parts.push(unitSymbol);
-	return parts.join(' ');
-}
-
 interface ResultViewProps {
 	view: CalculatorView;
 	locale: Locale;
+	format: NumberFormat;
 	fieldOf: (key: string) => CalculatorField | undefined;
 }
 
 /**
  * Legacy result card content: `symbol = value unit` in the math face, or
  * the CalculatorMessage line. Input-shape problems (the fill-all-but-one
- * rule) are guidance; anything else is announced as an alert.
+ * rule) are guidance; anything else is announced as an alert. The power
+ * of ten keeps the original's superscript, both signs drawn.
  */
-function ResultView({ view, locale, fieldOf }: ResultViewProps) {
+export function ResultView({ view, locale, format, fieldOf }: ResultViewProps) {
 	if (view.status === 'idle') return null;
 	if (view.status === 'needed') {
 		return <p className="eq-calc-message">{t(locale, 'design.legacy.calculator.needed')}</p>;
@@ -445,7 +403,7 @@ function ResultView({ view, locale, fieldOf }: ResultViewProps) {
 	}
 	const { solution, unitSymbol } = view;
 	const field = fieldOf(solution.symbol);
-	const { mantissa, exponent } = legacyValueParts(solution.value);
+	const { mantissa, exponent } = formatResult(solution.value, format);
 	return (
 		<>
 			<p className="eq-calc-result">
@@ -481,7 +439,9 @@ function ResultView({ view, locale, fieldOf }: ResultViewProps) {
 			{solution.allRoots !== undefined && solution.allRoots.length > 1 && (
 				<p className="eq-tool-note">
 					{t(locale, 'calculator.allRoots', {
-						roots: solution.allRoots.map((root) => formatSigFigs(root)).join(', '),
+						roots: solution.allRoots
+							.map((root) => resultText(formatResult(root, format)))
+							.join(', '),
 					})}
 				</p>
 			)}
