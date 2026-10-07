@@ -9,6 +9,7 @@ import {
 	shapeFavoriteGroups,
 } from '../lib/favorite-rows';
 import { kvLocalStorage } from '../lib/kv-local-storage';
+import { localePayloadUrl } from '../lib/locale-payloads';
 import { collectionAccent } from './collection-accent';
 import { LegacyAbbr } from './legacy-abbr';
 import { LegacyGlyph } from './legacy-glyph';
@@ -124,7 +125,7 @@ function FavoriteRowView({ row, editing, locale, onRemove }: FavoriteRowViewProp
  * original) and the empty state; export/import lives in settings, as in
  * the original. Renders as a fragment so the toggle joins the page header row
  * through the island wrapper's `display: contents`. Display names resolve
- * from the precached catalog-lite (slug is the offline-safe fallback).
+ * from the offline-cached catalog-lite (slug is the offline-safe fallback).
  */
 export default function FavoritesList({
 	locale = 'en',
@@ -137,7 +138,7 @@ export default function FavoritesList({
 
 	useEffect(() => {
 		let cancelled = false;
-		fetch(`/search/catalog-lite.${locale}.json`)
+		fetch(localePayloadUrl('catalog-lite', locale))
 			.then((response) => {
 				if (!response.ok) throw new Error(`HTTP ${response.status}`);
 				return response.json() as Promise<CatalogLiteEntry[]>;

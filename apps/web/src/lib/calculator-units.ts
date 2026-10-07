@@ -3,6 +3,7 @@ import type { Locale } from '@equreka/core/i18n';
 import { createUnitRegistry } from '@equreka/engine/units';
 import type { ConverterPayload } from '../integrations/equreka-assets';
 import { converterSliceOf } from './converter-slice';
+import { localePayloadUrl } from './locale-payloads';
 
 /**
  * Default units of the variables an equation references, keyed by
@@ -14,10 +15,10 @@ export type CalculatorVariableUnits = Record<string, { defaultUnit?: string | un
 /**
  * Fetches the per-locale converter payload the converter island already
  * ships; the calculator reuses it for unit lists instead of a second
- * payload, so the service worker's runtime cache serves both.
+ * payload, so the service worker's data cache serves both offline.
  */
 export async function loadConverterPayload(locale: Locale): Promise<ConverterPayload> {
-	const response = await fetch(`/data/converter.${locale}.json`);
+	const response = await fetch(localePayloadUrl('converter', locale));
 	if (!response.ok) throw new Error(`HTTP ${response.status}`);
 	return (await response.json()) as ConverterPayload;
 }

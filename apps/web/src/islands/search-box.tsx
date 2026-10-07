@@ -12,6 +12,7 @@ import { Icon } from '../components/react-icon';
 import { entryHref } from '../lib/entry-links';
 import { searchIcon } from '../lib/icons';
 import { localePath } from '../lib/locale-paths';
+import { localePayloadUrl } from '../lib/locale-payloads';
 import { collectionAccent } from './collection-accent';
 import { LegacyAbbr } from './legacy-abbr';
 
@@ -164,8 +165,8 @@ export default function SearchBox({ variant, locale = 'en' }: SearchBoxProps) {
 	const ensureLanes = useCallback(() => {
 		loadRef.current ??= (async () => {
 			const [catalogResponse, indexResponse] = await Promise.all([
-				fetch(`/search/catalog-lite.${locale}.json`),
-				fetch(`/search/${locale}.json`),
+				fetch(localePayloadUrl('catalog-lite', locale)),
+				fetch(localePayloadUrl('search', locale)),
 			]);
 			if (!catalogResponse.ok || !indexResponse.ok) {
 				throw new Error('search assets unavailable');
