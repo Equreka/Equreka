@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Kinetic energy of a body in translation'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{E_\mathrm{k}}=\frac{1}{2}\mag{m}\mag{v}^{2}'
+terms:
+  E_\mathrm{k}:
+    kind: 'magnitude'
+    ref: 'kinetic-energy'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+solutions:
+  E_\mathrm{k}: 'm * v^2 / 2'
+  m: '2 * E_k / v^2'
+  v: 'sqrt(2 * E_k / m)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'kinetic energy formula'
+  - 'translational kinetic energy'
+  - 'energy of motion'
+  - 'KE = 1/2 mv^2'
+  - 'Ek = 1/2 m v^2'
+  - 'half m v squared'
+  - 'fórmula de la energía cinética'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 7.2 Kinetic Energy, Examples 7.6 and 7.7'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/7-2-kinetic-energy'
+  - title: 'OpenStax, College Physics 2e, 7.2 Kinetic Energy and the Work-Energy Theorem'
+    url: 'https://openstax.org/books/college-physics-2e/pages/7-2-kinetic-energy-and-the-work-energy-theorem'
+  - title: 'R. Nave, HyperPhysics, Kinetic energy'
+    url: 'https://hyperphysics.gsu.edu/hbase/ke.html'
+  - title: 'MacTutor History of Mathematics, Gaspard-Gustave de Coriolis (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Coriolis/'
+  - title: 'P. Costabel, Coriolis, Gaspard Gustave de, Complete Dictionary of Scientific Biography (Encyclopedia.com)'
+    url: 'https://www.encyclopedia.com/science/dictionaries-thesauruses-pictures-and-press-releases/coriolis-gaspard-gustave-de'
+description:
+  en: >-
+    The kinetic energy of a body in translation is the energy it has because of its motion: half its
+    mass times the square of its speed. The formula gives the energy of motion of a particle, or of
+    a rigid body moving without rotation, and equals the work needed to bring the body from rest up
+    to that speed, as well as the work it can do on whatever stops it.
+
+    Here $\mag{E_\mathrm{k}}$ is the kinetic energy in joules, $\mag{m}$ the mass in kilograms and
+    $\mag{v}$ the speed in metres per second, the size of the velocity whatever its direction. All
+    three are non-negative: kinetic energy is never negative, and a body at rest has none. Solving
+    for the speed therefore keeps only the non-negative square root.
+
+    Because the speed enters squared, doubling it multiplies the kinetic energy by four, which is
+    why the braking distance of a car grows so quickly with speed. Kinetic energy depends on the
+    frame of reference: a passenger sitting in a moving train has none relative to the carriage but
+    a great deal relative to the track. The formula follows from a constant net force acting over a
+    distance: Newton's second law and the constant-acceleration relation between speed and
+    displacement turn the work done from rest into half the mass times the square of the final
+    speed.
+
+    The formula holds at speeds much lower than the speed of light; closer to that speed, special
+    relativity replaces it with a larger value. For a spinning or rolling body it gives only the
+    translational part, computed with the speed of the centre of mass, and the rotational kinetic
+    energy has to be added.
+
+    In his 1829 book Du calcul de l'effet des machines, Gaspard-Gustave de Coriolis gave the name
+    force vive to half the mass times the squared speed, the quantity now called kinetic energy. A
+    runner of 80 kilograms moving at 10 metres per second has a kinetic energy of 4000 joules.

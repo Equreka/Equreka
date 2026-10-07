@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Segunda ley de Newton'
+description: >-
+  La segunda ley de Newton establece que la fuerza neta sobre un cuerpo es igual a su masa
+  multiplicada por su aceleración. El cuerpo acelera por tanto en la dirección de la fuerza neta, a
+  un ritmo proporcional a esa fuerza e inversamente proporcional a su masa. También llamada ley
+  fundamental de la dinámica, es la relación central de la mecánica clásica.
+
+  Aquí $\mag{F}$ es la fuerza neta, la suma de todas las fuerzas externas que actúan sobre el
+  cuerpo, en newtons; $\mag{m}$ es la masa del cuerpo en kilogramos, nunca negativa; y $\mag{a}$ es
+  su aceleración en metros por segundo al cuadrado. En un movimiento rectilíneo, la fuerza y la
+  aceleración llevan signo respecto a un sentido positivo elegido y siempre comparten ese signo: una
+  fuerza neta negativa apunta en sentido contrario y acelera el cuerpo hacia ese lado. Un newton es
+  la fuerza neta que da a un kilogramo una aceleración de un metro por segundo al cuadrado.
+
+  La masa interviene como inercia, la resistencia de un cuerpo a cualquier cambio de su velocidad,
+  de modo que la misma fuerza neta da a un cuerpo con el doble de masa la mitad de aceleración.
+  Cuando las fuerzas se compensan, la fuerza neta es nula y también la aceleración: el cuerpo
+  mantiene una velocidad constante, que es el contenido de la primera ley.
+
+  En esta forma la ley vale en un sistema de referencia inercial, que ni acelera ni gira, para un
+  cuerpo de masa constante. Un cohete que quema su combustible requiere la forma general, en la que
+  la fuerza neta es igual al ritmo de cambio de la cantidad de movimiento. A rapideces cercanas a la
+  de la luz la sustituye la relatividad, y a escala atómica, la mecánica cuántica.
+
+  Isaac Newton enunció las leyes del movimiento en su Philosophiae naturalis principia mathematica,
+  publicada en 1687, donde la segunda ley relaciona el cambio de movimiento de un cuerpo con la
+  fuerza que se le imprime y sitúa ese cambio a lo largo de la línea de la fuerza. Una fuerza neta
+  de 51 newtons sobre una cortadora de césped de 24 kilogramos le da una aceleración de unos 2.1
+  metros por segundo al cuadrado.

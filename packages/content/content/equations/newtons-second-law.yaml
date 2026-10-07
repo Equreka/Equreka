@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Newton''s second law'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{F}=\mag{m}\mag{a}'
+terms:
+  F:
+    kind: 'magnitude'
+    ref: 'force'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  a:
+    kind: 'magnitude'
+    ref: 'acceleration'
+solutions:
+  F: 'm * a'
+  m: 'F / a'
+  a: 'F / m'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q2397319'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'F = ma'
+  - 'F=ma'
+  - 'second law of motion'
+  - 'fundamental law of dynamics'
+  - 'net force equals mass times acceleration'
+  - 'ley fundamental de la dinámica'
+  - 'principio fundamental de la dinámica'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 5.3 Newton''s Second Law (lawn mower example)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/5-3-newtons-second-law'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Newton''s Laws'
+    url: 'https://hyperphysics.gsu.edu/hbase/newt.html'
+  - title: 'G. E. Smith, Newton''s Philosophiae Naturalis Principia Mathematica, Stanford Encyclopedia of Philosophy, section 5 (Newton''s laws of motion)'
+    url: 'https://plato.stanford.edu/entries/newton-principia/'
+  - title: 'MacTutor History of Mathematics, Isaac Newton (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Newton/'
+description:
+  en: >-
+    Newton's second law states that the net force on a body equals the body's mass multiplied by its
+    acceleration. A body therefore accelerates in the direction of the net force, at a rate
+    proportional to that force and inversely proportional to its mass. Also called the fundamental
+    law of dynamics, it is the central relation of classical mechanics.
+
+    Here $\mag{F}$ is the net force, the sum of all the external forces acting on the body, in
+    newtons; $\mag{m}$ is the mass of the body in kilograms, never negative; and $\mag{a}$ is its
+    acceleration in metres per second squared. For motion along a line, force and acceleration are
+    signed along a chosen positive direction and always carry the same sign: a negative net force
+    points the other way and accelerates the body that way. One newton is the net force that gives
+    one kilogram an acceleration of one metre per second squared.
+
+    Mass enters as inertia, the resistance of a body to any change in its velocity, so the same net
+    force gives a body of twice the mass half the acceleration. When the forces cancel, the net
+    force is zero and so is the acceleration: the body keeps a constant velocity, which is the
+    content of the first law.
+
+    In this form the law holds in an inertial frame of reference, one that neither accelerates nor
+    rotates, for a body whose mass stays constant. A rocket burning its fuel needs the general form,
+    in which the net force equals the rate of change of momentum. At speeds approaching the speed of
+    light relativity replaces it, and at atomic scales quantum mechanics does.
+
+    Isaac Newton stated the laws of motion in his Philosophiae naturalis principia mathematica,
+    published in 1687, where the second law relates the change of motion of a body to the force
+    impressed on it and sets that change along the line of the force. A net force of 51 newtons on a
+    24-kilogram lawn mower gives it an acceleration of about 2.1 metres per second squared.

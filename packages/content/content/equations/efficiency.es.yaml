@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Rendimiento'
+terms:
+  \eta:
+    label: 'Rendimiento'
+  E_\mathrm{out}:
+    label: 'Energía útil obtenida'
+  E_\mathrm{in}:
+    label: 'Energía aportada'
+description: >-
+  El rendimiento es la fracción de la energía aportada a una máquina o a un proceso que sale en la
+  forma útil: la energía útil obtenida dividida entre la energía total aportada. Sirve para valorar
+  motores térmicos y eléctricos, centrales eléctricas, lámparas, máquinas simples y el cuerpo
+  humano, y suele expresarse como porcentaje.
+
+  $\var{\eta}$, la letra griega eta, es el rendimiento, un cociente adimensional entre 0 y 1 que
+  también puede introducirse o leerse como porcentaje de 0 a 100. $\var{E_\mathrm{out}}$ es la
+  energía útil o el trabajo entregado y $\var{E_\mathrm{in}}$ la energía total aportada, ambas en
+  julios y ambas no negativas. Durante un mismo intervalo de tiempo las energías guardan la misma
+  proporción que las potencias de salida y de entrada, de modo que la fórmula sirve igualmente para
+  potencias en vatios.
+
+  La energía se conserva, así que la energía aportada es igual a la útil más la que sale en otras
+  formas, sobre todo como energía térmica producida por el rozamiento, la resistencia eléctrica o
+  los gases de escape. Las pérdidas son, por tanto, la energía aportada por uno menos el
+  rendimiento. En una cadena de conversiones los rendimientos se multiplican, de modo que el
+  rendimiento global nunca supera al de la etapa más débil.
+
+  Ningún dispositivo real alcanza un rendimiento de 1, porque el rozamiento y otros procesos
+  disipativos convierten siempre parte de la energía aportada en calor; un valor calculado mayor que
+  1 supondría crear energía de la nada e indica un error en los datos. Lo que cuenta como útil
+  depende del propósito: una lámpara cuenta su luz y trata su calor como pérdida, mientras que una
+  estufa eléctrica cuenta el calor.
+
+  Los valores típicos abarcan un intervalo amplio: un motor eléctrico convierte en trabajo cerca del
+  98 por ciento de la energía aportada y un motor de gasolina cerca del 30 por ciento. Una palanca
+  que recibe 4.4 julios de trabajo de entrada y entrega 4.0 julios de trabajo de salida tiene un
+  rendimiento de alrededor del 91 por ciento.

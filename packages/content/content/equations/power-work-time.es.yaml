@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Potencia media'
+description: >-
+  La potencia media es el ritmo al que se realiza trabajo, o se transfiere energía, durante un
+  intervalo: el trabajo dividido entre el tiempo que lleva. Mide lo deprisa que un motor, un músculo
+  o una central eléctrica entregan energía, y explica por qué dos personas de la misma masa que
+  suben las mismas escaleras, una corriendo y otra andando, realizan el mismo trabajo con potencias
+  muy distintas.
+
+  $\mag{P}$ es la potencia media en vatios, siendo un vatio un julio por segundo; $\mag{W}$ es el
+  trabajo realizado, o la energía transferida, en julios; y $\mag{t}$ es el tiempo transcurrido en
+  segundos, siempre positivo. La potencia tiene el signo del trabajo: positiva cuando el agente
+  aporta energía al cuerpo y negativa cuando se la quita, como hacen los frenos.
+
+  Realizar el mismo trabajo en la mitad de tiempo exige el doble de potencia. El cociente da el
+  promedio sobre todo el intervalo; la potencia instantánea es el límite del mismo cociente en
+  intervalos cada vez más cortos, y coincide con la media solo cuando el trabajo se realiza a ritmo
+  constante. Cuando una fuerza mueve un cuerpo, el cociente se reduce en cada instante a la fuerza
+  en la dirección del movimiento por la rapidez.
+
+  La relación también funciona al revés: la energía es la potencia por el tiempo. Por eso la
+  electricidad se factura en kilovatios hora, una unidad de energía formada como una potencia
+  multiplicada por un tiempo, y por eso un motor pequeño puede igualar el trabajo de uno grande
+  funcionando durante más tiempo. La potencia de los motores se sigue indicando a menudo en caballos
+  de fuerza, unos 746 vatios.
+
+  Una persona de 60.0 kilogramos que sube corriendo unas escaleras de 3.00 metros de altura en 3.50
+  segundos, alcanzando 2.00 metros por segundo, realiza 1884 julios de trabajo con una potencia
+  media de unos 538 vatios, algo menos de un caballo de fuerza.

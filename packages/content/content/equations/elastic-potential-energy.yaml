@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Elastic potential energy of a spring'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{E_\mathrm{p}}=\frac{1}{2}\var{k}\var{x}^{2}'
+terms:
+  E_\mathrm{p}:
+    kind: 'magnitude'
+    ref: 'potential-energy'
+  k:
+    kind: 'symbol'
+    label:
+      en: 'Spring constant'
+    unit: 'newton-per-metre'
+  x:
+    kind: 'symbol'
+    label:
+      en: 'Displacement from natural length'
+    unit: 'metre'
+solutions:
+  E_\mathrm{p}: 'k * x^2 / 2'
+  k: '2 * E_p / x^2'
+  x:
+    - 'sqrt(2 * E_p / k)'
+    - '-sqrt(2 * E_p / k)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'elastic potential energy'
+  - 'spring potential energy'
+  - 'energy stored in a spring'
+  - 'PE = 1/2 kx^2'
+  - 'U = 1/2 k x^2'
+  - 'energía potencial elástica'
+  - 'energía potencial de un muelle'
+references:
+  - title: 'OpenStax, College Physics 2e, 7.4 Conservative Forces and Potential Energy, Example 7.8'
+    url: 'https://openstax.org/books/college-physics-2e/pages/7-4-conservative-forces-and-potential-energy'
+  - title: 'OpenStax, University Physics Volume 1, 8.1 Potential Energy of a System'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/8-1-potential-energy-of-a-system'
+  - title: 'R. Nave, HyperPhysics, Elastic potential energy'
+    url: 'https://hyperphysics.gsu.edu/hbase/pespr.html'
+  - title: 'MacTutor History of Mathematics, Robert Hooke (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Hooke/'
+description:
+  en: >-
+    The elastic potential energy of a spring is the energy stored in a spring that is stretched or
+    compressed while obeying Hooke's law: half the spring constant times the square of the
+    displacement of its free end from the natural length. It equals the work done to deform the
+    spring and the energy the spring returns when released, as in a toy launcher, a spring balance
+    or a car suspension.
+
+    In the formula, $\mag{E_\mathrm{p}}$ is the stored energy in joules, zero at the natural length;
+    $\var{k}$ is the spring constant in newtons per metre, a positive number that measures the
+    stiffness; and $\var{x}$ is the displacement of the free end from the natural length, in metres.
+    The formula follows the signed restoring form of Hooke's law, in which the spring pulls back
+    with a force proportional to the displacement and opposite to it: $\var{x}$ is positive for a
+    stretched spring and negative for a compressed one. Since $\var{x}$ appears squared, a stretch
+    and a compression of the same size store the same energy, and solving for it gives two roots of
+    equal size; the positive root, a stretch, is listed first and the negative root is the matching
+    compression.
+
+    The spring force grows in proportion to the displacement, from zero at the natural length to its
+    full value at the final position. The work needed to deform the spring is therefore the average
+    force, half the final force, times the displacement, which yields the formula.
+
+    The formula holds only within the elastic limit, where the force stays proportional to the
+    displacement and the spring recovers its natural length; beyond that limit the spring deforms
+    permanently. It also treats the spring as massless and ignores internal friction, which slowly
+    drains the energy of a vibrating spring.
+
+    The proportional law behind the formula goes back to Robert Hooke, who presented it as a general
+    property of elastic bodies in a 1678 lecture on springs. A spring with a constant of 250 newtons
+    per metre compressed by 4.00 centimetres stores 0.200 joules.

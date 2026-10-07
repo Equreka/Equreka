@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Linear momentum of a body'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{p}=\mag{m}\mag{v}'
+terms:
+  p:
+    kind: 'magnitude'
+    ref: 'momentum'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  v:
+    kind: 'magnitude'
+    ref: 'velocity'
+solutions:
+  p: 'm * v'
+  m: 'p / v'
+  v: 'p / m'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'momentum formula'
+  - 'linear momentum formula'
+  - 'p = mv'
+  - 'mass times velocity'
+  - 'quantity of motion'
+  - 'momento lineal'
+  - 'fórmula de la cantidad de movimiento'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 9.1 Linear Momentum, equation 9.1'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/9-1-linear-momentum'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Momentum'
+    url: 'https://hyperphysics.gsu.edu/hbase/mom.html'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Relativistic momentum'
+    url: 'https://hyperphysics.gsu.edu/hbase/Relativ/relmom.html'
+  - title: 'I. Newton, The Mathematical Principles of Natural Philosophy, trans. A. Motte (1846), Definitions I and II'
+    url: 'https://en.wikisource.org/wiki/The_Mathematical_Principles_of_Natural_Philosophy_(1846)/Definitions'
+  - title: 'MacTutor History of Mathematics, Isaac Newton (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Newton/'
+description:
+  en: >-
+    Linear momentum is the mass of a body multiplied by its velocity. Also called momentum or
+    quantity of motion, it measures how much motion a moving object carries in mechanics, and it is
+    the quantity that collisions, explosions and impulses redistribute.
+
+    In the formula, $\mag{p}$ is the momentum in kilogram metres per second, $\mag{m}$ the mass in
+    kilograms, always positive, and $\mag{v}$ the velocity in metres per second. Momentum is a
+    vector that points the same way as the velocity. For motion along a line, a positive direction
+    is chosen, and a body moving the opposite way has a negative velocity and therefore a negative
+    momentum.
+
+    Doubling the mass at a fixed velocity doubles the momentum, and so does doubling the velocity at
+    a fixed mass, so a slow body of large mass can carry as much momentum as a fast body of small
+    mass. A body at rest has zero momentum. The momenta of the parts of a system add as vectors, so
+    two equal carts moving towards each other at the same speed have a total momentum of zero.
+    Solving for the velocity divides the momentum by the mass; solving for the mass needs a non-zero
+    velocity.
+
+    The product of mass and velocity is the classical momentum, accurate at everyday speeds. As a
+    speed approaches that of light, special relativity replaces it with a larger value, the
+    classical product multiplied by the Lorentz factor.
+
+    Isaac Newton defined the quantity of motion as arising from velocity and quantity of matter
+    together, the second definition of his Principia, published in 1687. A car of 1400 kilograms
+    moving at 15 metres per second has a momentum of $21\,000\,\mathrm{kg\,m/s}$.

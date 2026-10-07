@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Teorema del impulso'
+terms:
+  v:
+    label: 'Velocidad final'
+  v_{0}:
+    label: 'Velocidad inicial'
+description: >-
+  El teorema del impulso establece que el impulso que recibe un cuerpo es igual a la variación de su
+  cantidad de movimiento: la masa por la velocidad final menos la masa por la velocidad inicial.
+  Relaciona la fuerza que actúa durante un choque, una patada o una recepción con el cambio de
+  movimiento que produce, y es otra forma de escribir la segunda ley de Newton en mecánica.
+
+  Aquí $\mag{J}$ es el impulso de la fuerza neta, expresado en newton segundo, $\mag{m}$ la masa del
+  cuerpo en kilogramos, constante durante la interacción, y $\var{v_{0}}$ y $\var{v}$ las
+  velocidades antes y después, en metros por segundo. En una recta se elige un sentido positivo y
+  ambas velocidades llevan signo: una pelota que rebota tiene velocidades de signo opuesto, y su
+  cantidad de movimiento cambia más que si se hubiera detenido.
+
+  La segunda ley de Newton dice que la fuerza neta es igual a la masa por la aceleración. En un
+  intervalo corto la aceleración es la variación de la velocidad dividida entre el tiempo, así que
+  multiplicar la fuerza por el tiempo da la masa por la variación de la velocidad, que es la
+  variación de la cantidad de movimiento. El impulso de la fuerza, su valor medio por la duración,
+  fija por tanto la variación de la cantidad de movimiento, sea cual sea la forma detallada de la
+  fuerza en el tiempo. Despejar la masa exige velocidades final e inicial distintas.
+
+  La relación vale para cualquier evolución de la fuerza cuando el impulso es el de la fuerza neta
+  sobre un cuerpo de masa fija. No se aplica a un cohete ni a otro cuerpo cuya masa cambia mientras
+  se mueve, y a velocidades cercanas a la de la luz la cantidad de movimiento relativista sustituye
+  al producto de la masa por la velocidad.
+
+  Los Principia de Newton, de 1687, enunciaban como segunda ley que el cambio de movimiento es
+  proporcional a la fuerza motriz impresa. El módulo Philae, de 96 kilogramos, chocó contra un
+  cometa a 1.0 metro por segundo y rebotó a 0.38 metros por segundo, de modo que recibió un impulso
+  de unos $132\,\mathrm{N\,s}$.

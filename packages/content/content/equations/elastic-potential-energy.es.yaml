@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Energía potencial elástica de un resorte'
+terms:
+  k:
+    label: 'Constante elástica'
+  x:
+    label: 'Desplazamiento desde la longitud natural'
+description: >-
+  La energía potencial elástica de un resorte es la energía almacenada en un resorte estirado o
+  comprimido que cumple la ley de Hooke: la mitad de la constante elástica por el cuadrado del
+  desplazamiento de su extremo libre respecto a la longitud natural. Es igual al trabajo realizado
+  para deformar el resorte y a la energía que este devuelve al soltarlo, como en un lanzador de
+  juguete, un dinamómetro o la suspensión de un coche.
+
+  En la fórmula, $\mag{E_\mathrm{p}}$ es la energía almacenada en julios, nula en la longitud
+  natural; $\var{k}$ es la constante elástica en newtons por metro, un número positivo que mide la
+  rigidez; y $\var{x}$ es el desplazamiento del extremo libre respecto a la longitud natural, en
+  metros. La fórmula sigue la forma con signo de la ley de Hooke, en la que el resorte tira hacia
+  atrás con una fuerza proporcional al desplazamiento y opuesta a él: $\var{x}$ es positivo para un
+  resorte estirado y negativo para uno comprimido. Como $\var{x}$ aparece al cuadrado, un
+  estiramiento y una compresión del mismo valor absoluto almacenan la misma energía, y al despejarlo
+  se obtienen dos raíces del mismo valor absoluto; la raíz positiva, un estiramiento, figura primero
+  y la negativa es la compresión correspondiente.
+
+  La fuerza del resorte crece en proporción al desplazamiento, desde cero en la longitud natural
+  hasta su valor completo en la posición final. El trabajo necesario para deformar el resorte es,
+  por tanto, la fuerza media, la mitad de la fuerza final, por el desplazamiento, lo que da la
+  fórmula.
+
+  La fórmula solo vale dentro del límite elástico, donde la fuerza sigue siendo proporcional al
+  desplazamiento y el resorte recupera su longitud natural; más allá de ese límite el resorte se
+  deforma de manera permanente. También trata el resorte como si no tuviera masa e ignora el
+  rozamiento interno, que agota poco a poco la energía de un resorte que vibra.
+
+  La ley proporcional en la que se apoya la fórmula se remonta a Robert Hooke, que la presentó como
+  una propiedad general de los cuerpos elásticos en una conferencia de 1678 sobre los resortes. Un
+  resorte con una constante de 250 newtons por metro comprimido 4.00 centímetros almacena 0.200
+  julios.

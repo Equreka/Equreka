@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Impulse-momentum theorem'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{J}=\mag{m}\var{v}-\mag{m}\var{v_{0}}'
+terms:
+  J:
+    kind: 'magnitude'
+    ref: 'impulse'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  v:
+    kind: 'symbol'
+    label:
+      en: 'Final velocity'
+    unit: 'metre-per-second'
+  v_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial velocity'
+    unit: 'metre-per-second'
+solutions:
+  J: 'm * (v - v_0)'
+  m: 'J / (v - v_0)'
+  v: 'v_0 + J / m'
+  v_{0}: 'v - J / m'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'impulse momentum theorem'
+  - 'impulse-momentum principle'
+  - 'impulse equals change in momentum'
+  - 'J = Δp'
+  - 'F Δt = m Δv'
+  - 'teorema del impulso mecánico'
+  - 'teorema del impulso y la cantidad de movimiento'
+  - 'teorema del momento-impulso'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 9.2 Impulse and Collisions, equation 9.7'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/9-2-impulse-and-collisions'
+  - title: 'OpenStax, University Physics Volume 1, 9.3 Conservation of Linear Momentum, Example 9.9 (Philae)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/9-3-conservation-of-linear-momentum'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Impulse of Force'
+    url: 'https://hyperphysics.gsu.edu/hbase/impulse.html'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Relativistic momentum'
+    url: 'https://hyperphysics.gsu.edu/hbase/Relativ/relmom.html'
+  - title: 'I. Newton, The Mathematical Principles of Natural Philosophy, trans. A. Motte (1846), Axioms, or Laws of Motion, Law II'
+    url: 'https://en.wikisource.org/wiki/The_Mathematical_Principles_of_Natural_Philosophy_(1846)/Axioms,_or_Laws_of_Motion'
+  - title: 'MacTutor History of Mathematics, Isaac Newton (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Newton/'
+description:
+  en: >-
+    The impulse-momentum theorem states that the impulse delivered to a body equals the change in
+    its momentum: the mass times the final velocity minus the mass times the initial velocity. It
+    links the force acting during a collision, a kick or a catch to the change of motion it causes,
+    and it is a restatement of Newton's second law in mechanics.
+
+    Here $\mag{J}$ is the impulse of the net force in newton seconds, $\mag{m}$ the mass of the body
+    in kilograms, constant during the interaction, and $\var{v_{0}}$ and $\var{v}$ the velocities
+    before and after, in metres per second. Along a line, a positive direction is chosen and both
+    velocities are signed: a ball that bounces back has velocities of opposite signs, and its
+    momentum changes by more than if it had stopped.
+
+    Newton's second law says the net force equals the mass times the acceleration. Over a short
+    interval the acceleration is the change of velocity divided by the time, so multiplying the
+    force by the time gives the mass times the change of velocity, which is the change of momentum.
+    The impulse of the force, its average value times the duration, therefore fixes the change of
+    momentum, whatever the detailed shape of the force over time. Solving for the mass needs final
+    and initial velocities that differ.
+
+    The relation holds for any force history when the impulse is that of the net force on a body of
+    fixed mass. It does not apply to a rocket or other body whose mass changes as it moves, and at
+    speeds close to that of light the relativistic momentum replaces the product of mass and
+    velocity.
+
+    Newton's Principia of 1687 stated as its second law that the change of motion is proportional to
+    the motive force impressed. The Philae lander, 96 kilograms, struck a comet at 1.0 metre per
+    second and rebounded at 0.38 metres per second, so it received an impulse of about
+    $132\,\mathrm{N\,s}$.

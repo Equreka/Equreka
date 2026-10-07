@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Efficiency'
+kind: 'formula'
+level: 'intro'
+expression: '\var{\eta}=\frac{\var{E_\mathrm{out}}}{\var{E_\mathrm{in}}}'
+terms:
+  \eta:
+    kind: 'symbol'
+    label:
+      en: 'Efficiency'
+    unit: 'unitless'
+  E_\mathrm{out}:
+    kind: 'symbol'
+    label:
+      en: 'Useful energy output'
+    unit: 'joule'
+  E_\mathrm{in}:
+    kind: 'symbol'
+    label:
+      en: 'Energy input'
+    unit: 'joule'
+solutions:
+  \eta: 'E_out / E_in'
+  E_\mathrm{out}: 'eta * E_in'
+  E_\mathrm{in}: 'E_out / eta'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'energy efficiency'
+  - 'energy conversion efficiency'
+  - 'efficiency formula'
+  - 'mechanical efficiency'
+  - 'useful output over input'
+  - 'eta = Eout / Ein'
+  - 'eficiencia'
+  - 'eficiencia energética'
+  - 'eficacia energética'
+references:
+  - title: 'OpenStax, College Physics 2e, 7.6 Conservation of Energy (efficiency and table of typical efficiencies)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/7-6-conservation-of-energy'
+  - title: 'OpenStax, Physics, 9.3 Simple Machines (efficiency of a lever, worked example)'
+    url: 'https://openstax.org/books/physics/pages/9-3-simple-machines'
+  - title: 'R. Nave, HyperPhysics, Power'
+    url: 'https://hyperphysics.gsu.edu/hbase/pow.html'
+externalIds:
+  wikidata: 'Q192704'
+description:
+  en: >-
+    Efficiency is the fraction of the energy supplied to a machine or a process that comes out in
+    the useful form: the useful energy output divided by the total energy input. It rates engines,
+    electric motors, power plants, lamps, simple machines and the human body, and it is usually
+    quoted as a percentage.
+
+    $\var{\eta}$, the Greek letter eta, is the efficiency, a dimensionless ratio between 0 and 1
+    that may also be entered or read as a percentage from 0 to 100. $\var{E_\mathrm{out}}$ is the
+    useful energy or work delivered and $\var{E_\mathrm{in}}$ the total energy supplied, both in
+    joules and both non-negative. Over the same interval of time the energies stand in the same
+    ratio as the output and input powers, so the formula serves equally for powers in watts.
+
+    Energy is conserved, so the input equals the useful output plus the energy that leaves in other
+    forms, mostly as thermal energy produced by friction, electrical resistance or exhaust gases.
+    The losses are therefore the input times one minus the efficiency. Along a chain of conversions
+    the efficiencies multiply, so the overall efficiency is never higher than that of the weakest
+    stage.
+
+    No real device reaches an efficiency of 1, because friction and other dissipative processes
+    always turn part of the input into heat; a computed value above 1 would mean energy created from
+    nothing and points to an error in the data. What counts as useful depends on the purpose: a lamp
+    counts its light and treats its heat as a loss, while an electric heater counts the heat.
+
+    Typical values span a wide range: an electric motor converts about 98 percent of its input into
+    work, a petrol engine about 30 percent. A lever that receives 4.4 joules of input work and
+    delivers 4.0 joules of output work has an efficiency of about 91 percent.

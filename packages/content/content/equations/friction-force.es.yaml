@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Fuerza de rozamiento'
+terms:
+  F_\mathrm{f}:
+    label: 'Fuerza de rozamiento'
+  \mu:
+    label: 'Coeficiente de rozamiento'
+  F_\mathrm{N}:
+    label: 'Fuerza normal'
+description: >-
+  La fuerza de rozamiento entre dos superficies sólidas secas es proporcional a la fuerza normal que
+  las aprieta entre sí, con el coeficiente de rozamiento como constante de proporcionalidad. Esta
+  regla empírica, el modelo habitual del rozamiento seco, da el rozamiento cinético sobre un cuerpo
+  que desliza y el máximo rozamiento estático que un cuerpo en reposo puede soportar antes de
+  empezar a deslizar.
+
+  Aquí $\var{F_\mathrm{f}}$ es el módulo de la fuerza de rozamiento y $\var{F_\mathrm{N}}$ el módulo
+  de la fuerza normal, ambos en newtons, y $\var{\mu}$ es el coeficiente de rozamiento, un número
+  adimensional que nunca es negativo; las tres se introducen como valores no negativos. La fuerza de
+  rozamiento actúa a lo largo de la superficie de contacto, en contra del deslizamiento o del
+  movimiento que se produciría sin ella, mientras que la fuerza normal actúa perpendicular a la
+  superficie.
+
+  Cada par de superficies tiene dos coeficientes. El estático se aplica mientras las superficies no
+  deslizan: el rozamiento estático toma entonces el valor que equilibra las demás fuerzas, hasta un
+  tope igual al coeficiente estático por la fuerza normal, y la relación da ese tope. El cinético se
+  aplica una vez iniciado el deslizamiento, y la relación da entonces la propia fuerza de
+  rozamiento. El coeficiente estático suele ser el mayor, así que poner en marcha una caja cuesta
+  más fuerza que mantenerla en movimiento. Valores típicos son 1.0 estático y 0.7 cinético para
+  caucho sobre hormigón seco y 0.5 y 0.3 para madera sobre madera.
+
+  La regla es una aproximación. En este modelo el rozamiento no depende del área de contacto, y el
+  coeficiente es una propiedad medida de los dos materiales y del estado de sus superficies, no una
+  propiedad deducida.
+
+  Leonardo da Vinci anotó la proporcionalidad con la carga en cuadernos que quedaron desconocidos
+  para quienes vinieron después; Guillaume Amontons la enunció por su cuenta en 1699, y la regla
+  suele llevar su nombre, mientras que Charles Augustin de Coulomb la desarrolló con sus propias
+  medidas. Sobre un suelo horizontal la fuerza normal es igual al peso, así que una caja de 10
+  kilogramos que desliza sobre madera con un coeficiente cinético de 0.3 sufre una fuerza de
+  rozamiento de unos 29 newtons.

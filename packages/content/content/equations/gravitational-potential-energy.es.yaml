@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Energía potencial gravitatoria en un campo uniforme'
+terms:
+  g:
+    label: 'Aceleración de la gravedad'
+  h:
+    label: 'Altura'
+description: >-
+  La energía potencial gravitatoria de un cuerpo cerca de la superficie de la Tierra, o de cualquier
+  planeta, es la energía almacenada en su posición dentro de un campo gravitatorio uniforme: su masa
+  por la aceleración de la gravedad por su altura sobre un nivel de referencia elegido. Describe
+  cómo al levantar una carga se almacena una energía que la carga devuelve en forma de movimiento al
+  caer.
+
+  En la fórmula, $\mag{E_\mathrm{p}}$ es la energía potencial en julios; $\mag{m}$ es la masa en
+  kilogramos; $\var{g}$ es el módulo de la aceleración de la gravedad en metros por segundo al
+  cuadrado, un número positivo cercano a 9.8 en la superficie de la Tierra; y $\var{h}$ es la altura
+  en metros, medida hacia arriba desde el nivel de referencia. La altura tiene signo: un cuerpo
+  situado por debajo del nivel de referencia tiene altura negativa y, por tanto, energía potencial
+  negativa.
+
+  Solo las diferencias de energía potencial tienen significado físico, de modo que el nivel de
+  referencia puede situarse donde resulte cómodo: el suelo de una sala, el terreno o el punto más
+  bajo de un problema. Desplazarlo cambia todos los valores en la misma cantidad y deja intactas
+  todas las variaciones. Elevar un cuerpo lentamente exige un trabajo igual a su peso por la subida,
+  y ese trabajo queda almacenado como energía potencial; la gravedad lo devuelve como trabajo
+  positivo cuando el cuerpo vuelve a bajar, por cualquier camino, porque solo cuenta la variación de
+  altura.
+
+  La fórmula supone un campo uniforme, lo que se cumple cuando las alturas en juego son pequeñas
+  frente al radio del planeta. Para satélites y viajes espaciales el campo se debilita con la
+  distancia al centro del planeta, y ocupa su lugar la expresión general que se deduce de la ley de
+  gravitación universal de Newton. Para un cuerpo extenso, la altura es la de su centro de masas.
+
+  Una roca de 10 kilogramos sostenida a 10 metros del suelo tiene 980 julios de energía potencial
+  respecto al suelo, tomando 9.80 metros por segundo al cuadrado para la aceleración de la gravedad;
+  si la resistencia del aire es despreciable, toda ella se convierte en energía cinética
+  inmediatamente antes del impacto.

@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Aceleración de la máquina de Atwood'
+terms:
+  m_{1}:
+    label: 'Masa del cuerpo 1'
+  m_{2}:
+    label: 'Masa del cuerpo 2'
+  g:
+    label: 'Aceleración de la gravedad'
+description: >-
+  Una máquina de Atwood consiste en dos masas colgadas de los extremos de una cuerda que pasa por
+  una polea. Su aceleración es igual a la diferencia de las dos masas dividida entre su suma, por la
+  aceleración de la gravedad: el lado más pesado baja y el más ligero sube, ambos al mismo ritmo,
+  que siempre es menor que el de la caída libre.
+
+  Aquí $\mag{a}$ es la aceleración de las masas en metros por segundo al cuadrado, positiva cuando
+  la segunda masa $\var{m_{2}}$ baja y la primera $\var{m_{1}}$ sube, y negativa cuando el
+  movimiento es el contrario; $\var{m_{1}}$ y $\var{m_{2}}$ son las masas en kilogramos; y $\var{g}$
+  es el módulo de la aceleración de la gravedad, introducido como número positivo. Masas iguales dan
+  una aceleración nula: el sistema sigue en reposo o mantiene una velocidad constante.
+
+  Las dos masas se mueven juntas, así que actúan como un solo cuerpo con la masa total. La única
+  fuerza que lo impulsa es la diferencia entre los dos pesos, la segunda masa por g menos la primera
+  masa por g, mientras que la tensión de la cuerda es interna y se cancela. La segunda ley de Newton
+  para el sistema completo divide entonces esa diferencia entre la masa total. Escribir la ley para
+  cada masa por separado da también la tensión: el doble del producto de las masas por g, dividido
+  entre su suma, un valor comprendido entre los dos pesos.
+
+  El resultado supone una cuerda que ni se estira ni tiene masa y una polea sin masa ni rozamiento.
+  Una polea con masa o con rozamiento en su eje reduce la aceleración por debajo de este valor.
+
+  George Atwood describió la máquina en A Treatise on the Rectilinear Motion and Rotation of Bodies,
+  publicado en Cambridge en 1784, como un aparato que frena una caída lo bastante para mostrar su
+  aceleración uniforme. Con masas de 2.00 y 4.00 kilogramos la aceleración es de unos 3.27 metros
+  por segundo al cuadrado, un tercio de g.

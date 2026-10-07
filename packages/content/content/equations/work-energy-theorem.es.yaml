@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Teorema de trabajo-energía'
+terms:
+  v:
+    label: 'Rapidez final'
+  v_{0}:
+    label: 'Rapidez inicial'
+description: >-
+  El teorema de trabajo-energía establece que el trabajo neto realizado sobre un cuerpo por todas
+  las fuerzas que actúan sobre él es igual a la variación de su energía cinética, la energía
+  cinética final menos la inicial. Llamado también teorema de la energía cinética, relaciona las
+  fuerzas que actúan a lo largo de una distancia con los cambios de rapidez y resuelve a menudo
+  problemas de mecánica sin necesidad de seguir el movimiento en el tiempo.
+
+  $\mag{W}$ es el trabajo neto en julios, la suma del trabajo de todas las fuerzas sobre el cuerpo,
+  incluidos el peso, el rozamiento y las fuerzas normales; $\mag{m}$ es la masa en kilogramos;
+  $\var{v_{0}}$ y $\var{v}$ son las rapideces inicial y final en metros por segundo, ambas no
+  negativas. Un trabajo neto positivo acelera el cuerpo, uno negativo lo frena y un trabajo neto
+  nulo deja la rapidez sin cambios aunque cambie la dirección, como en el movimiento circular
+  uniforme.
+
+  Para una fuerza neta constante a lo largo de una recta, el trabajo es la fuerza por el
+  desplazamiento. La segunda ley de Newton escribe la fuerza como la masa por la aceleración, y la
+  relación entre los cuadrados de las rapideces y el desplazamiento con aceleración constante
+  convierte ese producto en la diferencia de las dos energías cinéticas. El resultado vale también
+  para fuerzas que cambian de módulo y de dirección a lo largo de una trayectoria curva.
+
+  Al despejar una rapidez solo se conserva la raíz cuadrada no negativa, porque una rapidez nunca es
+  negativa; en un movimiento rectilíneo la velocidad con esa rapidez puede apuntar en cualquiera de
+  los dos sentidos. Un número negativo bajo la raíz significa que el trabajo neto dado no es
+  compatible con la otra rapidez: para la rapidez final, un trabajo negativo quitaría más energía
+  cinética de la que el cuerpo tenía al principio, y para la inicial, un trabajo positivo superaría
+  la energía cinética del final. El teorema se aplica a una partícula, o a un sólido rígido en
+  traslación, a rapideces muy inferiores a la de la luz; un cuerpo deformable o que gira requiere
+  además el trabajo interno y la energía de rotación.
+
+  Una patinadora de 50 kilogramos que pasa de 8 a 12 metros por segundo recibe un trabajo neto de
+  2000 julios.

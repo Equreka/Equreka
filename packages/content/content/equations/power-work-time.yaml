@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Average power'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{P}=\frac{\mag{W}}{\mag{t}}'
+terms:
+  P:
+    kind: 'magnitude'
+    ref: 'power'
+  W:
+    kind: 'magnitude'
+    ref: 'work'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  P: 'W / t'
+  W: 'P * t'
+  t: 'W / P'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'power formula'
+  - 'power equals work over time'
+  - 'rate of doing work'
+  - 'P = W/t'
+  - 'mean power'
+  - 'potencia mecánica'
+references:
+  - title: 'OpenStax, College Physics 2e, 7.7 Power, Example 7.11'
+    url: 'https://openstax.org/books/college-physics-2e/pages/7-7-power'
+  - title: 'OpenStax, University Physics Volume 1, 7.4 Power'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/7-4-power'
+  - title: 'R. Nave, HyperPhysics, Power'
+    url: 'https://hyperphysics.gsu.edu/hbase/pow.html'
+  - title: 'OpenStax, Física universitaria volumen 1, 7.4 Potencia'
+    url: 'https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/7-4-potencia'
+description:
+  en: >-
+    Average power is the rate at which work is done, or energy transferred, over an interval: the
+    work divided by the time it takes. It measures how fast a motor, a muscle or a power station
+    delivers energy, and it explains why two people of equal mass who climb the same stairs, one
+    running and one walking, do the same work at very different powers.
+
+    $\mag{P}$ is the average power in watts, one watt being one joule per second; $\mag{W}$ is the
+    work done, or the energy transferred, in joules; and $\mag{t}$ is the elapsed time in seconds,
+    always positive. The power has the sign of the work: positive when the agent supplies energy to
+    the body, negative when it takes energy away, as brakes do.
+
+    Doing the same work in half the time takes twice the power. The ratio gives the average over the
+    whole interval; the instantaneous power is the limit of the same ratio over ever shorter
+    intervals, and it matches the average only when the work is done at a steady rate. When a force
+    moves a body, the ratio reduces at each instant to the force along the motion times the speed.
+
+    The relation also runs the other way: energy equals power times time. That is why electricity is
+    billed in kilowatt hours, a unit of energy formed as a power multiplied by a time, and why a
+    small motor can match the work of a large one by running longer. Engine power is still often
+    quoted in horsepower, about 746 watts.
+
+    A person of 60.0 kilograms who runs up stairs 3.00 metres high in 3.50 seconds, reaching 2.00
+    metres per second, does 1884 joules of work at an average power of about 538 watts, a little
+    less than one horsepower.

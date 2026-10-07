@@ -1,0 +1,92 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Conservation of mechanical energy'
+kind: 'equation'
+level: 'intro'
+expression: '\frac{1}{2}\var{v_{0}}^{2}+\var{g}\var{h_{0}}=\frac{1}{2}\var{v}^{2}+\var{g}\var{h}'
+terms:
+  v_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial speed'
+    unit: 'metre-per-second'
+  h_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial height'
+    unit: 'metre'
+  v:
+    kind: 'symbol'
+    label:
+      en: 'Final speed'
+    unit: 'metre-per-second'
+  h:
+    kind: 'symbol'
+    label:
+      en: 'Final height'
+    unit: 'metre'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+solutions:
+  v: 'sqrt(v_0^2 + 2 * g * (h_0 - h))'
+  v_{0}: 'sqrt(v^2 + 2 * g * (h - h_0))'
+  h: 'h_0 + (v_0^2 - v^2) / (2 * g)'
+  h_{0}: 'h + (v^2 - v_0^2) / (2 * g)'
+  g: '(v^2 - v_0^2) / (2 * (h_0 - h))'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'mechanical energy conservation'
+  - 'law of conservation of mechanical energy'
+  - 'KE + PE = constant'
+  - 'KEi + PEi = KEf + PEf'
+  - 'speed from height'
+  - 'principio de conservación de la energía mecánica'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 8.3 Conservation of Energy, Example 8.7 (simple pendulum)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/8-3-conservation-of-energy'
+  - title: 'OpenStax, College Physics 2e, 7.4 Conservative Forces and Potential Energy'
+    url: 'https://openstax.org/books/college-physics-2e/pages/7-4-conservative-forces-and-potential-energy'
+  - title: 'OpenStax, Physics, 9.2 Mechanical Energy and Conservation of Energy'
+    url: 'https://openstax.org/books/physics/pages/9-2-mechanical-energy-and-conservation-of-energy'
+  - title: 'OpenStax, Física universitaria volumen 1, 8.3 Conservación de la energía'
+    url: 'https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/8-3-conservacion-de-la-energia'
+  - title: 'MacTutor History of Mathematics, Hermann von Helmholtz (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Helmholtz/'
+externalIds:
+  wikidata: 'Q141600838'
+description:
+  en: >-
+    Conservation of mechanical energy states that when gravity is the only force doing work on a
+    body, the sum of its kinetic energy and its gravitational potential energy stays constant: what
+    the body loses in height it gains in speed, and the reverse. Written per unit mass, it gives the
+    speed of a falling stone, a pendulum bob or a frictionless roller coaster at any height.
+
+    $\var{v_{0}}$ and $\var{h_{0}}$ are the speed and the height at the start, $\var{v}$ and
+    $\var{h}$ the speed and the height at the end. Speeds are in metres per second and non-negative;
+    heights are in metres, measured upward from any reference level and negative below it. $\var{g}$
+    is the size of the gravitational acceleration in metres per second squared, a positive number.
+    Each side is the mechanical energy per kilogram, kinetic plus potential, in joules per kilogram.
+
+    Multiplying both sides by the mass gives the usual form: initial kinetic plus potential energy
+    equals final kinetic plus potential energy. Because the mass cancels, a heavy and a light body
+    released at the same speed from the same height reach every lower level with the same speed, and
+    the final speed depends only on the change in height, not on the shape of the path.
+
+    Solving for a speed keeps only the non-negative square root, because a speed is never negative.
+    A negative number under the root means the two states cannot share one mechanical energy: the
+    body would have to climb higher than its energy allows. The relation assumes a uniform field and
+    that friction, air resistance and every other non-conservative force do no work; forces
+    perpendicular to the motion, such as a normal force, may act. With a spring, elastic potential
+    energy joins the sum; with friction, mechanical energy decreases and turns into thermal energy.
+
+    Hermann von Helmholtz set out the mathematical principles of energy conservation in his 1847
+    paper Über die Erhaltung der Kraft. A pendulum released from rest 0.134 metres above its lowest
+    point passes through it at about 1.62 metres per second.

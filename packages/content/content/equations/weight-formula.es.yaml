@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Peso de un cuerpo'
+terms:
+  g:
+    label: 'Aceleración de la gravedad'
+description: >-
+  El peso de un cuerpo cerca de la superficie de un planeta o satélite es igual a su masa
+  multiplicada por la aceleración local de la gravedad. El peso es la fuerza gravitatoria sobre el
+  cuerpo, así que la fórmula convierte una masa en kilogramos en una fuerza en newtons.
+
+  Aquí $\mag{W}$ es el módulo del peso en newtons, $\mag{m}$ la masa en kilogramos y $\var{g}$ el
+  módulo de la aceleración de la gravedad en metros por segundo al cuadrado, introducido como número
+  positivo, de modo que las tres son no negativas. El peso es un vector que apunta hacia abajo,
+  hacia el centro del cuerpo que atrae; la fórmula da su módulo y la dirección se sobrentiende. El
+  valor normal de $\var{g}$ es 9.80665 metros por segundo al cuadrado, mientras que el valor local
+  en la Tierra varía ligeramente de un lugar a otro y en la Luna es de unos 1.62.
+
+  La fórmula se deduce de la segunda ley de Newton. Un cuerpo en caída libre solo tiene su peso
+  actuando sobre él y acelera con $\var{g}$, así que la fuerza debe ser la masa por esa aceleración.
+  Todos los cuerpos caen con la misma aceleración en un lugar dado, de modo que triplicar la masa
+  triplica el peso. La masa pertenece al cuerpo y es la misma en todas partes, mientras que el peso
+  depende de la gravedad del lugar: un kilogramo pesa unos 9.8 newtons en la Tierra y unos 1.6 en la
+  Luna.
+
+  La fórmula supone que la gravedad es uniforme en la región donde está el cuerpo, lo que se cumple
+  cerca de una superficie; lejos del planeta la aceleración de la gravedad disminuye y hace falta la
+  ley de la gravitación universal. Una báscula registra la fuerza normal que ejerce, que solo
+  coincide con el peso cuando la báscula y el cuerpo no aceleran.
+
+  La 3.ª Conferencia General de Pesas y Medidas declaró en 1901 que el peso es una magnitud de la
+  misma clase que la fuerza e igual a la masa por la aceleración de la gravedad, y adoptó 980.665
+  centímetros por segundo al cuadrado como valor normal de esa aceleración.
