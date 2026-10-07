@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Horsepower'
+symbol:
+  tex: 'hp'
+unitOf:
+  - 'power'
+system: 'imperial'
+compose:
+  factor: '550'
+  of:
+    - unit: 'foot'
+      exp: 1
+    - unit: 'pound-force'
+      exp: 1
+    - unit: 'second'
+      exp: -1
+externalIds:
+  wikidata: 'Q2276380'
+  qudt: 'http://qudt.org/vocab/unit/HP'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'mechanical horsepower'
+  - 'imperial horsepower'
+  - 'horse power'
+  - 'horse-power'
+  - 'caballo de potencia'
+references:
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: horsepower (550 ft·lbf/s) (hp) and related horsepowers'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B footnotes: exact factor of the pound-force'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-footnotes'
+  - title: 'R. Rowlett, How Many? A Dictionary of Units of Measurement, University of North Carolina: horsepower'
+    url: 'https://www.ibiblio.org/units/dictH.html'
+  - title: 'QUDT, unit HP (horsepower, 550 foot-pound force per second)'
+    url: 'https://qudt.org/vocab/unit/HP'
+description:
+  en: >-
+    The horsepower, symbol hp, is a unit of power of the imperial and United States customary
+    systems. The mechanical horsepower, the form NIST lists first, is defined as 550 foot
+    pound-force per second: the power that raises a weight of 550 pounds-force through one foot in
+    every second.
+
+    The foot is exactly 0.3048 metre and the pound-force exactly 4.448 221 615 260 5 newtons, so
+    the definition fixes $1\,\mathrm{hp}=745.699\,871\,582\,270\,22\,\mathrm{W}$ exactly. NIST
+    Special Publication 811 prints the factor rounded to seven digits, 745.6999 watts, in its
+    Appendix B.8.
+
+    Since a minute has sixty seconds, the definition is the same as 33 000 foot pound-force per
+    minute. One horsepower is about 1.014 metric horsepower. Other horsepowers are in use, and
+    NIST lists them separately: the electric horsepower of exactly 746 watts, the water horsepower
+    of about 746.043 watts and the boiler horsepower of about 9809.5 watts, so a careful statement
+    names the variant.
+
+    The SI expresses power in watts and kilowatts, and the horsepower remains in use for rating
+    engines and motors. Outside the United States, the English word horsepower is often used for
+    the metric horsepower instead, according to Rowlett's dictionary of units, so a rating
+    in horsepower may need a note on which unit is meant.
+
+    The figure of 550 foot-pounds per second, taken as the work rate a horse can sustain, goes
+    back to James Watt according to Rowlett's dictionary, and the SI unit of power now carries
+    Watt's name. The symbol is hp in lower case, and the name is written
+    as a single word.

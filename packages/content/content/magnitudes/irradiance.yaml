@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Irradiance'
+symbol:
+  tex: 'E_{\mathrm{e}}'
+  text: 'Ee'
+baseUnit: 'watt-per-square-metre'
+dimension:
+  M: 1
+  T: -3
+nonNegative: true
+externalIds:
+  wikidata: 'Q830654'
+  qudt: 'http://qudt.org/vocab/quantitykind/Irradiance'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'radiant flux density'
+  - 'incident radiant flux per area'
+references:
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-053 irradiance'
+    url: 'https://cie.co.at/eilvterm/17-21-053'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 6 (heat flux density, irradiance: W m-2)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NASA Earth Observatory, Climate and Earth''s Energy Budget'
+    url: 'https://science.nasa.gov/earth/earth-observatory/climate-and-earths-energy-budget/'
+  - title: 'QUDT, quantity kind Irradiance (skos:broader PowerPerArea)'
+    url: 'https://qudt.org/vocab/quantitykind/Irradiance'
+description:
+  en: >-
+    Irradiance, symbol $E_{\mathrm{e}}$, is the radiant flux incident on a surface divided by the area that
+    receives it: the power carried by electromagnetic radiation of every wavelength that arrives on
+    each square metre of a real or imaginary surface at a given point. It is the radiometric
+    quantity behind the power available to solar panels, the heating of the Earth by the Sun and the
+    exposure of any surface to radiation.
+
+    Its SI unit is the watt per square metre, $\mathrm{W/m^{2}}$, which the SI Brochure gives as the
+    coherent unit of both irradiance and heat flux density. In base units it is the kilogram per
+    second cubed, because the square metres inside the watt cancel those of the area; the
+    dimension of irradiance is mass divided by time cubed.
+
+    Irradiance is a non-negative scalar. It refers only to radiation received by a surface, and it
+    depends on how the surface is oriented: a panel turned away from a beam intercepts less power
+    per square metre than one that faces it. QUDT files it as a narrower kind of power per area,
+    and radiation leaving a surface is described by other quantities with the same unit.
+
+    Irradiance is measured with radiometers held in the plane of the surface. NASA quotes about
+    1360 watts per square metre, the total solar irradiance, for a surface turned towards the Sun at the top of the atmosphere and at
+    the Earth's mean distance; spread over the day and night sides and over all latitudes, the
+    global mean is a quarter of that, near 340 watts per square metre.
+
+    Irradiance is the radiometric partner of illuminance: the CIE defines the two in parallel, but
+    illuminance weights each wavelength by the sensitivity of the eye and is measured in lux, while
+    irradiance counts all radiant power equally. The total solar irradiance was formerly called the
+    solar constant, until measurements showed that it varies slightly with the sunspot cycle.

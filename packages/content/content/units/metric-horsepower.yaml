@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Metric horsepower'
+symbol:
+  tex: 'PS'
+symbolAlt:
+  tex: 'CV'
+unitOf:
+  - 'power'
+system: 'other'
+compose:
+  factor: '75'
+  of:
+    - unit: 'kilogram-force'
+      exp: 1
+    - unit: 'metre'
+      exp: 1
+    - unit: 'second'
+      exp: -1
+externalIds:
+  wikidata: 'Q160857'
+  qudt: 'http://qudt.org/vocab/unit/HP_Metric'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'metric hp'
+  - 'metric horse power'
+  - 'Pferdestärke'
+  - 'cheval-vapeur'
+  - 'cheval vapeur'
+  - 'caballo vapor'
+  - 'cv'
+references:
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: horsepower (metric); kilogram-force (kgf)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'R. Rowlett, How Many? A Dictionary of Units of Measurement, University of North Carolina: metric horsepower'
+    url: 'https://www.ibiblio.org/units/dictM.html'
+  - title: 'QUDT, unit HP_Metric (horsepower, metric)'
+    url: 'https://qudt.org/vocab/unit/HP_Metric'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (3rd CGPM, 1901, declaration on the unit of mass and the definition of weight)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, unit PFERDESTAERKE (symbol PS)'
+    url: 'https://qudt.org/vocab/unit/PFERDESTAERKE'
+  - title: 'Real Academia Española, Diccionario de la lengua española: caballo de vapor (symbol CV)'
+    url: 'https://dle.rae.es/caballo'
+description:
+  en: >-
+    The metric horsepower is a unit of power of the old gravitational metric system, known as the
+    Pferdestärke, symbol PS, in German, the cheval-vapeur in French and the caballo de vapor,
+    symbol CV, in Spanish. It is the power that raises a mass of 75 kilograms by one metre every
+    second under standard gravity, that is, 75 kilogram-force metres per second.
+
+    Because the kilogram-force is exactly 9.806 65 newtons, the definition gives
+    $1\,\mathrm{PS}=735.498\,75\,\mathrm{W}$ exactly. NIST Special Publication 811 prints the
+    factor rounded to 735.4988 watts in its Appendix B.8, and QUDT records the full value.
+
+    The metric horsepower is a little smaller than the mechanical horsepower of 550 foot
+    pound-force per second: one metric horsepower is about 0.986 32 mechanical horsepower, so the
+    two differ by about 1.4 percent. One kilowatt is about 1.36 metric horsepower.
+
+    The unit is not part of the SI, which expresses power in watts and kilowatts. Outside the
+    United States the English word horsepower is often used for this unit rather than for the
+    mechanical one, according to Rowlett's dictionary of units, so a power quoted in horsepower
+    should state which of the two is meant.
+
+    Its exact value rests on the standard acceleration of gravity, 9.806 65 metres per second
+    squared, which the 3rd General Conference on Weights and Measures adopted in 1901 when it
+    declared that weight is a force. The national symbols PS and CV name this same unit, and neither
+    of them is an SI symbol.

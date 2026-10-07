@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'British thermal unit'
+symbol:
+  tex: 'Btu'
+unitOf:
+  - 'energy'
+  - 'heat'
+system: 'imperial'
+toBase:
+  factor: '1055.05585262'
+  exact: true
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+    ref: 'B.8: British thermal unit_IT (Btu_IT), 1.055 056 E+03 J; footnote 9: exact factor 1.055 055 852 62 kJ'
+externalIds:
+  wikidata: 'Q99490009'
+  qudt: 'http://qudt.org/vocab/unit/BTU_IT'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'BTU'
+  - 'Btu_IT'
+  - 'BTU (IT)'
+  - 'International Table British thermal unit'
+  - 'IT British thermal unit'
+  - 'British thermal units'
+  - 'unidad térmica británica de la tabla internacional'
+references:
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: British thermal unit'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST, Guide to the SI (SP 811), Footnotes 9, 22 and 24'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-footnotes'
+  - title: 'OpenStax, University Physics Volume 2, 1.6 Mechanisms of Heat Transfer'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-6-mechanisms-of-heat-transfer'
+  - title: 'QUDT, unit BTU_IT'
+    url: 'https://qudt.org/vocab/unit/BTU_IT'
+description:
+  en: >-
+    The British thermal unit, symbol Btu, is a unit of energy and heat from the customary tradition
+    built on the pound and the degree Fahrenheit. It began as the heat that raises the temperature of a
+    pound of water through a Fahrenheit degree. Several versions exist; the one described here is the
+    International Table British thermal unit, to which NIST assigns an exact value in joules.
+
+    Its definition follows from the International Table calorie, which the Fifth International
+    Conference on the Properties of Steam fixed at exactly 4.1868 joules in London in 1956. On that
+    basis NIST Special Publication 811 states the exact factor
+    $1\,\mathrm{Btu}=1055.055\,852\,62\,\mathrm{J}$, the product of 4.1868 joules per gram kelvin,
+    one pound of 453.592 37 grams and five ninths of a kelvin, the size of one degree Fahrenheit.
+    The thermochemical Btu, built on the thermochemical calorie, is about 1054.350 joules.
+
+    Because of that construction, one Btu per pound equals exactly 2326 joules per kilogram, and one
+    Btu per pound degree Fahrenheit equals exactly 4186.8 joules per kilogram kelvin, so water has a
+    specific heat close to one in either the calorie or the Btu system. Large energy budgets use the
+    quad, $10^{15}\,\mathrm{Btu}$.
+
+    The unit survives in heating, cooling and fuel trades. NIST lists conversions for the Btu per
+    hour and for the ton of refrigeration, 12 000 Btu per hour or about 3517 watts. The therm of the
+    European Communities is based on the International Table Btu, while the United States therm is
+    the legal unit of the American natural gas industry. In the United States, the R factor of
+    building insulation is still expressed in square foot degree Fahrenheit hours per Btu.
+
+    The symbol is also printed BTU; the subscripts IT and th distinguish the two exact versions. The
+    plural is British thermal units.

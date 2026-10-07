@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Flujo magnético'
+description: >-
+  El flujo magnético es la magnitud escalar del electromagnetismo que mide cuánto campo magnético
+  atraviesa una superficie: la densidad de flujo magnético integrada sobre la superficie, de modo
+  que cada elemento de área cuenta solo la parte del campo perpendicular a él. Para un campo
+  uniforme que cruza un área plana, es el campo por el área por el coseno del ángulo entre el
+  campo y la normal a la superficie.
+
+  Su unidad SI coherente es el weber, igual al tesla metro cuadrado y al voltio segundo; en
+  unidades básicas del SI es el kilogramo metro cuadrado por segundo al cuadrado y por amperio, de
+  modo que su dimensión es longitud al cuadrado por masa dividida entre tiempo al cuadrado y
+  corriente eléctrica. El weber se definió en 1946 como el flujo que, atravesando una sola espira y
+  reduciéndose uniformemente a cero en un segundo, induce un voltio en ella.
+
+  El flujo es un escalar, pero tiene un signo fijado por el sentido elegido para la normal a la
+  superficie: es positivo cuando el campo la cruza en el sentido de la normal y negativo cuando la
+  cruza en sentido contrario. A través de una superficie cerrada el flujo total es siempre nulo,
+  porque las líneas de campo magnético forman lazos cerrados. En una bobina de varias espiras muy
+  juntas, el flujo a través de una espira multiplicado por el número de espiras da el flujo
+  concatenado de la bobina.
+
+  Se mide con fluxómetros, o se calcula a partir de la tensión inducida en una bobina mientras
+  cambia el flujo que la atraviesa. Una espira de un metro cuadrado colocada perpendicular al campo
+  de la Tierra, de alrededor de medio gauss, abarca unos $5\times10^{-5}\,\mathrm{Wb}$. La antigua
+  unidad CGS, el maxwell, equivale exactamente a $10^{-8}\,\mathrm{Wb}$.
+
+  El flujo magnético se confunde a menudo con la densidad de flujo magnético, que es flujo por
+  unidad de área y se mide en teslas. Su ritmo de variación produce la inducción
+  electromagnética, que Michael Faraday estudió en una serie de experimentos en 1831; el weber
+  lleva el nombre del físico Wilhelm Weber.

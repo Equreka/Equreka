@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Stefan-Boltzmann constant'
+symbol:
+  tex: '\sigma'
+  text: 'σ'
+value: '5.670374419e-8'
+approximations:
+  - '5.67e-8'
+unit: 'watt-per-square-metre-kelvin-to-the-fourth'
+exact: true
+truncated: true
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?sigma'
+  ref: 'Stefan-Boltzmann constant'
+externalIds:
+  wikidata: 'Q51374'
+  qudt: 'http://qudt.org/vocab/constant/StefanBoltzmannConstant'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'Stefan constant'
+  - 'Stefan Boltzmann constant'
+  - 'Stefan–Boltzmann constant'
+  - 'sigma'
+references:
+  - title: 'NIST, CODATA 2022 value: Stefan-Boltzmann constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?sigma'
+  - title: 'NIST, CODATA 2022: Stefan-Boltzmann constant, defining equation'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?eqsigma'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.2, Table 1'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 3, 6.1 Blackbody Radiation'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-1-blackbody-radiation'
+  - title: 'OpenStax, University Physics Volume 2, 1.6 Mechanisms of Heat Transfer'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-6-mechanisms-of-heat-transfer'
+  - title: 'MacTutor History of Mathematics, Josef Stefan'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Stefan_Josef/'
+  - title: 'MacTutor History of Mathematics, Ludwig Boltzmann'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Boltzmann/'
+description:
+  en: >-
+    The Stefan-Boltzmann constant, symbol $\sigma$, has the CODATA 2022 value
+    $5.670\,374\,419\ldots\times10^{-8}\,\mathrm{W\,m^{-2}\,K^{-4}}$. It is exact, with no
+    uncertainty, because NIST expresses it through the Planck constant, the Boltzmann constant and
+    the speed of light in vacuum, whose values the SI has fixed by definition since 2019. Its
+    decimal expansion never ends, so any printed value is cut short.
+
+    The constant measures how strongly a perfect absorber, a black body, radiates: the total power
+    such a body emits per square metre of surface, summed over all wavelengths, equals the constant
+    multiplied by the fourth power of its absolute temperature. Real surfaces radiate less, by a
+    factor called the emissivity, which lies between zero for a perfect reflector and one for a
+    black body.
+
+    It is the coefficient of the Stefan-Boltzmann law, $P=\sigma AT^{4}$, which gives the power
+    radiated by a surface from its area in square metres and its temperature in kelvins; for an
+    ordinary object the right side is multiplied by its emissivity, and the net exchange with
+    surroundings depends on the difference of the fourth powers of the two temperatures. NIST
+    relates it to other constants through $\sigma=(\pi^{2}/60)k^{4}/(\hbar^{3}c^{2})$. Astronomers
+    combine the law with a star's surface temperature to estimate the power it emits.
+
+    Josef Stefan concluded empirically in 1879, from Tyndall's measurements of the radiation of a
+    heated platinum wire, that the total radiation of a body grows as the fourth power of its
+    absolute temperature, and used the relation to estimate the temperature of the surface of the
+    Sun. In 1884 Ludwig Boltzmann, his former student, derived the same law from thermodynamics. The
+    2019 revision of the SI made its value exact.

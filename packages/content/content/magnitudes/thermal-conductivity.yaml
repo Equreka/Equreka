@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Thermal conductivity'
+symbol:
+  tex: '\lambda'
+  text: 'λ'
+symbolAlt:
+  tex: 'k'
+baseUnit: 'watt-per-metre-kelvin'
+dimension:
+  L: 1
+  M: 1
+  T: -3
+  Th: -1
+nonNegative: true
+externalIds:
+  wikidata: 'Q487005'
+  qudt: 'http://qudt.org/vocab/quantitykind/ThermalConductivity'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'heat conductivity'
+  - 'coefficient of thermal conductivity'
+  - 'conductividad calorífica'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 1.6 Mechanisms of Heat Transfer'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-6-mechanisms-of-heat-transfer'
+  - title: 'HyperPhysics, Georgia State University, Thermal Conductivity and the Wiedemann-Franz Law'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/thermo/thercond.html'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 6'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, quantity kind ThermalConductivity'
+    url: 'https://qudt.org/vocab/quantitykind/ThermalConductivity'
+description:
+  en: >-
+    Thermal conductivity, symbol $\lambda$ and in many textbooks $k$, is the property of a material
+    that measures how readily heat passes through it by conduction, without any bulk motion of the
+    material. It is the rate of heat flow per unit cross-sectional area divided by the temperature
+    gradient along the flow: through a flat slab, the conducted power equals the conductivity times
+    the area times the temperature difference across the slab, divided by its thickness.
+
+    The SI unit is the watt per metre kelvin, listed in the SI Brochure among the coherent derived
+    units, and the dimension is mass times length divided by time cubed and by thermodynamic
+    temperature. Because temperature differences are equal in kelvins and degrees Celsius, a value
+    in watts per metre degree Celsius is the same number.
+
+    Thermal conductivity is a positive scalar; the direction of the heat flow comes from the
+    temperature gradient, always from hot to cold, not from the conductivity. Its value depends on
+    temperature. In metals, mobile electrons carry both electric current and heat, so a metal that
+    conducts electricity well also conducts heat well, a link expressed by the Wiedemann-Franz law.
+    Non-metallic solids conduct through vibrations of their crystal lattice, and gases conduct
+    poorly because their molecules are far apart.
+
+    The conductivity of a sample is found by maintaining a known temperature difference across it
+    and measuring the steady heat flow. Copper, at about $390\,\mathrm{W/(m\,K)}$ near the freezing
+    point of water, conducts some seventeen thousand times better than still air, and diamond
+    exceeds copper about fivefold. Good insulators such as glass wool, down and polystyrene foam owe
+    their performance to small pockets of trapped air; the ratio of an insulating layer's thickness
+    to its conductivity is the R factor quoted for building insulation.
+
+    Thermal conductivity, a property of a material, differs from the thermal resistance of a
+    particular wall or rod, which also depends on its length and area. It also differs from
+    electrical conductivity, although in metals the two are closely tied.

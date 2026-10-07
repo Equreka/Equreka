@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Farad per metre'
+symbol:
+  tex: 'F/m'
+unitOf:
+  - 'permittivity'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'farad'
+      exp: 1
+    - unit: 'metre'
+      exp: -1
+externalIds:
+  wikidata: 'Q21294882'
+  qudt: 'http://qudt.org/vocab/unit/FARAD-PER-M'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'farad per meter'
+  - 'farads per metre'
+  - 'farads per meter'
+  - 'F m-1'
+  - 'F m^-1'
+  - 'C2/(N m2)'
+  - 'faradio por metro'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.4 Derived units, Table 6, and 5.2 Unit symbols'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, CODATA 2022 value: vacuum electric permittivity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?ep0'
+  - title: 'OpenStax, University Physics Volume 2, 8.1 Capacitors and Capacitance'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance'
+  - title: 'OpenStax, University Physics Volume 2, 8.5 Molecular Model of a Dielectric, Table 8.1'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-5-molecular-model-of-a-dielectric'
+  - title: 'QUDT, unit M-PER-FARAD'
+    url: 'https://qudt.org/vocab/unit/M-PER-FARAD'
+  - title: 'QUDT, unit FARAD-PER-M'
+    url: 'https://qudt.org/vocab/unit/FARAD-PER-M'
+description:
+  en: >-
+    The farad per metre, symbol $\mathrm{F/m}$, is the coherent SI derived unit of permittivity,
+    the property that describes how a medium responds to an electric field. It is the farad, the
+    unit of capacitance, divided by the metre, and in SI base units it is the second to the fourth
+    square ampere per kilogram cubic metre. It has no special name.
+
+    The SI Brochure lists the farad per metre in its table of coherent derived units whose names
+    include units with special names, as the unit of permittivity. The pairing of a capacitance
+    with a length is not arbitrary: the capacitance of two parallel plates equals the
+    permittivity between them times the plate area divided by the gap, and an area over a length
+    is a length, so permittivity is capacitance per unit length.
+
+    One farad per metre is identical to one square coulomb per newton square metre, the form in
+    which the permittivity of vacuum first appears in Coulomb's law. The reciprocal of the farad
+    per metre, the metre per farad, measures the coefficient that multiplies charges in that law.
+
+    Real permittivities are tiny in this unit. The vacuum electric permittivity has the CODATA 2022
+    value $8.854\,187\,8188(14)\times10^{-12}\,\mathrm{F/m}$, and the permittivity of a material is
+    its dielectric constant times that value: water, with a dielectric constant near 80, has a
+    permittivity of about $7.1\times10^{-10}\,\mathrm{F/m}$.
+
+    As the SI rules for unit symbols allow, the symbol is written either as a quotient with a solidus or as a product in which the metre
+    carries the exponent minus one.

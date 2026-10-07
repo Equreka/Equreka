@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Watt per square metre'
+symbol:
+  tex: 'W/m^{2}'
+  text: 'W/m²'
+unitOf:
+  - 'irradiance'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'watt'
+      exp: 1
+    - unit: 'metre'
+      exp: -2
+externalIds:
+  wikidata: 'Q3566737'
+  qudt: 'http://qudt.org/vocab/unit/W-PER-M2'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'watt per square meter'
+  - 'watts per square metre'
+  - 'W/m2'
+  - 'W/m^2'
+  - 'W m-2'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 6 (heat flux density, irradiance) and 5.2 Unit symbols'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, unit W-PER-M2 (quantity kinds PowerPerArea and PoyntingVector)'
+    url: 'https://qudt.org/vocab/unit/W-PER-M2'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: watt per square centimeter; watt per square inch'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NASA Earth Observatory, Climate and Earth''s Energy Budget'
+    url: 'https://science.nasa.gov/earth/earth-observatory/climate-and-earths-energy-budget/'
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-053 irradiance'
+    url: 'https://cie.co.at/eilvterm/17-21-053'
+description:
+  en: >-
+    The watt per square metre, symbol $\mathrm{W/m^{2}}$, is the coherent SI derived unit of
+    irradiance and of heat flux density: a power of one watt arriving on, or passing through, each
+    square metre of a surface. The SI Brochure lists it in Table 6, among coherent derived units
+    whose names contain a unit with a special name.
+
+    It is the quotient of the watt by the square metre. In base units it reduces to the kilogram
+    per second cubed, because the square metres inside the watt cancel those of the area, so it
+    converts with factor one between its two forms.
+
+    NIST Special Publication 811 converts the watt per square centimetre as exactly $10^{4}$ watts
+    per square metre and the watt per square inch as about 1550.003 watts per square metre. QUDT
+    attaches the unit to power per area in general and to the Poynting vector, the energy flux of
+    an electromagnetic wave.
+
+    The unit describes sunlight, heat flow through walls and the intensity of radiation. NASA
+    puts the total solar irradiance, measured at the top of the atmosphere on a surface turned
+    towards the Sun at the Earth's mean distance, near 1360 watts per square metre; because only one
+    hemisphere is lit and the light strikes most latitudes at a slant, the global mean is a quarter
+    of that, about 340 watts per square metre.
+
+    The plural is watts per square metre. The symbol may be W/m² or W m⁻², but the SI rules allow
+    only one solidus in a symbol without parentheses. Because irradiance, heat flux density and
+    other quantities share this unit, a value should say which quantity it describes.

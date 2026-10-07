@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Luminance'
+symbol:
+  tex: 'L_{\mathrm{v}}'
+  text: 'Lv'
+baseUnit: 'candela-per-square-metre'
+dimension:
+  L: -2
+  J: 1
+nonNegative: true
+externalIds:
+  wikidata: 'Q355386'
+  qudt: 'http://qudt.org/vocab/quantitykind/Luminance'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'photometric brightness'
+references:
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-050 luminance'
+    url: 'https://cie.co.at/eilvterm/17-21-050'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 5 (luminance, cd m-2)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, unit CD-PER-M2 (candela per square metre), description of display luminances'
+    url: 'https://qudt.org/vocab/unit/CD-PER-M2'
+  - title: 'QUDT, quantity kind Luminance'
+    url: 'https://qudt.org/vocab/quantitykind/Luminance'
+description:
+  en: >-
+    Luminance, symbol $L_{\mathrm{v}}$, is the luminous intensity that an element of a surface sends in a
+    given direction divided by the area of that element as seen from that direction, its projected
+    area. It is the photometric quantity closest to the brightness of a surface as an eye or a
+    camera perceives it, whether the surface is a lamp, a display screen, the sky or a lit wall.
+
+    The SI unit of luminance is the candela per square metre, $\mathrm{cd/m^{2}}$, which the SI
+    Brochure lists among coherent derived units written directly in base units. Its dimension is
+    luminous intensity divided by length squared. Unlike the lux, the unit contains no steradian,
+    because luminous intensity is already a flux per unit solid angle.
+
+    Luminance is a non-negative scalar attached to a point of a surface and to a direction. The CIE
+    definition contains the angle between the normal to the surface and the direction of view, so
+    one surface can show different luminances when it is looked at from different sides. Over a
+    surface that is not uniform, a measurement gives an average over the area observed.
+
+    Luminance is measured by collecting the light that a small patch of a surface sends into a
+    narrow cone around one direction. It is the figure used to rate the brightness of displays:
+    QUDT gives values of 200 to 300 candelas per square metre for typical desktop liquid-crystal
+    monitors, 80 as the target of the sRGB standard, about 120 for calibrated monitors, and 450 to
+    roughly 1000 for high-definition televisions.
+
+    Luminance is easily confused with illuminance. Illuminance, in lux, measures the light falling
+    on a surface; luminance measures the light that leaves it towards an observer. A white sheet
+    and a black sheet lying under the same lamp receive the same illuminance but show very
+    different luminances. In display specifications the candela per square metre is often called
+    the nit, a name that is not part of the SI.

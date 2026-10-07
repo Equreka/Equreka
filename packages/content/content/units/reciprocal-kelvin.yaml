@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Reciprocal kelvin'
+symbol:
+  tex: 'K^{-1}'
+  text: 'K⁻¹'
+unitOf:
+  - 'linear-expansion-coefficient'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'kelvin'
+      exp: -1
+externalIds:
+  wikidata: 'Q107028673'
+  qudt: 'http://qudt.org/vocab/unit/PER-K'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'inverse kelvin'
+  - 'per kelvin'
+  - '1/K'
+  - '/K'
+  - 'K-1'
+  - 'K^-1'
+  - 'kelvin recíproco'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.4 and section 5.2'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 1.3 Thermal Expansion'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-3-thermal-expansion'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: degree Fahrenheit (temperature interval)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'QUDT, unit PER-K'
+    url: 'https://qudt.org/vocab/unit/PER-K'
+  - title: 'Wikidata, reciprocal kelvin (Q107028673)'
+    url: 'https://www.wikidata.org/wiki/Q107028673'
+description:
+  en: >-
+    The reciprocal kelvin, symbol $\mathrm{K^{-1}}$ and also called the inverse kelvin or per
+    kelvin, is the coherent SI unit of quantities that express a relative change per unit of
+    temperature. The best known of these is the linear expansion coefficient, the fractional change
+    in the length of a solid for each kelvin of warming; the coefficient of volume expansion uses
+    the same unit.
+
+    It is the kelvin raised to the power minus one and has no special name. A material has a linear
+    expansion coefficient of one reciprocal kelvin if its length would change by its whole original
+    value for a one kelvin change in temperature; real solids have coefficients tens of thousands of
+    times smaller or less, so values are quoted in units of $10^{-6}\,\mathrm{K^{-1}}$. Ordinary
+    steel, for example, is close to twelve of those units.
+
+    Because a temperature interval of one kelvin equals one degree Celsius, a coefficient in
+    reciprocal degrees Celsius has the same numerical value. That equality does not extend to the
+    Fahrenheit scale: a coefficient per degree Fahrenheit is five ninths of the value per kelvin.
+
+    QUDT also lists the unit for the relative pressure coefficient and for inverse temperature, the
+    reciprocal of an absolute temperature. The two kinds of use differ: an expansion or pressure
+    coefficient describes the response to a temperature change, so only the size of the step
+    matters, whereas an inverse temperature depends on the absolute value and must be computed in
+    kelvins.
+
+    The symbol may be written as a negative power, $\mathrm{K^{-1}}$, or with a solidus, 1/K, and
+    like every unit symbol it never takes a full stop or a plural ending.

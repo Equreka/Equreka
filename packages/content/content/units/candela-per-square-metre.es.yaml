@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Candela por metro cuadrado'
+description: >-
+  La candela por metro cuadrado, de símbolo $\mathrm{cd/m^{2}}$, es la unidad SI derivada coherente
+  de luminancia, la intensidad luminosa que una superficie emite en una dirección dada por unidad
+  de su área proyectada. No tiene nombre especial en el SI, cuyo folleto la incluye entre las
+  unidades derivadas coherentes escritas en unidades básicas; en la ingeniería de pantallas se la
+  llama a menudo nit.
+
+  Una superficie tiene una luminancia de una candela por metro cuadrado cuando cada metro cuadrado
+  de ella, proyectado sobre un plano perpendicular a la línea de visión, emite una intensidad
+  luminosa de una candela hacia el observador. Ambos factores son unidades SI, de modo que la
+  unidad es coherente y no necesita factor numérico.
+
+  La publicación especial 811 del NIST convierte el stilb del sistema CGS, una candela por
+  centímetro cuadrado, en exactamente $10^{4}\,\mathrm{cd/m^{2}}$; la candela por pulgada cuadrada
+  en unas 1550.003 candelas por metro cuadrado; el footlambert en unas 3.426 259, y el lambert en
+  unas 3183.099 candelas por metro cuadrado.
+
+  El brillo de las pantallas se especifica en esta unidad. QUDT da de 200 a 300 candelas por metro
+  cuadrado para monitores de cristal líquido de escritorio habituales, 80 como objetivo de la norma
+  sRGB, unas 120 para monitores calibrados y de 450 a cerca de 1000 para televisores de alta
+  definición.
+
+  La 11.ª Conferencia General de Pesas y Medidas incluyó la candela por metro cuadrado entre las
+  unidades derivadas del SI en 1960. El nombre nit, de símbolo nt, no pertenece al SI y QUDT lo
+  marca como obsoleto; Rowlett lo hace derivar del verbo latino que significa brillar. El símbolo
+  puede escribirse también cd m⁻², y el plural es candelas por metro cuadrado.

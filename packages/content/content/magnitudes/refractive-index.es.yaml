@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Índice de refracción'
+description: >-
+  El índice de refracción, de símbolo $n$, de un medio transparente es la rapidez de la luz en el vacío
+  dividida entre la rapidez de la luz en ese medio. Indica cuánto frena la luz un material y
+  determina cuánto se desvía un rayo al pasar de un medio a otro, que es el objeto de la ley de la
+  refracción en óptica.
+
+  Como cociente de dos rapideces, el índice de refracción no tiene dimensión: es un número puro
+  cuya unidad SI es la unidad uno, que casi nunca se escribe. El folleto del SI lo utiliza, junto
+  con la permitividad relativa, como ejemplo de magnitud definida como razón entre dos magnitudes
+  de la misma naturaleza.
+
+  El índice de refracción es un escalar. En los materiales ordinarios y a longitudes de onda
+  visibles vale al menos uno: el valor uno corresponde al vacío, y los valores mayores indican una
+  luz más lenta. No es una constante única de cada material, porque varía ligeramente según la
+  longitud de onda de la luz; esa variación, llamada dispersión, es la que permite a un prisma
+  separar la luz blanca en colores, por lo que las tablas indican siempre la longitud de onda a la
+  que se refieren.
+
+  Los índices se obtienen midiendo los ángulos de incidencia y de refracción de un rayo en la
+  frontera entre dos medios y aplicando la ley de la refracción. Para luz amarilla de 589
+  nanómetros de longitud de onda, OpenStax da 1.000293 para el aire a 0 °C y una atmósfera, 1.333
+  para el agua dulce, 1.52 para el vidrio crown y 2.419 para el diamante. En los gases el índice
+  es tan cercano a uno que a menudo se toma igual a uno.
+
+  El índice de refracción no es la rapidez de la luz en el medio, que es igual a la rapidez de
+  la luz en el vacío dividida entre el índice, ni tampoco un ángulo. Cuando un rayo pasa de un
+  medio a otro, la razón entre sus índices fija el cambio de dirección. Ibn Sahl ya empleaba en 984 la
+  ley que relaciona los ángulos con los índices, pero esta lleva el nombre de Willebrord Snell
+  (1591–1626), que llegó a ella en 1621.

@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Vatio por metro y kelvin'
+description: >-
+  El vatio por metro y kelvin, de símbolo $\mathrm{W/(m\,K)}$, es la unidad SI derivada coherente
+  de la conductividad térmica, la propiedad que fija la rapidez con que el calor atraviesa un
+  material por conducción. El folleto del SI la incluye entre las unidades derivadas formadas a
+  partir del vatio, que aporta el ritmo del flujo de calor, el metro y el kelvin; no tiene nombre
+  especial.
+
+  Un material tiene una conductividad térmica de un vatio por metro y kelvin cuando un salto de
+  temperatura de un kelvin entre las dos caras de una placa del material, de un metro de espesor y un
+  metro cuadrado de área, hace pasar a través de ella un vatio de calor. En unidades básicas del SI es el kilogramo metro por segundo al cubo y
+  kelvin.
+
+  Un kelvin y un grado Celsius son iguales como intervalos de temperatura, así que las tablas en
+  vatios por metro y grado Celsius dan los mismos números. La publicación especial 811 del NIST convierte la unidad de
+  ingeniería tradicional, la unidad térmica británica pie por hora, pie cuadrado y grado Fahrenheit,
+  en unos $1.730\,735\,\mathrm{W/(m\,K)}$, y la antigua caloría termoquímica por centímetro, segundo
+  y grado Celsius en exactamente 418.4 vatios por metro y kelvin.
+
+  La unidad abarca materiales muy diversos. Cerca del punto de congelación del agua, el aire en
+  reposo conduce unos 0.023 vatios por metro y kelvin y la espuma de poliestireno unos 0.035,
+  mientras que el hielo llega a 2.2, el acero a unos 80, el cobre a 390 y el diamante a unos 2000.
+  El aislamiento se clasifica a partir de estos valores: el factor R de una capa es su espesor
+  dividido entre su conductividad.
+
+  El símbolo puede escribirse también con exponentes negativos; la forma W/mK, frecuente en las
+  fichas técnicas, incumple las reglas del SI, porque sin un espacio o un punto centrado el par mK
+  se lee como milikelvin. El plural es vatios por metro y kelvin.

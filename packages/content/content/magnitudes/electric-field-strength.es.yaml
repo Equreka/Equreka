@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Intensidad de campo eléctrico'
+description: >-
+  La intensidad de campo eléctrico, llamada habitualmente campo eléctrico, es la magnitud
+  vectorial del electromagnetismo igual a la fuerza eléctrica que experimentaría una pequeña carga
+  de prueba en un punto, dividida entre esa carga. Describe cómo actúan las cargas del entorno, y
+  los campos magnéticos que varían con el tiempo, sobre cualquier carga situada en ese punto, sea
+  cual sea el tamaño de la carga de prueba empleada para detectarlo.
+
+  Su unidad SI coherente es el voltio por metro, la misma unidad que el newton por culombio, y en
+  unidades básicas del SI es el kilogramo metro por segundo al cubo y por amperio: su dimensión es
+  longitud por masa dividida entre tiempo al cubo y corriente eléctrica. En una situación estática,
+  la componente del campo en una dirección es igual al ritmo con que disminuye el potencial
+  eléctrico a lo largo de esa dirección, por lo que una tensión dividida entre una distancia da un
+  campo.
+
+  Como vector, el campo apunta en el sentido de la fuerza que sentiría una carga de prueba
+  positiva: se aleja de las cargas fuente positivas y se dirige hacia las negativas. Una carga
+  negativa situada en el mismo campo es empujada en sentido contrario. La componente sobre un eje
+  elegido puede ser positiva o negativa, mientras que el módulo del campo nunca es negativo.
+
+  En la práctica, el campo suele obtenerse a partir de una tensión medida entre dos puntos
+  separados una distancia conocida. Cerca del suelo, con buen tiempo, la atmósfera presenta un
+  campo dirigido hacia abajo de 100 a 300 voltios por metro, y bajo una tormenta alcanza miles. El
+  aire seco deja de aislar hacia $3.0\,\mathrm{MV/m}$, su rigidez dieléctrica, mientras que los
+  70 milivoltios que atraviesan una membrana celular de 7 a 10 nanómetros de grosor dan un campo de
+  al menos $7\times10^{6}\,\mathrm{V/m}$.
+
+  Se confunde con facilidad con el potencial eléctrico, un escalar medido en voltios cuyo ritmo
+  de variación en el espacio da el campo, y con la densidad de flujo eléctrico, también llamada
+  desplazamiento eléctrico, que el SI mide en culombios por metro cuadrado. La fuerza sobre una
+  carga es el producto de la carga por la intensidad de campo eléctrico.

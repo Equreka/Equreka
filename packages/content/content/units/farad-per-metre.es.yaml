@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Faradio por metro'
+description: >-
+  El faradio por metro, de símbolo $\mathrm{F/m}$, es la unidad SI derivada coherente de
+  permitividad, la propiedad que describe cómo responde un medio a un campo eléctrico. Es el
+  faradio, la unidad de capacidad eléctrica, dividido entre el metro, y en unidades básicas del SI
+  es el segundo a la cuarta por amperio al cuadrado dividido entre kilogramo y metro cúbico. No
+  tiene nombre especial.
+
+  El folleto del SI incluye el faradio por metro en su tabla de unidades derivadas coherentes cuyos
+  nombres contienen unidades con nombre especial, como unidad de permitividad. La unión de una
+  capacidad con una longitud no es arbitraria: la capacidad de dos placas paralelas es igual a la
+  permitividad entre ellas por el área de las placas dividida entre la separación, y un área entre
+  una longitud es una longitud, así que la permitividad es capacidad por unidad de longitud.
+
+  Un faradio por metro es idéntico a un culombio al cuadrado por newton y metro cuadrado, la forma
+  en que la permitividad del vacío aparece por primera vez en la ley de Coulomb. El inverso del
+  faradio por metro, el metro por faradio, mide el coeficiente que multiplica a las cargas en esa
+  ley.
+
+  Las permitividades reales son diminutas en esta unidad. La permitividad eléctrica del vacío tiene
+  el valor CODATA 2022 $8.854\,187\,8188(14)\times10^{-12}\,\mathrm{F/m}$, y la permitividad de un
+  material es su constante dieléctrica por ese valor: el agua, con una constante dieléctrica
+  cercana a 80, tiene una permitividad de unos $7.1\times10^{-10}\,\mathrm{F/m}$.
+
+  Como permiten las reglas del SI para los símbolos de unidades, el símbolo se escribe como cociente con barra oblicua o como
+  producto en el que el metro lleva el exponente menos uno.

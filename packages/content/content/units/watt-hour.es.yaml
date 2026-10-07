@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Vatio hora'
+namePlural: 'vatios hora'
+description: >-
+  El vatio hora, de símbolo $\mathrm{W\,h}$, es una unidad de energía: la energía transferida
+  cuando se mantiene una potencia de un vatio durante una hora. No es una unidad del SI, pero se
+  forma con el vatio del SI y con la hora, y con sus múltiplos, sobre todo el kilovatio hora, es la
+  unidad con la que se mide y se factura la energía eléctrica.
+
+  Como la hora equivale exactamente a 3600 segundos y el vatio es un julio por segundo,
+  $1\,\mathrm{W\,h}=3600\,\mathrm{J}$ exactamente. La publicación especial 811 del NIST da ese
+  factor para el vatio hora y otro mil veces mayor para el kilovatio hora, que equivale por tanto a
+  3.6 megajulios.
+
+  La energía en vatios hora es la potencia en vatios multiplicada por el tiempo en horas. Una
+  lámpara de 40 vatios encendida cinco horas consume 200 vatios hora, o 0.2 kilovatios hora, el
+  ejemplo con el que la Administración de Información Energética de Estados Unidos explica la
+  unidad. Las cantidades mayores se expresan en megavatios hora, gigavatios hora y teravatios
+  hora, cada uno mil veces el anterior.
+
+  Los contadores eléctricos registran el consumo en kilovatios hora, y la factura multiplica esa
+  lectura por un precio por kilovatio hora. Según esa administración, el cliente residencial medio
+  de Estados Unidos compró 10 791 kilovatios hora de electricidad en 2022, unos 899 al mes. La
+  carga en amperios hora multiplicada por la tensión también da una energía en vatios hora.
+
+  El nombre se escribe vatio hora o vatio-hora. Las reglas del SI exigen un espacio o un punto a
+  media altura entre los símbolos de unidades que se multiplican, por lo que los símbolos
+  correctos son W h y kW h; la forma compacta kWh de facturas y contadores omite el separador. El
+  plural es vatios hora, con la marca de plural solo en el primer sustantivo.

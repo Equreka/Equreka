@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Vatio por metro cuadrado y kelvin a la cuarta'
+description: >-
+  El vatio por metro cuadrado y kelvin a la cuarta, de símbolo $\mathrm{W\,m^{-2}\,K^{-4}}$, es la
+  unidad SI coherente en la que se expresa la constante de Stefan-Boltzmann. Es una unidad compuesta
+  formada a partir del vatio, el metro y el kelvin, no tiene nombre especial y ninguna magnitud
+  cotidiana se mide con ella, por lo que no tiene magnitud propia; QUDT la clasifica en un tipo
+  específico, potencia por unidad de área y por temperatura a la cuarta.
+
+  La unidad se deriva de la ley de Stefan-Boltzmann. Un cuerpo negro radia una potencia por unidad
+  de área de su superficie que crece con la cuarta potencia de su temperatura absoluta, de modo que
+  la constante que convierte la cuarta potencia de la temperatura en kelvin en vatios por metro cuadrado debe llevar esta
+  unidad. Escrita en unidades básicas del SI, es el kilogramo por segundo al cubo y kelvin a la
+  cuarta, porque los metros cuadrados del vatio se cancelan con los del área.
+
+  El NIST da la constante como $5.670\,374\,419\ldots\times10^{-8}$ de estas unidades, un valor
+  exacto desde la revisión del SI de 2019. Con ella, una superficie negra a 300 kelvin, cerca de la
+  temperatura ambiente, emite unos 459 vatios por metro cuadrado. La pronunciada cuarta potencia
+  explica por qué las temperaturas que entran en esta unidad deben ser siempre absolutas: un valor
+  en grados Celsius daría un resultado absurdo.
+
+  La unidad aparece en la física de la radiación térmica, desde la estimación del calor que pierde
+  un cuerpo templado hasta el cálculo de la potencia que radia una estrella a partir de la
+  temperatura y el área de su superficie. El símbolo puede escribirse también con barra oblicua y
+  paréntesis, como W/(m² K⁴) en texto plano. El plural es vatios por metro cuadrado y kelvin a la
+  cuarta.

@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Permeabilidad'
+description: >-
+  La permeabilidad, o permeabilidad magnética, es la magnitud del electromagnetismo que describe
+  cómo responde un medio a un campo magnético: el cociente entre la densidad de flujo magnético en
+  el medio y la intensidad de campo magnético que la produce. Una bobina arrollada sobre un
+  material de alta permeabilidad produce, con la misma corriente, una densidad de flujo mucho mayor
+  que la misma bobina en el aire.
+
+  Su unidad SI coherente es el henrio por metro, que equivale al newton por amperio al cuadrado; en
+  unidades básicas del SI es el kilogramo metro por segundo al cuadrado y por amperio al cuadrado,
+  de modo que su dimensión es longitud por masa dividida entre tiempo al cuadrado y corriente al
+  cuadrado. La permeabilidad magnética del vacío, de unos $1.257\times10^{-6}\,\mathrm{H/m}$, es el valor de
+  referencia.
+
+  En un material isótropo la permeabilidad es un escalar positivo, mientras que en uno anisótropo
+  pasa a ser un tensor. Suele darse como permeabilidad relativa, la permeabilidad del material
+  dividida entre la del vacío, que es igual a uno más la susceptibilidad magnética. En los
+  materiales paramagnéticos como el aluminio el valor relativo supera ligeramente la unidad; en los
+  diamagnéticos como el cobre y el agua queda algo por debajo de uno, con una susceptibilidad
+  cercana a $-10^{-5}$; y en los ferromagnéticos como el hierro, el níquel y el cobalto es muy
+  grande.
+
+  Se mide comparando la densidad de flujo dentro de una bobina larga llena del material con la de
+  la bobina vacía para la misma corriente. Los ferromagnéticos alcanzan susceptibilidades, y por
+  tanto permeabilidades relativas, del orden de mil a diez mil, pero en ellos la permeabilidad no
+  es un número fijo: depende del campo aplicado y de la historia magnética de la muestra, el
+  efecto llamado histéresis.
+
+  La permeabilidad es el equivalente magnético de la permitividad, y ambas se confunden con
+  facilidad. Interviene en la energía almacenada en un campo magnético y en la inductancia de una
+  bobina, que aumenta cuando se arrolla sobre un núcleo magnetizable, mientras que los valores de
+  la permeabilidad y la permitividad en el vacío fijan juntos la velocidad de la luz.

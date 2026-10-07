@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Coeficiente de dilatación lineal'
+description: >-
+  El coeficiente de dilatación lineal, de símbolo $\alpha$ y llamado también coeficiente de
+  dilatación térmica lineal, mide cómo responde la longitud de un sólido a un cambio de temperatura:
+  es la variación relativa de longitud por cada kelvin de variación de temperatura. En intervalos de
+  temperatura moderados, la variación de longitud es proporcional a la longitud inicial $L$ y a la
+  variación de temperatura, $\Delta L=\alpha L\Delta T$, y el coeficiente es la constante de
+  proporcionalidad.
+
+  Su unidad SI es la inversa del kelvin, y su dimensión es la inversa de la temperatura
+  termodinámica. Un intervalo de un kelvin tiene el mismo tamaño que uno de un grado Celsius, de
+  modo que un valor por grado Celsius es numéricamente idéntico. Como los valores son pequeños, las
+  tablas suelen darlos en millonésimas por kelvin.
+
+  El coeficiente es una magnitud escalar que en principio puede tener cualquier signo. Casi todos
+  los sólidos se alargan al calentarse, por lo que sus coeficientes son positivos; un valor negativo
+  significaría contracción al calentarse, el comportamiento inusual que el agua líquida muestra en
+  volumen poco por encima de su punto de congelación. El propio coeficiente varía ligeramente con
+  la temperatura, así que tratarlo como constante es una aproximación precisa para la mayoría de los
+  cambios de temperatura prácticos. En un sólido que se dilata por igual en todas las direcciones,
+  el coeficiente de dilatación volumétrica es aproximadamente el triple del lineal; un líquido solo
+  tiene coeficiente volumétrico, ya que su forma sigue la del recipiente.
+
+  Se mide registrando la longitud de una varilla o barra a dos temperaturas conocidas. El acero
+  ordinario tiene unos $12\times10^{-6}\,\mathrm{K^{-1}}$, el aluminio aproximadamente el doble y el
+  invar, una aleación de níquel y hierro, menos de la décima parte del valor del acero. Los
+  ingenieros tienen en cuenta estos cambios con juntas de dilatación en puentes y vías férreas, y el
+  acero resulta adecuado para el hormigón armado porque ambos materiales se dilatan casi al mismo
+  ritmo.
+
+  El coeficiente lineal no debe confundirse con el coeficiente de dilatación volumétrica, que suele
+  escribirse con la letra griega beta, ni con la deformación térmica, la variación relativa de
+  longitud, sin dimensiones, que resulta de un cambio de temperatura dado.

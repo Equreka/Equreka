@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Coulomb constant'
+symbol:
+  tex: 'k_{\mathrm{e}}'
+  text: 'ke'
+value: '8.9875517862e9'
+approximations:
+  - '8.99e9'
+unit: 'newton-square-metre-per-square-coulomb'
+exact: false
+uncertainty: '1.4'
+source:
+  name: 'Derived from NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?ep0'
+  ref: 'derived, not a CODATA entry: 1/(4 pi epsilon_0) from vacuum electric permittivity 8.8541878188(14)e-12 F/m; same relative standard uncertainty'
+externalIds:
+  wikidata: 'Q9855158'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'Coulomb''s constant'
+  - 'electrostatic constant'
+  - 'electric force constant'
+  - 'k_e'
+  - 'constante electrostática'
+references:
+  - title: 'NIST, CODATA 2022 value: vacuum electric permittivity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?ep0'
+  - title: 'NIST, CODATA 2022 complete listing of fundamental physical constants'
+    url: 'https://physics.nist.gov/cuu/Constants/Table/allascii.txt'
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.1 The ampere and Appendix 4'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 5.3 Coulomb''s Law'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/5-3-coulombs-law'
+  - title: 'OpenStax, University Physics Volume 2, 5.4 Electric Field'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/5-4-electric-field'
+  - title: 'OpenStax, University Physics Volume 2, 7.1 Electric Potential Energy'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/7-1-electric-potential-energy'
+  - title: 'OpenStax, University Physics Volume 2, 16.2 Plane Electromagnetic Waves'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/16-2-plane-electromagnetic-waves'
+description:
+  en: >-
+    The Coulomb constant, symbol $k_{\mathrm{e}}$, also called the electrostatic constant, is
+    defined as one divided by four pi times the vacuum electric permittivity. CODATA does not list
+    it separately; computed from the CODATA 2022 permittivity it is
+    $8.987\,551\,7862(14)\times10^{9}\,\mathrm{N\,m^{2}\,C^{-2}}$, a measured value with the same
+    relative standard uncertainty as the permittivity, $1.6\times10^{-10}$, because four pi is
+    exact.
+
+    The constant is the proportionality factor of Coulomb's law: the force between two point
+    charges equals the constant times the product of the charges divided by the square of their
+    distance. Its size shows how strong electric forces are: two charges of one coulomb placed one
+    metre apart would push on each other with nearly nine thousand million newtons.
+
+    The same factor sets the electric field of a point charge, the constant times the charge over
+    the square of the distance, the electric potential of that charge, and the potential energy
+    of two charges, the constant times their product over their separation. Many texts write the
+    factor out as one over four pi times the permittivity and introduce the shorter symbol only
+    for convenience.
+
+    Because the product of the electric and magnetic constants equals one over the square of the
+    speed of light, the Coulomb constant also equals the square of that speed times the magnetic
+    constant divided by four pi. From 1948 the magnetic constant was fixed at exactly four pi
+    times ten to the minus seven, and once the speed of light became exact in 1983 the Coulomb
+    constant was exactly that speed squared times ten to the minus seven. The 2019 revision of the
+    SI released the magnetic constant, so the Coulomb constant now carries the measured uncertainty of the
+    permittivity; its CODATA 2022 value lies below the former exact value by less than one
+    standard uncertainty.

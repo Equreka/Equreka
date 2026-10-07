@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Siemens'
+symbol:
+  tex: 'S'
+unitOf:
+  - 'electrical-conductance'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'ohm'
+      exp: -1
+externalIds:
+  wikidata: 'Q169893'
+  qudt: 'http://qudt.org/vocab/unit/S'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'mho'
+  - 'reciprocal ohm'
+  - 'inverse ohm'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 and Appendix 1 (14th CGPM, 1971, pascal and siemens)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: abmho, mho, statmho'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'R. Rowlett, How Many? A Dictionary of Units of Measurement, University of North Carolina: siemens'
+    url: 'https://www.ibiblio.org/units/dictS.html'
+  - title: 'QUDT, unit S (siemens)'
+    url: 'https://qudt.org/vocab/unit/S'
+description:
+  en: >-
+    The siemens, symbol S, is the coherent SI derived unit of electrical conductance, one of the 22
+    SI units with special names and symbols. It also serves for admittance and susceptance, the
+    quantities that play the role of conductance in alternating-current circuits.
+
+    One siemens is the conductance of an element that carries a current of one ampere when a
+    potential difference of one volt is applied across it, so $1\,\mathrm{S}=1\,\mathrm{A/V}$, the
+    reciprocal of the ohm. The SI Brochure lists the unit in its Table 4 as
+    $\mathrm{kg^{-1}\,m^{-2}\,s^{3}\,A^{2}}$ in base units; like the other electrical units, it is
+    tied through the ampere, the volt and the ohm to the fixed values of the defining constants.
+
+    Because conductance is the reciprocal of resistance, a resistor of 100 ohms has a conductance
+    of 10 millisiemens, and conductances of elements connected in parallel add. NIST Special
+    Publication 811 converts the old mho as exactly one siemens, the CGS electromagnetic abmho as
+    $10^{9}$ siemens and the electrostatic statmho as about $1.112\,650\times10^{-12}$ siemens.
+
+    Besides circuit analysis, the siemens appears in the unit of electrical conductivity, the
+    siemens per metre, which is the reciprocal of the ohm metre used for resistivity.
+
+    In 1971 the 14th CGPM, the General Conference on Weights and Measures, gave the name siemens
+    to the unit then called the reciprocal ohm. It honours the German electrical engineer Werner von
+    Siemens (1816–1892). The earlier name mho, ohm reversed, is still found in older books. The
+    name keeps its final s in the singular, one siemens, and its symbol is a capital S,
+    which must not be confused with the lower-case s of the second.

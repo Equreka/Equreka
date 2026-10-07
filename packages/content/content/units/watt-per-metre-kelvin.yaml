@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Watt per metre kelvin'
+symbol:
+  tex: 'W/(m\,K)'
+  text: 'W/(m·K)'
+unitOf:
+  - 'thermal-conductivity'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'watt'
+      exp: 1
+    - unit: 'metre'
+      exp: -1
+    - unit: 'kelvin'
+      exp: -1
+externalIds:
+  wikidata: 'Q1463969'
+  qudt: 'http://qudt.org/vocab/unit/W-PER-M-K'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'watt per meter kelvin'
+  - 'watt per metre per kelvin'
+  - 'W/(m K)'
+  - 'W/mK'
+  - 'W/(m*K)'
+  - 'W m-1 K-1'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 6'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: British thermal unit foot per hour square foot degree Fahrenheit; calorie per centimetre second degree Celsius'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'OpenStax, University Physics Volume 2, 1.6 Mechanisms of Heat Transfer'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-6-mechanisms-of-heat-transfer'
+  - title: 'QUDT, unit W-PER-M-K'
+    url: 'https://qudt.org/vocab/unit/W-PER-M-K'
+description:
+  en: >-
+    The watt per metre kelvin, symbol $\mathrm{W/(m\,K)}$, is the coherent SI derived unit of
+    thermal conductivity, the property that sets how fast heat flows through a material by
+    conduction. The SI Brochure lists it among the derived units built from the watt, which supplies
+    the rate of heat flow, the metre and the kelvin; it has no special name.
+
+    A material has a thermal conductivity of one watt per metre kelvin when a temperature step of one
+    kelvin between the two faces of a slab of it, one metre thick and one square metre in area,
+    drives one watt of heat through it. In SI base units it is the kilogram metre per second cubed kelvin.
+
+    A kelvin and a degree Celsius are equal as temperature intervals, so tables in watts per metre
+    degree Celsius give the same numbers. NIST Special Publication 811 converts the customary engineering unit,
+    the British thermal unit foot per hour square foot degree Fahrenheit, as about
+    $1.730\,735\,\mathrm{W/(m\,K)}$, and the old thermochemical calorie per centimetre second degree
+    Celsius as exactly 418.4 watts per metre kelvin.
+
+    The unit spans a wide range of materials. Near the freezing point of water, still air conducts
+    about 0.023 watts per metre kelvin and polystyrene foam about 0.035, while ice reaches 2.2,
+    steel about 80, copper 390 and diamond about 2000. Insulation is rated from such values: the R
+    factor of a layer is its thickness divided by its conductivity.
+
+    The symbol may also be written with negative exponents; the form W/mK, often seen in data
+    sheets, breaks the SI rules, because without a space or a centred dot the pair mK reads as the
+    millikelvin. The plural is watts per metre kelvin.

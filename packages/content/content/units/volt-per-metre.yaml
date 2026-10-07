@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Volt per metre'
+symbol:
+  tex: 'V/m'
+unitOf:
+  - 'electric-field-strength'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'volt'
+      exp: 1
+    - unit: 'metre'
+      exp: -1
+externalIds:
+  wikidata: 'Q3562962'
+  qudt: 'http://qudt.org/vocab/unit/V-PER-M'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'volt per meter'
+  - 'volts per metre'
+  - 'volts per meter'
+  - 'V m-1'
+  - 'V m^-1'
+  - 'N/C'
+  - 'newton per coulomb'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.4 Derived units, Table 6, 5.2 Unit symbols, and Appendix 1 (11th CGPM 1960 Resolution 12)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 5.4 Electric Field'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/5-4-electric-field'
+  - title: 'OpenStax, University Physics Volume 2, 8.5 Molecular Model of a Dielectric, Table 8.1'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-5-molecular-model-of-a-dielectric'
+  - title: 'University of Arizona, ATMO 489, Lecture 1: The Global Electrical Circuit'
+    url: 'http://www.atmo.arizona.edu/students/courselinks/spring13/atmo589/ATMO489_online/lecture_1/lect1_global_elec_circuit.html'
+  - title: 'QUDT, unit V-PER-M'
+    url: 'https://qudt.org/vocab/unit/V-PER-M'
+description:
+  en: >-
+    The volt per metre, symbol $\mathrm{V/m}$, is the coherent SI derived unit of electric field
+    strength. It is formed by dividing the volt, the unit of electric potential difference, by the
+    metre, and in SI base units it is the kilogram metre per second cubed per ampere. It has no
+    special name of its own.
+
+    The SI Brochure lists the volt per metre in its table of coherent derived units whose names
+    include units with special names, as the unit of electric field strength, and the 11th CGPM
+    already named it among the derived units of the SI in 1960. A uniform field of one volt per
+    metre is one in which the electric potential changes by one volt for every metre travelled
+    along the field.
+
+    The volt per metre is identical to the newton per coulomb, the form that follows from defining
+    the field as force per unit charge: a volt is a joule per coulomb, and a joule divided by a
+    metre is a newton. Large fields are often written with prefixes, and one megavolt per metre
+    equals one kilovolt per millimetre.
+
+    Typical values range widely. In fair weather the atmosphere near the ground carries 100 to 300
+    volts per metre, and the field under a thunderstorm rises to thousands. Dielectric strengths
+    of insulators are tabulated in megavolts per metre: dry air breaks down at about 3.0, paper at
+    16 and mica at 118.
+
+    The symbol may be written as a quotient, $\mathrm{V/m}$, or as a product with a negative
+    exponent, $\mathrm{V\,m^{-1}}$; both forms are accepted under the SI rules for combining unit
+    symbols. The plural is volts per metre.

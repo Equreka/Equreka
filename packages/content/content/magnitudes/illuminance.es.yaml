@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Iluminancia'
+description: >-
+  La iluminancia, de símbolo $E_{\mathrm{v}}$, es el flujo luminoso que incide sobre una superficie dividido
+  entre el área que lo recibe: la cantidad de luz visible, ponderada por la sensibilidad espectral
+  del ojo humano, que cae sobre cada metro cuadrado de una superficie real o imaginaria en un punto
+  dado. Es la magnitud fotométrica con la que se juzga si una mesa, un pasillo o una carretera
+  están bien iluminados para una tarea.
+
+  Su unidad SI es el lux, de símbolo lx, igual a un lumen por metro cuadrado. El folleto del SI
+  incluye el lux entre las unidades con nombre especial y lo expresa como candela estereorradián
+  por metro cuadrado. La dimensión de la iluminancia es, por tanto, la intensidad luminosa
+  dividida entre el cuadrado de una longitud, con el ángulo sólido del estereorradián indicado de
+  forma explícita.
+
+  La iluminancia es un escalar no negativo. Describe la luz recibida, no la emitida, y depende de
+  la posición y de la orientación de la superficie. Desde una fuente pequeña disminuye con el
+  cuadrado de la distancia: una lámpara de intensidad luminosa de una candela produce un lux sobre
+  una superficie orientada hacia ella a un metro, y un cuarto de lux a dos metros.
+
+  La mayoría de los fotómetros miden directamente la iluminancia. La Health and Safety Executive
+  del Reino Unido recomienda iluminancias medias de unos 20 lux para pasillos y vías de vehículos,
+  200 lux para oficinas y 500 lux para trabajos con detalle fino, como las oficinas de dibujo o el
+  montaje de componentes electrónicos. El vocabulario de la CIE define la iluminancia como el
+  flujo luminoso incidente por unidad de área en un punto de una superficie, y señala que también
+  puede obtenerse de la irradiancia espectral ponderada por la eficiencia luminosa espectral del
+  ojo.
+
+  La iluminancia se confunde a menudo con el flujo luminoso y con la luminancia. El flujo
+  luminoso, en lúmenes, es la luz total que emite una fuente; la iluminancia es ese flujo por
+  unidad de área donde llega; la luminancia, en candelas por metro cuadrado, describe el brillo con
+  que se ve una superficie desde una dirección. Su equivalente radiométrico es la irradiancia, que
+  cuenta la potencia radiante sin ponderarla por el ojo. La antigua bujía-pie, un lumen por pie
+  cuadrado, equivale a unos 10.76 lux.

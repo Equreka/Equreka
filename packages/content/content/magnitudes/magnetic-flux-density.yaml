@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Magnetic flux density'
+symbol:
+  tex: 'B'
+baseUnit: 'tesla'
+dimension:
+  M: 1
+  T: -2
+  I: -1
+externalIds:
+  wikidata: 'Q30204'
+  qudt: 'http://qudt.org/vocab/quantitykind/MagneticFluxDensity'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'magnetic field'
+  - 'B-field'
+  - 'magnetic induction'
+  - 'campo magnético'
+  - 'inducción magnética'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.4 Derived units, Table 4, and Appendix 1 (11th CGPM, 1960, Resolution 12)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 11.2 Magnetic Fields and Lines'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/11-2-magnetic-fields-and-lines'
+  - title: 'OpenStax, University Physics Volume 2, 11.3 Motion of a Charged Particle in a Magnetic Field'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/11-3-motion-of-a-charged-particle-in-a-magnetic-field'
+  - title: 'OpenStax, University Physics Volume 2, 11.6 The Hall Effect'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/11-6-the-hall-effect'
+  - title: 'HyperPhysics, Georgia State University, Magnetic Field'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/magnetic/magfie.html'
+  - title: 'NIST, Taking Measure: What''s in a Name? The Tesla'
+    url: 'https://www.nist.gov/blogs/taking-measure/whats-name-tesla'
+  - title: 'QUDT, quantity kind MagneticFluxDensity'
+    url: 'https://qudt.org/vocab/quantitykind/MagneticFluxDensity'
+description:
+  en: >-
+    Magnetic flux density, commonly called the magnetic field or the B-field and also known as
+    magnetic induction, is the vector quantity of electromagnetism that fixes the magnetic force
+    on a moving electric charge or on a wire carrying a current. A charge crossing the field at
+    right angles feels a force proportional to its charge, its speed and the flux density,
+    directed perpendicular to both its velocity and the field.
+
+    The coherent SI unit is the tesla, equal to one weber per square metre, and in SI base units
+    it is the kilogram per second squared per ampere: the dimension is mass divided by time
+    squared and by electric current. Read from the force law, the tesla is also a newton second
+    per coulomb metre. The gauss of the CGS system is one ten-thousandth of a tesla.
+
+    The quantity is a vector. At each point it is tangent to the field line through that point,
+    the direction a small compass needle settles along, and outside a magnet the lines leave its
+    north pole, enter its south pole and close on themselves. Its magnitude is never negative,
+    while a component along an axis takes either sign. Because the magnetic force is always
+    perpendicular to the velocity, it does no work: it bends the path of a charge without
+    changing its speed.
+
+    Hall-effect probes and other magnetometers measure it. The field of the Earth at its surface
+    is about $5\times10^{-5}\,\mathrm{T}$, half a gauss; the strongest permanent magnets come
+    close to 2 teslas; medical MRI scanners typically work at 1.5 to 3 teslas, with experimental
+    machines at 10.5; and superconducting electromagnets reach 10 teslas or more.
+
+    It is often confused with magnetic field strength, measured in amperes per metre, which in
+    vacuum differs from it only by the factor of the vacuum magnetic permeability, and with
+    magnetic flux, the flux density summed over a surface and measured in webers. The unit is
+    named after the inventor Nikola Tesla.

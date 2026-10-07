@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Amperio hora'
+namePlural: 'amperios hora'
+description: >-
+  El amperio hora, de símbolo $\mathrm{A\,h}$, es una unidad de carga eléctrica: la carga que una
+  corriente constante de un amperio hace pasar por un punto en una hora. No es una unidad del SI,
+  pero combina la unidad básica amperio con la hora, que el folleto del SI incluye en su
+  tabla 8 de unidades no SI que se usan junto con el SI.
+
+  Su valor se deduce de sus dos factores. La hora equivale exactamente a 3600 segundos, y un
+  amperio durante un segundo transporta un culombio, de modo que
+  $1\,\mathrm{A\,h}=3600\,\mathrm{C}$ exactamente. La publicación especial 811 del NIST da el mismo
+  factor exacto en su apéndice B.8.
+
+  El miliamperio hora, la milésima parte de un amperio hora, equivale a 3.6 culombios. Una carga en
+  amperios hora multiplicada por una tensión en voltios da una energía en vatios hora, porque el
+  producto de la carga por la diferencia de potencial es una energía; así se estima la energía
+  almacenada en una batería a partir de su capacidad nominal y de su tensión nominal.
+
+  El amperio hora es la unidad habitual de la capacidad de las baterías, la carga que una celda
+  puede entregar antes de agotarse, y las celdas pequeñas suelen etiquetarse en miliamperios hora.
+  QUDT señala también su uso para la carga que circula en la galvanoplastia y en otros procesos
+  electroquímicos.
+
+  El nombre se escribe amperio hora o amperio-hora. Las reglas del SI exigen un espacio o un punto a
+  media altura entre los símbolos de unidades que se multiplican, por lo que el símbolo correcto es
+  A h o A·h; la forma compacta Ah, frecuente en las etiquetas, omite el separador. El plural es
+  amperios hora, con la marca de plural solo en el primer sustantivo.

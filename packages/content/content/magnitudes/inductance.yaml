@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Inductance'
+symbol:
+  tex: 'L'
+baseUnit: 'henry'
+dimension:
+  L: 2
+  M: 1
+  T: -2
+  I: -2
+nonNegative: true
+externalIds:
+  wikidata: 'Q177897'
+  qudt: 'http://qudt.org/vocab/quantitykind/Inductance'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'self-inductance'
+  - 'self inductance'
+  - 'autoinductancia'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.4 Derived units, Table 4, and Appendix 1 (CIPM, 1946, Resolution 2)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 14.1 Mutual Inductance'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/14-1-mutual-inductance'
+  - title: 'OpenStax, University Physics Volume 2, 14.2 Self-Inductance and Inductors'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/14-2-self-inductance-and-inductors'
+  - title: 'OpenStax, University Physics Volume 2, 14.3 Energy in a Magnetic Field'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/14-3-energy-in-a-magnetic-field'
+  - title: 'HyperPhysics, Georgia State University, Inductance'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/electric/induct.html'
+  - title: 'QUDT, quantity kind Inductance'
+    url: 'https://qudt.org/vocab/quantitykind/Inductance'
+description:
+  en: >-
+    Inductance, or self-inductance, is the property of an electric circuit or coil that relates
+    the magnetic flux it produces to the current that produces it: the total flux linked with the
+    circuit divided by that current. Because a changing flux induces a voltage, inductance also
+    sets how strongly a coil resists any change in its own current.
+
+    Its coherent SI unit is the henry, equal to the weber per ampere and to the volt second per
+    ampere; in SI base units it is the kilogram square metre per second squared per square
+    ampere, so the dimension is length squared times mass divided by time squared and by current
+    squared. A circuit has an inductance of one henry when a current changing steadily by one
+    ampere each second induces one volt in it, the definition the CIPM adopted in 1946.
+
+    Self-inductance is a scalar and, with the usual convention that relates the normal of the
+    loop and its current through the right-hand rule, it is always positive. The induced voltage always
+    opposes the change in current, as Lenz's law requires, so an inductor slows the growth of a
+    current and also resists its decrease. Like capacitance, it is a geometric quantity: for a
+    coil in air it depends on the shape, the size and the number of turns, not on the current.
+
+    It is measured from the voltage across a coil while its current changes at a known rate: if
+    a current rising by 50 amperes per second induces 20 millivolts, the inductance is
+    $0.40\,\mathrm{mH}$. An inductor carrying a current stores energy in its
+    magnetic field, equal to half the inductance times the square of the current.
+
+    Inductance is distinct from mutual inductance, which links the flux through one coil to the
+    current in a neighbouring coil and is also measured in henries; transformers rely on a large
+    mutual inductance, while traffic-light sensors buried in roads detect the change in
+    self-inductance caused by a car above them. The henry honours the
+    American scientist Joseph Henry, who discovered induced voltages independently of Faraday.

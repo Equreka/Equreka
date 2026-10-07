@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Wien wavelength displacement law constant'
+symbol:
+  tex: 'b'
+value: '2.897771955e-3'
+approximations:
+  - '2.898e-3'
+unit: 'metre-kelvin'
+exact: true
+truncated: true
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?bwien'
+  ref: 'Wien wavelength displacement law constant'
+externalIds:
+  wikidata: 'Q10843113'
+  qudt: 'http://qudt.org/vocab/constant/WienWavelengthDisplacementLawConstant'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'Wien displacement constant'
+  - 'Wien''s displacement constant'
+  - 'Wien constant'
+  - 'Wien''s constant'
+  - 'Wien displacement law constant'
+references:
+  - title: 'NIST, CODATA 2022 value: Wien wavelength displacement law constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?bwien'
+  - title: 'NIST, CODATA 2022: Wien wavelength displacement law constant, defining equation'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?eqbwien'
+  - title: 'NIST, CODATA 2022 value: Wien frequency displacement law constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?bpwien'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.2, Table 1'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 3, 6.1 Blackbody Radiation'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-1-blackbody-radiation'
+  - title: 'HyperPhysics, Georgia State University, Peaks of Blackbody Radiation Intensity'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/quantum/wien3.html'
+  - title: 'HyperPhysics, Georgia State University, Stefan-Boltzmann Law'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/thermo/stefan.html'
+  - title: 'MacTutor History of Mathematics, Wilhelm Wien'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Wien/'
+description:
+  en: >-
+    The Wien wavelength displacement law constant, symbol $b$ and often called the Wien displacement
+    constant, has the CODATA 2022 value $2.897\,771\,955\ldots\times10^{-3}\,\mathrm{m\,K}$. It is
+    exact, because NIST obtains it from the Planck constant, the speed of light in vacuum and the
+    Boltzmann constant, all fixed by definition in the SI since 2019, divided by a pure number that
+    solves an equation with no closed form; its decimal expansion therefore never ends.
+
+    The constant sets where the spectrum of a black body peaks. When the radiated power per unit
+    wavelength is plotted against wavelength, the curve reaches its maximum at a wavelength
+    inversely proportional to the absolute temperature, and the product of that peak wavelength and
+    the temperature equals the constant. A hotter body thus glows with its peak at shorter
+    wavelengths. The peak depends on how the spectrum is plotted: per unit frequency the maximum
+    falls elsewhere, and NIST lists a separate frequency displacement constant in hertz per kelvin.
+
+    The constant appears in Wien's displacement law, peak wavelength times temperature equals $b$,
+    which NIST writes as $b=(hc/k)/4.965\,114\,231\ldots$, the divisor being the root of the
+    equation obtained by maximizing Planck's radiation law. Astronomers use the law to estimate the
+    surface temperature of a star from the colour of its light: a surface near 5800 kelvins, like
+    the Sun's, peaks close to 500 nanometres.
+
+    Wilhelm Wien stated the displacement law in 1893 through a thought-experiment argument built on
+    known physical laws, three years before he proposed a formula for the whole spectrum, and
+    received the 1911 Nobel Prize in Physics for his work on heat radiation. Planck's law of 1900
+    later produced the curve whose peak the constant locates, and the 2019 revision of the SI made
+    the constant exact.

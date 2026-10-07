@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Permitividad'
+description: >-
+  La permitividad, llamada también permitividad absoluta o eléctrica, es la magnitud del
+  electromagnetismo que describe cómo responde un medio a un campo eléctrico: el cociente entre la
+  densidad de flujo eléctrico, o desplazamiento, en el medio y la intensidad de campo eléctrico que
+  lo produce. Cuanto mayor es la permitividad, más se polariza el medio y más débil es el campo que
+  deja una carga libre dada.
+
+  Su unidad SI coherente es el faradio por metro, que equivale al culombio al cuadrado por newton
+  y metro cuadrado; en unidades básicas del SI es el segundo a la cuarta por amperio al cuadrado
+  dividido entre kilogramo y metro cúbico, de modo que su dimensión es tiempo a la cuarta por
+  corriente al cuadrado dividida entre masa y longitud al cubo. La permitividad eléctrica del vacío, de unos
+  $8.85\times10^{-12}\,\mathrm{F/m}$, es la referencia con la que se compara todo material.
+
+  En los materiales corrientes la permitividad es un escalar positivo, y suele darse como
+  permitividad relativa, llamada también constante dieléctrica: la permitividad del material
+  dividida entre la del vacío. El folleto del SI trata ese cociente entre dos magnitudes de la
+  misma naturaleza como un número puro, con la unidad uno. Una permitividad relativa exactamente
+  igual a 1 corresponde al vacío, y todo aislante tiene un valor mayor que 1.
+
+  Se mide llenando el hueco de un condensador con el material y comparando la capacidad eléctrica
+  con la del condensador vacío, ya que la capacidad aumenta en el factor de la constante
+  dieléctrica. Valores relativos típicos son 1.00059 para el aire seco a una atmósfera, 2.1 para
+  el teflón, unos 80 para el agua y entre aproximadamente mil y diez mil para el titanato de bario.
+
+  La permitividad se confunde con facilidad con la permeabilidad, su equivalente magnético, y con
+  la rigidez dieléctrica de un aislante, que es el campo eléctrico al que se perfora y empieza a
+  conducir, medida en voltios por metro y no en faradios por metro.

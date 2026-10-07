@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Metre kelvin'
+symbol:
+  tex: 'm\,K'
+  text: 'm·K'
+unitOf: []
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'metre'
+      exp: 1
+    - unit: 'kelvin'
+      exp: 1
+externalIds:
+  wikidata: 'Q41588368'
+  qudt: 'http://qudt.org/vocab/unit/M-K'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'meter kelvin'
+  - 'metre-kelvin'
+  - 'meter-kelvin'
+  - 'm K'
+  - 'm.K'
+  - 'm*K'
+references:
+  - title: 'NIST, CODATA 2022 value: Wien wavelength displacement law constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?bwien'
+  - title: 'NIST, CODATA 2022 value: second radiation constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?c22ndrc'
+  - title: 'HyperPhysics, Georgia State University, Wien''s Displacement Law'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/wien.html'
+  - title: 'HyperPhysics, Georgia State University, Stefan-Boltzmann Law'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/thermo/stefan.html'
+  - title: 'BIPM, The International System of Units, 9th ed., section 5.2'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, unit M-K'
+    url: 'https://qudt.org/vocab/unit/M-K'
+description:
+  en: >-
+    The metre kelvin, symbol $\mathrm{m\,K}$, is the product of the metre and the kelvin, the
+    coherent SI unit of a length multiplied by a thermodynamic temperature. Its best-known use is as
+    the unit of the Wien wavelength displacement law constant; no common physical quantity is
+    measured in it, so it is a compound unit without a magnitude of its own, which QUDT classes
+    under length temperature.
+
+    The unit arises from Wien's displacement law. As a black body grows hotter, the wavelength at
+    which its spectrum, plotted against wavelength, reaches its maximum moves to shorter values, in
+    inverse proportion to the absolute temperature. The product of that peak wavelength and the
+    temperature is therefore a constant, and a length times a temperature is expressed in metre
+    kelvins.
+
+    NIST gives the displacement constant as about $2.897\,771\,955\times10^{-3}$ metre kelvins, and
+    the second radiation constant, about 0.014 metre kelvins, is listed in the same unit. Dividing
+    the displacement constant by a surface temperature of about 5800 kelvins, typical of the Sun,
+    places the peak of its emission near 500 nanometres, in visible light.
+
+    Because the law involves absolute temperature, values must be multiplied or divided by
+    temperatures in kelvins, never in degrees Celsius. The symbol needs a space or a centred dot
+    between its two parts: written together, mK would mean the millikelvin, a thousandth of a
+    kelvin. The name is written as two words without a hyphen, and its plural is metre kelvins.

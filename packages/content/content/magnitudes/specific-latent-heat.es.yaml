@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Calor latente específico'
+description: >-
+  El calor latente específico, de símbolo $L$, es la energía por unidad de masa que una sustancia
+  absorbe o desprende mientras cambia de fase a temperatura y presión fijas. Sus dos formas
+  habituales son el calor latente específico de fusión, para la fusión y la solidificación, y el de
+  vaporización, para la ebullición y la condensación. El calor necesario para una muestra completa
+  es su masa multiplicada por esta magnitud.
+
+  Su unidad SI es el julio por kilogramo, y su dimensión es longitud al cuadrado dividida entre
+  tiempo al cuadrado, la misma que la de cualquier energía por unidad de masa. Las tablas suelen
+  darlo en kilojulios por kilogramo. El gray y el sievert, unidades de dosis absorbida y de dosis
+  equivalente, comparten esta dimensión; el folleto del SI explica que recibieron nombres especiales
+  para que una dosis de radiación nunca se confunda con otra magnitud expresada en julios por
+  kilogramo.
+
+  Es una magnitud escalar positiva, que se da para el sentido en que la sustancia absorbe energía:
+  la fusión y la vaporización absorben calor, mientras que la solidificación y la condensación
+  liberan exactamente la misma cantidad por kilogramo. Durante el cambio la temperatura se mantiene
+  constante, porque la energía se invierte en debilitar la atracción entre moléculas y, en la
+  vaporización, en el trabajo que realiza el vapor al expandirse, y no en un movimiento molecular
+  más rápido.
+
+  Se mide por calorimetría, por ejemplo echando hielo bien secado en agua templada y
+  registrando cuánto se enfría el agua; el hielo que ya está mojado da un valor demasiado bajo. Para
+  el agua a la presión atmosférica normal, la fusión requiere $334\,\mathrm{kJ/kg}$ y la
+  vaporización $2256\,\mathrm{kJ/kg}$, casi siete veces más. Entre las sustancias de una tabla de
+  manual habitual, los valores van desde una sexagésima parte de esa cifra de fusión, para el helio
+  que funde a alta presión, hasta unas cinco veces la cifra de vaporización del agua, para la
+  ebullición del aluminio.
+
+  El calor latente específico se confunde a menudo con la capacidad calorífica específica. El calor
+  latente es energía por kilogramo para un cambio de fase sin cambio de temperatura, mientras que la
+  capacidad calorífica específica es energía por kilogramo por cada kelvin de calentamiento.

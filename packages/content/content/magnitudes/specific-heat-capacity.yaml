@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Specific heat capacity'
+symbol:
+  tex: 'c'
+baseUnit: 'joule-per-kilogram-kelvin'
+dimension:
+  L: 2
+  T: -2
+  Th: -1
+nonNegative: true
+externalIds:
+  wikidata: 'Q487756'
+  qudt: 'http://qudt.org/vocab/quantitykind/SpecificHeatCapacity'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'specific heat'
+  - 'heat capacity per mass'
+  - 'massic heat capacity'
+  - 'calor específico'
+  - 'capacidad térmica específica'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 1.4 Heat Transfer, Specific Heat, and Calorimetry'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-4-heat-transfer-specific-heat-and-calorimetry'
+  - title: 'HyperPhysics, Georgia State University, Specific Heat'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/thermo/spht.html'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 6'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: calorie per gram kelvin'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'QUDT, quantity kind SpecificHeatCapacity'
+    url: 'https://qudt.org/vocab/quantitykind/SpecificHeatCapacity'
+description:
+  en: >-
+    Specific heat capacity, usually shortened to specific heat and written $c$, is the heat capacity
+    of a material per unit mass: the heat that one kilogram of it must absorb for its temperature to
+    rise by one kelvin. It belongs to a substance in a given phase rather than to a particular
+    object, and it connects the heat taken in by a sample with the sample's mass and temperature
+    change through $Q=mc\Delta T$.
+
+    The SI unit is the joule per kilogram kelvin, which the SI Brochure also assigns to specific
+    entropy, and the dimension is length squared divided by time squared and by thermodynamic
+    temperature, since mass cancels out. Because a temperature difference has the same size in
+    kelvins and in degrees Celsius, a value per degree Celsius is the same number. Older tables use
+    the calorie per gram kelvin, which NIST Special Publication 811 converts, in its International Table form, as
+    exactly 4186.8 joules per kilogram kelvin.
+
+    Specific heat capacity is a positive scalar that depends on the phase and the temperature of the
+    material: ice has roughly half the value of liquid water, and at very low temperatures the
+    specific heat of a solid falls in proportion to the cube of its absolute temperature. For gases
+    it also depends on what is held fixed during heating; dry air takes about 40 percent more heat
+    per kilogram per kelvin at constant pressure than at constant volume.
+
+    It is measured by calorimetry, for example by placing a hot sample in water inside an insulated
+    vessel and applying conservation of energy to the final common temperature. Liquid water has one
+    of the highest values of any common substance, about $4186\,\mathrm{J/(kg\,K)}$, nearly ten
+    times that of iron and more than thirty times that of lead or gold.
+
+    Specific heat capacity differs from heat capacity, which belongs to a whole object and grows
+    with its mass, and from molar heat capacity, taken per mole. It also differs from specific
+    latent heat: specific heat governs a change of temperature, whereas latent heat governs a change
+    of phase that happens at constant temperature.

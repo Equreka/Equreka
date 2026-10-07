@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Linear expansion coefficient'
+symbol:
+  tex: '\alpha'
+  text: 'α'
+baseUnit: 'reciprocal-kelvin'
+dimension:
+  Th: -1
+externalIds:
+  wikidata: 'Q74760821'
+  qudt: 'http://qudt.org/vocab/quantitykind/LinearExpansionCoefficient'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'coefficient of linear expansion'
+  - 'coefficient of linear thermal expansion'
+  - 'linear thermal expansion coefficient'
+  - 'coeficiente de expansión lineal'
+  - 'coeficiente de expansión térmica lineal'
+  - 'coeficiente de dilatación térmica lineal'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 1.3 Thermal Expansion'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-3-thermal-expansion'
+  - title: 'HyperPhysics, Georgia State University, Thermal Expansion'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/thermo/thexp.html'
+  - title: 'QUDT, quantity kind LinearExpansionCoefficient'
+    url: 'https://qudt.org/vocab/quantitykind/LinearExpansionCoefficient'
+description:
+  en: >-
+    The linear expansion coefficient, symbol $\alpha$ and also called the coefficient of linear
+    thermal expansion, measures how the length of a solid responds to warming or cooling: for each
+    kelvin of temperature change, it gives the resulting change in length as a fraction of the
+    original length. Over moderate temperature ranges the change in length is proportional to the
+    original length $L$ and to the temperature change, $\Delta L=\alpha L\Delta T$, and the coefficient
+    is the constant of proportionality.
+
+    Its SI unit is the reciprocal kelvin, and its dimension is the inverse of thermodynamic
+    temperature. A step of one kelvin is the same size as a step of one degree Celsius, so a value
+    per degree Celsius is numerically identical. Because the values are small, tables usually give
+    them in millionths per kelvin.
+
+    The coefficient is a scalar that can in principle take either sign. Nearly all solids lengthen
+    when heated, so their coefficients are positive; a negative value would mean contraction on
+    heating, the unusual behaviour that liquid water shows in volume shortly above its freezing point.
+    The coefficient itself varies slightly with temperature, so treating it as constant is an
+    approximation that is accurate for most practical temperature changes. For a solid that expands
+    equally in all directions, the volume expansion coefficient is about three times the linear one;
+    a liquid has only a volume coefficient, since its shape follows its container.
+
+    It is measured by recording the length of a rod or bar at two known temperatures. Ordinary steel
+    has about $12\times10^{-6}\,\mathrm{K^{-1}}$, aluminium about twice as much, and Invar, a
+    nickel-iron alloy, less than a tenth of the value of steel. Engineers allow for these changes
+    with expansion joints in bridges and railways, and steel suits reinforced concrete because the
+    two materials expand at nearly the same rate.
+
+    The linear coefficient should not be confused with the volume expansion coefficient, usually
+    written with the Greek letter beta, nor with the thermal strain, the dimensionless fractional
+    change in length that results from a given temperature change.

@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Vatio por metro cuadrado'
+description: >-
+  El vatio por metro cuadrado, de símbolo $\mathrm{W/m^{2}}$, es la unidad SI derivada coherente de
+  irradiancia y de densidad de flujo térmico: una potencia de un vatio que llega a cada metro
+  cuadrado de una superficie o lo atraviesa. El folleto del SI la recoge en su tabla 6, entre las
+  unidades derivadas coherentes cuyo nombre contiene una unidad con nombre especial.
+
+  Es el cociente del vatio entre el metro cuadrado. En unidades básicas se reduce al kilogramo por
+  segundo al cubo, porque los metros cuadrados contenidos en el vatio se cancelan con los del área,
+  de modo que sus dos formas se convierten con factor uno.
+
+  La publicación especial 811 del NIST convierte el vatio por centímetro cuadrado en exactamente
+  $10^{4}$ vatios por metro cuadrado y el vatio por pulgada cuadrada en unos 1550.003 vatios por
+  metro cuadrado. QUDT asocia la unidad a la potencia por unidad de área en general y al vector de
+  Poynting, el flujo de energía de una onda electromagnética.
+
+  La unidad describe la luz solar, el flujo de calor a través de las paredes y la intensidad de la
+  radiación. La NASA sitúa la irradiancia solar total, medida en lo alto de la atmósfera sobre una
+  superficie vuelta hacia el Sol a la distancia media de la Tierra, cerca de 1360 vatios por metro
+  cuadrado; como solo un hemisferio está iluminado y la luz incide oblicua en la mayoría de las
+  latitudes, la media global es la cuarta parte, unos 340 vatios por metro cuadrado.
+
+  El plural es vatios por metro cuadrado. El símbolo puede escribirse W/m² o W m⁻², pero las reglas
+  del SI solo admiten una barra oblicua en un símbolo sin paréntesis. Como la irradiancia, la
+  densidad de flujo térmico y otras magnitudes comparten esta unidad, un valor debe indicar qué
+  magnitud describe.

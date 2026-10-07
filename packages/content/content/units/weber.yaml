@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Weber'
+symbol:
+  tex: 'Wb'
+unitOf:
+  - 'magnetic-flux'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'volt'
+      exp: 1
+    - unit: 'second'
+      exp: 1
+externalIds:
+  wikidata: 'Q170804'
+  qudt: 'http://qudt.org/vocab/unit/WB'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'webers'
+  - 'Wb'
+  - 'V s'
+  - 'volt second'
+  - 'T m2'
+  - 'wéber'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4, 5.2-5.3 Unit symbols and names, Appendix 1 (CIPM 1946 Resolution 2; 11th CGPM 1960 Resolution 12) and Appendix 4'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 13.1 Faraday''s Law'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/13-1-faradays-law'
+  - title: 'NIST, Taking Measure: What''s in a Name? The Magnetic Weber'
+    url: 'https://www.nist.gov/blogs/taking-measure/whats-name-magnetic-weber'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: maxwell'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'QUDT, unit WB'
+    url: 'https://qudt.org/vocab/unit/WB'
+description:
+  en: >-
+    The weber, symbol $\mathrm{Wb}$, is the coherent SI derived unit of magnetic flux, the amount
+    of magnetic field passing through a surface. It belongs to the 22 units of the International
+    System that carry a special name, and in SI base units it is the kilogram square metre per
+    second squared per ampere.
+
+    The SI Brochure lists the weber in its table of units with special names and expresses it in
+    other SI units as the volt second. The definition that the CIPM
+    adopted in 1946 states the same relation in words: a single-turn circuit sees an induced
+    electromotive force of one volt when the flux through it, starting at one weber, declines
+    steadily and vanishes after one second.
+
+    One weber is also one tesla square metre, so a uniform field of one tesla crossing a square
+    metre at right angles gives a flux of one weber; the tesla itself is the weber per square
+    metre and the henry the weber per ampere. The maxwell, the corresponding CGS unit, is exactly
+    $10^{-8}\,\mathrm{Wb}$.
+
+    The weber appears wherever induction is calculated, as in the design of transformers and
+    generators, and it is the unit read by fluxmeters, the instruments that measure magnetic flux.
+    For a coil of several turns, the total flux through the circuit, the flux through one turn
+    times the number of turns, is also expressed in webers.
+
+    The unit is named after the German physicist Wilhelm Weber, born in 1804, who worked with
+    Carl Friedrich Gauss on absolute measurements of magnetism and electricity. The 11th CGPM
+    included the weber, with the symbol $\mathrm{Wb}$, among the derived units of the SI in 1960.
+    As a unit name it is written in lowercase, while its symbol begins with a capital letter.

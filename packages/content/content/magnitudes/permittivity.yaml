@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Permittivity'
+symbol:
+  tex: '\varepsilon'
+  text: 'ε'
+baseUnit: 'farad-per-metre'
+dimension:
+  L: -3
+  M: -1
+  T: 4
+  I: 2
+nonNegative: true
+externalIds:
+  wikidata: 'Q211569'
+  qudt: 'http://qudt.org/vocab/quantitykind/Permittivity'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'electric permittivity'
+  - 'absolute permittivity'
+  - 'dielectric permittivity'
+  - 'epsilon'
+  - 'permitividad eléctrica'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.3 Dimensions of quantities and 2.3.4 Derived units, Table 6'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 8.1 Capacitors and Capacitance'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance'
+  - title: 'OpenStax, University Physics Volume 2, 8.4 Capacitor with a Dielectric'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-4-capacitor-with-a-dielectric'
+  - title: 'OpenStax, University Physics Volume 2, 8.5 Molecular Model of a Dielectric, Table 8.1'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-5-molecular-model-of-a-dielectric'
+  - title: 'HyperPhysics, Georgia State University, Dielectrics'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/electric/dielec.html'
+  - title: 'QUDT, quantity kind Permittivity'
+    url: 'https://qudt.org/vocab/quantitykind/Permittivity'
+description:
+  en: >-
+    Permittivity, also called absolute or electric permittivity, is the quantity of
+    electromagnetism that describes how a medium responds to an electric field: the ratio of the
+    electric flux density, or displacement, in the medium to the electric field strength that
+    produces it. The higher the permittivity, the more the medium polarizes and the weaker the
+    field left by a given free charge.
+
+    Its coherent SI unit is the farad per metre, which is the same as the square coulomb per
+    newton square metre; in SI base units it is the second to the fourth square ampere per
+    kilogram cubic metre, so the dimension is time to the fourth times current squared divided
+    by mass and length cubed. The vacuum electric permittivity, about $8.85\times10^{-12}\,\mathrm{F/m}$,
+    is the reference against which every material is compared.
+
+    In ordinary materials permittivity is a positive scalar, and it is usually quoted as the
+    relative permittivity, also called the dielectric constant: the permittivity of the material
+    divided by that of vacuum. The SI Brochure treats such a ratio between like quantities as a
+    pure number with the unit one. A relative permittivity of exactly 1 belongs to
+    vacuum, and every insulator has a value above 1.
+
+    It is measured by filling the gap of a capacitor with the material and comparing the
+    capacitance with that of the empty capacitor, since the capacitance grows by the factor of the
+    dielectric constant. Typical relative values are 1.00059 for dry air at one atmosphere, 2.1
+    for Teflon, about 80 for water and between roughly one thousand and ten thousand for barium
+    titanate.
+
+    Permittivity is easily confused with permeability, its magnetic counterpart, and with the
+    dielectric strength of an insulator, which is the electric field at which it breaks down and
+    starts to conduct, measured in volts per metre rather than in farads per metre.

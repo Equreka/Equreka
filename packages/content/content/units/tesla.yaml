@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Tesla'
+symbol:
+  tex: 'T'
+unitOf:
+  - 'magnetic-flux-density'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'weber'
+      exp: 1
+    - unit: 'metre'
+      exp: -2
+externalIds:
+  wikidata: 'Q163343'
+  qudt: 'http://qudt.org/vocab/unit/T'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'teslas'
+  - 'Wb/m2'
+  - 'Wb/m^2'
+  - 'weber per square metre'
+  - 'weber per square meter'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4, 5.2-5.3 Unit symbols and names, and Appendix 1 (11th CGPM 1960 Resolution 12)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: gamma, gauss'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'OpenStax, University Physics Volume 2, 11.2 Magnetic Fields and Lines'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/11-2-magnetic-fields-and-lines'
+  - title: 'HyperPhysics, Georgia State University, Magnetic Field Units'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/magnetic/magfie.html'
+  - title: 'NIST, Taking Measure: What''s in a Name? The Tesla'
+    url: 'https://www.nist.gov/blogs/taking-measure/whats-name-tesla'
+  - title: 'QUDT, unit T'
+    url: 'https://qudt.org/vocab/unit/T'
+  - title: 'Real Academia Española, Diccionario del estudiante: tesla'
+    url: 'https://www.rae.es/diccionario-estudiante/tesla'
+description:
+  en: >-
+    The tesla, symbol $\mathrm{T}$, is the coherent SI derived unit of magnetic flux density, the
+    quantity usually called the magnetic field. It is one of the 22 SI units with a special name,
+    equal to one weber per square metre, and in SI base units it is the kilogram per second
+    squared per ampere.
+
+    The SI Brochure gives the tesla in its table of units with special names, expressed in other
+    SI units as the weber per square metre. The magnetic force law gives an equivalent reading: a
+    field of one tesla pushes a charge of one coulomb moving across it at one metre per second
+    with a force of one newton, so the tesla is also the newton second per coulomb metre.
+
+    The tesla is a large unit for everyday fields. The field of the Earth at its surface is about
+    $5\times10^{-5}\,\mathrm{T}$, roughly fifty microteslas. In the CGS system the gauss equals
+    exactly one ten-thousandth of a tesla, and the older gamma equals exactly
+    one nanotesla; NIST Special Publication 811 lists both factors as exact.
+
+    Fields of the order of one tesla belong to strong magnets and medical equipment. The strongest
+    permanent magnets come close to 2 teslas, hospital MRI scanners typically operate at 1.5 to 3
+    teslas, with research scanners at 10.5, and superconducting electromagnets reach 10 teslas or
+    more.
+
+    The unit is named after the inventor Nikola Tesla. The 11th CGPM included it,
+    with the symbol $\mathrm{T}$, among the derived units of the SI in 1960. Following the SI
+    rules, the name is written in lowercase in running text, the plural is teslas, and the symbol
+    is a capital T because it comes from a proper name.

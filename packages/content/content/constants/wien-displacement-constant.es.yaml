@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.locale.schema.json
+name: 'Constante de la ley de desplazamiento de Wien en longitud de onda'
+description: >-
+  La constante de la ley de desplazamiento de Wien en longitud de onda, de símbolo $b$, tiene el
+  valor CODATA 2022 $2.897\,771\,955\ldots\times10^{-3}\,\mathrm{m\,K}$. Es exacta, porque el NIST
+  la obtiene de la constante de Planck, la velocidad de la luz en el vacío y la constante de
+  Boltzmann, fijadas por definición en el SI desde 2019, divididas entre un número puro que resuelve
+  una ecuación sin solución cerrada; por eso su desarrollo decimal no termina nunca.
+
+  La constante fija dónde alcanza su máximo el espectro de un cuerpo negro. Si la potencia radiada
+  por unidad de longitud de onda se representa frente a la longitud de onda, la curva tiene su
+  máximo en una longitud de onda inversamente proporcional a la temperatura absoluta, y el producto
+  de ambas es igual a la constante. Así, un cuerpo más caliente tiene su máximo en longitudes de
+  onda más cortas. El máximo depende de cómo se represente el espectro: por unidad de frecuencia cae
+  en otro lugar, y el NIST da una constante de desplazamiento en frecuencia distinta, en hercios por
+  kelvin.
+
+  La constante aparece en la ley de desplazamiento de Wien, longitud de onda del máximo por
+  temperatura igual a $b$, que el NIST escribe $b=(hc/k)/4.965\,114\,231\ldots$, donde el divisor es
+  la raíz de la ecuación que resulta de maximizar la ley de radiación de Planck. Los astrónomos usan
+  la ley para estimar la temperatura superficial de una estrella por el color de su luz: una
+  superficie a unos 5800 kelvin, como la del Sol, tiene su máximo cerca de 500 nanómetros.
+
+  Wilhelm Wien enunció la ley en 1893 mediante un experimento mental basado en leyes físicas
+  conocidas, tres años antes de proponer una fórmula para el espectro completo, y recibió el Premio
+  Nobel de Física de 1911 por sus trabajos sobre la radiación térmica. La ley de Planck de 1900 dio
+  después la curva cuyo máximo localiza la constante, y la revisión del SI de 2019 la hizo exacta.

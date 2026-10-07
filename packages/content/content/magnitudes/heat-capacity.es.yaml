@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Capacidad calorífica'
+description: >-
+  La capacidad calorífica, de símbolo $C$ y llamada también capacidad térmica, es el calor que un
+  cuerpo o sistema debe absorber para que su temperatura aumente un kelvin: el cociente entre una
+  pequeña cantidad de calor suministrada y el aumento de temperatura que produce. Describe un objeto
+  concreto, como una cacerola, una habitación o un lago, y crece con la cantidad de material, de
+  modo que dos bloques idénticos juntos tienen el doble de capacidad calorífica que uno solo.
+
+  Su unidad SI es el julio por kelvin, y su dimensión es masa por longitud al cuadrado dividida
+  entre tiempo al cuadrado y entre temperatura termodinámica. Un intervalo de un kelvin tiene el
+  mismo tamaño que uno de un grado Celsius, así que un valor por grado Celsius es numéricamente
+  idéntico. El folleto del SI señala que la entropía se mide con el mismo julio por kelvin, un
+  ejemplo de por qué la unidad por sí sola nunca identifica la magnitud que hay detrás de un número.
+
+  La capacidad calorífica es una magnitud escalar y, para la materia ordinaria, positiva: aportar
+  calor eleva la temperatura. Su valor depende de cómo se realice el calentamiento. En un gas, la
+  capacidad calorífica a presión constante supera a la de volumen constante, por lo que las tablas
+  de gases recogen ambas.
+
+  En un objeto de un solo material, la capacidad calorífica es igual a su masa multiplicada por la
+  capacidad calorífica específica de ese material. Se mide en un calorímetro, un recipiente aislado
+  en el que se aporta una cantidad conocida de calor y se registra el aumento de temperatura
+  resultante. Un kilogramo de agua líquida tiene una capacidad calorífica de unos
+  $4.19\,\mathrm{kJ/K}$, mientras que un kilogramo de cobre tiene menos de la décima parte, razón
+  por la cual las grandes masas de agua amortiguan las oscilaciones de temperatura a su alrededor.
+
+  La capacidad calorífica se confunde con facilidad con la capacidad calorífica específica, la
+  propiedad correspondiente de un material referida a un kilogramo, y con la capacidad calorífica
+  molar, referida a un mol. También es distinta de la entropía, aunque comparta su unidad: la
+  capacidad calorífica describe cómo responde la temperatura al calentamiento, mientras que la
+  entropía es una función de estado del sistema.

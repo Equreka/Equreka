@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Caloría'
+namePlural: 'calorías'
+description: >-
+  La caloría, de símbolo cal, es una unidad de energía ajena al Sistema Internacional de Unidades
+  que nació del calentamiento del agua: se aproxima al calor necesario para elevar un grado Celsius
+  la temperatura de un gramo de agua. Con el tiempo se han definido varias calorías; la variante
+  que se describe aquí es la caloría termoquímica, definida como un número redondo de julios.
+
+  La caloría termoquímica se define exactamente como $1\,\mathrm{cal}=4.184\,\mathrm{J}$, el factor
+  que la publicación especial 811 del NIST recoge, en negrita como valor exacto, en su apéndice de
+  conversiones. La caloría de la tabla internacional, fijada por la Quinta Conferencia Internacional
+  sobre las Propiedades del Vapor de Agua, celebrada en Londres en 1956, es algo mayor, exactamente
+  $4.1868\,\mathrm{J}$, y el NIST da también factores redondeados para calorías referidas al agua a
+  15 o 20 grados Celsius y para una caloría media. Por tanto, un valor en calorías es ambiguo si no
+  se indica la variante, y por eso se añaden al símbolo los subíndices th e IT.
+
+  La kilocaloría, mil calorías, equivale a 4184 julios en su forma termoquímica. La energía de los
+  alimentos se expresa en kilocalorías, aunque las etiquetas suelen omitir el prefijo y escribir
+  Caloría con mayúscula, la llamada caloría grande.
+
+  En 1948 la 9.ª CGPM declaró el julio unidad de cantidad de calor y pidió que los resultados
+  calorimétricos se expresaran en julios, con la información de conversión necesaria cuando no
+  pudiera evitarse la caloría. La publicación especial 811 del NIST incluye la caloría entre las unidades que no deben
+  usarse en sus propias publicaciones, pero la unidad sigue viva en la nutrición y en tablas
+  químicas antiguas. El plural es calorías.

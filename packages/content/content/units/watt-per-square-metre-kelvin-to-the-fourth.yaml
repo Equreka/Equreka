@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Watt per square metre kelvin to the fourth'
+symbol:
+  tex: 'W\,m^{-2}\,K^{-4}'
+  text: 'W·m⁻²·K⁻⁴'
+unitOf: []
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'watt'
+      exp: 1
+    - unit: 'metre'
+      exp: -2
+    - unit: 'kelvin'
+      exp: -4
+externalIds:
+  wikidata: 'Q21395834'
+  qudt: 'http://qudt.org/vocab/unit/W-PER-M2-K4'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'watt per square meter kelvin to the fourth'
+  - 'watt per square metre kelvin to the fourth power'
+  - 'watt per square metre per kelvin to the fourth'
+  - 'watt per square metre quartic kelvin'
+  - 'W/(m2 K4)'
+  - 'W/m^2K^4'
+  - 'W m-2 K-4'
+references:
+  - title: 'NIST, CODATA 2022 value: Stefan-Boltzmann constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?sigma'
+  - title: 'OpenStax, University Physics Volume 3, 6.1 Blackbody Radiation'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-1-blackbody-radiation'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.4 and section 5.2'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, unit W-PER-M2-K4'
+    url: 'https://qudt.org/vocab/unit/W-PER-M2-K4'
+description:
+  en: >-
+    The watt per square metre kelvin to the fourth, symbol $\mathrm{W\,m^{-2}\,K^{-4}}$, is the
+    coherent SI unit in which the Stefan-Boltzmann constant is expressed. It is a compound unit made
+    from the watt, the metre and the kelvin, it has no special name, and no everyday quantity is
+    measured in it, so it stands without a magnitude of its own; QUDT files it under a dedicated
+    kind, power per area per quartic temperature.
+
+    The unit follows from the Stefan-Boltzmann law. A black body radiates a power per unit area of
+    its surface that grows with the fourth power of its absolute temperature, so the constant that
+    turns kelvins to the fourth into watts per square metre must carry this unit. Written in SI base
+    units it is the kilogram per second cubed kelvin to the fourth, because the square metres in the
+    watt cancel those of the area.
+
+    NIST lists the constant as $5.670\,374\,419\ldots\times10^{-8}$ of these units, an exact value
+    since the 2019 revision of the SI. With it, a black surface at 300 kelvins, close to room
+    temperature, emits about 459 watts per square metre. The steep fourth power is why temperatures
+    entering this unit must always be absolute: a value in degrees Celsius would give nonsense.
+
+    The unit appears in the physics of thermal radiation, from estimating heat lost by a warm body
+    to computing the power radiated by a star from its surface temperature and area. The symbol may
+    also be written with a solidus and parentheses, as W/(m² K⁴) in plain text. The plural is watts
+    per square metre kelvin to the fourth.
