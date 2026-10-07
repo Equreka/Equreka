@@ -8,6 +8,9 @@ dist/
 .turbo/
 coverage/
 
+# Dev tool caches (originality check reference text)
+.cache/
+
 # Environment (only .env.example is committed)
 .env
 .env.*
