@@ -1,3 +1,4 @@
+import { type MemberCollection, TAXONOMY_MEMBERS } from '@equreka/core/collections';
 import { branchesOfCategory } from '@equreka/core/taxonomy';
 import { describe, expect, it } from '@jest/globals';
 import {
@@ -6,14 +7,7 @@ import {
 	entriesInBranch,
 	orderedBranches,
 } from '../entities/content/lookup';
-import { COLLECTION_ORDER } from '../entities/content/routes';
-import type { MemberCollection } from '../entities/content/types';
 import { getPresentation } from '../shared/content/artifact';
-
-const MEMBER_COLLECTIONS = COLLECTION_ORDER.filter(
-	(collection): collection is MemberCollection =>
-		collection !== 'categories' && collection !== 'branches',
-);
 
 function filedEntities(
 	collection: MemberCollection,
@@ -40,7 +34,7 @@ describe('branch sections', () => {
 	});
 
 	it('sections a category by its filed branches in authored order, with no General section', () => {
-		const chemistry = MEMBER_COLLECTIONS.flatMap(filedEntities).filter((entity) =>
+		const chemistry = TAXONOMY_MEMBERS.flatMap(filedEntities).filter((entity) =>
 			entity.categories.includes('chemistry'),
 		);
 		const filed = branchesOfCategory(getPresentation('branches'), 'chemistry').filter((branch) =>
@@ -52,7 +46,7 @@ describe('branch sections', () => {
 	});
 
 	it('lists a branch by collection', () => {
-		const listing = MEMBER_COLLECTIONS.filter((collection) =>
+		const listing = TAXONOMY_MEMBERS.filter((collection) =>
 			filedEntities(collection).some((entity) => entity.branches.includes('amount-of-substance')),
 		);
 		expect(listing).toEqual(expect.arrayContaining(['magnitudes', 'units', 'constants']));

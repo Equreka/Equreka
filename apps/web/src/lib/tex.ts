@@ -159,14 +159,13 @@ export function renderExpressionHtml(
 }
 
 /**
- * Pre-split prose (a presentation slice's `descriptionSegments` or a
- * splitRichText result) rendered at build time: text escaped, math through
- * KaTeX. With a terms map each math segment renders from its authored `raw`
- * so annotation macros expand to highlightable term spans; without one the
- * canonical `tex` renders as-is. Fragments are strict-linted by the content
- * pipeline; one that still fails (tex-allowlist escape hatch) degrades to
- * escaped canonical TeX in its `$`/`$$` delimiters instead of failing the
- * whole build.
+ * Prose split by splitRichText, rendered at build time: text escaped, math
+ * through KaTeX. With a terms map each math segment renders from its
+ * authored `raw` so annotation macros expand to highlightable term spans;
+ * without one the canonical `tex` renders as-is. Fragments are
+ * strict-linted by the content pipeline; one that still fails
+ * (tex-allowlist escape hatch) degrades to escaped canonical TeX in its
+ * `$`/`$$` delimiters instead of failing the whole build.
  */
 export function renderSegmentsHtml(
 	segments: readonly RichTextSegment[],
@@ -192,8 +191,8 @@ export function renderSegmentsHtml(
 /**
  * Raw localized prose (Astro collection data) rendered through the
  * canonical splitter; annotation macros reduce to their arguments. Prose
- * that must cross-highlight goes through renderSegmentsHtml with the
- * slice's segments and a terms map instead.
+ * that must cross-highlight goes through renderSegmentsHtml with its
+ * splitRichText segments and a terms map instead.
  */
 export function renderRichTextHtml(text: string): string {
 	return renderSegmentsHtml(splitRichText(text));

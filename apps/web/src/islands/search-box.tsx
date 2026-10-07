@@ -4,6 +4,7 @@ import {
 	type SearchDocument,
 	searchOptions,
 } from '@equreka/content/search-options';
+import { collectionRank, SEARCH_GROUP_ORDER } from '@equreka/core/collections';
 import { collectionLabel, type Locale, t } from '@equreka/core/i18n';
 import MiniSearch from 'minisearch';
 import { useCallback, useEffect, useRef, useState } from 'react';
@@ -56,23 +57,6 @@ interface ResultGroup {
 
 const PINNED_LIMIT = 8;
 const TOTAL_LIMIT = 20;
-
-/**
- * The original's fixed group order (equations, formulas, constants,
- * magnitudes, variables, units, prefixes; v2 has no formulas), then the
- * collections only v2 indexes.
- */
-const GROUP_ORDER: readonly string[] = [
-	'equations',
-	'constants',
-	'magnitudes',
-	'variables',
-	'units',
-	'prefixes',
-	'paths',
-	'categories',
-	'branches',
-];
 
 /**
  * Two-lane search per ADR 0002: an exact/startsWith pass over the folded
@@ -139,10 +123,7 @@ function groupRows(rows: ResultRow[]): ResultGroup[] {
 			bucket.push(row);
 		}
 	}
-	const order = (collection: string): number => {
-		const index = GROUP_ORDER.indexOf(collection);
-		return index === -1 ? GROUP_ORDER.length : index;
-	};
+	const order = (collection: string): number => collectionRank(SEARCH_GROUP_ORDER.web, collection);
 	return [...byCollection.entries()]
 		.map(([collection, groupRows]) => ({ collection, rows: groupRows }))
 		.sort((a, b) => order(a.collection) - order(b.collection));

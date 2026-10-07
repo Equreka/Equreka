@@ -248,6 +248,8 @@ export const es: Partial<Record<MessageKey, string>> = {
 		'La forma sustituida muestra cada valor en la unidad base de su término, las unidades en que está escrita la fórmula.',
 	'calculator.unitsUnavailable':
 		'No se pudieron cargar las unidades. Introduce los valores en las unidades mostradas.',
+	'calculator.solverUnavailable':
+		'No se pudo cargar la calculadora. Recarga la página para intentarlo de nuevo.',
 
 	'engine.inputs/empty': 'Llena todos los valores excepto el que quieres despejar.',
 	'engine.inputs/underdetermined': 'Deja exactamente un campo vacío — el que quieres despejar.',

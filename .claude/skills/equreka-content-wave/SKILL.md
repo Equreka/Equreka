@@ -26,12 +26,14 @@ node scripts/content/roadmap.mjs --wave <id>
 
 ## 3. Run the workflow
 
-Invoke the saved workflow **`content-wave`** with the args file. Per slice it runs one author (opus) under `equreka-author` and one verifier (sonnet) under `equreka-verify`, loops blocker and major findings back to the author until the verifier passes, and returns every author output and verifier report. Slices run in parallel; only the owning slice writes a file.
+Invoke the saved workflow **`content-wave`** (`.claude/workflows/content-wave.js`) with the args JSON plus `branch` (the wave branch) and `baseline` (the preflight artifact sizes). Its phases:
 
-While it runs, do not edit content yourself. After it returns:
+1. **Author → Verify**, pipelined per slice: one author (opus) under `equreka-author` writes only its slice's files; as soon as it returns, one adversarial verifier (sonnet) under `equreka-verify` reports findings without editing.
+2. **Consistency**: one critic (sonnet) reads every slice's files for cross-slice drift (symbols, labels, Spanish terms, duplicates).
+3. **Fix**: one fixer (opus) is the single writer from here on. It applies every blocker and major finding (or rejects it with a fetched reason), applies `sharedEdits[]`, loops `pnpm --filter @equreka/content check` up to 6 rounds, runs `pnpm quality`, and defers (deletes) entries that still cannot pass.
+4. **Gate**: one agent (sonnet) runs every gate, the originality check and the artifact delta, and returns `ready`, the PR title and body. It does not commit.
 
-- Apply `sharedEdits[]` centrally, one by one, after checking each against the rules (an edit no slice owned, such as a `unitOf` entry on a unit of an earlier wave). Re-run the check after them.
-- Every verifier verdict must be `pass`. A slice that still fails after the workflow's retries: revert its unfinished files and park its entries (step 4).
+While it runs, do not edit content yourself. After it returns, read `rejectedFindings` and `deferred`: every blocker must be fixed or rejected with a source; a slice whose author returned nothing has all its items deferred.
 
 ## 4. Reconcile the roadmap
 
@@ -57,7 +59,7 @@ node scripts/content/originality.mjs <every file the wave wrote> --format json -
 
 The originality report must show `flagged: false` for every new or rewritten description (legacy entries outside the wave may still flag until W1.5–W1.7 rewrite them).
 
-Measure the artifact delta against the preflight baseline. Budgets (`packages/content/src/pipeline/emit.ts`): `engine.json` 500 KB, `presentation/math/bodies.json` 1 MB, `presentation/math/atlas.json` 200 KB, each `search/*.json` 1 MB. If any artifact passes 90% of its budget, stop before committing and raise it with the user: the README records the open budget decision.
+Measure the artifact delta against the preflight baseline. `pnpm --filter @equreka/content build` prints every artifact's size, gzip size and share of its budget (`ARTIFACT_BUDGETS` in `packages/content/src/artifact-budgets.ts`, ADR 0010), then the mobile-bundled total against 8 MiB; the web build checks its derived payloads the same way. The build warns from 80% of a budget and fails over it. If any artifact passes 90% of its budget, stop before committing and raise it with the user: the README records the open budget decision.
 
 ## 6. Commit and PR
 

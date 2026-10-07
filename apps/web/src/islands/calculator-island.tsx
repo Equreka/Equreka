@@ -1,4 +1,4 @@
-import { solutions } from '@equreka/content/artifact/solutions.js';
+import { loadSolutions } from '@equreka/content/artifact/solutions/index.js';
 import {
 	type CalculatorSolution,
 	solveInUnits,
@@ -6,6 +6,7 @@ import {
 } from '@equreka/core/hooks/use-calculator-units';
 import { ENGINE_HINT_CODES, engineErrorMessage, type Locale, t } from '@equreka/core/i18n';
 import { formatSigFigs } from '@equreka/engine/format';
+import type { SolutionsModule } from '@equreka/engine/solutions';
 import type { CompiledEquationMeta } from '@equreka/schema';
 import {
 	type ReactNode,
@@ -74,6 +75,15 @@ type PayloadState =
 	| { status: 'error' }
 	| { status: 'ready'; payload: ConverterPayload };
 
+/**
+ * `ready` holds a solutions module with this page's equation only: each
+ * calculator page downloads its own equation's solution chunk (ADR 0010).
+ */
+type SolverState =
+	| { status: 'loading' }
+	| { status: 'error' }
+	| { status: 'ready'; solutions: SolutionsModule };
+
 type CopyStatus = 'idle' | 'copied' | 'failed';
 
 const COPY_STATUS_MS = 2500;
@@ -81,7 +91,8 @@ const COPY_STATUS_MS = 2500;
 /**
  * The legacy calculator: typing only edits the draft, Calculate (or Enter)
  * solves, Reset clears values and result, Copy puts the result text on the
- * clipboard with an inline status instead of the legacy alert(). Unit
+ * clipboard with an inline status instead of the legacy alert(). Calculate
+ * stays disabled until the equation's solution chunk has loaded. Unit
  * pickers appear once the converter payload arrives; until then, or when
  * it cannot load, every field solves in the base unit its label shows.
  */
@@ -100,7 +111,27 @@ export default function CalculatorIsland({
 	const [state, setState] = useState<PayloadState>(
 		needsUnits ? { status: 'loading' } : { status: 'idle' },
 	);
+	const [solver, setSolver] = useState<SolverState>({ status: 'loading' });
 	const fieldId = useId();
+
+	useEffect(() => {
+		let cancelled = false;
+		loadSolutions(meta.slug)
+			.then((byTerm) => {
+				if (cancelled) return;
+				setSolver(
+					byTerm === undefined
+						? { status: 'error' }
+						: { status: 'ready', solutions: { [meta.slug]: byTerm } },
+				);
+			})
+			.catch(() => {
+				if (!cancelled) setSolver({ status: 'error' });
+			});
+		return () => {
+			cancelled = true;
+		};
+	}, [meta.slug]);
 
 	useEffect(() => {
 		if (!needsUnits) return;
@@ -149,9 +180,10 @@ export default function CalculatorIsland({
 
 	const submit = (event: SubmitEvent<HTMLFormElement>) => {
 		event.preventDefault();
+		if (solver.status !== 'ready') return;
 		const { outcome } = solveInUnits(
 			meta,
-			solutions,
+			solver.solutions,
 			{
 				fields: fields.map((field) => field.key),
 				raw: form.values,
@@ -287,6 +319,11 @@ export default function CalculatorIsland({
 						{state.status === 'error' ? (
 							<p className="eq-tool-aside">{t(locale, 'calculator.unitsUnavailable')}</p>
 						) : null}
+						{solver.status === 'error' ? (
+							<p role="alert" className="eq-tool-aside">
+								{t(locale, 'calculator.solverUnavailable')}
+							</p>
+						) : null}
 						<div className="eq-calc-actions">
 							<div className="eq-calc-action-side">
 								<button
@@ -300,7 +337,11 @@ export default function CalculatorIsland({
 								</button>
 							</div>
 							<div className="eq-calc-action-main">
-								<button type="submit" className="eq-btn eq-btn-success eq-calc-submit">
+								<button
+									type="submit"
+									className="eq-btn eq-btn-success eq-calc-submit"
+									disabled={solver.status !== 'ready'}
+								>
 									{t(locale, 'design.legacy.calculator.calculate')}
 								</button>
 							</div>

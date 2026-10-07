@@ -5,6 +5,7 @@ import {
 	exactNumber,
 	externalIds,
 	intFromString,
+	localizedProse,
 	localizedText,
 	ref,
 	slug,
@@ -17,7 +18,7 @@ import {
 export const category = z
 	.object({
 		name: localizedText,
-		description: localizedText.optional(),
+		description: localizedProse.optional(),
 		aliases: z.array(z.string().min(1)).default([]),
 		order: intFromString.refine((value) => value >= 0, 'order must be nonnegative'),
 		externalIds: externalIds.optional(),
@@ -32,7 +33,7 @@ export const category = z
 export const branch = z
 	.object({
 		name: localizedText,
-		description: localizedText.optional(),
+		description: localizedProse.optional(),
 		aliases: z.array(z.string().min(1)).default([]),
 		category: ref('categories'),
 		order: intFromString.refine((value) => value >= 0, 'order must be nonnegative'),
@@ -435,22 +436,22 @@ export const pathStep = z.discriminatedUnion('kind', [
 			id: slug,
 			kind: z.literal('entry'),
 			ref: pathEntryRef,
-			note: localizedText.optional(),
+			note: localizedProse.optional(),
 		})
 		.strict(),
 	z
 		.object({
 			id: slug,
 			kind: z.literal('prose'),
-			body: localizedText,
+			body: localizedProse,
 		})
 		.strict(),
 	z
 		.object({
 			id: slug,
 			kind: z.literal('check'),
-			prompt: localizedText,
-			answer: localizedText,
+			prompt: localizedProse,
+			answer: localizedProse,
 		})
 		.strict(),
 ]);

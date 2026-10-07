@@ -1,43 +1,8 @@
+import { isCollectionName } from '@equreka/core/collections';
 import type { EntryCollection } from './types';
 
-/**
- * Display order for browse cards, search-result groups and favorites
- * sections; mirrors @equreka/schema's COLLECTIONS without pulling Zod into
- * the bundle.
- */
-export const COLLECTION_ORDER: readonly EntryCollection[] = [
-	'categories',
-	'branches',
-	'magnitudes',
-	'units',
-	'prefixes',
-	'constants',
-	'variables',
-	'equations',
-	'paths',
-];
-
-/**
- * Collections with a browse list of their own; categories are the home
- * chips, branches open from category screens and browse sections, and
- * variables surface only through equations and path steps.
- */
-export const BROWSABLE_COLLECTIONS: readonly EntryCollection[] = [
-	'magnitudes',
-	'units',
-	'prefixes',
-	'constants',
-	'equations',
-	'paths',
-];
-
 export function isEntryCollection(value: string): value is EntryCollection {
-	return (COLLECTION_ORDER as readonly string[]).includes(value);
-}
-
-export function collectionRank(collection: string): number {
-	const index = (COLLECTION_ORDER as readonly string[]).indexOf(collection);
-	return index === -1 ? COLLECTION_ORDER.length : index;
+	return isCollectionName(value);
 }
 
 /**

@@ -1,39 +1,23 @@
-import {
-	type Branch,
-	type Category,
-	type Constant,
-	collectionSchemas,
-	type Equation,
-	type Magnitude,
-	type Path,
-	type Prefix,
-	SOURCE_LOCALE,
-	type Unit,
-	type Variable,
-} from '@equreka/schema';
+import { type CollectionName, collectionSchemas, SOURCE_LOCALE } from '@equreka/schema';
+import type { z } from 'zod';
 import type { LoadedContent } from './load.js';
 import { type Issue, issue } from './types.js';
 
-export interface Corpus {
-	categories: Map<string, Category>;
-	branches: Map<string, Branch>;
-	magnitudes: Map<string, Magnitude>;
-	units: Map<string, Unit>;
-	prefixes: Map<string, Prefix>;
-	constants: Map<string, Constant>;
-	variables: Map<string, Variable>;
-	equations: Map<string, Equation>;
-	paths: Map<string, Path>;
-}
+/**
+ * Every validated entity by collection and slug. Mapped over the schema map,
+ * so a collection joins the corpus type by joining `collectionSchemas`.
+ */
+export type Corpus = {
+	[C in CollectionName]: Map<string, z.output<(typeof collectionSchemas)[C]>>;
+};
 
 export interface ValidateResult {
 	corpus: Corpus;
 	issues: Issue[];
 }
 
-export function validateContent(loaded: LoadedContent): ValidateResult {
-	const issues: Issue[] = [];
-	const corpus: Corpus = {
+export function emptyCorpus(): Corpus {
+	return {
 		categories: new Map(),
 		branches: new Map(),
 		magnitudes: new Map(),
@@ -44,6 +28,11 @@ export function validateContent(loaded: LoadedContent): ValidateResult {
 		equations: new Map(),
 		paths: new Map(),
 	};
+}
+
+export function validateContent(loaded: LoadedContent): ValidateResult {
+	const issues: Issue[] = [];
+	const corpus = emptyCorpus();
 	for (const [collection, entries] of loaded.byCollection) {
 		const schema = collectionSchemas[collection];
 		for (const entry of entries) {

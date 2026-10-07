@@ -1,10 +1,17 @@
+export interface StableStringifyOptions {
+	compact?: boolean;
+}
+
 /**
- * JSON.stringify with recursively sorted object keys and tab indentation.
- * dist/ artifacts must be byte-identical across builds and platforms so
- * Turborepo caching and content-hash comparisons stay meaningful.
+ * JSON.stringify with recursively sorted object keys: tab-indented by
+ * default for files people open (editor schemas, cache-key inputs),
+ * whitespace-free with `compact` for shipped artifacts, whose bytes count
+ * against their budgets (ADR 0010). dist/ artifacts must be byte-identical
+ * across builds and platforms so Turborepo caching and content-hash
+ * comparisons stay meaningful.
  */
-export function stableStringify(value: unknown): string {
-	return JSON.stringify(sortValue(value), null, '\t');
+export function stableStringify(value: unknown, options: StableStringifyOptions = {}): string {
+	return JSON.stringify(sortValue(value), null, options.compact === true ? undefined : '\t');
 }
 
 function sortValue(value: unknown): unknown {

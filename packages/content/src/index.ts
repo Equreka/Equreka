@@ -1,3 +1,4 @@
+export type { ArtifactBudget } from './artifact-budgets.js';
 export {
 	type CompileMode,
 	type CompileOptions,
@@ -14,12 +15,16 @@ export { CONTENT_PIPELINE_VERSION } from './pipeline-version.js';
 export {
 	canonicalTex,
 	hydrateMathBody,
-	type LocalizedSegments,
+	type LeanMathBody,
+	MATH_SHARD_COUNT,
 	type MathAtlas,
 	type MathBodies,
 	type MathBody,
+	type MathBodyShard,
+	type MathBodyV2,
+	mathShardName,
+	mathShardOf,
 	type RichTextSegment,
-	splitLocalizedText,
 	splitRichText,
 	stripMacros,
 	stripMacrosToText,
@@ -29,8 +34,11 @@ export {
 export {
 	type CatalogLiteEntry,
 	foldSearchTerm,
+	SEARCH_LEAD_MAX_CHARS,
 	SEARCH_LOCALES,
 	type SearchDocument,
 	type SearchLocale,
+	searchLeadOf,
 	searchOptions,
+	stripTexForSearch,
 } from './search-options.js';

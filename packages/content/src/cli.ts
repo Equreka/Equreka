@@ -1,4 +1,16 @@
+import { MOBILE_BUNDLE_BUDGET_BYTES } from './artifact-budgets.js';
 import { compileContent } from './pipeline/compile.js';
+import { mobileBundledBytes } from './pipeline/emit.js';
+
+function formatBytes(bytes: number): string {
+	return bytes >= 1024 * 1024
+		? `${(bytes / (1024 * 1024)).toFixed(2)} MiB`
+		: `${(bytes / 1024).toFixed(1)} KiB`;
+}
+
+function percentOf(bytes: number, maxBytes: number): string {
+	return `${((bytes / maxBytes) * 100).toFixed(1)}%`;
+}
 
 const command = process.argv[2];
 if (command !== 'build' && command !== 'check') {
@@ -53,10 +65,24 @@ console.log(
 	`math: ${report.math.uniqueTex} unique TeX, ${report.math.glyphs} glyphs ` +
 		`(${report.math.rendered} rendered, ${report.math.cached} cached)`,
 );
-if (report.mode === 'build') {
+if (report.mode === 'build' && report.artifacts.length > 0) {
+	const pathWidth = Math.max(...report.artifacts.map((artifact) => artifact.relPath.length));
 	for (const artifact of report.artifacts) {
-		console.log(`dist/${artifact.relPath} ${(artifact.bytes / 1024).toFixed(1)}KB`);
+		const share =
+			artifact.budget === undefined
+				? 'unclassified'
+				: artifact.budget.maxBytes === null
+					? 'build-only'
+					: `${percentOf(artifact.bytes, artifact.budget.maxBytes)} of ${formatBytes(artifact.budget.maxBytes)}`;
+		const scope = artifact.budget?.mobileBundled === true ? ' · mobile' : '';
+		console.log(
+			`dist/${artifact.relPath.padEnd(pathWidth)} ${formatBytes(artifact.bytes).padStart(10)}  gzip ${formatBytes(artifact.gzipBytes).padStart(10)}  ${share}${scope}`,
+		);
 	}
+	const mobileBytes = mobileBundledBytes(report.artifacts);
+	console.log(
+		`mobile-bundled total: ${formatBytes(mobileBytes)} of ${formatBytes(MOBILE_BUNDLE_BUDGET_BYTES)} (${percentOf(mobileBytes, MOBILE_BUNDLE_BUDGET_BYTES)})`,
+	);
 }
 console.log(`${errorCount} error(s), ${warningCount} warning(s) — ${report.ok ? 'ok' : 'FAILED'}`);
 process.exit(report.ok ? 0 : 1);

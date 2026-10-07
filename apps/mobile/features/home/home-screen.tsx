@@ -1,8 +1,8 @@
+import { LISTED_COLLECTIONS } from '@equreka/core/collections';
 import { collectionLabel, localizedName, type MessageKey } from '@equreka/core/i18n';
 import { useRouter } from 'expo-router';
 import { Pressable, StyleSheet } from 'react-native';
 import {
-	BROWSABLE_COLLECTIONS,
 	browseHref,
 	calculatorHref,
 	converterHref,
@@ -74,7 +74,7 @@ export function HomeScreen() {
 			</VStack>
 			<VStack>
 				<SectionTitle>{t('home.browse')}</SectionTitle>
-				{BROWSABLE_COLLECTIONS.map((collection) => (
+				{LISTED_COLLECTIONS.map((collection) => (
 					<LinkCard
 						key={collection}
 						title={collectionLabel(locale, collection)}

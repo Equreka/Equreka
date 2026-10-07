@@ -1,5 +1,6 @@
 import { mkdirSync, rmSync, writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { gzipSync } from 'node:zlib';
 import {
 	type Symbol as AuthoredSymbol,
 	COLLECTIONS,
@@ -8,37 +9,111 @@ import {
 	collectionSchemas,
 	type EngineSlice,
 	engineSlice,
-	type LocalizedText,
 	localeSidecarSchemas,
 	SCHEMA_VERSION,
 } from '@equreka/schema';
 import MiniSearch from 'minisearch';
 import { z } from 'zod';
-import { canonicalTex, splitLocalizedText, termIdentifier } from '../rich-text.js';
+import {
+	ARTIFACT_BUDGETS,
+	type ArtifactBudget,
+	artifactBudgetPatterns,
+	BUDGET_WARN_RATIO,
+	MOBILE_BUNDLE_BUDGET_BYTES,
+} from '../artifact-budgets.js';
+import { canonicalTex, mathShardName, termIdentifier } from '../rich-text.js';
 import {
 	type CatalogLiteEntry,
 	SEARCH_LOCALES,
 	type SearchDocument,
 	type SearchLocale,
+	searchLeadOf,
 	searchOptions,
 } from '../search-options.js';
 import type { SolutionAst } from '../solution-grammar.js';
 import { calculatorTargets } from './integrity.js';
 import type { MathArtifact } from './math-artifact.js';
+import { shardMathBodies } from './math-shards.js';
 import { presentationSteps } from './path-targets.js';
 import { deriveRelatedUnits } from './related-units.js';
 import type { ResolvedUnit } from './resolve.js';
-import { generateSolutionsModule } from './solution-codegen.js';
+import {
+	generateEquationSolutionModules,
+	generateSolutionsLoader,
+	generateSolutionsModule,
+	SOLUTIONS_LOADER_NAME,
+} from './solution-codegen.js';
 import type { EquationVerification } from './solution-verify.js';
 import { stableStringify } from './stable-json.js';
-import { stripTexForSearch, symbolText } from './tex.js';
+import { symbolText } from './tex.js';
 import { type Issue, issue } from './types.js';
-import type { Corpus } from './validate.js';
+import { type Corpus, fileOf } from './validate.js';
 
-const ENGINE_BUDGET_BYTES = 500 * 1024;
-const SEARCH_BUDGET_BYTES = 1024 * 1024;
-const MATH_ATLAS_BUDGET_BYTES = 200 * 1024;
-const MATH_BODIES_BUDGET_BYTES = 1024 * 1024;
+/**
+ * `pattern` and `budget` are undefined when the file matched no
+ * ARTIFACT_BUDGETS pattern or several, which the build reports as an error.
+ * `gzipBytes` is informational (zlib default level): budgets cap raw bytes
+ * because the mobile bundle and the JSON parse pay them uncompressed.
+ */
+export interface EmittedArtifact {
+	relPath: string;
+	bytes: number;
+	gzipBytes: number;
+	pattern: string | undefined;
+	budget: ArtifactBudget | undefined;
+}
+
+export interface EmitResult {
+	issues: Issue[];
+	artifacts: EmittedArtifact[];
+}
+
+export function mobileBundledBytes(artifacts: readonly EmittedArtifact[]): number {
+	return artifacts
+		.filter((artifact) => artifact.budget?.mobileBundled === true)
+		.reduce((sum, artifact) => sum + artifact.bytes, 0);
+}
+
+/**
+ * Error over the cap, warning from BUDGET_WARN_RATIO of it, nothing below.
+ */
+export function budgetIssue(
+	subject: string,
+	bytes: number,
+	maxBytes: number,
+	protects: string,
+): Issue | undefined {
+	if (bytes > maxBytes) {
+		return issue(
+			'error',
+			'emit',
+			'',
+			`${subject} is ${bytes} bytes, over its ${maxBytes}-byte budget (${protects})`,
+		);
+	}
+	if (bytes >= maxBytes * BUDGET_WARN_RATIO) {
+		const percent = ((bytes / maxBytes) * 100).toFixed(1);
+		return issue(
+			'warning',
+			'emit',
+			'',
+			`${subject} is ${bytes} bytes, ${percent}% of its ${maxBytes}-byte budget (${protects})`,
+		);
+	}
+	return undefined;
+}
+
+/**
+ * Shipped artifacts are compact; people open only the editor schemas, which
+ * stay indented.
+ */
+function compactJson(value: unknown): string {
+	return `${stableStringify(value, { compact: true })}\n`;
+}
+
+function prettyJson(value: unknown): string {
+	return `${stableStringify(value)}\n`;
+}
 
 /**
  * `generatedUnits` are the prefix-expanded units with no hand file; their
@@ -54,34 +129,45 @@ export interface EmitInput {
 	outDir: string;
 }
 
-export interface EmittedArtifact {
-	relPath: string;
-	bytes: number;
-}
-
-export interface EmitResult {
-	issues: Issue[];
-	artifacts: EmittedArtifact[];
-}
-
 export function emitArtifacts(input: EmitInput): EmitResult {
 	const issues: Issue[] = [];
 	const artifacts: EmittedArtifact[] = [];
 	const { corpus, outDir } = input;
 
 	rmSync(outDir, { recursive: true, force: true });
-	mkdirSync(join(outDir, 'presentation', 'math'), { recursive: true });
+	mkdirSync(join(outDir, 'presentation', 'math', 'bodies'), { recursive: true });
+	mkdirSync(join(outDir, 'solutions'), { recursive: true });
 	mkdirSync(join(outDir, 'search'), { recursive: true });
 	mkdirSync(join(outDir, 'schemas'), { recursive: true });
 
-	const write = (relPath: string, text: string, budget?: number): void => {
+	const write = (relPath: string, text: string): void => {
 		const bytes = Buffer.byteLength(text, 'utf8');
 		writeFileSync(join(outDir, ...relPath.split('/')), text, 'utf8');
-		artifacts.push({ relPath, bytes });
-		if (budget !== undefined && bytes > budget) {
+		const patterns = artifactBudgetPatterns(relPath);
+		const pattern = patterns.length === 1 ? patterns[0] : undefined;
+		const budget = pattern === undefined ? undefined : ARTIFACT_BUDGETS[pattern];
+		artifacts.push({ relPath, bytes, gzipBytes: gzipSync(text).length, pattern, budget });
+		if (patterns.length !== 1) {
+			const reason =
+				patterns.length === 0
+					? 'matches no ARTIFACT_BUDGETS pattern'
+					: `matches several ARTIFACT_BUDGETS patterns (${patterns.join(', ')})`;
 			issues.push(
-				issue('error', 'emit', '', `${relPath} is ${bytes} bytes, over its ${budget}-byte budget`),
+				issue(
+					'error',
+					'emit',
+					'',
+					`${relPath} ${reason}; classify it in artifact-budgets.ts (ADR 0010)`,
+				),
 			);
+			return;
+		}
+		if (budget === undefined || budget.maxBytes === null) {
+			return;
+		}
+		const finding = budgetIssue(relPath, bytes, budget.maxBytes, budget.protects);
+		if (finding !== undefined) {
+			issues.push(finding);
 		}
 	};
 
@@ -95,7 +181,7 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 		}
 		return { issues, artifacts };
 	}
-	write('engine.json', `${stableStringify(slice)}\n`, ENGINE_BUDGET_BYTES);
+	write('engine.json', compactJson(slice));
 
 	const solutionAsts = new Map<string, ReadonlyMap<string, readonly SolutionAst[]>>();
 	for (const [slug, verification] of input.verifications) {
@@ -104,6 +190,24 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 	const solutionsModule = generateSolutionsModule(solutionAsts);
 	write('solutions.js', solutionsModule.js);
 	write('solutions.d.ts', solutionsModule.dts);
+	const equationModules = generateEquationSolutionModules(solutionAsts);
+	if (equationModules.has(SOLUTIONS_LOADER_NAME)) {
+		issues.push(
+			issue(
+				'error',
+				'emit',
+				fileOf('equations', SOLUTIONS_LOADER_NAME),
+				`the slug '${SOLUTIONS_LOADER_NAME}' is reserved for the solutions loader module; rename the equation`,
+			),
+		);
+	}
+	const shippedModules = [...equationModules].filter(([slug]) => slug !== SOLUTIONS_LOADER_NAME);
+	for (const [slug, js] of shippedModules) {
+		write(`solutions/${slug}.js`, js);
+	}
+	const loader = generateSolutionsLoader(shippedModules.map(([slug]) => slug));
+	write(`solutions/${SOLUTIONS_LOADER_NAME}.js`, loader.js);
+	write(`solutions/${SOLUTIONS_LOADER_NAME}.d.ts`, loader.dts);
 
 	for (const collection of COLLECTIONS) {
 		const record: Record<string, unknown> = {};
@@ -132,34 +236,26 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 				};
 			}
 		}
-		write(`presentation/${collection}.json`, `${stableStringify(record)}\n`);
-		write(`schemas/${collection}.schema.json`, `${stableStringify(authoringSchema(collection))}\n`);
+		write(`presentation/${collection}.json`, compactJson(record));
+		write(`schemas/${collection}.schema.json`, prettyJson(authoringSchema(collection)));
 		write(
 			`schemas/${collection}.locale.schema.json`,
-			`${stableStringify(sidecarAuthoringSchema(collection))}\n`,
+			prettyJson(sidecarAuthoringSchema(collection)),
 		);
 	}
 
-	write(
-		'presentation/math/atlas.json',
-		`${stableStringify(input.math.atlas)}\n`,
-		MATH_ATLAS_BUDGET_BYTES,
-	);
-	write(
-		'presentation/math/bodies.json',
-		`${stableStringify(input.math.bodies)}\n`,
-		MATH_BODIES_BUDGET_BYTES,
-	);
+	write('presentation/math/atlas.json', compactJson(input.math.atlas));
+	const mathShards = shardMathBodies(input.math.bodies, input.math.atlas);
+	issues.push(...mathShards.issues);
+	mathShards.shards.forEach((shard, index) => {
+		write(`presentation/math/bodies/${mathShardName(index)}.json`, compactJson(shard));
+	});
 
 	for (const locale of SEARCH_LOCALES) {
 		const documents = searchDocuments(corpus, locale);
 		const index = new MiniSearch(searchOptions);
 		index.addAll(documents);
-		write(
-			`search/${locale}.json`,
-			`${stableStringify(JSON.parse(JSON.stringify(index)))}\n`,
-			SEARCH_BUDGET_BYTES,
-		);
+		write(`search/${locale}.json`, compactJson(JSON.parse(JSON.stringify(index))));
 		const catalogLite: CatalogLiteEntry[] = documents.map((document) => ({
 			collection: document.collection,
 			slug: document.slug,
@@ -169,11 +265,7 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 			branches: document.branches,
 			categories: catalogCategoriesOf(corpus, document.collection, document.slug),
 		}));
-		write(
-			`search/catalog-lite.${locale}.json`,
-			`${stableStringify(catalogLite)}\n`,
-			SEARCH_BUDGET_BYTES,
-		);
+		write(`search/catalog-lite.${locale}.json`, compactJson(catalogLite));
 	}
 
 	const counts: Record<string, number> = {};
@@ -182,13 +274,23 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 	}
 	write(
 		'meta.json',
-		`${stableStringify({
+		compactJson({
 			schemaVersion: SCHEMA_VERSION,
 			contentHash: input.contentHash,
 			counts,
 			generatedAt: null,
-		})}\n`,
+		}),
 	);
+
+	const mobileFinding = budgetIssue(
+		'the mobile-bundled artifact total',
+		mobileBundledBytes(artifacts),
+		MOBILE_BUNDLE_BUDGET_BYTES,
+		'mobile bundle and OTA size',
+	);
+	if (mobileFinding !== undefined) {
+		issues.push(mobileFinding);
+	}
 
 	return { issues, artifacts };
 }
@@ -312,29 +414,24 @@ function sidecarAuthoringSchema(collection: CollectionName): unknown {
 
 /**
  * Presentation form of one entity. TeX fields are canonical (the exact
- * `math/bodies.json` keys) and prose is mirrored as pre-split segments whose
- * math carries both the canonical key and the authored fragment; the raw
- * description stays for search and meta text.
+ * math body keys); prose ships raw and every reader splits it with
+ * `splitRichText`, since pre-split segments outweighed the prose itself
+ * (ADR 0010).
  */
 function presentationOf(entity: Record<string, unknown>): Record<string, unknown> {
 	const { symbol, symbolAlt, ...rest } = entity as {
 		symbol?: AuthoredSymbol;
 		symbolAlt?: AuthoredSymbol;
-		description?: LocalizedText;
 	} & Record<string, unknown>;
-	const record: Record<string, unknown> = { ...rest };
-	if (symbol !== undefined) {
-		record.symbolTex = canonicalTex(symbol.tex);
-		record.symbolText = symbolText(symbol);
-	}
-	if (symbolAlt !== undefined) {
-		record.symbolAltTex = canonicalTex(symbolAlt.tex);
-		record.symbolAltText = symbolText(symbolAlt);
-	}
-	if (rest.description !== undefined) {
-		record.descriptionSegments = splitLocalizedText(rest.description);
-	}
-	return record;
+	return {
+		...rest,
+		...(symbol === undefined
+			? {}
+			: { symbolTex: canonicalTex(symbol.tex), symbolText: symbolText(symbol) }),
+		...(symbolAlt === undefined
+			? {}
+			: { symbolAltTex: canonicalTex(symbolAlt.tex), symbolAltText: symbolText(symbolAlt) }),
+	};
 }
 
 function searchDocuments(corpus: Corpus, locale: SearchLocale): SearchDocument[] {
@@ -389,7 +486,7 @@ function searchDocumentOf(
 		collection,
 		slug,
 		name: name[locale] ?? name.en,
-		description: stripTexForSearch(localizedDescription),
+		description: searchLeadOf(localizedDescription),
 		aliases: (entity.aliases as string[] | undefined) ?? [],
 		symbolText: symbol === undefined ? '' : symbolText(symbol),
 		branches: branchNames,

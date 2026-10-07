@@ -20,7 +20,7 @@ pre-commit:
 commit-msg:
   jobs:
     - name: conventional-commits
-      run: node lefthook/commit-msg-validate.mjs "{1}"
+      run: node lefthook/commit-msg-validate.mjs '{1}'
 
 pre-push:
   jobs:

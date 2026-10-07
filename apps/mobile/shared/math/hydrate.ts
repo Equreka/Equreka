@@ -1,4 +1,4 @@
-import { hydrateMathBody, type MathAtlas, type MathBody } from '@equreka/content/rich-text';
+import { hydrateMathBody, type MathAtlas, type MathBodyV2 } from '@equreka/content/rich-text';
 
 /**
  * A body ready for react-native-svg's SvgXml: glyph definitions prepended
@@ -26,7 +26,7 @@ export const EX_PER_FONT_PX = 0.5;
  * text instead of drawing a partial formula.
  */
 export function hydrateForSvg(
-	body: MathBody,
+	body: MathBodyV2,
 	atlas: MathAtlas,
 	fontSize: number,
 ): HydratedMath | null {

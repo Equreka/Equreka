@@ -5,7 +5,7 @@ import { useRouter } from 'expo-router';
 import { useState } from 'react';
 import { Pressable, StyleSheet, View } from 'react-native';
 import { entryHref } from '../../entities/content/routes';
-import { type LocalizedRichText, pickSegments } from '../../entities/content/text';
+import { type LocalizedRichText, pickRichText } from '../../entities/content/text';
 import type { PresentationPath, PresentationPathStep } from '../../entities/content/types';
 import { getPresentation } from '../../shared/content/artifact';
 import { RichText } from '../../shared/math/math-view';
@@ -81,21 +81,21 @@ function StepCard({ step, index, total, done, onToggle }: StepCardProps) {
 							accessibilityLabel={t('path.openEntry')}
 						/>
 					</View>
-					<Prose text={pickSegments(step.noteSegments, locale)} />
+					<Prose text={pickRichText(step.note, locale)} />
 				</VStack>
 			) : step.kind === 'prose' ? (
-				<Prose text={pickSegments(step.bodySegments, locale)} />
+				<Prose text={pickRichText(step.body, locale)} />
 			) : (
 				<VStack>
 					<AppText weight="600">{t('path.check')}</AppText>
-					<Prose text={pickSegments(step.promptSegments, locale)} />
+					<Prose text={pickRichText(step.prompt, locale)} />
 					<HStack>
 						<Button
 							label={t(revealed ? 'mobile.check.hide' : 'path.reveal')}
 							onPress={() => setRevealed((value) => !value)}
 						/>
 					</HStack>
-					{revealed ? <Prose text={pickSegments(step.answerSegments, locale)} /> : null}
+					{revealed ? <Prose text={pickRichText(step.answer, locale)} /> : null}
 				</VStack>
 			)}
 		</Card>
@@ -130,7 +130,7 @@ function PathBody({ slug, path }: { slug: string; path: PresentationPath }) {
 						<Badge label={t('path.minutes', { count: path.estimatedMinutes })} />
 					)}
 				</HStack>
-				<Prose text={pickSegments(path.descriptionSegments, locale)} />
+				<Prose text={pickRichText(path.description, locale)} />
 				<TextSources sources={path.textSources} />
 			</VStack>
 			<VStack gap={1}>

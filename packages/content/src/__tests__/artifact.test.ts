@@ -1,19 +1,33 @@
 import { createHash } from 'node:crypto';
 import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync } from 'node:fs';
 import { tmpdir } from 'node:os';
-import { join, relative } from 'node:path';
+import { join, relative, sep } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { COLLECTIONS, engineSlice, SCHEMA_VERSION } from '@equreka/schema';
 import MiniSearch from 'minisearch';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
+import {
+	ARTIFACT_BUDGETS,
+	artifactBudgetPatterns,
+	BUDGET_WARN_RATIO,
+	MOBILE_BUNDLE_BUDGET_BYTES,
+} from '../artifact-budgets.js';
 import { type CompileReport, compileContent } from '../pipeline/compile.js';
+import { budgetIssue, mobileBundledBytes } from '../pipeline/emit.js';
+import { buildMathArtifact } from '../pipeline/math-artifact.js';
 import {
 	canonicalTex,
 	hydrateMathBody,
-	type LocalizedSegments,
+	isLeanMathBody,
+	MATH_SHARD_COUNT,
 	type MathAtlas,
-	type MathBodies,
-	type RichTextSegment,
+	type MathBody,
+	type MathBodyShard,
+	mathBodyGlyphs,
+	mathBodySvg,
+	mathShardName,
+	mathShardOf,
+	splitRichText,
 } from '../rich-text.js';
 import { type SearchDocument, searchOptions } from '../search-options.js';
 import prefixedBaseline from './fixtures/prefixed-units-baseline.json';
@@ -321,20 +335,14 @@ describe('build over the real corpus', () => {
 		expect(row?.aliases).toContain('unidades base');
 	});
 
-	it('keeps authored hard line breaks through the presentation slices and folds them for search', () => {
-		const equations = readJson<
-			Record<string, { description: { en: string }; descriptionSegments: LocalizedSegments }>
-		>('presentation', 'equations.json');
-		const equation = equations['mass-energy-equivalence'];
-		expect(equation?.description.en).toContain('$(\\const{c}^{2})$.\nBecause the speed of light');
-		const text = (equation?.descriptionSegments.en ?? [])
-			.map((segment) => (segment.t === 'text' ? segment.v : `$${segment.raw}$`))
-			.join('');
-		expect(text).toBe(equation?.description.en);
-		expect(equation?.descriptionSegments.en?.at(-1)).toMatchObject({
-			t: 'text',
-			v: expect.stringMatching(/^\.\nBecause /),
-		});
+	it('ships prose raw, hard line breaks intact, with no pre-split segments', () => {
+		const equations = readJson<Record<string, { description: { en: string } }>>(
+			'presentation',
+			'equations.json',
+		);
+		expect(equations['mass-energy-equivalence']?.description.en).toContain(
+			'$(\\const{c}^{2})$.\nBecause the speed of light',
+		);
 		const units = readJson<Record<string, { description: { en: string } }>>(
 			'presentation',
 			'units.json',
@@ -348,18 +356,23 @@ describe('build over the real corpus', () => {
 			expect.stringMatching(/^- \$nmi\$ is used /),
 			expect.stringMatching(/^- \$nm\$ is a non-standard /),
 		]);
+		for (const collection of COLLECTIONS) {
+			const text = readFileSync(join(outDir, 'presentation', `${collection}.json`), 'utf8');
+			expect(text, collection).not.toMatch(/"(description|note|body|prompt|answer)Segments"/);
+		}
+	});
+
+	it('indexes the lead of each description for search, never the paragraphs after it', () => {
 		const index = MiniSearch.loadJSON<SearchDocument>(
 			readFileSync(join(outDir, 'search', 'en.json'), 'utf8'),
 			searchOptions,
 		);
-		for (const word of ['squared', 'because']) {
-			const ids = index.search(word, { fields: ['description'] }).map((hit) => hit.id);
-			expect(ids, word).toContain('equations:mass-energy-equivalence');
-		}
-		for (const word of ['use', 'abbreviation']) {
-			const ids = index.search(word, { fields: ['description'] }).map((hit) => hit.id);
-			expect(ids, word).toContain('units:nautical-mile');
-		}
+		const idsOf = (word: string): string[] =>
+			index.search(word, { fields: ['description'] }).map((hit) => String(hit.id));
+		expect(idsOf('squared')).toContain('equations:mass-energy-equivalence');
+		expect(idsOf('because')).not.toContain('equations:mass-energy-equivalence');
+		expect(idsOf('navigation')).toContain('units:nautical-mile');
+		expect(idsOf('abbreviation')).not.toContain('units:nautical-mile');
 	});
 
 	it('carries authored constant approximations into the presentation slice only', () => {
@@ -477,20 +490,38 @@ describe('build over the real corpus', () => {
 		]);
 	});
 
-	it('stays inside the artifact size budgets', () => {
-		const sizes = new Map(report.artifacts.map((artifact) => [artifact.relPath, artifact.bytes]));
-		expect(sizes.get('engine.json') ?? Number.POSITIVE_INFINITY).toBeLessThanOrEqual(500 * 1024);
-		for (const locale of ['en', 'es']) {
-			expect(sizes.get(`search/${locale}.json`) ?? Number.POSITIVE_INFINITY).toBeLessThanOrEqual(
-				1024 * 1024,
-			);
+	it('classifies every emitted file under exactly one budget and stays inside it', () => {
+		const files = walk(outDir)
+			.map((path) => relative(outDir, path).split(sep).join('/'))
+			.sort();
+		expect(report.artifacts.map((artifact) => artifact.relPath).sort()).toEqual(files);
+		for (const artifact of report.artifacts) {
+			expect(artifactBudgetPatterns(artifact.relPath), artifact.relPath).toEqual([
+				artifact.pattern,
+			]);
+			expect(artifact.budget, artifact.relPath).toBe(ARTIFACT_BUDGETS[artifact.pattern ?? '']);
+			expect(artifact.bytes, artifact.relPath).toBe(statSync(join(outDir, artifact.relPath)).size);
+			expect(artifact.gzipBytes, artifact.relPath).toBeGreaterThan(0);
+			const maxBytes = artifact.budget?.maxBytes ?? null;
+			if (maxBytes !== null) {
+				expect(artifact.bytes, artifact.relPath).toBeLessThanOrEqual(maxBytes);
+			}
 		}
-		expect(
-			sizes.get('presentation/math/atlas.json') ?? Number.POSITIVE_INFINITY,
-		).toBeLessThanOrEqual(200 * 1024);
-		expect(
-			sizes.get('presentation/math/bodies.json') ?? Number.POSITIVE_INFINITY,
-		).toBeLessThanOrEqual(1024 * 1024);
+		expect(mobileBundledBytes(report.artifacts)).toBeLessThanOrEqual(MOBILE_BUNDLE_BUDGET_BYTES);
+	});
+
+	it('emits shipped JSON compact and editor schemas indented', () => {
+		const json = report.artifacts.filter((artifact) => artifact.relPath.endsWith('.json'));
+		expect(json.length).toBeGreaterThan(20);
+		for (const artifact of json) {
+			const text = readFileSync(join(outDir, artifact.relPath), 'utf8');
+			expect(text.endsWith('}\n') || text.endsWith(']\n'), artifact.relPath).toBe(true);
+			if (artifact.relPath.startsWith('schemas/')) {
+				expect(text, artifact.relPath).toContain('\n\t');
+			} else {
+				expect(text.trimEnd(), artifact.relPath).not.toContain('\n');
+			}
+		}
 	});
 
 	it('emits deterministic meta with a null timestamp, counting every presentation entry', () => {
@@ -537,6 +568,53 @@ describe('build over the real corpus', () => {
 			}
 		}
 		expect(parsed.equations['area-circle']?.solvable).toEqual(['A', 'r']);
+	});
+
+	it('codegens one module per solved equation carrying the aggregate functions', async () => {
+		type TermFunctions = Record<string, (values: Record<string, number>) => unknown>;
+		const aggregate = (await import(pathToFileURL(join(outDir, 'solutions.js')).href)) as {
+			solutions: Record<string, TermFunctions>;
+		};
+		const modules = readdirSync(join(outDir, 'solutions'))
+			.filter((name) => name.endsWith('.js') && name !== 'index.js')
+			.map((name) => name.slice(0, -'.js'.length))
+			.sort();
+		expect(modules).toEqual(Object.keys(aggregate.solutions).sort());
+		const normalized = (fn: unknown): string => String(fn).replace(/\s+/g, ' ');
+		for (const slug of modules) {
+			const module = (await import(
+				pathToFileURL(join(outDir, 'solutions', `${slug}.js`)).href
+			)) as {
+				default: TermFunctions;
+			};
+			const expected = aggregate.solutions[slug] ?? {};
+			expect(Object.keys(module.default), slug).toEqual(Object.keys(expected));
+			for (const [key, fn] of Object.entries(module.default)) {
+				expect(normalized(fn), `${slug}.${key}`).toBe(normalized(expected[key]));
+			}
+		}
+	});
+
+	it('loads one equation module by slug through literal import() specifiers', async () => {
+		const loaderPath = join(outDir, 'solutions', 'index.js');
+		const loader = (await import(pathToFileURL(loaderPath).href)) as {
+			loadSolutions: (slug: string) => Promise<Record<string, unknown> | undefined>;
+		};
+		const source = readFileSync(loaderPath, 'utf8');
+		const specifiers = [...source.matchAll(/import\("\.\/([a-z0-9-]+)\.js"\)/g)].map(
+			(match) => match[1],
+		);
+		const modules = readdirSync(join(outDir, 'solutions'))
+			.filter((name) => name.endsWith('.js') && name !== 'index.js')
+			.map((name) => name.slice(0, -'.js'.length))
+			.sort();
+		expect(specifiers).toEqual(modules);
+		expect(source).not.toMatch(/import\((?!")/);
+		const pythagorean = await loader.loadSolutions('pythagorean-theorem');
+		expect(Object.keys(pythagorean ?? {}).sort()).toEqual(['a', 'b', 'c']);
+		for (const slug of ['no-such-equation', 'constructor', '__proto__', 'index']) {
+			expect(await loader.loadSolutions(slug), slug).toBeUndefined();
+		}
 	});
 
 	it('carries level, algebraic and truncated into the presentation slices only', () => {
@@ -633,17 +711,35 @@ describe('generated prefixed units (ADR 0007)', () => {
 	});
 });
 
+/**
+ * The bodies v1 hydrator exactly as it shipped before the lean encoding,
+ * frozen here as the reference the lean bodies must reproduce byte for
+ * byte; production hydration may change, this copy may not.
+ */
+function hydrateV1(body: MathBody, atlas: MathAtlas): string {
+	if (body.glyphs.length === 0) {
+		return body.svg;
+	}
+	const defs = body.glyphs.map((id) => `<path id="${id}" d="${atlas.glyphs[id]}"></path>`).join('');
+	const rootEnd = body.svg.indexOf('>');
+	return `${body.svg.slice(0, rootEnd + 1)}<defs>${defs}</defs>${body.svg.slice(rootEnd + 1)}`;
+}
+
 describe('math artifact', () => {
 	let atlas: MathAtlas;
-	let bodies: MathBodies;
+	let shards: MathBodyShard[];
+	let bodies: MathBodyShard;
 
 	beforeAll(() => {
 		atlas = readJson<MathAtlas>('presentation', 'math', 'atlas.json');
-		bodies = readJson<MathBodies>('presentation', 'math', 'bodies.json');
+		shards = Array.from({ length: MATH_SHARD_COUNT }, (_, index) =>
+			readJson<MathBodyShard>('presentation', 'math', 'bodies', `${mathShardName(index)}.json`),
+		);
+		bodies = Object.assign({}, ...shards);
 	});
 
 	it('has the contract shape and is glyph-closed', () => {
-		expect(atlas.schemaVersion).toBe(1);
+		expect(atlas.schemaVersion).toBe(2);
 		expect(atlas.font).toBe('mathjax-newcm');
 		const glyphIds = Object.keys(atlas.glyphs);
 		expect(glyphIds.length).toBe(report.math.glyphs);
@@ -651,14 +747,15 @@ describe('math artifact', () => {
 		expect(Object.keys(bodies).length).toBe(report.math.uniqueTex);
 		const referenced = new Set<string>();
 		for (const [tex, body] of Object.entries(bodies)) {
-			expect(body.svg.startsWith('<svg'), tex).toBe(true);
-			expect(body.svg.match(/<svg\b/g)?.length, tex).toBe(1);
-			expect(body.svg.includes('<defs>'), tex).toBe(false);
-			expect(body.svg, tex).not.toMatch(/\sdata-|\srole=|\sfocusable=|\sstyle=/);
+			const svg = mathBodySvg(body);
+			expect(svg.startsWith('<svg'), tex).toBe(true);
+			expect(svg.match(/<svg\b/g)?.length, tex).toBe(1);
+			expect(svg.includes('<defs>'), tex).toBe(false);
+			expect(svg, tex).not.toMatch(/\sdata-|\srole=|\sfocusable=|\sstyle=/);
 			expect(typeof body.wEx).toBe('number');
 			expect(typeof body.hEx).toBe('number');
 			expect(typeof body.dyEx).toBe('number');
-			for (const id of body.glyphs) {
+			for (const id of mathBodyGlyphs(svg)) {
 				expect(atlas.glyphs[id], `${tex} → ${id}`).toBeDefined();
 				referenced.add(id);
 			}
@@ -667,12 +764,41 @@ describe('math artifact', () => {
 		expect([...referenced].sort()).toEqual(glyphIds.sort());
 	});
 
-	it('covers every TeX string the presentation slices carry, keyed exactly', () => {
-		const mathSegments = (segments: LocalizedSegments | undefined): RichTextSegment[] =>
-			Object.values(segments ?? {})
-				.flat()
-				.filter((segment) => segment.t === 'math');
+	it('emits exactly MATH_SHARD_COUNT shards, each body in the shard its TeX hashes to', () => {
+		expect(readdirSync(join(outDir, 'presentation', 'math', 'bodies')).sort()).toEqual(
+			Array.from({ length: MATH_SHARD_COUNT }, (_, index) => `${mathShardName(index)}.json`),
+		);
+		expect(existsSync(join(outDir, 'presentation', 'math', 'bodies.json'))).toBe(false);
+		shards.forEach((shard, index) => {
+			for (const tex of Object.keys(shard)) {
+				expect(mathShardOf(tex), tex).toBe(index);
+			}
+		});
+	});
+
+	it('ships every body lean, hydrating to exactly the XML its rendered form hydrates to', async () => {
+		const rendered = await buildMathArtifact(report.corpus, null);
+		expect(rendered.issues).toEqual([]);
+		expect(Object.keys(rendered.artifact.bodies).sort()).toEqual(Object.keys(bodies).sort());
+		const lean = Object.values(bodies).filter(isLeanMathBody).length;
+		expect(lean).toBe(Object.keys(bodies).length);
+		for (const [tex, body] of Object.entries(rendered.artifact.bodies)) {
+			const shipped = bodies[tex];
+			expect(shipped, tex).toBeDefined();
+			if (shipped === undefined) continue;
+			expect(hydrateMathBody(shipped, atlas), tex).toBe(hydrateV1(body, atlas));
+			expect(mathBodySvg(shipped), tex).toBe(body.svg);
+			expect(mathBodyGlyphs(mathBodySvg(shipped)), tex).toEqual(body.glyphs);
+		}
+	}, 60_000);
+
+	it('covers every TeX string the presentation slices carry or their prose splits into, keyed exactly', () => {
+		const mathOf = (text: Record<string, string> | undefined) =>
+			Object.values(text ?? {})
+				.flatMap(splitRichText)
+				.flatMap((segment) => (segment.t === 'math' ? [segment] : []));
 		let checked = 0;
+		let stepMath = 0;
 		for (const collection of COLLECTIONS) {
 			const slice = readJson<
 				Record<
@@ -683,8 +809,9 @@ describe('math artifact', () => {
 						expressionTex?: string;
 						terms?: Record<string, unknown>;
 						description?: Record<string, string>;
-						descriptionSegments?: LocalizedSegments;
-						steps?: Record<string, unknown>[];
+						steps?: Partial<
+							Record<'note' | 'body' | 'prompt' | 'answer', Record<string, string>>
+						>[];
 					}
 				>
 			>('presentation', `${collection}.json`);
@@ -693,24 +820,15 @@ describe('math artifact', () => {
 					(key): key is string => key !== undefined,
 				);
 				keys.push(...Object.keys(entity.terms ?? {}));
-				if (entity.description !== undefined) {
-					expect(Object.keys(entity.descriptionSegments ?? {}).sort(), slug).toEqual(
-						Object.keys(entity.description).sort(),
-					);
-				}
 				const stepSegments = (entity.steps ?? []).flatMap((step) =>
-					['noteSegments', 'bodySegments', 'promptSegments', 'answerSegments'].flatMap((field) =>
-						mathSegments(step[field] as LocalizedSegments | undefined),
-					),
+					[step.note, step.body, step.prompt, step.answer].flatMap(mathOf),
 				);
-				for (const segment of [...mathSegments(entity.descriptionSegments), ...stepSegments]) {
-					if (segment.t === 'math') {
-						expect(typeof segment.raw, `${collection}/${slug}: ${segment.tex}`).toBe('string');
-						expect(canonicalTex(segment.raw), `${collection}/${slug}: ${segment.raw}`).toBe(
-							segment.tex,
-						);
-						keys.push(segment.tex);
-					}
+				stepMath += stepSegments.length;
+				for (const segment of [...mathOf(entity.description), ...stepSegments]) {
+					expect(canonicalTex(segment.raw), `${collection}/${slug}: ${segment.raw}`).toBe(
+						segment.tex,
+					);
+					keys.push(segment.tex);
 				}
 				for (const key of keys) {
 					expect(bodies[key], `${collection}/${slug}: ${key}`).toBeDefined();
@@ -718,36 +836,23 @@ describe('math artifact', () => {
 				}
 			}
 		}
+		expect(stepMath).toBeGreaterThan(0);
 		expect(checked).toBeGreaterThan(300);
 	});
 
 	it('keeps annotation macros in raw so equation prose can cross-highlight', () => {
-		const equations = readJson<Record<string, { descriptionSegments?: LocalizedSegments }>>(
+		const equations = readJson<Record<string, { description?: { en: string } }>>(
 			'presentation',
 			'equations.json',
 		);
 		const annotated = Object.values(equations)
-			.flatMap((equation) => equation.descriptionSegments?.en ?? [])
-			.filter((segment) => segment.t === 'math' && segment.raw !== segment.tex);
+			.flatMap((equation) => splitRichText(equation.description?.en ?? ''))
+			.flatMap((segment) => (segment.t === 'math' && segment.raw !== segment.tex ? [segment] : []));
 		expect(annotated.length).toBeGreaterThan(0);
 		for (const segment of annotated) {
-			if (segment.t === 'math') {
-				expect(segment.raw).toMatch(/\\(mag|const|var)\{|[–—−]/);
-				expect(segment.tex).not.toMatch(/\\(mag|const|var)\{/);
-			}
+			expect(segment.raw).toMatch(/\\(mag|const|var)\{|[–—−]/);
+			expect(segment.tex).not.toMatch(/\\(mag|const|var)\{/);
 		}
-	});
-
-	it('mirrors path-step prose as per-locale segments', () => {
-		const paths = readJson<
-			Record<string, { steps: { id: string; kind: string; bodySegments?: LocalizedSegments }[] }>
-		>('presentation', 'paths.json');
-		const prose = paths['si-base-units']?.steps.find((step) => step.kind === 'prose');
-		expect(prose?.bodySegments?.en?.[0]?.t).toBe('text');
-		const withMath = Object.values(paths)
-			.flatMap((path) => path.steps)
-			.find((step) => step.bodySegments?.en?.some((segment) => segment.t === 'math'));
-		expect(withMath).toBeDefined();
 	});
 
 	it('renders display bodies for equation expressions and inline for symbols', () => {
@@ -758,9 +863,56 @@ describe('math artifact', () => {
 		const units = readJson<Record<string, { symbolTex: string }>>('presentation', 'units.json');
 		const expression = bodies[equations['mass-energy-equivalence']?.expressionTex ?? ''];
 		const symbol = bodies[units['joule-per-kelvin']?.symbolTex ?? ''];
-		expect(expression?.glyphs.length).toBeGreaterThan(3);
+		expect(
+			expression === undefined ? 0 : mathBodyGlyphs(mathBodySvg(expression)).length,
+		).toBeGreaterThan(3);
 		expect(symbol?.hEx ?? 0).toBeGreaterThan(2);
 		expect(report.math.uniqueTex).toBeGreaterThan(300);
+	});
+});
+
+describe('artifact budget table', () => {
+	it('classifies each emitted path shape under exactly one pattern', () => {
+		expect(artifactBudgetPatterns('presentation/units.json')).toEqual([
+			'presentation/<collection>.json',
+		]);
+		expect(artifactBudgetPatterns('presentation/math/bodies/0f.json')).toEqual([
+			'presentation/math/bodies/<shard>.json',
+		]);
+		expect(artifactBudgetPatterns('solutions/index.js')).toEqual(['solutions/index.js']);
+		expect(artifactBudgetPatterns('solutions/index.d.ts')).toEqual(['solutions/index.d.ts']);
+		for (const path of ['solutions/area-circle.js', 'solutions/index-of-refraction.js']) {
+			expect(artifactBudgetPatterns(path), path).toEqual(['solutions/<equation>.js']);
+		}
+		expect(artifactBudgetPatterns('search/es.json')).toEqual(['search/<locale>.json']);
+		expect(artifactBudgetPatterns('search/catalog-lite.es.json')).toEqual([
+			'search/catalog-lite.<locale>.json',
+		]);
+		expect(artifactBudgetPatterns('schemas/units.locale.schema.json')).toEqual([
+			'schemas/<collection>.locale.schema.json',
+		]);
+		for (const path of [
+			'presentation/widgets.json',
+			'search/fr.json',
+			'engine.json.bak',
+			'presentation/math/bodies.json',
+			'solutions/area-circle.d.ts',
+			'solutions/Area.js',
+		]) {
+			expect(artifactBudgetPatterns(path), path).toEqual([]);
+		}
+	});
+
+	it('warns from the warn ratio of a budget and errors only over it', () => {
+		const warnFrom = Math.ceil(1000 * BUDGET_WARN_RATIO);
+		expect(budgetIssue('file', warnFrom - 1, 1000, 'cost')).toBeUndefined();
+		expect(budgetIssue('file', warnFrom, 1000, 'cost')?.severity).toBe('warning');
+		expect(budgetIssue('file', 1000, 1000, 'cost')?.severity).toBe('warning');
+		expect(budgetIssue('file', 1001, 1000, 'cost')).toMatchObject({
+			severity: 'error',
+			stage: 'emit',
+			message: expect.stringContaining('over its 1000-byte budget (cost)'),
+		});
 	});
 });
 
@@ -777,7 +929,8 @@ describe('determinism', () => {
 			.sort();
 		expect(files).toEqual(coldFiles);
 		expect(files).toContain(join('presentation', 'math', 'atlas.json'));
-		expect(files).toContain(join('presentation', 'math', 'bodies.json'));
+		expect(files).toContain(join('presentation', 'math', 'bodies', '00.json'));
+		expect(files).toContain(join('solutions', 'index.js'));
 		for (const file of files) {
 			expect(digest(join(outDir, file)), file).toBe(digest(join(coldOutDir, file)));
 		}

@@ -1,8 +1,9 @@
 ---
 import { getCollection } from 'astro:content';
+import { MEMBER_LISTING_ORDER, type MemberCollection } from '@equreka/core/collections';
 import { collectionLabel, type Locale, t } from '@equreka/core/i18n';
 import { localePath } from '../lib/locale-paths';
-import type { MemberCollection, MemberEntry } from '../lib/server/taxonomy';
+import type { MemberEntry } from '../lib/server/taxonomy';
 import { renderSymbolHtml } from '../lib/tex';
 import ListCard from './list-card.astro';
 
@@ -19,16 +20,6 @@ interface Props {
 }
 
 const { locale, members, idPrefix = '' } = Astro.props;
-
-const LEGACY_ORDER: readonly MemberCollection[] = [
-	'equations',
-	'constants',
-	'magnitudes',
-	'variables',
-	'units',
-	'prefixes',
-	'paths',
-];
 
 const COLLECTION_INDEX: Partial<Record<MemberCollection, string>> = {
 	equations: '/equations/',
@@ -63,18 +54,20 @@ const unitOf = new Map(
 	]),
 );
 
-const groups = LEGACY_ORDER.map((collection) => {
-	const entries = members.filter((member) => member.collection === collection);
-	return {
-		collection,
-		entries:
-			collection === 'units'
-				? [...entries].sort((a, b) =>
-						(unitOf.get(a.slug) ?? '').localeCompare(unitOf.get(b.slug) ?? '', 'en'),
-					)
-				: entries,
-	};
-}).filter((group) => group.entries.length > 0);
+const groups = MEMBER_LISTING_ORDER.web
+	.map((collection) => {
+		const entries = members.filter((member) => member.collection === collection);
+		return {
+			collection,
+			entries:
+				collection === 'units'
+					? [...entries].sort((a, b) =>
+							(unitOf.get(a.slug) ?? '').localeCompare(unitOf.get(b.slug) ?? '', 'en'),
+						)
+					: entries,
+		};
+	})
+	.filter((group) => group.entries.length > 0);
 ---
 
 {
