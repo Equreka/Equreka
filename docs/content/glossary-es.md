@@ -124,6 +124,7 @@ Prefix names are already shipped (*mili, ato, zeta, yota* per RAE; the rest unch
 | Newtonian constant of gravitation | constante de gravitación universal | usage |
 | gravitational field strength | intensidad del campo gravitatorio | usage |
 | escape velocity, orbital period | velocidad de escape, periodo orbital | usage |
+| orbital speed | rapidez orbital (scalar: *rapidez*, per the speed row) | usage |
 
 ### Fluids, waves and optics
 
@@ -137,6 +138,7 @@ Prefix names are already shipped (*mili, ato, zeta, yota* per RAE; the rest unch
 | surface tension | tensión superficial | CEM |
 | specific gravity | densidad relativa | usage |
 | period, frequency | periodo, frecuencia | CEM (frecuencia) |
+| wave speed | rapidez de propagación (scalar: *rapidez*, per the speed row) | usage |
 | wavelength, wavenumber | longitud de onda, número de ondas | CEM (número de ondas) |
 | amplitude, harmonic, beat | amplitud, armónico, pulsación | usage |
 | simple harmonic motion | movimiento armónico simple | usage |
@@ -193,6 +195,7 @@ Prefix names are already shipped (*mili, ato, zeta, yota* per RAE; the rest unch
 
 | English | Spanish | Source |
 | --- | --- | --- |
+| speed of light in vacuum | velocidad de la luz en el vacío (the constant's name, so *velocidad*, not *rapidez*) | CEM |
 | photon, photoelectric effect | fotón, efecto fotoeléctrico | usage |
 | work function, threshold frequency | función de trabajo, frecuencia umbral | usage |
 | stopping potential | potencial de frenado | usage |
@@ -224,10 +227,13 @@ Prefix names are already shipped (*mili, ato, zeta, yota* per RAE; the rest unch
 | titration | valoración | usage |
 | buffer solution | disolución amortiguadora | usage |
 | enthalpy, Gibbs energy | entalpía, energía de Gibbs | usage |
+| temperature at which the Gibbs energy change is zero | temperatura a la que la variación de energía de Gibbs se anula (never *temperatura de inversión*, which names the Joule-Thomson inversion temperature) | [OpenStax *Química 2ed*, 16.4](https://openstax.org/books/qu%C3%ADmica-2ed/pages/16-4-energia-libre) |
+| molar gas constant | constante molar de los gases | usage |
 | reaction rate, rate constant, rate law | velocidad de reacción, constante de velocidad, ley de velocidad | usage |
 | activation energy | energía de activación | usage |
 | equilibrium constant, solubility product | constante de equilibrio, producto de solubilidad | usage |
 | cell potential, standard electrode potential | potencial de la celda, potencial estándar de electrodo | usage |
+| galvanic cell, electrolytic cell, fuel cell | celda galvánica, celda electrolítica, celda de combustible (*pila* in `aliases`) | usage |
 | electrolysis | electrólisis | usage |
 
 ### Mathematics

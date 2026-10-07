@@ -48,7 +48,7 @@ Run `pnpm --filter @equreka/content build` once so `dist/schemas/*.schema.json` 
   - A URL is credited once per entry.
   - `originality.mjs --apply` writes these items for every flagged description.
   - The entry page shows each credit under the description ("Text adapted from …") and lists it as `isBasedOn` in its JSON-LD.
-  - When you rewrite a credited description in your own words, re-run the check. Once it no longer flags the description, delete that source in the same change.
+  - When you rewrite a credited description in your own words, re-run the check, and keep the credit: the check only sees surface overlap, so removing a credit is a human reviewer's licensing decision (ADR 0011).
 - **Localization.** Entity files carry English only: every localized field is `{ en: ... }`. Translations live in one sidecar per locale beside the entity (`<slug>.es.yaml`, see *Translations*); an inline `es:` key is rejected by both yaml-lint and the loader, so each language has exactly one home. Every English field an entity authors needs its Spanish: a new entity without a complete sidecar fails the `locale` stage (see *Translations*). Only entities on the shrinking locale debt, and generated prefixed units, still fall back to English with an untranslated notice.
 - **Aliases.** `aliases` feeds the exact-match search lane: US spellings (`meter`), ASCII forms of Greek (`mu`, `ohm`), degree-text forms (`degC`), symbol variants users type (`m/s`, `J/K`), nicknames (`avogadro number`). Lowercase-insensitive; diacritics are folded at index and query time.
 - **Taxonomy.** Every entity except categories and branches takes `categories` and `branches` (see *branches*).

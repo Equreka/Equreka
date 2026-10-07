@@ -1,7 +1,21 @@
 # yaml-language-server: $schema=../../dist/schemas/branches.locale.schema.json
 name: 'Medición y metrología'
 description: >-
-  La metrología es la ciencia de la medición: cómo se definen las magnitudes, cómo se comparan con
-  una unidad y cómo se expresan como un número por esa unidad. También abarca las convenciones
-  ajenas a todo sistema de unidades, como el cómputo calendárico de días, meses y años, y las
-  magnitudes adimensionales, que son números puros.
+  Medición y metrología es la rama que estudia la propia medición. La metrología estudia cómo se
+  definen, se miden y se comparan las magnitudes, desde la teoría de la medición hasta su práctica
+  en laboratorios e industria, y qué fiabilidad tienen los resultados. Una medición compara una
+  magnitud con una unidad y da el resultado como un número por esa unidad, junto con una
+  incertidumbre que indica cuán bien se conoce el número.
+
+  Abarca las magnitudes y unidades que no pertenecen a una sola disciplina. El tiempo, que
+  se mide en segundos, se cuenta en la vida diaria en minutos, horas y días, que el SI acepta para
+  su uso con sus propias unidades en razones exactas: sesenta segundos por minuto, sesenta minutos
+  por hora y veinticuatro horas por día. La semana, el mes, el año, la década y el siglo amplían ese
+  recuento por convención de calendario. Las magnitudes adimensionales, como un índice de refracción
+  o una fracción másica, que dividen una magnitud entre otra de la misma naturaleza, tienen la
+  unidad uno, que rara vez se escribe, y se expresan como números puros.
+
+  La rama complementa el Sistema Internacional de Unidades, que fija las propias unidades,
+  ocupándose de cómo se usan: contar, convertir entre unidades y escribir valores. Todas las demás
+  ramas dependen de ella siempre que un resultado se expresa como un número con una unidad, desde
+  una rapidez en mecánica hasta una concentración en química.
