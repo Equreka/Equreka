@@ -4,40 +4,17 @@ import { fileURLToPath } from 'node:url';
 import { tokens } from '@equreka/tokens';
 import type { AstroIntegration } from 'astro';
 import { generateSW } from 'workbox-build';
+import { bundleDataCacheWorker, planDataCache } from '../pwa/data-cache-build';
+import {
+	accountOfflineInstall,
+	budgetVerdict,
+	describeOfflineInstall,
+	OFFLINE_BUDGET_BYTES,
+	SHELL_PRECACHE_GLOBS,
+} from '../pwa/precache';
+import { BROWSER_TARGETS } from './browser-targets';
 
-/**
- * Explicit precache globs per ADR 0002: app-shell routes (both locale
- * trees) + island bundles + KaTeX + the Poppins display faces + the
- * header logo + the per-locale data bundles.
- * Deliberately not a catch-all HTML glob — entry pages are runtime-cached,
- * so a chunk change never invalidates all of them; never-visited entries
- * resolve through the offline reader and its precached reader payload.
- */
-const PRECACHE_GLOBS = [
-	'{,es/}index.html',
-	'{,es/}offline/index.html',
-	'{,es/}converter/index.html',
-	'{,es/}search/index.html',
-	'{,es/}favorites/index.html',
-	'{,es/}settings/index.html',
-	'{,es/}paths/index.html',
-	'_astro/*.js',
-	'_astro/*.css',
-	'katex/katex.min.css',
-	'katex/fonts/*.woff2',
-	'fonts/*.woff2',
-	'search/{en,es}.json',
-	'search/catalog-lite.{en,es}.json',
-	'data/converter.{en,es}.json',
-	'data/reader.{en,es}.json',
-	'data/paths.{en,es}.json',
-	'manifest.webmanifest',
-	'icons/*.svg',
-	'brand/logo.svg',
-	'pwa-register.js',
-];
-
-const PRECACHE_BUDGET_BYTES = 6 * 1024 * 1024;
+const DATA_CACHE_WORKER_ENTRY = 'src/pwa/data-cache-worker.ts';
 
 /**
  * The seven-circle brand mark from docs/brand/logo-circles.svg, inlined so
@@ -100,7 +77,7 @@ function webManifest(): string {
 }
 
 /**
- * Offline layer per ADR 0002 (shell + bundle precache, never full-HTML).
+ * Offline layer per ADR 0002 (shell precache, never full-HTML).
  * config:setup materializes the manifest + icons from tokens; build:done
  * runs workbox-build generateSW over dist/. Navigations are NetworkFirst
  * into a runtime cache with the precached offline reader as fallback
@@ -112,12 +89,20 @@ function webManifest(): string {
  * ignored for precache matching so shell routes still hit, and page-cache
  * lookups ignore the search string: static HTML never depends on it, so an
  * entry visited plain must still serve when revisited with `?path=`.
+ *
+ * Locale payloads are not precached (ADR 0013): build:done bundles the data
+ * cache worker with this build's payload digests and generateSW imports it
+ * ahead of Workbox, so it caches the reader's locale and owns those URLs.
+ * The build fails when the shell plus the largest locale's payloads exceed
+ * OFFLINE_BUDGET_BYTES and warns from the shared budget warn ratio.
  */
 export function equrekaPwa(): AstroIntegration {
+	let rootDir = '';
 	return {
 		name: 'equreka-pwa',
 		hooks: {
 			'astro:config:setup': ({ config }) => {
+				rootDir = fileURLToPath(config.root);
 				const publicDir = fileURLToPath(config.publicDir);
 				const iconsDir = join(publicDir, 'icons');
 				mkdirSync(iconsDir, { recursive: true });
@@ -127,11 +112,19 @@ export function equrekaPwa(): AstroIntegration {
 			},
 			'astro:build:done': async ({ dir, logger }) => {
 				const distDir = fileURLToPath(dir);
+				const { manifest, localeBytes } = planDataCache(distDir);
+				const worker = await bundleDataCacheWorker(
+					join(rootDir, DATA_CACHE_WORKER_ENTRY),
+					manifest,
+					BROWSER_TARGETS,
+				);
+				writeFileSync(join(distDir, worker.fileName), worker.contents);
 				const { count, size, warnings } = await generateSW({
 					swDest: join(distDir, 'sw.js'),
 					globDirectory: distDir,
-					globPatterns: [...PRECACHE_GLOBS],
-					maximumFileSizeToCacheInBytes: PRECACHE_BUDGET_BYTES,
+					globPatterns: [...SHELL_PRECACHE_GLOBS],
+					importScripts: [`/${worker.fileName}`],
+					maximumFileSizeToCacheInBytes: OFFLINE_BUDGET_BYTES,
 					skipWaiting: false,
 					clientsClaim: true,
 					cleanupOutdatedCaches: true,
@@ -181,13 +174,17 @@ export function equrekaPwa(): AstroIntegration {
 				for (const warning of warnings) {
 					logger.warn(warning);
 				}
-				logger.info(
-					`precache manifest: ${count} URLs, ${(size / 1024).toFixed(1)} KiB (budget ${PRECACHE_BUDGET_BYTES / 1024} KiB)`,
-				);
-				if (size > PRECACHE_BUDGET_BYTES) {
-					throw new Error(
-						`equreka-pwa: precache manifest ${size} bytes exceeds the ${PRECACHE_BUDGET_BYTES}-byte budget (ADR 0002)`,
-					);
+				const account = accountOfflineInstall(size, localeBytes);
+				const summary = describeOfflineInstall(account, count);
+				switch (budgetVerdict(account.totalBytes)) {
+					case 'over':
+						throw new Error(`equreka-pwa: ${summary}: over budget (ADR 0013)`);
+					case 'warn':
+						logger.warn(summary);
+						break;
+					case 'within':
+						logger.info(summary);
+						break;
 				}
 			},
 		},

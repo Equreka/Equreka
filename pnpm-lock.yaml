@@ -391,6 +391,9 @@ importers:
       bootstrap-icons:
         specifier: 'catalog:'
         version: 1.9.1
+      esbuild:
+        specifier: 'catalog:'
+        version: 0.28.2
       jsdom:
         specifier: 'catalog:'
         version: 30.0.1

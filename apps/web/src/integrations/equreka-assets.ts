@@ -2,10 +2,13 @@ import { copyFileSync, mkdirSync, readdirSync, readFileSync, rmSync, writeFileSy
 import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { BUDGET_WARN_RATIO } from '@equreka/content/artifact-budgets';
 import { stripMacrosToText } from '@equreka/content/rich-text';
 import { COLLECTION_ORDER } from '@equreka/core/collections';
+import { LOCALES, type Locale } from '@equreka/core/i18n';
 import type { EngineSlice } from '@equreka/schema';
 import type { AstroIntegration } from 'astro';
+import { localePayloadUrl } from '../lib/locale-payloads';
 
 const requireFromHere = createRequire(import.meta.url);
 
@@ -24,34 +27,22 @@ const POPPINS_FILES = ['poppins-latin-500-normal.woff2', 'poppins-latin-600-norm
 const ICON_FONT_FILE = 'bootstrap-icons.woff2';
 
 /**
- * Locales with runtime payloads — one search index, converter payload,
- * reader payload and paths payload each. Mirrors @equreka/core/i18n LOCALES.
- */
-const LOCALES = ['en', 'es'] as const;
-
-type PayloadLocale = (typeof LOCALES)[number];
-
-/**
  * Raw-byte ceiling per locale of each derived payload (ADR 0010). Islands
- * fetch them and the PWA precaches all of them, so every byte is paid on
- * first install and counts against the 6 MiB precache budget.
+ * fetch them and the service worker caches the reader's locale on first
+ * install, so the largest locale's set counts against the 6 MiB offline
+ * budget (ADR 0013).
  */
 const PAYLOAD_BUDGETS = {
 	converter: 256 * 1024,
-	reader: 1024 * 1024,
+	reader: 2 * 1024 * 1024,
 	paths: 128 * 1024,
 } as const;
 
 type PayloadKind = keyof typeof PAYLOAD_BUDGETS;
 
 /**
- * Share of a payload budget at which the build warns, matching the content
- * pipeline's artifact budgets.
- */
-const PAYLOAD_WARN_RATIO = 0.8;
-
-/**
- * Fails the build over budget and warns from PAYLOAD_WARN_RATIO of it.
+ * Fails the build over budget and warns from the content pipeline's
+ * BUDGET_WARN_RATIO of it.
  */
 function enforcePayloadBudget(
 	relPath: string,
@@ -64,7 +55,7 @@ function enforcePayloadBudget(
 	if (bytes > maxBytes) {
 		throw new Error(`${relPath} is ${bytes} bytes, over its ${maxBytes}-byte budget (ADR 0010)`);
 	}
-	if (bytes >= maxBytes * PAYLOAD_WARN_RATIO) {
+	if (bytes >= maxBytes * BUDGET_WARN_RATIO) {
 		warn(
 			`${relPath} is ${bytes} bytes, ${((bytes / maxBytes) * 100).toFixed(1)}% of its ${maxBytes}-byte budget`,
 		);
@@ -76,7 +67,7 @@ interface LocalizedField {
 	es?: string;
 }
 
-function localized(field: LocalizedField, locale: PayloadLocale): string {
+function localized(field: LocalizedField, locale: Locale): string {
 	return field[locale] ?? field.en;
 }
 
@@ -142,7 +133,7 @@ export type ReaderPayload = Record<string, Record<string, ReaderEntry>>;
 /**
  * The learning-path context payload the dormant PathContextBar fetches on
  * entry pages carrying `?path=&step=`: every path's name and ordered steps,
- * locale-resolved and small enough to precache. Routes are derived on the
+ * locale-resolved and small enough to cache offline. Routes are derived on the
  * client from (collection, slug) through entryHref — the artifact stays
  * platform-neutral (ADR 0004).
  */
@@ -190,7 +181,7 @@ function readPresentation(collection: string): Record<string, PresentationEntry>
 	) as Record<string, PresentationEntry>;
 }
 
-function outlineTitle(step: PresentationPathStep, locale: PayloadLocale): string {
+function outlineTitle(step: PresentationPathStep, locale: Locale): string {
 	switch (step.kind) {
 		case 'entry':
 			return step.target.symbolText === ''
@@ -203,7 +194,7 @@ function outlineTitle(step: PresentationPathStep, locale: PayloadLocale): string
 	}
 }
 
-function buildReaderPayload(locale: PayloadLocale): string {
+function buildReaderPayload(locale: Locale): string {
 	const payload: ReaderPayload = {};
 	for (const collection of COLLECTION_ORDER) {
 		const slice: Record<string, ReaderEntry> = {};
@@ -227,7 +218,7 @@ function buildReaderPayload(locale: PayloadLocale): string {
 	return JSON.stringify(payload);
 }
 
-function buildPathsPayload(locale: PayloadLocale): string {
+function buildPathsPayload(locale: Locale): string {
 	const payload: PathsPayload = {};
 	for (const [slug, entry] of Object.entries(readPresentation('paths'))) {
 		payload[slug] = {
@@ -248,7 +239,7 @@ function buildPathsPayload(locale: PayloadLocale): string {
 	return JSON.stringify(payload);
 }
 
-export function buildConverterPayload(slice: EngineSlice, locale: PayloadLocale): ConverterPayload {
+export function buildConverterPayload(slice: EngineSlice, locale: Locale): ConverterPayload {
 	const payload: ConverterPayload = { units: {}, magnitudes: {} };
 	for (const unit of Object.values(slice.units)) {
 		payload.units[unit.slug] = {
@@ -328,11 +319,11 @@ export function equrekaAssets(): AstroIntegration {
 				for (const locale of LOCALES) {
 					copyFileSync(
 						requireFromHere.resolve(`@equreka/content/artifact/search/${locale}.json`),
-						join(searchOutDir, `${locale}.json`),
+						join(publicDir, localePayloadUrl('search', locale)),
 					);
 					copyFileSync(
 						requireFromHere.resolve(`@equreka/content/artifact/search/catalog-lite.${locale}.json`),
-						join(searchOutDir, `catalog-lite.${locale}.json`),
+						join(publicDir, localePayloadUrl('catalog-lite', locale)),
 					);
 					const payloads: Record<PayloadKind, string> = {
 						converter: JSON.stringify(buildConverterPayload(slice, locale)),
@@ -341,9 +332,9 @@ export function equrekaAssets(): AstroIntegration {
 					};
 					for (const kind of Object.keys(PAYLOAD_BUDGETS) as PayloadKind[]) {
 						const text = payloads[kind];
-						const fileName = `${kind}.${locale}.json`;
-						enforcePayloadBudget(`data/${fileName}`, kind, text, (message) => logger.warn(message));
-						writeFileSync(join(dataOutDir, fileName), text);
+						const url = localePayloadUrl(kind, locale);
+						enforcePayloadBudget(url.slice(1), kind, text, (message) => logger.warn(message));
+						writeFileSync(join(publicDir, url), text);
 						payloadBytes += Buffer.byteLength(text, 'utf8');
 					}
 				}

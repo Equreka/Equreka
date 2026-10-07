@@ -8,6 +8,7 @@ import { Icon } from '../components/react-icon';
 import type { ConverterPayload } from '../integrations/equreka-assets';
 import { converterSliceOf } from '../lib/converter-slice';
 import { chevronRightIcon } from '../lib/icons';
+import { localePayloadUrl } from '../lib/locale-payloads';
 
 export interface ConverterIslandProps {
 	initialMagnitude?: string;
@@ -56,7 +57,7 @@ export default function ConverterIsland({
 
 	useEffect(() => {
 		let cancelled = false;
-		fetch(`/data/converter.${locale}.json`)
+		fetch(localePayloadUrl('converter', locale))
 			.then((response) => {
 				if (!response.ok) throw new Error(`HTTP ${response.status}`);
 				return response.json() as Promise<ConverterPayload>;

@@ -376,4 +376,5 @@ mobile-bundled total: 1.02 MiB of 8.00 MiB (12.8%)
 - A file at 80% of its budget, or a mobile total at 80% of 8 MiB, is a warning. Over budget is an error.
 - A file that matches no pattern is an error: add its row to the table rather than emitting it unbudgeted.
 - The web build holds its derived payloads to their own budgets in `apps/web/src/integrations/equreka-assets.ts`: `data/reader.<locale>.json` 1 MiB, `data/converter.<locale>.json` 256 KiB, `data/paths.<locale>.json` 128 KiB.
+- The web build then prints the offline install against 6 MiB: the precached shell plus the largest locale's payloads (ADR 0013), for example `offline install: shell 168 URLs 1211.5 KiB + largest locale data (es) = 2568.6 KiB of 6144.0 KiB (41.8%)`. It warns from 80% and fails over the budget.
 - The costs that grow with content are math bodies (every new unique `$…$` fragment; see the style guide's TeX budget) and the search lede (480 characters per entry at most).

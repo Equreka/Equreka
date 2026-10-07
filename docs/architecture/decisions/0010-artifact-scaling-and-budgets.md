@@ -47,15 +47,15 @@ The table as amended by A7:
 | `presentation/<collection>.json` | 2 MiB each | yes | mobile bundle; one JSON parse on the collection's first screen |
 | `presentation/math/atlas.json` | 200 KiB | yes | mobile bundle |
 | `presentation/math/bodies/<shard>.json` | 128 KiB each | yes | mobile bundle; one shard evaluated when a screen first renders a body in it |
-| `search/<locale>.json` | 1 MiB | no | web transfer on search focus; PWA precache |
-| `search/catalog-lite.<locale>.json` | 512 KiB | yes | web transfer and PWA precache (search, favorites, offline reader); mobile bundle |
+| `search/<locale>.json` | 1 MiB | no | web transfer on search focus; PWA offline install (ADR 0013) |
+| `search/catalog-lite.<locale>.json` | 512 KiB | yes | web transfer and PWA offline install (search, favorites, offline reader); mobile bundle |
 | `schemas/<collection>.schema.json`, `schemas/<collection>.locale.schema.json` | none (build-only) | no | — |
 
 The budgets protect three different costs:
 
 - **Mobile bundle and OTA size.** The sum of the `mobileBundled` files may not exceed `MOBILE_BUNDLE_BUDGET_BYTES`, 8 MiB. `mobileBundled` mirrors the imports of `apps/mobile/shared/content/artifact.ts`, which a mobile test asserts (*Math body shards and per-equation solutions*).
 - **Web transfer.** The search index and catalog-lite are fetched on demand. A calculator page loads `solutions/index.js` as part of the calculator island's chunk, and then the one `solutions/<equation>.js` chunk for its own equation.
-- **PWA precache.** The search indexes, catalog-lite and the web's derived payloads are precached against the 6 MiB manifest budget that `equreka-pwa.ts` enforces.
+- **PWA precache.** The search indexes, catalog-lite and the web's derived payloads are precached against the 6 MiB manifest budget that `equreka-pwa.ts` enforces. *Amended by ADR 0013:* they now live in a per-locale data cache filled for the locales the reader uses, and the 6 MiB budget counts the precached shell plus the largest locale's payloads.
 
 ### Enforcement
 
@@ -71,7 +71,7 @@ The budgets protect three different costs:
 
 | Payload | Max | Today (en / es) |
 | --- | --- | --- |
-| `data/reader.<locale>.json` | 1 MiB | 104,774 / 104,322 |
+| `data/reader.<locale>.json` | 2 MiB (raised from 1 MiB by ADR 0013) | 104,774 / 104,322 |
 | `data/converter.<locale>.json` | 256 KiB | 40,108 / 40,219 |
 | `data/paths.<locale>.json` | 128 KiB | 3,858 / 3,879 |
 

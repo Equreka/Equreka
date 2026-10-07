@@ -24,14 +24,14 @@ test.describe('zero-JS degradation floor', () => {
 
 		await expect(page.getByRole('heading', { level: 1, name: 'Celsius' })).toBeVisible();
 		await expect(
-			page.getByText('unit of temperature on the Celsius scale', { exact: false }),
+			page.getByText('the everyday temperature scale of most countries', { exact: false }),
 		).toBeVisible();
 
 		const table = page.getByRole('table').first();
 		await expect(table.getByRole('link', { name: 'Fahrenheit' })).toBeVisible();
-		await expect(table.getByRole('cell', { name: /33\.8/ })).toBeVisible();
+		await expect(table.getByRole('cell', { name: /3\.38×10\+1/ })).toBeVisible();
 		await expect(table.getByRole('link', { name: 'Kelvin' })).toBeVisible();
-		await expect(table.getByRole('cell', { name: /274\.15/ })).toBeVisible();
+		await expect(table.getByRole('cell', { name: /2\.7415×10\+2/ })).toBeVisible();
 	});
 
 	test('body background is the light token without JS', async ({ page }) => {
