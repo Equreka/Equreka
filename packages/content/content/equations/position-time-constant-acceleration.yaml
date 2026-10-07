@@ -1,0 +1,89 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Position under constant acceleration'
+kind: 'equation'
+level: 'intro'
+expression: '\var{x}=\var{x_{0}}+\var{v_{0}}\mag{t}+\frac{1}{2}\mag{a}\mag{t}^{2}'
+terms:
+  x:
+    kind: 'symbol'
+    label:
+      en: 'Position'
+    unit: 'metre'
+  x_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial position'
+    unit: 'metre'
+  v_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial velocity'
+    unit: 'metre-per-second'
+  a:
+    kind: 'magnitude'
+    ref: 'acceleration'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  x: 'x_0 + v_0 * t + a * t^2 / 2'
+  x_{0}: 'x - v_0 * t - a * t^2 / 2'
+  v_{0}: '(x - x_0) / t - a * t / 2'
+  a: '2 * (x - x_0 - v_0 * t) / t^2'
+  t:
+    - '(-v_0 + sqrt(v_0^2 + 2 * a * (x - x_0))) / a'
+    - '(-v_0 - sqrt(v_0^2 + 2 * a * (x - x_0))) / a'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'second equation of motion'
+  - 'position-time equation'
+  - 's = ut + 1/2 at^2'
+  - 'x = x0 + v0 t + 1/2 a t^2'
+  - 'suvat'
+  - 'ecuación de la posición del MRUA'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 3.4 Motion with Constant Acceleration, equation 3.13 and Example 3.8'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-4-motion-with-constant-acceleration'
+  - title: 'OpenStax, College Physics 2e, 2.5 Motion Equations for Constant Acceleration in One Dimension, Example 2.13'
+    url: 'https://openstax.org/books/college-physics-2e/pages/2-5-motion-equations-for-constant-acceleration-in-one-dimension'
+  - title: 'HyperPhysics (Georgia State University), Motion equations for constant acceleration'
+    url: 'https://hyperphysics.gsu.edu/hbase/mot.html'
+  - title: 'MacTutor History of Mathematics, Galileo Galilei (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Galileo/'
+description:
+  en: >-
+    The position equation of uniformly accelerated motion gives the position of a body moving along
+    a straight line with constant acceleration: the initial position, plus the initial velocity
+    times the elapsed time, plus half the acceleration times the square of the time. Known as the
+    second equation of motion, it describes dragsters, braking cars and dropped stones.
+
+    In the equation, $\var{x}$ is the position at time $\mag{t}$ and $\var{x_{0}}$ the position when
+    the clock starts, both in metres from an origin on the line; $\var{v_{0}}$ is the initial
+    velocity in metres per second, $\mag{a}$ the constant acceleration in metres per second squared,
+    and $\mag{t}$ the elapsed time in seconds, never negative. Position, velocity and acceleration
+    are signed along a chosen positive direction; a negative acceleration with a positive initial
+    velocity means the body is slowing down.
+
+    Under constant acceleration the average velocity is the mean of the initial and final values;
+    multiplying it by the time, with the final velocity written as the initial one plus the
+    acceleration times the time, yields the two time terms. The first is the distance covered at the
+    initial velocity, the second the extra due to the acceleration, which grows with the square of
+    the time, so the position–time graph is a parabola.
+
+    Solving for the time gives a quadratic equation with two roots. With the positive direction
+    along the initial velocity, the first root listed is the earliest instant at which the body
+    reaches the position; when the second is also positive it is a later passage, as when a ball
+    thrown upward passes the same height on its way down; a negative root lies before the clock
+    started and is discarded. Solving for the time needs a non-zero acceleration. The equation
+    assumes constant acceleration, straight-line motion and no air resistance.
+
+    Galileo found that the distance a body falls from rest grows as the square of the elapsed time,
+    the case of zero initial velocity, and set out the result in Two New Sciences, published in
+    Leiden in 1638. A dragster accelerating from rest at 26.0 metres per second squared covers about
+    402 metres in 5.56 seconds.

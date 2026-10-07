@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Rapidez de impacto tras una caída desde el reposo'
+terms:
+  g:
+    label: 'Aceleración de la gravedad'
+  h:
+    label: 'Altura de caída'
+description: >-
+  La rapidez de impacto tras una caída desde el reposo es la rapidez que tiene un cuerpo después de
+  descender una altura vertical dada con la gravedad como única fuerza: la raíz cuadrada del doble
+  de la aceleración de la gravedad por la altura. En cinemática se deduce de la ecuación que liga
+  velocidad y desplazamiento con aceleración constante, y da la rapidez con la que un objeto soltado
+  golpea el suelo sin necesidad de saber cuánto duró la caída.
+
+  Aquí $\mag{v}$ es la rapidez al final de la caída, en metros por segundo; $\var{h}$ es la altura
+  de caída, la distancia vertical entre el punto de partida y el de impacto, en metros; y $\var{g}$
+  es el módulo de la aceleración de la gravedad, en metros por segundo al cuadrado, introducido como
+  número positivo. Las tres son no negativas. La velocidad de impacto apunta hacia abajo, así que
+  con hacia arriba como sentido positivo la velocidad vertical es la opuesta de $\mag{v}$. El valor
+  normal de $\var{g}$ es 9.80665 metros por segundo al cuadrado; el valor local varía con la
+  latitud, la altitud y la geología, entre unos 9.78 y 9.83 en la superficie de la Tierra, y es
+  distinto en otro planeta o satélite.
+
+  Un cuerpo soltado desde el reposo cae la altura en un tiempo fijado por la distancia de caída
+  libre, y su rapidez es entonces $\var{g}$ por ese tiempo; al eliminar el tiempo queda la relación.
+  En términos de energía, la energía potencial perdida se convierte en energía cinética y la masa se
+  cancela, de modo que la rapidez de impacto no depende de la masa. La rapidez crece solo con la
+  raíz cuadrada de la altura: cuadruplicar la altura la duplica.
+
+  La relación supone partida desde el reposo, resistencia del aire despreciable y un campo
+  gravitatorio uniforme. El rozamiento con el aire reduce la rapidez real de impacto, mucho en
+  objetos ligeros o extensos, y en caídas tan largas que la gravedad se debilita por el camino el
+  resultado es demasiado alto.
+
+  La relación da una estimación rápida de la rapidez con la que aterriza un objeto soltado. Un
+  objeto soltado desde 5 metros de altura llega al suelo a unos 9.9 metros por segundo, cerca de 36
+  kilómetros por hora.

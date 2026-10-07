@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Posición en el movimiento uniformemente acelerado'
+terms:
+  x:
+    label: 'Posición'
+  x_{0}:
+    label: 'Posición inicial'
+  v_{0}:
+    label: 'Velocidad inicial'
+description: >-
+  La ecuación de la posición del movimiento uniformemente acelerado da la posición de un cuerpo que
+  se mueve por una recta con aceleración constante: la posición inicial, más la velocidad inicial
+  por el tiempo transcurrido, más la mitad de la aceleración por el cuadrado del tiempo. Conocida
+  como segunda ecuación del movimiento, describe dragsters, coches que frenan y piedras que se dejan
+  caer.
+
+  En la ecuación, $\var{x}$ es la posición en el instante $\mag{t}$ y $\var{x_{0}}$ la posición al
+  poner en marcha el reloj, ambas en metros desde un origen sobre la recta; $\var{v_{0}}$ es la
+  velocidad inicial en metros por segundo, $\mag{a}$ la aceleración constante en metros por segundo
+  al cuadrado, y $\mag{t}$ el tiempo transcurrido en segundos, nunca negativo. La posición, la
+  velocidad y la aceleración tienen signo según un sentido positivo elegido; una aceleración
+  negativa con una velocidad inicial positiva significa que el cuerpo se está frenando.
+
+  Con aceleración constante la velocidad media es la media de los valores inicial y final; al
+  multiplicarla por el tiempo, escribiendo la velocidad final como la inicial más la aceleración por
+  el tiempo, se obtienen los dos términos temporales. El primero es la distancia recorrida a la
+  velocidad inicial, y el segundo, lo añadido por la aceleración, que crece con el cuadrado del
+  tiempo, por lo que la gráfica de la posición frente al tiempo es una parábola.
+
+  Despejar el tiempo lleva a una ecuación de segundo grado con dos raíces. Con el sentido positivo a
+  lo largo de la velocidad inicial, la primera raíz de la lista es el primer instante en que el
+  cuerpo alcanza la posición; cuando la segunda también es positiva corresponde a un paso posterior,
+  como cuando una pelota lanzada hacia arriba vuelve a pasar por la misma altura al bajar; una raíz
+  negativa queda antes de poner en marcha el reloj y se descarta. Despejar el tiempo exige una
+  aceleración distinta de cero. La ecuación supone aceleración constante, movimiento rectilíneo y
+  ausencia de resistencia del aire.
+
+  Galileo halló que la distancia que recorre un cuerpo que cae desde el reposo crece con el cuadrado
+  del tiempo transcurrido, el caso de velocidad inicial nula, y expuso el resultado en Dos nuevas
+  ciencias, publicada en Leiden en 1638. Un dragster que acelera desde el reposo a 26.0 metros por
+  segundo al cuadrado recorre unos 402 metros en 5.56 segundos.

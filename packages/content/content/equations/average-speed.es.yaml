@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Rapidez media'
+terms:
+  d:
+    label: 'Distancia recorrida'
+description: >-
+  La rapidez media es la distancia total que recorre un cuerpo dividida entre el tiempo que dura el
+  trayecto. Es la medida cotidiana de lo deprisa que se mueve un coche, un corredor o un tren a lo
+  largo de un viaje completo y, en cinemática, la descripción más sencilla del movimiento: no tiene
+  en cuenta el sentido de avance ni los cambios de ritmo por el camino.
+
+  En la fórmula, $\mag{\bar{v}}$ es la rapidez media en metros por segundo, $\var{d}$ es la
+  distancia recorrida a lo largo de la trayectoria en metros y $\mag{t}$ es el tiempo transcurrido
+  en segundos, con el reloj puesto en cero al empezar. Las tres son no negativas. La distancia
+  cuenta cada metro recorrido sea cual sea su sentido, de modo que solo crece durante el viaje, y un
+  cuerpo que da la vuelta suma el tramo de regreso en lugar de anular el de ida.
+
+  La media no informa de cómo cambió la rapidez entre medias. Un ciclista que baja rápido y sube
+  despacio y otro que mantiene un ritmo constante tienen la misma rapidez media si recorren la misma
+  distancia en el mismo tiempo. Multiplicar la rapidez media por un tiempo da la distancia, y así se
+  calculan las duraciones de los viajes. Dos tramos a rapideces distintas dan la media aritmética de
+  ambas solo cuando los tramos duran lo mismo.
+
+  La rapidez media no es el módulo de la velocidad media. La velocidad media divide el
+  desplazamiento, el cambio de posición en línea recta con su signo, entre el tiempo; en un viaje de
+  ida y vuelta que termina donde empezó, el desplazamiento y la velocidad media son nulos, mientras
+  que la rapidez media no lo es. Ambas coinciden en valor absoluto solo en un movimiento en un único
+  sentido, sin retrocesos. La rapidez instantánea que marca un velocímetro es el límite de la media
+  en intervalos cada vez más cortos.
+
+  Esta magnitud sirve para fijar horarios y estimar consumos y tiempos de viaje. Un trayecto por
+  carretera de 300 kilómetros que dura cuatro horas tiene una rapidez media de 75 kilómetros por
+  hora, unos 20.8 metros por segundo.

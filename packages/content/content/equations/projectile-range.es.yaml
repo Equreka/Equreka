@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Alcance de un proyectil'
+terms:
+  R:
+    label: 'Alcance'
+  v_{0}:
+    label: 'Rapidez de lanzamiento'
+  g:
+    label: 'Aceleración de la gravedad'
+description: >-
+  El alcance de un proyectil es la distancia horizontal que recorre antes de volver a la altura
+  desde la que se lanzó: el cuadrado de la rapidez de lanzamiento por el seno del doble del ángulo
+  de lanzamiento, dividido entre la aceleración de la gravedad. Conocida como ecuación del alcance
+  del movimiento de proyectiles en cinemática, muestra que sin resistencia del aire un lanzamiento a
+  45 grados llega más lejos.
+
+  Aquí $\var{R}$ es el alcance, en metros, medido sobre un terreno llano desde el lanzamiento hasta
+  la caída; $\var{v_{0}}$ es la rapidez de lanzamiento, el módulo de la velocidad inicial, en metros
+  por segundo; $\mag{\theta}$ es el ángulo de lanzamiento sobre la horizontal, entre 0 y 90 grados,
+  cuya unidad coherente es el radián; y $\var{g}$ es el módulo de la aceleración de la gravedad, en
+  metros por segundo al cuadrado, introducido como número positivo. Las cuatro son no negativas. El
+  valor normal de $\var{g}$ es 9.80665 metros por segundo al cuadrado; el valor local varía con la
+  latitud, la altitud y la geología, entre unos 9.78 y 9.83 en la superficie de la Tierra, y es
+  distinto en otro planeta o satélite.
+
+  El alcance es la rapidez horizontal constante por el tiempo que el proyectil tarda en subir y
+  bajar bajo $\var{g}$; la identidad del ángulo doble convierte después el producto del seno y el
+  coseno del ángulo de lanzamiento en el seno del doble de ese ángulo. Ese seno es el mismo para un
+  ángulo y su complementario, así que dos ángulos de lanzamiento que suman 90 grados dan el mismo
+  alcance: una trayectoria baja y otra alta. Al despejar $\mag{\theta}$ se obtiene primero el ángulo
+  bajo y el alto como segunda raíz.
+
+  La fórmula supone un terreno llano, con lanzamiento y caída a la misma altura, resistencia del
+  aire despreciable, un campo gravitatorio uniforme y un alcance pequeño frente a la circunferencia
+  de la Tierra. El rozamiento con el aire acorta el alcance y reduce el mejor ángulo, a unos 38
+  grados según la estimación de un libro de texto.
+
+  Galileo Galilei dedujo que un proyectil sigue una trayectoria parabólica y fue el primero en
+  comprender plenamente que sus movimientos horizontal y vertical son independientes, lo que le
+  permitió predecir alcances. Una pelota lanzada a 20 metros por segundo cae a unos 35.3 metros
+  tanto a 30 como a 60 grados.

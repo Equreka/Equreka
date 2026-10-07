@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Velocidad angular a partir del periodo'
+description: >-
+  La velocidad angular a partir del periodo da el ritmo al que gira un cuerpo en rotación uniforme:
+  una vuelta completa, dos pi radianes, dividida entre el tiempo que tarda esa vuelta. En mecánica
+  conecta el periodo, un tiempo que puede medirse con un cronómetro, con la velocidad angular que
+  usan las fórmulas de la rotación y del movimiento circular, tanto para ruedas como para planetas o
+  agujas de reloj.
+
+  Aquí $\mag{\omega}$ es la velocidad angular en radianes por segundo y $\mag{T}$ el periodo en
+  segundos, el tiempo de una revolución completa, mientras que $\const{\pi}$ es el cociente entre la
+  longitud de una circunferencia y su diámetro. El periodo es no negativo. La velocidad angular
+  tiene signo, positiva para el giro antihorario visto desde el lado elegido del eje y negativa para
+  el horario, pero la fórmula da solo su valor absoluto: invertir el giro no cambia el periodo, así
+  que el signo debe salir del sentido de giro observado.
+
+  Girar a ritmo constante significa barrer ángulos iguales en tiempos iguales, de modo que el ángulo
+  dividido entre el tiempo es el mismo en cualquier intervalo. Si el intervalo elegido es un
+  periodo, el ángulo es una vuelta entera, dos pi radianes, y de ahí sale la fórmula. La frecuencia,
+  el número de vueltas por segundo, es el inverso del periodo, así que el mismo ritmo es también dos
+  pi veces la frecuencia: una rotación de una vuelta por segundo equivale a unos 6.28 radianes por
+  segundo.
+
+  La relación supone un ritmo de giro constante; para una rotación que se acelera o se frena da solo
+  la velocidad angular media en una vuelta. Los ángulos se miden en radianes, de modo que un ritmo
+  expresado en revoluciones por minuto o en grados por segundo se convierte antes de entrar en las
+  demás fórmulas de la rotación, que suponen radianes.
+
+  La misma relación, leída al revés, da el periodo de una máquina giratoria a partir de su velocidad
+  angular nominal, y el periodo de rotación de un planeta a partir de su ritmo de giro. Un cuerpo
+  que da una vuelta cada 0.02 segundos tiene una velocidad angular de unos 314 radianes por segundo.

@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Rapidez en caída libre'
+terms:
+  g:
+    label: 'Aceleración de la gravedad'
+description: >-
+  La rapidez en caída libre es la rapidez que alcanza un cuerpo un tiempo después de soltarlo desde
+  el reposo cuando la gravedad es la única fuerza que actúa sobre él: la aceleración de la gravedad
+  multiplicada por el tiempo transcurrido. Llamada a menudo velocidad de caída libre, es el caso de
+  caída libre de la ecuación de la velocidad con aceleración constante en cinemática, y aumenta lo
+  mismo en cada segundo de la caída.
+
+  Aquí $\mag{v}$ es la rapidez alcanzada, en metros por segundo; $\mag{t}$ es el tiempo desde que se
+  suelta, en segundos; y $\var{g}$ es el módulo de la aceleración de la gravedad, en metros por
+  segundo al cuadrado, introducido como número positivo. Rapidez y tiempo son no negativos. La
+  velocidad apunta hacia abajo: si se toma hacia abajo como sentido positivo es igual a $\mag{v}$, y
+  si se toma hacia arriba, como hacen muchos libros, lleva signo menos. El valor normal de $\var{g}$
+  es 9.80665 metros por segundo al cuadrado; el valor local varía con la latitud, la altitud y la
+  geología, entre unos 9.78 y 9.83 en la superficie de la Tierra, y es distinto en otro planeta o
+  satélite.
+
+  La aceleración es el ritmo al que cambia la velocidad. Con la aceleración constante $\var{g}$, un
+  cuerpo que parte del reposo gana $\var{g}$ metros por segundo de rapidez en cada segundo, así que
+  tras $\mag{t}$ segundos ha ganado $\var{g}$ por $\mag{t}$. En una gráfica de rapidez frente a
+  tiempo el movimiento es una recta que pasa por el origen con pendiente $\var{g}$, y el área bajo
+  esa recta es la distancia recorrida.
+
+  La relación supone partida desde el reposo, resistencia del aire despreciable y un campo
+  gravitatorio uniforme. En el aire, el rozamiento crece con la rapidez hasta equilibrar el peso, y
+  desde entonces la rapidez deja de aumentar, de modo que la fórmula sobrestima la rapidez de un
+  objeto ligero o extenso. Un cuerpo que ya se mueve en vertical al soltarlo requiere la ecuación
+  general con velocidad inicial.
+
+  Galileo Galilei formuló la ley de caída de los cuerpos y la comprobó con mediciones, frenando el
+  movimiento en planos inclinados. Una piedra soltada desde el reposo se mueve a unos 19.6 metros
+  por segundo, cerca de 71 kilómetros por hora, al cabo de 2 segundos.

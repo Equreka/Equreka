@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Distancia recorrida en caída libre'
+terms:
+  h:
+    label: 'Altura de caída'
+  g:
+    label: 'Aceleración de la gravedad'
+description: >-
+  La distancia recorrida en caída libre es la altura que desciende un cuerpo soltado desde el reposo
+  en un tiempo dado cuando la gravedad es la única fuerza que actúa sobre él: la mitad de la
+  aceleración de la gravedad por el cuadrado del tiempo transcurrido. Es el caso de caída libre de
+  la ecuación de la posición con aceleración constante en cinemática, y explica por qué una piedra
+  soltada recorre cuatro veces más en el doble de tiempo.
+
+  Aquí $\var{h}$ es la altura de caída, la distancia que desciende el cuerpo, en metros, medida
+  hacia abajo desde el punto de partida; $\mag{t}$ es el tiempo desde que se suelta, en segundos; y
+  $\var{g}$ es el módulo de la aceleración de la gravedad, en metros por segundo al cuadrado,
+  introducido como número positivo. Las tres son no negativas, porque la fórmula toma hacia abajo
+  como sentido positivo. El valor normal de $\var{g}$ es 9.80665 metros por segundo al cuadrado; el
+  valor local varía con la latitud, la altitud y la geología, entre unos 9.78 y 9.83 en la
+  superficie de la Tierra, y es distinto en otro planeta o satélite.
+
+  Un cuerpo que parte del reposo gana rapidez a ritmo constante, de modo que al cabo de un tiempo
+  $\mag{t}$ su rapidez es $\var{g}\mag{t}$ y su rapidez media en el intervalo es la mitad;
+  multiplicar la rapidez media por el tiempo da la distancia. Por eso los tramos recorridos en
+  intervalos iguales sucesivos guardan la proporción de los impares 1, 3, 5, 7.
+
+  La relación supone partida desde el reposo, resistencia del aire despreciable y un campo
+  gravitatorio uniforme. El rozamiento con el aire crece con la rapidez, así que una pluma o un
+  paracaidista pronto se quedan muy por debajo de la distancia prevista, mientras que un cuerpo
+  denso y compacto la sigue de cerca durante unos segundos. Un cuerpo lanzado hacia arriba o hacia
+  abajo requiere la ecuación general con aceleración constante y velocidad inicial.
+
+  Galileo Galilei formuló la ley de caída de los cuerpos y la comprobó con mediciones, usando planos
+  inclinados para frenar el movimiento; su obra Dos nuevas ciencias, publicada en Leiden en 1638,
+  establece que la distancia recorrida desde el reposo con aceleración uniforme es proporcional al
+  cuadrado del tiempo. Una caída de 3 segundos recorre unos 44 metros.

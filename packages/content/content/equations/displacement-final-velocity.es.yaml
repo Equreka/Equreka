@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Desplazamiento a partir de la velocidad final'
+terms:
+  \Delta x:
+    label: 'Desplazamiento'
+  v:
+    label: 'Velocidad final'
+description: >-
+  Con aceleración constante, el desplazamiento de un cuerpo en un intervalo es igual a su velocidad
+  final por el tiempo transcurrido menos la mitad de la aceleración por el cuadrado del tiempo. Es
+  la ecuación de la cinemática con aceleración constante que prescinde de la velocidad inicial, y se
+  usa cuando se conoce el estado de un movimiento al final pero no al principio, como al estudiar
+  hacia atrás un vehículo que frena desde el momento en que llega a un obstáculo.
+
+  En la ecuación, $\var{\Delta x}$ es el desplazamiento en metros, posición final menos posición
+  inicial, $\var{v}$ es la velocidad final en metros por segundo, $\mag{a}$ es la aceleración
+  constante en metros por segundo al cuadrado y $\mag{t}$ es el tiempo transcurrido en segundos,
+  nunca negativo. El desplazamiento, la velocidad y la aceleración tienen signo según un sentido
+  positivo elegido; una aceleración negativa con una velocidad final positiva significa que el
+  cuerpo ha avanzado y se ha ido frenando durante todo el intervalo.
+
+  La relación se deduce de la ecuación de la posición del movimiento uniformemente acelerado al
+  sustituir la velocidad inicial por la velocidad final menos la aceleración por el tiempo. También
+  puede leerse como esa misma ecuación recorrida hacia atrás: reproducido al revés, el movimiento
+  empieza con la velocidad final cambiada de signo y conserva la misma aceleración, y su
+  desplazamiento es el opuesto del original, por lo que aquí el término de la aceleración lleva
+  signo menos.
+
+  Despejar el tiempo lleva a una ecuación de segundo grado con dos raíces. Con el sentido positivo a
+  lo largo de la velocidad final, la primera raíz de la lista es la duración de un movimiento cuya
+  velocidad inicial apuntaba en el mismo sentido, un cuerpo que nunca dio la vuelta; la segunda
+  describe un cuerpo que partió en sentido contrario y se invirtió. Los tiempos negativos se
+  descartan, y un número negativo bajo la raíz cuadrada indica que ninguna aceleración constante une
+  los valores dados. La ecuación supone aceleración constante y movimiento rectilíneo.
+
+  Un avión que aterriza, frena a 1.50 metros por segundo al cuadrado durante 40 segundos y rueda
+  después a 10 metros por segundo ha recorrido en ese tiempo 1600 metros de pista.

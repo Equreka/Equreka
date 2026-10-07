@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Velocidad en el movimiento uniformemente acelerado'
+terms:
+  v:
+    label: 'Velocidad final'
+  v_{0}:
+    label: 'Velocidad inicial'
+description: >-
+  La ecuación de la velocidad del movimiento uniformemente acelerado establece que, con aceleración
+  constante, la velocidad de un cuerpo es igual a su velocidad inicial más la aceleración
+  multiplicada por el tiempo transcurrido. Llamada a menudo primera ecuación del movimiento, es una
+  de las ecuaciones de la cinemática con aceleración constante y describe un coche que arranca en un
+  semáforo o una pelota lanzada verticalmente hacia arriba.
+
+  En la ecuación, $\var{v_{0}}$ es la velocidad cuando se pone en marcha el reloj y $\var{v}$ la
+  velocidad en el instante $\mag{t}$, ambas en metros por segundo; $\mag{a}$ es la aceleración
+  constante en metros por segundo al cuadrado, y $\mag{t}$ es el tiempo transcurrido en segundos,
+  nunca negativo. La velocidad y la aceleración tienen signo según un sentido positivo elegido.
+  Cuando la aceleración tiene el mismo signo que la velocidad, el cuerpo se acelera; cuando los
+  signos difieren, se frena, y si el movimiento dura lo suficiente la velocidad pasa por cero y
+  cambia de signo al dar la vuelta el cuerpo.
+
+  Una aceleración constante cambia la velocidad en la misma cantidad cada segundo, de modo que la
+  gráfica de la velocidad frente al tiempo es una recta con la aceleración como pendiente y la
+  velocidad inicial como ordenada en el origen. La ecuación es la definición de aceleración media
+  reordenada: cuando la aceleración no varía, su media en cualquier intervalo es la propia
+  aceleración. Despejar el tiempo da cuánto necesita un cuerpo para alcanzar una velocidad dada; un
+  resultado negativo indica que esa velocidad nunca se alcanza hacia delante en el tiempo.
+
+  La ecuación supone una aceleración fija en módulo y sentido durante todo el intervalo, un
+  movimiento rectilíneo y rapideces muy inferiores a la de la luz. Un cuerpo que cae en el aire o
+  que se mueve impulsado por una fuerza variable incumple la hipótesis, aunque la ecuación sigue
+  siendo una aproximación aceptable en tramos cortos.
+
+  Galileo recurrió a planos inclinados para frenar la bajada de los cuerpos lo suficiente como para
+  estudiarla, y expuso su teoría del movimiento acelerado en Dos nuevas ciencias, publicada en
+  Leiden en 1638. Un avión que aterriza a 70 metros por segundo y frena a 1.50 metros por segundo al
+  cuadrado baja a 10 metros por segundo al cabo de 40 segundos.

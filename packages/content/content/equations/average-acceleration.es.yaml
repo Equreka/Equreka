@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Aceleración media'
+terms:
+  v:
+    label: 'Velocidad final'
+  v_{0}:
+    label: 'Velocidad inicial'
+description: >-
+  La aceleración media es el cambio de la velocidad de un cuerpo dividido entre el tiempo en que se
+  produce ese cambio. Mide lo deprisa que un movimiento a lo largo de una recta se acelera, se frena
+  o se invierte, y es la definición de aceleración que usa la cinemática escolar antes del cálculo:
+  hace con la velocidad lo que la velocidad media hace con la posición.
+
+  En la fórmula, $\mag{\bar{a}}$ es la aceleración media en metros por segundo al cuadrado,
+  $\var{v_{0}}$ es la velocidad inicial y $\var{v}$ la velocidad final, ambas en metros por segundo,
+  y $\mag{t}$ es el tiempo transcurrido en segundos, contado desde cero y nunca negativo. Las
+  velocidades y la aceleración tienen signo según un sentido positivo elegido. Una aceleración
+  positiva indica que la velocidad aumentó en el sentido positivo, y una negativa que disminuyó; un
+  cuerpo se frena siempre que su aceleración y su velocidad tienen signos opuestos, de modo que una
+  aceleración negativa no siempre significa frenar.
+
+  La unidad se lee como metros por segundo ganados en cada segundo: una aceleración de
+  $2\,\mathrm{m/s^{2}}$ suma dos metros por segundo a la velocidad cada segundo. Solo intervienen
+  las velocidades al principio y al final, así que la definición vale para cualquier movimiento,
+  suave o brusco, y da la aceleración constante que produciría el mismo cambio en el mismo tiempo.
+  Cuando el intervalo se acorta, la media se acerca a la aceleración instantánea, el ritmo de cambio
+  de la velocidad en un único instante.
+
+  Deceleración es una palabra cotidiana para el frenado, no una magnitud distinta: no indica ningún
+  sentido, así que una aceleración con signo dice todo lo que ella diría, y la palabra se reserva
+  mejor para el valor de una aceleración de frenado. Cuando la aceleración es constante, su media en
+  cualquier intervalo coincide con su valor en cada instante, y al reordenar la definición se
+  obtiene la ecuación de la velocidad en función del tiempo del movimiento uniformemente acelerado.
+  En un plano el cambio de velocidad es una diferencia de vectores, por lo que un cuerpo que gira en
+  una circunferencia con rapidez constante también se acelera.
+
+  Las aceleraciones medias típicas van desde unos 0.25 metros por segundo al cuadrado de un tren de
+  alta velocidad al arrancar, pasando por unos 5 de un guepardo a la carrera, hasta unos 9.8 de un
+  cuerpo en caída libre cerca de la superficie de la Tierra.

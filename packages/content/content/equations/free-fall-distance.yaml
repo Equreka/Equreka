@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Distance fallen in free fall'
+kind: 'equation'
+level: 'intro'
+expression: '\var{h}=\frac{1}{2}\var{g}\mag{t}^{2}'
+terms:
+  h:
+    kind: 'symbol'
+    label:
+      en: 'Drop height'
+    unit: 'metre'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  h: 'g * t^2 / 2'
+  g: '2 * h / t^2'
+  t: 'sqrt(2 * h / g)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'free fall distance'
+  - 'free-fall distance'
+  - 'distance of a falling body'
+  - 'law of falling bodies'
+  - 'drop height from time'
+  - 'distancia de caída libre'
+  - 'ley de caída de los cuerpos'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 3.5 Free Fall'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-5-free-fall'
+  - title: 'OpenStax, College Physics 2e, 2.7 Falling Objects'
+    url: 'https://openstax.org/books/college-physics-2e/pages/2-7-falling-objects'
+  - title: 'R. Nave, HyperPhysics, Trajectories (free fall from rest)'
+    url: 'https://hyperphysics.gsu.edu/hbase/traj.html'
+  - title: 'NIST, CODATA Value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+  - title: 'MacTutor History of Mathematics, Galileo Galilei (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Galileo/'
+description:
+  en: >-
+    The distance fallen in free fall is the height a body drops from rest in a given time when
+    gravity is the only force acting on it: half the gravitational acceleration times the square of
+    the elapsed time. It is the free-fall case of the position equation for constant acceleration in
+    kinematics, and it explains why a dropped stone covers four times as far in twice the time.
+
+    Here $\var{h}$ is the drop height, the distance fallen, in metres, measured downward from the
+    release point; $\mag{t}$ is the time since release, in seconds; and $\var{g}$ is the size of the
+    gravitational acceleration, in metres per second squared, entered as a positive number. All
+    three are non-negative, because the formula takes downward as the positive direction. The
+    standard value of $\var{g}$ is 9.80665 metres per second squared; the local value varies with
+    latitude, altitude and geology, between about 9.78 and 9.83 on the surface of the Earth, and
+    differs on another planet or moon.
+
+    A body released from rest gains speed at a steady rate, so after a time $\mag{t}$ its speed is
+    $\var{g}\mag{t}$ and its average speed over the interval is half of that; multiplying the
+    average speed by the elapsed time gives the distance. The stretches covered in successive equal
+    intervals therefore stand in the ratio of the odd numbers 1, 3, 5, 7.
+
+    The relation assumes release from rest, negligible air resistance and a uniform gravitational
+    field. Drag grows with speed, so a feather or a parachutist soon falls well short of the
+    predicted distance, while a dense, compact body follows it closely for a few seconds. A body
+    thrown up or down needs the general constant-acceleration equation with an initial velocity.
+
+    Galileo Galilei formulated the law of falling bodies and checked it by measurement, using
+    inclined planes to slow the motion; his Two New Sciences, published in Leiden in 1638, states
+    that the distance covered from rest under uniform acceleration is proportional to the square of
+    the time. A fall lasting 3 seconds covers about 44 metres.

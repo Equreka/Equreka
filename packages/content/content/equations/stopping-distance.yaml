@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Stopping distance'
+kind: 'equation'
+level: 'intro'
+expression: '\var{d}=\mag{v}\var{t_\mathrm{r}}+\frac{\mag{v}^{2}}{2\var{a}}'
+terms:
+  d:
+    kind: 'symbol'
+    label:
+      en: 'Stopping distance'
+    unit: 'metre'
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  t_\mathrm{r}:
+    kind: 'symbol'
+    label:
+      en: 'Reaction time'
+    unit: 'second'
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Braking deceleration'
+    unit: 'metre-per-second-squared'
+solutions:
+  d: 'v * t_r + v^2 / (2 * a)'
+  v:
+    - '-a * t_r + sqrt(a^2 * t_r^2 + 2 * a * d)'
+    - '-a * t_r - sqrt(a^2 * t_r^2 + 2 * a * d)'
+  t_\mathrm{r}: 'd / v - v / (2 * a)'
+  a: 'v^2 / (2 * (d - v * t_r))'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q2015185'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'total stopping distance'
+  - 'distancia de parada'
+  - 'distancia total de frenado'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 3.4 Motion with Constant Acceleration, Example 3.10'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-4-motion-with-constant-acceleration'
+  - title: 'OpenStax, College Physics 2e, 2.5 Motion Equations for Constant Acceleration in One Dimension, Example 2.12'
+    url: 'https://openstax.org/books/college-physics-2e/pages/2-5-motion-equations-for-constant-acceleration-in-one-dimension'
+  - title: 'UK Government, The Highway Code, rule 126 (stopping distances)'
+    url: 'https://www.gov.uk/guidance/the-highway-code/general-rules-techniques-and-advice-for-all-drivers-and-riders-103-to-158'
+description:
+  en: >-
+    The stopping distance of a vehicle is the distance it travels from the moment the driver
+    perceives a hazard until it comes to rest: the reaction distance, covered at the initial speed
+    before the brakes act, plus the braking distance, covered while slowing down at a constant rate.
+    It is the kinematics behind recommended following distances and road-safety teaching.
+
+    In the formula, $\var{d}$ is the total stopping distance in metres, $\mag{v}$ the speed at the
+    moment the hazard is seen in metres per second, $\var{t_\mathrm{r}}$ the reaction time in
+    seconds, and $\var{a}$ the size of the braking deceleration in metres per second squared,
+    entered as a positive number. All four are non-negative: unlike the signed acceleration of the
+    general constant-acceleration equations, the deceleration here is a size only.
+
+    During the reaction time the vehicle keeps its speed and covers the speed times the reaction
+    time. Braking from that speed to rest at constant deceleration then covers the square of the
+    speed divided by twice the deceleration, which is the velocity–displacement equation of
+    uniformly accelerated motion with a final velocity of zero. The reaction part grows in
+    proportion to the speed and the braking part with its square, so doubling the speed quadruples
+    the braking distance, which dominates at high speed.
+
+    The model assumes a constant reaction time and a constant deceleration on a level road; real
+    braking depends on tyres, road surface, load and brakes, and a wet road lowers the deceleration.
+    Solving for the speed gives a quadratic equation with one positive root, the highest speed from
+    which the vehicle can stop within a given distance, and one negative root with no physical
+    meaning; the positive root is listed first.
+
+    A car at 30.0 metres per second with a reaction time of 0.500 seconds stops in about 79.3 metres
+    when braking at 7.00 metres per second squared on dry pavement, and in about 105 metres at 5.00
+    on a wet road. The Highway Code published by the UK government advises a gap of at least two
+    seconds behind the vehicle ahead on fast roads, doubled when the road is wet.

@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Average acceleration'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{\bar{a}}=\frac{\var{v}-\var{v_{0}}}{\mag{t}}'
+terms:
+  \bar{a}:
+    kind: 'magnitude'
+    ref: 'acceleration'
+    identifier: 'a_avg'
+  v:
+    kind: 'symbol'
+    label:
+      en: 'Final velocity'
+    unit: 'metre-per-second'
+  v_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial velocity'
+    unit: 'metre-per-second'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  \bar{a}: '(v - v_0) / t'
+  v: 'v_0 + a_avg * t'
+  v_{0}: 'v - a_avg * t'
+  t: '(v - v_0) / a_avg'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'mean acceleration'
+  - 'change in velocity over time'
+  - 'a = Δv / Δt'
+  - 'aceleración promedio'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 3.3 Average and Instantaneous Acceleration, equation 3.8 and Table 3.2'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-3-average-and-instantaneous-acceleration'
+  - title: 'OpenStax, University Physics Volume 1, 3.4 Motion with Constant Acceleration'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-4-motion-with-constant-acceleration'
+description:
+  en: >-
+    Average acceleration is the change in the velocity of a body divided by the time over which the
+    change happens. It measures how quickly a motion along a line speeds up, slows down or reverses,
+    and is the definition of acceleration used in school kinematics before calculus: it does for
+    velocity what average velocity does for position.
+
+    In the formula, $\mag{\bar{a}}$ is the average acceleration in metres per second squared,
+    $\var{v_{0}}$ is the initial velocity and $\var{v}$ the final velocity, both in metres per
+    second, and $\mag{t}$ is the elapsed time in seconds, counted from zero and never negative. The
+    velocities and the acceleration are signed along a chosen positive direction. A positive
+    acceleration means the velocity grew in the positive sense and a negative one that it fell; a
+    body slows down whenever its acceleration and its velocity have opposite signs, so a negative
+    acceleration does not always mean braking.
+
+    The unit reads as metres per second gained in every second: an acceleration of
+    $2\,\mathrm{m/s^{2}}$ adds two metres per second to the velocity each second. Only the
+    velocities at the start and at the end enter, so the definition holds for any motion, smooth or
+    jerky, and returns the steady acceleration that would produce the same change in the same time.
+    As the interval shrinks, the average approaches the instantaneous acceleration, the rate of
+    change of velocity at a single instant.
+
+    Deceleration is an everyday word for slowing down, not a separate quantity: it names no
+    direction, so a signed acceleration says everything it would, and the word is best kept for the
+    size of a braking acceleration. When the acceleration is constant, its average over any interval
+    equals its value at every instant, and rearranging the definition gives the velocity–time
+    equation of uniformly accelerated motion. In a plane the change of velocity is a vector
+    difference, so a body going round a circle at steady speed still accelerates.
+
+    Typical average accelerations range from about 0.25 metres per second squared for a high-speed
+    train pulling away, through about 5 for a sprinting cheetah, to about 9.8 for a body falling
+    freely near the surface of the Earth.

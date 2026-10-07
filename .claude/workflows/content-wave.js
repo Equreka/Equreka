@@ -151,6 +151,7 @@ const wave = args.wave.id
 const waveTitle = args.wave.title
 const slices = args.slices
 const ownerBySlug = args.ownerBySlug ?? {}
+const waveNotes = args.wave.notes ? `\nWave conventions (they apply to every entry of this wave and override nothing in the skills): ${args.wave.notes}` : ''
 
 const itemsList = (slice) =>
   slice.items
@@ -160,7 +161,7 @@ const itemsList = (slice) =>
 const authorPrompt = (slice) => `You are a content AUTHOR for Equreka wave ${wave} (${waveTitle}), slice "${slice.id}" (${slice.title}).
 Load and follow the project skill \`equreka-author\` (.claude/skills/equreka-author/SKILL.md) and its references; follow docs/content/style-guide.md and docs/content/glossary-es.md exactly.
 You own ONLY these entries (entity file + <slug>.es.yaml sidecar each; for action "rewrite"/"edit" you modify the existing files):
-${itemsList(slice)}
+${itemsList(slice)}${waveNotes}
 Other slices are writing their own files in the same working tree at the same time: never touch files you do not own; request any change to a shared/existing file via sharedEdits. Ignore \`pnpm --filter @equreka/content check\` issues that only concern files you do not own.
 Never set status reviewed. Never type a numeric value, Wikidata QID, QUDT IRI or historical claim from memory: fetch it and cite it.
 If an entry cannot be authored correctly (missing prerequisite, no closed form, contested data), do not force it: put it in deferred with the reason.
@@ -170,21 +171,22 @@ Do not run git commands that change state. Never run Expo or Metro commands (exp
 const verifyPrompt = (slice, authored) => `You are an ADVERSARIAL VERIFIER for Equreka wave ${wave}, slice "${slice.id}".
 Load and follow the project skill \`equreka-verify\` (.claude/skills/equreka-verify/SKILL.md).
 Files written by the author: ${JSON.stringify(authored?.filesWritten ?? [])}
-Author notes: deferred=${JSON.stringify(authored?.deferred ?? [])} openQuestions=${JSON.stringify(authored?.openQuestions ?? [])}
+Author notes: deferred=${JSON.stringify(authored?.deferred ?? [])} openQuestions=${JSON.stringify(authored?.openQuestions ?? [])}${waveNotes}
+A departure from the wave conventions is a major finding.
 Assume every value, formula, identifier, Spanish term and history claim is wrong until a source you FETCH confirms it. Recompute one textbook worked example per equation. Run \`node scripts/content/originality.mjs\` on these entries for the originality lens.
 Do NOT edit any file. Return findings (blocker/major/minor) with evidence URLs, the confirmed list (value/QID/source URL per item, for the PR review checklist), and \`pnpm --filter @equreka/content check\` issues on these files.`
 
 const criticPrompt = (results) => `You are the CROSS-SLICE CONSISTENCY CRITIC for Equreka wave ${wave} (${waveTitle}).
 Slices and their authored files:
-${results.map((r) => `- ${r.slice.id}: ${JSON.stringify(r.authored?.filesWritten ?? [])}`).join('\n')}
-Read every file listed. Find: the same physical symbol or term label written differently across entries; one concept authored twice under different slugs; Spanish terminology that differs between entries or from docs/content/glossary-es.md; branch placement inconsistencies; equations whose term keys/labels for the same quantity diverge; descriptions that contradict each other. Do NOT edit files. Use severity blocker/major/minor and lens "consistency".`
+${results.map((r) => `- ${r.slice.id}: ${JSON.stringify(r.authored?.filesWritten ?? [])}`).join('\n')}${waveNotes}
+Read every file listed. Entries that apply the wave conventions differently are findings. Find: the same physical symbol or term label written differently across entries; one concept authored twice under different slugs; Spanish terminology that differs between entries or from docs/content/glossary-es.md; branch placement inconsistencies; equations whose term keys/labels for the same quantity diverge; descriptions that contradict each other. Do NOT edit files. Use severity blocker/major/minor and lens "consistency".`
 
 const fixPrompt = (results, critic) => {
   const findings = results.flatMap((r) => (r.verified?.findings ?? []).map((f) => ({ ...f, slice: r.slice.id })))
   const issues = results.flatMap((r) => [...(r.authored?.checkIssues ?? []), ...(r.verified?.checkIssues ?? [])])
   const shared = results.flatMap((r) => r.authored?.sharedEdits ?? [])
   const prereqs = results.flatMap((r) => r.authored?.missingPrereqs ?? [])
-  return `You are the single FIXER for Equreka wave ${wave} (${waveTitle}). You are the only agent allowed to edit any file now.
+  return `You are the single FIXER for Equreka wave ${wave} (${waveTitle}). You are the only agent allowed to edit any file now.${waveNotes}
 Follow the \`equreka-author\` skill rules. Apply EVERY blocker and major finding below (verify each claim yourself with a fetched source before changing a value; if a finding is wrong, reject it with the reason). Apply minors when cheap.
 Apply the requested sharedEdits when correct and in scope; author a missing prerequisite only if it is small and clearly in this wave's scope, otherwise defer the dependent entries with the reason.
 Then loop: run \`pnpm --filter @equreka/content check\`, fix, repeat — at most 6 rounds. Then run \`pnpm quality\` and \`pnpm test --continue\` (without --continue turbo stops at the first failing package and hides the rest).

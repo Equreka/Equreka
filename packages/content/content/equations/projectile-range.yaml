@@ -1,0 +1,89 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Range of a projectile'
+kind: 'equation'
+level: 'intro'
+expression: '\var{R}=\frac{\var{v_{0}}^{2}\sin\left(2\mag{\theta}\right)}{\var{g}}'
+terms:
+  R:
+    kind: 'symbol'
+    label:
+      en: 'Range'
+    unit: 'metre'
+  v_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Launch speed'
+    unit: 'metre-per-second'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+solutions:
+  R: 'v_0^2 * sin(2 * theta) / g'
+  v_{0}: 'sqrt(g * R / sin(2 * theta))'
+  \theta:
+    - 'asin(g * R / v_0^2) / 2'
+    - 'pi / 2 - asin(g * R / v_0^2) / 2'
+  g: 'v_0^2 * sin(2 * theta) / R'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'projectile range'
+  - 'range equation'
+  - 'horizontal range'
+  - 'range of a projectile on level ground'
+  - 'alcance horizontal'
+  - 'ecuación del alcance'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 4.3 Projectile Motion (range, complementary angles)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/4-3-projectile-motion'
+  - title: 'OpenStax, College Physics 2e, 3.4 Projectile Motion (range, air resistance, Galileo)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/3-4-projectile-motion'
+  - title: 'R. Nave, HyperPhysics, Trajectories (range, angle of launch)'
+    url: 'https://hyperphysics.gsu.edu/hbase/traj.html'
+  - title: 'NIST, CODATA Value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+  - title: 'OpenStax, College Physics 2e, 2.7 Falling Objects (local variation of g)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/2-7-falling-objects'
+  - title: 'MacTutor History of Mathematics, Galileo Galilei (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Galileo/'
+description:
+  en: >-
+    The range of a projectile is the horizontal distance it covers before returning to the height it
+    was launched from: the square of the launch speed times the sine of twice the launch angle,
+    divided by the gravitational acceleration. Known as the range equation of projectile motion in
+    kinematics, it shows that without air resistance a launch at 45 degrees carries farthest.
+
+    Here $\var{R}$ is the range, in metres, measured along level ground from launch to landing;
+    $\var{v_{0}}$ is the launch speed, the size of the initial velocity, in metres per second;
+    $\mag{\theta}$ is the launch angle above the horizontal, between 0 and 90 degrees, whose
+    coherent unit is the radian; and $\var{g}$ is the size of the gravitational acceleration, in
+    metres per second squared, entered as a positive number. All four are non-negative. The standard
+    value of $\var{g}$ is 9.80665 metres per second squared; the local value varies with latitude,
+    altitude and geology, between about 9.78 and 9.83 on the surface of the Earth, and differs on
+    another planet or moon.
+
+    The range is the constant horizontal speed multiplied by the time the projectile spends rising
+    and falling under $\var{g}$; the double-angle identity then turns the product of the sine and
+    cosine of the launch angle into the sine of twice that angle. That sine is the same for an angle
+    and its complement, so two launch angles that add up to 90 degrees reach the same range: a low
+    trajectory and a high one. Solving for $\mag{\theta}$ gives the low angle first and the high
+    angle as the second root.
+
+    The formula assumes level ground, with launch and landing at the same height, negligible air
+    resistance, a uniform gravitational field and a range small compared with the circumference of
+    the Earth. Drag shortens the range and lowers the best angle, to roughly 38 degrees in one
+    textbook estimate.
+
+    Galileo Galilei worked out that a projectile follows a parabolic path and was the first to see
+    fully that its horizontal and vertical motions are independent, which let him predict ranges. A
+    ball launched at 20 metres per second lands about 35.3 metres away at either 30 or 60 degrees.

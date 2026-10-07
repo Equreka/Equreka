@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Relative velocity in one dimension'
+kind: 'equation'
+level: 'intro'
+expression: '\var{v_\mathrm{AC}}=\var{v_\mathrm{AB}}+\var{v_\mathrm{BC}}'
+terms:
+  v_\mathrm{AC}:
+    kind: 'symbol'
+    label:
+      en: 'Velocity of A relative to C'
+    unit: 'metre-per-second'
+  v_\mathrm{AB}:
+    kind: 'symbol'
+    label:
+      en: 'Velocity of A relative to B'
+    unit: 'metre-per-second'
+  v_\mathrm{BC}:
+    kind: 'symbol'
+    label:
+      en: 'Velocity of B relative to C'
+    unit: 'metre-per-second'
+solutions:
+  v_\mathrm{AC}: 'v_AB + v_BC'
+  v_\mathrm{AB}: 'v_AC - v_BC'
+  v_\mathrm{BC}: 'v_AC - v_AB'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'Galilean velocity addition'
+  - 'addition of velocities'
+  - 'velocity addition'
+  - 'closing speed'
+  - 'composición de velocidades'
+  - 'suma de velocidades'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 4.5 Relative Motion in One and Two Dimensions'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/4-5-relative-motion-in-one-and-two-dimensions'
+  - title: 'OpenStax, College Physics 2e, 3.5 Addition of Velocities'
+    url: 'https://openstax.org/books/college-physics-2e/pages/3-5-addition-of-velocities'
+description:
+  en: >-
+    Relative velocity in one dimension gives the velocity of a body A as measured from a frame C as
+    the sum of its velocity relative to a second frame B and the velocity of B relative to C. This
+    rule of Galilean velocity addition describes a passenger walking along a moving train, a boat on
+    a river current, or two cars on the same road as seen from each other.
+
+    In the equation, $\var{v_\mathrm{AB}}$ is the velocity of A relative to B, $\var{v_\mathrm{BC}}$
+    the velocity of B relative to C, and $\var{v_\mathrm{AC}}$ the velocity of A relative to C, all
+    in metres per second along one line with a common positive direction. Each is signed, and
+    swapping the two letters of a subscript reverses the sign: the velocity of B relative to A is
+    minus the velocity of A relative to B. In a correct sum the inner letters match, which is a
+    quick check on the order.
+
+    A velocity has meaning only with respect to a frame of reference, a body or set of axes from
+    which positions are measured. The position of A measured from C is its position measured from B
+    plus the position of B measured from C, and dividing the changes of these positions by a common
+    time interval gives the rule. Two bodies moving head on approach each other at the sum of their
+    speeds.
+
+    The rule assumes that time runs at the same rate in every frame and that every speed is far
+    below the speed of light; this is the classical relativity of Galileo and Newton, accurate below
+    about one per cent of that speed. Faster than that, special relativity replaces it with a
+    velocity-addition formula that never gives a result above the speed of light. In two or three
+    dimensions the same rule holds for velocity vectors.
+
+    A passenger walking towards the rear of a train at 2 metres per second while the train runs at
+    10 metres per second relative to the ground moves at 8 metres per second relative to the ground,
+    in the direction of the train.

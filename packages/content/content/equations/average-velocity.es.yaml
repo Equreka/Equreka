@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Velocidad media'
+terms:
+  \Delta x:
+    label: 'Desplazamiento'
+description: >-
+  La velocidad media es el desplazamiento de un cuerpo dividido entre el tiempo empleado: el cambio
+  neto de posición por unidad de tiempo, con un signo que indica hacia dónde terminó moviéndose el
+  cuerpo. Es una de las definiciones básicas de la cinemática, la parte de la mecánica que describe
+  el movimiento, y aquí se aplica al movimiento a lo largo de una recta, como el de un coche en una
+  carretera recta o el de un ascensor en su hueco.
+
+  En la fórmula, $\mag{\bar{v}}$ es la velocidad media en metros por segundo, $\var{\Delta x}$ es el
+  desplazamiento en metros, posición final menos posición inicial, y $\mag{t}$ es el tiempo
+  transcurrido en segundos, contado desde cero y nunca negativo. Se elige un sentido de la recta
+  como positivo. El desplazamiento y la velocidad media son positivos cuando el cuerpo acaba en el
+  lado positivo de su punto de partida, negativos cuando acaba en el otro lado y nulos cuando vuelve
+  al lugar de donde salió.
+
+  Solo cuentan los dos extremos. Un corredor que esprinta 100 metros hacia el este y luego camina 40
+  metros de vuelta tiene un desplazamiento de 60 metros hacia el este, pase lo que pase entre
+  medias, y la velocidad media reparte ese desplazamiento por igual a lo largo de todo el tiempo.
+  Multiplicar la velocidad media por el tiempo devuelve el desplazamiento. Cuando el intervalo se
+  reduce hacia cero, la media se convierte en la velocidad instantánea, y ahí entra el cálculo
+  infinitesimal en la cinemática.
+
+  La definición vale para cualquier movimiento, por irregular que sea, porque solo necesita dos
+  posiciones y un reloj. Se distingue de la rapidez media, que divide la longitud total del camino
+  entre el tiempo y nunca es negativa: tras una vuelta cerrada la velocidad media es nula, pero la
+  rapidez media no. Cuando la aceleración es constante, la velocidad media coincide además con la
+  media de las velocidades inicial y final; en otros movimientos esa igualdad no está garantizada.
+  En dos o tres dimensiones la misma definición se aplica a cada componente del desplazamiento.
+
+  Una gráfica de posición frente a tiempo muestra la velocidad media como la pendiente de la cuerda
+  que une dos de sus puntos. Un ascensor que sube 30 metros en 15 segundos tiene una velocidad media
+  de 2 metros por segundo hacia arriba.

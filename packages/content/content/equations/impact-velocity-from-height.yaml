@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Impact speed after a fall from rest'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{v}=\sqrt{2\var{g}\var{h}}'
+terms:
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+  h:
+    kind: 'symbol'
+    label:
+      en: 'Drop height'
+    unit: 'metre'
+solutions:
+  v: 'sqrt(2 * g * h)'
+  g: 'v^2 / (2 * h)'
+  h: 'v^2 / (2 * g)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'impact velocity from height'
+  - 'impact velocity'
+  - 'velocity from drop height'
+  - 'speed of a dropped object'
+  - 'velocidad de impacto'
+  - 'velocidad de caída desde una altura'
+references:
+  - title: 'R. Nave, HyperPhysics, Trajectories (free fall from rest; horizontal launch: vertical impact velocity)'
+    url: 'https://hyperphysics.gsu.edu/hbase/traj.html'
+  - title: 'OpenStax, University Physics Volume 1, 3.5 Free Fall'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-5-free-fall'
+  - title: 'OpenStax, College Physics 2e, 2.7 Falling Objects'
+    url: 'https://openstax.org/books/college-physics-2e/pages/2-7-falling-objects'
+  - title: 'NIST, CODATA Value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+description:
+  en: >-
+    The impact speed after a fall from rest is the speed a body has when it has dropped through a
+    given vertical height with gravity as the only force: the square root of twice the gravitational
+    acceleration times the height. In kinematics it follows from the velocity-displacement equation
+    for constant acceleration, and it gives the speed at which a dropped object strikes the ground
+    without any need to know how long the fall lasted.
+
+    Here $\mag{v}$ is the speed at the bottom of the drop, in metres per second; $\var{h}$ is the
+    drop height, the vertical distance between release and impact, in metres; and $\var{g}$ is the
+    size of the gravitational acceleration, in metres per second squared, entered as a positive
+    number. All three are non-negative. The velocity at impact points downward, so with upward taken
+    as positive the vertical velocity is the negative of $\mag{v}$. The standard value of $\var{g}$
+    is 9.80665 metres per second squared; the local value varies with latitude, altitude and
+    geology, between about 9.78 and 9.83 on the surface of the Earth, and differs on another planet
+    or moon.
+
+    A body dropped from rest falls the height in a time fixed by the free-fall distance, and its
+    speed is then $\var{g}$ times that time; eliminating the time leaves the relation. In energy
+    terms, the potential energy lost turns into kinetic energy and the mass cancels, so the impact
+    speed does not depend on the mass. The speed grows only with the square root of the height: four
+    times the height doubles it.
+
+    The relation assumes release from rest, negligible air resistance and a uniform gravitational
+    field. Drag lowers the real impact speed, sharply for light or broad objects, and for falls long
+    enough that gravity weakens on the way the result is too high.
+
+    The relation gives a quick estimate of how fast a dropped object lands. An object dropped from a
+    height of 5 metres strikes the ground at about 9.9 metres per second, near 36 kilometres per
+    hour.

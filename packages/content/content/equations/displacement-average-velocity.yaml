@@ -1,0 +1,84 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Displacement from average velocity'
+kind: 'equation'
+level: 'intro'
+expression: '\var{\Delta x}=\frac{1}{2}\left(\var{v_{0}}+\var{v}\right)\mag{t}'
+terms:
+  \Delta x:
+    kind: 'symbol'
+    label:
+      en: 'Displacement'
+    unit: 'metre'
+  v_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial velocity'
+    unit: 'metre-per-second'
+  v:
+    kind: 'symbol'
+    label:
+      en: 'Final velocity'
+    unit: 'metre-per-second'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  \Delta x: '(v_0 + v) * t / 2'
+  v_{0}: '2 * Deltax / t - v'
+  v: '2 * Deltax / t - v_0'
+  t: '2 * Deltax / (v_0 + v)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q6803664'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'mean speed theorem'
+  - 'Merton rule'
+  - 'Merton theorem'
+  - 'middle degree theorem'
+  - 's = (u + v) t / 2'
+  - 'suvat'
+  - 'teorema de la velocidad media'
+  - 'regla de Merton'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 3.4 Motion with Constant Acceleration, equations 3.10 and 3.11'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-4-motion-with-constant-acceleration'
+  - title: 'OpenStax, College Physics 2e, 2.5 Motion Equations for Constant Acceleration in One Dimension'
+    url: 'https://openstax.org/books/college-physics-2e/pages/2-5-motion-equations-for-constant-acceleration-in-one-dimension'
+  - title: 'Stanford Encyclopedia of Philosophy, William Heytesbury (Middle Degree Theorem)'
+    url: 'https://plato.stanford.edu/entries/heytesbury/'
+  - title: 'MacTutor History of Mathematics, Nicole Oresme (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Oresme/'
+description:
+  en: >-
+    Under constant acceleration, the displacement of a body equals the mean of its initial and final
+    velocities multiplied by the elapsed time. Known in the history of science as the mean speed
+    theorem or Merton rule, it is one of the constant-acceleration equations of kinematics, the one
+    to use when both velocities and the time are known but the acceleration is not.
+
+    In the equation, $\var{\Delta x}$ is the displacement in metres, final position minus initial
+    position; $\var{v_{0}}$ and $\var{v}$ are the initial and final velocities in metres per second;
+    and $\mag{t}$ is the elapsed time in seconds, never negative. Displacement and velocities are
+    signed along a chosen positive direction, so a body that sets off forwards and ends up moving
+    backwards has velocities of opposite sign, and their mean can be small, zero or negative.
+
+    With a constant acceleration the velocity changes at a steady rate, so its average over the
+    interval sits exactly halfway between its starting and ending values. The displacement is that
+    average velocity times the time, which is the whole relation. On a graph of velocity against
+    time the line is straight, and the area beneath it is a trapezium whose area equals the time
+    multiplied by the mean of its two parallel sides.
+
+    The mean of the two end velocities is guaranteed to equal the average velocity only under
+    constant acceleration. For a car that accelerates hard and then cruises, or any body whose
+    acceleration changes, the true average velocity is the displacement divided by the time and
+    generally differs from the mean of the end values, so the equation generally gives a wrong
+    displacement. Straight-line motion is assumed as well.
+
+    William Heytesbury, a fellow of Merton College in Oxford, stated the rule in writings from the
+    1330s, and it later fed into the law of free fall; Nicole Oresme was the first to prove it. A
+    dragster that reaches 144.6 metres per second from rest in 5.56 seconds covers about 402 metres.

@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Alcance de un proyectil lanzado horizontalmente'
+terms:
+  R:
+    label: 'Alcance'
+  v_{0}:
+    label: 'Rapidez de lanzamiento'
+  h:
+    label: 'Altura de lanzamiento'
+  g:
+    label: 'Aceleración de la gravedad'
+description: >-
+  El alcance de un proyectil lanzado horizontalmente es la distancia horizontal que recorre un
+  cuerpo que abandona una altura moviéndose en horizontal, medida desde el punto situado bajo el
+  lanzamiento hasta el de caída: la rapidez por el tiempo de caída, la raíz cuadrada del doble de la
+  altura entre la aceleración de la gravedad. Es el problema del borde de la mesa o del acantilado
+  en la cinemática del movimiento de proyectiles, también llamado tiro horizontal.
+
+  Aquí $\var{R}$ es el alcance, en metros; $\var{v_{0}}$ es la rapidez horizontal de lanzamiento, en
+  metros por segundo; $\var{h}$ es la altura de lanzamiento sobre el nivel donde cae el cuerpo, en
+  metros; y $\var{g}$ es el módulo de la aceleración de la gravedad, en metros por segundo al
+  cuadrado, introducido como número positivo. Las cuatro son no negativas. El valor normal de
+  $\var{g}$ es 9.80665 metros por segundo al cuadrado; el valor local varía con la latitud, la
+  altitud y la geología, entre unos 9.78 y 9.83 en la superficie de la Tierra, y es distinto en otro
+  planeta o satélite.
+
+  Sin resistencia del aire, el movimiento horizontal conserva la rapidez $\var{v_{0}}$, mientras que
+  el vertical parte del reposo igual que en una caída, de modo que el cuerpo llega al suelo a la vez
+  que otro soltado desde el reposo a la misma altura. La distancia de caída libre fija ese tiempo, y
+  el alcance es la rapidez de lanzamiento por él. El alcance es proporcional a la rapidez de
+  lanzamiento pero crece solo con la raíz cuadrada de la altura: cuadruplicar la altura lo duplica.
+
+  La fórmula supone un lanzamiento exactamente horizontal, una superficie de caída plana a una
+  altura $\var{h}$ por debajo del lanzamiento, resistencia del aire despreciable y un campo
+  gravitatorio uniforme. Un lanzamiento inclinado hacia arriba o hacia abajo requiere las ecuaciones
+  generales de proyectiles, y uno con lanzamiento y caída al mismo nivel, la ecuación del alcance en
+  terreno llano.
+
+  Galileo Galilei dedujo que un proyectil sigue una trayectoria parabólica, resultado de combinar un
+  movimiento horizontal uniforme con una caída. Una pelota que rueda fuera de una mesa de 1.0 metro
+  de altura a 2.0 metros por segundo cae a unos 0.90 metros del pie de la mesa.

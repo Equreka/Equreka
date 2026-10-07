@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Tiempo de vuelo de un proyectil'
+terms:
+  v_{0}:
+    label: 'Rapidez de lanzamiento'
+  g:
+    label: 'Aceleración de la gravedad'
+description: >-
+  El tiempo de vuelo de un proyectil es el tiempo que pasa en el aire entre el lanzamiento y la
+  caída a la misma altura de partida: el doble de la parte vertical de la velocidad de lanzamiento
+  dividido entre la aceleración de la gravedad. En la cinemática del movimiento de proyectiles fija
+  cuánto dura el movimiento horizontal y, por tanto, enlaza el lanzamiento con el alcance.
+
+  Aquí $\mag{t}$ es el tiempo de vuelo, en segundos; $\var{v_{0}}$ es la rapidez de lanzamiento, el
+  módulo de la velocidad inicial, en metros por segundo; $\mag{\theta}$ es el ángulo de lanzamiento
+  sobre la horizontal, entre 0 y 90 grados, cuya unidad coherente es el radián; y $\var{g}$ es el
+  módulo de la aceleración de la gravedad, en metros por segundo al cuadrado, introducido como
+  número positivo. Las cuatro son no negativas. El valor normal de $\var{g}$ es 9.80665 metros por
+  segundo al cuadrado; el valor local varía con la latitud, la altitud y la geología, entre unos
+  9.78 y 9.83 en la superficie de la Tierra, y es distinto en otro planeta o satélite.
+
+  La parte vertical de la velocidad de lanzamiento, $\var{v_{0}}$ por el seno de $\mag{\theta}$,
+  disminuye al ritmo constante $\var{g}$ y se anula en la cima, a mitad del vuelo; el descenso hasta
+  la altura de partida dura lo mismo que la subida, así que el total es el doble del tiempo de
+  subida. El movimiento horizontal no cambia la duración: con la misma rapidez, un lanzamiento a 30
+  grados dura en el aire la mitad que uno vertical, porque el seno de 30 grados es un medio. Al
+  despejar $\mag{\theta}$ se obtiene un único ángulo entre 0 y 90 grados.
+
+  La fórmula supone lanzamiento y caída a la misma altura, resistencia del aire despreciable y un
+  campo gravitatorio uniforme. Si el punto de caída está por debajo del de lanzamiento, como en una
+  piedra lanzada desde un acantilado, el vuelo dura más y el tiempo se obtiene de la ecuación
+  cuadrática de la posición con aceleración constante.
+
+  Galileo Galilei fue el primero en comprender plenamente que los movimientos horizontal y vertical
+  de un proyectil son independientes, la idea en la que se basa esta fórmula. Una pelota lanzada a
+  20 metros por segundo con 30 grados permanece en el aire unos 2.04 segundos.

@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Tangential speed from angular velocity'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{v}=\mag{\omega}\var{r}'
+terms:
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  \omega:
+    kind: 'magnitude'
+    ref: 'angular-velocity'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+solutions:
+  v: 'abs(omega) * r'
+  \omega: 'v / r'
+  r: 'v / abs(omega)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'linear speed and angular speed'
+  - 'linear and angular velocity relation'
+  - 'tangential velocity'
+  - 'v = omega r'
+  - 'rapidez lineal y velocidad angular'
+  - 'velocidad tangencial'
+references:
+  - title: 'OpenStax, College Physics 2e, 6.1 Rotation Angle and Angular Velocity'
+    url: 'https://openstax.org/books/college-physics-2e/pages/6-1-rotation-angle-and-angular-velocity'
+  - title: 'OpenStax, University Physics Volume 1, 10.1 Rotational Variables'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-1-rotational-variables'
+  - title: 'R. Fitzpatrick, Classical Mechanics (University of Texas at Austin lecture notes), Uniform circular motion'
+    url: 'https://farside.ph.utexas.edu/teaching/301/lectures/node86.html'
+description:
+  en: >-
+    Tangential speed from angular velocity states that a point of a rotating body moves along its
+    circle at a speed equal to the angular velocity times its distance from the axis. Also called
+    the relation between linear and angular speed, it is the bridge in rotational kinematics between
+    how fast a body turns and how fast each of its points travels.
+
+    Here $\mag{v}$ is the tangential speed in metres per second, $\mag{\omega}$ the angular velocity
+    in radians per second and $\var{r}$ the distance from the axis of rotation to the point, in
+    metres. The speed and the distance are non-negative. Angular velocity is signed, positive for
+    anticlockwise rotation and negative for clockwise when seen from the chosen side of the axis;
+    the formula uses its size, because the speed of a point does not depend on the sense of
+    rotation. The velocity itself points along the tangent to the circle, at right angles to the
+    radius.
+
+    While the body turns through some angle, the point covers an arc whose length is the radius
+    times that angle in radians. Dividing both by the elapsed time turns the angle into the angular
+    velocity and the arc into the speed. Every point of a rigid body shares one angular velocity, so
+    the speed grows in proportion to the distance from the axis: points on the axis stay at rest and
+    the rim moves fastest.
+
+    The angular velocity must be in radians per second; a rate in revolutions per minute or degrees
+    per second gives a wrong speed until it is converted. The relation holds at every instant, also
+    for a rotation that speeds up or slows down. For a wheel that rolls without slipping, the speed
+    of the rim relative to the axle equals the forward speed of the vehicle.
+
+    The formula sizes pulleys, gears and belt drives, sets the cutting speed of lathes and saws, and
+    gives the speed of a point on the spinning Earth. A tyre of radius 0.300 metres on a car moving
+    at 15.0 metres per second turns at 50.0 radians per second.

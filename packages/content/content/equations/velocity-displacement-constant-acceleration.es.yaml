@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Velocidad y desplazamiento en el movimiento uniformemente acelerado'
+terms:
+  v:
+    label: 'Velocidad final'
+  v_{0}:
+    label: 'Velocidad inicial'
+  \Delta x:
+    label: 'Desplazamiento'
+description: >-
+  La ecuación de la velocidad y el desplazamiento del movimiento uniformemente acelerado relaciona
+  las velocidades inicial y final de un cuerpo con aceleración constante con su desplazamiento, sin
+  recurrir al tiempo: el cuadrado de la velocidad final es igual al cuadrado de la velocidad inicial
+  más el doble de la aceleración por el desplazamiento. Es la ecuación de la cinemática con
+  aceleración constante para distancias de frenado, carreras de despegue y alturas alcanzadas cuando
+  la duración se desconoce o no interesa.
+
+  En la ecuación, $\var{v_{0}}$ y $\var{v}$ son las velocidades inicial y final en metros por
+  segundo, $\mag{a}$ es la aceleración constante en metros por segundo al cuadrado y $\var{\Delta
+  x}$ es el desplazamiento en metros, posición final menos posición inicial. Las cuatro tienen signo
+  según un sentido positivo elegido. El producto de la aceleración por el desplazamiento es positivo
+  cuando el cuerpo es empujado en el sentido de su desplazamiento, lo que aumenta su rapidez, y
+  negativo cuando la aceleración se opone a él, como al frenar.
+
+  La relación se obtiene al eliminar el tiempo entre las ecuaciones de la velocidad y de la posición
+  del movimiento uniformemente acelerado: el desplazamiento es la mitad de la suma de las dos
+  velocidades por el tiempo, y el tiempo es el cambio de velocidad dividido entre la aceleración.
+  Multiplicada por la mitad de la masa del cuerpo, la ecuación se convierte en el teorema del
+  trabajo y la energía para una fuerza constante: la fuerza por el desplazamiento es igual a la
+  variación de la energía cinética.
+
+  Como las dos velocidades aparecen al cuadrado, la ecuación fija su valor absoluto pero no su
+  sentido. Al despejar cualquiera de ellas se obtienen una raíz positiva y otra negativa; la
+  positiva figura primero y es la respuesta cuando el cuerpo avanza en el sentido positivo, mientras
+  que la negativa es la misma rapidez en sentido contrario, como la de una piedra lanzada hacia
+  arriba que vuelve a pasar por el punto de lanzamiento. Un número negativo bajo la raíz cuadrada
+  indica que el cuerpo nunca alcanza ese desplazamiento, como un coche que se detiene antes. Se
+  suponen en todo momento una aceleración constante y un movimiento rectilíneo.
+
+  Un coche que frena desde 30.0 metros por segundo a 7.00 metros por segundo al cuadrado necesita
+  unos 64.3 metros para detenerse.
