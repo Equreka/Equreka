@@ -21,11 +21,42 @@ categories:
 branches:
   - 'mechanics'
   - 'measurement'
+aliases:
+  - 'weeks'
+  - 'wks'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (day)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, unit WK (Week)'
+    url: 'https://qudt.org/vocab/unit/WK'
+  - title: 'E. G. Richards, Calendars, ch. 15 of the Explanatory Supplement to the Astronomical Almanac, 3rd ed. (USNO), 15.1.6 (Non-astronomical cycles and the week) and 15.4.1'
+    url: 'https://aa.usno.navy.mil/downloads/c15_usb_online.pdf'
 description:
   en: >-
-    A week is a time unit equal to seven days. It is the standard time period used for cycles of
-    rest days in most parts of the world, mostly alongside—although not strictly part of—the
-    Gregorian calendar.
+    The week, symbol wk, is a unit of time of seven days that organizes calendars around the
+    world. It lies outside the SI and, unlike the day, the month and the year, follows no
+    astronomical cycle.
+
+    Its value is a convention: seven days of 86 400 seconds each, the day being fixed by the SI
+    Brochure in Table 8, make exactly 604 800 seconds. QUDT gives the same multiplier for its unit
+    of a week.
+
+    Fifty-two weeks make 364 days, one day short of a common year and two short of a leap year,
+    so a date moves to a later weekday from one year to the next. The Gregorian calendar has
+    146 097 days in every 400 years, a number divisible by seven, so its pattern of dates and weekdays
+    repeats exactly after four centuries.
+
+    Schedules of work, school and rest are set by the week in most of the world, and some
+    statistics are reported weekly. For physics, a time in weeks is converted to seconds through
+    the exact factor above.
+
+    Romans were counting seven-day cycles widely by the first century BC, according to the calendar
+    chapter of the Explanatory Supplement to the Astronomical Almanac. The chapter traces the cycle
+    further back with caution: Babylon probably devised it as a rough subdivision of the lunar
+    month, and the Jews probably took it over during their exile there in the sixth century BC.
+    Each day was named after one of the seven bodies seen to wander across the sky: the Sun, the
+    Moon and five planets. Other societies used cycles of other lengths, such as the eight-day Roman nundinae and the ten-day cycles of ancient Egypt and the
+    French Republican calendar.
 textSources:
   - title: 'Wikipedia: Week'
     url: 'https://en.wikipedia.org/wiki/Week'

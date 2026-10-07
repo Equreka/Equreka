@@ -1,2 +1,14 @@
 # yaml-language-server: $schema=../../dist/schemas/prefixes.locale.schema.json
 name: 'Giga'
+description: >-
+  Giga es el prefijo SI que indica un factor de $10^{9}$. En inglés este factor se llama billion,
+  pero en español un billón es $10^{12}$, de modo que giga equivale a mil millones. Su símbolo es la
+  letra mayúscula $\mathrm{G}$, como en el gigavatio, el gigahercio y el gigaohmio.
+
+  La 11.ª Conferencia General de Pesas y Medidas (CGPM) adoptó el giga en 1960, entre los seis
+  prefijos que añadió al crear el SI. El nombre procede de la palabra griega que significa gigante.
+
+  Los prefijos SI denotan siempre potencias de diez, así que un gigabit son exactamente mil millones
+  de bits. El múltiplo binario $2^{30}$ tiene un prefijo propio, gibi, de símbolo Gi, y un gibibyte
+  es alrededor de un 7 por ciento mayor que un gigabyte. El uso informal en informática, que recoge
+  la RAE, aún da a giga el valor binario.

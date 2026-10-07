@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
-  en: 'U.S. Pint'
+  en: 'U.S. pint'
 symbol:
   tex: 'US\ pt'
   text: 'US pt'
@@ -25,14 +25,43 @@ aliases:
   - 'pint'
   - 'pt'
   - 'US pt'
+  - 'US pint'
+  - 'liquid pint'
+  - 'liq pt'
+  - 'pints'
+references:
+  - title: 'NIST Handbook 44 (2026), Appendix C, Units of liquid volume, Units of dry volume and footnotes 7 and 8'
+    url: 'https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf'
+  - title: 'NIST SP 811, Appendix B.8, pint (U.S. liquid) (liq pt); pint (U.S. dry) (dry pt)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST Handbook 44 (2023), Appendix B, sections 2.1.2 and 2.3'
+    url: 'https://www.nist.gov/system/files/documents/2023/01/30/appb-23-HB44.pdf'
+  - title: 'QUDT, unit PINT_US (U.S. liquid pint)'
+    url: 'https://qudt.org/vocab/unit/PINT_US'
 description:
   en: >-
-    The pint (/ˈpaɪnt/, symbol $pt$, sometimes abbreviated as $p$) is a unit of volume or capacity
-    in both the imperial and United States customary measurement systems. In both of those systems
-    it is traditionally one eighth of a gallon. The British imperial pint is about 20% larger than
-    the American pint because the two systems are defined differently. Almost all other countries
-    have standardized on the metric system, so the size of what may be called a pint, from the
-    French la pinte, varies depending on local custom.
+    The U.S. pint, written pt, liq pt or US pt, is the liquid pint of the United States customary system,
+    equal to one eighth of a U.S. gallon or 28.875 cubic inches. It measures liquids only, since
+    American dry goods have their own pint, and it is about one sixth smaller than the British
+    imperial pint.
+
+    The U.S. gallon is 231 cubic inches and the inch is exactly 25.4 millimetres, so the pint is
+    exactly $473.176\,473\,\mathrm{mL}$. NIST Special Publication 811 lists the liquid pint, rounded,
+    as 0.473 176 5 litre.
+
+    Two pints make a liquid quart and eight make a gallon; a pint is four gills or sixteen U.S. fluid
+    ounces. The imperial pint, at about 568.26 millilitres, holds twenty slightly smaller imperial
+    fluid ounces, so the two units sharing the name differ by about a fifth.
+
+    A separate U.S. dry pint, one half of a dry quart and about 550.6 millilitres, belongs to the
+    dry measures of the bushel family. NIST Handbook 44 asks for the word liquid or dry whenever the
+    two pints could be confused, and NIST Special Publication 811 abbreviates them as liq pt and
+    dry pt.
+
+    The American pint is an eighth of the 231-cubic-inch measure that England once used for wine,
+    a gallon the colonists kept after Britain moved to the imperial gallon in 1824. NIST observes that the ancient Egyptian
+    hon, a volume unit that held about one mina of water, was almost identical in size to the present
+    U.S. pint.
 textSources:
   - title: 'Wikipedia: Pint'
     url: 'https://en.wikipedia.org/wiki/Pint'

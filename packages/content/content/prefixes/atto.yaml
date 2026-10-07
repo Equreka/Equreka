@@ -11,9 +11,31 @@ categories:
   - 'universal'
 branches:
   - 'si-system'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., chapter 3 and Table 7 (SI prefixes)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (12th CGPM, 1964, Resolution 8)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, SI Prefix Progress (2023)'
+    url: 'https://www.nist.gov/news-events/news/2023/01/si-prefix-progress'
+  - title: 'US Metric Association, SI prefixes and their etymologies'
+    url: 'https://usma.org/si-prefixes-and-their-etymologies'
+  - title: 'BIPM, The International System of Units, 9th ed., chapter 4, Table 8 (non-SI units) and its notes'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'IAU Style Manual, Recommendations concerning units: symbol a for the year'
+    url: 'https://iauarchive.eso.org/publications/proceedings_rules/units/'
 description:
   en: >-
-    Atto (symbol $a$) is a unit prefix in the metric system denoting a factor of $10^{−18}$ or
-    $0.000000000000000001$. The unit multiple was adopted at the 12th General Conference on Weights
-    and Measures (CGPM) in Resolution 8. It is derived from the Danish word atten, meaning
-    "eighteen".
+    Atto is the SI prefix for a factor of $10^{-18}$, a quintillionth in English short-scale naming.
+    Its symbol is the lowercase letter $\mathrm{a}$, as in the attosecond, the attometre and the
+    attomole.
+
+    The 12th General Conference on Weights and Measures (CGPM) added atto, together with femto, in
+    1964 through its Resolution 8. That decision left the SI with more prefixes for small quantities
+    than for large ones until peta and exa followed in 1975. The name comes from the Danish and
+    Norwegian word for eighteen.
+
+    Two clashes need care. Astronomers write the arcsecond as $\mathrm{as}$, the same letters as the
+    attosecond, so context decides. A lone a is never the prefix, because a prefix
+    symbol cannot stand by itself: it denotes the are, a unit of land area equal to one hundredth of
+    a hectare, and the IAU also uses it for the year.

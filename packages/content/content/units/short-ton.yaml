@@ -2,7 +2,7 @@
 name:
   en: 'Short ton'
 symbol:
-  tex: 'T'
+  tex: 'tn'
 unitOf:
   - 'mass'
 system: 'uscs'
@@ -23,13 +23,45 @@ branches:
 aliases:
   - 'ton'
   - 'US ton'
+  - 'net ton'
+  - 'short tons'
+references:
+  - title: 'NIST SP 811, Appendix B.8, ton, short (2000 lb)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST Handbook 44 (2026), Appendix C, Avoirdupois units of mass, footnotes 10 and 11'
+    url: 'https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf'
+  - title: 'NIST Handbook 44 (2023), Appendix B, sections 2.1.2, 2.3 and 4: Specialized use of the terms ton and tonnage'
+    url: 'https://www.nist.gov/system/files/documents/2023/01/30/appb-23-HB44.pdf'
+  - title: 'Weights and Measures Act (Canada), R.S.C. 1985, c. W-6, Schedule II: ton'
+    url: 'https://laws-lois.justice.gc.ca/eng/acts/w-6/FullText.html'
+  - title: 'National Bureau of Standards, Refinement of values for the yard and the pound, Federal Register 24 (1959) 5348'
+    url: 'https://geodesy.noaa.gov/PUBS_LIB/FedRegister/FRdoc59-5442.pdf'
+  - title: 'QUDT, unit TON_SHORT (short ton)'
+    url: 'https://qudt.org/vocab/unit/TON_SHORT'
 description:
   en: >-
-    The short ton is a mass measurement unit equal to 2,000 pounds (lb) (907.18474 kg). It is
-    commonly used in the United States, where it is known as simply a common ton.
-references:
-  - title: 'Short ton'
-    url: 'https://en.wikipedia.org/wiki/Short_ton'
+    The short ton is a unit of mass equal to 2000 avoirdupois pounds. It is the ton of the United
+    States customary system, also called the net ton, and NIST names it as the ton most commonly
+    used in the United States and Canada; the qualifier short separates it from the British long ton
+    of 2240 pounds and from the metric tonne.
+
+    Since the international pound became exactly 0.453 592 37 kilogram in 1959, the short ton is
+    exactly $2000\,\mathrm{lb}=907.184\,74\,\mathrm{kg}$, which NIST Special Publication 811 rounds
+    to 907.1847 kilograms. Canada's Weights and Measures Act defines its ton in the same way, as
+    2000 pounds.
+
+    The short ton is twenty short hundredweights of 100 pounds each. It is about nine tenths of a
+    tonne, and the long ton is exactly 12 per cent heavier than it.
+
+    According to NIST, an unqualified ton or hundredweight in the United States is understood as the
+    2000-pound ton and the 100-pound hundredweight, and the words net or short are added only when
+    the gross or long units might also be meant. In ocean shipping the position reverses: NIST
+    notes that cargo there is mostly weighed in long or metric tons, with the short ton a rarity.
+
+    NIST Handbook 44 makes tn the required abbreviation for the short ton on weighing and measuring
+    devices from 1 January 2014, with devices built between 2008 and 2013 allowed another form. The
+    tonne has its own symbol, t, and QUDT writes the short ton as ton{short}, so the full name is the
+    safest way to avoid mixing the three tons.
 textSources:
   - title: 'Wikipedia: Short ton'
     url: 'https://en.wikipedia.org/wiki/Short_ton'

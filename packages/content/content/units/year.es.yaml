@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Año'
+description: >-
+  El año, de símbolo a, es una unidad de tiempo ajena al SI. En las conversiones, el año designa el
+  año común de exactamente 365 días, la duración de todo año del calendario
+  gregoriano que no es bisiesto. Mide edades, duraciones largas y tasas anuales en todas las
+  ciencias.
+
+  Ninguna norma internacional define un año de 365 días como unidad, así que su valor descansa en
+  una convención: 365 días de 86 400 segundos dan 31 536 000 segundos, el factor que la
+  publicación especial 811 del NIST recoge en el apéndice B.8 para el año de 365 días. QUDT da el
+  mismo multiplicador para su año común.
+
+  Otros años difieren de él en una fracción de día. El calendario gregoriano añade un día
+  bisiesto en cada año divisible entre cuatro, salvo los años seculares no divisibles entre 400,
+  de modo que 400 años del calendario suman 146 097 días, una media de 365.2425 días por año. El
+  año trópico medio, el ciclo de las estaciones, duraba unos 365.242 19 días en 2000 según las
+  tablas del Observatorio Naval de Estados Unidos. La astronomía prefiere el año juliano de
+  exactamente 365.25 días.
+
+  Las tasas de interés y de crecimiento, las semividas de los isótopos de vida larga y las edades
+  de rocas y estrellas se expresan por año o en años, a menudo con un prefijo como mega. Una
+  duración en años se convierte a segundos antes de entrar en una fórmula de física.
+
+  Julio César introdujo el calendario juliano en el 45 a. C., y el papa Gregorio XIII introdujo
+  su reforma gregoriana en 1582. La Unión Astronómica Internacional recomienda el símbolo a en
+  lugar de yr, pero entiende un año sin calificar como el año juliano. La a de esta unidad es, por
+  tanto, el año de 365 días, alrededor de un 0.07 por ciento más corto que la a de la UAI, y un
+  texto cuidadoso indica qué año utiliza.

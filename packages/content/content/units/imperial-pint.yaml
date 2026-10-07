@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
-  en: 'Imperial Pint'
+  en: 'Imperial pint'
 symbol:
   tex: 'imp\ pt'
   text: 'imp pt'
@@ -24,7 +24,44 @@ branches:
 aliases:
   - 'UK pint'
   - 'imp pt'
+  - 'imperial pints'
+  - 'British pint'
+references:
+  - title: 'NIST SP 811, Appendix B.8, gallon [Canadian and U.K. (Imperial)]; pint (U.S. liquid)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'Weights and Measures Act (Canada), R.S.C. 1985, c. W-6, Schedule II: gallon, pint, gill, fluid ounce'
+    url: 'https://laws-lois.justice.gc.ca/eng/acts/w-6/FullText.html'
+  - title: 'NIST Handbook 44 (2026), Appendix C, section 3: Notes on British units of measurement'
+    url: 'https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf'
+  - title: 'NIST Handbook 44 (2023), Appendix B, sections 2.1.2 and 2.3'
+    url: 'https://www.nist.gov/system/files/documents/2023/01/30/appb-23-HB44.pdf'
+  - title: 'GOV.UK, Weights and measures: the law, Units of measurement'
+    url: 'https://www.gov.uk/weights-measures-and-packaging-the-law'
+  - title: 'GOV.UK, Choice on units of measurement: guidance on markings and sales, paragraphs 6 and 9'
+    url: 'https://www.gov.uk/government/consultations/choice-on-units-of-measurement-markings-and-sales/outcome/choice-on-units-of-measurement-guidance-on-markings-and-sales'
+  - title: 'QUDT, unit PINT_UK (imperial pint)'
+    url: 'https://qudt.org/vocab/unit/PINT_UK'
 description:
   en: >-
-    The imperial gallon ($imp gal$), defined as 4.54609 litres, which is or was used in the United
-    Kingdom, Canada, and some Caribbean countries.
+    The imperial pint, written pt or imp pt, is a unit of volume of the British imperial system;
+    eight of them make an imperial gallon. It is the pint of British draught beer and cider and
+    of milk in returnable containers, among the few goods that United Kingdom law still allows to be
+    sold by an imperial measure alone.
+
+    With the imperial gallon fixed at exactly 4.546 09 litres, the pint is exactly
+    $568.261\,25\,\mathrm{mL}$, a little more than half a litre. Canada's Weights and Measures Act
+    defines its pint in the same way, as one eighth of the gallon.
+
+    Two pints make a quart, and a pint divides into four gills or twenty imperial fluid ounces. The
+    U.S. liquid pint holds 16 U.S. fluid ounces, each slightly larger than the imperial one, for a
+    total of about 473.18 millilitres, so the imperial pint is about one fifth larger.
+
+    British government guidance explains that traders may show imperial figures alongside metric
+    ones on any product, provided the metric figure is the more prominent. Draught beer, draught
+    cider and milk in returnable containers are the exceptions that may be sold by the pint with no
+    metric figure at all, together with precious metals sold by the troy ounce.
+
+    The pint shares the history of the imperial gallon, which Britain adopted in 1824 in place of
+    the older wine and ale gallons, so the British and American pints have differed ever since. The
+    symbol pt serves both, which is why imp pt is written when the two could be confused; QUDT
+    labels this unit Pint (UK).

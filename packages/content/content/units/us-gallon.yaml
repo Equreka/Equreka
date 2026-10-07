@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
-  en: 'U.S. Gallon'
+  en: 'U.S. gallon'
 symbol:
   tex: 'US\ gal'
   text: 'US gal'
@@ -25,7 +25,43 @@ aliases:
   - 'gallon'
   - 'gal'
   - 'US gal'
+  - 'US gallon'
+  - 'gallons'
+  - 'wine gallon'
+references:
+  - title: 'NIST Handbook 44 (2026), Appendix C, Units of liquid volume and Apothecaries units of liquid volume'
+    url: 'https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf'
+  - title: 'NIST Handbook 44 (2023), Appendix B, sections 2.3 and 3.3'
+    url: 'https://www.nist.gov/system/files/documents/2023/01/30/appb-23-HB44.pdf'
+  - title: 'NIST SP 811, Appendix B.8, gallon (U.S.) (gal); mile per gallon (U.S.)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'National Bureau of Standards, Refinement of values for the yard and the pound, Federal Register 24 (1959) 5348: Standard inch'
+    url: 'https://geodesy.noaa.gov/PUBS_LIB/FedRegister/FRdoc59-5442.pdf'
+  - title: 'QUDT, unit GAL_US (U.S. gallon)'
+    url: 'https://qudt.org/vocab/unit/GAL_US'
 description:
   en: >-
-    The US gallon (US gal) defined as 231 cubic inches (exactly 3.785411784 L), which is used in the
-    US and some Latin American and Caribbean countries.
+    The U.S. gallon, written gal or US gal, is the unit of liquid volume of the United States
+    customary system, defined as 231 cubic inches. It is the gallon in which American fuel economy
+    is quoted as miles per gallon, and it is about one sixth smaller than the British imperial
+    gallon.
+
+    Because the inch has been exactly 25.4 millimetres since 1959, the definition fixes the gallon
+    at $231\,\mathrm{in^{3}}=3.785\,411\,784\,\mathrm{L}$ with no rounding. NIST Special
+    Publication 811 rounds this to 3.785 412 litres. NIST notes that all American units of capacity
+    are defined through the units of length in this way.
+
+    NIST Handbook 44 divides the gallon into four liquid quarts, eight pints, 32 gills or 128 U.S.
+    fluid ounces. One U.S. gallon is about 0.833 imperial gallon. Filled with water at 62 °F, it
+    holds a little more than eight pounds, according to NIST, so the neat British match between the
+    ounce of water and the fluid ounce does not carry over.
+
+    The United States uses separate measures for liquids and dry goods. The gallon and its parts
+    measure liquids, while certain dry commodities are measured by the bushel and the dry quart,
+    whose sizes differ from the liquid units.
+
+    In 1824 Britain replaced its older gallons with the imperial gallon. The American colonies had
+    already taken over the 231-cubic-inch measure that the English used for wine, and the United
+    States kept it, so the two countries have used different gallons ever since, as NIST relates. In
+    American texts gal alone means this unit; US gal is written where the imperial gallon could be
+    meant.

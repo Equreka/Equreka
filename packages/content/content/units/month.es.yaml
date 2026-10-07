@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Mes'
+description: >-
+  El mes, como unidad de tiempo para conversiones, es la doceava parte de un año común de 365
+  días. Es una unidad de calendario ajena al SI que se usa para duraciones en las que no importa
+  la longitud desigual de los meses del calendario, como los plazos de un préstamo, la edad de
+  los lactantes o las tasas mensuales.
+
+  Ninguna norma fija su valor, que descansa en una convención: la doceava parte de 31 536 000
+  segundos, el año de 365 días que tabula la publicación especial 811 del NIST, son 2 628 000
+  segundos, exactamente 30 días y 10 horas. QUDT no tiene ninguna unidad con este valor; su
+  unidad MO es el mes sinódico, y su mes gregoriano medio dura 2 629 746 segundos.
+
+  Los meses del calendario gregoriano conservan las duraciones que tenían en el calendario
+  juliano: siete de 31 días, cuatro de 30 y febrero con 28 días, o 29 en un año bisiesto. Doce de
+  ellos promedian 30.436 875 días a lo largo del ciclo gregoriano de 400 años. El mes sinódico, el
+  intervalo medio entre dos conjunciones de la Luna y el Sol, dura unos 29.530 59 días, y un ciclo
+  concreto de fases puede apartarse de esa media hasta siete horas.
+
+  Los calendarios lunares comienzan cada mes con un nuevo ciclo de fases de la Luna, mientras que
+  el calendario gregoriano conserva los meses solo como divisiones del año solar. En física un
+  tiempo dado en meses se convierte a segundos, y el resultado depende del mes al que se refiera.
+
+  El símbolo mo sigue a QUDT, que lo usa para sus meses. Una m sola chocaría con el metro, por lo
+  que mo o la palabra completa son la forma segura.

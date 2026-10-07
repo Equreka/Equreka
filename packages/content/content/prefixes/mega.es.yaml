@@ -1,2 +1,16 @@
 # yaml-language-server: $schema=../../dist/schemas/prefixes.locale.schema.json
 name: 'Mega'
+description: >-
+  Mega es el prefijo SI que indica un factor de $10^{6}$, es decir, un millón. Su símbolo es la
+  letra mayúscula $\mathrm{M}$, como en el megavatio, el megahercio y el megapascal, y la tonelada
+  equivale exactamente a un megagramo.
+
+  El mega se usaba en ciencia antes del SI: el sistema CGS que la Asociación Británica para el
+  Avance de la Ciencia introdujo en 1874 empleaba prefijos de micro a mega. La 11.ª Conferencia
+  General de Pesas y Medidas (CGPM) lo adoptó para el SI en 1960. El nombre procede de la palabra
+  griega que significa grande.
+
+  Las mayúsculas deciden el significado: un megavatio es un millón de vatios, mientras que un
+  milivatio, con m minúscula, es una milésima de vatio. En informática el múltiplo binario $2^{20}$
+  tiene su propio prefijo, mebi (Mi), y un megabyte del SI es exactamente un millón de bytes, aunque
+  el uso informal aún aplica mega al valor binario.

@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Grado Rankine'
+description: >-
+  El grado Rankine, de símbolo °R, es una unidad de temperatura termodinámica en
+  una escala absoluta cuyo grado tiene el tamaño del grado Fahrenheit. Como la escala kelvin, la
+  escala Rankine empieza en el cero absoluto, de modo que acompaña a la escala Fahrenheit como el
+  kelvin acompaña al Celsius. No es una unidad del SI.
+
+  La publicación especial 811 del NIST la relaciona con el kelvin en el apéndice B.8 mediante
+  $T/\mathrm{K}=(T/^{\circ}\mathrm{R})/1.8$: un grado Rankine es exactamente cinco novenos de
+  kelvin, y una temperatura en grados Rankine es 1.8 veces la misma temperatura en kelvin. QUDT
+  da el mismo multiplicador.
+
+  Junto con la conversión del NIST para la escala Fahrenheit, el factor implica que una lectura
+  Rankine es la lectura Fahrenheit más 459.67. Cero grados Celsius corresponden a 491.67 grados
+  Rankine y 100 grados Celsius a 671.67, y ninguna temperatura ordinaria es negativa.
+
+  La unidad pertenece a la termodinámica técnica en unidades usuales de Estados Unidos, donde las
+  leyes de los gases y los rendimientos de las máquinas térmicas requieren una temperatura absoluta
+  con pasos del tamaño del grado Fahrenheit; el NIST aún tabula unidades como la unidad térmica
+  británica por libra y grado Rankine para la capacidad calorífica específica.
+
+  La escala lleva el nombre de William John Macquorn Rankine (1820-1872), ingeniero escocés que
+  trabajó en termodinámica y escribió un manual de la máquina de vapor publicado en 1859. QUDT
+  señala que el símbolo se escribe a veces °Ra para distinguirlo de las escalas Rømer y Réaumur.

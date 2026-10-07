@@ -2,7 +2,8 @@
 name:
   en: 'Foot-pound'
 symbol:
-  tex: 'ft⋅lb'
+  tex: 'ft\,lbf'
+  text: 'ft·lbf'
 unitOf:
   - 'energy'
 system: 'imperial'
@@ -24,12 +25,41 @@ aliases:
   - 'ft-lb'
   - 'ft lbf'
   - 'foot-pound force'
+  - 'foot pound-force'
+  - 'ft·lb'
+references:
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: foot, foot pound-force, pound-force, pound-force foot'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST SP 811, footnotes to Appendix B (exact factors for the pound and the pound-force)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-footnotes'
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.4 (torque in newton metres) and Appendix 1 (3rd CGPM, 1901, conventional value of gn)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, unit FT-LB_F_Energy (Foot Pound Force, energy)'
+    url: 'https://qudt.org/vocab/unit/FT-LB_F_Energy'
 description:
   en: >-
-    The foot-pound force (symbol: $ft⋅lbf$, $ft⋅lbf$, or $ft⋅lb$) is a unit of work or energy in the
-    engineering and gravitational systems in United States customary and imperial units of measure.
-    It is the energy transferred upon applying a force of one pound-force (lbf) through a linear
-    displacement of one foot. The corresponding SI unit is the joule.
+    The foot-pound, in full the foot pound-force, is a unit of energy and work in US customary and
+    imperial units: the work done when a force of one pound-force moves its point of application
+    one foot in the direction of the force. It is not an SI unit, and its SI counterpart is the
+    joule.
+
+    It is the product of two exactly defined units. The foot is 0.3048 metre, and the pound-force
+    is the weight of one avoirdupois pound, 0.453 592 37 kilogram, under the standard
+    acceleration of gravity of 9.806 65 metres per second squared, exactly 4.448 221 615 260 5
+    newtons according to the footnotes of NIST Special Publication 811. Their product gives
+    $1\,\mathrm{ft\,lbf}=1.355\,817\,948\,331\,400\,4\,\mathrm{J}$ exactly, which Appendix B.8
+    rounds to 1.355 818 joules; QUDT stores the same multiplier.
+
+    The standard acceleration of gravity behind the pound-force goes back to the 3rd CGPM, which in
+    1901 adopted 980.665 centimetres per second squared as its conventional value.
+
+    Energy and torque share one dimension, and NIST lists the pound-force foot, lbf·ft, with the
+    same factor to the newton metre. The SI Brochure keeps the two quantities apart by never
+    expressing torque in joules, and NIST's tables mirror that separation in their names: foot
+    pound-force for energy, pound-force foot for torque.
+
+    NIST writes the symbol ft·lbf. The shorter ft·lb drops the f that marks force, so it can be
+    read as a product of length and mass.
 textSources:
   - title: 'Wikipedia: Foot-pound'
     url: 'https://en.wikipedia.org/wiki/Foot-pound'

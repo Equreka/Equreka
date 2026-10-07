@@ -20,10 +20,39 @@ categories:
   - 'physics'
 branches:
   - 'mechanics'
+aliases:
+  - 'ergs'
+references:
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: erg, erg per second, erg per square centimeter second'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST SP 811, Chapter 5, 5.3.1 CGS units and Table 10'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (9th CGPM, 1948, Resolution 7) and Appendix 4 (the CGS system, 1874)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, unit ERG (Erg)'
+    url: 'https://qudt.org/vocab/unit/ERG'
 description:
   en: >-
-    The erg is a unit of energy equal to $10^{−7} ~joules$ ($100 ~nJ$). It originated in the
-    centimetre–gram–second (CGS) system of units. It has the symbol erg. The erg is not an SI unit.
+    The erg, symbol erg, is the CGS unit of energy and work, the centimetre-gram-second system's
+    counterpart of the joule: the work of a one-dyne force whose point of application moves one centimetre along the line of
+    the force. It is not an SI unit.
+
+    One erg equals exactly $10^{-7}\,\mathrm{J}$. NIST Special Publication 811 gives that factor in
+    Appendix B.8 and lists the erg in Table 10 among the CGS units with special names that it does
+    not accept for use with the SI. The factor follows from the base units: a gram is a
+    thousandth of a kilogram and a square centimetre a ten-thousandth of a square metre, so one
+    gram square centimetre per second squared is ten million times smaller than a joule.
+
+    Ten million ergs make one joule, and the erg per second, the CGS unit of power, is ten
+    millionths of a watt. NIST also lists the erg per square centimetre second, exactly a
+    thousandth of a watt per square metre, a unit of energy flux found in older literature.
+
+    The erg appears in physics texts written in CGS units, and an energy in ergs must be converted
+    to joules before it is combined with SI quantities.
+
+    Its name comes from the Greek ergon, work, as QUDT notes. The British Association, a
+    scientific society, introduced the CGS system in 1874, and in 1948 the 9th CGPM listed the
+    erg, with the symbol erg, among the units whose symbols it set out.
 textSources:
   - title: 'Wikipedia: Erg (unit)'
     url: 'https://en.wikipedia.org/wiki/Erg_(unit)'

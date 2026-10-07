@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
-  en: 'Imperial Quart'
+  en: 'Imperial quart'
 symbol:
   tex: 'imp\ qt'
   text: 'imp qt'
@@ -24,7 +24,41 @@ branches:
 aliases:
   - 'UK quart'
   - 'imp qt'
+  - 'imperial quarts'
+  - 'British quart'
+references:
+  - title: 'NIST SP 811, Appendix B.8, gallon [Canadian and U.K. (Imperial)]; quart (U.S. liquid); quart (U.S. dry)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'Weights and Measures Act (Canada), R.S.C. 1985, c. W-6, Schedule II: gallon, quart'
+    url: 'https://laws-lois.justice.gc.ca/eng/acts/w-6/FullText.html'
+  - title: 'NIST Handbook 44 (2023), Appendix B, section 2.3: British and United States systems of measurement'
+    url: 'https://www.nist.gov/system/files/documents/2023/01/30/appb-23-HB44.pdf'
+  - title: 'NIST Handbook 44 (2026), Appendix C, section 3: Notes on British units of measurement'
+    url: 'https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf'
+  - title: 'GOV.UK, Weights and measures: the law, Units of measurement'
+    url: 'https://www.gov.uk/weights-measures-and-packaging-the-law'
+  - title: 'QUDT, unit QT_UK (imperial quart)'
+    url: 'https://qudt.org/vocab/unit/QT_UK'
 description:
   en: >-
-    The imperial gallon ($imp gal$), defined as 4.54609 litres, which is or was used in the United
-    Kingdom, Canada, and some Caribbean countries.
+    The imperial quart, written qt or imp qt, is a unit of volume of the British imperial system
+    equal to a quarter of an imperial gallon, or two imperial pints. Unlike its American
+    counterpart, it measures liquids and dry goods alike, because the British system uses one set
+    of capacity units for both.
+
+    The imperial gallon is exactly 4.546 09 litres, so the quart is exactly
+    $1.136\,522\,5\,\mathrm{L}$, a little more than a litre. Canada's Weights and Measures Act gives
+    the same definition, one quarter of the gallon.
+
+    One imperial quart contains two pints, eight gills or 40 imperial fluid ounces. The United States has
+    two smaller quarts: the U.S. liquid quart, about 0.946 litre, is divided into 32 U.S. fluid
+    ounces, and the U.S. dry quart is about 1.101 litres. Apart from the fluid ounce, the British
+    capacity units are larger than the American units of the same name.
+
+    The quart is not on the short list of imperial units that British law still allows on their own
+    in trade, so a quart can appear on a British label only as a supplementary figure beside a more
+    prominent metric quantity.
+
+    The quart inherits the history of the imperial gallon, which Britain adopted in 1824 and defined
+    by the volume of ten pounds of water, replacing the older wine and ale gallons. QUDT labels the
+    unit Quart (UK), and imp qt marks it whenever the American quarts could be meant.

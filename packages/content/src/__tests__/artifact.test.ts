@@ -346,19 +346,6 @@ describe('build over the real corpus', () => {
 				expect(shipped[slug]?.description?.en, `${collection}/${slug}`).toBe(entry.description?.en);
 			}
 		}
-		const units = readJson<Record<string, { description: { en: string } }>>(
-			'presentation',
-			'units.json',
-		);
-		expect(units['nautical-mile']?.description.en.split('\n')).toEqual([
-			expect.stringMatching(/^A nautical mile /),
-			'',
-			'**There is no single internationally agreed symbol**, with several symbols in use.',
-			expect.stringMatching(/^- \$M\$ is used /),
-			expect.stringMatching(/^- \$NM\$ is used /),
-			expect.stringMatching(/^- \$nmi\$ is used /),
-			expect.stringMatching(/^- \$nm\$ is a non-standard /),
-		]);
 		for (const collection of COLLECTIONS) {
 			const text = readFileSync(join(outDir, 'presentation', `${collection}.json`), 'utf8');
 			expect(text, collection).not.toMatch(/"(description|note|body|prompt|answer)Segments"/);

@@ -20,14 +20,39 @@ categories:
   - 'physics'
 branches:
   - 'mechanics'
+aliases:
+  - 'stones'
+  - 'stone weight'
+references:
+  - title: 'NIST Handbook 44 (2023), Appendix B, sections 2.1.2 and 2.3'
+    url: 'https://www.nist.gov/system/files/documents/2023/01/30/appb-23-HB44.pdf'
+  - title: 'NIST Handbook 44 (2026), Appendix C, section 3: Notes on British units of measurement'
+    url: 'https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf'
+  - title: 'National Bureau of Standards, Refinement of values for the yard and the pound, Federal Register 24 (1959) 5348'
+    url: 'https://geodesy.noaa.gov/PUBS_LIB/FedRegister/FRdoc59-5442.pdf'
+  - title: 'QUDT, unit Stone_UK (stone)'
+    url: 'https://qudt.org/vocab/unit/Stone_UK'
 description:
   en: >-
-    The stone or stone weight (abbreviation: $st$) is an English and imperial unit of mass equal to
-    14 pounds (approximately 6.35 kg). The stone continues in customary use in the United Kingdom
-    and Ireland for body weight.
-references:
-  - title: 'Pound (mass)'
-    url: 'https://en.wikipedia.org/wiki/Pound_(unit)'
+    The stone, symbol st, is a unit of mass of the British imperial system equal to 14 avoirdupois
+    pounds. In the United Kingdom it remains the customary unit for a person's body weight, while it
+    has no place in the United States customary system.
+
+    Because the avoirdupois pound has been exactly 0.453 592 37 kilogram since 1959, the stone is
+    fixed at $14\,\mathrm{lb}=6.350\,293\,18\,\mathrm{kg}$ exactly. The British tables reproduced in
+    NIST Handbook 44 give the same definition of fourteen pounds.
+
+    Above the pound the British avoirdupois table builds on the stone: two stones make a quarter of
+    28 pounds, four quarters make a hundredweight of 112 pounds, and twenty hundredweight make a ton
+    of 2240 pounds, so the British long ton holds 160 stones. A kilogram is about 0.157 stone.
+
+    Of the quarter, hundredweight, stone and ton, NIST counts the stone as the only one left in
+    everyday personal use, for body weight. Its trace in America was indirect: American flour
+    barrels held 196 pounds, exactly 14 stones, a trade practice that lasted until the Second World
+    War.
+
+    The 14-pound stone was not the first: NIST records signs of an older 16-pound version. NIST tables write the plural both as stones and as stone, and the QUDT vocabulary
+    labels the unit Stone (UK).
 textSources:
   - title: 'Wikipedia: Stone (unit)'
     url: 'https://en.wikipedia.org/wiki/Stone_(unit)'

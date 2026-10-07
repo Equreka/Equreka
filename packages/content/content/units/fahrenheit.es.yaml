@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Grado Fahrenheit'
+description: >-
+  El grado Fahrenheit, de símbolo °F, es la unidad de la escala de temperatura
+  Fahrenheit, que hoy se usa sobre todo en Estados Unidos, tanto en los partes meteorológicos y la
+  vida diaria como en ingeniería. No es una unidad del SI: un grado Fahrenheit equivale a cinco
+  novenos de kelvin, y la escala sitúa su cero lejos del cero absoluto.
+
+  La publicación especial 811 del NIST da la conversión al kelvin en el apéndice B.8:
+  $T/\mathrm{K}=(t/^{\circ}\mathrm{F}+459.67)/1.8$, y una temperatura Celsius es la lectura
+  Fahrenheit menos 32, dividida entre 1.8. Por tanto, el cero absoluto cae en -459.67 grados
+  Fahrenheit, 0 grados Celsius se leen como 32 grados Fahrenheit y 100 grados Celsius como 212,
+  de modo que 180 grados separan los puntos de congelación y de ebullición del agua a presión
+  normal.
+
+  Un intervalo de temperatura de un grado Fahrenheit equivale a cinco novenos de kelvin, unos
+  0.555 556 kelvin en la tabla del NIST. El grado Rankine tiene el mismo tamaño pero cuenta desde
+  el cero absoluto, y las escalas Fahrenheit y Celsius marcan el mismo número en -40.
+
+  En la ingeniería que trabaja con unidades usuales de Estados Unidos, el grado Fahrenheit entra
+  en unidades derivadas: el NIST da factores de conversión para la conductividad térmica, los
+  coeficientes de transferencia de calor y la capacidad calorífica específica expresados por grado
+  Fahrenheit.
+
+  La escala lleva el nombre de Daniel Gabriel Fahrenheit (1686-1736), fabricante de termómetros de
+  mercurio. En una carta de 1729 recordó una visita al astrónomo danés Ole Rømer en 1708, tras la
+  cual copió la escala de Rømer y luego dividió cada uno de sus grados en cuatro; hacia 1717 sus
+  puntos fijos estaban en 32 y 96. Su artículo en latín sobre los puntos de ebullición de varios
+  líquidos llegó a la Royal Society el 5 de marzo de 1723 y apareció en el volumen de 1724 de las
+  Philosophical Transactions.

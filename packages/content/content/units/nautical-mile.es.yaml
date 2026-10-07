@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Milla náutica'
+description: >-
+  La milla náutica es una unidad de longitud que se usa en la navegación marítima y aérea, igual a
+  exactamente 1852 metros. Se define directamente en metros, no a través del pie ni de la yarda, y el
+  folleto del SI la incluye en su tabla de unidades no SI, junto con el nudo, la unidad de rapidez de
+  la navegación, que equivale a una milla náutica por hora.
+
+  El valor $1852\,\mathrm{m}$ procede de 1929, cuando lo adoptó en Mónaco la Primera Conferencia
+  Hidrográfica Internacional Extraordinaria, que lo bautizó milla náutica internacional; la NOAA
+  señala que el organismo que la impulsó es hoy la Organización Hidrográfica Internacional. En 1978
+  el CIPM admitió que la unidad siguiera usándose junto con el SI en los campos que ya la empleaban, según la publicación
+  especial 811 del NIST.
+
+  La unidad se apoya en la geometría de la Tierra: la NOAA explica que una milla náutica corresponde
+  a un minuto de latitud, de modo que el navegante lee las distancias directamente en la escala de
+  latitudes de la carta. Equivale a unas 1.15 millas terrestres, y el NIST la da como
+  aproximadamente 6076.115 pies. Un nudo es, por tanto, 1852/3600 metros por segundo, algo más de
+  medio metro por segundo.
+
+  Los buques, los aviones y las naves espaciales miden las distancias en millas náuticas porque sus
+  cartas y sistemas de navegación trabajan con latitud y longitud. Estados Unidos adoptó el valor
+  internacional en 1954 y el Reino Unido lo hizo en 1970, tras haber usado ambos cifras algo
+  distintas.
+
+  No existe un símbolo acordado internacionalmente. En 2004 el Comité Consultivo de Unidades señaló
+  que M y NM eran de uso común y acordó incluir M en un borrador de la tabla del BIPM, pero el folleto
+  del SI vigente no da símbolo para la unidad. El vocabulario QUDT escribe nmi. Conviene evitar nm
+  en minúsculas, porque en el SI designa el nanómetro.

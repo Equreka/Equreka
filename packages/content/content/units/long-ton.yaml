@@ -23,16 +23,43 @@ branches:
 aliases:
   - 'imperial ton'
   - 'UK ton'
+  - 'gross ton'
+  - 'long tons'
+references:
+  - title: 'NIST SP 811, Appendix B.8, ton, long (2240 lb); ton, metric'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST Handbook 44 (2023), Appendix B, sections 2.1.2, 2.3 and 4: Specialized use of the terms ton and tonnage'
+    url: 'https://www.nist.gov/system/files/documents/2023/01/30/appb-23-HB44.pdf'
+  - title: 'NIST Handbook 44 (2026), Appendix C, Avoirdupois units of mass, footnote 10, and section 3: Notes on British units'
+    url: 'https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf'
+  - title: 'National Bureau of Standards, Refinement of values for the yard and the pound, Federal Register 24 (1959) 5348'
+    url: 'https://geodesy.noaa.gov/PUBS_LIB/FedRegister/FRdoc59-5442.pdf'
+  - title: 'QUDT, unit TON_LONG (long ton)'
+    url: 'https://qudt.org/vocab/unit/TON_LONG'
 description:
   en: >-
-    Long ton, also known as the imperial ton or displacement ton, is the name for the unit called
-    the "ton" in the avoirdupois system of weights or Imperial system of measurements. It was
-    standardised in the thirteenth century. It is used in the United Kingdom and several other
-    Commonwealth of Nations countries alongside the mass-based metric tonne defined in 1799, as well
-    as in the United States for bulk commodities.
-references:
-  - title: 'Long ton'
-    url: 'https://en.wikipedia.org/wiki/Long_ton'
+    The long ton is a unit of mass equal to 2240 avoirdupois pounds. It is the ton of the British
+    imperial system, also called the gross ton or shipper's ton, and the qualifier long separates it
+    from the 2000-pound short ton used in the United States and from the metric tonne.
+
+    With the international pound fixed in 1959 at 0.453 592 37 kilogram, the long ton is exactly
+    $2240\,\mathrm{lb}=1016.046\,908\,8\,\mathrm{kg}$. NIST Special Publication 811 lists it, rounded,
+    as 1016.047 kilograms.
+
+    In the British table of mass the long ton is twenty hundredweight of 112 pounds each, or 160
+    stones. It is 1.12 short tons and about 1.6 per cent more than a tonne, so the three tons are
+    close enough to be confused but different enough to matter in bulk trade.
+
+    Shipping keeps the unit alive. According to NIST, overseas cargo statistics are normally kept
+    in long or metric tons, seldom in short tons, and a ship's deadweight tonnage, the combined mass
+    of fuel, passengers and cargo it bears when laden down to its deepest permitted draught, is
+    stated in the same two units. NIST also names the long ton as the ton most commonly used in
+    Great Britain.
+
+    The name reflects American usage. In the United States an unqualified ton or hundredweight
+    means the short units of 2000 and 100 pounds, so the British units of 2240 and 112 pounds are
+    called long or gross. NIST gives the long ton no symbol and writes its name in full, while the
+    QUDT vocabulary uses t{long}.
 textSources:
   - title: 'Wikipedia: Long ton'
     url: 'https://en.wikipedia.org/wiki/Long_ton'

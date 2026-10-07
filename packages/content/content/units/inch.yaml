@@ -22,12 +22,44 @@ branches:
   - 'mechanics'
 aliases:
   - 'inches'
+references:
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: inch (in)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'National Bureau of Standards, Refinement of values for the yard and the pound, Federal Register 24 (1959) 5348: Standard inch'
+    url: 'https://geodesy.noaa.gov/PUBS_LIB/FedRegister/FRdoc59-5442.pdf'
+  - title: 'NIST Handbook 44 (2023), Appendix B, sections 2.1.2, 2.4 and 3.1'
+    url: 'https://www.nist.gov/system/files/documents/2023/01/30/appb-23-HB44.pdf'
+  - title: 'NIST Handbook 44 (2026), Appendix C, Units of length and Units of liquid volume'
+    url: 'https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf'
+  - title: 'Weights and Measures Act (Canada), R.S.C. 1985, c. W-6, Schedule II: inch'
+    url: 'https://laws-lois.justice.gc.ca/eng/acts/w-6/FullText.html'
+  - title: 'QUDT, unit IN (inch)'
+    url: 'https://qudt.org/vocab/unit/IN'
 description:
   en: >-
-    The inch (symbol: in or ″) is a unit of length in the British imperial and the United States
-    customary systems of measurement. It is equal to 1/36 yard or 1/12 of a foot. Derived from the
-    Roman uncia ("twelfth"), the word inch is also sometimes used to translate similar units in
-    other measurement systems, usually understood as deriving from the width of the human thumb.
+    The inch, symbol in, is a unit of length of the British imperial system and the United States
+    customary system, equal to one twelfth of a foot. It is the smallest of the named everyday
+    lengths in those systems and the working unit of machinists and of everyday rulers in the
+    United States.
+
+    The inch is exactly 25.4 millimetres, $1\,\mathrm{in}=25.4\,\mathrm{mm}$. The value follows
+    from the international yard of 0.9144 metre, of which the inch is one thirty-sixth, and NIST
+    Special Publication 811 lists 2.54 centimetres as an exact factor. Canada's Weights and Measures
+    Act likewise defines its inch as one thirty-sixth of the yard.
+
+    Twelve inches make a foot, thirty-six make a yard and 63 360 make a mile. A cubic inch is the
+    building block of American liquid measure, since the U.S. gallon is defined as 231 cubic inches.
+
+    NIST describes two traditions of subdividing the inch. Machinists, toolmakers, gauge makers and
+    scientists split it decimally into tenths, hundredths and thousandths, down to millionths for
+    precise work, while rulers for rougher measurement carry binary fractions such as halves,
+    quarters and eighths, rarely finer than a sixty-fourth.
+
+    The Roman foot was divided into twelve unciae, which NIST equates with inches. When the United
+    States fixed the yard at 0.9144 metre in 1959, the Federal Register notice pointed out that the
+    25.4-millimetre inch was not new: the federal aeronautics committee, NACA, had worked with it
+    since 1952, and the American Standards Association had endorsed it for industrial conversion as
+    early as 1933. The plural of the name is inches.
 textSources:
   - title: 'Wikipedia: Inch'
     url: 'https://en.wikipedia.org/wiki/Inch'

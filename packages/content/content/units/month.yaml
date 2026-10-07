@@ -2,7 +2,7 @@
 name:
   en: 'Month'
 symbol:
-  tex: 'm'
+  tex: 'mo'
 unitOf:
   - 'time'
 system: 'other'
@@ -22,11 +22,41 @@ branches:
   - 'mechanics'
   - 'measurement'
 aliases:
-  - 'mo'
+  - 'months'
+references:
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: year (365 days)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'QUDT, unit MO (Month, synodic)'
+    url: 'https://qudt.org/vocab/unit/MO'
+  - title: 'QUDT, unit MO_MeanGREGORIAN (Mean Gregorian Month)'
+    url: 'https://qudt.org/vocab/unit/MO_MeanGREGORIAN'
+  - title: 'US Naval Observatory, Introduction to Calendars'
+    url: 'https://aa.usno.navy.mil/faq/calendars'
+  - title: 'E. G. Richards, Calendars, ch. 15 of the Explanatory Supplement to the Astronomical Almanac, 3rd ed. (USNO), 15.1 (synodic month) and Table 15.5'
+    url: 'https://aa.usno.navy.mil/downloads/c15_usb_online.pdf'
 description:
   en: >-
-    A month is a unit of time, used with calendars, that is approximately as long as a natural
-    orbital period of the Moon; the words month and Moon are cognates.
+    The month, as a unit of time for conversions, is one twelfth of a common year of 365 days. It
+    is a calendar unit outside the SI, used for durations where the unequal lengths of the
+    calendar months do not matter, such as loan terms, the ages of infants or monthly rates.
+
+    No standard fixes its value, which rests on a convention: one twelfth of 31 536 000 seconds,
+    the 365-day year that NIST Special Publication 811 tabulates, is 2 628 000 seconds, exactly 30
+    days and 10 hours. QUDT has no unit with this value; its unit MO is the synodic month, and
+    its mean Gregorian month lasts 2 629 746 seconds.
+
+    The months of the Gregorian calendar keep the lengths they had in the Julian calendar: seven
+    of 31 days, four of 30, and February with 28 days, or 29 in a leap year. Twelve of them
+    average 30.436 875 days over the 400-year Gregorian cycle. The synodic month, the mean interval
+    between two conjunctions of the Moon and the Sun, is about 29.530 59 days, and a single cycle
+    of phases may depart from that mean by up to seven hours.
+
+    Lunar calendars start each month with a new cycle of the Moon's phases, while the Gregorian
+    calendar keeps months only as divisions of the solar year. In physics a time given in months
+    is converted to seconds, and the result depends on which month was meant.
+
+    The symbol mo follows QUDT, which writes it for its months. A lone m would clash with the
+    metre, so mo or the full word is the safe form.
 textSources:
   - title: 'Wikipedia: Month'
     url: 'https://en.wikipedia.org/wiki/Month'

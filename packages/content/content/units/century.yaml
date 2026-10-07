@@ -21,11 +21,37 @@ categories:
 branches:
   - 'mechanics'
   - 'measurement'
+aliases:
+  - 'centuries'
+  - 'hundred years'
+references:
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: year (365 days)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST SP 811, footnotes to Appendix B (1 Julian century = 36 525 d)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-footnotes'
+  - title: 'E. G. Richards, Calendars, ch. 15 of the Explanatory Supplement to the Astronomical Almanac, 3rd ed. (USNO), 15.1 (Julian centuries), 15.1.8 (Christian Era) and 15.4.2'
+    url: 'https://aa.usno.navy.mil/downloads/c15_usb_online.pdf'
 description:
   en: >-
-    A century is a period of 100 years. Centuries are numbered ordinally in English and many other
-    languages. The word century comes from the Latin centum, meaning one hundred. Century is
-    sometimes abbreviated as c.
+    The century is a unit of time of 100 years, outside the SI. For conversions it is taken as 100
+    common years of 365 days, the convention also applied to the year and the decade. History,
+    archaeology and astronomy use it to measure and name long stretches of time.
+
+    No standard defines the century as a unit. A hundred times the 365-day year, which NIST Special
+    Publication 811 tabulates as 31 536 000 seconds, gives 3 153 600 000 seconds, or 36 500 days.
+
+    A span of 100 calendar years is longer. The Gregorian calendar makes every fourth year a leap
+    year but skips the leap day in century years not divisible by 400, so 100 consecutive years
+    hold 24 or 25 leap days, 36 524 or 36 525 days in all. Astronomers count time in Julian
+    centuries of exactly 36 525 days, a unit that the footnotes to NIST Special Publication 811
+    also state; the formulas for the lengths of the tropical year and the synodic month in the
+    Explanatory Supplement to the Astronomical Almanac use it as their time variable.
+
+    The Christian era begins with year 1 and has no year 0, so the first century runs from year 1
+    to year 100 and the twentieth from 1901 to 2000.
+
+    The symbol c also stands for the speed of light and, as a prefix, for centi, so writing the
+    word in full avoids ambiguity. Ten decades make a century, and ten centuries a millennium.
 textSources:
   - title: 'Wikipedia: Century'
     url: 'https://en.wikipedia.org/wiki/Century'
