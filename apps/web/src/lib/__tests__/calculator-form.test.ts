@@ -14,7 +14,6 @@ import {
 	calculatorResultText,
 	calculatorViewOf,
 	INITIAL_CALCULATOR_FORM,
-	scientificParts,
 } from '../calculator-form';
 import { calculatorUnitSourceOf } from '../calculator-units';
 
@@ -107,18 +106,20 @@ describe('submit-driven calculator form', () => {
 	});
 });
 
-describe('result formatting', () => {
-	it('splits the power of ten off formatted values', () => {
-		expect(scientificParts('2.2253e-17')).toEqual({ mantissa: '2.2253', exponent: '-17' });
-		expect(scientificParts('2.99792e+8')).toEqual({ mantissa: '2.99792', exponent: '8' });
-		expect(scientificParts('42.5')).toEqual({ mantissa: '42.5', exponent: null });
+describe('result clipboard text', () => {
+	it('copies symbol, operator, value and unit as plain text', () => {
+		expect(calculatorResultText('m', solution(), 'kg', 'readable')).toBe('m = 2.2253 × 10⁻¹⁷ kg');
+		expect(
+			calculatorResultText('A', solution({ value: 6.25, exact: false }), 'm²', 'readable'),
+		).toBe('A ≈ 6.25 m²');
+		expect(calculatorResultText('c', solution({ value: 5 }), '', 'readable')).toBe('c = 5');
 	});
 
-	it('copies symbol, operator, value and unit as plain text', () => {
-		expect(calculatorResultText('m', solution(), 'kg')).toBe('m = 2.2253 × 10⁻¹⁷ kg');
-		expect(calculatorResultText('A', solution({ value: 6.25, exact: false }), 'm²')).toBe(
-			'A ≈ 6.25 m²',
+	it('copies the value in the format the card shows', () => {
+		const angle = solution({ symbol: 'θ', value: 1.2999111502834747e1 });
+		expect(calculatorResultText('θ', angle, '°', 'readable')).toBe('θ = 12.9991115 °');
+		expect(calculatorResultText('θ', angle, '°', 'scientific')).toBe(
+			'θ = 1.2999111502834747 × 10¹ °',
 		);
-		expect(calculatorResultText('c', solution({ value: 5 }), '')).toBe('c = 5');
 	});
 });

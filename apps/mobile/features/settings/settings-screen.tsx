@@ -1,11 +1,12 @@
 import type { ThemeSetting } from '@equreka/core';
-import { LOCALES, type Locale, tParts } from '@equreka/core/i18n';
+import { LOCALES, type Locale, type MessageKey, tParts } from '@equreka/core/i18n';
 import {
 	CODE_LICENSE,
 	CONTENT_ATTRIBUTION,
 	CONTENT_LICENSE,
 	REPOSITORY_LINK,
 } from '@equreka/core/license';
+import { NUMBER_FORMATS, type NumberFormat } from '@equreka/engine/format';
 import Constants from 'expo-constants';
 import { useEqureka, useLocale, useT } from '../../shared/providers/equreka-provider';
 import { Button } from '../../shared/ui/button';
@@ -22,6 +23,11 @@ const THEME_LABEL_KEYS = {
 	light: 'settings.theme.light',
 	dark: 'settings.theme.dark',
 } as const;
+
+const NUMBER_FORMAT_LABEL_KEYS: Record<NumberFormat, MessageKey> = {
+	readable: 'settings.numberFormat.readable',
+	scientific: 'settings.numberFormat.scientific',
+};
 
 /**
  * Native language names for the switcher — always shown in their own
@@ -85,6 +91,19 @@ export function SettingsScreen() {
 							label={LOCALE_NAMES[option]}
 							selected={settings.settings.locale === option}
 							onPress={() => settings.setLocale(option)}
+						/>
+					))}
+				</HStack>
+			</Card>
+			<Card>
+				<SectionTitle>{t('settings.numberFormat')}</SectionTitle>
+				<HStack>
+					{NUMBER_FORMATS.map((option) => (
+						<Button
+							key={option}
+							label={t(NUMBER_FORMAT_LABEL_KEYS[option])}
+							selected={settings.settings.numberFormat === option}
+							onPress={() => settings.setNumberFormat(option)}
 						/>
 					))}
 				</HStack>

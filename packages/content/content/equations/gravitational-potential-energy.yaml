@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Gravitational potential energy in a uniform field'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{E_\mathrm{p}}=\mag{m}\var{g}\var{h}'
+terms:
+  E_\mathrm{p}:
+    kind: 'magnitude'
+    ref: 'potential-energy'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+  h:
+    kind: 'symbol'
+    label:
+      en: 'Height'
+    unit: 'metre'
+solutions:
+  E_\mathrm{p}: 'm * g * h'
+  m: 'E_p / (g * h)'
+  g: 'E_p / (m * h)'
+  h: 'E_p / (m * g)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'gravitational potential energy'
+  - 'potential energy formula'
+  - 'PE = mgh'
+  - 'U = mgh'
+  - 'Ep = mgh'
+  - 'energy of height'
+  - 'energía potencial gravitacional'
+references:
+  - title: 'OpenStax, College Physics 2e, 7.3 Gravitational Potential Energy'
+    url: 'https://openstax.org/books/college-physics-2e/pages/7-3-gravitational-potential-energy'
+  - title: 'OpenStax, University Physics Volume 1, 8.1 Potential Energy of a System'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/8-1-potential-energy-of-a-system'
+  - title: 'OpenStax, Physics, 9.2 Mechanical Energy and Conservation of Energy, Worked Example (falling rock)'
+    url: 'https://openstax.org/books/physics/pages/9-2-mechanical-energy-and-conservation-of-energy'
+  - title: 'R. Nave, HyperPhysics, Gravitational potential energy'
+    url: 'https://hyperphysics.gsu.edu/hbase/gpot.html'
+description:
+  en: >-
+    The gravitational potential energy of a body near the surface of the Earth, or of any planet, is
+    the energy stored in its position in a uniform gravitational field: its mass times the
+    gravitational acceleration times its height above a chosen reference level. It describes how
+    lifting a load stores energy that the load gives back as motion when it falls.
+
+    In the formula, $\mag{E_\mathrm{p}}$ is the potential energy in joules; $\mag{m}$ is the mass in
+    kilograms; $\var{g}$ is the size of the gravitational acceleration in metres per second squared,
+    a positive number close to 9.8 at the surface of the Earth; and $\var{h}$ is the height in
+    metres, measured upward from the reference level. The height is signed: a body below the
+    reference level has a negative height and therefore a negative potential energy.
+
+    Only differences of potential energy have physical meaning, so the reference level may be placed
+    wherever it is convenient: the floor, the ground or the lowest point of a problem. Moving it
+    shifts every value by the same amount and leaves every change as it was. Raising a body slowly
+    takes work equal to its weight times the rise, and that work is stored as potential energy;
+    gravity gives the same amount back as positive work when the body descends again, along any
+    path, because only the change in height counts.
+
+    The formula assumes a uniform field, which holds when the heights involved are small compared
+    with the radius of the planet. For satellites and space travel the field weakens with distance
+    from the centre of the planet, and the general expression derived from Newton's law of universal
+    gravitation takes its place. For an extended body the height is that of its centre of mass.
+
+    A rock of 10 kilograms held 10 metres above the ground has 980 joules of potential energy
+    relative to the ground, taking 9.80 metres per second squared for the gravitational
+    acceleration; with negligible air resistance, all of it becomes kinetic energy immediately
+    before impact.

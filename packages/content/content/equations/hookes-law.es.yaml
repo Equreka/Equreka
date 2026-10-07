@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de Hooke'
+terms:
+  k:
+    label: 'Constante elástica'
+  x:
+    label: 'Desplazamiento desde la longitud natural'
+description: >-
+  La ley de Hooke establece que la fuerza que ejerce un resorte es proporcional a la distancia a la
+  que se estira o se comprime su extremo desde la posición de reposo, y apunta de vuelta hacia esa
+  posición. La constante de proporcionalidad es la constante elástica. La ley es el modelo básico de
+  los resortes elásticos en mecánica y describe también pequeñas deformaciones de alambres, barras y
+  otros sólidos elásticos.
+
+  Esta entrada usa la forma recuperadora con signo. Aquí $\var{x}$ es el desplazamiento del extremo
+  del resorte desde su longitud natural, donde el resorte no está ni estirado ni comprimido, en
+  metros, con signo a lo largo de un eje elegido; $\mag{F}$ es la fuerza que el resorte ejerce sobre
+  lo que sujeta su extremo, en newtons, con signo a lo largo del mismo eje; y $\var{k}$ es la
+  constante elástica en newtons por metro, siempre positiva y mayor para un resorte más rígido. El
+  signo menos hace que la fuerza y el desplazamiento sean opuestos: un resorte estirado hacia el
+  lado positivo tira hacia el negativo, y uno comprimido empuja hacia fuera. Una fuerza y un
+  desplazamiento introducidos con su signo dan una constante elástica positiva; sus valores
+  absolutos darían una negativa. El mismo desplazamiento con signo aparece en la energía potencial
+  elástica del resorte.
+
+  Una masa unida a un resorte y apartada de su posición de reposo es empujada de vuelta, sobrepasa
+  esa posición y regresa, y la fuerza recuperadora lineal hace que esa oscilación sea armónica
+  simple.
+
+  La ley solo vale para deformaciones pequeñas: la mayoría de los materiales la cumplen mientras la
+  deformación unitaria se mantiene por debajo de una parte por mil. Más allá la fuerza deja de
+  crecer en proporción, y cargas mayores deforman el material de forma permanente y acaban
+  rompiéndolo.
+
+  Robert Hooke dio con la relación hacia 1660, cuando su trabajo sobre los resortes espirales de
+  volante para relojes la mostró en un caso; la enunció para los cuerpos elásticos en general en una
+  conferencia de 1678 sobre los resortes. Tomando 9.80 metros por segundo al cuadrado como
+  aceleración de la gravedad, un coche que baja 1.20 centímetros cuando sube una persona de 80.0
+  kilogramos tiene una suspensión con una constante elástica de unos 65 300 newtons por metro.

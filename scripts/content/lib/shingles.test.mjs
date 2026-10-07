@@ -4,6 +4,7 @@ import {
 	compareTexts,
 	isFlagged,
 	isStrongMatch,
+	longestCommonRun,
 	longestSharedRun,
 	normalizeText,
 	SHINGLE_SIZE,
@@ -56,6 +57,14 @@ describe('longestSharedRun', () => {
 		assert.equal(longestSharedRun(['x', 'a', 'b', 'c', 'y'], ['a', 'b', 'c', 'z', 'a', 'b']), 3);
 	});
 
+	it('locates the first longest run in the left list', () => {
+		assert.deepEqual(longestCommonRun(['x', 'a', 'b', 'c', 'y', 'a', 'b', 'c'], ['a', 'b', 'c']), {
+			length: 3,
+			start: 1,
+		});
+		assert.deepEqual(longestCommonRun(['a'], ['b']), { length: 0, start: 0 });
+	});
+
 	it('is 0 without a shared word', () => {
 		assert.equal(longestSharedRun(['a'], ['b']), 0);
 		assert.equal(longestSharedRun([], ['b']), 0);
@@ -71,6 +80,11 @@ describe('compareTexts', () => {
 		assert.equal(comparison.overlap, 1);
 		assert.equal(comparison.sharedShingles, comparison.shingles);
 		assert.ok(comparison.longestRun >= 12);
+		assert.equal(
+			comparison.run,
+			'the metre has been defined as the length of the path travelled by light in vacuum',
+		);
+		assert.equal(comparison.run.split(' ').length, comparison.longestRun);
 		assert.equal(isFlagged(comparison), true);
 	});
 

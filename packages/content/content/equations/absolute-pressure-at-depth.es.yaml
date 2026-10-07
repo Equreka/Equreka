@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Presión absoluta a una profundidad'
+terms:
+  p:
+    label: 'Presión absoluta'
+  p_{0}:
+    label: 'Presión en la superficie'
+  g:
+    label: 'Aceleración de la gravedad'
+  h:
+    label: 'Profundidad'
+description: >-
+  La presión absoluta a una profundidad en un fluido en reposo es igual a la presión en la
+  superficie libre más la presión hidrostática del fluido que hay encima: la presión en la
+  superficie más la densidad por la aceleración de la gravedad por la profundidad. Es la presión
+  total medida desde el vacío perfecto, la que comprime el aire de los pulmones de un buceador, a
+  diferencia de la presión manométrica que indica un manómetro de neumáticos o un profundímetro.
+
+  Aquí $\var{p}$ es la presión absoluta a la profundidad y $\var{p_{0}}$ la presión en la
+  superficie, ambas en pascales; $\mag{\rho}$ es la densidad del fluido en kilogramos por metro
+  cúbico, $\var{g}$ el módulo de la aceleración de la gravedad en metros por segundo al cuadrado,
+  introducido como número positivo, y $\var{h}$ la profundidad bajo la superficie en metros, medida
+  hacia abajo. En un lago o un mar abiertos, $\var{p_{0}}$ es la presión atmosférica, definida como
+  101 325 pascales para la atmósfera estándar y próxima a ese valor al nivel del mar; el valor
+  normal de $\var{g}$ es 9.80665 metros por segundo al cuadrado, y el valor local varía con el lugar
+  y es distinto en otros planetas.
+
+  La presión que actúa sobre la superficie se transmite a todo el fluido, de modo que cada punto
+  inferior la soporta además del peso de la columna de fluido que tiene encima. La diferencia entre
+  la presión absoluta y la presión en la superficie es la presión manométrica, que da la relación de
+  la presión hidrostática, y dos puntos a la misma profundidad de una misma masa de fluido conectada
+  comparten la misma presión.
+
+  La relación supone un fluido en reposo, de densidad uniforme, en un campo gravitatorio uniforme,
+  con la profundidad medida desde una superficie libre sometida a la presión indicada. Sirve para
+  los líquidos, que apenas se comprimen, y falla en grandes alturas de gas, cuya densidad cambia con
+  la presión. Un recipiente cerrado o presurizado toma la presión de su propia cámara de gas en
+  lugar de la atmosférica.
+
+  Las tablas de buceo, los cascos de submarino y la calibración de los profundímetros se basan en
+  esta suma. Unos 10.3 metros de agua dulce añaden una atmósfera estándar, así que la presión
+  absoluta a esa profundidad es aproximadamente el doble de la presión en la superficie.

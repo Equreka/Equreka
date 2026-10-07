@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Trabajo realizado por una fuerza constante'
+terms:
+  d:
+    label: 'Módulo del desplazamiento'
+description: >-
+  El trabajo realizado por una fuerza constante es la energía que una fuerza transfiere a un cuerpo,
+  o le quita, mientras el cuerpo se mueve: el módulo de la fuerza por el módulo del desplazamiento
+  por el coseno del ángulo que forman. Es la definición básica del trabajo mecánico para una fuerza
+  de módulo y dirección fijos, como un empuje uniforme sobre un carrito.
+
+  En la fórmula, $\mag{W}$ es el trabajo en julios, siendo un julio el trabajo de un newton a lo
+  largo de un metro; $\mag{F}$ es el módulo de la fuerza en newtons y $\var{d}$ el módulo del
+  desplazamiento del punto donde actúa la fuerza, en metros, ambos introducidos como números no
+  negativos; $\mag{\theta}$ es el ángulo entre la fuerza y el desplazamiento, de 0 a 180 grados. El
+  signo del trabajo lo da el coseno: positivo cuando la fuerza tiene una componente a lo largo del
+  movimiento, nulo cuando la fuerza es perpendicular a él y negativo cuando la fuerza se opone al
+  movimiento, como hace el rozamiento cinético.
+
+  Solo la componente de la fuerza a lo largo del desplazamiento, $\mag{F}\cos\mag{\theta}$, realiza
+  trabajo; la componente perpendicular no cambia ni la rapidez ni la energía del cuerpo, de modo que
+  la fuerza normal sobre un suelo horizontal no realiza trabajo. Para despejar el ángulo se usa el
+  arcocoseno, que devuelve un único valor entre 0 y 180 grados, todo el intervalo que puede tomar el
+  ángulo entre dos direcciones.
+
+  La fórmula exige una fuerza de módulo y dirección constantes que actúa a lo largo de un
+  desplazamiento $\var{d}$. Una fuerza que cambia a lo largo del recorrido, como la de un resorte,
+  requiere sumar el trabajo en pasos pequeños, cada uno lo bastante corto para tratar la fuerza como
+  constante. Cuando actúan varias fuerzas, la suma de sus trabajos, el trabajo neto, es igual a la
+  variación de la energía cinética.
+
+  Gaspard-Gustave de Coriolis dio a la palabra trabajo su significado científico actual; su memoria
+  Du calcul de l'effet des machines apareció en 1829. Empujar una cortadora de césped 25.0 metros
+  con una fuerza de 75.0 newtons dirigida 35 grados por debajo de la horizontal supone un trabajo de
+  unos 1540 julios.

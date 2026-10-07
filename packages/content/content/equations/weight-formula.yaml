@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Weight of a body'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{W}=\mag{m}\var{g}'
+terms:
+  W:
+    kind: 'magnitude'
+    ref: 'weight'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+solutions:
+  W: 'm * g'
+  m: 'W / g'
+  g: 'W / m'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'W = mg'
+  - 'W=mg'
+  - 'weight formula'
+  - 'weight from mass'
+  - 'mass and weight'
+  - 'peso y masa'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 5.4 Mass and Weight'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/5-4-mass-and-weight'
+  - title: 'R. Fitzpatrick, Classical Mechanics (University of Texas at Austin lecture notes), Mass and weight'
+    url: 'https://farside.ph.utexas.edu/teaching/301/lectures/node47.html'
+  - title: 'NIST, CODATA Value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1, 3rd CGPM (1901): declaration on the unit of mass and on the definition of weight'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+description:
+  en: >-
+    The weight of a body near the surface of a planet or moon equals its mass multiplied by the
+    local gravitational acceleration. Weight is the gravitational force on the body, so the formula
+    turns a mass in kilograms into a force in newtons.
+
+    Here $\mag{W}$ is the size of the weight in newtons, $\mag{m}$ the mass in kilograms and
+    $\var{g}$ the size of the gravitational acceleration in metres per second squared, entered as a
+    positive number, so all three are non-negative. Weight itself is a vector that points down,
+    toward the centre of the attracting body; the formula gives its size and the direction is
+    understood. The standard value of $\var{g}$ is 9.80665 metres per second squared, while the
+    local value on the Earth varies slightly from place to place and on the Moon it is about 1.62.
+
+    The formula follows from Newton's second law. A body in free fall has only its weight acting on
+    it and accelerates at $\var{g}$, so the force must be the mass times that acceleration. Every
+    body falls with the same acceleration at a given place, so tripling the mass triples the weight.
+    Mass belongs to the body and is the same everywhere, whereas weight depends on the gravity of
+    the place: one kilogram weighs about 9.8 newtons on the Earth and about 1.6 on the Moon.
+
+    The formula assumes that gravity is uniform over the region where the body sits, which holds
+    near a surface; far from the planet the gravitational acceleration weakens and the law of
+    universal gravitation is needed. A scale registers the normal force it exerts, which equals the
+    weight only when scale and body are not accelerating.
+
+    The 3rd General Conference on Weights and Measures declared in 1901 that weight belongs to the
+    same kind of quantity as force and equals mass times the acceleration due to gravity, and it
+    adopted 980.665 centimetres per second squared as the standard value of that acceleration.

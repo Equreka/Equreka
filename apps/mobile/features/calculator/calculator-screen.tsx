@@ -12,7 +12,7 @@ import {
 	localizedName,
 	pickLocalized,
 } from '@equreka/core/i18n';
-import { formatSigFigs } from '@equreka/engine/format';
+import { formatResult, formatSigFigs, READABLE_SIG_FIGS, resultText } from '@equreka/engine/format';
 import type { CompiledEquationMeta } from '@equreka/schema';
 import { useRouter } from 'expo-router';
 import { Fragment, useMemo, useState } from 'react';
@@ -21,7 +21,7 @@ import { getEngineSlice, getPresentation, getSolutions } from '../../shared/cont
 import { getUnitRegistry } from '../../shared/content/engine';
 import { MathSvg } from '../../shared/math/math-view';
 import type { RuntimeMath } from '../../shared/math/runtime-mathjax';
-import { useLocale, useT } from '../../shared/providers/equreka-provider';
+import { useEqureka, useLocale, useT } from '../../shared/providers/equreka-provider';
 import { Button } from '../../shared/ui/button';
 import { Card } from '../../shared/ui/card';
 import { DecimalField, SwitchField } from '../../shared/ui/field';
@@ -181,7 +181,8 @@ function useUnitSource(): CalculatorUnitSource {
  * (symbolic, then with the knowns substituted) is typeset on device by the
  * runtime MathJax leg (ADR 0005) and always substitutes base-unit values,
  * because the authored solution is written in base units; `renderer` is
- * injectable for tests and defaults to the app-wide singleton.
+ * injectable for tests and defaults to the app-wide singleton. The result
+ * and its roots print in the reader's `numberFormat` setting.
  */
 export function CalculatorScreen({ slug, renderer }: CalculatorScreenProps) {
 	const locale = useLocale();
@@ -207,6 +208,7 @@ function CalculatorForm({ slug, model, renderer }: CalculatorFormProps) {
 	const locale = useLocale();
 	const t = useT();
 	const router = useRouter();
+	const { numberFormat } = useEqureka().settings.settings;
 	const [values, setValues] = useState<Record<string, string>>({});
 	const { meta, fields, constants, nonNegative } = model;
 	const unitState = useCalculatorUnits(meta, useUnitSource());
@@ -333,7 +335,7 @@ function CalculatorForm({ slug, model, renderer }: CalculatorFormProps) {
 								{solved?.label ?? result.value.symbol} ({termName(result.value.symbol)}){' '}
 								{result.value.exact ? '=' : '≈'}{' '}
 								<AppText size="xl" weight="700">
-									{formatSigFigs(result.value.value)}
+									{resultText(formatResult(result.value.value, numberFormat))}
 								</AppText>
 							</AppText>
 							{solved === undefined ? null : (
@@ -349,7 +351,11 @@ function CalculatorForm({ slug, model, renderer }: CalculatorFormProps) {
 								onChange={(unit) => unitState.select(result.value.symbol, unit)}
 							/>
 						) : null}
-						<Muted>{t('common.sigFigs')}</Muted>
+						<Muted>
+							{numberFormat === 'readable'
+								? t('calculator.precision.readable', { count: READABLE_SIG_FIGS })
+								: t('calculator.precision.scientific')}
+						</Muted>
 						{solvedForm === null ? null : <SolvedFormView lines={solvedForm} renderer={renderer} />}
 						{solvedForm !== null && nonBaseSelected ? (
 							<Muted>{t('calculator.solvedFormBaseUnits')}</Muted>
@@ -357,7 +363,9 @@ function CalculatorForm({ slug, model, renderer }: CalculatorFormProps) {
 						{result.value.allRoots !== undefined && result.value.allRoots.length > 1 ? (
 							<Muted>
 								{t('calculator.allRoots', {
-									roots: result.value.allRoots.map((root) => formatSigFigs(root)).join(', '),
+									roots: result.value.allRoots
+										.map((root) => resultText(formatResult(root, numberFormat)))
+										.join(', '),
 								})}
 							</Muted>
 						) : null}

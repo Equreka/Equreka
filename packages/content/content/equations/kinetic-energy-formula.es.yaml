@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Energía cinética de un cuerpo en traslación'
+description: >-
+  La energía cinética de un cuerpo en traslación es la energía que posee por estar en movimiento: la
+  mitad de su masa por el cuadrado de su rapidez. La fórmula da la energía de movimiento de una
+  partícula, o de un sólido rígido que se mueve sin girar, y es igual al trabajo necesario para
+  llevar el cuerpo desde el reposo hasta esa rapidez, así como al trabajo que puede realizar sobre
+  aquello que lo detiene.
+
+  Aquí $\mag{E_\mathrm{k}}$ es la energía cinética en julios, $\mag{m}$ la masa en kilogramos y
+  $\mag{v}$ la rapidez en metros por segundo, el módulo de la velocidad sea cual sea su dirección.
+  Las tres son no negativas: la energía cinética nunca es negativa y un cuerpo en reposo no tiene
+  ninguna. Por eso, al despejar la rapidez solo se conserva la raíz cuadrada no negativa.
+
+  Como la rapidez aparece al cuadrado, duplicarla multiplica la energía cinética por cuatro, y por
+  eso la distancia de frenado de un coche crece tan deprisa con la rapidez. La energía cinética
+  depende del sistema de referencia: un pasajero sentado en un tren en marcha no tiene ninguna
+  respecto al vagón, pero sí mucha respecto a la vía. La fórmula se obtiene de una fuerza neta
+  constante que actúa a lo largo de una distancia: la segunda ley de Newton y la relación entre
+  rapidez y desplazamiento con aceleración constante convierten el trabajo realizado desde el reposo
+  en la mitad de la masa por el cuadrado de la rapidez final.
+
+  La fórmula vale para rapideces muy inferiores a la de la luz; más cerca de ella, la relatividad
+  especial la sustituye por un valor mayor. Para un cuerpo que gira o rueda solo da la parte de
+  traslación, calculada con la rapidez del centro de masas, y hay que sumarle la energía cinética de
+  rotación.
+
+  En su libro de 1829 Du calcul de l'effet des machines, Gaspard-Gustave de Coriolis dio el nombre
+  de force vive a la mitad de la masa por el cuadrado de la rapidez, la cantidad que hoy se llama
+  energía cinética. Un corredor de 80 kilogramos que se mueve a 10 metros por segundo tiene una
+  energía cinética de 4000 julios.

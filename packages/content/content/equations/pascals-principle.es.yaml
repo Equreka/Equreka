@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Principio de Pascal'
+terms:
+  F_{1}:
+    label: 'Fuerza de entrada'
+  A_{1}:
+    label: 'Área del pistón de entrada'
+  F_{2}:
+    label: 'Fuerza de salida'
+  A_{2}:
+    label: 'Área del pistón de salida'
+description: >-
+  El principio de Pascal establece que un fluido encerrado en reposo transmite sin pérdida cualquier
+  cambio de la presión aplicada a todo su volumen y a cada pared del recipiente. En su forma
+  hidráulica, la fuerza sobre cada pistón dividida entre el área de ese pistón es la misma a ambos
+  lados de la máquina, de modo que una fuerza pequeña sobre un pistón estrecho equilibra una fuerza
+  grande sobre uno ancho. También se llama ley de Pascal y es el principio de funcionamiento de la
+  prensa hidráulica.
+
+  Aquí $\var{F_{1}}$ es la fuerza de entrada que empuja el pistón pequeño y $\var{A_{1}}$ el área de
+  ese pistón; $\var{F_{2}}$ es la fuerza de salida sobre el pistón grande y $\var{A_{2}}$ su área.
+  Las fuerzas se expresan en newtons y las áreas en metros cuadrados, todas introducidas como
+  módulos no negativos, y cada fuerza actúa perpendicular a la cara de su pistón.
+
+  Al empujar el pistón de entrada, la presión bajo él sube en la fuerza de entrada dividida entre su
+  área, y el fluido lleva ese mismo aumento al pistón de salida, donde actúa sobre un área mayor y
+  da una fuerza mayor; la razón de fuerzas es igual a la razón de áreas. La energía no se
+  multiplica. El fluido apenas cambia de volumen, así que el volumen que barre un pistón es igual al
+  que barre el otro, y el pistón pequeño debe recorrer más distancia en el mismo factor en que crece
+  la fuerza.
+
+  La relación supone un fluido incompresible en reposo, pistones a la misma altura y rozamiento y
+  peso de los pistones despreciables. Una diferencia de altura entre los pistones añade una
+  diferencia de presión hidrostática, y el gas atrapado rompe la incompresibilidad de la que depende
+  la transmisión.
+
+  Blaise Pascal expuso el principio en su Tratado del equilibrio de los líquidos, escrito en 1653.
+  Los gatos hidráulicos, los elevadores, las prensas y los frenos de los coches aplican el
+  principio: 200 newtons sobre un pistón de 10 centímetros cuadrados sostienen 10 kilonewtons sobre
+  un pistón de 500 centímetros cuadrados.

@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de la palanca'
+terms:
+  F_{1}:
+    label: 'Potencia (fuerza aplicada)'
+  d_{1}:
+    label: 'Brazo de potencia'
+  F_{2}:
+    label: 'Resistencia (fuerza que se vence)'
+  d_{2}:
+    label: 'Brazo de resistencia'
+description: >-
+  La ley de la palanca establece que una barra rígida apoyada en un punto de apoyo, o fulcro, queda
+  en equilibrio cuando la fuerza aplicada por su distancia al fulcro es igual a la fuerza que se
+  vence por la suya. Una fuerza pequeña que actúa lejos del fulcro puede así sostener o levantar una
+  carga grande que actúa cerca de él, lo que hace de la palanca la máquina más sencilla de la
+  mecánica capaz de multiplicar la fuerza.
+
+  $\var{F_{1}}$ es la potencia, la fuerza que aplica una persona o un motor (no la potencia
+  mecánica), y $\var{F_{2}}$ es la resistencia, la fuerza que vence la palanca, ambas en newtons.
+  $\var{d_{1}}$ y $\var{d_{2}}$ son el brazo de potencia y el brazo de resistencia, en metros: las
+  distancias perpendiculares del fulcro a las rectas de acción de cada fuerza. Las cuatro son
+  valores positivos; las dos fuerzas deben tender a girar la barra en sentidos opuestos.
+
+  Cada lado de la ecuación es el momento de una fuerza respecto al fulcro, así que la ley dice que
+  los dos momentos se compensan y la barra no empieza a girar. El cociente entre resistencia y
+  potencia, igual al cociente entre brazo de potencia y brazo de resistencia, es la ventaja mecánica
+  ideal. No se gana energía: el extremo con el brazo más largo recorre una distancia mayor en la
+  misma proporción, de modo que el trabajo aportado iguala al trabajo obtenido.
+
+  La relación supone una barra rígida y ligera, un apoyo sin rozamiento y fuerzas en reposo o que se
+  mueven despacio; el peso de una barra pesada añade su propio momento. Abarca los tres géneros de
+  palanca: fulcro entre las fuerzas (tijeras, un sacaclavos), resistencia entre fulcro y potencia
+  (una carretilla) y potencia entre fulcro y resistencia (pinzas, una pala).
+
+  Arquímedes, que vivió aproximadamente entre 287 y 212 a. C., enunció y argumentó la ley en las
+  proposiciones 6 y 7 del libro I de Sobre el equilibrio de los planos, donde los pesos se
+  equilibran a distancias inversamente proporcionales a ellos. Una carretilla con un brazo de
+  potencia de 1.02 metros y un brazo de resistencia de 7.50 centímetros tiene una ventaja mecánica
+  ideal de unos 13.6.

@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Apparent weight in an accelerating lift'
+kind: 'equation'
+level: 'intro'
+expression: '\var{W_\mathrm{a}}=\mag{m}\left(\var{g}+\mag{a}\right)'
+terms:
+  W_\mathrm{a}:
+    kind: 'symbol'
+    label:
+      en: 'Apparent weight'
+    unit: 'newton'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+  a:
+    kind: 'magnitude'
+    ref: 'acceleration'
+solutions:
+  W_\mathrm{a}: 'm * (g + a)'
+  m: 'W_a / (g + a)'
+  g: 'W_a / m - a'
+  a: 'W_a / m - g'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'apparent weight in an elevator'
+  - 'elevator problem'
+  - 'scale reading in a lift'
+  - 'scale reading in an elevator'
+  - 'weightlessness'
+  - 'peso aparente'
+  - 'ingravidez'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 6.1 Solving Problems with Newton''s Laws, Example 6.3 (scale in an elevator)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/6-1-solving-problems-with-newtons-laws'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Elevator Problem'
+    url: 'https://hyperphysics.gsu.edu/hbase/elev.html'
+  - title: 'R. Fitzpatrick, Classical Mechanics (University of Texas at Austin lecture notes), Mass and weight'
+    url: 'https://farside.ph.utexas.edu/teaching/301/lectures/node47.html'
+description:
+  en: >-
+    The apparent weight of a person in an accelerating lift, the reading of a scale under their
+    feet, equals their mass times the sum of the gravitational acceleration and the acceleration of
+    the lift. A lift speeding up on the way up makes its passengers feel heavier, one speeding up on
+    the way down makes them feel lighter, and in free fall the reading drops to zero.
+
+    Here $\var{W_\mathrm{a}}$ is the apparent weight in newtons, the upward normal force that the
+    floor or scale exerts; $\mag{m}$ is the mass in kilograms; $\var{g}$ is the size of the
+    gravitational acceleration, entered as a positive number; and $\mag{a}$ is the acceleration of
+    the lift in metres per second squared, signed with upward positive. A lift braking on its way up
+    or starting on its way down has a negative acceleration, and one moving at constant velocity has
+    none, whichever way it travels.
+
+    Two forces act on the passenger: the true weight, mass times g, pointing down, and the normal
+    force of the floor pointing up. The passenger shares the acceleration of the lift, so by
+    Newton's second law the normal force minus the weight equals the mass times that acceleration,
+    which gives the relation. The true weight does not change; what changes is the force the floor
+    must supply, and that force is what a scale reads and what the body senses as heaviness.
+
+    The relation assumes a lift accelerating straight up or down and an observer on the ground,
+    which is an inertial frame. When the downward acceleration equals g, the normal force vanishes
+    and the passenger is weightless, as in a lift whose cable has broken or a spacecraft in orbit; a
+    still larger downward acceleration would lift the passenger off the floor, and a negative result
+    has no meaning.
+
+    A 75.0-kilogram passenger in a lift accelerating upward at 1.20 metres per second squared reads
+    825 newtons on a scale, against 735 newtons at rest, with g taken as 9.80.

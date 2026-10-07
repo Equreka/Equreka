@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Rapidez máxima en una curva sin peralte'
+terms:
+  \mu:
+    label: 'Coeficiente de rozamiento estático'
+  g:
+    label: 'Aceleración de la gravedad'
+description: >-
+  La rapidez máxima en una curva sin peralte es la mayor rapidez con la que un vehículo puede seguir
+  una curva horizontal de radio dado sin derrapar: la raíz cuadrada del coeficiente de rozamiento
+  estático por la aceleración de la gravedad por el radio. Por encima de ella, el rozamiento entre
+  los neumáticos y la carretera no puede aportar la fuerza centrípeta que exige el giro.
+
+  Aquí $\mag{v_{\max}}$ es la rapidez máxima en metros por segundo, $\var{\mu}$ el coeficiente de
+  rozamiento estático entre neumáticos y carretera, un número adimensional no negativo, $\var{g}$ el
+  módulo de la aceleración de la gravedad, introducido como número positivo, y $\var{r}$ el radio de
+  la trayectoria, también en metros. Las cuatro son no negativas; la rapidez es la raíz cuadrada no
+  negativa, ya que solo esa raíz es una rapidez.
+
+  En una carretera llana la única fuerza horizontal sobre el vehículo es el rozamiento, así que el
+  rozamiento por sí solo debe aportar la fuerza centrípeta, la masa por el cuadrado de la rapidez
+  entre el radio. El rozamiento puede llegar como máximo al coeficiente estático por la fuerza
+  normal, que en terreno llano es igual al peso. Igualar la fuerza necesaria a ese tope y cancelar
+  la masa da la relación, de modo que un coche ligero y un camión pesado con los mismos neumáticos
+  comparten el mismo límite. El coeficiente es el estático porque un neumático que rueda sin patinar
+  no se desliza sobre la carretera en el punto de contacto.
+
+  La relación supone una curva horizontal y sin peralte, una rapidez constante y unos neumáticos que
+  agarran hasta el límite. Una carretera mojada o helada tiene un coeficiente menor y, por tanto,
+  una rapidez segura menor, y una curva con peralte permite que parte de la fuerza normal ayude a
+  girar al vehículo, lo que eleva el límite.
+
+  En una curva de 500 metros de radio, un coche que circula a 25.0 metros por segundo necesita un
+  coeficiente estático de solo unos 0.13, muy por debajo del valor para caucho sobre hormigón seco.

@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Velocidad de escape'
+terms:
+  r:
+    label: 'Distancia entre centros'
+description: >-
+  La velocidad de escape es la menor rapidez de lanzamiento con la que un cuerpo puede abandonar un
+  planeta, una luna o una estrella sin volver a caer, avanzando por inercia sin más empuje: la raíz
+  cuadrada del doble de la constante de gravitación universal por la masa del cuerpo que atrae,
+  dividido entre la distancia a su centro. En la gravitación marca la frontera entre las órbitas que
+  siguen ligadas y las trayectorias que escapan para siempre.
+
+  $\mag{v}$ es la rapidez de escape en metros por segundo, un número no negativo; la dirección del
+  lanzamiento no importa mientras la trayectoria no choque con el cuerpo. $\const{G}$ es la
+  constante de gravitación universal, $\mag{M}$ es la masa del cuerpo que atrae en kilogramos y
+  $\var{r}$ es la distancia en metros desde su centro hasta el punto de lanzamiento, igual al radio
+  del cuerpo en un lanzamiento desde la superficie.
+
+  Un cuerpo lanzado justo con esta rapidez tiene una energía cinética igual en valor absoluto a su
+  energía potencial gravitatoria negativa, de modo que su energía total es cero; frena durante todo
+  el trayecto y solo queda en reposo infinitamente lejos. La masa del cuerpo que escapa se cancela,
+  así que un guijarro y un cohete necesitan la misma rapidez. La velocidad de escape desde una
+  distancia dada es la rapidez orbital circular a esa distancia por la raíz cuadrada de dos.
+
+  La fórmula supone que no hay resistencia del aire ni empuje tras el lanzamiento, y un cuerpo con
+  simetría esférica mucho más pesado que el que escapa; además, no tiene en cuenta la atracción de
+  ningún otro cuerpo, como el Sol.
+
+  Para salir desde el suelo terrestre hacen falta 11.186 kilómetros por segundo, y desde Marte, 5.03
+  kilómetros por segundo; abandonar el Sol desde la distancia de la órbita terrestre exige unos 42.1
+  kilómetros por segundo.

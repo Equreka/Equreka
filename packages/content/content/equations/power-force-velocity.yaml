@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Power delivered by a force'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{P}=\mag{F}\mag{v}'
+terms:
+  P:
+    kind: 'magnitude'
+    ref: 'power'
+  F:
+    kind: 'magnitude'
+    ref: 'force'
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+solutions:
+  P: 'F * v'
+  F: 'P / v'
+  v: 'P / F'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'power force velocity'
+  - 'power equals force times velocity'
+  - 'instantaneous power'
+  - 'P = Fv'
+  - 'P = F v'
+  - 'potencia instantánea'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 7.4 Power'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/7-4-power'
+  - title: 'R. Nave, HyperPhysics, Power'
+    url: 'https://hyperphysics.gsu.edu/hbase/pow.html'
+  - title: 'OpenStax, College Physics 2e, 7.7 Power'
+    url: 'https://openstax.org/books/college-physics-2e/pages/7-7-power'
+  - title: 'OpenStax, Física universitaria volumen 1, 7.4 Potencia'
+    url: 'https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/7-4-potencia'
+description:
+  en: >-
+    The power delivered by a force to a moving body is the force along the direction of motion times
+    the speed. It is the instantaneous rate at which the force does work, and it gives the power an
+    engine or a cyclist must supply to keep a vehicle moving at a given speed against friction, air
+    resistance or a slope.
+
+    In the formula, $\mag{P}$ is the power in watts; $\mag{F}$ is the component of the force along
+    the velocity, in newtons, positive when it points in the direction of motion and negative when
+    it opposes the motion, as drag and braking forces do; and $\mag{v}$ is the speed in metres per
+    second, never negative. A force at right angles to the velocity, such as the normal force on a
+    level road, delivers no power, and a negative power means the force is removing energy from the
+    body.
+
+    During a short time interval the body moves a distance equal to its speed times the interval, so
+    the force does work equal to the force times that distance; dividing that work by the interval
+    gives the formula. For a force at an angle to the velocity only the component along the velocity
+    counts, which makes the general relation the scalar product of the force and velocity vectors.
+
+    The formula gives the power at one instant and holds even while the speed changes; averaged over
+    an interval it gives the work done divided by the time. At constant speed on level ground the
+    driving force equals the total resistance, and because air drag grows with speed, the power a
+    car needs rises steeply at motorway speeds. For the same reason an engine of limited power can
+    pull hard only at low speed, which is the purpose of low gears.
+
+    Vehicle and motor powers are often stated in horsepower, a unit equal to about 746 watts.

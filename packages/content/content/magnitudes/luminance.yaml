@@ -40,8 +40,8 @@ description:
     because luminous intensity is already a flux per unit solid angle.
 
     Luminance is a non-negative scalar attached to a point of a surface and to a direction. The CIE
-    definition contains the angle between the normal to the surface and the direction of view, so
-    one surface can show different luminances when it is looked at from different sides. Over a
+    definition involves the angle that the direction of view makes with the normal to the surface,
+    so one surface can show different luminances when it is looked at from different sides. Over a
     surface that is not uniform, a measurement gives an average over the area observed.
 
     Luminance is measured by collecting the light that a small patch of a surface sends into a

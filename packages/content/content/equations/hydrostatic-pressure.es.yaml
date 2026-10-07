@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Presión hidrostática'
+terms:
+  g:
+    label: 'Aceleración de la gravedad'
+  h:
+    label: 'Profundidad'
+description: >-
+  La presión hidrostática es la presión que el peso de un fluido en reposo produce a una profundidad
+  dada: la densidad del fluido por la aceleración de la gravedad por la profundidad. El valor que da
+  es una presión manométrica, el exceso sobre la presión en la superficie libre, y la relación es la
+  ley básica de la estática de fluidos para líquidos en depósitos, lagos y el mar.
+
+  Aquí $\mag{p}$ es la presión manométrica en pascales, $\mag{\rho}$ la densidad del fluido en
+  kilogramos por metro cúbico, $\var{g}$ el módulo de la aceleración de la gravedad en metros por
+  segundo al cuadrado, introducido como número positivo, y $\var{h}$ la profundidad bajo la
+  superficie libre en metros, medida hacia abajo. Las cuatro son no negativas. El valor normal de
+  $\var{g}$ es 9.80665 metros por segundo al cuadrado; el valor local varía con el lugar y es
+  distinto en otros planetas.
+
+  Una columna vertical de fluido que va de la superficie a la profundidad elegida tiene una masa
+  igual a la densidad por su volumen, el área de la sección por la profundidad, así que su peso es
+  $\mag{\rho}\var{g}\var{h}$ por esa área; al dividir entre el área sobre la que descansa la columna
+  queda la presión, y el área se cancela. Por eso la presión depende solo de la profundidad, la
+  densidad y la gravedad, no de la forma del recipiente ni de la cantidad de fluido: un tubo
+  estrecho y un lago amplio llenos hasta la misma profundidad presionan igual sobre su fondo.
+
+  La relación supone un fluido en reposo de densidad uniforme en un campo gravitatorio uniforme. Los
+  líquidos apenas se comprimen, así que se cumple con buena aproximación en la profundidad de lagos
+  y mares poco profundos; en la atmósfera la densidad disminuye con la altura y solo vale para
+  diferencias de altura pequeñas. Sumando la presión en la superficie libre, por lo general la
+  atmosférica, se obtiene la presión absoluta.
+
+  Los manómetros expresan una presión como la altura de una columna de líquido, y las presas se
+  construyen más gruesas en la base, donde el agua empuja con más fuerza. En agua dulce, una
+  profundidad de 10 metros añade unos 98 kilopascales, cerca de una atmósfera.

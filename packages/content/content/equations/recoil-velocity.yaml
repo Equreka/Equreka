@@ -1,0 +1,83 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Recoil velocity'
+kind: 'equation'
+level: 'intro'
+expression: '\var{v_{2}}=-\frac{\var{m_{1}}\var{v_{1}}}{\var{m_{2}}}'
+terms:
+  v_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Recoil velocity'
+    unit: 'metre-per-second'
+  m_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of the projectile'
+    unit: 'kilogram'
+  v_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Velocity of the projectile'
+    unit: 'metre-per-second'
+  m_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of the recoiling body'
+    unit: 'kilogram'
+solutions:
+  v_{2}: '-m_1 * v_1 / m_2'
+  v_{1}: '-m_2 * v_2 / m_1'
+  m_{1}: '-m_2 * v_2 / v_1'
+  m_{2}: '-m_1 * v_1 / v_2'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'recoil speed'
+  - 'gun recoil'
+  - 'rifle recoil velocity'
+  - 'kickback velocity'
+  - 'explosion from rest'
+  - 'velocidad de retroceso'
+  - 'retroceso de un arma'
+references:
+  - title: 'OpenStax, College Physics 2e, 8.3 Conservation of Momentum (recoil)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/8-3-conservation-of-momentum'
+  - title: 'OpenStax, College Physics 2e, 8.7 Introduction to Rocket Propulsion (gun recoil)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/8-7-introduction-to-rocket-propulsion'
+  - title: 'OpenStax, College Physics 2e, Chapter 8 Problems and Exercises, problem 38 (bullet and rifle)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/8-problems-exercises'
+  - title: 'OpenStax, University Physics Volume 1, 9.3 Conservation of Linear Momentum'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/9-3-conservation-of-linear-momentum'
+description:
+  en: >-
+    The recoil velocity is the velocity with which a body moves backwards when it pushes another
+    body away from a state of rest, as a rifle kicks when it fires a bullet or a skater slides back
+    after throwing a ball. Conservation of momentum gives it: the recoiling body carries a momentum
+    equal and opposite to that of the projectile, so the total stays zero.
+
+    In the equation, $\var{m_{1}}$ is the mass of the projectile and $\var{v_{1}}$ its velocity,
+    $\var{m_{2}}$ the mass of the recoiling body and $\var{v_{2}}$ its recoil velocity; masses are
+    in kilograms and velocities in metres per second. Velocities are signed along a line with the
+    positive direction chosen along the projectile's motion, so the minus sign makes the recoil
+    velocity negative: the launcher always moves the opposite way.
+
+    The equation is the case of two-body momentum conservation in which both bodies start at rest,
+    so the total momentum is zero before the launch. The forces each exerts on the other are equal
+    and opposite and act for the same time, so the two momenta afterwards are equal in size and
+    opposite in sign. Their speeds are therefore in the inverse ratio of their masses, which is why
+    a heavy gun moves back slowly while a light bullet leaves fast, and why the shoulder that holds
+    a rifle firmly adds its mass to the recoiling body. Rockets and jellyfish move by the same
+    principle, ejecting matter backwards.
+
+    The equation assumes that the system starts at rest, that no net external force acts during the
+    launch, and that the two bodies are the only ones that move: anything else set in motion, such
+    as the gases expelled by a firearm, is left out of the balance. Solving for a mass needs a
+    non-zero velocity for the other body.
+
+    A bullet of 0.0250 kilograms leaving a rifle of 3.00 kilograms at 550 metres per second makes
+    the rifle recoil at about 4.58 metres per second.

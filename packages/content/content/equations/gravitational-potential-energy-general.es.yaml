@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Energía potencial gravitatoria de dos masas'
+terms:
+  M:
+    label: 'Masa del cuerpo que atrae'
+  m:
+    label: 'Masa del otro cuerpo'
+  r:
+    label: 'Distancia entre centros'
+description: >-
+  La energía potencial gravitatoria de dos masas es la energía almacenada en su separación: menos la
+  constante de gravitación universal por el producto de las masas, dividido entre la distancia entre
+  sus centros. Es la forma general de la energía potencial gravitatoria en la gravitación, válida a
+  cualquier distancia de un planeta o una estrella, y vale cero cuando los cuerpos están
+  infinitamente alejados.
+
+  $\mag{E_\mathrm{p}}$ es la energía potencial del par en julios, siempre negativa o, en el límite
+  de separación infinita, nula. $\const{G}$ es la constante de gravitación universal, $\var{M}$ y
+  $\var{m}$ son las dos masas en kilogramos, y $\var{r}$ es la distancia entre sus centros en
+  metros, una longitud positiva.
+
+  El signo menos procede de la elección del cero. Separar dos cuerpos que se atraen exige un trabajo
+  positivo, de modo que su energía potencial aumenta al alejarse y se acerca a cero desde abajo; por
+  eso los sistemas ligados, como un planeta y su luna, tienen energía potencial negativa. Solo las
+  diferencias de energía potencial tienen significado físico, y la elección del cero es cuestión de
+  comodidad. Cerca de la superficie de un planeta, la variación entre dos alturas próximas se reduce
+  al peso por la subida, la conocida fórmula del campo uniforme.
+
+  La fórmula trata ambos cuerpos como puntos o como cuerpos con simetría esférica separados más que
+  la suma de sus radios. Pertenece a la gravitación newtoniana y no tiene en cuenta otras fuerzas
+  que actúen sobre los cuerpos.
+
+  Igualar la energía cinética de un cuerpo lanzado con el valor absoluto de esta energía potencial
+  da la velocidad de escape. Un satélite de 1000 kilogramos en reposo sobre la superficie de la
+  Tierra tiene una energía potencial de unos $-6.26\times10^{10}\,\mathrm{J}$ respecto al infinito.

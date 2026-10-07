@@ -1,8 +1,10 @@
+import { SETTINGS_KEY } from '@equreka/core';
 import { describe, expect, it, jest } from '@jest/globals';
-import { fireEvent, screen, within } from '@testing-library/react-native';
+import { act, fireEvent, screen, within } from '@testing-library/react-native';
 import { CalculatorScreen } from '../features/calculator/calculator-screen';
 import { getEngineSlice } from '../shared/content/artifact';
 import type { RuntimeMath } from '../shared/math/runtime-mathjax';
+import { createMemoryStorage } from './helpers/memory-storage';
 import { renderWithProvider } from './helpers/render';
 
 jest.mock('expo-router', () => ({
@@ -42,7 +44,7 @@ describe('CalculatorScreen unit selection', () => {
 		await fireEvent.press(chip('Unit for Mass (m)', 'Gram'));
 		await fireEvent.changeText(screen.getByLabelText('Mass (m)'), '1');
 		expect(isSelected('Unit for Mass (m)', 'Gram')).toBe(true);
-		expect(screen.getByText('89875500000000')).toBeTruthy();
+		expect(screen.getByText('8.987551787 × 10¹³')).toBeTruthy();
 		expect(screen.getByText(/\(E\) =/)).toBeTruthy();
 		expect(await screen.findByText('E = 0.001 * 299792458^2')).toBeTruthy();
 		expect(
@@ -59,8 +61,26 @@ describe('CalculatorScreen unit selection', () => {
 		await fireEvent.changeText(screen.getByLabelText('Mass (m)'), '0.001');
 		expect(isSelected('Result unit', 'Joule')).toBe(true);
 		await fireEvent.press(chip('Result unit', 'Erg'));
-		expect(screen.getByText('898755000000000000000')).toBeTruthy();
+		expect(screen.getByText('8.987551787 × 10²⁰')).toBeTruthy();
 		expect(isSelected('Unit for Energy (E)', 'Erg')).toBe(true);
+	});
+
+	it('prints the result in the stored number format and reprints it when the setting changes', async () => {
+		const storage = createMemoryStorage({
+			[SETTINGS_KEY]: JSON.stringify({ numberFormat: 'scientific' }),
+		});
+		await renderWithProvider(
+			<CalculatorScreen slug="mass-energy-equivalence" renderer={rejectingRenderer} />,
+			storage,
+		);
+		await fireEvent.changeText(screen.getByLabelText('Mass (m)'), '0.001');
+		expect(screen.getByText('8.987551787368177 × 10¹³')).toBeTruthy();
+		expect(screen.getByText('(full precision)')).toBeTruthy();
+
+		await act(() => storage.set(SETTINGS_KEY, JSON.stringify({ numberFormat: 'readable' })));
+		expect(screen.getByText('8.987551787 × 10¹³')).toBeTruthy();
+		expect(screen.getByText('(up to 10 significant figures)')).toBeTruthy();
+		expect(screen.queryByText('8.987551787368177 × 10¹³')).toBeNull();
 	});
 
 	it('renders no unit chips for unitless terms', async () => {

@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Normal force on an incline'
+kind: 'formula'
+level: 'intro'
+expression: '\var{F_\mathrm{N}}=\mag{m}\var{g}\cos\mag{\theta}'
+terms:
+  F_\mathrm{N}:
+    kind: 'symbol'
+    label:
+      en: 'Normal force'
+    unit: 'newton'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+solutions:
+  F_\mathrm{N}: 'm * g * cos(theta)'
+  m: 'F_N / (g * cos(theta))'
+  g: 'F_N / (m * cos(theta))'
+  \theta: 'acos(F_N / (m * g))'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'mg cos theta'
+  - 'perpendicular component of weight'
+  - 'normal reaction on a slope'
+  - 'support force on an incline'
+  - 'componente normal del peso'
+references:
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Mass on Incline'
+    url: 'https://hyperphysics.gsu.edu/hbase/mincl.html'
+  - title: 'R. Fitzpatrick, Classical Mechanics (University of Texas at Austin lecture notes), Strings, pulleys, and inclines'
+    url: 'https://farside.ph.utexas.edu/teaching/301/lectures/node48.html'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Mass on Incline With Friction'
+    url: 'https://hyperphysics.gsu.edu/hbase/mincl2.html'
+description:
+  en: >-
+    On an inclined plane, the normal force on a body resting or sliding on the surface equals its
+    mass times the gravitational acceleration times the cosine of the angle of the incline, provided
+    no other force presses the body into the slope or lifts it away. The normal force is the push of
+    the surface perpendicular to itself, and on a tilted surface it is smaller than the weight.
+
+    Here $\var{F_\mathrm{N}}$ is the size of the normal force in newtons, directed away from the
+    surface and perpendicular to it; $\mag{m}$ is the mass in kilograms; $\var{g}$ is the size of
+    the gravitational acceleration in metres per second squared, entered as a positive number; and
+    $\mag{\theta}$ is the angle of the incline above the horizontal, entered in degrees or radians,
+    from zero for level ground to 90 degrees for a vertical face. All the terms are non-negative.
+
+    The body neither sinks into the surface nor leaves it, so its acceleration perpendicular to the
+    slope is zero and, by Newton's second law, the normal force balances the component of the weight
+    pressing into the surface, the one that takes the cosine of the angle. It equals the full weight
+    on level ground and falls to zero on a vertical face. Because sliding friction is proportional
+    to the normal force, a body meets less friction on a steep slope than on the level. Solving for
+    the angle uses the inverse cosine, which returns the one angle between 0 and 90 degrees.
+
+    The formula assumes a flat, rigid incline that is not itself accelerating and a uniform
+    gravitational field. Any other force with a component perpendicular to the slope changes the
+    result: a push into the surface adds to the normal force, and a rope pulling partly upward
+    reduces it.
+
+    A crate of 20 kilograms on a ramp tilted at 30 degrees is pressed against the ramp with a normal
+    force of about 170 newtons, less than its weight of about 196 newtons.

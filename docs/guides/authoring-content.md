@@ -34,7 +34,17 @@ Run `pnpm --filter @equreka/content build` once so `dist/schemas/*.schema.json` 
   node scripts/content/originality.mjs packages/content/content/units/metre.yaml --check
   ```
 
-  The check fetches the Wikipedia article linked from the entry's `externalIds.wikidata` item (enwiki for the English description, eswiki for the `.es.yaml` one). It also phrase-searches the wiki for the description. A description is flagged when it shares a run of 8 or more words with the entry's own article, or 15% of its 8-word shingles. A search hit must meet both rules. `--check` exits 1 for a flagged description with no credit, and 2 when the network is down, since a skipped check is not a pass. `docs/content/originality-baseline.md` lists the legacy descriptions still awaiting a rewrite.
+  The check compares each description (English and Spanish) with three kinds of source:
+
+  - **The entry's Wikipedia article**, linked from its `externalIds.wikidata` item: enwiki for the English description, eswiki for the `.es.yaml` one.
+  - **Phrase-search hits** on the same wiki, for a description that article does not flag or that has no article.
+  - **Every URL in the entry's `references`**, for both descriptions. The page is fetched as HTML and reduced to its readable text: navigation, headers, footers, sidebars, scripts, styles and math are dropped, and character references are decoded. Pages are cached in `.cache/originality/` (gitignored, keyed by a hash of the URL, with the fetch date) for 30 days; `--refresh-references` refetches them, and `--no-references` skips this pass.
+
+  A description is flagged when it shares a run of 8 or more words with its own article or with a cited reference, or 15% of its 8-word shingles; a search hit must meet both rules. A flagged Wikipedia match is cleared by a `textSources` credit. A flagged reference match never is: references are where facts come from, not text to adapt, so the description is rewritten. Each flagged row names the source URL and the shared run.
+
+  *Not checkable* means no source text could be read for that description: no Wikidata article and no search match, and no reference with readable text. A reference itself is not checkable when it is a PDF or another non-HTML type, answers with an HTTP error or not at all, or yields under 40 words (a page that renders its text with scripts). The report lists these with the reason, and the verifier compares them by hand: not checkable is never a pass.
+
+  `--check` exits 1 for a description flagged against a cited reference, or against a Wikipedia article it does not credit. It exits 2 when a Wikimedia API is unreachable, since a skipped check is not a pass; an unreachable reference is reported as not checkable instead. `docs/content/originality-baseline.md` lists the legacy descriptions still awaiting a rewrite.
 - **`textSources`.** Text you adapt from a third-party work needs a credit. Rewrite instead whenever you can. A credit is one item per work, and its license must let the adaptation be published under CC BY-SA 4.0. That means one of `CC-BY-SA-4.0` (Wikipedia today), `CC-BY-SA-3.0`, `CC-BY-4.0`, `CC0-1.0` or `public-domain`. GFDL-only, NC and ND texts cannot be adapted at all.
 
   ```yaml
@@ -46,7 +56,7 @@ Run `pnpm --filter @equreka/content build` once so `dist/schemas/*.schema.json` 
 
   - `title` names the work as credited and is not translated: a Spanish source keeps its own title, and its URL points at es.wikipedia.org.
   - A URL is credited once per entry.
-  - `originality.mjs --apply` writes these items for every flagged description.
+  - `originality.mjs --apply` writes these items for every flagged Wikipedia match, never for a cited reference.
   - The entry page shows each credit under the description ("Text adapted from …") and lists it as `isBasedOn` in its JSON-LD.
   - When you rewrite a credited description in your own words, re-run the check, and keep the credit: the check only sees surface overlap, so removing a credit is a human reviewer's licensing decision (ADR 0011).
 - **Localization.** Entity files carry English only: every localized field is `{ en: ... }`. Translations live in one sidecar per locale beside the entity (`<slug>.es.yaml`, see *Translations*); an inline `es:` key is rejected by both yaml-lint and the loader, so each language has exactly one home. Every English field an entity authors needs its Spanish: a new entity without a complete sidecar fails the `locale` stage (see *Translations*). Only entities on the shrinking locale debt, and generated prefixed units, still fall back to English with an untranslated notice.
@@ -349,7 +359,7 @@ Localizable fields are derived from the schema — every `localizedText` or `loc
 pnpm --filter @equreka/content check   # load → validate → locale → expand → integrity → resolve → anchors → dimensions → solutions → tex
 pnpm quality                            # yaml-lint (raw-text hazards) + catalog drift
 pnpm --filter @equreka/content build    # emits dist/ (engine.json, presentation/*, search/*, schemas/*)
-node scripts/content/originality.mjs <files> --check   # network: prose overlap with Wikipedia (see Originality)
+node scripts/content/originality.mjs <files> --check   # network: prose overlap with Wikipedia and the cited references (see Originality)
 ```
 
 Issues are aggregated per file with the failing stage in brackets; the build refuses to emit while any error stands.

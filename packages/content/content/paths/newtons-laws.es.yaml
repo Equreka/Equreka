@@ -1,0 +1,154 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.locale.schema.json
+name: 'Leyes de Newton'
+description: >-
+  Por qué cambia el movimiento: fuerza, masa y las tres leyes de Newton; luego peso, rozamiento,
+  resortes, planos inclinados, poleas y curvas, con comprobaciones resueltas.
+steps:
+  intro:
+    body: >-
+      La dinámica explica por qué cambia el movimiento. Tres leyes la sostienen. Un cuerpo mantiene
+      su estado de reposo o de movimiento rectilíneo uniforme mientras no actúe sobre él una fuerza
+      externa neta. La fuerza neta es igual a la masa por la aceleración. Las fuerzas van por
+      parejas: cuando un cuerpo empuja o tira de otro, el segundo empuja o tira del primero con una
+      fuerza del mismo módulo y sentido contrario. Antes de cada problema, elige el cuerpo, dibuja
+      todas las fuerzas que actúan sobre él y escoge los ejes.
+  force:
+    note: >-
+      Un empujón o un tirón, con módulo y dirección. Sobre una recta se convierte en un número con
+      signo, como la velocidad en cinemática.
+  mass:
+    note: >-
+      La medida de la inercia: cuánto se resiste un cuerpo a un cambio de su velocidad. Nunca es
+      negativa y no depende de dónde esté el cuerpo.
+  newtons-second-law:
+    note: >-
+      La fuerza neta, no una fuerza aislada, fija la aceleración, y ambas apuntan siempre en el
+      mismo sentido. Con fuerzas equilibradas la aceleración es nula, que es la primera ley.
+  newton:
+    note: >-
+      La fuerza que da a un kilogramo una aceleración de un metro por segundo al cuadrado, así que
+      un newton es un kilogramo metro por segundo al cuadrado.
+  check-cart:
+    prompt: >-
+      Una fuerza neta de 12 newtons actúa sobre un carrito de 3.0 kilogramos. ¿Cuál es su
+      aceleración, y qué fuerza neta daría la misma aceleración a un carrito de 6.0 kilogramos?
+    answer: >-
+      4.0 metros por segundo al cuadrado: 12 entre 3.0. El doble de masa necesita el doble de fuerza
+      para la misma aceleración, así que 24 newtons.
+  weight:
+    note: >-
+      La atracción gravitatoria sobre un cuerpo, una fuerza que se mide en newtons, no en
+      kilogramos.
+  weight-formula:
+    note: >-
+      La masa por g. Introduce g como número positivo; el peso siempre apunta hacia abajo.
+  check-moon:
+    prompt: >-
+      Una astronauta tiene una masa de 80 kilogramos. ¿Cuál es su peso en la Tierra, con el valor
+      normal de g, y en la Luna, donde g vale 1.62 metros por segundo al cuadrado? ¿Cuál es su masa
+      en la Luna?
+    answer: >-
+      Unos 785 newtons en la Tierra, 80 por 9.80665, y unos 130 newtons en la Luna, 80 por 1.62. La
+      masa sigue siendo de 80 kilogramos: solo cambia la atracción de la gravedad.
+  apparent-weight-elevator:
+    note: >-
+      Una báscula marca la fuerza normal, no el peso. En un ascensor la lectura sube cuando la
+      aceleración apunta hacia arriba y baja cuando apunta hacia abajo, hasta cero en caída libre.
+  check-lift:
+    prompt: >-
+      Un pasajero de 60 kilogramos está de pie sobre una báscula en un ascensor que acelera hacia
+      abajo a 2.0 metros por segundo al cuadrado. ¿Qué marca la báscula, y qué marcaría en reposo?
+      Usa el valor normal de g.
+    answer: >-
+      Con hacia arriba como sentido positivo la aceleración es menos 2.0, así que la lectura es 60
+      por 7.80665, unos 468 newtons. En reposo es 60 por 9.80665, unos 588 newtons.
+  contact-forces:
+    body: >-
+      La mayoría de las fuerzas cotidianas actúan por contacto. Una superficie empuja
+      perpendicularmente a sí misma con la fuerza normal y se opone al deslizamiento a lo largo de
+      sí misma con el rozamiento; una cuerda tensa tira a lo largo de su longitud con una tensión.
+      Por la tercera ley, el suelo empuja hacia arriba a una caja exactamente con la misma fuerza
+      con que la caja empuja hacia abajo al suelo, pero las dos fuerzas actúan sobre cuerpos
+      distintos, así que nunca se anulan entre sí.
+  friction-force:
+    note: >-
+      El rozamiento es proporcional a la fuerza normal. El rozamiento estático mantiene quieto un
+      cuerpo hasta un tope; el cinético actúa cuando desliza, y su coeficiente suele ser menor.
+  check-crate:
+    prompt: >-
+      Una caja de 25 kilogramos descansa sobre un suelo horizontal, con un coeficiente estático de
+      0.50 y uno cinético de 0.30. ¿Qué empujón horizontal la pone en marcha, y qué empujón la
+      mantiene deslizando con velocidad constante? Usa el valor normal de g.
+    answer: >-
+      La fuerza normal es igual al peso, unos 245 newtons. Ponerla en marcha exige algo más de 0.50
+      veces ese valor, unos 123 newtons; mantenerla deslizando con velocidad constante exige 0.30
+      veces ese valor, unos 74 newtons, porque entonces la fuerza neta debe ser nula.
+  hookes-law:
+    note: >-
+      Un resorte tira de vuelta en proporción a su desplazamiento desde el equilibrio. Introduce el
+      desplazamiento con su signo: la fuerza sale con el signo contrario.
+  check-spring:
+    prompt: >-
+      Un resorte con una constante elástica de 200 newtons por metro se estira 0.15 metros en el
+      sentido positivo. ¿Qué fuerza ejerce?
+    answer: >-
+      Menos 30 newtons: 200 por 0.15 da 30, y el signo menos indica que el resorte tira de vuelta
+      hacia el equilibrio, en el sentido negativo.
+  inclines:
+    body: >-
+      En una pendiente, gira los ejes: uno a lo largo del plano y otro perpendicular a él. El peso
+      se descompone entonces en una componente pendiente abajo, con el seno del ángulo, y otra
+      contra la superficie, con el coseno. Nada se mueve en perpendicular a la superficie, así que
+      la fuerza normal equilibra la segunda componente, y el movimiento a lo largo de la pendiente
+      se deduce de la primera componente y del rozamiento.
+  inclined-plane-gravity-component:
+    note: >-
+      El tirón pendiente abajo, desde cero en terreno llano hasta el peso completo en una pared
+      vertical.
+  normal-force-incline:
+    note: >-
+      La superficie empuja menos en una pendiente más pronunciada, así que el rozamiento que puede
+      aportar también disminuye.
+  inclined-plane-acceleration:
+    note: >-
+      La segunda ley de Newton a lo largo de la pendiente para un cuerpo que desliza hacia abajo. La
+      masa se cancela, así que un bloque pesado y uno ligero del mismo material bajan juntos.
+  check-ramp:
+    prompt: >-
+      Un bloque desliza por una rampa de 30 grados con un coeficiente cinético de 0.10. ¿Cuál es su
+      aceleración, y cuál sería sin rozamiento? Usa el valor normal de g.
+    answer: >-
+      Unos 4.05 metros por segundo al cuadrado: g por 0.5 menos 0.10 por 0.866. Sin rozamiento es g
+      por 0.5, unos 4.90 metros por segundo al cuadrado.
+  atwood-machine-acceleration:
+    note: >-
+      Dos masas en una misma cuerda comparten una sola aceleración: la diferencia de sus pesos
+      impulsa la masa total.
+  check-atwood:
+    prompt: >-
+      Una máquina de Atwood lleva 3.0 kilogramos a un lado y 5.0 kilogramos al otro. ¿Cuáles son la
+      aceleración y la tensión de la cuerda? Usa el valor normal de g.
+    answer: >-
+      La aceleración es 2.0 entre 8.0 por g, unos 2.45 metros por segundo al cuadrado, con el lado
+      más pesado bajando. La tensión es el doble de 3.0 por 5.0 entre 8.0, por g, unos 36.8 newtons,
+      entre los dos pesos de unos 29.4 y 49.0 newtons.
+  circular-motion:
+    body: >-
+      Un cuerpo sobre una circunferencia acelera hacia el centro incluso con rapidez constante, así
+      que sobre él debe actuar una fuerza neta hacia dentro. Esa fuerza no es de un tipo nuevo: la
+      aporta una tensión, el rozamiento, la gravedad o una fuerza normal.
+  centripetal-force:
+    note: >-
+      La masa por el cuadrado de la rapidez entre el radio. Duplicar la rapidez en la misma
+      circunferencia exige el cuádruple de fuerza.
+  maximum-speed-flat-curve:
+    note: >-
+      En una curva sin peralte solo el rozamiento estático hace girar al coche, así que el agarre de
+      los neumáticos fija un límite de rapidez. La masa se cancela.
+  check-curve:
+    prompt: >-
+      Una curva sin peralte tiene un radio de 80 metros y un coeficiente estático de 0.50 entre
+      neumáticos y carretera. ¿Cuál es la rapidez máxima sin derrapar? Usa el valor normal de g.
+    answer: >-
+      La raíz cuadrada de 0.50 por 9.80665 por 80, unos 19.8 metros por segundo, es decir, unos 71
+      kilómetros por hora.

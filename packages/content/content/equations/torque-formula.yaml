@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Torque of a force about an axis'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{\tau}=\var{r}\mag{F}\sin\mag{\theta}'
+terms:
+  \tau:
+    kind: 'magnitude'
+    ref: 'torque'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Distance from the axis to the point of application'
+    unit: 'metre'
+  F:
+    kind: 'magnitude'
+    ref: 'force'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+solutions:
+  \tau: 'r * F * sin(theta)'
+  r: 'tau / (F * sin(theta))'
+  F: 'tau / (r * sin(theta))'
+  \theta:
+    - 'asin(tau / (r * F))'
+    - 'pi - asin(tau / (r * F))'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'torque formula'
+  - 'moment of a force'
+  - 'turning effect of a force'
+  - 'tau = r F sin theta'
+  - 'lever arm times force'
+  - 'momento de fuerza'
+  - 'momento de torsión'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 10.6 Torque'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-6-torque'
+  - title: 'R. Nave, HyperPhysics, Torque'
+    url: 'https://hyperphysics.gsu.edu/hbase/torq2.html'
+description:
+  en: >-
+    The torque of a force about an axis measures how strongly that force tends to turn a body around
+    the axis: the distance from the axis to the point where the force acts, times the size of the
+    force, times the sine of the angle between them. Also called the moment of a force, it is the
+    rotational counterpart of force in mechanics, and it explains why a door swings easily when
+    pushed at the handle and hardly moves when pushed beside the hinges.
+
+    Here $\mag{\tau}$ is the size of the torque in newton metres; $\var{r}$ is the distance in
+    metres from the axis to the point of application; $\mag{F}$ is the size of the force in newtons;
+    and $\mag{\theta}$ is the angle between the line from the axis to that point and the direction
+    of the force, between 0 and 180 degrees. The formula gives only the size; in a flat problem, a
+    torque turning the body anticlockwise usually counts as positive and a clockwise one as
+    negative, and in three dimensions the torque points along the axis by the right-hand rule.
+
+    Only the part of the force perpendicular to the line from the axis turns the body. The product
+    $\var{r}\sin\mag{\theta}$ is the lever arm, the perpendicular distance from the axis to the line
+    along which the force acts, so the torque also equals lever arm times force. It peaks when the
+    force is at right angles to that line and vanishes when the force points at the axis or away
+    from it. An acute and an obtuse angle share the same sine, so a known torque leaves both angles
+    as valid answers.
+
+    The formula gives the torque of one force about a fixed axis, with every distance measured in
+    the plane perpendicular to that axis. Torques of several forces add with their signs, and a body
+    stays at rest only when the net torque, like the net force, is zero.
+
+    On a spanner, a force of 50 newtons applied at right angles to the handle, 0.30 metres from the
+    bolt, produces a torque of 15 newton metres.

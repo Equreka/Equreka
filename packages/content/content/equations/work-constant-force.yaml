@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Work done by a constant force'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{W}=\mag{F}\var{d}\cos\mag{\theta}'
+terms:
+  W:
+    kind: 'magnitude'
+    ref: 'work'
+  F:
+    kind: 'magnitude'
+    ref: 'force'
+  d:
+    kind: 'symbol'
+    label:
+      en: 'Displacement magnitude'
+    unit: 'metre'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+solutions:
+  W: 'F * d * cos(theta)'
+  F: 'W / (d * cos(theta))'
+  d: 'W / (F * cos(theta))'
+  \theta: 'acos(W / (F * d))'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'work formula'
+  - 'work of a force'
+  - 'mechanical work'
+  - 'W = F d cos theta'
+  - 'W = Fd cos(θ)'
+  - 'force times distance'
+  - 'trabajo mecánico'
+references:
+  - title: 'OpenStax, College Physics 2e, 7.1 Work: The Scientific Definition, Example 7.1'
+    url: 'https://openstax.org/books/college-physics-2e/pages/7-1-work-the-scientific-definition'
+  - title: 'OpenStax, University Physics Volume 1, 7.1 Work'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/7-1-work'
+  - title: 'R. Nave, HyperPhysics, Work, energy and power'
+    url: 'https://hyperphysics.gsu.edu/hbase/work.html'
+  - title: 'MacTutor History of Mathematics, Gaspard-Gustave de Coriolis (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Coriolis/'
+description:
+  en: >-
+    The work done by a constant force is the energy that a force transfers to or from a body while
+    the body moves: the size of the force times the size of the displacement times the cosine of the
+    angle between the two. It is the basic definition of mechanical work for a force of fixed size
+    and direction, such as a steady push on a cart.
+
+    In the formula, $\mag{W}$ is the work in joules, one joule being one newton acting through one
+    metre; $\mag{F}$ is the size of the force in newtons and $\var{d}$ the size of the displacement
+    of the point where the force acts, in metres, both entered as non-negative numbers;
+    $\mag{\theta}$ is the angle between the force and the displacement, from 0 to 180 degrees. The
+    sign of the work comes from the cosine: positive when the force has a component along the
+    motion, zero when the force is at right angles to it, and negative when the force opposes the
+    motion, as kinetic friction does.
+
+    Only the component of the force along the displacement, $\mag{F}\cos\mag{\theta}$, does work;
+    the perpendicular component changes neither the speed nor the energy of the body, so the normal
+    force on a level floor does no work. Solving for the angle uses the inverse cosine, which
+    returns one value between 0 and 180 degrees, the whole range that the angle between two
+    directions can take.
+
+    The formula requires a force of constant size and direction acting through a displacement
+    $\var{d}$. A force that changes along the path, such as the pull of a spring, needs the work
+    summed over small steps, each short enough for the force to be treated as constant. When several
+    forces act, the sum of their works, the net work, equals the change in kinetic energy.
+
+    Gaspard-Gustave de Coriolis gave the word work its present scientific meaning; his paper Du
+    calcul de l'effet des machines appeared in 1829. Pushing a lawn mower 25.0 metres with a force
+    of 75.0 newtons directed 35 degrees below the horizontal does about 1540 joules of work.

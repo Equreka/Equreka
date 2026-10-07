@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Centro de masas de dos partículas'
+terms:
+  x_\mathrm{cm}:
+    label: 'Posición del centro de masas'
+  m_{1}:
+    label: 'Masa de la partícula 1'
+  m_{2}:
+    label: 'Masa de la partícula 2'
+  x_{1}:
+    label: 'Posición de la partícula 1'
+  x_{2}:
+    label: 'Posición de la partícula 2'
+description: >-
+  El centro de masas de dos partículas es el punto de la recta que las une cuya posición es la media
+  de sus posiciones, cada una ponderada por su masa. También llamado baricentro, es el único punto
+  cuyo movimiento representa el del par en conjunto en mecánica, y queda más cerca de la partícula
+  de mayor masa.
+
+  En la fórmula, $\var{x_\mathrm{cm}}$ es la posición del centro de masas, y $\var{x_{1}}$ y
+  $\var{x_{2}}$ las posiciones de las dos partículas, todas en metros medidas desde el mismo origen
+  sobre una recta, positivas a un lado de él y negativas al otro. Las masas $\var{m_{1}}$ y
+  $\var{m_{2}}$ se expresan en kilogramos y son positivas. El resultado no depende de dónde se sitúe
+  el origen: desplazarlo cambia las tres posiciones en la misma cantidad.
+
+  Si las masas son iguales, el centro de masas es el punto medio. Si no, sus distancias a las dos
+  partículas están en la razón inversa de sus masas, la misma condición que equilibra una barra
+  sobre su punto de apoyo. Sin fuerza externa neta sobre el par, la velocidad del centro de masas no
+  cambia nunca, por mucho que las fuerzas internas desplacen las partículas; es otra cara de la
+  conservación de la cantidad de movimiento.
+
+  La fórmula trata cada cuerpo como un punto. En cuerpos extensos, cada uno se sustituye por una
+  masa puntual situada en su propio centro de masas, y el resultado sigue siendo exacto; la misma
+  suma ponderada, extendida a tres coordenadas y a muchas partículas, da el centro de masas de
+  cualquier sistema. Despejar una masa exige un centro de masas que no coincida con ninguna de las
+  partículas.
+
+  Para la Tierra y la Luna, con masas de $5.97\times10^{24}\,\mathrm{kg}$ y
+  $7.346\times10^{22}\,\mathrm{kg}$ separadas unos 382 000 kilómetros, el centro de masas queda a
+  unos 4640 kilómetros del centro de la Tierra, dentro del planeta.

@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Centripetal force'
+kind: 'equation'
+level: 'intro'
+expression: '\var{F_\mathrm{c}}=\frac{\mag{m}\mag{v}^{2}}{\var{r}}'
+terms:
+  F_\mathrm{c}:
+    kind: 'symbol'
+    label:
+      en: 'Centripetal force'
+    unit: 'newton'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+solutions:
+  F_\mathrm{c}: 'm * v^2 / r'
+  m: 'F_c * r / v^2'
+  v: 'sqrt(F_c * r / m)'
+  r: 'm * v^2 / F_c'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q172881'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'centre-seeking force'
+  - 'center-seeking force'
+  - 'F = mv^2/r'
+  - 'force in circular motion'
+  - 'fuerza central en movimiento circular'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 6.3 Centripetal Force'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/6-3-centripetal-force'
+  - title: 'OpenStax, College Physics 2e, 6.3 Centripetal Force (flat curve example)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/6-3-centripetal-force'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Centripetal Force'
+    url: 'https://hyperphysics.gsu.edu/hbase/cf.html'
+  - title: 'G. E. Smith, Newton''s Philosophiae Naturalis Principia Mathematica, Stanford Encyclopedia of Philosophy (definitions: mass, inertia, centripetal force)'
+    url: 'https://plato.stanford.edu/entries/newton-principia/'
+description:
+  en: >-
+    The centripetal force is the net force that keeps a body moving on a circle at constant speed:
+    the mass of the body times the square of its speed, divided by the radius of the circle. It
+    points toward the centre of the circle, and it is Newton's second law applied to uniform
+    circular motion, with the centripetal acceleration as the acceleration.
+
+    Here $\var{F_\mathrm{c}}$ is the size of the centripetal force in newtons, $\mag{m}$ the mass in
+    kilograms, $\mag{v}$ the speed along the circle in metres per second and $\var{r}$ the radius of
+    the path in metres. All four are non-negative sizes; the direction of the force, perpendicular
+    to the velocity and toward the centre, comes from the geometry rather than from a sign. Solving
+    for the speed takes a square root, and only its non-negative value is a speed.
+
+    Centripetal force is not a separate kind of force but a role that real forces play: the tension
+    in a string whirling a stone, friction between tyres and road on a flat bend, gravity holding a
+    satellite in orbit. Whatever supplies it, the net inward force must equal this value for the
+    body to stay on the circle; with less, the body moves onto a wider path. Doubling the speed on
+    the same circle demands four times the force, while doubling the radius at the same speed halves
+    it.
+
+    The relation assumes uniform circular motion, a constant speed on a circle of fixed radius, seen
+    from an inertial frame. When the speed changes, a tangential force acts as well and the net
+    force no longer points at the centre. The outward centrifugal force felt by a passenger is an
+    inertial effect of the rotating frame of the vehicle, not a force in the inertial frame used
+    here.
+
+    Isaac Newton introduced the term centripetal force in the Principia, published in 1687, where he
+    analysed the motion of bodies under such forces. A 900-kilogram car rounding a flat bend of
+    radius 500 metres at 25.0 metres per second needs 1125 newtons of centripetal force, supplied by
+    friction.

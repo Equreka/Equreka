@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Choque perfectamente inelástico'
+terms:
+  m_{1}:
+    label: 'Masa del cuerpo 1'
+  m_{2}:
+    label: 'Masa del cuerpo 2'
+  u_{1}:
+    label: 'Velocidad inicial del cuerpo 1'
+  u_{2}:
+    label: 'Velocidad inicial del cuerpo 2'
+  v:
+    label: 'Velocidad final común'
+description: >-
+  Un choque perfectamente inelástico es un choque en el que dos cuerpos quedan unidos y siguen
+  moviéndose como uno solo con una velocidad final común. La conservación de la cantidad de
+  movimiento fija esa velocidad: la cantidad de movimiento total de los dos cuerpos antes del
+  impacto es igual a la masa conjunta por la velocidad común después. Enganchar vagones de tren, un
+  dardo que se clava en el blanco o un jugador de rugby que derriba a otro abrazado a él son casos
+  cotidianos en mecánica.
+
+  En la ecuación, $\var{m_{1}}$ y $\var{m_{2}}$ son las masas de los dos cuerpos en kilogramos,
+  $\var{u_{1}}$ y $\var{u_{2}}$ sus velocidades antes del choque, y $\var{v}$ la velocidad común
+  después, todas en metros por segundo. El movimiento se considera a lo largo de una recta con un
+  sentido positivo elegido; un cuerpo que se mueve en sentido contrario tiene velocidad negativa, y
+  un resultado negativo significa que el conjunto se mueve en sentido negativo.
+
+  La ecuación es el caso de la conservación de la cantidad de movimiento en dos cuerpos en el que
+  las dos velocidades finales coinciden. La velocidad común es la media de las velocidades iniciales
+  ponderada por las masas, así que siempre queda entre ellas y más cerca de la velocidad del cuerpo
+  de mayor masa. La cantidad de movimiento se conserva, pero la energía cinética no: una parte se
+  emplea en deformar los cuerpos, calentarlos y producir sonido. Quedar unidos es el caso de la
+  mayor pérdida posible compatible con la conservación de la cantidad de movimiento. Cuando un
+  cuerpo pequeño choca con uno grande en reposo, pierde casi toda su energía cinética; cuando uno
+  grande choca con uno pequeño, pierde poca.
+
+  La ecuación supone que sobre el par no actúa ninguna fuerza externa neta durante el breve choque,
+  de modo que el rozamiento y la gravedad a lo largo de la recta del movimiento pueden despreciarse
+  en ese instante. Despejar una masa exige una velocidad común distinta de las dos velocidades
+  iniciales.
+
+  En un ejemplo de laboratorio, un carrito de 0.675 kilogramos que avanza a 0.75 metros por segundo
+  se une a otro de 0.5 kilogramos que avanza a 1.33 metros por segundo en el mismo sentido, y el
+  conjunto sigue a unos 0.997 metros por segundo.

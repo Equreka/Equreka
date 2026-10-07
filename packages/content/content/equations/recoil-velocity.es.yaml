@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Velocidad de retroceso'
+terms:
+  v_{2}:
+    label: 'Velocidad de retroceso'
+  m_{1}:
+    label: 'Masa del proyectil'
+  v_{1}:
+    label: 'Velocidad del proyectil'
+  m_{2}:
+    label: 'Masa del cuerpo que retrocede'
+description: >-
+  La velocidad de retroceso es la velocidad con la que un cuerpo se mueve hacia atrás cuando empuja
+  a otro desde el reposo, como un fusil que retrocede al disparar una bala o un patinador que se
+  desliza hacia atrás tras lanzar una pelota. La conservación de la cantidad de movimiento la
+  determina: el cuerpo que retrocede lleva una cantidad de movimiento igual y opuesta a la del
+  proyectil, de modo que el total sigue siendo cero.
+
+  En la ecuación, $\var{m_{1}}$ es la masa del proyectil y $\var{v_{1}}$ su velocidad, $\var{m_{2}}$
+  la masa del cuerpo que retrocede y $\var{v_{2}}$ su velocidad de retroceso; las masas se expresan
+  en kilogramos y las velocidades en metros por segundo. Las velocidades llevan signo a lo largo de
+  una recta cuyo sentido positivo es el del movimiento del proyectil, así que el signo menos hace
+  negativa la velocidad de retroceso: el lanzador siempre se mueve en sentido contrario.
+
+  La ecuación es el caso de la conservación de la cantidad de movimiento en dos cuerpos en el que
+  ambos parten del reposo, así que la cantidad de movimiento total es cero antes del lanzamiento.
+  Las fuerzas que cada uno ejerce sobre el otro son iguales y opuestas y actúan durante el mismo
+  tiempo, así que las dos cantidades de movimiento finales tienen igual módulo y signo opuesto. Sus
+  rapideces están, por tanto, en la razón inversa de sus masas; por eso un arma de gran masa
+  retrocede despacio mientras una bala ligera sale rápida, y el hombro que sujeta firmemente un
+  fusil suma su masa al cuerpo que retrocede. Los cohetes y las medusas se desplazan por el mismo
+  principio, expulsando materia hacia atrás.
+
+  La ecuación supone que el sistema parte del reposo, que ninguna fuerza externa neta actúa durante
+  el lanzamiento y que solo se mueven los dos cuerpos: cualquier otra cosa puesta en movimiento,
+  como los gases que expulsa un arma de fuego, queda fuera del balance. Despejar una masa exige una
+  velocidad no nula del otro cuerpo.
+
+  Una bala de 0.0250 kilogramos que sale de un fusil de 3.00 kilogramos a 550 metros por segundo
+  hace retroceder el fusil a unos 4.58 metros por segundo.

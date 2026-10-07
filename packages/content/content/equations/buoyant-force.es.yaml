@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Principio de Arquímedes'
+terms:
+  F_\mathrm{B}:
+    label: 'Empuje'
+  V_\mathrm{sub}:
+    label: 'Volumen sumergido'
+  g:
+    label: 'Aceleración de la gravedad'
+description: >-
+  El principio de Arquímedes establece que un cuerpo sumergido total o parcialmente en un fluido
+  recibe una fuerza vertical hacia arriba, el empuje, igual al peso del fluido que desaloja. Para un
+  fluido de densidad conocida, el empuje es la densidad del fluido por el volumen sumergido por la
+  aceleración de la gravedad, y el principio rige la flotación, el hundimiento y la pérdida aparente
+  de peso de los objetos en el agua y en el aire.
+
+  Aquí $\var{F_\mathrm{B}}$ es el módulo del empuje en newtons, dirigido verticalmente hacia arriba;
+  $\mag{\rho}$ es la densidad del fluido, no la del cuerpo, en kilogramos por metro cúbico;
+  $\var{V_\mathrm{sub}}$ es el volumen del cuerpo que queda bajo la superficie del fluido, igual al
+  volumen de fluido que desaloja, en metros cúbicos; y $\var{g}$ es el módulo de la aceleración de
+  la gravedad en metros por segundo al cuadrado, un número positivo cuyo valor normal es 9.80665; el
+  valor local varía con el lugar y es distinto en otros planetas. Las cuatro son no negativas.
+
+  La presión crece con la profundidad, así que el fluido empuja con más fuerza las caras inferiores
+  de un cuerpo sumergido que las superiores, mientras que los empujes laterales se anulan. El empuje
+  neto es hacia arriba e iguala el peso del fluido que ocuparía ese mismo espacio, ya que ese fluido
+  quedaría en equilibrio bajo las mismas presiones del entorno. Por eso cuerpos con el mismo volumen
+  sumergido en un mismo fluido reciben el mismo empuje sea cual sea su material: una botella cerrada
+  llena de agua y otra igual vacía, a la misma profundidad, reciben el mismo empuje, y solo difieren
+  sus pesos.
+
+  La relación supone un fluido en reposo de densidad uniforme en un campo gravitatorio uniforme. Un
+  cuerpo flota cuando su densidad media es menor que la del fluido, de modo que el empuje puede
+  igualar su peso antes de quedar del todo sumergido; si no, se hunde.
+
+  En Sobre los cuerpos flotantes, Arquímedes de Siracusa, que vivió aproximadamente entre el 287 y
+  el 212 a. C., estudió el equilibrio de los cuerpos sumergidos y flotantes, y este principio es su
+  resultado más conocido. Un litro totalmente sumergido en agua dulce recibe un empuje de unos 9.8
+  newtons.

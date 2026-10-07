@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Potencia desarrollada por una fuerza'
+description: >-
+  La potencia desarrollada por una fuerza sobre un cuerpo en movimiento es la fuerza en la dirección
+  del movimiento por la rapidez. Es el ritmo instantáneo al que la fuerza realiza trabajo, y da la
+  potencia que un motor o un ciclista deben aportar para mantener un vehículo a una rapidez dada
+  frente al rozamiento, la resistencia del aire o una pendiente.
+
+  En la fórmula, $\mag{P}$ es la potencia en vatios; $\mag{F}$ es la componente de la fuerza en la
+  dirección de la velocidad, en newtons, positiva cuando apunta en el sentido del movimiento y
+  negativa cuando se opone a él, como hacen la resistencia aerodinámica y las fuerzas de frenado; y
+  $\mag{v}$ es la rapidez en metros por segundo, nunca negativa. Una fuerza perpendicular a la
+  velocidad, como la fuerza normal sobre una carretera llana, no desarrolla potencia, y una potencia
+  negativa significa que la fuerza está quitando energía al cuerpo.
+
+  En un intervalo de tiempo breve el cuerpo recorre una distancia igual a su rapidez por el
+  intervalo, de modo que la fuerza realiza un trabajo igual a la fuerza por esa distancia; al
+  dividir ese trabajo entre el intervalo se obtiene la fórmula. Para una fuerza que forma un ángulo
+  con la velocidad solo cuenta la componente en la dirección de la velocidad, lo que hace de la
+  relación general el producto escalar de los vectores fuerza y velocidad.
+
+  La fórmula da la potencia en un instante y vale aunque la rapidez cambie; promediada durante un
+  intervalo da el trabajo realizado dividido entre el tiempo. A rapidez constante en terreno llano
+  la fuerza motriz iguala la resistencia total, y como la resistencia del aire crece con la rapidez,
+  la potencia que necesita un coche aumenta mucho a las rapideces de autopista. Por la misma razón,
+  un motor de potencia limitada solo puede tirar con fuerza a baja rapidez, que es la función de las
+  marchas cortas.
+
+  La potencia de vehículos y motores se expresa a menudo en caballos de fuerza, una unidad igual a
+  unos 746 vatios.

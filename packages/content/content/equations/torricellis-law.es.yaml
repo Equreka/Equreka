@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Teorema de Torricelli'
+terms:
+  g:
+    label: 'Aceleración de la gravedad'
+  h:
+    label: 'Profundidad del orificio bajo la superficie libre'
+description: >-
+  El teorema de Torricelli, también llamado ley de Torricelli, da la rapidez con la que un líquido
+  sale por un orificio pequeño de un depósito abierto: la raíz cuadrada del doble de la aceleración
+  de la gravedad por la profundidad del orificio bajo la superficie del líquido. En mecánica de
+  fluidos es la rapidez de salida de un chorro desde un depósito, y coincide con la rapidez que
+  alcanzaría un cuerpo en caída libre a lo largo de esa profundidad.
+
+  Aquí $\mag{v}$ es la rapidez de salida, la del líquido al abandonar el orificio, en metros por
+  segundo; $\var{h}$ es la profundidad del orificio bajo la superficie libre del líquido, en metros;
+  y $\var{g}$ es el módulo de la aceleración de la gravedad, en metros por segundo al cuadrado,
+  introducido como número positivo. Las tres son no negativas. El valor normal de $\var{g}$ es
+  9.80665 metros por segundo al cuadrado; el valor local cambia con el lugar de la Tierra y es
+  distinto en otros planetas y satélites.
+
+  La ley se deduce de la ecuación de Bernoulli aplicada entre la superficie y el orificio. Ambos
+  están abiertos al aire, de modo que los términos de presión se cancelan; la superficie de un
+  depósito ancho apenas se mueve, así que su rapidez se desprecia; y la densidad también se cancela,
+  con lo que la energía cinética del chorro iguala la energía potencial perdida a lo largo de la
+  profundidad. La rapidez no depende del líquido ni del tamaño del orificio.
+
+  El resultado supone un depósito mucho más ancho que el orificio, un líquido incompresible, ni
+  viscosidad ni rozamiento en el borde del orificio, y aire a la misma presión en la superficie y en
+  el chorro. A medida que el depósito se vacía, disminuyen la profundidad y la rapidez.
+
+  En De motu gravium, publicado dentro de su Opera geometrica de 1644, Evangelista Torricelli
+  vinculó el ritmo al que el líquido escapa por un agujero con su profundidad bajo la superficie, y
+  halló que crece como la raíz de esa profundidad. Un orificio situado 1.25 metros bajo la
+  superficie produce un chorro de unos 5 metros por segundo.

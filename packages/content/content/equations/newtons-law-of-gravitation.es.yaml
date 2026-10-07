@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de gravitación universal de Newton'
+terms:
+  M:
+    label: 'Masa del cuerpo que atrae'
+  m:
+    label: 'Masa del otro cuerpo'
+  r:
+    label: 'Distancia entre centros'
+description: >-
+  La ley de gravitación universal de Newton establece que dos masas cualesquiera tiran una de otra,
+  con una atracción que crece a la par que cada masa y se debilita con el cuadrado de la separación
+  entre sus centros. Es la ley fundacional de la gravitación, la misma regla que gobierna la caída
+  de una piedra, la Luna y los planetas.
+
+  $\mag{F}$ es el módulo de la fuerza en newtons, igual sobre ambos cuerpos y dirigida a lo largo de
+  la recta que los une, de modo que cada cuerpo es atraído hacia el otro. $\var{M}$ y $\var{m}$ son
+  las dos masas en kilogramos; llamar a una de ellas cuerpo que atrae solo indica un punto de vista,
+  porque cada una atrae a la otra. $\var{r}$ es la distancia entre sus centros en metros, y
+  $\const{G}$ es la constante de gravitación universal. La gravedad siempre es atractiva, así que
+  todas las magnitudes son positivas.
+
+  Duplicar una masa duplica la fuerza, y duplicar la distancia la reduce a la cuarta parte: la
+  dependencia del inverso del cuadrado. La atracción sobre cada cuerpo tiene el mismo módulo, como
+  exige la tercera ley de Newton, pero el cuerpo más ligero recibe la mayor aceleración. Al combinar
+  esta ley con la segunda ley del movimiento se obtienen el peso de un cuerpo, el campo gravitatorio
+  de un planeta y las rapideces y periodos de las órbitas.
+
+  La ley trata ambos cuerpos como puntos. Se cumple con exactitud para cuerpos con simetría
+  esférica, tomando la distancia entre sus centros, y de forma aproximada para formas cualesquiera
+  muy separadas en comparación con su tamaño. La relatividad general, que describe la gravitación
+  como una curvatura del espacio-tiempo, la refina donde la imagen newtoniana no basta.
+
+  Newton publicó la ley en sus Principia en 1687, al mostrar que una atracción del inverso del
+  cuadrado dirigida hacia el Sol explica las órbitas planetarias. Henry Cavendish determinó por
+  primera vez con exactitud la constante en 1798. Dos naves espaciales de 9000 kilogramos cada una,
+  separadas 10 metros, se atraen con solo unos $5.4\times10^{-5}\,\mathrm{N}$.

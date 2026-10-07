@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Litro por minuto'
+description: >-
+  El litro por minuto, de símbolo $\mathrm{L/min}$, es una unidad de caudal: un litro de fluido que
+  atraviesa una sección en cada minuto. Sus dos partes, el litro y el minuto, son unidades ajenas al
+  SI aceptadas para usarse con él, de modo que no es una unidad coherente del SI. Es la unidad
+  habitual para el rendimiento de bombas domésticas y grifos y para el flujo de sangre que impulsa
+  el corazón.
+
+  El folleto del SI fija el litro en exactamente $10^{-3}\,\mathrm{m^{3}}$ y el minuto en
+  exactamente 60 segundos, así que un litro por minuto es exactamente una sesentamilésima de metro
+  cúbico por segundo, unos $1.667\times10^{-5}\,\mathrm{m^{3}/s}$. La fracción no termina en forma
+  decimal, por lo que QUDT redondea su multiplicador.
+
+  Sesenta litros por minuto forman un litro por segundo, y 60 000 litros por minuto forman un metro
+  cúbico por segundo. Un galón estadounidense por minuto, que la publicación especial 811 del NIST
+  convierte a metros cúbicos por segundo, equivale a unos 3.785 litros por minuto.
+
+  La fisiología expresa en esta unidad el gasto del corazón: un corazón adulto en reposo bombea unos
+  5 litros de sangre por minuto, de modo que a lo largo de 75 años de vida mueve unos doscientos mil
+  metros cúbicos. En los cálculos, el caudal se pasa a metros cúbicos por segundo antes de
+  combinarlo con áreas en metros cuadrados y rapideces en metros por segundo.
+
+  La unidad se escribe L/min o l/min; la L mayúscula es el símbolo con menos riesgo de leerse como
+  el número uno, y lpm es una abreviatura informal, no un símbolo. El plural es litros por minuto.
