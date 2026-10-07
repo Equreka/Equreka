@@ -115,6 +115,7 @@ waves:
     slices:
       - { id: thermodynamics, title: 'Heat, expansion and thermodynamic laws', branches: [thermodynamics] }
       - { id: gases, title: 'Gas laws', branches: [gases] }
+      - { id: unit-backfill, title: 'Area, speed, acceleration and torque units', branches: [geometry, mechanics] }
     paths: [gas-laws]
   - id: 'W9'
     title: 'School: electrostatics and circuits'
@@ -746,6 +747,18 @@ entries:
   - { collection: equations, slug: grahams-law, action: create, wave: 'W8', slice: gases, branches: [gases], level: intro, milestone: 1, flags: [], name: 'Graham''s law', state: planned }
   - { collection: equations, slug: molar-volume-ideal-gas, action: create, wave: 'W8', slice: gases, branches: [gases], level: intro, milestone: 1, flags: [], name: 'Molar volume ideal gas', state: planned }
   - { collection: paths, slug: gas-laws, action: create, wave: 'W8', slice: gases, branches: [gases, thermodynamics], level: intro, milestone: 1, flags: [], name: 'Gas laws', note: 'learning path over this wave''s entries; intro level; prose and checks in English and Spanish', state: planned }
+  - { collection: units, slug: square-centimetre, action: create, wave: 'W8', slice: unit-backfill, branches: [geometry, mechanics], milestone: 1, flags: [], name: 'Square centimetre', note: 'compose centimetre^2 (model: cubic-centimetre); unitOf area; found in W6 review: the calculator offered only m2, acre and hectare for an area, only m/s2 for an acceleration', state: planned }
+  - { collection: units, slug: square-millimetre, action: create, wave: 'W8', slice: unit-backfill, branches: [geometry, mechanics], milestone: 1, flags: [], name: 'Square millimetre', note: 'compose millimetre^2; unitOf area; wire and pipe cross-sections', state: planned }
+  - { collection: units, slug: square-kilometre, action: create, wave: 'W8', slice: unit-backfill, branches: [geometry], milestone: 1, flags: [], name: 'Square kilometre', note: 'compose kilometre^2; unitOf area; land and country areas', state: planned }
+  - { collection: units, slug: square-foot, action: create, wave: 'W8', slice: unit-backfill, branches: [geometry], milestone: 1, flags: [], name: 'Square foot', note: 'compose foot^2; unitOf area; system imperial/US customary as foot', state: planned }
+  - { collection: units, slug: square-inch, action: create, wave: 'W8', slice: unit-backfill, branches: [geometry, mechanics], milestone: 1, flags: [], name: 'Square inch', note: 'compose inch^2; unitOf area', state: planned }
+  - { collection: units, slug: square-yard, action: create, wave: 'W8', slice: unit-backfill, branches: [geometry], milestone: 1, flags: [], name: 'Square yard', note: 'compose yard^2; unitOf area', state: planned }
+  - { collection: units, slug: square-mile, action: create, wave: 'W8', slice: unit-backfill, branches: [geometry], milestone: 1, flags: [], name: 'Square mile', note: 'compose mile^2; unitOf area', state: planned }
+  - { collection: units, slug: foot-per-second, action: create, wave: 'W8', slice: unit-backfill, branches: [mechanics], milestone: 1, flags: [], name: 'Foot per second', note: 'compose foot, second^-1; unitOf speed and velocity like metre-per-second', state: planned }
+  - { collection: units, slug: foot-per-second-squared, action: create, wave: 'W8', slice: unit-backfill, branches: [mechanics], milestone: 1, flags: [], name: 'Foot per second squared', note: 'compose foot, second^-2; unitOf acceleration', state: planned }
+  - { collection: units, slug: standard-gravity, action: create, wave: 'W8', slice: unit-backfill, branches: [mechanics, gravitation], milestone: 1, flags: [], name: 'Standard gravity', note: 'unit of acceleration g_n = 9.80665 m/s2 exact (3rd CGPM 1901; NIST SP 811 B.8); unitOf acceleration; aliases g-force; distinct from the constant standard-acceleration-of-gravity, which it cites', state: planned }
+  - { collection: units, slug: gal, action: create, wave: 'W8', slice: unit-backfill, branches: [mechanics, gravitation], milestone: 1, flags: [], name: 'Gal', note: 'CGS unit of acceleration, 1 Gal = 0.01 m/s2 exact (NIST SP 811 B.8); symbol Gal; prefixes milli (mGal, gravimetry); unitOf acceleration', state: planned }
+  - { collection: units, slug: pound-force-foot, action: create, wave: 'W8', slice: unit-backfill, branches: [mechanics], milestone: 1, flags: [], name: 'Pound-force foot', note: 'compose pound-force, foot; unitOf torque; NIST SP 811 lists lbf ft as torque', state: planned }
   # W9 · electrostatics
   - { collection: equations, slug: coulombs-law, action: create, wave: 'W9', slice: electrostatics, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Coulomb''s law', state: planned }
   - { collection: equations, slug: electric-field-definition, action: create, wave: 'W9', slice: electrostatics, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Electric field definition', state: planned }
