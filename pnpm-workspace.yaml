@@ -56,7 +56,7 @@ catalog:
   '@types/pngjs': ^6.0.5 # pngjs ships no types; latest DefinitelyTyped line
   '@astrojs/sitemap': ^3.7.3 # web SEO: sitemap-index with per-locale hreflang alternates
   '@testing-library/react': ^16.3.0 # @equreka/core hook tests (renderHook); needs react-dom at test time only
-  jsdom: ^30.0.0 # vitest DOM environment for @equreka/core hook tests
+  jsdom: ^30.0.0 # vitest DOM environment for @equreka/core hook tests and web island DOM tests
   # --- mobile: pinned by Expo SDK 57 bundledNativeModules (expo@57.0.21); `expo install --check` validates against these ranges ---
   expo: ~57.0.21 # pinned by Expo SDK 57 bundledNativeModules
   react-native: 0.86.3 # pinned by Expo SDK 57 bundledNativeModules

@@ -18,7 +18,7 @@ import {
 	useState,
 } from 'react';
 import type { ConverterPayload } from '../integrations/equreka-assets';
-import type { CalculatorField } from '../lib/calculator-fields';
+import { type CalculatorField, termIdFragment } from '../lib/calculator-fields';
 import {
 	type CalculatorView,
 	calculatorFormReducer,
@@ -265,7 +265,7 @@ export default function CalculatorIsland({
 						<div className="eq-calc-fields">
 							{fields.map((field) => {
 								const { units: offered, hiddenByKind } = unitState.optionsFor(field.key);
-								const inputId = `${fieldId}-${field.key}`;
+								const inputId = `${fieldId}-${termIdFragment(meta, field.key)}`;
 								const unitSymbol = fieldUnitSymbol(field);
 								return (
 									<div key={field.key} className="eq-calc-field">

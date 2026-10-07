@@ -32,3 +32,20 @@ export function calculatorField(
 		solvable: meta.solvable.includes(key),
 	};
 }
+
+const ESCAPED_ID_CHAR = /[^A-Za-z0-9]/g;
+
+/**
+ * Term keys are TeX (`\gamma`, `F_\mathrm{N}`), which break unescaped `#id`
+ * selectors and accessibility tooling, so DOM ids take the term's compiled
+ * identifier (`gamma`, `F_N`), unique within the equation. A key without a
+ * compiled term falls back to an injective escape that starts with `_`,
+ * which no identifier does. Neither form contains `-`, so ids derived by
+ * appending a `-suffix` never collide with each other or with a field id.
+ */
+export function termIdFragment(meta: CompiledEquationMeta, key: string): string {
+	return (
+		meta.terms[key]?.identifier ??
+		`_${key.replace(ESCAPED_ID_CHAR, (char) => `_${char.charCodeAt(0).toString(16)}_`)}`
+	);
+}
