@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Cubic metre per second'
+symbol:
+  tex: 'm^{3}/s'
+  text: 'm³/s'
+unitOf:
+  - 'volumetric-flow-rate'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'metre'
+      exp: 3
+    - unit: 'second'
+      exp: -1
+externalIds:
+  wikidata: 'Q794261'
+  qudt: 'http://qudt.org/vocab/unit/M3-PER-SEC'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'cubic meter per second'
+  - 'cubic metres per second'
+  - 'cubic meters per second'
+  - 'm3/s'
+  - 'm^3/s'
+  - 'm3 s-1'
+  - 'cumec'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., sections 2.3.4 (coherent derived units) and 5.2 (unit symbols), Table 8 (litre)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8: cubic foot per second'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'OpenStax, University Physics Volume 1, 14.5 Fluid Dynamics'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-5-fluid-dynamics'
+  - title: 'USGS Circular 552, Reconnaissance investigations of the discharge and water quality of the Amazon River (abstract)'
+    url: 'https://pubs.usgs.gov/publication/cir552'
+  - title: 'QUDT, unit M3-PER-SEC'
+    url: 'https://qudt.org/vocab/unit/M3-PER-SEC'
+description:
+  en: >-
+    The cubic metre per second, symbol $\mathrm{m^{3}/s}$, is the coherent SI derived unit of
+    volumetric flow rate: a steady flow of one cubic metre per second moves a volume of one cubic
+    metre of fluid through a cross-section in each second. It is the unit of the discharge of
+    rivers, canals, spillways and large pipelines.
+
+    The unit is the cube of the metre divided by the second and has no special name. Like every
+    coherent derived unit it needs no standard of its own, because it rests on the definitions of
+    the metre and the second.
+
+    A litre is a thousandth of a cubic metre, so one cubic metre per second is exactly 1000 litres
+    per second and 60 000 litres per minute. NIST Special Publication 811 converts one cubic foot
+    per second to about $2.832\times10^{-2}\,\mathrm{m^{3}/s}$.
+
+    For pumps, taps and the human body the unit is very large: a resting heart moves about
+    $8\times10^{-5}\,\mathrm{m^{3}/s}$, so litres per minute or per second read more naturally. For
+    rivers it fits well. A survey by the US Geological Survey estimated the average discharge of the
+    Amazon at Óbidos as 157 000 cubic metres per second, with about 350 000 in the flood of June
+    1953.
+
+    The symbol may also be written with a negative exponent on the second; hydrologists sometimes
+    shorten the name to cumec, which is not an SI symbol. The plural is cubic metres per second,
+    spelled cubic meters per second in American English.

@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Orbital period of a circular orbit'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{T}=2\const{\pi}\sqrt{\frac{\var{r}^{3}}{\const{G}\mag{M}}}'
+terms:
+  T:
+    kind: 'magnitude'
+    ref: 'period'
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Distance between centres'
+    unit: 'metre'
+  G:
+    kind: 'constant'
+    ref: 'gravitational-constant'
+  M:
+    kind: 'magnitude'
+    ref: 'mass'
+solutions:
+  T: '2 * pi * sqrt(r^3 / (G * M))'
+  r: 'cbrt(G * M * T^2 / (4 * pi^2))'
+  M: '4 * pi^2 * r^3 / (G * T^2)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q37640'
+categories:
+  - 'physics'
+branches:
+  - 'gravitation'
+aliases:
+  - 'orbital period'
+  - 'period of a satellite'
+  - 'period of revolution'
+  - 'T = 2 pi sqrt(r^3 / (G M))'
+  - 'periodo orbital'
+  - 'período orbital'
+  - 'periodo de revolución'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 13.4 Satellite Orbits and Energy'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/13-4-satellite-orbits-and-energy'
+  - title: 'OpenStax, University Physics Volume 1, 13.5 Kepler''s Laws of Planetary Motion'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/13-5-keplers-laws-of-planetary-motion'
+  - title: 'R. Nave, HyperPhysics, Kepler''s Laws'
+    url: 'https://hyperphysics.gsu.edu/hbase/kepler.html'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (GM, volumetric mean radius)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+description:
+  en: >-
+    The orbital period of a circular orbit is the time a satellite, moon or planet takes to go once
+    around a much heavier central body: two pi times the square root of the cube of the orbital
+    radius divided by the gravitational constant times the central mass. In gravitation it is the
+    circular-orbit form of Kepler's third law, which ties the period of an orbit to its size.
+
+    $\mag{T}$ is the period in seconds, a non-negative number. $\const{G}$ is the Newtonian constant
+    of gravitation, $\mag{M}$ is the mass of the central body in kilograms, and $\var{r}$ is the
+    radius of the orbit in metres, measured from the centre of the central body; for a satellite it
+    is the radius of the planet plus the altitude.
+
+    One period is the circumference of the orbit divided by the orbital speed, and that speed
+    follows from gravity supplying the centripetal force. The mass of the satellite drops out, so
+    the period depends only on the central mass and the radius. The square of the period grows with
+    the cube of the radius: an orbit four times wider takes eight times as long. Solving for the
+    central mass turns a measured orbit into a way of weighing a planet or a star.
+
+    The formula assumes a circular orbit around a central body far heavier than the satellite. For
+    an elliptical orbit the same expression holds with the radius replaced by the semi-major axis,
+    half the longest diameter of the ellipse; when the two masses are comparable, their sum takes
+    the place of the central mass.
+
+    The International Space Station, about 400 kilometres above the Earth, completes one orbit in
+    roughly 92 minutes, a little over an hour and a half.

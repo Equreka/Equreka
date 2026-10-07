@@ -1,0 +1,202 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.schema.json
+name:
+  en: 'Fluids at rest'
+level: 'intro'
+prerequisites:
+  - 'newtons-laws'
+estimatedMinutes: '50'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'fluid statics'
+  - 'hydrostatics'
+  - 'pressure and buoyancy'
+  - 'estática de fluidos'
+  - 'hidrostática'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 14.1 Fluids, Density, and Pressure'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure'
+  - title: 'OpenStax, University Physics Volume 1, 14.2 Measuring Pressure'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-2-measuring-pressure'
+  - title: 'OpenStax, University Physics Volume 1, 14.3 Pascal''s Principle and Hydraulics'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-3-pascals-principle-and-hydraulics'
+  - title: 'OpenStax, University Physics Volume 1, 14.4 Archimedes'' Principle and Buoyancy'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-4-archimedes-principle-and-buoyancy'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: atmosphere, standard (atm)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+description:
+  en: >-
+    Density, pressure and buoyancy in liquids and gases at rest: pressure with depth, gauge and
+    absolute pressure, hydraulic machines, and why bodies float or sink, each with a worked check.
+steps:
+  - id: 'intro'
+    kind: 'prose'
+    body:
+      en: >-
+        A fluid is a liquid or a gas: it flows and takes the shape of its container. At rest, a
+        fluid pushes on every surface it touches, and that push grows with depth because each layer
+        carries the weight of the layers above it. Two quantities describe a fluid at rest, its
+        density and its pressure. Start with density, then build pressure, its growth with depth,
+        its transmission through enclosed liquids, and buoyancy.
+  - id: 'density'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'density'
+    note:
+      en: >-
+        Mass per unit volume, in kilograms per cubic metre. It belongs to the material, not to the
+        size of the sample.
+  - id: 'density-formula'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'density-formula'
+    note:
+      en: >-
+        Divide the mass by the volume. For a hollow or mixed body the result is the average density,
+        the value that decides floating later in the path.
+  - id: 'check-density'
+    kind: 'check'
+    prompt:
+      en: >-
+        A metal block has a mass of 5.40 kilograms and a volume of 0.00200 cubic metres. What is
+        its density, and which common metal has that density?
+    answer:
+      en: >-
+        2700 kilograms per cubic metre: 5.40 divided by 0.00200. That is the density of aluminium.
+  - id: 'pressure'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'pressure'
+    note:
+      en: >-
+        A scalar: the force it produces always acts perpendicular to a surface, but the pressure
+        itself has no direction.
+  - id: 'pressure-formula'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'pressure-formula'
+    note:
+      en: >-
+        Use only the force component perpendicular to the surface. The same force on a smaller area
+        gives a larger pressure.
+  - id: 'pascal'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'pascal'
+    note:
+      en: >-
+        One newton per square metre, a small pressure: air at sea level presses with about a hundred
+        thousand pascals.
+  - id: 'check-crate'
+    kind: 'check'
+    prompt:
+      en: >-
+        A crate weighing 600 newtons rests on a face of 0.30 by 0.50 metres. What pressure does it
+        exert on the floor, and what if it is turned onto a face of 0.20 by 0.30 metres?
+    answer:
+      en: >-
+        4000 pascals on the large face: 600 divided by 0.15 square metres. On the small face the
+        area is 0.06 square metres, so the pressure rises to 10 000 pascals for the same weight.
+  - id: 'hydrostatic-pressure'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'hydrostatic-pressure'
+    note:
+      en: >-
+        Density times g times depth gives the gauge pressure, the excess over the surface pressure.
+        Only the depth matters, not the shape of the vessel.
+  - id: 'absolute-pressure-at-depth'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'absolute-pressure-at-depth'
+    note:
+      en: >-
+        Add the pressure acting on the surface, usually the atmosphere, to obtain the absolute
+        pressure measured from a vacuum.
+  - id: 'standard-atmosphere'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'standard-atmosphere'
+    note:
+      en: >-
+        Exactly 101 325 pascals by definition, close to the mean air pressure at sea level. Use it as
+        the surface pressure of an open lake or sea.
+  - id: 'check-lake'
+    kind: 'check'
+    prompt:
+      en: >-
+        Find the gauge pressure and the absolute pressure 20.0 metres below the surface of a
+        freshwater lake, with a density of 1000 kilograms per cubic metre, the standard g and one
+        standard atmosphere at the surface.
+    answer:
+      en: >-
+        Gauge: 1000 times 9.80665 times 20.0, about 196 kilopascals. Absolute: add 101 325 pascals to
+        get about 297 kilopascals, almost three standard atmospheres.
+  - id: 'pascals-principle'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'pascals-principle'
+    note:
+      en: >-
+        An enclosed liquid passes a pressure change to every point. Equal pressure on unequal pistons
+        means unequal forces, in the ratio of the areas.
+  - id: 'check-lift'
+    kind: 'check'
+    prompt:
+      en: >-
+        A car lift has an input piston of 0.0020 square metres and an output piston of 0.20 square
+        metres. What input force holds up a car weighing 12 000 newtons, and how far must the input
+        piston move to raise the car by 0.10 metres?
+    answer:
+      en: >-
+        120 newtons: 12 000 times 0.0020 divided by 0.20. The area ratio is 100, so the input piston
+        moves 100 times farther, 10 metres, and no energy is gained.
+  - id: 'buoyant-force'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'buoyant-force'
+    note:
+      en: >-
+        The upward push equals the weight of the fluid displaced. Use the density of the fluid and
+        the volume under the surface, never the density of the body.
+  - id: 'floating-fraction-submerged'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'floating-fraction-submerged'
+    note:
+      en: >-
+        A floating body sinks until the buoyant force matches its weight, so the submerged fraction
+        equals the ratio of the densities.
+  - id: 'specific-gravity'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'specific-gravity'
+    note:
+      en: >-
+        Density compared with water. Below one the body floats in fresh water, above one it sinks.
+  - id: 'check-block'
+    kind: 'check'
+    prompt:
+      en: >-
+        A wooden block of 0.050 cubic metres with a density of 600 kilograms per cubic metre floats
+        in fresh water of 1000 kilograms per cubic metre. What fraction of it is submerged, and what
+        buoyant force acts on it with the standard g?
+    answer:
+      en: >-
+        0.60, so 0.030 cubic metres lie under the surface. The buoyant force is 1000 times 0.030
+        times 9.80665, about 294 newtons, the same as the weight of the block, 600 times 0.050 times
+        9.80665.

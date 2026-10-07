@@ -63,7 +63,7 @@ Conventions for every `<slug>.es.yaml` sidecar. Companion to the [style guide](s
 | astronomical unit | unidad astronómica | CEM |
 | dalton, electronvolt | dalton, electronvoltio | CEM |
 | neper, bel, decibel | neper, belio, decibelio | CEM |
-| erg, dyne, poise | ergio, dina, poise | CEM |
+| erg, dyne, poise | ergio, dina, poise (poises) | CEM; plural *poises* per [RAE, *El plural de los préstamos*](https://www.rae.es/buen-uso-espa%C3%B1ol/el-plural-de-los-pr%C3%A9stamos-de-otras-lenguas) (loans ending in a vowel add *-s*, as *curies*) |
 | curie | curie (curies) | CEM; plural per [RAE, *El plural de los préstamos*](https://www.rae.es/buen-uso-espa%C3%B1ol/el-plural-de-los-pr%C3%A9stamos-de-otras-lenguas) (loans ending in a vowel add *-s*) |
 | kilowatt-hour, watt-hour | kilovatio hora (kilovatios hora), vatio hora (vatios hora) | [RAE, *Diccionario del estudiante*](https://www.rae.es/diccionario-estudiante/kilovatio) (*362 kilovatios hora*); plural on the first noun per *El plural de los compuestos* |
 | ampere-hour | amperio hora (amperios hora) | usage; plural on the first noun per *El plural de los compuestos*, as *kilovatios hora* |
@@ -96,6 +96,8 @@ Conventions for every `<slug>.es.yaml` sidecar. Companion to the [style guide](s
 | revolution, revolution per minute | vuelta, revolución por minuto | usage |
 | percent | por ciento (the quantity is *porcentaje*) | usage |
 | mole per litre | mol por litro (*molar* in `aliases`) | usage |
+| cubic metre per second | metro cúbico por segundo (metros cúbicos por segundo) | Wikidata [Q794261](https://www.wikidata.org/wiki/Q794261) `es` label |
+| litre per second, litre per minute | litro por segundo, litro por minuto (litros por segundo, litros por minuto; plural on the first noun, as *julios por kilogramo*) | Wikidata [Q61996348](https://www.wikidata.org/wiki/Q61996348), [Q107313814](https://www.wikidata.org/wiki/Q107313814) `es` labels; [OpenStax *Física universitaria* vol. 1, 14.5](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/14-5-dinamicas-de-fluidos) (*litros por minuto*) |
 | week, month, year, decade, century | semana, mes, año, década, siglo | usage |
 | degree Fahrenheit, Rankine, Réaumur, Rømer, Delisle, Newton | grado Fahrenheit, grado Rankine, grado Réaumur, grado Rømer, grado Delisle, grado Newton | usage |
 
@@ -134,6 +136,8 @@ Prefix names: *mili* per RAE; *atto* per the DLE entry *atto-* and, with *zetta*
 | Young's modulus | módulo de Young | usage |
 | free fall, projectile, range | caída libre, proyectil, alcance | usage |
 | inclined plane, lever | plano inclinado, palanca | usage |
+| effort, load (of a lever); effort arm, load arm; fulcrum | potencia (the applied force, never mechanical power: term label *Potencia (fuerza aplicada)*), resistencia (term label *Resistencia (fuerza que se vence)*, distinct from *resistencia eléctrica*); brazo de potencia, brazo de resistencia; fulcro (*punto de apoyo*) | [Fisicalab, *Ley de la palanca*](https://www.fisicalab.com/apartado/ley-palanca) |
+| lever arm (perpendicular distance from the axis to the line of action) | brazo de palanca | [OpenStax *Física universitaria* vol. 1, 10.6](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/10-6-torque) |
 | centre of mass | centro de masas | usage |
 | elastic collision, inelastic collision | choque elástico, choque inelástico | usage |
 | coefficient of restitution | coeficiente de restitución | usage |
@@ -144,6 +148,9 @@ Prefix names: *mili* per RAE; *atto* per the DLE entry *atto-* and, with *zetta*
 | gravitational field strength | intensidad del campo gravitatorio | usage |
 | escape velocity, orbital period | velocidad de escape, periodo orbital | usage |
 | orbital speed | rapidez orbital (scalar: *rapidez*, per the speed row) | usage |
+| escape speed (term label of the escape velocity) | rapidez de escape (the entry name stays *velocidad de escape*) | usage, per the speed row |
+| distance between centres (gravitation term label) | distancia entre centros | usage |
+| Kepler's third law, semi-major axis (of an orbit) | tercera ley de Kepler, semieje mayor | [OpenStax *Física universitaria* vol. 1, 13.5](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/13-5-leyes-del-movimiento-planetario-de-kepler) |
 | net force | fuerza neta | [OpenStax *Física universitaria* vol. 1, 6.1](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/6-1-resolucion-de-problemas-con-las-leyes-de-newton) |
 | inertial frame of reference | sistema de referencia inercial (*marco de referencia inercial*, the OpenStax form, in `aliases`) | usage; *marco*: [OpenStax *Física universitaria* vol. 1, 5.2](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/5-2-primera-ley-de-newton) |
 | static friction, kinetic friction | rozamiento estático, rozamiento cinético (extends the friction row; *fricción estática*, *fricción dinámica* in `aliases`) | usage; *fricción estática*: [OpenStax *Física universitaria* vol. 1, 6.3](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/6-3-fuerza-centripeta) |
@@ -170,12 +177,21 @@ Prefix names: *mili* per RAE; *atto* per the DLE entry *atto-* and, with *zetta*
 | --- | --- | --- |
 | density, mass density | densidad, densidad másica | CEM |
 | pressure, gauge pressure | presión, presión manométrica | CEM (presión) |
+| absolute pressure | presión absoluta | [OpenStax *Física universitaria* vol. 1, 14.2](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/14-2-medir-la-presion) |
+| hydrostatic pressure | presión hidrostática | Wikidata [Q1149672](https://www.wikidata.org/wiki/Q1149672) `es` alias |
+| Pascal's principle, hydraulic press, piston | principio de Pascal (*ley de Pascal* in `aliases`), prensa hidráulica, pistón | [OpenStax *Física universitaria* vol. 1, 14.3](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/14-3-principio-de-pascal-y-la-hidraulica) |
+| Archimedes' principle, fraction submerged, average density | principio de Arquímedes, fracción sumergida, densidad media | [OpenStax *Física universitaria* vol. 1, 14.4](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/14-4-principio-de-arquimedes-y-flotabilidad) |
 | force per area (head kind of pressure and stress) | fuerza por unidad de superficie | usage |
-| buoyant force | empuje | usage |
-| volumetric flow rate | caudal | usage |
+| buoyant force | empuje (*fuerza de flotación*, the OpenStax form, in `aliases`) | usage; *fuerza de flotación*: [OpenStax *Física universitaria* vol. 1, 14.4](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/14-4-principio-de-arquimedes-y-flotabilidad) |
+| volumetric flow rate | caudal (*caudal volumétrico*; *tasa de flujo*, the OpenStax form, and *gasto* in `aliases`) | usage; *tasa de flujo*: [OpenStax *Física universitaria* vol. 1, 14.5](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/14-5-dinamicas-de-fluidos) |
+| mass flow rate | caudal másico (OpenStax writes *tasa de flujo de masa*) | usage; OpenStax form: [*Física universitaria* vol. 1, 14.5](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/14-5-dinamicas-de-fluidos) |
+| continuity equation | ecuación de continuidad | Wikidata [Q217219](https://www.wikidata.org/wiki/Q217219) `es` label; [OpenStax *Física universitaria* vol. 1, 14.5](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/14-5-dinamicas-de-fluidos) |
+| Torricelli's law, efflux speed | teorema de Torricelli (the Spanish sources' name, while English says *law*; *ley de Torricelli* in `aliases`), rapidez de salida (scalar, per the speed row; *velocidad de salida* in `aliases`) | Wikidata [Q728969](https://www.wikidata.org/wiki/Q728969) `es` label; [A. Franco García, *Física con ordenador* (UPV/EHU), *Vaciado de un depósito*](http://www.sc.ehu.es/sbweb/fisica/fluidos/dinamica/vaciado/vaciado.htm) (*teorema de Torricelli*, *velocidad de salida*) |
+| free surface (of a liquid), cross-section (of a pipe) | superficie libre, sección | [A. Franco García, *Física con ordenador* (UPV/EHU), *Vaciado de un depósito*](http://www.sc.ehu.es/sbweb/fisica/fluidos/dinamica/vaciado/vaciado.htm) |
 | dynamic viscosity | viscosidad dinámica | CEM |
+| kinematic viscosity | viscosidad cinemática | usage |
 | surface tension | tensión superficial | CEM |
-| specific gravity | densidad relativa | usage |
+| specific gravity | densidad relativa (*gravedad específica* in `aliases`; never *peso específico*, which is weight per unit volume) | Wikidata [Q10972285](https://www.wikidata.org/wiki/Q10972285) `es` label and alias |
 | period, frequency | periodo, frecuencia | CEM (frecuencia) |
 | wave speed | rapidez de propagación (scalar: *rapidez*, per the speed row) | usage |
 | wavelength, wavenumber | longitud de onda, número de ondas | CEM (número de ondas) |

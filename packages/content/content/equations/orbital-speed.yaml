@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Orbital speed in a circular orbit'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{v}=\sqrt{\frac{\const{G}\mag{M}}{\var{r}}}'
+terms:
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  G:
+    kind: 'constant'
+    ref: 'gravitational-constant'
+  M:
+    kind: 'magnitude'
+    ref: 'mass'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Distance between centres'
+    unit: 'metre'
+solutions:
+  v: 'sqrt(G * M / r)'
+  M: 'v^2 * r / G'
+  r: 'G * M / v^2'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q200924'
+categories:
+  - 'physics'
+branches:
+  - 'gravitation'
+aliases:
+  - 'orbital speed'
+  - 'orbital velocity'
+  - 'circular orbit speed'
+  - 'first cosmic velocity'
+  - 'v = sqrt(G M / r)'
+  - 'velocidad orbital'
+  - 'rapidez orbital'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 13.4 Satellite Orbits and Energy'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/13-4-satellite-orbits-and-energy'
+  - title: 'R. Nave, HyperPhysics, Circular Orbits'
+    url: 'https://hyperphysics.gsu.edu/hbase/orbv.html'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (GM, volumetric mean radius, mean orbital velocity)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+description:
+  en: >-
+    The orbital speed in a circular orbit is the steady speed a satellite, moon or planet needs to
+    stay on a circle around a much heavier central body: the square root of the gravitational
+    constant times the central mass, divided by the radius of the orbit. In gravitation it fixes how
+    fast any body must travel to keep circling at a given distance.
+
+    $\mag{v}$ is the orbital speed in metres per second, a non-negative number. $\const{G}$ is the
+    Newtonian constant of gravitation, $\mag{M}$ is the mass of the central body in kilograms, and
+    $\var{r}$ is the radius of the orbit in metres, measured from the centre of the central body,
+    not from its surface; for a satellite it is the radius of the planet plus the altitude.
+
+    On a circular orbit, gravity supplies exactly the centripetal force the motion requires. Setting
+    the force from Newton's law of universal gravitation equal to the mass of the satellite times
+    its speed squared over the radius, the mass of the satellite cancels, so a spacecraft and a
+    small screw on the same orbit travel at the same speed. Wider orbits are slower: four times the
+    radius halves the speed.
+
+    The formula assumes a circular orbit, a central body far heavier than the satellite and
+    spherically symmetric, and no drag; an elliptical orbit has a speed that changes along the path.
+    Multiplying the result by the square root of two gives the escape velocity from the same
+    distance.
+
+    The International Space Station, about 400 kilometres above the Earth, orbits at roughly 7.67
+    kilometres per second, while the Earth itself moves around the Sun at a mean speed of 29.78
+    kilometres per second.

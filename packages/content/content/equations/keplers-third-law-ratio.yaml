@@ -1,0 +1,86 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Kepler''s third law for two orbits'
+kind: 'equation'
+level: 'intro'
+expression: '\frac{\var{T_{1}}^{2}}{\var{T_{2}}^{2}}=\frac{\var{a_{1}}^{3}}{\var{a_{2}}^{3}}'
+terms:
+  T_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Period of orbit 1'
+    unit: 'second'
+  T_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Period of orbit 2'
+    unit: 'second'
+  a_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Semi-major axis of orbit 1'
+    unit: 'metre'
+  a_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Semi-major axis of orbit 2'
+    unit: 'metre'
+solutions:
+  T_{1}: 'T_2 * sqrt((a_1 / a_2)^3)'
+  T_{2}: 'T_1 / sqrt((a_1 / a_2)^3)'
+  a_{1}: 'a_2 * cbrt((T_1 / T_2)^2)'
+  a_{2}: 'a_1 / cbrt((T_1 / T_2)^2)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q122928319'
+categories:
+  - 'physics'
+branches:
+  - 'gravitation'
+aliases:
+  - 'Kepler''s third law'
+  - 'law of periods'
+  - 'harmonic law'
+  - 'Kepler''s harmonic law'
+  - 'T^2 proportional to a^3'
+  - 'tercera ley de Kepler'
+  - 'ley de los periodos'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 13.5 Kepler''s Laws of Planetary Motion'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/13-5-keplers-laws-of-planetary-motion'
+  - title: 'R. Nave, HyperPhysics, Kepler''s Laws'
+    url: 'https://hyperphysics.gsu.edu/hbase/kepler.html'
+  - title: 'MacTutor History of Mathematics, Johannes Kepler (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Kepler/'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (semimajor axis, sidereal orbit period)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+  - title: 'NASA NSSDCA, Mars Fact Sheet (semimajor axis, sidereal orbit period)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html'
+description:
+  en: >-
+    Kepler's third law, also called the law of periods or the harmonic law, states that for bodies
+    orbiting the same central body, the period squared varies in direct proportion to the semi-major
+    axis cubed. Written for two orbits, it compares their periods and sizes directly, with no need
+    for the mass of the central body or the gravitational constant.
+
+    $\var{T_{1}}$ and $\var{T_{2}}$ are the orbital periods of the two bodies, and $\var{a_{1}}$ and
+    $\var{a_{2}}$ are the semi-major axes of their orbits, half the longest diameter of each
+    ellipse; for a circular orbit the semi-major axis is the radius. All four are positive. Any unit
+    works for each pair, as long as both periods share one unit and both axes share another: years
+    and astronomical units are common in astronomy.
+
+    Gravity holds each body on its orbit, and Newton's law of universal gravitation gives the square
+    of the period as a constant times the cube of the semi-major axis, the constant depending only
+    on the central mass. Dividing that relation for one orbit by the same relation for another
+    cancels the constant and leaves this ratio. Wider orbits are therefore slower: doubling the axis
+    lengthens the period by a factor of about 2.83.
+
+    The law requires both bodies to orbit the same central body, which must be much heavier than
+    either of them; otherwise the sum of the masses enters and the constant differs slightly from
+    one orbit to the other. Pulls between the orbiting bodies themselves are neglected.
+
+    Johannes Kepler found the law from Tycho Brahe's observations in 1618 and published it in
+    Harmonices Mundi in 1619; Newton later drew on it in formulating his law of gravitation. With
+    the Earth's semi-major axis of 149.598 million kilometres and Mars's of 227.956 million, the law
+    predicts a Martian year of about 687 days.

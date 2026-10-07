@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Volumetric flow rate through a cross-section'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{Q}=\mag{A}\mag{v}'
+terms:
+  Q:
+    kind: 'magnitude'
+    ref: 'volumetric-flow-rate'
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+solutions:
+  Q: 'A * v'
+  A: 'Q / v'
+  v: 'Q / A'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'volumetric flow rate formula'
+  - 'flow rate formula'
+  - 'flow rate equals area times velocity'
+  - 'Q = Av'
+  - 'discharge equation'
+  - 'fórmula del caudal'
+  - 'caudal igual a área por velocidad'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 14.5 Fluid Dynamics (Example 14.5)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-5-fluid-dynamics'
+  - title: 'OpenStax, College Physics 2e, 12.1 Flow Rate and Its Relation to Velocity'
+    url: 'https://openstax.org/books/college-physics-2e/pages/12-1-flow-rate-and-its-relation-to-velocity'
+  - title: 'USGS Water Science School, How streamflow is measured'
+    url: 'https://www.usgs.gov/water-science-school/science/how-streamflow-measured'
+  - title: 'R. Nave, HyperPhysics, Laminar flow and viscosity (velocity profile in a tube)'
+    url: 'https://hyperphysics.gsu.edu/hbase/pfric.html'
+description:
+  en: >-
+    The volumetric flow rate through a cross-section is the product of the area of that
+    cross-section and the average speed at which a fluid crosses it. The formula links how much
+    liquid or gas a pipe, hose, artery or river carries per unit time to how fast it moves, and it
+    is the starting point of flow calculations in fluid mechanics and hydraulics.
+
+    Here $\mag{Q}$ is the volumetric flow rate, in cubic metres per second; $\mag{A}$ is the area of
+    the cross-section the fluid passes through, measured perpendicular to the flow, in square
+    metres; and $\mag{v}$ is the average flow speed across that section, in metres per second. All
+    three are non-negative, and the direction of flow is described separately.
+
+    During a time interval the fluid that crosses the section fills a cylinder whose base is the
+    section and whose length is the distance the fluid travels. Dividing that volume by the time
+    gives the area multiplied by the distance per unit time, which is the speed. Doubling either the
+    area or the speed therefore doubles the flow rate.
+
+    The speed in the formula is an average over the section. In a real pipe the fluid next to the
+    wall is at rest and the fastest fluid runs along the axis, so the average is lower than the
+    maximum. The section must also be cut at right angles to the flow; a slanted section would need
+    only the component of the velocity across it.
+
+    Hydrologists find the discharge of a river by splitting its cross-section into strips and adding
+    area times measured current for each. A hose of radius 0.9 centimetres that carries half a litre
+    per second moves its water at about 1.96 metres per second.

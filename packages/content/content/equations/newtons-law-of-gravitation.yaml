@@ -1,0 +1,87 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Newton''s law of universal gravitation'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{F}=\const{G}\frac{\var{M}\var{m}}{\var{r}^{2}}'
+terms:
+  F:
+    kind: 'magnitude'
+    ref: 'force'
+  G:
+    kind: 'constant'
+    ref: 'gravitational-constant'
+  M:
+    kind: 'symbol'
+    label:
+      en: 'Mass of the attracting body'
+    unit: 'kilogram'
+  m:
+    kind: 'symbol'
+    label:
+      en: 'Mass of the other body'
+    unit: 'kilogram'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Distance between centres'
+    unit: 'metre'
+solutions:
+  F: 'G * M * m / r^2'
+  M: 'F * r^2 / (G * m)'
+  m: 'F * r^2 / (G * M)'
+  r: 'sqrt(G * M * m / F)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q134465'
+categories:
+  - 'physics'
+branches:
+  - 'gravitation'
+aliases:
+  - 'law of universal gravitation'
+  - 'Newton''s law of gravitation'
+  - 'universal gravitation'
+  - 'inverse square law of gravity'
+  - 'F = G M m / r^2'
+  - 'ley de gravitación universal'
+  - 'ley de la gravitación universal de Newton'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 13.1 Newton''s Law of Universal Gravitation'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/13-1-newtons-law-of-universal-gravitation'
+  - title: 'OpenStax, College Physics 2e, 6.5 Newton''s Universal Law of Gravitation'
+    url: 'https://openstax.org/books/college-physics-2e/pages/6-5-newtons-universal-law-of-gravitation'
+  - title: 'R. Nave, HyperPhysics, Newton''s Law of Gravitation'
+    url: 'https://hyperphysics.gsu.edu/hbase/grav.html'
+  - title: 'MacTutor History of Mathematics, Isaac Newton (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Newton/'
+description:
+  en: >-
+    Newton's law of universal gravitation states that any two masses pull on each other, the pull
+    growing in step with each mass and weakening with the square of the separation of their centres.
+    It is the founding law of gravitation, the same rule governing a falling stone, the Moon and the
+    planets.
+
+    $\mag{F}$ is the size of the force in newtons, equal on both bodies and directed along the line
+    joining them, each body pulled towards the other. $\var{M}$ and $\var{m}$ are the two masses in
+    kilograms; calling one the attracting body only names a point of view, since each attracts the
+    other. $\var{r}$ is the distance between their centres in metres, and $\const{G}$ is the
+    Newtonian constant of gravitation. Gravity is always attractive, so every quantity here is
+    positive.
+
+    Doubling either mass doubles the force, while doubling the distance cuts it to a quarter: the
+    inverse-square dependence. The pull on each body is the same size, as Newton's third law
+    requires, but the lighter body gets the larger acceleration. Combining this law with the second
+    law of motion yields the weight of a body, the gravitational field of a planet and the speeds
+    and periods of orbits.
+
+    The law treats both bodies as points. It holds exactly for spherically symmetric bodies, with
+    the distance taken between their centres, and approximately for any shapes far apart compared
+    with their size. General relativity, which describes gravitation as a bending of space and time,
+    refines it where the Newtonian picture is not precise enough.
+
+    Newton published the law in his Principia in 1687, showing that an inverse-square attraction
+    towards the Sun accounts for the planetary orbits. Henry Cavendish first determined the constant
+    of gravitation accurately in 1798. Two spacecraft of 9000 kilograms each, 10 metres apart, pull
+    on each other with only about $5.4\times10^{-5}\,\mathrm{N}$.

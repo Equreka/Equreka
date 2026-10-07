@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Caudal'
+description: >-
+  El caudal, o caudal volumétrico, es el volumen de fluido que atraviesa una superficie dada, como
+  la sección de una tubería, de un canal o de un vaso sanguíneo, por unidad de tiempo. En mecánica
+  de fluidos indica cuánto líquido o gas transporta un conducto; en hidrología mide el agua que
+  lleva un río, y las bombas, los grifos y los ventiladores se clasifican según él.
+
+  Su unidad SI es el metro cúbico por segundo, y su dimensión es longitud al cubo dividida entre
+  tiempo. Los caudales pequeños suelen darse en litros por segundo o en litros por minuto; como un
+  litro es una milésima de metro cúbico, un litro por segundo equivale a $10^{-3}\,\mathrm{m^{3}/s}$
+  y un litro por minuto a la sexagésima parte de esa cantidad.
+
+  El caudal es un escalar, que aquí se toma como no negativo; el sentido en que se mueve el fluido
+  se indica por separado. Cuando el fluido atraviesa un área con una rapidez media uniforme, el
+  caudal es el producto de esa área por esa rapidez, de modo que un río ancho y lento puede llevar
+  más agua que un arroyo estrecho y rápido.
+
+  Se mide con caudalímetros en las tuberías, recogiendo el fluido en un recipiente de volumen
+  conocido durante un intervalo cronometrado o, en los ríos, midiendo la profundidad, la anchura y
+  la corriente a lo largo del cauce y sumando el área por la rapidez de cada franja. Un corazón
+  adulto en reposo bombea unos 5 litros de sangre por minuto, una manguera de jardín entrega cerca
+  de medio litro por segundo y el Amazonas en Óbidos lleva un caudal medio de unos
+  $1.57\times10^{5}\,\mathrm{m^{3}/s}$.
+
+  El caudal no es lo mismo que la rapidez del flujo, que es la distancia que recorre una porción de
+  fluido por unidad de tiempo. Tampoco es el caudal másico, la masa que atraviesa la superficie por
+  unidad de tiempo, que es igual a la densidad por el caudal volumétrico y se mantiene a lo largo de
+  una tubería incluso cuando un gas se comprime.

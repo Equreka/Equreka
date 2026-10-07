@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Torricelli''s law'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{v}=\sqrt{2\var{g}\var{h}}'
+terms:
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+  h:
+    kind: 'symbol'
+    label:
+      en: 'Depth of the opening below the free surface'
+    unit: 'metre'
+solutions:
+  v: 'sqrt(2 * g * h)'
+  g: 'v^2 / (2 * h)'
+  h: 'v^2 / (2 * g)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q728969'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'Torricelli''s theorem'
+  - 'Torricellis law'
+  - 'efflux speed'
+  - 'efflux velocity'
+  - 'speed of efflux'
+  - 'ley de Torricelli'
+  - 'velocidad de salida'
+references:
+  - title: 'OpenStax, College Physics 2e, 12.3 The Most General Applications of Bernoulli''s Equation (Torricelli''s theorem)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/12-3-the-most-general-applications-of-bernoullis-equation'
+  - title: 'J. Halpern, Physics LibreTexts, General Physics I, 52.4 Torricelli''s Theorem'
+    url: 'https://phys.libretexts.org/Courses/Prince_Georges_Community_College/General_Physics_I:_Classical_Mechanics/52:_Fluid_Dynamics/52.04:_Torricellis_Theorem'
+  - title: 'A. Franco García, Física con ordenador (UPV/EHU), Vaciado de un depósito'
+    url: 'http://www.sc.ehu.es/sbweb/fisica/fluidos/dinamica/vaciado/vaciado.htm'
+  - title: 'MacTutor History of Mathematics, Evangelista Torricelli (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Torricelli/'
+  - title: 'NIST, CODATA Value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+description:
+  en: >-
+    Torricelli's law, also called Torricelli's theorem, gives the speed at which a liquid leaves a
+    small opening in an open tank: the square root of twice the gravitational acceleration times the
+    depth of the opening below the liquid surface. In fluid mechanics it is the efflux speed of a
+    jet from a tank, and it equals the speed a body would reach by falling freely through that
+    depth.
+
+    Here $\mag{v}$ is the efflux speed, the speed of the liquid as it leaves the opening, in metres
+    per second; $\var{h}$ is the depth of the opening below the free surface of the liquid, in
+    metres; and $\var{g}$ is the size of the gravitational acceleration, in metres per second
+    squared, entered as a positive number. All three are non-negative. The standard value of
+    $\var{g}$ is 9.80665 metres per second squared; the local value changes with place on the Earth
+    and is different on other planets and moons.
+
+    The law follows from Bernoulli's equation applied between the surface and the opening. Both are
+    open to the air, so the pressure terms cancel; the surface of a wide tank hardly moves, so its
+    speed is dropped; and the density cancels as well, leaving the kinetic energy of the jet equal
+    to the potential energy lost over the depth. The speed does not depend on the liquid or on the
+    size of the opening.
+
+    The result assumes a tank much wider than the opening, an incompressible liquid, no viscosity or
+    friction at the edge of the opening, and air at the same pressure on the surface and at the jet.
+    As the tank empties, the depth and the speed both fall.
+
+    In De motu gravium, published within his Opera geometrica of 1644, Evangelista Torricelli tied
+    the rate at which liquid escapes from a hole to its depth below the surface, finding that it
+    grows as the root of that depth. An opening 1.25 metres below the surface gives a jet of about 5
+    metres per second.

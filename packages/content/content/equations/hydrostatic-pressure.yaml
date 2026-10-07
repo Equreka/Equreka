@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Hydrostatic pressure'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{p}=\mag{\rho}\var{g}\var{h}'
+terms:
+  p:
+    kind: 'magnitude'
+    ref: 'pressure'
+  \rho:
+    kind: 'magnitude'
+    ref: 'density'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+  h:
+    kind: 'symbol'
+    label:
+      en: 'Depth'
+    unit: 'metre'
+solutions:
+  p: 'rho * g * h'
+  \rho: 'p / (g * h)'
+  g: 'p / (rho * h)'
+  h: 'p / (rho * g)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q1149672'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'p = rho g h'
+  - 'pressure at depth'
+  - 'pressure-depth relation'
+  - 'fluid pressure'
+  - 'gauge pressure at depth'
+  - 'pressure of a liquid column'
+  - 'presión en un fluido'
+  - 'presión manométrica'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 14.1 Fluids, Density, and Pressure (variation of pressure with depth)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure'
+  - title: 'OpenStax, College Physics 2e, 11.4 Variation of Pressure with Depth in a Fluid'
+    url: 'https://openstax.org/books/college-physics-2e/pages/11-4-variation-of-pressure-with-depth-in-a-fluid'
+  - title: 'OpenStax, College Physics 2e, 11.6 Gauge Pressure, Absolute Pressure, and Pressure Measurement'
+    url: 'https://openstax.org/books/college-physics-2e/pages/11-6-gauge-pressure-absolute-pressure-and-pressure-measurement'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Static Fluid Pressure'
+    url: 'https://hyperphysics.gsu.edu/hbase/pflu.html'
+  - title: 'NIST, CODATA Value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+description:
+  en: >-
+    Hydrostatic pressure is the pressure that the weight of a fluid at rest produces at a given
+    depth: the density of the fluid times the gravitational acceleration times the depth. The value
+    it gives is a gauge pressure, the excess over the pressure at the free surface, and the relation
+    is the basic law of fluid statics for liquids in tanks, lakes and the sea.
+
+    Here $\mag{p}$ is the gauge pressure in pascals, $\mag{\rho}$ the density of the fluid in
+    kilograms per cubic metre, $\var{g}$ the size of the gravitational acceleration in metres per
+    second squared, entered as a positive number, and $\var{h}$ the depth below the free surface in
+    metres, measured downward. All four are non-negative. The standard value of $\var{g}$ is 9.80665
+    metres per second squared; the local value varies with place and differs on other planets.
+
+    A vertical column of fluid reaching from the surface down to the chosen depth has a mass equal
+    to the density times its volume, the cross-sectional area times the depth, so its weight is
+    $\mag{\rho}\var{g}\var{h}$ times that area; dividing by the area on which the column rests
+    leaves the pressure, and the area cancels. Pressure thus depends only on depth, density and
+    gravity, not on the shape of the vessel or the amount of fluid: a narrow tube and a broad lake
+    filled to the same depth press equally on their bottoms.
+
+    The relation assumes a fluid at rest with uniform density in a uniform gravitational field.
+    Liquids barely compress, so it holds to a good approximation over the depths of lakes and
+    shallow seas; in the atmosphere the density falls with height and it applies only over small
+    height differences. Adding the pressure at the free surface, usually the atmospheric pressure,
+    gives the absolute pressure.
+
+    Manometers read a pressure as the height of a liquid column, and dams are built thickest at the
+    base, where the water pushes hardest. In fresh water a depth of 10 metres adds about 98
+    kilopascals, close to one atmosphere.

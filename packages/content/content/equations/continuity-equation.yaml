@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Continuity equation'
+kind: 'equation'
+level: 'intro'
+expression: '\var{A_{1}}\var{v_{1}}=\var{A_{2}}\var{v_{2}}'
+terms:
+  A_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Cross-sectional area at section 1'
+    unit: 'square-metre'
+  v_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Flow speed at section 1'
+    unit: 'metre-per-second'
+  A_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Cross-sectional area at section 2'
+    unit: 'square-metre'
+  v_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Flow speed at section 2'
+    unit: 'metre-per-second'
+solutions:
+  A_{1}: 'A_2 * v_2 / v_1'
+  v_{1}: 'A_2 * v_2 / A_1'
+  A_{2}: 'A_1 * v_1 / v_2'
+  v_{2}: 'A_1 * v_1 / A_2'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'equation of continuity'
+  - 'continuity equation for incompressible flow'
+  - 'A1 v1 = A2 v2'
+  - 'conservation of mass in fluid flow'
+  - 'ecuación de continuidad'
+  - 'principio de continuidad'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 14.5 Fluid Dynamics (equations 14.14 and 14.15, Example 14.5)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-5-fluid-dynamics'
+  - title: 'OpenStax, College Physics 2e, 12.1 Flow Rate and Its Relation to Velocity'
+    url: 'https://openstax.org/books/college-physics-2e/pages/12-1-flow-rate-and-its-relation-to-velocity'
+  - title: 'A. Franco García, Física con ordenador (UPV/EHU), Vaciado de un depósito'
+    url: 'http://www.sc.ehu.es/sbweb/fisica/fluidos/dinamica/vaciado/vaciado.htm'
+description:
+  en: >-
+    The continuity equation of fluid flow states that, for a liquid moving steadily through a pipe
+    or channel, the cross-sectional area times the flow speed has the same value at every section.
+    It expresses conservation of mass for an incompressible fluid in fluid mechanics: the volume
+    that enters a stretch of pipe each second must leave it, so the fluid speeds up where the pipe
+    narrows and slows down where it widens.
+
+    Here $\var{A_{1}}$ and $\var{A_{2}}$ are the areas of two cross-sections along the same flow, in
+    square metres, and $\var{v_{1}}$ and $\var{v_{2}}$ are the average flow speeds across them, in
+    metres per second. All four are positive, and the subscripts only label the two sections, so
+    either may be upstream.
+
+    Each side of the equation is the volumetric flow rate through one section. With no leak or
+    branch between the sections and a fluid that cannot be squeezed, the volume crossing the first
+    section per second equals the volume crossing the second. Since area grows with the square of
+    the radius, halving the radius of a pipe makes the fluid four times as fast.
+
+    The relation assumes steady flow, no fluid added or removed between the sections, and constant
+    density. Liquids satisfy the last condition closely; a gas that is compressed or expands along
+    the way does not, and then the general form, with each product multiplied by the local density,
+    applies instead. The speeds are averages over each section, because in a real pipe the fluid
+    near the wall moves more slowly than at the centre.
+
+    The equation explains why a nozzle makes a fast jet and why a river slows in a wide reservoir;
+    together with Bernoulli's equation it describes how a tank drains through an opening. Water at
+    1.96 metres per second in a hose of radius 0.9 centimetres leaves a nozzle of radius 0.25
+    centimetres at about 25 metres per second.

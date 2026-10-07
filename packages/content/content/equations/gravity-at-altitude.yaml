@@ -1,0 +1,83 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Gravitational acceleration at altitude'
+kind: 'formula'
+level: 'intro'
+expression: '\var{g}=\frac{\const{G}\mag{M}}{\left(\var{R}+\var{h}\right)^{2}}'
+terms:
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+  G:
+    kind: 'constant'
+    ref: 'gravitational-constant'
+  M:
+    kind: 'magnitude'
+    ref: 'mass'
+  R:
+    kind: 'symbol'
+    label:
+      en: 'Radius of the planet'
+    unit: 'metre'
+  h:
+    kind: 'symbol'
+    label:
+      en: 'Altitude above the surface'
+    unit: 'metre'
+solutions:
+  g: 'G * M / (R + h)^2'
+  M: 'g * (R + h)^2 / G'
+  R: 'sqrt(G * M / g) - h'
+  h: 'sqrt(G * M / g) - R'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'gravitation'
+aliases:
+  - 'gravity at altitude'
+  - 'variation of g with height'
+  - 'gravity above the surface'
+  - 'g at height h'
+  - 'gravedad con la altitud'
+  - 'variación de g con la altura'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 13.2 Gravitation near Earth''s Surface'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/13-2-gravitation-near-earths-surface'
+  - title: 'R. Nave, HyperPhysics, Circular Orbits (gravity diminishing with height)'
+    url: 'https://hyperphysics.gsu.edu/hbase/orbv.html'
+  - title: 'NIST, CODATA Value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (GM, volumetric mean radius)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+description:
+  en: >-
+    The gravitational acceleration at altitude gives the free-fall acceleration, or the strength of
+    gravity, at a height above the surface of a planet: the gravitational constant times the mass of
+    the planet, divided by the square of the distance from its centre, which is the radius of the
+    planet plus the altitude. It shows how gravity weakens with height in gravitation, by the
+    inverse-square law.
+
+    $\var{g}$ is the size of the gravitational acceleration at that altitude, in metres per second
+    squared, a positive number. $\const{G}$ is the Newtonian constant of gravitation, $\mag{M}$ is
+    the mass of the planet in kilograms, $\var{R}$ is its radius in metres and $\var{h}$ is the
+    altitude in metres, measured upward from the surface. The standard value of the acceleration at
+    the surface of the Earth is 9.80665 metres per second squared; the local value varies with
+    place, and it differs on another planet or moon.
+
+    The relation is the gravitational field strength of a spherical body, evaluated at a distance
+    $\var{R}+\var{h}$ from the centre. Close to the ground the altitude is tiny next to the radius,
+    so the acceleration hardly changes and the uniform-field approximation is used; at the height of
+    satellites the drop becomes clear. Given the acceleration, the altitude follows as the distance
+    at which the field has that value, minus the radius.
+
+    The formula assumes a spherically symmetric, non-rotating planet and applies at or above its
+    surface; it ignores the flattening of the planet, its rotation and local geology, and it does
+    not hold below the surface.
+
+    At the 400 kilometres where the International Space Station orbits, gravity is still about 8.7
+    metres per second squared, roughly 88 percent of its surface value; the astronauts float because
+    they are in free fall with the station, not because gravity has vanished.

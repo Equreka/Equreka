@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Gravitational potential energy of two masses'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{E_\mathrm{p}}=-\frac{\const{G}\var{M}\var{m}}{\var{r}}'
+terms:
+  E_\mathrm{p}:
+    kind: 'magnitude'
+    ref: 'potential-energy'
+  G:
+    kind: 'constant'
+    ref: 'gravitational-constant'
+  M:
+    kind: 'symbol'
+    label:
+      en: 'Mass of the attracting body'
+    unit: 'kilogram'
+  m:
+    kind: 'symbol'
+    label:
+      en: 'Mass of the other body'
+    unit: 'kilogram'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Distance between centres'
+    unit: 'metre'
+solutions:
+  E_\mathrm{p}: '-G * M * m / r'
+  M: '-E_p * r / (G * m)'
+  m: '-E_p * r / (G * M)'
+  r: '-G * M * m / E_p'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'gravitation'
+aliases:
+  - 'general gravitational potential energy'
+  - 'Newtonian gravitational potential energy'
+  - 'U = -G M m / r'
+  - 'gravitational energy of two bodies'
+  - 'energía potencial gravitatoria general'
+  - 'energía gravitatoria'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 13.3 Gravitational Potential Energy and Total Energy'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/13-3-gravitational-potential-energy-and-total-energy'
+  - title: 'R. Nave, HyperPhysics, Gravitational Potential Energy'
+    url: 'https://hyperphysics.gsu.edu/hbase/gpot.html'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (GM, volumetric mean radius)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+description:
+  en: >-
+    The gravitational potential energy of two masses is the energy stored in their separation: minus
+    the gravitational constant times the product of the masses, divided by the distance between
+    their centres. It is the general form of gravitational potential energy in gravitation, valid at
+    any distance from a planet or star, and it takes its zero when the bodies are infinitely far
+    apart.
+
+    $\mag{E_\mathrm{p}}$ is the potential energy of the pair in joules, always negative or, in the
+    limit of infinite separation, zero. $\const{G}$ is the Newtonian constant of gravitation,
+    $\var{M}$ and $\var{m}$ are the two masses in kilograms, and $\var{r}$ is the distance between
+    their centres in metres, a positive length.
+
+    The minus sign comes from the choice of zero. Pulling two attracting bodies apart takes positive
+    work, so their potential energy rises as they separate and climbs towards zero from below; bound
+    systems such as a planet and its moon therefore have negative potential energy. Only differences
+    in potential energy matter physically, and the choice of zero is a matter of convenience. Near
+    the surface of a planet the change between two nearby heights reduces to weight times the rise
+    in height, the familiar uniform-field formula.
+
+    The formula treats both bodies as points or as spherically symmetric bodies separated by more
+    than the sum of their radii. It belongs to Newtonian gravitation and ignores any other forces
+    acting on the bodies.
+
+    Equating the kinetic energy of a launched body with the size of this potential energy gives the
+    escape velocity. A satellite of 1000 kilograms resting on the surface of the Earth has a
+    potential energy of about $-6.26\times10^{10}\,\mathrm{J}$ relative to infinity.

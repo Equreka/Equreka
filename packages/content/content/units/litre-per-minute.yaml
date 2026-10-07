@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Litre per minute'
+symbol:
+  tex: 'L/min'
+unitOf:
+  - 'volumetric-flow-rate'
+system: 'other'
+compose:
+  of:
+    - unit: 'litre'
+      exp: 1
+    - unit: 'minute'
+      exp: -1
+externalIds:
+  wikidata: 'Q107313814'
+  qudt: 'http://qudt.org/vocab/unit/L-PER-MIN'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'liter per minute'
+  - 'litres per minute'
+  - 'liters per minute'
+  - 'l/min'
+  - 'L min-1'
+  - 'lpm'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (minute, litre)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, College Physics 2e, 12.1 Flow Rate and Its Relation to Velocity (Example 12.1)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/12-1-flow-rate-and-its-relation-to-velocity'
+  - title: 'OpenStax, University Physics Volume 1, 14.5 Fluid Dynamics'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-5-fluid-dynamics'
+  - title: 'NIST SP 811, Appendix B.8: gallon (U.S.) per minute'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'QUDT, unit L-PER-MIN'
+    url: 'https://qudt.org/vocab/unit/L-PER-MIN'
+description:
+  en: >-
+    The litre per minute, symbol $\mathrm{L/min}$, is a unit of volumetric flow rate: one litre of
+    fluid passing a cross-section in each minute. Both of its parts, the litre and the minute, are
+    non-SI units accepted for use with the SI, so it is not a coherent SI unit. It is the usual unit
+    for the output of household pumps and taps and for the flow of blood through the heart.
+
+    The SI Brochure fixes the litre at exactly $10^{-3}\,\mathrm{m^{3}}$ and the minute at exactly
+    60 seconds, so one litre per minute is exactly one sixty-thousandth of a cubic metre per second,
+    about $1.667\times10^{-5}\,\mathrm{m^{3}/s}$. The fraction does not end in decimal form, so QUDT
+    rounds its multiplier.
+
+    Sixty litres per minute make one litre per second, and 60 000 litres per minute make one cubic
+    metre per second. One US gallon per minute, which NIST Special Publication 811 converts to cubic
+    metres per second, is about 3.785 litres per minute.
+
+    Physiology quotes the output of the heart in this unit: a resting adult heart pumps about 5
+    litres of blood per minute, so over a 75-year life it moves some two hundred thousand cubic
+    metres. In calculations the flow is converted to cubic metres per second before it is combined
+    with areas in square metres and speeds in metres per second.
+
+    The unit is written L/min or l/min, the capital L being the symbol less likely to be read as the
+    numeral one; lpm is an informal abbreviation, not a symbol. The plural is litres per minute,
+    spelled liters per minute in American English.

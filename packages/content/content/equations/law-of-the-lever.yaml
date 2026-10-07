@@ -1,0 +1,83 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Law of the lever'
+kind: 'equation'
+level: 'intro'
+expression: '\var{F_{1}}\var{d_{1}}=\var{F_{2}}\var{d_{2}}'
+terms:
+  F_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Effort force'
+    unit: 'newton'
+  d_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Effort arm'
+    unit: 'metre'
+  F_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Load force'
+    unit: 'newton'
+  d_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Load arm'
+    unit: 'metre'
+solutions:
+  F_{1}: 'F_2 * d_2 / d_1'
+  d_{1}: 'F_2 * d_2 / F_1'
+  F_{2}: 'F_1 * d_1 / d_2'
+  d_{2}: 'F_1 * d_1 / F_2'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'lever law'
+  - 'principle of the lever'
+  - 'lever equation'
+  - 'principle of moments'
+  - 'effort times effort arm equals load times load arm'
+  - 'ley de la palanca'
+  - 'principio de la palanca'
+references:
+  - title: 'OpenStax, College Physics 2e, 9.5 Simple Machines'
+    url: 'https://openstax.org/books/college-physics-2e/pages/9-5-simple-machines'
+  - title: 'R. Nave, HyperPhysics, The Lever'
+    url: 'https://hyperphysics.gsu.edu/hbase/mechanics/lever.html'
+  - title: 'C. Rorres, Archimedes, New York University: Archimedes'' Law of the Lever'
+    url: 'https://math.nyu.edu/Archimedes/Lever/LeverLaw.html'
+  - title: 'MacTutor History of Mathematics, Archimedes of Syracuse (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Archimedes/'
+description:
+  en: >-
+    The law of the lever states that a rigid bar resting on a pivot, or fulcrum, balances when the
+    effort force times its distance from the fulcrum equals the load force times its own distance. A
+    small force acting far from the fulcrum can therefore hold or lift a large load acting close to
+    it, which makes the lever the simplest machine of mechanics that multiplies force.
+
+    $\var{F_{1}}$ is the effort, the force applied by a person or a motor, and $\var{F_{2}}$ is the
+    load, the force the lever overcomes, both in newtons. $\var{d_{1}}$ and $\var{d_{2}}$ are the
+    effort arm and the load arm, in metres: the perpendicular distances from the fulcrum to the
+    lines along which each force acts. All four are positive sizes; the two forces must tend to turn
+    the bar in opposite directions.
+
+    Each side of the equation is the torque of one force about the fulcrum, so the law says the two
+    torques cancel and the bar does not start to turn. The ratio of load to effort, equal to the
+    ratio of effort arm to load arm, is the ideal mechanical advantage. No energy is gained: the end
+    with the longer arm moves through a proportionally longer distance, so the work put in equals
+    the work taken out.
+
+    The relation assumes a rigid, light bar, a frictionless pivot and forces at rest or moving
+    slowly; the weight of a heavy bar adds its own torque. It covers all three classes of lever:
+    fulcrum between the forces (scissors, a nail puller), load between fulcrum and effort (a
+    wheelbarrow) and effort between fulcrum and load (tweezers, a shovel).
+
+    Archimedes, who lived from about 287 to 212 BC, stated and argued for the law in Propositions 6
+    and 7 of Book I of On the Equilibrium of Planes, where weights balance at distances in inverse
+    proportion to them. A wheelbarrow with an effort arm of 1.02 metres and a load arm of 7.50
+    centimetres has an ideal mechanical advantage of about 13.6.

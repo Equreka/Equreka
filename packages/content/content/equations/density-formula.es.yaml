@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Densidad de un cuerpo'
+description: >-
+  La densidad de un cuerpo es su masa dividida entre su volumen, una medida de cuánta materia llena
+  cada metro cúbico. La relación define la densidad másica de sólidos, líquidos y gases en física y
+  en mecánica de fluidos; para un cuerpo que no es uniforme da la densidad media, el valor que
+  decide si el cuerpo flota o se hunde en un fluido.
+
+  Aquí $\mag{\rho}$ es la densidad en kilogramos por metro cúbico, $\mag{m}$ la masa en kilogramos y
+  $\mag{V}$ el volumen en metros cúbicos. Ninguna de las tres puede ser negativa. Las tablas de
+  laboratorio usan a menudo gramos por centímetro cúbico; un gramo por centímetro cúbico equivale a
+  1000 kilogramos por metro cúbico, de modo que el agua cerca de 4 grados Celsius, con unos 1000
+  kilogramos por metro cúbico, tiene en esas unidades una densidad próxima a uno.
+
+  La densidad es una propiedad intensiva: partir un bloque de aluminio en dos reduce a la mitad su
+  masa y su volumen y deja el cociente igual, en unos 2700 kilogramos por metro cúbico. Sólidos y
+  líquidos tienen densidades del mismo orden porque sus partículas están en contacto, mientras que
+  un gas como el aire al nivel del mar es varios cientos de veces menos denso que el agua porque sus
+  moléculas están muy separadas. Despejando, la fórmula da la masa de un volumen conocido de
+  material o el volumen que ocupa una masa conocida.
+
+  Una densidad citada se refiere siempre a una temperatura y una presión. La mayoría de las
+  sustancias se dilatan al calentarse, así que su densidad baja, y un gas comprimido a la mitad de
+  su volumen duplica su densidad. El agua es una excepción cerca de su punto de congelación: alcanza
+  su densidad máxima cerca de 4 grados Celsius. Para un objeto hueco o compuesto, como un barco o
+  una persona con aire en los pulmones, la fórmula da un promedio entre materiales de densidades muy
+  distintas.
+
+  Las tablas de densidades sirven para identificar materiales, pasar de la masa al volumen de un
+  líquido y alimentar las relaciones hidrostáticas y de flotación de la estática de fluidos.

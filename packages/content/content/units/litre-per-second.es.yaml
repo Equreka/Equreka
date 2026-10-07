@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Litro por segundo'
+description: >-
+  El litro por segundo, de símbolo $\mathrm{L/s}$, es una unidad de caudal igual a un litro de
+  fluido que atraviesa una sección en cada segundo. Combina el litro, una unidad de volumen ajena al
+  SI pero aceptada para usarse con él, con el segundo del SI, de modo que no es una unidad coherente
+  del SI, pero se adapta a los caudales de mangueras, redes contra incendios, pozos y arroyos
+  pequeños.
+
+  Su valor se deduce de sus partes. El folleto del SI define el litro como un decímetro cúbico,
+  exactamente $10^{-3}\,\mathrm{m^{3}}$, así que un litro por segundo es exactamente una milésima de
+  metro cúbico por segundo; QUDT da el mismo multiplicador.
+
+  Sesenta litros por minuto forman un litro por segundo, y 1000 litros por segundo forman un metro
+  cúbico por segundo. La publicación especial 811 del NIST convierte un galón estadounidense por
+  minuto en unos 0.0631 litros por segundo y un pie cúbico por minuto en unos 0.472 litros por
+  segundo.
+
+  Los ingenieros dimensionan en litros por segundo el abastecimiento de agua, el drenaje, el riego y
+  los equipos contra incendios. En los ejemplos de los libros de texto, una manguera de jardín que
+  lleva medio litro por segundo expulsa el agua a unos 2 metros por segundo, y una manguera de
+  bomberos puede llevar 40 litros por segundo.
+
+  El litro tiene dos símbolos, una l minúscula y una L mayúscula, de modo que la unidad puede
+  escribirse l/s o L/s; la mayúscula evita confundirla con el número uno. Formas como lps son
+  abreviaturas informales, no símbolos. El plural es litros por segundo.

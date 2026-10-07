@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Aceleración de la gravedad a una altitud'
+terms:
+  g:
+    label: 'Aceleración de la gravedad'
+  R:
+    label: 'Radio del planeta'
+  h:
+    label: 'Altitud sobre la superficie'
+description: >-
+  La aceleración de la gravedad a una altitud da la aceleración de caída libre, o la intensidad de
+  la gravedad, a cierta altura sobre la superficie de un planeta: la constante de gravitación
+  universal por la masa del planeta, dividida entre el cuadrado de la distancia a su centro, que es
+  el radio del planeta más la altitud. Muestra cómo la gravedad se debilita con la altura en la
+  gravitación, según la ley del inverso del cuadrado.
+
+  $\var{g}$ es el módulo de la aceleración de la gravedad a esa altitud, en metros por segundo al
+  cuadrado, un número positivo. $\const{G}$ es la constante de gravitación universal, $\mag{M}$ es
+  la masa del planeta en kilogramos, $\var{R}$ es su radio en metros y $\var{h}$ es la altitud en
+  metros, medida hacia arriba desde la superficie. El valor normal de la aceleración en la
+  superficie de la Tierra es 9.80665 metros por segundo al cuadrado; el valor local varía con el
+  lugar y es distinto en otro planeta o satélite.
+
+  La relación es la intensidad del campo gravitatorio de un cuerpo esférico evaluada a una distancia
+  $\var{R}+\var{h}$ del centro. Cerca del suelo la altitud es diminuta frente al radio, así que la
+  aceleración apenas cambia y se usa la aproximación de campo uniforme; a la altura de los satélites
+  la disminución se hace evidente. Conocida la aceleración, la altitud se obtiene como la distancia
+  a la que el campo tiene ese valor, menos el radio.
+
+  La fórmula supone un planeta con simetría esférica y sin rotación, y se aplica en su superficie o
+  por encima; no tiene en cuenta el achatamiento del planeta, su rotación ni la geología local, y no
+  vale por debajo de la superficie.
+
+  A los 400 kilómetros donde orbita la Estación Espacial Internacional, la gravedad aún vale unos
+  8.7 metros por segundo al cuadrado, cerca del 88 por ciento de su valor en la superficie; los
+  astronautas flotan porque están en caída libre junto con la estación, no porque la gravedad haya
+  desaparecido.

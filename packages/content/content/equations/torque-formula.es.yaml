@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Momento de una fuerza respecto a un eje'
+terms:
+  r:
+    label: 'Distancia del eje al punto de aplicación'
+description: >-
+  El momento de una fuerza respecto a un eje mide con qué intensidad esa fuerza tiende a hacer girar
+  un cuerpo alrededor del eje: la distancia del eje al punto donde actúa la fuerza, por el módulo de
+  la fuerza, por el seno del ángulo que forman. Llamado también momento de fuerza, es el equivalente
+  rotacional de la fuerza en mecánica y explica por qué una puerta gira con facilidad si se empuja
+  por el pomo y apenas se mueve si se empuja junto a las bisagras.
+
+  Aquí $\mag{\tau}$ es el módulo del momento en newton metro; $\var{r}$ es la distancia en metros
+  del eje al punto de aplicación; $\mag{F}$ es el módulo de la fuerza en newtons; y $\mag{\theta}$
+  es el ángulo entre la recta que va del eje hasta ese punto y la dirección de la fuerza, entre 0 y
+  180 grados. La fórmula da solo el módulo; en un problema plano, el momento que gira el cuerpo en
+  sentido contrario a las agujas del reloj suele contarse positivo y el del sentido de las agujas,
+  negativo, y en tres dimensiones el momento apunta a lo largo del eje, según la regla de la mano
+  derecha.
+
+  Solo la parte de la fuerza perpendicular a la recta que sale del eje hace girar el cuerpo. El
+  producto $\var{r}\sin\mag{\theta}$ es el brazo de palanca, la distancia perpendicular del eje a la
+  recta de acción de la fuerza, de modo que el momento también es brazo de palanca por fuerza. Es
+  máximo cuando la fuerza forma ángulo recto con esa recta y se anula cuando la fuerza apunta hacia
+  el eje o en sentido opuesto. Un ángulo agudo y uno obtuso comparten el mismo seno, así que un
+  momento conocido deja ambos ángulos como respuestas válidas.
+
+  La fórmula da el momento de una sola fuerza respecto a un eje fijo, con todas las distancias
+  medidas en el plano perpendicular a ese eje. Los momentos de varias fuerzas se suman con su signo,
+  y un cuerpo permanece en reposo solo si el momento neto, igual que la fuerza neta, es cero.
+
+  En una llave de tuercas, una fuerza de 50 newtons aplicada en ángulo recto sobre el mango, a 0.30
+  metros del tornillo, produce un momento de 15 newton metro.

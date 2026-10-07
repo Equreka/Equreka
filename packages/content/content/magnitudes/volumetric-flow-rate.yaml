@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Volumetric flow rate'
+symbol:
+  tex: 'Q'
+symbolAlt:
+  tex: 'q_{V}'
+  text: 'qV'
+baseUnit: 'cubic-metre-per-second'
+dimension:
+  L: 3
+  T: -1
+nonNegative: true
+externalIds:
+  wikidata: 'Q1134348'
+  qudt: 'http://qudt.org/vocab/quantitykind/VolumeFlowRate'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'volume flow rate'
+  - 'flow rate'
+  - 'rate of flow'
+  - 'discharge'
+  - 'volume velocity'
+  - 'caudal volumétrico'
+  - 'tasa de flujo'
+  - 'flujo volumétrico'
+  - 'gasto'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 14.5 Fluid Dynamics'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-5-fluid-dynamics'
+  - title: 'OpenStax, College Physics 2e, 12.1 Flow Rate and Its Relation to Velocity'
+    url: 'https://openstax.org/books/college-physics-2e/pages/12-1-flow-rate-and-its-relation-to-velocity'
+  - title: 'QUDT, quantity kind VolumeFlowRate'
+    url: 'https://qudt.org/vocab/quantitykind/VolumeFlowRate'
+  - title: 'USGS Water Science School, How streamflow is measured'
+    url: 'https://www.usgs.gov/water-science-school/science/how-streamflow-measured'
+  - title: 'USGS Circular 552, Reconnaissance investigations of the discharge and water quality of the Amazon River (abstract)'
+    url: 'https://pubs.usgs.gov/publication/cir552'
+description:
+  en: >-
+    Volumetric flow rate, or volume flow rate, is the volume of fluid that crosses a given surface,
+    such as the cross-section of a pipe, a channel or a blood vessel, per unit of time. In fluid
+    mechanics it says how much liquid or gas a conduit carries; hydrologists call it the discharge
+    of a river, and pumps, taps and fans are rated by it.
+
+    Its SI unit is the cubic metre per second, and its dimension is length cubed divided by time.
+    Smaller flows are usually given in litres per second or litres per minute; since a litre is a
+    thousandth of a cubic metre, one litre per second is $10^{-3}\,\mathrm{m^{3}/s}$ and one litre
+    per minute is a sixtieth of that.
+
+    The flow rate is a scalar, taken here as non-negative; the direction in which the fluid moves is
+    stated separately. When the fluid crosses an area at a uniform average speed, the flow rate is
+    that area times that speed, so a wide, slow river can carry more water than a narrow, fast
+    stream.
+
+    It is measured with flow meters in pipes, by collecting the fluid in a vessel of known volume
+    for a timed interval, or, in rivers, by measuring the depth, width and current across the
+    channel and adding up area times speed for each strip. A resting adult heart pumps about 5
+    litres of blood per minute, a garden hose delivers around half a litre per second, and the
+    Amazon at Óbidos carries an average of about $1.57\times10^{5}\,\mathrm{m^{3}/s}$.
+
+    Flow rate is not the same as flow speed, which is the distance a fluid parcel travels per unit
+    time. Nor is it the mass flow rate, the mass crossing the surface per unit time, which equals
+    the density times the volumetric flow rate and stays the same along a pipe even when a gas is
+    compressed.

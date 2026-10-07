@@ -1,0 +1,86 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Archimedes'' principle'
+kind: 'equation'
+level: 'intro'
+expression: '\var{F_\mathrm{B}}=\mag{\rho}\var{V_\mathrm{sub}}\var{g}'
+terms:
+  F_\mathrm{B}:
+    kind: 'symbol'
+    label:
+      en: 'Buoyant force'
+    unit: 'newton'
+  \rho:
+    kind: 'magnitude'
+    ref: 'density'
+  V_\mathrm{sub}:
+    kind: 'symbol'
+    label:
+      en: 'Submerged volume'
+    unit: 'cubic-metre'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+solutions:
+  F_\mathrm{B}: 'rho * V_sub * g'
+  \rho: 'F_B / (V_sub * g)'
+  V_\mathrm{sub}: 'F_B / (rho * g)'
+  g: 'F_B / (rho * V_sub)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q181404'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'buoyant force'
+  - 'buoyancy'
+  - 'upthrust'
+  - 'Archimedes'' law'
+  - 'F_B = rho V g'
+  - 'principio de Arquímedes'
+  - 'fuerza de flotación'
+  - 'flotabilidad'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 14.4 Archimedes'' Principle and Buoyancy'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-4-archimedes-principle-and-buoyancy'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Buoyancy'
+    url: 'https://hyperphysics.gsu.edu/hbase/pbuoy.html'
+  - title: 'MacTutor History of Mathematics, Archimedes of Syracuse (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Archimedes/'
+  - title: 'NIST, CODATA Value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+description:
+  en: >-
+    Archimedes' principle states that a body wholly or partly immersed in a fluid receives an upward
+    buoyant force, or upthrust, equal to the weight of the fluid it pushes aside. For a fluid of
+    known density the buoyant force is the fluid density times the submerged volume times the
+    gravitational acceleration, and the principle governs floating, sinking and the apparent loss of
+    weight of objects in water and in air.
+
+    Here $\var{F_\mathrm{B}}$ is the size of the buoyant force in newtons, directed vertically
+    upward; $\mag{\rho}$ is the density of the fluid, not of the body, in kilograms per cubic metre;
+    $\var{V_\mathrm{sub}}$ is the volume of the body below the fluid surface, equal to the volume of
+    fluid it displaces, in cubic metres; and $\var{g}$ is the size of the gravitational acceleration
+    in metres per second squared, a positive number whose standard value is 9.80665; the local value
+    varies with place and differs on other planets. All four are non-negative.
+
+    Pressure grows with depth, so the fluid pushes harder on the lower faces of an immersed body
+    than on its upper ones, while the sideways pushes cancel. The net push is upward and matches the
+    weight of the fluid that would otherwise fill the same space, since that fluid would rest in
+    equilibrium under the same surrounding pressures. Bodies with equal submerged volumes in one
+    fluid therefore receive equal buoyant forces whatever their material: a sealed bottle full of
+    water and an identical empty one at the same depth feel the same push, and only their weights
+    differ.
+
+    The relation assumes a fluid at rest of uniform density in a uniform gravitational field. A body
+    floats when its average density is below that of the fluid, so that the buoyant force can match
+    its weight before it is fully under; otherwise it sinks.
+
+    In On Floating Bodies, Archimedes of Syracuse, who lived from about 287 to 212 BC, treated the
+    equilibrium of immersed and floating bodies, and this principle is its best-known result. One
+    litre fully immersed in fresh water receives a buoyant force of about 9.8 newtons.

@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Dynamic viscosity'
+symbol:
+  tex: '\eta'
+  text: 'η'
+symbolAlt:
+  tex: '\mu'
+  text: 'μ'
+baseUnit: 'pascal-second'
+dimension:
+  L: -1
+  M: 1
+  T: -1
+nonNegative: true
+externalIds:
+  wikidata: 'Q15152757'
+  qudt: 'http://qudt.org/vocab/quantitykind/DynamicViscosity'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'viscosity'
+  - 'shear viscosity'
+  - 'absolute viscosity'
+  - 'coefficient of viscosity'
+  - 'eta'
+  - 'viscosidad'
+  - 'coeficiente de viscosidad'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 6 (pascal second) and Appendix 1 (11th CGPM, 1960, Resolution 12)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 14.7 Viscosity and Turbulence (Table 14.4)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-7-viscosity-and-turbulence'
+  - title: 'OpenStax, College Physics 2e, 12.4 Viscosity and Laminar Flow; Poiseuille''s Law (Table 12.1)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/12-4-viscosity-and-laminar-flow-poiseuilles-law'
+  - title: 'R. Nave, HyperPhysics, Laminar flow and viscosity'
+    url: 'https://hyperphysics.gsu.edu/hbase/pfric.html'
+  - title: 'QUDT, quantity kinds DynamicViscosity and KinematicViscosity'
+    url: 'https://qudt.org/vocab/quantitykind/DynamicViscosity'
+  - title: 'S. Viscardy, Viscosity from Newton to modern non-equilibrium statistical mechanics, arXiv:cond-mat/0601210, section 3.2'
+    url: 'https://arxiv.org/abs/cond-mat/0601210'
+description:
+  en: >-
+    Dynamic viscosity, also called shear viscosity or viscosity for short, is the property of a
+    fluid that measures its internal friction: the shear stress needed to make neighbouring layers
+    of a liquid or gas slide past one another, divided by the rate at which the flow speed changes
+    across the layers. It is the quantity that makes honey flow more slowly than water in fluid
+    mechanics.
+
+    Its SI unit is the pascal second, which the SI Brochure lists among the coherent derived units
+    whose names contain a unit with a special name; in base units it is the kilogram per metre per
+    second, so the dimension is mass divided by length and time. The poise of the CGS system equals
+    exactly one tenth of a pascal second, and the centipoise equals one millipascal second.
+
+    Viscosity is a scalar and is never negative. A fluid with negligible viscosity is called ideal,
+    an approximation used in many flow problems; in a real fluid flowing through a pipe, the layer
+    touching the wall stays at rest and the speed is greatest along the axis.
+
+    It can be found by dragging a flat plate over a thin film of fluid and measuring the force, or
+    by timing the flow through a narrow tube. Air at 20 degrees Celsius has about
+    $1.81\times10^{-5}\,\mathrm{Pa\,s}$, water about one millipascal second, glycerine about
+    $1.5\,\mathrm{Pa\,s}$ and honey several pascal seconds. Heating lowers the viscosity of a liquid
+    but raises that of a gas.
+
+    Dynamic viscosity is not the same as kinematic viscosity, the ratio of dynamic viscosity to
+    density, measured in square metres per second. The idea goes back to Isaac Newton, whose
+    Principia of 1687 assumed that the resistance between sliding layers of a fluid grows with the
+    speed at which they separate.
