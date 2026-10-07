@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'pH'
+description: >-
+  El pH es una medida logarítmica de la acidez de una disolución, definida a partir de la actividad
+  de sus iones hidrógeno como $\mathrm{pH}=-\log_{10}a_{\mathrm{H^{+}}}$. Un pH más bajo indica una
+  disolución más ácida y uno más alto, una más básica. En química introductoria se calcula a partir
+  de la concentración de iones hidronio en moles por litro,
+  $\mathrm{pH}=-\log_{10}[\mathrm{H_{3}O^{+}}]$, que aproxima la actividad en disoluciones diluidas.
+
+  El pH es una magnitud de dimensión uno, y su unidad es el uno, de modo que sus valores se escriben
+  como números sin unidad. La IUPAC califica su símbolo de excepción a sus propias reglas para
+  los símbolos de magnitudes, y la letra p actúa como un operador que significa menos el logaritmo decimal,
+  con la actividad tomada respecto de una molalidad estándar de un mol por kilogramo. Como la
+  actividad de un solo tipo de ion no puede medirse por separado, la IUPAC califica esta definición
+  de nocional y vincula los valores prácticos a disoluciones amortiguadoras certificadas.
+
+  El pH es un escalar y puede ser negativo. Cada paso de una unidad supone un cambio de diez veces en
+  la actividad de los iones hidrógeno. A $25\,^{\circ}\mathrm{C}$ el producto iónico del agua hace
+  que pH y pOH sumen 14, por lo que una disolución neutra tiene pH 7, las ácidas menos y las básicas
+  más; a 80 grados Celsius el punto neutro baja a unos 6.31. Una disolución con 12 moles de hidronio
+  por litro tiene un pH cercano a menos 1.08.
+
+  El método primario usa una celda de Harned, un electrodo de hidrógeno unido a un electrodo de
+  cloruro de plata, mientras que las medidas rutinarias emplean un electrodo de vidrio calibrado con
+  disoluciones amortiguadoras. El jugo gástrico tiene un pH cercano a 2.9, la lluvia normal está
+  entre 5 y 6, y la sangre humana ronda 7.3.
+
+  El pH no es una concentración: pasos iguales en la escala son cocientes iguales de actividad. El
+  químico danés S. P. L. Sørensen introdujo el símbolo en 1909 en el Laboratorio Carlsberg como un
+  exponente de iones hidrógeno basado en la concentración, y a comienzos de la década de 1920 la
+  definición se revisó para usar la actividad.

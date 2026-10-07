@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Molalidad'
+description: >-
+  La molalidad es la cantidad de un soluto B dividida entre la masa del disolvente en el que está
+  disuelto, $b_{\mathrm{B}}=n_{\mathrm{B}}/m_{\mathrm{A}}$, donde A designa el disolvente. Es una
+  medida de la concentración de una disolución, preferida en química física y en el estudio de las
+  propiedades coligativas, como el descenso del punto de congelación y el aumento del punto de
+  ebullición.
+
+  Su unidad SI coherente es el mol por kilogramo, y su dimensión es cantidad de sustancia dividida
+  entre masa. Una disolución con un mol de soluto por kilogramo de disolvente se llamaba antes
+  disolución uno molal y se marcaba con la letra m. El NIST considera obsoletos la palabra molal y
+  ese símbolo, y la IUPAC prefiere el símbolo $b$ para la magnitud porque $m$ ya designa la masa.
+
+  La molalidad es un escalar y nunca es negativa. Se forma solo con una cantidad de sustancia y una
+  masa, y ninguna de las dos cambia al calentar o enfriar una disolución, de modo que la molalidad
+  de una disolución dada no depende de la temperatura. La concentración de cantidad de sustancia,
+  en cambio, divide entre un volumen que crece cuando el líquido se dilata, y por eso los cálculos
+  de los puntos de congelación y de ebullición se hacen con la molalidad.
+
+  Una disolución de molalidad conocida se prepara pesando tanto el soluto como el disolvente, sin
+  necesidad de material volumétrico. En agua, cada mol de partículas disueltas por kilogramo baja el
+  punto de congelación unos 1.86 grados Celsius y sube el de ebullición unos 0.512 grados Celsius. La
+  molalidad interviene también en la definición del pH, que la IUPAC escribe con una molalidad
+  estándar de exactamente un mol por kilogramo.
+
+  La molalidad se confunde con facilidad con la concentración de cantidad de sustancia, la magnitud
+  antes llamada molaridad: los dos nombres antiguos difieren en una sola letra, y la IUPAC
+  desaconseja molaridad por ese motivo. La molalidad divide entre la masa del disolvente solo,
+  mientras que la concentración de cantidad de sustancia divide entre el volumen de toda la
+  disolución, soluto incluido.

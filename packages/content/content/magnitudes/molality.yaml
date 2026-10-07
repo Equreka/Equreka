@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Molality'
+symbol:
+  tex: 'b'
+symbolAlt:
+  tex: 'm'
+baseUnit: 'mole-per-kilogram'
+dimension:
+  M: -1
+  N: 1
+nonNegative: true
+externalIds:
+  wikidata: 'Q172623'
+  qudt: 'http://qudt.org/vocab/quantitykind/MolalityOfSolute'
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'molality of solute'
+  - 'molal concentration'
+  - 'molal'
+  - 'concentración molal'
+references:
+  - title: 'NIST, Guide to the SI (SP 811), Chapter 8, 8.6.8 Molality of solute B'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-8'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.10, note 14, and section 2.13.1 (viii)'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'OpenStax, Chemistry 2e, 11.4 Colligative Properties'
+    url: 'https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties'
+  - title: 'QUDT, quantity kind MolalityOfSolute'
+    url: 'https://qudt.org/vocab/quantitykind/MolalityOfSolute'
+description:
+  en: >-
+    Molality is the amount of a solute B divided by the mass of the solvent in which it is
+    dissolved, $b_{\mathrm{B}}=n_{\mathrm{B}}/m_{\mathrm{A}}$, where A labels the solvent. It is a
+    measure of the concentration of a solution, favoured in physical chemistry and in the study of
+    colligative properties such as the lowering of the freezing point and the raising of the boiling
+    point.
+
+    Its coherent SI unit is the mole per kilogram, and its dimension is amount of substance divided
+    by mass. A solution with one mole of solute per kilogram of solvent was once called a one-molal
+    solution and labelled with the letter m. NIST lists the word molal and that symbol as obsolete,
+    and IUPAC prefers the symbol $b$ for the quantity because $m$ already stands for mass.
+
+    Molality is a scalar and is never negative. It is built only from an amount of substance and a
+    mass, and neither changes when a solution is heated or cooled, so the molality of a given
+    solution is independent of temperature. Amount concentration, by contrast, divides by a volume
+    that grows as the liquid expands, which is why freezing and boiling point calculations are done
+    with molality.
+
+    A solution of known molality is prepared by weighing both the solute and the solvent, with no
+    volumetric glassware involved. In water, each mole of dissolved particles per kilogram lowers
+    the freezing point by about 1.86 degrees Celsius and raises the boiling point by about 0.512
+    degrees Celsius. Molality also enters the definition of pH, which IUPAC writes with a standard
+    molality of exactly one mole per kilogram.
+
+    Molality is easily confused with amount concentration, the quantity once called molarity: the
+    two old names differ by a single letter, and IUPAC discourages molarity for that reason. Molality
+    divides by the mass of the solvent alone, whereas amount concentration divides by the volume of
+    the whole solution, solute included.

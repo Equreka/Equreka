@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Gram per mole'
+symbol:
+  tex: 'g/mol'
+unitOf:
+  - 'molar-mass'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'gram'
+      exp: 1
+    - unit: 'mole'
+      exp: -1
+externalIds:
+  wikidata: 'Q28924752'
+  qudt: 'http://qudt.org/vocab/unit/GM-PER-MOL'
+categories:
+  - 'chemistry'
+branches:
+  - 'amount-of-substance'
+aliases:
+  - 'grams per mole'
+  - 'g mol-1'
+  - 'g mol^-1'
+  - 'gramo por mol'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.1 (the mole) and Appendix 4 (history of the mole)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, Chemistry 2e, 3.1 Formula Mass and the Mole Concept'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-1-formula-mass-and-the-mole-concept'
+  - title: 'OpenStax, Chemistry 2e, 9.3 Stoichiometry of Gaseous Substances, Mixtures, and Reactions'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-3-stoichiometry-of-gaseous-substances-mixtures-and-reactions'
+  - title: 'QUDT, unit GM-PER-MOL (gram per mole)'
+    url: 'https://qudt.org/vocab/unit/GM-PER-MOL'
+description:
+  en: >-
+    The gram per mole, symbol $\mathrm{g/mol}$, is a unit of molar mass formed from the gram and
+    the mole. It is not the coherent SI unit, which is the kilogram per mole, but it is the unit in
+    which chemistry tables, periodic tables and textbooks give molar masses almost without
+    exception.
+
+    One gram per mole is exactly one thousandth of a kilogram per mole, because the gram is
+    defined as one thousandth of the kilogram. A substance has a molar mass of one gram per mole
+    when one mole of its entities has a mass of one gram.
+
+    The unit owes its popularity to a numerical coincidence built into the definitions. A molar
+    mass expressed in grams per mole has the same number as the relative atomic or molecular mass
+    of the substance, which is the mass of one entity expressed in daltons: an atom of carbon-12
+    has a mass of 12 daltons and one mole of carbon-12 a mass of almost exactly 12 grams. The
+    SI Brochure writes this as the relation that the molar mass equals the relative atomic mass
+    times one gram per mole, which held exactly under the definition of the mole in force from
+    1971 to 2019 and holds to within about one part in a thousand million today.
+
+    In practice, molar masses are read from the periodic table and summed over a formula: molecular
+    nitrogen has 28.01 grams per mole, sodium chloride 58.44 and chloroform 119.37. They convert
+    weighed masses into amounts of substance and, through the ideal gas law, link the density of a
+    gas to its pressure and temperature. The plural is grams per mole, and the symbol may also be
+    written g mol⁻¹.

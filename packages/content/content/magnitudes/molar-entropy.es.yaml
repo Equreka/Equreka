@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Entropía molar'
+description: >-
+  La entropía molar, de símbolo $S_{\mathrm{m}}$, es la entropía de una muestra de una sustancia
+  dividida entre su cantidad de sustancia: la entropía de un mol. Su valor estándar, la entropía
+  molar estándar, es la entropía de un mol de una sustancia pura en su estado estándar, y las
+  tablas de química y termoquímica la recogen para una amplia gama de sustancias.
+
+  La unidad SI coherente es el julio por mol y kelvin, la misma unidad que la de la capacidad
+  calorífica molar, y su dimensión es masa por longitud al cuadrado dividida entre tiempo al
+  cuadrado, entre temperatura termodinámica y entre cantidad de sustancia. Los valores suelen darse
+  directamente en julios por mol y kelvin.
+
+  La entropía molar es una magnitud escalar. El tercer principio de la termodinámica da a la
+  entropía un cero absoluto: un cristal puro y perfecto a cero kelvin tiene entropía nula. A partir
+  de ahí, medidas calorimétricas cuidadosas de las capacidades caloríficas y del calor absorbido en
+  cada cambio de fase dan la entropía de una sustancia a cualquier temperatura más alta.
+
+  Las tablas impresas dan las entropías molares estándar para el estado estándar, 1 bar y 298.15
+  kelvin. Crecen con la libertad de movimiento de las partículas: el diamante tiene 2.38 y el
+  grafito 5.740 julios por mol y kelvin, el agua líquida $70.0\,\mathrm{J\,mol^{-1}\,K^{-1}}$ y el
+  vapor de agua 188.8. Al combinar estos valores, ponderados por los coeficientes estequiométricos
+  de la reacción, se obtiene la variación de entropía estándar de una reacción.
+
+  La entropía molar comparte unidad con la capacidad calorífica molar, pero ambas responden a
+  preguntas distintas: la capacidad calorífica es el calor necesario por cada kelvin de aumento de
+  temperatura, mientras que la entropía mide cuánto se dispersa la energía entre los microestados
+  de la sustancia. También se distingue de la variación
+  de entropía de un proceso, que se expresa en julios por kelvin para las cantidades que
+  intervienen realmente.

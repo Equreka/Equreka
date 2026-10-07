@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Dalton'
+symbol:
+  tex: 'Da'
+symbolAlt:
+  tex: 'u'
+unitOf:
+  - 'mass'
+system: 'other'
+toBase:
+  factor: '1.66053906892e-27'
+  exact: false
+  source:
+    name: 'BIPM SI Brochure 9th ed.'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+    ref: 'Table 8: dalton (Da), 1 Da = 1.660 539 068 92(52) × 10⁻²⁷ kg, the CODATA 2022 value'
+externalIds:
+  wikidata: 'Q483261'
+categories:
+  - 'chemistry'
+branches:
+  - 'atomic-structure'
+  - 'amount-of-substance'
+aliases:
+  - 'unified atomic mass unit'
+  - 'atomic mass unit'
+  - 'amu'
+  - 'u'
+  - 'daltons'
+  - 'unidad de masa atómica'
+  - 'unidad de masa atómica unificada'
+  - 'uma'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 and note (i), and Appendix 4 (history of the mole)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, CODATA 2022 value: atomic mass constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?u'
+  - title: 'OpenStax, Chemistry 2e, 2.3 Atomic Structure and Symbolism'
+    url: 'https://openstax.org/books/chemistry-2e/pages/2-3-atomic-structure-and-symbolism'
+  - title: 'OpenStax, Chemistry 2e, 3.1 Formula Mass and the Mole Concept'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-1-formula-mass-and-the-mole-concept'
+description:
+  en: >-
+    The dalton, symbol $\mathrm{Da}$, also called the unified atomic mass unit with symbol u, is a
+    unit of mass used for atoms, molecules and subatomic particles. It is not an SI unit, but the SI
+    Brochure admits it alongside the SI in its Table 8 of non-SI units, and chemistry,
+    biochemistry and atomic physics express the masses of individual particles in it.
+
+    Twelve daltons make up the mass of a single carbon-12 atom that is free of chemical bonds, not
+    moving and not excited. Its value in kilograms is therefore measured, not defined: the SI Brochure adopts the
+    CODATA 2022 value $1.660\,539\,068\,92(52)\times10^{-27}\,\mathrm{kg}$, which is the atomic mass
+    constant, with a relative standard uncertainty of $3.1\times10^{-10}$.
+
+    To within about one part in a thousand million, the mass of an atom or molecule in daltons has
+    the same number as its molar mass in grams per mole. A proton has a mass of about 1.00727 daltons, a neutron about 1.00866
+    and an electron about 0.00055; a molecule of chloroform averages 119.37 daltons, and a formula
+    unit of sodium chloride 58.44. A mole of entities of one dalton each would have a mass of very
+    nearly one gram, which is how the unit links the mass of a single particle to laboratory
+    quantities.
+
+    The scale goes back to an agreement reached in 1959 and 1960 between the international unions
+    of physics and of chemistry, which until then had used two slightly different oxygen-based
+    scales, to assign exactly 12 to the relative atomic mass of carbon-12. The names dalton and
+    unified atomic mass unit are alternatives for the same unit, and many textbooks still write
+    amu, for atomic mass unit, when they mean it. The plural is daltons.

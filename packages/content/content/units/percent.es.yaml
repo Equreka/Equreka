@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Por ciento'
+description: >-
+  El por ciento, de símbolo %, expresa una razón o una fracción como un número de centésimas: uno
+  por ciento es el número puro 0.01. No pertenece en sentido estricto a ningún sistema de unidades,
+  pero el folleto del SI establece que este símbolo, reconocido internacionalmente, puede usarse con
+  el SI para expresar los valores de magnitudes de dimensión uno.
+
+  Su valor está fijado por definición, de modo que $1\,\%=0.01$ exactamente y 100 % equivale a uno.
+  La publicación especial 811 del NIST lo interpreta igual y trata el símbolo como el número 0.01.
+  Ambos documentos piden un espacio entre el número y el signo y prefieren el símbolo al nombre
+  escrito en los textos técnicos.
+
+  Un porcentaje se convierte en una razón dividiéndolo entre 100, de modo que una fracción másica de
+  0.10 es el 10 %. Las partes por millón cumplen la misma función a una escala más fina: significan
+  un valor relativo de una millonésima, diez mil veces menor que el uno por ciento.
+
+  Los porcentajes aparecen siempre que se compara una parte con un todo: descuentos, tasas de
+  interés, la variación relativa de un precio y la composición de las mezclas en química. La lejía
+  doméstica tiene una fracción másica de hipoclorito de sodio del 7.4 %, y el vino una fracción
+  volumétrica de etanol de alrededor del 12 %. El suero fisiológico, que suele etiquetarse como
+  0.9 %, se expresa mejor como una concentración másica de 0.9 gramos de cloruro de sodio por cada
+  100 mililitros.
+
+  Como el símbolo representa un número, el folleto del SI y el NIST rechazan expresiones como
+  porcentaje en masa o en volumen y marcas como % (m/m); el tipo de fracción debe nombrarse en la
+  magnitud, como en una fracción másica del 7.4 %. El folleto del SI en inglés escribe el nombre en
+  dos palabras, per cent, mientras que el NIST escribe percent; la magnitud así expresada se llama
+  porcentaje.

@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'pH'
+symbol:
+  tex: '\mathrm{pH}'
+  text: 'pH'
+baseUnit: 'unitless'
+dimension: {}
+externalIds:
+  wikidata: 'Q40936'
+  qudt: 'http://qudt.org/vocab/quantitykind/PH'
+categories:
+  - 'chemistry'
+branches:
+  - 'acids-and-bases'
+aliases:
+  - 'pH value'
+  - 'hydrogen ion exponent'
+  - 'potential of hydrogen'
+  - 'potencial de hidrógeno'
+  - 'escala de pH'
+references:
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.13.1 (viii) Definition of pH'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'OpenStax, Chemistry 2e, 14.2 pH and pOH'
+    url: 'https://openstax.org/books/chemistry-2e/pages/14-2-ph-and-poh'
+  - title: 'H. Kragh, S.P.L. Sørensen, the pH concept and its early history, Foundations of Chemistry 27 (2025) 237–261'
+    url: 'https://doi.org/10.1007/s10698-025-09532-6'
+  - title: 'QUDT, quantity kind PH'
+    url: 'https://qudt.org/vocab/quantitykind/PH'
+description:
+  en: >-
+    pH is a logarithmic measure of the acidity of a solution, defined from the activity of its
+    hydrogen ions as $\mathrm{pH}=-\log_{10}a_{\mathrm{H^{+}}}$. A lower pH marks a more acidic
+    solution and a higher pH a more basic one. Introductory chemistry computes it from the amount
+    concentration of hydronium ions in moles per litre, $\mathrm{pH}=-\log_{10}[\mathrm{H_{3}O^{+}}]$,
+    which approximates the activity in dilute solutions.
+
+    pH is a quantity of dimension one, and its unit is one, so values are written as bare numbers.
+    IUPAC calls the symbol an exception to its own rules for quantity symbols, and the letter p
+    acts as an operator meaning minus the base-ten logarithm, with the activity taken relative to a
+    standard molality of one mole per kilogram. Because the activity of a single kind of ion cannot
+    be measured on its own, IUPAC calls this definition notional and links practical values to
+    certified buffer solutions.
+
+    pH is a scalar, and it can be negative. Each step of one unit is a tenfold change in hydrogen
+    ion activity. At $25\,^{\circ}\mathrm{C}$ the ion product of water makes pH and pOH add up to 14,
+    so a neutral solution has pH 7, acidic ones less and basic ones more; at 80 degrees Celsius the
+    neutral point drops to about 6.31. A solution holding 12 moles of hydronium per litre has a pH
+    near minus 1.08.
+
+    The primary standard method uses a Harned cell, a hydrogen electrode paired with a silver
+    chloride electrode, while routine measurements use a glass electrode calibrated with buffers.
+    Stomach acid has a pH near 2.9, normal rain lies between 5 and 6, and human blood sits near 7.3.
+
+    pH is not itself a concentration: equal steps on the scale are equal ratios of activity. The
+    Danish chemist S. P. L. Sørensen introduced the symbol in 1909 at the Carlsberg Laboratory as a
+    hydrogen ion exponent based on concentration, and in the early 1920s the definition was revised
+    to use activity.

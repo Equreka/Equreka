@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Fine-structure constant'
+symbol:
+  tex: '\alpha'
+  text: 'α'
+value: '7.2973525643e-3'
+approximations:
+  - '7.297e-3'
+unit: 'unitless'
+exact: false
+uncertainty: '1.1e-12'
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?alph'
+  ref: 'fine-structure constant'
+externalIds:
+  wikidata: 'Q5997'
+  qudt: 'http://qudt.org/vocab/constant/FineStructureConstant'
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+aliases:
+  - 'fine structure constant'
+  - 'Sommerfeld constant'
+  - 'Sommerfeld fine-structure constant'
+  - 'alpha'
+  - 'electromagnetic coupling constant'
+references:
+  - title: 'NIST, CODATA 2022 value: fine-structure constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?alph'
+  - title: 'NIST, CODATA 2022 value: inverse fine-structure constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?alphinv'
+  - title: 'NIST, Current advances: the fine-structure constant and quantum Hall effect'
+    url: 'https://physics.nist.gov/cuu/Constants/alpha.html'
+  - title: 'P. J. Mohr, D. B. Newell, B. N. Taylor and E. Tiesinga, CODATA recommended values of the fundamental physical constants: 2022, sections V and VI'
+    url: 'https://arxiv.org/abs/2409.03787'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.2.1 and Appendix 1 (26th CGPM, 2018, Resolution 1)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'A. Sommerfeld, Zur Quantentheorie der Spektrallinien, Annalen der Physik 356 (1916) 1-94'
+    url: 'https://doi.org/10.1002/andp.19163561702'
+description:
+  en: >-
+    The fine-structure constant, symbol $\alpha$, is the dimensionless number that measures the
+    strength of the electromagnetic interaction between charged particles and light. Its CODATA 2022
+    recommended value is $7.297\,352\,5643(11)\times10^{-3}$, close to 1/137, with a relative
+    standard uncertainty of $1.6\times10^{-10}$; its reciprocal is about 137.035 999 177. It is a
+    measured constant, not one fixed by the definition of the SI.
+
+    In SI quantities it equals the square of the elementary charge divided by four pi times the
+    vacuum electric permittivity, the reduced Planck constant and the speed of light. Being a pure
+    number, it has the same value in every system of units. In the Bohr model it is the ratio of the
+    speed of the electron in the first orbit to the speed of light, and it sets the size of the fine
+    structure, the small splitting of the spectral lines of hydrogen that gave the constant its
+    name.
+
+    It links many atomic constants: the Rydberg constant is proportional to its square, the Bohr
+    radius to its reciprocal, and the Hartree energy equals its square times the rest energy of the
+    electron. Since the 2019 redefinition fixed the elementary charge, the vacuum magnetic
+    permeability is no longer exact and is obtained from the measured fine-structure constant, with
+    the same relative uncertainty. The SI Brochure adds that experimental limits on any drift of the
+    constant over time are far too small to affect practical measurements.
+
+    Arnold Sommerfeld introduced the constant in 1916, when he extended the Bohr theory with
+    elliptical orbits and relativistic mechanics to explain the fine structure of hydrogen. Today
+    its most precise values come from the measured magnetic-moment anomaly of the electron combined
+    with quantum electrodynamics, and from atom-recoil experiments with caesium and rubidium; these
+    determinations disagree slightly, so CODATA 2022 expanded their uncertainties by a factor of 2.5.

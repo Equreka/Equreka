@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Litre per mole'
+symbol:
+  tex: 'L/mol'
+symbolAlt:
+  tex: 'l/mol'
+unitOf:
+  - 'molar-volume'
+system: 'other'
+compose:
+  of:
+    - unit: 'litre'
+      exp: 1
+    - unit: 'mole'
+      exp: -1
+externalIds:
+  wikidata: 'Q107538768'
+  qudt: 'http://qudt.org/vocab/unit/L-PER-MOL'
+categories:
+  - 'chemistry'
+branches:
+  - 'amount-of-substance'
+  - 'gases'
+aliases:
+  - 'liter per mole'
+  - 'litres per mole'
+  - 'liters per mole'
+  - 'L mol-1'
+  - 'dm3/mol'
+  - 'litro por mol'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (litre) and note (d)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, Chemistry 2e, 9.2 Relating Pressure, Volume, Amount, and Temperature: The Ideal Gas Law'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-2-relating-pressure-volume-amount-and-temperature-the-ideal-gas-law'
+  - title: 'NIST, CODATA 2022 value: molar volume of ideal gas (273.15 K, 100 kPa)'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mvol'
+  - title: 'QUDT, unit L-PER-MOL (litre per mole)'
+    url: 'https://qudt.org/vocab/unit/L-PER-MOL'
+description:
+  en: >-
+    The litre per mole, symbol $\mathrm{L/mol}$, is a unit of molar volume: the litre, a unit
+    accepted for use with the SI, divided by the mole, the SI unit of amount of substance. It is
+    the customary unit for the molar volume of gases in chemistry.
+
+    The SI Brochure places the litre in its Table 8 of non-SI units admitted alongside the SI and
+    defines it as exactly one cubic decimetre, so one litre per mole is exactly one thousandth of a
+    cubic metre per mole, the coherent SI unit, and is identical to the cubic decimetre per mole.
+
+    Gas volumes per mole come out as convenient two-digit numbers in this unit. An ideal gas at
+    273.15 kelvin occupies about 22.711 litres per mole at 100 kilopascals, the current standard
+    pressure, and about 22.414 litres per mole at one standard atmosphere, the older convention
+    behind the 22.4 still found in many textbooks. Because the litre is the usual volume unit of laboratory chemistry, the
+    molar gas constant is often quoted as $0.08206\,\mathrm{L\,atm\,mol^{-1}\,K^{-1}}$ so that the
+    ideal gas law can take litres directly.
+
+    The litre has two symbols: in 1879 the International Committee for Weights and Measures chose a
+    lowercase l, and a century later, in 1979, the 16th General Conference on Weights and Measures
+    added a capital L to avoid confusing the letter l with the numeral 1. Both l/mol and L/mol are therefore
+    correct. The plural is litres per mole, spelled liters per mole in American English.

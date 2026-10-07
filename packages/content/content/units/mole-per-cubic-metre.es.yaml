@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Mol por metro cúbico'
+description: >-
+  El mol por metro cúbico, de símbolo $\mathrm{mol/m^{3}}$, es la unidad derivada coherente del SI
+  de la concentración de cantidad de sustancia: la concentración de una sustancia de la que hay un
+  mol en cada metro cúbico de una mezcla. El folleto del SI la incluye en su tabla de unidades
+  derivadas coherentes expresadas en unidades básicas.
+
+  Es el mol dividido entre el cubo del metro y no tiene nombre especial, de modo que su definición
+  se deduce directamente de las de dos unidades básicas del SI. La publicación especial 811 del NIST
+  la da como unidad SI de la concentración de cantidad de sustancia, la cantidad de una sustancia
+  dividida entre el volumen de la mezcla que la contiene.
+
+  Los químicos rara vez expresan concentraciones en esta unidad, porque un metro cúbico es un
+  volumen muy grande para el trabajo de laboratorio. El mol por litro es mil veces mayor, de modo
+  que una disolución de un mol por litro tiene una concentración de 1000 moles por metro cúbico, y
+  el NIST señala que un mol por decímetro cúbico equivale a un kilomol por metro cúbico. En sentido
+  contrario, un milimol por litro es exactamente un mol por metro cúbico, y por eso las
+  concentraciones fisiológicas dadas en milimoles por litro se leen igual en la unidad coherente.
+
+  Además de la concentración, QUDT asocia la unidad a las constantes de equilibrio expresadas en
+  concentraciones y a la solubilidad de las sustancias en agua, y clasifica el milimol por litro,
+  numéricamente la misma unidad, bajo el nivel de glucosa en sangre.
+
+  En inglés estadounidense el nombre se escribe mole per cubic meter. El símbolo puede escribirse
+  también con exponente negativo, como mol m⁻³, y el plural es moles por metro cúbico.

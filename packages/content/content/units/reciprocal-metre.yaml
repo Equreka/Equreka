@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Reciprocal metre'
+symbol:
+  tex: 'm^{-1}'
+  text: 'm⁻¹'
+unitOf: []
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'metre'
+      exp: -1
+externalIds:
+  wikidata: 'Q11547251'
+  qudt: 'http://qudt.org/vocab/unit/PER-M'
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+  - 'waves-and-oscillations'
+aliases:
+  - 'inverse metre'
+  - 'inverse meter'
+  - 'reciprocal meter'
+  - 'per metre'
+  - 'per meter'
+  - '1/m'
+  - '/m'
+  - 'm-1'
+  - 'm^-1'
+  - 'metro recíproco'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 5, chapter 3 (prefixes with powers), and Appendix 1 (13th CGPM, 1967/68, Resolution 6)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: kayser'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST, CODATA 2022 value: Rydberg constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?ryd'
+  - title: 'QUDT, unit PER-M'
+    url: 'https://qudt.org/vocab/unit/PER-M'
+  - title: 'Wikidata, reciprocal metre (Q11547251)'
+    url: 'https://www.wikidata.org/wiki/Q11547251'
+description:
+  en: >-
+    The reciprocal metre, symbol $\mathrm{m^{-1}}$, also called the inverse metre or per metre, is
+    the coherent SI unit of quantities that count or change per unit length. The best known is the
+    wavenumber, the number of wavelengths of a wave that fit in one metre; the Rydberg constant of
+    atomic physics, attenuation coefficients and the curvature of a line are also expressed in it.
+
+    It is the metre raised to the power minus one and has no special name. The SI Brochure lists it
+    as the coherent unit of wavenumber in its table of derived units written in base units, and the
+    13th CGPM, meeting in 1967 and 1968, added the wave number with the unit one per metre to the
+    list of SI derived units through its Resolution 6.
+
+    Spectroscopy often uses the reciprocal centimetre instead. A prefix belongs to the unit before
+    the power is applied, so one reciprocal centimetre equals 100 reciprocal metres, not one
+    hundredth of one. NIST Special Publication 811 also records the kayser, an older name for the
+    reciprocal centimetre, as exactly 100 reciprocal metres.
+
+    The values met in practice are often large. The Rydberg constant, the wavenumber scale of the
+    hydrogen spectrum, is close to eleven million reciprocal metres. A curve with a radius of one metre has a
+    curvature of one reciprocal metre.
+
+    The symbol can be written as a negative power, $\mathrm{m^{-1}}$, or with a solidus, 1/m. Like
+    every unit symbol it takes no plural ending and no full stop.

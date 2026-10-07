@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Percent'
+symbol:
+  tex: '\%'
+  text: '%'
+unitOf:
+  - 'dimensionless'
+system: 'other'
+compose:
+  factor: '0.01'
+  of:
+    - unit: 'unitless'
+      exp: 1
+externalIds:
+  wikidata: 'Q11229'
+  qudt: 'http://qudt.org/vocab/unit/PERCENT'
+categories:
+  - 'mathematics'
+  - 'chemistry'
+branches:
+  - 'arithmetic'
+  - 'solutions'
+aliases:
+  - 'per cent'
+  - 'percentage'
+  - 'pct'
+  - '%'
+  - 'por ciento'
+  - 'tanto por ciento'
+  - 'porcentaje'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 5.4.7 Quantities with the unit one'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Guide to the SI (SP 811), Chapter 7, 7.10.2 %, percentage by, fraction'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-7-rules-and-style-conventions-expressing-values'
+  - title: 'OpenStax, Chemistry 2e, 3.4 Other Units for Solution Concentrations'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-4-other-units-for-solution-concentrations'
+  - title: 'QUDT, unit PERCENT'
+    url: 'https://qudt.org/vocab/unit/PERCENT'
+description:
+  en: >-
+    The percent, symbol %, expresses a ratio or a fraction as a number of hundredths: one percent
+    is the pure number 0.01. It belongs to no system of units in the strict sense, but the SI
+    Brochure states that the internationally recognized symbol may be used with the SI to express
+    the values of quantities of dimension one.
+
+    Its value is fixed by definition, so that $1\,\%=0.01$ exactly and 100 % equals one. NIST
+    Special Publication 811 gives the same reading, treating the symbol as standing for the number
+    0.01. Both documents ask for a space between the number and the sign and prefer the symbol to
+    the written name in technical text.
+
+    A percentage is converted to a plain ratio by dividing by 100, so a mass fraction of 0.10 is
+    10 %. Parts per million play the same role on a finer scale, meaning a relative value of one
+    millionth, ten thousand times smaller than one percent.
+
+    Percentages appear wherever a part is compared with a whole: discounts, interest rates, the
+    relative change of a price, and the composition of mixtures in chemistry. Household bleach has
+    a sodium hypochlorite mass fraction of 7.4 %, and wine an ethanol volume fraction of roughly
+    12 %. Physiological saline, often labelled 0.9 %, is better stated as a mass concentration of
+    0.9 grams of sodium chloride per 100 millilitres.
+
+    Because the symbol stands for a number, the SI Brochure and NIST reject phrases such as
+    percentage by mass or by volume and marks such as % (m/m); the kind of fraction should be named
+    in the quantity instead, as in a mass fraction of 7.4 %. The SI Brochure spells the name per
+    cent, in two words, while NIST writes percent.

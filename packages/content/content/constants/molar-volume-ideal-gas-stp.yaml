@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Molar volume of ideal gas (273.15 K, 100 kPa)'
+symbol:
+  tex: 'V_{\mathrm{m}}'
+  text: 'Vm'
+value: '2.271095464148557506e-2'
+approximations:
+  - '2.2711e-2'
+unit: 'cubic-metre-per-mole'
+exact: true
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mvol'
+  ref: 'molar volume of ideal gas (273.15 K, 100 kPa)'
+externalIds:
+  qudt: 'http://qudt.org/vocab/constant/MolarVolumeOfIdealGas273dot15K100KiloPA'
+categories:
+  - 'chemistry'
+branches:
+  - 'gases'
+aliases:
+  - 'standard molar volume'
+  - 'molar volume at STP'
+  - 'molar volume of an ideal gas'
+  - 'STP molar volume'
+  - 'volumen molar estándar'
+references:
+  - title: 'NIST, CODATA 2022 value: molar volume of ideal gas (273.15 K, 100 kPa)'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mvol'
+  - title: 'NIST, CODATA 2022: molar volume of ideal gas (273.15 K, 100 kPa), defining equation'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?eqmvol'
+  - title: 'NIST, CODATA 2022 value: molar volume of ideal gas (273.15 K, 101.325 kPa)'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mvolstd'
+  - title: 'NIST, CODATA 2022 value: molar gas constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?r'
+  - title: 'OpenStax, Chemistry 2e, 9.2 Relating Pressure, Volume, Amount, and Temperature: The Ideal Gas Law'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-2-relating-pressure-volume-amount-and-temperature-the-ideal-gas-law'
+  - title: 'OpenStax, Chemistry 2e, 9.3 Stoichiometry of Gaseous Substances, Mixtures, and Reactions'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-3-stoichiometry-of-gaseous-substances-mixtures-and-reactions'
+  - title: 'OpenStax, Chemistry 2e, 9.6 Non-Ideal Gas Behavior'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-6-non-ideal-gas-behavior'
+  - title: 'QUDT, constant MolarVolumeOfIdealGas273dot15K100KiloPA'
+    url: 'https://qudt.org/vocab/constant/MolarVolumeOfIdealGas273dot15K100KiloPA'
+description:
+  en: >-
+    The molar volume of an ideal gas at 273.15 kelvin and 100 kilopascals, symbol
+    $V_{\mathrm{m}}$, often called the standard molar volume at STP, is the volume one mole of an
+    ideal gas occupies at zero degrees Celsius and a pressure of one bar. CODATA 2022 gives it as
+    $22.710\,954\,64\ldots\times10^{-3}\,\mathrm{m^{3}/mol}$, about 22.711 litres per mole, and it is
+    exact.
+
+    The value is not measured: NIST defines it as the molar gas constant times the temperature
+    divided by the pressure, with both conditions fixed by convention. Since 2019 the gas constant
+    is exact, and because 100 kilopascals is a power of ten the quotient has a finite decimal
+    expansion, $0.022\,710\,954\,641\,485\,575\,06\,\mathrm{m^{3}/mol}$; NIST prints only its
+    first ten significant digits. The conditions must always be stated. CODATA also lists the value
+    at 273.15 kelvin and one standard atmosphere, 101.325 kilopascals, which is about 22.414 litres
+    per mole; textbooks that keep the older definition of standard pressure use that figure,
+    rounded to 22.4 litres. The International Union of Pure and Applied Chemistry changed standard
+    pressure from one atmosphere to one bar in 1982.
+
+    Avogadro's law says that, once temperature and pressure are fixed, the amount of an ideal gas
+    depends only on the volume it fills and not on which gas it is, so the constant applies to any
+    gas that behaves ideally. It converts between gas volumes and amounts in stoichiometry: at these conditions,
+    one mole of gas takes up about 22.7 litres, and the density of a gas is its molar mass divided
+    by this volume. Real gases depart from it, more so at high pressure and low temperature.

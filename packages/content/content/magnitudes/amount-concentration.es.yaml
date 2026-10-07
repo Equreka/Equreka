@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Concentración de cantidad de sustancia'
+description: >-
+  La concentración de cantidad de sustancia, o concentración molar, es la cantidad de una sustancia
+  B presente en una mezcla dividida entre el volumen de toda la mezcla,
+  $c_{\mathrm{B}}=n_{\mathrm{B}}/V$. Es la forma habitual de indicar cuánto soluto contiene una
+  disolución química, y suele abreviarse como concentración cuando no se alude a otro tipo. En
+  química clínica se llama concentración de sustancia, y los textos antiguos la llaman molaridad.
+
+  Su unidad SI coherente es el mol por metro cúbico, y su dimensión es cantidad de sustancia
+  dividida entre longitud al cubo. En el laboratorio se usa el mol por litro, $\mathrm{mol/L}$, que
+  equivale a 1000 moles por metro cúbico y coincide con el mol por decímetro cúbico. El símbolo de
+  unidad M, que se lee molar, sigue presente en la enseñanza y en las etiquetas de los reactivos,
+  pero el NIST considera obsoletos tanto ese símbolo como el nombre molaridad, y la IUPAC
+  desaconseja molaridad porque se confunde con facilidad con molalidad.
+
+  La concentración de cantidad de sustancia es un escalar que nunca es negativo, y vale cero cuando
+  la sustancia está ausente. Una disolución se dilata al calentarse mientras la cantidad de soluto
+  no cambia, de modo que su concentración disminuye un poco al subir la temperatura. Por eso, los
+  cálculos que no deben depender de la temperatura, como los de las propiedades coligativas, usan
+  la molalidad.
+
+  Una disolución de concentración conocida se prepara pesando el soluto, pasando su masa a moles
+  con la masa molar y añadiendo disolvente hasta un volumen marcado. El agua pura a
+  $25\,^{\circ}\mathrm{C}$ contiene unos $1.0\times10^{-7}\,\mathrm{mol/L}$ de iones hidronio, un
+  refresco azucarado lleva unas décimas de mol de sacarosa por litro, y el vinagre blanco tiene
+  cerca de 0.84 moles de ácido acético en cada litro.
+
+  La concentración másica cuenta el soluto en kilogramos en lugar de en moles, y la molalidad divide
+  entre la masa del disolvente solo y no entre el volumen de la disolución. En las expresiones de
+  equilibrio, la concentración de una especie se escribe a menudo entre corchetes, como [B].

@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Molar volume'
+symbol:
+  tex: 'V_{\mathrm{m}}'
+  text: 'Vm'
+baseUnit: 'cubic-metre-per-mole'
+dimension:
+  L: 3
+  N: -1
+nonNegative: true
+externalIds:
+  wikidata: 'Q487112'
+  qudt: 'http://qudt.org/vocab/quantitykind/MolarVolume'
+categories:
+  - 'chemistry'
+branches:
+  - 'amount-of-substance'
+  - 'gases'
+aliases:
+  - 'volume per mole'
+  - 'gas molar volume'
+references:
+  - title: 'OpenStax, Chemistry 2e, 9.2 Relating Pressure, Volume, Amount, and Temperature: The Ideal Gas Law'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-2-relating-pressure-volume-amount-and-temperature-the-ideal-gas-law'
+  - title: 'OpenStax, Chemistry 2e, 9.3 Stoichiometry of Gaseous Substances, Mixtures, and Reactions'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-3-stoichiometry-of-gaseous-substances-mixtures-and-reactions'
+  - title: 'NIST, CODATA 2022 value: molar volume of ideal gas (273.15 K, 100 kPa)'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mvol'
+  - title: 'NIST, CODATA 2022 value: molar volume of ideal gas (273.15 K, 101.325 kPa)'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mvolstd'
+  - title: 'OpenStax, Chemistry 2e, 9.6 Non-Ideal Gas Behavior'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-6-non-ideal-gas-behavior'
+  - title: 'QUDT, quantity kind MolarVolume'
+    url: 'https://qudt.org/vocab/quantitykind/MolarVolume'
+  - title: 'QUDT, unit M3-PER-MOL (cubic metre per mole)'
+    url: 'https://qudt.org/vocab/unit/M3-PER-MOL'
+description:
+  en: >-
+    Molar volume, symbol $V_{\mathrm{m}}$, is the volume of a sample of a substance divided by the
+    amount of substance it contains: the space taken up by one mole of the substance at a stated
+    temperature and pressure. It applies to gases, liquids and solids alike, and chemistry uses it
+    to relate the volume of a gas to the number of moles it holds.
+
+    The coherent SI unit is the cubic metre per mole, and the dimension is length cubed divided by
+    amount of substance. The cubic metre is large on this scale, so gas values are usually given in
+    litres (cubic decimetres) per mole and values for liquids and solids in cubic centimetres per
+    mole.
+
+    Molar volume is a positive scalar. For a pure substance it also equals the molar mass divided by
+    the mass density, so measuring the density of a substance of known formula gives its molar
+    volume, and the reverse relation lets the density of a gas be computed from its molar mass.
+
+    For an ideal gas the molar volume depends only on temperature and pressure, not on the identity
+    of the gas, and follows from the ideal gas law as the molar gas constant times the
+    temperature divided by the pressure. At 273.15 kelvin and 100 kilopascals it is about 22.711
+    litres per mole; at the same temperature and one standard atmosphere it is about 22.414 litres
+    per mole, the value many textbooks round to 22.4. Real gases deviate slightly from these values,
+    most at high pressure and low temperature.
+
+    Molar volume should not be confused with specific volume, the volume per unit mass, nor with
+    the volume of a single molecule.

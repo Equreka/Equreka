@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Absorbed dose'
+symbol:
+  tex: 'D'
+baseUnit: 'gray'
+dimension:
+  L: 2
+  T: -2
+nonNegative: true
+externalIds:
+  wikidata: 'Q215313'
+  qudt: 'http://qudt.org/vocab/quantitykind/AbsorbedDose'
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'absorbed radiation dose'
+  - 'radiation dose'
+  - 'total ionizing dose'
+  - 'dosis de radiación'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4, sections 2.3.4 and 2.3.5, and Appendix 1 (15th CGPM, 1975, Resolution 9; CIPM, 1976)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: rad (absorbed dose)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'US EPA, Radiation terms and units: absorbed dose'
+    url: 'https://www.epa.gov/radiation/radiation-terms-and-units'
+  - title: 'Ministry of the Environment of Japan, Booklet on health effects of radiation, 2.3 Conversion from gray to sievert'
+    url: 'https://www.env.go.jp/en/chemi/rhm/basic-info/1st/02-03-04.html'
+  - title: 'Ministry of the Environment of Japan, Booklet on health effects of radiation, 2.3 Relationship between units'
+    url: 'https://www.env.go.jp/en/chemi/rhm/basic-info/1st/02-03-03.html'
+  - title: 'Radiological Physics and Technology 10 (2017): Louis Harold Gray (1905-1965), a pioneer in radiobiology'
+    url: 'https://link.springer.com/article/10.1007/s12194-016-0379-9'
+  - title: 'QUDT, quantity kind AbsorbedDose (skos:broader SpecificEnergy)'
+    url: 'https://qudt.org/vocab/quantitykind/AbsorbedDose'
+description:
+  en: >-
+    Absorbed dose, symbol $D$, is the energy that ionizing radiation deposits in matter divided by
+    the mass of that matter. It is the basic physical quantity of radiation dosimetry, the radiation
+    dose that radiotherapy, medical imaging and radiation protection start from, whether the
+    radiation is made of X-rays, gamma rays, charged particles or neutrons.
+
+    Its SI unit is the gray, $\mathrm{Gy}$, the special name of the joule per kilogram, so its
+    dimension is length squared divided by time squared, the same as that of specific energy. The
+    15th CGPM adopted the gray in 1975, and the CIPM later allowed it also for kerma and for the
+    specific energy imparted. The older rad equals exactly 0.01 gray.
+
+    Absorbed dose is a scalar that cannot be negative, and it always refers to a specified material
+    at a given place, such as soft tissue in one organ. It is a purely physical quantity that ignores
+    the kind of radiation: a gray of alpha particles and a gray of gamma rays deposit the same energy
+    in each kilogram, yet the alpha particles do far more biological harm.
+
+    Organ doses are calculated or measured for each tissue that is exposed, and they are the first
+    step in any estimate of radiation risk. Medical imaging works in milligrays: a chest CT scan
+    gives the thyroid about 10 milligrays, and a brain CT scan gives the lens of the eye about 60
+    milligrays.
+
+    Absorbed dose is easily mistaken for equivalent dose and effective dose, which correct it for the
+    kind of radiation and for how sensitive each organ is and are expressed in sieverts, and for
+    activity, which describes the source rather than the irradiated body. In 1953 the ICRU gave the
+    name rad to the unit of absorbed dose; the SI unit that replaced it honours the British
+    radiobiologist Louis Harold Gray.

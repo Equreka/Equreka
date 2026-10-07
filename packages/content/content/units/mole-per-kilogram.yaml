@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Mole per kilogram'
+namePlural:
+  en: 'moles per kilogram'
+symbol:
+  tex: 'mol/kg'
+unitOf:
+  - 'molality'
+system: 'si-derived'
+prefixes:
+  - 'milli'
+compose:
+  of:
+    - unit: 'mole'
+      exp: 1
+    - unit: 'kilogram'
+      exp: -1
+externalIds:
+  wikidata: 'Q88957663'
+  qudt: 'http://qudt.org/vocab/unit/MOL-PER-KiloGM'
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'mol/kg'
+  - 'mol kg-1'
+  - 'mol kg^-1'
+  - 'moles per kilogram'
+  - 'molal'
+references:
+  - title: 'NIST, Guide to the SI (SP 811), Chapter 8, 8.6.8 Molality of solute B and Table 12'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-8'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.10, note 14, and section 2.13.1 (viii)'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'OpenStax, Chemistry 2e, 11.4 Colligative Properties, Table 11.2'
+    url: 'https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties'
+  - title: 'QUDT, unit MOL-PER-KiloGM'
+    url: 'https://qudt.org/vocab/unit/MOL-PER-KiloGM'
+description:
+  en: >-
+    The mole per kilogram, symbol $\mathrm{mol/kg}$, is the coherent SI derived unit of molality,
+    the amount of a solute divided by the mass of the solvent that dissolves it. A solution has a
+    molality of one mole per kilogram when each kilogram of solvent holds one mole of solute.
+
+    It is the mole divided by the kilogram, two SI base units, and carries no special name. NIST
+    Special Publication 811 gives it as the SI unit of the molality of a solute B and lists it with
+    the other quotients of amount, volume and mass used to describe mixtures.
+
+    The millimole per kilogram, one thousandth of the unit, suits dilute solutions. IUPAC fixes the
+    standard molality at exactly one mole per kilogram; the activity of a solute, and through it the
+    pH, is measured relative to that reference. Freezing point and boiling point constants are
+    tabulated per unit of molality: for water, each mole of dissolved particles per kilogram moves
+    the freezing point by about 1.86 degrees Celsius.
+
+    QUDT lists the unit for molality, for ionic strength and for amount of substance per unit mass
+    in general. Since neither the mole nor the kilogram depends on temperature, a value in this unit
+    stays the same when a solution is warmed, which is the reason colligative property calculations
+    use it.
+
+    The older practice of calling a one mole per kilogram solution one molal, written 1 m, is
+    obsolete according to NIST, and IUPAC warns that the letter m must not stand for the unit
+    alongside other unit symbols. The plural is moles per kilogram.

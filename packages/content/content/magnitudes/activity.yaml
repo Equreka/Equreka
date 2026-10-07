@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Activity'
+symbol:
+  tex: 'A'
+baseUnit: 'becquerel'
+dimension:
+  T: -1
+nonNegative: true
+externalIds:
+  wikidata: 'Q317949'
+  qudt: 'http://qudt.org/vocab/quantitykind/Activity'
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'radioactive activity'
+  - 'activity of a radionuclide'
+  - 'decay rate'
+  - 'disintegration rate'
+  - 'radioactivity'
+  - 'actividad radiactiva'
+  - 'velocidad de desintegración'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 and notes (d) and (h), section 2.3.4'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: curie'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'HyperPhysics, Georgia State University, Radioactive half-life and nuclear decay probability'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/Nuclear/halfli2.html'
+  - title: 'US EPA, Radiation terms and units: radioactivity'
+    url: 'https://www.epa.gov/radiation/radiation-terms-and-units'
+  - title: 'Ministry of the Environment of Japan, Booklet on health effects of radiation, 1.1 Difference between radiation and radioactive materials'
+    url: 'https://www.env.go.jp/en/chemi/rhm/basic-info/1st/01-01-02.html'
+  - title: 'Ministry of the Environment of Japan, Booklet on health effects of radiation, 2.3 Relationship between units'
+    url: 'https://www.env.go.jp/en/chemi/rhm/basic-info/1st/02-03-03.html'
+  - title: 'Nobel Prize Outreach, Henri Becquerel: facts (Nobel Prize in Physics 1903)'
+    url: 'https://www.nobelprize.org/prizes/physics/1903/becquerel/facts/'
+  - title: 'QUDT, quantity kind Activity (skos:broader StochasticProcess)'
+    url: 'https://qudt.org/vocab/quantitykind/Activity'
+description:
+  en: >-
+    Activity, symbol $A$, is the number of nuclei in a sample of a radionuclide that undergo a
+    spontaneous transformation per unit of time: the rate of radioactive decay of the sample. Also
+    called radioactive activity, decay rate or disintegration rate, it is the quantity of nuclear
+    physics and radiation protection that tells how intense a radioactive source is, independently
+    of any dose that a nearby person or object receives.
+
+    Its SI unit is the becquerel, $\mathrm{Bq}$, a special name for the reciprocal second, so the
+    dimension is time to the power minus one. The SI Brochure keeps the becquerel for random decay
+    processes in radionuclides and the hertz for periodic phenomena, and explains that the separate
+    name guards against errors that could harm health. The older curie is still met, with one curie
+    worth exactly $3.7\times10^{10}\,\mathrm{Bq}$.
+
+    Activity is a scalar and is never negative. Each nucleus of a given radionuclide decays at
+    random with a fixed probability per unit of time, so the activity of a pure sample is
+    proportional to the number of nuclei that have not yet decayed, the factor being the decay
+    constant of that radionuclide. The activity therefore falls exponentially, halving once every
+    half-life, and temperature, pressure or chemical form leave that rate unchanged.
+
+    Detectors and survey meters register the radiation emitted by a source, which is how the
+    radioactive content of soil, food and water is determined. The values cover many orders of
+    magnitude: natural radium-226 in surface water usually amounts to 0.0037 to 0.0185 becquerels
+    per litre, while one gram of radium has an activity close to one curie.
+
+    Three ideas are often mixed up with it. Radioactivity is the property of emitting radiation, a
+    radioactive material is the substance that has it, and the SI Brochure calls the use of
+    radioactivity as a name for activity incorrect. Absorbed dose and equivalent dose, in grays and
+    sieverts, describe the receiving side instead. Henri Becquerel discovered radioactivity in 1896
+    while studying uranium salts.

@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Joule per mole'
+namePlural:
+  en: 'joules per mole'
+symbol:
+  tex: 'J/mol'
+unitOf:
+  - 'molar-energy'
+system: 'si-derived'
+prefixes:
+  - 'kilo'
+compose:
+  of:
+    - unit: 'joule'
+      exp: 1
+    - unit: 'mole'
+      exp: -1
+externalIds:
+  wikidata: 'Q13035094'
+  qudt: 'http://qudt.org/vocab/unit/J-PER-MOL'
+categories:
+  - 'chemistry'
+branches:
+  - 'thermochemistry'
+aliases:
+  - 'J mol-1'
+  - 'J mol^-1'
+  - 'J·mol⁻¹'
+  - 'julio por mol'
+  - 'joule por mol'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 6 (joule per mole, molar energy)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, Chemistry 2e, 5.3 Enthalpy'
+    url: 'https://openstax.org/books/chemistry-2e/pages/5-3-enthalpy'
+  - title: 'OpenStax, Chemistry 2e, 17.4 Potential, Free Energy, and Equilibrium'
+    url: 'https://openstax.org/books/chemistry-2e/pages/17-4-potential-free-energy-and-equilibrium'
+  - title: 'QUDT, unit J-PER-MOL (joule per mole)'
+    url: 'https://qudt.org/vocab/unit/J-PER-MOL'
+description:
+  en: >-
+    The joule per mole, symbol $\mathrm{J/mol}$, is the coherent SI derived unit of molar energy,
+    an energy divided by an amount of substance. It combines the joule, the SI unit of energy, with
+    the mole, the base unit of amount of substance, and has no special name.
+
+    The SI Brochure lists the joule per mole in its table of coherent derived units whose names
+    include a unit with a special name, with molar energy as its quantity. In base units it is the
+    kilogram square metre per second squared per mole. An energy of one joule for every mole of
+    specified entities, whether molecules reacting, ions formed or atoms vaporized, is one joule
+    per mole.
+
+    Chemical energies per mole are large in joules, so thermochemistry tables use the kilojoule
+    per mole, one thousand joules per mole. Standard enthalpies of formation, enthalpies of
+    combustion and reaction and Gibbs energies of reaction are all quoted in it: the
+    formation of carbon dioxide from graphite and oxygen has a standard enthalpy of
+    $-393.5\,\mathrm{kJ/mol}$, and the complete combustion of ethanol releases 1366.8 kilojoules per
+    mole. When a Gibbs energy is computed from a cell potential, the product of the moles of
+    electrons, the Faraday constant and the potential comes out in joules per mole of reaction.
+
+    The joule per mole should not be read as the energy of one molecule: dividing a molar energy by
+    the Avogadro constant gives the energy per entity, so the 393.5 kilojoules per mole released in
+    forming carbon dioxide amount to about 6.5 × 10⁻¹⁹ joules per molecule formed. The symbol may
+    also be written J mol⁻¹, and the plural is joules per mole.

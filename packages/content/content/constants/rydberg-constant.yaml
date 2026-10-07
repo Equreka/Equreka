@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Rydberg constant'
+symbol:
+  tex: 'R_{\infty}'
+  text: 'R∞'
+value: '10973731.568157'
+approximations:
+  - '1.097e+7'
+unit: 'reciprocal-metre'
+exact: false
+uncertainty: '0.000012'
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?ryd'
+  ref: 'Rydberg constant'
+externalIds:
+  wikidata: 'Q658065'
+  qudt: 'http://qudt.org/vocab/constant/RydbergConstant'
+categories:
+  - 'physics'
+  - 'chemistry'
+branches:
+  - 'modern-physics'
+  - 'atomic-structure'
+aliases:
+  - 'R infinity'
+  - 'R_inf'
+  - 'Rydberg number'
+references:
+  - title: 'NIST, CODATA 2022 value: Rydberg constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?ryd'
+  - title: 'NIST, CODATA 2022 value: Rydberg constant times hc in eV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?rydhcev'
+  - title: 'P. J. Mohr, D. B. Newell, B. N. Taylor and E. Tiesinga, CODATA recommended values of the fundamental physical constants: 2022, section III and Table XXXI'
+    url: 'https://arxiv.org/abs/2409.03787'
+  - title: 'HyperPhysics, Georgia State University, Hydrogen energies and spectrum'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/hyde.html'
+  - title: 'MacTutor History of Mathematics, Johannes Robert Rydberg (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Rydberg/'
+  - title: 'Nobel Prize Outreach, Niels Bohr: facts (Nobel Prize in Physics 1922)'
+    url: 'https://www.nobelprize.org/prizes/physics/1922/bohr/facts/'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.2: the seven defining constants'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+description:
+  en: >-
+    The Rydberg constant, symbol $R_{\infty}$, is the constant of atomic physics that sets the
+    wavenumbers of the spectral lines of hydrogen. Its CODATA 2022 recommended value is
+    $10\,973\,731.568\,157(12)\,\mathrm{m^{-1}}$, a measured value with a relative standard
+    uncertainty of $1.1\times10^{-12}$; the 2019 redefinition of the SI did not fix it.
+
+    The subscript infinity marks the idealized case of a nucleus of infinite mass. Multiplied by the
+    Planck constant and the speed of light, the constant becomes the Rydberg energy, about 13.6057
+    electronvolts, which is half the Hartree energy and sets the scale of the binding energies of the
+    hydrogen atom. Real hydrogen and its isotopes need small corrections for the finite mass of the
+    nucleus.
+
+    In terms of more basic constants, the Rydberg constant equals the square of the fine-structure
+    constant times the electron mass times the speed of light, divided by twice the Planck constant.
+    In the Bohr model the wavenumber of a hydrogen line is this constant, corrected for the reduced
+    mass, multiplied by the difference between the reciprocal squares of the principal quantum
+    numbers of the two levels, so the constant links atomic spectra to the electron mass and the
+    fine-structure constant.
+
+    The Swedish physicist Johannes Rydberg had found his spectral regularities by 1887 and published them in 1890,
+    insisting that a single hydrogen constant should appear in every series of lines. In 1913 the
+    model of the hydrogen atom proposed by Niels Bohr explained why hydrogen emits only those fixed
+    wavelengths. Today it is obtained by
+    comparing precise measurements of transition frequencies in atomic hydrogen and deuterium with
+    quantum electrodynamics, a fit that also yields the charge radii of the proton and the deuteron.

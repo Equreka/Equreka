@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Gram per litre'
+namePlural:
+  en: 'grams per litre'
+symbol:
+  tex: 'g/L'
+unitOf:
+  - 'mass-concentration'
+system: 'other'
+prefixes:
+  - 'milli'
+compose:
+  of:
+    - unit: 'gram'
+      exp: 1
+    - unit: 'litre'
+      exp: -1
+externalIds:
+  wikidata: 'Q834105'
+  qudt: 'http://qudt.org/vocab/unit/GM-PER-L'
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'gram per liter'
+  - 'grams per litre'
+  - 'g/l'
+  - 'g L-1'
+  - 'g/dm3'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 5, Table 8 (litre) and 5.4.7'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Guide to the SI (SP 811), Chapter 8, 8.2 Volume and 8.6.5 note 1'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-8'
+  - title: 'OpenStax, Chemistry 2e, 3.4 Other Units for Solution Concentrations'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-4-other-units-for-solution-concentrations'
+  - title: 'OpenStax, University Physics Volume 1, 14.1 Fluids, Density, and Pressure, Table 14.1'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure'
+  - title: 'QUDT, unit GM-PER-L'
+    url: 'https://qudt.org/vocab/unit/GM-PER-L'
+description:
+  en: >-
+    The gram per litre, symbol $\mathrm{g/L}$, is a unit of mass concentration: one gram of a
+    substance dissolved or dispersed in each litre of a mixture. It is not a coherent SI unit,
+    because it combines the gram, a submultiple of the kilogram, with the litre, a unit accepted for
+    use with the SI.
+
+    The gram is a thousandth of a kilogram and the litre a thousandth of a cubic metre, so the two
+    factors cancel: one gram per litre equals exactly one kilogram per cubic metre, the coherent SI
+    unit of both mass concentration and density. A value therefore keeps the same number when it
+    passes from one unit to the other.
+
+    Its submultiple the milligram per litre, equal to one gram per cubic metre, serves for dissolved
+    traces in water. One gram per litre is also one milligram per millilitre, and the medical
+    milligram per decilitre equals one hundredth of a gram per litre.
+
+    Physiological saline, labelled 0.9 % mass per volume, holds 9 grams of sodium chloride in each
+    litre, and the fasting level of glucose in blood, quoted as 70 to 100 milligrams per decilitre,
+    corresponds to 0.70 to 1.00 grams per litre. QUDT also lists the unit for density, which suits
+    gases: air at the freezing point of water and atmospheric pressure has about 1.29 grams per
+    litre.
+
+    The SI Brochure allows both l and L for the litre, so g/l and g/L are equally correct. The
+    name is spelled gram per liter in American English, and the plural is grams per litre.

@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Mole per litre'
+namePlural:
+  en: 'moles per litre'
+symbol:
+  tex: 'mol/L'
+unitOf:
+  - 'amount-concentration'
+system: 'other'
+prefixes:
+  - 'milli'
+  - 'micro'
+  - 'nano'
+compose:
+  of:
+    - unit: 'mole'
+      exp: 1
+    - unit: 'litre'
+      exp: -1
+externalIds:
+  wikidata: 'Q21064845'
+  qudt: 'http://qudt.org/vocab/unit/MOL-PER-L'
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'mole per liter'
+  - 'molar'
+  - 'M'
+  - 'mol/l'
+  - 'mol/dm3'
+  - 'mol dm-3'
+  - 'mol L-1'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (litre) and Appendix 1, 12th CGPM (1964) Resolution 6'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Guide to the SI (SP 811), Chapter 8, 8.2 Volume and 8.6.5 note 3'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-8'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.10, note 16'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'OpenStax, Chemistry 2e, 3.3 Molarity'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-3-molarity'
+  - title: 'QUDT, unit MOL-PER-L'
+    url: 'https://qudt.org/vocab/unit/MOL-PER-L'
+description:
+  en: >-
+    The mole per litre, symbol $\mathrm{mol/L}$, is the working unit of amount concentration in
+    chemistry: one mole of a substance dissolved in enough solvent to make one litre of solution.
+    It is not a coherent SI unit, since the litre is a non-SI unit that the SI Brochure accepts for
+    use with the SI.
+
+    It is the mole divided by the litre, and the 12th CGPM in 1964 declared the litre a special name
+    for the cubic decimetre. The mole per litre is therefore the mole per cubic decimetre, and it
+    equals exactly 1000 moles per cubic metre, the coherent unit.
+
+    Its submultiples cover the low concentrations of biochemistry and medicine: the millimole per
+    litre equals exactly one mole per cubic metre, and the micromole and nanomole per litre reach
+    down to trace solutes. IUPAC notes that these units are often written M, mM and μM and read
+    molar, millimolar and micromolar.
+
+    Textbooks, reagent labels and laboratory recipes state concentrations in this unit; a molar
+    solution is prepared by dissolving the solute and adding solvent up to the mark of a volumetric
+    flask, so that the final volume, not the volume of solvent added, is one litre.
+
+    NIST considers the symbol M and the name molarity obsolete and asks for mol/L, mol/dm³ or
+    kmol/m³ instead, so that a value such as 0.1 M is written 0.1 mol/L. Both the lower-case l and the capital L are permitted symbols for the litre. The name is spelled mole per
+    liter in American English, and the plural is moles per litre.

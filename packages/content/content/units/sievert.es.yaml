@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Sievert'
+namePlural: 'sieverts'
+description: >-
+  El sievert, de símbolo $\mathrm{Sv}$, es la unidad SI derivada coherente de dosis equivalente,
+  llamada también equivalente de dosis: la dosis absorbida de radiación ionizante ponderada según
+  la eficacia biológica de la radiación. Como el gray, equivale a un julio por kilogramo, y su
+  nombre propio indica al lector que se ha aplicado esa ponderación.
+
+  La 16.ª CGPM adoptó el nombre especial en 1979 mediante la Resolución 5, para la unidad de dosis
+  equivalente en protección radiológica, y declaró que equivale al julio por kilogramo y que un
+  nombre nuevo estaba justificado para proteger la salud humana. Según una recomendación del CIPM
+  de 2002, el folleto del SI define la dosis equivalente como la dosis absorbida multiplicada por
+  un factor de calidad adimensional, y recomienda los nombres sievert y gray en lugar de julio por
+  kilogramo.
+
+  El antiguo rem equivale exactamente a 0.01 sievert, de modo que un sievert son 100 rem. En
+  protección radiológica, el factor de ponderación de la radiación de la ICRP hace de factor de
+  calidad: vale 1 para los rayos gamma y las partículas beta, así que una dosis absorbida
+  de un miligray se convierte en un milisievert, mientras que las partículas alfa llevan un factor
+  de 20.
+
+  Las dosis cotidianas son pequeñas y se dan en milisieverts y microsieverts. Las fuentes naturales
+  aportan un promedio mundial de unos 2.4 milisieverts al año, y las tasas de dosis ambiental en la
+  mayoría de los espacios habitados están entre 0.01 y 1 microsievert por hora. El sievert mide
+  también la dosis efectiva, la suma ponderada por órganos que se usa en los límites de exposición.
+
+  El nombre rinde homenaje al sueco Rolf Sievert. En 1928, en un congreso de radiología en
+  Estocolmo, pasó a ser el primer presidente de un comité de protección frente a los rayos X y el radio, que en 1950 adoptó su nombre actual, Comisión Internacional de
+  Protección Radiológica. El nombre va en minúscula en el texto corrido,
+  el plural es sieverts y el símbolo Sv lleva S mayúscula y v minúscula.

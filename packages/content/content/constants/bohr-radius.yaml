@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Bohr radius'
+symbol:
+  tex: 'a_{0}'
+  text: 'a0'
+value: '5.29177210544e-11'
+approximations:
+  - '5.29e-11'
+unit: 'metre'
+exact: false
+uncertainty: '8.2e-21'
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?bohrrada0'
+  ref: 'Bohr radius'
+externalIds:
+  wikidata: 'Q652571'
+  qudt: 'http://qudt.org/vocab/constant/BohrRadius'
+categories:
+  - 'physics'
+  - 'chemistry'
+branches:
+  - 'modern-physics'
+  - 'atomic-structure'
+aliases:
+  - 'bohr'
+  - 'atomic unit of length'
+  - 'a0'
+  - 'a_0'
+references:
+  - title: 'NIST, CODATA 2022 value: Bohr radius'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?bohrrada0'
+  - title: 'P. J. Mohr, D. B. Newell, B. N. Taylor and E. Tiesinga, CODATA recommended values of the fundamental physical constants: 2022, Tables XXXI and XXXIII'
+    url: 'https://arxiv.org/abs/2409.03787'
+  - title: 'HyperPhysics, Georgia State University, Hydrogen energies and spectrum'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/hyde.html'
+  - title: 'Nobel Prize Outreach, Niels Bohr: facts (Nobel Prize in Physics 1922)'
+    url: 'https://www.nobelprize.org/prizes/physics/1922/bohr/facts/'
+  - title: 'N. Bohr, On the constitution of atoms and molecules, Philosophical Magazine 26 (1913) 1-25'
+    url: 'https://doi.org/10.1080/14786441308634955'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (angstrom)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+description:
+  en: >-
+    The Bohr radius, symbol $a_{0}$, is the natural unit of length of atomic physics, equal to the
+    radius of the smallest electron orbit in the Bohr model of a hydrogen atom whose nucleus is
+    infinitely heavy. Its CODATA 2022 recommended value is
+    $5.291\,772\,105\,44(82)\times10^{-11}\,\mathrm{m}$, with a relative standard uncertainty of
+    $1.6\times10^{-10}$; like the other atomic constants it is measured, not fixed by the SI.
+
+    The value is a little over half an ångström, which is why atoms and chemical bonds are measured
+    in tenths of a nanometre. In quantum mechanics the Bohr radius is no longer the radius of an
+    orbit but the length scale of the electron cloud of hydrogen, the most probable distance of its
+    ground-state electron from an infinitely heavy nucleus. As the atomic unit of length it is also
+    called the bohr.
+
+    It can be written as the reduced Planck constant divided by the product of the fine-structure
+    constant, the electron mass and the speed of light, or equivalently as four pi times the vacuum
+    electric permittivity times the square of the reduced Planck constant, divided by the electron
+    mass and the square of the elementary charge. The Hartree energy is the square of the elementary
+    charge divided by four pi times the vacuum permittivity times the Bohr radius, and the product of
+    the Bohr radius and the Rydberg constant equals the fine-structure constant divided by four pi.
+
+    Niels Bohr introduced his quantized model of the hydrogen atom in 1913, with the electron
+    allowed only on prescribed orbits, and received the 1922 Nobel Prize in Physics for his work on
+    atomic structure. The radius is not measured on its own: its recommended value follows from the
+    fine-structure constant and the Rydberg constant, and its relative uncertainty is essentially
+    that of the fine-structure constant.

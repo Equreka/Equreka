@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Coulomb per mole'
+symbol:
+  tex: 'C/mol'
+unitOf: []
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'coulomb'
+      exp: 1
+    - unit: 'mole'
+      exp: -1
+externalIds:
+  wikidata: 'Q21396202'
+  qudt: 'http://qudt.org/vocab/unit/C-PER-MOL'
+categories:
+  - 'chemistry'
+branches:
+  - 'electrochemistry'
+aliases:
+  - 'coulombs per mole'
+  - 'C mol-1'
+  - 'C mol^-1'
+  - 'culombio por mol'
+  - 'coulomb por mol'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 (coulomb), section 2.3.1 (the mole) and section 5.2'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, CODATA 2022 value: Faraday constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?f'
+  - title: 'OpenStax, Chemistry 2e, 17.7 Electrolysis'
+    url: 'https://openstax.org/books/chemistry-2e/pages/17-7-electrolysis'
+  - title: 'QUDT, unit C-PER-MOL (coulomb per mole)'
+    url: 'https://qudt.org/vocab/unit/C-PER-MOL'
+description:
+  en: >-
+    The coulomb per mole, symbol $\mathrm{C/mol}$, is the coherent SI derived unit of electric
+    charge per amount of substance. It is the coulomb, the SI unit of electric charge, divided by
+    the mole, the base unit of amount of substance, and in base units it is the ampere second per
+    mole. It has no special name, and its main use in chemistry is as the unit of the Faraday
+    constant.
+
+    A charge of one coulomb carried by every mole of specified entities, such as ions or electrons,
+    is one coulomb per mole. Because both factors are SI units, the unit needs no numerical
+    coefficient and fits the coherent equations of electrochemistry.
+
+    The Faraday constant, the charge of one mole of elementary charges, is exactly the product of
+    the Avogadro constant and the elementary charge, both fixed by the 2019 redefinition of the SI,
+    which gives $96\,485.332\,123\,310\,018\,4\,\mathrm{C/mol}$. Electrolysis calculations use
+    it to turn a measured charge, the current multiplied by the time, into moles of electrons
+    transferred: a charge of 96 485 coulombs corresponds to about one mole of electrons, enough to
+    deposit one mole of silver from a solution of silver ions.
+
+    In the same unit, the charge carried by one mole of a singly charged ion such as sodium is one
+    Faraday constant, and that of a triply charged ion such as chromium(III) three times as much, which is
+    why the number of electrons in a half-reaction multiplies the constant in every electrolysis
+    calculation. The symbol may also be written C mol⁻¹, and the plural is coulombs per mole.

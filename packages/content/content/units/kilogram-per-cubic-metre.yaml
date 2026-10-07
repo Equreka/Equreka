@@ -6,6 +6,7 @@ symbol:
   text: 'kg/m³'
 unitOf:
   - 'density'
+  - 'mass-concentration'
 system: 'si-derived'
 compose:
   of:
@@ -18,9 +19,11 @@ externalIds:
   qudt: 'http://qudt.org/vocab/unit/KiloGM-PER-M3'
 categories:
   - 'physics'
+  - 'chemistry'
 branches:
   - 'mechanics'
   - 'fluid-mechanics'
+  - 'solutions'
 aliases:
   - 'kilogram per cubic meter'
   - 'kg/m3'

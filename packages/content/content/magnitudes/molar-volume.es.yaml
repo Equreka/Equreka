@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Volumen molar'
+description: >-
+  El volumen molar, de símbolo $V_{\mathrm{m}}$, es el volumen de una muestra de una sustancia
+  dividido entre la cantidad de sustancia que contiene: el espacio que ocupa un mol de la sustancia
+  a una temperatura y una presión indicadas. Se aplica por igual a gases, líquidos y sólidos, y la
+  química lo usa para relacionar el volumen de un gas con el número de moles que contiene.
+
+  La unidad SI coherente es el metro cúbico por mol, y su dimensión es longitud al cubo dividida
+  entre cantidad de sustancia. El metro cúbico resulta grande en esta escala, por lo que los valores
+  de los gases suelen darse en litros (decímetros cúbicos) por mol y los de líquidos y sólidos en
+  centímetros cúbicos por mol.
+
+  El volumen molar es una magnitud escalar positiva. En una sustancia pura es también igual a la
+  masa molar dividida entre la densidad másica, de modo que medir la densidad de una sustancia de
+  fórmula conocida da su volumen molar, y la relación inversa permite calcular la densidad de un gas
+  a partir de su masa molar.
+
+  En un gas ideal, el volumen molar depende solo de la temperatura y la presión, no de la naturaleza
+  del gas, y se obtiene de la ley de los gases ideales como la constante molar de los gases por la
+  temperatura dividida entre la presión. A 273.15 kelvin y 100 kilopascales vale unos 22.711 litros
+  por mol; a la misma temperatura y una atmósfera estándar vale unos 22.414 litros por mol, el valor
+  que muchos libros de texto redondean a 22.4. Los gases reales se apartan un poco de estos valores,
+  sobre todo a presión alta y temperatura baja.
+
+  El volumen molar no debe confundirse con el volumen específico, el volumen por unidad de masa, ni
+  con el volumen de una sola molécula.

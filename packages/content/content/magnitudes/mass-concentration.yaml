@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Mass concentration'
+symbol:
+  tex: '\gamma'
+  text: 'γ'
+symbolAlt:
+  tex: '\rho'
+  text: 'ρ'
+baseUnit: 'kilogram-per-cubic-metre'
+dimension:
+  L: -3
+  M: 1
+kindOf: 'density'
+nonNegative: true
+externalIds:
+  wikidata: 'Q589446'
+  qudt: 'http://qudt.org/vocab/quantitykind/MassConcentration'
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'mass concentration of B'
+  - 'gamma'
+  - 'concentración en masa'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 5'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Guide to the SI (SP 811), Chapter 8, 8.6.5 note 1 and Table 12'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-8'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.10'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'QUDT, quantity kind MassConcentration (skos:broader Density)'
+    url: 'https://qudt.org/vocab/quantitykind/MassConcentration'
+  - title: 'OpenStax, Chemistry 2e, 3.4 Other Units for Solution Concentrations'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-4-other-units-for-solution-concentrations'
+description:
+  en: >-
+    Mass concentration is the mass of one constituent B of a mixture divided by the volume of the
+    whole mixture, $\gamma_{\mathrm{B}}=m_{\mathrm{B}}/V$. It states how many grams or kilograms of a
+    dissolved or suspended substance are held in a given volume of a solution, of water or of air,
+    and it is the usual measure for solutes in body fluids and for pollutants.
+
+    Its SI unit is the kilogram per cubic metre, the same coherent unit as density, and the SI
+    Brochure lists it separately for each of the two quantities. The dimension is mass divided by
+    length cubed. One gram per litre equals exactly one kilogram per cubic metre, so values in the
+    two units are numerically identical, and the milligram per litre serves for trace substances.
+    IUPAC gives the symbol $\gamma$ and also allows $\rho$.
+
+    Mass concentration is a scalar and is never negative. It refers to the volume of the whole
+    solution, so it shifts slightly with temperature as the solution expands or contracts. QUDT
+    files it as a narrower kind of density: adding the mass concentrations of every constituent of
+    a mixture gives the density of the mixture.
+
+    It is measured by dissolving a weighed mass of substance in a measured volume, or by evaporating
+    a known volume of solution and weighing what remains. Physiological saline holds 9 grams of
+    sodium chloride per litre, and the fasting level of glucose in blood lies near 0.7 to 1.0 grams
+    per litre, which medical reports write as 70 to 100 milligrams per decilitre.
+
+    Mass concentration is not the same as mass fraction, which divides by the mass of the mixture
+    and has no unit. It differs from amount concentration by the molar mass of the substance,
+    $\gamma_{\mathrm{B}}=M_{\mathrm{B}}c_{\mathrm{B}}$, since amount concentration counts moles
+    rather than kilograms.

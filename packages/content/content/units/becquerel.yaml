@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Becquerel'
+namePlural:
+  en: 'becquerels'
+symbol:
+  tex: 'Bq'
+unitOf:
+  - 'activity'
+system: 'si-derived'
+prefixes:
+  - 'kilo'
+  - 'mega'
+  - 'giga'
+compose:
+  of:
+    - unit: 'second'
+      exp: -1
+externalIds:
+  wikidata: 'Q102573'
+  qudt: 'http://qudt.org/vocab/unit/BQ'
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'becquerels'
+  - 'decays per second'
+  - 'disintegrations per second'
+  - 'becquerelio'
+  - 'bequerelio'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 and note (d), section 2.3.4, and Appendix 1 (15th CGPM, 1975, Resolution 8; 12th CGPM, 1964, Resolution 7)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: curie'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'US EPA, Radiation terms and units: radioactivity'
+    url: 'https://www.epa.gov/radiation/radiation-terms-and-units'
+  - title: 'Ministry of the Environment of Japan, Booklet on health effects of radiation, 2.3 Becquerel and sievert'
+    url: 'https://www.env.go.jp/en/chemi/rhm/basic-info/1st/02-03-01.html'
+  - title: 'Nobel Prize Outreach, Henri Becquerel: facts (Nobel Prize in Physics 1903)'
+    url: 'https://www.nobelprize.org/prizes/physics/1903/becquerel/facts/'
+  - title: 'Real Academia Española, Diccionario de la lengua española: becquerel'
+    url: 'https://dle.rae.es/becquerel'
+  - title: 'Real Academia Española, Diccionario de la lengua española: curio (2), plural becquerels'
+    url: 'https://dle.rae.es/curio'
+  - title: 'QUDT, unit BQ'
+    url: 'https://qudt.org/vocab/unit/BQ'
+description:
+  en: >-
+    The becquerel, symbol $\mathrm{Bq}$, is the coherent SI derived unit of activity, the rate at
+    which the nuclei of a radionuclide undergo spontaneous transformation. An activity of one
+    becquerel means one nuclear decay per second on average. It is one of the 22 units of the SI
+    with a special name and symbol.
+
+    In SI terms the becquerel is the reciprocal second, $\mathrm{s^{-1}}$. The 15th CGPM adopted the
+    name in 1975 through Resolution 8, after the ICRU, the international commission on radiation units,
+    asked for it, citing the danger that errors pose in radiotherapy. The SI
+    Brochure restricts it to random decay processes in radionuclides and leaves the hertz, also a
+    reciprocal second, for periodic phenomena, so that a decay count is never read as a frequency.
+
+    The older curie equals exactly $3.7\times10^{10}\,\mathrm{Bq}$, so the becquerel is a very small
+    unit, and practical results often carry prefixes such as the kilobecquerel, the megabecquerel
+    and the gigabecquerel.
+
+    The becquerel expresses how much radioactive material soil, food or tap water contains, usually
+    per kilogram or per litre. Natural radium-226 in surface water, for example, generally lies
+    between a few thousandths and about two hundredths of a becquerel per litre.
+
+    The unit is named after the French physicist Henri Becquerel, who in 1896 found that uranium
+    salts emit a penetrating radiation able to darken a photographic plate, the discovery of
+    radioactivity. As for every SI unit named after a person, the name is written in lowercase in
+    running text and the symbol starts with a capital letter; the plural is becquerels.

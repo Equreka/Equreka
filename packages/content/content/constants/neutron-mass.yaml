@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Neutron mass'
+symbol:
+  tex: 'm_{\mathrm{n}}'
+  text: 'mn'
+value: '1.67492750056e-27'
+approximations:
+  - '1.675e-27'
+unit: 'kilogram'
+exact: false
+uncertainty: '8.5e-37'
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mn'
+  ref: 'neutron mass'
+externalIds:
+  wikidata: 'Q98000454'
+  qudt: 'http://qudt.org/vocab/constant/NeutronMass'
+categories:
+  - 'physics'
+  - 'chemistry'
+branches:
+  - 'nuclear-physics'
+  - 'atomic-structure'
+aliases:
+  - 'neutron rest mass'
+  - 'mass of the neutron'
+  - 'mn'
+  - 'm_n'
+references:
+  - title: 'NIST, CODATA 2022 value: neutron mass'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mn'
+  - title: 'NIST, CODATA 2022 value: neutron-proton mass difference'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mnmmp'
+  - title: 'NIST, CODATA 2022 value: neutron-proton mass difference energy equivalent in MeV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mnmmpc2mev'
+  - title: 'NIST, CODATA 2022 value: neutron mass energy equivalent in MeV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mnc2mev'
+  - title: 'P. J. Mohr, D. B. Newell, B. N. Taylor and E. Tiesinga, CODATA recommended values of the fundamental physical constants: 2022, section II.B'
+    url: 'https://arxiv.org/abs/2409.03787'
+  - title: 'Particle Data Group, Review of Particle Physics 2024, Summary tables: baryons (n mean life)'
+    url: 'https://pdg.lbl.gov/2024/tables/rpp2024-sum-baryons.pdf'
+  - title: 'Nobel Prize Outreach, James Chadwick: facts (Nobel Prize in Physics 1935)'
+    url: 'https://www.nobelprize.org/prizes/physics/1935/chadwick/facts/'
+  - title: 'J. Chadwick, Possible existence of a neutron, Nature 129 (1932) 312'
+    url: 'https://doi.org/10.1038/129312a0'
+description:
+  en: >-
+    The neutron mass, symbol $m_{\mathrm{n}}$, is the rest mass of a free neutron. Its CODATA 2022
+    recommended value is $1.674\,927\,500\,56(85)\times10^{-27}\,\mathrm{kg}$, a measured value with
+    a relative standard uncertainty of $5.1\times10^{-10}$, and it was not fixed by the 2019
+    redefinition of the SI.
+
+    The neutron is the electrically neutral constituent of atomic nuclei. It is slightly heavier
+    than the proton, by about 0.14 percent, a mass difference whose energy equivalent is about
+    1.293 megaelectronvolts, and its own rest energy is about 939.57 megaelectronvolts. Outside a
+    nucleus the neutron is unstable and decays with a mean life of about 878 seconds, which
+    corresponds to a half-life of about 10 minutes.
+
+    The neutron mass enters the mass defect and binding energy of every nucleus, the difference
+    between the summed masses of the separate protons and neutrons and the mass of the nucleus they
+    form, converted to energy with the square of the speed of light. Together with the speed of a
+    neutron it also gives the momentum and kinetic energy of that neutron.
+
+    James Chadwick showed in 1932 that the penetrating radiation from beryllium struck by alpha
+    particles consists of neutral particles with about the mass of the proton, the neutron. Being
+    uncharged, the neutron is not weighed in an ion trap, and its mass is obtained indirectly: the wavelength of the gamma ray emitted when a neutron is captured by a proton gives
+    the binding energy of the deuteron, and the deuteron and proton masses then fix the neutron
+    mass.

@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Energía molar'
+description: >-
+  La energía molar, de símbolo $U_{\mathrm{m}}$ para la energía interna molar, es una energía
+  dividida entre la cantidad de sustancia a la que se refiere: la energía por mol de una sustancia,
+  o la variación de energía por mol de una reacción o de un cambio de fase. En química y
+  termoquímica, las entalpías molares de formación, de combustión y de reacción y las energías de
+  Gibbs molares son todas energías molares.
+
+  La unidad SI coherente es el julio por mol, y su dimensión es masa por longitud al cuadrado
+  dividida entre tiempo al cuadrado y entre cantidad de sustancia. Los datos químicos se tabulan
+  casi siempre en kilojulios por mol, porque las energías de reacción suelen ser de decenas o
+  centenares de kilojulios por cada mol que reacciona.
+
+  La energía molar es una magnitud escalar y, cuando describe una variación, toma el signo del
+  proceso: en termoquímica, una entalpía molar de reacción negativa indica un proceso exotérmico,
+  que desprende calor, y una positiva un proceso endotérmico, que lo absorbe. Una energía de Gibbs
+  molar de reacción negativa indica una reacción que transcurre de forma espontánea en condiciones
+  estándar.
+
+  Las energías molares se obtienen sobre todo por calorimetría, combinando valores tabulados
+  mediante la ley de Hess, y a partir de potenciales de celda. Las entalpías estándar de formación
+  abarcan un intervalo amplio: el acetileno tiene un valor positivo de 226.7 kilojulios por mol,
+  mientras que el $\mathrm{P_{4}O_{10}}$ sólido llega a $-2984\,\mathrm{kJ/mol}$. La combustión de un mol
+  de etanol desprende unos 1366.8 kilojulios, y la formación de dióxido de carbono a partir de
+  grafito y oxígeno desprende 393.5 kilojulios por mol.
+
+  Una energía molar es la energía de una sola entidad multiplicada por la constante de Avogadro, por
+  lo que se convierte con facilidad en una energía por molécula. Es distinta de la energía
+  específica, referida a un kilogramo y no a un mol, y de la variación de energía total de una
+  reacción, que se mide en julios y crece con la cantidad que reacciona.

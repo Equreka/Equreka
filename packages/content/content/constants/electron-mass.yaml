@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Electron mass'
+symbol:
+  tex: 'm_{\mathrm{e}}'
+  text: 'me'
+value: '9.1093837139e-31'
+approximations:
+  - '9.109e-31'
+unit: 'kilogram'
+exact: false
+uncertainty: '2.8e-40'
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?me'
+  ref: 'electron mass'
+externalIds:
+  wikidata: 'Q3814108'
+  qudt: 'http://qudt.org/vocab/constant/ElectronMass'
+categories:
+  - 'physics'
+  - 'chemistry'
+branches:
+  - 'modern-physics'
+  - 'atomic-structure'
+aliases:
+  - 'electron rest mass'
+  - 'mass of the electron'
+  - 'me'
+  - 'm_e'
+references:
+  - title: 'NIST, CODATA 2022 value: electron mass'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?me'
+  - title: 'NIST, CODATA 2022 value: proton-electron mass ratio'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mpsme'
+  - title: 'NIST, CODATA 2022 value: electron mass energy equivalent in MeV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mec2mev'
+  - title: 'P. J. Mohr, D. B. Newell, B. N. Taylor and E. Tiesinga, CODATA recommended values of the fundamental physical constants: 2022, sections VI and VIII'
+    url: 'https://arxiv.org/abs/2409.03787'
+  - title: 'S. Sturm et al., High-precision measurement of the atomic mass of the electron, Nature 506 (2014) 467-470'
+    url: 'https://doi.org/10.1038/nature13026'
+  - title: 'NIST, Introduction to the constants for nonexperts, 1920-1940'
+    url: 'https://physics.nist.gov/cuu/Constants/historical2.html'
+  - title: 'Nobel Prize Outreach, J. J. Thomson: facts (Nobel Prize in Physics 1906)'
+    url: 'https://www.nobelprize.org/prizes/physics/1906/thomson/facts/'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.2: the seven defining constants'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+description:
+  en: >-
+    The electron mass, symbol $m_{\mathrm{e}}$, is the rest mass of a free electron. Its CODATA 2022
+    recommended value is $9.109\,383\,7139(28)\times10^{-31}\,\mathrm{kg}$, a measured value with a
+    relative standard uncertainty of $3.1\times10^{-10}$. It is not among the seven defining
+    constants of the SI, so the 2019 redefinition of the units left it to experiment.
+
+    The electron is the light partner in every atom: the proton is about 1836.15 times heavier, so
+    electrons add only a small fraction to the mass of matter while governing the size of atoms,
+    chemical bonding and atomic spectra. Expressed as energy through the square of the speed of
+    light, the electron mass corresponds to about 0.511 megaelectronvolt.
+
+    The constant enters most formulas of atomic physics. The Rydberg constant is proportional to it,
+    the Bohr radius is inversely proportional to it, and the Hartree energy, the atomic unit of
+    energy, equals the electron mass times the square of the product of the fine-structure constant
+    and the speed of light. It also fixes the charge-to-mass quotient of the electron and its
+    reduced Compton wavelength.
+
+    In 1897 J. J. Thomson found that cathode rays are streams of electrons, and between 1897 and 1938
+    many experiments measured their charge-to-mass ratio by deflecting electron beams with electric
+    and magnetic fields. The modern value comes from a single electron bound in a hydrogen-like
+    carbon or silicon ion inside a Penning trap: comparing its spin-precession and cyclotron
+    frequencies gives the relative atomic mass of the electron, and atom-recoil measurements then
+    convert atomic masses into kilograms.
