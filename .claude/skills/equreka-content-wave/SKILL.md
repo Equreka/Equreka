@@ -51,11 +51,13 @@ Then `node scripts/quality/roadmap-check.mjs` and `node scripts/content/roadmap.
 All green, or the wave is not done:
 
 ```sh
-pnpm lint && pnpm typecheck && pnpm test && pnpm build
+pnpm lint && pnpm typecheck && pnpm test --continue --force && pnpm build
 pnpm quality
 pnpm --filter @equreka/content check
 node scripts/content/originality.mjs <every file the wave wrote> --format json --out <scratchpad>/originality.json
 ```
+
+`--continue` keeps turbo from stopping at the first failing package, which would hide the others; `--force` bypasses the task cache.
 
 The originality report must show `flagged: false` for every new or rewritten description (legacy entries outside the wave may still flag until W1.5–W1.7 rewrite them).
 
