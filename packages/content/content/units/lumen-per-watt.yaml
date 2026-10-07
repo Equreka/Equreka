@@ -2,7 +2,7 @@
 name:
   en: 'Lumen per watt'
 symbol:
-  tex: '\frac{lm}{W}'
+  tex: 'lm/W'
   text: 'lm/W'
 unitOf:
   - 'luminous-efficacy'
@@ -22,3 +22,42 @@ branches:
   - 'optics-and-photometry'
 aliases:
   - 'lm/W'
+  - 'lm W-1'
+  - 'lm W^-1'
+  - 'lumens per watt'
+  - 'lumen por vatio'
+  - 'lumen por watt'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.2 and 2.3.1 (the candela and the luminous efficacy Kcd)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'HyperPhysics (R. Nave, Georgia State University), Luminous flux and the lumen'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/vision/lumpow.html'
+  - title: 'U.S. Department of Energy, 2019 Lighting R&D Opportunities (January 2020), 3.2, 3.3 and 3.3.1'
+    url: 'https://www.energy.gov/sites/prod/files/2020/01/f70/ssl-rd-opportunities2-jan2020.pdf'
+  - title: 'QUDT, unit LM-PER-W (lumen per watt)'
+    url: 'https://qudt.org/vocab/unit/LM-PER-W'
+description:
+  en: >-
+    The lumen per watt, symbol $\mathrm{lm/W}$, is the SI derived unit of luminous efficacy in
+    photometry: a luminous flux in lumens divided by a power in watts. It states how much light,
+    weighted by the sensitivity of the human eye, a source yields for each watt.
+
+    The unit is built into the definition of the SI. The candela is defined by assigning to
+    monochromatic radiation of frequency $540\times10^{12}\,\mathrm{Hz}$ a luminous efficacy of
+    exactly $683\,\mathrm{lm/W}$. That frequency lies in the green, near the 555 nanometre peak of daylight
+    vision described by HyperPhysics; a watt of radiation there yields 683 lumens, while the same
+    watt at a colour the eye sees less well yields fewer.
+
+    Two ratios share the unit. The luminous efficacy of radiation compares lumens with the radiant
+    power actually emitted, while the luminous efficacy of a source compares them with the
+    electrical power the lamp draws, so it also counts the losses of conversion. The U.S. Department
+    of Energy puts the ceiling for a lossless white source with reasonable colour rendering at about 414
+    lumens per watt.
+
+    Lighting engineering and energy regulation use the unit to compare lamps. HyperPhysics takes a
+    100 watt incandescent bulb giving about 1700 lumens, roughly 17 lumens per watt. The Department
+    of Energy reported that white LED packages rose from about 25 to over 200 lumens per watt in
+    fifteen years and that the mean of listed LED products reached 102 lumens per watt in 2018.
+
+    The plural is lumens per watt. The unit is not a pure number: in base units it is the candela
+    steradian second cubed per kilogram per square metre, because the lumen rests on the candela.

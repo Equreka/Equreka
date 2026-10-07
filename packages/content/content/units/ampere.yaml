@@ -22,18 +22,52 @@ externalIds:
   wikidata: 'Q25272'
   qudt: 'http://qudt.org/vocab/unit/A'
 categories:
+  - 'universal'
   - 'physics'
 branches:
   - 'electromagnetism'
+  - 'si-system'
 aliases:
   - 'amp'
   - 'amps'
+  - 'amperes'
+  - 'amperio'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.1 (the ampere) and Appendix 4 (unit of electric current, ampere)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (CIPM, 1946, Resolution 2; 10th CGPM, 1954, Resolution 6)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, SI Redefinition: Ampere, introduction'
+    url: 'https://www.nist.gov/si-redefinition/ampere-introduction'
+  - title: 'BIPM, SI base unit: ampere (A)'
+    url: 'https://www.bipm.org/en/si-base-units/ampere'
 description:
   en: >-
-    The ampere, symbol $A$, is the SI unit of electric current ($I$). It is defined by taking the
-    fixed numerical value of the elementary charge e to be $1.602 176 634e^{–19}$ when expressed in
-    the unit $C$, which is equal to $A$ $s$, where the second is defined in terms of $\Delta
-    ν_{Cs}$.
+    The ampere, symbol $\mathrm{A}$, is the SI base unit of electric current, the rate at which
+    electric charge flows past a point of a circuit. It is the only electrical unit among the seven
+    SI base units, and the coulomb, the volt, the ohm and the other electrical units are built from
+    it together with the metre, the kilogram and the second.
+
+    Since 20 May 2019 the ampere has been defined by fixing the elementary charge at exactly
+    $e=1.602\,176\,634\times10^{-19}\,\mathrm{C}$, where the coulomb equals the ampere second and
+    the second is defined through the caesium frequency. A steady current of one ampere therefore
+    carries about $6.241\times10^{18}$ elementary charges past a given point each second. As a side
+    effect, the magnetic constant is no longer exact and has to be measured.
+
+    One coulomb is the charge moved by one ampere in one second, and the ampere hour, used to rate
+    batteries, equals 3600 coulombs. Multiplying a current in amperes by a potential difference in
+    volts gives a power in watts.
+
+    NIST quotes everyday values: about 15 amperes for an 1800-watt hair dryer, 15 to 20 amperes for
+    a household circuit breaker, a few thousandths of an ampere for a small LED and 100 000 amperes
+    or more in a lightning stroke. Laboratories realize electrical units through quantum standards
+    based on the Josephson and quantum Hall effects.
+
+    International ampere and ohm units were introduced by an electrical congress in Chicago in 1893.
+    In 1946 the CIPM defined the ampere through the force between two long parallel wires one metre
+    apart, and the 10th CGPM made it a base unit in 1954. The unit honours the French scientist
+    André-Marie Ampère, whose experiments in the 1820s inspired that older definition; amp is an
+    informal short form of the name.
 textSources:
   - title: 'Wikipedia: Ampere'
     url: 'https://en.wikipedia.org/wiki/Ampere'

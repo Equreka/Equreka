@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Candela'
+description: >-
+  La candela, de símbolo $\mathrm{cd}$, es la unidad básica SI de intensidad luminosa: la potencia
+  que una fuente de luz envía en una dirección por unidad de ángulo sólido, ponderada según la
+  sensibilidad del ojo humano a cada longitud de onda. Es la única unidad básica del SI que se apoya
+  en la visión humana.
+
+  La definición fija en exactamente $K_{\mathrm{cd}}=683\,\mathrm{lm/W}$ la eficacia luminosa de la
+  luz de una sola frecuencia, $540\times10^{12}\,\mathrm{Hz}$, un verde próximo al máximo de la
+  visión diurna, con el vatio ligado al kilogramo, al metro y al segundo. En la práctica, una fuente
+  verde cuya intensidad radiante en una dirección es la 683.ª parte de un vatio por estereorradián
+  tiene en esa dirección una intensidad luminosa de una candela. Para otros colores y para la luz
+  blanca, una curva normalizada de respuesta visual pondera cada longitud de onda.
+
+  El lumen, unidad de flujo luminoso, equivale a una candela estereorradián, de modo que una fuente
+  de una candela que brilla por igual en todas las direcciones emite un lumen por estereorradián en
+  los $4\pi\,\mathrm{sr}$ de la esfera completa. La luminancia se
+  expresa en candelas por metro cuadrado, y la iluminancia en lux, o lúmenes por metro cuadrado.
+
+  Los envases de las lámparas suelen indicar lúmenes, la emisión total de luz, mientras que la
+  candela describe lo brillante que parece una fuente desde una dirección dada. El NIST señala que
+  la definición de 1979 permitió realizar la unidad con fotodetectores calibrados en lugar de
+  lámparas, y que su incertidumbre de medida aún no baja de una parte por mil.
+
+  El nombre es la palabra latina para vela. Los patrones de llama y de filamento dieron paso a la
+  nueva candela, basada en un cuerpo negro a la temperatura de solidificación del platino, que el
+  CIPM promulgó en 1946 y que la 9.ª CGPM llamó candela en 1948. La 10.ª CGPM la hizo unidad básica
+  en 1954, y la 16.ª CGPM sustituyó el cuerpo negro por una radiación monocromática en 1979. El
+  plural es candelas.

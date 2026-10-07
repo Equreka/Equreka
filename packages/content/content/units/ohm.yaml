@@ -29,23 +29,53 @@ externalIds:
   wikidata: 'Q47083'
   qudt: 'http://qudt.org/vocab/unit/OHM'
 categories:
+  - 'universal'
   - 'physics'
 branches:
   - 'electromagnetism'
+  - 'si-system'
 aliases:
-  - 'ohm'
   - 'ohms'
+  - 'V/A'
+  - 'volt per ampere'
+  - 'Omega'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (CIPM, 1946, Resolution 2; 11th CGPM, 1960, Resolution 12; 14th CGPM, 1971, pascal and siemens; CIPM, 1988, Recommendation 2; 26th CGPM, 2018, Resolution 1)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, CODATA 2022 recommended values: von Klitzing constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?rk'
+  - title: 'OpenStax, University Physics Volume 2, 9.3 Resistivity and Resistance'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-3-resistivity-and-resistance'
+  - title: 'MacTutor History of Mathematics, Georg Simon Ohm'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Ohm/'
+  - title: 'QUDT, unit OHM'
+    url: 'https://qudt.org/vocab/unit/OHM'
 description:
-  en: |-
-    The ohm (symbol: Ω) is the SI derived unit of electrical resistance, named after German physicist Georg Ohm. Various empirically derived standard units for electrical resistance were developed in connection with early telegraphy practice, and the British Association for the Advancement of Science proposed a unit derived from existing units of mass, length and time, and of a convenient scale for practical work as early as 1861. As of 2020, the definition of the ohm is expressed in terms of the quantum Hall effect.
+  en: >-
+    The ohm, symbol $\Omega$, is the coherent SI derived unit of electrical resistance, the
+    opposition of a conductor to the passage of a steady current, and also of reactance and
+    impedance in alternating-current circuits. One ohm is one volt per ampere; in SI base units it
+    is the kilogram square metre per second cubed per square ampere.
 
-    ### Definition
+    The CIPM definition of 1946 states that a conductor has a resistance of one ohm between two
+    points if a steady one-volt potential difference applied between them drives a current of one
+    ampere, provided the conductor itself generates no electromotive force. The reciprocal of the
+    ohm, the unit of conductance, received the special name siemens from the 14th CGPM in 1971.
+    The product of an ohm and a farad is a second.
 
-    The ohm is defined as an electrical resistance between two points of a conductor when a constant potential difference of one volt, applied to these points, produces in the conductor a current of one ampere, the conductor not being the seat of any electromotive force.
+    Laboratories realize the ohm with the quantum Hall effect, whose von Klitzing constant equals
+    the Planck constant divided by the square of the elementary charge. The CIPM set a
+    conventional value of exactly 25 812.807 ohms for it from 1990; the 2018 revision of the SI
+    fixed both constants, so the von Klitzing constant now has an exact value,
+    25 812.807 45... ohms, whose decimal digits never end, and the conventional value was abrogated.
 
-    $${\displaystyle \Omega ={\dfrac {\text{V}}{\text{A}}}={\dfrac {1}{\text{S}}}={\dfrac {\text{W}}{{\text{A}}^{2}}}={\dfrac {{\text{V}}^{2}}{\text{W}}}={\dfrac {\text{s}}{\text{F}}}={\dfrac {\text{H}}{\text{s}}}={\dfrac {{\text{J}}{\cdot }{\text{s}}}{{\text{C}}^{2}}}={\dfrac {{\text{kg}}{\cdot }{\text{m}}^{2}}{{\text{s}}{\cdot }{\text{C}}^{2}}}={\dfrac {\text{J}}{{\text{s}}{\cdot }{\text{A}}^{2}}}={\dfrac {{\text{kg}}{\cdot }{\text{m}}^{2}}{{\text{s}}^{3}{\cdot }{\text{A}}^{2}}}}$$
+    The capital Greek letter omega serves as the symbol to avoid confusion with the numeral 0.
 
-    Where: volt (V), ampere (A), siemens (S), watt (W), second (s), farad (F), henry (H), joule (J), coulomb (C), kilogram (kg), and metre (m).
+    The unit is named after the German scientist Georg Simon Ohm (1789-1854),
+    whose book of 1827 set out what is now called Ohm's law. The 11th CGPM listed the ohm among the
+    derived units of the SI in 1960. The plural is ohms.
 textSources:
   - title: 'Wikipedia: Ohm'
     url: 'https://en.wikipedia.org/wiki/Ohm'

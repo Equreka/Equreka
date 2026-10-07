@@ -1,8 +1,9 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
-  en: 'Celsius'
+  en: 'Degree Celsius'
 symbol:
-  tex: '°C'
+  tex: '^{\circ}C'
+  text: '°C'
 unitOf:
   - 'thermodynamic-temperature'
 system: 'si-derived'
@@ -11,23 +12,64 @@ toBase:
   offset:
     num: '5463'
     den: '20'
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+    ref: 'B.8: degree Celsius (temperature) (°C); T/K = t/°C + 273.15'
 externalIds:
   wikidata: 'Q25267'
   qudt: 'http://qudt.org/vocab/unit/DEG_C'
 categories:
+  - 'universal'
   - 'physics'
 branches:
   - 'thermodynamics'
+  - 'si-system'
 aliases:
   - 'degC'
   - 'C'
   - 'centigrade'
   - 'degrees celsius'
+  - 'Celsius'
+  - 'degree centigrade'
+  - '℃'
+  - 'grado centígrado'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.1 (Celsius temperature), Table 4 and note (f), 5.2 and 5.3'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1: CIPM 1948 and 9th CGPM 1948, adoption of "degree Celsius"'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: degree Celsius'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'Tekniska museet, Anders Celsius: degrees Celsius'
+    url: 'https://www.tekniskamuseet.se/en/learn-more/swedish-inventors/anders-celsius-degrees-celsius/'
 description:
   en: >-
-    The degree Celsius is a unit of temperature on the Celsius scale, a temperature scale originally
-    known as the centigrade scale. The degree Celsius ($°C$) can refer to a specific temperature on
-    the Celsius scale or a unit to indicate a difference or range between two temperatures.
+    The degree Celsius, symbol $^{\circ}\mathrm{C}$, is the unit of Celsius temperature, the
+    everyday temperature scale of most countries, formerly called the centigrade scale. It is one
+    of the SI derived units with a special name, and an interval of one degree Celsius is exactly
+    as large as one kelvin, the base unit of thermodynamic temperature in the SI.
+
+    The SI Brochure defines Celsius temperature as thermodynamic temperature minus a reference of
+    273.15 kelvin, close to the freezing point of water:
+    $t/^{\circ}\mathrm{C}=T/\mathrm{K}-273.15$, so absolute zero falls at -273.15 degrees Celsius
+    and 293.15 kelvin reads as 20 degrees Celsius. When the 26th CGPM redefined the kelvin in 2018
+    by fixing the Boltzmann constant, the degree Celsius took on that definition, since both its
+    size and its zero are tied to the kelvin.
+
+    Since the two units have equal size, a temperature difference carries the same number in both:
+    warming by 15 degrees Celsius is warming by 15 kelvin. The offset matters only for a
+    temperature itself, and the SI Brochure notes that the degree Celsius is coherent only when it
+    expresses differences, so the ideal gas law and similar relations need kelvins.
+
+    Calibrated thermometers follow the International Temperature Scale of 1990, adopted by the
+    CIPM in 1989, which reports in both units.
+
+    The Swedish astronomer Anders Celsius proposed a hundred-step scale between the boiling and
+    freezing points of water in 1742, numbered with 0 at boiling and 100 at freezing; the numbering
+    was reversed after his death in 1744. In 1948 the CIPM and the 9th CGPM preferred the name
+    degree Celsius to degree centigrade and centesimal degree. A space separates the number from
+    the symbol, as in $30.2\,^{\circ}\mathrm{C}$.
 textSources:
   - title: 'Wikipedia: Celsius'
     url: 'https://en.wikipedia.org/wiki/Celsius'

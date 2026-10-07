@@ -31,16 +31,56 @@ externalIds:
   wikidata: 'Q12438'
   qudt: 'http://qudt.org/vocab/unit/N'
 categories:
+  - 'universal'
   - 'physics'
 branches:
   - 'mechanics'
+  - 'si-system'
+aliases:
+  - 'kg m/s^2'
+  - 'kg m s^-2'
+  - 'kilogram metre per second squared'
+  - 'newtons'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 and note (a), 2.3.4 (torque and the newton metre), 3 Decimal multiples and sub-multiples'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (CIPM, 1946, Resolution 2; 9th CGPM, 1948, Resolution 7; 11th CGPM, 1960, Resolution 12)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: dyne, kilogram-force, pound-force'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'National Physical Laboratory, What is the SI unit of force?'
+    url: 'https://www.npl.co.uk/resources/q-a/what-is-the-si-unit-of-force'
+  - title: 'OpenStax, University Physics Volume 1, 5.1 Forces'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/5-1-forces'
+  - title: 'QUDT, unit N'
+    url: 'https://qudt.org/vocab/unit/N'
 description:
-  en: |-
-    The newton (symbol: $N$) is the International System of Units (SI) derived unit of force. It is named after Isaac Newton in recognition of his work on classical mechanics, specifically Newton's second law of motion.
+  en: >-
+    The newton, symbol $\mathrm{N}$, is the coherent SI derived unit of force, and therefore also
+    of weight, the force with which gravity pulls on a body. One newton is the force that gives a
+    mass of one kilogram an acceleration of one metre per second squared, so in SI base units it is
+    the kilogram metre per second squared.
 
-    *A newton is defined as the force which gives a mass of 1 kilogram an acceleration of 1 metre per second, per second:
+    The definition of the newton is Newton's second law applied to unit values: for a body of
+    constant mass, force equals mass times acceleration, a special case of force as the rate of
+    change of momentum. The newton, one of the 22 SI units with special names, has no standard of its
+    own: it follows from the kilogram, the metre and the second, which
+    since 2019 rest on fixed values of the caesium frequency, the speed of light and the Planck
+    constant.
 
-    $$1 \frac{kg⋅m}{s^{2}}$$
+    Older force units are defined from the newton. The dyne of the CGS system equals exactly
+    $10^{-5}\,\mathrm{N}$, the kilogram-force, the weight of one kilogram under standard gravity,
+    equals exactly $9.806\,65\,\mathrm{N}$, and the pound-force is about 4.448 newtons. A mass of
+    about 102 grams therefore weighs roughly one newton at the Earth's surface.
+
+    The newton also builds other coherent units. The pascal is one newton per square metre, the
+    joule is the work of one newton acting through one metre, and torque is expressed in newton
+    metres; the brochure states that the joule is never used for torque, even though the two
+    share a dimension.
+
+    The CIPM defined the MKS unit of force in 1946, and the 9th CGPM ratified that definition in
+    1948 and gave the unit the name newton. The 11th CGPM listed the newton, symbol N, among the
+    derived units of the SI in 1960. The plural is newtons.
 textSources:
   - title: 'Wikipedia: Newton (unit)'
     url: 'https://en.wikipedia.org/wiki/Newton_(unit)'

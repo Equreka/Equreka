@@ -22,11 +22,45 @@ externalIds:
   wikidata: 'Q41509'
   qudt: 'http://qudt.org/vocab/unit/MOL'
 categories:
+  - 'universal'
   - 'chemistry'
 branches:
   - 'amount-of-substance'
+  - 'si-system'
+aliases:
+  - 'moles'
+  - 'gram-molecule'
+  - 'gram-atom'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.1 (the mole), Table 4 (katal), section 5.2 and Appendix 4 (unit of amount of substance, mole)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (14th CGPM, 1971, Resolution 3)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Redefining the Mole'
+    url: 'https://www.nist.gov/si-redefinition/redefining-mole'
+  - title: 'BIPM, SI base unit: mole (mol)'
+    url: 'https://www.bipm.org/en/si-base-units/mole'
 description:
   en: >-
-    The mole (symbol: $mol$) is the base unit of amount of substance in the International System of
-    Units (SI). It is defined as exactly $6.02214076×10^{23}$ particles, which may be atoms,
-    molecules, ions, or electrons.
+    The mole, symbol $\mathrm{mol}$, is the SI base unit of amount of substance, the quantity that
+    chemistry uses to count atoms, molecules, ions, electrons and other elementary entities in bulk.
+    An amount in moles always needs the entity named: a mole of oxygen atoms and a mole of oxygen
+    molecules are different amounts of the same element.
+
+    Since 20 May 2019 one mole has contained exactly $6.022\,140\,76\times10^{23}$ specified
+    entities. That number, the Avogadro number, is the numerical value of the Avogadro constant when
+    it is expressed in reciprocal moles. With this definition the mole no longer depends on the
+    kilogram, which keeps amount of substance and mass distinct as quantities.
+
+    Mass and amount are linked through molar mass: the molar mass of a substance equals its relative
+    atomic or molecular mass times the molar mass constant, which is very close to one gram per
+    mole. About 18 grams of water therefore make one mole, roughly six hundred thousand billion
+    billion molecules. Amount concentration is expressed in moles per cubic metre or per litre, and
+    the katal, one mole per second, measures catalytic activity.
+
+    The unit grew out of the gram-atom and gram-molecule of classical chemistry, tied to atomic
+    weights first scaled to oxygen. In 1959 and 1960 physicists and chemists agreed to give
+    carbon-12 a relative atomic mass of exactly 12, and in 1971 the 14th CGPM made the mole the
+    seventh base unit of the SI, defined by counting the atoms in twelve grams of carbon-12. The
+    constant behind the present definition honours Amedeo Avogadro, who lived from 1776 to 1856. The
+    name is mole and the symbol is mol, which takes no plural form.

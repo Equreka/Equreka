@@ -17,11 +17,44 @@ branches:
   - 'geometry'
   - 'optics-and-photometry'
   - 'si-system'
+aliases:
+  - 'steradians'
+  - 'estereorradianes'
+  - 'estereoradián'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.3, Table 4 and notes (c) and (g), 2.3.1 (candela), Table 6 note (a)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (11th CGPM, 1960, Resolution 12; 20th CGPM, 1995, Resolution 8)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-109 solid angle'
+    url: 'https://cie.co.at/eilvterm/17-21-109'
+  - title: 'QUDT, unit SR'
+    url: 'https://qudt.org/vocab/unit/SR'
 description:
-  en: |-
-    The steradian (symbol: $sr$) or square radian is the SI unit of solid angle. It is used in three-dimensional geometry, and is analogous to the radian, which quantifies planar angles. Whereas an angle in radians, projected onto a circle, gives a length on the circumference, a solid angle in steradians, projected onto a sphere, gives an area on the surface. The name is derived from the Greek στερεός stereos "solid" + radian.
+  en: >-
+    The steradian, symbol $\mathrm{sr}$, is the coherent SI unit of solid angle, the
+    three-dimensional counterpart of a plane angle that measures how wide a cone of directions is
+    as seen from its apex. It is one of the 22 SI derived units with a special name and is used
+    mainly in geometry, radiometry and photometry.
 
-    The steradian, like the radian, is a dimensionless unit, the quotient of the area subtended and the square of its distance from the center. Both the numerator and denominator of this ratio have dimension length squared (i.e. $L^{2}/L^{2}$ = 1, dimensionless). It is useful, however, to distinguish between dimensionless quantities of a different nature, so the symbol $sr$ is used to indicate a solid angle.
+    The SI Brochure defines one steradian as the solid angle at the centre of a sphere that cuts
+    out of the surface an area equal to the square of the radius. The CIE lighting vocabulary puts
+    the same idea in terms of a unit sphere: a solid angle is the area that its cone intercepts on a
+    sphere of radius one centred at the apex. Since the defining ratio is an area over a squared
+    length, the SI treats solid angle as a quantity with the unit one, while noting that solid angles
+    differ in kind from other ratios of areas.
+
+    A complete sphere subtends $4\pi\,\mathrm{sr}$ about its centre, which the brochure offers as an
+    alternative definition, and a hemisphere half of that. The steradian stands to area on a sphere
+    as the radian stands to arc length on a circle.
+
+    Radiometry and photometry rely on the steradian to tell a flux from an intensity, and the
+    brochure notes that these fields usually keep its name and symbol in unit expressions. Radiant
+    intensity is measured in watts per steradian, the lumen is the candela steradian, and the
+    candela itself is defined through a radiant intensity of 1/683 watt per steradian.
+
+    The steradian entered the SI in 1960 as a supplementary unit, alongside the radian, and became a
+    derived unit when the 20th CGPM abolished that class in 1995. The plural is steradians.
 textSources:
   - title: 'Wikipedia: Steradian'
     url: 'https://en.wikipedia.org/wiki/Steradian'

@@ -35,18 +35,57 @@ externalIds:
   wikidata: 'Q25269'
   qudt: 'http://qudt.org/vocab/unit/J'
 categories:
+  - 'universal'
   - 'physics'
 branches:
   - 'mechanics'
   - 'thermodynamics'
+  - 'si-system'
+aliases:
+  - 'joules'
+  - 'watt second'
+  - 'W s'
+  - 'kg m^2/s^2'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.2 (definition of the SI), Table 4, 2.3.4 (torque and the newton metre), Table 8 note (l) (electronvolt)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (CIPM, 1946, Resolution 2; 9th CGPM, 1948, Resolution 3; 11th CGPM, 1960, Resolution 12)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: calorie (thermochemical), erg, kilowatt hour'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'OpenStax, Physics, 9.1 Work, Power, and the Work-Energy Theorem'
+    url: 'https://openstax.org/books/physics/pages/9-1-work-power-and-the-work-energy-theorem'
+  - title: 'OpenStax, College Physics 2e, 14.1 Heat'
+    url: 'https://openstax.org/books/college-physics-2e/pages/14-1-heat'
+  - title: 'QUDT, unit J'
+    url: 'https://qudt.org/vocab/unit/J'
 description:
   en: >-
-    The joule (/dʒaʊl, dʒuːl/ jowl, jool) is a derived unit of energy in the International System of
-    Units. It is equal to the energy transferred to (or work done on) an object when a force of one
-    newton acts on that object in the direction of the force's motion through a distance of one
-    metre (1 newton metre or $N⋅m$). It is also the energy dissipated as heat when an electric
-    current of one ampere passes through a resistance of one ohm for one second. It is named after
-    the English physicist James Prescott Joule (1818–1889).
+    The joule, symbol $\mathrm{J}$, is the coherent SI derived unit of energy, of work and of amount
+    of heat. One joule is the energy transferred by a one-newton force whose point of application
+    advances one metre along the line of that force; in SI base units it is the kilogram square
+    metre per second squared. Kinetic, potential, internal and electrical energy are all measured
+    in joules.
+
+    The CIPM gave this definition in 1946, and the 9th CGPM in 1948 adopted the joule as the unit of
+    quantity of heat, asking that calorimetric results be expressed in joules wherever possible.
+    The joule is one of the five derived units named in the present definition of the SI, which
+    fixes the Planck constant in joule seconds and the Boltzmann constant in joules per kelvin.
+
+    A power of one watt delivers one joule each second, so the kilowatt hour equals exactly
+    $3.6\times10^{6}\,\mathrm{J}$. The thermochemical calorie is exactly 4.184 joules, the erg of
+    the CGS system is exactly one ten-millionth of a joule, and the electronvolt has been exactly
+    $1.602\,176\,634\times10^{-19}\,\mathrm{J}$ since the elementary charge was fixed. Torque shares
+    the dimension of energy, yet the SI Brochure states that the joule is never used for it; torque
+    takes the newton metre.
+
+    One joule is a small amount of energy on everyday scales, so electricity is sold in kilowatt
+    hours, and larger quantities are often stated with prefixed units such as the kilojoule and
+    the megajoule.
+
+    The unit is named after the physicist James Prescott Joule (1818-1889), whose
+    experiments on the mechanical equivalent of heat helped establish that heat is a form of
+    energy. The plural is joules.
 textSources:
   - title: 'Wikipedia: Joule'
     url: 'https://en.wikipedia.org/wiki/Joule'

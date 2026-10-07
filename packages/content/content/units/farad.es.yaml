@@ -1,3 +1,25 @@
 # yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
 name: 'Faradio'
 namePlural: 'faradios'
+description: >-
+  El faradio, de símbolo $\mathrm{F}$, es la unidad SI derivada coherente de capacidad eléctrica,
+  la cantidad de carga que un conductor o un condensador almacena por cada unidad de diferencia de
+  potencial entre sus bornes. Un faradio es un culombio por voltio; en unidades básicas del SI es el
+  segundo elevado a cuatro por amperio al cuadrado, por kilogramo y por metro cuadrado.
+
+  La definición del CIPM de 1946 describe el faradio como la capacidad de un condensador entre
+  cuyas armaduras aparece una diferencia de potencial de un voltio cuando se carga con un culombio.
+  Como el culombio es un amperio segundo y el voltio es un vatio por amperio, el faradio puede
+  escribirse también como segundo por ohmio, y el producto de una resistencia en ohmios por una
+  capacidad en faradios es un tiempo en segundos. La unidad de permitividad, que describe cómo un
+  medio modifica la capacidad de los conductores situados en él, es el faradio por metro.
+
+  Un faradio es una capacidad muy grande: un condensador de ese valor almacenaría un culombio
+  entero con solo un voltio. Por eso los condensadores prácticos se especifican con prefijos:
+  los mayores de uso común en milifaradios y microfaradios, los más pequeños en picofaradios,
+  $10^{-12}\,\mathrm{F}$. Un condensador de placas paralelas vacío de un faradio, con las placas
+  separadas un milímetro, necesitaría placas cuadradas de más de 10 kilómetros de lado.
+
+  La unidad debe su nombre al físico inglés Michael Faraday (1791-1867), conocido por sus
+  descubrimientos sobre la electricidad. La 11.ª CGPM incluyó el faradio, de símbolo F, entre las
+  unidades derivadas del SI en 1960. El plural es faradios.

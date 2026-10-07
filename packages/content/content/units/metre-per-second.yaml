@@ -25,11 +25,44 @@ aliases:
   - 'meter per second'
   - 'm/s'
   - 'mps'
+  - 'm s-1'
+  - 'm s^-1'
+  - 'metres per second'
+  - 'meters per second'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 5 (speed, velocity), Table 8 (knot) and 5.2'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.1 (the metre) and Appendix 1: 11th CGPM 1960, Resolution 12'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 17.2 Speed of Sound'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/17-2-speed-of-sound'
+  - title: 'QUDT, unit M-PER-SEC (metre per second)'
+    url: 'https://qudt.org/vocab/unit/M-PER-SEC'
 description:
   en: >-
-    Is an SI derived unit of both speed (scalar quantity) and velocity (vector quantity (which have
-    direction and magnitude)), equal to the speed of a body covering a distance of one metre in a
-    time of one second.
+    The metre per second, symbol $\mathrm{m/s}$, is the coherent SI derived unit of speed and of
+    velocity in mechanics: a body moving at one metre per second covers one metre of distance in
+    each second. It joins two SI base units, the metre and the second, and measures every rate of
+    change of position.
+
+    The 11th CGPM listed the metre per second among the derived units of the new International
+    System in 1960, and the SI Brochure gives it in its table of derived units expressed in base
+    units. The tie runs both ways, since the metre itself is now defined by fixing the speed of
+    light in vacuum at exactly $299\,792\,458\,\mathrm{m/s}$.
+
+    Other speed units convert by exact factors. A kilometre per hour is one thousand metres in
+    3600 seconds, so it equals $5/18$ of a metre per second, and the SI Brochure states the knot as
+    $1852/3600$ of a metre per second. The SI Brochure itself writes one speed both ways, as 25
+    metres per second or 90 kilometres per hour.
+
+    Physics and engineering quote speeds of sound, winds, vehicles and particles in this unit:
+    OpenStax gives the speed of sound in air as 331 metres per second at 0 degrees Celsius and 343
+    metres per second at 20 degrees Celsius. Speed is a scalar and velocity a vector, yet both take
+    the same unit; a velocity also states a direction.
+
+    The symbol may also be written with a negative exponent on the second, and the plural is metres
+    per second, spelled meters per second in American English. The SI Brochure rejects
+    abbreviations such as mps in place of the symbol.
 textSources:
   - title: 'Wikipedia: Metre per second'
     url: 'https://en.wikipedia.org/wiki/Metre_per_second'

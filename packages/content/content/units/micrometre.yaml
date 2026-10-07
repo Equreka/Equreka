@@ -14,8 +14,40 @@ externalIds:
   qudt: 'http://qudt.org/vocab/unit/MicroM'
 aliases:
   - 'micron'
+  - 'microns'
+  - 'micrometer'
+  - 'micrometers'
+  - 'micra'
+  - 'um'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., section 3 (Table 7, micro, and prefixed unit symbols)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (9th CGPM, 1948, Resolution 7; 13th CGPM, 1967/68, Resolution 7, abrogation of the micron)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: micron'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'QUDT, unit MicroM'
+    url: 'https://qudt.org/vocab/unit/MicroM'
 description:
   en: >-
-    The micrometre is one millionth of a metre ($1\ \mathrm{μm} = 10^{-6}\ \mathrm{m}$), formed with
-    the SI prefix micro. It is still widely called the micron (symbol μ), a name the 13th CGPM
-    abrogated in 1967 that survives in engineering, biology and optics.
+    The micrometre, symbol $\mathrm{μm}$, is a unit of length equal to one millionth of a metre,
+    formed with the SI prefix micro. It is still widely called the micron, a name that is no longer
+    part of the SI, and it measures objects too small to see with the naked eye but far larger than
+    atoms.
+
+    The relation $1\,\mathrm{μm}=10^{-6}\,\mathrm{m}$ is exact, and a thousand micrometres make one
+    millimetre. Because the prefix and the unit form one inseparable symbol, a square micrometre is
+    $10^{-12}$ of a square metre, not a millionth.
+
+    The micrometre is the working unit for the sizes of cells and bacteria, the diameters of fibres
+    and airborne particles, the thickness of coatings and films, and the tolerances of precision
+    machining. Infrared wavelengths are also commonly stated in micrometres.
+
+    The 9th CGPM listed the micron with the symbol μ among the units in its 1948 resolution on unit
+    symbols. Once μ had become the symbol of the prefix micro, the 13th CGPM removed the name and
+    its symbol in 1967, leaving micrometre as the only SI form. The old name has not vanished from
+    technical writing, and NIST Special Publication 811 still lists one micron as exactly one
+    micrometre among its conversion factors.
+
+    The symbol combines the Greek letter mu, for micro, with m for metre. American English spells
+    the name micrometer, a word that also names a screw gauge for measuring small thicknesses.

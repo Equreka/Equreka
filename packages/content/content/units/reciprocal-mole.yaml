@@ -20,7 +20,41 @@ aliases:
   - '1/mol'
   - 'per mole'
   - 'mol^-1'
+  - 'inverse mole'
+  - 'mol-1'
+  - 'mol inverso'
+  - 'por mol'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.2, Table 1 and 2.3.1 (the mole)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, Chemistry 2e, 3.1 Formula Mass and the Mole Concept'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-1-formula-mass-and-the-mole-concept'
+  - title: 'QUDT, unit PER-MOL (reciprocal mole)'
+    url: 'https://qudt.org/vocab/unit/PER-MOL'
 description:
   en: >-
-    The reciprocal of the mole, used for quantities that count entities per amount of substance —
-    most prominently the Avogadro constant ($6.02214076 \times 10^{23}\,mol^{-1}$).
+    The reciprocal mole, symbol $\mathrm{mol^{-1}}$, is the coherent SI unit of a quantity counted
+    per amount of substance, read aloud as per mole. It is the inverse of the mole, the SI base unit
+    of amount of substance, and in chemistry and physics it is above all the unit of the Avogadro
+    constant.
+
+    Since the revision of the SI that took effect in 2019, the mole is defined by fixing the
+    Avogadro constant at exactly $6.022\,140\,76\times10^{23}$ reciprocal moles. One mole is
+    therefore an amount containing exactly that many specified elementary entities, whether atoms,
+    molecules, ions or electrons. The previous definition fixed instead the molar mass of carbon-12,
+    which must now be measured.
+
+    Multiplying an amount in moles by the Avogadro constant gives a pure count of entities, and
+    dividing a count by it gives an amount in moles; the reciprocal mole is what cancels the mole
+    in that step. OpenStax stresses that the constant is properly stated with an explicit per-mole
+    unit and rounds it to $6.022\times10^{23}$ per mole for calculations.
+
+    The same factor appears inside many compound units of chemistry. The joule per mole, the gram
+    per mole and the coulomb per mole all carry a reciprocal mole, and dividing any molar quantity
+    by the Avogadro constant turns it into a value per single entity. QUDT files the unit under the
+    quantity kind inverse amount of substance.
+
+    The SI Brochure calls the fixed numerical value alone the Avogadro number, a pure number,
+    while the Avogadro constant is that number multiplied by the reciprocal mole; mixing the two
+    loses the unit. The symbol may also be written 1/mol, and the name is spoken as per mole, so
+    the unit has no plural in practice.

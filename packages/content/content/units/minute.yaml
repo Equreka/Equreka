@@ -5,6 +5,7 @@ symbol:
   tex: 'min'
 unitOf:
   - 'time'
+  - 'period'
 system: 'other'
 toBase:
   factor: '60'
@@ -22,15 +23,45 @@ categories:
 branches:
   - 'mechanics'
   - 'measurement'
+aliases:
+  - 'minutes'
+  - 'mins'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (minute) and 5.2'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: minute (min)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'M. A. Lombardi (NIST), Why is a minute divided into 60 seconds, an hour into 60 minutes, yet there are only 24 hours in a day?, Scientific American, 5 March 2007'
+    url: 'https://www.scientificamerican.com/article/experts-time-division-days-hours-minutes/'
+  - title: 'NIST, Time and Frequency Division, Leap Seconds FAQs'
+    url: 'https://www.nist.gov/pml/time-and-frequency-division/leap-seconds-faqs'
 description:
   en: >-
-    The minute is a unit of time usually equal to $1/60$. Historically, the word "minute" comes from
-    the Latin <em>pars minuta prima</em>, meaning "first small part". This division of the hour can
-    be further refined with a "second small part" (Latin: <em>pars minuta secunda</em>), and this is
-    where the word "second" comes from.
-references:
-  - title: 'Minute'
-    url: 'https://en.wikipedia.org/wiki/Minute'
+    The minute, symbol min, measures time and equals 60 seconds. It is not an SI unit, but the
+    SI Brochure lists it in Table 8, with the hour and the day, among the long-standing non-SI units
+    of time whose use it expects to continue, and it is the unit of clocks, timetables and everyday
+    durations.
+
+    The definition rests entirely on the SI second: $1\,\mathrm{min}=60\,\mathrm{s}$ exactly, as
+    given in Table 8 of the SI Brochure and in NIST Special Publication 811. Because the second is
+    fixed by the caesium hyperfine frequency, the minute inherits that atomic definition and needs
+    no standard of its own.
+
+    Sixty minutes make one hour, and 1440 minutes make one day. A speed in metres per minute or a
+    flow in litres per minute converts to SI units by dividing by 60, and a rate per minute such as
+    a heart rate of 72 beats per minute equals 1.2 events per second.
+
+    Medicine, sport, cooking, transport and broadcasting count time in minutes, and so do many
+    laboratory protocols and the half-lives of short-lived isotopes. On the civil time scale, a
+    minute that receives a leap second lasts 61 seconds; NIST notes that such corrections have been
+    applied to Coordinated Universal Time since 1972.
+
+    The name comes from the sexagesimal fractions of Greek astronomy: in the Almagest, about AD
+    150, Ptolemy split each degree into 60 parts and each part again into 60, and the Latin names
+    of the first and second divisions became minute and second. According to the NIST metrologist
+    Michael Lombardi, clocks only began to show minutes near the end of the 16th century. The
+    symbol min takes no plural ending and no full stop, and the arcminute, a unit of angle, is a
+    different unit with the symbol ′.
 textSources:
   - title: 'Wikipedia: Minute'
     url: 'https://en.wikipedia.org/wiki/Minute'

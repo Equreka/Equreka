@@ -17,7 +17,7 @@ const PACKAGE_ROOT = fileURLToPath(new URL('../../../', import.meta.url));
 const CONTENT_DIR = join(PACKAGE_ROOT, 'content');
 
 /** Equals the debt size; lower it in the same change that shrinks the debt, so the list can never grow back. */
-const LOCALE_DEBT_CEILING = 87;
+const LOCALE_DEBT_CEILING = 49;
 
 const dirs: string[] = [];
 

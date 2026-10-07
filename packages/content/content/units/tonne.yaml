@@ -23,15 +23,43 @@ branches:
 aliases:
   - 'metric ton'
   - 'metric tonne'
+  - 'tonnes'
+  - 'tonelada métrica'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 and note (e)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: ton, metric; tonne; ton, short; ton, long'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST SP 811, Chapter 5, Table 6 and note (c): metric ton'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si'
+  - title: 'NIST SP 811, footnotes to Appendix B (exact avoirdupois pound)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-footnotes'
+  - title: 'QUDT, unit TONNE (tonne)'
+    url: 'https://qudt.org/vocab/unit/TONNE'
 description:
   en: >-
-    The tonne (/tʌn/ or /tɒn/; symbol: t) is a metric unit of mass equal to 1,000 kilograms. It is
-    also referred to as a metric ton. It is equivalent to approximately 2,204.6 pounds; 1.102 short
-    tons (US), and 0.984 long tons (UK). The official SI unit is the megagram (symbol: Mg), a less
-    common way to express the same mass.
-references:
-  - title: 'Tonne'
-    url: 'https://en.wikipedia.org/wiki/Tonne'
+    The tonne, symbol t, measures mass and equals 1000 kilograms, known in the United States and
+    some other English-speaking countries as the metric ton. It is not a coherent SI unit, but the
+    SI Brochure lists it among the historical names for decimal multiples of SI units,
+    and it is the usual measure of large masses in trade, industry and transport.
+
+    The SI Brochure defines it in Table 8 as $1\,\mathrm{t}=1\,\mathrm{Mg}=10^{3}\,\mathrm{kg}$,
+    one megagram, and NIST Special Publication 811 gives the same exact factor for the metric ton.
+    The tonne thus carries the precision of the kilogram itself, which since 2019 is defined
+    through the fixed value of the Planck constant.
+
+    The tonne should not be confused with the two tons of the customary systems. NIST gives the
+    short ton of 2000 pounds as about 907.18 kilograms and the long ton of 2240 pounds as about
+    1016.05 kilograms. Since the avoirdupois pound is exactly 0.453 592 37 kilograms, one tonne is
+    about 2204.6 pounds, slightly less than a long ton and about one tenth more than a short ton.
+
+    Harvests, freight, ship cargo, steel and cement output, mining and greenhouse gas inventories
+    are reported in tonnes, or in thousands and millions of tonnes. In physics
+    problems a mass in tonnes is converted to kilograms before a coherent SI formula is applied.
+
+    The CIPM adopted the tonne and its symbol t in 1879, together with the litre. The symbol is a
+    lowercase upright t, with no plural ending and no full stop. Writing the same mass as a
+    megagram, Mg, follows the SI prefix rules and avoids any doubt about which ton is meant.
 textSources:
   - title: 'Wikipedia: Tonne'
     url: 'https://en.wikipedia.org/wiki/Tonne'

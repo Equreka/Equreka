@@ -1,3 +1,29 @@
 # yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
 name: 'Voltio'
 namePlural: 'voltios'
+description: >-
+  El voltio, de símbolo $\mathrm{V}$, es la unidad SI derivada coherente de diferencia de
+  potencial eléctrico, también llamada tensión eléctrica, y de potencial eléctrico y fuerza
+  electromotriz. Un voltio es un julio de energía por culombio de carga, o un vatio por amperio; en
+  unidades básicas del SI es el kilogramo metro cuadrado por segundo al cubo y por amperio.
+
+  Según la definición del CIPM de 1946, dos puntos de un hilo que conduce una corriente constante
+  de un amperio difieren en un voltio de potencial cuando el hilo disipa entre ellos una potencia
+  de un vatio. La tensión es energía por unidad de carga, no
+  energía: un culombio que atraviesa 12 voltios transporta 12 julios, mientras que mil culombios
+  que atraviesan los mismos 12 voltios transportan 12 000 julios.
+
+  El voltio interviene en muchas otras unidades. La intensidad de campo eléctrico se mide en
+  voltios por metro, y el electronvoltio, la energía cinética que adquiere un electrón acelerado en el
+  vacío a través de un voltio, vale exactamente
+  $1.602\,176\,634\times10^{-19}\,\mathrm{J}$ desde que se fijó la carga elemental.
+
+  Los laboratorios nacionales mantienen el voltio mediante el efecto Josephson, que relaciona una
+  tensión con una frecuencia a través de la constante de Josephson. Desde 1990 se usó en todo el
+  mundo un valor convencional de esa constante, 483 597.9 gigahercios por voltio, para estos
+  patrones. La revisión del SI de 2018, al fijar la constante de Planck y la carga elemental, dio a
+  la constante de Josephson un valor exacto, 483 597.848 4... gigahercios por voltio, cuyas cifras decimales no
+  terminan nunca, y derogó el valor convencional.
+
+  La unidad debe su nombre a Alessandro Volta. La 11.ª CGPM incluyó el voltio, de símbolo V,
+  entre las unidades derivadas del SI en 1960. El plural es voltios.

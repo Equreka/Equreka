@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Julio por kelvin'
+description: >-
+  El julio por kelvin, de símbolo $\mathrm{J/K}$, es la unidad SI derivada coherente de capacidad
+  calorífica y de entropía en termodinámica. Divide una energía en julios entre una temperatura
+  termodinámica en kelvin y no tiene nombre especial propio.
+
+  El folleto del SI la incluye entre las unidades derivadas coherentes cuyos nombres contienen una
+  unidad con nombre especial; reducida a unidades básicas es el kilogramo metro cuadrado por
+  segundo al cuadrado y por kelvin. La 13.ª CGPM, reunida en 1967 y 1968, la añadió a la lista de
+  unidades SI derivadas con la entropía como magnitud.
+
+  La capacidad calorífica es la energía que absorbe un objeto por cada kelvin que sube su
+  temperatura. OpenStax da para el agua líquida una capacidad calorífica específica de 4186 julios
+  por kilogramo y kelvin, así que un kilogramo de agua tiene una capacidad calorífica de unos 4186
+  julios por kelvin. Al dividir entre la masa o entre la cantidad de sustancia se obtienen el julio
+  por kilogramo y kelvin y el julio por mol y kelvin. Para un calor transferido de forma reversible
+  a temperatura fija, la variación de entropía es el calor dividido entre esa temperatura: en un
+  ejemplo de OpenStax, 50 gramos de hielo que se funden a 273 kelvin absorben 16.8 kilojulios y
+  ganan unos 61.5 julios por kelvin de entropía.
+
+  La constante de Boltzmann, fijada en exactamente $1.380\,649\times10^{-23}\,\mathrm{J/K}$ al
+  redefinirse el kelvin en 2018, tiene la misma unidad y convierte una temperatura en una energía
+  por partícula, por lo que la unidad recorre la física estadística además de la termodinámica
+  técnica.
+
+  El folleto advierte que la capacidad calorífica y la entropía comparten esta unidad, así que un
+  valor en julios por kelvin debe indicar siempre qué magnitud expresa. El símbolo puede escribirse
+  también con exponente negativo, $\mathrm{J\,K^{-1}}$, el plural es julios por kelvin y la unidad
+  de temperatura es el kelvin, nunca el grado kelvin.

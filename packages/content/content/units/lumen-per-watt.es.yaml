@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Lumen por vatio'
+description: >-
+  El lumen por vatio, de símbolo $\mathrm{lm/W}$, es la unidad SI derivada de eficacia luminosa en
+  fotometría: un flujo luminoso dividido entre una potencia en vatios. Indica cuánta
+  luz, ponderada por la sensibilidad del ojo humano, entrega una fuente por cada vatio.
+
+  La unidad forma parte de la definición del SI. La candela se define asignando a la radiación
+  monocromática de frecuencia $540\times10^{12}\,\mathrm{Hz}$ una eficacia luminosa de exactamente
+  $683\,\mathrm{lm/W}$. Esa frecuencia cae en el verde, cerca del máximo de la visión diurna en
+  555 nanómetros que describe HyperPhysics; un vatio de radiación a esa frecuencia da 683 lúmenes,
+  mientras que el mismo vatio en un color que el ojo percibe peor da menos.
+
+  Dos cocientes comparten la unidad. La eficacia luminosa de la radiación compara el flujo luminoso con
+  la potencia radiante emitida, mientras que la eficacia luminosa de una fuente los compara con la
+  potencia eléctrica que consume la lámpara, de modo que incluye también las pérdidas de
+  conversión. El Departamento de Energía de Estados Unidos sitúa el techo de una fuente blanca sin
+  pérdidas y con una reproducción del color razonable en unos 414 lúmenes
+  por vatio.
+
+  La ingeniería de iluminación y la regulación energética usan la unidad para comparar lámparas.
+  HyperPhysics toma una bombilla incandescente de 100 vatios que da unos 1700 lúmenes, cerca de 17
+  lúmenes por vatio. El Departamento de Energía informó de que los encapsulados LED blancos pasaron
+  de unos 25 a más de 200 lúmenes por vatio en quince años y de que la media de los productos LED
+  registrados alcanzó 102 lúmenes por vatio en 2018.
+
+  El plural es lúmenes por vatio. La unidad no es un número
+  puro: en unidades básicas es la candela estereorradián segundo al cubo por kilogramo y por metro
+  cuadrado, porque el lumen se apoya en la candela.
