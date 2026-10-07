@@ -71,7 +71,7 @@ The budgets protect three different costs:
 
 | Payload | Max | Today (en / es) |
 | --- | --- | --- |
-| `data/reader.<locale>.json` | 1 MiB | 104,774 / 104,322 |
+| `data/reader.<locale>.json` | 2 MiB (raised from 1 MiB by ADR 0013) | 104,774 / 104,322 |
 | `data/converter.<locale>.json` | 256 KiB | 40,108 / 40,219 |
 | `data/paths.<locale>.json` | 128 KiB | 3,858 / 3,879 |
 

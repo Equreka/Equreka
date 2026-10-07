@@ -34,7 +34,7 @@ const ICON_FONT_FILE = 'bootstrap-icons.woff2';
  */
 const PAYLOAD_BUDGETS = {
 	converter: 256 * 1024,
-	reader: 1024 * 1024,
+	reader: 2 * 1024 * 1024,
 	paths: 128 * 1024,
 } as const;
 

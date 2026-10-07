@@ -38,7 +38,7 @@ Precache only the locale-neutral shell. Each locale's data payloads go to a sepa
 
 ### Budget
 
-The build sums the shell and each locale's payloads, then counts the shell plus the largest locale against `OFFLINE_BUDGET_BYTES` (6 MiB). It fails over the budget and warns from `BUDGET_WARN_RATIO` (80%, `@equreka/content/artifact-budgets`), which `equreka-assets.ts` now imports in place of its own copy of the ratio. The per-payload budgets of ADR 0010 are unchanged. The build prints:
+The build sums the shell and each locale's payloads, then counts the shell plus the largest locale against `OFFLINE_BUDGET_BYTES` (6 MiB). It fails over the budget and warns from `BUDGET_WARN_RATIO` (80%, `@equreka/content/artifact-budgets`), which `equreka-assets.ts` now imports in place of its own copy of the ratio. The per-payload budgets of ADR 0010 are unchanged except the reader payload's, raised to 2 MiB (see Consequences). The build prints:
 
 ```
 offline install: shell 168 URLs 1211.5 KiB + largest locale data (es) = 2568.6 KiB of 6144.0 KiB (41.8%); locale data: en 1272.4 KiB, es 1357.1 KiB
@@ -72,7 +72,7 @@ offline install: shell 168 URLs 1211.5 KiB + largest locale data (es) = 2568.6 K
 ## Consequences
 
 - The budget counts the shell plus the largest locale. On W5 the accounted install is 2,684.5 KiB (43.7%) instead of 4,043.9 KiB (65.8%). W5 grew it by 116 KiB rather than 203 KiB, which projects to about 3.9 MiB, 64%, at the end of milestone 1.
-- **The reader payload's own budget is now the nearest wall.** `data/reader.es.json` is 866,240 bytes on W5, 82.6% of its 1 MiB budget (ADR 0010), and grows about 62 KB per wave. It fails around W8, long before the install budget. It needs a decision within about three waves: raise it, which the install budget now has room for, or split the reader payload so the offline reader parses less than every description at once.
+- **The reader payload's own budget rises from 1 MiB to 2 MiB.** `data/reader.es.json` is 866,240 bytes on W5, 82.6% of the old 1 MiB budget, and grows about 62 KB per wave, so it would have failed around W8. The 1 MiB ceiling was set while both locales' payloads shared the precache; the binding limit is now the install budget, which counts one locale and stands at 43.7%. Splitting the reader payload would not shrink what the offline reader must store, since it needs every description, so the per-file ceiling only guards against an unexpected jump and is sized to reach the end of milestone 1 (about 1.5 MB projected) with headroom. Revisit it if the offline reader's parse time on a low-end phone becomes noticeable.
 - A bilingual reader stores both locales, which is the old footprint. An update downloads each stored locale whole, about 1.4 MiB each. Before, it downloaded only the changed files, but of both locales. Search, catalog-lite and the reader payload change in every content wave, so an update transfers less than before for a one-locale reader and about the same for a bilingual one.
 - An existing install keeps working through the upgrade. The new worker caches the open window's locale. Workbox's activation removes both locales' old precached payloads, and the other locale returns on the reader's next online visit to its tree.
 - A new payload is one entry in `LOCALE_PAYLOADS`. A new locale needs nothing in the worker: it comes from `@equreka/core` `LOCALES`, and `localeOfPathname` mirrors the prefixed routing.
