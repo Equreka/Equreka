@@ -165,7 +165,7 @@ Other slices are writing their own files in the same working tree at the same ti
 Never set status reviewed. Never type a numeric value, Wikidata QID, QUDT IRI or historical claim from memory: fetch it and cite it.
 If an entry cannot be authored correctly (missing prerequisite, no closed form, contested data), do not force it: put it in deferred with the reason.
 Before returning, run \`pnpm --filter @equreka/content check\` and return the issues that concern your files as checkIssues.
-Do not run git commands that change state.`
+Do not run git commands that change state. Never run Expo or Metro commands (expo, expo-doctor, metro, pnpm --filter mobile dev/start/export): Expo CLI rewrites apps/mobile/tsconfig.json and deletes expo-env.d.ts.`
 
 const verifyPrompt = (slice, authored) => `You are an ADVERSARIAL VERIFIER for Equreka wave ${wave}, slice "${slice.id}".
 Load and follow the project skill \`equreka-verify\` (.claude/skills/equreka-verify/SKILL.md).
@@ -195,7 +195,7 @@ Check issues reported so far: ${JSON.stringify(issues)}
 Shared edits requested: ${JSON.stringify(shared)}
 Missing prerequisites reported: ${JSON.stringify(prereqs)}
 Owners: ${JSON.stringify(ownerBySlug)}
-Do not run git commands that change state.`
+Do not run git commands that change state. Never run Expo or Metro commands (expo, expo-doctor, metro, pnpm --filter mobile dev/start/export): Expo CLI rewrites apps/mobile/tsconfig.json and deletes expo-env.d.ts.`
 }
 
 const gatePrompt = (fix, results) => `You are the GATE for Equreka wave ${wave} (${waveTitle}) on branch ${args.branch}. You do not edit files, do not touch docs/content/roadmap.yaml and do not commit: the main session reconciles the roadmap, commits and opens the PR from your report.
@@ -204,6 +204,7 @@ Fixer outcome: ${JSON.stringify({ checkClean: fix?.checkClean, qualityClean: fix
 2. Run \`node scripts/content/originality.mjs <every entity file and sidecar this wave wrote> --format json\` (search on). Every new or rewritten description must come back flagged:false; list any that do not. Exit code 2 means the network check failed: rerun once, then report it as not run.
 3. Artifact delta: the content build prints every artifact's bytes and share of budget. Baseline before the wave: ${JSON.stringify(args.baseline ?? null)}. Report before/after/delta for engine.json, presentation/, search/, math bodies, and the mobile-bundled total; flag anything above 90% of its budget.
 4. Write the PR title \`content(${wave.toLowerCase().replace(/\./g, '-')}): ${wave} ${waveTitle}\` and body following the template in .claude/skills/equreka-content-wave/SKILL.md (section 6): summary, entries table, deferred/blocked with reasons, the review checklist built from the verifiers' confirmed list (value, QID, source URL per item), open questions, gates, originality, artifact size. End the body with the line "🤖 Generated with [Claude Code](https://claude.com/claude-code)".
+5. Run `git status --short` and list every changed path outside packages/content/content/, docs/content/, packages/content/locale-debt.json and packages/content/src/pipeline/__tests__/locale-completeness.test.ts as strayChanges in the PR body (do not restore them yourself).
 ready = every gate passed, no originality flag on wave files, no artifact above 90% of budget.
 Verifiers' confirmed lists: ${JSON.stringify(results.flatMap((r) => r.verified?.confirmed ?? []))}
 Authors' entries: ${JSON.stringify(results.flatMap((r) => r.authored?.entries ?? []))}

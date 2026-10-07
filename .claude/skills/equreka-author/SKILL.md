@@ -26,6 +26,7 @@ The slice object from the wave args (`items[]` with `collection`, `slug`, `actio
 - A change another file needs (an alias moving, a `unitOf` entry, a re-filing) goes in `sharedEdits[]`, never into the file.
 - No git state changes: no commit, branch, stash, checkout, reset or push. The main session commits.
 - Never set `status: 'reviewed'`. New entries carry no `status` (it defaults to `draft`). A rewrite keeps the entry's existing `status`.
+- Never run Expo or Metro commands (`expo`, `pnpm --filter mobile dev|start|export`): Expo CLI rewrites `apps/mobile/tsconfig.json` and deletes `expo-env.d.ts`, which breaks the wave's lint and typecheck gates.
 - Do not edit `packages/content/locale-debt.json` or its ceiling test. When your rewrite completes a legacy entity's Spanish, the check reports "stale locale debt" for it: ignore that issue; the wave's fixer reconciles the debt list centrally (ADR 0012).
 - **Never type a value, QID, IRI, date, name or history claim from memory.** Every one comes from a page you fetched in this session, and its URL goes in your output.
 
