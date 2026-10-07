@@ -63,7 +63,7 @@ Measure the artifact delta against the preflight baseline. `pnpm --filter @equre
 
 ## 6. Commit and PR
 
-One commit per wave, Conventional Commits with the `content` type for data-only changes (`content(<scope>): <wave id> <title>`), roadmap edits included. Push the branch and open the PR against the base branch. **Never merge**, never set `reviewed`, never push to `main`.
+One commit per wave, Conventional Commits with the `content` type for data-only changes (`content(<scope>): <wave id> <title>`, where the scope is the lowercase wave id with dots as hyphens, e.g. `content(w1-2): W1.2 …` — the commit-msg hook accepts only `[a-z0-9,-]` scopes), roadmap edits included. Push the branch and open the PR against the base branch. **Never merge**, never set `reviewed`, never push to `main`.
 
 PR body:
 

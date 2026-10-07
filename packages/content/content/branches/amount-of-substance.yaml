@@ -3,14 +3,28 @@ name:
   en: 'Amount of substance'
 category: 'chemistry'
 order: 0
-externalIds:
-  wikidata: 'Q104946'
 aliases:
   - 'stoichiometry'
   - 'mole concept'
   - 'estequiometría'
+  - 'concepto de mol'
 description:
   en: >-
-    Amount of substance counts entities (atoms, molecules, ions) in units of the mole, one of the
-    seven SI base quantities. Through the Avogadro constant it links the masses weighed in a
-    laboratory to the number of particles taking part in a reaction, the basis of stoichiometry.
+    Amount of substance is the branch of chemistry that counts particles. Its central quantity,
+    amount of substance, measures how many specified elementary entities, such as atoms, molecules,
+    ions or electrons, a sample contains, and its SI unit is the mole. One mole holds a fixed number
+    of entities, the numerical value of the Avogadro constant, which makes the mole a counting unit
+    like the dozen, scaled to the size of atoms.
+
+    Molar mass converts the mass weighed on a balance into an amount, and the Avogadro constant
+    converts an amount into a number of entities; for a gas, molar volume plays the same role. The
+    dalton and the atomic mass constant express the masses of single atoms and molecules, and the
+    mass of one particle follows from the molar mass. Stoichiometry applies these conversions to
+    balanced chemical equations, whose coefficients give mole ratios: from them come the mass of
+    product a reaction should yield, its percent yield, the limiting reagent, the percent
+    composition of a compound and the atom economy of a synthesis.
+
+    The branch underlies the rest of chemistry. Concentrations in solutions are amounts per volume
+    of solution or per mass of solvent, the ideal gas law counts gas in moles, and thermochemistry
+    and electrochemistry state energy and charge per mole. Because the mole is an SI base unit, the
+    branch shares the unit and the Avogadro constant with the International System of Units.
