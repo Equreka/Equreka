@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Bar'
+namePlural: 'bares'
+description: >-
+  El bar es una unidad métrica de presión igual a cien mil pascales exactos. No forma parte del
+  Sistema Internacional de Unidades, pero el folleto del SI la incluye en su tabla de unidades no
+  SI, y sigue en uso cotidiano en meteorología y en ingeniería, donde expresa las presiones con
+  cifras de tamaño cómodo.
+
+  Su definición es un múltiplo decimal de la unidad SI,
+  $1\,\mathrm{bar}=0.1\,\mathrm{MPa}=10^{5}\,\mathrm{Pa}$, y la publicación especial 811 del NIST
+  da el factor como exacto. La guía del NIST sobre unidades ajenas al SI sitúa el bar entre las
+  unidades que el CIPM permitió en 1978 seguir usando en los campos que ya dependían de ellas, con
+  la recomendación de no extenderlas a otros nuevos.
+
+  Como un bar está cerca de la presión del aire al nivel del mar, la unidad produce números
+  cómodos: la atmósfera estándar equivale a $1.013\,25\,\mathrm{bar}$, algo más de un bar. La
+  milésima parte del bar, el milibar, tiene el mismo tamaño que el hectopascal, de modo que una
+  lectura de presión conserva todas sus cifras al pasar de un nombre al otro.
+
+  El bar y su símbolo se incluyeron en la Resolución 7 de la 9.ª CGPM, en 1948. El símbolo se
+  escribe bar, en letra redonda minúscula, y nunca lleva marca de plural, mientras que el nombre
+  forma el plural regular bares. En ingeniería se añade a veces una letra al símbolo para indicar
+  una lectura manométrica o absoluta; el folleto del SI rechaza esa costumbre, porque un símbolo
+  de unidad no debe aportar información sobre la magnitud, que corresponde al nombre de esta.

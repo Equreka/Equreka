@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Kilogram square metre'
+symbol:
+  tex: 'kg\,m^{2}'
+  text: 'kg m²'
+unitOf:
+  - 'moment-of-inertia'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'kilogram'
+      exp: 1
+    - unit: 'metre'
+      exp: 2
+externalIds:
+  wikidata: 'Q50808017'
+  qudt: 'http://qudt.org/vocab/unit/KiloGM-M2'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'kilogram square meter'
+  - 'kilogram metre squared'
+  - 'kilogram meter squared'
+  - 'kg m2'
+  - 'kg*m^2'
+  - 'kg m^2'
+references:
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'BIPM, The International System of Units, 9th ed., 5.4 Rules for writing unit symbols'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 10.4 Moment of Inertia and Rotational Kinetic Energy'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-4-moment-of-inertia-and-rotational-kinetic-energy'
+  - title: 'QUDT, unit KiloGM-M2'
+    url: 'https://qudt.org/vocab/unit/KiloGM-M2'
+description:
+  en: >-
+    The kilogram square metre, symbol $\mathrm{kg\,m^{2}}$, is the coherent SI derived unit of
+    moment of inertia, which measures how strongly a body opposes a change in its rotational
+    motion about an axis. A point
+    mass of one kilogram at a distance of one metre from the axis has a moment of inertia of one
+    kilogram square metre.
+
+    The unit is the kilogram multiplied by the square of the metre and has no special name, so it
+    is defined through those two SI base units alone. Multiplying it by the square of an angular
+    velocity in radians per second gives twice a rotational kinetic energy in joules, which is why
+    the unit fits directly into the equations of rotational dynamics.
+
+    NIST Special Publication 811 converts the pound foot squared to about 0.042 14 kilogram square
+    metre and the pound inch squared to about 0.000 292 6 kilogram square metre. In CGS units the gram square centimetre is
+    exactly one ten-millionth of a kilogram square metre.
+
+    Moments of inertia in this unit range widely. Six small washers on a light rod half a metre
+    long have about $0.0035\,\mathrm{kg\,m^{2}}$ about its centre, and the four rotor blades of a
+    small rescue helicopter about $1067\,\mathrm{kg\,m^{2}}$ about the hub. Flywheels meant to store
+    energy are built with large moments of inertia, since the stored rotational energy grows in
+    proportion to them.
+
+    The symbol takes a space or a half-high dot between kg and m², and the name may also be read as
+    kilogram metre squared. The plural is kilogram square metres.

@@ -48,6 +48,31 @@ const CASES = [
 		expect: /unquoted numeric on a decimal-string field/,
 	},
 	{
+		name: 'unquoted decimal inside a flow mapping',
+		text: "m: { value: 0.001, unit: 'gram' }\n",
+		expect: /unquoted numeric on a decimal-string field/,
+	},
+	{
+		name: 'unquoted rational inside a flow mapping, after another key',
+		text: "toBase:\n  factor: { num: '5', den: 9 }\n",
+		expect: /unquoted numeric on a decimal-string field/,
+	},
+	{
+		name: 'unquoted decimal in a flow mapping inside a flow sequence item',
+		text: "cases:\n  - [{ input: .5, expected: '1' }]\n",
+		expect: /unquoted numeric on a decimal-string field/,
+	},
+	{
+		name: 'quoted decimals and non-decimal numbers in flow mappings stay quiet',
+		text: [
+			"m: { value: '0.001', unit: 'gram' }",
+			"factor: { num: '5', den: '9' }",
+			"of: [{ unit: 'metre', exp: 2 }]",
+			'',
+		].join('\n'),
+		expect: null,
+	},
+	{
 		name: 'clean file stays quiet',
 		text: [
 			'name:',

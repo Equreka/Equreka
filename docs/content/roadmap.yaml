@@ -19,7 +19,7 @@ waves:
     slices:
       - { id: kinematics-and-angles, title: 'Kinematic and angular quantities, angle and speed units', branches: [mechanics, geometry, trigonometry, waves-and-oscillations] }
       - { id: dynamics, title: 'Dynamic quantities and force, momentum and density units', branches: [mechanics] }
-      - { id: pressure-astronomy-constants, title: 'Pressure, astronomical and area units; mechanics and mathematical constants', branches: [fluid-mechanics, gravitation, mechanics, algebra, geometry] }
+      - { id: pressure-astronomy-constants, title: 'Pressure, astronomical and area units; mechanics and mathematical constants', branches: [fluid-mechanics, gravitation, mechanics, algebra, geometry, gases] }
     paths: []
   - id: 'W1.3'
     title: 'Prerequisites: thermodynamics, electromagnetism and optics'
@@ -35,7 +35,7 @@ waves:
     slices:
       - { id: modern-and-nuclear, title: 'Radiation quantities, atomic units and particle constants', branches: [modern-physics, nuclear-physics, atomic-structure] }
       - { id: molar-quantities, title: 'Molar quantities, molar units and chemical constants', branches: [amount-of-substance, thermochemistry, electrochemistry, gases] }
-      - { id: concentration, title: 'Concentration quantities and units, pH', branches: [solutions, acids-and-bases] }
+      - { id: concentration, title: 'Concentration quantities and units, pH', branches: [solutions, acids-and-bases, arithmetic] }
     paths: []
   - id: 'W1.5'
     title: 'Legacy rewrite I: magnitudes, constants, variables, equations and paths'
@@ -187,8 +187,8 @@ waves:
 entries:
   # W1.1 · mathematics
   - { collection: categories, slug: mathematics, action: rewrite, wave: 'W1.1', slice: mathematics, branches: [], milestone: 1, flags: [], name: 'Mathematics', note: 'order 1; Spanish sidecar', state: planned }
-  - { collection: branches, slug: arithmetic, action: create, wave: 'W1.1', slice: mathematics, branches: [], milestone: 1, flags: [], name: 'Arithmetic', note: 'mathematics, order 0; split from arithmetic-and-algebra: percentages, proportion, interest', state: planned }
-  - { collection: branches, slug: algebra, action: create, wave: 'W1.1', slice: mathematics, branches: [], milestone: 1, flags: [], name: 'Algebra', note: 'mathematics, order 1; equations, exponentials and logarithms, sequences', state: planned }
+  - { collection: branches, slug: arithmetic, action: create, wave: 'W1.4', slice: concentration, branches: [], milestone: 1, flags: [], name: 'Arithmetic', note: 'mathematics, order 0; split from arithmetic-and-algebra: percentages, proportion, interest', state: planned }
+  - { collection: branches, slug: algebra, action: create, wave: 'W1.2', slice: pressure-astronomy-constants, branches: [], milestone: 1, flags: [], name: 'Algebra', note: 'mathematics, order 1; equations, exponentials and logarithms, sequences', state: planned }
   - { collection: branches, slug: geometry, action: rewrite, wave: 'W1.1', slice: mathematics, branches: [], milestone: 1, flags: [], name: 'Geometry', note: 'mathematics, order 2 (was 1); absorbs analytic geometry', state: planned }
   - { collection: branches, slug: trigonometry, action: create, wave: 'W1.1', slice: mathematics, branches: [], milestone: 1, flags: [], name: 'Trigonometry', note: 'mathematics, order 3', state: planned }
   - { collection: branches, slug: arithmetic-and-algebra, action: retire, wave: 'W1.1', slice: mathematics, branches: [], milestone: 1, flags: [], name: 'Arithmetic and algebra', note: 'split into arithmetic and algebra; re-file pi and pythagorean-theorem to geometry and trigonometry, then delete the branch and its sidecar', state: planned, edits: [constants/pi, equations/pythagorean-theorem] }
@@ -208,11 +208,11 @@ entries:
   - { collection: categories, slug: universal, action: rewrite, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Universal', note: 'order 0; internal grouping of constants and units, no QID; Spanish sidecar', state: planned }
   - { collection: branches, slug: amount-of-substance, action: rewrite, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Amount of substance', note: 'chemistry, order 0', state: planned }
   - { collection: branches, slug: atomic-structure, action: rewrite, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Atomic structure', note: 'chemistry, order 1', state: planned }
-  - { collection: branches, slug: gases, action: create, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Gases', note: 'chemistry, order 2', state: planned }
-  - { collection: branches, slug: solutions, action: create, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Solutions and concentration', note: 'chemistry, order 3; display name "Solutions and concentration"', state: planned }
-  - { collection: branches, slug: thermochemistry, action: create, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Thermochemistry', note: 'chemistry, order 4', state: planned }
-  - { collection: branches, slug: acids-and-bases, action: create, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Acids and bases', note: 'chemistry, order 7', state: planned }
-  - { collection: branches, slug: electrochemistry, action: create, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Electrochemistry', note: 'chemistry, order 8', state: planned }
+  - { collection: branches, slug: gases, action: create, wave: 'W1.2', slice: pressure-astronomy-constants, branches: [], milestone: 1, flags: [], name: 'Gases', note: 'chemistry, order 2', state: planned }
+  - { collection: branches, slug: solutions, action: create, wave: 'W1.4', slice: concentration, branches: [], milestone: 1, flags: [], name: 'Solutions and concentration', note: 'chemistry, order 3; display name "Solutions and concentration"', state: planned }
+  - { collection: branches, slug: thermochemistry, action: create, wave: 'W1.4', slice: molar-quantities, branches: [], milestone: 1, flags: [], name: 'Thermochemistry', note: 'chemistry, order 4', state: planned }
+  - { collection: branches, slug: acids-and-bases, action: create, wave: 'W1.4', slice: concentration, branches: [], milestone: 1, flags: [], name: 'Acids and bases', note: 'chemistry, order 7', state: planned }
+  - { collection: branches, slug: electrochemistry, action: create, wave: 'W1.4', slice: molar-quantities, branches: [], milestone: 1, flags: [], name: 'Electrochemistry', note: 'chemistry, order 8', state: planned }
   - { collection: branches, slug: si-system, action: rewrite, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Si system', note: 'universal, order 0 (unchanged)', state: planned }
   - { collection: branches, slug: measurement, action: rewrite, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Measurement', note: 'universal, order 1 (unchanged)', state: planned }
   # W1.2 · kinematics-and-angles
@@ -242,7 +242,7 @@ entries:
   - { collection: magnitudes, slug: moment-of-inertia, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Moment of inertia', note: 'L^2 M; baseUnit kilogram-square-metre; nonNegative', state: planned }
   - { collection: magnitudes, slug: kinetic-energy, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Kinetic energy', note: 'L^2 M T^-2; baseUnit joule; nonNegative; kindOf energy is a hypothesis: check QUDT', state: planned }
   - { collection: magnitudes, slug: potential-energy, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Potential energy', note: 'L^2 M T^-2; baseUnit joule; kindOf energy is a hypothesis: check QUDT', state: planned }
-  - { collection: magnitudes, slug: spring-constant, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Spring constant', note: 'M T^-2; baseUnit newton-per-metre; create only if an exact Wikidata item and QUDT kind exist, else defer with the reason', state: planned }
+  - { collection: magnitudes, slug: spring-constant, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Spring constant', note: 'M T^-2; baseUnit newton-per-metre; create only if an exact Wikidata item and QUDT kind exist, else defer with the reason', state: deferred, reason: 'no exact QUDT quantity kind (SpringConstant/Stiffness 404; ForcePerLength is broader); revisit if QUDT adds one or the identity rule relaxes' }
   - { collection: units, slug: kilogram-metre-per-second, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Kilogram metre per second', note: 'compose kilogram, metre, second^-1; unitOf momentum', state: planned }
   - { collection: units, slug: newton-second, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Newton second', note: 'compose newton, second; unitOf impulse', state: planned }
   - { collection: units, slug: kilogram-per-cubic-metre, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics, fluid-mechanics], milestone: 1, flags: [], name: 'Kilogram per cubic metre', note: 'compose kilogram, metre^-3; unitOf density', state: planned }
@@ -383,7 +383,7 @@ entries:
   - { collection: magnitudes, slug: stress, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [mechanics], milestone: 1, flags: [], name: 'Stress', note: 'kindOf force-per-area set in W1.2', state: planned }
   - { collection: magnitudes, slug: time, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [mechanics, measurement], milestone: 1, flags: [], name: 'Time', state: planned }
   - { collection: magnitudes, slug: volume, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [geometry, mechanics], milestone: 1, flags: [], name: 'Volume', state: planned }
-  - { collection: magnitudes, slug: weight, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [mechanics], milestone: 1, flags: [], name: 'Weight', state: planned }
+  - { collection: magnitudes, slug: weight, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [mechanics, gravitation], milestone: 1, flags: [], name: 'Weight', state: planned }
   - { collection: magnitudes, slug: work, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [mechanics, thermodynamics], milestone: 1, flags: [], name: 'Work', state: planned }
   # W1.5 · field-thermal-and-light-magnitudes
   - { collection: magnitudes, slug: capacitance, action: rewrite, wave: 'W1.5', slice: field-thermal-and-light-magnitudes, branches: [electromagnetism], milestone: 1, flags: [], name: 'Capacitance', state: planned }
@@ -414,7 +414,7 @@ entries:
   - { collection: variables, slug: radius, action: rewrite, wave: 'W1.5', slice: constants-equations-paths, branches: [geometry], milestone: 1, flags: [], name: 'Radius', note: 'wiki entity with its own page; not an equation-local symbol', state: planned }
   - { collection: equations, slug: area-circle, action: rewrite, wave: 'W1.5', slice: constants-equations-paths, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Circle area', state: planned }
   - { collection: equations, slug: area-square, action: rewrite, wave: 'W1.5', slice: constants-equations-paths, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Square area', state: planned }
-  - { collection: equations, slug: mass-energy-equivalence, action: rewrite, wave: 'W1.5', slice: constants-equations-paths, branches: [modern-physics], level: intro, milestone: 1, flags: [], name: 'Mass-energy equivalence', state: planned }
+  - { collection: equations, slug: mass-energy-equivalence, action: rewrite, wave: 'W1.5', slice: constants-equations-paths, branches: [modern-physics, nuclear-physics], level: intro, milestone: 1, flags: [], name: 'Mass-energy equivalence', state: planned }
   - { collection: equations, slug: pythagorean-theorem, action: rewrite, wave: 'W1.5', slice: constants-equations-paths, branches: [geometry, trigonometry], level: intro, milestone: 1, flags: [], name: 'Pythagorean theorem', note: 're-filed from arithmetic-and-algebra in W1.1', state: planned }
   - { collection: paths, slug: energy-work-heat, action: edit, wave: 'W1.5', slice: constants-equations-paths, branches: [mechanics, thermodynamics, modern-physics], level: intermediate, milestone: 1, flags: [], name: 'Energy, work and heat', note: 'Spanish prose: replace regional unit names (joule, watt, ampere) with julio, vatio, amperio per glossary-es.md; English unchanged unless a style rule is broken', state: planned }
   - { collection: paths, slug: geometry-of-circles-and-triangles, action: edit, wave: 'W1.5', slice: constants-equations-paths, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Geometry of circles and triangles', note: 'Spanish prose: replace regional unit names (joule, watt, ampere) with julio, vatio, amperio per glossary-es.md; English unchanged unless a style rule is broken', state: planned }

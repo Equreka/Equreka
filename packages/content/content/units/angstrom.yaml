@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Ångström'
+symbol:
+  tex: '\mathring{A}'
+  text: 'Å'
+unitOf:
+  - 'length'
+system: 'other'
+toBase:
+  factor: '1e-10'
+  exact: true
+  source:
+    name: 'BIPM SI Brochure 9th ed.'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+    ref: 'Table 8: angstrom, 1 Å = 0.1 nm = 10^-10 m; NIST SP 811 B.8: ångström (Å), 1.0 E-10 m exact'
+externalIds:
+  wikidata: 'Q81454'
+  qudt: 'http://qudt.org/vocab/unit/ANGSTROM'
+categories:
+  - 'physics'
+  - 'chemistry'
+branches:
+  - 'mechanics'
+  - 'atomic-structure'
+aliases:
+  - 'angstroms'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 and note (f)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: ångström'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST SP 811, Appendix B, Conversion factors, B.2 (converting ångströms to nanometres)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors'
+  - title: 'NIST SP 811, Chapter 5, Units outside the SI, Table 9'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si'
+  - title: 'Uppsala University, Anders and Knut Ångström'
+    url: 'https://www.uu.se/en/campus/angstrom-laboratory/about-us/history/anders-and-knut-angstrom'
+description:
+  en: >-
+    The ångström, symbol Å, is a unit of length equal to one ten-billionth of a metre, a tenth of a
+    nanometre. It lies outside the International System of Units but is listed in the SI Brochure
+    among the non-SI units in wide use, because it matches the scale of atoms: chemists and
+    physicists use it for the lengths of chemical bonds and for the sizes of atoms and molecules.
+
+    The definition is a power of ten of the metre, $1\,\mathrm{\mathring{A}}=10^{-10}\,\mathrm{m}$,
+    exact by construction, and NIST Special Publication 811 lists the factor as exact. The NIST
+    guide counts the ångström among the units that the CIPM in 1978 allowed to continue in the
+    fields that already relied on them, while discouraging any wider use.
+
+    Ten ångströms make one nanometre, so converting between the two only moves the decimal point.
+    The SI Brochure also names wavelengths among its uses, and NIST advises that values given in
+    ångströms, such as the wavelengths of visible laser light, are best converted to nanometres
+    rather than to metres, which keeps the numbers of a convenient size.
+
+    The unit honours the Swedish physicist Anders Jonas Ångström of Uppsala University, one of the
+    founders of spectroscopy, who introduced a unit for the wavelengths of light that was later
+    adopted internationally under his name; his study of the solar spectrum, published in 1868,
+    long served as a standard text in the field. The SI Brochure spells
+    the name angstrom without diacritics, while NIST and most physics texts keep the Swedish
+    letters; the symbol is always the capital Å, with its ring, and it takes no plural ending.

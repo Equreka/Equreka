@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Millimetre of mercury'
+symbol:
+  tex: 'mmHg'
+unitOf:
+  - 'pressure'
+system: 'other'
+toBase:
+  factor: '133.322387415'
+  exact: false
+  source:
+    name: 'convention'
+    url: 'https://qudt.org/vocab/unit/MilliM_HG'
+    ref: 'conventional mmHg as stated by QUDT MilliM_HG: 1 mm column of fluid of density 13.5951 g/cm3 under 9.80665 m/s2; NIST SP 811 B.8 prints it rounded as 1.333 224 E+02 Pa (footnote 12)'
+externalIds:
+  wikidata: 'Q6859652'
+  qudt: 'http://qudt.org/vocab/unit/MilliM_HG'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'millimeter of mercury'
+  - 'millimetres of mercury'
+  - 'mm Hg'
+  - 'mm of mercury'
+references:
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: millimeter of mercury, conventional'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST SP 811, Appendix B footnotes, footnote 12: mercury manometer pressure units'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-footnotes'
+  - title: 'QUDT, unit MilliM_HG (millimetre of mercury)'
+    url: 'https://qudt.org/vocab/unit/MilliM_HG'
+  - title: 'NIST SP 811, Chapter 5, Units outside the SI, Table 9'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si'
+  - title: 'World Health Organization, Hypertension fact sheet'
+    url: 'https://www.who.int/news-room/fact-sheets/detail/hypertension'
+description:
+  en: >-
+    The millimetre of mercury, symbol mmHg, is a manometric unit of pressure: the pressure at the
+    foot of a column of mercury one millimetre tall. It lies outside the International System of
+    Units and survives above all in medicine, where blood pressure is still read and reported in
+    it, and in older work on vacuum and on gases.
+
+    A real column of mercury depends on temperature and on local gravity, so the unit in current
+    use is a conventional one. It takes a mercury density of exactly $13.5951\,\mathrm{g/cm^{3}}$
+    and the standard acceleration of gravity, $9.806\,65\,\mathrm{m/s^{2}}$, which together give
+    $1\,\mathrm{mmHg}=133.322\,387\,415\,\mathrm{Pa}$ under that convention. NIST Special Publication 811 prints
+    the factor rounded to seven digits and notes that more digits carry no physical meaning, since
+    the convention ignores the compressibility of mercury and the change in its density under the
+    present temperature scale.
+
+    The millimetre of mercury is almost the same size as the torr, which is defined instead as one
+    760th of the standard atmosphere. The two differ by about one part in seven million, far below
+    the resolution of any blood-pressure gauge, so they are interchangeable in practice but not
+    identical by definition.
+
+    In 1978 the CIPM allowed the millimetre of mercury to continue in use beside the SI in the
+    fields that already relied on it, and the NIST guide lists it among those units while advising
+    against spreading it further. Clinical thresholds, such as the values the World Health
+    Organization uses to diagnose hypertension, are stated in this unit. The symbol is written mmHg,
+    with or without a space before Hg, and never takes a plural ending.

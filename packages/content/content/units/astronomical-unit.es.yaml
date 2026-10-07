@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Unidad astronómica'
+description: >-
+  La unidad astronómica, de símbolo au, es una unidad de longitud que se usa para las distancias
+  dentro del sistema solar. Su valor se acerca a la separación media entre la Tierra y el Sol, pero hoy es
+  una longitud convencional fija y no una magnitud medida. El folleto del SI la incluye entre las
+  unidades no SI de uso común, junto a la hectárea, el bar y el electronvoltio.
+
+  La Resolución B2 de la XXVIII Asamblea General de la Unión Astronómica Internacional, celebrada
+  en 2012, definió la unidad como exactamente $1\,\mathrm{au}=149\,597\,870\,700\,\mathrm{m}$. El
+  valor es válido sea cual sea la escala de tiempo con la que trabaje cada astrónomo, y la UAI
+  establece au como único símbolo de la unidad. La publicación especial 811 del NIST todavía
+  imprime un factor redondeado a siete cifras, que concuerda con la definición exacta.
+
+  Sobre ella se construyen unidades más largas de longitud astronómica. El pársec se define como
+  exactamente $(648\,000/\pi)\,\mathrm{au}$, la distancia desde la que una unidad astronómica se
+  vería con una anchura de un segundo de arco, lo que hace al pársec unas 206 265 veces más largo. El año luz,
+  la distancia que recorre la luz en un año juliano, es unas 63 241 veces más largo que la unidad
+  astronómica.
+
+  La unidad mantiene en números pequeños los tamaños de las órbitas planetarias, por lo que la
+  ciencia planetaria y la mecánica celeste expresan con ella las distancias dentro del sistema
+  solar. La Unión Astronómica Internacional creó su sistema de unidades astronómicas en 1976, con
+  la unidad astronómica como uno de sus miembros principales. Otros textos escriben AU o ua; la
+  UAI prefiere au, y conviene evitar la forma a.u., porque la guía del NIST la usa para las
+  unidades atómicas de la física.

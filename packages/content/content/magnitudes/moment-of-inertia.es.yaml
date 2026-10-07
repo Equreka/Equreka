@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Momento de inercia'
+description: >-
+  El momento de inercia, también llamado inercia rotacional, mide cuánto se opone un cuerpo a que
+  cambie su rotación alrededor de un eje dado. Para un conjunto de masas puntuales es la suma de
+  cada masa multiplicada por el cuadrado de su distancia al eje; para un cuerpo continuo la suma
+  se convierte en una integral sobre la masa. En la rotación ocupa el lugar que la masa tiene en
+  el movimiento rectilíneo.
+
+  Su unidad SI es el kilogramo metro cuadrado, y su dimensión es masa por longitud al cuadrado. La
+  energía cinética de rotación de un sólido rígido es la mitad de su momento de inercia por el
+  cuadrado de su velocidad angular, en paralelo con la mitad de la masa por la rapidez al cuadrado
+  del movimiento rectilíneo.
+
+  Para la rotación alrededor de un eje fijo, el momento de inercia es un escalar y nunca es
+  negativo. A diferencia de la masa, no es una propiedad única del cuerpo: depende del eje elegido
+  y de cómo se reparte la masa a su alrededor. El teorema de los ejes paralelos da su valor
+  respecto de cualquier eje a partir del valor respecto de un eje paralelo que pase por el centro
+  de masas.
+
+  Suele calcularse a partir de la forma y del reparto de masa del cuerpo, y hay resultados
+  tabulados para varillas, aros, discos y esferas. La masa alejada del eje es la que más cuenta,
+  porque la distancia interviene al cuadrado. Seis arandelas pequeñas sobre una varilla ligera de
+  medio metro tienen unos $0.0035\,\mathrm{kg\,m^{2}}$ respecto de su centro, mientras que las
+  cuatro palas del rotor de un helicóptero de rescate pequeño, girando alrededor del buje, suman
+  unos $1067\,\mathrm{kg\,m^{2}}$.
+
+  El momento de inercia es distinto del momento angular, que es el producto del momento de inercia
+  por la velocidad angular. Cuando un cuerpo que gira acerca su masa al eje, su momento de inercia
+  disminuye y su velocidad angular aumenta, de modo que el momento angular se mantiene.

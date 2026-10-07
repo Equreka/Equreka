@@ -3,7 +3,7 @@ import { useRouter } from 'expo-router';
 import { Pressable } from 'react-native';
 import { entriesInBranch } from '../../entities/content/lookup';
 import { entryHref } from '../../entities/content/routes';
-import { pickSegments } from '../../entities/content/text';
+import { pickRichText } from '../../entities/content/text';
 import { getPresentation } from '../../shared/content/artifact';
 import { RichText } from '../../shared/math/math-view';
 import { useLocale, useT, useTheme } from '../../shared/providers/equreka-provider';
@@ -34,7 +34,7 @@ export function BranchScreen({ slug }: BranchScreenProps) {
 	}
 	const category = getPresentation('categories')[branch.category];
 	const categoryName = category === undefined ? branch.category : localizedName(category, locale);
-	const description = pickSegments(branch.descriptionSegments, locale);
+	const description = pickRichText(branch.description, locale);
 	const groups = entriesInBranch(slug, locale);
 	return (
 		<Screen>

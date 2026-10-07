@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Newton per metre'
+symbol:
+  tex: 'N/m'
+unitOf: []
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'newton'
+      exp: 1
+    - unit: 'metre'
+      exp: -1
+externalIds:
+  wikidata: 'Q26156113'
+  qudt: 'http://qudt.org/vocab/unit/N-PER-M'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'newton per meter'
+  - 'N m-1'
+  - 'N/m'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 6'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 15.1 Simple Harmonic Motion'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/15-1-simple-harmonic-motion'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'QUDT, unit N-PER-M'
+    url: 'https://qudt.org/vocab/unit/N-PER-M'
+  - title: 'QUDT, unit DYN-PER-CentiM'
+    url: 'https://qudt.org/vocab/unit/DYN-PER-CentiM'
+description:
+  en: >-
+    The newton per metre, symbol $\mathrm{N/m}$, is the coherent SI derived unit of force per unit
+    length. The SI Brochure lists it as the unit of surface tension, and in mechanics it measures
+    the spring constant, or force constant, of Hooke's law: the force needed to stretch or
+    compress a spring by one metre.
+
+    It is the newton divided by the metre and has no special name. In base units it is the
+    kilogram per second squared, and because a newton is a joule per metre, the same unit can also
+    be read as the joule per square metre, an energy per unit area.
+
+    NIST Special Publication 811 converts the pound-force per inch to about
+    $175.126\,8\,\mathrm{N/m}$. The CGS unit, the dyne per centimetre, is exactly one thousandth of
+    a newton per metre, so surface tensions quoted in dynes per centimetre become millinewtons per
+    metre with the same number.
+
+    A stiffer spring has a larger constant in this unit and, carrying a given mass, oscillates
+    faster; the period of a mass on a spring depends only on the mass and the spring constant, not
+    on how far the mass is pulled from equilibrium. The unit appears wherever a restoring force
+    grows in proportion to a displacement, from laboratory springs to a flexing diving board.
+
+    The symbol may also be written with the metre raised to the exponent minus one. The plural is
+    newtons per metre.

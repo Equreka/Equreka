@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Metre per second squared'
+symbol:
+  tex: 'm/s^{2}'
+  text: 'm/s²'
+unitOf:
+  - 'acceleration'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'metre'
+      exp: 1
+    - unit: 'second'
+      exp: -2
+externalIds:
+  wikidata: 'Q1051665'
+  qudt: 'http://qudt.org/vocab/unit/M-PER-SEC2'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'meter per second squared'
+  - 'metres per second squared'
+  - 'meters per second squared'
+  - 'metre per square second'
+  - 'metre per second per second'
+  - 'm/s2'
+  - 'm/s^2'
+  - 'm s^-2'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 5: acceleration; Table 8: gal'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1: 3rd CGPM (1901), declaration on the conventional value of gn'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 3.3 Average and Instantaneous Acceleration'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-3-average-and-instantaneous-acceleration'
+description:
+  en: >-
+    The metre per second squared is the SI coherent derived unit of acceleration. It is formed by
+    dividing the metre by the square of the second, which is the same as dividing the metre per
+    second, the unit of velocity, by the second.
+
+    An acceleration of one metre per second squared changes the velocity of a body by one metre per
+    second during each second. The SI Brochure gives the unit in its table of coherent derived units
+    expressed in base units, with the dimension of a length divided by a time squared. The same
+    unit measures the gravitational field strength, since one newton per kilogram equals one metre
+    per second squared.
+
+    The gal of the CGS system, still used in geodesy and geophysics, equals one hundredth of a metre
+    per second squared. The standard acceleration of gravity, adopted by the 3rd CGPM in 1901,
+    is $9.806\,65\,\mathrm{m/s^{2}}$, and accelerations in engineering and aviation are often quoted
+    as multiples of it. Speeds in kilometres per hour gained each second convert by dividing by 3.6.
+
+    The unit is used wherever motion changes: braking distances, vehicle performance, free fall,
+    circular motion, seismology and the design of lifts, rides and rockets. Typical values in
+    everyday life sit between a fraction of a metre per second squared for a train and a few tens
+    for a launch vehicle at full thrust.
+
+    Its symbol is m/s², also written $\mathrm{m\,s^{-2}}$. The reading metre per second per second
+    describes the same unit.

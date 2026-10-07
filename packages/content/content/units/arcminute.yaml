@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Arcminute'
+symbol:
+  tex: '^{\prime}'
+  text: '′'
+unitOf:
+  - 'plane-angle'
+system: 'other'
+compose:
+  factor:
+    num: '1'
+    den: '60'
+  of:
+    - unit: 'degree'
+      exp: 1
+externalIds:
+  wikidata: 'Q209426'
+  qudt: 'http://qudt.org/vocab/unit/ARCMIN'
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'arcmin'
+  - 'arc minute'
+  - 'minute of arc'
+  - 'angular minute'
+  - 'minute (angle)'
+  - 'MOA'
+  - 'minuto sexagesimal'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8: minute (plane angle)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Section 5.4.3: formatting the value of a quantity'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Chapter 5, Table 6: non-SI units accepted for use with the SI'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si'
+  - title: 'NIST SP 811, Appendix B.8: minute (angle)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+description:
+  en: >-
+    The arcminute, or minute of arc, is a unit of plane angle equal to one sixtieth of a degree. It
+    belongs to the sexagesimal subdivision of the degree and, like the degree, is a non-SI unit that
+    the SI Brochure lists for use alongside the SI, where it is named the minute.
+
+    The SI Brochure defines it through the degree and the radian: one arcminute is one sixtieth of
+    a degree, or $\pi/10\,800$ radian. The conversion factor is therefore irrational and is carried
+    to the same 36 significant digits as the degree, about 0.000 290 89 radian.
+
+    Sixty arcminutes make a degree, 21 600 make a full turn, and each arcminute divides into 60
+    arcseconds. An angle written in sexagesimal form, such as 30°22′, combines degrees and
+    arcminutes in one expression, an exception the SI Brochure allows for plane angles and time.
+
+    Arcminutes remain customary in navigation, cartography and astronomy, where geographic
+    coordinates and the positions of stars are written in degrees, minutes and seconds. Outside
+    those fields the SI Brochure prefers decimal fractions of a degree. Shooters and optical
+    designers also quote angular resolution and the adjustment of sights in arcminutes.
+
+    The symbol is the prime, ′, written directly after the number with no space; a typewriter
+    apostrophe often stands in for it. The word minute alone is ambiguous, since it also names the
+    unit of time of 60 seconds with the symbol min, so the forms arcminute and minute of arc are
+    used where confusion could arise.

@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Radian per second squared'
+symbol:
+  tex: 'rad/s^{2}'
+  text: 'rad/s²'
+unitOf:
+  - 'angular-acceleration'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'radian'
+      exp: 1
+    - unit: 'second'
+      exp: -2
+externalIds:
+  wikidata: 'Q30338333'
+  qudt: 'http://qudt.org/vocab/unit/RAD-PER-SEC2'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'rad/s2'
+  - 'rad/s^2'
+  - 'radian per square second'
+  - 'radian per second per second'
+  - 'radians per second squared'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 6: radian per second squared'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 10.1 Rotational Variables'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-1-rotational-variables'
+  - title: 'QUDT, unit RAD-PER-SEC2'
+    url: 'https://qudt.org/vocab/unit/RAD-PER-SEC2'
+description:
+  en: >-
+    The radian per second squared is the SI coherent derived unit of angular acceleration. It
+    measures how quickly the angular velocity of a rotating body changes, and it is formed from the
+    radian divided by the square of the second, or equivalently from the radian per second divided
+    by the second.
+
+    An angular acceleration of one radian per second squared raises the angular velocity by one
+    radian per second during every second. The SI Brochure lists the unit in its table of coherent
+    derived units whose names include the radian, next to the radian per second for angular
+    velocity, so the two rotational units mirror the metre per second and the metre per second
+    squared of linear motion.
+
+    Multiplying a value in this unit by a distance from the axis in metres gives the tangential
+    acceleration of that point in metres per second squared, because the radian equals one. A rate
+    of one revolution per second gained each second equals $2\pi$ radians per second squared, and
+    one degree per second squared equals $\pi/180$ radian per second squared.
+
+    The unit appears in rotational dynamics, where the angular acceleration of a rigid body equals
+    the net torque divided by its moment of inertia, and in the specification of motors, turntables,
+    centrifuges and spacecraft attitude control. A bicycle wheel spun up from rest to 250
+    revolutions per minute in five seconds gains about $5.24\,\mathrm{rad/s^{2}}$.
+
+    Its symbol is rad/s², also written with a negative exponent as $\mathrm{rad\,s^{-2}}$. Like other units built
+    on the radian, it keeps the radian visible in the symbol to show that an angle, not a pure number,
+    is changing.

@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Acceleration'
+symbol:
+  tex: 'a'
+baseUnit: 'metre-per-second-squared'
+dimension:
+  L: 1
+  T: -2
+externalIds:
+  wikidata: 'Q11376'
+  qudt: 'http://qudt.org/vocab/quantitykind/Acceleration'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'linear acceleration'
+  - 'instantaneous acceleration'
+  - 'average acceleration'
+  - 'deceleration'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 5: acceleration; Table 8: gal'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1: 3rd CGPM (1901), declaration on the conventional value of gn'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 3.3 Average and Instantaneous Acceleration, Table 3.2'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-3-average-and-instantaneous-acceleration'
+  - title: 'QUDT, quantity kind Acceleration'
+    url: 'https://qudt.org/vocab/quantitykind/Acceleration'
+description:
+  en: >-
+    Acceleration is the rate at which the velocity of a body changes with time. It is a vector
+    quantity of kinematics that records any change in velocity, whether in magnitude, in direction
+    or in both. The instantaneous acceleration is the time derivative of velocity; the average
+    acceleration over an interval is the change in velocity divided by the time taken.
+
+    In the SI, acceleration is measured in metres per second squared, with the dimension of a length
+    divided by a time squared: an acceleration of one metre per second squared adds one metre per
+    second to the velocity every second. Geodesy and geophysics still quote the gal of the CGS
+    system, one hundredth of the SI unit.
+
+    Acceleration points in the direction of the change in velocity, which need not be the direction
+    of motion. Along a line it is one signed component, and its sign alone says nothing about
+    speeding up: a body speeds up when acceleration and velocity share a sign and slows down when
+    the signs differ. A body moving on a circle at constant speed is still accelerating, towards the
+    centre, because the direction of its velocity keeps changing.
+
+    Accelerometers measure it directly, and it can also be found from the slope of a
+    velocity–time graph. Typical magnitudes range from about $0.25\,\mathrm{m/s^{2}}$ for a
+    high-speed train to $1.9\times10^{9}\,\mathrm{m/s^{2}}$ for a proton in the Large
+    Hadron Collider. Free fall near the surface of the Earth is close to the standard acceleration
+    of gravity, $9.806\,65\,\mathrm{m/s^{2}}$, the conventional value adopted by the 3rd CGPM in
+    1901.
+
+    Acceleration is not velocity: a stone thrown upwards, with air resistance neglected, has zero velocity at the top of its path,
+    yet its acceleration there is the same downward value as at every other point of the flight.
+    Deceleration is an everyday word for slowing down, not a separate quantity.

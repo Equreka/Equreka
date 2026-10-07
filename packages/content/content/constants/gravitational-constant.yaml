@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Newtonian constant of gravitation'
+symbol:
+  tex: 'G'
+value: '6.67430e-11'
+approximations:
+  - '6.674e-11'
+unit: 'cubic-metre-per-kilogram-second-squared'
+exact: false
+uncertainty: '1.5e-15'
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?bg'
+  ref: 'Newtonian constant of gravitation'
+externalIds:
+  wikidata: 'Q18373'
+  qudt: 'http://qudt.org/vocab/constant/GravitationalConstant'
+categories:
+  - 'physics'
+branches:
+  - 'gravitation'
+aliases:
+  - 'gravitational constant'
+  - 'universal gravitational constant'
+  - 'big G'
+  - 'Newton''s constant'
+references:
+  - title: 'NIST, CODATA 2022 value: Newtonian constant of gravitation'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?bg'
+  - title: 'NIST, How do you measure the strength of gravity?'
+    url: 'https://www.nist.gov/how-do-you-measure-it/how-do-you-measure-strength-gravity'
+  - title: 'NIST, NIST weighs in on the mystery of the gravitational constant (2026)'
+    url: 'https://www.nist.gov/news-events/news/2026/04/nist-weighs-mystery-gravitational-constant'
+  - title: 'H. Cavendish, Experiments to determine the density of the earth, Philosophical Transactions of the Royal Society of London 88 (1798) 469-526'
+    url: 'https://doi.org/10.1098/rstl.1798.0022'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.2: the seven defining constants'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+description:
+  en: >-
+    The Newtonian constant of gravitation, symbol $G$ and often called big G, sets the strength of
+    the gravitational attraction between masses. Its CODATA 2022 recommended value is
+    $6.674\,30(15)\times10^{-11}\,\mathrm{m^{3}\,kg^{-1}\,s^{-2}}$, a measured value with a relative
+    standard uncertainty of $2.2\times10^{-5}$. It is not one of the seven defining constants of
+    the SI, so the 2019 redefinition of the units left it a measured quantity.
+
+    In Newton's law of universal gravitation, $F=Gm_{1}m_{2}/r^{2}$, the constant converts the
+    product of two masses divided by the square of their separation into a force in newtons. Its
+    tiny size explains why gravity between everyday objects goes unnoticed, while the enormous
+    mass of a planet or a star makes the same force dominate the motion of moons, planets and
+    galaxies.
+
+    Beyond the force law, the constant enters the gravitational potential energy of two masses,
+    the gravitational field strength at the surface of a planet, the orbital speed and orbital
+    period of a satellite, the escape velocity from a planet and Kepler's third law, which ties
+    the period of an orbit to its size and to the mass of the central body.
+
+    The first laboratory measurement was made in 1798 by Henry Cavendish, who used a torsion
+    balance to detect the attraction between lead balls; he reported his result as the density of
+    the Earth, and it corresponds to a value of the constant within about one percent of today's.
+    Torsion balances remain the main tool, yet the best modern experiments disagree with one
+    another by more than their stated uncertainties. In 2026 NIST published a decade-long
+    redetermination made with the BIPM torsion balance operated at NIST, adding new data to that
+    unresolved puzzle.

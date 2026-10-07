@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Kilogram per cubic metre'
+symbol:
+  tex: 'kg/m^{3}'
+  text: 'kg/m³'
+unitOf:
+  - 'density'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'kilogram'
+      exp: 1
+    - unit: 'metre'
+      exp: -3
+externalIds:
+  wikidata: 'Q844211'
+  qudt: 'http://qudt.org/vocab/unit/KiloGM-PER-M3'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+  - 'fluid-mechanics'
+aliases:
+  - 'kilogram per cubic meter'
+  - 'kg/m3'
+  - 'kg/m^3'
+  - 'kg m-3'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 5 and 5.4 Rules for writing unit symbols'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'OpenStax, University Physics Volume 1, 14.1 Fluids, Density, and Pressure'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure'
+  - title: 'QUDT, unit KiloGM-PER-M3'
+    url: 'https://qudt.org/vocab/unit/KiloGM-PER-M3'
+description:
+  en: >-
+    The kilogram per cubic metre, symbol $\mathrm{kg/m^{3}}$, is the coherent SI derived unit of
+    density, also called mass density: the density of a material of which one cubic metre has a
+    mass of one kilogram. The SI Brochure gives it in its table of coherent derived units expressed
+    in base units.
+
+    It is the kilogram divided by the cube of the metre and carries no special name, so its
+    definition rests directly on those of the two SI base units. The same unit measures mass
+    concentration, the mass of a dissolved or suspended substance per volume of a mixture.
+
+    One gram per cubic centimetre equals exactly $1000\,\mathrm{kg/m^{3}}$, and one gram per litre
+    equals exactly one kilogram per cubic metre, since a litre is a thousandth of a cubic metre.
+    NIST Special Publication 811 converts the pound per cubic foot to about 16.018 46 kilograms
+    per cubic metre.
+
+    The unit suits the densities met in everyday practice. Air at the freezing point of water and
+    atmospheric pressure has a little over one kilogram per cubic metre, liquid water about
+    $1000\,\mathrm{kg/m^{3}}$, and gold $1.93\times10^{4}\,\mathrm{kg/m^{3}}$, so a single unit
+    covers gases, liquids and the densest metals without prefixes.
+
+    The symbol may also be written with the metre raised to the exponent minus three, with a space
+    or a half-high dot between the two symbols. The plural is kilograms per cubic metre.

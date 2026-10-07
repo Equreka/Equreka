@@ -1,11 +1,11 @@
 import { fileURLToPath } from 'node:url';
-import { collectionSchemas } from '@equreka/schema';
 import { beforeAll, describe, expect, it } from 'vitest';
 import { loadContent } from '../load.js';
 import { expandCorpus } from '../prefix-expansion.js';
 import { RAT_ONE, rat, ratMul } from '../rational.js';
 import { type ResolveResult, resolveUnits } from '../resolve.js';
 import { type Corpus, validateContent } from '../validate.js';
+import { corpusWith } from './corpus-with.js';
 
 const CONTENT_DIR = fileURLToPath(new URL('../../../content/', import.meta.url));
 
@@ -142,56 +142,35 @@ describe('resolveUnits over the real corpus', () => {
 });
 
 function syntheticCorpus(units: Record<string, unknown>): Corpus {
-	return {
-		categories: new Map(),
-		branches: new Map(),
-		magnitudes: new Map([
-			[
-				'energy',
-				collectionSchemas.magnitudes.parse({
-					name: { en: 'Energy' },
-					symbol: { tex: 'E' },
-					baseUnit: 'joule',
-					dimension: { L: 2, M: 1, T: -2 },
-				}),
-			],
-			[
-				'length',
-				collectionSchemas.magnitudes.parse({
-					name: { en: 'Length' },
-					symbol: { tex: 'l' },
-					baseUnit: 'metre',
-					dimension: { L: 1 },
-				}),
-			],
-			[
-				'plane-angle',
-				collectionSchemas.magnitudes.parse({
-					name: { en: 'Plane angle' },
-					symbol: { tex: '\\theta' },
-					baseUnit: 'radian',
-					dimension: { A: 1 },
-				}),
-			],
-			[
-				'dimensionless',
-				collectionSchemas.magnitudes.parse({
-					name: { en: 'Dimensionless' },
-					symbol: { tex: '1' },
-					baseUnit: 'unitless',
-					dimension: {},
-				}),
-			],
-		]),
-		units: new Map(
-			Object.entries(units).map(([slug, data]) => [slug, collectionSchemas.units.parse(data)]),
-		),
-		prefixes: new Map(),
-		constants: new Map(),
-		variables: new Map(),
-		equations: new Map(),
-		paths: new Map(),
-	};
+	return corpusWith({
+		magnitudes: {
+			energy: {
+				name: { en: 'Energy' },
+				symbol: { tex: 'E' },
+				baseUnit: 'joule',
+				dimension: { L: 2, M: 1, T: -2 },
+			},
+			length: {
+				name: { en: 'Length' },
+				symbol: { tex: 'l' },
+				baseUnit: 'metre',
+				dimension: { L: 1 },
+			},
+			'plane-angle': {
+				name: { en: 'Plane angle' },
+				symbol: { tex: '\\theta' },
+				baseUnit: 'radian',
+				dimension: { A: 1 },
+			},
+			dimensionless: {
+				name: { en: 'Dimensionless' },
+				symbol: { tex: '1' },
+				baseUnit: 'unitless',
+				dimension: {},
+			},
+		},
+		units,
+	});
 }
 
 const BASE_UNITS = {

@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Torr'
+symbol:
+  tex: 'Torr'
+unitOf:
+  - 'pressure'
+system: 'other'
+toBase:
+  factor:
+    num: '101325'
+    den: '760'
+  exact: true
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si'
+    ref: 'Chapter 5, Table 11: torr (Torr), 1 Torr = (101 325/760) Pa; B.8: torr (Torr), 1.333 224 E+02 Pa'
+externalIds:
+  wikidata: 'Q185648'
+  qudt: 'http://qudt.org/vocab/unit/TORR'
+categories:
+  - 'physics'
+  - 'chemistry'
+branches:
+  - 'fluid-mechanics'
+  - 'gases'
+aliases:
+  - 'torrs'
+references:
+  - title: 'NIST SP 811, Chapter 5, Units outside the SI, Table 11'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: torr'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'BIPM, The International System of Units, 9th ed., section 5.2 and Appendix 1: 10th CGPM (1954), Resolution 4'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'MacTutor History of Mathematics, Evangelista Torricelli'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Torricelli/'
+  - title: 'Wikidata, torr (Q185648), named after (P138)'
+    url: 'https://www.wikidata.org/wiki/Q185648'
+description:
+  en: >-
+    One torr, symbol Torr, equals exactly one 760th of the standard atmosphere, and the unit
+    serves to measure pressure. It lies outside the International System of Units and survives mainly where low
+    gas pressures are measured, in vacuum work and in chemistry, often through its thousandth part,
+    the millitorr.
+
+    Since the 10th CGPM fixed the standard atmosphere at exactly $101\,325\,\mathrm{Pa}$ in 1954,
+    the torr is an exact rational fraction of the pascal,
+    $1\,\mathrm{Torr}=(101\,325/760)\,\mathrm{Pa}$, about $133.322\,\mathrm{Pa}$. NIST Special
+    Publication 811 states this definition in its table of units outside the SI and gives the
+    rounded factor in its conversion appendix. The fraction has a decimal expansion that repeats
+    without end, so no finite decimal states it exactly.
+
+    The torr and the millimetre of mercury are nearly the same size and differ by only about one
+    part in seven million, yet they are defined in different ways: the millimetre of mercury rests
+    on a conventional density of mercury and on the standard acceleration of gravity, whereas the
+    torr follows the atmosphere. For readings from manometers and vacuum gauges the two can be
+    exchanged without any visible error.
+
+    The unit honours Evangelista Torricelli, the Italian scientist who in 1643 proposed the
+    experiment, carried out by his colleague Vincenzo Viviani, in which mercury in a tube inverted
+    over a dish showed that the pressure of the air holds up the liquid column; this is the
+    principle of the barometer. Because the name comes from a person, the symbol keeps a capital T,
+    while the name is written in lowercase. The NIST guide lists the torr among the units that its
+    authors should avoid in favour of the pascal.

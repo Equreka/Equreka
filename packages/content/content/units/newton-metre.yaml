@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Newton metre'
+symbol:
+  tex: 'N\,m'
+  text: 'N m'
+unitOf:
+  - 'torque'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'newton'
+      exp: 1
+    - unit: 'metre'
+      exp: 1
+externalIds:
+  wikidata: 'Q215571'
+  qudt: 'http://qudt.org/vocab/unit/N-M'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'newton meter'
+  - 'newton-metre'
+  - 'newton-meter'
+  - 'N m'
+  - 'N*m'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.4 Derived units, Table 6 and 5.4 Rules for writing unit symbols'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'OpenStax, University Physics Volume 1, 10.6 Torque'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-6-torque'
+  - title: 'QUDT, unit N-M'
+    url: 'https://qudt.org/vocab/unit/N-M'
+description:
+  en: >-
+    The newton metre, symbol $\mathrm{N\,m}$, is the coherent SI derived unit of torque, the
+    quantity also known as moment of force: the torque of a force of one newton acting at right
+    angles to a lever arm one metre long. The SI Brochure lists it in its table of coherent derived
+    units whose names include units with special names.
+
+    It is the product of the newton and the metre, and in base units it is the kilogram square
+    metre per second squared, the same combination as the joule. The SI Brochure nevertheless keeps
+    the two apart: it states that the joule is never used to express torque, because torque is
+    defined by crossing a position vector with a force, not as an amount of energy. The
+    newton metre is therefore reserved for torque, even though one newton metre and one joule
+    reduce to the same base units.
+
+    NIST Special Publication 811 lists the kilogram-force metre as exactly 9.806 65 newton metres
+    and the pound-force foot as about $1.355\,818\,\mathrm{N\,m}$, and
+    the dyne centimetre of the CGS system as exactly one ten-millionth of a newton metre.
+
+    The unit describes the turning effect of forces wherever rotation matters, from a wrench on a
+    bolt to an engine driving its shaft. A force of forty newtons applied at right angles four
+    metres from a pivot gives a torque of $160\,\mathrm{N\,m}$.
+
+    The SI rules for symbols require a space or a half-high dot between the two symbols, because a
+    product written without a separator can be misread as a prefix: mN is the millinewton, not a
+    metre newton. The unit name may be written with a space or a hyphen, newton metre or
+    newton-metre; the plural is newton metres.

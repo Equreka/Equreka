@@ -1,5 +1,4 @@
 import type { LocalizedText, Path, PathStep } from '@equreka/schema';
-import { type LocalizedSegments, splitLocalizedText } from '../rich-text.js';
 import { symbolText } from './tex.js';
 import type { Corpus } from './validate.js';
 
@@ -14,20 +13,13 @@ export interface PathStepTarget {
 }
 
 /**
- * Presentation form of a step: every prose field is mirrored as pre-split
- * `<field>Segments` (per locale) so readers that cannot run a TeX splitter
- * at render time index `math/bodies.json` directly.
+ * Presentation form of a step: entry steps gain their resolved target;
+ * prose stays raw and readers split it with `splitRichText` (ADR 0010).
  */
 export type PresentationPathStep =
-	| (Extract<PathStep, { kind: 'entry' }> & {
-			target: PathStepTarget;
-			noteSegments?: LocalizedSegments;
-	  })
-	| (Extract<PathStep, { kind: 'prose' }> & { bodySegments: LocalizedSegments })
-	| (Extract<PathStep, { kind: 'check' }> & {
-			promptSegments: LocalizedSegments;
-			answerSegments: LocalizedSegments;
-	  });
+	| (Extract<PathStep, { kind: 'entry' }> & { target: PathStepTarget })
+	| Extract<PathStep, { kind: 'prose' }>
+	| Extract<PathStep, { kind: 'check' }>;
 
 /**
  * Presentation form of one path: every entry step carries its resolved
@@ -36,15 +28,8 @@ export type PresentationPathStep =
  */
 export function presentationSteps(path: Path, corpus: Corpus): PresentationPathStep[] {
 	return path.steps.map((step): PresentationPathStep => {
-		if (step.kind === 'prose') {
-			return { ...step, bodySegments: splitLocalizedText(step.body) };
-		}
-		if (step.kind === 'check') {
-			return {
-				...step,
-				promptSegments: splitLocalizedText(step.prompt),
-				answerSegments: splitLocalizedText(step.answer),
-			};
+		if (step.kind !== 'entry') {
+			return step;
 		}
 		const entity = (corpus[step.ref.collection] as Map<string, unknown>).get(step.ref.slug) as
 			| { name: LocalizedText; symbol?: { tex: string; text?: string } }
@@ -56,8 +41,6 @@ export function presentationSteps(path: Path, corpus: Corpus): PresentationPathS
 			name: entity.name,
 			symbolText: entity.symbol === undefined ? '' : symbolText(entity.symbol),
 		};
-		return step.note === undefined
-			? { ...step, target }
-			: { ...step, target, noteSegments: splitLocalizedText(step.note) };
+		return { ...step, target };
 	});
 }

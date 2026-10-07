@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Moment of inertia'
+symbol:
+  tex: 'I'
+baseUnit: 'kilogram-square-metre'
+dimension:
+  L: 2
+  M: 1
+nonNegative: true
+externalIds:
+  wikidata: 'Q165618'
+  qudt: 'http://qudt.org/vocab/quantitykind/MomentOfInertia'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'rotational inertia'
+  - 'angular mass'
+  - 'mass moment of inertia'
+  - 'inercia rotacional'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 10.4 Moment of Inertia and Rotational Kinetic Energy'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-4-moment-of-inertia-and-rotational-kinetic-energy'
+  - title: 'OpenStax, University Physics Volume 1, 10.5 Calculating Moments of Inertia'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-5-calculating-moments-of-inertia'
+  - title: 'HyperPhysics, Georgia State University, Moment of Inertia'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/mi.html'
+  - title: 'QUDT, quantity kind MomentOfInertia'
+    url: 'https://qudt.org/vocab/quantitykind/MomentOfInertia'
+description:
+  en: >-
+    The moment of inertia, also called rotational inertia or angular mass, measures how strongly a
+    body resists a change in its rotation about a given axis. For a set of point masses it is the
+    sum of each mass multiplied by the square of its distance from the axis; for a continuous body
+    the sum becomes an integral over the mass. In rotation it takes the place that mass holds in
+    motion along a line.
+
+    The SI unit is the kilogram square metre, and the dimension is mass times length squared. The
+    rotational kinetic energy of a rigid body is one half of its moment of inertia times the square
+    of its angular velocity, mirroring one half of mass times speed squared for motion along a line.
+
+    For rotation about a fixed axis the moment of inertia is a scalar, and it is never negative.
+    Unlike mass, it is not a single property of the body: it depends on which axis is chosen and on
+    how the mass is spread around it. The parallel-axis theorem gives the value about any axis from
+    the value about a parallel axis through the centre of mass.
+
+    The moment of inertia is usually calculated from the shape and mass distribution of a body, and
+    standard results are tabulated for rods, hoops, discs and spheres. Mass far from the axis counts
+    most, because distance enters squared. Six small washers on a light rod half a metre long have
+    about $0.0035\,\mathrm{kg\,m^{2}}$ about its centre, while the four rotor blades of a small
+    rescue helicopter, turning about the hub, total about $1067\,\mathrm{kg\,m^{2}}$.
+
+    The moment of inertia is distinct from angular momentum, which is the product of the moment of
+    inertia and the angular velocity. When a spinning body pulls its mass closer to the axis, its
+    moment of inertia drops and its angular velocity rises so that the angular momentum stays the
+    same.

@@ -8,7 +8,7 @@ import {
 	verifyEquation,
 } from '../solution-verify.js';
 import { lintTex } from '../tex-lint.js';
-import type { Corpus } from '../validate.js';
+import { type Corpus, emptyCorpus } from '../validate.js';
 
 const baseInput: Omit<EquationSolutionInput, 'solutions'> = {
 	slug: 'mass-energy-equivalence',
@@ -425,17 +425,7 @@ describe('verifyEquation — non-algebraic equations', () => {
 				'\\varepsilon_0': { kind: 'symbol', label: { en: 'Vacuum permittivity' } },
 			},
 		});
-		const corpus: Corpus = {
-			categories: new Map(),
-			branches: new Map(),
-			magnitudes: new Map(),
-			units: new Map(),
-			prefixes: new Map(),
-			constants: new Map(),
-			variables: new Map(),
-			equations: new Map([['gauss-law', gauss]]),
-			paths: new Map(),
-		};
+		const corpus: Corpus = { ...emptyCorpus(), equations: new Map([['gauss-law', gauss]]) };
 		const errors = [
 			...checkIntegrity(corpus),
 			...checkSolutionDimensions(corpus),

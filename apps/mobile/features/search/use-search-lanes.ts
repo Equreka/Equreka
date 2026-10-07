@@ -2,13 +2,13 @@ import {
 	type CatalogLiteEntry,
 	foldSearchTerm,
 	type SearchDocument,
+	searchLeadOf,
 	searchOptions,
 } from '@equreka/content/search-options';
 import type { Locale } from '@equreka/core/i18n';
 import MiniSearch from 'minisearch';
 import { useEffect, useState } from 'react';
 import { isEntryCollection } from '../../entities/content/routes';
-import { plainTextOf } from '../../entities/content/text';
 import { getCatalogLite, getPresentation } from '../../shared/content/artifact';
 
 interface FoldedCatalogEntry extends CatalogLiteEntry {
@@ -34,18 +34,22 @@ export interface ResultRow {
 const PINNED_LIMIT = 8;
 const TOTAL_LIMIT = 20;
 
-function descriptionOf(entry: CatalogLiteEntry, locale: Locale): string {
+/**
+ * The indexed lead of an entry's localized description, resolved exactly as
+ * the pipeline resolves it for the web index (locale, else English).
+ */
+function leadOf(entry: CatalogLiteEntry, locale: Locale): string {
 	if (!isEntryCollection(entry.collection)) return '';
-	const entity = getPresentation(entry.collection)[entry.slug];
-	const segments = entity?.descriptionSegments?.[locale] ?? entity?.descriptionSegments?.en;
-	return segments === undefined ? '' : plainTextOf(segments);
+	const description = getPresentation(entry.collection)[entry.slug]?.description;
+	const text = description?.[locale] ?? description?.en;
+	return text === undefined ? '' : searchLeadOf(text);
 }
 
 /**
  * Builds both lanes on-device from the bundled catalog-lite plus each
- * entity's localized description (ADR 0002: no serialized index ships to
- * mobile). The MiniSearch options are the canonical shared object, so the
- * ranking matches the web byte-for-byte for the same corpus.
+ * entity's description lead (ADR 0002: no serialized index ships to
+ * mobile). Documents, `searchLeadOf` and the MiniSearch options are the
+ * web's, so the ranking matches the web for the same corpus.
  */
 export function buildSearchLanes(locale: Locale): SearchLanes {
 	const raw = getCatalogLite(locale);
@@ -60,7 +64,7 @@ export function buildSearchLanes(locale: Locale): SearchLanes {
 		collection: entry.collection,
 		slug: entry.slug,
 		name: entry.name,
-		description: descriptionOf(entry, locale),
+		description: leadOf(entry, locale),
 		aliases: entry.aliases,
 		symbolText: entry.symbolText,
 		branches: entry.branches,

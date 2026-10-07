@@ -25,7 +25,7 @@ Run `pnpm --filter @equreka/content build` once so `dist/schemas/*.schema.json` 
 - **Decimal strings.** Every physical value (`value`, `factor`, `offset`, `uncertainty`, rational `num`/`den`, prefix `value`) is a quoted string: `'0.3048'`, `'6.62607015e-34'`, `num: '5'`. Unquoted numbers are rejected by `scripts/quality/yaml-lint.mjs` and would truncate to float64 at parse time (ADR 0002). Values are parsed exactly once, at the engine's float64 boundary.
 - **Failsafe parse.** The pipeline parses YAML 1.2 with the failsafe schema: every scalar arrives as a string. Booleans are exactly `true`/`false` (never `yes`/`on`); integers are digit strings; both coerce in the schema.
 - **Quoting.** Single quotes or plain scalars for short values. Never double quotes around TeX: `"\mu"` is an illegal YAML escape. Apostrophes inside single quotes are doubled (`'it''s'`), which is why prose uses block scalars instead.
-- **Prose.** `description.en` uses a folded block scalar `>-` for ordinary wrapped prose: single line breaks fold to spaces, so wrap the source freely, and a blank line is a paragraph break. Use a literal block scalar `|-` only when a hard line break inside a paragraph is intended (the line before *Because the speed of light...* in `equations/mass-energy-equivalence.yaml`, the symbol lines of `units/nautical-mile.yaml`): every newline is kept, so each source line is exactly one rendered line and must not be wrapped. Every description container renders with `white-space: pre-line`, as the original's `.card-information p` did, so a kept newline is a visible break on web, and React Native `Text` breaks on it on mobile. Search indexing folds every whitespace run to one space, so a break never glues two words into one token. Block scalars carry TeX, `#`, and apostrophes byte-literally. Inline math is `$...$` and cannot span a line break; display math is `$$...$$`; every fragment must pass strict KaTeX at build.
+- **Prose.** `description.en` uses a folded block scalar `>-` for ordinary wrapped prose: single line breaks fold to spaces, so wrap the source freely, and a blank line is a paragraph break. Use a literal block scalar `|-` only when a hard line break inside a paragraph is intended (the line before *Because the speed of light...* in `equations/mass-energy-equivalence.yaml`, the symbol lines of `units/nautical-mile.yaml`): every newline is kept, so each source line is exactly one rendered line and must not be wrapped. Every description container renders with `white-space: pre-line`, as the original's `.card-information p` did, so a kept newline is a visible break on web, and React Native `Text` breaks on it on mobile. Search indexes only a description's lede (`searchLeadOf`, ADR 0010): its first paragraph, cut to 480 characters at a word boundary. A blank line in the source ends that paragraph in either block style; a `|-` block with no blank line leads with its first line. Indexing folds every whitespace run to one space, so a break never glues two words into one token. Block scalars carry TeX, `#`, and apostrophes byte-literally. Inline math is `$...$` and cannot span a line break; display math is `$$...$$`; every fragment must pass strict KaTeX at build.
 - **Comments.** Only the schema header. Rationale belongs in `description`, sources in `references`, numeric provenance in `toBase.source` (units) or `source` (constants), credits for adapted text in `textSources`.
 - **License.** Everything in `packages/content/content/` is CC BY-SA 4.0 (`packages/content/content/LICENSE`, ADR 0011). The code beside it is GPL-3.0-or-later. By authoring an entry you license it under CC BY-SA 4.0. Reusers credit "Equreka contributors, https://github.com/Equreka/Equreka".
 - **Originality.** Write every description, label and path step in your own words: explain the concept for a learner, cite the numbers in `references` and `source`, and leave the encyclopedia's phrasing behind. Run the check on what you wrote before you open a PR:
@@ -48,7 +48,7 @@ Run `pnpm --filter @equreka/content build` once so `dist/schemas/*.schema.json` 
   - A URL is credited once per entry.
   - `originality.mjs --apply` writes these items for every flagged description.
   - The entry page shows each credit under the description ("Text adapted from …") and lists it as `isBasedOn` in its JSON-LD.
-  - When you rewrite a credited description in your own words, re-run the check. Once it no longer flags the description, delete that source in the same change.
+  - When you rewrite a credited description in your own words, re-run the check, and keep the credit: the check only sees surface overlap, so removing a credit is a human reviewer's licensing decision (ADR 0011).
 - **Localization.** Entity files carry English only: every localized field is `{ en: ... }`. Translations live in one sidecar per locale beside the entity (`<slug>.es.yaml`, see *Translations*); an inline `es:` key is rejected by both yaml-lint and the loader, so each language has exactly one home. Every English field an entity authors needs its Spanish: a new entity without a complete sidecar fails the `locale` stage (see *Translations*). Only entities on the shrinking locale debt, and generated prefixed units, still fall back to English with an untranslated notice.
 - **Aliases.** `aliases` feeds the exact-match search lane: US spellings (`meter`), ASCII forms of Greek (`mu`, `ohm`), degree-text forms (`degC`), symbol variants users type (`m/s`, `J/K`), nicknames (`avogadro number`). Lowercase-insensitive; diacritics are folded at index and query time.
 - **Taxonomy.** Every entity except categories and branches takes `categories` and `branches` (see *branches*).
@@ -114,7 +114,7 @@ toBase:
     ref: 'B.8: pound (avoirdupois) (lb)'
 ```
 
-`exact` is a claim about the *definition*: `0.3048` (yard-and-pound agreement) is exact; `31536000` (a 365-day year) is a convention and must say `exact: false`. Non-terminating ratios go in as rationals so the build keeps them exact; their decimal rendering is rounded to 36 significant digits and marked inexact automatically.
+`exact` is a claim about the *definition*: `0.3048` (yard-and-pound agreement) is exact; `31536000` (a 365-day year) is a convention and must say `exact: false`. Non-terminating ratios go in as rationals so the build keeps them exact; their decimal rendering is rounded to 36 significant digits and marked inexact automatically. An irrational factor (π/180 rad for the degree, 2π rad for the revolution, 648 000/π au for the parsec) cannot be a rational: author it as a 36-significant-digit decimal with `exact: false`, and say in `source.ref` that the defined value is exact and the stored digits are rounded.
 
 **Provenance.** `toBase.source` is `{ name, url?, ref? }`: the publication, a link, and a locator inside it (table, section, or row). Every `imperial`, `uscs`, `cgs` and `other` factor carries one. Preferred sources, in order: the defining document (SI Brochure Table 8 for units accepted for use with the SI; the UK Weights and Measures Act 1985 Schedule 1 for imperial-only units such as stone, imperial pint and quart); NIST SP 811 Appendix B.8 for customary units it lists exactly. When NIST lists only a rounded value but the unit is an exact multiple of an exact unit (ounce = lb/16, US gallon = 231 in³), cite the row and state the exact definition in `ref`. Calendar reckonings and historical temperature scales use `name: 'convention'` with the defining rule in `ref` (`'1 year = 365 d common year'`, `'Réaumur scale: 0 °Ré = 0 °C, 80 °Ré = 100 °C'`).
 
@@ -325,7 +325,7 @@ steps:
       A $373.15\ \text{K}$, es decir $100\ ^{\circ}\text{C}$.
 ```
 
-Localizable fields are derived from the schema — every `localizedText` position: `name` and `description` everywhere, `namePlural` of units, `label` of equation symbol terms (keyed by term key: `terms: { c: { label: 'Hipotenusa' } }`), and the step prose of paths (`note`, `body`, `prompt`, `answer`, keyed by step id). The loader merges each sidecar into its entity *before* validation, so every downstream stage — TeX lint, math rendering, search, presentation — sees the translation exactly as if it were inline.
+Localizable fields are derived from the schema — every `localizedText` or `localizedProse` position: `name` and `description` everywhere, `namePlural` of units, `label` of equation symbol terms (keyed by term key: `terms: { c: { label: 'Hipotenusa' } }`), and the step prose of paths (`note`, `body`, `prompt`, `answer`, keyed by step id). The `localizedProse` positions (`description` and the step prose) are rich text: only they render `$...$` math, and the TeX lint and math artifact read exactly those. The loader merges each sidecar into its entity *before* validation, so every downstream stage — TeX lint, math rendering, search, presentation — sees the translation exactly as if it were inline.
 
 **Translator workflow.**
 
@@ -353,3 +353,17 @@ node scripts/content/originality.mjs <files> --check   # network: prose overlap 
 ```
 
 Issues are aggregated per file with the failing stage in brackets; the build refuses to emit while any error stands.
+
+**Artifact budgets** (ADR 0010). Every file the build emits has a budget in `ARTIFACT_BUDGETS` (`packages/content/src/artifact-budgets.ts`). `build` prints one line per artifact: raw bytes, gzip bytes, the share of its budget, and `· mobile` when the app bundles it. It ends with the mobile-bundled total against its 8 MiB ceiling:
+
+```
+dist/presentation/units.json                174.5 KiB  gzip   26.8 KiB  8.5% of 2.00 MiB · mobile
+dist/search/en.json                         139.7 KiB  gzip   29.5 KiB  13.6% of 1.00 MiB
+dist/schemas/units.schema.json                6.7 KiB  gzip    1.1 KiB  build-only
+mobile-bundled total: 1.02 MiB of 8.00 MiB (12.8%)
+```
+
+- A file at 80% of its budget, or a mobile total at 80% of 8 MiB, is a warning. Over budget is an error.
+- A file that matches no pattern is an error: add its row to the table rather than emitting it unbudgeted.
+- The web build holds its derived payloads to their own budgets in `apps/web/src/integrations/equreka-assets.ts`: `data/reader.<locale>.json` 1 MiB, `data/converter.<locale>.json` 256 KiB, `data/paths.<locale>.json` 128 KiB.
+- The costs that grow with content are math bodies (every new unique `$…$` fragment; see the style guide's TeX budget) and the search lede (480 characters per entry at most).

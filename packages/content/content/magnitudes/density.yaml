@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Density'
+symbol:
+  tex: '\rho'
+  text: 'ρ'
+baseUnit: 'kilogram-per-cubic-metre'
+dimension:
+  L: -3
+  M: 1
+nonNegative: true
+externalIds:
+  wikidata: 'Q29539'
+  qudt: 'http://qudt.org/vocab/quantitykind/Density'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+  - 'fluid-mechanics'
+aliases:
+  - 'mass density'
+  - 'volumetric mass density'
+  - 'volumic mass'
+  - 'rho'
+  - 'densidad másica'
+  - 'masa volúmica'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 14.1 Fluids, Density, and Pressure'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 5'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, quantity kind Density'
+    url: 'https://qudt.org/vocab/quantitykind/Density'
+description:
+  en: >-
+    Density, or mass density, is the mass of a substance or body divided by the volume it
+    occupies, $\rho=m/V$. Dividing the whole mass by the whole volume gives the average density;
+    when a material is not uniform, the local density at a point is the limit of that ratio for
+    an ever smaller volume around the point. Density decides whether an object floats or sinks in
+    a fluid.
+
+    The SI unit is the kilogram per cubic metre, which the SI Brochure lists among its examples of
+    coherent derived units, and the dimension is mass divided by length cubed. The gram per cubic
+    centimetre of the CGS system equals $1000\,\mathrm{kg/m^{3}}$, so a density in that unit reads
+    almost the same as its ratio to the density of water.
+
+    Density is a scalar and is never negative. It depends on temperature and pressure: gases
+    expand and compress readily, so their densities vary widely, whereas liquids and solids change
+    little and their densities are often treated as constants. Water behaves unusually: it is
+    densest a few degrees above its freezing point, so a lake freezes from the surface downward.
+
+    Density is measured by weighing a sample and finding its volume, either from its dimensions or
+    from the volume of liquid it displaces. Air at the freezing point of water and atmospheric
+    pressure is several hundred times less dense than liquid water, which has about
+    $1000\,\mathrm{kg/m^{3}}$, while gold reaches $1.93\times10^{4}\,\mathrm{kg/m^{3}}$, nearly
+    twenty times the density of water.
+
+    Density is not the same as weight: a large block of wood can outweigh a small piece of iron
+    while being far less dense. Specific gravity, or relative density, is the ratio of the density
+    of a material to that of water and has no unit. The weight per unit volume is a different
+    quantity, called specific weight.

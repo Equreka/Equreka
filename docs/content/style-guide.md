@@ -27,7 +27,11 @@ The lower bound is enforced: a `rewrite` counts as done in the roadmap only at o
 
 ## Structure
 
-3–5 paragraphs inside one `>-` folded block, separated by a blank line. No headings, lists, bold, tables or line breaks inside a paragraph (`|-` only where a hard break is the content, which a description never needs). Each paragraph does one job, in this order:
+3–5 paragraphs inside one `>-` folded block, separated by a blank line. No headings, lists, bold, tables or line breaks inside a paragraph (`|-` only where a hard break is the content, which a description never needs).
+
+**Write a strong lede.** Search indexes only the first paragraph, up to 480 characters (ADR 0010). Words that appear only in later paragraphs never find the entry. The first paragraph must therefore name the entry and state what it is in the terms a reader would type: the quantity, the law, the common synonyms and the discipline. Front-load them, because anything past 480 characters is cut. Name, `aliases`, symbol and branch names are indexed in full, so put spelling variants and abbreviations in `aliases`, not in the prose.
+
+Each paragraph does one job, in this order:
 
 **Equations**
 
@@ -84,6 +88,7 @@ Banned in English prose (Spanish equivalents in the glossary):
 Names:
 
 - `name` is sentence case: *Ideal gas law*, *Joule per kelvin*, *Speed of light in vacuum*. Laws named after people take the possessive (*Newton's second law*, *Snell's law*). An equation's `name` is the relation's conventional name, never *X formula*; when that name equals a magnitude's, qualify it (*Kinetic energy of a body in translation*). Roadmap names are working titles.
+- English spelling is British with Oxford *-ize*, matching the SI Brochure's unit names: *metre, litre, behaviour, vapour, fibre, centre*, but *ionization, polarization, standardized*. US forms (*meter, behavior, vapor*) go in `aliases`, never in prose.
 - Unit names are lowercase in running prose (*the joule*, *three newtons*), symbols upright in math.
 - Spell numbers one to nine in prose when they count things (*three base units*); use numerals with units, always in math (`$3\,\mathrm{N}$`).
 - Slugs are English kebab-case. An equation that would share a slug with a magnitude, unit or constant takes `-formula` (`density-formula`); `roadmap-check` enforces it.
@@ -101,7 +106,7 @@ Names:
 ## TeX
 
 - **Inline** `$…$` on one line; a fragment never spans a line break. **Display** `$$…$$`: at most one per description, and never a restatement of `expression`.
-- **Budget.** Every unique math fragment ships as a rendered body in `presentation/math/bodies.json` (measured 2026-10-06: 599 bodies, 580 KB, about 0.97 KB each, against a 1 MB build budget). A term written by macro reuses the body of its key, which the page already renders, so it is free; every new number-with-unit, formula or symbol variant costs a body. Add at most three new fragments per description beyond its term keys, reuse exact spellings (`$c$`, not `$c_{0}$` in one entry and `$c$` in another), and say *the speed of light* in prose when no math is needed.
+- **Budget.** Every unique math fragment ships as a rendered body in one of 16 hash shards, `presentation/math/bodies/<shard>.json` (measured 2026-10-06: 599 bodies, 221 KB compact in all, about 0.37 KB each, against a 128 KiB budget per shard; `build` prints each shard's share). A term written by macro reuses the body of its key, which the page already renders, so it is free; every new number-with-unit, formula or symbol variant costs a body. Add at most three new fragments per description beyond its term keys, reuse exact spellings (`$c$`, not `$c_{0}$` in one entry and `$c$` in another), and say *the speed of light* in prose when no math is needed.
 - **Equation descriptions refer to terms by macro**: `$\mag{F}$`, `$\const{c}$`, `$\var{r}$`. The build strips macros before rendering, so `$\mag{F}=\mag{m}\mag{a}$` is stored once with the expression, and the page highlights the term.
 - **Quantities and units**: `$9.81\,\mathrm{m/s^{2}}$`, `$\mathrm{J/(kg\,K)}$`, `$25\,^{\circ}\mathrm{C}$`, `$3\,\mathrm{N\,m}$`. Thin space `\,` between number and unit and between unit factors; unit symbols upright in `\mathrm{}`; quantity symbols italic (the default); descriptive subscripts upright (`v_{\mathrm{max}}`, `E_{\mathrm{k}}`).
 - **Numbers**: scientific notation `6.674\times10^{-11}`; digit groups of three with a thin space, `101\,325`, `0.000\,1`; the decimal separator is `.` in both languages (see the glossary for why); a leading zero before the separator, `0.5`.

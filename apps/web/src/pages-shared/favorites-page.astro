@@ -1,5 +1,6 @@
 ---
 import { getCollection } from 'astro:content';
+import { COLLECTION_INFO, COLLECTION_ORDER } from '@equreka/core/collections';
 import { type Locale, localizedName, t } from '@equreka/core/i18n';
 import FavoritesList from '../islands/favorites-list';
 import BaseLayout from '../layouts/base-layout.astro';
@@ -25,16 +26,9 @@ interface Categorized {
  * Collections whose entries carry a category badge or a tool action;
  * categories themselves carry neither.
  */
-const META_COLLECTIONS = [
-	'branches',
-	'magnitudes',
-	'units',
-	'prefixes',
-	'constants',
-	'variables',
-	'equations',
-	'paths',
-] as const;
+const META_COLLECTIONS = COLLECTION_ORDER.filter(
+	(collection) => COLLECTION_INFO[collection].taxonomy !== 'category',
+);
 
 const { locale = 'en' } = Astro.props;
 

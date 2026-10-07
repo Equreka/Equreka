@@ -1,0 +1,57 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Angular velocity'
+symbol:
+  tex: '\omega'
+  text: 'ω'
+baseUnit: 'radian-per-second'
+dimension:
+  A: 1
+  T: -1
+externalIds:
+  wikidata: 'Q161635'
+  qudt: 'http://qudt.org/vocab/quantitykind/AngularVelocity'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'rotational velocity'
+  - 'rotation rate'
+  - 'omega'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Section 2.3.4 and Table 6: radian per second'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 10.1 Rotational Variables'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-1-rotational-variables'
+  - title: 'IERS Conventions (2010), IERS Technical Note 36, Chapter 1, Table 1.2 (GRS80)'
+    url: 'https://iers-conventions.obspm.fr/content/chapter1/icc1.pdf'
+  - title: 'QUDT, quantity kind AngularVelocity'
+    url: 'https://qudt.org/vocab/quantitykind/AngularVelocity'
+description:
+  en: >-
+    Angular velocity measures how fast the angular position of a rotating body, or of a point moving
+    around an axis, changes with time. It is the time derivative of the angle of rotation and
+    the rotational counterpart of velocity in mechanics, giving both the rate of a spin and the axis
+    it turns about.
+
+    The SI unit of angular velocity is the radian per second, with the dimension of a plane angle
+    divided by a time. Because the radian is a derived unit equal to one, the unit could be written
+    as a reciprocal second, but the SI Brochure recommends stating radians per second explicitly so
+    that angular velocity is never mistaken for a frequency in hertz. Machines are often rated in
+    revolutions per minute instead.
+
+    Angular velocity is a vector that lies along the axis of rotation, its direction given by the
+    right-hand rule. For rotation about a fixed axis it reduces to one signed component: positive
+    for anticlockwise rotation seen from the positive end of the axis, negative for clockwise
+    rotation. Every point of a rigid body shares the same angular velocity, while the speed of each
+    point grows in proportion to its distance from the axis.
+
+    Tachometers, rotary encoders and gyroscopes measure it. The Earth turns at a nominal
+    $7.292\,115\times10^{-5}\,\mathrm{rad/s}$, close to one turn per sidereal day, while a bicycle
+    wheel spinning at 250 revolutions per minute turns at about $26.2\,\mathrm{rad/s}$, more than
+    three hundred thousand times faster.
+
+    Angular velocity is easily confused with angular frequency, which shares its unit and its symbol
+    but describes the phase of an oscillation rather than a physical rotation, and with frequency,
+    which counts cycles per second and is smaller by a factor of $2\pi$ for the same motion.

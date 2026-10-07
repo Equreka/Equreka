@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Period'
+symbol:
+  tex: 'T'
+baseUnit: 'second'
+dimension:
+  T: 1
+kindOf: 'time'
+nonNegative: true
+externalIds:
+  wikidata: 'Q2642727'
+  qudt: 'http://qudt.org/vocab/quantitykind/Period'
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+  - 'mechanics'
+aliases:
+  - 'period of oscillation'
+  - 'periodic time'
+  - 'period duration'
+  - 'cycle duration'
+references:
+  - title: 'QUDT, quantity kind Period (skos:broader Time)'
+    url: 'https://qudt.org/vocab/quantitykind/Period'
+  - title: 'OpenStax, University Physics Volume 1, 15.1 Simple Harmonic Motion'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/15-1-simple-harmonic-motion'
+  - title: 'BIPM, The International System of Units, 9th ed., Section 2.3.1 and Appendix 1: 13th CGPM (1967/68), Resolution 1'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'IERS Conventions (2010), IERS Technical Note 36, Chapter 1, Table 1.2 (GRS80)'
+    url: 'https://iers-conventions.obspm.fr/content/chapter1/icc1.pdf'
+description:
+  en: >-
+    The period is the duration of one complete cycle of a periodic phenomenon: the shortest time
+    after which an oscillation, a rotation, an orbit or a wave at a fixed point returns to the same
+    state. It is the reciprocal of the frequency, so a motion repeating twice per second has a
+    period of half a second.
+
+    The SI unit of period is the second, and its dimension is that of time. Period is a specific
+    kind of time, the length of one cycle, and QUDT files it under time as a narrower quantity kind.
+    Long periods are often quoted in minutes, hours, days or years.
+
+    Period is a scalar and is never negative. For simple harmonic motion it does not depend on the
+    amplitude: a stiffer spring shortens the period and a heavier load lengthens it, but a larger
+    swing leaves it unchanged. For a wave, the period is also the time a full wavelength takes to
+    pass a given point, so the wave speed is the wavelength divided by the period.
+
+    A period is measured by timing many cycles and dividing by their number, which reduces the effect
+    of reaction time. Periods range from about $1.088\times10^{-10}\,\mathrm{s}$ for the radiation of
+    the caesium 133 hyperfine transition, through 0.400 microseconds for a medical ultrasound
+    transducer, to about $86\,164\,\mathrm{s}$ for one rotation of the Earth relative to the stars,
+    the value that follows from its nominal angular velocity.
+
+    Period is the inverse of frequency, not a frequency, and it differs from a half-life, which
+    describes decay rather than repetition. In 1967 the 13th CGPM set the second equal to
+    9 192 631 770 cycles of the caesium radiation; since 2019 the same number fixes the caesium
+    frequency instead.

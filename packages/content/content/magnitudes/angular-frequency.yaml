@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Angular frequency'
+symbol:
+  tex: '\omega'
+  text: 'ω'
+baseUnit: 'radian-per-second'
+dimension:
+  A: 1
+  T: -1
+nonNegative: true
+externalIds:
+  wikidata: 'Q834020'
+  qudt: 'http://qudt.org/vocab/quantitykind/AngularFrequency'
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+  - 'mechanics'
+aliases:
+  - 'radian frequency'
+  - 'circular frequency'
+  - 'pulsatance'
+  - 'pulsación'
+  - 'omega'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Section 2.3.4: hertz and radian per second'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 15.1 Simple Harmonic Motion'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/15-1-simple-harmonic-motion'
+  - title: 'OpenStax, University Physics Volume 1, 16.2 Mathematics of Waves'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/16-2-mathematics-of-waves'
+  - title: 'QUDT, quantity kind AngularFrequency'
+    url: 'https://qudt.org/vocab/quantitykind/AngularFrequency'
+description:
+  en: >-
+    Angular frequency is the rate at which the phase of a periodic process advances with time. For
+    an oscillation or a wave it equals $2\pi$ times the frequency, or $2\pi$ divided by the period,
+    because the phase grows by one full turn of $2\pi$ radians in every cycle. It is the natural rate in the equations of simple harmonic motion, waves and
+    alternating-current circuits.
+
+    The SI unit of angular frequency is the radian per second, with the dimension of a plane angle
+    divided by a time. The SI Brochure reserves the hertz for frequency and asks for angular
+    frequency to be given explicitly in radians per second, not as a bare reciprocal second, because
+    the numerical values of the two quantities differ by a factor of $2\pi$ and mixing them is a
+    common source of error.
+
+    Angular frequency is a scalar and is treated here as non-negative. The direction in which a wave
+    travels is carried by the sign in front of the time term of its wave function, not by the
+    angular frequency itself.
+
+    It is obtained from a measured period or frequency. A block on a spring oscillating with a
+    period of 1.57 seconds has an angular frequency of about $4.00\,\mathrm{rad/s}$; an ultrasound
+    transducer oscillating with a period of 0.400 microseconds reaches about
+    $1.57\times10^{7}\,\mathrm{rad/s}$. For a mass on a spring it depends only on the stiffness and
+    the mass, not on the amplitude.
+
+    Angular frequency shares its unit and the symbol omega with angular velocity, and QUDT lists
+    the two as matching quantity kinds. The distinction is one of meaning: angular velocity
+    describes a physical rotation about an axis, whereas angular frequency describes how fast the
+    phase of any oscillation advances, even when nothing rotates.

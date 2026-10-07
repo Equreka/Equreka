@@ -1,7 +1,23 @@
 # yaml-language-server: $schema=../../dist/schemas/branches.locale.schema.json
 name: 'Sistema Internacional de Unidades'
 description: >-
-  El Sistema Internacional de Unidades (SI) es el sistema métrico moderno. Desde 2019 se define
-  fijando los valores numéricos de siete constantes definitorias; de ellas se derivan las siete
-  unidades base, sus unidades derivadas coherentes y los prefijos decimales que escalan cualquiera
-  de ellas.
+  El Sistema Internacional de Unidades, abreviado SI, es el sistema métrico moderno y el sistema de
+  referencia para las unidades de medida. Fija los valores numéricos exactos de siete constantes
+  definitorias, de las que se derivan todas las unidades del SI, de modo que cualquier laboratorio
+  puede realizar una unidad a partir de las leyes de la física en lugar de copiarla de un artefacto
+  material.
+
+  Las siete constantes definitorias son la frecuencia de la transición hiperfina del cesio 133, la
+  constante c, velocidad de la luz en el vacío, la constante de Planck, la carga elemental, la
+  constante de Boltzmann, la constante de Avogadro y la eficacia luminosa de la radiación
+  monocromática. A partir de ellas se obtienen las siete unidades base: segundo, metro, kilogramo,
+  amperio, kelvin, mol y candela. Los productos y cocientes de unidades base forman las unidades
+  derivadas coherentes, y 22 de ellas tienen nombres y símbolos especiales, entre ellas el newton,
+  el julio, el pascal, el hercio, y el radián y el estereorradián para el ángulo plano y el sólido.
+  Prefijos decimales como kilo, mili y micro forman múltiplos y submúltiplos; siempre indican
+  potencias de diez, nunca de dos.
+
+  Todas las disciplinas expresan sus resultados en unidades del SI: la mecánica en metros,
+  kilogramos y segundos, la termodinámica en kelvin, el electromagnetismo en amperios, la química en
+  moles y la fotometría en candelas. Medición y metrología completa la rama con las unidades de
+  tiempo y las magnitudes adimensionales que se usan junto al SI.

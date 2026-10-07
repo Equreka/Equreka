@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Momentum'
+symbol:
+  tex: 'p'
+baseUnit: 'kilogram-metre-per-second'
+dimension:
+  L: 1
+  M: 1
+  T: -1
+externalIds:
+  wikidata: 'Q41273'
+  qudt: 'http://qudt.org/vocab/quantitykind/Momentum'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'linear momentum'
+  - 'translational momentum'
+  - 'quantity of motion'
+  - 'momento lineal'
+  - 'ímpetu'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 9.1 Linear Momentum'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/9-1-linear-momentum'
+  - title: 'OpenStax, University Physics Volume 1, 9.2 Impulse and Collisions'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/9-2-impulse-and-collisions'
+  - title: 'OpenStax, University Physics Volume 1, 9.3 Conservation of Linear Momentum'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/9-3-conservation-of-linear-momentum'
+  - title: 'OpenStax, University Physics Volume 1, 9.4 Types of Collisions'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/9-4-types-of-collisions'
+  - title: 'OpenStax, University Physics Volume 2, 2.2 Pressure, Temperature, and RMS Speed'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/2-2-pressure-temperature-and-rms-speed'
+  - title: 'HyperPhysics, Georgia State University, Momentum'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/mom.html'
+  - title: 'QUDT, quantity kind Momentum'
+    url: 'https://qudt.org/vocab/quantitykind/Momentum'
+description:
+  en: >-
+    Momentum, also called linear momentum, is the vector quantity of mechanics that combines the
+    mass of a body with its velocity: it equals their product, $\vec{p}=m\vec{v}$. For a system of
+    several bodies, the momentum is the vector sum over all the parts, which is the same as the
+    total mass multiplied by the velocity of the centre of mass.
+
+    The SI unit is the kilogram metre per second, identical to the newton second, and the
+    dimension is mass times length divided by time. Newton's second law takes its most general
+    form through this quantity: the net external force on a system equals the rate at which the
+    momentum of the system changes.
+
+    As a vector, momentum always points along the velocity. On a chosen axis its component is
+    positive for motion in the positive direction and negative for motion the opposite way, so two
+    identical carts rolling apart at equal speeds have a total momentum of zero. When no net
+    external force acts on a system, its total momentum stays constant through collisions and
+    explosions alike.
+
+    No instrument reads momentum directly; it is computed from a measured mass and velocity, or
+    inferred from the impulse needed to bring a body to rest. Its values span an enormous range:
+    a nitrogen molecule of air at room temperature carries about
+    $2.4\times10^{-23}\,\mathrm{kg\,m/s}$, while an ordinary car driving through town carries
+    about $2.1\times10^{4}\,\mathrm{kg\,m/s}$, some 27 orders of magnitude more.
+
+    Momentum is often mistaken for kinetic energy, which also grows with mass and speed. Kinetic
+    energy is a scalar proportional to the square of the speed, and part of it is lost in an
+    inelastic collision, whereas the total momentum of an isolated system survives every
+    collision unchanged. Angular momentum is its rotational counterpart. Newton wrote his second
+    law in the Principia in terms of this quantity, which he named the quantity of motion.

@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Impulse'
+symbol:
+  tex: 'J'
+baseUnit: 'newton-second'
+dimension:
+  L: 1
+  M: 1
+  T: -1
+externalIds:
+  wikidata: 'Q837940'
+  qudt: 'http://qudt.org/vocab/quantitykind/Impulse'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'impulse of force'
+  - 'linear impulse'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 9.2 Impulse and Collisions'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/9-2-impulse-and-collisions'
+  - title: 'HyperPhysics, Georgia State University, Impulse of Force'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/impulse.html'
+  - title: 'QUDT, quantity kind Impulse'
+    url: 'https://qudt.org/vocab/quantitykind/Impulse'
+description:
+  en: >-
+    Impulse is the vector quantity of mechanics that measures the accumulated effect of a force
+    over the time during which it acts. For a constant force it is the force multiplied by the
+    duration of its action, $\vec{J}=\vec{F}\,\Delta t$; for a force that varies, it is the
+    integral of the force over time, equal to the average force multiplied by the duration. The
+    impulse-momentum theorem states that the impulse of the net force on a body equals the change
+    in its momentum.
+
+    The SI unit is the newton second, which is the same unit as the kilogram metre per second, and
+    the dimension is mass times length divided by time, the dimension of momentum.
+
+    Impulse is a vector that points along the average force. On a chosen axis, a positive impulse
+    raises the momentum component along that axis and a negative impulse lowers it, so two impulses
+    of equal size and opposite sign change the motion of a body in exactly opposite ways. An
+    impulse never creates momentum by itself; it only alters the momentum a body already has.
+
+    Forces during an impact usually vary too quickly to be recorded in detail, so the impulse is
+    found instead from the change in momentum, using the mass and the velocities before and after
+    the collision; dividing it by the contact time then gives the average force. Airbags,
+    seatbelts and padded surfaces rely on this relation: in a crash the change in momentum is
+    fixed, and stretching the stopping time lowers the average force by the same factor.
+
+    Impulse and momentum share a unit and a dimension but are different quantities. Momentum
+    describes the motion of a body at a single instant, whereas impulse describes an interaction
+    lasting an interval of time and equals a change of momentum, not the momentum itself.

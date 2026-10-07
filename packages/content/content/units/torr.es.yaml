@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Torr'
+description: >-
+  El torr, de símbolo Torr, mide presiones y equivale exactamente a la 760.ª parte de la
+  atmósfera estándar. Queda fuera del Sistema Internacional de Unidades y se conserva sobre
+  todo donde se miden presiones de gas bajas, en técnicas de vacío y en química, a menudo mediante
+  su milésima parte, el militorr.
+
+  Desde que la 10.ª CGPM fijó en 1954 la atmósfera estándar en exactamente
+  $101\,325\,\mathrm{Pa}$, el torr es una fracción racional exacta del pascal,
+  $1\,\mathrm{Torr}=(101\,325/760)\,\mathrm{Pa}$, unos $133.322\,\mathrm{Pa}$. La publicación
+  especial 811 del NIST recoge esta definición en su tabla de unidades ajenas al SI y da el factor
+  redondeado en su apéndice de conversiones. La fracción tiene un desarrollo decimal periódico
+  infinito, de modo que ningún decimal finito la expresa con exactitud.
+
+  El torr y el milímetro de mercurio tienen casi el mismo tamaño y difieren en una parte en siete
+  millones, aproximadamente, pero se definen de manera distinta: el milímetro de mercurio se basa
+  en una densidad convencional del mercurio y en la aceleración normal de la gravedad, mientras que
+  el torr sigue a la atmósfera. En las lecturas de manómetros y vacuómetros ambos se intercambian
+  sin error apreciable.
+
+  La unidad honra a Evangelista Torricelli, el científico italiano que en 1643 propuso el
+  experimento, realizado por su colega Vincenzo Viviani, en el que el mercurio de un tubo invertido
+  sobre una cubeta mostró que la presión del aire sostiene la columna de líquido; ese es el
+  principio del barómetro. Como el nombre procede de una persona, el símbolo conserva la T
+  mayúscula, mientras que el nombre se escribe en minúscula. La guía del NIST incluye el torr entre
+  las unidades que sus autores deben evitar en favor del pascal.

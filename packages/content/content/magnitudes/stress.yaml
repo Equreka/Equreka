@@ -2,12 +2,14 @@
 name:
   en: 'Stress'
 symbol:
-  tex: 'σ'
+  tex: '\sigma'
+  text: 'σ'
 baseUnit: 'pascal'
 dimension:
   L: -1
   M: 1
   T: -2
+kindOf: 'force-per-area'
 externalIds:
   wikidata: 'Q206175'
   qudt: 'http://qudt.org/vocab/quantitykind/Stress'

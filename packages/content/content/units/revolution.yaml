@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Revolution'
+symbol:
+  tex: 'rev'
+unitOf:
+  - 'plane-angle'
+system: 'other'
+toBase:
+  factor: '6.28318530717958647692528676655900577'
+  exact: false
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+    ref: 'B.8: revolution (r), 6.283 185 E+00 rad; exact value 2π rad, rounded to 36 significant digits'
+externalIds:
+  wikidata: 'Q2478223'
+  qudt: 'http://qudt.org/vocab/unit/REV'
+categories:
+  - 'mathematics'
+  - 'physics'
+branches:
+  - 'geometry'
+  - 'mechanics'
+aliases:
+  - 'turn'
+  - 'full turn'
+  - 'full rotation'
+  - 'complete revolution'
+  - 'revolutions'
+  - 'revolución'
+references:
+  - title: 'NIST SP 811, Appendix B.8: revolution (r)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'BIPM, The International System of Units, 9th ed., Section 2.3.4 and Table 4, note (b): radian'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 10.1 Rotational Variables'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-1-rotational-variables'
+  - title: 'QUDT, unit REV'
+    url: 'https://qudt.org/vocab/unit/REV'
+  - title: 'OEIS A000796, decimal expansion of pi'
+    url: 'https://oeis.org/A000796'
+description:
+  en: >-
+    The revolution, also called a turn, is a unit of plane angle equal to one complete rotation
+    about a centre or an axis. It is the natural unit for counting how many times a wheel, shaft or
+    rotor goes round, and it underlies the revolution per minute used to rate engines and motors.
+    It is not part of the SI.
+
+    One revolution equals $2\pi$ radians, because the circumference of a circle is $2\pi$ times its
+    radius and the radian is the angle whose arc equals the radius. NIST SP 811 lists the factor
+    rounded to seven digits; since $\pi$ is irrational, the value used for conversion here is
+    rounded to 36 significant digits, about 6.283 radians.
+
+    A revolution is 360 degrees, 21 600 arcminutes or 1 296 000 arcseconds. Half a revolution is a
+    straight angle and a quarter revolution a right angle, which the SI Brochure also expresses as
+    $\pi/2$ radian.
+
+    Revolutions count the turns of wheels, gears, propellers, turntables and hard disks, and the
+    rotation of a body through several full turns, when an angle of rotation can exceed $2\pi$
+    radians. Rates such as revolutions per second or per minute are converted to angular velocity
+    by multiplying by $2\pi$.
+
+    The SI Brochure points out that revolution and rev are not units of the SI, even though some
+    countries quote frequencies in revolutions per second instead of hertz, and it asks for such
+    values to be given in hertz or in radians per second. The symbol rev is widespread, while NIST SP 811 writes r, as in r/min. Turn is a common
+    synonym in mathematics, where a full angle is sometimes measured in turns.

@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Euler''s number'
+symbol:
+  tex: 'e'
+value: '2.71828182845904523536028747135266249775724709369995957496696762772407663035354759457138217852516642742746'
+approximations:
+  - '2.718'
+unit: 'unitless'
+exact: false
+irrational: true
+truncated: true
+externalIds:
+  wikidata: 'Q82435'
+categories:
+  - 'mathematics'
+branches:
+  - 'algebra'
+aliases:
+  - 'number e'
+  - 'Napier''s constant'
+  - 'base of the natural logarithm'
+  - '2.718'
+  - 'número de Euler'
+  - 'constante de Neper'
+references:
+  - title: 'MacTutor History of Mathematics, The number e'
+    url: 'https://mathshistory.st-andrews.ac.uk/HistTopics/e/'
+  - title: 'OEIS A001113, Decimal expansion of e'
+    url: 'https://oeis.org/A001113'
+description:
+  en: >-
+    Euler's number, written $e$, is the mathematical constant that serves as the base of the
+    natural logarithm, approximately 2.71828. It is irrational and also transcendental, so its
+    decimal expansion never ends or repeats and no polynomial equation with integer coefficients
+    has it as a root. Any decimal value of $e$ is therefore an approximation.
+
+    The number arises as the limit of $\left(1+1/n\right)^{n}$ as $n$ grows without bound, which
+    describes interest compounded ever more often, and as the sum of the reciprocals of the
+    factorials, $e=\sum_{k=0}^{\infty}1/k!$, a series that converges quickly enough to compute many
+    digits by hand. The exponential function with base $e$ grows at a rate equal to its own value,
+    which makes it the natural model for any quantity whose change is proportional to its size.
+
+    That property puts $e$ into continuous compound interest, population growth, radioactive decay,
+    the charging of a capacitor, the cooling of a hot object and the attenuation of light in a
+    medium. The natural logarithm, written ln, undoes the exponential with this base, and any
+    exponential with another base can be rewritten in terms of it.
+
+    A table that amounted to natural logarithms appeared in 1618 in an appendix to a work on
+    logarithms by Napier, but the number itself first emerged in 1683, when Jacob Bernoulli studied
+    continuously compounded interest and showed that the limit lies between 2 and 3. Euler
+    introduced the letter $e$ in a letter to Goldbach in 1731 and treated the number fully in his
+    Introductio in analysin infinitorum of 1748. Hermite proved it transcendental in 1873.

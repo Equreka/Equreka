@@ -1,7 +1,22 @@
 # yaml-language-server: $schema=../../dist/schemas/branches.locale.schema.json
 name: 'Cantidad de sustancia'
 description: >-
-  La cantidad de sustancia cuenta entidades (átomos, moléculas, iones) en unidades de mol, una de
-  las siete magnitudes base del SI. Mediante la constante de Avogadro enlaza las masas que se pesan
-  en el laboratorio con el número de partículas que participan en una reacción, la base de la
-  estequiometría.
+  La cantidad de sustancia, rama de la química, cuenta partículas. Su magnitud central,
+  la cantidad de sustancia, mide cuántas entidades elementales especificadas, como átomos,
+  moléculas, iones o electrones, contiene una muestra, y su unidad SI es el mol. Un mol contiene un
+  número fijo de entidades, el valor numérico de la constante de Avogadro, de modo que el mol es
+  una unidad de recuento como la docena, a la escala de los átomos.
+
+  La masa molar convierte la masa pesada en una balanza en una cantidad, y la constante de
+  Avogadro convierte una cantidad en un número de entidades; en un gas, el volumen molar cumple la
+  misma función. El dalton y la constante de masa atómica expresan las masas de átomos y moléculas
+  individuales, y la masa de una partícula se obtiene de la masa molar. La estequiometría aplica
+  estas conversiones a ecuaciones químicas ajustadas, cuyos coeficientes dan relaciones molares: de
+  ellas salen la masa de producto esperada, el rendimiento porcentual, el reactivo limitante, la
+  composición porcentual de un compuesto y la economía atómica de una síntesis.
+
+  La rama sustenta el resto de la química. Las concentraciones de las disoluciones son cantidades
+  por volumen de disolución o por masa de disolvente, la ley de los gases ideales cuenta el gas en
+  moles, y la termoquímica y la electroquímica expresan energía y carga por mol. Como el mol es una
+  unidad base del SI, la rama comparte la unidad y la constante de Avogadro con el Sistema
+  Internacional de Unidades.

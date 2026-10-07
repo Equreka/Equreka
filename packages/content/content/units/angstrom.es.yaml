@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Ángstrom'
+description: >-
+  El ángstrom, de símbolo Å, es una unidad de longitud igual a una diezmilmillonésima de metro, la
+  décima parte de un nanómetro. Queda fuera del Sistema Internacional de Unidades, pero el folleto
+  del SI la incluye entre las unidades no SI de uso extendido, porque se ajusta a la escala de los
+  átomos: químicos y físicos la usan para las longitudes de los enlaces químicos y para los
+  tamaños de átomos y moléculas.
+
+  La definición es una potencia de diez del metro,
+  $1\,\mathrm{\mathring{A}}=10^{-10}\,\mathrm{m}$, exacta por construcción, y la publicación
+  especial 811 del NIST da el factor como exacto. La guía del NIST cuenta el ángstrom entre las
+  unidades que el CIPM permitió en 1978 seguir usando en los campos que ya dependían de ellas,
+  aunque desaconseja extender su uso.
+
+  Diez ángstroms forman un nanómetro, de modo que pasar de una unidad a la otra solo desplaza el
+  separador decimal. El folleto del SI menciona también las longitudes de onda entre sus usos, y el
+  NIST aconseja convertir los valores dados en ángstroms, como las longitudes de onda de la luz
+  láser visible, a nanómetros y no a metros, lo que mantiene los números en un tamaño cómodo.
+
+  La unidad honra al físico sueco Anders Jonas Ångström, de la Universidad de Upsala, uno de los
+  fundadores de la espectroscopia, que introdujo una unidad para las longitudes de onda de la luz
+  adoptada después internacionalmente con su nombre; su estudio del espectro solar, publicado en
+  1868, fue durante mucho tiempo un texto de referencia en la materia. El
+  folleto del SI escribe el nombre angstrom, sin signos diacríticos, mientras que el NIST y la
+  mayoría de los textos de física conservan las letras suecas; el símbolo es siempre la Å
+  mayúscula, con su anillo, y no lleva marca de plural.

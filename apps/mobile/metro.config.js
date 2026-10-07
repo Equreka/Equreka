@@ -4,8 +4,10 @@ const { getDefaultConfig } = require('expo/metro-config');
 /**
  * pnpm-monorepo Metro config: the workspace root joins the watch folders
  * and node_modules lookup paths so symlinked @equreka/* packages and their
- * hoisted-by-pnpm dependencies resolve; inlineRequires keeps the bundled
- * per-collection JSON modules lazy under Hermes (ADR 0002).
+ * hoisted-by-pnpm dependencies resolve; inlineRequires defers a named
+ * import's module to its first use (ADR 0005). Default imports compile to
+ * top-of-module requires it does not move, so the content JSON is reached
+ * through literal requires instead (ADR 0010).
  */
 const projectRoot = __dirname;
 const workspaceRoot = path.resolve(projectRoot, '../..');

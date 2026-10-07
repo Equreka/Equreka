@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Densidad'
+description: >-
+  La densidad, o densidad másica, es la masa de una sustancia o de un cuerpo dividida entre el
+  volumen que ocupa, $\rho=m/V$. Dividir la masa total entre el volumen total da la densidad
+  media; cuando un material no es uniforme, la densidad local en un punto es el límite de ese
+  cociente para un volumen cada vez menor alrededor del punto. La densidad decide si un objeto
+  flota o se hunde en un fluido.
+
+  Su unidad SI es el kilogramo por metro cúbico, que el folleto del SI incluye entre sus ejemplos
+  de unidades derivadas coherentes, y su dimensión es masa dividida entre longitud al cubo. El
+  gramo por centímetro cúbico del sistema CGS equivale a $1000\,\mathrm{kg/m^{3}}$, de modo que
+  una densidad en esa unidad casi coincide con su cociente respecto de la densidad del agua.
+
+  La densidad es un escalar y nunca es negativa. Depende de la temperatura y de la presión: los
+  gases se dilatan y se comprimen con facilidad, por lo que su densidad varía mucho, mientras que
+  la de líquidos y sólidos cambia poco y a menudo se trata como constante. El agua se comporta de
+  forma singular: alcanza su densidad máxima unos grados por encima de su punto de congelación, y
+  por eso un lago se congela de la superficie hacia abajo.
+
+  La densidad se mide pesando una muestra y determinando su volumen, ya sea a partir de sus
+  dimensiones o del volumen de líquido que desplaza. El aire en el punto de congelación del agua
+  y a presión atmosférica es varios cientos de veces menos denso que el agua líquida, que tiene
+  unos $1000\,\mathrm{kg/m^{3}}$, mientras que el oro llega a $1.93\times10^{4}\,\mathrm{kg/m^{3}}$,
+  casi veinte veces la densidad del agua.
+
+  La densidad no es lo mismo que el peso: un bloque grande de madera puede pesar más que un trozo
+  pequeño de hierro y ser mucho menos denso. La densidad relativa es el cociente entre la
+  densidad de un material y la del agua, y no tiene unidad. El peso por unidad de volumen es otra
+  magnitud, llamada peso específico.

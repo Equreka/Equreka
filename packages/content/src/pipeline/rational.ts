@@ -49,8 +49,23 @@ export function ratFromExact(value: ExactNumber): Rat {
 	return rat(BigInt(value.num), BigInt(value.den));
 }
 
+export function ratAdd(a: Rat, b: Rat): Rat {
+	return rat(a.num * b.den + b.num * a.den, a.den * b.den);
+}
+
+export function ratNeg(value: Rat): Rat {
+	return { num: -value.num, den: value.den };
+}
+
 export function ratMul(a: Rat, b: Rat): Rat {
 	return rat(a.num * b.num, a.den * b.den);
+}
+
+export function ratDiv(a: Rat, b: Rat): Rat {
+	if (b.num === 0n) {
+		throw new RangeError('rational division by zero');
+	}
+	return rat(a.num * b.den, a.den * b.num);
 }
 
 export function ratPow(base: Rat, exponent: number): Rat {
@@ -110,25 +125,33 @@ export function ratToDecimal(value: Rat, significantDigits = 36): DecimalRenderi
 		const scaled = (n * 10n ** BigInt(decimals)) / d;
 		return { text: formatScaled(scaled, decimals, negative), exact: true };
 	}
-	const exponent = decimalExponent(n, d);
-	const shift = BigInt(significantDigits) - BigInt(exponent);
-	const numerator = shift >= 0n ? n * 10n ** shift : n;
-	const denominator = shift >= 0n ? d : d * 10n ** -shift;
-	let quotient = numerator / denominator;
-	const remainder = numerator % denominator;
-	const doubled = remainder * 2n;
-	if (doubled > denominator || (doubled === denominator && quotient % 2n === 1n)) {
-		quotient += 1n;
-	}
-	let adjustedExponent = exponent;
-	if (quotient === 10n ** BigInt(significantDigits)) {
-		quotient /= 10n;
-		adjustedExponent += 1;
-	}
+	const { significand, exponent } = roundSignificand(n, d, significantDigits);
 	return {
-		text: formatSignificand(quotient, adjustedExponent, significantDigits, negative),
+		text: formatSignificand(significand, exponent, significantDigits, negative),
 		exact: false,
 	};
+}
+
+/**
+ * `value` rounded half-to-even to `sigFigs` significant digits, as a plain
+ * decimal string with no exponent and no trailing fractional zeros — the
+ * form `ratFromDecimal` reads back exactly: 2.5 at 1 → '2', 0.0012345 at 3
+ * → '0.00123', 123456 at 2 → '120000'.
+ */
+export function ratRoundSignificant(value: Rat, sigFigs: number): string {
+	if (!Number.isInteger(sigFigs) || sigFigs < 1) {
+		throw new RangeError('significant figures must be a positive integer');
+	}
+	if (value.num === 0n) {
+		return '0';
+	}
+	const negative = value.num < 0n;
+	const { significand, exponent } = roundSignificand(
+		negative ? -value.num : value.num,
+		value.den,
+		sigFigs,
+	);
+	return formatSignificand(significand, exponent, sigFigs, negative);
 }
 
 function gcd(a: bigint, b: bigint): bigint {
@@ -140,6 +163,29 @@ function gcd(a: bigint, b: bigint): bigint {
 		y = t;
 	}
 	return x === 0n ? 1n : x;
+}
+
+/**
+ * Positive n/d as significand · 10^(exponent − digits), the significand
+ * rounded half-to-even to exactly `digits` digits; a carry out of the top
+ * digit (9.99 → 10.0) moves into the exponent.
+ */
+function roundSignificand(
+	n: bigint,
+	d: bigint,
+	digits: number,
+): { significand: bigint; exponent: number } {
+	const exponent = decimalExponent(n, d);
+	const shift = BigInt(digits) - BigInt(exponent);
+	const numerator = shift >= 0n ? n * 10n ** shift : n;
+	const denominator = shift >= 0n ? d : d * 10n ** -shift;
+	const truncated = numerator / denominator;
+	const doubled = (numerator % denominator) * 2n;
+	const roundsUp = doubled > denominator || (doubled === denominator && truncated % 2n === 1n);
+	const significand = roundsUp ? truncated + 1n : truncated;
+	return significand === 10n ** BigInt(digits)
+		? { significand: significand / 10n, exponent: exponent + 1 }
+		: { significand, exponent };
 }
 
 function factorOutTenParts(value: bigint): { twos: bigint; fives: bigint; rest: bigint } {

@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Hectare'
+symbol:
+  tex: 'ha'
+unitOf:
+  - 'area'
+system: 'other'
+toBase:
+  factor: '10000'
+  exact: true
+  source:
+    name: 'BIPM SI Brochure 9th ed.'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+    ref: 'Table 8: hectare, 1 ha = 1 hm2 = 10^4 m2'
+externalIds:
+  wikidata: 'Q35852'
+  qudt: 'http://qudt.org/vocab/unit/HA'
+categories:
+  - 'mathematics'
+  - 'physics'
+branches:
+  - 'geometry'
+  - 'mechanics'
+aliases:
+  - 'hectares'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 and note (b)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: hectare'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST, U.S. Survey Foot: Revised Unit Conversion Factors (acre)'
+    url: 'https://www.nist.gov/pml/us-surveyfoot/revised-unit-conversion-factors'
+description:
+  en: >-
+    The hectare, symbol ha, is a metric unit of area equal to ten thousand square metres, the area
+    of a square one hundred metres on each side. It is not a coherent SI unit, but the SI Brochure
+    lists it among the non-SI units in common use and notes that it serves to express land area,
+    which makes it the usual measure for fields, forests and plots of land.
+
+    The SI Brochure gives the definition as $1\,\mathrm{ha}=1\,\mathrm{hm^{2}}=10^{4}\,\mathrm{m^{2}}$,
+    that is, one square hectometre. The factor is exact, and NIST Special Publication 811 lists it
+    as exact as well. The name joins the prefix hecto, one hundred, to the are, a smaller metric
+    unit of land area equal to one square decametre, so a hectare is one hundred ares.
+
+    One hundred hectares make one square kilometre, which links the hectare to the larger areas of
+    maps and geography. The acre of the English-speaking world is a little under half a hectare,
+    and a hectare is a little under two and a half acres; NIST gives the acre exactly in square
+    metres, so the ratio between the two units is known to any number of digits.
+
+    The CIPM adopted the are and the hectare, together with their symbols, in 1879, decades before
+    the International System of Units existed. The symbol ha is written in upright lowercase
+    letters, with no full stop and no plural ending. Its name already contains the prefix hecto,
+    and the SI never stacks prefixes, so larger areas are given in square kilometres instead.

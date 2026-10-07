@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Revolución por minuto'
+description: >-
+  La revolución por minuto, abreviada rpm, es una unidad de ritmo de giro: el número de vueltas
+  completas que da un eje, una rueda o un rotor en un minuto. No es una unidad SI, pero es la
+  especificación habitual de motores de combustión, motores eléctricos, taladros, ventiladores,
+  centrifugadoras, tocadiscos y unidades de disco.
+
+  Se compone de la vuelta, un giro completo de $2\pi$ radianes, dividida entre el minuto de 60
+  segundos. Por tanto, una revolución por minuto equivale a $\pi/30$ radián por segundo, unos 0.1047
+  radianes por segundo, el factor que NIST SP 811 da para convertirla a la unidad SI de velocidad
+  angular. Como contiene $\pi$, la conversión no es exacta en forma decimal.
+
+  Sesenta revoluciones por minuto forman una revolución por segundo. Una rueda de bicicleta a 250 revoluciones
+  por minuto gira a unos 26.2 radianes por segundo, y para pasar un ritmo de giro a velocidad
+  angular en radianes por segundo se multiplica por $2\pi$ y se divide entre 60.
+
+  Aquí la unidad mide velocidad angular, de acuerdo con el factor de conversión que da el NIST. El
+  mismo ritmo puede leerse también como una frecuencia de rotación, un recuento de vueltas por
+  unidad de tiempo; QUDT clasifica la unidad en ese tipo, aunque su multiplicador de conversión es
+  el factor del radián por segundo. Leída como frecuencia, una revolución por minuto es la
+  sexagésima parte de un hercio. El folleto del SI advierte que confundir una frecuencia en
+  hercios con una magnitud angular en radianes por segundo introduce un error de un factor $2\pi$, y
+  pide expresar los valores explícitamente en hercios o en radianes por segundo.
+
+  El símbolo rev/min es habitual; NIST SP 811 escribe r/min y recoge rpm a su lado. Los instrumentos
+  de los motores que muestran esta unidad se llaman tacómetros o cuentarrevoluciones.

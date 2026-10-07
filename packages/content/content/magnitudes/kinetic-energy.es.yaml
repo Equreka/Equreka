@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Energía cinética'
+description: >-
+  La energía cinética es la energía que tiene un cuerpo por estar en movimiento: el trabajo
+  necesario para llevarlo del reposo a su velocidad actual, que puede devolver como trabajo sobre
+  aquello que lo frena. Para una partícula mucho más lenta que la luz es la mitad de la masa por
+  el cuadrado de la rapidez, $E_{\mathrm{k}}=\tfrac{1}{2}mv^{2}$, y para un sistema es la suma
+  sobre todas sus partículas.
+
+  Su unidad SI es el julio, y su dimensión es masa por longitud al cuadrado dividida entre tiempo
+  al cuadrado. Es una forma de energía, y el teorema del trabajo y la energía la vincula con el
+  trabajo: todo trabajo neto que actúa sobre una partícula se traduce en un cambio igual de su
+  energía cinética.
+
+  Es un escalar que nunca es negativo, y solo vale cero para un cuerpo en reposo en el sistema de
+  referencia elegido. Como la velocidad depende del observador, también la energía cinética: un
+  pasajero que camina por el pasillo de un tren en marcha tiene poca respecto del vagón y mucha
+  más respecto de la vía. Un cuerpo que se traslada y gira a la vez tiene la energía cinética de
+  traslación de su centro de masas más la energía cinética de rotación en torno a él.
+
+  No se mide directamente, sino que se calcula a partir de la masa y la rapidez, o del trabajo que
+  realiza un cuerpo en movimiento al detenerse. Un atleta que corre a toda velocidad tiene unos
+  $4.0\,\mathrm{kJ}$; se estima que el asteroide que formó el cráter de Chicxulub liberó unos
+  $4.2\times10^{23}\,\mathrm{J}$ de energía cinética en el impacto.
+
+  Se confunde a menudo con la cantidad de movimiento, porque ambas crecen con la masa y la
+  rapidez. La cantidad de movimiento es un vector proporcional a la rapidez, mientras que la
+  energía cinética es un escalar proporcional a su cuadrado, de modo que duplicar la rapidez de
+  un cuerpo cuadruplica su energía cinética. A rapideces próximas a la de la luz, la expresión
+  clásica falla y la relatividad especial aporta la correcta. La energía cinética y la potencial
+  forman juntas la energía mecánica de un sistema.

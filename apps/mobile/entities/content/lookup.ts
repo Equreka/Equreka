@@ -1,8 +1,8 @@
+import { collectionRank, MEMBER_LISTING_ORDER, TAXONOMY_MEMBERS } from '@equreka/core/collections';
 import type { Locale } from '@equreka/core/i18n';
 import { localizedName } from '@equreka/core/i18n';
 import { branchesOfCategory, groupByBranch } from '@equreka/core/taxonomy';
 import { getPresentation } from '../../shared/content/artifact';
-import { COLLECTION_ORDER } from './routes';
 import type {
 	EntryCollection,
 	MemberCollection,
@@ -70,11 +70,6 @@ export interface CollectionGroup {
 	entries: EntrySummary[];
 }
 
-const MEMBER_COLLECTIONS = COLLECTION_ORDER.filter(
-	(collection): collection is MemberCollection =>
-		collection !== 'categories' && collection !== 'branches',
-);
-
 /**
  * A list row plus the taxonomy it is filed under, for branch grouping.
  */
@@ -105,12 +100,12 @@ function toSummary({ collection, slug, name, symbolText }: FiledSummary): EntryS
 }
 
 /**
- * Every entity tagged with the category, grouped in canonical collection
+ * Every entity tagged with the category, grouped per collection in listing
  * order.
  */
 export function entriesInCategory(categorySlug: string, locale: Locale): CollectionGroup[] {
 	return groupByCollection(
-		filedEntries(MEMBER_COLLECTIONS, locale, (entity) =>
+		filedEntries(TAXONOMY_MEMBERS, locale, (entity) =>
 			entity.categories.includes(categorySlug),
 		).map(toSummary),
 	);
@@ -131,7 +126,7 @@ export interface BranchSection {
  * by collection; an entry filed under two branches appears in both.
  */
 export function branchSectionsInCategory(categorySlug: string, locale: Locale): BranchSection[] {
-	const entries = filedEntries(MEMBER_COLLECTIONS, locale, (entity) =>
+	const entries = filedEntries(TAXONOMY_MEMBERS, locale, (entity) =>
 		entity.categories.includes(categorySlug),
 	);
 	return groupByBranch(entries, branchesOfCategory(getPresentation('branches'), categorySlug)).map(
@@ -170,7 +165,7 @@ export function branchSectionsOfCollection(
 
 export function entriesInBranch(branchSlug: string, locale: Locale): CollectionGroup[] {
 	return groupByCollection(
-		filedEntries(MEMBER_COLLECTIONS, locale, (entity) => entity.branches.includes(branchSlug)).map(
+		filedEntries(TAXONOMY_MEMBERS, locale, (entity) => entity.branches.includes(branchSlug)).map(
 			toSummary,
 		),
 	);
@@ -183,7 +178,9 @@ export function groupByCollection(entries: readonly EntrySummary[]): CollectionG
 		if (bucket === undefined) byCollection.set(entry.collection, [entry]);
 		else bucket.push(entry);
 	}
-	return COLLECTION_ORDER.filter((collection) => byCollection.has(collection)).map(
-		(collection) => ({ collection, entries: byCollection.get(collection) ?? [] }),
-	);
+	const rank = (collection: string): number =>
+		collectionRank(MEMBER_LISTING_ORDER.mobile, collection);
+	return [...byCollection.entries()]
+		.map(([collection, grouped]) => ({ collection, entries: grouped }))
+		.sort((a, b) => rank(a.collection) - rank(b.collection));
 }

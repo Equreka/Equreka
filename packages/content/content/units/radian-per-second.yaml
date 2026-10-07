@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Radian per second'
+symbol:
+  tex: 'rad/s'
+unitOf:
+  - 'angular-velocity'
+  - 'angular-frequency'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'radian'
+      exp: 1
+    - unit: 'second'
+      exp: -1
+externalIds:
+  wikidata: 'Q1063756'
+  qudt: 'http://qudt.org/vocab/unit/RAD-PER-SEC'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+  - 'waves-and-oscillations'
+aliases:
+  - 'radians per second'
+  - 'rad s^-1'
+  - 'rad/sec'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Section 2.3.4 and Table 6: radian per second'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8: revolution per minute (rpm) (r/min)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'OpenStax, University Physics Volume 1, 10.1 Rotational Variables'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-1-rotational-variables'
+description:
+  en: >-
+    The radian per second is the SI coherent derived unit of angular velocity and of angular
+    frequency. It measures how many radians an angle of rotation or a phase advances in each second,
+    and it is formed by dividing the radian, the SI unit of plane angle, by the second.
+
+    A body turning at one radian per second sweeps out an angle of one radian every second, so a
+    full turn of $2\pi$ radians takes about 6.28 seconds. The SI Brochure lists the unit among the
+    coherent derived units whose names include the radian, and it recommends writing angular
+    velocity and angular frequency in radians per second rather than as a bare reciprocal second, so
+    that they are not confused with frequency in hertz.
+
+    One revolution per second equals $2\pi$ radians per second, and one revolution per minute equals
+    $\pi/30$ radian per second, about 0.1047 radians per second. One degree per second equals
+    $\pi/180$ radian per second. The hertz has the same dimension
+    in base units but measures cycles, so one hertz of rotation corresponds to $2\pi$ radians per
+    second.
+
+    The unit is used throughout rotational mechanics, in the equations of simple harmonic motion
+    and waves, and in electrical engineering, where the angular frequency of an alternating current
+    sets the reactance of capacitors and inductors.
+
+    Its symbol is rad/s, also written $\mathrm{rad\,s^{-1}}$. Because the radian equals one, the
+    symbol is sometimes shortened to $\mathrm{s^{-1}}$, a practice the SI Brochure discourages for
+    these quantities.

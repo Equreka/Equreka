@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Kilogram metre per second'
+symbol:
+  tex: 'kg\,m/s'
+  text: 'kg m/s'
+unitOf:
+  - 'momentum'
+  - 'impulse'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'kilogram'
+      exp: 1
+    - unit: 'metre'
+      exp: 1
+    - unit: 'second'
+      exp: -1
+externalIds:
+  wikidata: 'Q78775089'
+  qudt: 'http://qudt.org/vocab/unit/KiloGM-M-PER-SEC'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'kilogram meter per second'
+  - 'kilogram-metre per second'
+  - 'kg m/s'
+  - 'kg*m/s'
+  - 'kgm/s'
+  - 'kg m s-1'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.4 Derived units and 5.4 Rules for writing unit symbols'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 9.1 Linear Momentum'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/9-1-linear-momentum'
+  - title: 'OpenStax, University Physics Volume 2, 2.2 Pressure, Temperature, and RMS Speed'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/2-2-pressure-temperature-and-rms-speed'
+  - title: 'QUDT, unit KiloGM-M-PER-SEC'
+    url: 'https://qudt.org/vocab/unit/KiloGM-M-PER-SEC'
+  - title: 'QUDT, unit GM-CentiM-PER-SEC'
+    url: 'https://qudt.org/vocab/unit/GM-CentiM-PER-SEC'
+description:
+  en: >-
+    The kilogram metre per second, symbol $\mathrm{kg\,m/s}$, is the coherent SI derived unit of momentum,
+    built from the SI base units of mass, length and time. One kilogram metre per second is the
+    momentum of a body of one kilogram moving at one metre per second. The same unit also measures
+    impulse, the change of momentum that a force produces.
+
+    The unit has no special name. It is the product of the kilogram and the metre divided by the
+    second, so its definition follows directly from those of the three base units in the SI
+    Brochure, which since 2019 rest on fixed numerical values of the Planck constant, the speed of
+    light in vacuum and the caesium hyperfine transition frequency.
+
+    Because the newton is one kilogram metre per second squared, one kilogram metre per second is
+    exactly one newton second. Textbooks usually quote momentum in kilogram metres per second and
+    impulse in newton seconds, which keeps the two quantities apart while the impulse-momentum
+    theorem still balances unit by unit. The CGS counterpart, the gram centimetre per second, is
+    one hundred-thousandth of a kilogram metre per second.
+
+    The unit covers momenta from molecules to vehicles: a nitrogen molecule of air at room
+    temperature carries about $2.4\times10^{-23}\,\mathrm{kg\,m/s}$ and an ordinary car in town
+    about $2.1\times10^{4}\,\mathrm{kg\,m/s}$.
+
+    Following the SI rules for compound symbols, the multiplication is shown by a space or a
+    half-high dot and the division by a solidus or a negative exponent, so the second may also be
+    written with the exponent minus one; writing the symbols together without a separator is
+    avoided. The plural is kilogram metres per second.

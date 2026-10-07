@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Velocidad angular'
+description: >-
+  La velocidad angular es el ritmo al que cambia con el tiempo la posición angular de un cuerpo que
+  gira, o de un punto que se mueve alrededor de un eje. Es la derivada temporal del ángulo de giro y
+  el equivalente rotacional de la velocidad en mecánica: describe lo deprisa que algo gira y en
+  torno a qué eje.
+
+  La unidad SI de velocidad angular es el radián por segundo, con la dimensión de un ángulo plano
+  dividido entre un tiempo. Como el radián es una unidad derivada igual a uno, la unidad podría
+  escribirse como segundo a la menos uno, pero el folleto del SI recomienda indicar explícitamente
+  radianes por segundo para que la velocidad angular nunca se confunda con una frecuencia en
+  hercios. Las máquinas suelen especificarse en revoluciones por minuto.
+
+  La velocidad angular es un vector situado sobre el eje de giro, con el sentido que da la regla de
+  la mano derecha. En una rotación alrededor de un eje fijo se reduce a una sola componente con
+  signo: positiva para el giro antihorario visto desde el extremo positivo del eje y negativa para
+  el giro horario. Todos los puntos de un sólido rígido comparten la misma velocidad angular,
+  mientras que la rapidez de cada punto crece en proporción a su distancia al eje.
+
+  Los tacómetros, los codificadores rotativos y los giróscopos la miden. La Tierra gira a un valor
+  nominal de $7.292\,115\times10^{-5}\,\mathrm{rad/s}$, cerca de una vuelta por día sidéreo,
+  mientras que una rueda de bicicleta a 250 revoluciones por minuto gira a unos
+  $26.2\,\mathrm{rad/s}$, más de trescientas mil veces más deprisa.
+
+  La velocidad angular se confunde con facilidad con la frecuencia angular, que comparte su unidad y
+  su símbolo pero describe la fase de una oscilación y no una rotación física, y con la frecuencia,
+  que cuenta ciclos por segundo y es menor en un factor $2\pi$ para el mismo movimiento.

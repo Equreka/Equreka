@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'node:url';
 import { beforeAll, describe, expect, it } from 'vitest';
-import { hydrateMathBody, type MathAtlas, type MathBody } from '../../rich-text.js';
+import { hydrateMathBody, isLeanMathBody, type MathAtlas, type MathBody } from '../../rich-text.js';
 import { loadContent } from '../load.js';
 import { collectMathUses, type MathUse } from '../math-artifact.js';
 import {
@@ -12,11 +12,14 @@ import {
 	normalizeMathBody,
 	stripPresentationAttributes,
 } from '../math-render.js';
+import { encodeMathBody } from '../math-shards.js';
 import { validateContent } from '../validate.js';
 
 const CONTENT_DIR = fileURLToPath(new URL('../../../content/', import.meta.url));
 
 const SAMPLE_SIZE = 10;
+
+const FRACTION_OR_ROOT = /\\(frac|dfrac|sqrt)/;
 
 let samples: [string, MathUse][];
 let global: MathRenderer;
@@ -24,17 +27,19 @@ let global: MathRenderer;
 beforeAll(async () => {
 	const corpus = validateContent(loadContent(CONTENT_DIR)).corpus;
 	const uses = [...collectMathUses(corpus)].sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0));
-	const stride = Math.floor(uses.length / SAMPLE_SIZE);
-	samples = Array.from(
-		{ length: SAMPLE_SIZE },
+	const stride = Math.floor(uses.length / (SAMPLE_SIZE - 1));
+	const strided = Array.from(
+		{ length: SAMPLE_SIZE - 1 },
 		(_, index) => uses[index * stride] as [string, MathUse],
 	);
+	const fraction = uses.find(([tex]) => FRACTION_OR_ROOT.test(tex));
+	samples = fraction ? [...strided, fraction] : strided;
 	global = await createMathRenderer();
 }, 60_000);
 
 function atlasOf(renderer: MathRenderer): MathAtlas {
 	return {
-		schemaVersion: 1,
+		schemaVersion: 2,
 		font: 'mathjax-newcm',
 		glyphs: Object.fromEntries(renderer.glyphPaths()),
 	};
@@ -46,18 +51,22 @@ describe('math renderer', () => {
 		expect(MATH_CONFIG_HASH).toMatch(/^[0-9a-f]{16}$/);
 	});
 
-	it('hydrates atlas + body back to the fontCache:local rendering for sampled corpus math', async () => {
+	it('hydrates atlas + body, rendered and lean, back to the fontCache:local rendering for sampled corpus math', async () => {
 		const local = await createMathRenderer({ fontCache: 'local' });
 		expect(samples.length).toBe(SAMPLE_SIZE);
-		expect(samples.some(([tex]) => /\\(frac|dfrac|sqrt)/.test(tex))).toBe(true);
+		expect(samples.some(([tex]) => FRACTION_OR_ROOT.test(tex))).toBe(true);
 		for (const [tex, use] of samples) {
 			const body = await global.render(tex, use.display);
-			const hydrated = hydrateMathBody(body, atlasOf(global));
+			const atlas = atlasOf(global);
+			const hydrated = hydrateMathBody(body, atlas);
+			const encoded = encodeMathBody(body, atlas);
 			const expected = stripPresentationAttributes(await local.renderRaw(tex, use.display)).replace(
 				/MJX-\d+-/g,
 				'MJX-',
 			);
 			expect(hydrated, tex).toBe(expected);
+			expect(isLeanMathBody(encoded), tex).toBe(true);
+			expect(hydrateMathBody(encoded, atlas), tex).toBe(expected);
 			expect(body.svg.includes('<defs>'), tex).toBe(false);
 			expect(body.svg).toMatch(/fill="currentColor"/);
 			expect(body.svg).not.toMatch(/\sdata-|\srole=|\sfocusable=|\sstyle=|\saria-/);

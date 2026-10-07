@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Kilogram-force'
+symbol:
+  tex: 'kgf'
+unitOf:
+  - 'force'
+system: 'other'
+toBase:
+  factor: '9.80665'
+  exact: true
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+    ref: 'B.8: kilogram-force (kgf)'
+externalIds:
+  wikidata: 'Q216880'
+  qudt: 'http://qudt.org/vocab/unit/KiloGM_F'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'kilogram force'
+  - 'kilopond'
+  - 'kp'
+  - 'kilogram-weight'
+  - 'kilogram weight'
+  - 'kg-f'
+  - 'kilogramo-fuerza'
+  - 'kilopondio'
+references:
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: kilogram-force and related units'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (3rd CGPM, 1901, declaration on mass and weight)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, unit KiloGM_F'
+    url: 'https://qudt.org/vocab/unit/KiloGM_F'
+description:
+  en: >-
+    The kilogram-force, symbol $\mathrm{kgf}$, also called the kilopond, is a unit of force of the
+    gravitational metric system: the weight of a mass of one kilogram under the standard
+    acceleration of gravity. It is not an SI unit, and the SI Brochure describes it as obsolete.
+
+    One kilogram-force equals exactly $9.806\,65\,\mathrm{N}$, a factor that NIST Special
+    Publication 811 marks as exact in its Appendix B.8. The exactness comes from the definition:
+    the standard acceleration of gravity is a conventional value rather than a measured one, so the
+    kilogram-force does not vary with the place where a body is weighed, even though the actual
+    weight of a one-kilogram mass does.
+
+    Units built on it convert with the same factor: NIST gives the kilogram-force metre as exactly
+    $9.806\,65\,\mathrm{N\,m}$, and the same digits, shifted by a power of ten, convert the
+    kilogram-force per square centimetre to pascals. The pound-force is defined in the same way
+    from the avoirdupois pound, so the ratio of the two force units equals the ratio of the pound
+    to the kilogram.
+
+    Its value rests on a declaration of the 3rd General Conference on Weights and Measures in
+    1901, which stated that weight is a force, a mass times the acceleration of gravity, and
+    adopted $980.665\,\mathrm{cm/s^{2}}$ as the standard value of that acceleration. According to
+    the SI Brochure, the kilogram-force was computed from this agreed value. The symbol kp comes
+    from the name kilopond, and the plural is kilograms-force.

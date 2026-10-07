@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Torque'
+symbol:
+  tex: '\tau'
+  text: 'τ'
+symbolAlt:
+  tex: 'M'
+baseUnit: 'newton-metre'
+dimension:
+  L: 2
+  M: 1
+  T: -2
+externalIds:
+  wikidata: 'Q48103'
+  qudt: 'http://qudt.org/vocab/quantitykind/Torque'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'moment of force'
+  - 'tau'
+  - 'momento de fuerza'
+  - 'momento de torsión'
+  - 'par'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 10.6 Torque'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-6-torque'
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.4 Derived units and Table 6'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'HyperPhysics, Georgia State University, Torque and Equilibrium'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/torq.html'
+  - title: 'QUDT, quantity kind Torque'
+    url: 'https://qudt.org/vocab/quantitykind/Torque'
+description:
+  en: >-
+    Torque, also called moment of force, is the turning effect of a force about a point or an axis:
+    the rotational counterpart of force in mechanics. It is the cross product of the position
+    vector, drawn from the pivot to the point of application, and the force itself. Its magnitude
+    equals the force multiplied by the lever arm, the perpendicular distance from the axis to the
+    line along which the force acts.
+
+    The SI unit is the newton metre, and the dimension is mass times length squared divided by time
+    squared, the same as that of energy. The SI Brochure nevertheless states that the joule is never
+    used for torque, recalling that torque is defined as the cross product of a position and a force
+    rather than as an amount of energy.
+
+    Torque is a vector perpendicular to the plane that contains the position vector and the force,
+    with its direction given by the right-hand rule. For rotation about a fixed axis it is handled
+    as a signed number: by the usual convention, a torque that would turn a body counterclockwise,
+    seen from the positive end of the axis, is positive, a clockwise one is negative, and the torques
+    about one axis add to give the net torque.
+
+    A force produces the most torque when it acts at right angles to the lever arm and none when it
+    points straight through the pivot. A door therefore opens easily when pushed far from its hinges,
+    and a long wrench loosens a stubborn bolt that a short one cannot move. A force of $40\,\mathrm{N}$
+    applied at right angles $4\,\mathrm{m}$ from a pivot produces $160\,\mathrm{N\,m}$.
+
+    Torque is easily confused with work and energy because they share a dimension. Work is a scalar
+    transfer of energy along a displacement, whereas torque is a vector that can act with no motion
+    at all, as when a bolt resists a wrench. A rigid body is in equilibrium only when both the net
+    force and the net torque on it are zero.

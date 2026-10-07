@@ -1,4 +1,5 @@
 import type { EngineError, ErrorCode } from '@equreka/engine';
+import { collectionLabelKey, isCollectionName } from '../collections';
 import { en, type MessageKey } from './en';
 import { es } from './es';
 
@@ -111,25 +112,12 @@ export function engineErrorMessage(
 	});
 }
 
-const COLLECTION_KEYS: Record<string, MessageKey> = {
-	categories: 'collection.categories',
-	branches: 'collection.branches',
-	magnitudes: 'collection.magnitudes',
-	units: 'collection.units',
-	prefixes: 'collection.prefixes',
-	constants: 'collection.constants',
-	variables: 'collection.variables',
-	equations: 'collection.equations',
-	paths: 'collection.paths',
-};
-
 /**
  * Localized group label for a collection name, echoing the raw name for a
  * collection the catalog does not know (future-proof for artifact data).
  */
 export function collectionLabel(locale: Locale, collection: string): string {
-	const key = COLLECTION_KEYS[collection];
-	return key === undefined ? collection : t(locale, key);
+	return isCollectionName(collection) ? t(locale, collectionLabelKey(collection)) : collection;
 }
 
 /**

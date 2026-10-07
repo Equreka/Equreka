@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/branches.schema.json
+name:
+  en: 'Trigonometry'
+category: 'mathematics'
+order: 3
+externalIds:
+  wikidata: 'Q8084'
+aliases:
+  - 'trig'
+  - 'trigonometric functions'
+  - 'solving triangles'
+  - 'funciones trigonométricas'
+  - 'resolución de triángulos'
+description:
+  en: >-
+    Trigonometry is the part of mathematics that relates the angles of a triangle to the lengths of
+    its sides. Its tools are the trigonometric functions sine, cosine and tangent, defined in a
+    right triangle as ratios of two sides and extended to every angle through the unit circle,
+    together with their reciprocals and their inverse functions.
+
+    In a right triangle, the sine of an acute angle is the ratio of the opposite side to the
+    hypotenuse, the cosine is the ratio of the adjacent side to the hypotenuse, and the tangent is
+    the ratio of the opposite side to the adjacent one. In any plane triangle the three angles add
+    up to a straight angle, the law of sines links each side to the sine of the angle facing it, and
+    the law of cosines extends the Pythagorean theorem to triangles without a right angle. Two sides
+    and the angle between them also give the area of the triangle. Angles are measured in radians,
+    the coherent SI unit, in which a full turn measures two pi, or in degrees.
+
+    Trigonometry shares its figures with geometry but turns geometric relations into calculation: an
+    unreachable height follows from a measured angle of elevation and a horizontal distance, which
+    is why surveying and navigation depend on it. Its periodic functions describe oscillations and
+    waves in physics and resolve forces and velocities into components in mechanics, and the algebra
+    of identities between them is used to simplify those expressions.

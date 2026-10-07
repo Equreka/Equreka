@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Aceleración angular'
+description: >-
+  La aceleración angular es el ritmo al que cambia con el tiempo la velocidad angular de un cuerpo
+  que gira. Es la derivada temporal de la velocidad angular y, por tanto, la segunda derivada
+  temporal del ángulo de giro: el equivalente rotacional de la aceleración lineal en mecánica. Una
+  rueda que se embala, un ventilador que se frena tras apagarse y un patinador que recoge los brazos
+  presentan una aceleración angular no nula.
+
+  La unidad SI de aceleración angular es el radián por segundo al cuadrado, una unidad derivada
+  coherente con la dimensión de un ángulo plano dividido entre un tiempo al cuadrado. Un radián por
+  segundo al cuadrado suma un radián por segundo a la velocidad angular cada segundo.
+
+  Igual que la velocidad angular, la aceleración angular es un vector situado sobre el eje de giro.
+  Alrededor de un eje fijo es una sola componente con signo. Si tiene el mismo signo que la
+  velocidad angular, la rotación se acelera; si los signos son opuestos, la rotación se frena, sea
+  cual sea el sentido de giro del cuerpo. Un punto situado a cierta distancia del eje tiene entonces
+  una aceleración tangencial igual a esa distancia multiplicada por la aceleración angular.
+
+  Se obtiene a partir de lecturas sucesivas de la velocidad angular, por ejemplo con un codificador
+  rotativo o un giróscopo. Una rueda de bicicleta que pasa del reposo a 250 revoluciones por minuto
+  en cinco segundos tiene una aceleración angular media de unos $5.24\,\mathrm{rad/s^{2}}$; al
+  frenarla con fuerza, desde ese ritmo hasta el reposo en 0.3 segundos, alcanza unos
+  $-87.3\,\mathrm{rad/s^{2}}$, donde el signo menos indica que la
+  rotación se frena.
+
+  La aceleración angular es distinta de la aceleración centrípeta. Un cuerpo que gira con velocidad
+  angular constante tiene aceleración angular nula, pero cada punto fuera del eje sigue acelerado
+  hacia él, con un valor que se mide en metros por segundo al cuadrado y no en radianes por segundo
+  al cuadrado. En la dinámica de rotación, un momento neto de las fuerzas sobre un sólido rígido
+  produce una aceleración angular inversamente proporcional a su momento de inercia.

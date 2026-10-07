@@ -76,15 +76,6 @@ export function extractTexFragments(text: string): TexFragment[] {
 	return fragments;
 }
 
-export function stripTexForSearch(text: string): string {
-	return text
-		.replace(/\$\$[^$]+\$\$/g, ' ')
-		.replace(/\$[^$\n]+\$/g, ' ')
-		.replace(/\\[a-zA-Z]+/g, ' ')
-		.replace(/\s+/g, ' ')
-		.trim();
-}
-
 /**
  * Plain-text symbol fallback per the engine-slice contract: authored `text`
  * wins; otherwise a lossy strip of TeX control characters — good enough for

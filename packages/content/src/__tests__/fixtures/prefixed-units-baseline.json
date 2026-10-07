@@ -5,7 +5,7 @@
 		"exact": true,
 		"affine": false,
 		"dimension": [1, 0, 0, 0, 0, 0, 0, 0],
-		"magnitudes": ["length"],
+		"magnitudes": ["length", "wavelength"],
 		"symbolTex": "cm",
 		"symbolText": "cm"
 	},
@@ -15,7 +15,7 @@
 		"exact": true,
 		"affine": false,
 		"dimension": [1, 0, 0, 0, 0, 0, 0, 0],
-		"magnitudes": ["length"],
+		"magnitudes": ["length", "wavelength"],
 		"symbolTex": "km",
 		"symbolText": "km"
 	},
@@ -35,7 +35,7 @@
 		"exact": true,
 		"affine": false,
 		"dimension": [1, 0, 0, 0, 0, 0, 0, 0],
-		"magnitudes": ["length"],
+		"magnitudes": ["length", "wavelength"],
 		"symbolTex": "μm",
 		"symbolText": "μm"
 	},
@@ -45,7 +45,7 @@
 		"exact": true,
 		"affine": false,
 		"dimension": [0, 0, 1, 0, 0, 0, 0, 0],
-		"magnitudes": ["time"],
+		"magnitudes": ["time", "period"],
 		"symbolTex": "μs",
 		"symbolText": "μs"
 	},
@@ -85,7 +85,7 @@
 		"exact": true,
 		"affine": false,
 		"dimension": [1, 0, 0, 0, 0, 0, 0, 0],
-		"magnitudes": ["length"],
+		"magnitudes": ["length", "wavelength"],
 		"symbolTex": "mm",
 		"symbolText": "mm"
 	},
@@ -105,7 +105,7 @@
 		"exact": true,
 		"affine": false,
 		"dimension": [0, 0, 1, 0, 0, 0, 0, 0],
-		"magnitudes": ["time"],
+		"magnitudes": ["time", "period"],
 		"symbolTex": "ms",
 		"symbolText": "ms"
 	},
@@ -115,7 +115,7 @@
 		"exact": true,
 		"affine": false,
 		"dimension": [1, 0, 0, 0, 0, 0, 0, 0],
-		"magnitudes": ["length"],
+		"magnitudes": ["length", "wavelength"],
 		"symbolTex": "nm",
 		"symbolText": "nm"
 	},
@@ -125,7 +125,7 @@
 		"exact": true,
 		"affine": false,
 		"dimension": [0, 0, 1, 0, 0, 0, 0, 0],
-		"magnitudes": ["time"],
+		"magnitudes": ["time", "period"],
 		"symbolTex": "ns",
 		"symbolText": "ns"
 	}

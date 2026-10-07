@@ -8,6 +8,7 @@ dimension:
   L: -1
   M: 1
   T: -2
+kindOf: 'force-per-area'
 externalIds:
   wikidata: 'Q39552'
   qudt: 'http://qudt.org/vocab/quantitykind/Pressure'
@@ -15,6 +16,7 @@ categories:
   - 'physics'
 branches:
   - 'mechanics'
+  - 'fluid-mechanics'
   - 'thermodynamics'
 description:
   en: |-

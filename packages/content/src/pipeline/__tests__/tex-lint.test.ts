@@ -1,30 +1,12 @@
-import { collectionSchemas } from '@equreka/schema';
 import { describe, expect, it } from 'vitest';
 import { lintTex } from '../tex-lint.js';
 import type { Corpus } from '../validate.js';
+import { corpusWith } from './corpus-with.js';
 
 function corpusWithEquation(expression: string, terms: Record<string, unknown>): Corpus {
-	return {
-		categories: new Map(),
-		branches: new Map(),
-		magnitudes: new Map(),
-		units: new Map(),
-		prefixes: new Map(),
-		constants: new Map(),
-		variables: new Map(),
-		equations: new Map([
-			[
-				'sample',
-				collectionSchemas.equations.parse({
-					name: { en: 'Sample' },
-					level: 'intro',
-					expression,
-					terms,
-				}),
-			],
-		]),
-		paths: new Map(),
-	};
+	return corpusWith({
+		equations: { sample: { name: { en: 'Sample' }, level: 'intro', expression, terms } },
+	});
 }
 
 const label = { en: 'Term' };

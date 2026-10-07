@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Libra por pulgada cuadrada'
+description: >-
+  La libra por pulgada cuadrada, de símbolo psi, es la unidad tradicional de presión y de tensión
+  mecánica en Estados Unidos, donde se expresan con ella las presiones de neumáticos, sistemas
+  hidráulicos y calderas. Su nombre completo es libra fuerza por pulgada cuadrada, porque mide la
+  fuerza que ejerce el peso de una libra bajo la gravedad normal repartida sobre una pulgada
+  cuadrada.
+
+  La unidad se define a partir de dos unidades exactas: la libra fuerza, el peso de una libra
+  avoirdupois bajo la aceleración normal de la gravedad, y la pulgada, que el NIST da como una
+  fracción exacta del metro. Su cociente fija $1\,\mathrm{psi}\approx6894.757\,\mathrm{Pa}$, valor
+  que la publicación especial 811 del NIST imprime con siete cifras en su tabla de factores de
+  conversión. El cociente es exacto pero no es un decimal finito, porque al dividir entre el
+  cuadrado de la pulgada aparece el factor 127, de modo que el valor se cita redondeado.
+
+  Un psi es una presión pequeña: la atmósfera estándar equivale a casi quince. Para cargas
+  mayores, los ingenieros estadounidenses usan el kip por pulgada cuadrada, o ksi, mil veces
+  mayor, para expresar la resistencia y la rigidez del acero y de otros materiales estructurales.
+  Por ello la libra por pulgada cuadrada sirve para las dos clases de fuerza por unidad de
+  superficie: la presión de un fluido contra una pared y la tensión dentro de un sólido cargado.
+
+  Los manómetros añaden a menudo una letra al símbolo y escriben psig para una lectura por encima
+  del aire circundante y psia para una lectura absoluta. El folleto del SI rechaza esa práctica
+  para sus propias unidades, ya que un símbolo de unidad no debe aportar información sobre la
+  magnitud: la referencia corresponde al nombre de la magnitud, como presión manométrica o presión
+  absoluta. El propio símbolo psi es una abreviatura; el símbolo que sigue las reglas de las
+  unidades compuestas es lbf/in².

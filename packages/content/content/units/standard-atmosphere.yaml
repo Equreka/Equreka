@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Standard atmosphere'
+symbol:
+  tex: 'atm'
+unitOf:
+  - 'pressure'
+system: 'other'
+toBase:
+  factor: '101325'
+  exact: true
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+    ref: 'B.8: atmosphere, standard (atm), 1.013 25 E+05 Pa exact'
+externalIds:
+  wikidata: 'Q177974'
+  qudt: 'http://qudt.org/vocab/unit/ATM'
+categories:
+  - 'physics'
+  - 'chemistry'
+branches:
+  - 'fluid-mechanics'
+  - 'gases'
+aliases:
+  - 'atmosphere'
+  - 'atmospheres'
+  - 'standard atmospheres'
+  - 'atmósfera normal'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1: 10th CGPM (1954), Resolution 4'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: atmosphere, standard'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST SP 811, Chapter 5, Units outside the SI, Table 11'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si'
+description:
+  en: >-
+    The standard atmosphere, or atm, is a pressure unit fixed by convention at exactly
+    $101\,325\,\mathrm{Pa}$, a figure close to the pressure of the air at sea level. It lies outside
+    the International System of Units and is set by agreement rather than by measurement, so it is
+    a unit and not a physical constant: the real air pressure at any place changes with altitude
+    and weather.
+
+    The current definition was adopted by the 10th CGPM in 1954, in Resolution 4, which set
+    $1\,\mathrm{atm}=101\,325\,\mathrm{Pa}$ and gave the same value in dynes per square centimetre.
+    An earlier definition, written by the 9th CGPM as part of the temperature scale, had led some
+    physicists to believe it held only for precise thermometry, and the 1954 resolution adopted it
+    for general use. NIST Special Publication 811 lists the conversion factor as exact.
+
+    Other pressure units are tied to it. The torr is defined as one 760th of the standard
+    atmosphere, which makes the atmosphere exactly seven hundred and sixty times larger, and it equals
+    $1.013\,25\,\mathrm{bar}$, a little more than one bar. Both relations follow from exact
+    definitions and carry no rounding.
+
+    Chemistry and physics courses still quote gas pressures and reference conditions in
+    atmospheres, because the unit compares a pressure directly with that of the open air. The NIST
+    guide to the SI nevertheless lists the standard atmosphere among the units that its authors
+    should not use, and recommends the pascal and its multiples in its place. The symbol atm is
+    written in upright lowercase letters and never takes a plural ending; the name forms the plural
+    atmospheres.

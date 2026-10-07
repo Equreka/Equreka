@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Kilometre per hour'
+symbol:
+  tex: 'km/h'
+unitOf:
+  - 'speed'
+  - 'velocity'
+system: 'other'
+compose:
+  of:
+    - unit: 'kilometre'
+      exp: 1
+    - unit: 'hour'
+      exp: -1
+externalIds:
+  wikidata: 'Q180154'
+  qudt: 'http://qudt.org/vocab/unit/KiloM-PER-HR'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'kilometer per hour'
+  - 'kilometres per hour'
+  - 'kilometers per hour'
+  - 'kph'
+  - 'kmh'
+  - 'km/hr'
+  - 'kmph'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 7: kilo; Table 8: hour'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8: kilometer per hour (km/h)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST SP 811, Chapter 5, Table 6: non-SI units accepted for use with the SI'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si'
+  - title: 'QUDT, unit KiloM-PER-HR'
+    url: 'https://qudt.org/vocab/unit/KiloM-PER-HR'
+description:
+  en: >-
+    The kilometre per hour is a unit of speed and velocity equal to a distance of one kilometre
+    covered in one hour. It combines the kilometre, a multiple of the SI metre, with the hour, a
+    non-SI unit of time accepted for use with the SI, so it is not a coherent SI unit. It is the
+    everyday unit for the speed of road vehicles in most of the world.
+
+    Its definition follows from its parts: a kilometre is exactly 1000 metres and an hour exactly
+    3600 seconds. One kilometre per hour is therefore exactly $5/18$ of a metre per second, or
+    about 0.2778 metre per second; NIST SP 811 lists the rounded factor.
+
+    The conversion is often done mentally: dividing by 3.6 turns kilometres per hour into metres per
+    second, and multiplying by 3.6 goes the other way, so 36 kilometres per hour is 10 metres per
+    second and 90 kilometres per hour is 25 metres per second. One mile per hour equals exactly
+    1.609 344 kilometres per hour, and one knot equals exactly 1.852 kilometres per hour.
+
+    Speed limits, speedometers, weather reports of wind speed and timetables for trains in metric
+    countries use the kilometre per hour. Physics problems usually convert to metres per second
+    before applying the equations of motion, since the metre per second is the coherent unit.
+
+    The SI symbol is km/h. Forms such as kph, kmh and km/hr appear in informal and commercial use but
+    are not SI symbols; the SI also writes $\mathrm{km\,h^{-1}}$.

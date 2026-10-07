@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Newton second'
+symbol:
+  tex: 'N\,s'
+  text: 'N s'
+unitOf:
+  - 'impulse'
+  - 'momentum'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'newton'
+      exp: 1
+    - unit: 'second'
+      exp: 1
+externalIds:
+  wikidata: 'Q3395194'
+  qudt: 'http://qudt.org/vocab/unit/N-SEC'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'newton-second'
+  - 'N s'
+  - 'N*s'
+  - 'Ns'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 and 5.4 Rules for writing unit symbols'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 9.2 Impulse and Collisions'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/9-2-impulse-and-collisions'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8 and footnote 23'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'QUDT, unit N-SEC'
+    url: 'https://qudt.org/vocab/unit/N-SEC'
+description:
+  en: >-
+    The newton second, symbol $\mathrm{N\,s}$, is the coherent SI derived unit of impulse: the
+    impulse delivered by a constant force of one newton acting for one second. It serves equally
+    as a unit of momentum, since an impulse changes the momentum of a body by the same amount.
+
+    The unit is the product of the newton, the SI derived unit of force with a special name, and
+    the second, the SI base unit of time; it has no special name of its own. Expressed in base
+    units it is the kilogram metre per second, so one newton second equals exactly one kilogram
+    metre per second.
+
+    Physics texts generally write impulse in newton seconds and momentum in kilogram metres per
+    second, which keeps the two quantities apart while letting the impulse-momentum theorem be
+    checked unit by unit. The sign carries the direction along an axis: an impulse of a given size
+    in the negative direction changes the motion in exactly the opposite way to an equal one in the
+    positive direction. The pound-force second, the counterpart built on the pound-force, is
+    exactly $4.448\,221\,615\,260\,5\,\mathrm{N\,s}$, the same number as the pound-force has
+    newtons.
+
+    The unit is used wherever a force acts for a measured time: a racket striking a ball, a
+    seatbelt and airbag stopping a passenger, or an impact estimated from the change of momentum.
+
+    The SI rules for compound symbols require a space or a half-high dot between the two symbols,
+    so the forms $\mathrm{N\,s}$ and $\mathrm{N\cdot s}$ are correct. In the name, a space or a
+    hyphen separates the two units, newton second or newton-second, and the plural is newton
+    seconds.

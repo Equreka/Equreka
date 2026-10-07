@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Longitud de onda'
+description: >-
+  La longitud de onda es la distancia a lo largo de la cual una onda periódica se repite en el
+  espacio, medida en la dirección de propagación entre dos puntos vecinos que están en la misma
+  fase, como dos crestas sucesivas de una ola o dos compresiones de una onda sonora. Describe el
+  sonido, la luz, las ondas de radio y cualquier otro tipo de onda.
+
+  La unidad SI de longitud de onda es el metro, y su dimensión es la de la longitud. Es un tipo
+  concreto de longitud, que QUDT clasifica bajo esta como magnitud más específica. La luz suele describirse en nanómetros y la radio en metros o kilómetros.
+  Su inverso, multiplicado por $2\pi$, es el número de ondas angular que aparece en la función de
+  onda.
+
+  La longitud de onda es un escalar positivo. Relaciona el periodo de una onda con su rapidez: en un
+  periodo la onda avanza exactamente una longitud de onda, así que la rapidez de propagación es la
+  longitud de onda dividida entre el periodo, o la longitud de onda por la frecuencia. La fuente fija
+  la frecuencia; cuando una onda pasa a un medio en el que viaja más despacio, su longitud de onda
+  se acorta.
+
+  Se mide con reglas sobre ondas estacionarias, con interferómetros y con
+  redes de difracción, que convierten una diferencia de longitud de onda en una diferencia de
+  ángulo. La luz visible abarca aproximadamente de 400 a 750 nanómetros, el ultravioleta baja
+  hasta unos 10 nanómetros, y las ondas de radio empiezan en torno a una
+  décima de metro y no tienen límite superior. Una onda enviada por una cuerda a dos ciclos por
+  segundo y cinco metros por segundo mide 2.5 metros.
+
+  La longitud de onda no es la amplitud, que mide cuánto se aparta el medio del equilibrio, y es el
+  equivalente espacial del periodo: este se repite en el tiempo; aquella, en el espacio.

@@ -2,7 +2,7 @@ import { usePathProgress } from '@equreka/core';
 import { localizedName } from '@equreka/core/i18n';
 import { useRouter } from 'expo-router';
 import { entryHref } from '../../entities/content/routes';
-import { pickSegments, plainTextOf } from '../../entities/content/text';
+import { pickRichText, plainTextOf } from '../../entities/content/text';
 import type { PresentationPath } from '../../entities/content/types';
 import { getPresentation } from '../../shared/content/artifact';
 import { useLocale, useStorage, useT, useTheme } from '../../shared/providers/equreka-provider';
@@ -35,7 +35,7 @@ function PathCard({ slug, path }: { slug: string; path: PresentationPath }) {
 	const locale = useLocale();
 	const t = useT();
 	const router = useRouter();
-	const description = pickSegments(path.descriptionSegments, locale);
+	const description = pickRichText(path.description, locale);
 	const detail = [
 		t(`level.${path.level}`),
 		t('path.steps', { count: path.steps.length }),
