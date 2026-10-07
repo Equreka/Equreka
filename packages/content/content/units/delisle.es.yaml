@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Grado Delisle'
+description: >-
+  El grado Delisle, de símbolo °De, es la unidad de una escala histórica de temperatura que lleva
+  el nombre del astrónomo francés Joseph-Nicolas Delisle. La escala va al revés: pone el 0 en el
+  punto de ebullición del agua y, en la forma convencional que se usa para convertir, el 150 en el
+  de congelación, así que sus números crecen cuando la temperatura baja. Queda fuera del SI.
+
+  Ninguna norma la define hoy, y las conversiones siguen esos dos puntos fijos: 0 grados Delisle
+  equivalen a 100 grados Celsius y 150 grados Delisle a 0 grados Celsius. Por tanto, un grado
+  Delisle abarca dos tercios de kelvin con el signo invertido: una temperatura Celsius es 100
+  menos dos tercios de la lectura Delisle, y una temperatura en kelvin es 373.15 menos esa misma
+  cantidad.
+
+  La inversión es el rasgo que define la escala. Calentar hace bajar la lectura, un descenso de
+  tres grados Delisle es un calentamiento de dos kelvin, y el cero absoluto queda en 559.725
+  grados Delisle, la lectura más alta que admite la escala.
+
+  Situar el cero en el punto de ebullición mantenía positivas todas las lecturas del tiempo
+  ordinario. Anders Celsius usó un termómetro fabricado por Delisle, y su propia escala de cien
+  grados también contaba hacia arriba desde el agua hirviendo; el orden directo, con el cero en el
+  punto de congelación, se impuso solo después de la muerte de Celsius en 1744.

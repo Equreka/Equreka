@@ -12,14 +12,40 @@ categories:
 branches:
   - 'si-system'
 aliases:
+  - 'µ'
   - 'mu'
   - 'u'
   - 'mc'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., chapter 3 and Table 7 (SI prefixes)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (11th CGPM, 1960, Resolution 12)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 4 (historical notes, the CGS system of 1874)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'RAE, Diccionario de la lengua española, entry micro-'
+    url: 'https://dle.rae.es/micro-'
+  - title: 'US Metric Association, SI prefixes and their etymologies'
+    url: 'https://usma.org/si-prefixes-and-their-etymologies'
+  - title: 'The Unified Code for Units of Measure, Table 1 (prefix symbols)'
+    url: 'https://ucum.org/ucum'
+  - title: 'ISMP, List of Error-Prone Abbreviations, Symbols, and Dose Designations'
+    url: 'https://online.ecri.org/hubfs/ISMP/Resources/ISMP_ErrorProneAbbreviation_List.pdf'
 description:
-  en: |-
-    Micro (symbol $μ$) is a unit prefix in the metric system denoting a factor of $10^{6}$ (one millionth). Confirmed in 1960, the prefix comes from the Greek μικρός (mikrós), meaning "small".
+  en: >-
+    Micro is the SI prefix for a factor of $10^{-6}$, one millionth. Its symbol is μ, the Greek
+    letter mu, the only SI prefix symbol taken from outside the Latin alphabet. It forms the
+    micrometre and the microsecond.
 
-    The symbol for the prefix is the Greek letter $μ$ (mu). It is the only SI prefix which uses a character not from the Latin alphabet. "mc" is commonly used as a prefix when the character "μ" is not available; for example, "mcg" commonly denotes a microgram. This is ambiguous, in that mcg could also be read as a micrigram, i.e. $10^{−14} g$, the prefix $micri$ is not standard, nor widely known, and considered obsolete. The letter $u$, instead of $μ$, is allowed by an ISO document.
+    The prefix was already part of the CGS system introduced by the British Association for the
+    Advancement of Science in 1874, whose prefixes ran from micro to mega, and the 11th General
+    Conference on Weights and Measures (CGPM) adopted it for the SI in 1960. The name comes from the
+    Greek word for small.
+
+    Where μ is unavailable, the Unified Code for Units of Measure writes u, as in ug and um,
+    although u alone is the symbol of the unified atomic mass unit. Medicine prefers mcg for the
+    microgram, because μg can be misread as mg. Prefixes never stack: a millionth of a kilogram is a
+    milligram, not a microkilogram.
 textSources:
   - title: 'Wikipedia: Micro-'
     url: 'https://en.wikipedia.org/wiki/Micro-'

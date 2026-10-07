@@ -1,8 +1,9 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
-  en: 'Fahrenheit'
+  en: 'Degree Fahrenheit'
 symbol:
-  tex: '°F'
+  tex: '^{\circ}F'
+  text: '°F'
 unitOf:
   - 'thermodynamic-temperature'
 system: 'other'
@@ -29,11 +30,50 @@ aliases:
   - 'degF'
   - 'F'
   - 'degrees fahrenheit'
+  - 'Fahrenheit'
+  - '℉'
+references:
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: degree Fahrenheit (temperature) and degree Fahrenheit (temperature interval)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'Museo Galileo, In depth: Thermometric scales (Fahrenheit thermometric scale)'
+    url: 'https://catalogue.museogalileo.it/indepth/ThermometricScales.html'
+  - title: 'E. Grodzinsky and M. Sund Levander, History of the Thermometer, ch. 3 of Understanding Fever and Body Temperature (Palgrave Macmillan, 2020)'
+    url: 'https://link.springer.com/chapter/10.1007/978-3-030-21886-7_3'
+  - title: 'Rømers termometre (on Rømer''s Adversaria and Fahrenheit''s 1729 letter to Boerhaave)'
+    url: 'https://astro.chilie.dk/artikler/term.htm'
+  - title: 'The Royal Society, Science in the Making, CLP/6/68: D. G. Fahrenheit, Experimenta circa gradum caloris liquorum nonnullorum ebullientium instituta (read 5 March 1723)'
+    url: 'https://makingscience.royalsociety.org/items/clp_6_68/paper-experimenta-circa-gradum-caloris-liquorum-nonnullorum-ebullientium-instituta-experiments-on-boiling-liquids-by-daniel-gabriel-fahrenheit'
+  - title: 'D. G. Fahrenheit, Philosophical Transactions 33 (1724), 1-3, doi:10.1098/rstl.1724.0002'
+    url: 'https://doi.org/10.1098/rstl.1724.0002'
+  - title: 'Complete Dictionary of Scientific Biography, Fahrenheit, Daniel Gabriel (Encyclopedia.com): born 24 May 1686, died 16 September 1736'
+    url: 'https://www.encyclopedia.com/people/history/historians-miscellaneous-biographies/daniel-gabriel-fahrenheit'
 description:
   en: >-
-    The Fahrenheit scale (/ˈfærənhaɪt/ or /ˈfɑːrənhaɪt/) is a temperature scale based on one
-    proposed in 1724 by the physicist Daniel Gabriel Fahrenheit (1686–1736). It uses the degree
-    Fahrenheit ($°F$) as the unit.
+    The degree Fahrenheit, symbol °F, is the unit of the Fahrenheit temperature
+    scale, which today is used mainly in the United States, for weather reports and daily life
+    as well as in engineering. It is not an SI unit: one degree Fahrenheit is five ninths of a
+    kelvin, and the scale places its zero far from absolute zero.
+
+    NIST Special Publication 811 gives the conversion to the kelvin in Appendix B.8:
+    $T/\mathrm{K}=(t/^{\circ}\mathrm{F}+459.67)/1.8$, and a Celsius temperature is the Fahrenheit
+    reading minus 32, divided by 1.8. Absolute zero therefore falls at -459.67 degrees Fahrenheit,
+    0 degrees Celsius reads as 32 degrees Fahrenheit and 100 degrees Celsius as 212, so 180
+    degrees separate the freezing and boiling points of water at standard pressure.
+
+    A temperature interval of one degree Fahrenheit equals five ninths of a kelvin, about
+    0.555 556 kelvin in the NIST table. The degree Rankine has the same size but counts from
+    absolute zero, and the Fahrenheit and Celsius scales read the same number at -40.
+
+    In engineering work in US customary units the degree Fahrenheit enters derived units: NIST lists
+    conversion factors for thermal conductivity, heat transfer coefficients and specific heat
+    capacity expressed per degree Fahrenheit.
+
+    The scale is named after Daniel Gabriel Fahrenheit (1686-1736), a maker of mercury
+    thermometers. In a letter of 1729 he recalled a visit to the Danish astronomer Ole Rømer in
+    1708, after which he copied Rømer's scale and then divided each of its degrees into four; by
+    1717 his fixed points stood at 32 and 96. His Latin paper on the boiling points of several
+    liquids came before the Society on 5 March 1723 and appeared in the 1724 volume of the
+    Philosophical Transactions.
 textSources:
   - title: 'Wikipedia: Fahrenheit'
     url: 'https://en.wikipedia.org/wiki/Fahrenheit'

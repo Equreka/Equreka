@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
-  en: 'Imperial Gallon'
+  en: 'Imperial gallon'
 symbol:
   tex: 'imp\ gal'
   text: 'imp gal'
@@ -24,10 +24,47 @@ branches:
 aliases:
   - 'UK gallon'
   - 'imp gal'
+  - 'imperial gallons'
+  - 'British gallon'
+references:
+  - title: 'NIST SP 811, Appendix B.8, gallon [Canadian and U.K. (Imperial)] (gal)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'Weights and Measures Act (Canada), R.S.C. 1985, c. W-6, Schedule II: gallon, quart, pint, fluid ounce, bushel'
+    url: 'https://laws-lois.justice.gc.ca/eng/acts/w-6/FullText.html'
+  - title: 'NIST Handbook 44 (2023), Appendix B, section 2.3: British and United States systems of measurement'
+    url: 'https://www.nist.gov/system/files/documents/2023/01/30/appb-23-HB44.pdf'
+  - title: 'NIST Handbook 44 (2026), Appendix C, section 3: Notes on British units of measurement'
+    url: 'https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf'
+  - title: 'GOV.UK, Choice on units of measurement: guidance on markings and sales, paragraph 2'
+    url: 'https://www.gov.uk/government/consultations/choice-on-units-of-measurement-markings-and-sales/outcome/choice-on-units-of-measurement-guidance-on-markings-and-sales'
+  - title: 'GOV.UK, Weights and measures: the law, Units of measurement'
+    url: 'https://www.gov.uk/weights-measures-and-packaging-the-law'
+  - title: 'QUDT, unit GAL_IMP (imperial gallon)'
+    url: 'https://qudt.org/vocab/unit/GAL_IMP'
 description:
   en: >-
-    The imperial gallon ($imp gal$), defined as 4.54609 litres, which is or was used in the United
-    Kingdom, Canada, and some Caribbean countries.
+    The imperial gallon, written gal in NIST's tables or imp gal when it must be told apart from
+    the U.S. gallon, is the unit of volume of the British imperial system, exactly 4.546 09 litres.
+    It is about one fifth larger than the U.S. gallon, and in the British system the same gallon
+    serves for liquids and for dry goods.
+
+    NIST Special Publication 811 gives $4.546\,09\,\mathrm{L}$ as an exact factor for the gallon of
+    Canada and the United Kingdom. Canada's Weights and Measures Act states it in cubic metres, as
+    454 609/100 000 000 cubic metre, and builds the rest of its volume table on it.
+
+    One imperial gallon holds four quarts, eight pints or 160 imperial fluid ounces, and eight gallons
+    make a bushel. According to NIST it equals about 1.201 U.S. gallons, while a U.S. gallon is about
+    0.833 imperial gallon.
+
+    The unit survives in British everyday speech mainly through fuel economy, which government
+    guidance notes is still commonly discussed in miles per gallon, although fuel, like most goods,
+    must be sold in metric units.
+
+    In its original 1824 form, NIST relates, the imperial gallon was the volume of ten pounds of
+    water at 62 °F, worked out as roughly 277.42 cubic inches. It took the place of two older English
+    gallons: a 282-cubic-inch measure for ale and a smaller 231-cubic-inch one for wine, which the
+    American colonies had already taken over. Present legal texts, such as the Canadian act, state the gallon directly as a fixed
+    volume.
 textSources:
   - title: 'Wikipedia: Gallon'
     url: 'https://en.wikipedia.org/wiki/Gallon'

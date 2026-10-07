@@ -1,8 +1,9 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
-  en: 'Newton degree'
+  en: 'Degree Newton'
 symbol:
-  tex: '°N'
+  tex: '^{\circ}N'
+  text: '°N'
 unitOf:
   - 'thermodynamic-temperature'
 system: 'other'
@@ -26,16 +27,35 @@ branches:
 aliases:
   - 'degN'
   - 'newton scale'
+  - 'Newton degree'
+references:
+  - title: 'Anonymous [I. Newton], Scala graduum caloris, Philosophical Transactions 22 (1701), 824-829, doi:10.1098/rstl.1700.0082'
+    url: 'https://doi.org/10.1098/rstl.1700.0082'
+  - title: 'R. M. Sayre, The Scala graduum caloris and Sir Isaac Newton, Proceedings of the Oklahoma Academy of Science (1962), 198-201'
+    url: 'https://ojs.library.okstate.edu/osu/index.php/OAS/article/view/4269/3942'
+  - title: 'E. Grodzinsky and M. Sund Levander, History of the Thermometer, ch. 3 of Understanding Fever and Body Temperature (Palgrave Macmillan, 2020)'
+    url: 'https://link.springer.com/chapter/10.1007/978-3-030-21886-7_3'
 description:
   en: >-
-    The Newton scale is a temperature scale devised by Isaac Newton in 1701. He called his device a
-    "thermometer", but he did not use the term "temperature", speaking of "degrees of heat" (gradus
-    caloris) instead. Newton's publication represents the first attempt to introduce an objective
-    way of measuring (what would come to be called) temperature (alongside the Rømer scale published
-    at nearly the same time). Newton likely developed his scale for practical use rather than for a
-    theoretical interest in thermodynamics; he had been appointed Warden of the Mint in 1695, and
-    Master of the Mint in 1699, and his interest in the melting points of metals are likely inspired
-    by his duties in connection with the Royal Mint.
+    The degree Newton, symbol °N, is the unit of a historical temperature scale that goes back to
+    Isaac Newton's table of the degrees of heat of 1701. It places 0 at the freezing point of
+    water and, in its modern reading, 33 at the boiling point. It lies outside the SI.
+
+    Conversions follow those two fixed points: a reading of 0 equals 0 degrees Celsius and a
+    reading of 33 equals 100 degrees Celsius. One degree Newton is therefore exactly 100/33 of a
+    kelvin, about 3.03 kelvin, a kelvin temperature is 100/33 times the Newton reading plus 273.15, and absolute zero lies at
+    about -90.14 on the Newton scale.
+
+    The table appeared in Latin, without an author's name, in the Philosophical Transactions of
+    1701. For low temperatures it relied on a thermometer filled with linseed oil, marked 0 for
+    water starting to freeze and 12 for the heat of the human body, with equal steps carried
+    upward from there; boiling water stood at 33 to 34 and melting lead at 96, the top of that
+    instrument's range. Higher degrees were inferred from the times that pieces of metal on a
+    glowing iron bar took to set and cool, the reasoning behind Newton's law of cooling.
+
+    The Royal Society's records note only that the paper was read on 28 May 1701. The attribution
+    to Newton rests on later testimony, including memoranda by David Gregory and a biography by
+    David Brewster, as a 1962 study of the paper sets out.
 textSources:
   - title: 'Wikipedia: Newton scale'
     url: 'https://en.wikipedia.org/wiki/Newton_scale'

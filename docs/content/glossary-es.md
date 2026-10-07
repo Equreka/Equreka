@@ -80,7 +80,10 @@ Conventions for every `<slug>.es.yaml` sidecar. Companion to the [style guide](s
 | foot, inch, yard | pie, pulgada, yarda | usage |
 | pound, ounce, stone | libra, onza, stone | usage |
 | gallon, pint, quart | galón, pinta, cuarto de galón | usage |
-| short ton, long ton | tonelada corta, tonelada larga | usage |
+| short ton, long ton | tonelada corta, tonelada larga (the SI tonne is *tonelada métrica* only beside them, to tell the three apart; *tonelada* elsewhere) | usage |
+| hundredweight, quarter, furlong, chain, rod, gill, bushel | kept in English: *hundredweight* (cwt, invariable), *quarter*, *furlong*, *chain*, *rod*, *gill*, *bushel*; never *quintal* (a Spanish 100-pound or 100 kg unit) or *vara* (a distinct Spanish length) | usage |
+| dram (avoirdupois) | dracma | usage |
+| foot-pound (foot pound-force) | pie libra (*pie libra fuerza* in prose when the force must be explicit), no hyphen, as *newton metro* | usage |
 | pound-force, kilogram-force | libra fuerza, kilogramo fuerza | usage |
 | pound per square inch | libra por pulgada cuadrada | usage |
 | horsepower, metric horsepower | caballo de fuerza (hp), caballo de vapor (CV) | usage |
@@ -94,7 +97,7 @@ Conventions for every `<slug>.es.yaml` sidecar. Companion to the [style guide](s
 | week, month, year, decade, century | semana, mes, año, década, siglo | usage |
 | degree Fahrenheit, Rankine, Réaumur, Rømer, Delisle, Newton | grado Fahrenheit, grado Rankine, grado Réaumur, grado Rømer, grado Delisle, grado Newton | usage |
 
-Prefix names are already shipped (*mili, ato, zeta, yota* per RAE; the rest unchanged).
+Prefix names: *mili* per RAE; *atto* per the DLE entry *atto-* and, with *zetta* and *yotta*, per the CEM translation of the SI Brochure (9th ed., Table 7); the rest unchanged. Prefixed unit names follow the same spelling (*attosegundo*, *zettajulio*, *yottagramo*).
 
 ## Terms
 

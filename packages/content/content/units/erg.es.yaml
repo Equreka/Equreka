@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Ergio'
+description: >-
+  El ergio, de símbolo erg, es la unidad CGS de energía y de trabajo, la contrapartida del julio en
+  el sistema centímetro-gramo-segundo: el trabajo de una fuerza de una dina cuyo punto de aplicación
+  avanza un centímetro en la dirección de la fuerza. No es una unidad del SI.
+
+  Un ergio equivale exactamente a $10^{-7}\,\mathrm{J}$. La publicación especial 811 del NIST da ese
+  factor en el apéndice B.8 e incluye el ergio en la tabla 10 entre las unidades CGS con nombre
+  especial que no acepta para su uso con el SI. El factor se deduce de las unidades básicas: un
+  gramo es la milésima parte de un kilogramo y un centímetro cuadrado la diezmilésima parte de un
+  metro cuadrado, así que un gramo centímetro cuadrado por segundo al cuadrado es diez millones de
+  veces menor que un julio.
+
+  Diez millones de ergios forman un julio, y el ergio por segundo, la unidad CGS de potencia, es
+  una diezmillonésima de vatio. El NIST recoge también el ergio por centímetro cuadrado y segundo,
+  exactamente una milésima de vatio por metro cuadrado, una unidad de flujo de energía presente en
+  textos antiguos.
+
+  El ergio aparece en textos de física escritos en unidades CGS, y una energía en ergios debe
+  convertirse a julios antes de combinarse con magnitudes del SI.
+
+  Su nombre procede del griego ergon, trabajo, como indica QUDT. La Asociación Británica, una
+  sociedad científica, introdujo el sistema CGS en 1874, y en 1948 la 9.ª CGPM incluyó el ergio,
+  con el símbolo erg, entre las unidades cuyos símbolos fijó.

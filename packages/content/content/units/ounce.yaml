@@ -5,7 +5,7 @@ symbol:
   tex: 'oz'
 unitOf:
   - 'mass'
-system: 'uscs'
+system: 'imperial'
 toBase:
   factor: '0.028349523125'
   source:
@@ -20,11 +20,51 @@ categories:
   - 'physics'
 branches:
   - 'mechanics'
+aliases:
+  - 'ounces'
+  - 'avoirdupois ounce'
+  - 'oz avdp'
+references:
+  - title: 'NIST SP 811, Appendix B.8, ounce (avoirdupois), ounce (troy or apothecary), ounce (U.S. fluid), ounce [Canadian and U.K. fluid (Imperial)]'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'National Bureau of Standards, Refinement of values for the yard and the pound, Federal Register 24 (1959) 5348'
+    url: 'https://geodesy.noaa.gov/PUBS_LIB/FedRegister/FRdoc59-5442.pdf'
+  - title: 'NIST Handbook 44 (2023), Appendix B, sections 2.1.2, 2.3 and 3.2'
+    url: 'https://www.nist.gov/system/files/documents/2023/01/30/appb-23-HB44.pdf'
+  - title: 'NIST Handbook 44 (2026), Appendix C, Avoirdupois and troy units of mass, and footnote 9'
+    url: 'https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf'
+  - title: 'Weights and Measures Act (Canada), R.S.C. 1985, c. W-6, Schedule II: ounce, troy ounce'
+    url: 'https://laws-lois.justice.gc.ca/eng/acts/w-6/FullText.html'
+  - title: 'GOV.UK, Weights and measures: the law, Units of measurement'
+    url: 'https://www.gov.uk/weights-measures-and-packaging-the-law'
+  - title: 'QUDT, unit OZ (ounce mass)'
+    url: 'https://qudt.org/vocab/unit/OZ'
 description:
   en: >-
-    The international avoirdupois ounce (abbreviated oz) is defined as exactly 28.349523125 g under
-    the international yard and pound agreement of 1959, signed by the United States and countries of
-    the Commonwealth of Nations.
+    The ounce, symbol oz, is a unit of mass of the United States customary system and the British
+    imperial system, equal to one sixteenth of a pound. The name alone means the avoirdupois ounce
+    of ordinary goods, as distinct from the troy ounce of precious metals and from the fluid ounce,
+    which measures volume.
+
+    Since the international pound was fixed in 1959 at exactly 0.453 592 37 kilogram, the
+    avoirdupois ounce is exactly $28.349\,523\,125\,\mathrm{g}$. NIST Special Publication 811 rounds
+    it to 28.349 52 grams, and Canada's Weights and Measures Act defines it as one sixteenth of a
+    pound or 437½ grains.
+
+    The ounce is 437.5 grains and is divided into 16 drams. The troy ounce, used for precious
+    metals, is 480 grains, about 31.103 grams, and is equal to the apothecaries' ounce. The fluid
+    ounce is a unit of volume: the U.S. fluid ounce is about 29.573 millilitres and the imperial
+    fluid ounce about 28.413 millilitres. The imperial fluid ounce is sized to hold one avoirdupois
+    ounce of water measured at 62 °F, a match that NIST notes the U.S. fluid ounce lacks.
+
+    In the United Kingdom the troy ounce is the only ounce that may still be used on its own in
+    trade, for precious metals; other goods must carry a metric quantity, with an imperial figure
+    allowed only as a less prominent addition. NIST Handbook 44 adds avdp, or the word avoirdupois,
+    whenever the avoirdupois ounce has to be told apart from the troy or apothecaries' ounce.
+
+    NIST pairs the ounce with the Roman uncia, the twelfth part of the Roman pound, although the
+    uncia was smaller than the later troy ounce. The English troy pound kept that division into 12
+    ounces, while the avoirdupois pound has 16. The plural of the name is ounces.
 textSources:
   - title: 'Wikipedia: Ounce'
     url: 'https://en.wikipedia.org/wiki/Ounce'

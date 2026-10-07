@@ -11,8 +11,30 @@ categories:
   - 'universal'
 branches:
   - 'si-system'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., chapter 3 and Table 7 (SI prefixes)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (15th CGPM, 1975, Resolution 10)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, SI Prefix Progress (2023)'
+    url: 'https://www.nist.gov/news-events/news/2023/01/si-prefix-progress'
+  - title: 'NIST Office of Weights and Measures, Metric (SI) Prefixes'
+    url: 'https://www.nist.gov/pml/owm/metric-si-prefixes'
+  - title: 'RAE, Diccionario de la lengua española, entry peta-'
+    url: 'https://dle.rae.es/peta-'
+  - title: 'US Metric Association, SI prefixes and their etymologies'
+    url: 'https://usma.org/si-prefixes-and-their-etymologies'
 description:
-  en: |-
-    Peta (symbol $P$) is a unit prefix in the metric system denoting multiplication by one quadrillion, or $10^{15}$ or $1000000000000000$. It was adopted as an SI prefix in the International System of Units in 1975.
+  en: >-
+    Peta is the SI prefix for a factor of $10^{15}$, a quadrillion in English short-scale naming and
+    mil billones in Spanish. Its symbol is the capital letter $\mathrm{P}$, as in the petajoule, the
+    petawatt and the petabyte.
 
-    Peta is derived from the ancient Greek πέντε, meaning "five". It denotes the fifth power of 1000 ($1000^{5}$). It is similar to the prefix penta ("five"), but without the letter n (on the analogy of the prefix tera [from the Greek for "monster"] for $1000^{4}$ looking like tetra- ["four"] with a letter missing).
+    The 15th General Conference on Weights and Measures (CGPM) added peta, together with exa, in
+    1975 through its Resolution 10. The name was formed from penta, the Greek prefix for five,
+    because the factor is the fifth power of a thousand; a letter was dropped by analogy with tera
+    and tetra.
+
+    The capital P must not be confused with the lowercase p of pico, a factor of $10^{27}$ smaller.
+    In computing the binary multiple $2^{50}$ has its own prefix, pebi (Pi), so a petabyte and a
+    pebibyte are different amounts.

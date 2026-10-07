@@ -1,8 +1,9 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
-  en: 'Rankine'
+  en: 'Degree Rankine'
 symbol:
-  tex: '°R'
+  tex: '^{\circ}R'
+  text: '°R'
 unitOf:
   - 'thermodynamic-temperature'
 system: 'other'
@@ -24,10 +25,37 @@ branches:
   - 'thermodynamics'
 aliases:
   - 'degR'
+  - 'Rankine'
+  - 'degrees rankine'
+  - '°Ra'
+references:
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: degree Rankine, degree Rankine (temperature interval), British thermal unit per pound degree Rankine'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'QUDT, unit DEG_R (Degree Rankine)'
+    url: 'https://qudt.org/vocab/unit/DEG_R'
+  - title: 'MacTutor History of Mathematics, William John Macquorn Rankine'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Rankine/'
 description:
   en: >-
-    Rankine is a very rarely used thermodynamic temperature scale and a unit for temperature
-    measurement in the Imperial system, with the symbol $R$. The scale was proposed in the middle of
-    the 19th century by a British physician and scientist W. J. Rankine. It is based on Fahrenheit
-    scale and uses the common water freezing point as 459.67 $°R$ and water boiling point as 671.69
-    $°R$.
+    The degree Rankine, symbol °R, is a unit of thermodynamic temperature on an
+    absolute scale whose degree has the size of the degree Fahrenheit. Like the kelvin scale, the
+    Rankine scale starts at absolute zero, so it pairs with the Fahrenheit scale as the kelvin
+    pairs with Celsius. It is not an SI unit.
+
+    NIST Special Publication 811 relates it to the kelvin in Appendix B.8 by
+    $T/\mathrm{K}=(T/^{\circ}\mathrm{R})/1.8$: one degree Rankine is exactly five ninths of a
+    kelvin, and a temperature in degrees Rankine is 1.8 times the same temperature in kelvins.
+    QUDT gives the same multiplier.
+
+    Combined with the NIST conversion for the Fahrenheit scale, the factor means that a Rankine
+    reading is the Fahrenheit reading plus 459.67. Zero degrees Celsius corresponds to 491.67
+    degrees Rankine and 100 degrees Celsius to 671.67, and no ordinary temperature is negative.
+
+    The unit belongs to engineering thermodynamics done in US customary units, where gas laws and
+    heat-engine efficiencies need an absolute temperature with Fahrenheit-sized steps; NIST still
+    tabulates units such as the British thermal unit per pound degree Rankine for specific heat
+    capacity.
+
+    The scale is named after William John Macquorn Rankine (1820-1872), a Scottish engineer who
+    worked on thermodynamics and wrote a manual of the steam engine published in 1859. QUDT notes
+    that the symbol is sometimes written °Ra to keep it apart from the Rømer and Réaumur scales.

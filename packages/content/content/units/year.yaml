@@ -25,12 +25,45 @@ branches:
 aliases:
   - 'yr'
   - 'annum'
+  - 'common year'
+  - 'years'
+references:
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: year (365 days), year (sidereal), year (tropical)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'QUDT, unit YR_Common (Common Year)'
+    url: 'https://qudt.org/vocab/unit/YR_Common'
+  - title: 'IAU Style Manual, Recommendations concerning units: symbol and length of the year'
+    url: 'https://iauarchive.eso.org/publications/proceedings_rules/units/'
+  - title: 'US Naval Observatory, Introduction to Calendars'
+    url: 'https://aa.usno.navy.mil/faq/calendars'
+  - title: 'E. G. Richards, Calendars, ch. 15 of the Explanatory Supplement to the Astronomical Almanac, 3rd ed. (USNO), Table 15.1, 15.4.1 and 15.4.2'
+    url: 'https://aa.usno.navy.mil/downloads/c15_usb_online.pdf'
 description:
   en: >-
-    A year is the orbital period of a planetary body, for example, the Earth, moving in its orbit
-    around the Sun. Due to the Earth's axial tilt, the course of a year sees the passing of the
-    seasons, marked by change in weather, the hours of daylight, and, consequently, vegetation and
-    soil fertility.
+    The year, symbol a, is a unit of time outside the SI. In conversions the year stands for the
+    common year of exactly 365 days, the length of every year of the Gregorian calendar that is
+    not a leap year. It measures ages, long durations and yearly rates in every science.
+
+    No international standard defines a 365-day year as a unit, so its value rests on a
+    convention: 365 days of 86 400 seconds each give 31 536 000 seconds, the factor that NIST
+    Special Publication 811 lists in Appendix B.8 for the year of 365 days. QUDT gives the same
+    multiplier for its common year.
+
+    Other years differ from it by a fraction of a day. The Gregorian calendar adds a leap day in
+    every year divisible by four, except century years not divisible by 400, so 400 calendar
+    years hold 146 097 days, an average of 365.2425 days per year. The mean tropical year, the
+    cycle of the seasons, lasted about 365.242 19 days in 2000 according to the tables of the US
+    Naval Observatory. Astronomy prefers the Julian year of exactly 365.25 days.
+
+    Interest and growth rates, the half-lives of long-lived isotopes and the ages of rocks and
+    stars are stated per year or in years, often with a prefix such as mega. A duration in years
+    is converted to seconds before it enters a physics formula.
+
+    Julius Caesar introduced the Julian calendar in 45 BC, and Pope Gregory XIII introduced its
+    Gregorian reform in 1582. The International Astronomical Union recommends the symbol a rather
+    than yr but reads an unqualified year as the Julian year. The a of this unit is therefore the
+    365-day year, about 0.07 per cent shorter than the IAU's a, and a careful text states which
+    year it uses.
 textSources:
   - title: 'Wikipedia: Year'
     url: 'https://en.wikipedia.org/wiki/Year'

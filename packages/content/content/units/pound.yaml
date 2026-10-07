@@ -24,17 +24,49 @@ aliases:
   - 'lbs'
   - 'pound-mass'
   - 'lbm'
+  - 'pounds'
+  - 'avoirdupois pound'
+  - 'international pound'
+references:
+  - title: 'National Bureau of Standards, Refinement of values for the yard and the pound, Federal Register 24 (1959) 5348'
+    url: 'https://geodesy.noaa.gov/PUBS_LIB/FedRegister/FRdoc59-5442.pdf'
+  - title: 'NIST SP 811, Appendix B.8, pound (avoirdupois) (lb), and footnote 22'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-footnotes'
+  - title: 'NIST Handbook 44 (2023), Appendix B, sections 2.1.2, 2.3 and 3.2'
+    url: 'https://www.nist.gov/system/files/documents/2023/01/30/appb-23-HB44.pdf'
+  - title: 'NIST Handbook 44 (2026), Appendix C, Avoirdupois and troy units of mass'
+    url: 'https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf'
+  - title: 'Weights and Measures Act (Canada), R.S.C. 1985, c. W-6, Schedule II: pound'
+    url: 'https://laws-lois.justice.gc.ca/eng/acts/w-6/FullText.html'
+  - title: 'QUDT, unit LB (pound mass)'
+    url: 'https://qudt.org/vocab/unit/LB'
 description:
   en: >-
-    The pound or pound-mass is a unit of mass used in British imperial and United States customary
-    systems of measurement. Various definitions have been used; the most common today is the
-    international avoirdupois pound, which is legally defined as exactly 0.45359237 kilograms, and
-    which is divided into 16 avoirdupois ounces. The international standard symbol for the
-    avoirdupois pound is lb; an alternative symbol is lb<sub>m</sub> (for most pound definitions), #
-    (chiefly in the U.S.), and ℔ or ″̶ (specifically for the apothecaries' pound).
-references:
-  - title: 'Pound (mass)'
-    url: 'https://en.wikipedia.org/wiki/Pound_(unit)'
+    The pound, symbol lb, is the unit of mass of the British imperial system and the United States
+    customary system. The unit meant today is the international avoirdupois pound, the pound of
+    everyday trade in the United States; engineers call it the pound-mass, lbm, to keep it apart
+    from the pound-force.
+
+    The pound is defined as exactly 0.453 592 37 kilogram,
+    $1\,\mathrm{lb}=0.453\,592\,37\,\mathrm{kg}$. The value took effect in American calibrations on
+    1 July 1959, and the metrology institutes of the United Kingdom, Canada, Australia, New Zealand
+    and South Africa took it up at the same time as the international pound. Canada's
+    Weights and Measures Act writes it as 45 359 237/100 000 000 kilogram.
+
+    One pound contains 16 ounces or 7000 grains. The 1959 figure is exactly divisible by seven, so
+    the grain became exactly 64.798 91 milligrams. Fourteen pounds make a stone, 2000 a short ton and
+    2240 a long ton, and a kilogram is about 2.2 pounds. The troy pound of 5760 grains, historically
+    used for coinage, is a separate and lighter unit.
+
+    According to NIST, the pound descends from the mina of ancient civilizations, and the Latin
+    libra of the Romans is the word translated as pound. From 1893 the United States defined the
+    pound through the kilogram as 1/2.20462 kilogram, adjusted in 1894 to match the British
+    Imperial pound; the 1959 value is smaller than the 1894 pound by about one part in ten million,
+    far below anything ordinary trade can detect.
+
+    NIST Handbook 44 adds avdp after the name or symbol when the avoirdupois pound must be told apart
+    from the troy pound, lb t, or the apothecaries' pound, lb ap. Britain abolished the troy pound in
+    1879 and kept only the troy ounce, while the troy pound remains legal in the United States.
 textSources:
   - title: 'Wikipedia: Pound (mass)'
     url: 'https://en.wikipedia.org/wiki/Pound_(mass)'

@@ -118,8 +118,8 @@ describe('authored hard line breaks', () => {
 		const html = renderSegmentsHtml(authored, termsOf(equation));
 		expect(html).toMatch(/<\/span>\.\nBecause the speed of light/);
 		expect(html.split('\n').filter((line) => line.startsWith('Because')).length).toBe(1);
-		const nauticalMile = renderRichTextHtml(entity(units, 'nautical-mile').description.en ?? '');
-		expect(nauticalMile).toContain('several symbols in use.\n- ');
+		const plain = renderRichTextHtml('First paragraph ends here.\nSecond paragraph starts here.');
+		expect(plain).toContain('ends here.\nSecond paragraph');
 	});
 
 	it('render as visible breaks because every description container is pre-line', () => {

@@ -11,11 +11,30 @@ categories:
   - 'universal'
 branches:
   - 'si-system'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., chapter 3 and Table 7 (SI prefixes)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, SI Prefix Progress (2023)'
+    url: 'https://www.nist.gov/news-events/news/2023/01/si-prefix-progress'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (11th CGPM, 1960, Resolution 12)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'RAE, Diccionario de la lengua española, entry kilo-'
+    url: 'https://dle.rae.es/kilo-'
+  - title: 'US Metric Association, SI prefixes and their etymologies'
+    url: 'https://usma.org/si-prefixes-and-their-etymologies'
 description:
-  en: |-
-    Kilo is a decimal unit prefix in the metric system denoting multiplication by one thousand ($10^{3}$). It is used in the International System of Units, where it has the symbol k, in lower case.
+  en: >-
+    Kilo is the SI prefix for a factor of $10^{3}$, one thousand. Its symbol is the lowercase letter
+    $\mathrm{k}$, one of only three multiple prefixes written in lower case, and it forms everyday
+    units such as the kilometre, the kilowatt and the kilojoule.
 
-    The prefix kilo is derived from the Greek word χίλιοι (chilioi), meaning "thousand".
+    Kilo was among the prefixes adopted with the decimal metric system in 1795. The name reached
+    other languages through French, from the Greek word for a thousand.
+
+    Among coherent SI units, only the kilogram carries a prefix in its own name, so multiples of
+    mass attach prefixes to the gram instead. A capital K is the kelvin, never the prefix. A kilobit
+    is 1000 bits; the binary multiple of 1024, still called kilo in informal computing usage, has
+    its own prefix, kibi (Ki).
 textSources:
   - title: 'Wikipedia: Kilo-'
     url: 'https://en.wikipedia.org/wiki/Kilo-'

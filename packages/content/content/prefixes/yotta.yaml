@@ -11,9 +11,29 @@ categories:
   - 'universal'
 branches:
   - 'si-system'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., chapter 3 and Table 7 (SI prefixes)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (19th CGPM, 1991, Resolution 4 and its note)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (27th CGPM, 2022, Resolution 3)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, SI Prefix Progress (2023)'
+    url: 'https://www.nist.gov/news-events/news/2023/01/si-prefix-progress'
+  - title: 'NIST Office of Weights and Measures, Metric (SI) Prefixes'
+    url: 'https://www.nist.gov/pml/owm/metric-si-prefixes'
+  - title: 'US Metric Association, SI prefixes and their etymologies'
+    url: 'https://usma.org/si-prefixes-and-their-etymologies'
 description:
   en: >-
-    Yotta is the largest decimal unit prefix in the metric system, denoting a factor of $10^{24}$ or
-    $1000000000000000000000000$, or one septillion. It has the symbol Y. The prefix name is derived
-    from the Ancient Greek ὀκτώ (oktṓ), meaning eight, because it is equal to $1000^{8}$. It was
-    added as an SI prefix to the International System of Units (SI) in 1991.
+    Yotta is the SI prefix for a factor of $10^{24}$, a septillion in English short-scale naming.
+    Its symbol is the capital letter $\mathrm{Y}$, as in the yottagram and the yottabyte.
+
+    The 19th General Conference on Weights and Measures (CGPM) added yotta in 1991 through its
+    Resolution 4, together with zetta, zepto and yocto. A y stands in front so that the symbol is not
+    an o, which could be mistaken for the digit zero, and the name echoes octo, eight: the factor is
+    the eighth power of a thousand.
+
+    Yotta was the largest SI prefix for three decades. In 2022 the 27th CGPM added ronna and quetta
+    above it, noting that data science would soon need to state amounts of digital information above
+    $10^{24}$. The capital Y must not be confused with the lowercase y of yocto.

@@ -11,12 +11,32 @@ categories:
   - 'universal'
 branches:
   - 'si-system'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., chapter 3 and Table 7 (SI prefixes)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, SI Prefix Progress (2023)'
+    url: 'https://www.nist.gov/news-events/news/2023/01/si-prefix-progress'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 4 (historical notes, the CGS system of 1874)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., chapter 4, Table 8 (non-SI units) and its notes'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'RAE, Diccionario de la lengua española, entry centi-'
+    url: 'https://dle.rae.es/centi-'
+  - title: 'US Metric Association, SI prefixes and their etymologies'
+    url: 'https://usma.org/si-prefixes-and-their-etymologies'
 description:
   en: >-
-    Centi (symbol $c$) is a unit prefix in the metric system denoting a factor of one hundredth.
-    Proposed in 1793, and adopted in 1795, the prefix comes from the Latin centum, meaning "hundred"
-    (cf. century, cent, percent, centennial). Since 1960, the prefix is part of the International
-    System of Units (SI).
+    Centi is the SI prefix for a factor of $10^{-2}$, one hundredth. Its symbol is the lowercase
+    letter $\mathrm{c}$, as in the centimetre and the centilitre.
+
+    Centi was among the prefixes adopted with the decimal metric system in 1795. The name is Latin
+    in origin, like those of deci and milli. The centimetre later became one of the three base units
+    of the CGS system, introduced in 1874, and the gal, used in geodesy and geophysics for the
+    acceleration due to gravity, equals one centimetre per second squared.
+
+    An exponent applies to the whole prefixed unit, so $1\,\mathrm{cm^{3}}$ is $10^{-6}$ cubic
+    metre, not a hundredth of one. Outside units of measurement the same element can mean a hundred
+    rather than a hundredth, as in centipede.
 textSources:
   - title: 'Wikipedia: Centi-'
     url: 'https://en.wikipedia.org/wiki/Centi-'

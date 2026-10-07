@@ -23,15 +23,49 @@ branches:
 aliases:
   - 'NM'
   - 'sea mile'
+  - 'nautical miles'
+  - 'international nautical mile'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 and note (k)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, mile, nautical, and footnote 20'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-footnotes'
+  - title: 'NIST SP 811, Chapter 5, section 5.2 and Table 9: nautical mile, knot'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si'
+  - title: 'National Bureau of Standards, Refinement of values for the yard and the pound, Federal Register 24 (1959) 5348: Nautical mile'
+    url: 'https://geodesy.noaa.gov/PUBS_LIB/FedRegister/FRdoc59-5442.pdf'
+  - title: 'NOAA, What is the difference between a nautical mile and a knot?'
+    url: 'https://oceanservice.noaa.gov/facts/nautical-mile-knot.html'
+  - title: 'BIPM, Consultative Committee for Units, Report of the 16th meeting (2004), section 4.6'
+    url: 'https://www.bipm.org/documents/20126/30132657/CCU16.pdf/21a01779-86ce-3256-a7ed-92174582a5bf'
+  - title: 'QUDT, unit MI_N (nautical mile)'
+    url: 'https://qudt.org/vocab/unit/MI_N'
 description:
-  en: |-
-    A nautical mile is a unit of length used in air, marine, and space navigation, and for the definition of territorial waters. Historically, it was defined as the meridian arc length corresponding to one minute (1/60 of a degree) of latitude. Today the international nautical mile is defined as exactly 1852 metres (6076 ft; 1.151 mi). The derived unit of speed is the knot, one nautical mile per hour.
+  en: >-
+    The nautical mile is the length unit of marine and aerial navigation, fixed at exactly 1852
+    metres. It is defined directly in metres rather than through the foot or the yard, and the SI
+    Brochure lists it in its table of non-SI units, together with the knot, the navigation unit of speed
+    equal to one nautical mile per hour.
 
-    **There is no single internationally agreed symbol**, with several symbols in use.
-    - $M$ is used as the abbreviation for the nautical mile by the International Hydrographic Organization.
-    - $NM$ is used by the International Civil Aviation Organization.
-    - $nmi$ is used by the Institute of Electrical and Electronics Engineers and the United States Government Publishing Office.
-    - $nm$ is a non-standard abbreviation used in many maritime applications and texts, including US Government Coast Pilots and Sailing Directions.
+    The First International Extraordinary Hydrographic Conference, held at Monaco in 1929, adopted
+    the value $1852\,\mathrm{m}$ and called it the international nautical mile; NOAA notes that the
+    body behind it is now the International Hydrographic Organization. In 1978 the CIPM accepted the
+    unit for continued use alongside the SI in the fields that already relied on it, according to NIST
+    Special Publication 811.
+
+    The unit rests on the geometry of the Earth: NOAA explains that one nautical mile corresponds to
+    one minute of latitude, so a navigator can read distances straight from the latitude scale of a
+    chart. It is about 1.15 statute miles, and NIST gives it as approximately 6076.115 feet. A knot
+    is therefore 1852/3600 metre per second, a little over half a metre per second.
+
+    Ships, aircraft and spacecraft measure distance in nautical miles because their charts and
+    navigation systems work in latitude and longitude. The United States adopted the international
+    value in 1954 and the United Kingdom in 1970, after both had used slightly different figures.
+
+    No unit symbol has been agreed internationally. In 2004 the Consultative Committee for Units
+    noted that M and NM were both in common use and agreed to put M in a draft of the BIPM table,
+    but the current SI Brochure prints no symbol for the unit. The QUDT vocabulary writes nmi instead. The lowercase nm is best avoided, since in the
+    SI it denotes the nanometre.
 textSources:
   - title: 'Wikipedia: Nautical mile'
     url: 'https://en.wikipedia.org/wiki/Nautical_mile'

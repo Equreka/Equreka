@@ -22,13 +22,46 @@ branches:
   - 'mechanics'
 aliases:
   - 'feet'
+  - 'international foot'
+references:
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: foot (ft); foot (U.S. survey)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'National Bureau of Standards, Refinement of values for the yard and the pound, Federal Register 24 (1959) 5348'
+    url: 'https://geodesy.noaa.gov/PUBS_LIB/FedRegister/FRdoc59-5442.pdf'
+  - title: 'NIST, Putting the Best Foot Forward: Ending the Era of the U.S. Survey Foot'
+    url: 'https://www.nist.gov/pml/us-surveyfoot'
+  - title: 'NIST Handbook 44 (2023), Appendix B, sections 2.1.2, 2.2.5 and 2.4'
+    url: 'https://www.nist.gov/system/files/documents/2023/01/30/appb-23-HB44.pdf'
+  - title: 'NIST Handbook 44 (2026), Appendix C, Units of length'
+    url: 'https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf'
+  - title: 'GOV.UK, Choice on units of measurement: guidance on markings and sales, paragraph 2'
+    url: 'https://www.gov.uk/government/consultations/choice-on-units-of-measurement-markings-and-sales/outcome/choice-on-units-of-measurement-guidance-on-markings-and-sales'
+  - title: 'QUDT, unit FT (foot)'
+    url: 'https://qudt.org/vocab/unit/FT'
 description:
   en: >-
-    The foot (pural feet), standard symbol: $ft$, is a unit of length in the British imperial and
-    United States customary systems of measurement. The prime symbol, ′, is a customarily used
-    alternative symbol. Since the International Yard and Pound Agreement of 1959, one foot is
-    defined as 0.3048 meters exactly. In both, customary and imperial units, one foot comprises 12
-    inches and one yard comprises three feet.
+    The foot, symbol ft, is a unit of length of the British imperial system and the United States
+    customary system. It lies between the inch and the yard and is the usual measure of human height
+    and of altitude wherever those systems remain in use.
+
+    Its definition passes through the yard. Since 1959 the yard has been exactly 0.9144 metre, and
+    the foot is one third of it, so $1\,\mathrm{ft}=0.304\,8\,\mathrm{m}$ with no rounding. NIST
+    Special Publication 811 prints this factor as exact, and NIST calls the unit the international
+    foot when it must be told apart from the older survey foot.
+
+    Twelve inches make one foot, three feet make one yard and 5280 feet make one mile. A metre is
+    therefore slightly more than three feet three inches, and a square foot is 144 square inches.
+
+    NIST observes that altimeters in aircraft and maps of land elevation report heights in feet even
+    when those heights reach several miles. British government guidance lists height in feet and
+    inches among the imperial habits that remain common in the United Kingdom.
+
+    According to NIST, the Romans took the foot from the Egyptians and split it into twelve parts.
+    From 1893 the United States tied its foot to the metre as 1200/3937 metre. The 1959 refinement
+    made the foot two parts per million shorter, but American geodetic surveys kept the 1893 value,
+    which became the U.S. survey foot. NIST and NOAA declared that survey foot obsolete from 1
+    January 2023, except for historical and legacy work, so a single foot now applies everywhere. The
+    plural of the name is feet.
 textSources:
   - title: 'Wikipedia: Foot (unit)'
     url: 'https://en.wikipedia.org/wiki/Foot_(unit)'

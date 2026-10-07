@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
-  en: 'U.S. Quart'
+  en: 'U.S. quart'
 symbol:
   tex: 'US\ qt'
   text: 'US qt'
@@ -25,13 +25,43 @@ aliases:
   - 'quart'
   - 'qt'
   - 'US qt'
+  - 'US quart'
+  - 'liquid quart'
+  - 'liq qt'
+  - 'quarts'
+references:
+  - title: 'NIST Handbook 44 (2026), Appendix C, Units of liquid volume, Units of dry volume and footnotes 7 and 8'
+    url: 'https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf'
+  - title: 'NIST SP 811, Appendix B.8, quart (U.S. liquid) (liq qt); quart (U.S. dry) (dry qt)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST Handbook 44 (2023), Appendix B, section 2.3: British and United States systems of measurement'
+    url: 'https://www.nist.gov/system/files/documents/2023/01/30/appb-23-HB44.pdf'
+  - title: 'QUDT, unit QT_US (U.S. liquid quart)'
+    url: 'https://qudt.org/vocab/unit/QT_US'
 description:
   en: >-
-    The quart (symbol: $qt$) is an English unit of volume equal to a quarter gallon. Three kinds of
-    quarts are currently used: the liquid quart and dry quart of the US customary system and the
-    imperial quart of the British imperial system. All are roughly equal to one liter. It is divided
-    into two pints or (in the US) four cups. Historically, the exact size of the quart has varied
-    with the different values of gallons over time and in reference to different commodities.
+    The U.S. quart, written qt or liq qt, is the liquid quart of the United States customary
+    system, equal to a quarter of a U.S. gallon or 57.75 cubic inches, slightly less than a litre.
+    It is one of three quarts in current use, beside the U.S. dry quart and the imperial quart.
+
+    With the gallon defined as 231 cubic inches and the inch as exactly 25.4 millimetres, the quart
+    is exactly $946.352\,946\,\mathrm{mL}$. NIST Special Publication 811 lists it, rounded, as
+    0.946 352 9 litre.
+
+    A liquid quart holds two pints, eight gills or 32 U.S. fluid ounces, and four quarts make a gallon.
+    The imperial quart of the British system, about 1.136 litres, is divided into 40 smaller
+    imperial fluid ounces and is roughly one fifth larger.
+
+    The United States also has a dry quart for commodities sold by the bushel. It is 67.2006 cubic
+    inches, about 1.101 litres, and 32 dry quarts make a bushel; NIST Handbook 44 asks for the words
+    liquid or dry wherever the two quarts could be mistaken for each other. NIST lists this American
+    split between liquid and dry measures among the differences from the British system, which uses
+    a single set of capacity units.
+
+    Like the U.S. gallon, the quart goes back to the English wine gallon that the American
+    colonists adopted, so its size has stayed apart from the British quart since Britain moved to
+    the imperial gallon in 1824. The forms US qt and liq qt mark it whenever another quart could be
+    meant.
 textSources:
   - title: 'Wikipedia: Quart'
     url: 'https://en.wikipedia.org/wiki/Quart'

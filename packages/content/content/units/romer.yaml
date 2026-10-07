@@ -1,8 +1,9 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
-  en: 'Rømer'
+  en: 'Degree Rømer'
 symbol:
-  tex: '°Rø'
+  tex: '^{\circ}Rø'
+  text: '°Rø'
 unitOf:
   - 'thermodynamic-temperature'
 system: 'other'
@@ -27,12 +28,35 @@ aliases:
   - 'romer'
   - 'roemer'
   - 'degRo'
+  - 'Rømer'
+  - 'degree Roemer'
+references:
+  - title: 'Rømers termometre: Rømer''s Adversaria and Fahrenheit''s letter of 17 April 1729 to Boerhaave'
+    url: 'https://astro.chilie.dk/artikler/term.htm'
+  - title: 'O. Beckman, History of the Celsius temperature scale, Uppsala Astronomical Observatory (2001)'
+    url: 'https://www.astro.uu.se/history/celsius_scale.html'
+  - title: 'E. Grodzinsky and M. Sund Levander, History of the Thermometer, ch. 3 of Understanding Fever and Body Temperature (Palgrave Macmillan, 2020)'
+    url: 'https://link.springer.com/chapter/10.1007/978-3-030-21886-7_3'
 description:
   en: >-
-    Rømer is a disused temperature scale that was proposed by the Danish astronomer Ole Christensen
-    Rømer in 1701. On this scale, zero is initially the freezing temperature of the brine. The
-    boiling point of water is 60°. Rømer saw that the freezing point of water was almost an eighth
-    of this value (7.5 degrees), and used this value as another benchmark. The unit of measurement
-    on this scale, the degree Rømer, is equal to 40/21 of a Kelvin (or one degree Celsius). The
-    symbol for degree Rømer can sometimes be $R$ but to avoid confusion with Rankine ($R$) and
-    degrees Réaumur (°Ré), the symbol °Rø is used.
+    The degree Rømer, symbol °Rø, is the unit of a historical temperature scale devised by the
+    Danish astronomer Ole Rømer, on which water freezes at 7.5 degrees and boils at 60. It lies
+    outside the SI, and its lasting legacy is the Fahrenheit scale, which grew out of it.
+
+    No standard defines it today, so conversions follow its two fixed points: 7.5 degrees Rømer
+    equals 0 degrees Celsius and 60 degrees Rømer equals 100 degrees Celsius. The 52.5 degrees
+    between them make one degree Rømer exactly 40/21 of a kelvin, about 1.905 kelvin, and absolute
+    zero falls at about -135.90 degrees Rømer.
+
+    Rømer placed his zero below the freezing point, so ordinary weather never needed negative
+    readings, a choice that Fahrenheit later copied. A Celsius temperature is the Rømer reading
+    minus 7.5, multiplied by 40/21.
+
+    Rømer needed temperature corrections for the pendulum clock and the graduated arc of the
+    instrument he observed with at home. His working notes, the Adversaria, record the freezing
+    point at 7½ and the boiling point at 60 in 1702, with thermometers filled with a mixture of
+    alcohol and water; none of his own thermometers survives. In a letter of 1729 to the Dutch
+    chemist Boerhaave, Fahrenheit described a morning in 1708 at Rømer's house, where
+    thermometers were marked in ice water and in blood-warm water at 7½ and 22½.
+
+    The symbol °Rø keeps the scale apart from the degree Rankine, °R, and the degree Réaumur, °Ré.

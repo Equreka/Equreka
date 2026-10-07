@@ -1,8 +1,9 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
-  en: 'Réaumur'
+  en: 'Degree Réaumur'
 symbol:
-  tex: '°Ré'
+  tex: '^{\circ}Ré'
+  text: '°Ré'
 unitOf:
   - 'thermodynamic-temperature'
 system: 'other'
@@ -26,9 +27,42 @@ branches:
 aliases:
   - 'reaumur'
   - 'degRe'
+  - 'Réaumur'
+  - '°Re'
+references:
+  - title: 'Museo Galileo, In depth: Thermometric scales (Réaumur thermometric scale)'
+    url: 'https://catalogue.museogalileo.it/indepth/ThermometricScales.html'
+  - title: 'Museo Galileo, Alcohol thermometer (Inv. 2040)'
+    url: 'https://catalogue.museogalileo.it/object/AlcoholThermometer.html'
+  - title: 'Museo Galileo, From the thermoscope to the thermometer'
+    url: 'https://catalogue.museogalileo.it/multimedia/FromThermoscopeToThermometerBis.html'
+  - title: 'D. Camuffo, Key problems in early wine-spirit thermometers and the true Réaumur thermometer, Climatic Change 163 (2020), abstract and references to Réaumur 1730 and 1731'
+    url: 'https://link.springer.com/article/10.1007/s10584-020-02910-3'
+  - title: 'O. Beckman, History of the Celsius temperature scale, Uppsala Astronomical Observatory (2001)'
+    url: 'https://www.astro.uu.se/history/celsius_scale.html'
+  - title: 'Science and Its Times, René Antoine Ferchault de Réaumur 1683-1757 (Encyclopedia.com)'
+    url: 'https://www.encyclopedia.com/science/encyclopedias-almanacs-transcripts-and-maps/rene-antoine-ferchault-de-reaumur'
 description:
   en: >-
-    The degree Réaumur (°Ré, °Re, °r) is an unused unit of temperature. Named in honor of René
-    Antoine Ferchault de Réaumur (1683-1757) who proposed it as a unit in 1731. A value of 0 °
-    Réaumur corresponds to the freezing point of water and 80 ° Réaumur to the boiling point of
-    water.
+    The degree Réaumur, symbol °Ré, is the unit of a historical temperature scale that places 0 at
+    the freezing point of water and 80 at its boiling point under normal atmospheric pressure. It
+    was among the most successful thermometer scales of the eighteenth century and lies outside
+    the SI.
+
+    No current standard defines it, so conversions follow its two fixed points: 0 degrees Réaumur
+    equals 0 degrees Celsius and 80 degrees Réaumur equals 100 degrees Celsius. One degree Réaumur is therefore exactly five fourths of a degree
+    Celsius, or 1.25 kelvin, and a kelvin temperature is 1.25 times the Réaumur reading plus
+    273.15.
+
+    Because the Réaumur and Celsius scales share their zero, a single factor converts one into the
+    other, while the kelvin needs the offset as well. Absolute zero lies at -218.52 degrees
+    Réaumur.
+
+    The Museo Galileo in Florence keeps an alcohol thermometer with a Réaumur scale made in Paris
+    and used by chemists to follow the heat of reactions, and its account of early thermometry
+    names the 80-degree scale beside those of Celsius and Fahrenheit. Anders Celsius himself was used to Réaumur thermometers before devising his own scale.
+
+    René-Antoine Ferchault de Réaumur (1683-1757), the French scientist whose name the scale
+    bears, set out rules for building comparable thermometers in a memoir to the Paris Academy of
+    Sciences for 1730 and in a second memoir for 1731; his instruments were filled with wine
+    spirit. Some texts write the symbol °R, which clashes with the degree Rankine.

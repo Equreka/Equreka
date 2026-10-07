@@ -11,11 +11,32 @@ categories:
   - 'universal'
 branches:
   - 'si-system'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., chapter 3 and Table 7 (SI prefixes)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (11th CGPM, 1960, Resolution 12)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST Office of Weights and Measures, Metric (SI) Prefixes'
+    url: 'https://www.nist.gov/pml/owm/metric-si-prefixes'
+  - title: 'RAE, Diccionario de la lengua española, entry giga-'
+    url: 'https://dle.rae.es/giga-'
+  - title: 'RAE, Diccionario de la lengua española, entry tera-'
+    url: 'https://dle.rae.es/tera-'
+  - title: 'US Metric Association, SI prefixes and their etymologies'
+    url: 'https://usma.org/si-prefixes-and-their-etymologies'
 description:
-  en: |-
-    Giga (symbol $G$) is a unit prefix in the metric system denoting a factor of a short-scale billion or long-scale milliard ($10^{9}$ or $1000000000$).
+  en: >-
+    Giga is the SI prefix for a factor of $10^{9}$. English calls this factor a billion, but in
+    Spanish un billón is $10^{12}$, so giga corresponds to mil millones, a thousand million. Its
+    symbol is the capital letter $\mathrm{G}$, as in the gigawatt, the gigahertz and the gigaohm.
 
-    Giga is derived from the Greek word γίγας (gígas), meaning "giant."
+    The 11th General Conference on Weights and Measures (CGPM) adopted giga in 1960, among the six
+    prefixes it added when it created the SI. The name comes from the Greek word for a giant.
+
+    SI prefixes always denote powers of ten, so a gigabit is exactly a thousand million bits. The
+    binary multiple $2^{30}$ has the separate prefix gibi, symbol Gi, and a gibibyte is about 7 per
+    cent larger than a gigabyte. Informal computing usage, recorded by the RAE, still gives giga the
+    binary value.
 textSources:
   - title: 'Wikipedia: Giga-'
     url: 'https://en.wikipedia.org/wiki/Giga-'

@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Semana'
+description: >-
+  La semana, de símbolo wk, es una unidad de tiempo de siete días que organiza los calendarios de
+  todo el mundo. Queda fuera del SI y, a diferencia del día, el mes y el año, no sigue ningún
+  ciclo astronómico.
+
+  Su valor es una convención: siete días de 86 400 segundos cada uno, con el día fijado por el
+  folleto del SI en la tabla 8, suman exactamente 604 800 segundos. QUDT da el mismo
+  multiplicador para su unidad de semana.
+
+  Cincuenta y dos semanas suman 364 días, uno menos que un año común y dos menos que un año
+  bisiesto, así que una fecha pasa a un día de la semana posterior de un año al siguiente. El
+  calendario gregoriano tiene 146 097 días cada 400 años, un número divisible entre siete, de modo
+  que su patrón de fechas y días de la semana se repite exactamente tras cuatro siglos.
+
+  Los horarios de trabajo, de estudio y de descanso se rigen por la semana en la mayor parte del
+  mundo, y algunas estadísticas se publican semanalmente. En física, un tiempo en semanas se
+  convierte a segundos con el factor exacto anterior.
+
+  Los romanos contaban ya ampliamente ciclos de siete días en el siglo I a. C., según el capítulo
+  sobre calendarios del suplemento explicativo del almanaque astronómico. El capítulo remonta el
+  ciclo más atrás con cautela: Babilonia probablemente lo ideó como una subdivisión aproximada del
+  mes lunar, y los judíos probablemente lo adoptaron durante su exilio allí en el siglo VI a. C.
+  Cada día recibió el nombre de uno de los siete astros que se ven vagar por el cielo: el Sol, la
+  Luna y cinco planetas. Otras sociedades usaron ciclos de otras duraciones, como las nundinae romanas de ocho días y los ciclos de diez días del antiguo Egipto
+  y del calendario republicano francés.

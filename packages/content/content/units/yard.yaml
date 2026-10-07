@@ -20,11 +20,48 @@ categories:
   - 'physics'
 branches:
   - 'mechanics'
+aliases:
+  - 'yards'
+  - 'international yard'
+references:
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: yard (yd)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'National Bureau of Standards, Refinement of values for the yard and the pound, Federal Register 24 (1959) 5348'
+    url: 'https://geodesy.noaa.gov/PUBS_LIB/FedRegister/FRdoc59-5442.pdf'
+  - title: 'NIST Handbook 44 (2023), Appendix B, sections 2.1.2, 2.2.5 and 3.1'
+    url: 'https://www.nist.gov/system/files/documents/2023/01/30/appb-23-HB44.pdf'
+  - title: 'NIST Handbook 44 (2026), Appendix C, Units of length, area and volume'
+    url: 'https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf'
+  - title: 'Weights and Measures Act (Canada), R.S.C. 1985, c. W-6, Schedule II: yard'
+    url: 'https://laws-lois.justice.gc.ca/eng/acts/w-6/FullText.html'
+  - title: 'Department for Transport, Know Your Traffic Signs (2023), warning signs and motorway signs'
+    url: 'https://assets.publishing.service.gov.uk/media/656ef4271104cf0013fa74ef/know-your-traffic-signs-dft.pdf'
+  - title: 'QUDT, unit YD (yard)'
+    url: 'https://qudt.org/vocab/unit/YD'
 description:
   en: >-
-    The yard (symbol: $yd$) is an English unit of length, in both the British imperial and US
-    customary systems of measurement, that comprises 3 feet or 36 inches. Since 1959 it is by
-    international agreement standardized as exactly 0.9144 meters. 1,760 yards is equal to 1 mile.
+    The yard, symbol yd, is a unit of length of the British imperial system and the United States
+    customary system, equal to three feet or thirty-six inches. Since 1959 it has been the unit
+    through which the foot, the inch and the mile of both systems are tied to the metre.
+
+    The yard is exactly 0.9144 metre, $1\,\mathrm{yd}=0.914\,4\,\mathrm{m}$. The United States
+    announced this value in a Federal Register notice effective on 1 July 1959; the metrology
+    institutes of the United Kingdom, Canada, Australia, New Zealand and South Africa took up the
+    same figure, which became known as the international yard. Canada's Weights and
+    Measures Act writes it as 9144/10 000 metre, and NIST Special Publication 811 lists it as exact.
+
+    A mile is 1760 yards, a square yard holds nine square feet and a cubic yard holds twenty-seven
+    cubic feet. A metre is a little more than one yard and three inches.
+
+    British road signs still count short distances in yards. The Department for Transport describes
+    plates that give the distance to a low bridge in yards or miles, and countdown markers before a
+    motorway exit in which each bar stands for about 100 yards.
+
+    NIST regards the origin of the yard as uncertain: it may come from a double cubit or from early
+    measures of volume. The early yard was halved repeatedly into the half-yard, span, finger and
+    nail, and stories linking it to the waist or to the reach of King Henry I probably reflect acts
+    of standardization. From 1893 to 1959 the American yard was 3600/3937 metre, two parts per
+    million longer than the present yard.
 textSources:
   - title: 'Wikipedia: Yard'
     url: 'https://en.wikipedia.org/wiki/Yard'

@@ -21,11 +21,36 @@ categories:
 branches:
   - 'mechanics'
   - 'measurement'
+aliases:
+  - 'decades'
+  - 'decennium'
+references:
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: year (365 days)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'E. G. Richards, Calendars, ch. 15 of the Explanatory Supplement to the Astronomical Almanac, 3rd ed. (USNO), 15.4.2 (leap-year rule)'
+    url: 'https://aa.usno.navy.mil/downloads/c15_usb_online.pdf'
+  - title: 'QUDT, unit DECADE (logarithmic frequency interval)'
+    url: 'https://qudt.org/vocab/unit/DECADE'
 description:
   en: >-
-    A decade is a period of 10 years. The word is derived (via French and Latin) from the Ancient
-    Greek: δεκάς, romanized: dekas, which means a group of ten. Decades may describe any ten-year
-    period, such as those of a person's life, or refer to specific groupings of calendar years.
+    The decade is a unit of time of ten years, outside the SI. For conversions it is taken as ten
+    common years of 365 days, the same convention applied to the year and the century. It
+    measures trends and long periods in climate, demography and history.
+
+    No standard defines the decade as a unit. Ten times the 365-day year, which NIST Special
+    Publication 811 tabulates as 31 536 000 seconds, gives 315 360 000 seconds, or 3650 days.
+
+    A real span of ten consecutive calendar years is a little longer. Under the Gregorian rule a
+    year divisible by four is a leap year unless it is a century year not divisible by 400, so
+    ten years contain one to three leap days and last from 3651 to 3653 days. Ten decades make a
+    century.
+
+    The word also labels groups of calendar years by their tens digit, as in the 1990s, the years
+    1990 to 1999. In the frequency response of amplifiers and filters the same word, with the same
+    abbreviation dec, names something else: a frequency ratio of ten, which QUDT lists as a
+    logarithmic unit.
+    Context decides which is meant, and a time in decades is converted to seconds before it
+    enters a formula.
 textSources:
   - title: 'Wikipedia: Decade'
     url: 'https://en.wikipedia.org/wiki/Decade'
