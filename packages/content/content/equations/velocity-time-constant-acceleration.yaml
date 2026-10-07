@@ -1,0 +1,83 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Velocity under constant acceleration'
+kind: 'equation'
+level: 'intro'
+expression: '\var{v}=\var{v_{0}}+\mag{a}\mag{t}'
+terms:
+  v:
+    kind: 'symbol'
+    label:
+      en: 'Final velocity'
+    unit: 'metre-per-second'
+  v_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial velocity'
+    unit: 'metre-per-second'
+  a:
+    kind: 'magnitude'
+    ref: 'acceleration'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  v: 'v_0 + a * t'
+  v_{0}: 'v - a * t'
+  a: '(v - v_0) / t'
+  t: '(v - v_0) / a'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'first equation of motion'
+  - 'velocity-time equation'
+  - 'v = u + at'
+  - 'v = v0 + at'
+  - 'suvat'
+  - 'uniformly accelerated motion'
+  - 'movimiento rectilíneo uniformemente acelerado'
+  - 'MRUA'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 3.4 Motion with Constant Acceleration, equation 3.12 and Example 3.7'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-4-motion-with-constant-acceleration'
+  - title: 'OpenStax, College Physics 2e, 2.5 Motion Equations for Constant Acceleration in One Dimension'
+    url: 'https://openstax.org/books/college-physics-2e/pages/2-5-motion-equations-for-constant-acceleration-in-one-dimension'
+  - title: 'HyperPhysics (Georgia State University), Motion equations for constant acceleration'
+    url: 'https://hyperphysics.gsu.edu/hbase/mot.html'
+  - title: 'MacTutor History of Mathematics, Galileo Galilei (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Galileo/'
+description:
+  en: >-
+    The velocity equation of uniformly accelerated motion states that, under constant acceleration,
+    the velocity of a body equals its initial velocity plus the acceleration multiplied by the
+    elapsed time. Often called the first equation of motion, it is one of the constant-acceleration
+    equations of kinematics and describes a car pulling away from traffic lights or a ball thrown
+    straight up.
+
+    In the equation, $\var{v_{0}}$ is the velocity when the clock starts and $\var{v}$ the velocity
+    at time $\mag{t}$, both in metres per second; $\mag{a}$ is the constant acceleration in metres
+    per second squared, and $\mag{t}$ is the elapsed time in seconds, never negative. Velocity and
+    acceleration are signed along a chosen positive direction. When the acceleration has the same
+    sign as the velocity the body speeds up; when the signs differ it slows down, and if the motion
+    lasts long enough the velocity passes through zero and changes sign as the body turns back.
+
+    A constant acceleration changes the velocity by the same amount every second, so the graph of
+    velocity against time is a straight line with the acceleration as its slope and the initial
+    velocity as its intercept. The equation is the definition of average acceleration rearranged:
+    when the acceleration never varies, its average over any interval is the acceleration itself.
+    Solving for the time gives how long a body needs to reach a given velocity; a negative result
+    means that velocity is never reached going forward.
+
+    The equation assumes an acceleration fixed in size and direction for the whole interval, motion
+    along a straight line, and speeds far below the speed of light. A body falling through air or
+    driven by a varying force breaks the assumption, although the equation stays a fair
+    approximation over short stretches.
+
+    Galileo used inclined planes to slow the descent of bodies enough to study it, and set out his
+    theory of accelerated motion in Two New Sciences, published in Leiden in 1638. An aircraft
+    landing at 70 metres per second and braking at 1.50 metres per second squared is down to 10
+    metres per second after 40 seconds.

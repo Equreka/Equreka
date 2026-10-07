@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Altura máxima de un proyectil'
+terms:
+  h_{\max}:
+    label: 'Altura máxima'
+  v_{0}:
+    label: 'Rapidez de lanzamiento'
+  g:
+    label: 'Aceleración de la gravedad'
+description: >-
+  La altura máxima de un proyectil es la mayor altura que alcanza sobre el nivel de lanzamiento: el
+  cuadrado de la parte vertical de la velocidad de lanzamiento dividido entre el doble de la
+  aceleración de la gravedad, o el cuadrado de la rapidez de lanzamiento por el cuadrado del seno
+  del ángulo de lanzamiento entre el doble de esa aceleración. Llamada también altura de la cima o
+  del vértice, es un resultado de la cinemática del movimiento de proyectiles.
+
+  Aquí $\var{h_{\max}}$ es la altura máxima, en metros, medida en vertical desde el nivel de
+  lanzamiento hasta la cima de la trayectoria; $\var{v_{0}}$ es la rapidez de lanzamiento, en metros
+  por segundo; $\mag{\theta}$ es el ángulo de lanzamiento sobre la horizontal, entre 0 y 90 grados,
+  cuya unidad coherente es el radián; y $\var{g}$ es el módulo de la aceleración de la gravedad, en
+  metros por segundo al cuadrado, introducido como número positivo. Las cuatro son no negativas. El
+  valor normal de $\var{g}$ es 9.80665 metros por segundo al cuadrado; el valor local varía con la
+  latitud, la altitud y la geología, entre unos 9.78 y 9.83 en la superficie de la Tierra, y es
+  distinto en otro planeta o satélite.
+
+  Solo el movimiento vertical fija la altura. La parte vertical de la velocidad de lanzamiento,
+  $\var{v_{0}}$ por el seno de $\mag{\theta}$, disminuye a ritmo constante bajo $\var{g}$ y se anula
+  en la cima, y la relación entre velocidad y desplazamiento con aceleración constante convierte esa
+  pérdida de rapidez vertical en una altura. El movimiento horizontal, de rapidez constante, no
+  influye, así que un lanzamiento vertical sube más para una rapidez dada. Al despejar
+  $\mag{\theta}$ se obtiene un único ángulo entre 0 y 90 grados; no existe ninguno cuando la altura
+  pedida supera la que alcanza un lanzamiento vertical.
+
+  La fórmula supone resistencia del aire despreciable y un campo gravitatorio uniforme, y mide la
+  altura desde el punto de lanzamiento, sea cual sea el nivel del punto de caída, siempre que el
+  proyectil llegue a la cima antes de caer. El rozamiento con el aire rebaja la cima real.
+
+  Galileo Galilei dedujo que un proyectil sigue una trayectoria parabólica, y la altura máxima es el
+  vértice de esa parábola. Un balón lanzado a 20 metros por segundo con 45 grados sube unos 10.2
+  metros.

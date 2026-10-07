@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Speed in uniform circular motion'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{v}=\frac{2\const{\pi}\var{r}}{\mag{T}}'
+terms:
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+  T:
+    kind: 'magnitude'
+    ref: 'period'
+solutions:
+  v: '2 * pi * r / T'
+  r: 'v * T / (2 * pi)'
+  T: '2 * pi * r / v'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'uniform circular motion'
+  - 'UCM'
+  - 'circular orbit speed'
+  - 'v = 2 pi r / T'
+  - 'movimiento circular uniforme'
+  - 'MCU'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 4.4 Uniform Circular Motion'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/4-4-uniform-circular-motion'
+  - title: 'R. Fitzpatrick, Classical Mechanics (University of Texas at Austin lecture notes), Uniform circular motion'
+    url: 'https://farside.ph.utexas.edu/teaching/301/lectures/node86.html'
+description:
+  en: >-
+    The speed in uniform circular motion is the distance a body covers along a circular path per
+    unit time, obtained by dividing the circumference of the circle by the period, the time taken
+    for one full revolution. In kinematics, the part of mechanics that describes motion, it gives
+    the steady rate at which a point on a turning wheel, a satellite on a circular orbit or a runner
+    on a round track travels around the circle.
+
+    Here $\mag{v}$ is the speed in metres per second, $\var{r}$ the radius of the circle in metres
+    and $\mag{T}$ the period in seconds, while $\const{\pi}$ is the ratio of any circle's
+    circumference to its diameter. All three quantities are non-negative. Speed is the size of the
+    velocity with its direction left out, so the formula is silent about the sense of rotation,
+    clockwise or anticlockwise.
+
+    During one period the body goes once around the circle, a path as long as the circumference, two
+    pi times the radius. Since the speed never changes, that distance divided by that time gives the
+    speed at every instant of the turn. At a fixed period a point twice as far from the centre moves
+    twice as fast, which is why the outer edge of a merry-go-round outruns the seats near its axis.
+
+    The relation assumes a constant speed on a circle of fixed radius. The velocity itself is not
+    constant: its direction keeps swinging around, so the body accelerates toward the centre even
+    though its speed holds steady, an effect described by the centripetal acceleration. If the body
+    speeds up or slows down along the circle, or follows an ellipse instead, the circumference over
+    the period yields only an average speed.
+
+    The formula turns a rotation rate into a rim speed for wheels, centrifuges and turbines, and
+    estimates the speed of a body on a circular orbit from its orbital period. A point 1.2 metres
+    from the axis that turns once every 0.02 seconds moves at about 377 metres per second.

@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Rapidez en el movimiento circular uniforme'
+description: >-
+  La rapidez en el movimiento circular uniforme es la distancia que un cuerpo recorre a lo largo de
+  una trayectoria circular por unidad de tiempo, y se obtiene al dividir la longitud de la
+  circunferencia entre el periodo, el tiempo que tarda una vuelta completa. En cinemática, la parte
+  de la mecánica que describe el movimiento, da el ritmo constante con que un punto de una rueda que
+  gira, un satélite en órbita circular o un corredor en una pista redonda recorre la circunferencia.
+
+  Aquí $\mag{v}$ es la rapidez en metros por segundo, $\var{r}$ el radio de la circunferencia en
+  metros y $\mag{T}$ el periodo en segundos, mientras que $\const{\pi}$ es el cociente entre la
+  longitud de cualquier circunferencia y su diámetro. Las tres magnitudes son no negativas. La
+  rapidez es el módulo de la velocidad sin su dirección, de modo que la fórmula no dice nada del
+  sentido de giro, horario o antihorario.
+
+  Durante un periodo el cuerpo da una vuelta a la circunferencia, un camino tan largo como su
+  longitud, dos pi veces el radio. Como la rapidez no cambia, esa distancia dividida entre ese
+  tiempo da la rapidez en cada instante de la vuelta. Con el mismo periodo, un punto dos veces más
+  alejado del centro se mueve dos veces más rápido, y por eso el borde exterior de un tiovivo
+  adelanta a los asientos cercanos al eje.
+
+  La relación supone una rapidez constante sobre una circunferencia de radio fijo. La velocidad en
+  sí no es constante: su dirección gira sin cesar, así que el cuerpo acelera hacia el centro aunque
+  su rapidez se mantenga, efecto que describe la aceleración centrípeta. Si el cuerpo acelera o
+  frena a lo largo de la circunferencia, o sigue una elipse, la longitud de la circunferencia entre
+  el periodo da solo una rapidez media.
+
+  La fórmula convierte un ritmo de giro en la rapidez del borde de ruedas, centrifugadoras y
+  turbinas, y estima la rapidez de un cuerpo en órbita circular a partir de su periodo orbital. Un
+  punto situado a 1.2 metros del eje que da una vuelta cada 0.02 segundos se mueve a unos 377 metros
+  por segundo.

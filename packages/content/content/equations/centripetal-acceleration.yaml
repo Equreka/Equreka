@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Centripetal acceleration'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{a_{c}}=\frac{\mag{v}^{2}}{\var{r}}'
+terms:
+  a_{c}:
+    kind: 'magnitude'
+    ref: 'acceleration'
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+solutions:
+  a_{c}: 'v^2 / r'
+  v: 'sqrt(a_c * r)'
+  r: 'v^2 / a_c'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q2248131'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'radial acceleration'
+  - 'centre-seeking acceleration'
+  - 'center-seeking acceleration'
+  - 'a = v^2 / r'
+  - 'aceleración normal'
+  - 'aceleración radial'
+references:
+  - title: 'OpenStax, College Physics 2e, 6.2 Centripetal Acceleration'
+    url: 'https://openstax.org/books/college-physics-2e/pages/6-2-centripetal-acceleration'
+  - title: 'R. Fitzpatrick, Classical Mechanics (University of Texas at Austin lecture notes), Centripetal acceleration'
+    url: 'https://farside.ph.utexas.edu/teaching/301/lectures/node87.html'
+  - title: 'OpenStax, University Physics Volume 1, 4.4 Uniform Circular Motion'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/4-4-uniform-circular-motion'
+  - title: 'MacTutor History of Mathematics, Christiaan Huygens'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Huygens/'
+description:
+  en: >-
+    Centripetal acceleration is the acceleration of a body that moves along a circle, pointed at the
+    centre, and its size equals the square of the speed divided by the radius. In mechanics the
+    relation explains why a car rounding a bend, a stone whirled on a string or a satellite on a
+    circular orbit accelerates even while its speed stays the same.
+
+    Here $\mag{a_{c}}$ is the size of the centripetal acceleration in metres per second squared,
+    $\mag{v}$ the speed in metres per second and $\var{r}$ the radius of the circle in metres. The
+    formula gives only a size, so all three quantities are non-negative and are entered as
+    non-negative numbers. Acceleration in general carries a direction, and here that direction is
+    set by the geometry rather than by a sign: it always lies along the radius, from the body toward
+    the centre.
+
+    Acceleration measures any change of velocity, a change of direction included. Over a short time
+    the velocity turns through the same small angle as the radius, so the change in velocity is the
+    speed multiplied by that angle; the angle swept per second is the speed over the radius, which
+    leaves the speed squared over the radius. On a given circle, doubling the speed makes the
+    acceleration four times larger, while doubling the radius at the same speed halves it.
+
+    The formula holds at every instant for motion on a circle of fixed radius. In uniform circular
+    motion it is the whole acceleration; when the speed also changes, a tangential part adds at
+    right angles and the centripetal part still follows the formula with the current speed. Some net
+    force, such as tension, friction or gravity, must provide this acceleration; without it the body
+    leaves along the straight line tangent to the circle.
+
+    Christiaan Huygens, whose treatise on pendulum clocks, Horologium Oscillatorium, appeared in
+    1673, also worked out the law for the outward force in uniform circular motion. A car on a curve
+    of radius 500 metres at 25 metres per second has a centripetal acceleration of 1.25 metres per
+    second squared.

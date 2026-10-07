@@ -13,14 +13,15 @@ A term key is the term's symbol as it should render (strict KaTeX), used as the 
 | `t_{1/2}` | `t_12` | half-life |
 | `\theta` | `theta` | angle: `plane-angle` magnitude or a symbol with `unit: 'radian'` |
 | `\Delta T` | `DeltaT` | a difference: `delta: true` |
-| `E_{\mathrm{k}}` | `E_k` | descriptive subscripts upright |
-| `c_{\mathrm{A}}` | `c_A` | concentrations are `c_{\mathrm{A}}`, never `[A]` in kinetics |
-| `K_{\mathrm{a}}` | `K_a` | |
+| `E_\mathrm{k}` | `E_k` | descriptive subscripts upright, written without the outer braces |
+| `c_\mathrm{A}` | `c_A` | concentrations are `c_\mathrm{A}`, never `[A]` in kinetics |
+| `K_\mathrm{a}` | `K_a` | |
+| `v_\mathrm{AB}` | `v_AB` | a multi-letter upright subscript; the italic `v_{AB}` warns |
 | `\mathrm{pH}` | `pH` | |
 | `\mathrm{KE}` | `KE` | a bare `KE` warns (it typesets as K times E) |
 | `'[\mathrm{H}^{+}]'` | override `identifier: 'cH'` | derives a bare `H`; quote keys starting with `[` or `{` |
 
-Rules: braces nest at most one level; no `$`, line breaks or edge spaces; identifiers unique within the equation (`v_0` and `v_{0}` collide); never a grammar function name (`sqrt abs ln exp sin cos tan asin acos atan log10 log2 cbrt sinh cosh tanh asinh acosh atanh factorial`), never an `Object.prototype` name, and `pi` only for the constant term `ref: 'pi'`.
+Rules: braces nest at most one level, so a braced upright subscript (`E_{\mathrm{k}}`, `t_{\mathrm{r}}`, `h_{\mathrm{max}}`) is rejected by the integrity stage: write `E_\mathrm{k}`, or a standard upright operator such as `h_{\max}`; no `$`, line breaks or edge spaces; identifiers unique within the equation (`v_0` and `v_{0}` collide); never a grammar function name (`sqrt abs ln exp sin cos tan asin acos atan log10 log2 cbrt sinh cosh tanh asinh acosh atanh factorial`), never an `Object.prototype` name, and `pi` only for the constant term `ref: 'pi'`.
 
 ## Choosing term kinds and anchors
 

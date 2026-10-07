@@ -1,0 +1,187 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.locale.schema.json
+name: 'Cinemática'
+description: >-
+  Cómo se describe el movimiento sin preguntar qué lo causa: rapidez y velocidad, aceleración
+  constante, caída libre y proyectiles, y movimiento sobre una circunferencia, cada parte con una
+  comprobación resuelta.
+steps:
+  intro:
+    body: >-
+      La cinemática describe cómo se mueve un cuerpo y deja a la dinámica las fuerzas que causan el
+      movimiento. Cinco magnitudes la sostienen: posición, tiempo, rapidez, velocidad y aceleración.
+      Elige un eje y un sentido positivo antes de cada problema y mantenlos hasta el final. La
+      velocidad, el desplazamiento y la aceleración llevan entonces signo, negativo cuando apuntan
+      en sentido contrario, mientras que la rapidez, la distancia y el tiempo nunca son negativos.
+  speed:
+    note: >-
+      Cuán rápido, sin dirección: la distancia recorrida por unidad de tiempo. Nunca baja de cero.
+  velocity:
+    note: >-
+      Cuán rápido y hacia dónde. Sobre una recta se reduce a un número con signo cuyo valor absoluto
+      es la rapidez.
+  average-speed:
+    note: >-
+      Distancia total entre tiempo total, sea cual sea el recorrido.
+  average-velocity:
+    note: >-
+      Desplazamiento entre tiempo: solo cuentan el principio y el final del trayecto, así que volver
+      al punto de partida da cero.
+  check-round-trip:
+    prompt: >-
+      Una corredora completa una vuelta a una pista de 400 metros en 80 segundos y se detiene en la
+      línea de salida. ¿Cuáles son su rapidez media y su velocidad media?
+    answer: >-
+      La rapidez media es 400 metros entre 80 segundos, 5 metros por segundo. El desplazamiento es
+      nulo porque la corredora termina donde empezó la vuelta, así que la velocidad media es cero.
+  kilometre-per-hour:
+    note: >-
+      La unidad de las señales de tráfico. Un metro por segundo son 3.6 kilómetros por hora, porque
+      una hora tiene 3600 segundos y un kilómetro, 1000 metros.
+  check-highway:
+    prompt: >-
+      Un coche circula a 90 kilómetros por hora. ¿Cuál es su rapidez en metros por segundo?
+    answer: >-
+      25 metros por segundo: divide 90 entre 3.6.
+  uniform-motion-position:
+    note: >-
+      Sin aceleración la velocidad no cambia, así que la posición aumenta lo mismo cada segundo a
+      partir de su valor inicial. Una velocidad negativa hace que la posición disminuya con el
+      tiempo.
+  relative-velocity-1d:
+    note: >-
+      Las velocidades medidas desde sistemas distintos se suman: la velocidad de un pasajero
+      respecto al suelo es su velocidad respecto al tren más la velocidad del tren respecto al
+      suelo.
+  acceleration:
+    note: >-
+      El ritmo al que cambia la velocidad. Su signo sigue el eje elegido, de modo que una
+      aceleración negativa significa frenar solo cuando el cuerpo se mueve en el sentido positivo.
+  average-acceleration:
+    note: >-
+      Cambio de velocidad entre el tiempo que ha tardado, el punto de partida de todas las fórmulas
+      con aceleración constante.
+  constant-acceleration:
+    body: >-
+      Cuando la aceleración se mantiene constante, cinco relaciones enlazan la velocidad inicial, la
+      velocidad final, el desplazamiento, la aceleración y el tiempo. Cada una deja fuera una de
+      esas cinco magnitudes, así que elige la relación que no contiene la magnitud que ni se da ni
+      se pide.
+  velocity-time-constant-acceleration:
+    note: >-
+      La velocidad al cabo de un tiempo dado: la velocidad inicial más la aceleración por el tiempo.
+      No aparece el desplazamiento.
+  position-time-constant-acceleration:
+    note: >-
+      El desplazamiento al cabo de un tiempo dado. Al despejar el tiempo sale una ecuación de
+      segundo grado con dos raíces; descarta una raíz negativa y, cuando las dos son positivas, la
+      primera es el paso más temprano.
+  velocity-displacement-constant-acceleration:
+    note: >-
+      Velocidad y desplazamiento sin el tiempo, el camino más corto hacia las distancias de frenado.
+  displacement-average-velocity:
+    note: >-
+      El desplazamiento como la media de las dos velocidades por el tiempo: la relación sin la
+      aceleración.
+  displacement-final-velocity:
+    note: >-
+      El desplazamiento a partir de la velocidad final, la aceleración y el tiempo: la relación sin
+      la velocidad inicial.
+  check-braking:
+    prompt: >-
+      Un coche que se mueve a 20 metros por segundo frena con una aceleración constante de menos 5
+      metros por segundo al cuadrado. ¿Cuánto tarda en detenerse y qué distancia recorre mientras
+      tanto?
+    answer: >-
+      4 segundos y 40 metros. La velocidad baja 5 metros por segundo cada segundo, así que 20 entre
+      5 da el tiempo. La distancia es la rapidez inicial al cuadrado entre el doble del valor
+      absoluto de la aceleración: 400 entre 10.
+  stopping-distance:
+    note: >-
+      Un conductor reacciona antes de frenar, así que la distancia de detención suma la distancia
+      recorrida a rapidez constante durante el tiempo de reacción y la distancia de frenado. La
+      parte de frenado crece con el cuadrado de la rapidez.
+  free-fall:
+    body: >-
+      Cerca del suelo, y sin tener en cuenta la resistencia del aire, todos los cuerpos caen con la
+      misma aceleración, la aceleración de la gravedad g. Su valor normal es 9.80665 metros por
+      segundo al cuadrado; el valor local varía con la latitud, la altitud y la geología, entre unos
+      9.78 y 9.83 en la superficie de la Tierra, y es distinto en otro planeta o satélite. Introduce
+      g como un número positivo y toma hacia abajo como sentido positivo en las caídas.
+  free-fall-distance:
+    note: >-
+      La distancia que cae un cuerpo desde el reposo al cabo de un tiempo dado: crece con el
+      cuadrado del tiempo.
+  free-fall-velocity:
+    note: >-
+      La rapidez ganada desde el reposo al cabo de un tiempo dado: g por el tiempo, unos 9.8 metros
+      por segundo más cada segundo.
+  impact-velocity-from-height:
+    note: >-
+      La rapidez tras caer desde el reposo una altura dada, sin el tiempo: la raíz cuadrada del
+      doble de g por la altura.
+  check-drop:
+    prompt: >-
+      Se deja caer una piedra desde el reposo y cae durante 2.0 segundos. ¿Con qué rapidez se mueve
+      y cuánto ha caído? Usa el valor normal de g.
+    answer: >-
+      Unos 19.6 metros por segundo y 19.6 metros. La rapidez es 9.80665 por 2.0, y la distancia es
+      la mitad de 9.80665 por 2.0 al cuadrado; con este tiempo, los dos números coinciden.
+  horizontal-launch-range:
+    note: >-
+      Un cuerpo que sale horizontalmente del borde de una mesa cae como uno soltado mientras
+      conserva su rapidez horizontal, así que el tiempo de caída fija a qué distancia llega al
+      suelo.
+  projectile-range:
+    note: >-
+      Un proyectil sobre terreno llano combina un movimiento horizontal constante con una caída
+      libre. Para una rapidez de lanzamiento dada, el alcance es máximo a 45 grados, y dos ángulos
+      complementarios comparten cada alcance menor: la trayectoria baja aparece primero.
+  projectile-time-of-flight:
+    note: >-
+      El tiempo en el aire sobre terreno llano: el doble de la parte vertical de la velocidad de
+      lanzamiento entre g.
+  projectile-maximum-height:
+    note: >-
+      La cima de la trayectoria depende solo de la parte vertical de la velocidad de lanzamiento,
+      así que para una rapidez dada un lanzamiento vertical sube más.
+  check-range:
+    prompt: >-
+      Se lanza una pelota a 20 metros por segundo sobre terreno llano. ¿Cuál es su alcance a 45
+      grados, y qué otro ángulo da el mismo alcance que un lanzamiento a 30 grados?
+    answer: >-
+      Unos 40.8 metros: la rapidez de lanzamiento al cuadrado entre g, 400 entre 9.80665. Un
+      lanzamiento a 60 grados cae en el mismo punto que uno a 30 grados, porque los dos ángulos
+      suman 90 grados; ambos llegan a unos 35.3 metros.
+  circular-motion:
+    body: >-
+      Un cuerpo que recorre una circunferencia con rapidez constante acelera de todos modos, porque
+      la dirección de su velocidad no deja de girar. El periodo es el tiempo de una vuelta, la
+      velocidad angular mide el ritmo de giro en radianes por segundo y la aceleración apunta al
+      centro.
+  uniform-circular-speed:
+    note: >-
+      Una circunferencia por periodo: la rapidez a lo largo de la circunferencia.
+  angular-velocity-period:
+    note: >-
+      Una vuelta completa, dos pi radianes, por periodo: el ritmo de giro.
+  linear-angular-speed:
+    note: >-
+      La rapidez de un punto es el ritmo de giro por su distancia al eje, así que el borde de una
+      rueda adelanta a su cubo.
+  centripetal-acceleration:
+    note: >-
+      Rapidez al cuadrado entre radio, dirigida al centro. Duplicar la rapidez en la misma
+      circunferencia la hace cuatro veces mayor.
+  centripetal-acceleration-angular:
+    note: >-
+      La misma aceleración escrita con el ritmo de giro: la velocidad angular al cuadrado por el
+      radio, práctica para máquinas expresadas en revoluciones por minuto una vez pasado el ritmo a
+      radianes por segundo.
+  check-carousel:
+    prompt: >-
+      Un asiento de un tiovivo está a 3.0 metros del eje y da una vuelta cada 6.0 segundos. Halla su
+      velocidad angular, su rapidez y su aceleración centrípeta.
+    answer: >-
+      La velocidad angular es dos pi entre 6.0, unos 1.05 radianes por segundo. La rapidez es ese
+      ritmo por 3.0 metros, unos 3.14 metros por segundo. La aceleración centrípeta es la rapidez al
+      cuadrado entre 3.0 metros, unos 3.29 metros por segundo al cuadrado, dirigida hacia el eje.

@@ -1,0 +1,89 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Velocity and displacement under constant acceleration'
+kind: 'equation'
+level: 'intro'
+expression: '\var{v}^{2}=\var{v_{0}}^{2}+2\mag{a}\var{\Delta x}'
+terms:
+  v:
+    kind: 'symbol'
+    label:
+      en: 'Final velocity'
+    unit: 'metre-per-second'
+  v_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial velocity'
+    unit: 'metre-per-second'
+  a:
+    kind: 'magnitude'
+    ref: 'acceleration'
+  \Delta x:
+    kind: 'symbol'
+    label:
+      en: 'Displacement'
+    unit: 'metre'
+solutions:
+  v:
+    - 'sqrt(v_0^2 + 2 * a * Deltax)'
+    - '-sqrt(v_0^2 + 2 * a * Deltax)'
+  v_{0}:
+    - 'sqrt(v^2 - 2 * a * Deltax)'
+    - '-sqrt(v^2 - 2 * a * Deltax)'
+  a: '(v^2 - v_0^2) / (2 * Deltax)'
+  \Delta x: '(v^2 - v_0^2) / (2 * a)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q2670060'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'Torricelli''s equation'
+  - 'third equation of motion'
+  - 'velocity-displacement equation'
+  - 'v^2 = u^2 + 2as'
+  - 'v^2 = v0^2 + 2a dx'
+  - 'suvat'
+  - 'ecuación de Torricelli'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 3.4 Motion with Constant Acceleration, equation 3.14 and Example 3.10'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-4-motion-with-constant-acceleration'
+  - title: 'OpenStax, College Physics 2e, 2.5 Motion Equations for Constant Acceleration in One Dimension'
+    url: 'https://openstax.org/books/college-physics-2e/pages/2-5-motion-equations-for-constant-acceleration-in-one-dimension'
+  - title: 'HyperPhysics (Georgia State University), Motion equations for constant acceleration'
+    url: 'https://hyperphysics.gsu.edu/hbase/mot.html'
+description:
+  en: >-
+    The velocity–displacement equation of uniformly accelerated motion links the initial and final
+    velocities of a body under constant acceleration to its displacement, with no reference to time:
+    the square of the final velocity equals the square of the initial velocity plus twice the
+    acceleration times the displacement. It is the constant-acceleration equation of kinematics for
+    braking distances, take-off runs and heights reached whenever the duration is unknown or not
+    wanted.
+
+    In the equation, $\var{v_{0}}$ and $\var{v}$ are the initial and final velocities in metres per
+    second, $\mag{a}$ is the constant acceleration in metres per second squared, and $\var{\Delta
+    x}$ is the displacement in metres, final position minus initial position. All four are signed
+    along a chosen positive direction. The product of acceleration and displacement is positive when
+    the body is pushed along its displacement, which raises its speed, and negative when the
+    acceleration opposes it, as in braking.
+
+    Eliminating the time between the velocity and position equations of uniformly accelerated motion
+    gives the relation: the displacement is half the sum of the two velocities times the time, and
+    the time is the change of velocity divided by the acceleration. Multiplied by half the mass of
+    the body, the equation becomes the work–energy theorem for a constant force, the force times the
+    displacement equalling the change in kinetic energy.
+
+    Because both velocities appear squared, the equation fixes their size but not their direction.
+    Solving for either velocity gives a positive and a negative root; the positive one is listed
+    first and is the answer when the body moves in the positive direction, while the negative root
+    is the same speed in the opposite sense, as for a stone thrown upward and coming back past its
+    launch point. A negative number under the square root means the body never reaches that
+    displacement, such as a car that stops short of it. Constant acceleration and straight-line
+    motion are assumed throughout.
+
+    A car braking from 30.0 metres per second at 7.00 metres per second squared needs about 64.3
+    metres to stop.

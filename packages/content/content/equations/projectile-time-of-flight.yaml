@@ -1,0 +1,82 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Time of flight of a projectile'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{t}=\frac{2\var{v_{0}}\sin\mag{\theta}}{\var{g}}'
+terms:
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+  v_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Launch speed'
+    unit: 'metre-per-second'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+solutions:
+  t: '2 * v_0 * sin(theta) / g'
+  v_{0}: 'g * t / (2 * sin(theta))'
+  \theta: 'asin(g * t / (2 * v_0))'
+  g: '2 * v_0 * sin(theta) / t'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'projectile time of flight'
+  - 'flight time'
+  - 'hang time'
+  - 'total time in the air'
+  - 'tiempo de vuelo'
+  - 'tiempo de vuelo del tiro parabólico'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 4.3 Projectile Motion (time of flight, Example 4.7)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/4-3-projectile-motion'
+  - title: 'R. Nave, HyperPhysics, Trajectories (total time of flight)'
+    url: 'https://hyperphysics.gsu.edu/hbase/traj.html'
+  - title: 'OpenStax, College Physics 2e, 3.4 Projectile Motion (independence of motions, Galileo)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/3-4-projectile-motion'
+  - title: 'NIST, CODATA Value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+  - title: 'OpenStax, College Physics 2e, 2.7 Falling Objects (local variation of g)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/2-7-falling-objects'
+description:
+  en: >-
+    The time of flight of a projectile is the time it spends in the air between launch and landing
+    back at the launch height: twice the vertical part of the launch velocity divided by the
+    gravitational acceleration. In the kinematics of projectile motion it fixes how long the
+    horizontal motion lasts, and so it links the launch to the range.
+
+    Here $\mag{t}$ is the time of flight, in seconds; $\var{v_{0}}$ is the launch speed, the size of
+    the initial velocity, in metres per second; $\mag{\theta}$ is the launch angle above the
+    horizontal, between 0 and 90 degrees, whose coherent unit is the radian; and $\var{g}$ is the
+    size of the gravitational acceleration, in metres per second squared, entered as a positive
+    number. All four are non-negative. The standard value of $\var{g}$ is 9.80665 metres per second
+    squared; the local value varies with latitude, altitude and geology, between about 9.78 and 9.83
+    on the surface of the Earth, and differs on another planet or moon.
+
+    The vertical part of the launch velocity, $\var{v_{0}}$ times the sine of $\mag{\theta}$,
+    decreases at the steady rate $\var{g}$ and reaches zero at the top of the path, halfway through
+    the flight; the descent to the launch height takes as long as the rise, so the total is twice
+    the rise time. The horizontal motion does not change the duration: at the same speed, a launch
+    at 30 degrees stays aloft half as long as a vertical one, since the sine of 30 degrees is one
+    half. Solving for $\mag{\theta}$ gives a single angle between 0 and 90 degrees.
+
+    The formula assumes launch and landing at the same height, negligible air resistance and a
+    uniform gravitational field. When the landing point lies below the launch point, as for a stone
+    thrown from a cliff, the flight lasts longer and the time follows from the quadratic position
+    equation for constant acceleration instead.
+
+    Galileo Galilei was the first to understand fully that the horizontal and vertical motions of a
+    projectile are independent, the idea behind this formula. A ball launched at 20 metres per
+    second at 30 degrees stays in the air for about 2.04 seconds.

@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Average velocity'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{\bar{v}}=\frac{\var{\Delta x}}{\mag{t}}'
+terms:
+  \bar{v}:
+    kind: 'magnitude'
+    ref: 'velocity'
+    identifier: 'v_avg'
+  \Delta x:
+    kind: 'symbol'
+    label:
+      en: 'Displacement'
+    unit: 'metre'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  \bar{v}: 'Deltax / t'
+  \Delta x: 'v_avg * t'
+  t: 'Deltax / v_avg'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'mean velocity'
+  - 'displacement over time'
+  - 'v = Δx / Δt'
+  - 'velocidad promedio'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 3.1 Position, Displacement, and Average Velocity'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-1-position-displacement-and-average-velocity'
+  - title: 'OpenStax, University Physics Volume 1, 3.2 Instantaneous Velocity and Speed'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-2-instantaneous-velocity-and-speed'
+  - title: 'OpenStax, University Physics Volume 1, 3.4 Motion with Constant Acceleration, equation 3.11'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-4-motion-with-constant-acceleration'
+description:
+  en: >-
+    Average velocity is the displacement of a body divided by the time taken: the net change of
+    position per unit time, with a sign that tells which way the body ended up going. It is one of
+    the basic definitions of kinematics, the part of mechanics that describes motion, and here
+    applies to motion along a straight line, such as a car on a straight road or a lift in its
+    shaft.
+
+    In the formula, $\mag{\bar{v}}$ is the average velocity in metres per second, $\var{\Delta x}$
+    is the displacement in metres, final position minus initial position, and $\mag{t}$ is the
+    elapsed time in seconds, counted from zero and never negative. One direction along the line is
+    chosen as positive. Displacement and average velocity are positive when the body finishes on the
+    positive side of its starting point, negative when it finishes on the other side, and zero when
+    it returns to where it began.
+
+    Only the two end points matter. A runner who sprints 100 metres east and then walks 40 metres
+    back has a displacement of 60 metres east, whatever happened in between, and the average
+    velocity spreads that displacement evenly over the whole time. Multiplying the average velocity
+    by the time returns the displacement. As the interval shrinks towards zero, the average turns
+    into the instantaneous velocity, which is where calculus enters kinematics.
+
+    The definition holds for any motion, however irregular, since it needs only two positions and a
+    clock. It differs from average speed, which divides the total path length by the time and is
+    never negative: after a closed lap the average velocity is zero but the average speed is not.
+    When the acceleration is constant, the average velocity also equals the mean of the initial and
+    final velocities; for other motions that equality is not guaranteed. In two or three dimensions
+    the same definition applies to each component of the displacement.
+
+    A position-time graph shows the average velocity as the gradient of the chord joining two of its
+    points. A lift that rises 30 metres in 15 seconds has an average velocity of 2 metres per second
+    upward.

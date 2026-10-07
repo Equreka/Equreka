@@ -1,0 +1,87 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Range of a horizontally launched projectile'
+kind: 'equation'
+level: 'intro'
+expression: '\var{R}=\var{v_{0}}\sqrt{\frac{2\var{h}}{\var{g}}}'
+terms:
+  R:
+    kind: 'symbol'
+    label:
+      en: 'Range'
+    unit: 'metre'
+  v_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Launch speed'
+    unit: 'metre-per-second'
+  h:
+    kind: 'symbol'
+    label:
+      en: 'Launch height'
+    unit: 'metre'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+solutions:
+  R: 'v_0 * sqrt(2 * h / g)'
+  v_{0}: 'R * sqrt(g / (2 * h))'
+  h: 'g * R^2 / (2 * v_0^2)'
+  g: '2 * h * v_0^2 / R^2'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'horizontal launch range'
+  - 'horizontal projectile'
+  - 'horizontal launch'
+  - 'range of a ball rolling off a table'
+  - 'lanzamiento horizontal'
+  - 'tiro horizontal'
+references:
+  - title: 'R. Nave, HyperPhysics, Trajectories (horizontal launch)'
+    url: 'https://hyperphysics.gsu.edu/hbase/traj.html'
+  - title: 'OpenStax, University Physics Volume 1, 4.3 Projectile Motion'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/4-3-projectile-motion'
+  - title: 'OpenStax, College Physics 2e, 3.4 Projectile Motion (independence of motions)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/3-4-projectile-motion'
+  - title: 'NIST, CODATA Value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+  - title: 'OpenStax, College Physics 2e, 2.7 Falling Objects (local variation of g)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/2-7-falling-objects'
+  - title: 'MacTutor History of Mathematics, Galileo Galilei (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Galileo/'
+description:
+  en: >-
+    The range of a horizontally launched projectile is the horizontal distance covered by a body
+    that leaves a height moving horizontally, measured from the point directly below the launch to
+    the landing point: the launch speed multiplied by the time of the fall, the square root of twice
+    the height over the gravitational acceleration. It is the table-edge or cliff-top problem of
+    projectile motion in kinematics, also called horizontal launch.
+
+    Here $\var{R}$ is the range, in metres; $\var{v_{0}}$ is the horizontal launch speed, in metres
+    per second; $\var{h}$ is the launch height above the level where the body lands, in metres; and
+    $\var{g}$ is the size of the gravitational acceleration, in metres per second squared, entered
+    as a positive number. All four are non-negative. The standard value of $\var{g}$ is 9.80665
+    metres per second squared; the local value varies with latitude, altitude and geology, between
+    about 9.78 and 9.83 on the surface of the Earth, and differs on another planet or moon.
+
+    Without air resistance the horizontal motion keeps the speed $\var{v_{0}}$ throughout, while the
+    vertical motion starts from rest exactly as in a drop, so the body lands at the same moment as
+    one released from rest at the same height. The free-fall distance fixes that fall time, and the
+    range is the launch speed multiplied by it. The range is proportional to the launch speed but
+    grows only with the square root of the height: four times the height doubles it.
+
+    The formula assumes a launch exactly horizontal, a flat landing surface a height $\var{h}$ below
+    the launch point, negligible air resistance and a uniform gravitational field. A launch tilted
+    up or down needs the general projectile equations, and a launch and landing at the same level
+    need the range equation for level ground.
+
+    Galileo Galilei worked out that a projectile follows a parabolic path, the result of a uniform
+    horizontal motion combined with a fall. A ball rolling off a table 1.0 metre high at 2.0 metres
+    per second lands about 0.90 metres from the foot of the table.

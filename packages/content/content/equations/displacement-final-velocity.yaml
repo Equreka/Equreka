@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Displacement from final velocity'
+kind: 'equation'
+level: 'intro'
+expression: '\var{\Delta x}=\var{v}\mag{t}-\frac{1}{2}\mag{a}\mag{t}^{2}'
+terms:
+  \Delta x:
+    kind: 'symbol'
+    label:
+      en: 'Displacement'
+    unit: 'metre'
+  v:
+    kind: 'symbol'
+    label:
+      en: 'Final velocity'
+    unit: 'metre-per-second'
+  a:
+    kind: 'magnitude'
+    ref: 'acceleration'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  \Delta x: 'v * t - a * t^2 / 2'
+  v: 'Deltax / t + a * t / 2'
+  a: '2 * (v * t - Deltax) / t^2'
+  t:
+    - '(v - sqrt(v^2 - 2 * a * Deltax)) / a'
+    - '(v + sqrt(v^2 - 2 * a * Deltax)) / a'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 's = vt - 1/2 at^2'
+  - 'displacement without initial velocity'
+  - 'suvat'
+  - 'desplazamiento sin velocidad inicial'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 3.4 Motion with Constant Acceleration, equations 3.12 and 3.13, from which the relation is derived'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-4-motion-with-constant-acceleration'
+  - title: 'OpenStax, College Physics 2e, 2.5 Motion Equations for Constant Acceleration in One Dimension, from which the relation is derived'
+    url: 'https://openstax.org/books/college-physics-2e/pages/2-5-motion-equations-for-constant-acceleration-in-one-dimension'
+description:
+  en: >-
+    Under constant acceleration, the displacement of a body over an interval equals its final
+    velocity times the elapsed time minus half the acceleration times the square of the time. It is
+    the constant-acceleration equation of kinematics that does without the initial velocity, used
+    when the state of a motion at its end is known but its start is not, as when a braking vehicle
+    is studied backwards from the moment it reaches an obstacle.
+
+    In the equation, $\var{\Delta x}$ is the displacement in metres, final position minus initial
+    position, $\var{v}$ is the final velocity in metres per second, $\mag{a}$ is the constant
+    acceleration in metres per second squared, and $\mag{t}$ is the elapsed time in seconds, never
+    negative. Displacement, velocity and acceleration are signed along a chosen positive direction;
+    a negative acceleration with a positive final velocity means the body has been moving forwards
+    and slowing down the whole time.
+
+    The relation follows from the position equation of uniformly accelerated motion once the initial
+    velocity is replaced by the final velocity minus the acceleration times the time. It can also be
+    read as that same equation run backwards: played in reverse, the motion starts with the opposite
+    of the final velocity and keeps the same acceleration, and its displacement is the opposite of
+    the original one, which is why the acceleration term carries a minus sign here.
+
+    Solving for the time gives a quadratic equation with two roots. With the positive direction
+    along the final velocity, the first root listed is the duration of a motion whose initial
+    velocity pointed the same way, a body that never turned round; the second describes a body that
+    started off in the opposite direction and reversed. Negative times are discarded, and a negative
+    number under the square root means no constant acceleration joins the given values. The equation
+    assumes constant acceleration and straight-line motion.
+
+    An aircraft that lands, brakes at 1.50 metres per second squared for 40 seconds and is then
+    rolling at 10 metres per second has covered 1600 metres of runway in that time.

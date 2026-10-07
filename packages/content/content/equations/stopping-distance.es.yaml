@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Distancia de detención'
+terms:
+  d:
+    label: 'Distancia de detención'
+  t_\mathrm{r}:
+    label: 'Tiempo de reacción'
+  a:
+    label: 'Deceleración de frenado'
+description: >-
+  La distancia de detención de un vehículo es la distancia que recorre desde el momento en que el
+  conductor percibe un peligro hasta que se para: la distancia de reacción, recorrida a la rapidez
+  inicial antes de que actúen los frenos, más la distancia de frenado, recorrida mientras se frena a
+  un ritmo constante. Es la cinemática que sustenta las distancias de seguridad recomendadas y la
+  educación vial.
+
+  En la fórmula, $\var{d}$ es la distancia de detención total en metros, $\mag{v}$ la rapidez en el
+  momento en que se ve el peligro en metros por segundo, $\var{t_\mathrm{r}}$ el tiempo de reacción
+  en segundos y $\var{a}$ el valor de la deceleración de frenado en metros por segundo al cuadrado,
+  introducido como un número positivo. Las cuatro son no negativas: a diferencia de la aceleración
+  con signo de las ecuaciones generales de aceleración constante, aquí la deceleración es solo un
+  valor absoluto.
+
+  Durante el tiempo de reacción el vehículo mantiene su rapidez y recorre la rapidez por el tiempo
+  de reacción. Al frenar desde esa rapidez hasta el reposo con deceleración constante recorre
+  después el cuadrado de la rapidez dividido entre el doble de la deceleración, que es la ecuación
+  de la velocidad y el desplazamiento del movimiento uniformemente acelerado con velocidad final
+  nula. La parte de reacción crece en proporción a la rapidez y la de frenado con su cuadrado, de
+  modo que duplicar la rapidez cuadruplica la distancia de frenado, que predomina a gran rapidez.
+
+  El modelo supone un tiempo de reacción constante y una deceleración constante en una carretera
+  llana; el frenado real depende de los neumáticos, el firme, la carga y los frenos, y una calzada
+  mojada reduce la deceleración. Despejar la rapidez lleva a una ecuación de segundo grado con una
+  raíz positiva, la mayor rapidez desde la que el vehículo puede detenerse en una distancia dada, y
+  una raíz negativa sin sentido físico; la positiva figura primero.
+
+  Un coche a 30.0 metros por segundo con un tiempo de reacción de 0.500 segundos se detiene en unos
+  79.3 metros si frena a 7.00 metros por segundo al cuadrado sobre asfalto seco, y en unos 105
+  metros a 5.00 sobre calzada mojada. El Highway Code publicado por el Gobierno del Reino Unido
+  aconseja dejar al menos dos segundos con el vehículo de delante en vías rápidas, el doble con la
+  calzada mojada.

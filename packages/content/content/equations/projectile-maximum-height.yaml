@@ -1,0 +1,88 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Maximum height of a projectile'
+kind: 'equation'
+level: 'intro'
+expression: '\var{h_{\max}}=\frac{\var{v_{0}}^{2}\sin^{2}\mag{\theta}}{2\var{g}}'
+terms:
+  h_{\max}:
+    kind: 'symbol'
+    label:
+      en: 'Maximum height'
+    unit: 'metre'
+  v_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Launch speed'
+    unit: 'metre-per-second'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+solutions:
+  h_{\max}: 'v_0^2 * sin(theta)^2 / (2 * g)'
+  v_{0}: 'sqrt(2 * g * h_max) / sin(theta)'
+  \theta: 'asin(sqrt(2 * g * h_max) / v_0)'
+  g: 'v_0^2 * sin(theta)^2 / (2 * h_max)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'projectile maximum height'
+  - 'peak height'
+  - 'apex height'
+  - 'maximum height of a trajectory'
+  - 'altura máxima de un proyectil'
+  - 'altura máxima del tiro parabólico'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 4.3 Projectile Motion (maximum height, Example 4.7)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/4-3-projectile-motion'
+  - title: 'R. Nave, HyperPhysics, Trajectories (peak height)'
+    url: 'https://hyperphysics.gsu.edu/hbase/traj.html'
+  - title: 'OpenStax, College Physics 2e, 3.4 Projectile Motion'
+    url: 'https://openstax.org/books/college-physics-2e/pages/3-4-projectile-motion'
+  - title: 'NIST, CODATA Value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+  - title: 'OpenStax, College Physics 2e, 2.7 Falling Objects (local variation of g)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/2-7-falling-objects'
+  - title: 'MacTutor History of Mathematics, Galileo Galilei (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Galileo/'
+description:
+  en: >-
+    The maximum height of a projectile is the greatest height it reaches above its launch level: the
+    square of the vertical part of the launch velocity divided by twice the gravitational
+    acceleration, or the squared launch speed times the squared sine of the launch angle over twice
+    that acceleration. Also called the peak or apex height, it is a result of the kinematics of
+    projectile motion.
+
+    Here $\var{h_{\max}}$ is the maximum height, in metres, measured vertically from the launch
+    level to the top of the path; $\var{v_{0}}$ is the launch speed, in metres per second;
+    $\mag{\theta}$ is the launch angle above the horizontal, between 0 and 90 degrees, whose
+    coherent unit is the radian; and $\var{g}$ is the size of the gravitational acceleration, in
+    metres per second squared, entered as a positive number. All four are non-negative. The standard
+    value of $\var{g}$ is 9.80665 metres per second squared; the local value varies with latitude,
+    altitude and geology, between about 9.78 and 9.83 on the surface of the Earth, and differs on
+    another planet or moon.
+
+    Only the vertical motion sets the height. The vertical part of the launch velocity,
+    $\var{v_{0}}$ times the sine of $\mag{\theta}$, falls at a steady rate under $\var{g}$ and
+    reaches zero at the top, and the constant-acceleration relation between velocity and
+    displacement turns that loss of vertical speed into a height. The horizontal motion, which keeps
+    a constant speed, has no effect, so a vertical launch rises highest for a given speed. Solving
+    for $\mag{\theta}$ gives a single angle between 0 and 90 degrees; no angle exists when the
+    height requested exceeds what a vertical launch reaches.
+
+    The formula assumes negligible air resistance and a uniform gravitational field, and it measures
+    height from the launch point, whatever the level of the landing point, as long as the projectile
+    reaches its peak before landing. Drag lowers the real peak.
+
+    Galileo Galilei worked out that a projectile follows a parabolic path, and the maximum height is
+    the vertex of that parabola. A ball kicked at 20 metres per second at 45 degrees rises about
+    10.2 metres.

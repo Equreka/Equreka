@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Aceleración centrípeta'
+description: >-
+  La aceleración centrípeta es la aceleración de un cuerpo que se mueve sobre una circunferencia,
+  dirigida hacia el centro, y su módulo es igual al cuadrado de la rapidez dividido entre el radio.
+  En mecánica, la relación explica por qué un coche que toma una curva, una piedra que gira atada a
+  una cuerda o un satélite en órbita circular aceleran aunque su rapidez no cambie.
+
+  Aquí $\mag{a_{c}}$ es el módulo de la aceleración centrípeta en metros por segundo al cuadrado,
+  $\mag{v}$ la rapidez en metros por segundo y $\var{r}$ el radio de la circunferencia en metros. La
+  fórmula da solo un módulo, así que las tres magnitudes son no negativas y se introducen como
+  números no negativos. En general la aceleración tiene dirección, y aquí esa dirección la fija la
+  geometría y no un signo: siempre va a lo largo del radio, del cuerpo hacia el centro.
+
+  La aceleración mide cualquier cambio de la velocidad, también un cambio solo de dirección. En un
+  intervalo corto, la velocidad gira el mismo ángulo pequeño que el radio, de modo que el cambio de
+  velocidad es la rapidez multiplicada por ese ángulo; el ángulo barrido por segundo es la rapidez
+  entre el radio, y queda la rapidez al cuadrado entre el radio. En una misma circunferencia,
+  duplicar la rapidez hace la aceleración cuatro veces mayor, mientras que duplicar el radio con la
+  misma rapidez la reduce a la mitad.
+
+  La fórmula vale en cada instante para un movimiento sobre una circunferencia de radio fijo. En el
+  movimiento circular uniforme es toda la aceleración; cuando la rapidez también cambia, se suma una
+  parte tangencial en ángulo recto, y la parte centrípeta sigue la fórmula con la rapidez del
+  momento. Alguna fuerza neta, como la tensión, el rozamiento o la gravedad, debe producir esta
+  aceleración; sin ella, el cuerpo sale por la recta tangente a la circunferencia.
+
+  Christiaan Huygens, cuyo tratado sobre relojes de péndulo, Horologium Oscillatorium, apareció en
+  1673, obtuvo también la ley de la fuerza hacia fuera en el movimiento circular uniforme. Un coche
+  que recorre una curva de 500 metros de radio a 25 metros por segundo tiene una aceleración
+  centrípeta de 1.25 metros por segundo al cuadrado.

@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Posición en el movimiento rectilíneo uniforme'
+terms:
+  x:
+    label: 'Posición'
+  x_{0}:
+    label: 'Posición inicial'
+description: >-
+  La ecuación de la posición del movimiento rectilíneo uniforme indica dónde se encuentra en cada
+  instante un cuerpo que avanza por una recta con velocidad constante: su posición de partida más su
+  velocidad multiplicada por el tiempo transcurrido. El movimiento rectilíneo uniforme, sin
+  aceleración, es el caso más sencillo de la cinemática, y su ecuación describe un coche que
+  mantiene una rapidez fija en una carretera recta o un paquete sobre una cinta transportadora.
+
+  En la ecuación, $\var{x}$ es la posición en el instante $\mag{t}$ y $\var{x_{0}}$ la posición en
+  el momento en que se pone en marcha el reloj, ambas en metros desde un origen elegido sobre la
+  recta; $\mag{v}$ es la velocidad constante en metros por segundo, y $\mag{t}$ es el tiempo en
+  segundos desde el inicio, nunca negativo. Un sentido de la recta se toma como positivo. Las
+  posiciones al otro lado del origen son negativas, y una velocidad negativa significa que el cuerpo
+  se mueve hacia posiciones decrecientes, de modo que su posición disminuye con el paso del tiempo.
+
+  Como la velocidad no cambia, el cuerpo recorre desplazamientos iguales en tiempos iguales, y su
+  velocidad media en cualquier intervalo es la propia velocidad. La gráfica de la posición frente al
+  tiempo es una recta cuya pendiente es la velocidad y cuya ordenada en el origen es la posición
+  inicial. Despejar el tiempo indica cuánto tarda el cuerpo en llegar a una posición dada; un
+  resultado negativo significa que pasó por ese punto antes de poner en marcha el reloj, o que nunca
+  llega a él. Igualar dos ecuaciones de este tipo da dónde y cuándo se encuentran dos cuerpos.
+
+  La ecuación solo vale mientras la velocidad se mantiene constante en módulo y sentido. Arrancar,
+  detenerse, girar y cualquier cambio de ritmo la invalidan; con una aceleración constante distinta
+  de cero la sustituye la ecuación de la posición del movimiento uniformemente acelerado, que se
+  reduce a esta cuando la aceleración es nula. Los vehículos reales mantienen una velocidad fija
+  solo de forma aproximada, así que la ecuación es una idealización en intervalos donde los cambios
+  son pequeños.
+
+  Un tren que pasa por un punto situado a 5 kilómetros de una estación y se aleja de ella a 20
+  metros por segundo está a 17 kilómetros 10 minutos después.

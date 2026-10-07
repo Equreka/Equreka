@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Position in uniform motion'
+kind: 'equation'
+level: 'intro'
+expression: '\var{x}=\var{x_{0}}+\mag{v}\mag{t}'
+terms:
+  x:
+    kind: 'symbol'
+    label:
+      en: 'Position'
+    unit: 'metre'
+  x_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial position'
+    unit: 'metre'
+  v:
+    kind: 'magnitude'
+    ref: 'velocity'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  x: 'x_0 + v * t'
+  x_{0}: 'x - v * t'
+  v: '(x - x_0) / t'
+  t: '(x - x_0) / v'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'uniform rectilinear motion'
+  - 'uniform linear motion'
+  - 'constant velocity motion'
+  - 'x = x0 + vt'
+  - 'movimiento rectilíneo uniforme'
+  - 'MRU'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 3.4 Motion with Constant Acceleration, equation 3.10'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-4-motion-with-constant-acceleration'
+  - title: 'OpenStax, University Physics Volume 1, 3.1 Position, Displacement, and Average Velocity'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-1-position-displacement-and-average-velocity'
+  - title: 'HyperPhysics (Georgia State University), Motion equations for constant acceleration'
+    url: 'https://hyperphysics.gsu.edu/hbase/mot.html'
+description:
+  en: >-
+    The position equation of uniform motion gives where a body moving along a straight line at
+    constant velocity is at any time: its starting position plus its velocity multiplied by the
+    elapsed time. Uniform rectilinear motion, motion with zero acceleration, is the simplest case in
+    kinematics, and its equation describes a car holding a steady speed on a straight road or a
+    parcel riding a conveyor belt.
+
+    In the equation, $\var{x}$ is the position at time $\mag{t}$ and $\var{x_{0}}$ the position at
+    the instant the clock starts, both in metres from an origin chosen on the line; $\mag{v}$ is the
+    constant velocity in metres per second, and $\mag{t}$ is the time in seconds since the start,
+    never negative. One direction of the line is taken as positive. Positions on the far side of the
+    origin are negative, and a negative velocity means the body moves towards decreasing positions,
+    so its position falls as time passes.
+
+    Since the velocity never changes, the body covers equal displacements in equal times, and its
+    average velocity over any interval equals the velocity itself. The graph of position against
+    time is a straight line whose slope is the velocity and whose intercept on the position axis is
+    the initial position. Solving for the time tells how long the body takes to reach a given
+    position; a negative result means it passed that point before the clock started, or never
+    reaches it. Setting two such equations equal finds where and when two bodies meet.
+
+    The equation holds only while the velocity stays constant in size and direction. Starting,
+    stopping, turning and every change of pace break it; under a constant non-zero acceleration the
+    position equation of uniformly accelerated motion takes over, and it reduces to this one when
+    the acceleration is zero. Real vehicles hold a steady velocity only approximately, so the
+    equation is an idealization over intervals where the changes are small.
+
+    A train that passes a point 5 kilometres from a station and runs away from it at 20 metres per
+    second is 17 kilometres out 10 minutes later.

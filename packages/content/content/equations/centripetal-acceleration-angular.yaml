@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Centripetal acceleration from angular velocity'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{a_{c}}=\mag{\omega}^{2}\var{r}'
+terms:
+  a_{c}:
+    kind: 'magnitude'
+    ref: 'acceleration'
+  \omega:
+    kind: 'magnitude'
+    ref: 'angular-velocity'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+solutions:
+  a_{c}: 'omega^2 * r'
+  \omega:
+    - 'sqrt(a_c / r)'
+    - '-sqrt(a_c / r)'
+  r: 'a_c / omega^2'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'centripetal acceleration omega squared r'
+  - 'radial acceleration of a rotating point'
+  - 'a = omega^2 r'
+  - 'aceleración centrípeta en función de la velocidad angular'
+references:
+  - title: 'OpenStax, College Physics 2e, 6.2 Centripetal Acceleration'
+    url: 'https://openstax.org/books/college-physics-2e/pages/6-2-centripetal-acceleration'
+  - title: 'R. Fitzpatrick, Classical Mechanics (University of Texas at Austin lecture notes), Centripetal acceleration'
+    url: 'https://farside.ph.utexas.edu/teaching/301/lectures/node87.html'
+  - title: 'OpenStax, University Physics Volume 1, 10.1 Rotational Variables'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-1-rotational-variables'
+description:
+  en: >-
+    Centripetal acceleration from angular velocity expresses the centre-pointing acceleration of a
+    point moving on a circle through how fast it turns: the acceleration equals the square of the
+    angular velocity times the radius. In rotational mechanics this form suits spinning machines,
+    such as centrifuges, wheels and turntables, whose rate of rotation is known while the speed of
+    each point is not.
+
+    Here $\mag{a_{c}}$ is the size of the centripetal acceleration in metres per second squared,
+    $\mag{\omega}$ the angular velocity in radians per second and $\var{r}$ the distance from the
+    axis to the point, the radius of its circle, in metres. Angular velocity is signed: positive for
+    anticlockwise rotation seen from the chosen side of the axis, negative for clockwise. Because it
+    enters squared, both senses of rotation give the same non-negative acceleration, which always
+    points from the point toward the axis. A rate in revolutions per minute must become radians per
+    second before squaring. When solving for the radius or the angular velocity, enter the
+    acceleration as a non-negative number.
+
+    Substituting the speed of a turning point, the angular velocity times the radius, into the speed
+    squared over the radius gives this form. At a fixed rotation rate the acceleration grows in
+    proportion to the distance from the axis, so every point of a rigid wheel shares one angular
+    velocity but the rim accelerates most. Doubling the rotation rate multiplies the acceleration by
+    four.
+
+    The relation assumes a fixed radius and holds at each instant; when the rotation speeds up or
+    slows down, a tangential acceleration adds to the centripetal one at right angles. Solving for
+    the angular velocity gives two roots of equal size and opposite sign. The calculator lists the
+    positive, anticlockwise root first; the negative root describes the same circular motion turned
+    the other way.
+
+    An ultracentrifuge spinning at 75 000 revolutions per minute, about 7854 radians per second,
+    gives a sample 7.50 centimetres from the axis a centripetal acceleration of about 4.63 million
+    metres per second squared.

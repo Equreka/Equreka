@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Average speed'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{\bar{v}}=\frac{\var{d}}{\mag{t}}'
+terms:
+  \bar{v}:
+    kind: 'magnitude'
+    ref: 'speed'
+    identifier: 'v_avg'
+  d:
+    kind: 'symbol'
+    label:
+      en: 'Distance travelled'
+    unit: 'metre'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  \bar{v}: 'd / t'
+  d: 'v_avg * t'
+  t: 'd / v_avg'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q1267186'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'mean speed'
+  - 'speed = distance / time'
+  - 'v = d / t'
+  - 'distance over time'
+  - 'rapidez promedio'
+  - 'celeridad media'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 3.2 Instantaneous Velocity and Speed (average speed)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-2-instantaneous-velocity-and-speed'
+  - title: 'OpenStax, University Physics Volume 1, 3.1 Position, Displacement, and Average Velocity (distance traveled)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-1-position-displacement-and-average-velocity'
+description:
+  en: >-
+    Average speed is the total distance a body travels divided by the time the journey takes. It is
+    the everyday measure of how fast a car, a runner or a train moves over a whole trip, and in
+    kinematics the simplest description of motion: it ignores the direction of travel and every
+    change of pace along the way.
+
+    In the formula, $\mag{\bar{v}}$ is the average speed in metres per second, $\var{d}$ is the
+    distance travelled along the path in metres, and $\mag{t}$ is the elapsed time in seconds, with
+    the clock started at zero. All three are non-negative. The distance counts every metre covered
+    whatever its direction, so it only grows as the trip goes on, and a body that turns back adds
+    the return leg instead of cancelling the outward one.
+
+    The average carries no information about how the speed changed in between. A cyclist who rides
+    fast downhill and slowly uphill and another who keeps a steady pace share the same average speed
+    if they cover the same distance in the same time. Multiplying the average speed by a time gives
+    the distance, which is how journey times are planned. Two legs ridden at different speeds give
+    the arithmetic mean of those speeds only when the legs last equally long.
+
+    Average speed is not the size of the average velocity. The average velocity divides the
+    displacement, the straight-line change of position with its sign, by the time; on a round trip
+    that ends where it began, the displacement and the average velocity are zero, while the average
+    speed is not. The two agree in size only for motion in one direction without turning back. The
+    instantaneous speed read on a speedometer is the limit of the average over ever shorter
+    intervals.
+
+    The quantity sets timetables and fuel and travel estimates. A road trip of 300 kilometres that
+    takes four hours has an average speed of 75 kilometres per hour, about 20.8 metres per second.

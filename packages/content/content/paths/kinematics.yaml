@@ -1,0 +1,363 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.schema.json
+name:
+  en: 'Kinematics'
+level: 'intro'
+prerequisites:
+  - 'si-base-units'
+estimatedMinutes: '60'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'motion'
+  - 'equations of motion'
+  - 'SUVAT'
+  - 'cinemática'
+  - 'movimiento rectilíneo uniformemente acelerado'
+  - 'MRUA'
+references:
+  - title: 'NIST, CODATA Internationally recommended values: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+  - title: 'OpenStax, College Physics 2e, 2.7 Falling Objects (local variation of g)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/2-7-falling-objects'
+  - title: 'OpenStax, University Physics Volume 1, 4.4 Uniform Circular Motion'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/4-4-uniform-circular-motion'
+description:
+  en: >-
+    How motion is described without asking what causes it: speed and velocity, constant
+    acceleration, free fall and projectiles, and motion on a circle, each with a worked check.
+steps:
+  - id: 'intro'
+    kind: 'prose'
+    body:
+      en: >-
+        Kinematics describes how a body moves, leaving the forces behind the motion to dynamics.
+        Five quantities carry it: position, time, speed, velocity and acceleration. Choose an axis
+        and a positive direction before every problem and keep them to the end. Velocity,
+        displacement and acceleration then carry a sign, negative when they point the other way,
+        while speed, distance and time are never negative.
+  - id: 'speed'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'speed'
+    note:
+      en: >-
+        How fast, with no direction: the distance covered per unit time. It never drops below zero.
+  - id: 'velocity'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'velocity'
+    note:
+      en: >-
+        How fast and which way. Along a line it reduces to a signed number whose size is the speed.
+  - id: 'average-speed'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'average-speed'
+    note:
+      en: >-
+        Total distance over total time, whatever route was taken.
+  - id: 'average-velocity'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'average-velocity'
+    note:
+      en: >-
+        Displacement over time: only the start and the end of the trip count, so a return to the
+        starting point gives zero.
+  - id: 'check-round-trip'
+    kind: 'check'
+    prompt:
+      en: >-
+        A runner completes one lap of a 400-metre track in 80 seconds and stops at the starting
+        line. What are the average speed and the average velocity?
+    answer:
+      en: >-
+        The average speed is 400 metres over 80 seconds, 5 metres per second. The displacement is
+        zero because the runner ends where the lap began, so the average velocity is zero.
+  - id: 'kilometre-per-hour'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'kilometre-per-hour'
+    note:
+      en: >-
+        The unit of road signs. One metre per second is 3.6 kilometres per hour, because an hour has
+        3600 seconds and a kilometre 1000 metres.
+  - id: 'check-highway'
+    kind: 'check'
+    prompt:
+      en: >-
+        A car travels at 90 kilometres per hour. What is its speed in metres per second?
+    answer:
+      en: >-
+        25 metres per second: divide 90 by 3.6.
+  - id: 'uniform-motion-position'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'uniform-motion-position'
+    note:
+      en: >-
+        With no acceleration the velocity never changes, so the position grows by the same amount
+        every second from its starting value. A negative velocity makes the position fall as time
+        passes.
+  - id: 'relative-velocity-1d'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'relative-velocity-1d'
+    note:
+      en: >-
+        Velocities measured from different frames add: a passenger's velocity relative to the ground
+        is the velocity relative to the train plus the train's velocity relative to the ground.
+  - id: 'acceleration'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'acceleration'
+    note:
+      en: >-
+        The rate at which velocity changes. Its sign follows the chosen axis, so a negative
+        acceleration means slowing down only when the body moves in the positive direction.
+  - id: 'average-acceleration'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'average-acceleration'
+    note:
+      en: >-
+        Change in velocity over the time it took, the starting point for every constant-acceleration
+        formula.
+  - id: 'constant-acceleration'
+    kind: 'prose'
+    body:
+      en: >-
+        When the acceleration stays constant, five relations link initial velocity, final velocity,
+        displacement, acceleration and time. Each leaves out one of the five quantities, so pick the
+        relation without the quantity that is neither given nor asked for.
+  - id: 'velocity-time-constant-acceleration'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'velocity-time-constant-acceleration'
+    note:
+      en: >-
+        Velocity after a given time: the initial velocity plus acceleration times time. No
+        displacement appears.
+  - id: 'position-time-constant-acceleration'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'position-time-constant-acceleration'
+    note:
+      en: >-
+        Displacement after a given time. Solving it for the time gives a quadratic with two roots;
+        discard a negative root, and when both are positive the first listed is the earliest
+        passage.
+  - id: 'velocity-displacement-constant-acceleration'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'velocity-displacement-constant-acceleration'
+    note:
+      en: >-
+        Velocity and displacement with no time in it, the quickest route to braking distances.
+  - id: 'displacement-average-velocity'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'displacement-average-velocity'
+    note:
+      en: >-
+        Displacement as the mean of the two velocities times the time: the relation without the
+        acceleration.
+  - id: 'displacement-final-velocity'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'displacement-final-velocity'
+    note:
+      en: >-
+        Displacement from the final velocity, the acceleration and the time: the relation without
+        the initial velocity.
+  - id: 'check-braking'
+    kind: 'check'
+    prompt:
+      en: >-
+        A car moving at 20 metres per second brakes with a constant acceleration of minus 5 metres
+        per second squared. How long does it take to stop, and how far does it travel meanwhile?
+    answer:
+      en: >-
+        4 seconds and 40 metres. The velocity falls by 5 metres per second each second, so 20
+        divided by 5 gives the time. The distance is the initial speed squared over twice the size
+        of the acceleration: 400 divided by 10.
+  - id: 'stopping-distance'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'stopping-distance'
+    note:
+      en: >-
+        A driver reacts before braking, so the stopping distance adds the distance covered at
+        constant speed during the reaction time to the braking distance. The braking part grows with
+        the square of the speed.
+  - id: 'free-fall'
+    kind: 'prose'
+    body:
+      en: >-
+        Near the ground, and with air resistance neglected, every body falls with the same
+        acceleration, the gravitational acceleration g. Its standard value is 9.80665 metres per
+        second squared; the local value varies with latitude, altitude and geology, between about
+        9.78 and 9.83 on the surface of the Earth, and differs on another planet or moon. Enter g as
+        a positive number and take the downward direction as positive for falls.
+  - id: 'free-fall-distance'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'free-fall-distance'
+    note:
+      en: >-
+        Distance fallen from rest after a given time: it grows with the square of the time.
+  - id: 'free-fall-velocity'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'free-fall-velocity'
+    note:
+      en: >-
+        Speed gained from rest after a given time: g times the time, about 9.8 metres per second
+        more with every second.
+  - id: 'impact-velocity-from-height'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'impact-velocity-from-height'
+    note:
+      en: >-
+        The speed after a fall from rest through a given height, with no time in it: the square root
+        of twice g times the height.
+  - id: 'check-drop'
+    kind: 'check'
+    prompt:
+      en: >-
+        A stone is dropped from rest and falls for 2.0 seconds. How fast is it moving and how far
+        has it fallen? Use the standard value of g.
+    answer:
+      en: >-
+        About 19.6 metres per second and 19.6 metres. The speed is 9.80665 times 2.0, and the
+        distance is half of 9.80665 times 2.0 squared; with this time both numbers come out equal.
+  - id: 'horizontal-launch-range'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'horizontal-launch-range'
+    note:
+      en: >-
+        A body leaving a table edge horizontally falls like a dropped one while it keeps its
+        horizontal speed, so the time of the fall sets how far away it lands.
+  - id: 'projectile-range'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'projectile-range'
+    note:
+      en: >-
+        A projectile on level ground combines steady horizontal motion with free fall. For a given
+        launch speed the range peaks at 45 degrees, and two complementary angles share every shorter
+        range: the low trajectory is listed first.
+  - id: 'projectile-time-of-flight'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'projectile-time-of-flight'
+    note:
+      en: >-
+        The time in the air on level ground: twice the vertical part of the launch velocity over g.
+  - id: 'projectile-maximum-height'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'projectile-maximum-height'
+    note:
+      en: >-
+        The top of the path depends only on the vertical part of the launch velocity, so for a given
+        speed a launch straight up rises highest.
+  - id: 'check-range'
+    kind: 'check'
+    prompt:
+      en: >-
+        A ball is launched at 20 metres per second over level ground. What is its range at 45
+        degrees, and which other angle gives the same range as a launch at 30 degrees?
+    answer:
+      en: >-
+        About 40.8 metres: the launch speed squared over g, 400 divided by 9.80665. A launch at 60
+        degrees lands at the same point as one at 30 degrees, because the two angles add up to 90
+        degrees; both reach about 35.3 metres.
+  - id: 'circular-motion'
+    kind: 'prose'
+    body:
+      en: >-
+        A body moving on a circle at constant speed still accelerates, because the direction of its
+        velocity keeps turning. The period is the time of one turn, the angular velocity measures
+        the turning rate in radians per second, and the acceleration points at the centre.
+  - id: 'uniform-circular-speed'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'uniform-circular-speed'
+    note:
+      en: >-
+        One circumference per period: the speed along the circle.
+  - id: 'angular-velocity-period'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'angular-velocity-period'
+    note:
+      en: >-
+        One full turn, two pi radians, per period: the turning rate.
+  - id: 'linear-angular-speed'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'linear-angular-speed'
+    note:
+      en: >-
+        The speed of a point is the turning rate times its distance from the axis, so the rim of a
+        wheel outruns its hub.
+  - id: 'centripetal-acceleration'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'centripetal-acceleration'
+    note:
+      en: >-
+        Speed squared over radius, directed at the centre. Doubling the speed on the same circle
+        makes it four times larger.
+  - id: 'centripetal-acceleration-angular'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'centripetal-acceleration-angular'
+    note:
+      en: >-
+        The same acceleration written with the turning rate: angular velocity squared times the
+        radius, handy for machines rated in revolutions per minute once the rate is in radians per
+        second.
+  - id: 'check-carousel'
+    kind: 'check'
+    prompt:
+      en: >-
+        A seat on a carousel sits 3.0 metres from the axis and goes round once every 6.0 seconds.
+        Find its angular velocity, its speed and its centripetal acceleration.
+    answer:
+      en: >-
+        The angular velocity is two pi over 6.0, about 1.05 radians per second. The speed is that
+        rate times 3.0 metres, about 3.14 metres per second. The centripetal acceleration is the
+        speed squared over 3.0 metres, about 3.29 metres per second squared, pointing at the axis.

@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Desplazamiento a partir de la velocidad media'
+terms:
+  \Delta x:
+    label: 'Desplazamiento'
+  v_{0}:
+    label: 'Velocidad inicial'
+  v:
+    label: 'Velocidad final'
+description: >-
+  Con aceleración constante, el desplazamiento de un cuerpo es igual a la media de sus velocidades
+  inicial y final multiplicada por el tiempo transcurrido. Conocida en la historia de la ciencia
+  como teorema de la velocidad media o regla de Merton, es una de las ecuaciones de la cinemática
+  con aceleración constante, la indicada cuando se conocen las dos velocidades y el tiempo, pero no
+  la aceleración.
+
+  En la ecuación, $\var{\Delta x}$ es el desplazamiento en metros, posición final menos posición
+  inicial; $\var{v_{0}}$ y $\var{v}$ son las velocidades inicial y final en metros por segundo; y
+  $\mag{t}$ es el tiempo transcurrido en segundos, nunca negativo. El desplazamiento y las
+  velocidades tienen signo según un sentido positivo elegido, de modo que un cuerpo que sale hacia
+  delante y termina moviéndose hacia atrás tiene velocidades de signo opuesto, y su media puede ser
+  pequeña, nula o negativa.
+
+  Con una aceleración constante la velocidad cambia a un ritmo fijo, así que su media en el
+  intervalo queda exactamente a mitad de camino entre sus valores inicial y final. El desplazamiento
+  es esa velocidad media por el tiempo, y en eso consiste toda la relación. En una gráfica de la
+  velocidad frente al tiempo la línea es recta, y la región bajo ella es un trapecio cuya área es el
+  tiempo multiplicado por la media de sus dos lados paralelos.
+
+  Solo con aceleración constante está garantizado que la media de las dos velocidades extremas
+  coincida con la velocidad media. En un coche que acelera con fuerza y luego mantiene la marcha, o
+  en cualquier cuerpo cuya aceleración cambie, la verdadera velocidad media es el desplazamiento
+  dividido entre el tiempo y en general difiere de la media de los valores extremos, de modo que la
+  ecuación da en general un desplazamiento erróneo. También se supone un movimiento rectilíneo.
+
+  William Heytesbury, miembro del Merton College de Oxford, enunció la regla en escritos de la
+  década de 1330, y más tarde contribuyó a la ley de la caída libre; Nicole Oresme fue el primero en
+  demostrarla. Un dragster que alcanza 144.6 metros por segundo desde el reposo en 5.56 segundos
+  recorre unos 402 metros.

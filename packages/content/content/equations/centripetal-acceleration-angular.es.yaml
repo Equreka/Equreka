@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Aceleración centrípeta a partir de la velocidad angular'
+description: >-
+  La aceleración centrípeta a partir de la velocidad angular expresa la aceleración dirigida al
+  centro de un punto que se mueve sobre una circunferencia según lo rápido que gira: la aceleración
+  es igual al cuadrado de la velocidad angular por el radio. En la mecánica de rotación, esta forma
+  conviene a máquinas que giran, como centrifugadoras, ruedas y platos giratorios, cuyo ritmo de
+  giro se conoce mientras que la rapidez de cada punto no.
+
+  Aquí $\mag{a_{c}}$ es el módulo de la aceleración centrípeta en metros por segundo al cuadrado,
+  $\mag{\omega}$ la velocidad angular en radianes por segundo y $\var{r}$ la distancia del eje al
+  punto, el radio de su circunferencia, en metros. La velocidad angular tiene signo: positiva para
+  el giro antihorario visto desde el lado elegido del eje, negativa para el horario. Como entra al
+  cuadrado, los dos sentidos de giro dan la misma aceleración no negativa, que siempre apunta del
+  punto hacia el eje. Un ritmo en revoluciones por minuto debe pasarse a radianes por segundo antes
+  de elevarlo al cuadrado. Al despejar el radio o la velocidad angular, la aceleración se introduce
+  como un número no negativo.
+
+  Al sustituir la rapidez de un punto que gira, la velocidad angular por el radio, en la rapidez al
+  cuadrado entre el radio, se obtiene esta forma. Con un ritmo de giro fijo, la aceleración crece en
+  proporción a la distancia al eje, de modo que todos los puntos de una rueda rígida comparten una
+  velocidad angular pero el borde es el que más acelera. Duplicar el ritmo de giro multiplica la
+  aceleración por cuatro.
+
+  La relación supone un radio fijo y vale en cada instante; cuando el giro se acelera o se frena, se
+  suma a la centrípeta una aceleración tangencial en ángulo recto. Al despejar la velocidad angular
+  salen dos raíces del mismo valor absoluto y signo opuesto. La calculadora muestra primero la raíz
+  positiva, antihoraria; la negativa describe el mismo movimiento circular recorrido en el otro
+  sentido.
+
+  Una ultracentrifugadora que gira a 75 000 revoluciones por minuto, unos 7854 radianes por segundo,
+  da a una muestra situada a 7.50 centímetros del eje una aceleración centrípeta de unos 4.63
+  millones de metros por segundo al cuadrado.

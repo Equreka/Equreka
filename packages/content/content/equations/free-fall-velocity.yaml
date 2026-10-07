@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Speed in free fall'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{v}=\var{g}\mag{t}'
+terms:
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  v: 'g * t'
+  g: 'v / t'
+  t: 'v / g'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'free fall velocity'
+  - 'free-fall velocity'
+  - 'free-fall speed'
+  - 'velocity of a falling body'
+  - 'speed of a falling object'
+  - 'velocidad en caída libre'
+  - 'velocidad de caída'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 3.5 Free Fall'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-5-free-fall'
+  - title: 'OpenStax, College Physics 2e, 2.7 Falling Objects'
+    url: 'https://openstax.org/books/college-physics-2e/pages/2-7-falling-objects'
+  - title: 'R. Nave, HyperPhysics, Trajectories (free fall from rest)'
+    url: 'https://hyperphysics.gsu.edu/hbase/traj.html'
+  - title: 'NIST, CODATA Value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+  - title: 'MacTutor History of Mathematics, Galileo Galilei (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Galileo/'
+description:
+  en: >-
+    The speed in free fall is the speed a body reaches a given time after being released from rest
+    when gravity is the only force acting on it: the gravitational acceleration multiplied by the
+    elapsed time. Often called the free-fall velocity, it is the free-fall case of the velocity
+    equation for constant acceleration in kinematics, and it grows by the same amount in every
+    second of the fall.
+
+    Here $\mag{v}$ is the speed reached, in metres per second; $\mag{t}$ is the time since release,
+    in seconds; and $\var{g}$ is the size of the gravitational acceleration, in metres per second
+    squared, entered as a positive number. Speed and time are non-negative. The velocity itself
+    points straight down: with downward taken as positive it equals $\mag{v}$, and with upward taken
+    as positive, as many textbooks choose, it carries a minus sign. The standard value of $\var{g}$
+    is 9.80665 metres per second squared; the local value varies with latitude, altitude and
+    geology, between about 9.78 and 9.83 on the surface of the Earth, and differs on another planet
+    or moon.
+
+    Acceleration is the rate at which velocity changes. Under the constant acceleration $\var{g}$, a
+    body starting from rest gains $\var{g}$ metres per second of speed in each second, so after
+    $\mag{t}$ seconds it has gained $\var{g}$ times $\mag{t}$. On a graph of speed against time the
+    motion is a straight line through the origin with slope $\var{g}$, and the area under that line
+    is the distance fallen.
+
+    The relation assumes release from rest, negligible air resistance and a uniform gravitational
+    field. In air, drag rises with speed until it balances the weight, after which the speed stops
+    growing, so the formula overestimates the speed of a light or broad object. A body already
+    moving vertically at release needs the general equation with an initial velocity.
+
+    Galileo Galilei formulated the law of falling bodies and tested it by measurement, slowing the
+    motion on inclined planes. A stone dropped from rest moves at about 19.6 metres per second,
+    roughly 71 kilometres per hour, after 2 seconds.

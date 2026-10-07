@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Rapidez tangencial a partir de la velocidad angular'
+description: >-
+  La rapidez tangencial a partir de la velocidad angular establece que un punto de un cuerpo que
+  gira recorre su circunferencia con una rapidez igual a la velocidad angular por su distancia al
+  eje. También llamada relación entre rapidez lineal y velocidad angular, es el puente de la
+  cinemática de rotación entre lo rápido que gira un cuerpo y lo rápido que se mueve cada uno de sus
+  puntos.
+
+  Aquí $\mag{v}$ es la rapidez tangencial en metros por segundo, $\mag{\omega}$ la velocidad angular
+  en radianes por segundo y $\var{r}$ la distancia del eje de rotación al punto, en metros. La
+  rapidez y la distancia son no negativas. La velocidad angular tiene signo, positiva para el giro
+  antihorario y negativa para el horario vistos desde el lado elegido del eje; la fórmula usa su
+  valor absoluto, porque la rapidez de un punto no depende del sentido de giro. La velocidad en sí
+  apunta a lo largo de la tangente a la circunferencia, perpendicular al radio.
+
+  Mientras el cuerpo gira un cierto ángulo, el punto recorre un arco cuya longitud es el radio por
+  ese ángulo en radianes. Al dividir ambos entre el tiempo transcurrido, el ángulo se convierte en
+  la velocidad angular y el arco en la rapidez. Todos los puntos de un cuerpo rígido comparten una
+  velocidad angular, así que la rapidez crece en proporción a la distancia al eje: los puntos del
+  eje quedan en reposo y el borde es el que más rápido se mueve.
+
+  La velocidad angular debe ir en radianes por segundo; un ritmo en revoluciones por minuto o en
+  grados por segundo da una rapidez errónea hasta que se convierte. La relación vale en cada
+  instante, también para un giro que se acelera o se frena. En una rueda que rueda sin deslizar, la
+  rapidez del borde respecto al eje es igual a la rapidez con que avanza el vehículo.
+
+  La fórmula sirve para dimensionar poleas, engranajes y transmisiones por correa, fija la velocidad
+  de corte de tornos y sierras, y da la rapidez de un punto de la Tierra en rotación. Un neumático
+  de 0.300 metros de radio en un coche que avanza a 15.0 metros por segundo gira a 50.0 radianes por
+  segundo.

@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Velocidad relativa en una dimensión'
+terms:
+  v_\mathrm{AC}:
+    label: 'Velocidad de A respecto de C'
+  v_\mathrm{AB}:
+    label: 'Velocidad de A respecto de B'
+  v_\mathrm{BC}:
+    label: 'Velocidad de B respecto de C'
+description: >-
+  La velocidad relativa en una dimensión da la velocidad de un cuerpo A medida desde un sistema de
+  referencia C como la suma de su velocidad respecto de un segundo sistema B y la velocidad de B
+  respecto de C. Esta regla de composición galileana de velocidades describe a un pasajero que
+  camina por un tren en marcha, una barca en la corriente de un río o dos coches en la misma
+  carretera vistos el uno desde el otro.
+
+  En la ecuación, $\var{v_\mathrm{AB}}$ es la velocidad de A respecto de B, $\var{v_\mathrm{BC}}$ la
+  velocidad de B respecto de C y $\var{v_\mathrm{AC}}$ la velocidad de A respecto de C, todas en
+  metros por segundo a lo largo de una misma recta con un sentido positivo común. Cada una tiene
+  signo, e intercambiar las dos letras de un subíndice invierte ese signo: la velocidad de B
+  respecto de A es la opuesta de la velocidad de A respecto de B. En una suma correcta las letras
+  interiores coinciden, lo que permite comprobar rápidamente el orden.
+
+  Una velocidad solo tiene sentido respecto de un sistema de referencia, un cuerpo o unos ejes desde
+  los que se miden las posiciones. La posición de A medida desde C es su posición medida desde B más
+  la posición de B medida desde C, y dividir los cambios de estas posiciones entre un mismo
+  intervalo de tiempo da la regla. Dos cuerpos que avanzan de frente se acercan entre sí a la suma
+  de sus rapideces.
+
+  La regla supone que el tiempo transcurre al mismo ritmo en todos los sistemas y que todas las
+  rapideces son muy inferiores a la de la luz; es la relatividad clásica de Galileo y Newton,
+  precisa por debajo de alrededor del uno por ciento de esa rapidez. Por encima, la relatividad
+  especial la sustituye por una fórmula de composición de velocidades que nunca da un resultado
+  superior a la velocidad de la luz. En dos o tres dimensiones la misma regla vale para los vectores
+  velocidad.
+
+  Un pasajero que camina hacia la cola de un tren a 2 metros por segundo mientras el tren avanza a
+  10 metros por segundo respecto del suelo se mueve a 8 metros por segundo respecto del suelo, en el
+  sentido de la marcha del tren.

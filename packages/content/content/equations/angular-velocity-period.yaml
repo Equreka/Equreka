@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Angular velocity from the period'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{\omega}=\frac{2\const{\pi}}{\mag{T}}'
+terms:
+  \omega:
+    kind: 'magnitude'
+    ref: 'angular-velocity'
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+  T:
+    kind: 'magnitude'
+    ref: 'period'
+solutions:
+  \omega: '2 * pi / T'
+  T: '2 * pi / abs(omega)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'omega = 2 pi / T'
+  - 'angular speed and period'
+  - 'period of rotation'
+  - 'velocidad angular y periodo'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 4.4 Uniform Circular Motion'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/4-4-uniform-circular-motion'
+  - title: 'R. Fitzpatrick, Classical Mechanics (University of Texas at Austin lecture notes), Uniform circular motion'
+    url: 'https://farside.ph.utexas.edu/teaching/301/lectures/node86.html'
+  - title: 'OpenStax, University Physics Volume 1, 10.1 Rotational Variables'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-1-rotational-variables'
+description:
+  en: >-
+    Angular velocity from the period gives the rate at which a body in uniform rotation turns: one
+    full turn, two pi radians, divided by the time that turn takes. In mechanics it connects the
+    period, a time that can be measured with a stopwatch, to the angular velocity that the formulas
+    of rotation and circular motion use, for wheels, planets and clock hands alike.
+
+    Here $\mag{\omega}$ is the angular velocity in radians per second and $\mag{T}$ the period in
+    seconds, the time of one complete revolution, while $\const{\pi}$ is the ratio of a circle's
+    circumference to its diameter. The period is non-negative. Angular velocity is signed, positive
+    for anticlockwise rotation seen from the chosen side of the axis and negative for clockwise, but
+    the formula returns only its size: reversing the rotation leaves the period unchanged, so the
+    sign must come from the observed sense of turning.
+
+    Turning at a steady rate means sweeping equal angles in equal times, so the angle divided by the
+    time is the same over any interval. Choosing the interval to be one period makes the angle a
+    whole turn, two pi radians, which yields the formula. The frequency, the number of turns per
+    second, is the reciprocal of the period, so the same rate is also two pi times the frequency: a
+    rotation of one turn per second is about 6.28 radians per second.
+
+    The relation assumes a constant rate of rotation; for a rotation that speeds up or slows down it
+    gives only the average angular velocity over a turn. Angles are measured in radians, so a rate
+    quoted in revolutions per minute or degrees per second is converted before it enters the other
+    formulas of rotation, which all assume radians.
+
+    The same relation, read backwards, gives the period of a rotating machine from its rated angular
+    velocity, and the period of a planet's spin from its rotation rate. A body that turns once every
+    0.02 seconds has an angular velocity of about 314 radians per second.

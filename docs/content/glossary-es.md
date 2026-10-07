@@ -112,6 +112,9 @@ Prefix names: *mili* per RAE; *atto* per the DLE entry *atto-* and, with *zetta*
 | speed | rapidez | usage (CEM's Table 5 says *velocidad* for both; this project keeps the scalar/vector distinction) |
 | velocity | velocidad | CEM |
 | acceleration | aceleración | CEM |
+| deceleration (an everyday word for the size of a braking acceleration, not a separate quantity) | deceleración | sidecar (`magnitudes/acceleration`) |
+| size of a vector quantity; size of a signed scalar | módulo; valor absoluto (never *tamaño* for either) | usage |
+| level ground, level road | terreno llano, carretera llana | sidecar |
 | displacement | desplazamiento | usage |
 | momentum | cantidad de movimiento (*momento lineal* in `aliases`) | usage |
 | impulse | impulso | usage |
