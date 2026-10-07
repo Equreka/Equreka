@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Pressure on a surface'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{p}=\frac{\mag{F}}{\mag{A}}'
+terms:
+  p:
+    kind: 'magnitude'
+    ref: 'pressure'
+  F:
+    kind: 'magnitude'
+    ref: 'force'
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+solutions:
+  p: 'F / A'
+  F: 'p * A'
+  A: 'F / p'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'pressure formula'
+  - 'pressure equation'
+  - 'p = F/A'
+  - 'force per unit area'
+  - 'fórmula de la presión'
+  - 'fuerza por unidad de superficie'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 14.1 Fluids, Density, and Pressure'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure'
+  - title: 'OpenStax, College Physics 2e, 11.3 Pressure'
+    url: 'https://openstax.org/books/college-physics-2e/pages/11-3-pressure'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Pressure'
+    url: 'https://hyperphysics.gsu.edu/hbase/press.html'
+  - title: 'MacTutor History of Mathematics, Blaise Pascal (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Pascal/'
+description:
+  en: >-
+    Pressure on a surface is the force acting perpendicular to the surface divided by the area over
+    which that force is spread. The relation defines pressure in mechanics and fluid mechanics and
+    explains why the same push that a fingertip makes harmless drives a needle through skin: the
+    smaller the area, the larger the pressure.
+
+    Here $\mag{p}$ is the pressure in pascals, $\mag{F}$ the size of the force component normal to
+    the surface in newtons, and $\mag{A}$ the area in square metres; one pascal is one newton per
+    square metre. The formula works with sizes, so all three are entered as non-negative numbers. A
+    force component parallel to the surface adds nothing to the pressure; it shears the surface
+    instead.
+
+    Pressure is a scalar. The force it exerts on any surface points perpendicular to that surface,
+    but the pressure itself has no direction, so a fluid at rest pushes on the floor of a tank, on
+    its walls and on an immersed body with forces whose directions come from each surface. When a
+    force is spread unevenly, the formula gives the average pressure over the area, and the local
+    value changes from point to point.
+
+    Blades, nails and needles concentrate a modest force on a tiny area to reach a very high
+    pressure, while snowshoes, wide tyres and building foundations spread a load over a large area
+    to keep the pressure low. Read the other way, a pressure multiplied by an area gives the force
+    on a surface, which is how the push of compressed gas on the end of a tank or of water on a dam
+    is found.
+
+    The SI unit of pressure, the pascal, is named after the French mathematician and physicist
+    Blaise Pascal, who lived from 1623 to 1662. A crate weighing 500 newtons that rests on a base of
+    0.25 square metres presses on the floor with 2000 pascals.

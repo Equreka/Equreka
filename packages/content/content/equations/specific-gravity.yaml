@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Specific gravity'
+kind: 'formula'
+level: 'intro'
+expression: '\var{\mathrm{SG}}=\frac{\var{\rho_\mathrm{o}}}{\var{\rho_\mathrm{w}}}'
+terms:
+  \mathrm{SG}:
+    kind: 'symbol'
+    label:
+      en: 'Specific gravity'
+  \rho_\mathrm{o}:
+    kind: 'symbol'
+    label:
+      en: 'Density of the object or substance'
+    unit: 'kilogram-per-cubic-metre'
+  \rho_\mathrm{w}:
+    kind: 'symbol'
+    label:
+      en: 'Reference density of water'
+    unit: 'kilogram-per-cubic-metre'
+solutions:
+  \mathrm{SG}: 'rho_o / rho_w'
+  \rho_\mathrm{o}: 'SG * rho_w'
+  \rho_\mathrm{w}: 'rho_o / SG'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q10972285'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'relative density'
+  - 'SG'
+  - 'density relative to water'
+  - 'gravedad específica'
+references:
+  - title: 'OpenStax, College Physics 2e, 11.7 Archimedes'' Principle (specific gravity)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/11-7-archimedes-principle'
+  - title: 'OpenStax, College Physics 2e, 11.2 Density (Table 11.1)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/11-2-density'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Buoyancy'
+    url: 'https://hyperphysics.gsu.edu/hbase/pbuoy.html'
+  - title: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems: water, isobar at 0.101325 MPa'
+    url: 'https://webbook.nist.gov/cgi/fluid.cgi?Action=Load&ID=C7732185&Type=IsoBar&Digits=6&P=0.101325&THigh=10&TLow=0&TInc=1&RefState=DEF&TUnit=C&PUnit=MPa&DUnit=kg%2Fm3&HUnit=kJ%2Fmol&WUnit=m%2Fs&VisUnit=uPa*s&STUnit=N%2Fm'
+description:
+  en: >-
+    Specific gravity, also called relative density, is the density of a substance divided by the
+    density of water, the reference fluid. As a ratio of two densities it is a pure number with no
+    unit, and it shows at once whether a solid sinks or floats in water and how many times heavier
+    than the same volume of water a material is.
+
+    Here $\var{\mathrm{SG}}$ is the specific gravity, a pure number; $\var{\rho_\mathrm{o}}$ is the
+    density of the object or substance and $\var{\rho_\mathrm{w}}$ the reference density of water,
+    both in kilograms per cubic metre, so the units cancel. All three are positive. The usual
+    reference is water at 4 degrees Celsius, the temperature of its greatest density, where its
+    density is about 1000 kilograms per cubic metre (999.97 in precise tables), and it is slightly
+    lower on either side of that temperature.
+
+    Since the reference density is 1000 kilograms per cubic metre, the specific gravity equals the
+    density written in grams per cubic centimetre: aluminium has a specific gravity of about 2.7 and
+    cork about 0.24. An object with a specific gravity below one floats in fresh water, with that
+    same fraction of its volume submerged; above one it sinks.
+
+    Both densities change with temperature, so a precise value states the temperature of the sample
+    and of the reference water. The general term relative density also admits other reference
+    substances, while specific gravity in the strict sense compares with water. For a hollow or
+    composite object the formula gives the specific gravity of its average density.
+
+    Weighing a sample in air and again fully submerged in water yields its specific gravity: the
+    loss of weight equals the weight of the water displaced, so the weight in air divided by that
+    loss is the ratio of the densities.

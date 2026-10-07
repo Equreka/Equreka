@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Poise'
+namePlural:
+  en: 'poises'
+symbol:
+  tex: 'P'
+unitOf:
+  - 'dynamic-viscosity'
+system: 'cgs'
+prefixes:
+  - 'centi'
+toBase:
+  factor: '0.1'
+  exact: true
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+    ref: 'B.8: poise (P), 1.0 E-01 Pa s, boldface (exact)'
+externalIds:
+  wikidata: 'Q2100949'
+  qudt: 'http://qudt.org/vocab/unit/POISE'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'poises'
+  - 'g/(cm s)'
+  - 'dyn s/cm^2'
+  - 'dyne second per square centimetre'
+references:
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: poise (P), centipoise (cP)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (9th CGPM, 1948, Resolution 7: unit symbols)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'R. Nave, HyperPhysics, Viscosity of liquids and gases (table in poise)'
+    url: 'https://hyperphysics.gsu.edu/hbase/Tables/viscosity.html'
+  - title: 'R. Nave, HyperPhysics, Viscosity of water'
+    url: 'https://hyperphysics.gsu.edu/hbase/Chemical/watervis.html'
+  - title: 'S. Viscardy, Viscosity from Newton to modern non-equilibrium statistical mechanics, arXiv:cond-mat/0601210, section 3.2 and note 37'
+    url: 'https://arxiv.org/abs/cond-mat/0601210'
+  - title: 'OpenStax, University Physics Volume 1, 14.7 Viscosity and Turbulence (Poiseuille''s law)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-7-viscosity-and-turbulence'
+  - title: 'QUDT, units POISE and CentiPOISE'
+    url: 'https://qudt.org/vocab/unit/POISE'
+description:
+  en: >-
+    The poise, symbol $\mathrm{P}$, is the unit of dynamic viscosity of the centimetre-gram-second
+    (CGS) system. It is the viscosity of a fluid in which a shear stress of one dyne per square
+    centimetre keeps up a velocity gradient of one centimetre per second per centimetre. It is not
+    an SI unit, but it survives in the form of the centipoise.
+
+    One poise equals exactly $0.1\,\mathrm{Pa\,s}$; NIST Special Publication 811 prints the factor
+    in boldface in its Appendix B.8, its mark for an exact conversion. The factor follows from the
+    CGS base units, since the poise is one gram per centimetre per second and the gram and the
+    centimetre are a thousandth of a kilogram and a hundredth of a metre.
+
+    Ten poises make one pascal second, and the centipoise, a hundredth of a poise, equals exactly
+    one millipascal second. Water at 20 degrees Celsius has a viscosity very close to one
+    centipoise, which makes the centipoise a handy scale for liquids.
+
+    Viscosity tables and data sheets still often quote liquids in centipoise and older tables use
+    the poise itself: glycerine has about 15 poises at 20 degrees Celsius, while air has only about
+    $1.8\times10^{-4}\,\mathrm{P}$.
+
+    The unit honours the French scientist Jean Léonard Marie Poiseuille, who, interested in how
+    blood circulates, measured the flow of liquids through glass capillaries of very fine bore and
+    published his results in 1840 and 1846. In 1948 the 9th General Conference on Weights and
+    Measures included the poise, with the symbol P, in its list of unit symbols. The plural is
+    poises.

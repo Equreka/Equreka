@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Densidad relativa'
+terms:
+  \mathrm{SG}:
+    label: 'Densidad relativa'
+  \rho_\mathrm{o}:
+    label: 'Densidad del objeto o de la sustancia'
+  \rho_\mathrm{w}:
+    label: 'Densidad de referencia del agua'
+description: >-
+  La densidad relativa, también llamada gravedad específica, es la densidad de una sustancia
+  dividida entre la densidad del agua, el fluido de referencia. Como cociente de dos densidades es
+  un número puro sin unidad, y muestra de inmediato si un sólido se hunde o flota en el agua y
+  cuántas veces más pesado que el mismo volumen de agua es un material.
+
+  Aquí $\var{\mathrm{SG}}$ es la densidad relativa, un número puro; $\var{\rho_\mathrm{o}}$ es la
+  densidad del objeto o de la sustancia y $\var{\rho_\mathrm{w}}$ la densidad de referencia del
+  agua, ambas en kilogramos por metro cúbico, de modo que las unidades se cancelan. Las tres son
+  positivas. La referencia habitual es el agua a 4 grados Celsius, la temperatura de su densidad
+  máxima, donde su densidad es de unos 1000 kilogramos por metro cúbico (999.97 en las tablas
+  precisas), y es algo menor a cualquier otra temperatura.
+
+  Como la densidad de referencia es 1000 kilogramos por metro cúbico, la densidad relativa coincide
+  con la densidad expresada en gramos por centímetro cúbico: el aluminio tiene una densidad relativa
+  de unos 2.7 y el corcho de unos 0.24. Un objeto con densidad relativa menor que uno flota en agua
+  dulce, con esa misma fracción de su volumen sumergida; si es mayor que uno, se hunde.
+
+  Las dos densidades cambian con la temperatura, así que un valor preciso indica la temperatura de
+  la muestra y la del agua de referencia. En sentido amplio, la densidad relativa puede tomar otras
+  sustancias de referencia; la gravedad específica en sentido estricto se refiere siempre al agua.
+  Para un objeto hueco o compuesto, la fórmula da la densidad relativa de su densidad media.
+
+  Pesar una muestra en el aire y de nuevo sumergida por completo en agua da su densidad relativa: la
+  pérdida de peso es igual al peso del agua desalojada, así que el peso en el aire dividido entre
+  esa pérdida es el cociente de las densidades.

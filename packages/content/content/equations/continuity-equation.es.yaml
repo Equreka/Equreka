@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ecuación de continuidad'
+terms:
+  A_{1}:
+    label: 'Área de la sección 1'
+  v_{1}:
+    label: 'Rapidez del flujo en la sección 1'
+  A_{2}:
+    label: 'Área de la sección 2'
+  v_{2}:
+    label: 'Rapidez del flujo en la sección 2'
+description: >-
+  La ecuación de continuidad del flujo de fluidos establece que, para un líquido que circula de
+  forma estacionaria por una tubería o un canal, el área de la sección por la rapidez del flujo
+  tiene el mismo valor en todas las secciones. Expresa la conservación de la masa de un fluido
+  incompresible en mecánica de fluidos: el volumen que entra cada segundo en un tramo de tubería
+  debe salir de él, de modo que el fluido se acelera donde la tubería se estrecha y se frena donde
+  se ensancha.
+
+  Aquí $\var{A_{1}}$ y $\var{A_{2}}$ son las áreas de dos secciones del mismo flujo, en metros
+  cuadrados, y $\var{v_{1}}$ y $\var{v_{2}}$ son las rapideces medias del flujo en ellas, en metros
+  por segundo. Las cuatro son positivas, y los subíndices solo distinguen las dos secciones, así que
+  cualquiera de ellas puede estar aguas arriba.
+
+  Cada miembro de la ecuación es el caudal a través de una sección. Si entre las secciones no hay
+  fugas ni ramificaciones y el fluido no puede comprimirse, el volumen que cruza la primera sección
+  por segundo es igual al que cruza la segunda. Como el área crece con el cuadrado del radio,
+  reducir a la mitad el radio de una tubería hace que el fluido vaya cuatro veces más rápido.
+
+  La relación supone flujo estacionario, ningún aporte ni pérdida de fluido entre las secciones y
+  densidad constante. Los líquidos cumplen bien esta última condición; un gas que se comprime o se
+  expande por el camino no la cumple, y entonces se aplica la forma general, con cada producto
+  multiplicado por la densidad local. Las rapideces son promedios sobre cada sección, porque en una
+  tubería real el fluido cercano a la pared se mueve más despacio que en el centro.
+
+  La ecuación explica por qué una boquilla produce un chorro rápido y por qué un río se frena en un
+  embalse ancho; junto con la ecuación de Bernoulli describe cómo se vacía un depósito por un
+  orificio. El agua que avanza a 1.96 metros por segundo en una manguera de 0.9 centímetros de radio
+  sale por una boquilla de 0.25 centímetros de radio a unos 25 metros por segundo.

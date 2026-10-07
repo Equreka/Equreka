@@ -1,0 +1,83 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Pascal''s principle'
+kind: 'equation'
+level: 'intro'
+expression: '\frac{\var{F_{1}}}{\var{A_{1}}}=\frac{\var{F_{2}}}{\var{A_{2}}}'
+terms:
+  F_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Input force'
+    unit: 'newton'
+  A_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Input piston area'
+    unit: 'square-metre'
+  F_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Output force'
+    unit: 'newton'
+  A_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Output piston area'
+    unit: 'square-metre'
+solutions:
+  F_{1}: 'F_2 * A_1 / A_2'
+  A_{1}: 'F_1 * A_2 / F_2'
+  F_{2}: 'F_1 * A_2 / A_1'
+  A_{2}: 'F_2 * A_1 / F_1'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q190760'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'Pascal''s law'
+  - 'hydraulic press'
+  - 'hydraulic press equation'
+  - 'hydraulic lift'
+  - 'F1/A1 = F2/A2'
+  - 'ley de Pascal'
+  - 'prensa hidráulica'
+  - 'gato hidráulico'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 14.3 Pascal''s Principle and Hydraulics'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-3-pascals-principle-and-hydraulics'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Pascal''s Principle'
+    url: 'https://hyperphysics.gsu.edu/hbase/pasc.html'
+  - title: 'MacTutor History of Mathematics, Blaise Pascal (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Pascal/'
+description:
+  en: >-
+    Pascal's principle states that an enclosed fluid at rest passes any change in applied pressure
+    to all of its volume and to every wall of the vessel without loss. In its hydraulic form, the
+    force on each piston divided by that piston's area is the same on both sides of the machine, so
+    a small force on a narrow piston balances a large force on a wide one. It is also called
+    Pascal's law and is the working principle of the hydraulic press.
+
+    Here $\var{F_{1}}$ is the input force pushing on the small piston and $\var{A_{1}}$ the area of
+    that piston; $\var{F_{2}}$ is the output force on the large piston and $\var{A_{2}}$ its area.
+    Forces are in newtons and areas in square metres, all entered as non-negative sizes, and each
+    force acts perpendicular to the face of its piston.
+
+    Pushing the input piston raises the pressure beneath it by the input force over its area, and
+    the fluid carries the same rise to the output piston, where it acts on a larger area and yields
+    a larger force; the force ratio equals the area ratio. Energy is not multiplied. The fluid
+    hardly changes volume, so the volume swept by one piston equals the volume swept by the other,
+    and the small piston must travel farther by the same factor by which the force grows.
+
+    The relation assumes an incompressible fluid at rest, pistons at the same height, and negligible
+    friction and piston weight. A difference in height between the pistons adds a hydrostatic
+    pressure difference, and trapped gas breaks the incompressibility on which the transmission
+    depends.
+
+    Blaise Pascal set out the principle in his Treatise on the Equilibrium of Liquids, written in
+    1653. Hydraulic jacks, lifts, presses and car brakes apply the principle: 200 newtons on a
+    piston of 10 square centimetres hold up 10 kilonewtons on a piston of 500 square centimetres.

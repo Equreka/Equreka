@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Viscosidad dinámica'
+description: >-
+  La viscosidad dinámica, también llamada viscosidad de cizalla o viscosidad a secas, es la
+  propiedad de un fluido que mide su rozamiento interno: la tensión tangencial necesaria para que
+  capas vecinas de un líquido o de un gas se deslicen unas sobre otras, dividida entre el ritmo al
+  que cambia la rapidez del flujo de una capa a otra. Es la magnitud que hace que la miel fluya más
+  despacio que el agua en mecánica de fluidos.
+
+  Su unidad SI es el pascal segundo, que el folleto del SI incluye entre las unidades derivadas
+  coherentes cuyo nombre contiene una unidad con nombre especial; en unidades básicas es el
+  kilogramo por metro y por segundo, de modo que su dimensión es masa dividida entre longitud y
+  tiempo. El poise del sistema CGS equivale exactamente a una décima de pascal segundo, y el
+  centipoise a un milipascal segundo.
+
+  La viscosidad es un escalar y nunca es negativa. Un fluido de viscosidad despreciable se llama
+  ideal, una aproximación habitual en muchos problemas de flujo; en un fluido real que circula por
+  una tubería, la capa en contacto con la pared queda en reposo y la rapidez es máxima en el eje.
+
+  Puede determinarse arrastrando una placa plana sobre una película delgada de fluido y midiendo la
+  fuerza, o cronometrando el paso del fluido por un tubo estrecho. El aire a 20 grados Celsius tiene
+  unos $1.81\times10^{-5}\,\mathrm{Pa\,s}$, el agua alrededor de un milipascal segundo, la glicerina
+  unos $1.5\,\mathrm{Pa\,s}$ y la miel alcanza varias unidades de pascal segundo. Al calentarse, un
+  líquido se vuelve menos viscoso y un gas, más.
+
+  La viscosidad dinámica no es lo mismo que la viscosidad cinemática, el cociente entre la
+  viscosidad dinámica y la densidad, que se mide en metros cuadrados por segundo. La idea se remonta
+  a Isaac Newton, cuyos Principia de 1687 suponían que la resistencia entre capas de fluido que se
+  deslizan crece con la rapidez con la que se separan.

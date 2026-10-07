@@ -1,0 +1,90 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Absolute pressure at a depth'
+kind: 'equation'
+level: 'intro'
+expression: '\var{p}=\var{p_{0}}+\mag{\rho}\var{g}\var{h}'
+terms:
+  p:
+    kind: 'symbol'
+    label:
+      en: 'Absolute pressure'
+    unit: 'pascal'
+  p_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Surface pressure'
+    unit: 'pascal'
+  \rho:
+    kind: 'magnitude'
+    ref: 'density'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+  h:
+    kind: 'symbol'
+    label:
+      en: 'Depth'
+    unit: 'metre'
+solutions:
+  p: 'p_0 + rho * g * h'
+  p_{0}: 'p - rho * g * h'
+  \rho: '(p - p_0) / (g * h)'
+  g: '(p - p_0) / (rho * h)'
+  h: '(p - p_0) / (rho * g)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'p = p0 + rho g h'
+  - 'total pressure at depth'
+  - 'pressure at depth in a liquid'
+  - 'absolute pressure'
+  - 'presión absoluta'
+  - 'presión total'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 14.1 Fluids, Density, and Pressure (Equation 14.4)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure'
+  - title: 'OpenStax, University Physics Volume 1, 14.2 Measuring Pressure'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-2-measuring-pressure'
+  - title: 'OpenStax, College Physics 2e, 11.4 Variation of Pressure with Depth in a Fluid'
+    url: 'https://openstax.org/books/college-physics-2e/pages/11-4-variation-of-pressure-with-depth-in-a-fluid'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: atmosphere, standard (atm)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST, CODATA Value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+description:
+  en: >-
+    The absolute pressure at a depth in a fluid at rest equals the pressure at the free surface plus
+    the hydrostatic pressure of the fluid above: the surface pressure plus density times
+    gravitational acceleration times depth. It is the total pressure measured from a perfect vacuum,
+    the one that squeezes the air in a diver's lungs, as distinct from the gauge pressure that a
+    tyre gauge or a depth gauge reads.
+
+    Here $\var{p}$ is the absolute pressure at the depth and $\var{p_{0}}$ the pressure at the
+    surface, both in pascals; $\mag{\rho}$ is the density of the fluid in kilograms per cubic metre,
+    $\var{g}$ the size of the gravitational acceleration in metres per second squared, entered as a
+    positive number, and $\var{h}$ the depth below the surface in metres, measured downward. For an
+    open lake or sea, $\var{p_{0}}$ is the atmospheric pressure, defined as 101 325 pascals for the
+    standard atmosphere and close to that at sea level; the standard value of $\var{g}$ is 9.80665
+    metres per second squared, and the local value varies with place and differs on other planets.
+
+    Whatever pressure acts on the surface is passed on through the whole fluid, so every point below
+    carries it in addition to the weight of the fluid column above. The difference between the
+    absolute pressure and the surface pressure is the gauge pressure, given by the hydrostatic
+    pressure relation, and two points at the same depth in one connected body of fluid share the
+    same pressure.
+
+    The relation assumes a fluid at rest, of uniform density, in a uniform gravitational field, with
+    depth measured from a free surface held at the stated pressure. It suits liquids, which barely
+    compress, and fails over large heights of gas, whose density changes with pressure. A sealed or
+    pressurized vessel takes the pressure of its own gas cushion in place of the atmospheric one.
+
+    Diving tables, submarine hulls and the calibration of depth gauges rest on this sum. About 10.3
+    metres of fresh water add one standard atmosphere, so the absolute pressure at that depth is
+    about twice the pressure at the surface.

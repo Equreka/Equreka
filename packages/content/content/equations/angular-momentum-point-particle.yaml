@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Angular momentum of a point particle'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{L}=\mag{m}\mag{v}\var{r_{\perp}}'
+terms:
+  L:
+    kind: 'magnitude'
+    ref: 'angular-momentum'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  r_{\perp}:
+    kind: 'symbol'
+    label:
+      en: 'Lever arm'
+    unit: 'metre'
+solutions:
+  L: 'm * v * r_perp'
+  m: 'L / (v * r_perp)'
+  v: 'L / (m * r_perp)'
+  r_{\perp}: 'L / (m * v)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'L = m v r'
+  - 'angular momentum of a particle'
+  - 'moment of momentum of a particle'
+  - 'angular momentum in circular motion'
+  - 'momento angular de una partícula'
+  - 'momento cinético de una partícula'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 11.2 Angular Momentum'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/11-2-angular-momentum'
+  - title: 'R. Nave, HyperPhysics, Angular Momentum'
+    url: 'https://hyperphysics.gsu.edu/hbase/amom.html'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (mass, mean orbital velocity, semimajor axis)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+description:
+  en: >-
+    The angular momentum of a point particle about an axis is its mass times its speed times the
+    lever arm of its motion, the perpendicular distance from the axis to the line along which it
+    moves. It is the rotational counterpart of linear momentum in mechanics, and for a particle
+    going round a circle it reduces to mass times speed times radius.
+
+    $\mag{L}$ is the size of the angular momentum in kilogram square metres per second, the same
+    unit as the joule second; $\mag{m}$ is the mass in kilograms; $\mag{v}$ is the speed in metres
+    per second; and $\var{r_{\perp}}$ is the lever arm in metres. All four are non-negative here. As
+    a vector, angular momentum points along the axis, by the right-hand rule, and in a flat problem
+    anticlockwise motion is usually counted positive.
+
+    The formula follows from the vector definition, the cross product of the position from the axis
+    with the linear momentum. Only the component of the velocity perpendicular to the position
+    contributes, so the lever arm equals the distance from the axis times the sine of the angle
+    between position and velocity. A particle heading straight for the axis has no angular momentum
+    about it, and the value always depends on which axis is chosen.
+
+    The relation treats the body as a point, with its whole mass at one place; a spinning wheel or
+    planet needs its moment of inertia as well. Angular momentum stays constant when no net external
+    torque acts, so a particle pulled only towards the axis, such as a satellite held by gravity,
+    keeps the product of speed and lever arm fixed as it moves.
+
+    For the Earth in its orbit, a mass of $5.9722\times10^{24}\,\mathrm{kg}$ moving at 29.78
+    kilometres per second about 149.6 million kilometres from the Sun gives about
+    $2.66\times10^{40}\,\mathrm{kg\,m^{2}/s}$.

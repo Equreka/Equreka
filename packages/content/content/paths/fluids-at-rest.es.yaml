@@ -1,0 +1,99 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.locale.schema.json
+name: 'Fluidos en reposo'
+description: >-
+  Densidad, presión y empuje en líquidos y gases en reposo: presión y profundidad, presión
+  manométrica y absoluta, máquinas hidráulicas y por qué un cuerpo flota o se hunde, con
+  comprobaciones resueltas.
+steps:
+  intro:
+    body: >-
+      Un fluido es un líquido o un gas: fluye y toma la forma de su recipiente. En reposo, un fluido
+      empuja toda superficie que toca, y ese empuje crece con la profundidad porque cada capa
+      soporta el peso de las capas que tiene encima. Dos magnitudes describen un fluido en reposo,
+      su densidad y su presión. Empieza por la densidad y construye después la presión, su aumento
+      con la profundidad, su transmisión en los líquidos encerrados y el empuje.
+  density:
+    note: >-
+      Masa por unidad de volumen, en kilogramos por metro cúbico. Pertenece al material, no al
+      tamaño de la muestra.
+  density-formula:
+    note: >-
+      Divide la masa entre el volumen. Para un cuerpo hueco o mixto el resultado es la densidad
+      media, el valor que decide la flotación más adelante en la ruta.
+  check-density:
+    prompt: >-
+      Un bloque de metal tiene una masa de 5.40 kilogramos y un volumen de 0.00200 metros cúbicos.
+      ¿Cuál es su densidad, y qué metal común tiene esa densidad?
+    answer: >-
+      2700 kilogramos por metro cúbico: 5.40 entre 0.00200. Es la densidad del aluminio.
+  pressure:
+    note: >-
+      Una magnitud escalar: la fuerza que produce actúa siempre perpendicular a una superficie,
+      pero la presión en sí no tiene dirección.
+  pressure-formula:
+    note: >-
+      Usa solo la componente de la fuerza perpendicular a la superficie. La misma fuerza sobre un
+      área menor da una presión mayor.
+  pascal:
+    note: >-
+      Un newton por metro cuadrado, una presión pequeña: el aire al nivel del mar presiona con unos
+      cien mil pascales.
+  check-crate:
+    prompt: >-
+      Una caja que pesa 600 newtons descansa sobre una cara de 0.30 por 0.50 metros. ¿Qué presión
+      ejerce sobre el suelo, y cuál si se apoya sobre una cara de 0.20 por 0.30 metros?
+    answer: >-
+      4000 pascales sobre la cara grande: 600 entre 0.15 metros cuadrados. Sobre la cara pequeña el
+      área es de 0.06 metros cuadrados, así que la presión sube a 10 000 pascales con el mismo peso.
+  hydrostatic-pressure:
+    note: >-
+      La densidad por g por la profundidad da la presión manométrica, el exceso sobre la presión en
+      la superficie. Solo importa la profundidad, no la forma del recipiente.
+  absolute-pressure-at-depth:
+    note: >-
+      Suma la presión que actúa sobre la superficie, por lo general la atmosférica, para obtener la
+      presión absoluta medida desde el vacío.
+  standard-atmosphere:
+    note: >-
+      Exactamente 101 325 pascales por definición, cerca de la presión media del aire al nivel del
+      mar. Úsala como presión en la superficie de un lago o un mar abiertos.
+  check-lake:
+    prompt: >-
+      Halla la presión manométrica y la presión absoluta 20.0 metros bajo la superficie de un lago
+      de agua dulce, con una densidad de 1000 kilogramos por metro cúbico, el valor normal de g y una
+      atmósfera estándar en la superficie.
+    answer: >-
+      Manométrica: 1000 por 9.80665 por 20.0, unos 196 kilopascales. Absoluta: suma 101 325 pascales
+      y obtienes unos 297 kilopascales, casi tres atmósferas estándar.
+  pascals-principle:
+    note: >-
+      Un líquido encerrado transmite un cambio de presión a todos sus puntos. Igual presión sobre
+      pistones desiguales da fuerzas desiguales, en la razón de las áreas.
+  check-lift:
+    prompt: >-
+      Un elevador de coches tiene un pistón de entrada de 0.0020 metros cuadrados y uno de salida de
+      0.20 metros cuadrados. ¿Qué fuerza de entrada sostiene un coche que pesa 12 000 newtons, y
+      cuánto debe desplazarse el pistón de entrada para subir el coche 0.10 metros?
+    answer: >-
+      120 newtons: 12 000 por 0.0020 entre 0.20. La razón de áreas es 100, así que el pistón de
+      entrada recorre 100 veces más, 10 metros, y no se gana energía.
+  buoyant-force:
+    note: >-
+      El empuje es igual al peso del fluido desalojado. Usa la densidad del fluido y el volumen bajo
+      la superficie, nunca la densidad del cuerpo.
+  floating-fraction-submerged:
+    note: >-
+      Un cuerpo que flota se hunde hasta que el empuje iguala su peso, así que la fracción sumergida
+      es igual al cociente de las densidades.
+  specific-gravity:
+    note: >-
+      La densidad comparada con la del agua. Por debajo de uno el cuerpo flota en agua dulce; por
+      encima, se hunde.
+  check-block:
+    prompt: >-
+      Un bloque de madera de 0.050 metros cúbicos y densidad 600 kilogramos por metro cúbico flota
+      en agua dulce de 1000 kilogramos por metro cúbico. ¿Qué fracción queda sumergida, y qué empuje
+      recibe con el valor normal de g?
+    answer: >-
+      0.60, así que 0.030 metros cúbicos quedan bajo la superficie. El empuje es 1000 por 0.030 por
+      9.80665, unos 294 newtons, igual al peso del bloque, 600 por 0.050 por 9.80665.

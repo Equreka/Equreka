@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Presión sobre una superficie'
+description: >-
+  La presión sobre una superficie es la fuerza que actúa perpendicular a la superficie dividida
+  entre el área sobre la que se reparte esa fuerza. La relación define la presión en mecánica y en
+  mecánica de fluidos y explica por qué el mismo empujón que es inofensivo con la yema de un dedo
+  hace que una aguja atraviese la piel: cuanto menor es el área, mayor es la presión.
+
+  Aquí $\mag{p}$ es la presión en pascales, $\mag{F}$ el módulo de la componente de la fuerza normal
+  a la superficie en newtons, y $\mag{A}$ el área en metros cuadrados; un pascal es un newton por
+  metro cuadrado. La fórmula trabaja con módulos, así que las tres se introducen como números no
+  negativos. Una componente de la fuerza paralela a la superficie no añade nada a la presión; en su
+  lugar produce cizalladura.
+
+  La presión es una magnitud escalar. La fuerza que ejerce sobre cualquier superficie es
+  perpendicular a esa superficie, pero la presión en sí no tiene dirección, de modo que un fluido en
+  reposo empuja el fondo de un depósito, sus paredes y un cuerpo sumergido con fuerzas cuya
+  dirección la fija cada superficie. Cuando la fuerza se reparte de forma desigual, la fórmula da la
+  presión media sobre el área, y el valor local cambia de un punto a otro.
+
+  Cuchillas, clavos y agujas concentran una fuerza moderada en un área diminuta para alcanzar una
+  presión muy alta, mientras que las raquetas de nieve, los neumáticos anchos y los cimientos de un
+  edificio reparten la carga en un área grande para mantener baja la presión. Leída al revés, una
+  presión multiplicada por un área da la fuerza sobre una superficie; así se calcula el empuje del
+  gas comprimido sobre el extremo de un depósito o el del agua sobre una presa.
+
+  La unidad SI de presión, el pascal, lleva el nombre del matemático y físico francés Blaise Pascal,
+  que vivió de 1623 a 1662. Una caja que pesa 500 newtons apoyada sobre una base de 0.25 metros
+  cuadrados presiona el suelo con 2000 pascales.

@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Caudal a través de una sección'
+description: >-
+  El caudal a través de una sección es el producto del área de esa sección por la rapidez media con
+  la que la atraviesa un fluido. La fórmula relaciona cuánto líquido o gas transporta por unidad de
+  tiempo una tubería, una manguera, una arteria o un río con la rapidez con que se mueve, y es el
+  punto de partida de los cálculos de flujo en mecánica de fluidos e hidráulica.
+
+  Aquí $\mag{Q}$ es el caudal, en metros cúbicos por segundo; $\mag{A}$ es el área de la sección que
+  atraviesa el fluido, medida perpendicularmente al flujo, en metros cuadrados; y $\mag{v}$ es la
+  rapidez media del flujo en esa sección, en metros por segundo. Las tres son no negativas, y el
+  sentido del flujo se describe por separado.
+
+  Durante un intervalo de tiempo, el fluido que cruza la sección llena un cilindro cuya base es la
+  sección y cuya longitud es la distancia que recorre el fluido. Al dividir ese volumen entre el
+  tiempo se obtiene el área multiplicada por la distancia por unidad de tiempo, que es la rapidez.
+  Duplicar el área o la rapidez duplica, por tanto, el caudal.
+
+  La rapidez de la fórmula es un promedio sobre la sección. En una tubería real el fluido junto a la
+  pared está en reposo y el más rápido circula por el eje, de modo que la media es menor que el
+  máximo. La sección debe además cortarse en ángulo recto con el flujo; en una sección inclinada
+  solo contaría la componente de la velocidad que la atraviesa.
+
+  En hidrología, el caudal de un río se obtiene dividiendo su sección en franjas y sumando el área
+  por la corriente medida en cada una. Una manguera de 0.9 centímetros de radio que lleva medio
+  litro por segundo mueve el agua a unos 1.96 metros por segundo.

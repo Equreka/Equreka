@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Pascal second'
+symbol:
+  tex: 'Pa\,s'
+  text: 'Pa s'
+unitOf:
+  - 'dynamic-viscosity'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'pascal'
+      exp: 1
+    - unit: 'second'
+      exp: 1
+externalIds:
+  wikidata: 'Q21016931'
+  qudt: 'http://qudt.org/vocab/unit/PA-SEC'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'pascal-second'
+  - 'pascal seconds'
+  - 'Pa s'
+  - 'Pa*s'
+  - 'Pa.s'
+  - 'Pa·s'
+  - 'N s/m^2'
+  - 'newton second per square metre'
+  - 'newton second per square meter'
+  - 'kg/(m s)'
+  - 'poiseuille'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 6 (pascal second), sections 5.2 and 5.3, and Appendix 1 (11th CGPM, 1960, Resolution 12; 14th CGPM, 1971, pascal)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8: poise (P), centipoise (cP), pound per foot second'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST SP 811, Chapter 9, 9.4 Spelling unit names obtained by multiplication'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-9-rules-and-style-conventions-spelling-unit-names'
+  - title: 'OpenStax, University Physics Volume 1, 14.7 Viscosity and Turbulence (Table 14.4)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-7-viscosity-and-turbulence'
+  - title: 'QUDT, unit PA-SEC'
+    url: 'https://qudt.org/vocab/unit/PA-SEC'
+description:
+  en: >-
+    The pascal second, symbol $\mathrm{Pa\,s}$, is the coherent SI derived unit of dynamic
+    viscosity, the internal friction of a liquid or gas. It is the product of the pascal, the unit
+    of pressure and stress, and the second, so it measures how large a shear stress is needed to
+    keep a given rate of shear going in a flowing fluid.
+
+    The SI Brochure lists it in its table of coherent derived units whose names include a unit with
+    a special name, and expresses it in base units as the kilogram per metre per second. It has no
+    special name of its own and no separate standard: its definition follows from those of the
+    kilogram, the metre and the second.
+
+    One pascal second equals exactly ten poises, the CGS unit of viscosity, and the millipascal
+    second equals exactly one centipoise, as NIST Special Publication 811 lists. NIST also converts
+    the pound per foot second, a customary unit, to about 1.488 pascal seconds.
+
+    Viscosity tables give most liquids in millipascal seconds: water at 20 degrees Celsius has about
+    one, whole blood a few, and olive oil over a hundred, while glycerine reaches about
+    $1.5\,\mathrm{Pa\,s}$. Gases are far less viscous, with values in micropascal seconds.
+
+    When the 11th CGPM listed the derived units of the new SI in 1960, it wrote this unit as the
+    newton second per square metre; the 14th CGPM gave the newton per square metre the name pascal
+    in 1971. The symbol is written with a space or a half-high dot between Pa and s, and the name
+    with a space or a hyphen. The plural is pascal seconds.

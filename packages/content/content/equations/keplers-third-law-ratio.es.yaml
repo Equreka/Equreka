@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Tercera ley de Kepler para dos órbitas'
+terms:
+  T_{1}:
+    label: 'Periodo de la órbita 1'
+  T_{2}:
+    label: 'Periodo de la órbita 2'
+  a_{1}:
+    label: 'Semieje mayor de la órbita 1'
+  a_{2}:
+    label: 'Semieje mayor de la órbita 2'
+description: >-
+  La tercera ley de Kepler, llamada también ley de los periodos o ley armónica, establece que para
+  cuerpos que orbitan alrededor del mismo cuerpo central, el periodo elevado al cuadrado varía en
+  proporción directa con el semieje mayor elevado al cubo. Escrita para dos órbitas, compara
+  directamente sus periodos y tamaños, sin necesidad de la masa del cuerpo central ni de la
+  constante de gravitación universal.
+
+  $\var{T_{1}}$ y $\var{T_{2}}$ son los periodos orbitales de los dos cuerpos, y $\var{a_{1}}$ y
+  $\var{a_{2}}$ son los semiejes mayores de sus órbitas, la mitad del diámetro más largo de cada
+  elipse; en una órbita circular el semieje mayor es el radio. Las cuatro son positivas. Sirve
+  cualquier unidad para cada pareja, siempre que ambos periodos compartan una unidad y ambos
+  semiejes otra: en astronomía son habituales los años y las unidades astronómicas.
+
+  La gravedad mantiene a cada cuerpo en su órbita, y la ley de gravitación universal de Newton da el
+  cuadrado del periodo como una constante por el cubo del semieje mayor, una constante que depende
+  solo de la masa central. Dividir esa relación para una órbita entre la misma relación para otra
+  cancela la constante y deja esta proporción. Por eso las órbitas más amplias son más lentas:
+  duplicar el semieje alarga el periodo en un factor de unos 2.83.
+
+  La ley exige que ambos cuerpos orbiten alrededor del mismo cuerpo central, que debe ser mucho más
+  pesado que cualquiera de ellos; si no, interviene la suma de las masas y la constante difiere
+  ligeramente de una órbita a otra. Se desprecian las atracciones entre los propios cuerpos que
+  orbitan.
+
+  Johannes Kepler halló la ley a partir de las observaciones de Tycho Brahe en 1618 y la publicó en
+  Harmonices Mundi en 1619; más tarde Newton se apoyó en ella para formular su ley de gravitación.
+  Con el semieje mayor de la Tierra, de 149.598 millones de kilómetros, y el de Marte, de 227.956
+  millones, la ley predice un año marciano de unos 687 días.

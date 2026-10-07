@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Fracción sumergida de un cuerpo que flota'
+terms:
+  V_\mathrm{sub}:
+    label: 'Volumen sumergido'
+  V_\mathrm{o}:
+    label: 'Volumen del objeto'
+  \rho_\mathrm{o}:
+    label: 'Densidad del objeto'
+  \rho_\mathrm{f}:
+    label: 'Densidad del fluido'
+description: >-
+  Un cuerpo que flota en reposo en un fluido se hunde hasta que la fracción de su volumen bajo la
+  superficie es igual al cociente entre su densidad media y la densidad del fluido. La relación,
+  consecuencia del principio de Arquímedes, explica por qué la mayor parte de un iceberg queda bajo
+  el mar y por qué un barco cargado va más hundido en el agua que uno vacío.
+
+  Aquí $\var{V_\mathrm{sub}}$ es el volumen sumergido y $\var{V_\mathrm{o}}$ el volumen total del
+  objeto, ambos en metros cúbicos; $\var{\rho_\mathrm{o}}$ es la densidad media del objeto y
+  $\var{\rho_\mathrm{f}}$ la densidad del fluido, ambas en kilogramos por metro cúbico. Las cuatro
+  son positivas, y el cociente de volúmenes de la izquierda es una fracción pura entre 0 y 1.
+
+  Un cuerpo que flota está en equilibrio, así que el empuje que recibe es igual a su peso. El empuje
+  es la densidad del fluido por el volumen sumergido por la aceleración de la gravedad, y el peso es
+  la densidad media del objeto por su volumen total por la misma aceleración. La aceleración se
+  cancela, y al dividir ambos miembros entre la densidad del fluido y el volumen total queda la
+  relación, de modo que la fracción no depende de la gravedad local.
+
+  La relación solo vale para un cuerpo que flota, cuya densidad media es menor que la del fluido;
+  para un cuerpo más denso el cociente superaría la unidad, y el cuerpo se hunde. Supone un fluido
+  en reposo de densidad uniforme y no tiene en cuenta la tensión superficial. Para un cuerpo hueco o
+  compuesto, como un barco o un nadador, la densidad del objeto es la media en todo su volumen,
+  incluidos los espacios con aire, y así puede flotar un casco de acero.
+
+  En agua dulce, con una densidad próxima a 1000 kilogramos por metro cúbico, la fracción sumergida
+  es igual a la densidad relativa del objeto. El hielo, de unos 917 kilogramos por metro cúbico,
+  flota en agua de mar de unos 1030 con cerca del 89 por ciento de su volumen sumergido.

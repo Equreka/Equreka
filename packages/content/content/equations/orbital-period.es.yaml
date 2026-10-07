@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Periodo orbital de una órbita circular'
+terms:
+  r:
+    label: 'Distancia entre centros'
+description: >-
+  El periodo orbital de una órbita circular es el tiempo que tarda un satélite, una luna o un
+  planeta en dar una vuelta alrededor de un cuerpo central mucho más pesado: dos pi por la raíz
+  cuadrada del cubo del radio orbital dividido entre la constante de gravitación universal por la
+  masa central. En la gravitación es la forma para órbitas circulares de la tercera ley de Kepler,
+  que relaciona el periodo de una órbita con su tamaño.
+
+  $\mag{T}$ es el periodo en segundos, un número no negativo. $\const{G}$ es la constante de
+  gravitación universal, $\mag{M}$ es la masa del cuerpo central en kilogramos y $\var{r}$ es el
+  radio de la órbita en metros, medido desde el centro del cuerpo central; para un satélite es el
+  radio del planeta más la altitud.
+
+  Un periodo es la longitud de la circunferencia de la órbita dividida entre la rapidez orbital, y
+  esa rapidez se deduce de que la gravedad aporta la fuerza centrípeta. La masa del satélite
+  desaparece, así que el periodo depende solo de la masa central y del radio. El cuadrado del
+  periodo crece con el cubo del radio: una órbita cuatro veces más amplia tarda ocho veces más.
+  Despejar la masa central convierte una órbita medida en una forma de pesar un planeta o una
+  estrella.
+
+  La fórmula supone una órbita circular alrededor de un cuerpo central mucho más pesado que el
+  satélite. Para una órbita elíptica, la misma expresión vale sustituyendo el radio por el semieje
+  mayor, la mitad del diámetro más largo de la elipse; cuando las dos masas son comparables, su suma
+  ocupa el lugar de la masa central.
+
+  La Estación Espacial Internacional, a unos 400 kilómetros sobre la Tierra, completa una órbita en
+  unos 92 minutos, algo más de hora y media.

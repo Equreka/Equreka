@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Density of a body'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{\rho}=\frac{\mag{m}}{\mag{V}}'
+terms:
+  \rho:
+    kind: 'magnitude'
+    ref: 'density'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  V:
+    kind: 'magnitude'
+    ref: 'volume'
+solutions:
+  \rho: 'm / V'
+  m: 'rho * V'
+  V: 'm / rho'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+  - 'fluid-mechanics'
+aliases:
+  - 'density formula'
+  - 'density equation'
+  - 'rho = m/V'
+  - 'mass per unit volume'
+  - 'average density'
+  - 'mass density formula'
+  - 'fórmula de la densidad'
+  - 'densidad media'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 14.1 Fluids, Density, and Pressure (Table 14.1)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure'
+  - title: 'OpenStax, College Physics 2e, 11.2 Density (Table 11.1)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/11-2-density'
+  - title: 'U.S. Geological Survey, Water Science School, Water Density'
+    url: 'https://www.usgs.gov/special-topics/water-science-school/science/water-density'
+description:
+  en: >-
+    The density of a body is its mass divided by its volume, a measure of how much matter fills each
+    cubic metre. The relation defines mass density for solids, liquids and gases in physics and
+    fluid mechanics; for a body that is not uniform it gives the average density, the value that
+    decides whether the body floats or sinks in a fluid.
+
+    Here $\mag{\rho}$ is the density in kilograms per cubic metre, $\mag{m}$ the mass in kilograms
+    and $\mag{V}$ the volume in cubic metres. None of the three can be negative. Laboratory tables
+    often use grams per cubic centimetre instead; one gram per cubic centimetre equals 1000
+    kilograms per cubic metre, so water near 4 degrees Celsius, at about 1000 kilograms per cubic
+    metre, has a density close to one in those units.
+
+    Density is an intensive property: cutting a block of aluminium in two halves both its mass and
+    its volume and leaves the ratio unchanged, at about 2700 kilograms per cubic metre. Solids and
+    liquids have densities of a similar order because their particles touch, while a gas such as air
+    at sea level is several hundred times less dense than water because its molecules lie far apart.
+    Rearranged, the formula gives the mass of a known volume of material or the volume taken up by a
+    known mass.
+
+    A quoted density always refers to a temperature and a pressure. Most substances expand when
+    heated, so their density falls, and a gas squeezed into half its volume doubles its density.
+    Water is an exception near its freezing point: it reaches its greatest density near 4 degrees
+    Celsius. For a hollow or composite object, such as a ship or a person with air in the lungs, the
+    formula returns an average over materials of very different density.
+
+    Density tables identify materials, convert between the mass and the volume of a liquid, and feed
+    the hydrostatic and buoyancy relations of fluid statics.

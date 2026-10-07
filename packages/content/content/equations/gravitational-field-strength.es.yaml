@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Intensidad del campo gravitatorio'
+terms:
+  g:
+    label: 'Intensidad del campo gravitatorio'
+  r:
+    label: 'Distancia entre centros'
+description: >-
+  La intensidad del campo gravitatorio de un planeta, una estrella u otro cuerpo esférico es la
+  fuerza gravitatoria que ejerce por unidad de masa a una distancia dada de su centro: la constante
+  de gravitación universal por la masa del cuerpo, dividida entre el cuadrado de la distancia. Es el
+  campo gravitatorio de la teoría de la gravitación, y en la superficie de un planeta coincide con
+  la aceleración de un cuerpo en caída libre allí.
+
+  $\var{g}$ es la intensidad del campo, en newtons por kilogramo o, de forma equivalente, metros por
+  segundo al cuadrado, un número positivo que da el módulo del campo, que siempre apunta hacia el
+  centro del cuerpo. $\const{G}$ es la constante de gravitación universal, $\mag{M}$ es la masa del
+  cuerpo que crea el campo en kilogramos y $\var{r}$ es la distancia en metros desde su centro hasta
+  el punto considerado.
+
+  Una pequeña masa de prueba situada en ese punto siente la fuerza que da la ley de gravitación
+  universal de Newton; al dividir esa fuerza entre la masa de prueba, esta se cancela y queda una
+  magnitud que depende solo del cuerpo que atrae y del lugar. Por eso todos los cuerpos situados en
+  el mismo punto caen con la misma aceleración, sea cual sea su masa. Si la distancia se escribe
+  como el radio de un planeta más una altura, se obtiene la gravedad a una altitud.
+
+  La fórmula vale fuera de un cuerpo con simetría esférica, en su superficie o más allá, y no en su
+  interior. En un planeta real, la aceleración de caída libre medida incluye además el efecto de la
+  rotación y de la forma achatada, de modo que varía con la latitud y la altitud, y es distinta en
+  cada planeta o satélite.
+
+  Con la masa y el radio medio de la Tierra, el campo en la superficie resulta de unos 9.82 metros
+  por segundo al cuadrado, algo por encima del valor normal de 9.80665. A la distancia de la Luna,
+  unos $3.84\times10^{8}\,\mathrm{m}$ del centro de la Tierra, baja a unos
+  $2.70\times10^{-3}\,\mathrm{m/s^{2}}$, la aceleración centrípeta que mantiene a la Luna en órbita.

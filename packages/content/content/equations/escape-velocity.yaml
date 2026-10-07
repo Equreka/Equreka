@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Escape velocity'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{v}=\sqrt{\frac{2\const{G}\mag{M}}{\var{r}}}'
+terms:
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  G:
+    kind: 'constant'
+    ref: 'gravitational-constant'
+  M:
+    kind: 'magnitude'
+    ref: 'mass'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Distance between centres'
+    unit: 'metre'
+solutions:
+  v: 'sqrt(2 * G * M / r)'
+  M: 'v^2 * r / (2 * G)'
+  r: '2 * G * M / v^2'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q166530'
+categories:
+  - 'physics'
+branches:
+  - 'gravitation'
+aliases:
+  - 'escape speed'
+  - 'second cosmic velocity'
+  - 'v = sqrt(2 G M / r)'
+  - 'escape velocity formula'
+  - 'velocidad de escape'
+  - 'velocidad de fuga'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 13.3 Gravitational Potential Energy and Total Energy'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/13-3-gravitational-potential-energy-and-total-energy'
+  - title: 'R. Nave, HyperPhysics, Escape Velocity'
+    url: 'https://hyperphysics.gsu.edu/hbase/vesc.html'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (escape velocity)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+  - title: 'NASA NSSDCA, Mars Fact Sheet (escape velocity)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/marsfact.html'
+description:
+  en: >-
+    The escape velocity, or escape speed, is the smallest launch speed with which a body can leave a
+    planet, moon or star and never fall back, coasting with no further thrust: the square root of
+    twice the gravitational constant times the mass of the attracting body, divided by the distance
+    from its centre. In gravitation it marks the boundary between orbits that stay bound and paths
+    that escape for good.
+
+    $\mag{v}$ is the escape speed in metres per second, a non-negative number; the direction of
+    launch does not matter as long as the path clears the body. $\const{G}$ is the Newtonian
+    constant of gravitation, $\mag{M}$ is the mass of the attracting body in kilograms, and
+    $\var{r}$ is the distance in metres from its centre to the launch point, equal to the radius of
+    the body for a launch from the surface.
+
+    A body launched at exactly this speed has kinetic energy equal in size to its negative
+    gravitational potential energy, so its total energy is zero; it slows all the way out and comes
+    to rest only infinitely far away. The mass of the escaping body cancels, so a pebble and a
+    rocket need the same speed. The escape speed from a given distance is the circular orbital speed
+    there times the square root of two.
+
+    The formula assumes no air resistance, no thrust after launch and a spherically symmetric body
+    much heavier than the escaping one, and it ignores the pull of every other body, such as the
+    Sun.
+
+    From the surface of the Earth the escape speed is 11.186 kilometres per second, and from Mars
+    5.03 kilometres per second; leaving the Sun from the distance of the Earth's orbit takes about
+    42.1 kilometres per second.

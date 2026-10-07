@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Litre per second'
+symbol:
+  tex: 'L/s'
+unitOf:
+  - 'volumetric-flow-rate'
+system: 'other'
+compose:
+  of:
+    - unit: 'litre'
+      exp: 1
+    - unit: 'second'
+      exp: -1
+externalIds:
+  wikidata: 'Q61996348'
+  qudt: 'http://qudt.org/vocab/unit/L-PER-SEC'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'liter per second'
+  - 'litres per second'
+  - 'liters per second'
+  - 'l/s'
+  - 'L s-1'
+  - 'lps'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (litre) and section 5.2'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8: cubic foot per minute, gallon (U.S.) per minute (to liter per second)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'OpenStax, University Physics Volume 1, 14.5 Fluid Dynamics (Example 14.5)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-5-fluid-dynamics'
+  - title: 'OpenStax, College Physics 2e, 12.3 The Most General Applications of Bernoulli''s Equation (Example 12.5)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/12-3-the-most-general-applications-of-bernoullis-equation'
+  - title: 'QUDT, unit L-PER-SEC'
+    url: 'https://qudt.org/vocab/unit/L-PER-SEC'
+description:
+  en: >-
+    The litre per second, symbol $\mathrm{L/s}$, is a unit of volumetric flow rate equal to one
+    litre of fluid passing a cross-section in each second. It joins the litre, a non-SI unit of
+    volume accepted for use with the SI, with the SI second, so it is not a coherent SI unit, but it
+    suits the flows of hoses, fire mains, wells and small streams.
+
+    Its value follows from its parts. The SI Brochure defines the litre as one cubic decimetre,
+    exactly $10^{-3}\,\mathrm{m^{3}}$, so one litre per second is exactly one thousandth of a cubic
+    metre per second; QUDT gives the same multiplier.
+
+    Sixty litres per minute make one litre per second, and 1000 litres per second make one cubic
+    metre per second. NIST Special Publication 811 converts one US gallon per minute to about 0.0631
+    litre per second and one cubic foot per minute to about 0.472 litre per second.
+
+    Engineers size water supply, drainage, irrigation and firefighting equipment in litres per
+    second. In textbook examples, a garden hose carrying half a litre per second sends water out at
+    about 2 metres per second, and a fire hose may carry 40 litres per second.
+
+    The litre has two symbols, a lowercase l and a capital L, so the unit may be written l/s or L/s;
+    the capital avoids confusion with the numeral one. Forms such as lps are informal abbreviations,
+    not symbols. The plural is litres per second, spelled liters per second in American English.

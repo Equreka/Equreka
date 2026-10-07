@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Rapidez orbital en una órbita circular'
+terms:
+  r:
+    label: 'Distancia entre centros'
+description: >-
+  La rapidez orbital en una órbita circular es la rapidez constante que necesita un satélite, una
+  luna o un planeta para mantenerse en una circunferencia alrededor de un cuerpo central mucho más
+  pesado: la raíz cuadrada de la constante de gravitación universal por la masa central, dividida
+  entre el radio de la órbita. En la gravitación, fija con qué rapidez debe moverse cualquier cuerpo
+  para seguir girando a una distancia dada.
+
+  $\mag{v}$ es la rapidez orbital en metros por segundo, un número no negativo. $\const{G}$ es la
+  constante de gravitación universal, $\mag{M}$ es la masa del cuerpo central en kilogramos y
+  $\var{r}$ es el radio de la órbita en metros, medido desde el centro del cuerpo central y no desde
+  su superficie; para un satélite es el radio del planeta más la altitud.
+
+  En una órbita circular, la gravedad aporta justo la fuerza centrípeta que exige el movimiento. Al
+  igualar la fuerza de la ley de gravitación universal de Newton con la masa del satélite por su
+  rapidez al cuadrado dividida entre el radio, la masa del satélite se cancela, de modo que una nave
+  y un pequeño tornillo en la misma órbita viajan con la misma rapidez. Las órbitas más amplias son
+  más lentas: cuadruplicar el radio reduce la rapidez a la mitad.
+
+  La fórmula supone una órbita circular, un cuerpo central mucho más pesado que el satélite y con
+  simetría esférica, y ausencia de rozamiento; en una órbita elíptica la rapidez cambia a lo largo
+  del recorrido. Multiplicar el resultado por la raíz cuadrada de dos da la velocidad de escape
+  desde la misma distancia.
+
+  La Estación Espacial Internacional, a unos 400 kilómetros sobre la Tierra, orbita a unos 7.67
+  kilómetros por segundo, mientras que la Tierra recorre su órbita alrededor del Sol a una rapidez
+  media de 29.78 kilómetros por segundo.

@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Submerged fraction of a floating body'
+kind: 'equation'
+level: 'intro'
+expression: '\frac{\var{V_\mathrm{sub}}}{\var{V_\mathrm{o}}}=\frac{\var{\rho_\mathrm{o}}}{\var{\rho_\mathrm{f}}}'
+terms:
+  V_\mathrm{sub}:
+    kind: 'symbol'
+    label:
+      en: 'Submerged volume'
+    unit: 'cubic-metre'
+  V_\mathrm{o}:
+    kind: 'symbol'
+    label:
+      en: 'Object volume'
+    unit: 'cubic-metre'
+  \rho_\mathrm{o}:
+    kind: 'symbol'
+    label:
+      en: 'Object density'
+    unit: 'kilogram-per-cubic-metre'
+  \rho_\mathrm{f}:
+    kind: 'symbol'
+    label:
+      en: 'Fluid density'
+    unit: 'kilogram-per-cubic-metre'
+solutions:
+  V_\mathrm{sub}: 'V_o * rho_o / rho_f'
+  V_\mathrm{o}: 'V_sub * rho_f / rho_o'
+  \rho_\mathrm{o}: 'rho_f * V_sub / V_o'
+  \rho_\mathrm{f}: 'rho_o * V_o / V_sub'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'fraction submerged'
+  - 'floating fraction submerged'
+  - 'floating body'
+  - 'law of flotation'
+  - 'iceberg fraction'
+  - 'fracción sumergida'
+  - 'flotación'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 14.4 Archimedes'' Principle and Buoyancy (fraction submerged)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-4-archimedes-principle-and-buoyancy'
+  - title: 'OpenStax, College Physics 2e, 11.7 Archimedes'' Principle'
+    url: 'https://openstax.org/books/college-physics-2e/pages/11-7-archimedes-principle'
+  - title: 'OpenStax, University Physics Volume 1, 14.1 Fluids, Density, and Pressure (Table 14.1)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure'
+description:
+  en: >-
+    A body floating at rest in a fluid settles until the fraction of its volume below the surface
+    equals the ratio of its average density to the density of the fluid. The relation, a consequence
+    of Archimedes' principle, explains why most of an iceberg lies under the sea and why a loaded
+    ship rides lower in the water than an empty one.
+
+    Here $\var{V_\mathrm{sub}}$ is the submerged volume and $\var{V_\mathrm{o}}$ the total volume of
+    the object, both in cubic metres; $\var{\rho_\mathrm{o}}$ is the average density of the object
+    and $\var{\rho_\mathrm{f}}$ the density of the fluid, both in kilograms per cubic metre. All
+    four are positive, and the volume ratio on the left is a pure fraction between 0 and 1.
+
+    A floating body is in equilibrium, so the buoyant force on it equals its weight. The buoyant
+    force is the fluid density times the submerged volume times the gravitational acceleration, and
+    the weight is the average density of the object times its total volume times the same
+    acceleration. The acceleration cancels, and dividing both sides by the fluid density and the
+    total volume leaves the relation, so the fraction does not depend on the local gravity.
+
+    The relation holds only for a body that floats, whose average density is below that of the
+    fluid; for a denser body the ratio would exceed one, and the body sinks instead. It assumes a
+    fluid at rest of uniform density and leaves out surface tension. For a hollow or composite body,
+    such as a ship or a swimmer, the object density is the average over the whole volume, air spaces
+    included, which is how a steel hull can float.
+
+    In fresh water, with a density close to 1000 kilograms per cubic metre, the fraction submerged
+    equals the specific gravity of the object. Ice of about 917 kilograms per cubic metre in
+    seawater of about 1030 floats with about 89 percent of its volume submerged.

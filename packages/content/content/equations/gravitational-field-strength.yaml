@@ -1,0 +1,83 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Gravitational field strength'
+kind: 'formula'
+level: 'intro'
+expression: '\var{g}=\frac{\const{G}\mag{M}}{\var{r}^{2}}'
+terms:
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational field strength'
+    unit: 'metre-per-second-squared'
+  G:
+    kind: 'constant'
+    ref: 'gravitational-constant'
+  M:
+    kind: 'magnitude'
+    ref: 'mass'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Distance between centres'
+    unit: 'metre'
+solutions:
+  g: 'G * M / r^2'
+  M: 'g * r^2 / G'
+  r: 'sqrt(G * M / g)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q21652129'
+categories:
+  - 'physics'
+branches:
+  - 'gravitation'
+aliases:
+  - 'gravitational field intensity'
+  - 'gravitational field of a planet'
+  - 'surface gravity'
+  - 'g = G M / r^2'
+  - 'intensidad de campo gravitacional'
+  - 'campo gravitatorio de un planeta'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 13.2 Gravitation near Earth''s Surface'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/13-2-gravitation-near-earths-surface'
+  - title: 'OpenStax, College Physics 2e, 6.5 Newton''s Universal Law of Gravitation'
+    url: 'https://openstax.org/books/college-physics-2e/pages/6-5-newtons-universal-law-of-gravitation'
+  - title: 'NIST, CODATA Value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (GM, volumetric mean radius)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+  - title: 'NASA NSSDCA, Moon Fact Sheet (semimajor axis of the orbit)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/moonfact.html'
+description:
+  en: >-
+    The gravitational field strength of a planet, star or other spherical body is the gravitational
+    force it exerts per unit mass at a given distance from its centre: the gravitational constant
+    times the mass of the body, divided by the square of the distance. It is the gravitational field
+    of gravitation theory, and at the surface of a planet it equals the acceleration of a body in
+    free fall there.
+
+    $\var{g}$ is the field strength, in newtons per kilogram or, equivalently, metres per second
+    squared, a positive number giving the size of the field, which always points towards the centre
+    of the body. $\const{G}$ is the Newtonian constant of gravitation, $\mag{M}$ is the mass of the
+    body creating the field in kilograms, and $\var{r}$ is the distance in metres from its centre to
+    the point considered.
+
+    A small test mass at that point feels the force given by Newton's law of universal gravitation;
+    dividing that force by the test mass cancels it and leaves a quantity that belongs to the
+    attracting body and the place alone. Every body at the same point therefore falls with the same
+    acceleration, whatever its own mass. Writing the distance as the radius of a planet plus a
+    height gives the gravity at altitude.
+
+    The formula holds outside a spherically symmetric body, at or beyond its surface, and not inside
+    it. On a real planet the measured free-fall acceleration also includes the effect of rotation
+    and of the flattened shape, so it varies with latitude and altitude, and it differs from one
+    planet or moon to another.
+
+    Taking the Earth's mass and mean radius, the field at the surface comes out at about 9.82 metres
+    per second squared, a little above the standard value of 9.80665. At the distance of the Moon,
+    about $3.84\times10^{8}\,\mathrm{m}$ from the centre of the Earth, it falls to about
+    $2.70\times10^{-3}\,\mathrm{m/s^{2}}$, the centripetal acceleration that keeps the Moon in
+    orbit.

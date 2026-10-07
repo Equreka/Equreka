@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Momento angular de una partícula puntual'
+terms:
+  r_{\perp}:
+    label: 'Brazo de palanca'
+description: >-
+  El momento angular de una partícula puntual respecto a un eje es su masa por su rapidez por el
+  brazo de palanca de su movimiento, la distancia perpendicular del eje a la recta por la que se
+  mueve. Es el equivalente rotacional de la cantidad de movimiento en mecánica, y para una partícula
+  que recorre una circunferencia se reduce a masa por rapidez por radio.
+
+  $\mag{L}$ es el módulo del momento angular en kilogramo metro cuadrado por segundo, la misma
+  unidad que el julio segundo; $\mag{m}$ es la masa en kilogramos; $\mag{v}$ es la rapidez en metros
+  por segundo; y $\var{r_{\perp}}$ es el brazo de palanca en metros. Las cuatro son no negativas
+  aquí. Como vector, el momento angular apunta a lo largo del eje, según la regla de la mano
+  derecha, y en un problema plano el giro contrario a las agujas del reloj suele contarse positivo.
+
+  La fórmula se deduce de la definición vectorial, el producto vectorial de la posición medida desde
+  el eje por la cantidad de movimiento. Solo contribuye la componente de la velocidad perpendicular
+  a la posición, de modo que el brazo de palanca es la distancia al eje por el seno del ángulo entre
+  posición y velocidad. Una partícula que avanza directamente hacia el eje no tiene momento angular
+  respecto a él, y el valor depende siempre del eje elegido.
+
+  La relación trata el cuerpo como un punto, con toda su masa en un lugar; una rueda o un planeta
+  que giran sobre sí mismos requieren además su momento de inercia. El momento angular se mantiene
+  constante cuando no actúa un momento externo neto, así que una partícula atraída solo hacia el
+  eje, como un satélite sujeto por la gravedad, conserva el producto de rapidez y brazo de palanca
+  mientras se mueve.
+
+  Para la Tierra en su órbita, una masa de $5.9722\times10^{24}\,\mathrm{kg}$ que se mueve a 29.78
+  kilómetros por segundo a unos 149.6 millones de kilómetros del Sol da unos
+  $2.66\times10^{40}\,\mathrm{kg\,m^{2}/s}$.
