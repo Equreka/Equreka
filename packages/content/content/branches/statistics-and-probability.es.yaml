@@ -1,0 +1,21 @@
+# yaml-language-server: $schema=../../dist/schemas/branches.locale.schema.json
+name: 'Estadística y probabilidad'
+description: >-
+  La estadística y la probabilidad forman la parte de las matemáticas escolares que trata del azar y
+  de los datos. La probabilidad asigna a cada suceso de un experimento aleatorio un número entre 0 y
+  1, donde 0 marca un suceso imposible y 1 uno seguro; la estadística resume los datos observados y
+  valora lo inusual que resulta una observación concreta.
+
+  Sus reglas básicas combinan las probabilidades de los sucesos. La regla del complemento da la
+  probabilidad de que un suceso no ocurra, la regla de la adición la de que ocurra al menos uno de
+  dos sucesos, y la regla del producto para sucesos independientes la de que ocurran ambos. La
+  probabilidad condicionada mide la probabilidad de un suceso cuando se sabe que otro ya ha
+  ocurrido, y el teorema de Bayes invierte el sentido de esa condición. Contar resultados es tarea
+  de la combinatoria: las permutaciones cuentan ordenaciones y las combinaciones cuentan selecciones
+  sin importar el orden. La fórmula de la probabilidad binomial une ambas ideas para dar la
+  probabilidad de un número fijo de éxitos en ensayos independientes repetidos. En estadística, la
+  puntuación z mide a cuántas desviaciones típicas de la media se encuentra un valor.
+
+  La rama se apoya en la aritmética de fracciones y en el álgebra para reordenar fórmulas. La física
+  emplea la probabilidad en la desintegración radiactiva y en la incertidumbre de las medidas, y la
+  química en la estadística de las moléculas.

@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Inverse proportion'
+kind: 'formula'
+level: 'intro'
+expression: '\var{y}=\frac{\var{k}}{\var{x}}'
+terms:
+  y:
+    kind: 'symbol'
+    label:
+      en: 'Dependent quantity'
+  k:
+    kind: 'symbol'
+    label:
+      en: 'Constant of proportionality'
+  x:
+    kind: 'symbol'
+    label:
+      en: 'Independent quantity'
+solutions:
+  y: 'k / x'
+  k: 'x * y'
+  x: 'k / y'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q1091245'
+categories:
+  - 'mathematics'
+branches:
+  - 'arithmetic'
+aliases:
+  - 'inverse variation'
+  - 'inversely proportional'
+  - 'inverse proportionality'
+  - 'reciprocal proportion'
+  - 'y = k/x'
+  - 'variación inversa'
+  - 'inversamente proporcional'
+  - 'regla de tres inversa'
+references:
+  - title: 'OpenStax, Elementary Algebra 2e, 8.9 Use Direct and Inverse Variation'
+    url: 'https://openstax.org/books/elementary-algebra-2e/pages/8-9-use-direct-and-inverse-variation'
+  - title: 'OpenStax, College Algebra 2e, 5.8 Modeling Using Variation'
+    url: 'https://openstax.org/books/college-algebra-2e/pages/5-8-modeling-using-variation'
+  - title: 'E. W. Weisstein, Inversely Proportional, MathWorld'
+    url: 'https://mathworld.wolfram.com/InverselyProportional.html'
+description:
+  en: >-
+    Inverse proportion, or inverse variation, is the relation between two quantities whose product
+    stays constant: when one is multiplied by some factor, the other is divided by the same factor.
+    One quantity equals a fixed constant divided by the other, and the graph of the relation is a
+    hyperbola that approaches both axes without ever reaching them.
+
+    In the formula, $\var{x}$ is the independent quantity, $\var{y}$ the quantity that depends on
+    it, and $\var{k}$ the constant of proportionality, or constant of variation, which is never
+    zero. The unit of $\var{k}$ is the product of the units of the other two, as in the worker-days
+    a job requires; written as plain numbers, the terms work in any consistent units. The
+    independent quantity cannot be zero. With a positive constant both quantities share a sign, and
+    as one grows the other shrinks toward zero.
+
+    The constant follows from one known pair of values by multiplying them: if $\var{y}$ is 20 when
+    $\var{x}$ is 8, the constant is 160. Doubling $\var{x}$ then halves $\var{y}$, and tripling it
+    divides $\var{y}$ by three. Replacing $\var{x}$ by its reciprocal turns the relation into a
+    direct proportion between $\var{y}$ and one over $\var{x}$, which is how inverse proportion is
+    recognized in measured data: those two plotted against each other fall on a straight line
+    through the origin.
+
+    Real quantities follow the relation only within limits. The time a job takes falls in inverse
+    proportion to the number of workers only while the work divides evenly and the workers do not
+    hinder one another. The relation differs from a decreasing straight line, which also falls as x
+    grows but does not keep the product fixed. Related laws divide by a power of x instead, such as
+    its square or its cube.
+
+    Examples include the travel time over a fixed distance against speed, the pressure of a gas kept
+    at constant temperature against its volume, and the size of equal shares against the number of
+    people sharing. A 120 kilometre trip takes two hours at 60 kilometres per hour and one hour at
+    120.

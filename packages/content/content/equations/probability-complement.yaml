@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Complement rule'
+kind: 'equation'
+level: 'intro'
+expression: '\var{P(A'')}=1-\var{P(A)}'
+terms:
+  P(A'):
+    kind: 'symbol'
+    identifier: 'P_notA'
+    label:
+      en: 'Probability that A does not occur'
+  P(A):
+    kind: 'symbol'
+    identifier: 'P_A'
+    label:
+      en: 'Probability of A'
+solutions:
+  P(A'): '1 - P_A'
+  P(A): '1 - P_notA'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'statistics-and-probability'
+aliases:
+  - 'complement rule of probability'
+  - 'probability of the complement'
+  - 'probability of the complementary event'
+  - 'probability complement'
+  - 'complementary event'
+  - 'regla del complemento'
+  - 'suceso complementario'
+  - 'suceso contrario'
+  - 'evento complementario'
+references:
+  - title: 'OpenStax, Introductory Statistics 2e, 3.1 Terminology'
+    url: 'https://openstax.org/books/introductory-statistics-2e/pages/3-1-terminology'
+  - title: 'OpenStax, Precalculus, 11.7 Probability'
+    url: 'https://openstax.org/books/precalculus/pages/11-7-probability'
+  - title: 'MacTutor History of Mathematics, Andrey Nikolaevich Kolmogorov'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Kolmogorov/'
+description:
+  en: >-
+    The complement rule of probability states that the chance of an event not happening is one minus
+    the chance of it happening. The complement of an event is the set of every outcome of the
+    experiment that the event leaves out, so the rule is the quickest way to find the probability of
+    "not A", or of "at least one", from the probability of its opposite.
+
+    In the equation, $\var{P(A)}$ is the probability that event A occurs and $\var{P(A')}$ is the
+    probability that its complement occurs, written A' and read "not A". Both are pure numbers from
+    0 to 1, often quoted as percentages: 0 means the event cannot happen and 1 means it is certain.
+    Neither can be negative.
+
+    An event and its complement share no outcome, and together they cover the whole sample space,
+    the set of all possible outcomes. Exactly one of the two must therefore happen on every trial,
+    so their probabilities add up to 1, and subtracting either one from 1 gives the other. The rule
+    is a special case of the addition rule for two events that cannot occur together.
+
+    The relation holds for any event of any random experiment, with equally likely outcomes or not,
+    provided that the complement is taken within the same sample space. It fails when "not A" is
+    read as a narrower event, such as one particular rival outcome, instead of every outcome outside
+    A.
+
+    Kolmogorov's 1933 monograph built probability theory on a small set of axioms, and the
+    complement rule follows directly from them. The rule saves work whenever the opposite event is
+    easier to count: the chance that two dice show a sum greater than 3 is 1 minus the chance of a
+    sum of 2 or 3, or 1 − 1/12 = 11/12.

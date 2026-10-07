@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'General term of an arithmetic sequence'
+kind: 'formula'
+level: 'intro'
+expression: '\var{a_{n}}=\var{a_{1}}+\left(\var{n}-1\right)\var{d}'
+terms:
+  a_{n}:
+    kind: 'symbol'
+    label:
+      en: 'nth term'
+  a_{1}:
+    kind: 'symbol'
+    label:
+      en: 'First term'
+  n:
+    kind: 'symbol'
+    label:
+      en: 'Position of the term'
+    integer: true
+  d:
+    kind: 'symbol'
+    label:
+      en: 'Common difference'
+solutions:
+  a_{n}: 'a_1 + (n - 1) * d'
+  a_{1}: 'a_n - (n - 1) * d'
+  n: '(a_n - a_1) / d + 1'
+  d: '(a_n - a_1) / (n - 1)'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'algebra'
+aliases:
+  - 'arithmetic progression'
+  - 'arithmetic sequence'
+  - 'nth term of an arithmetic sequence'
+  - 'explicit formula for an arithmetic sequence'
+  - 'common difference'
+  - 'progresión aritmética'
+  - 'sucesión aritmética'
+  - 'término enésimo'
+  - 'diferencia común'
+references:
+  - title: 'OpenStax, College Algebra 2e, 9.2 Arithmetic Sequences'
+    url: 'https://openstax.org/books/college-algebra-2e/pages/9-2-arithmetic-sequences'
+  - title: 'E. W. Weisstein, Arithmetic Progression, MathWorld'
+    url: 'https://mathworld.wolfram.com/ArithmeticProgression.html'
+description:
+  en: >-
+    The general term of an arithmetic sequence gives any term of the sequence directly from its
+    first term and its common difference, the fixed amount added to pass from one term to the next.
+    Also called the explicit or nth-term formula of an arithmetic progression, it finds a term far
+    down the list without writing out every term before it.
+
+    Here $\var{a_{n}}$ is the term in position $\var{n}$, $\var{a_{1}}$ the first term and $\var{d}$
+    the common difference. The position $\var{n}$ is a positive whole number that starts at 1 for
+    the first term. The other three are pure numbers, or share one unit when the sequence models a
+    measured quantity. A positive difference makes the sequence increase, a negative one makes it
+    decrease, and a zero difference keeps every term equal to the first.
+
+    Reaching a given position from the first term takes one step fewer than the position number, and
+    each step adds the common difference once, hence the factor $\var{n}-1$. Read as a function of
+    the position, the formula is a straight line whose slope is the common difference, so the terms
+    plotted against their positions fall on a line. Rearranged, the same relation gives the
+    difference from two known terms, or the position at which a given value occurs.
+
+    The formula applies only when the difference between consecutive terms is truly constant; the
+    sequence 1, 3, 6, 10, 15 fails that test, since its differences grow. Solving for the position
+    returns a whole number only when the value really belongs to the sequence; a fractional result
+    means that the sequence skips it.
+
+    Arithmetic sequences describe an asset that loses the same value every year, a salary that rises
+    by a fixed amount, or theatre rows that each hold a few more seats than the row in front. A
+    sequence that starts at 3 and adds 4 each time has 39 as its tenth term.

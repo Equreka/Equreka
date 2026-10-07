@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Probabilidad condicionada'
+terms:
+  P(A\mid B):
+    label: 'Probabilidad de A dado B'
+  P(A\cap B):
+    label: 'Probabilidad de A y B'
+  P(B):
+    label: 'Probabilidad de B'
+description: >-
+  La probabilidad condicionada es la probabilidad de que ocurra un suceso A cuando se sabe que otro
+  suceso B ya ha ocurrido. La fórmula la define como la probabilidad de que ocurran ambos sucesos
+  dividida entre la probabilidad de la condición B, y se lee «probabilidad de A dado B».
+
+  En la fórmula, $\var{P(A\mid B)}$ es la probabilidad condicionada, donde la barra vertical
+  significa «dado». $\var{P(A\cap B)}$ es la probabilidad de la intersección, que A y B ocurran a la
+  vez, y $\var{P(B)}$ es la probabilidad del suceso condicionante. Las tres son números puros entre
+  0 y 1, nunca negativos. La intersección nunca puede ser más probable que el propio B, así que el
+  cociente nunca supera 1.
+
+  Saber que B ha ocurrido descarta todos los resultados fuera de B, de modo que B pasa a ser un
+  espacio muestral reducido. Entre los resultados que quedan, solo cuentan como favorables los que
+  también pertenecen a A, y dividir entre la probabilidad de B reescala el espacio reducido para que
+  sus probabilidades vuelvan a sumar 1. Al multiplicar ambos lados por la probabilidad de B se
+  obtiene la regla general del producto: la probabilidad de A y B es la probabilidad de B por la
+  probabilidad de A dado B.
+
+  La definición exige que la probabilidad de B sea mayor que cero: condicionar a un suceso imposible
+  carece de sentido y la división no está definida. El orden de la condición importa, ya que la
+  probabilidad de A dado B suele diferir de la de B dado A; el teorema de Bayes convierte una en la
+  otra. Cuando la probabilidad condicionada coincide con la probabilidad de A, los dos sucesos son
+  independientes.
+
+  Las probabilidades condicionadas describen resultados de pruebas médicas, previsiones
+  meteorológicas y tablas de riesgo. Con un dado equilibrado, la probabilidad de sacar un 2 o un 3
+  sabiendo que la tirada es par es (1/6) ÷ (3/6) = 1/3, porque solo el 2 es par y está en el suceso.

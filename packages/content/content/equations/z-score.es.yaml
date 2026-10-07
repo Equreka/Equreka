@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Puntuación z'
+terms:
+  z:
+    label: 'Puntuación z'
+  x:
+    label: 'Valor'
+  \mu:
+    label: 'Media'
+  \sigma:
+    label: 'Desviación típica'
+description: >-
+  La puntuación z, también llamada puntuación típica o estándar, indica a qué distancia de la media
+  de su conjunto de datos o de su distribución se encuentra un valor concreto, contada en
+  desviaciones típicas. Convertir un valor en su puntuación z se llama tipificar, y es una
+  herramienta básica de la estadística descriptiva para comparar observaciones tomadas en escalas
+  distintas.
+
+  En la fórmula, $\var{x}$ es el valor observado, $\var{\mu}$ es la media y $\var{\sigma}$ es la
+  desviación típica, las tres en la misma unidad, que la división cancela; por eso la puntuación z
+  $\var{z}$ es un número puro sin unidad. La desviación típica debe ser positiva. Un $\var{z}$
+  positivo señala un valor por encima de la media, uno negativo un valor por debajo, y cero un valor
+  igual a la media.
+
+  Restar la media desplaza el centro de los datos a cero, y dividir por la desviación típica
+  reescala su dispersión a uno. Leída al revés, la fórmula da el valor como la media más $\var{z}$
+  desviaciones típicas, lo que recupera una puntuación bruta a partir de una tipificada. En una
+  distribución normal, cerca del 68 por ciento de los valores tiene una puntuación z a menos de una
+  unidad de cero, cerca del 95 por ciento a menos de dos y cerca del 99.7 por ciento a menos de
+  tres.
+
+  La fórmula vale para cualquier conjunto de datos, pero esos porcentajes, y cualquier probabilidad
+  de cola leída en una tabla normal estándar, suponen que los datos siguen aproximadamente una
+  distribución normal. Con una muestra en lugar de una población completa, la media muestral y la
+  desviación típica muestral ocupan el lugar de los valores poblacionales, de modo que el resultado
+  es solo una estimación.
+
+  Las puntuaciones tipificadas ordenan resultados de exámenes, detectan valores atípicos en el
+  control de calidad y llevan medidas en unidades distintas a una escala común. Un valor de 17
+  tomado de una distribución con media 5 y desviación típica 6 tiene una puntuación z de 2: está dos
+  desviaciones típicas por encima de la media.

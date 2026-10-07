@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Slope-intercept form'
+kind: 'equation'
+level: 'intro'
+expression: '\var{y}=\var{m}\var{x}+\var{b}'
+terms:
+  y:
+    kind: 'symbol'
+    label:
+      en: 'Dependent variable'
+  m:
+    kind: 'symbol'
+    label:
+      en: 'Slope'
+  x:
+    kind: 'symbol'
+    label:
+      en: 'Independent variable'
+  b:
+    kind: 'symbol'
+    label:
+      en: 'y-intercept'
+solutions:
+  y: 'm * x + b'
+  m: '(y - b) / x'
+  x: '(y - b) / m'
+  b: 'y - m * x'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'algebra'
+aliases:
+  - 'equation of a line'
+  - 'equation of a straight line'
+  - 'linear function'
+  - 'y = mx + b'
+  - 'slope intercept form'
+  - 'ecuación explícita de la recta'
+  - 'ecuación de la recta'
+  - 'forma pendiente-intersección'
+  - 'función lineal'
+references:
+  - title: 'OpenStax, College Algebra 2e, 4.1 Linear Functions'
+    url: 'https://openstax.org/books/college-algebra-2e/pages/4-1-linear-functions'
+  - title: 'OpenStax, College Algebra 2e, 9.2 Arithmetic Sequences'
+    url: 'https://openstax.org/books/college-algebra-2e/pages/9-2-arithmetic-sequences'
+description:
+  en: >-
+    The slope-intercept form writes the equation of a straight line in the plane as the output equal
+    to the slope times the input plus the y-intercept. It is the usual way to state a linear
+    function in school algebra and analytic geometry, because the two numbers that fix the line, its
+    steepness and the height at which it crosses the vertical axis, can be read straight from it.
+
+    Here $\var{x}$ is the independent variable, plotted on the horizontal axis, and $\var{y}$ the
+    dependent variable, plotted on the vertical axis. $\var{m}$ is the slope, the change in
+    $\var{y}$ for each unit increase in $\var{x}$, and $\var{b}$ is the y-intercept, the value of
+    $\var{y}$ where $\var{x}$ is zero. All four are pure numbers here; in a model, $\var{y}$ and
+    $\var{b}$ share a unit and $\var{m}$ is measured in units of $\var{y}$ per unit of $\var{x}$. A
+    positive slope gives a line that rises from left to right, a negative slope one that falls, and
+    a zero slope a horizontal line.
+
+    The slope is a constant rate of change: between any two points of the line, the vertical change
+    divided by the horizontal change gives the same value, which is what makes the graph straight.
+    Given one point and the slope, the point-slope form rearranges into this one; given two points,
+    the slope follows from their coordinates and the intercept from substituting either point. An
+    arithmetic sequence is the same relation evaluated at whole numbers, with the common difference
+    in the role of the slope.
+
+    Every line that is not vertical has exactly one slope-intercept form. A vertical line has no
+    defined slope, because its horizontal change is zero, and is written instead as the input equal
+    to a constant. The form describes only relations with a constant rate of change; a parabola or
+    an exponential curve changes its rate from point to point.
+
+    Linear models describe costs made of a fixed fee plus a price per unit. A collection of 200
+    songs that grows by 15 songs each month follows the line with slope 15 and intercept 200.

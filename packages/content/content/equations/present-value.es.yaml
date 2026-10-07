@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Valor presente'
+terms:
+  \mathrm{PV}:
+    label: 'Valor presente'
+  \mathrm{FV}:
+    label: 'Valor futuro'
+  r:
+    label: 'Tasa por periodo (como fracción)'
+  n:
+    label: 'Número de periodos'
+description: >-
+  El valor presente, o valor actual, es la cantidad que, invertida hoy a una tasa dada, crece hasta
+  una suma determinada en una fecha futura. La fórmula del valor presente descuenta un valor futuro
+  hasta hoy dividiéndolo entre el factor de crecimiento compuesto de todos los periodos, de modo que
+  una suma que se recibe más tarde vale menos que la misma suma recibida ahora. El descuento es la
+  operación inversa de la capitalización y la base del valor del dinero en el tiempo.
+
+  En la fórmula, $\var{\mathrm{PV}}$ es el valor presente, $\var{\mathrm{FV}}$ el valor futuro,
+  $\var{r}$ la tasa de interés o de descuento por periodo como fracción decimal y $\var{n}$ el
+  número de periodos. La tasa y el recuento deben referirse al mismo periodo: una tasa anual con
+  años, una tasa mensual con meses. La tasa es mayor que menos uno, y una tasa positiva hace que el
+  valor presente sea menor que el futuro.
+
+  La relación es la regla del crecimiento compuesto leída al revés: una suma presente multiplicada
+  por uno más la tasa una vez por periodo se convierte en la suma futura, así que dividir la suma
+  futura entre ese factor deshace el crecimiento. Es el interés compuesto con una capitalización por
+  periodo, o el crecimiento exponencial, con la cantidad de partida despejada, que esas relaciones
+  llaman capital o cantidad inicial. El inverso del factor es el factor de descuento. Despejar la
+  tasa da la rentabilidad que une dos sumas, y los logaritmos dan el número de periodos necesario,
+  que resulta fraccionario cuando la meta se alcanza a mitad de un periodo.
+
+  La fórmula valora un único pago a una tasa constante. Una serie de pagos, como un préstamo o una
+  anualidad o renta, se valora sumando un término de este tipo por cada pago. Con una tasa nominal
+  anual que se capitaliza varias veces al año, la tasa por periodo es la tasa anual dividida entre
+  el número de capitalizaciones, y los periodos se cuentan en esos mismos pasos.
+
+  El valor presente fija el precio de los bonos, compara proyectos de inversión y valorar pensiones
+  o premios pagados de una vez. Un pago de 5000 que vence dentro de cinco años vale hoy unos 3917.63
+  al 5 por ciento anual.

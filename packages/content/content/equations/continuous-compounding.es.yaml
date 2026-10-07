@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Capitalización continua'
+terms:
+  A:
+    label: 'Valor futuro'
+  P:
+    label: 'Capital'
+  r:
+    label: 'Tasa de interés anual (como fracción)'
+  t:
+    label: 'Tiempo en años'
+description: >-
+  La capitalización continua es el límite del interés compuesto cuando el interés se abona infinitas
+  veces: el saldo es igual al capital por el número de Euler e elevado al producto de la tasa anual
+  y el tiempo. La fórmula de la capitalización continua, conocida como P por e elevado a r t,
+  describe un crecimiento exponencial con una tasa relativa constante y da el mayor saldo que puede
+  alcanzar cualquier frecuencia de capitalización con una tasa nominal dada.
+
+  En la fórmula, $\var{A}$ es el valor futuro o saldo final, $\var{P}$ el capital, $\var{r}$ la tasa
+  de interés anual como fracción decimal, $\var{t}$ el tiempo en años y $\const{e}$ el número de
+  Euler, aproximadamente 2.718, la base del logaritmo natural. Las cantidades de dinero comparten
+  una moneda, que la fórmula deja abierta; la tasa y el tiempo son números puros cuyos periodos
+  deben coincidir. Una tasa negativa describe una disminución continua en lugar de un crecimiento.
+
+  Capitalizar un número entero de veces al año multiplica el capital por uno más la tasa dividida
+  entre ese número, elevado a ese número por $\var{t}$. Al crecer sin límite el número de
+  capitalizaciones, el factor se acerca a e elevado a la tasa por el tiempo, porque uno más el
+  inverso de un número entero, elevado a ese número, tiende a e. Los logaritmos naturales permiten
+  entonces despejar la tasa o el tiempo: el tiempo es el logaritmo natural de la razón de
+  crecimiento dividido entre la tasa, así que el dinero al 5 por ciento se duplica en unos 13.9
+  años.
+
+  La fórmula supone una tasa constante, sin depósitos ni retiradas. Ningún banco abona interés en
+  cada instante, pero la capitalización diaria ya se acerca mucho al resultado continuo, así que la
+  fórmula sirve como cota superior y aproximación cómoda. El mismo modelo exponencial describe el
+  crecimiento de una población y la desintegración radiactiva, siempre que una cantidad cambie a un
+  ritmo proporcional a su propio tamaño.
+
+  Jacob Bernoulli encontró el límite en que se basa la fórmula en 1683 al estudiar el interés
+  compuesto continuo. Un depósito de 1000 al 5 por ciento durante 18 años llega a unos 2459.60 con
+  capitalización continua, frente a 2445.92 con capitalización trimestral.

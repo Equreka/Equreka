@@ -1,5 +1,6 @@
 import type { CollectionName, Equation } from '@equreka/schema';
 import { dimensionsEqual, formatDimension, magnitudeDimension } from './dimension.js';
+import { proseFields } from './prose-fields.js';
 import { ratFromExact, ratIsZero } from './rational.js';
 import {
 	buildIdentifierMap,
@@ -321,6 +322,31 @@ export function checkIntegrity(corpus: Corpus): Issue[] {
 				issues.push(
 					issue('error', 'integrity', file, `terms key '${key}' never appears in expression`),
 				);
+			}
+		}
+		for (const field of proseFields('equations', equation)) {
+			const proseFile = fileOf('equations', slug, field.locale);
+			for (const use of macroUses(field.text)) {
+				const term = equation.terms[use.arg];
+				if (term === undefined) {
+					issues.push(
+						issue(
+							'error',
+							'integrity',
+							proseFile,
+							`${field.path} macro argument '${use.arg}' is not a terms key`,
+						),
+					);
+				} else if (!MACRO_ACCEPTS[use.kind].includes(term.kind)) {
+					issues.push(
+						issue(
+							'error',
+							'integrity',
+							proseFile,
+							`${field.path} annotates '${use.arg}' as ${use.kind} but terms declares ${term.kind}`,
+						),
+					);
+				}
 			}
 		}
 		issues.push(...termKeyIssues(file, equation.terms));

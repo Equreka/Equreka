@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Vieta''s formula for the sum of roots'
+kind: 'equation'
+level: 'intro'
+expression: '\var{x_{1}}+\var{x_{2}}=-\frac{\var{b}}{\var{a}}'
+terms:
+  x_{1}:
+    kind: 'symbol'
+    label:
+      en: 'First root'
+  x_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Second root'
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Quadratic coefficient'
+  b:
+    kind: 'symbol'
+    label:
+      en: 'Linear coefficient'
+solutions:
+  x_{1}: '-b / a - x_2'
+  x_{2}: '-b / a - x_1'
+  a: '-b / (x_1 + x_2)'
+  b: '-a * (x_1 + x_2)'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'algebra'
+aliases:
+  - 'Vieta''s formulas'
+  - 'Viète''s formulas'
+  - 'sum of the roots of a quadratic'
+  - 'sum of roots'
+  - 'relaciones de Cardano-Vieta'
+  - 'fórmulas de Vieta'
+  - 'suma de raíces'
+references:
+  - title: 'E. W. Weisstein, Vieta''s Formulas, MathWorld'
+    url: 'https://mathworld.wolfram.com/VietasFormulas.html'
+  - title: 'MacTutor History of Mathematics, François Viète'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Viete/'
+  - title: 'OpenStax, College Algebra 2e, 2.5 Quadratic Equations'
+    url: 'https://openstax.org/books/college-algebra-2e/pages/2-5-quadratic-equations'
+description:
+  en: >-
+    Vieta's formula for the sum of roots states that the two roots of a quadratic equation add up to
+    the opposite of its first-power coefficient divided by the coefficient of its square. It is one
+    of Vieta's formulas, the relations that link the coefficients of a polynomial to its roots, and
+    it gives the sum of the solutions of a second-degree equation without solving it.
+
+    In the relation, $\var{x_{1}}$ and $\var{x_{2}}$ are the two roots of the quadratic equation
+    written in standard form, with zero on one side, and they are counted with multiplicity, so a
+    repeated root appears twice. $\var{a}$ is the coefficient of the square and $\var{b}$ the
+    coefficient of the first power; both are pure numbers and $\var{a}$ is never zero. When
+    $\var{a}$ and $\var{b}$ have the same sign the roots add up to a negative number, and when their
+    signs differ the sum is positive.
+
+    Once its roots are known, a quadratic can be factored as the leading coefficient times the
+    product of two binomials, each made by subtracting one root from the unknown. Expanding that
+    product and matching the first-power coefficient against the original equation gives the
+    relation, while matching the constant terms gives its companion, the product of the roots.
+    Adding the two roots from the quadratic formula leads to the same result, since the square-root
+    parts cancel.
+
+    The relation holds for complex roots as well as real ones: when the discriminant is negative,
+    the two complex conjugate roots still add up to the real number on the right. It needs the
+    equation in standard form. For a polynomial of higher degree, the sum of all its roots is minus
+    the coefficient of the second-highest power over the leading coefficient.
+
+    François Viète proved the relation for positive roots in 1579, and Girard later proved the
+    general theorem; Viète also introduced letters for unknowns in his book of 1591. The formula
+    checks computed roots and builds an equation with chosen roots: roots 2 and 3 add up to 5, as in
+    the equation with coefficients 1, -5 and 6.

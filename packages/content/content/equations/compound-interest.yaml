@@ -1,0 +1,86 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Compound interest'
+kind: 'formula'
+level: 'intro'
+expression: '\var{A}=\var{P}\left(1+\frac{\var{r}}{\var{n}}\right)^{\var{n}\var{t}}'
+terms:
+  A:
+    kind: 'symbol'
+    label:
+      en: 'Future value'
+  P:
+    kind: 'symbol'
+    label:
+      en: 'Principal'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Nominal annual rate (as a fraction)'
+  n:
+    kind: 'symbol'
+    label:
+      en: 'Compounding periods per year'
+    integer: true
+  t:
+    kind: 'symbol'
+    label:
+      en: 'Time in years'
+solutions:
+  A: 'P * (1 + r / n)^(n * t)'
+  P: 'A / (1 + r / n)^(n * t)'
+  r: 'n * ((A / P)^(1 / (n * t)) - 1)'
+  t: 'ln(A / P) / (n * ln(1 + r / n))'
+calculator:
+  enabled: true
+  solveFor: ['A', 'P', 'r', 't']
+externalIds:
+  wikidata: 'Q959606'
+categories:
+  - 'mathematics'
+branches:
+  - 'arithmetic'
+aliases:
+  - 'compound interest formula'
+  - 'compounding'
+  - 'future value'
+  - 'A = P(1 + r/n)^(nt)'
+  - 'capitalización compuesta'
+  - 'valor futuro'
+references:
+  - title: 'OpenStax, Contemporary Mathematics, 6.4 Compound Interest'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/6-4-compound-interest'
+  - title: 'OpenStax, Intermediate Algebra 2e, 10.2 Evaluate and Graph Exponential Functions'
+    url: 'https://openstax.org/books/intermediate-algebra-2e/pages/10-2-evaluate-and-graph-exponential-functions'
+  - title: 'D. Lippman, Math in Society, 9.3 Compound Interest (LibreTexts)'
+    url: 'https://math.libretexts.org/Bookshelves/Applied_Mathematics/Math_in_Society_(Lippman)/09%3A_Finance/9.03%3A_Compound_Interest'
+description:
+  en: >-
+    Compound interest is interest added to the principal at regular intervals so that, from then on,
+    the interest itself earns interest. The compound interest formula gives the future value of a
+    deposit or loan after a number of years when a nominal annual rate is credited a fixed number of
+    times per year; the balance is multiplied by the same growth factor in every period, which makes
+    the growth exponential.
+
+    In the formula, $\var{A}$ is the future value or final balance, $\var{P}$ the principal,
+    $\var{r}$ the nominal annual rate as a decimal fraction, $\var{n}$ the whole number of
+    compounding periods per year (1 for yearly, 4 for quarterly, 12 for monthly), and $\var{t}$ the
+    time in years. The money amounts share one currency, which the formula leaves open; the rate,
+    the frequency and the time are pure numbers. Each period earns the annual rate divided by the
+    number of periods per year, and the deposit runs for that number times the years in all.
+
+    After one period the balance is the principal times one plus the periodic rate, and every
+    further period multiplies it by the same factor, which produces the power. Dividing by that
+    factor gives the principal needed today to reach a target, its present value, and logarithms
+    give the time needed to reach it. The frequency cannot be isolated with elementary functions,
+    because it sits both in the base and in the exponent, so it is always an input.
+
+    The formula assumes a constant rate, no deposits or withdrawals, and interest left in the
+    account. At a given nominal rate, more frequent compounding gives a slightly larger balance, but
+    the gain shrinks as the frequency grows and approaches the limit of continuous compounding.
+    Offers with different frequencies are compared through the effective annual yield, the
+    once-a-year rate that gives the same growth.
+
+    Savings accounts, fixed-term deposits, mortgages and credit card balances accrue interest in
+    this way. A deposit of 1000 at 5 percent compounded quarterly grows to about 2445.92 in 18
+    years.

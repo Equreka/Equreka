@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Binomial probability'
+kind: 'formula'
+level: 'intro'
+expression: '\var{P(X=k)}=\frac{\var{n}!}{\var{k}!\left(\var{n}-\var{k}\right)!}\var{p}^{\var{k}}\left(1-\var{p}\right)^{\var{n}-\var{k}}'
+terms:
+  P(X=k):
+    kind: 'symbol'
+    identifier: 'P_k'
+    label:
+      en: 'Probability of exactly k successes'
+  n:
+    kind: 'symbol'
+    integer: true
+    label:
+      en: 'Number of trials'
+  k:
+    kind: 'symbol'
+    integer: true
+    label:
+      en: 'Number of successes'
+  p:
+    kind: 'symbol'
+    label:
+      en: 'Probability of success in one trial'
+solutions:
+  P(X=k): 'factorial(n) / (factorial(k) * factorial(n - k)) * p^k * (1 - p)^(n - k)'
+calculator:
+  enabled: true
+  solveFor: ['P(X=k)']
+categories:
+  - 'mathematics'
+branches:
+  - 'statistics-and-probability'
+aliases:
+  - 'binomial probability formula'
+  - 'binomial distribution'
+  - 'binomial probability mass function'
+  - 'Bernoulli trials'
+  - 'probabilidad binomial'
+  - 'distribución binomial'
+  - 'ensayos de Bernoulli'
+references:
+  - title: 'OpenStax, Introductory Statistics 2e, 4.3 Binomial Distribution'
+    url: 'https://openstax.org/books/introductory-statistics-2e/pages/4-3-binomial-distribution'
+  - title: 'NIST/SEMATECH e-Handbook of Statistical Methods, 1.3.6.6.18 Binomial Distribution'
+    url: 'https://www.itl.nist.gov/div898/handbook/eda/section3/eda366i.htm'
+  - title: 'MacTutor History of Mathematics, Jacob (Jacques) Bernoulli'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Bernoulli_Jacob/'
+description:
+  en: >-
+    The binomial probability formula gives the chance of exactly k successes in n repeated,
+    independent trials, each of which ends in success or failure with the same probability of
+    success every time. It is the probability mass function of the binomial distribution, the basic
+    discrete distribution of school statistics for counting successes.
+
+    In the formula, $\var{n}$ is the number of trials and $\var{k}$ the number of successes, both
+    non-negative whole numbers with $\var{k}$ no greater than $\var{n}$. $\var{p}$ is the
+    probability of success on a single trial, and $\var{P(X=k)}$ is the probability that the count
+    of successes X equals k. Both probabilities are pure numbers from 0 to 1. The exclamation mark
+    denotes the factorial.
+
+    Each specific ordering of k successes and n − k failures has probability p raised to the k times
+    1 − p raised to the n − k, by the multiplication rule for independent events. The fraction of
+    factorials is the number of combinations of k positions out of n, which counts how many such
+    sequences exist, and multiplying the two gives the total. Summed over every k from 0 to n, the
+    probabilities add up to 1, and the mean number of successes is n times p.
+
+    The formula requires a fixed number of trials, exactly two outcomes per trial, independent
+    trials and an unchanging probability of success. Sampling without replacement from a small
+    population breaks the last two conditions. The calculator solves only for the probability,
+    because the number of trials, the number of successes and the success probability have no
+    general closed form in terms of the others.
+
+    A single success-or-failure trial is called a Bernoulli trial after Jacob Bernoulli, whose Ars
+    Conjectandi was published in 1713, eight years after his death. Four successes in five trials
+    with a success probability of 0.25 have a probability of about 0.0146.

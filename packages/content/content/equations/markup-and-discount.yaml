@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Markup and discount'
+kind: 'formula'
+level: 'intro'
+expression: '\var{p}=\var{c}\left(1+\var{m}\right)\left(1-\var{d}\right)'
+terms:
+  p:
+    kind: 'symbol'
+    label:
+      en: 'Final price'
+  c:
+    kind: 'symbol'
+    label:
+      en: 'Cost or original price'
+  m:
+    kind: 'symbol'
+    label:
+      en: 'Markup rate (as a fraction)'
+  d:
+    kind: 'symbol'
+    label:
+      en: 'Discount rate (as a fraction)'
+solutions:
+  p: 'c * (1 + m) * (1 - d)'
+  c: 'p / ((1 + m) * (1 - d))'
+  m: 'p / (c * (1 - d)) - 1'
+  d: '1 - p / (c * (1 + m))'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'arithmetic'
+aliases:
+  - 'markup'
+  - 'mark-up'
+  - 'discount'
+  - 'sale price'
+  - 'retail price'
+  - 'list price'
+  - 'margen de ganancia'
+  - 'margen sobre el costo'
+  - 'precio de coste'
+  - 'recargo'
+  - 'descuento'
+  - 'rebaja'
+  - 'precio de venta'
+references:
+  - title: 'OpenStax, Prealgebra 2e, 6.3 Solve Sales Tax, Commission, and Discount Applications'
+    url: 'https://openstax.org/books/prealgebra-2e/pages/6-3-solve-sales-tax-commission-and-discount-applications'
+  - title: 'OpenStax, Contemporary Mathematics, 6.2 Discounts, Markups, and Sales Tax'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/6-2-discounts-markups-and-sales-tax'
+description:
+  en: >-
+    Markup and discount are the two percentage changes of retail pricing. A markup raises a cost by
+    a fraction of that cost to give a selling price, and a discount lowers a price by a fraction of
+    it to give a sale price. Combined in one formula, the final price is the cost multiplied by one
+    plus the markup rate and by one minus the discount rate.
+
+    In the formula, $\var{c}$ is the starting amount: the cost the seller paid, or the original
+    price when only a discount applies. $\var{m}$ is the markup rate and $\var{d}$ the discount
+    rate, both decimal fractions, so a 40 percent markup enters as 0.4; $\var{p}$ is the final
+    price. All prices share one currency, which the formula leaves open, and the rates are pure
+    numbers. Setting $\var{d}$ to zero gives a markup alone, and setting $\var{m}$ to zero a
+    discount alone.
+
+    The amount of markup is the rate times the cost, and adding it to the cost gives the selling
+    price; the amount of discount is the rate times the original price, and subtracting it gives the
+    sale price. Each step multiplies the price by a factor, so two changes applied one after the
+    other multiply their factors rather than add their rates. A markup of 10 percent followed by a
+    discount of 10 percent therefore leaves 99 percent of the cost, not the cost itself.
+
+    The formula assumes that the markup is computed on the cost, as retail arithmetic usually does;
+    a margin quoted as a share of the selling price is a different ratio and gives different
+    numbers. Several discounts, such as a seasonal sale and a student discount, are applied one at a
+    time in the same multiplicative way. The discount rate lies between 0 and 1, since a larger one
+    would give a negative price, while a markup rate may exceed 1.
+
+    Shops use the relation to set shelf prices and to advertise sales. A dress originally priced at
+    140 and sold at 35 percent off costs 91.

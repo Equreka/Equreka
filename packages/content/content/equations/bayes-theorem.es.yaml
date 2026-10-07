@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Teorema de Bayes'
+terms:
+  P(A\mid B):
+    label: 'Probabilidad a posteriori de A dado B'
+  P(B\mid A):
+    label: 'Verosimilitud de B dado A'
+  P(A):
+    label: 'Probabilidad a priori de A'
+  P(B):
+    label: 'Probabilidad de B'
+description: >-
+  El teorema de Bayes expresa la probabilidad de un suceso A dado un suceso observado B en función
+  de la probabilidad de B dado A. Invierte el sentido de una probabilidad condicionada y es la regla
+  para actualizar la probabilidad de una hipótesis cuando llegan nuevos datos; también se conoce
+  como regla de Bayes o ley de Bayes.
+
+  En la ecuación, $\var{P(A)}$ es la probabilidad a priori de A, su probabilidad antes de observar
+  B, y $\var{P(A\mid B)}$ es la probabilidad a posteriori, una vez conocido B. $\var{P(B\mid A)}$ es
+  la verosimilitud, la probabilidad de observar B cuando se cumple A, y $\var{P(B)}$ es la
+  probabilidad total de B, también llamada probabilidad marginal de B. Las cuatro son números puros
+  entre 0 y 1, nunca negativos.
+
+  El teorema se obtiene al escribir de dos maneras la probabilidad de que A y B ocurran a la vez,
+  como la probabilidad de B por la de A dado B y como la probabilidad de A por la de B dado A, y
+  dividir después entre la probabilidad de B. Cuando B no se conoce directamente, se halla con la
+  ley de la probabilidad total: la verosimilitud de B en cada caso posible, ponderada por la
+  probabilidad de ese caso y sumada.
+
+  La probabilidad de B debe ser mayor que cero. El resultado solo es tan fiable como la probabilidad
+  a priori de la que parte, y una probabilidad a priori pequeña puede pesar más que una
+  verosimilitud alta; por eso un resultado positivo en una afección rara suele ser una falsa alarma.
+  Confundir la probabilidad de A dado B con la de B dado A es un error frecuente que el teorema
+  corrige.
+
+  El teorema lleva el nombre de Thomas Bayes, cuyo ensayo sobre la doctrina del azar se publicó en
+  1764 en las Philosophical Transactions de la Royal Society, tres años después de su muerte, cuando
+  su amigo Richard Price lo envió. Una prueba que detecta el 90 por ciento de los casos y señala por
+  error al 0.1 por ciento de las personas sanas da, para una afección que afecta a 1 persona de cada
+  10 000, una probabilidad a posteriori de solo un 8 por ciento aproximadamente tras un resultado
+  positivo.

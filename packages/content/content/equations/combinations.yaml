@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Combinations'
+kind: 'formula'
+level: 'intro'
+expression: '\var{C}=\frac{\var{n}!}{\var{k}!\left(\var{n}-\var{k}\right)!}'
+terms:
+  C:
+    kind: 'symbol'
+    integer: true
+    label:
+      en: 'Number of combinations'
+  n:
+    kind: 'symbol'
+    integer: true
+    label:
+      en: 'Number of objects available'
+  k:
+    kind: 'symbol'
+    integer: true
+    label:
+      en: 'Number of objects chosen'
+solutions:
+  C: 'factorial(n) / (factorial(k) * factorial(n - k))'
+calculator:
+  enabled: true
+  solveFor: ['C']
+externalIds:
+  wikidata: 'Q209875'
+categories:
+  - 'mathematics'
+branches:
+  - 'statistics-and-probability'
+aliases:
+  - 'combination formula'
+  - 'number of combinations'
+  - 'binomial coefficient'
+  - 'n choose k'
+  - 'nCk'
+  - 'nCr'
+  - 'combinaciones sin repetición'
+  - 'número combinatorio'
+  - 'coeficiente binomial'
+references:
+  - title: 'OpenStax, Precalculus, 11.5 Counting Principles'
+    url: 'https://openstax.org/books/precalculus/pages/11-5-counting-principles'
+  - title: 'NIST/SEMATECH e-Handbook of Statistical Methods, 1.3.6.6.18 Binomial Distribution'
+    url: 'https://www.itl.nist.gov/div898/handbook/eda/section3/eda366i.htm'
+  - title: 'MacTutor History of Mathematics, Blaise Pascal'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Pascal/'
+description:
+  en: >-
+    The combinations formula counts the ways to choose a group of objects from a larger set when the
+    order of the chosen objects does not matter. The number it gives is also called the binomial
+    coefficient and is read "n choose k"; it is one of the two basic counting formulas of
+    combinatorics, alongside the formula for permutations.
+
+    In the formula, $\var{n}$ is the number of distinct objects available, $\var{k}$ is the number
+    chosen and $\var{C}$ is the number of different groups that can be formed. All three are
+    non-negative whole numbers with no unit, and $\var{k}$ cannot exceed $\var{n}$. The exclamation
+    mark is the factorial, the product of every whole number from 1 up to the given one, with the
+    factorial of zero equal to 1.
+
+    Arranging the k chosen objects in a row can be done in n!/(n − k)! ordered ways. Every unordered
+    group appears in that count once for each of its k! internal orderings, so dividing by k! leaves
+    the number of groups. Choosing which k objects to take is the same as choosing which n − k to
+    leave behind, so the count is symmetric: swapping k and n − k gives the same value.
+
+    The formula assumes distinct objects drawn without replacement, each at most once, with order
+    ignored. When order matters the permutations formula applies, and when an object may be chosen
+    more than once a different formula is needed. The calculator solves only for the number of
+    combinations: neither the number available nor the number chosen can be recovered from the
+    factorials in closed form.
+
+    Pascal's treatise on the arithmetical triangle was the most important early study of these
+    numbers, which form the rows of that triangle and supply the coefficients of the binomial
+    theorem. Choosing two side dishes from a menu of five can be done in 10 ways.

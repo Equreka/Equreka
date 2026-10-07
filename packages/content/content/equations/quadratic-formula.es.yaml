@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Fórmula general de segundo grado'
+terms:
+  x:
+    label: 'Raíz'
+  a:
+    label: 'Coeficiente cuadrático'
+  b:
+    label: 'Coeficiente lineal'
+  c:
+    label: 'Término independiente'
+description: >-
+  La fórmula general de segundo grado da las raíces de una ecuación cuadrática, la ecuación
+  polinómica de segundo grado con una incógnita que combina el cuadrado de la incógnita, su primera
+  potencia y un término independiente e iguala la suma a cero. Es el método general del álgebra
+  escolar para resolver esa ecuación, incluidos todos los casos que no se factorizan con facilidad,
+  y da las dos soluciones en una sola expresión.
+
+  En la forma general, $\var{x}$ es la incógnita, $\var{a}$ es el coeficiente de su cuadrado,
+  $\var{b}$ el coeficiente de su primera potencia y $\var{c}$ el término independiente. Aquí los
+  cuatro se tratan como números puros; cuando la ecuación modela una medida, cada coeficiente lleva
+  la unidad que mantiene coherentes los tres términos sumados. El coeficiente $\var{a}$ debe ser
+  distinto de cero, porque si no la ecuación es lineal, mientras que $\var{b}$ y $\var{c}$ pueden
+  ser positivos, negativos o nulos. Una raíz negativa es tan válida como una positiva salvo que el
+  contexto, como una longitud o un tiempo transcurrido, la excluya.
+
+  Al despejar la incógnita se obtiene
+  $$\var{x}=\frac{-\var{b}\pm\sqrt{\var{b}^{2}-4\var{a}\var{c}}}{2\var{a}}$$ La deducción completa
+  el cuadrado: se divide entre $\var{a}$, se pasa el término independiente al otro lado, se suma a
+  ambos lados el cuadrado de la mitad del nuevo coeficiente de primer grado y se extraen raíces
+  cuadradas. El signo más y el signo menos producen las dos raíces, situadas simétricamente
+  alrededor del punto medio $-\var{b}/(2\var{a})$.
+
+  La expresión bajo el radical es el discriminante. Con coeficientes reales, un discriminante
+  positivo da dos raíces reales distintas, uno nulo da una raíz doble y uno negativo da un par de
+  raíces complejas que ningún cálculo real devuelve. Una reordenación equivalente coloca el radical
+  en el denominador; es válida siempre que ese denominador no sea cero.
+
+  Los escribas babilonios de hacia el 1800 a. C. resolvían problemas que conducen a ecuaciones
+  cuadráticas con un procedimiento equivalente a completar el cuadrado, siempre con respuestas
+  positivas. Hacia el año 800, al-Juarismi clasificó las cuadráticas en seis tipos y dio para cada
+  uno una regla numérica equivalente a la fórmula, demostrada geométricamente. Con coeficientes 1, 5
+  y 1 las raíces son aproximadamente -0.209 y -4.791.

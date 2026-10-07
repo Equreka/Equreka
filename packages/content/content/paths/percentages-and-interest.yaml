@@ -1,0 +1,195 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.schema.json
+name:
+  en: 'Percentages and interest'
+level: 'intro'
+estimatedMinutes: '25'
+categories:
+  - 'mathematics'
+branches:
+  - 'arithmetic'
+aliases:
+  - 'percentages'
+  - 'proportion'
+  - 'interest'
+  - 'porcentajes'
+  - 'proporcionalidad'
+  - 'interés'
+description:
+  en: >-
+    From percentages and proportion to simple, compound and continuous interest and present value:
+    the arithmetic of prices, savings and loans, with each formula solved for any of its terms.
+steps:
+  - id: 'intro'
+    kind: 'prose'
+    body:
+      en: >-
+        Every formula ahead compares an amount with a reference. Percentages and rates enter as
+        decimal fractions: 25 percent is 0.25 and 6 percent is 0.06. Money amounts carry no fixed
+        unit, so any currency works as long as every amount in one calculation uses the same one.
+  - id: 'percent'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'percent'
+    note:
+      en: >-
+        The percent sign means one hundredth, so a percentage converts to a fraction by dividing by
+        100. A rate written as 7.5 percent is the number 0.075.
+  - id: 'percentage'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'percentage'
+    note:
+      en: >-
+        The part equals the percentage times the whole. Solve it three ways: the part from the
+        percentage, the percentage from the part, and the whole from the other two.
+  - id: 'check-percent-of'
+    kind: 'check'
+    prompt:
+      en: >-
+        What is 15 percent of 80, and what percent of 80 is 20?
+    answer:
+      en: >-
+        15 percent of 80 is 0.15 times 80, which is 12. And 20 divided by 80 is 0.25, so 20 is 25
+        percent of 80.
+  - id: 'percentage-change'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'percentage-change'
+    note:
+      en: >-
+        The change is always measured against the starting value. Note how the final value equals
+        the initial value times one plus the relative change: that growth factor returns in every
+        interest formula below.
+  - id: 'check-up-down'
+    kind: 'check'
+    prompt:
+      en: >-
+        A price rises by 20 percent and then falls by 20 percent. Is it back where it started?
+    answer:
+      en: >-
+        No. The factors multiply: 1.2 times 0.8 is 0.96, so the price ends 4 percent below its
+        start. The fall is taken from the higher price, so it removes more than the rise added.
+  - id: 'markup-and-discount'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'markup-and-discount'
+    note:
+      en: >-
+        Shop prices apply the same growth factors. Set the discount to zero for a markup alone, or
+        the markup to zero for a sale price alone.
+  - id: 'proportion'
+    kind: 'prose'
+    body:
+      en: >-
+        A percentage is a special proportion: the part keeps a fixed ratio to the whole. The next
+        two relations generalize the idea. In a direct proportion the ratio of two quantities is
+        constant; in an inverse proportion their product is.
+  - id: 'direct-proportion'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'direct-proportion'
+    note:
+      en: >-
+        Doubling one quantity doubles the other. Find the constant from one known pair, then use it
+        for any other value, which is the rule of three.
+  - id: 'inverse-proportion'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'inverse-proportion'
+    note:
+      en: >-
+        Doubling one quantity halves the other, because their product stays fixed.
+  - id: 'check-workers'
+    kind: 'check'
+    prompt:
+      en: >-
+        Four workers finish a job in 6 days. Working at the same pace, how long do 3 workers need?
+    answer:
+      en: >-
+        8 days. Workers and days are inversely proportional: their product, 4 times 6, is 24
+        worker-days, and 24 divided by 3 is 8.
+  - id: 'interest'
+    kind: 'prose'
+    body:
+      en: >-
+        Interest is the price of money over time, a percentage of a sum charged or paid per year.
+        The difference between the next two formulas is whether interest, once earned, starts
+        earning interest itself.
+  - id: 'simple-interest'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'simple-interest'
+    note:
+      en: >-
+        Interest on the principal alone: the same amount every year, a straight line.
+  - id: 'compound-interest'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'compound-interest'
+    note:
+      en: >-
+        Interest added to the balance and then earning interest: the balance is multiplied by the
+        same factor every period. The number of periods per year is always an input.
+  - id: 'check-simple-compound'
+    kind: 'check'
+    prompt:
+      en: >-
+        A sum of 1000 is invested for two years at 10 percent a year. How much is it worth with
+        simple interest, and with interest compounded once a year?
+    answer:
+      en: >-
+        1200 with simple interest, since each year adds 100. With yearly compounding the second year
+        earns 10 percent of 1100, giving 1210: the extra 10 is interest on the first year's
+        interest.
+  - id: 'euler-number'
+    kind: 'entry'
+    ref:
+      collection: 'constants'
+      slug: 'euler-number'
+    note:
+      en: >-
+        Compounding more and more often at the same nominal rate gives a balance that approaches a
+        limit, and that limit brings in the number e, about 2.718.
+  - id: 'continuous-compounding'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'continuous-compounding'
+    note:
+      en: >-
+        The ceiling that any compounding frequency approaches. Compare its result with compound
+        interest at four or twelve periods a year for the same principal, rate and time.
+  - id: 'present-value'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'present-value'
+    note:
+      en: >-
+        Compounding read backwards: divide a future sum by the growth factor to find what it is
+        worth today.
+  - id: 'check-present-value'
+    kind: 'check'
+    prompt:
+      en: >-
+        How much must be deposited today, at 10 percent a year compounded yearly, to have 1210 in
+        two years?
+    answer:
+      en: >-
+        1000, since 1210 divided by 1.1 squared, which is 1.21, gives 1000. It is the previous check
+        run in reverse.
+  - id: 'closing'
+    kind: 'prose'
+    body:
+      en: >-
+        One idea runs through every step: a change by a rate multiplies a quantity by one plus that
+        rate. Repeating the change raises the factor to a power, and undoing it divides by the same
+        factor.

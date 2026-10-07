@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Interés simple'
+terms:
+  I:
+    label: 'Interés'
+  P:
+    label: 'Capital'
+  r:
+    label: 'Tasa de interés anual (como fracción)'
+  t:
+    label: 'Tiempo en años'
+description: >-
+  El interés simple es el interés calculado solo sobre el capital original: el interés es igual al
+  capital por la tasa de interés por el tiempo. Como el interés ganado nunca se suma a la cantidad
+  que lo produce, el saldo crece en la misma cantidad cada año, un crecimiento en línea recta que
+  distingue el interés simple del interés compuesto en préstamos, ahorros y bonos.
+
+  En la fórmula, $\var{I}$ es el interés ganado o adeudado; $\var{P}$ es el capital, la cantidad
+  prestada, tomada en préstamo o depositada; $\var{r}$ es la tasa de interés anual como fracción
+  decimal, de modo que el 6 por ciento entra como 0.06; y $\var{t}$ es el tiempo en años. El capital
+  y el interés comparten una moneda, que la fórmula deja abierta, mientras que la tasa y el tiempo
+  son números puros cuyos periodos deben coincidir: con una tasa anual, 18 meses entran como 1.5 y
+  45 días como 45/365. Algunos prestamistas cuentan el año como 360 días, lo que eleva ligeramente
+  el interés.
+
+  El total al final del plazo es el capital más el interés, es decir, el capital multiplicado por
+  uno más el producto de la tasa y el tiempo. El interés es proporcional a cada una de las tres
+  entradas: duplicar el capital, la tasa o el tiempo lo duplica. Al reorganizar, la fórmula da la
+  tasa que implica un interés dado, o el tiempo necesario para obtenerlo.
+
+  El modelo supone una tasa fija y un interés que se cobra o se aparta en lugar de reinvertirse.
+  Cuando el interés se abona al saldo y a su vez genera interés, rige el interés compuesto, y el
+  saldo se adelanta a la línea recta por un margen que aumenta con el tiempo. En plazos menores de
+  un año los dos métodos dan resultados casi iguales, por eso el interés simple se usa en préstamos
+  cortos.
+
+  Las notas del Tesoro y muchos otros bonos pagan interés simple a sus titulares a intervalos fijos.
+  Un depósito de 500 al 6 por ciento anual durante tres años genera 90 de interés.

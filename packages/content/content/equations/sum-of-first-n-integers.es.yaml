@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Suma de los n primeros enteros positivos'
+terms:
+  S_{n}:
+    label: 'Suma de los n primeros enteros'
+  n:
+    label: 'Número de enteros'
+description: >-
+  La suma de los n primeros enteros positivos, 1 más 2 más 3 y así hasta n, es igual a n por el
+  entero siguiente, dividido entre dos. Los totales que produce, 1, 3, 6, 10, 15 y siguientes, son
+  los números triangulares, así que la relación es también la fórmula del número triangular enésimo,
+  la cantidad de puntos de un triángulo con n filas que crecen de un punto en un punto.
+
+  Aquí $\var{S_{n}}$ es la suma y $\var{n}$ el número de enteros sumados, un entero no negativo; con
+  cero enteros la suma es vacía y vale cero. Ambos son números puros. De cada dos enteros
+  consecutivos uno es par, así que el producto del numerador siempre es par y la suma siempre es un
+  número entero.
+
+  La relación es el caso particular de la suma de una serie aritmética cuyo primer término es 1 y
+  cuyo último término es n. Emparejar el primer entero con el último, el segundo con el penúltimo, y
+  así sucesivamente, da pares que suman cada uno una unidad más que n, y hay la mitad de pares que
+  de enteros. Un dibujo muestra lo mismo: dos copias del triángulo de puntos encajan formando un
+  rectángulo de n puntos de ancho y un punto más de alto que de ancho.
+
+  Despejar el número de enteros equivale a resolver una ecuación cuadrática. Su raíz positiva es el
+  número con sentido; la segunda raíz es siempre negativa y no tiene sentido como número de
+  términos. El número sale entero solo cuando la suma dada es un número triangular, y en otro caso
+  ninguna serie de enteros consecutivos que empiece en 1 la alcanza exactamente. El número de
+  brindis cuando cada pareja de un grupo choca las copas es el número triangular de uno menos que el
+  tamaño del grupo.
+
+  Emparejar los extremos de la serie del 1 al 100, de modo que el 1 vaya con el 100 y el 2 con el
+  99, da 50 pares de 101 cada uno y un total de 5050; el atajo se atribuye a Carl Friedrich Gauss
+  cuando era niño.

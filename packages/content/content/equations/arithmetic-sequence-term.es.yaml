@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Término general de una progresión aritmética'
+terms:
+  a_{n}:
+    label: 'Término enésimo'
+  a_{1}:
+    label: 'Primer término'
+  n:
+    label: 'Posición del término'
+  d:
+    label: 'Diferencia común'
+description: >-
+  El término general de una progresión aritmética da cualquier término de la progresión directamente
+  a partir de su primer término y de su diferencia común, la cantidad fija que se suma para pasar de
+  un término al siguiente. También llamado fórmula explícita o del término enésimo de la progresión,
+  permite hallar un término lejano sin escribir todos los anteriores.
+
+  Aquí $\var{a_{n}}$ es el término que ocupa la posición $\var{n}$, $\var{a_{1}}$ el primer término
+  y $\var{d}$ la diferencia común. La posición $\var{n}$ es un número entero positivo que empieza en
+  1 para el primer término. Los otros tres son números puros, o comparten una unidad cuando la
+  progresión modela una magnitud medida. Una diferencia positiva hace que la progresión crezca, una
+  negativa que decrezca, y una diferencia nula mantiene todos los términos iguales al primero.
+
+  Llegar a una posición dada desde el primer término requiere un paso menos que el número de la
+  posición, y cada paso suma una vez la diferencia común; de ahí el factor $\var{n}-1$. Leída como
+  función de la posición, la fórmula es una recta cuya pendiente es la diferencia común, así que los
+  términos representados frente a sus posiciones quedan sobre una recta. Reordenada, la misma
+  relación da la diferencia a partir de dos términos conocidos, o la posición en la que aparece un
+  valor dado.
+
+  La fórmula solo se aplica cuando la diferencia entre términos consecutivos es realmente constante;
+  la sucesión 1, 3, 6, 10, 15 no cumple esa condición, porque sus diferencias crecen. Al despejar la
+  posición se obtiene un número entero solo cuando el valor pertenece de verdad a la progresión; un
+  resultado fraccionario indica que la progresión lo salta.
+
+  Las progresiones aritméticas describen un bien que pierde el mismo valor cada año, un salario que
+  sube una cantidad fija o las filas de un teatro que tienen cada una unos asientos más que la de
+  delante. Una progresión que empieza en 3 y suma 4 cada vez tiene 39 como décimo término.

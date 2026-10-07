@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Regla de la adición'
+terms:
+  P(A\cup B):
+    label: 'Probabilidad de A o B'
+  P(A):
+    label: 'Probabilidad de A'
+  P(B):
+    label: 'Probabilidad de B'
+  P(A\cap B):
+    label: 'Probabilidad de A y B'
+description: >-
+  La regla de la adición de la probabilidad da la probabilidad de que ocurra al menos uno de dos
+  sucesos: la probabilidad de A o B es igual a la probabilidad de A más la de B, menos la
+  probabilidad de que ocurran ambos a la vez. Es la regla general para la unión de dos sucesos,
+  también llamada regla del «o», y vale tanto si los sucesos pueden ocurrir a la vez como si no.
+
+  En la ecuación, $\var{P(A\cup B)}$ es la probabilidad de la unión, el suceso de que ocurra A,
+  ocurra B o ocurran ambos. $\var{P(A)}$ y $\var{P(B)}$ son las probabilidades de cada suceso por
+  separado, y $\var{P(A\cap B)}$ es la probabilidad de su intersección, que ambos sucesos ocurran en
+  la misma prueba. Las cuatro son números puros entre 0 y 1, nunca negativos.
+
+  Sumar las dos probabilidades individuales cuenta dos veces cada resultado común a A y B, una vez
+  dentro de cada suceso. Restar la probabilidad de la intersección elimina la segunda copia, de modo
+  que cada resultado de la unión se cuenta una sola vez. En consecuencia, la unión nunca es más
+  probable que la suma de los dos sucesos, ni menos probable que el más probable de ellos.
+
+  Cuando los sucesos son incompatibles, o mutuamente excluyentes, es decir, no comparten ningún
+  resultado, la intersección tiene probabilidad cero y la regla se reduce a una suma directa.
+  Aplicar ese atajo a sucesos que pueden ocurrir juntos sobrestima el resultado. La regla abarca
+  exactamente dos sucesos; para tres o más, el principio de inclusión-exclusión suma y resta por
+  turnos las probabilidades de cada solapamiento. Todas las probabilidades deben referirse al mismo
+  experimento y al mismo espacio muestral.
+
+  Los juegos de cartas ofrecen una aplicación directa: una carta extraída de una baraja estándar de
+  52 cartas es un corazón o un siete con probabilidad 1/4 + 1/13 − 1/52 = 4/13, ya que el siete de
+  corazones pertenece a ambos sucesos.

@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Discriminant of a quadratic'
+kind: 'formula'
+level: 'intro'
+expression: '\var{\Delta}=\var{b}^{2}-4\var{a}\var{c}'
+terms:
+  \Delta:
+    kind: 'symbol'
+    label:
+      en: 'Discriminant'
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Quadratic coefficient'
+  b:
+    kind: 'symbol'
+    label:
+      en: 'Linear coefficient'
+  c:
+    kind: 'symbol'
+    label:
+      en: 'Constant term'
+solutions:
+  \Delta: 'b^2 - 4 * a * c'
+  b:
+    - 'sqrt(Delta + 4 * a * c)'
+    - '-sqrt(Delta + 4 * a * c)'
+  a: '(b^2 - Delta) / (4 * c)'
+  c: '(b^2 - Delta) / (4 * a)'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'algebra'
+aliases:
+  - 'discriminant'
+  - 'b squared minus 4ac'
+  - 'nature of the roots'
+  - 'discriminante'
+references:
+  - title: 'OpenStax, College Algebra 2e, 2.5 Quadratic Equations, The Discriminant'
+    url: 'https://openstax.org/books/college-algebra-2e/pages/2-5-quadratic-equations'
+  - title: 'E. W. Weisstein, Polynomial Discriminant, MathWorld'
+    url: 'https://mathworld.wolfram.com/PolynomialDiscriminant.html'
+  - title: 'MacTutor History of Mathematics, James Joseph Sylvester'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Sylvester/'
+  - title: 'J. Miller, Earliest Known Uses of Some of the Words of Mathematics (D), MacTutor'
+    url: 'https://mathshistory.st-andrews.ac.uk/Miller/mathword/d/'
+description:
+  en: >-
+    The discriminant of a quadratic equation is the number built from its three coefficients by
+    squaring the first-power coefficient and subtracting four times the product of the other two.
+    Its sign tells, before any root is computed, how many real solutions the equation has, and the
+    quadratic formula takes the square root of it. School texts write it with the capital Greek
+    letter delta or with the letter D.
+
+    Here $\var{\Delta}$ is the discriminant and $\var{a}$, $\var{b}$ and $\var{c}$ are the
+    coefficients of the standard form $\var{a}x^{2}+\var{b}x+\var{c}=0$: the coefficient
+    of the square, the coefficient of the first power and the constant term. All four are pure
+    numbers. The coefficient $\var{a}$ is never zero, while the discriminant may be positive, zero
+    or negative, and that sign is precisely the information it carries.
+
+    With real coefficients, a positive discriminant means two distinct real roots, zero means one
+    repeated root, where the parabola of the quadratic only touches the horizontal axis, and a
+    negative value means no real root but a pair of complex conjugate roots. When the coefficients
+    are integers, a positive discriminant that is a perfect square gives two rational roots and any
+    other positive value gives two irrational ones. The gap between the two roots equals the square
+    root of the discriminant divided by the absolute value of $\var{a}$.
+
+    The classification by sign assumes real coefficients; with complex ones the discriminant is in
+    general complex and has no sign. For a polynomial of any degree the discriminant is defined, up
+    to a normalizing factor, from the squared differences between its roots, so cubic and quartic
+    equations have longer discriminants with the same purpose.
+
+    The name discriminant dates from 1851 and is due to James Joseph Sylvester; before then the
+    quantity went by the term Gauss had used, determinant. For coefficients 1, 5 and 1 the
+    discriminant is 21, positive and not a perfect square, so both roots are real and irrational.

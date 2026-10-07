@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Sum of an arithmetic series'
+kind: 'formula'
+level: 'intro'
+expression: '\var{S_{n}}=\frac{\var{n}\left(\var{a_{1}}+\var{a_{n}}\right)}{2}'
+terms:
+  S_{n}:
+    kind: 'symbol'
+    label:
+      en: 'Sum of the first n terms'
+  n:
+    kind: 'symbol'
+    label:
+      en: 'Number of terms'
+    integer: true
+  a_{1}:
+    kind: 'symbol'
+    label:
+      en: 'First term'
+  a_{n}:
+    kind: 'symbol'
+    label:
+      en: 'Last term (nth term)'
+solutions:
+  S_{n}: 'n * (a_1 + a_n) / 2'
+  n: '2 * S_n / (a_1 + a_n)'
+  a_{1}: '2 * S_n / n - a_n'
+  a_{n}: '2 * S_n / n - a_1'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q956213'
+categories:
+  - 'mathematics'
+branches:
+  - 'algebra'
+aliases:
+  - 'arithmetic series'
+  - 'sum of an arithmetic progression'
+  - 'sum of an arithmetic sequence'
+  - 'serie aritmética'
+  - 'suma de una progresión aritmética'
+references:
+  - title: 'OpenStax, College Algebra 2e, 9.4 Series and Their Notations'
+    url: 'https://openstax.org/books/college-algebra-2e/pages/9-4-series-and-their-notations'
+  - title: 'E. W. Weisstein, Arithmetic Series, MathWorld'
+    url: 'https://mathworld.wolfram.com/ArithmeticSeries.html'
+description:
+  en: >-
+    The sum of an arithmetic series gives the total of an arithmetic sequence's first n terms as the
+    number of terms times the average of the first and last terms. It is the closed form of an
+    arithmetic series, a sum whose consecutive terms differ by a constant amount, and it turns a
+    long addition into a single multiplication.
+
+    Here $\var{S_{n}}$ is the sum of the first $\var{n}$ terms, $\var{a_{1}}$ the first term and
+    $\var{a_{n}}$ the last term included. The count $\var{n}$ is a positive whole number; zero terms
+    give an empty sum. The terms and the sum are pure numbers, or share one unit when the series
+    totals a measured quantity. Terms may be negative, so the sum may be negative or zero; a zero
+    sum means that the positive and negative terms cancel.
+
+    Writing the series once forwards and once backwards and adding the two copies term by term gives
+    pairs that all have the same total, the first term plus the last, because each step forwards in
+    one copy meets a step backwards in the other. There are as many pairs as terms, so the doubled
+    sum is the count times that pair total, and halving it gives the formula. When the last term is
+    unknown, the general term of the sequence supplies it from the common difference and the first
+    term.
+
+    The formula needs a constant difference between consecutive terms; for any other sequence, the
+    average of the two end terms says nothing about the total. As more terms are added the sum grows
+    without bound in size, unless every term is zero, so an infinite arithmetic series has no finite
+    value. Solving for the count yields a whole number only when the data really describe an
+    arithmetic series.
+
+    Such totals count the seats of a theatre whose rows each add the same number of seats, or the
+    logs in a pile whose layers shrink by one. The series 5 + 8 + 11 and so on up to 32 has 10 terms
+    and sums to 185.

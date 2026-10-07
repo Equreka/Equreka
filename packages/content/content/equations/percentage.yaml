@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Percentage'
+kind: 'formula'
+level: 'intro'
+expression: '\var{a}=\var{p}\var{b}'
+terms:
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Part'
+  p:
+    kind: 'symbol'
+    label:
+      en: 'Percentage (as a fraction)'
+  b:
+    kind: 'symbol'
+    label:
+      en: 'Whole (base)'
+solutions:
+  a: 'p * b'
+  p: 'a / b'
+  b: 'a / p'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'arithmetic'
+aliases:
+  - 'percent equation'
+  - 'percent of a number'
+  - 'percentage formula'
+  - 'amount = percent x base'
+  - 'cálculo de porcentajes'
+  - 'calcular porcentaje'
+references:
+  - title: 'OpenStax, Prealgebra 2e, 6.2 Solve General Applications of Percent'
+    url: 'https://openstax.org/books/prealgebra-2e/pages/6-2-solve-general-applications-of-percent'
+  - title: 'OpenStax, Contemporary Mathematics, 6.1 Understanding Percent'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/6-1-understanding-percent'
+  - title: 'D. Lippman, Math in Society, 1.2 Percents (LibreTexts)'
+    url: 'https://math.libretexts.org/Bookshelves/Applied_Mathematics/Math_in_Society_(Lippman)/01%3A_Problem_Solving/1.02%3A_Percents'
+description:
+  en: >-
+    The percentage formula finds a part of a whole from a percentage: the part equals the
+    percentage, written as a fraction, multiplied by the whole, also called the base. A percentage
+    expresses a ratio as a number of hundredths, so 25 percent means 25 parts in every 100. The one
+    relation answers the three classic percent questions of school arithmetic.
+
+    In the formula, $\var{a}$ is the part, sometimes called the amount; $\var{b}$ is the whole or
+    base, the reference quantity the part is compared with; and $\var{p}$ is the percentage written
+    as a decimal fraction, so 25 percent enters as 0.25 and 125 percent as 1.25. The part and the
+    whole are measured in the same unit, whether money, people or kilograms, and the formula fixes
+    none; the percentage itself is a pure number. All three are normally positive, and a percentage
+    above 100 percent gives a part larger than the whole.
+
+    The word comes from the Latin per centum, by the hundred, so the percent sign stands for the
+    factor one hundredth. Multiplying a fraction by 100 turns it into a percent, and dividing a
+    percent by 100 turns it back. Read one way the formula asks what a given percent of a number is;
+    dividing the part by the whole asks what percent one number is of another; and dividing the part
+    by the percentage recovers the whole a value was taken from.
+
+    The relation is exact by definition, so its limits lie in interpretation. The base must be
+    stated, because 20 percent of a price before tax differs from 20 percent of the price after tax.
+    A difference between two percentages is measured in percentage points: a share that rises from
+    40 to 50 percent gains 10 percentage points, a relative increase of 25 percent. A zero
+    percentage gives a zero part, from which the whole cannot be recovered.
+
+    Percentages state tax rates, discounts, interest rates, exam scores, election results and the
+    composition of mixtures and solutions. For example, 70 percent of 3500 is 2450.

@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Sum of a finite geometric series'
+kind: 'formula'
+level: 'intro'
+expression: '\var{S_{n}}=\frac{\var{a_{1}}\left(1-\var{r}^{\var{n}}\right)}{1-\var{r}}'
+terms:
+  S_{n}:
+    kind: 'symbol'
+    label:
+      en: 'Sum of the first n terms'
+  a_{1}:
+    kind: 'symbol'
+    label:
+      en: 'First term'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Common ratio'
+  n:
+    kind: 'symbol'
+    label:
+      en: 'Number of terms'
+    integer: true
+solutions:
+  S_{n}: 'a_1 * (1 - r^n) / (1 - r)'
+  a_{1}: 'S_n * (1 - r) / (1 - r^n)'
+  n: 'ln(1 - S_n * (1 - r) / a_1) / ln(r)'
+calculator:
+  enabled: true
+  solveFor:
+    - 'S_{n}'
+    - 'a_{1}'
+    - 'n'
+categories:
+  - 'mathematics'
+branches:
+  - 'algebra'
+aliases:
+  - 'geometric series'
+  - 'finite geometric series'
+  - 'sum of a geometric progression'
+  - 'sum of a geometric sequence'
+  - 'serie geométrica'
+  - 'suma de una progresión geométrica'
+references:
+  - title: 'OpenStax, College Algebra 2e, 9.4 Series and Their Notations'
+    url: 'https://openstax.org/books/college-algebra-2e/pages/9-4-series-and-their-notations'
+  - title: 'E. W. Weisstein, Geometric Series, MathWorld'
+    url: 'https://mathworld.wolfram.com/GeometricSeries.html'
+description:
+  en: >-
+    The sum of a finite geometric series gives the total of a geometric sequence's first n terms
+    from the first term, the common ratio and the number of terms. It is the closed form of a
+    geometric series, a sum in which each term is the previous one multiplied by a fixed ratio, and
+    it totals anything built from repeated percentage growth, such as a savings plan with equal
+    regular deposits.
+
+    Here $\var{S_{n}}$ is the sum of the first $\var{n}$ terms, $\var{a_{1}}$ the first term,
+    $\var{r}$ the common ratio and $\var{n}$ the number of terms, a positive whole number. The sum
+    and the first term are pure numbers or share one unit; the ratio is a pure number and may be
+    negative, in which case the terms alternate in sign. A ratio of exactly 1 is excluded, because
+    every term then equals the first and the sum is the count times the first term.
+
+    Multiplying the whole series by the ratio shifts every term one place along. Subtracting that
+    shifted copy from the original cancels everything except the first term and the term immediately
+    after the last, which leaves the sum times one minus the ratio equal to the first term times one
+    minus the ratio raised to the count. Dividing by one minus the ratio gives the formula.
+
+    The relation holds for every ratio other than 1, whether its size is below or above 1. Finding
+    the ratio from the other three values means solving a polynomial equation of high degree, which
+    has no closed form in general, so the calculator takes the ratio only as an input. For positive
+    ratios the count follows from logarithms and comes out whole only when the values fit a real
+    series. When the ratio lies strictly between -1 and 1, the sum approaches a finite limit as the
+    count grows, the sum of the infinite geometric series.
+
+    A sequence that starts at 1 and doubles at each step totals 1023 after ten terms, one less than
+    2 raised to the tenth power.

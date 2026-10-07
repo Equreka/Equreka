@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Regla del producto para sucesos independientes'
+terms:
+  P(A\cap B):
+    label: 'Probabilidad de A y B'
+  P(A):
+    label: 'Probabilidad de A'
+  P(B):
+    label: 'Probabilidad de B'
+description: >-
+  La regla del producto para sucesos independientes establece que la probabilidad de que ocurran dos
+  sucesos independientes es el producto de sus probabilidades por separado. Dos sucesos son
+  independientes cuando la ocurrencia de uno no cambia la probabilidad del otro, y la regla se llama
+  a menudo regla de la multiplicación o regla del «y» de la probabilidad.
+
+  En la ecuación, $\var{P(A\cap B)}$ es la probabilidad de la intersección, el suceso de que A y B
+  ocurran en la misma prueba, mientras que $\var{P(A)}$ y $\var{P(B)}$ son las probabilidades de
+  cada suceso por separado. Las tres son números puros entre 0 y 1 y nunca negativos. Como cada
+  factor vale como máximo 1, la probabilidad conjunta nunca supera la menor de las dos.
+
+  La regla general del producto multiplica la probabilidad de B por la probabilidad condicionada de
+  A dado B. La independencia significa que saber que B ha ocurrido no aporta nada sobre A, así que
+  la probabilidad condicionada coincide con la probabilidad de A y la regla general se reduce al
+  producto de ambas. La misma ecuación sirve como prueba formal de independencia: dos sucesos son
+  independientes exactamente cuando su probabilidad conjunta es igual a ese producto.
+
+  La independencia es una propiedad que hay que comprobar, no suponer. Las extracciones sin
+  reposición, los intentos sucesivos de un mismo jugador y los sucesos ligados por una causa común
+  suelen ser dependientes, y multiplicar sus probabilidades da un resultado erróneo; ahí se necesita
+  la forma condicionada. La independencia también difiere de la exclusión mutua: dos sucesos
+  incompatibles, o mutuamente excluyentes, con probabilidades no nulas son siempre dependientes,
+  porque uno descarta al otro.
+
+  Con pruebas independientes, la regla se extiende a cualquier número de sucesos multiplicando todas
+  sus probabilidades, lo que sustenta los lanzamientos repetidos de monedas, los juegos de dados y
+  la distribución binomial. Dos monedas equilibradas salen cara a la vez con probabilidad 1/2 × 1/2
+  = 1/4.

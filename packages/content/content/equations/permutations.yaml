@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Permutations'
+kind: 'formula'
+level: 'intro'
+expression: '\var{P}=\frac{\var{n}!}{\left(\var{n}-\var{k}\right)!}'
+terms:
+  P:
+    kind: 'symbol'
+    integer: true
+    label:
+      en: 'Number of permutations'
+  n:
+    kind: 'symbol'
+    integer: true
+    label:
+      en: 'Number of objects available'
+  k:
+    kind: 'symbol'
+    integer: true
+    label:
+      en: 'Number of objects arranged'
+solutions:
+  P: 'factorial(n) / factorial(n - k)'
+calculator:
+  enabled: true
+  solveFor: ['P']
+categories:
+  - 'mathematics'
+branches:
+  - 'statistics-and-probability'
+aliases:
+  - 'permutation formula'
+  - 'number of permutations'
+  - 'k-permutations'
+  - 'partial permutations'
+  - 'arrangements'
+  - 'nPk'
+  - 'nPr'
+  - 'permutaciones sin repetición'
+  - 'variaciones sin repetición'
+  - 'variaciones'
+references:
+  - title: 'OpenStax, Precalculus, 11.5 Counting Principles'
+    url: 'https://openstax.org/books/precalculus/pages/11-5-counting-principles'
+  - title: 'OpenStax, Contemporary Mathematics, 7.2 Permutations'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/7-2-permutations'
+description:
+  en: >-
+    The permutations formula counts the ways to select some objects from a larger set and arrange
+    them in order. Each ordered arrangement is a permutation, and two arrangements of the same
+    objects in a different order count separately; the formula is one of the two basic counting
+    rules of combinatorics, alongside the formula for combinations.
+
+    In the formula, $\var{n}$ is the number of distinct objects available, $\var{k}$ is the number
+    placed in order and $\var{P}$ is the number of possible ordered arrangements. All three are
+    non-negative whole numbers with no unit, and $\var{k}$ cannot exceed $\var{n}$. The exclamation
+    mark is the factorial, the product of every whole number from 1 up to the given one, and the
+    factorial of zero is 1.
+
+    The first position can be filled by any of the n objects, the second by any of the n − 1 left,
+    and so on down to the last of the k positions, which has n − k + 1 candidates. Multiplying those
+    choices gives a product of k decreasing factors, and the quotient of factorials is a compact way
+    to write it. Arranging all n objects, with k equal to n, gives n! orderings.
+
+    The formula assumes distinct objects, each used at most once, and order that matters. When order
+    is irrelevant, dividing by k! gives the combinations formula; when objects may repeat, the count
+    is a plain power instead, and identical objects require dividing by the factorial of each group
+    of repeats. The calculator solves only for the number of permutations: neither the number
+    available nor the number arranged can be recovered from the factorials in closed form.
+
+    Permutations count race podiums, seating plans, passwords without repeated characters and the
+    orderings of a schedule. Gold, silver and bronze medals among eight runners can be awarded in 8
+    × 7 × 6 = 336 ways.

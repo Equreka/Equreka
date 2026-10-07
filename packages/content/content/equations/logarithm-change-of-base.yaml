@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Change-of-base formula for logarithms'
+kind: 'formula'
+level: 'intro'
+expression: '\var{y}=\frac{\ln\var{x}}{\ln\var{b}}'
+terms:
+  y:
+    kind: 'symbol'
+    label:
+      en: 'Logarithm of x to base b'
+  x:
+    kind: 'symbol'
+    label:
+      en: 'Argument'
+  b:
+    kind: 'symbol'
+    label:
+      en: 'Base'
+solutions:
+  y: 'ln(x) / ln(b)'
+  x: 'b^y'
+  b: 'x^(1 / y)'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'algebra'
+aliases:
+  - 'change of base'
+  - 'change of base formula'
+  - 'logarithm to any base'
+  - 'logarithm base conversion'
+  - 'cambio de base'
+  - 'logaritmo en cualquier base'
+references:
+  - title: 'OpenStax, College Algebra 2e, 6.5 Logarithmic Properties, Using the Change-of-Base Formula for Logarithms'
+    url: 'https://openstax.org/books/college-algebra-2e/pages/6-5-logarithmic-properties'
+  - title: 'NIST Digital Library of Mathematical Functions, 4.2(ii) Logarithms to a General Base'
+    url: 'https://dlmf.nist.gov/4.2'
+  - title: 'E. W. Weisstein, Logarithm, MathWorld'
+    url: 'https://mathworld.wolfram.com/Logarithm.html'
+  - title: 'MacTutor History of Mathematics, John Napier'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Napier/'
+  - title: 'MacTutor History of Mathematics, Henry Briggs'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Briggs/'
+description:
+  en: >-
+    The change-of-base formula for logarithms expresses the logarithm of a number to any base as the
+    natural logarithm of the number divided by the natural logarithm of the base. It converts
+    between logarithm bases and is how a calculator with only natural and common logarithm keys
+    evaluates a logarithm to base 2, 5 or any other positive base different from one.
+
+    In the formula, $\var{y}$ is the logarithm of $\var{x}$ to base $\var{b}$, the exponent to which
+    $\var{b}$ must be raised to give $\var{x}$. The argument $\var{x}$ is a positive number, and the
+    base $\var{b}$ is positive and different from 1. All three are pure numbers. The logarithm is
+    negative when the argument and the base lie on opposite sides of 1, positive when they lie on
+    the same side, and zero when the argument is 1.
+
+    If $\var{y}$ is the logarithm, then $\var{b}$ raised to $\var{y}$ equals $\var{x}$. Taking the
+    natural logarithm of both sides and applying the power rule turns this into $\var{y}$ times the
+    logarithm of the base equal to the logarithm of the argument, and dividing isolates $\var{y}$.
+    The same steps work with any other new base, base 10 for instance:
+    $$\log_{\var{b}}\var{x}=\frac{\log_{10}\var{x}}{\log_{10}\var{b}}$$ All logarithm functions are
+    therefore constant multiples of one another.
+
+    The rule needs every logarithm involved to be defined: positive arguments, and bases that are
+    positive and not equal to 1. A base of 1 would put a zero in the denominator, and no real
+    logarithm exists for a zero or negative argument.
+
+    John Napier set out his logarithms in the Mirifici logarithmorum canonis descriptio of 1614, and
+    Henry Briggs, after discussions with Napier, built tables to base 10, publishing his first work
+    on them in 1617. Change of base links such tables to any other base: the logarithm of 36 to base
+    5 is about 2.2266.

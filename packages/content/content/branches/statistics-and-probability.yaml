@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/branches.schema.json
+name:
+  en: 'Statistics and probability'
+category: 'mathematics'
+order: 4
+aliases:
+  - 'probability and statistics'
+  - 'statistics'
+  - 'probability'
+  - 'probability theory'
+  - 'combinatorics'
+  - 'counting'
+  - 'descriptive statistics'
+  - 'estadística'
+  - 'probabilidad'
+  - 'teoría de la probabilidad'
+  - 'combinatoria'
+  - 'estadística descriptiva'
+description:
+  en: >-
+    Statistics and probability is the part of school mathematics that deals with chance and with
+    data. Probability assigns to each event of a random experiment a number from 0 to 1, where 0
+    marks an impossible event and 1 a certain one; statistics summarizes observed data and judges
+    how unusual a particular observation is.
+
+    Its basic rules combine the probabilities of events. The complement rule gives the chance that
+    an event does not happen, the addition rule the chance that at least one of two events happens,
+    and the multiplication rule for independent events the chance that both happen. Conditional
+    probability measures the chance of an event once another is known to have occurred, and Bayes'
+    theorem reverses the direction of that condition. Counting outcomes is the work of
+    combinatorics: permutations count ordered arrangements and combinations count selections in
+    which order does not matter. The binomial probability formula joins both ideas to give the
+    chance of a fixed number of successes in repeated independent trials. On the statistical side,
+    the z-score measures how many standard deviations a value lies from the mean.
+
+    The branch rests on arithmetic with fractions and on algebra for rearranging formulas. Physics
+    uses probability in radioactive decay and in measurement uncertainty, and chemistry in the
+    statistics of molecules.

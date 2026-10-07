@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ecuación de la recta en forma pendiente-ordenada en el origen'
+terms:
+  y:
+    label: 'Variable dependiente'
+  m:
+    label: 'Pendiente'
+  x:
+    label: 'Variable independiente'
+  b:
+    label: 'Ordenada en el origen'
+description: >-
+  La forma pendiente-ordenada en el origen escribe la ecuación de una recta del plano como la salida
+  igual a la pendiente por la entrada más la ordenada en el origen. Es la manera habitual de
+  expresar una función lineal en el álgebra escolar y en la geometría analítica, porque los dos
+  números que fijan la recta, su inclinación y la altura a la que corta el eje vertical, se leen
+  directamente en ella.
+
+  Aquí $\var{x}$ es la variable independiente, representada en el eje horizontal, y $\var{y}$ la
+  variable dependiente, representada en el eje vertical. $\var{m}$ es la pendiente, el cambio de
+  $\var{y}$ por cada unidad que aumenta $\var{x}$, y $\var{b}$ es la ordenada en el origen, el valor
+  de $\var{y}$ cuando $\var{x}$ vale cero. Aquí los cuatro se tratan como números puros; en un
+  modelo, $\var{y}$ y $\var{b}$ comparten unidad y $\var{m}$ se mide en unidades de $\var{y}$ por
+  unidad de $\var{x}$. Una pendiente positiva da una recta que sube de izquierda a derecha, una
+  negativa una que baja y una pendiente nula una recta horizontal.
+
+  La pendiente es una tasa de cambio constante: entre dos puntos cualesquiera de la recta, el cambio
+  vertical dividido entre el cambio horizontal da el mismo valor, y eso hace que la gráfica sea
+  recta. Dados un punto y la pendiente, la forma punto-pendiente se reordena en esta; dados dos
+  puntos, la pendiente se obtiene de sus coordenadas y la ordenada en el origen al sustituir
+  cualquiera de ellos. Una progresión aritmética es la misma relación evaluada en números enteros,
+  con la diferencia común en el papel de la pendiente.
+
+  Toda recta que no sea vertical tiene exactamente una forma pendiente-ordenada en el origen. Una
+  recta vertical no tiene pendiente definida, porque su cambio horizontal es cero, y se escribe en
+  cambio como la entrada igual a una constante. La forma solo describe relaciones con una tasa de
+  cambio constante; una parábola o una curva exponencial cambia su tasa de un punto a otro.
+
+  Los modelos lineales describen costos formados por una cuota fija más un precio por unidad. Una
+  colección de 200 canciones que crece en 15 canciones cada mes sigue la recta de pendiente 15 y
+  ordenada en el origen 200.

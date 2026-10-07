@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Vieta''s formula for the product of roots'
+kind: 'equation'
+level: 'intro'
+expression: '\var{x_{1}}\var{x_{2}}=\frac{\var{c}}{\var{a}}'
+terms:
+  x_{1}:
+    kind: 'symbol'
+    label:
+      en: 'First root'
+  x_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Second root'
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Quadratic coefficient'
+  c:
+    kind: 'symbol'
+    label:
+      en: 'Constant term'
+solutions:
+  x_{1}: 'c / (a * x_2)'
+  x_{2}: 'c / (a * x_1)'
+  a: 'c / (x_1 * x_2)'
+  c: 'a * x_1 * x_2'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'algebra'
+aliases:
+  - 'product of the roots of a quadratic'
+  - 'product of roots'
+  - 'producto de raíces'
+references:
+  - title: 'E. W. Weisstein, Vieta''s Formulas, MathWorld'
+    url: 'https://mathworld.wolfram.com/VietasFormulas.html'
+  - title: 'MacTutor History of Mathematics, François Viète'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Viete/'
+  - title: 'OpenStax, College Algebra 2e, 2.5 Quadratic Equations'
+    url: 'https://openstax.org/books/college-algebra-2e/pages/2-5-quadratic-equations'
+description:
+  en: >-
+    Vieta's formula for the product of roots states that the two roots of a quadratic equation
+    multiply to its constant term divided by the coefficient of its square. Together with the
+    formula for the sum of roots it forms the second-degree case of Vieta's formulas, which relate
+    the coefficients of a polynomial to its roots, and it gives the product of the solutions without
+    solving the equation.
+
+    Here $\var{x_{1}}$ and $\var{x_{2}}$ are the two roots of the quadratic in standard form, with
+    zero on one side, counted with multiplicity. $\var{a}$ is the coefficient of the square and
+    $\var{c}$ the constant term, both pure numbers, with $\var{a}$ never zero. The sign of the
+    quotient is informative: a negative value means one positive and one negative real root, and a
+    positive value means two roots of the same sign, or a complex conjugate pair. A zero constant
+    term makes one of the roots zero.
+
+    Writing the quadratic as its leading coefficient times the product of the binomials formed by
+    subtracting each root from the unknown, then expanding, shows that the constant term equals the
+    leading coefficient times the two roots multiplied together; dividing by the leading coefficient
+    gives the relation. Multiplying the two roots of the quadratic formula gives the same result,
+    because the product is a difference of squares in which the discriminant cancels.
+
+    The relation is valid for real and complex roots alike and requires the equation in standard
+    form. For a polynomial of degree n, the product of all its roots equals the constant term over
+    the leading coefficient, with the sign changed when n is odd.
+
+    François Viète proved the relations between roots and coefficients for positive roots in 1579,
+    and Girard later proved the general case; Viète's book of 1591 introduced letters for unknown
+    quantities. The product and sum together reconstruct a quadratic: roots 2 and 3 multiply to 6,
+    the constant term of the equation with coefficients 1, -5 and 6.

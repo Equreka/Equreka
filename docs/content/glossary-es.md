@@ -16,6 +16,8 @@ Conventions for every `<slug>.es.yaml` sidecar. Companion to the [style guide](s
 - **Decimal separator: the point**, in both languages. CEM writes the comma, which the 22nd CGPM (2003, Resolution 10) allows alongside the point; this project uses the point so every `$…$` fragment is byte-identical to the English one and matches what the calculator accepts. Digit groups use a thin space (`101\,325`), never a point or a comma, which CEM also prescribes.
 - **Math is byte-identical** to the English entity: copy every `$…$` and `$$…$$` fragment exactly, macros included. A fragment changes only if its notation is itself localized, which no current entry needs.
 - **Isotopes** take a hyphen between the element name and the mass number, as in English and IUPAC nomenclature: *carbono-12*, *radio-226*, *cesio-133*.
+- **Path register**: path prose (`body`, `note`, `answer`) addresses the reader with the second-person singular imperative and no pronoun (*Fíjate*, *Compara*, *Despéjala*), as the shipped paths do; never the impersonal *Obsérvese* or *Conviene*, never *usted*.
+- **Unitless values in mathematics entries** (ratios, counts, probabilities) are *números puros*; *magnitud adimensional* stays the metrological term for a physical quantity of dimension one.
 - **Typography**: accents on capitals (*Óptica*), opening `¿` and `¡`, ordinals *9.ª*, angle quotes *«…»* when a quotation is unavoidable.
 - **No calques**:
 
@@ -264,14 +266,21 @@ Prefix names: *mili* per RAE; *atto* per the DLE entry *atto-* and, with *zetta*
 | --- | --- | --- |
 | percentage, proportion | porcentaje, proporción | usage |
 | simple interest, compound interest, principal | interés simple, interés compuesto, capital | usage |
-| interest rate | tasa de interés (*tipo de interés* in `aliases`) | usage |
+| interest rate | tasa de interés (*tipo de interés* in `aliases`); likewise *tasa impositiva*, not *tipo impositivo* | usage |
+| effective annual rate | tasa efectiva anual | usage |
+| annuity | anualidad (*renta* as the synonym, named once: *una anualidad o renta*) | usage |
+| cost | costo (*coste* in `aliases`) | usage |
+| markup (on cost), margin (on selling price) | recargo, margen: distinct ratios, never interchanged (*margen de ganancia* and *markup* in `aliases` of the markup entry) | usage |
 | quadratic formula, discriminant, root | fórmula general de segundo grado, discriminante, raíz | usage |
 | slope, y-intercept | pendiente, ordenada en el origen | usage |
 | sequence, series | sucesión, serie | usage |
-| arithmetic progression, geometric progression | progresión aritmética, progresión geométrica | usage |
+| arithmetic progression, geometric progression | progresión aritmética, progresión geométrica: *progresión* for any sequence defined by a constant difference or ratio, *sucesión* only for a generic sequence | usage |
+| standard form (of a quadratic equation) | forma general | usage |
 | natural logarithm | logaritmo natural (*logaritmo neperiano* in `aliases`) | usage |
 | mean, standard deviation, z-score | media, desviación típica, puntuación z | usage |
-| combinations, permutations | combinaciones, permutaciones | usage |
+| combinations, permutations | combinaciones, permutaciones (many Spanish texts call an ordered selection of k of n objects *variaciones sin repetición* and keep *permutaciones* for k = n: say so once in the entry and keep *variaciones* in `aliases`) | usage |
+| complementary event, mutually exclusive events | suceso contrario (*suceso complementario*), sucesos incompatibles (*mutuamente excluyentes* as the synonym) | usage |
+| conditional probability, marginal probability | probabilidad condicionada, probabilidad marginal (Bayesian *evidence* is *probabilidad marginal*, never *evidencia*) | usage |
 | hypotenuse, leg | hipotenusa, cateto | sidecar |
 | perimeter, area, volume, surface area | perímetro, área, volumen, área total | usage |
 | radius, diameter | radio, diámetro | sidecar (radio) |

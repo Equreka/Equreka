@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Permutaciones'
+terms:
+  P:
+    label: 'Número de permutaciones'
+  n:
+    label: 'Número de objetos disponibles'
+  k:
+    label: 'Número de objetos ordenados'
+description: >-
+  La fórmula de las permutaciones cuenta las maneras de seleccionar algunos objetos de un conjunto
+  mayor y colocarlos en orden. Cada ordenación es una permutación, y dos ordenaciones de los mismos
+  objetos en distinto orden cuentan por separado; la fórmula es una de las dos reglas básicas de
+  conteo de la combinatoria, junto con la de las combinaciones.
+
+  En la fórmula, $\var{n}$ es el número de objetos distintos disponibles, $\var{k}$ es el número de
+  objetos colocados en orden y $\var{P}$ es el número de ordenaciones posibles. Los tres son números
+  enteros no negativos sin unidad, y $\var{k}$ no puede superar a $\var{n}$. El signo de exclamación
+  es el factorial, el producto de todos los números enteros desde 1 hasta el dado, y el factorial de
+  cero vale 1.
+
+  La primera posición puede ocuparla cualquiera de los n objetos, la segunda cualquiera de los n − 1
+  restantes, y así hasta la última de las k posiciones, que tiene n − k + 1 candidatos. Multiplicar
+  esas elecciones da un producto de k factores decrecientes, y el cociente de factoriales es una
+  forma compacta de escribirlo. Ordenar los n objetos, con k igual a n, da n! ordenaciones. Muchos
+  textos en español llaman variaciones sin repetición a las ordenaciones de k objetos y reservan el
+  nombre de permutaciones para este caso.
+
+  La fórmula supone objetos distintos, cada uno usado como máximo una vez, y un orden que importa.
+  Si el orden es irrelevante, dividir entre k! da la fórmula de las combinaciones; si los objetos
+  pueden repetirse, la cuenta es una potencia, y los objetos idénticos obligan a dividir entre el
+  factorial de cada grupo de repetidos. La calculadora solo despeja el número de permutaciones: ni
+  el número disponible ni el número ordenado pueden despejarse de los factoriales en forma cerrada.
+
+  Las permutaciones cuentan podios, distribuciones de asientos, contraseñas sin caracteres repetidos
+  y ordenaciones de un calendario. Las medallas de oro, plata y bronce entre ocho corredores pueden
+  repartirse de 8 × 7 × 6 = 336 maneras.

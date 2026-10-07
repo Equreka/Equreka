@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Discriminante de una ecuación cuadrática'
+terms:
+  \Delta:
+    label: 'Discriminante'
+  a:
+    label: 'Coeficiente cuadrático'
+  b:
+    label: 'Coeficiente lineal'
+  c:
+    label: 'Término independiente'
+description: >-
+  El discriminante de una ecuación cuadrática es el número que se forma con sus tres coeficientes
+  elevando al cuadrado el coeficiente de primer grado y restándole cuatro veces el producto de los
+  otros dos. Su signo indica, antes de calcular ninguna raíz, cuántas soluciones reales tiene la
+  ecuación, y la fórmula general de segundo grado extrae su raíz cuadrada. Los textos escolares lo
+  escriben con la letra griega delta mayúscula o con la letra D.
+
+  Aquí $\var{\Delta}$ es el discriminante y $\var{a}$, $\var{b}$ y $\var{c}$ son los coeficientes de
+  la forma general $\var{a}x^{2}+\var{b}x+\var{c}=0$: el coeficiente del cuadrado, el
+  coeficiente de la primera potencia y el término independiente. Los cuatro son números puros. El
+  coeficiente $\var{a}$ nunca es cero, mientras que el discriminante puede ser positivo, nulo o
+  negativo, y ese signo es precisamente la información que aporta.
+
+  Con coeficientes reales, un discriminante positivo significa dos raíces reales distintas, uno nulo
+  significa una raíz doble, donde la parábola de la cuadrática apenas toca el eje horizontal, y uno
+  negativo significa que no hay raíces reales, sino un par de raíces complejas conjugadas. Cuando
+  los coeficientes son enteros, un discriminante positivo que es un cuadrado perfecto da dos raíces
+  racionales y cualquier otro valor positivo da dos irracionales. La separación entre las dos raíces
+  es igual a la raíz cuadrada del discriminante dividida entre el valor absoluto de $\var{a}$.
+
+  La clasificación por el signo supone coeficientes reales; con coeficientes complejos el
+  discriminante es en general complejo y no tiene signo. Para un polinomio de cualquier grado, el
+  discriminante se define, salvo un factor de normalización, a partir de las diferencias al cuadrado
+  entre sus raíces, de modo que las ecuaciones cúbicas y cuárticas tienen discriminantes más largos
+  con la misma finalidad.
+
+  El nombre de discriminante data de 1851 y se debe a James Joseph Sylvester; hasta entonces la
+  cantidad recibía el término que había usado Gauss, determinante. Con coeficientes 1, 5 y 1 el
+  discriminante vale 21, positivo y no cuadrado perfecto, así que ambas raíces son reales e
+  irracionales.

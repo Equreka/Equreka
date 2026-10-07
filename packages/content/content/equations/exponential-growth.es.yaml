@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Crecimiento exponencial'
+terms:
+  N:
+    label: 'Cantidad final'
+  N_{0}:
+    label: 'Cantidad inicial'
+  r:
+    label: 'Tasa de crecimiento por periodo (como fracción)'
+  t:
+    label: 'Tiempo transcurrido en periodos'
+description: >-
+  El crecimiento exponencial es el cambio de una cantidad que se multiplica por el mismo factor en
+  cada intervalo igual de tiempo, de modo que cada periodo añade un porcentaje fijo de su tamaño
+  actual. La relación da la cantidad tras un número de periodos a partir de la cantidad inicial y de
+  la tasa de crecimiento por periodo, y con una tasa negativa describe el decrecimiento exponencial.
+  Es el modelo escolar básico para poblaciones y ahorros.
+
+  $\var{N_{0}}$ es la cantidad inicial, $\var{N}$ la cantidad tras $\var{t}$ periodos, $\var{r}$ la
+  tasa de crecimiento por periodo escrita como fracción decimal y $\var{t}$ el tiempo transcurrido
+  contado en periodos, que no tiene por qué ser un número entero. $\var{N}$ y $\var{N_{0}}$
+  comparten la unidad con que se cuenta la cantidad, mientras que $\var{r}$ y $\var{t}$ son números
+  puros. Una tasa entre -1 y 0 hace disminuir la cantidad hacia cero.
+
+  La suma $1+\var{r}$ es el factor de crecimiento: cada periodo multiplica la cantidad actual por
+  él, y a lo largo de $\var{t}$ periodos esos factores se combinan en una potencia. El crecimiento
+  lineal suma la misma cantidad en cada periodo; el exponencial suma una cantidad proporcional a la
+  ya presente. Hallar el número de periodos requiere un logaritmo: es igual al logaritmo natural del
+  cociente entre la cantidad final y la inicial dividido entre el logaritmo natural del factor de
+  crecimiento.
+
+  El modelo supone una tasa que se mantiene fija durante todo el intervalo. Las poblaciones reales
+  solo crecen así mientras faltan depredadores y sobran recursos, y una cuenta cuya tasa de interés
+  cambia debe dividirse en tramos con factores propios. Cuando el crecimiento se compone de forma
+  continua en lugar de una vez por periodo, el factor pasa a ser una potencia del número de Euler.
+  Con una tasa de interés, es el interés compuesto abonado una vez por periodo; con la cantidad
+  inicial despejada, es el valor presente.
+
+  Thomas Malthus tomó una especie de aumento exponencial del número de seres humanos como premisa de
+  un texto de 1798 sobre la población, y el antiguo nombre de crecimiento maltusiano lo recuerda.
+  Partiendo de 1.25 mil millones de personas con un crecimiento del 1.2 por ciento anual, la
+  relación da unos 1.549 mil millones al cabo de 18 años.

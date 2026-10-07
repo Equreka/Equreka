@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Direct proportion'
+kind: 'formula'
+level: 'intro'
+expression: '\var{y}=\var{k}\var{x}'
+terms:
+  y:
+    kind: 'symbol'
+    label:
+      en: 'Dependent quantity'
+  k:
+    kind: 'symbol'
+    label:
+      en: 'Constant of proportionality'
+  x:
+    kind: 'symbol'
+    label:
+      en: 'Independent quantity'
+solutions:
+  y: 'k * x'
+  k: 'y / x'
+  x: 'y / k'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q21043994'
+categories:
+  - 'mathematics'
+branches:
+  - 'arithmetic'
+aliases:
+  - 'direct variation'
+  - 'directly proportional'
+  - 'proportionality'
+  - 'y = kx'
+  - 'rule of three'
+  - 'variación directa'
+  - 'directamente proporcional'
+  - 'regla de tres directa'
+references:
+  - title: 'OpenStax, Elementary Algebra 2e, 8.9 Use Direct and Inverse Variation'
+    url: 'https://openstax.org/books/elementary-algebra-2e/pages/8-9-use-direct-and-inverse-variation'
+  - title: 'OpenStax, College Algebra 2e, 5.8 Modeling Using Variation'
+    url: 'https://openstax.org/books/college-algebra-2e/pages/5-8-modeling-using-variation'
+  - title: 'D. Lippman, Math in Society, 1.3 Proportions and Rates (LibreTexts)'
+    url: 'https://math.libretexts.org/Bookshelves/Applied_Mathematics/Math_in_Society_(Lippman)/01%3A_Problem_Solving/1.03%3A_Proportions_and_Rates'
+description:
+  en: >-
+    Direct proportion, or direct variation, is the relation between two quantities whose ratio stays
+    constant: when one is multiplied by some factor, the other is multiplied by the same factor. One
+    quantity equals a fixed number, the constant of proportionality, times the other, and the graph
+    of the relation is a straight line through the origin.
+
+    In the formula, $\var{x}$ is the independent quantity, $\var{y}$ the quantity that depends on
+    it, and $\var{k}$ the constant of proportionality, also called the constant of variation, which
+    is never zero. Each quantity keeps whatever unit it has, and the unit of $\var{k}$ is the unit
+    of $\var{y}$ divided by the unit of $\var{x}$, as in a price per kilogram; written as plain
+    numbers, the terms work in any consistent units. A positive constant makes both quantities rise
+    together, and a negative one makes one fall as the other rises.
+
+    The constant follows from one known pair of values by dividing $\var{y}$ by $\var{x}$: if
+    $\var{y}$ is 20 when $\var{x}$ is 8, the constant is 2.5. Any two pairs of a direct proportion
+    then form a proportion, an equation stating that two ratios are equal. Three known values of
+    such an equation fix the fourth, the procedure taught as the rule of three.
+
+    The relation requires the line to pass through the origin: it is the slope-intercept form of a
+    line with a zero intercept, the constant of proportionality acting as the slope. A taxi fare
+    with a fixed starting charge grows with distance but is not proportional to it, since doubling
+    the distance does not double the fare. Many physical proportions also hold only over a range,
+    such as the stretch of a spring within its elastic limit. A related family of relations makes
+    one quantity proportional to a power of another, such as the area of a circle and the square of
+    its radius.
+
+    Direct proportion underlies unit prices, recipes scaled to more servings, map scales, currency
+    exchange and unit conversion. On a map where half an inch stands for 3 miles, 2.25 inches stand
+    for 13.5 miles.

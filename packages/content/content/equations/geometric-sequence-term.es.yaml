@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Término general de una progresión geométrica'
+terms:
+  a_{n}:
+    label: 'Término enésimo'
+  a_{1}:
+    label: 'Primer término'
+  r:
+    label: 'Razón común'
+  n:
+    label: 'Posición del término'
+description: >-
+  El término general de una progresión geométrica da cualquier término de la progresión a partir de
+  su primer término y de su razón común, el factor fijo por el que se multiplica cada término para
+  obtener el siguiente. También llamado fórmula explícita o del término enésimo de la progresión, es
+  la versión paso a paso del crecimiento y el decrecimiento exponenciales.
+
+  Aquí $\var{a_{n}}$ es el término que ocupa la posición $\var{n}$, $\var{a_{1}}$ el primer término
+  y $\var{r}$ la razón común; la posición es un número entero positivo contado desde 1. Los términos
+  son números puros o comparten una unidad, y la razón es siempre un número puro. Con un primer
+  término positivo, una razón mayor que 1 hace crecer los términos, una razón entre 0 y 1 los hace
+  disminuir hacia cero y una razón negativa hace que alternen de signo. Ni la razón ni el primer
+  término son nulos.
+
+  El primer término se multiplica por la razón una vez para llegar al segundo, dos veces para llegar
+  al tercero, y así sucesivamente, de modo que el término de una posición dada lleva la razón
+  elevada a uno menos que el número de la posición. Al tomar logaritmos, la relación se convierte en
+  una recta en función de la posición, y por eso una progresión geométrica de términos positivos
+  parece lineal en una escala logarítmica. La razón se obtiene dividiendo cualquier término entre el
+  anterior.
+
+  La fórmula supone la misma razón en cada paso. Despejar la razón exige una raíz cuyo índice es uno
+  menos que la posición, así que la calculadora solo halla la razón cuando los dos términos tienen
+  el mismo signo y devuelve la raíz positiva; una razón negativa se introduce como dato. Despejar la
+  posición requiere un logaritmo y funciona con razones positivas distintas de 1.
+
+  Las progresiones geométricas describen un saldo o una población que crece un porcentaje fijo en
+  cada periodo, con una razón igual a uno más esa tasa, el factor de crecimiento del crecimiento
+  exponencial, y cualquier proceso de reducción a la mitad o de duplicación repetidas. Una
+  progresión que empieza en 3 y se duplica en cada paso tiene 24 como cuarto término.
