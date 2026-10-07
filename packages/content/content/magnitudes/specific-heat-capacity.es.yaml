@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Capacidad calorífica específica'
+description: >-
+  La capacidad calorífica específica, llamada a menudo calor específico y escrita $c$, es la
+  capacidad calorífica de un material por unidad de masa: el calor que un kilogramo de ese material
+  debe absorber para que su temperatura aumente un kelvin. Pertenece a una sustancia en una fase
+  dada y no a un objeto concreto, y relaciona el calor que absorbe una muestra con su masa y su
+  variación de temperatura mediante $Q=mc\Delta T$.
+
+  Su unidad SI es el julio por kilogramo y kelvin, que el folleto del SI asigna también a la
+  entropía específica, y su dimensión es longitud al cuadrado dividida entre tiempo al cuadrado y
+  entre temperatura termodinámica, ya que la masa se cancela. Como una diferencia de temperatura
+  tiene el mismo tamaño en kelvin y en grados Celsius, un valor por grado Celsius es el mismo
+  número. Las tablas antiguas usan la caloría por gramo y kelvin, que la publicación especial 811 del NIST convierte, en
+  su versión de la tabla internacional, en exactamente 4186.8 julios por kilogramo y kelvin.
+
+  La capacidad calorífica específica es una magnitud escalar positiva que depende de la fase y de la
+  temperatura del material: el hielo tiene aproximadamente la mitad del valor del agua líquida, y a
+  temperaturas muy bajas la capacidad calorífica específica de un sólido disminuye en proporción al cubo de su
+  temperatura absoluta. En los gases depende también de lo que se mantiene fijo durante el
+  calentamiento; el aire seco absorbe alrededor de un 40 por ciento más de calor por kilogramo y
+  kelvin a presión constante que a volumen constante.
+
+  Se mide por calorimetría, por ejemplo introduciendo una muestra caliente en agua dentro de un
+  recipiente aislado y aplicando la conservación de la energía a la temperatura común final. El agua
+  líquida tiene uno de los valores más altos de las sustancias comunes, unos
+  $4186\,\mathrm{J/(kg\,K)}$, casi diez veces el del hierro y más de treinta veces el del plomo o el
+  del oro.
+
+  La capacidad calorífica específica es distinta de la capacidad calorífica, que pertenece a un
+  objeto completo y crece con su masa, y de la capacidad calorífica molar, referida a un mol.
+  También se diferencia del calor latente específico: la capacidad calorífica específica rige un cambio de
+  temperatura, mientras que el calor latente rige un cambio de fase que ocurre a temperatura
+  constante.

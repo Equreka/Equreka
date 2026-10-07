@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Lux'
+symbol:
+  tex: 'lx'
+unitOf:
+  - 'illuminance'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'lumen'
+      exp: 1
+    - unit: 'metre'
+      exp: -2
+externalIds:
+  wikidata: 'Q179836'
+  qudt: 'http://qudt.org/vocab/unit/LUX'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'lumen per square metre'
+  - 'lumen per square meter'
+  - 'lm/m2'
+  - 'lm/m^2'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4, 2.3.5 and Appendix 1 (9th CGPM, 1948, Resolution 7; 11th CGPM, 1960, Resolution 12)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-060 illuminance'
+    url: 'https://cie.co.at/eilvterm/17-21-060'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: footcandle; phot'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'UK Health and Safety Executive, Lighting at work (HSG38), table of recommended illuminances'
+    url: 'https://www.hse.gov.uk/pubns/priced/hsg38.pdf'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: luminous power per unit area of surface (illuminance)'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/vision/areance.html'
+description:
+  en: >-
+    The lux, symbol lx, is the coherent SI derived unit of illuminance, the luminous flux falling
+    on a surface per unit area. It is one of the 22 SI units with special names, and like the
+    candela and the lumen it carries information about human vision, because the light it counts
+    is weighted by the sensitivity of the eye.
+
+    One lux is one lumen spread evenly over one square metre:
+    $1\,\mathrm{lx}=1\,\mathrm{lm/m^{2}}=1\,\mathrm{cd\,sr\,m^{-2}}$, the expression the SI
+    Brochure gives in its Table 4. A small source of one candela produces one lux on a surface one
+    metre away that faces it, and the illuminance falls with the square of the distance.
+
+    NIST Special Publication 811 converts the CGS phot as exactly $10^{4}$ lux and the foot-candle,
+    one lumen per square foot, as about 10.763 91 lux, so that a lux is roughly 0.0929 foot-candle.
+    The lux differs from the lumen only by the area: a lamp emitting 1000 lumens that fall evenly on
+    two square metres gives 500 lux.
+
+    Lighting requirements are written in lux, and most light meters read it directly. The UK
+    Health and Safety Executive recommends average illuminances of about 20 lux for corridors and
+    vehicle routes, 200 lux for offices and 500 lux for work with fine detail, such as drawing or
+    the assembly of electronic components.
+
+    The 9th General Conference on Weights and Measures included the symbol lx in the list of unit
+    symbols it adopted in 1948, and the lux was among the derived units listed when the 11th
+    Conference founded the International System of Units in 1960. The unit name is lower case,
+    and its symbol lx is never written with a capital letter.

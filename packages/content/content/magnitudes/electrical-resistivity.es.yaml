@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Resistividad eléctrica'
+description: >-
+  La resistividad eléctrica, de símbolo $\rho$, es la propiedad de un material que expresa cuánto
+  dificulta el paso de la corriente eléctrica, con independencia del tamaño o la forma de la pieza.
+  Es la inversa de la conductividad eléctrica. En un conductor uniforme, la resistencia es igual a
+  la resistividad multiplicada por la longitud y dividida entre el área de la sección.
+
+  Su unidad SI es el ohmio metro, de símbolo $\Omega\,\mathrm{m}$. Un material tiene una
+  resistividad de un ohmio metro cuando un cubo de un metro de arista presenta una resistencia de
+  un ohmio entre dos caras opuestas. En unidades básicas, el ohmio metro es el kilogramo metro
+  cúbico por segundo al cubo y por amperio al cuadrado, que es la dimensión de la resistencia
+  multiplicada por una longitud.
+
+  La resistividad es un escalar positivo que se indica a una temperatura determinada, porque
+  cambia al calentarse el material. En la mayoría de los metales aumenta con la temperatura, ya
+  que los átomos en vibración dispersan con más frecuencia a los electrones en movimiento,
+  mientras que en el carbono y en los semiconductores disminuye. En intervalos moderados el cambio
+  es casi lineal y se describe con un coeficiente de temperatura de la resistividad.
+
+  La resistividad se obtiene midiendo la resistencia de una muestra de longitud y sección
+  conocidas. Sus valores abarcan más de veinte potencias de diez. OpenStax tabula, a 20 °C,
+  $1.68\times10^{-8}\,\Omega\,\mathrm{m}$ para el cobre, con la plata algo por debajo; el silicio y
+  el germanio puros quedan muchos órdenes de magnitud por encima, y el cuarzo fundido llega a unos
+  $7.5\times10^{17}\,\Omega\,\mathrm{m}$.
+
+  La resistividad describe un material, mientras que la resistencia describe un objeto concreto:
+  un hilo de cobre largo y fino y una barra de cobre corta y gruesa comparten resistividad, pero
+  tienen resistencias muy distintas. Su baja resistividad, junto con su resistencia mecánica y su
+  ductilidad, explica que el cobre sea el metal habitual en las instalaciones eléctricas.

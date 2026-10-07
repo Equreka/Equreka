@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Reduced Planck constant'
+symbol:
+  tex: '\hbar'
+  text: 'ħ'
+value: '1.054571817e-34'
+approximations:
+  - '1.055e-34'
+unit: 'joule-second'
+exact: true
+truncated: true
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?hbar'
+  ref: 'reduced Planck constant'
+externalIds:
+  wikidata: 'Q2115969'
+  qudt: 'http://qudt.org/vocab/constant/ReducedPlanckConstant'
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+aliases:
+  - 'h-bar'
+  - 'hbar'
+  - 'h bar'
+  - 'Dirac constant'
+  - 'Dirac''s constant'
+  - 'reduced Planck''s constant'
+references:
+  - title: 'NIST, CODATA 2022 value: reduced Planck constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?hbar'
+  - title: 'NIST, CODATA 2022 value: Planck constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?h'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 1 (defining constants) and Appendix 1 (26th CGPM, 2018)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 3, 6.4 Bohr''s Model of the Hydrogen Atom'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-4-bohrs-model-of-the-hydrogen-atom'
+  - title: 'OpenStax, University Physics Volume 3, 7.2 The Heisenberg Uncertainty Principle'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/7-2-the-heisenberg-uncertainty-principle'
+  - title: 'QUDT, constant ReducedPlanckConstant'
+    url: 'https://qudt.org/vocab/constant/ReducedPlanckConstant'
+description:
+  en: >-
+    The reduced Planck constant, symbol $\hbar$ and read h-bar, is the Planck constant divided by
+    two pi. Its CODATA 2022 value is $1.054\,571\,817\ldots\times10^{-34}\,\mathrm{J\,s}$, exact
+    because the SI has fixed the Planck constant at $6.626\,070\,15\times10^{-34}\,\mathrm{J\,s}$
+    since 20 May 2019. Pi is irrational, so NIST publishes the endless decimal expansion truncated.
+
+    The constant is the natural unit of quantum action and angular momentum. The Planck constant
+    links a photon's energy to its ordinary frequency in hertz, while the reduced constant
+    does the same for angular frequency in radians per second: the factor of two pi that links the
+    two frequencies is absorbed into the constant. QUDT records it as a narrower form of the
+    Planck constant for that reason.
+
+    The reduced constant appears throughout quantum physics. In Bohr's 1913 model of the hydrogen
+    atom, the angular momentum of the electron takes only whole-number multiples of it. The de
+    Broglie relations give a particle a momentum equal to the reduced constant times the
+    angular wavenumber and an energy equal to it times the angular frequency. By Heisenberg's uncertainty
+    principle, half the reduced constant is a floor that the position and momentum uncertainties,
+    multiplied together, never fall below.
+
+    The value of the reduced constant has always followed that of the Planck constant. Until 2019
+    the Planck constant was a measured quantity with an uncertainty; the 26th General Conference
+    on Weights and Measures, in 2018, fixed its numerical value to define the kilogram, and the
+    reduced constant, a fixed multiple of it, became exact at the same time.

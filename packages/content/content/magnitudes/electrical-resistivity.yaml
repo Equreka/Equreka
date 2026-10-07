@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Electrical resistivity'
+symbol:
+  tex: '\rho'
+  text: 'ρ'
+baseUnit: 'ohm-metre'
+dimension:
+  L: 3
+  M: 1
+  T: -3
+  I: -2
+nonNegative: true
+externalIds:
+  wikidata: 'Q108193'
+  qudt: 'http://qudt.org/vocab/quantitykind/Resistivity'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'resistivity'
+  - 'electric resistivity'
+  - 'specific resistance'
+  - 'volume resistivity'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 9.3 Resistivity and Resistance, Table 9.1'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-3-resistivity-and-resistance'
+  - title: 'QUDT, quantity kind Resistivity (rho = 1/sigma)'
+    url: 'https://qudt.org/vocab/quantitykind/Resistivity'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 (ohm)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+description:
+  en: >-
+    Electrical resistivity, symbol $\rho$, is the material property that expresses how much a
+    substance hinders the passage of electric current, regardless of the size or shape of the
+    piece. It is the reciprocal of electrical conductivity. For a uniform conductor, the
+    resistance equals the resistivity multiplied by the length and divided by the cross-sectional
+    area.
+
+    Its SI unit is the ohm metre, symbol $\Omega\,\mathrm{m}$. A material has a resistivity of one
+    ohm metre when a cube of it one metre on each edge shows a resistance of one ohm between two
+    opposite faces. In base units the ohm metre is the kilogram cubic metre per second cubed per
+    ampere squared, which is the dimension of resistance multiplied by a length.
+
+    Resistivity is a positive scalar quoted at a stated temperature, because it changes as the
+    material warms. In most metals it rises with temperature, as the vibrating atoms scatter the
+    moving electrons more often, while in carbon and in semiconductors it falls. Over moderate
+    ranges the change is close to linear and is described by a temperature coefficient of
+    resistivity.
+
+    Resistivity is found by measuring the resistance of a sample of known length and
+    cross-section. Its values span more than twenty powers of ten. OpenStax tabulates, at 20 °C,
+    $1.68\times10^{-8}\,\Omega\,\mathrm{m}$ for copper, with silver slightly lower; pure silicon
+    and germanium lie many orders of magnitude higher, and fused quartz reaches about
+    $7.5\times10^{17}\,\Omega\,\mathrm{m}$.
+
+    Resistivity describes a material, whereas resistance describes a particular object: a long,
+    thin copper wire and a short, thick copper bar share one resistivity but have very different
+    resistances. Its low resistivity, together with its strength and ductility, is why copper is
+    the usual metal for electrical wiring.

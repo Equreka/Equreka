@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Joule per kilogram kelvin'
+symbol:
+  tex: 'J/(kg\,K)'
+  text: 'J/(kg·K)'
+unitOf:
+  - 'specific-heat-capacity'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'joule'
+      exp: 1
+    - unit: 'kilogram'
+      exp: -1
+    - unit: 'kelvin'
+      exp: -1
+externalIds:
+  wikidata: 'Q3085309'
+  qudt: 'http://qudt.org/vocab/unit/J-PER-KiloGM-K'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'joule per kilogram-kelvin'
+  - 'joule per kilogram per kelvin'
+  - 'J/(kg K)'
+  - 'J/kgK'
+  - 'J/(kg*K)'
+  - 'J kg-1 K-1'
+  - 'J/kg/K'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 6 and section 5.2'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: calorie per gram kelvin; British thermal unit per pound degree Fahrenheit'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'OpenStax, University Physics Volume 2, 1.4 Heat Transfer, Specific Heat, and Calorimetry'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-4-heat-transfer-specific-heat-and-calorimetry'
+  - title: 'QUDT, unit J-PER-KiloGM-K'
+    url: 'https://qudt.org/vocab/unit/J-PER-KiloGM-K'
+description:
+  en: >-
+    The joule per kilogram kelvin, symbol $\mathrm{J/(kg\,K)}$, is the coherent SI derived unit of
+    specific heat capacity, the heat needed per unit mass of a material for each kelvin of
+    temperature rise. The SI Brochure lists the same unit for specific entropy. It is formed by
+    dividing the joule by the kilogram and by the kelvin, and has no special name.
+
+    A material has a specific heat capacity of one joule per kilogram kelvin when one joule of heat
+    raises the temperature of one kilogram of it by one kelvin. Expressed in SI base units, the unit
+    is the square metre per second squared kelvin, because the kilogram inside the joule cancels the
+    kilogram in the denominator.
+
+    A kelvin and a degree Celsius are equal as temperature intervals, so a value in joules per
+    kilogram degree Celsius is the same number. NIST Special Publication 811 converts the older calorie-based
+    units exactly: one thermochemical calorie per gram kelvin is 4184 of these units, while one
+    International Table calorie per gram kelvin, and equally one International Table British thermal
+    unit per pound degree Fahrenheit, is $4186.8\,\mathrm{J/(kg\,K)}$.
+
+    Tables of material properties use the unit throughout science and engineering, often in its
+    multiple the kilojoule per kilogram kelvin. Cool liquid water has a specific heat capacity of
+    about 4186 joules per kilogram kelvin, one of the highest of any common substance.
+
+    The SI rules allow the symbol to be written with parentheses, as $\mathrm{J/(kg\,K)}$, or with
+    negative exponents; a second solidus without parentheses, as in J/kg/K, is ambiguous and not
+    permitted. The plural is joules per kilogram kelvin.

@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Specific latent heat'
+symbol:
+  tex: 'L'
+baseUnit: 'joule-per-kilogram'
+dimension:
+  L: 2
+  T: -2
+nonNegative: true
+externalIds:
+  wikidata: 'Q104217205'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'latent heat'
+  - 'specific latent heat of phase transition'
+  - 'specific enthalpy of phase transition'
+  - 'heat of transformation'
+  - 'latent heat of fusion'
+  - 'latent heat of vaporization'
+  - 'latent heat of vaporisation'
+  - 'heat of fusion'
+  - 'heat of vaporization'
+  - 'calor latente'
+  - 'calor de fusión'
+  - 'calor de vaporización'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 1.5 Phase Changes'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-5-phase-changes'
+  - title: 'HyperPhysics, Georgia State University, Heat of Fusion and Heat of Vaporization'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/thermo/phase2.html'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.4'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'Wikidata, specific latent heat of phase transition (Q104217205)'
+    url: 'https://www.wikidata.org/wiki/Q104217205'
+description:
+  en: >-
+    Specific latent heat, symbol $L$, is the energy per unit mass that a substance absorbs or gives
+    out while it changes phase at a fixed temperature and pressure. Its two everyday forms are the
+    specific latent heat of fusion, which applies to melting and freezing, and its counterpart for
+    vaporization, which applies to boiling and condensation. The heat needed for a whole sample is
+    its mass multiplied by this quantity.
+
+    The SI unit is the joule per kilogram, and the dimension is length squared divided by time
+    squared, the same as that of any energy per unit mass. Tables usually quote kilojoules per
+    kilogram. The gray and the sievert, the units of absorbed dose and dose equivalent, share this
+    dimension; the SI Brochure explains that they received special names so that a radiation dose is
+    never mistaken for some other quantity in joules per kilogram.
+
+    It is a positive scalar, quoted for the direction in which the substance takes in energy:
+    melting and vaporization absorb heat, while freezing and condensation release exactly the same
+    amount per kilogram. Throughout the change the temperature holds steady, because the energy goes
+    into loosening the attraction between molecules and, during vaporization, into the work the
+    vapour does as it expands, rather than into faster molecular motion.
+
+    It is measured by calorimetry, for instance by dropping carefully dried ice into warm water and
+    recording how far the water cools; ice that is already wet gives a value that is too low. For
+    water at normal atmospheric pressure, fusion takes $334\,\mathrm{kJ/kg}$ and vaporization
+    $2256\,\mathrm{kJ/kg}$, almost seven times as much. Among the substances of a standard
+    textbook table, the values run from about one sixtieth of that fusion figure, for helium melting
+    under high pressure, to about five times the vaporization figure of water, for boiling
+    aluminium.
+
+    Specific latent heat is often confused with specific heat capacity. Latent heat is energy per
+    kilogram for a change of phase with no change of temperature, whereas specific heat capacity is
+    energy per kilogram for each kelvin of warming.

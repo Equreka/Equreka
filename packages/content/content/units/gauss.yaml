@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Gauss'
+symbol:
+  tex: 'G'
+symbolAlt:
+  tex: 'Gs'
+unitOf:
+  - 'magnetic-flux-density'
+system: 'cgs'
+toBase:
+  factor: '1e-4'
+  exact: true
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+    ref: 'B.8: gauss (Gs, G)'
+externalIds:
+  wikidata: 'Q177493'
+  qudt: 'http://qudt.org/vocab/unit/GAUSS'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'Gs'
+references:
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: gauss, gamma, maxwell'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 4: Historical notes on the development of the International System of Units'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 11.2 Magnetic Fields and Lines'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/11-2-magnetic-fields-and-lines'
+  - title: 'HyperPhysics, Georgia State University, Magnetic Field Units'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/magnetic/magfie.html'
+  - title: 'NIST, Taking Measure: What''s in a Name? The Tesla'
+    url: 'https://www.nist.gov/blogs/taking-measure/whats-name-tesla'
+  - title: 'NIST, Taking Measure: What''s in a Name? The Magnetic Weber'
+    url: 'https://www.nist.gov/blogs/taking-measure/whats-name-magnetic-weber'
+  - title: 'QUDT, unit GAUSS'
+    url: 'https://qudt.org/vocab/unit/GAUSS'
+description:
+  en: >-
+    The gauss, symbol $\mathrm{G}$, sometimes written Gs, measures magnetic flux density,
+    that is, the magnetic field, in the centimetre-gram-second (CGS) system of units. It does not
+    belong to the SI, whose unit of magnetic flux density is the tesla.
+
+    NIST Special Publication 811 converts the gauss to SI with the factor
+    $1\,\mathrm{G}=10^{-4}\,\mathrm{T}$, which its Appendix B.8 marks as exact. The factor links
+    two different systems: the SI Brochure describes the CGS as a three-dimensional coherent
+    system built on the centimetre, the gram and the second, whereas the SI also takes the ampere
+    as a base unit.
+
+    Ten thousand gauss make one tesla, so one millitesla is ten gauss and one microtesla a
+    hundredth of a gauss. Its companion unit of magnetic flux, the maxwell, is exactly
+    $10^{-8}\,\mathrm{Wb}$, and one gauss is one maxwell per square centimetre.
+
+    Being smaller than the tesla, the gauss is still sometimes used for weak fields. The field of
+    the Earth at its surface is about half a gauss, while a medical MRI scanner working at 1.5
+    teslas holds a field of fifteen thousand gauss.
+
+    The unit honours Carl Friedrich Gauss, who worked in both mathematics and physics. In 1832
+    he promoted the metric system as a coherent system for the sciences, and he was the first to
+    measure the magnetic field of the Earth in absolute terms, using the millimetre, the gram and
+    the second. The CGS system itself was introduced in 1874 by the
+    British Association, a scientific society. The name of the unit is written in
+    lowercase.

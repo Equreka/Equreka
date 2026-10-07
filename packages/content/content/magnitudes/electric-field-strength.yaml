@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Electric field strength'
+symbol:
+  tex: 'E'
+baseUnit: 'volt-per-metre'
+dimension:
+  L: 1
+  M: 1
+  T: -3
+  I: -1
+externalIds:
+  wikidata: 'Q20989'
+  qudt: 'http://qudt.org/vocab/quantitykind/ElectricFieldStrength'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'electric field'
+  - 'electric field intensity'
+  - 'electric intensity'
+  - 'E-field'
+  - 'campo eléctrico'
+  - 'intensidad del campo eléctrico'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.4 Derived units, Table 6'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 5.4 Electric Field'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/5-4-electric-field'
+  - title: 'OpenStax, University Physics Volume 2, 8.1 Capacitors and Capacitance'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance'
+  - title: 'OpenStax, University Physics Volume 2, 8.5 Molecular Model of a Dielectric'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-5-molecular-model-of-a-dielectric'
+  - title: 'HyperPhysics, Georgia State University, Electric Field from Voltage'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/electric/efromv.html'
+  - title: 'University of Arizona, ATMO 489, Lecture 1: The Global Electrical Circuit'
+    url: 'http://www.atmo.arizona.edu/students/courselinks/spring13/atmo589/ATMO489_online/lecture_1/lect1_global_elec_circuit.html'
+  - title: 'QUDT, quantity kind ElectricFieldStrength'
+    url: 'https://qudt.org/vocab/quantitykind/ElectricFieldStrength'
+description:
+  en: >-
+    Electric field strength, usually called the electric field, is the vector quantity of
+    electromagnetism equal to the electric force that a small test charge would experience at a
+    point, divided by that charge. It describes how the surrounding charges, and magnetic fields
+    that change in time, act on any charge placed at that point, whatever the size of the probe
+    charge used to detect it.
+
+    Its coherent SI unit is the volt per metre, the same unit as the newton per coulomb, and in SI
+    base units it is the kilogram metre per second cubed per ampere: the dimension is length times
+    mass divided by time cubed and by electric current. In a static arrangement the component of
+    the field in a given direction equals the rate at which the electric potential falls along
+    that direction, which is why a voltage divided by a distance gives a field.
+
+    As a vector, the field points the way the force on a positive test charge would point: away
+    from positive source charges and towards negative ones. A negative charge placed in the same
+    field is pushed the opposite way. A component along a chosen axis can be positive or negative,
+    while the magnitude of the field is never negative.
+
+    In practice the field is usually found from a measured voltage across a known gap. Near the
+    ground in fair weather the atmosphere carries a downward field of 100 to 300 volts per metre,
+    and under a thunderstorm it reaches thousands. Dry air stops insulating at about
+    $3.0\,\mathrm{MV/m}$, its dielectric strength, while the 70 millivolts across a cell membrane
+    7 to 10 nanometres thick give a field of at least $7\times10^{6}\,\mathrm{V/m}$.
+
+    The quantity is easily confused with electric potential, a scalar measured in volts whose
+    spatial rate of change gives the field, and with electric flux density, also called electric
+    displacement, which the SI measures in coulombs per square metre. Multiplying a charge by
+    the field strength at its position gives the electric force acting on it.

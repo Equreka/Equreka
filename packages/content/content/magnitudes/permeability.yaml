@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Permeability'
+symbol:
+  tex: '\mu'
+  text: 'μ'
+baseUnit: 'henry-per-metre'
+dimension:
+  L: 1
+  M: 1
+  T: -2
+  I: -2
+nonNegative: true
+externalIds:
+  wikidata: 'Q28352'
+  qudt: 'http://qudt.org/vocab/quantitykind/ElectromagneticPermeability'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'magnetic permeability'
+  - 'absolute permeability'
+  - 'electromagnetic permeability'
+  - 'mu'
+  - 'permeabilidad magnética'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.1 The ampere and 2.3.4 Derived units, Table 6'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 12.7 Magnetism in Matter, Table 12.2'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/12-7-magnetism-in-matter'
+  - title: 'OpenStax, University Physics Volume 2, 14.3 Energy in a Magnetic Field'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/14-3-energy-in-a-magnetic-field'
+  - title: 'OpenStax, University Physics Volume 2, 16.2 Plane Electromagnetic Waves'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/16-2-plane-electromagnetic-waves'
+  - title: 'HyperPhysics, Georgia State University, Electric and Magnetic Constants'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/electric/elefie.html'
+  - title: 'QUDT, quantity kind ElectromagneticPermeability'
+    url: 'https://qudt.org/vocab/quantitykind/ElectromagneticPermeability'
+description:
+  en: >-
+    Permeability, or magnetic permeability, is the quantity of electromagnetism that describes how
+    a medium responds to a magnetic field: the ratio of the magnetic flux density in the medium to
+    the magnetic field strength that produces it. A coil wound on a material of high permeability
+    produces a far stronger flux density for the same current than the same coil in air.
+
+    Its coherent SI unit is the henry per metre, which is the same as the newton per square
+    ampere; in SI base units it is the kilogram metre per second squared per square ampere, so the
+    dimension is length times mass divided by time squared and by current squared. The
+    vacuum magnetic permeability, about $1.257\times10^{-6}\,\mathrm{H/m}$, is the reference value.
+
+    In an isotropic material permeability is a positive scalar, while in an anisotropic one it
+    becomes a tensor. It is usually quoted as relative permeability, the permeability of a material divided by that of vacuum, which equals one plus
+    the magnetic susceptibility. In paramagnetic materials such as aluminium the relative value is
+    slightly above one; in diamagnetic ones such as copper and water it is slightly below one, a
+    susceptibility near $-10^{-5}$; and in ferromagnetic materials such as iron, nickel and cobalt
+    it is very large.
+
+    It is measured by comparing the flux density inside a long coil filled with the material with
+    the value for the empty coil at the same current. Ferromagnets reach susceptibilities, and
+    therefore relative permeabilities, of the order of a thousand to ten thousand, but for them
+    permeability is not a fixed number: it depends on the applied field and on the magnetic
+    history of the sample, the effect called hysteresis.
+
+    Permeability is the magnetic counterpart of permittivity, and the two are easily mixed up.
+    It enters the energy stored in a magnetic field and the inductance of a coil, which grows
+    when the coil is wound on a magnetizable core, while the vacuum values of permeability and
+    permittivity together fix the speed of light.

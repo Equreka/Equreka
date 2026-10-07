@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Inversa del kelvin'
+description: >-
+  La inversa del kelvin, de símbolo $\mathrm{K^{-1}}$ y llamada también kelvin recíproco o «por
+  kelvin», es la unidad SI coherente de las magnitudes que expresan una variación relativa por
+  unidad de temperatura. La más conocida es el coeficiente de dilatación lineal, la variación
+  relativa de la longitud de un sólido por cada kelvin de calentamiento; el coeficiente de
+  dilatación volumétrica usa la misma unidad.
+
+  Es el kelvin elevado a la potencia menos uno y no tiene nombre especial. Un material tendría un
+  coeficiente de dilatación lineal igual a la unidad, la inversa del kelvin, si su longitud cambiara en todo su
+  valor inicial con una variación de temperatura de un kelvin; los sólidos reales tienen
+  coeficientes decenas de miles de veces menores o aún más pequeños, así que los valores se dan en
+  unidades de $10^{-6}\,\mathrm{K^{-1}}$. El acero ordinario, por ejemplo, está cerca de doce de
+  esas unidades.
+
+  Como un intervalo de temperatura de un kelvin equivale a un grado Celsius, un coeficiente en
+  inversa del grado Celsius tiene el mismo valor numérico. Esa igualdad no se extiende a la escala
+  Fahrenheit: un coeficiente por grado Fahrenheit es cinco novenos del valor por kelvin.
+
+  QUDT asigna también la unidad al coeficiente relativo de presión y a la temperatura inversa, el
+  recíproco de una temperatura absoluta. Los dos tipos de uso difieren: un coeficiente de dilatación
+  o de presión describe la respuesta a un cambio de temperatura, de modo que solo importa el tamaño
+  del intervalo, mientras que una temperatura inversa depende del valor absoluto y debe calcularse
+  en kelvin.
+
+  El símbolo puede escribirse como potencia negativa, $\mathrm{K^{-1}}$, o con una barra oblicua,
+  1/K, y nunca lleva punto final ni marca de plural.

@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Vacuum electric permittivity'
+symbol:
+  tex: '\varepsilon_{0}'
+  text: 'ε0'
+value: '8.8541878188e-12'
+approximations:
+  - '8.85e-12'
+unit: 'farad-per-metre'
+exact: false
+uncertainty: '1.4e-21'
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?ep0'
+  ref: 'vacuum electric permittivity'
+externalIds:
+  wikidata: 'Q6158'
+  qudt: 'http://qudt.org/vocab/constant/PermittivityOfVacuum'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'electric constant'
+  - 'permittivity of vacuum'
+  - 'permittivity of free space'
+  - 'vacuum permittivity'
+  - 'epsilon zero'
+  - 'epsilon_0'
+  - 'constante eléctrica'
+  - 'permitividad del vacío'
+references:
+  - title: 'NIST, CODATA 2022 value: vacuum electric permittivity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?ep0'
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.1 The ampere, 2.2 The defining constants and Appendix 4'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 5.3 Coulomb''s Law'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/5-3-coulombs-law'
+  - title: 'OpenStax, University Physics Volume 2, 8.1 Capacitors and Capacitance'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance'
+  - title: 'OpenStax, University Physics Volume 2, 16.2 Plane Electromagnetic Waves'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/16-2-plane-electromagnetic-waves'
+  - title: 'HyperPhysics, Georgia State University, Electric and Magnetic Constants'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/electric/elefie.html'
+description:
+  en: >-
+    The vacuum electric permittivity, symbol $\varepsilon_{0}$, also called the electric constant
+    or the permittivity of free space, has the CODATA 2022 recommended value
+    $8.854\,187\,8188(14)\times10^{-12}\,\mathrm{F/m}$, a measured value with a relative standard
+    uncertainty of $1.6\times10^{-10}$. Since the 2019 revision of the SI it is no longer exact.
+
+    It is the permittivity of empty space: in vacuum, the electric flux density equals this
+    constant times the electric field strength. In SI units it sets the strength of the electric
+    interaction between charges, and it is the reference against which the permittivity of every
+    material is quoted, since a relative permittivity, or dielectric constant, is a material's
+    permittivity divided by this value.
+
+    The constant appears in Coulomb's law, where the force between two point charges carries the
+    factor one over four pi times the permittivity, a combination known as the Coulomb constant.
+    It sets the capacitance of a parallel-plate capacitor, equal to the constant times the plate
+    area divided by the gap, and the energy stored in an electric field. Together with the vacuum
+    magnetic permeability it fixes the speed of light, because their product equals one over the
+    square of that speed, and it enters the fine-structure constant, which links it to the
+    elementary charge and the Planck constant.
+
+    From 1948 the definition of the ampere fixed the vacuum magnetic permeability exactly, and
+    once the 1983 definition of the metre made the speed of light exact, the electric constant
+    became exact as well. The 2019 revision instead fixed the elementary charge, so the magnetic
+    constant, and with it the electric constant, must now be determined experimentally; both
+    share the relative uncertainty of the fine-structure constant, while their product stays
+    exact.

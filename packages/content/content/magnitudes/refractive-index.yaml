@@ -1,0 +1,56 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Refractive index'
+symbol:
+  tex: 'n'
+baseUnit: 'unitless'
+dimension: {}
+externalIds:
+  wikidata: 'Q174102'
+  qudt: 'http://qudt.org/vocab/quantitykind/RefractiveIndex'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'index of refraction'
+  - 'refraction index'
+  - 'IOR'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 1.1 The Propagation of Light, Table 1.1'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/1-1-the-propagation-of-light'
+  - title: 'OpenStax, University Physics Volume 3, 1.3 Refraction'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/1-3-refraction'
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.3 Dimensions of quantities'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, quantity kind RefractiveIndex'
+    url: 'https://qudt.org/vocab/quantitykind/RefractiveIndex'
+description:
+  en: >-
+    The refractive index, or index of refraction, symbol $n$, of a transparent medium is the speed
+    of light in vacuum divided by the speed of light in that medium. It states how strongly a
+    material slows light down, and it determines how far a ray bends when it crosses from one
+    medium into another, which is the subject of the law of refraction in optics.
+
+    As the quotient of two speeds, the refractive index has no dimension: it is a pure number whose
+    SI unit is the unit one, which is almost never written. The SI Brochure uses it, together with
+    relative permittivity, as its example of a quantity defined as a ratio of two quantities of the
+    same kind.
+
+    The refractive index is a scalar. For ordinary materials at visible wavelengths it is at least
+    one: the value one belongs to vacuum, and larger values mean slower light. It is not a single
+    constant of a material, because it varies slightly with the wavelength of the light; that
+    variation, called dispersion, is what lets a prism split white light into colours, so tables
+    always state the wavelength they refer to.
+
+    Indices are found by measuring the angles of incidence and refraction of a ray at the boundary
+    between two media and applying the law of refraction. For yellow light of wavelength 589
+    nanometres OpenStax lists 1.000293 for air at 0 °C and one atmosphere, 1.333 for fresh water,
+    1.52 for crown glass and 2.419 for diamond. In gases the index is so close to one that it is
+    often taken as exactly one.
+
+    The refractive index is not the speed of light in the medium, which equals the speed of light
+    in vacuum divided by the index, and it is not an angle. When a ray passes between two media,
+    the ratio of their indices fixes the change of direction. Ibn Sahl used the law relating the
+    angles to the indices as early as 984, but it carries the name of Willebrord Snell
+    (1591–1626), who arrived at it in 1621.

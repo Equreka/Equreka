@@ -1,11 +1,12 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
-  en: 'Joule per Kelvin'
+  en: 'Joule per kelvin'
 symbol:
-  tex: '\frac{J}{K}'
+  tex: 'J/K'
   text: 'J/K'
 unitOf:
   - 'entropy'
+  - 'heat-capacity'
 system: 'si-derived'
 compose:
   of:
@@ -24,5 +25,5 @@ aliases:
   - 'J/K'
 description:
   en: >-
-    The joule per kelvin ($J/K$) is the product of an SI derived unit, the joule ($J$), and an SI
-    base unit, the kelvin ($K$).
+    The joule per kelvin ($\mathrm{J/K}$) is the quotient of an SI derived unit, the joule, by an SI
+    base unit, the kelvin.

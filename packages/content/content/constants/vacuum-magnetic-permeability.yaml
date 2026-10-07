@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Vacuum magnetic permeability'
+symbol:
+  tex: '\mu_{0}'
+  text: 'μ0'
+value: '1.25663706127e-6'
+approximations:
+  - '1.257e-6'
+unit: 'henry-per-metre'
+exact: false
+uncertainty: '2.0e-16'
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mu0'
+  ref: 'vacuum magnetic permeability'
+externalIds:
+  wikidata: 'Q1515261'
+  qudt: 'http://qudt.org/vocab/constant/MagneticConstant'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'magnetic constant'
+  - 'permeability of vacuum'
+  - 'permeability of free space'
+  - 'vacuum permeability'
+  - 'mu zero'
+  - 'mu_0'
+  - 'constante magnética'
+  - 'permeabilidad del vacío'
+references:
+  - title: 'NIST, CODATA 2022 value: vacuum magnetic permeability'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mu0'
+  - title: 'NIST, CODATA 2022 complete listing of fundamental physical constants'
+    url: 'https://physics.nist.gov/cuu/Constants/Table/allascii.txt'
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.1 The ampere, Appendix 1 (26th CGPM 2018, Resolution 1) and Appendix 4'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 12.1 The Biot-Savart Law'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/12-1-the-biot-savart-law'
+  - title: 'OpenStax, University Physics Volume 2, 14.2 Self-Inductance and Inductors'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/14-2-self-inductance-and-inductors'
+  - title: 'OpenStax, University Physics Volume 2, 14.3 Energy in a Magnetic Field'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/14-3-energy-in-a-magnetic-field'
+  - title: 'OpenStax, University Physics Volume 2, 16.2 Plane Electromagnetic Waves'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/16-2-plane-electromagnetic-waves'
+description:
+  en: >-
+    The vacuum magnetic permeability, symbol $\mu_{0}$, also called the magnetic constant or the
+    permeability of free space, has the CODATA 2022 recommended value
+    $1.256\,637\,061\,27(20)\times10^{-6}\,\mathrm{N\,A^{-2}}$, the same as henries per metre. It
+    is a measured value with a relative standard uncertainty of $1.6\times10^{-10}$, and it
+    agrees with the former exact value of four pi times ten to the minus seven henries per metre
+    to within its standard uncertainty.
+
+    It is the permeability of empty space: in vacuum the magnetic flux density equals this
+    constant times the magnetic field strength. In SI units it sets how strongly electric currents
+    produce magnetic fields and attract or repel one another, and it is the reference for the
+    relative permeability of materials.
+
+    The constant appears in the Biot-Savart law for the field of a current element, in the field
+    inside a long solenoid, which equals the constant times the number of turns per metre times
+    the current, and in the inductance of that solenoid. The energy density of a magnetic field is
+    the square of the flux density divided by twice this constant, and its product with the
+    vacuum electric permittivity equals one over the square of the speed of light.
+
+    From 1948 the ampere was defined through the force between two parallel wires carrying
+    current, a choice that fixed the magnetic constant at exactly four pi times ten to the minus
+    seven. The 2019 revision of the SI defined the ampere by fixing the elementary charge instead,
+    so the constant must now be measured. Its value comes in practice from the fine-structure
+    constant, whose relative uncertainty it shares, and when the revision was adopted it was
+    still equal to four pi times ten to the minus seven within that uncertainty.

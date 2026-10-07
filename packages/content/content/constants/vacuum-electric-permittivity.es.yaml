@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.locale.schema.json
+name: 'Permitividad eléctrica del vacío'
+description: >-
+  La permitividad eléctrica del vacío, de símbolo $\varepsilon_{0}$, llamada también constante
+  eléctrica o permitividad del espacio libre, tiene el valor recomendado CODATA 2022
+  $8.854\,187\,8188(14)\times10^{-12}\,\mathrm{F/m}$, un valor medido con una incertidumbre típica
+  relativa de $1.6\times10^{-10}$. Desde la revisión del SI de 2019 ya no es exacta.
+
+  Es la permitividad del espacio vacío: en el vacío, la densidad de flujo eléctrico es igual a esta
+  constante por la intensidad de campo eléctrico. En unidades SI fija la intensidad de la
+  interacción eléctrica entre cargas, y es la referencia con la que se expresa la permitividad de
+  cualquier material, ya que una permitividad relativa, o constante dieléctrica, es la
+  permitividad del material dividida entre este valor.
+
+  La constante aparece en la ley de Coulomb, donde la fuerza entre dos cargas puntuales lleva el
+  factor uno dividido entre cuatro pi por la permitividad, una combinación conocida como constante
+  de Coulomb. Fija la capacidad de un condensador de placas paralelas, igual a la constante por el
+  área de las placas dividida entre la separación, y la energía almacenada en un campo eléctrico.
+  Junto con la permeabilidad magnética del vacío determina la velocidad de la luz, porque su
+  producto es igual a uno dividido entre el cuadrado de esa velocidad, y entra en la constante de
+  estructura fina, que la relaciona con la carga elemental y la constante de Planck.
+
+  Desde 1948 la definición del amperio fijaba exactamente la permeabilidad magnética del vacío, y
+  cuando la definición del metro de 1983 hizo exacta la velocidad de la luz, la constante eléctrica
+  pasó a ser exacta también. La revisión de 2019 fijó en su lugar la carga elemental, de modo que
+  la constante magnética, y con ella la eléctrica, debe determinarse ahora experimentalmente; ambas
+  comparten la incertidumbre relativa de la constante de estructura fina, mientras que su producto
+  sigue siendo exacto.

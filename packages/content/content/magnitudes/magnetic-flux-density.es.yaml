@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Densidad de flujo magnético'
+description: >-
+  La densidad de flujo magnético, llamada comúnmente campo magnético o campo B y conocida también
+  como inducción magnética, es la magnitud vectorial del electromagnetismo que determina la fuerza
+  magnética sobre una carga eléctrica en movimiento o sobre un hilo que transporta corriente. Una
+  carga que atraviesa el campo en ángulo recto sufre una fuerza proporcional a su carga, a su
+  rapidez y a la densidad de flujo, perpendicular a la vez a su velocidad y al campo.
+
+  Su unidad SI coherente es el tesla, igual a un weber por metro cuadrado, y en unidades básicas
+  del SI es el kilogramo por segundo al cuadrado y por amperio: su dimensión es masa dividida entre
+  tiempo al cuadrado y corriente eléctrica. Leído a partir de la ley de fuerza, el tesla es también
+  un newton segundo por culombio y metro. El gauss del sistema CGS es la diezmilésima parte de un
+  tesla.
+
+  Es una magnitud vectorial. En cada punto es tangente a la línea de campo que pasa por él, la
+  dirección en la que se orienta una pequeña brújula, y fuera de un imán las líneas van del polo
+  norte al polo sur y se cierran sobre sí mismas. Su módulo nunca es negativo, mientras que una
+  componente sobre un eje puede tener cualquier signo. Como la fuerza magnética es siempre
+  perpendicular a la velocidad, no realiza trabajo: curva la trayectoria de una carga sin cambiar
+  su rapidez.
+
+  Se mide con sondas de efecto Hall y otros magnetómetros. El campo de la Tierra en su superficie
+  es de unos $5\times10^{-5}\,\mathrm{T}$, medio gauss; los imanes permanentes más potentes se
+  acercan a 2 teslas; los escáneres médicos de resonancia magnética suelen trabajar entre 1.5 y 3
+  teslas, con equipos experimentales de 10.5; y los electroimanes superconductores alcanzan 10
+  teslas o más.
+
+  Se confunde a menudo con la intensidad de campo magnético, medida en amperios por metro, que en
+  el vacío solo difiere de ella en el factor de la permeabilidad magnética del vacío, y con el
+  flujo magnético, la densidad de flujo sumada sobre una superficie, cuya unidad es el weber. La unidad
+  lleva el nombre del inventor Nikola Tesla.

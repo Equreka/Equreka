@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Ampere hour'
+namePlural:
+  en: 'ampere hours'
+symbol:
+  tex: 'A\,h'
+  text: 'A h'
+unitOf:
+  - 'electric-charge'
+system: 'other'
+prefixes:
+  - 'milli'
+compose:
+  of:
+    - unit: 'ampere'
+      exp: 1
+    - unit: 'hour'
+      exp: 1
+externalIds:
+  wikidata: 'Q212120'
+  qudt: 'http://qudt.org/vocab/unit/A-HR'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'ampere-hour'
+  - 'amp hour'
+  - 'amp-hour'
+  - 'Ah'
+  - 'A·h'
+  - 'amperio-hora'
+references:
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: ampere hour (A·h)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (hour), 5.2 Unit symbols and 5.3 Unit names'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, unit A-HR (ampere hour)'
+    url: 'https://qudt.org/vocab/unit/A-HR'
+  - title: 'R. Rowlett, How Many? A Dictionary of Units of Measurement, University of North Carolina: ampere hour'
+    url: 'https://www.ibiblio.org/units/dictA.html'
+  - title: 'Real Academia Española, Diccionario del estudiante: kilovatio, kilovatio hora'
+    url: 'https://www.rae.es/diccionario-estudiante/kilovatio'
+  - title: 'Real Academia Española, El buen uso del español: El plural de los compuestos'
+    url: 'https://www.rae.es/buen-uso-espa%C3%B1ol/el-plural-de-los-compuestos'
+description:
+  en: >-
+    The ampere hour, symbol $\mathrm{A\,h}$, is a unit of electric charge: the charge that a steady
+    current of one ampere carries past a point in one hour. It is not an SI unit, but it is built
+    from the SI base unit ampere and the hour, which the SI Brochure lists in its Table 8 of
+    non-SI units used alongside the SI.
+
+    Its value follows from its two factors. The hour is exactly 3600 seconds, and one ampere
+    flowing for one second carries one coulomb, so $1\,\mathrm{A\,h}=3600\,\mathrm{C}$ exactly.
+    NIST Special Publication 811 lists the same exact factor in its Appendix B.8.
+
+    The milliampere hour, one thousandth of an ampere hour, equals 3.6 coulombs. A charge in
+    ampere hours multiplied by a voltage in volts gives an energy in watt hours, because the
+    product of charge and potential difference is energy; this is how the energy stored in a
+    battery is estimated from its rated capacity and its nominal voltage.
+
+    The ampere hour is the customary unit for the capacity of batteries, the charge a cell can
+    deliver before it is exhausted, and small cells are commonly labelled in milliampere hours.
+    QUDT also notes its use for the charge passed in electroplating and other electrochemical
+    processes.
+
+    The name is written ampere hour or ampere-hour and is often shortened to amp hour. The SI
+    rules require a space or a half-high dot between multiplied unit symbols, so the conforming
+    symbol is A h or A·h; the compact Ah, seen on many labels, omits the separator. The plural is
+    ampere hours.

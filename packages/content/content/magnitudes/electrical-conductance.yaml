@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Electrical conductance'
+symbol:
+  tex: 'G'
+baseUnit: 'siemens'
+dimension:
+  L: -2
+  M: -1
+  T: 3
+  I: 2
+externalIds:
+  wikidata: 'Q309017'
+  qudt: 'http://qudt.org/vocab/quantitykind/ElectricalConductance'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'conductance'
+  - 'electric conductance'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 and Appendix 1 (14th CGPM, 1971, pascal and siemens)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, quantity kind Conductance (G = 1/R; G = Re Y)'
+    url: 'https://qudt.org/vocab/quantitykind/Conductance'
+  - title: 'OpenStax, University Physics Volume 2, 9.3 Resistivity and Resistance, Table 9.1'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-3-resistivity-and-resistance'
+  - title: 'R. Rowlett, How Many? A Dictionary of Units of Measurement, University of North Carolina: mho'
+    url: 'https://www.ibiblio.org/units/dictM.html'
+description:
+  en: >-
+    Electrical conductance, symbol $G$, measures how easily an electric current passes through a
+    conductor or a circuit element when a voltage is applied across it. For an element with two
+    terminals it equals the current through the element divided by the potential difference
+    between the terminals, which makes it the reciprocal of electrical resistance: a high
+    conductance means a low resistance.
+
+    The SI unit of conductance is the siemens, symbol S, one of the 22 SI units with special names
+    and defined as the reciprocal of the ohm. Expressed in base units the siemens is
+    $\mathrm{kg^{-1}\,m^{-2}\,s^{3}\,A^{2}}$, so the dimension of conductance is exactly the inverse
+    of the dimension of resistance.
+
+    Conductance is a scalar. For passive components such as wires, resistors and electrolytic
+    cells it is positive, and it falls to zero for a perfect insulator. In alternating-current
+    circuits QUDT defines it as the real part of the admittance, the complex reciprocal of the
+    impedance, so that it describes the part of the current that is in phase with the voltage.
+
+    Conductance is obtained by measuring a current and a voltage together, or as the reciprocal of
+    a measured resistance. It depends on both material and shape: for a uniform wire it grows with
+    the cross-sectional area and with the conductivity of the metal and shrinks with the length.
+    With the copper resistivity tabulated by OpenStax, a copper wire one metre long with a
+    cross-section of one square millimetre has a conductance close to 60 siemens, while the same
+    piece made of glass would conduct less than a picosiemens.
+
+    Conductance belongs to an object, whereas electrical conductivity, in siemens per metre,
+    describes a material; they are linked by the length and cross-section of the sample in the same
+    way as resistance and resistivity. The 14th General Conference on Weights and Measures adopted
+    the name siemens in 1971. Older texts call the unit the mho, which is ohm spelled backwards.

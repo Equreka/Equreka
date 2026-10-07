@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Luminancia'
+description: >-
+  La luminancia, de símbolo $L_{\mathrm{v}}$, es la intensidad luminosa que un elemento de superficie emite
+  en una dirección dada dividida entre el área de ese elemento vista desde esa dirección, su área
+  proyectada. Es la magnitud fotométrica más próxima al brillo de una superficie tal como lo
+  perciben un ojo o una cámara, ya sea una lámpara, una pantalla, el cielo o una pared iluminada.
+
+  La unidad SI de luminancia es la candela por metro cuadrado, $\mathrm{cd/m^{2}}$, que el folleto
+  del SI incluye entre las unidades derivadas coherentes escritas directamente en unidades
+  básicas. Su dimensión es la intensidad luminosa dividida entre el cuadrado de una longitud. A
+  diferencia del lux, la unidad no contiene el estereorradián, porque la intensidad luminosa
+  ya es un flujo por unidad de ángulo sólido.
+
+  La luminancia es un escalar no negativo asociado a un punto de una superficie y a una dirección.
+  La definición de la CIE incluye el ángulo entre la normal a la superficie y la dirección de
+  observación, de modo que una misma superficie puede mostrar luminancias distintas según el lado
+  desde el que se mire. En una superficie no uniforme, la medida da un promedio sobre el área
+  observada.
+
+  La luminancia se mide recogiendo la luz que una pequeña zona de una superficie envía dentro de un
+  cono estrecho alrededor de una dirección. Es el dato con el que se expresa el brillo de las
+  pantallas: QUDT da valores de 200 a 300 candelas por metro cuadrado para monitores de cristal
+  líquido de escritorio habituales, 80 como objetivo de la norma sRGB, unas 120 para monitores
+  calibrados y de 450 a cerca de 1000 para televisores de alta definición.
+
+  La luminancia se confunde con facilidad con la iluminancia. La iluminancia, en lux, mide la luz
+  que cae sobre una superficie; la luminancia mide la que sale de ella hacia un observador. Una
+  hoja blanca y una hoja negra bajo la misma lámpara reciben la misma iluminancia, pero muestran
+  luminancias muy distintas. En las especificaciones de pantallas, la candela por metro cuadrado
+  se llama a menudo nit, un nombre que no forma parte del SI.

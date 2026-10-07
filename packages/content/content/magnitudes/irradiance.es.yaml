@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Irradiancia'
+description: >-
+  La irradiancia, de símbolo $E_{\mathrm{e}}$, es el flujo radiante que incide sobre una superficie dividido
+  entre el área que lo recibe: la potencia transportada por radiación electromagnética de todas
+  las longitudes de onda que llega a cada metro cuadrado de una superficie real o imaginaria en un
+  punto dado. Es la magnitud radiométrica detrás de la potencia disponible para los paneles
+  solares, del calentamiento de la Tierra por el Sol y de la exposición de cualquier superficie a
+  la radiación.
+
+  Su unidad SI es el vatio por metro cuadrado, $\mathrm{W/m^{2}}$, que el folleto del SI da como
+  unidad coherente tanto de la irradiancia como de la densidad de flujo térmico. En unidades
+  básicas es el kilogramo por segundo al cubo, porque los metros cuadrados contenidos en el vatio
+  se cancelan con los del área; la dimensión de la irradiancia es masa dividida entre tiempo al
+  cubo.
+
+  La irradiancia es un escalar no negativo. Se refiere solo a la radiación que recibe una
+  superficie y depende de su orientación: un panel girado respecto a un haz intercepta menos
+  potencia por metro cuadrado que uno situado de frente. QUDT la clasifica como una clase más
+  específica de potencia por unidad de área, y la radiación que sale de una superficie se describe
+  con otras magnitudes que tienen la misma unidad.
+
+  La irradiancia se mide con radiómetros colocados en el plano de la superficie. La NASA da unos
+  1360 vatios por metro cuadrado, la irradiancia solar total, para una superficie vuelta hacia el Sol
+  en lo alto de la atmósfera y a la distancia media de la Tierra; repartida entre el lado diurno y el
+  nocturno y entre todas las latitudes, la media global es la cuarta parte, cerca de 340 vatios por
+  metro cuadrado.
+
+  La irradiancia es la pareja radiométrica de la iluminancia: la CIE define ambas en paralelo, pero
+  la iluminancia pondera cada longitud de onda según la sensibilidad del ojo y se mide en lux,
+  mientras que la irradiancia cuenta por igual toda la potencia radiante. La irradiancia solar
+  total se llamaba antes constante solar, hasta que las medidas mostraron que varía ligeramente
+  con el ciclo de las manchas solares.

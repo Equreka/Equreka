@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Illuminance'
+symbol:
+  tex: 'E_{\mathrm{v}}'
+  text: 'Ev'
+baseUnit: 'lux'
+dimension:
+  L: -2
+  J: 1
+  A: 2
+nonNegative: true
+externalIds:
+  wikidata: 'Q194411'
+  qudt: 'http://qudt.org/vocab/quantitykind/Illuminance'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'illumination'
+  - 'luminous flux density'
+references:
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-060 illuminance'
+    url: 'https://cie.co.at/eilvterm/17-21-060'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 (lux) and 2.3.5'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'UK Health and Safety Executive, Lighting at work (HSG38), table of recommended illuminances'
+    url: 'https://www.hse.gov.uk/pubns/priced/hsg38.pdf'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: luminous power per unit area of surface (illuminance)'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/vision/areance.html'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: footcandle'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+description:
+  en: >-
+    Illuminance, symbol $E_{\mathrm{v}}$, is the luminous flux incident on a surface divided by the area
+    that receives it: the amount of visible light, weighted by the spectral sensitivity of the
+    human eye, that falls on each square metre of a real or imaginary surface at a given point. It
+    is the photometric quantity used to judge whether a desk, a corridor or a road is lit well
+    enough for a task.
+
+    Its SI unit is the lux, symbol lx, equal to one lumen per square metre. The SI Brochure lists
+    the lux among the units with special names and expresses it as the candela steradian per
+    square metre. The dimension of illuminance is therefore luminous intensity divided by length
+    squared, with the solid angle of the steradian carried along explicitly.
+
+    Illuminance is a non-negative scalar. It describes light received, not light emitted, and it
+    depends on the position and orientation of the surface. From a small source it falls with the
+    square of the distance: a lamp of luminous intensity one candela gives one lux on a surface
+    facing it one metre away and a quarter of a lux at two metres.
+
+    Most light meters read illuminance directly. The UK Health and Safety Executive recommends
+    average illuminances of about 20 lux for corridors and vehicle routes, 200 lux for offices and
+    500 lux for work with fine detail such as drawing offices or the assembly of electronic
+    components. The CIE vocabulary defines illuminance as incident luminous flux per unit area
+    at a point of a surface, and notes that it can also be derived from spectral irradiance
+    weighted by the eye's spectral luminous efficiency.
+
+    Illuminance is often confused with luminous flux and with luminance. Luminous flux, in lumens,
+    is the total light a source emits; illuminance is that flux per unit area where it lands;
+    luminance, in candelas per square metre, describes how bright a surface appears from a given
+    direction. The radiometric counterpart is irradiance, which counts radiant power without
+    weighting by the eye. The older foot-candle, one lumen per square foot, equals about 10.76 lux.

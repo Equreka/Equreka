@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.locale.schema.json
+name: 'Constante de Stefan-Boltzmann'
+description: >-
+  La constante de Stefan-Boltzmann, de símbolo $\sigma$, tiene el valor CODATA 2022
+  $5.670\,374\,419\ldots\times10^{-8}\,\mathrm{W\,m^{-2}\,K^{-4}}$. Es exacta, sin incertidumbre,
+  porque el NIST la expresa mediante la constante de Planck, la constante de Boltzmann y la
+  velocidad de la luz en el vacío, cuyos valores fija el SI por definición desde 2019. Su desarrollo
+  decimal no termina nunca, de modo que todo valor impreso está truncado.
+
+  La constante mide con qué intensidad radia un absorbente perfecto, un cuerpo negro: la potencia
+  total que ese cuerpo emite por metro cuadrado de superficie, sumada sobre todas las longitudes de
+  onda, es igual a la constante multiplicada por la cuarta potencia de su temperatura absoluta. Las
+  superficies reales radian menos, en un factor llamado emisividad, que va de cero para un reflector
+  perfecto a uno para un cuerpo negro.
+
+  Es el coeficiente de la ley de Stefan-Boltzmann, $P=\sigma AT^{4}$, que da la potencia radiada por
+  una superficie a partir de su área en metros cuadrados y de su temperatura en kelvin; para un
+  objeto ordinario el segundo miembro se multiplica por su emisividad, y el intercambio neto con el
+  entorno depende de la diferencia entre las cuartas potencias de las dos temperaturas. El NIST la
+  relaciona con otras constantes mediante $\sigma=(\pi^{2}/60)k^{4}/(\hbar^{3}c^{2})$. Los
+  astrónomos combinan la ley con la temperatura superficial de una estrella para estimar la potencia
+  que emite.
+
+  Josef Stefan concluyó de forma empírica en 1879, a partir de las medidas de Tyndall sobre la
+  radiación de un hilo de platino calentado, que la radiación total de un cuerpo crece con la cuarta
+  potencia de su temperatura absoluta, y aplicó la relación para estimar la temperatura de la
+  superficie del Sol. En 1884 Ludwig Boltzmann, que había sido su alumno, dedujo la misma ley a
+  partir de la termodinámica. La revisión del SI de 2019 hizo exacto su valor.

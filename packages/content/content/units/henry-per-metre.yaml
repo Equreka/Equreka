@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Henry per metre'
+symbol:
+  tex: 'H/m'
+unitOf:
+  - 'permeability'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'henry'
+      exp: 1
+    - unit: 'metre'
+      exp: -1
+externalIds:
+  wikidata: 'Q55663153'
+  qudt: 'http://qudt.org/vocab/unit/H-PER-M'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'henry per meter'
+  - 'henries per metre'
+  - 'henries per meter'
+  - 'H m-1'
+  - 'H m^-1'
+  - 'N/A2'
+  - 'N A^-2'
+  - 'newton per square ampere'
+  - 'henrio por metro'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.1 The ampere, 2.3.4 Derived units, Table 6, and 5.2 Unit symbols'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, CODATA 2022 value: vacuum magnetic permeability'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mu0'
+  - title: 'OpenStax, University Physics Volume 2, 14.2 Self-Inductance and Inductors'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/14-2-self-inductance-and-inductors'
+  - title: 'OpenStax, University Physics Volume 2, 12.7 Magnetism in Matter'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/12-7-magnetism-in-matter'
+  - title: 'QUDT, unit H-PER-M'
+    url: 'https://qudt.org/vocab/unit/H-PER-M'
+description:
+  en: >-
+    The henry per metre, symbol $\mathrm{H/m}$, is the coherent SI derived unit of permeability,
+    the property that describes how a medium responds to a magnetic field. It is the henry, the
+    unit of inductance, divided by the metre, and in SI base units it is the kilogram metre per
+    second squared per square ampere. It has no special name.
+
+    The SI Brochure lists the henry per metre in its table of coherent derived units whose names
+    include units with special names, as the unit of permeability. A coil explains the pairing:
+    the inductance of a long solenoid equals the permeability of its core times the square of the
+    number of turns times the cross-section divided by the length, and that ratio of an area to a
+    length is itself a length.
+
+    One henry per metre is identical to one newton per square ampere. The SI Brochure uses both
+    forms side by side when it recalls that the former definition of the ampere, based on the
+    force between two parallel wires, fixed the vacuum magnetic permeability at exactly four pi
+    times ten to the minus seven of these units. NIST quotes the CODATA 2022 value in newtons per
+    square ampere as $1.256\,637\,061\,27(20)\times10^{-6}\,\mathrm{N\,A^{-2}}$.
+
+    The permeability of a material is its relative permeability times the vacuum value. For most
+    diamagnetic and paramagnetic substances the relative permeability differs from one by less
+    than a thousandth, while ferromagnets such as iron multiply the vacuum value by a factor of
+    the order of a thousand or more.
+
+    The symbol may be written with a solidus or
+    as a product in which the metre carries the exponent minus one.

@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Ohm metre'
+symbol:
+  tex: '\Omega\,m'
+  text: 'Ω m'
+unitOf:
+  - 'electrical-resistivity'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'ohm'
+      exp: 1
+    - unit: 'metre'
+      exp: 1
+externalIds:
+  wikidata: 'Q1441459'
+  qudt: 'http://qudt.org/vocab/unit/OHM-M'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'ohm meter'
+  - 'ohm-metre'
+  - 'ohm-meter'
+  - 'ohm m'
+  - 'ohm*m'
+  - 'Ω·m'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 9.3 Resistivity and Resistance, Table 9.1'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-3-resistivity-and-resistance'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: ohm centimeter; ohm circular-mil per foot'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 (ohm), 5.2 Unit symbols and 5.3 Unit names'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, unit OHM-M (ohm metre)'
+    url: 'https://qudt.org/vocab/unit/OHM-M'
+description:
+  en: >-
+    The ohm metre, symbol $\Omega\,\mathrm{m}$, is the coherent SI unit of electrical resistivity,
+    the property that describes how much a material hinders electric current. It is the product of
+    the ohm, the SI unit of resistance, and the metre, so it is a coherent derived unit without a
+    special name of its own.
+
+    A material has a resistivity of one ohm metre when a cube of it with edges one metre long shows
+    a resistance of one ohm between two opposite faces. The unit follows from the relation between
+    resistance and resistivity: the resistance of a uniform bar is its resistivity times its length
+    divided by its cross-sectional area, so ohms multiplied by square metres and divided by metres
+    leave ohm metres.
+
+    NIST Special Publication 811 converts the ohm centimetre of the CGS-based
+    literature as exactly 0.01 ohm metre, and the ohm circular mil per foot, a customary unit
+    from the United States, as about $1.662\,426\times10^{-9}\,\Omega\,\mathrm{m}$. The
+    reciprocal of the ohm metre, the siemens per metre, is the unit of electrical conductivity.
+
+    Good conductors have tiny resistivities in this unit: OpenStax lists
+    $1.68\times10^{-8}\,\Omega\,\mathrm{m}$ for copper at 20 °C. Insulators such as glass reach
+    values between nine and fourteen powers of ten above one ohm metre, which is why the unit is
+    almost always written with a power of ten.
+
+    Under the SI rules a product of unit symbols is written with a space or a half-high dot, so the
+    symbol is Ω m or Ω·m, and a compound unit name takes a space or a hyphen: ohm metre or
+    ohm-metre. The plural is ohm metres.

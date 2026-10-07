@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Unidad térmica británica'
+description: >-
+  La unidad térmica británica, de símbolo Btu, es una unidad de energía y de calor de la tradición
+  consuetudinaria basada en la libra y el grado Fahrenheit. Nació como el calor que eleva un grado
+  Fahrenheit la temperatura de una libra de agua. Existen varias versiones; la que se describe aquí es
+  la unidad térmica británica de la tabla internacional, a la que el NIST asigna un valor exacto en
+  julios.
+
+  Su definición se deriva de la caloría de la tabla internacional, que la Quinta Conferencia
+  Internacional sobre las Propiedades del Vapor de Agua fijó en exactamente 4.1868 julios en Londres
+  en 1956. Sobre esa base, la publicación especial 811 del NIST establece el factor exacto
+  $1\,\mathrm{Btu}=1055.055\,852\,62\,\mathrm{J}$, producto de 4.1868 julios por gramo y kelvin, de
+  una libra de 453.592 37 gramos y de cinco novenos de kelvin, el tamaño de un grado Fahrenheit. La
+  Btu termoquímica, basada en la caloría termoquímica, vale unos 1054.350 julios.
+
+  Por esa construcción, una Btu por libra equivale exactamente a 2326 julios por kilogramo, y una
+  Btu por libra y grado Fahrenheit equivale exactamente a 4186.8 julios por kilogramo y kelvin, de
+  modo que el agua tiene una capacidad calorífica específica cercana a uno tanto en el sistema de la caloría como en
+  el de la Btu. Los grandes balances energéticos emplean el quad, $10^{15}\,\mathrm{Btu}$.
+
+  La unidad pervive en los sectores de la calefacción, la refrigeración y los combustibles. El NIST
+  da conversiones para la Btu por hora y para la tonelada de refrigeración, 12 000 Btu por hora o
+  unos 3517 vatios. La unidad therm de las Comunidades Europeas se basa en la Btu de la tabla
+  internacional, mientras que la unidad therm de Estados Unidos es la unidad legal de la industria
+  estadounidense del gas natural. En Estados Unidos, el factor R del aislamiento de edificios se
+  expresa todavía en pies cuadrados por grado Fahrenheit y hora por Btu.
+
+  El símbolo se imprime también BTU; los subíndices IT y th distinguen las dos versiones exactas. El
+  plural es unidades térmicas británicas.

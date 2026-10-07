@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Calorie'
+namePlural:
+  en: 'calories'
+symbol:
+  tex: 'cal'
+unitOf:
+  - 'energy'
+  - 'heat'
+system: 'other'
+prefixes:
+  - 'kilo'
+toBase:
+  factor: '4.184'
+  exact: true
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+    ref: 'B.8: calorie_th (cal_th), 4.184 J (exact); footnote 9: cal_th = 4.184 J exactly'
+externalIds:
+  wikidata: 'Q130964'
+  qudt: 'http://qudt.org/vocab/unit/CAL_TH'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'thermochemical calorie'
+  - 'calorie (thermochemical)'
+  - 'cal_th'
+  - 'calth'
+  - 'small calorie'
+  - 'gram calorie'
+  - 'calories'
+references:
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: calorie'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST, Guide to the SI (SP 811), Footnotes 9 to 11'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-footnotes'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1: 9th CGPM (1948), Resolution 3'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 1.4 Heat Transfer, Specific Heat, and Calorimetry'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-4-heat-transfer-specific-heat-and-calorimetry'
+  - title: 'QUDT, unit CAL_TH'
+    url: 'https://qudt.org/vocab/unit/CAL_TH'
+description:
+  en: >-
+    The calorie, symbol cal, is a unit of energy outside the International System of Units that grew
+    out of the heating of water: it is close to the heat needed to raise the temperature of a gram of
+    water through a Celsius degree. Several calories have been defined over time; the variant
+    described here is the thermochemical calorie, defined as a round number of joules.
+
+    The thermochemical calorie is defined as exactly $1\,\mathrm{cal}=4.184\,\mathrm{J}$, the factor
+    that NIST Special Publication 811 lists, in bold as an exact value, in its conversion appendix.
+    The International Table calorie, set by the Fifth International Conference on the Properties of
+    Steam in London in 1956, is slightly larger at exactly $4.1868\,\mathrm{J}$, and NIST also lists
+    rounded factors for calories tied to water at 15 or 20 degrees Celsius and for a mean calorie. A
+    value in calories is therefore ambiguous unless the variant is named, which is why the
+    subscripts th and IT are attached to the symbol.
+
+    The kilocalorie, a thousand calories, equals 4184 joules in the thermochemical form. Food energy
+    is quoted in kilocalories, although labels usually drop the prefix and write Calorie with a
+    capital letter, the large calorie.
+
+    In 1948 the 9th CGPM declared the joule the unit of quantity of heat and asked that calorimetric
+    results be expressed in joules, giving conversion information whenever the calorie could not be
+    avoided. NIST Special Publication 811 lists the calorie among the units not to be used in its own
+    publications, yet the unit persists in nutrition and in older chemistry tables. The plural is
+    calories.

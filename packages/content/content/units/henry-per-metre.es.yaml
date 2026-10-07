@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Henrio por metro'
+description: >-
+  El henrio por metro, de símbolo $\mathrm{H/m}$, es la unidad SI derivada coherente de
+  permeabilidad, la propiedad que describe cómo responde un medio a un campo magnético. Es el
+  henrio, la unidad de inductancia, dividido entre el metro, y en unidades básicas del SI es el
+  kilogramo metro por segundo al cuadrado y por amperio al cuadrado. No tiene nombre especial.
+
+  El folleto del SI incluye el henrio por metro en su tabla de unidades derivadas coherentes cuyos
+  nombres contienen unidades con nombre especial, como unidad de permeabilidad. Una bobina explica
+  la combinación: la inductancia de un solenoide largo es igual a la permeabilidad de su núcleo por
+  el cuadrado del número de espiras por la sección dividida entre la longitud, y ese cociente entre
+  un área y una longitud es a su vez una longitud.
+
+  Un henrio por metro es idéntico a un newton por amperio al cuadrado. El folleto del SI usa ambas
+  formas a la vez cuando recuerda que la antigua definición del amperio, basada en la fuerza entre
+  dos hilos paralelos, fijaba la permeabilidad magnética del vacío en exactamente cuatro pi por diez
+  a la menos siete de estas unidades. El NIST da el valor CODATA 2022 en newtons por amperio al
+  cuadrado como $1.256\,637\,061\,27(20)\times10^{-6}\,\mathrm{N\,A^{-2}}$.
+
+  La permeabilidad de un material es su permeabilidad relativa por el valor del vacío. En la
+  mayoría de las sustancias diamagnéticas y paramagnéticas la permeabilidad relativa se aparta de
+  uno en menos de una milésima, mientras que los ferromagnéticos como el hierro multiplican el
+  valor del vacío por un factor del orden de mil o más.
+
+  El símbolo puede escribirse con
+  barra oblicua o como producto en el que el metro lleva el exponente menos uno.

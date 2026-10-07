@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Metro kelvin'
+description: >-
+  El metro kelvin, de símbolo $\mathrm{m\,K}$, es el producto del metro y el kelvin, la unidad SI
+  coherente de una longitud multiplicada por una temperatura termodinámica. Su uso más conocido es
+  como unidad de la constante de la ley de desplazamiento de Wien en longitud de onda; ninguna
+  magnitud física habitual se mide con ella, así que es una unidad compuesta sin magnitud propia,
+  que QUDT clasifica como longitud por temperatura.
+
+  La unidad surge de la ley de desplazamiento de Wien. Cuando un cuerpo negro se calienta más, la
+  longitud de onda en la que su espectro, representado frente a la longitud de onda, alcanza su
+  máximo se desplaza hacia valores más cortos, en proporción inversa a la temperatura absoluta. El
+  producto de esa longitud de onda del máximo por la temperatura es, por tanto, una constante, y una
+  longitud por una temperatura se expresa con el metro kelvin.
+
+  El NIST da la constante de desplazamiento con el valor $2.897\,771\,955\times10^{-3}$ en esta
+  unidad, en la que figura también la segunda constante de radiación, con un valor de unos 0.014. Al
+  dividir la constante de desplazamiento entre una temperatura superficial de unos 5800 kelvin,
+  propia del Sol, el máximo de su emisión queda cerca de los 500 nanómetros, en la luz visible.
+
+  Como la ley utiliza la temperatura absoluta, los valores deben multiplicarse o dividirse por
+  temperaturas en kelvin, nunca en grados Celsius. El símbolo necesita un espacio o un punto
+  centrado entre sus dos partes: escrito junto, mK significaría el milikelvin, la milésima parte de
+  un kelvin. En el nombre, metro y kelvin se escriben separados, sin guion.

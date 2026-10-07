@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Watt hour'
+namePlural:
+  en: 'watt hours'
+symbol:
+  tex: 'W\,h'
+  text: 'W h'
+unitOf:
+  - 'energy'
+system: 'other'
+prefixes:
+  - 'kilo'
+  - 'mega'
+  - 'giga'
+  - 'tera'
+compose:
+  of:
+    - unit: 'watt'
+      exp: 1
+    - unit: 'hour'
+      exp: 1
+externalIds:
+  wikidata: 'Q12831618'
+  qudt: 'http://qudt.org/vocab/unit/W-HR'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+  - 'mechanics'
+aliases:
+  - 'watt-hour'
+  - 'watthour'
+  - 'Wh'
+  - 'W·h'
+  - 'vatio-hora'
+references:
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: watt hour (W·h); kilowatt hour (kW·h)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (hour), 5.2 Unit symbols and 5.3 Unit names'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'US Energy Information Administration, Electricity explained: measuring electricity'
+    url: 'https://www.eia.gov/energyexplained/electricity/measuring-electricity.php'
+  - title: 'US Energy Information Administration, FAQ: How much electricity does an American home use?'
+    url: 'https://www.eia.gov/tools/faqs/faq.php?id=97&t=3'
+  - title: 'OpenStax, University Physics Volume 2, 9.5 Electrical Energy and Power'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-5-electrical-energy-and-power'
+  - title: 'Real Academia Española, Diccionario del estudiante: kilovatio, kilovatio hora'
+    url: 'https://www.rae.es/diccionario-estudiante/kilovatio'
+  - title: 'Real Academia Española, El buen uso del español: El plural de los compuestos'
+    url: 'https://www.rae.es/buen-uso-espa%C3%B1ol/el-plural-de-los-compuestos'
+description:
+  en: >-
+    The watt hour, symbol $\mathrm{W\,h}$, is a unit of energy: the energy transferred when a power
+    of one watt is maintained for one hour. It is not an SI unit, but it is formed from the SI
+    watt and the hour, and with its multiples, above all the kilowatt hour, it is the unit in which
+    electrical energy is metered and billed.
+
+    Since the hour is exactly 3600 seconds and the watt is one joule per second,
+    $1\,\mathrm{W\,h}=3600\,\mathrm{J}$ exactly. NIST Special Publication 811 lists that factor for
+    the watt hour and a factor a thousand times larger for the kilowatt hour, which therefore equals
+    3.6 megajoules.
+
+    Energy in watt hours is power in watts multiplied by time in hours. A lamp drawing 40 watts
+    for five hours uses 200 watt hours, or 0.2 kilowatt hours, the example the US Energy
+    Information Administration gives to explain the unit. Larger amounts take the megawatt hour,
+    the gigawatt hour and the terawatt hour, each a thousand times the one before.
+
+    Electricity meters record consumption in kilowatt hours, and a bill multiplies that reading by
+    a price per kilowatt hour. According to the Energy Information Administration, the average
+    residential customer in the United States bought 10 791 kilowatt hours of electricity in
+    2022, about 899 a month. Charge in ampere hours multiplied by voltage also gives an energy in
+    watt hours.
+
+    The name is written watt hour or watt-hour, and the Energy Information Administration spells
+    it watthour. The SI rules require a space or a half-high dot between multiplied unit symbols,
+    so the conforming symbols are W h and kW h; the compact kWh printed on bills and meters omits
+    the separator. The plural is watt hours.

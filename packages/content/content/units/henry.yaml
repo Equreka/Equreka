@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Henry'
+symbol:
+  tex: 'H'
+unitOf:
+  - 'inductance'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'weber'
+      exp: 1
+    - unit: 'ampere'
+      exp: -1
+externalIds:
+  wikidata: 'Q163354'
+  qudt: 'http://qudt.org/vocab/unit/H'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'henries'
+  - 'henrys'
+  - 'Wb/A'
+  - 'weber per ampere'
+  - 'V s/A'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4, 5.2-5.3 Unit symbols and names, and Appendix 1 (CIPM 1946 Resolution 2; 11th CGPM 1960 Resolution 12)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 14.1 Mutual Inductance'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/14-1-mutual-inductance'
+  - title: 'OpenStax, University Physics Volume 2, 14.2 Self-Inductance and Inductors'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/14-2-self-inductance-and-inductors'
+  - title: 'QUDT, unit H'
+    url: 'https://qudt.org/vocab/unit/H'
+description:
+  en: >-
+    The henry, symbol $\mathrm{H}$, is the coherent SI derived unit of inductance, the property by
+    which a circuit links magnetic flux to the current flowing in it. It is one of the 22 SI units
+    with a special name, equal to one weber per ampere, and in SI base units it is the kilogram
+    square metre per second squared per square ampere.
+
+    The SI Brochure lists the henry in its table of units with special names, expressed in other
+    SI units as the weber per ampere. The definition adopted by the CIPM in 1946 describes the
+    same unit through induction: a closed circuit has an inductance of one henry when a current
+    in it that changes uniformly by one ampere per second produces an electromotive force of one
+    volt. Because the weber is a volt second, the henry is also the volt second per ampere.
+
+    The henry measures both self-inductance and mutual inductance, the coupling between two
+    coils. It also enters the unit of permeability, the henry per metre, in which the SI Brochure
+    states the value of the vacuum magnetic permeability that was exact before 2019.
+
+    A coil in which a current rising by 50 amperes per second induces 20 millivolts has an
+    inductance of $0.40\,\mathrm{mH}$, less than a thousandth of a henry. Transformers are built
+    for a large mutual inductance between their coils, while the loops of road sensors at traffic
+    lights and of airport metal detectors work by detecting a change in inductance.
+
+    The unit honours the American scientist Joseph Henry (1799-1878), who discovered induced
+    electromotive force independently of Michael Faraday. The 11th CGPM included the henry, with
+    the symbol $\mathrm{H}$, among the derived units of the SI in 1960. The name is written in
+    lowercase and the symbol is a capital H.

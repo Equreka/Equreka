@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Inductancia'
+description: >-
+  La inductancia, o autoinductancia, es la propiedad de un circuito eléctrico o de una bobina que
+  relaciona el flujo magnético que produce con la corriente que lo produce: el flujo total
+  concatenado con el circuito dividido entre esa corriente. Como un flujo variable induce una
+  tensión, la inductancia fija también cuánto se opone una bobina a cualquier cambio de su propia
+  corriente.
+
+  Su unidad SI coherente es el henrio, igual al weber por amperio y al voltio segundo por amperio;
+  en unidades básicas del SI es el kilogramo metro cuadrado por segundo al cuadrado y por amperio
+  al cuadrado, de modo que su dimensión es longitud al cuadrado por masa dividida entre tiempo al
+  cuadrado y corriente al cuadrado. Un circuito tiene una inductancia de un henrio cuando una
+  corriente que varía uniformemente un amperio cada segundo induce en él un voltio, la definición
+  que adoptó el CIPM en 1946.
+
+  La autoinductancia es un escalar y, con el convenio habitual que liga la normal de la espira a
+  la corriente mediante la regla de la mano derecha, siempre es positiva. La tensión inducida se
+  opone siempre al cambio de la corriente, como exige la ley de Lenz, de modo que una bobina frena
+  el crecimiento de una corriente y también se resiste a su disminución. Como la capacidad
+  eléctrica, es una magnitud geométrica: en una bobina en el aire depende de la forma, del tamaño
+  y del número de espiras, no de la corriente.
+
+  Se mide a partir de la tensión en una bobina mientras su corriente cambia a un ritmo conocido: si
+  una corriente que aumenta 50 amperios por segundo induce 20 milivoltios, la inductancia es de
+  $0.40\,\mathrm{mH}$. Una bobina recorrida por una corriente
+  almacena energía en su campo magnético, igual a la mitad de la inductancia por el cuadrado de la
+  corriente.
+
+  La inductancia es distinta de la inductancia mutua, que relaciona el flujo a través de una
+  bobina con la corriente de otra cercana y también se mide en henrios; los transformadores
+  dependen de una inductancia mutua grande, mientras que los sensores enterrados bajo la calzada
+  de los semáforos detectan el cambio de autoinductancia que causa un coche situado encima. El
+  henrio rinde homenaje al científico estadounidense Joseph Henry, que descubrió las tensiones
+  inducidas con independencia de Faraday.

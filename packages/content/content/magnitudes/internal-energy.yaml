@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Internal energy'
+symbol:
+  tex: 'U'
+symbolAlt:
+  tex: 'E_{\mathrm{int}}'
+  text: 'Eint'
+baseUnit: 'joule'
+dimension:
+  L: 2
+  M: 1
+  T: -2
+kindOf: 'energy'
+externalIds:
+  wikidata: 'Q180241'
+  qudt: 'http://qudt.org/vocab/quantitykind/InternalEnergy'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'thermodynamic energy'
+  - 'E_int'
+  - 'Eint'
+  - 'energía termodinámica'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 3.2 Work, Heat, and Internal Energy'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/3-2-work-heat-and-internal-energy'
+  - title: 'OpenStax, University Physics Volume 2, 3.3 First Law of Thermodynamics'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/3-3-first-law-of-thermodynamics'
+  - title: 'OpenStax, University Physics Volume 2, 1.4 Heat Transfer, Specific Heat, and Calorimetry'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-4-heat-transfer-specific-heat-and-calorimetry'
+  - title: 'HyperPhysics, Georgia State University, Internal Energy'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/thermo/inteng.html'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.1'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, quantity kind InternalEnergy'
+    url: 'https://qudt.org/vocab/quantitykind/InternalEnergy'
+description:
+  en: >-
+    Internal energy, symbol $U$ and also called thermodynamic energy, is the energy a thermodynamic
+    system holds at the scale of its atoms and molecules. It is the total of the kinetic energy of
+    every particle, counting translation, rotation and vibration relative to the centre of mass of
+    the system, plus the potential energy of the forces the particles exert on one another. Carrying
+    the system somewhere else, or lifting it, leaves this total unchanged.
+
+    Like every form of energy it is measured in joules, with the dimension of mass times length
+    squared divided by time squared, and QUDT classes it as a narrower kind of energy. It is a
+    scalar and a function of state: its value is fixed by the present condition of the system, such
+    as its temperature and volume, whatever sequence of processes led there. For that reason
+    thermodynamics works with its changes, which the first law of thermodynamics accounts for as
+    $\Delta U=Q-W$: heat flowing into the system and work done by the system both count as positive,
+    so a positive change means the system has gained energy.
+
+    No instrument reads internal energy itself; its changes are obtained from calorimetry and from
+    measured work. In an ideal monatomic gas the particles are single atoms that do not interact, so
+    the internal energy is purely translational kinetic energy, proportional to the absolute
+    temperature and independent of pressure and volume. In liquids and solids the forces between
+    molecules store a large share: the same temperature rise costs far more energy for water than
+    for an equal mass of copper, because much of what water absorbs goes into intermolecular
+    potential energy.
+
+    Internal energy is often confused with heat and with temperature. Heat is energy crossing the
+    boundary of a system because of a temperature difference, so a body contains internal energy but
+    never contains heat. Temperature follows the average kinetic energy of the particles rather than
+    the total stored energy, which is why ice melting at its melting point keeps absorbing energy
+    while its temperature stays the same.

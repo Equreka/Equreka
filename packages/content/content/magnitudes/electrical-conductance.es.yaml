@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Conductancia eléctrica'
+description: >-
+  La conductancia eléctrica, de símbolo $G$, mide la facilidad con que una corriente eléctrica
+  atraviesa un conductor o un elemento de circuito cuando se le aplica una tensión. En un elemento
+  de dos terminales es igual a la corriente que lo recorre dividida entre la diferencia de
+  potencial entre sus terminales, por lo que es la inversa de la resistencia eléctrica: una
+  conductancia alta significa una resistencia baja.
+
+  La unidad SI de conductancia es el siemens, de símbolo S, una de las 22 unidades SI con nombre
+  especial, definida como la inversa del ohmio. Expresado en unidades básicas, el siemens es
+  $\mathrm{kg^{-1}\,m^{-2}\,s^{3}\,A^{2}}$, de modo que la dimensión de la conductancia es
+  exactamente la inversa de la dimensión de la resistencia.
+
+  La conductancia es una magnitud escalar. En componentes pasivos como hilos, resistores y celdas
+  electrolíticas es positiva, y se anula en un aislante perfecto. En los circuitos de corriente
+  alterna, QUDT la define como la parte real de la admitancia, la inversa compleja de la
+  impedancia, de modo que describe la parte de la corriente que está en fase con la tensión.
+
+  La conductancia se obtiene midiendo a la vez una corriente y una tensión, o como la inversa de
+  una resistencia medida. Depende del material y de la forma: en un hilo uniforme crece con la
+  sección y con la conductividad del metal y disminuye con la longitud. Con la resistividad del
+  cobre que tabula OpenStax, un hilo de cobre de un metro de largo y un milímetro cuadrado de
+  sección tiene una conductancia cercana a 60 siemens, mientras que la misma pieza de vidrio
+  conduciría menos de un picosiemens.
+
+  La conductancia es propia de un objeto, mientras que la conductividad eléctrica, en siemens por
+  metro, describe un material; ambas se relacionan mediante la longitud y la sección de la muestra,
+  igual que la resistencia y la resistividad. La 14.ª Conferencia General de Pesas y Medidas adoptó
+  el nombre siemens en 1971. Los textos antiguos llaman a la unidad mho, el nombre inglés de la
+  unidad de resistencia con las letras en orden inverso.

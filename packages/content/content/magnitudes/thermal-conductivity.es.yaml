@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Conductividad térmica'
+description: >-
+  La conductividad térmica, de símbolo $\lambda$ y en muchos libros de texto $k$, es la propiedad de
+  un material que mide la facilidad con que el calor lo atraviesa por conducción, sin que el
+  material se desplace en bloque. Se define como el cociente entre la densidad de flujo de calor y
+  el gradiente de temperatura: a través de una placa plana, la potencia conducida es la
+  conductividad por el área por la diferencia de temperatura entre las caras, dividida entre el
+  espesor.
+
+  Su unidad SI es el vatio por metro y kelvin, que el folleto del SI incluye entre las unidades
+  derivadas coherentes, y su dimensión es masa por longitud dividida entre tiempo al cubo y entre
+  temperatura termodinámica. Como las diferencias de temperatura son iguales en kelvin y en grados
+  Celsius, un valor en vatios por metro y grado Celsius es el mismo número.
+
+  Es una magnitud escalar positiva; el sentido del flujo lo da el gradiente de temperatura, siempre
+  de lo caliente a lo frío, y no la conductividad. Su valor depende de la temperatura. En los
+  metales, los electrones móviles transportan la corriente eléctrica y también el calor, así que un
+  metal que conduce bien la electricidad también conduce bien el calor, vínculo que expresa la ley
+  de Wiedemann-Franz. Los sólidos no metálicos conducen mediante vibraciones de su red cristalina, y
+  los gases conducen mal porque sus moléculas están muy separadas.
+
+  La conductividad de una muestra se obtiene manteniendo entre sus caras una diferencia de
+  temperatura conocida y midiendo el flujo de calor estacionario. El cobre, con unos
+  $390\,\mathrm{W/(m\,K)}$ cerca del punto de congelación del agua, conduce unas diecisiete mil
+  veces mejor que el aire en reposo, y el diamante supera al cobre unas cinco veces. Aislantes como
+  la lana de vidrio, el plumón y la espuma de poliestireno deben su eficacia al aire atrapado en
+  pequeñas bolsas; el cociente entre el espesor de una capa aislante y su conductividad es el factor
+  R de los aislamientos de edificios.
+
+  La conductividad térmica, propiedad de un material, difiere de la resistencia térmica de una pared
+  o barra concreta, que depende además de su longitud y su área. También difiere de la conductividad
+  eléctrica, aunque en los metales ambas están estrechamente ligadas.

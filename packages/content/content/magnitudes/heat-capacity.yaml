@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Heat capacity'
+symbol:
+  tex: 'C'
+baseUnit: 'joule-per-kelvin'
+dimension:
+  L: 2
+  M: 1
+  T: -2
+  Th: -1
+externalIds:
+  wikidata: 'Q179388'
+  qudt: 'http://qudt.org/vocab/quantitykind/HeatCapacity'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'thermal capacity'
+  - 'capacidad térmica'
+  - 'capacidad calórica'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 1.4 Heat Transfer, Specific Heat, and Calorimetry'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-4-heat-transfer-specific-heat-and-calorimetry'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 6 and section 2.3.4'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'HyperPhysics, Georgia State University, Specific Heat'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/thermo/spht.html'
+  - title: 'QUDT, quantity kind HeatCapacity'
+    url: 'https://qudt.org/vocab/quantitykind/HeatCapacity'
+description:
+  en: >-
+    Heat capacity, symbol $C$ and also called thermal capacity, is the heat that a body or system
+    must absorb for its temperature to rise by one kelvin: the ratio of a small quantity of heat
+    supplied to the temperature increase it causes. It describes one particular object, such as a
+    saucepan, a room or a lake, and it grows with the amount of material, so two identical blocks
+    taken together have twice the heat capacity of either one.
+
+    The SI unit is the joule per kelvin, and the dimension is mass times length squared divided by
+    time squared and by thermodynamic temperature. A temperature step of one kelvin is the same size
+    as a step of one degree Celsius, so a value per degree Celsius is numerically identical. The SI
+    Brochure points out that entropy is measured in the same joule per kelvin, an example of why a
+    unit alone never identifies the quantity behind a number.
+
+    Heat capacity is a scalar, and for ordinary matter it is positive: adding heat raises the
+    temperature. Its value depends on how the heating is done. For a gas, the heat capacity at
+    constant pressure exceeds the heat capacity at constant volume, which is why tables of gases
+    list both.
+
+    For an object made of one material, the heat capacity equals its mass multiplied by the specific
+    heat capacity of that material. It is measured in a calorimeter, an insulated vessel in which a
+    known amount of heat is delivered and the resulting temperature rise is recorded. One kilogram
+    of liquid water has a heat capacity of about $4.19\,\mathrm{kJ/K}$, while one kilogram of copper
+    has less than a tenth of that, which is why large bodies of water damp temperature swings around
+    them.
+
+    Heat capacity is easily confused with specific heat capacity, the corresponding property of a
+    material taken per kilogram, and with molar heat capacity, taken per mole. It is also distinct
+    from entropy, despite sharing its unit: heat capacity describes how temperature responds to
+    heating, whereas entropy is a state function of the system.

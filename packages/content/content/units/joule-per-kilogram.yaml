@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Joule per kilogram'
+symbol:
+  tex: 'J/kg'
+unitOf:
+  - 'specific-latent-heat'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'joule'
+      exp: 1
+    - unit: 'kilogram'
+      exp: -1
+externalIds:
+  wikidata: 'Q57175225'
+  qudt: 'http://qudt.org/vocab/unit/J-PER-KiloGM'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'J/kg'
+  - 'J kg-1'
+  - 'J kg^-1'
+  - 'joules per kilogram'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 6 and section 2.3.4'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: British thermal unit per pound; calorie per gram'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'OpenStax, University Physics Volume 2, 1.5 Phase Changes'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-5-phase-changes'
+  - title: 'QUDT, unit J-PER-KiloGM'
+    url: 'https://qudt.org/vocab/unit/J-PER-KiloGM'
+description:
+  en: >-
+    The joule per kilogram, symbol $\mathrm{J/kg}$, is the coherent SI derived unit of energy per
+    unit mass. In thermodynamics it measures specific latent heat, the energy that one kilogram of a
+    substance takes in or gives out when it melts, freezes, boils or condenses; the SI Brochure
+    lists it as the unit of specific energy in general.
+
+    It is the joule divided by the kilogram and has no special name of its own. A substance has a
+    specific latent heat of one joule per kilogram when changing the phase of one kilogram of it
+    requires one joule. Written in SI base units the unit reduces to the square metre per second
+    squared, the same as the square of a speed.
+
+    Latent heats are large, so tables quote them in kilojoules per kilogram: melting ice at normal
+    pressure takes about 334 of those, and boiling water about 2256. NIST Special Publication 811 converts the
+    older units exactly: one thermochemical calorie per gram is 4184 joules per kilogram, and one
+    International Table British thermal unit per pound is $2326\,\mathrm{J/kg}$.
+
+    The absorbed dose and the dose equivalent of ionizing radiation have the same dimension, but
+    they are expressed with the gray and the sievert. The SI Brochure explains that these special
+    names exist to prevent a dose from being mistaken for another quantity in joules per kilogram,
+    which could endanger health; for that reason the joule per kilogram is not used for radiation
+    doses, and a value in this unit should always state the quantity it measures.
+
+    The symbol can also be written with a negative exponent on the kilogram. The plural is joules
+    per kilogram.

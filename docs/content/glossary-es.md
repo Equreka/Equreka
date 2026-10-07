@@ -10,7 +10,7 @@ Conventions for every `<slug>.es.yaml` sidecar. Companion to the [style guide](s
 - **Regional unit names only in `aliases`**: *joule, watt, ampere, volt, ohm, coulomb, farad, hertz, henry, electronvolt, kilowatt*, and *capacitancia*. `node scripts/content/roadmap.mjs --entry <collection>/<slug>` lists any lowercase regional unit name left in a sidecar (`regional`); a rewrite is not done until the list is empty. A capitalized person's name stays legal: *efecto Joule*, *ley de Ohm*.
 - **Sentence case**: *Segunda ley de Newton*, *Ley de Ohm*, *Constante de Planck*, *Teorema de Pitágoras*. Mid-sentence: *la ley de Ohm*, *el principio de Pascal*.
 - **Unit names are lowercase common nouns**, also when they come from a person (*el newton*, *dos pascales*); *grado Celsius* keeps the capital of the scale.
-- **Plurals** follow the shipped sidecars (*metros, amperios, hercios, litros, faradios, gramos, julios, culombios, ohmios, vatios, segundos, moles, newtons, voltios, pascales*). For a new `namePlural`, confirm the RAE plural in a fetched source; *siemens* and *lux* are invariable. A name of two nouns where the second qualifies the first pluralizes only the first ([RAE, *El plural de los compuestos*](https://www.rae.es/buen-uso-espa%C3%B1ol/el-plural-de-los-compuestos)): *kilogramos fuerza*, *libras fuerza*. Product names (*newton metro*, *kilogramo metro por segundo*) have no confirmed plural yet: write them in the singular (*se expresa con el newton metro*) until a fetched source settles it.
+- **Plurals** follow the shipped sidecars (*metros, amperios, hercios, litros, faradios, gramos, julios, culombios, ohmios, vatios, segundos, moles, newtons, voltios, pascales*). For a new `namePlural`, confirm the RAE plural in a fetched source; *siemens* and *lux* are invariable. A name of two nouns where the second qualifies the first pluralizes only the first ([RAE, *El plural de los compuestos*](https://www.rae.es/buen-uso-espa%C3%B1ol/el-plural-de-los-compuestos)): *kilogramos fuerza*, *libras fuerza*. The RAE attests *kilovatios hora* ([*Diccionario del estudiante*](https://www.rae.es/diccionario-estudiante/kilovatio)), the same first-noun pattern as *años luz*; *vatios hora* and *amperios hora* follow it. Other product names (*newton metro*, *kilogramo metro por segundo*) have no confirmed plural yet: write them in the singular (*se expresa con el newton metro*) until a fetched source settles it.
 - **Compound unit names** follow CEM: *metro por segundo*, *metro por segundo al cuadrado*, *julio por kilogramo y kelvin*, *vatio por metro y kelvin*, *newton metro*, *pascal segundo*.
 - **Symbols are international** and never translated or abbreviated differently: `s` (not *seg*), `h` (not *hr*), `min`, `L` or `l`.
 - **Decimal separator: the point**, in both languages. CEM writes the comma, which the 22nd CGPM (2003, Resolution 10) allows alongside the point; this project uses the point so every `$…$` fragment is byte-identical to the English one and matches what the calculator accepts. Digit groups use a thin space (`101\,325`), never a point or a comma, which CEM also prescribes.
@@ -41,14 +41,14 @@ Conventions for every `<slug>.es.yaml` sidecar. Companion to the [style guide](s
 | --- | --- | --- |
 | metre, kilogram, second | metro (metros), kilogramo, segundo (segundos) | CEM, sidecar |
 | ampere | amperio (amperios) | CEM, sidecar |
-| kelvin, mole, candela | kelvin, mol (moles), candela | CEM, sidecar (mol) |
+| kelvin, mole, candela | kelvin (invariable in prose: *300 kelvin*; no plural confirmed), mol (moles), candela | CEM, sidecar (mol) |
 | radian, steradian | radián, estereorradián | CEM |
 | hertz | hercio (hercios) | CEM, sidecar |
 | newton, pascal | newton (newtons), pascal (pascales) | CEM, sidecar |
 | joule, watt | julio (julios), vatio (vatios) | CEM, sidecar |
 | coulomb, volt | culombio (culombios), voltio (voltios) | CEM, sidecar |
 | farad, ohm | faradio (faradios), ohmio (ohmios) | CEM, sidecar |
-| siemens, weber, tesla | siemens, weber, tesla | CEM |
+| siemens, weber, tesla | siemens, weber (no plural confirmed: avoid *webers*), tesla (teslas) | CEM; plural *teslas*: [RAE, *Diccionario del estudiante*](https://www.rae.es/diccionario-estudiante/tesla) |
 | henry | henrio | CEM |
 | degree Celsius | grado Celsius | CEM |
 | lumen, lux | lumen, lux | CEM |
@@ -62,8 +62,8 @@ Conventions for every `<slug>.es.yaml` sidecar. Companion to the [style guide](s
 | neper, bel, decibel | neper, belio, decibelio | CEM |
 | erg, dyne, poise | ergio, dina, poise | CEM |
 | curie | curie | CEM |
-| kilowatt-hour, watt-hour | kilovatio hora, vatio hora | usage |
-| ampere-hour | amperio hora | usage |
+| kilowatt-hour, watt-hour | kilovatio hora (kilovatios hora), vatio hora (vatios hora) | [RAE, *Diccionario del estudiante*](https://www.rae.es/diccionario-estudiante/kilovatio) (*362 kilovatios hora*); plural on the first noun per *El plural de los compuestos* |
+| ampere-hour | amperio hora (amperios hora) | usage; plural on the first noun per *El plural de los compuestos*, as *kilovatios hora* |
 | calorie, kilocalorie | caloría, kilocaloría | usage |
 | bar, torr | bar (bares), torr | usage |
 | standard atmosphere | atmósfera estándar (*atmósfera normal* in `aliases`) | usage |
@@ -79,6 +79,8 @@ Conventions for every `<slug>.es.yaml` sidecar. Companion to the [style guide](s
 | pound per square inch | libra por pulgada cuadrada | usage |
 | horsepower, metric horsepower | caballo de fuerza (hp), caballo de vapor (CV) | usage |
 | British thermal unit | unidad térmica británica | usage |
+| therm | unidad therm (name kept in English; write *la unidad therm*, no gender settled for bare *therm*) | usage |
+| volt per metre, farad per metre, henry per metre | voltio por metro, faradio por metro, henrio por metro | CEM |
 | gauss | gauss | usage |
 | revolution, revolution per minute | vuelta, revolución por minuto | usage |
 | percent | por ciento (the quantity is *porcentaje*) | usage |
@@ -187,6 +189,13 @@ Prefix names are already shipped (*mili, ato, zeta, yota* per RAE; the rest unch
 | magnetic flux, magnetic flux density | flujo magnético, densidad de flujo magnético | CEM |
 | permittivity, permeability | permitividad, permeabilidad | CEM |
 | vacuum electric permittivity | permitividad eléctrica del vacío | usage |
+| vacuum magnetic permeability | permeabilidad magnética del vacío | CEM |
+| relative permittivity, dielectric constant | permitividad relativa, constante dieléctrica | usage |
+| dielectric strength | rigidez dieléctrica | usage |
+| magnetic susceptibility | susceptibilidad magnética | usage |
+| magnetic field strength | intensidad de campo magnético | usage |
+| fluxmeter | fluxómetro | usage |
+| Coulomb constant | constante de Coulomb | usage (Wikidata Q9855158 `es` label) |
 | reactance, impedance | reactancia, impedancia | usage |
 | RMS value | valor eficaz | usage |
 | alternating current, direct current | corriente alterna, corriente continua | usage |

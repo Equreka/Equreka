@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.locale.schema.json
+name: 'Constante de Planck reducida'
+description: >-
+  La constante de Planck reducida, de símbolo $\hbar$ y que se lee «hache barra», es la constante de
+  Planck dividida entre dos pi. Su valor CODATA 2022 es
+  $1.054\,571\,817\ldots\times10^{-34}\,\mathrm{J\,s}$, exacto porque el SI fijó la constante de
+  Planck en $6.626\,070\,15\times10^{-34}\,\mathrm{J\,s}$ a partir del 20 de mayo de 2019. Pi es
+  irracional, así que el NIST publica truncado su desarrollo decimal infinito.
+
+  La constante es la unidad natural de la acción y del momento angular cuánticos. La constante de
+  Planck relaciona la energía de un fotón con su frecuencia ordinaria en hercios, mientras que la
+  constante reducida hace lo mismo con la frecuencia angular en radianes por segundo: el factor
+  de dos pi que enlaza ambas frecuencias queda absorbido en la constante. Por ello QUDT la registra
+  como forma más específica de la constante de Planck.
+
+  La constante reducida aparece en toda la física cuántica. En el modelo del átomo de hidrógeno
+  que Bohr propuso en 1913, el momento angular del electrón solo toma múltiplos enteros de ella.
+  Las relaciones de De Broglie asignan a una partícula una cantidad de movimiento igual a la
+  constante reducida por el número de ondas angular y una energía igual a ella por la frecuencia
+  angular. Por el principio de incertidumbre de Heisenberg, la mitad de la constante
+  reducida acota por abajo el producto de las incertidumbres de posición y de cantidad de
+  movimiento.
+
+  El valor de la constante reducida siempre ha seguido al de la de Planck. Hasta 2019 la
+  constante de Planck era una magnitud medida con incertidumbre; la 26.ª Conferencia General de
+  Pesas y Medidas, en 2018, fijó su valor numérico para definir el kilogramo, y con ella la
+  constante reducida pasó a ser exacta.

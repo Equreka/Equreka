@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Energía interna'
+description: >-
+  La energía interna, de símbolo $U$ y llamada también energía termodinámica, es la energía que un
+  sistema termodinámico almacena a la escala de sus átomos y moléculas. Es la suma de la energía
+  cinética de cada partícula, que incluye traslación, rotación y vibración respecto al centro de
+  masas del sistema, más la energía potencial de las fuerzas que las partículas ejercen entre sí.
+  Trasladar el sistema a otro lugar, o elevarlo, no altera esa suma.
+
+  Como toda forma de energía, se mide en julios, con la dimensión de masa por longitud al cuadrado
+  dividida entre tiempo al cuadrado, y QUDT la clasifica como un tipo particular de energía. Es una
+  magnitud escalar y una función de estado: su valor queda fijado por la condición actual del
+  sistema, como su temperatura y su volumen, sea cual sea la secuencia de procesos que lo llevó
+  hasta ella. Por eso la termodinámica trabaja con sus variaciones, que el primer principio de la
+  termodinámica contabiliza como $\Delta U=Q-W$: el calor que entra en el sistema y el trabajo que
+  realiza el sistema cuentan como positivos, de modo que una variación positiva indica que el
+  sistema ha ganado energía.
+
+  Ningún instrumento mide la energía interna en sí; sus variaciones se obtienen mediante
+  calorimetría y a partir del trabajo medido. En un gas ideal monoatómico las partículas son átomos
+  aislados que no interactúan, de modo que la energía interna es solo energía cinética de
+  traslación, proporcional a la temperatura absoluta e independiente de la presión y del volumen. En
+  líquidos y sólidos, las fuerzas entre moléculas almacenan una parte importante: el mismo aumento
+  de temperatura exige mucha más energía en el agua que en una masa igual de cobre, porque buena
+  parte de lo que absorbe el agua se convierte en energía potencial intermolecular.
+
+  La energía interna se confunde a menudo con el calor y con la temperatura. El calor es energía que
+  atraviesa el límite de un sistema debido a una diferencia de temperatura, de modo que un cuerpo
+  contiene energía interna pero nunca contiene calor. La temperatura refleja la energía cinética
+  media de las partículas y no la energía total almacenada; por eso el hielo que se funde en su
+  punto de fusión sigue absorbiendo energía mientras su temperatura no cambia.

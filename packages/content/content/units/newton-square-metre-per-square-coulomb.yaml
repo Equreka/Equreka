@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Newton square metre per square coulomb'
+symbol:
+  tex: 'N\,m^{2}\,C^{-2}'
+  text: 'N·m²·C⁻²'
+unitOf: []
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'newton'
+      exp: 1
+    - unit: 'metre'
+      exp: 2
+    - unit: 'coulomb'
+      exp: -2
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'newton square meter per square coulomb'
+  - 'newton metre squared per coulomb squared'
+  - 'newton meter squared per coulomb squared'
+  - 'N m2/C2'
+  - 'N m^2/C^2'
+  - 'N m2 C-2'
+  - 'N m^2 C^-2'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 5.3 Coulomb''s Law'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/5-3-coulombs-law'
+  - title: 'OpenStax, University Physics Volume 2, 8.1 Capacitors and Capacitance'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance'
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.4 Derived units, Table 4 and Table 6'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, unit M-PER-FARAD'
+    url: 'https://qudt.org/vocab/unit/M-PER-FARAD'
+description:
+  en: >-
+    The newton square metre per square coulomb, symbol $\mathrm{N\,m^{2}\,C^{-2}}$, is the
+    coherent SI unit in which the Coulomb constant of electrostatics is expressed. It is a
+    compound unit built from the newton, the metre and the coulomb, and it has no special name.
+
+    The unit follows from Coulomb's law. The electric force between two point charges is
+    proportional to the product of the charges divided by the square of their separation, so the
+    constant that turns that ratio, measured in square coulombs per square metre, into a force in
+    newtons must carry newtons times square metres per square coulomb. Written in SI base units it
+    is the kilogram cubic metre per second to the fourth per square ampere.
+
+    The same dimension belongs to the reciprocal of permittivity. Since the farad per metre
+    equals the square coulomb per newton square metre, this unit is identical to the metre per
+    farad, and the Coulomb constant, which equals one divided by four pi times the vacuum
+    electric permittivity, can be quoted in either form. Introductory texts such as OpenStax
+    University Physics quote it in the newton form, which keeps the link to the force in view.
+
+    No quantity kind of its own is measured in this unit, so it is treated as a compound unit
+    with no magnitude attached. The Coulomb constant itself is about $8.99\times10^{9}$ of these
+    units, which is why two charges of one coulomb each, one metre apart, would push on each other
+    with a force of nearly nine thousand million newtons.

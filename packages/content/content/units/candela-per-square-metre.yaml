@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Candela per square metre'
+symbol:
+  tex: 'cd/m^{2}'
+  text: 'cd/m²'
+unitOf:
+  - 'luminance'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'candela'
+      exp: 1
+    - unit: 'metre'
+      exp: -2
+externalIds:
+  wikidata: 'Q281096'
+  qudt: 'http://qudt.org/vocab/unit/CD-PER-M2'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'nit'
+  - 'nits'
+  - 'nt'
+  - 'candela per square meter'
+  - 'cd/m2'
+  - 'cd/m^2'
+  - 'cd m-2'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 5 and Appendix 1 (11th CGPM, 1960, Resolution 12)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, unit CD-PER-M2 (candela per square metre)'
+    url: 'https://qudt.org/vocab/unit/CD-PER-M2'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: stilb; footlambert; lambert; candela per square inch'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'R. Rowlett, How Many? A Dictionary of Units of Measurement, University of North Carolina: nit'
+    url: 'https://www.ibiblio.org/units/dictN.html'
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-050 luminance'
+    url: 'https://cie.co.at/eilvterm/17-21-050'
+description:
+  en: >-
+    The candela per square metre, symbol $\mathrm{cd/m^{2}}$, is the coherent SI derived unit of
+    luminance, the luminous intensity that a surface sends in a given direction per unit of its
+    projected area. It has no special name in the SI, whose brochure lists it among coherent
+    derived units written in base units; in display engineering it is widely called the nit.
+
+    A surface has a luminance of one candela per square metre when each square metre of it, as
+    projected onto a plane perpendicular to the line of sight, emits a luminous intensity of one
+    candela towards the observer. Both factors are SI units, so the unit is coherent and needs no
+    numerical factor.
+
+    NIST Special Publication 811 converts the CGS stilb, one candela per square centimetre, as
+    exactly $10^{4}\,\mathrm{cd/m^{2}}$; the candela per square inch as about 1550.003 candelas per
+    square metre; the footlambert as about 3.426 259; and the lambert as about 3183.099 candelas
+    per square metre.
+
+    Display brightness is specified in this unit. QUDT gives 200 to 300 candelas per square metre
+    for typical desktop liquid-crystal monitors, 80 as the target of the sRGB standard, about 120
+    for calibrated monitors and from 450 to roughly 1000 for high-definition televisions.
+
+    The 11th General Conference on Weights and Measures included the candela per square metre
+    among the derived units of the SI in 1960. The name nit, symbol nt, is not an SI name and QUDT
+    marks it as deprecated; Rowlett traces it to the Latin verb for shining. The symbol may also
+    be written cd m⁻²; the plural is candelas
+    per square metre.

@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Magnetic flux'
+symbol:
+  tex: '\Phi'
+  text: 'Φ'
+baseUnit: 'weber'
+dimension:
+  L: 2
+  M: 1
+  T: -2
+  I: -1
+externalIds:
+  wikidata: 'Q177831'
+  qudt: 'http://qudt.org/vocab/quantitykind/MagneticFlux'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'flux of the magnetic field'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.4 Derived units, Table 4, and Appendix 1 (CIPM, 1946, Resolution 2)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 13.1 Faraday''s Law'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/13-1-faradays-law'
+  - title: 'OpenStax, University Physics Volume 2, 11.2 Magnetic Fields and Lines'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/11-2-magnetic-fields-and-lines'
+  - title: 'NIST, Taking Measure: What''s in a Name? The Magnetic Weber'
+    url: 'https://www.nist.gov/blogs/taking-measure/whats-name-magnetic-weber'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: maxwell'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'QUDT, quantity kind MagneticFlux'
+    url: 'https://qudt.org/vocab/quantitykind/MagneticFlux'
+description:
+  en: >-
+    Magnetic flux is the scalar quantity of electromagnetism that measures how much magnetic
+    field passes through a surface: the magnetic flux density integrated over the surface, each
+    element of area counting only the part of the field perpendicular to it. For a uniform field
+    crossing a flat area it is the field times the area times the cosine of the angle between the
+    field and the normal to the surface.
+
+    Its coherent SI unit is the weber, equal to the tesla square metre and to the volt second; in
+    SI base units it is the kilogram square metre per second squared per ampere, so the dimension
+    is length squared times mass divided by time squared and electric current. The weber was
+    defined in 1946 as the flux that, linking a single turn and falling steadily to zero in one
+    second, induces one volt in that turn.
+
+    Flux is a scalar, but it carries a sign set by the chosen direction of the normal to the
+    surface: it is positive when the field crosses along the normal and negative when it crosses
+    against it. Through a closed surface the total flux is always zero, because magnetic field
+    lines form closed loops. For a coil of several tightly wound turns, the flux through one turn
+    multiplied by the number of turns gives the flux linkage of the coil.
+
+    It is measured with fluxmeters, or worked out from the voltage induced in a coil while the
+    flux through it changes. A one-square-metre loop held perpendicular to the field of the
+    Earth, about half a gauss, encloses roughly $5\times10^{-5}\,\mathrm{Wb}$. The older CGS unit, the maxwell, is exactly
+    $10^{-8}\,\mathrm{Wb}$.
+
+    Magnetic flux is often confused with magnetic flux density, which is flux per unit area and
+    is measured in teslas. Its rate of change drives electromagnetic induction, which Michael
+    Faraday studied in a series of experiments in 1831; the weber is named after the physicist Wilhelm
+    Weber.
