@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Distancia entre dos puntos'
+terms:
+  d:
+    label: 'Distancia'
+  x_{1}:
+    label: 'Coordenada x del primer punto'
+  y_{1}:
+    label: 'Coordenada y del primer punto'
+  x_{2}:
+    label: 'Coordenada x del segundo punto'
+  y_{2}:
+    label: 'Coordenada y del segundo punto'
+description: >-
+  La distancia entre dos puntos del plano de coordenadas es la raíz cuadrada de la suma de los
+  cuadrados de las diferencias de sus coordenadas. Conocida como fórmula de la distancia, da la
+  longitud del segmento recto que une dos puntos a partir de sus coordenadas cartesianas, y es el
+  teorema de Pitágoras escrito en el lenguaje de la geometría analítica.
+
+  En la fórmula, $\var{d}$ es la distancia, $\var{x_{1}}$ e $\var{y_{1}}$ son las coordenadas del
+  primer punto, y $\var{x_{2}}$ e $\var{y_{2}}$ las del segundo, todas medidas en metros o en
+  cualquier otra unidad de longitud habitual. Una coordenada puede ser positiva, negativa o cero
+  según el lado de cada eje en que esté el punto, pero la distancia nunca es negativa. Intercambiar
+  los dos puntos cambia el signo de cada diferencia y deja la distancia igual, porque cada
+  diferencia se eleva al cuadrado.
+
+  La diferencia horizontal y la diferencia vertical son los catetos de un triángulo rectángulo cuya
+  hipotenusa es el segmento entre los puntos, así que la distancia es esa hipotenusa. Despejar una
+  coordenada da dos respuestas, porque dos posiciones sobre la misma recta horizontal o vertical,
+  una a cada lado, están a la distancia pedida; para el primer punto se lista primero la coordenada
+  menor y para el segundo la mayor, de modo que el segundo punto queda a la derecha o por encima
+  del primero. Una circunferencia es el conjunto de puntos a una distancia fija de un
+  centro, y por eso su ecuación es esta fórmula al cuadrado.
+
+  La fórmula supone ejes perpendiculares con la misma escala, el plano cartesiano habitual, y
+  distancia en línea recta en un plano. Las distancias por carretera o sobre la superficie curva de
+  la Tierra siguen otras reglas. En el espacio, una tercera diferencia de coordenadas al cuadrado se
+  suma a las otras dos bajo la raíz.
+
+  La Géométrie de René Descartes, publicada en 1637 como uno de los tres apéndices de su Discurso
+  del método, aplicó el álgebra a la geometría. Los puntos de coordenadas 1 y 2 y de
+  coordenadas 4 y 6 están a 5 unidades de distancia.

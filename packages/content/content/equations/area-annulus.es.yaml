@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Área de la corona circular'
+terms:
+  R:
+    label: 'Radio exterior'
+  r:
+    label: 'Radio interior'
+description: >-
+  El área de la corona circular es igual a pi por la diferencia entre los cuadrados de sus radios
+  exterior e interior. Una corona circular, o anillo, es la región plana comprendida entre dos
+  circunferencias concéntricas, que comparten un mismo centro; la cara de una arandela y la sección
+  de un tubo son ejemplos. La fórmula de la geometría plana da la superficie del anillo a partir de
+  sus dos radios.
+
+  En la fórmula, $\mag{A}$ es el área del anillo en metros cuadrados, $\var{R}$ es el radio
+  exterior y $\var{r}$ el radio interior, ambos en metros. El radio exterior es mayor que el
+  interior, y ambos son positivos; un radio interior nulo deja un círculo completo. La constante
+  $\const{\pi}$ es el conocido número puro cercano a 3.14159.
+
+  El anillo es lo que queda del círculo grande tras quitarle el círculo pequeño del centro, así que
+  su área es el área del círculo grande menos la del pequeño, y pi sale como factor común de ambas.
+  La diferencia de cuadrados también se factoriza como la suma de los radios por su diferencia: el
+  área es igual a la longitud de la circunferencia media del anillo multiplicada por su anchura, la
+  distancia entre las dos circunferencias.
+
+  Los radios deben elevarse al cuadrado antes de restarse; elevar al cuadrado la anchura, la
+  diferencia de los radios, da un resultado mucho menor y erróneo. La fórmula exige que las dos
+  circunferencias compartan centro, aunque desplazar el hueco interior sin que corte la
+  circunferencia exterior deja el área sin cambios. Si se dan diámetros, cada uno debe dividirse
+  antes entre dos.
+
+  Los ingenieros usan la fórmula para la sección de la pared de un tubo, que fija el material que
+  necesita y la carga axial que puede soportar. Un anillo de 5 metros de radio exterior y 3 metros
+  de radio interior cubre unos 50.3 metros cuadrados.

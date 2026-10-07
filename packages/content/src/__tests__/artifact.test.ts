@@ -164,11 +164,19 @@ describe('build over the real corpus', () => {
 			ref: 'radius',
 			identifier: 'r',
 		});
-		expect(parsed.equations['pythagorean-theorem']?.terms.c).toEqual({
-			kind: 'symbol',
-			label: { en: 'Hypotenuse', es: 'Hipotenusa' },
-			identifier: 'c',
-		});
+		const symbolTerms = [...report.corpus.equations].flatMap(([slug, equation]) =>
+			Object.entries(equation.terms).flatMap(([key, term]) =>
+				term.kind === 'symbol' ? [{ slug, key, term }] : [],
+			),
+		);
+		expect(symbolTerms.some(({ term }) => term.unit === undefined)).toBe(true);
+		expect(symbolTerms.some(({ term }) => term.unit !== undefined)).toBe(true);
+		for (const { slug, key, term } of symbolTerms) {
+			const compiled = parsed.equations[slug]?.terms[key];
+			expect(compiled, `${slug}/${key}`).toMatchObject({ kind: 'symbol', label: term.label });
+			expect(compiled?.unit, `${slug}/${key}`).toBe(term.unit);
+			expect(compiled?.ref, `${slug}/${key}`).toBeUndefined();
+		}
 		expect(parsed.constants.pi).toMatchObject({ exact: false, irrational: true });
 	});
 
@@ -281,7 +289,15 @@ describe('build over the real corpus', () => {
 			'kilogram',
 			'metre-per-second',
 		]);
-		expect(equations['pythagorean-theorem']?.relatedUnits).toEqual([]);
+		const unitless = [...report.corpus.equations].filter(([, equation]) =>
+			Object.values(equation.terms).every(
+				(term) => term.kind === 'symbol' && term.unit === undefined,
+			),
+		);
+		expect(unitless.length).toBeGreaterThan(0);
+		for (const [slug] of unitless) {
+			expect(equations[slug]?.relatedUnits, slug).toEqual([]);
+		}
 		expect(equations['area-circle']?.units).toBeUndefined();
 		const massEnergy = equations['mass-energy-equivalence'];
 		expect(massEnergy?.expression).toMatch(/\\(mag|const|var)\{/);

@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Area of a regular polygon'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{A}=\frac{1}{2}\var{a}\var{P}'
+terms:
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Apothem'
+    unit: 'metre'
+  P:
+    kind: 'symbol'
+    label:
+      en: 'Perimeter'
+    unit: 'metre'
+solutions:
+  A: 'a * P / 2'
+  a: '2 * A / P'
+  P: '2 * A / a'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'regular polygon area'
+  - 'half apothem times perimeter'
+  - 'area of a regular hexagon'
+  - 'area of a regular pentagon'
+  - 'área del polígono regular'
+references:
+  - title: 'OpenStax, Contemporary Mathematics, 10.6 Area'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/10-6-area'
+  - title: 'E. W. Weisstein, Regular Polygon, MathWorld'
+    url: 'https://mathworld.wolfram.com/RegularPolygon.html'
+  - title: 'OpenStax, Contemporary Mathematics, 10.4 Polygons, Perimeter, and Circumference'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/10-4-polygons-perimeter-and-circumference'
+description:
+  en: >-
+    The area of a regular polygon equals half the product of its apothem and its perimeter. A
+    regular polygon is a plane figure with straight sides that are all equal and interior angles
+    that are all equal, such as the equilateral triangle, the square or the regular hexagon. The
+    apothem is the segment from the centre perpendicular to a side, and the plane geometry formula
+    reads half apothem times perimeter.
+
+    In the formula, $\mag{A}$ is the area in square metres, $\var{a}$ is the apothem in metres, and
+    $\var{P}$ is the perimeter in metres, the total length of the boundary, which for a polygon of
+    equal sides is the number of sides times the side length. All three are positive. The apothem is
+    also the radius of the circle inscribed in the polygon, which touches every side at its
+    midpoint.
+
+    Lines from the centre to every corner cut the polygon into as many identical isosceles
+    triangles as it has sides. Each triangle has one side of the polygon as its base and the apothem
+    as its height, so its area is half the side times the apothem; adding all of them replaces the
+    sides by their sum, the perimeter. As the number of sides grows, the polygon approaches a
+    circle, the apothem approaches the radius and the perimeter the circumference, which yields the
+    area of a circle.
+
+    The rule needs a regular polygon, because only then is every side the same distance from one
+    centre. For a polygon with unequal sides, the triangles have different heights and the area must
+    be found piece by piece. The apothem is shorter than the distance from the centre to a corner,
+    and confusing the two overstates the area.
+
+    The formula sizes hexagonal tiles, nuts and gazebo floors. A regular hexagon with 2 metre sides
+    has an apothem of about 1.73 metres and an area of about 10.4 square metres.

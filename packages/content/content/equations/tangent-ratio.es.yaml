@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Razón tangente'
+terms:
+  a:
+    label: 'Cateto opuesto'
+  b:
+    label: 'Cateto contiguo'
+description: >-
+  La razón tangente define la tangente de un ángulo agudo de un triángulo rectángulo como la
+  longitud del cateto opuesto a ese ángulo dividida entre la longitud del cateto contiguo. Es la TOA
+  de la regla mnemotécnica SOH CAH TOA y, a diferencia del seno y el coseno, compara los dos catetos
+  y deja fuera la hipotenusa, lo que la convierte en la razón que hay detrás de las pendientes y de
+  las alturas medidas a distancia.
+
+  En la fórmula, $\mag{\theta}$ es uno de los dos ángulos agudos, medido en radianes en el SI y
+  habitualmente introducido en grados. El cateto opuesto $\var{a}$ está enfrente del ángulo, y el
+  cateto contiguo $\var{b}$ es el que forma el ángulo con la hipotenusa. Ambos son longitudes en
+  metros, o en cualquier unidad que compartan. Las tres cantidades son positivas.
+
+  Vista como una rampa, la hipotenusa sube lo que mide el cateto opuesto a lo largo de un recorrido
+  horizontal igual al cateto contiguo, así que la tangente es la pendiente de una recta inclinada
+  ese ángulo. Dividir la razón seno entre la razón coseno cancela la hipotenusa y deja la tangente.
+  Al despejar, el cateto opuesto es el contiguo por la tangente, el contiguo es el opuesto dividido
+  entre la tangente, y el ángulo se obtiene con la tangente inversa, arctan.
+
+  En los ángulos agudos la tangente crece desde 0 sin límite: catetos iguales dan 1 en un octavo de
+  vuelta, y cerca del ángulo recto un cambio mínimo del ángulo produce un cambio enorme de la razón,
+  de modo que las mediciones hechas mirando casi en vertical son poco fiables. La circunferencia
+  unidad extiende la tangente a otros ángulos, salvo los múltiplos impares del ángulo recto, donde
+  el coseno es cero y la razón no está definida.
+
+  La tangente nació como una medida de sombras, y hacia el año 860 ya existían tablas árabes de
+  longitudes de sombra. Thomas Fincke introdujo el nombre de tangente en 1583, y Albert Girard
+  escribió por primera vez la abreviatura tan en 1626. En el triángulo rectángulo de lados 3, 4 y 5,
+  el ángulo opuesto al lado de 4 tiene una tangente de 4/3.

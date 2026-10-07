@@ -1,0 +1,107 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.locale.schema.json
+name: 'Trigonometría del triángulo rectángulo'
+description: >-
+  De los ángulos y sus unidades a las razones seno, coseno y tangente de un triángulo rectángulo,
+  las alturas medidas a distancia y los teoremas del seno y del coseno, que resuelven cualquier
+  triángulo.
+steps:
+  intro:
+    body: >-
+      La trigonometría convierte ángulos en longitudes y longitudes en ángulos. Todas las fórmulas
+      que siguen guardan los ángulos en radianes, la unidad del SI, mientras que la calculadora
+      acepta grados y los convierte. Las longitudes van en metros, pero sirve cualquier unidad si
+      todos los lados de un mismo cálculo la comparten.
+  plane-angle:
+    note: >-
+      La magnitud que toda función trigonométrica recibe como entrada. Fíjate en que una vuelta
+      completa mide dos pi radianes, así que un ángulo llano mide pi radianes y un ángulo recto, la
+      mitad.
+  degree:
+    note: >-
+      La unidad cotidiana de ángulo: 360 grados forman una vuelta completa, así que 180 grados
+      equivalen a pi radianes. Comprueba qué unidad espera la calculadora antes de pulsar sin.
+  triangle-angle-sum:
+    note: >-
+      Los tres ángulos de un triángulo plano siempre suman un ángulo llano. Úsalo para hallar un
+      ángulo que falta antes de calcular ningún lado.
+  check-third-angle:
+    prompt: >-
+      Un triángulo rectángulo tiene un ángulo de 28 grados. ¿Cuánto mide su tercer ángulo?
+    answer: >-
+      62 grados. El ángulo recto ocupa 90 de los 180 grados, así que los dos ángulos agudos se
+      reparten los 90 restantes, y 90 menos 28 es 62.
+  pythagorean-theorem:
+    note: >-
+      Solo longitudes: el cuadrado de la hipotenusa es igual a la suma de los cuadrados de los dos
+      catetos. Relaciona los lados pero no dice nada de los ángulos, y ahí entran las razones.
+  naming-sides:
+    body: >-
+      Elige un ángulo agudo y nombra los lados desde su punto de vista. La hipotenusa está enfrente
+      del ángulo recto y es el lado más largo. El cateto opuesto está enfrente del ángulo elegido.
+      El cateto contiguo es el que toca el ángulo. Si eliges el otro ángulo agudo, el opuesto y el
+      contiguo se intercambian, y la hipotenusa sigue siendo la misma. La regla SOH CAH TOA resume
+      las tres razones: el seno es opuesto entre hipotenusa, el coseno es contiguo entre hipotenusa
+      y la tangente es opuesto entre contiguo.
+  sine-ratio:
+    note: >-
+      Opuesto entre hipotenusa. Despeja el ángulo con el seno inverso, o un lado cuando conoces el
+      ángulo.
+  cosine-ratio:
+    note: >-
+      Contiguo entre hipotenusa: la parte de la hipotenusa que queda a lo largo del cateto contiguo.
+  tangent-ratio:
+    note: >-
+      Opuesto entre contiguo, solo los dos catetos. Es la pendiente de la hipotenusa y la razón que
+      más se usa para medir alturas.
+  check-three-four-five:
+    prompt: >-
+      En un triángulo rectángulo de lados 3, 4 y 5, ¿cuánto valen el seno, el coseno y la tangente
+      del ángulo opuesto al lado de 4?
+    answer: >-
+      La hipotenusa mide 5, el cateto opuesto 4 y el contiguo 3. Así, el seno es 4/5, o 0.8, el
+      coseno es 3/5, o 0.6, y la tangente es 4/3, unos 1.33.
+  check-complementary:
+    prompt: >-
+      ¿Por qué el coseno de un ángulo agudo de un triángulo rectángulo es igual al seno del otro
+      ángulo agudo?
+    answer: >-
+      Los dos ángulos agudos comparten la misma hipotenusa, y el cateto contiguo a uno es el cateto
+      opuesto al otro. Las dos razones dividen, por tanto, el mismo cateto entre la misma
+      hipotenusa.
+  height-from-elevation-angle:
+    note: >-
+      La razón tangente al aire libre: mide la distancia horizontal hasta el pie de un árbol, el
+      ángulo hasta su copa y la altura de los ojos, y después suma la altura de los ojos a la
+      distancia por la tangente.
+  check-tree:
+    prompt: >-
+      Un observador está a 30 metros de un árbol en terreno llano, con los ojos a 1.5 metros, y ve
+      la copa con un ángulo de 45 grados. ¿Cuánto mide el árbol?
+    answer: >-
+      31.5 metros. La tangente de 45 grados es 1, así que la parte por encima de los ojos es igual a
+      la distancia, 30 metros, y la altura de los ojos añade 1.5 metros.
+  beyond-right-triangles:
+    body: >-
+      Las tres razones necesitan un ángulo recto. Un triángulo sin él se resuelve con dos teoremas
+      válidos para cualquier triángulo: el teorema del seno empareja cada lado con el ángulo
+      opuesto, y el teorema del coseno relaciona tres lados con un ángulo. Dos lados y el ángulo que
+      forman dan además el área directamente.
+  law-of-sines:
+    note: >-
+      Úsalo cuando conozcas un ángulo y el lado opuesto. Despejar un ángulo puede dar dos
+      respuestas, un ángulo agudo y su suplementario obtuso: comprueba cuál encaja en el triángulo.
+  law-of-cosines:
+    note: >-
+      Úsalo con dos lados y el ángulo que forman, o con los tres lados.
+  check-cosines-right-angle:
+    prompt: >-
+      ¿En qué se convierte el teorema del coseno cuando el ángulo entre los dos lados conocidos es
+      recto?
+    answer: >-
+      En el teorema de Pitágoras. El coseno de un ángulo recto es cero, así que el término de
+      corrección desaparece y el cuadrado del tercer lado es igual a la suma de los cuadrados de los
+      otros dos.
+  triangle-area-sas:
+    note: >-
+      La mitad del producto de dos lados por el seno del ángulo que forman. Con un ángulo recto el
+      seno vale 1 y la regla se reduce a la mitad del producto de los dos catetos.

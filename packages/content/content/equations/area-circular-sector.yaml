@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Area of a circular sector'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{A}=\frac{1}{2}\var{r}^{2}\mag{\theta}'
+terms:
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+solutions:
+  A: 'r^2 * theta / 2'
+  r: 'sqrt(2 * A / theta)'
+  \theta: '2 * A / r^2'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'sector area'
+  - 'area of a sector'
+  - 'pie slice area'
+  - 'área del sector circular'
+references:
+  - title: 'OpenStax, Precalculus 2e, 5.1 Angles'
+    url: 'https://openstax.org/books/precalculus-2e/pages/5-1-angles'
+  - title: 'E. W. Weisstein, Circular Sector, MathWorld'
+    url: 'https://mathworld.wolfram.com/CircularSector.html'
+description:
+  en: >-
+    The area of a circular sector equals half the square of the radius multiplied by the central
+    angle in radians. A circular sector is the slice of a disc bounded by two radii and the arc
+    between them, the shape of a slice of pie or of the region swept by a windscreen wiper. The
+    plane geometry formula gives its surface from the radius and the opening angle.
+
+    In the formula, $\mag{A}$ is the area of the sector in square metres, $\var{r}$ is the radius in
+    metres, and $\mag{\theta}$ is the central angle between the two radii, in radians. All are
+    positive. An angle known in degrees is converted by multiplying it by pi and dividing by 180;
+    feeding degrees directly into the product overstates the area about 57 times.
+
+    A sector is the same fraction of the whole disc as its angle is of a full turn. The full turn is
+    two pi radians and the disc has an area of pi times the radius squared, so taking the fraction
+    of the angle over two pi gives half the radius squared times the angle. A full turn recovers the
+    area of the circle, and a half turn gives a semicircle. Since the arc length is the radius times
+    the angle, the sector area also equals half the radius times the arc, like a triangle whose base
+    is the arc and whose height is the radius.
+
+    The rule holds for angles from zero up to a full turn in the flat plane. The sector differs from
+    the circular segment, the region between an arc and its chord; for an angle below a half turn,
+    the segment is smaller than the sector by the triangle that the two radii and the chord enclose.
+
+    Lawn sprinklers, radar sweeps and fan-shaped rooms are sized with the formula. A sector of
+    radius 4 metres with a sixth of a turn, 60 degrees, covers about 8.38 square metres.

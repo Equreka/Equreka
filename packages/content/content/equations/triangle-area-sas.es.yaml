@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Área de un triángulo a partir de dos lados y el ángulo comprendido'
+terms:
+  a:
+    label: 'Lado a'
+  b:
+    label: 'Lado b'
+description: >-
+  El área de un triángulo a partir de dos lados y el ángulo comprendido es la mitad del producto de
+  esos dos lados por el seno del ángulo que forman. Esta regla trigonométrica del área, conocida
+  como área lado-ángulo-lado o LAL, halla el área cuando no se ha medido ninguna altura, y se
+  convierte en la mitad de la base por la altura en cuanto el seno transforma un lado en esa altura.
+
+  En la fórmula, $\mag{A}$ es el área del triángulo en metros cuadrados, $\var{a}$ y $\var{b}$ son
+  los dos lados que concurren en un vértice, longitudes en metros, y $\mag{\gamma}$ es el ángulo
+  entre ellos, en radianes, estrictamente entre cero y un ángulo llano. El área y los dos lados son
+  positivos, y también lo es el seno de cualquier ángulo de ese intervalo.
+
+  Se toma $\var{a}$ como base. La altura trazada hacia ella desde el extremo libre de $\var{b}$ es
+  $\var{b}$ por el seno de $\mag{\gamma}$, así que la conocida regla de la mitad de la base por la
+  altura da la fórmula de inmediato. Para dos lados fijos, el área es máxima cuando el ángulo es
+  recto y se reduce hacia cero cuando el ángulo se cierra o se abre hasta quedar llano. Despejar un
+  lado consiste en dividir el doble del área entre el producto del otro lado por el seno.
+
+  Despejar el ángulo es ambiguo: un ángulo y su suplementario tienen el mismo seno y encierran la
+  misma área con los mismos dos lados, por lo que el ángulo agudo aparece primero y el obtuso
+  después, y otro dato del triángulo, como su tercer lado, decide entre ellos. No existe ningún
+  ángulo real cuando el doble del área supera el producto de los dos lados. La fórmula se aplica a
+  triángulos planos.
+
+  Los topógrafos dividen una parcela irregular en triángulos y aplican la regla a dos linderos
+  medidos y al ángulo que forman; cuando se miden en cambio los tres lados, la fórmula de Herón da
+  la misma área. Lados de 6 y 8 metros que forman 30 grados encierran 12 metros cuadrados.

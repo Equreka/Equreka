@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Área total del cono'
+terms:
+  s:
+    label: 'Generatriz'
+description: >-
+  El área total del cono es el área de su base circular más el área de su cara curva: pi por el
+  radio al cuadrado, más pi por el radio por la generatriz. Para un cono circular recto, esta
+  fórmula de la geometría del espacio da el material necesario para cubrir por completo el sólido
+  cerrado, base incluida.
+
+  En la fórmula, $\mag{A}$ es el área total, medida en metros cuadrados, $\var{r}$ es el radio de la
+  base y $\var{s}$ es la generatriz, la distancia del vértice a cualquier punto del borde de la
+  base, ambos medidos en metros. La constante $\const{\pi}$ es un número puro cercano a 3.14159.
+  Ninguna de las magnitudes es negativa. La generatriz es la hipotenusa del triángulo rectángulo
+  cuyos catetos son el radio y la altura perpendicular, así que siempre es más larga que ambos. El
+  primer término es la base y el segundo término es el área lateral.
+
+  Al cortar la cara curva por una generatriz y extenderla sobre un plano se obtiene un sector
+  circular cuyo radio es la generatriz y cuyo arco mide lo mismo que la circunferencia de la base.
+  El sector es la fracción de un círculo completo de ese radio fijada por la razón entre su arco y
+  la circunferencia entera, lo que resulta en pi por el radio por la generatriz. Despejar la
+  generatriz es inmediato; despejar el radio lleva a una ecuación de segundo grado con una raíz
+  positiva, la respuesta geométrica, que se lista primero, y una raíz negativa sin significado
+  geométrico.
+
+  La regla exige un cono circular recto, cuyo vértice está justo encima del centro de la base, para
+  que todas las generatrices midan lo mismo; un cono oblicuo no tiene una única generatriz. Un cono
+  abierto, como un vaso de papel, solo tiene el área lateral. El radio y la generatriz deben
+  compartir una unidad.
+
+  La fórmula sirve para dimensionar tejados cónicos, embudos y pantallas de lámparas. Un cono de 3
+  metros de radio de la base y 5 metros de generatriz tiene un área total de 24 pi, unos 75.40
+  metros cuadrados.

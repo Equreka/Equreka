@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Pendiente de una recta'
+terms:
+  m:
+    label: 'Pendiente'
+  x_{1}:
+    label: 'Coordenada x del primer punto'
+  y_{1}:
+    label: 'Coordenada y del primer punto'
+  x_{2}:
+    label: 'Coordenada x del segundo punto'
+  y_{2}:
+    label: 'Coordenada y del segundo punto'
+description: >-
+  La pendiente de una recta es la variación vertical entre dos de sus puntos dividida entre la
+  variación horizontal entre ellos, lo que suele resumirse como subida sobre avance. También llamada
+  coeficiente angular, mide la inclinación y el sentido de una recta en el plano de coordenadas, y
+  se calcula a partir de las coordenadas cartesianas de dos puntos distintos cualesquiera de la
+  recta.
+
+  En la fórmula, $\var{m}$ es la pendiente, $\var{x_{1}}$ e $\var{y_{1}}$ son las coordenadas del
+  primer punto, y $\var{x_{2}}$ e $\var{y_{2}}$ las del segundo, números que pueden representar
+  longitudes o cualquier otra magnitud. Una pendiente positiva indica que la recta sube de izquierda
+  a derecha, una negativa que baja, y una pendiente nula que es horizontal. Cuando ambos ejes usan
+  la misma unidad, la pendiente es un número puro; en un modelo cuyos ejes representan magnitudes
+  distintas, toma la unidad de la magnitud vertical por unidad de la horizontal.
+
+  En una recta la razón es la misma sean cuales sean los dos puntos elegidos, porque los triángulos
+  rectángulos que forman cada subida y cada avance son semejantes; esa razón constante es lo que
+  hace recta la gráfica. El orden de los puntos no importa, ya que intercambiarlos cambia el signo
+  de ambas diferencias. La pendiente es el coeficiente de la variable independiente en la ecuación
+  explícita de la recta, y junto con un punto determina la recta por completo.
+
+  La fórmula falla para una recta vertical, cuyo avance es cero y cuya pendiente no está definida,
+  y los dos puntos deben ser distintos. Solo se aplica a rectas: la inclinación de una curva cambia
+  de un punto a otro y se obtiene con la derivada.
+
+  Las pendientes de carreteras, rampas y tejados son pendientes en este sentido. Una rampa que sube
+  1 metro en un avance horizontal de 12 metros tiene una pendiente de un doceavo, unos 0.083.

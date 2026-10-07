@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Volumen de la pirámide'
+terms:
+  h:
+    label: 'Altura'
+description: >-
+  El volumen de la pirámide es igual a un tercio del área de su base por su altura. Una pirámide es
+  un sólido formado por una base poligonal plana y caras triangulares que se elevan desde los lados
+  de la base hasta un único punto, el vértice o cúspide, y esta regla de la geometría del espacio da
+  el espacio que encierra sea cual sea la forma de la base: un triángulo, un cuadrado o cualquier
+  otro polígono.
+
+  En la fórmula, $\mag{V}$ es el volumen, medido en metros cúbicos, $\mag{B}$ es el área de la base,
+  medida en metros cuadrados, y $\var{h}$ es la altura, la distancia perpendicular del vértice al
+  plano de la base, medida en metros. Ninguna de las magnitudes es negativa. La altura se mide en
+  vertical desde el vértice, no a lo largo de una cara o arista inclinada, que son más largas.
+
+  Una pirámide contiene la tercera parte del volumen de un prisma con su misma base y altura. Un
+  cubo puede dividirse desde su centro en seis pirámides iguales, cada una con una cara del cubo
+  como base y la mitad de la arista como altura, lo que muestra el factor de un tercio en ese caso.
+  El principio de Cavalieri, según el cual los sólidos cuyas secciones a cada nivel tienen áreas
+  iguales tienen también volúmenes iguales, extiende el resultado a toda pirámide. El área de la
+  base o la altura se obtienen de las otras dos triplicando el volumen y dividiendo.
+
+  La fórmula no depende de dónde esté el vértice sobre la base: una pirámide oblicua con la misma
+  área de la base y la misma altura tiene el mismo volumen que una recta. La base debe ser plana y
+  todas las longitudes deben usar una sola unidad. Un cono obedece la misma regla con base circular,
+  mientras que un tronco de pirámide necesita otra fórmula.
+
+  Demócrito enunció la relación de un tercio entre pirámide y prisma, y Eudoxo dio una
+  demostración rigurosa. Los Elementos de Euclides la deducen como corolario de la proposición 7 del
+  libro XII. Una pirámide de base cuadrada de 3 metros de lado y 4 metros de altura encierra 12
+  metros cúbicos.

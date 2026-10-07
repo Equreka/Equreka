@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Area of an annulus'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{A}=\const{\pi}\left(\var{R}^{2}-\var{r}^{2}\right)'
+terms:
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+  R:
+    kind: 'symbol'
+    label:
+      en: 'Outer radius'
+    unit: 'metre'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Inner radius'
+    unit: 'metre'
+solutions:
+  A: 'pi * (R^2 - r^2)'
+  R: 'sqrt(A / pi + r^2)'
+  r: 'sqrt(R^2 - A / pi)'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'annulus area'
+  - 'area of a ring'
+  - 'ring area'
+  - 'washer area'
+  - 'área de la corona circular'
+references:
+  - title: 'E. W. Weisstein, Annulus, MathWorld'
+    url: 'https://mathworld.wolfram.com/Annulus.html'
+  - title: 'Math Is Fun, Annulus'
+    url: 'https://www.mathsisfun.com/geometry/annulus.html'
+description:
+  en: >-
+    The area of an annulus equals pi times the difference between the squares of its outer and
+    inner radii. An annulus, or circular ring, is the flat region between two concentric circles,
+    circles that share one centre; the face of a washer and the cross-section of a pipe are
+    examples. The plane geometry formula gives the surface of the ring from its two radii.
+
+    In the formula, $\mag{A}$ is the area of the ring in square metres, $\var{R}$ is the outer
+    radius and $\var{r}$ the inner radius, both in metres. The outer radius is larger than the inner
+    one, and both are positive; an inner radius of zero leaves a full disc. The constant
+    $\const{\pi}$ is the familiar pure number close to 3.14159.
+
+    The ring is what remains of the large disc after the small disc is removed from its middle, so
+    its area is the area of the large disc minus that of the small one, and pi factors out of both.
+    The difference of squares also factors into the sum of the radii times their difference: the
+    area equals the mean circumference of the ring multiplied by its width, the distance between the
+    two circles.
+
+    The radii must be squared before they are subtracted; squaring the width, the difference of the
+    radii, gives a much smaller and wrong result. The formula requires the two circles to share a
+    centre, though shifting the inner hole without letting it cross the outer circle leaves the
+    area unchanged. When diameters are given, each must be halved first.
+
+    Engineers use the formula for the cross-section of a tube wall, which sets the material a pipe
+    needs and the axial load it can carry. A ring with an outer radius of 5 metres and an inner
+    radius of 3 metres covers about 50.3 square metres.

@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Volume of a sphere'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{V}=\frac{4}{3}\const{\pi}\var{r}^{3}'
+terms:
+  V:
+    kind: 'magnitude'
+    ref: 'volume'
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+solutions:
+  V: '4 * pi * r^3 / 3'
+  r: 'cbrt(3 * V / (4 * pi))'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'sphere volume'
+  - 'volume of a ball'
+  - 'four thirds pi r cubed'
+  - 'volumen de una esfera'
+  - 'volumen de la bola'
+references:
+  - title: 'OpenStax, Prealgebra 2e, 9.6 Solve Geometry Applications: Volume and Surface Area'
+    url: 'https://openstax.org/books/prealgebra-2e/pages/9-6-solve-geometry-applications-volume-and-surface-area'
+  - title: 'E. W. Weisstein, Sphere, MathWorld'
+    url: 'https://mathworld.wolfram.com/Sphere.html'
+  - title: 'MacTutor History of Mathematics, Archimedes of Syracuse'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Archimedes/'
+description:
+  en: >-
+    The volume of a sphere equals four thirds of pi times the cube of its radius. Strictly, a sphere
+    is the surface of all points at one distance from a centre, and the solid it bounds is a ball,
+    so the formula gives the volume of a ball; school geometry calls it the volume of a sphere, and
+    it measures the capacity of balls, bubbles, round tanks and planets.
+
+    In the formula, $\mag{V}$ is the volume, measured in cubic metres, and $\var{r}$ is the radius,
+    the distance from the centre to the surface, measured in metres. The constant $\const{\pi}$ is
+    a pure number close to 3.14159. Neither the volume nor the radius is negative; the diameter is
+    twice the radius, so a known diameter is halved before use.
+
+    Because the radius enters cubed, doubling it multiplies the volume by eight, and all spheres are
+    scaled copies of one another. A sphere fills two thirds of the cylinder that exactly encloses
+    it, whose radius is the same and whose height is the diameter: that cylinder holds pi times the
+    radius squared times twice the radius, and two thirds of it is the formula. Solving for the
+    radius takes the cube root of three times the volume divided by four pi.
+
+    The formula holds for a perfect sphere in ordinary flat space. Fruit, droplets and planets are
+    only approximately round, so the result is as good as the radius chosen for them. Since the
+    radius is cubed, a small relative error in it roughly triples in the volume: a radius 1 percent
+    too large gives a volume about 3 percent too large. All lengths must share one unit.
+
+    Archimedes showed in On the Sphere and Cylinder that a sphere has two thirds of the volume of
+    its circumscribed cylinder, and he asked for that figure to be marked on his tomb. A ball with
+    a radius of 1 metre has a volume of about 4.19 cubic metres.

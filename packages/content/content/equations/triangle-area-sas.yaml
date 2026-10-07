@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Area of a triangle from two sides and the included angle'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{A}=\frac{1}{2}\var{a}\var{b}\sin\mag{\gamma}'
+terms:
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Side a'
+    unit: 'metre'
+  b:
+    kind: 'symbol'
+    label:
+      en: 'Side b'
+    unit: 'metre'
+  \gamma:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+solutions:
+  A: 'a * b * sin(gamma) / 2'
+  a: '2 * A / (b * sin(gamma))'
+  b: '2 * A / (a * sin(gamma))'
+  \gamma:
+    - 'asin(2 * A / (a * b))'
+    - 'pi - asin(2 * A / (a * b))'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'trigonometry'
+aliases:
+  - 'SAS triangle area'
+  - 'side-angle-side area'
+  - 'half ab sin C'
+  - 'trigonometric area of a triangle'
+  - 'área de un triángulo con dos lados y un ángulo'
+  - 'área LAL'
+references:
+  - title: 'OpenStax, Algebra and Trigonometry 2e, 10.1 Non-right Triangles: Law of Sines (area of an oblique triangle)'
+    url: 'https://openstax.org/books/algebra-and-trigonometry-2e/pages/10-1-non-right-triangles-law-of-sines'
+  - title: 'E. W. Weisstein, Triangle Area, MathWorld'
+    url: 'https://mathworld.wolfram.com/TriangleArea.html'
+  - title: 'OpenStax, Algebra and Trigonometry 2e, 10.2 Non-right Triangles: Law of Cosines (Heron''s formula)'
+    url: 'https://openstax.org/books/algebra-and-trigonometry-2e/pages/10-2-non-right-triangles-law-of-cosines'
+description:
+  en: >-
+    The area of a triangle from two sides and the included angle equals half the product of those
+    two sides times the sine of the angle between them. This trigonometric area rule, known as the
+    side-angle-side or SAS area of a triangle, finds the area when no height has been measured, and
+    it turns into half the base times the height once the sine converts a side into that height.
+
+    In the formula, $\mag{A}$ is the area of the triangle in square metres, $\var{a}$ and $\var{b}$
+    are the two sides that meet at a vertex, lengths in metres, and $\mag{\gamma}$ is the angle
+    between them, in radians, strictly between zero and a straight angle. The area and both sides
+    are positive, and so is the sine of any such angle.
+
+    Take $\var{a}$ as the base. The height drawn to it from the far end of $\var{b}$ is $\var{b}$
+    times the sine of $\mag{\gamma}$, so the familiar rule of half the base times the height gives
+    the formula at once. For two fixed sides the area is greatest when the angle is a right angle
+    and shrinks towards zero as the angle closes up or opens out flat. Solving for a side divides
+    twice the area by the product of the other side and the sine.
+
+    Solving for the angle is ambiguous: an angle and its supplement have the same sine and enclose
+    the same area with the same two sides, so the acute angle is listed first and the obtuse one
+    second, and other information about the triangle, such as its third side, decides between them.
+    No real angle exists when twice the area exceeds the product of the two sides. The formula
+    applies to plane triangles.
+
+    Surveyors split an irregular plot of land into triangles and apply the rule to two measured
+    boundaries and the angle between them; when three sides are measured instead, Heron's formula
+    gives the same area. Sides of 6 and 8 metres meeting at 30 degrees enclose 12 square metres.

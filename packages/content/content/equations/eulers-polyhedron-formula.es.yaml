@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Fórmula de Euler para poliedros'
+terms:
+  V:
+    label: 'Número de vértices'
+  E:
+    label: 'Número de aristas'
+  F:
+    label: 'Número de caras'
+description: >-
+  La fórmula de Euler para poliedros establece que los vértices y las caras de cualquier poliedro
+  convexo, sumados, superan exactamente en dos al número de aristas. Conocida también como teorema
+  de Euler para poliedros, pertenece a la geometría del espacio, es uno de los primeros resultados
+  de la topología y relaciona los vértices, las aristas y las caras planas de sólidos como el cubo,
+  el prisma y la pirámide.
+
+  En la ecuación, $\var{V}$ es el número de vértices, las esquinas donde se unen las aristas,
+  $\var{E}$ es el número de aristas, los segmentos donde se unen dos caras, y $\var{F}$ es el número
+  de caras, los polígonos planos que limitan el sólido. Los tres son números enteros, números puros
+  sin unidad, y ninguno puede ser negativo. La suma alternada del lado izquierdo es la
+  característica de Euler de la superficie, y el teorema afirma que vale dos para todo sólido sin
+  agujeros.
+
+  Un cubo tiene ocho vértices, 12 aristas y seis caras, y su suma alternada es dos; una pirámide de
+  base cuadrada, con cinco vértices, ocho aristas y cinco caras, también da dos. El recuento no
+  depende de longitudes ni de ángulos: estirar el sólido no cambia ninguno de los tres números, y
+  dividir una cara en dos con una arista nueva añade una arista y una cara, lo que deja la suma
+  igual. Dos cualesquiera de los tres números fijan el tercero.
+
+  La fórmula exige un poliedro con forma de esfera en sentido topológico: todo poliedro convexo
+  cumple la condición, pero un sólido atravesado por un túnel no. Lhuilier demostró que, para un
+  sólido con cierto número de agujeros, la misma suma alternada es igual a dos menos el doble de ese
+  número, de modo que un poliedro en forma de anillo da cero.
+
+  Euler enunció la fórmula en una carta a Christian Goldbach en 1750 y la publicó en dos artículos
+  en 1752, el segundo con una demostración que dividía los sólidos en tetraedros. La relación parece
+  haber pasado inadvertida a Arquímedes y a Descartes, aunque ambos estudiaron a fondo los
+  poliedros.

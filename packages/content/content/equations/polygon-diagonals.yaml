@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Number of diagonals of a polygon'
+kind: 'formula'
+level: 'intro'
+expression: '\var{D}=\frac{\var{n}\left(\var{n}-3\right)}{2}'
+terms:
+  D:
+    kind: 'symbol'
+    label:
+      en: 'Number of diagonals'
+    integer: true
+  n:
+    kind: 'symbol'
+    label:
+      en: 'Number of sides'
+    integer: true
+solutions:
+  D: 'n * (n - 3) / 2'
+  n:
+    - '(3 + sqrt(9 + 8 * D)) / 2'
+    - '(3 - sqrt(9 + 8 * D)) / 2'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'polygon diagonals'
+  - 'diagonals of a polygon'
+  - 'n(n - 3)/2'
+  - 'número de diagonales'
+references:
+  - title: 'Mathwords, Diagonals of a Polygon'
+    url: 'https://www.mathwords.com/p/polygons_diagonals.htm'
+  - title: 'Mathwords, Diagonal'
+    url: 'https://www.mathwords.com/d/diagonal.htm'
+  - title: 'LibreTexts K12, Geometry, 1.18 Classify Polygons'
+    url: 'https://k12.libretexts.org/Bookshelves/Mathematics/Geometry/01:_Basics_of_Geometry/1.18:_Classify_Polygons'
+description:
+  en: >-
+    The number of diagonals of a polygon with n sides equals n times n minus three, divided by two.
+    A diagonal is a segment that joins two corners of a polygon that are not neighbours, so it is
+    not a side. The counting rule of plane geometry depends only on the number of corners, which
+    equals the number of sides.
+
+    In the formula, $\var{D}$ is the number of diagonals and $\var{n}$ the number of sides. Both are
+    whole numbers and pure numbers: the number of sides is at least three, and the number of
+    diagonals is zero or more. A triangle has no diagonals, a quadrilateral two, a pentagon five.
+
+    From any corner, segments can be drawn to every other corner except itself and its two
+    neighbours, which gives n minus three diagonals per corner. Multiplying by the n corners counts
+    every diagonal twice, once from each end, so the product is halved. The same count follows from
+    choosing any two of the n corners, which gives n times n minus one over two segments, and
+    removing the n sides. The number of diagonals grows roughly with the square of the number of
+    sides.
+
+    The count applies to any polygon, convex or not, because it counts pairs of corners and ignores
+    whether a diagonal lies inside the figure. Solving for the number of sides leads to a quadratic
+    equation with two roots: the first, three plus the square root of nine plus eight times the
+    number of diagonals, all over two, is the meaningful one; the second is never positive and
+    describes no polygon. A count of diagonals that gives a fractional number of sides belongs to no
+    polygon.
+
+    The rule counts the links needed to join every pair of non-adjacent points on a ring, as in a
+    round-robin of handshakes between people who are not seated side by side. An octagon has 20
+    diagonals.

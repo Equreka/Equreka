@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Área del sector circular'
+description: >-
+  El área del sector circular es igual a la mitad del cuadrado del radio multiplicada por el ángulo
+  central en radianes. Un sector circular es la porción de un círculo limitada por dos radios y el
+  arco entre ellos, la forma de una porción de tarta o de la zona que barre un limpiaparabrisas. La
+  fórmula de la geometría plana da su superficie a partir del radio y del ángulo de apertura.
+
+  En la fórmula, $\mag{A}$ es el área del sector en metros cuadrados, $\var{r}$ es el radio en
+  metros y $\mag{\theta}$ es el ángulo central entre los dos radios, en radianes. Todas son
+  positivas. Un ángulo conocido en grados se convierte multiplicándolo por pi y dividiéndolo entre
+  180; meter los grados directamente en el producto exagera el área unas 57 veces.
+
+  Un sector es la misma fracción del círculo entero que su ángulo de una vuelta completa. La vuelta
+  completa son dos pi radianes y el círculo tiene un área de pi por el radio al cuadrado, así que
+  tomar la fracción del ángulo entre dos pi da la mitad del radio al cuadrado por el ángulo. Una
+  vuelta completa devuelve el área del círculo, y media vuelta da un semicírculo. Como la longitud
+  de arco es el radio por el ángulo, el área del sector también es la mitad del radio por el arco,
+  como un triángulo cuya base es el arco y cuya altura es el radio.
+
+  La regla vale para ángulos desde cero hasta una vuelta completa en el plano. El sector se
+  distingue del segmento circular, la región entre un arco y su cuerda; para un ángulo menor que
+  media vuelta, el segmento es menor que el sector en el triángulo que encierran los dos radios y la
+  cuerda.
+
+  Los aspersores de césped, los barridos de radar y las salas en forma de abanico se dimensionan con
+  la fórmula. Un sector de 4 metros de radio con un sexto de vuelta, 60 grados, cubre unos 8.38
+  metros cuadrados.

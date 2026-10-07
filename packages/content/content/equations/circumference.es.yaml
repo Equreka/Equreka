@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Longitud de la circunferencia'
+terms:
+  C:
+    label: 'Longitud de la circunferencia'
+description: >-
+  La longitud de la circunferencia es la longitud de la curva que limita un círculo, el perímetro
+  del círculo, y es igual a dos por pi por el radio, o a pi por el diámetro. En geometría plana, la
+  relación es la definición de pi al revés: en toda circunferencia, la longitud dividida entre el
+  diámetro da el mismo número.
+
+  En la fórmula, $\var{C}$ es la longitud de la circunferencia y $\var{r}$ es el radio, la
+  distancia del centro a cualquier punto de la circunferencia; ambas son longitudes, medidas en
+  metros en el SI, y ambas son positivas. La constante $\const{\pi}$ es un número puro cercano a
+  3.14159. El diámetro, una cuerda que pasa por el centro, mide el doble que el radio, y por eso
+  las dos formas de la regla coinciden.
+
+  Todas las circunferencias son copias a escala unas de otras, así que la razón entre la longitud
+  del contorno y el diámetro no puede depender del tamaño, y esa razón fija es pi. Por tanto, la
+  longitud de la circunferencia crece en proporción directa al radio: duplicar el radio duplica el
+  contorno, mientras que el área encerrada se multiplica por cuatro. Pi es irracional, de modo que
+  una longitud medida o calculada siempre es un valor redondeado; los ejercicios escolares suelen
+  tomar 3.14.
+
+  La fórmula vale para una circunferencia en el plano. Sobre una superficie curva, como una
+  esfera, una circunferencia trazada a una distancia dada de su centro tiene un contorno más corto.
+  El contorno de una elipse no tiene una fórmula igual de sencilla.
+
+  Arquímedes encerró un círculo entre polígonos inscritos y circunscritos de 96 lados y mostró que
+  pi está entre 3 10/71 y 3 1/7. William Jones usó por primera vez la letra pi para esta razón en
+  1706, y Leonhard Euler la adoptó en 1737. Una rueda de bicicleta de 0.35 metros de radio avanza
+  unos 2.2 metros por vuelta.

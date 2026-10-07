@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Razón coseno'
+terms:
+  b:
+    label: 'Cateto contiguo'
+  c:
+    label: 'Hipotenusa'
+description: >-
+  La razón coseno define el coseno de un ángulo agudo de un triángulo rectángulo como la longitud
+  del cateto contiguo a ese ángulo dividida entre la longitud de la hipotenusa. Junto con las
+  razones seno y tangente forma el núcleo de la trigonometría del triángulo rectángulo, la CAH de la
+  regla mnemotécnica SOH CAH TOA, e indica qué fracción de la hipotenusa queda a lo largo del cateto
+  contiguo.
+
+  En la fórmula, $\mag{\theta}$ es uno de los dos ángulos agudos, medido en radianes en el SI y
+  habitualmente introducido en grados. El cateto contiguo $\var{b}$ es el que forma el ángulo junto
+  con la hipotenusa, y $\var{c}$ es la hipotenusa, opuesta al ángulo recto. Ambos son longitudes en
+  metros, o en cualquier unidad que compartan. Las tres cantidades son positivas, y el cateto
+  contiguo siempre es más corto que la hipotenusa.
+
+  Como los triángulos rectángulos con ángulos agudos iguales son semejantes, el cociente depende
+  solo del ángulo. Geométricamente, el cateto contiguo es la sombra que la hipotenusa proyecta sobre
+  la recta de ese cateto, así que multiplicar una longitud por el coseno la proyecta sobre una
+  dirección. El coseno de un ángulo agudo es igual al seno del otro, porque ambos ángulos son
+  complementarios. Al despejar, el cateto contiguo es la hipotenusa por el coseno, la hipotenusa es
+  el cateto contiguo dividido entre el coseno, y el ángulo se obtiene con el coseno inverso, arccos.
+
+  Para ángulos entre cero y un ángulo recto, el coseno decrece de 1 hacia 0 a medida que el ángulo
+  se abre. El coseno inverso devuelve un único ángulo para cada razón entre 0 y 1, de modo que no
+  hay ambigüedad. En la circunferencia unidad el coseno se extiende a todos los ángulos y se vuelve
+  negativo para los obtusos, el signo en el que se apoya el teorema del coseno.
+
+  Viète llamó a esta cantidad sinus residuae, y Edmund Gunter propuso el nombre co-sinus en 1620. En
+  el triángulo rectángulo de lados 3, 4 y 5, el ángulo opuesto al lado de 4 tiene un coseno de 0.6.

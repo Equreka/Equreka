@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Teorema de la suma de los ángulos de un triángulo'
+description: >-
+  El teorema de la suma de ángulos del triángulo establece que, en un plano, los tres ángulos
+  interiores de cualquier triángulo suman un ángulo llano, es decir, pi radianes o 180 grados. Es un
+  resultado básico de la geometría euclidiana y de la trigonometría, y sirve para hallar el tercer
+  ángulo de un triángulo a partir de los otros dos antes de calcular ningún lado.
+
+  En la ecuación, $\mag{\alpha}$, $\mag{\beta}$ y $\mag{\gamma}$ son los ángulos interiores en los
+  tres vértices, medidos en radianes en el SI y habitualmente introducidos en grados. Cada uno es
+  positivo y menor que un ángulo llano. Como el total es fijo, un triángulo tiene como mucho un
+  ángulo recto u obtuso, y en un triángulo rectángulo los dos ángulos agudos son complementarios:
+  suman un ángulo recto.
+
+  Por un vértice se traza la recta paralela al lado opuesto. Los otros dos ángulos del triángulo
+  reaparecen en ese vértice como ángulos alternos a ambos lados del ángulo que ya estaba allí, y los
+  tres juntos llenan la recta que pasa por el vértice. La misma construcción muestra que un ángulo
+  exterior, formado al prolongar un lado, es igual a la suma de los dos ángulos interiores no
+  adyacentes a él. Despejar cualquier ángulo consiste en restar los otros dos de pi.
+
+  El teorema se apoya en el postulado de las paralelas y solo vale en el plano euclidiano. Sobre una
+  esfera, los ángulos de un triángulo suman más que un ángulo llano, y el exceso, llamado exceso
+  esférico, crece con el área del triángulo; en la geometría hiperbólica, que prescinde del
+  postulado, la suma se queda corta, y más cuanto mayor es el triángulo. Para un triángulo dibujado
+  en una hoja de papel o replanteado en una obra se aplica el resultado del plano.
+
+  Los Elementos de Euclides demuestran el resultado como proposición 32 del libro I, donde la suma
+  se expresa como dos ángulos rectos. Más tarde Legendre demostró que el resultado equivale al
+  propio postulado de las paralelas. Ángulos de 55 y 82 grados dejan 43 grados para el tercero.

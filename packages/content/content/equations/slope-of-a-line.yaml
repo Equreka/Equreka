@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Slope of a line'
+kind: 'formula'
+level: 'intro'
+expression: '\var{m}=\frac{\var{y_{2}}-\var{y_{1}}}{\var{x_{2}}-\var{x_{1}}}'
+terms:
+  m:
+    kind: 'symbol'
+    label:
+      en: 'Slope'
+  x_{1}:
+    kind: 'symbol'
+    label:
+      en: 'x-coordinate of the first point'
+  y_{1}:
+    kind: 'symbol'
+    label:
+      en: 'y-coordinate of the first point'
+  x_{2}:
+    kind: 'symbol'
+    label:
+      en: 'x-coordinate of the second point'
+  y_{2}:
+    kind: 'symbol'
+    label:
+      en: 'y-coordinate of the second point'
+solutions:
+  m: '(y_2 - y_1) / (x_2 - x_1)'
+  y_{2}: 'y_1 + m * (x_2 - x_1)'
+  y_{1}: 'y_2 - m * (x_2 - x_1)'
+  x_{2}: 'x_1 + (y_2 - y_1) / m'
+  x_{1}: 'x_2 - (y_2 - y_1) / m'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q275447'
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+  - 'algebra'
+aliases:
+  - 'slope formula'
+  - 'gradient of a line'
+  - 'rise over run'
+  - 'slope between two points'
+  - 'pendiente de la recta'
+  - 'coeficiente angular'
+references:
+  - title: 'OpenStax, Intermediate Algebra 2e, 3.2 Slope of a Line'
+    url: 'https://openstax.org/books/intermediate-algebra-2e/pages/3-2-slope-of-a-line'
+  - title: 'OpenStax, College Algebra 2e, 4.1 Linear Functions'
+    url: 'https://openstax.org/books/college-algebra-2e/pages/4-1-linear-functions'
+description:
+  en: >-
+    The slope of a line is the vertical change between two of its points divided by the horizontal
+    change between them, often summed up as rise over run. Also called the gradient, it measures
+    the steepness and direction of a straight line in the coordinate plane, and it is computed from
+    the Cartesian coordinates of any two distinct points on the line.
+
+    In the formula, $\var{m}$ is the slope, $\var{x_{1}}$ and $\var{y_{1}}$ are the coordinates of
+    the first point, and $\var{x_{2}}$ and $\var{y_{2}}$ those of the second, plain numbers that can
+    stand for lengths or for any other quantity. A positive slope means that the line rises from
+    left to right, a negative slope that it falls, and a zero slope that it is horizontal. When both
+    axes use the same unit the slope is a pure number; in a model whose axes carry different
+    quantities, it takes the unit of the vertical quantity per unit of the horizontal one.
+
+    For a straight line the ratio is the same whichever two points are chosen, because the right
+    triangles formed by each rise and run are similar; this constant ratio is what makes the graph
+    straight. The order of the points does not matter, since swapping them changes the sign of both
+    differences. The slope is the coefficient of the input in the slope-intercept form of the line,
+    and together with one point it fixes the line completely.
+
+    The formula fails for a vertical line, whose run is zero and whose slope is undefined, and the
+    two points must be distinct. It applies only to straight lines: the steepness of a curve
+    changes from point to point and is found with the derivative.
+
+    Road grades, ramps and roof pitches are slopes. A ramp that rises 1 metre over a horizontal run
+    of 12 metres has a slope of one twelfth, about 0.083.

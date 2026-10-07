@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Altura a partir de un ángulo de elevación'
+terms:
+  h:
+    label: 'Altura del objeto'
+  h_{0}:
+    label: 'Altura de los ojos'
+  d:
+    label: 'Distancia horizontal'
+description: >-
+  La altura de un objeto a partir de un ángulo de elevación es la altura de los ojos del observador
+  más la distancia horizontal hasta el objeto por la tangente del ángulo con el que se ve su parte
+  más alta. Esta aplicación de la razón tangente mide árboles, edificios, torres y acantilados desde
+  el suelo con un clinómetro o un teodolito y una cinta métrica, sin necesidad de escalarlos.
+
+  En la fórmula, $\var{h}$ es la altura de la cima del objeto sobre el suelo, $\var{h_{0}}$ es la
+  altura de los ojos o del instrumento sobre ese mismo suelo, y $\var{d}$ es la distancia horizontal
+  del observador al punto situado justo debajo de la cima; las tres son longitudes en metros. El
+  ángulo de elevación $\mag{\theta}$, en radianes, se mide hacia arriba desde la horizontal hasta la
+  línea de visión. Si la altura de los ojos se introduce como cero, se obtiene solo la elevación por
+  encima del nivel de observación.
+
+  La horizontal a la altura de los ojos, la vertical que pasa por la cima y la línea de visión
+  forman un triángulo rectángulo. Su cateto sobre el suelo es la distancia, su cateto vertical es la
+  parte del objeto por encima de los ojos, y la razón tangente da ese cateto como la distancia por
+  la tangente del ángulo; sumar la altura de los ojos lleva el resultado hasta el suelo. Con un
+  ángulo de 45 grados, la parte situada por encima de los ojos es igual a la distancia.
+
+  La regla supone un terreno llano, un objeto vertical y una distancia medida en horizontal hasta el
+  punto que está bajo la cima. Muy cerca del objeto el ángulo se acerca al recto, donde la tangente
+  crece tan deprisa que un pequeño error de lectura arruina el resultado; las guías de campo
+  aconsejan situarse al menos tan lejos como alto es el objeto, idealmente donde el ángulo ronde los
+  30 grados.
+
+  Medir alturas a partir de sombras es una práctica antigua: Tales usó las sombras para hallar la
+  altura de las pirámides, y la propia tangente surgió de esas tablas de sombras. A 60 metros de un
+  árbol, un observador con los ojos a 1.5 metros que ve la copa con 34 grados obtiene una altura de
+  unos 42 metros.

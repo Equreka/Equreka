@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Volumen del cubo'
+terms:
+  a:
+    label: 'Longitud de la arista'
+description: >-
+  El volumen del cubo es igual a la longitud de una de sus aristas elevada a la tercera potencia,
+  es decir, la arista al cubo. Un cubo es un sólido limitado por seis caras cuadradas iguales que se
+  unen en ángulo recto, también llamado hexaedro regular, y esta fórmula de la geometría del espacio
+  mide el espacio que encierra a partir de una sola longitud.
+
+  En la fórmula, $\mag{V}$ es el volumen del cubo, medido en metros cúbicos, y $\var{a}$ es la
+  longitud de la arista, el lado de cualquiera de las caras cuadradas, medida en metros. Ninguno de
+  los dos puede ser negativo, así que no hace falta ningún convenio de signos. El volumen es una
+  medida cúbica: un metro cúbico es el espacio interior de un cubo de un metro de arista, y
+  cualquier volumen indica cuántos de esos cubos unidad llenarían el sólido.
+
+  Un cubo es una caja rectangular cuyo largo, ancho y alto son iguales, de modo que la regla de la
+  caja, largo por ancho por alto, se convierte en la arista multiplicada por sí misma tres veces.
+  Contar cubos unidad da el mismo resultado: un cubo de tres metros de arista contiene tres capas
+  de nueve cubos unidad, 27 metros cúbicos en total. Como la arista aparece al cubo, duplicarla
+  multiplica el volumen por ocho, y la arista se obtiene de un volumen conocido como su raíz
+  cúbica.
+
+  La fórmula supone caras planas que son cuadrados exactos unidos en ángulo recto. Una caja de
+  aristas distintas requiere en cambio el producto de sus tres dimensiones, y un sólido de caras
+  curvas necesita una regla propia. La arista y el volumen deben usar unidades coherentes: una
+  arista medida en centímetros da un volumen en centímetros cúbicos.
+
+  El cubo es uno de los cinco sólidos platónicos, con ocho vértices, 12 aristas y seis caras. La
+  fórmula sirve para dimensionar cajas, depósitos, dados y bloques de construcción; un cubo de 2
+  metros de arista encierra 8 metros cúbicos.

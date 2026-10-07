@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Volume of a rectangular prism'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{V}=\var{l}\var{w}\var{h}'
+terms:
+  V:
+    kind: 'magnitude'
+    ref: 'volume'
+  l:
+    kind: 'symbol'
+    label:
+      en: 'Length'
+    unit: 'metre'
+  w:
+    kind: 'symbol'
+    label:
+      en: 'Width'
+    unit: 'metre'
+  h:
+    kind: 'symbol'
+    label:
+      en: 'Height'
+    unit: 'metre'
+solutions:
+  V: 'l * w * h'
+  l: 'V / (w * h)'
+  w: 'V / (l * h)'
+  h: 'V / (l * w)'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'volume of a cuboid'
+  - 'volume of a box'
+  - 'volume of a rectangular solid'
+  - 'volume of a rectangular parallelepiped'
+  - 'length times width times height'
+  - 'volumen del ortoedro'
+  - 'volumen del paralelepípedo rectangular'
+references:
+  - title: 'OpenStax, Prealgebra 2e, 9.6 Solve Geometry Applications: Volume and Surface Area'
+    url: 'https://openstax.org/books/prealgebra-2e/pages/9-6-solve-geometry-applications-volume-and-surface-area'
+  - title: 'OpenStax, Contemporary Mathematics, 10.7 Volume and Surface Area'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/10-7-volume-and-surface-area'
+  - title: 'E. W. Weisstein, Cuboid, MathWorld'
+    url: 'https://mathworld.wolfram.com/Cuboid.html'
+description:
+  en: >-
+    The volume of a rectangular prism equals the product of its length, width and height. A
+    rectangular prism, also called a cuboid, a rectangular box or a rectangular parallelepiped, is
+    a solid bounded by six rectangular faces that meet at right angles, and this rule of solid
+    geometry gives the space inside any box, room, brick or container of that shape.
+
+    In the formula, $\mag{V}$ is the volume, measured in cubic metres, and $\var{l}$, $\var{w}$ and
+    $\var{h}$ are the length, width and height of the prism, the three edges that meet at any one
+    corner, each measured in metres. None of them is negative, so no sign convention arises. The
+    three edges may be named in any order, since the product does not depend on which one is called
+    the height.
+
+    The length times the width is the area of the base, and the height counts how many layers of
+    that base the solid holds, so the volume is the base area times the height, the rule for every
+    right prism. Filling the box with unit cubes shows the same thing: a box two metres long, three
+    wide and four high holds four layers of six unit cubes, 24 cubic metres in all. When the volume
+    and two edges are known, the third edge is the volume divided by their product. A cube is the
+    special case with three equal edges.
+
+    The formula requires flat rectangular faces meeting at right angles at every corner. All three
+    edges must use the same unit: a length in metres and a width in centimetres have to be
+    converted before they are multiplied. The volume is distinct from the surface area, the total
+    area of the six faces.
+
+    The rule sizes rooms, aquariums, shipping boxes and concrete slabs. A room 5 metres long,
+    4 metres wide and 2.5 metres high encloses 50 cubic metres of air.

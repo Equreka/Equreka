@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Area of a triangle'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{A}=\frac{1}{2}\var{b}\var{h}'
+terms:
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  b:
+    kind: 'symbol'
+    label:
+      en: 'Base'
+    unit: 'metre'
+  h:
+    kind: 'symbol'
+    label:
+      en: 'Height'
+    unit: 'metre'
+solutions:
+  A: 'b * h / 2'
+  b: '2 * A / h'
+  h: '2 * A / b'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q20183185'
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'triangle area'
+  - 'half base times height'
+  - 'área del triángulo'
+references:
+  - title: 'OpenStax, Prealgebra 2e, 9.4 Use Properties of Rectangles, Triangles, and Trapezoids'
+    url: 'https://openstax.org/books/prealgebra-2e/pages/9-4-use-properties-of-rectangles-triangles-and-trapezoids'
+  - title: 'OpenStax, Contemporary Mathematics, 10.6 Area'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/10-6-area'
+  - title: 'D. E. Joyce, Euclid''s Elements, Book I, Proposition 41'
+    url: 'https://mathcs.clarku.edu/~djoyce/java/elements/bookI/propI41.html'
+description:
+  en: >-
+    The area of a triangle equals half the product of a base and the height drawn to that base.
+    Any side of the triangle can serve as the base, and the height is the perpendicular distance
+    from the base, or from the line that extends it, to the opposite corner. This is the standard
+    plane geometry formula for the surface enclosed by three straight sides.
+
+    In the formula, $\mag{A}$ is the area in square metres, $\var{b}$ is the length of the chosen
+    base in metres, and $\var{h}$ is the matching height in metres, measured at a right angle to the
+    base. All three are positive. Each of the three sides has its own height, and every choice of
+    base with its own height gives the same area, which is how a height that is hard to measure can
+    be found from another pair.
+
+    Two copies of the same triangle, one turned half a turn, fit together into a parallelogram
+    sharing its base and height, so the triangle takes exactly half of it. In a right triangle the
+    two legs are a base and its height, and the area is half their product. When the opposite corner
+    lies beyond the end of the base, as in an obtuse triangle, the height falls outside the figure
+    and meets the extended base line, but the formula still holds.
+
+    The formula requires the true perpendicular height; a slanted side used in its place gives too
+    large an area. It holds in the flat plane, not on a curved surface. When only the three sides
+    are known, Heron's formula gives the area without a height, and when two sides and the angle
+    between them are known, the area is half their product times the sine of that angle.
+
+    Euclid's Elements proves that a parallelogram is twice a triangle on the same base and between
+    the same parallels. A triangular sail with a 4 metre base and a 6 metre height has an area of 12
+    square metres.

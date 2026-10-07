@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Triangle angle sum theorem'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{\alpha}+\mag{\beta}+\mag{\gamma}=\const{\pi}'
+terms:
+  \alpha:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  \beta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  \gamma:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+solutions:
+  \alpha: 'pi - beta - gamma'
+  \beta: 'pi - alpha - gamma'
+  \gamma: 'pi - alpha - beta'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q7840113'
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+  - 'trigonometry'
+aliases:
+  - 'angle sum theorem'
+  - 'sum of the angles of a triangle'
+  - 'triangle sum theorem'
+  - 'angles of a triangle add up to 180 degrees'
+  - 'suma de los ángulos de un triángulo'
+references:
+  - title: 'OpenStax, Prealgebra 2e, 9.3 Use Properties of Angles, Triangles, and the Pythagorean Theorem'
+    url: 'https://openstax.org/books/prealgebra-2e/pages/9-3-use-properties-of-angles-triangles-and-the-pythagorean-theorem'
+  - title: 'D. E. Joyce, Euclid''s Elements, Book I, Proposition 32'
+    url: 'https://mathcs.clarku.edu/~djoyce/java/elements/bookI/propI32.html'
+  - title: 'E. W. Weisstein, Spherical Excess, MathWorld'
+    url: 'https://mathworld.wolfram.com/SphericalExcess.html'
+  - title: 'MacTutor History of Mathematics, Non-Euclidean geometry'
+    url: 'https://mathshistory.st-andrews.ac.uk/HistTopics/Non-Euclidean_geometry/'
+description:
+  en: >-
+    The triangle angle sum theorem states that the three interior angles of any triangle in a plane
+    add up to a straight angle, which is pi radians or 180 degrees. It is a basic result of
+    Euclidean geometry and trigonometry, used to find the third angle of a triangle from the other
+    two before any side is computed.
+
+    In the equation, $\mag{\alpha}$, $\mag{\beta}$ and $\mag{\gamma}$ are the interior angles at the
+    three vertices, measured in radians in the SI and commonly entered in degrees. Each is positive
+    and smaller than a straight angle. Since the total is fixed, a triangle has at most one right or
+    obtuse angle, and in a right triangle the two acute angles are complementary, adding up to a
+    right angle.
+
+    Through one vertex draw the line parallel to the opposite side. The two other angles of the
+    triangle reappear at that vertex as alternate angles on either side of the angle already there,
+    and together the three fill the straight line through the vertex. The same construction shows
+    that an exterior angle, formed by extending one side, equals the sum of the two interior angles
+    not adjacent to it. Solving for any angle subtracts the other two from pi.
+
+    The theorem rests on the parallel postulate and holds only in the flat Euclidean plane. On a
+    sphere the angles of a triangle add up to more than a straight angle, and the surplus, called
+    the spherical excess, grows with the area of the triangle; in hyperbolic geometry, which drops
+    the postulate, the sum falls short instead, and by more for larger triangles. For a triangle
+    drawn on a sheet of paper or laid out on a building site the flat-plane result applies.
+
+    Euclid's Elements proves the result as Proposition 32 of Book I, stating the sum as two right
+    angles. Legendre later showed that the result is equivalent to the parallel postulate itself.
+    Angles of 55 and 82 degrees leave 43 degrees for the third angle.

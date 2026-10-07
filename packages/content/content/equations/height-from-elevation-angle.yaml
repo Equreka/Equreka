@@ -1,0 +1,82 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Height from an angle of elevation'
+kind: 'formula'
+level: 'intro'
+expression: '\var{h}=\var{h_{0}}+\var{d}\tan\mag{\theta}'
+terms:
+  h:
+    kind: 'symbol'
+    label:
+      en: 'Height of the object'
+    unit: 'metre'
+  h_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Eye height'
+    unit: 'metre'
+  d:
+    kind: 'symbol'
+    label:
+      en: 'Horizontal distance'
+    unit: 'metre'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+solutions:
+  h: 'h_0 + d * tan(theta)'
+  h_{0}: 'h - d * tan(theta)'
+  d: '(h - h_0) / tan(theta)'
+  \theta: 'atan((h - h_0) / d)'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'trigonometry'
+aliases:
+  - 'angle of elevation'
+  - 'elevation angle'
+  - 'clinometer height'
+  - 'tree height'
+  - 'height of a building'
+  - 'ángulo de elevación'
+  - 'altura de un árbol'
+references:
+  - title: 'OpenStax, Algebra and Trigonometry 2e, 7.2 Right Triangle Trigonometry (angle of elevation)'
+    url: 'https://openstax.org/books/algebra-and-trigonometry-2e/pages/7-2-right-triangle-trigonometry'
+  - title: 'OpenStax, Precalculus 2e, 5.4 Right Triangle Trigonometry'
+    url: 'https://openstax.org/books/precalculus-2e/pages/5-4-right-triangle-trigonometry'
+  - title: 'GLOBE Program, Investigation Instruments: Clinometer (2014)'
+    url: 'https://www.globe.gov/documents/355050/ba6cd381-02be-4525-8fd4-f061515b9862'
+  - title: 'MacTutor History of Mathematics, The trigonometric functions'
+    url: 'https://mathshistory.st-andrews.ac.uk/HistTopics/Trigonometric_functions/'
+description:
+  en: >-
+    The height of an object from an angle of elevation is the eye height of the observer plus the
+    horizontal distance to the object times the tangent of the angle at which its top is seen. This
+    application of the tangent ratio measures trees, buildings, towers and cliffs from the ground
+    with a clinometer or theodolite and a tape measure, without climbing them.
+
+    In the formula, $\var{h}$ is the height of the top of the object above the ground, $\var{h_{0}}$
+    is the height of the eye or the instrument above the same ground, and $\var{d}$ is the
+    horizontal distance from the observer to the point directly below the top; all three are lengths
+    in metres. The angle of elevation $\mag{\theta}$, in radians, is measured upward from the
+    horizontal to the line of sight. Entering an eye height of zero gives the rise above the
+    sighting level alone.
+
+    The horizontal line at eye level, the vertical through the top and the line of sight form a
+    right triangle. Its leg along the ground is the distance, its vertical leg is the part of the
+    object above eye level, and the tangent ratio gives that leg as the distance times the tangent
+    of the angle; adding the eye height carries the result down to the ground. At an angle of 45
+    degrees the part above eye level equals the distance.
+
+    The rule assumes level ground, a vertical object and a distance measured horizontally to the
+    point beneath the top. Close to the object the angle approaches a right angle, where the tangent
+    grows so fast that a small reading error ruins the result; field guides advise standing at least
+    as far away as the object is tall, ideally where the angle is near 30 degrees.
+
+    Measuring heights from shadow lengths is ancient: Thales used shadows to find the heights of
+    pyramids, and the tangent itself grew from such shadow tables. Standing 60 metres from a tree,
+    an observer with eyes 1.5 metres up who sights the top at 34 degrees finds a height near 42
+    metres.

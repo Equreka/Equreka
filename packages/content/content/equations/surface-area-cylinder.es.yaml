@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Área total del cilindro'
+terms:
+  h:
+    label: 'Altura'
+description: >-
+  El área total del cilindro es la suma de las áreas de sus dos bases circulares y de su cara curva:
+  dos veces pi por el radio al cuadrado, más dos veces pi por el radio por la altura. Para un
+  cilindro circular recto cerrado, esta fórmula de la geometría del espacio da el material necesario
+  para fabricar una lata, un bidón o un depósito junto con sus tapas.
+
+  En la fórmula, $\mag{A}$ es el área total, medida en metros cuadrados, $\var{r}$ es el radio de
+  cada base y $\var{h}$ es la altura, la distancia entre las bases, ambos medidos en metros. La
+  constante $\const{\pi}$ es un número puro cercano a 3.14159. Ninguna de las magnitudes es
+  negativa. El primer término cuenta las dos bases, cada una un círculo de área pi por el radio al
+  cuadrado; el segundo término es el área lateral, solo la cara curva.
+
+  Al cortar la cara curva por una línea recta y desenrollarla se obtiene un rectángulo cuya altura
+  es la del cilindro y cuyo ancho es la longitud de la circunferencia de la base, dos pi por el
+  radio, así que su área es ese ancho por la altura. Sumar los dos círculos da el total. Despejar la
+  altura es inmediato, pero despejar el radio exige resolver una ecuación de segundo grado, que
+  tiene una raíz positiva, la respuesta geométrica, que se lista primero, y una raíz negativa sin
+  significado geométrico.
+
+  La regla vale para un cilindro circular recto con ambos extremos cerrados. Un tubo abierto solo
+  tiene el área lateral, y un vaso con una base tiene el área lateral más un único círculo. La
+  altura debe medirse perpendicularmente a las bases, y el radio y la altura deben compartir una
+  unidad, de modo que el área resulte en esa unidad al cuadrado.
+
+  La fórmula permite estimar la chapa de las latas y la pintura de depósitos y pilares. Un cilindro
+  cerrado de 1 metro de radio y 2 metros de altura tiene un área total de seis pi, unos 18.85 metros
+  cuadrados.

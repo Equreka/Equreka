@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Sine ratio'
+kind: 'formula'
+level: 'intro'
+expression: '\sin\mag{\theta}=\frac{\var{a}}{\var{c}}'
+terms:
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Opposite side'
+    unit: 'metre'
+  c:
+    kind: 'symbol'
+    label:
+      en: 'Hypotenuse'
+    unit: 'metre'
+solutions:
+  \theta: 'asin(a / c)'
+  a: 'c * sin(theta)'
+  c: 'a / sin(theta)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q152415'
+categories:
+  - 'mathematics'
+branches:
+  - 'trigonometry'
+aliases:
+  - 'sine'
+  - 'sin'
+  - 'sine of an angle'
+  - 'opposite over hypotenuse'
+  - 'seno'
+  - 'razón seno'
+  - 'seno de un ángulo'
+references:
+  - title: 'OpenStax, Algebra and Trigonometry 2e, 7.2 Right Triangle Trigonometry'
+    url: 'https://openstax.org/books/algebra-and-trigonometry-2e/pages/7-2-right-triangle-trigonometry'
+  - title: 'OpenStax, Precalculus 2e, 5.4 Right Triangle Trigonometry'
+    url: 'https://openstax.org/books/precalculus-2e/pages/5-4-right-triangle-trigonometry'
+  - title: 'MacTutor History of Mathematics, The trigonometric functions'
+    url: 'https://mathshistory.st-andrews.ac.uk/HistTopics/Trigonometric_functions/'
+description:
+  en: >-
+    The sine ratio defines the sine of an acute angle in a right triangle as a quotient of two
+    lengths: the side facing the angle over the hypotenuse. It is the first of the three basic
+    ratios of school trigonometry, the SOH of the mnemonic SOH CAH TOA, and it turns an angle into a
+    pure number between zero and one.
+
+    In the formula, $\mag{\theta}$ is one of the two acute angles of the triangle, measured in
+    radians in the SI and commonly entered in degrees. The side $\var{a}$ faces that angle, and
+    $\var{c}$ is the hypotenuse, the side facing the right angle. Both are lengths in metres, though
+    any shared unit serves, since units cancel in the quotient. All three quantities are positive,
+    and the opposite side is always shorter than the hypotenuse.
+
+    Every right triangle with the same acute angle is a scaled copy of every other, so the quotient
+    of these two sides depends on the angle alone and not on the size of the triangle. Rearranged,
+    the relation gives the opposite side as the hypotenuse times the sine, the hypotenuse as the
+    opposite side divided by the sine, and the angle through the inverse sine, written arcsin.
+
+    The right-triangle definition covers angles strictly between zero and a right angle, over which
+    the sine rises from 0 towards 1. The inverse sine returns only angles in that range here; the
+    supplement of the angle has the same sine but cannot sit inside a right triangle. The unit
+    circle extends the sine to every angle, obtuse and negative ones included, with values from -1
+    to 1.
+
+    The ratio grew out of tables of chords: around the year 500 Aryabhata tabulated half chords, in
+    effect sines, under the Sanskrit name jya. Arabic authors wrote it as jiba and later jaib,
+    meaning a fold, which Latin translators rendered as sinus, the origin of the modern word. In the
+    right triangle with sides 3, 4 and 5, the angle facing the side of 4 has a sine of 0.8.

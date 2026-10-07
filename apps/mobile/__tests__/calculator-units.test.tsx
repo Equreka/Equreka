@@ -1,6 +1,7 @@
 import { describe, expect, it, jest } from '@jest/globals';
 import { fireEvent, screen, within } from '@testing-library/react-native';
 import { CalculatorScreen } from '../features/calculator/calculator-screen';
+import { getEngineSlice } from '../shared/content/artifact';
 import type { RuntimeMath } from '../shared/math/runtime-mathjax';
 import { renderWithProvider } from './helpers/render';
 
@@ -63,7 +64,15 @@ describe('CalculatorScreen unit selection', () => {
 	});
 
 	it('renders no unit chips for unitless terms', async () => {
-		await renderWithProvider(<CalculatorScreen slug="pythagorean-theorem" />);
+		const unitless = Object.values(getEngineSlice().equations).find(
+			(equation) =>
+				equation.calculatorEnabled &&
+				Object.values(equation.terms).every(
+					(term) => term.kind === 'symbol' && term.unit === undefined,
+				),
+		);
+		expect(unitless).toBeDefined();
+		await renderWithProvider(<CalculatorScreen slug={unitless?.slug ?? ''} />);
 		expect(screen.queryByLabelText(/^Unit for /)).toBeNull();
 	});
 });

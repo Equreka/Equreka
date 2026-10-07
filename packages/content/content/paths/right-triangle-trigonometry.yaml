@@ -1,0 +1,197 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.schema.json
+name:
+  en: 'Right-triangle trigonometry'
+level: 'intro'
+prerequisites:
+  - 'geometry-of-circles-and-triangles'
+estimatedMinutes: '30'
+categories:
+  - 'mathematics'
+branches:
+  - 'trigonometry'
+  - 'geometry'
+aliases:
+  - 'SOH CAH TOA'
+  - 'trigonometric ratios'
+  - 'sine cosine tangent'
+  - 'razones trigonométricas'
+  - 'seno coseno tangente'
+  - 'trigonometría del triángulo rectángulo'
+description:
+  en: >-
+    From angles and their units to the sine, cosine and tangent ratios of a right triangle, heights
+    measured from a distance, and the laws of sines and cosines that solve any triangle.
+steps:
+  - id: 'intro'
+    kind: 'prose'
+    body:
+      en: >-
+        Trigonometry turns angles into lengths and lengths into angles. Every formula ahead stores
+        angles in radians, the SI unit, while the calculator accepts degrees and converts them.
+        Lengths carry metres, but any unit works when every side in one calculation shares it.
+  - id: 'plane-angle'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'plane-angle'
+    note:
+      en: >-
+        The quantity every trigonometric function takes as input. Note that a full turn is two pi
+        radians, so a straight angle is pi radians and a right angle half of that.
+  - id: 'degree'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'degree'
+    note:
+      en: >-
+        The everyday unit of angle: 360 degrees make a full turn, so 180 degrees equal pi radians.
+        Check which unit a calculator expects before pressing sin.
+  - id: 'triangle-angle-sum'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'triangle-angle-sum'
+    note:
+      en: >-
+        The three angles of a flat triangle always add up to a straight angle. Use it to find a
+        missing angle before computing any side.
+  - id: 'check-third-angle'
+    kind: 'check'
+    prompt:
+      en: >-
+        A right triangle has one angle of 28 degrees. What is its third angle?
+    answer:
+      en: >-
+        62 degrees. The right angle takes 90 of the 180 degrees, so the two acute angles share the
+        remaining 90, and 90 minus 28 is 62.
+  - id: 'pythagorean-theorem'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'pythagorean-theorem'
+    note:
+      en: >-
+        Lengths alone: the square of the hypotenuse equals the squares of the two legs added
+        together. It links the sides but says nothing about the angles, which is where the ratios
+        come in.
+  - id: 'naming-sides'
+    kind: 'prose'
+    body:
+      en: >-
+        Pick one acute angle and name the sides from its point of view. The hypotenuse faces the
+        right angle and is the longest side. The opposite side faces the chosen angle. The adjacent
+        side is the leg that touches the angle. Choosing the other acute angle swaps opposite and
+        adjacent, while the hypotenuse stays the same. The mnemonic SOH CAH TOA lists the three
+        ratios: sine is opposite over hypotenuse, cosine is adjacent over hypotenuse, tangent is
+        opposite over adjacent.
+  - id: 'sine-ratio'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'sine-ratio'
+    note:
+      en: >-
+        Opposite over hypotenuse. Solve it for the angle with the inverse sine, or for a side when
+        the angle is known.
+  - id: 'cosine-ratio'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'cosine-ratio'
+    note:
+      en: >-
+        Adjacent over hypotenuse: the share of the hypotenuse that lies along the adjacent leg.
+  - id: 'tangent-ratio'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'tangent-ratio'
+    note:
+      en: >-
+        Opposite over adjacent, the two legs only. It is the slope of the hypotenuse and the ratio
+        used most in measuring heights.
+  - id: 'check-three-four-five'
+    kind: 'check'
+    prompt:
+      en: >-
+        In a right triangle with sides 3, 4 and 5, what are the sine, cosine and tangent of the
+        angle facing the side of 4?
+    answer:
+      en: >-
+        The hypotenuse is 5, the opposite side is 4 and the adjacent side is 3. So the sine is 4/5,
+        or 0.8, the cosine is 3/5, or 0.6, and the tangent is 4/3, about 1.33.
+  - id: 'check-complementary'
+    kind: 'check'
+    prompt:
+      en: >-
+        Why does the cosine of one acute angle of a right triangle equal the sine of the other acute
+        angle?
+    answer:
+      en: >-
+        The two acute angles share the same hypotenuse, and the leg adjacent to one is the leg
+        opposite the other. Both ratios therefore divide the same leg by the same hypotenuse.
+  - id: 'height-from-elevation-angle'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'height-from-elevation-angle'
+    note:
+      en: >-
+        The tangent ratio at work outdoors: measure the horizontal distance to the foot of a tree,
+        the angle up to its top and the height of the eye, then add the eye height to the distance
+        times the tangent.
+  - id: 'check-tree'
+    kind: 'check'
+    prompt:
+      en: >-
+        Standing 30 metres from a tree on level ground, with eyes 1.5 metres up, an observer sees
+        the top at 45 degrees. How tall is the tree?
+    answer:
+      en: >-
+        31.5 metres. The tangent of 45 degrees is 1, so the part above eye level equals the
+        distance, 30 metres, and the eye height adds 1.5 metres.
+  - id: 'beyond-right-triangles'
+    kind: 'prose'
+    body:
+      en: >-
+        The three ratios need a right angle. A triangle without one is solved by two laws that apply
+        to every triangle: the law of sines pairs each side with the angle facing it, and the law of
+        cosines connects three sides with one angle. Two sides and the angle between them also give
+        the area directly.
+  - id: 'law-of-sines'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'law-of-sines'
+    note:
+      en: >-
+        Use it when an angle and the side facing it are known. Solving for an angle can give two
+        answers, an acute angle and its obtuse supplement: check which one fits the triangle.
+  - id: 'law-of-cosines'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'law-of-cosines'
+    note:
+      en: >-
+        Use it with two sides and the angle between them, or with all three sides.
+  - id: 'check-cosines-right-angle'
+    kind: 'check'
+    prompt:
+      en: >-
+        What does the law of cosines become when the angle between the two known sides is a right
+        angle?
+    answer:
+      en: >-
+        The Pythagorean theorem. The cosine of a right angle is zero, so the correction term
+        vanishes and the square of the third side equals the sum of the squares of the other two.
+  - id: 'triangle-area-sas'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'triangle-area-sas'
+    note:
+      en: >-
+        Half the product of two sides times the sine of the angle between them. With a right angle
+        the sine is 1 and the rule becomes half the product of the two legs.

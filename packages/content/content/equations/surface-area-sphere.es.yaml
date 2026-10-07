@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Área total de la esfera'
+description: >-
+  El área de la esfera es igual a cuatro veces pi por el cuadrado de su radio, exactamente cuatro
+  veces el área de un círculo plano del mismo radio. Esta fórmula de la geometría del espacio da el
+  área de la superficie curva y cerrada de una bola, desde una burbuja de jabón hasta un planeta, a
+  partir de una sola longitud medida.
+
+  En la fórmula, $\mag{A}$ es el área, medida en metros cuadrados, y $\var{r}$ es el radio, la
+  distancia del centro a la superficie, medido en metros. La constante $\const{\pi}$ es un número
+  puro cercano a 3.14159. Ni el área ni el radio son negativos. Una circunferencia máxima, la mayor
+  que puede trazarse sobre la esfera, comparte el radio de la esfera, y la superficie entera
+  equivale a cuatro de los círculos que limita.
+
+  Duplicar el radio multiplica el área por cuatro, mientras que el volumen crece ocho veces, de modo
+  que una esfera grande tiene menos superficie por cada unidad de volumen que una pequeña. El área
+  también es igual a la de la cara curva del cilindro que encierra exactamente a la esfera, cuya
+  altura es el doble del radio: dos pi por el radio por el doble del radio. Despejar el radio exige
+  la raíz cuadrada del área dividida entre cuatro pi.
+
+  La fórmula vale para una esfera perfecta. Los elipsoides y otros cuerpos achatados o alargados
+  necesitan fórmulas distintas, y la superficie curva de una semiesfera es la mitad del total, sin
+  su base plana. Todas las longitudes deben compartir una unidad, y el área resulta entonces en esa
+  unidad al cuadrado.
+
+  En Sobre la esfera y el cilindro, Arquímedes demostró que la superficie de una esfera equivale a
+  cuatro veces el área de un círculo máximo, el mayor que puede trazarse sobre ella, y a dos tercios
+  de la superficie del cilindro circunscrito con sus dos bases incluidas. Una bola de 1 metro de
+  radio tiene un área de unos 12.57 metros cuadrados.

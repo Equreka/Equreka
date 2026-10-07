@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Arc length of a circle'
+kind: 'formula'
+level: 'intro'
+expression: '\var{s}=\var{r}\mag{\theta}'
+terms:
+  s:
+    kind: 'symbol'
+    label:
+      en: 'Arc length'
+    unit: 'metre'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+solutions:
+  s: 'r * theta'
+  r: 's / theta'
+  \theta: 's / r'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'length of a circular arc'
+  - 'circular arc length'
+  - 's = r theta'
+  - 'longitud de arco'
+references:
+  - title: 'OpenStax, Precalculus 2e, 5.1 Angles'
+    url: 'https://openstax.org/books/precalculus-2e/pages/5-1-angles'
+  - title: 'E. W. Weisstein, Circular Sector, MathWorld'
+    url: 'https://mathworld.wolfram.com/CircularSector.html'
+description:
+  en: >-
+    The arc length of a circle is the distance measured along the curve between two points of the
+    circle, and it equals the radius multiplied by the central angle in radians. The central angle
+    is the angle at the centre between the two radii that end at those points. In plane geometry
+    the relation is also what defines the radian as a measure of angle.
+
+    In the formula, $\var{s}$ is the length of the arc and $\var{r}$ the radius, both in metres, and
+    $\mag{\theta}$ is the central angle in radians. All are taken as positive. An angle measured in
+    degrees must first be converted, by multiplying it by pi and dividing by 180; with the angle in
+    degrees the plain product gives a wrong length. A full turn is two pi radians, which recovers
+    the whole circumference.
+
+    One radian is the angle whose arc is exactly as long as the radius, so an angle in radians
+    counts how many radii fit along its arc. Because arcs of the same angle on different circles are
+    scaled copies, the arc grows in proportion to both the radius and the angle. The ratio of the
+    arc to the radius is a ratio of two lengths, which is why the radian behaves as a pure number in
+    calculations.
+
+    The rule applies to arcs of a circle in the flat plane, with the angle between zero and a full
+    turn for an arc that does not overlap itself; angles beyond a full turn describe an arc wound
+    round more than once. For a curve that is not circular the length must be found by other means,
+    and the straight chord between the ends is always shorter than the arc.
+
+    The relation converts rotation into distance for wheels, pulleys and gears, and gives distances
+    along a meridian from differences in latitude. A quarter turn on a circle of radius 10 metres
+    traces an arc of about 15.7 metres.

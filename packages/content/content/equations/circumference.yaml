@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Circumference of a circle'
+kind: 'formula'
+level: 'intro'
+expression: '\var{C}=2\const{\pi}\var{r}'
+terms:
+  C:
+    kind: 'symbol'
+    label:
+      en: 'Circumference'
+    unit: 'metre'
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+solutions:
+  C: '2 * pi * r'
+  r: 'C / (2 * pi)'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'circle circumference'
+  - 'perimeter of a circle'
+  - '2 pi r'
+  - 'pi times diameter'
+  - 'longitud de la circunferencia'
+  - 'perímetro del círculo'
+references:
+  - title: 'OpenStax, Contemporary Mathematics, 10.4 Polygons, Perimeter, and Circumference'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/10-4-polygons-perimeter-and-circumference'
+  - title: 'MacTutor History of Mathematics, Archimedes of Syracuse'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Archimedes/'
+  - title: 'MacTutor History of Mathematics, A history of Pi'
+    url: 'https://mathshistory.st-andrews.ac.uk/HistTopics/Pi_through_the_ages/'
+description:
+  en: >-
+    The circumference of a circle is the length of the curve that bounds it, the perimeter of a
+    circle, and it equals two times pi times the radius, or pi times the diameter. In plane geometry
+    the relation is the definition of pi turned around: for every circle, the circumference divided
+    by the diameter gives the same number.
+
+    In the formula, $\var{C}$ is the circumference and $\var{r}$ is the radius, the distance from
+    the centre to any point of the circle; both are lengths, measured in metres in the SI, and both
+    are positive. The constant $\const{\pi}$ is a pure number close to 3.14159. The diameter, a
+    chord through the centre, is twice the radius, which is why the two forms of the rule agree.
+
+    All circles are scaled copies of one another, so the ratio of the boundary length to the
+    diameter cannot depend on size, and that fixed ratio is pi. The circumference therefore grows in
+    direct proportion to the radius: doubling the radius doubles the boundary, while the enclosed
+    area grows four times. Pi is irrational, so a measured or computed circumference is always a
+    rounded value; school exercises often take 3.14.
+
+    The formula holds for a circle in the flat plane. On a curved surface, such as a sphere, a
+    circle drawn at a given distance from its centre has a shorter boundary. The boundary of an
+    ellipse has no comparably simple formula.
+
+    Archimedes enclosed a circle between inscribed and circumscribed polygons of 96 sides and showed
+    that pi lies between 3 10/71 and 3 1/7. William Jones first used the letter pi for this ratio in
+    1706, and Leonhard Euler adopted it in 1737. A bicycle wheel of radius 0.35 metres rolls about
+    2.2 metres per turn.

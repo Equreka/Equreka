@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Volumen del prisma rectangular'
+terms:
+  l:
+    label: 'Largo'
+  w:
+    label: 'Ancho'
+  h:
+    label: 'Altura'
+description: >-
+  El volumen del prisma rectangular es igual al producto de su largo, su ancho y su altura. Un
+  prisma rectangular, también llamado ortoedro, caja rectangular o paralelepípedo rectangular, es un
+  sólido limitado por seis caras rectangulares unidas en ángulo recto, y esta regla de la geometría
+  del espacio da el espacio interior de cualquier caja, habitación, ladrillo o recipiente con esa
+  forma.
+
+  En la fórmula, $\mag{V}$ es el volumen, medido en metros cúbicos, y $\var{l}$, $\var{w}$ y
+  $\var{h}$ son el largo, el ancho y la altura del prisma, las tres aristas que concurren en
+  cualquier vértice, medidas en metros. Ninguno es negativo, así que no hace falta ningún convenio
+  de signos. Las tres aristas pueden nombrarse en cualquier orden, porque el producto no depende de
+  cuál se llame altura.
+
+  El largo por el ancho es el área de la base, y la altura cuenta cuántas capas de esa base contiene
+  el sólido, de modo que el volumen es el área de la base por la altura, la regla de todo prisma
+  recto. Llenar la caja con cubos unidad muestra lo mismo: una caja de dos metros de largo, tres de
+  ancho y cuatro de alto contiene cuatro capas de seis cubos unidad, 24 metros cúbicos en total.
+  Si se conocen el volumen y dos aristas, la tercera es el volumen dividido entre su producto. El
+  cubo es el caso particular de tres aristas iguales.
+
+  La fórmula exige caras rectangulares planas unidas en ángulo recto en cada vértice. Las tres
+  aristas deben usar la misma unidad: un largo en metros y un ancho en centímetros deben convertirse
+  antes de multiplicarse. El volumen es distinto del área total, la suma de las áreas de las seis
+  caras.
+
+  La regla sirve para dimensionar habitaciones, acuarios, cajas de envío y losas de concreto u
+  hormigón. Una habitación de 5 metros de largo, 4 metros de ancho y 2.5 metros de alto encierra 50
+  metros cúbicos de aire.

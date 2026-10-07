@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Número de diagonales de un polígono'
+terms:
+  D:
+    label: 'Número de diagonales'
+  n:
+    label: 'Número de lados'
+description: >-
+  El número de diagonales de un polígono de n lados es igual a n por n menos tres, dividido entre
+  dos. Una diagonal es un segmento que une dos vértices de un polígono que no son contiguos, de
+  modo que no es un lado. La regla de conteo de la geometría plana depende solo del número de
+  vértices, que coincide con el número de lados.
+
+  En la fórmula, $\var{D}$ es el número de diagonales y $\var{n}$ el número de lados. Ambos son
+  números enteros y números puros: el número de lados es al menos tres, y el de diagonales es cero
+  o más. Un triángulo no tiene diagonales, un cuadrilátero tiene dos y un pentágono cinco.
+
+  Desde cualquier vértice se pueden trazar segmentos a todos los demás vértices salvo a sí mismo y
+  a sus dos vecinos, lo que da n menos tres diagonales por vértice. Multiplicar por los n vértices
+  cuenta cada diagonal dos veces, una desde cada extremo, así que el producto se divide entre dos.
+  El mismo recuento resulta de elegir dos de los n vértices cualesquiera, lo que da n por n menos
+  uno entre dos segmentos, y quitar los n lados. El número de diagonales crece aproximadamente con
+  el cuadrado del número de lados.
+
+  El recuento vale para cualquier polígono, convexo o no, porque cuenta pares de vértices y no
+  tiene en cuenta si la diagonal queda dentro de la figura. Despejar el número de lados lleva a una
+  ecuación de segundo grado con dos raíces: la primera, tres más la raíz cuadrada de nueve más ocho
+  veces el número de diagonales, todo entre dos, es la que tiene sentido; la segunda nunca es
+  positiva y no describe ningún polígono. Un número de diagonales que da un número fraccionario de
+  lados no corresponde a ningún polígono.
+
+  La regla cuenta los enlaces necesarios para unir cada par de puntos no contiguos de un anillo,
+  como una ronda de apretones de manos entre personas que no se sientan una al lado de la otra. Un
+  octógono tiene 20 diagonales.

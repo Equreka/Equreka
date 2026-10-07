@@ -1,0 +1,96 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Distance between two points'
+kind: 'formula'
+level: 'intro'
+expression: '\var{d}=\sqrt{\left(\var{x_{2}}-\var{x_{1}}\right)^{2}+\left(\var{y_{2}}-\var{y_{1}}\right)^{2}}'
+terms:
+  d:
+    kind: 'symbol'
+    label:
+      en: 'Distance'
+    unit: 'metre'
+  x_{1}:
+    kind: 'symbol'
+    label:
+      en: 'x-coordinate of the first point'
+    unit: 'metre'
+  y_{1}:
+    kind: 'symbol'
+    label:
+      en: 'y-coordinate of the first point'
+    unit: 'metre'
+  x_{2}:
+    kind: 'symbol'
+    label:
+      en: 'x-coordinate of the second point'
+    unit: 'metre'
+  y_{2}:
+    kind: 'symbol'
+    label:
+      en: 'y-coordinate of the second point'
+    unit: 'metre'
+solutions:
+  d: 'sqrt((x_2 - x_1)^2 + (y_2 - y_1)^2)'
+  x_{2}:
+    - 'x_1 + sqrt(d^2 - (y_2 - y_1)^2)'
+    - 'x_1 - sqrt(d^2 - (y_2 - y_1)^2)'
+  x_{1}:
+    - 'x_2 - sqrt(d^2 - (y_2 - y_1)^2)'
+    - 'x_2 + sqrt(d^2 - (y_2 - y_1)^2)'
+  y_{2}:
+    - 'y_1 + sqrt(d^2 - (x_2 - x_1)^2)'
+    - 'y_1 - sqrt(d^2 - (x_2 - x_1)^2)'
+  y_{1}:
+    - 'y_2 - sqrt(d^2 - (x_2 - x_1)^2)'
+    - 'y_2 + sqrt(d^2 - (x_2 - x_1)^2)'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'distance formula'
+  - 'euclidean distance'
+  - 'distance between points'
+  - 'length of a segment'
+  - 'fórmula de la distancia'
+  - 'distancia euclídea'
+references:
+  - title: 'OpenStax, Intermediate Algebra 2e, 11.1 Distance and Midpoint Formulas; Circles'
+    url: 'https://openstax.org/books/intermediate-algebra-2e/pages/11-1-distance-and-midpoint-formulas-circles'
+  - title: 'E. W. Weisstein, Distance, MathWorld'
+    url: 'https://mathworld.wolfram.com/Distance.html'
+  - title: 'MacTutor History of Mathematics, René Descartes'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Descartes/'
+description:
+  en: >-
+    The distance between two points in the coordinate plane is the square root of the sum of the
+    squares of the differences of their coordinates. Known as the distance formula, it gives the
+    length of the straight segment joining two points from their Cartesian coordinates, and it is
+    the Pythagorean theorem written in the language of analytic geometry.
+
+    In the formula, $\var{d}$ is the distance, $\var{x_{1}}$ and $\var{y_{1}}$ are the coordinates
+    of the first point, and $\var{x_{2}}$ and $\var{y_{2}}$ those of the second, all measured in
+    metres or in any other common unit of length. A coordinate can be positive, negative or zero
+    according to the side of each axis on which the point lies, but the distance is never negative.
+    Swapping the two points changes the sign of each difference and leaves the distance unchanged,
+    because each difference is squared.
+
+    The horizontal difference and the vertical difference are the legs of a right triangle whose
+    hypotenuse is the segment between the points, so the distance is that hypotenuse. Solving for
+    one coordinate gives two answers, because two positions on the same horizontal or vertical line,
+    one on each side, lie at the required distance; the smaller coordinate is listed first for the
+    first point and the larger one for the second, so that the second point lies to the right of or
+    above the first. A circle is the set of points at one fixed distance from a centre,
+    which is why its equation is this formula squared.
+
+    The formula assumes perpendicular axes with the same scale, the usual Cartesian plane, and
+    straight-line distance in a flat plane. Distances along roads or across the curved surface of
+    the Earth follow other rules. In space, a third squared difference of coordinates joins the
+    other two under the root.
+
+    René Descartes' La Géométrie, published in 1637 as one of three appendices to his Discourse on
+    Method, applied algebra to geometry. The points with coordinates 1 and 2 and with
+    coordinates 4 and 6 lie 5 units apart.

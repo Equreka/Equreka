@@ -1,0 +1,82 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Space diagonal of a rectangular prism'
+kind: 'formula'
+level: 'intro'
+expression: '\var{d}=\sqrt{\var{l}^{2}+\var{w}^{2}+\var{h}^{2}}'
+terms:
+  d:
+    kind: 'symbol'
+    label:
+      en: 'Space diagonal'
+    unit: 'metre'
+  l:
+    kind: 'symbol'
+    label:
+      en: 'Length'
+    unit: 'metre'
+  w:
+    kind: 'symbol'
+    label:
+      en: 'Width'
+    unit: 'metre'
+  h:
+    kind: 'symbol'
+    label:
+      en: 'Height'
+    unit: 'metre'
+solutions:
+  d: 'sqrt(l^2 + w^2 + h^2)'
+  l: 'sqrt(d^2 - w^2 - h^2)'
+  w: 'sqrt(d^2 - l^2 - h^2)'
+  h: 'sqrt(d^2 - l^2 - w^2)'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'body diagonal'
+  - 'diagonal of a cuboid'
+  - 'diagonal of a box'
+  - 'space diagonal of a cuboid'
+  - 'diagonal of a rectangular prism'
+  - 'diagonal del ortoedro'
+  - 'diagonal espacial'
+references:
+  - title: 'E. W. Weisstein, Cuboid, MathWorld'
+    url: 'https://mathworld.wolfram.com/Cuboid.html'
+  - title: 'E. W. Weisstein, Space Diagonal, MathWorld'
+    url: 'https://mathworld.wolfram.com/SpaceDiagonal.html'
+  - title: 'E. W. Weisstein, Cube, MathWorld'
+    url: 'https://mathworld.wolfram.com/Cube.html'
+  - title: 'E. W. Weisstein, Distance, MathWorld'
+    url: 'https://mathworld.wolfram.com/Distance.html'
+description:
+  en: >-
+    The space diagonal of a rectangular prism is the straight segment that joins two opposite
+    corners through the interior of the solid, and its length is the square root of the sum of the
+    squares of the length, width and height. Also called the body diagonal of a cuboid or box, it
+    is the longest segment that fits inside the solid, and the formula extends the Pythagorean
+    theorem from the plane to three dimensions.
+
+    In the formula, $\var{d}$ is the length of the space diagonal, and $\var{l}$, $\var{w}$ and
+    $\var{h}$ are the length, width and height of the prism, all measured in metres. Every one of
+    them is positive, so no sign convention is needed. The diagonal joins two vertices that share
+    no face, and a rectangular prism has four such diagonals, all of the same length.
+
+    The formula follows from two uses of the Pythagorean theorem. The diagonal of the base
+    rectangle has a square equal to the length squared plus the width squared; that face diagonal
+    and the vertical edge then form the legs of a right triangle whose hypotenuse is the space
+    diagonal, and adding the height squared gives the sum of all three squares. Solving for one
+    edge subtracts the squares of the other two from the square of the diagonal, so the diagonal
+    is always longer than any single edge.
+
+    The relation requires right angles at every corner, and all four lengths must share one unit.
+    For a cube, whose three edges are equal, the space diagonal is the edge times the square root
+    of three. The same sum of squares, applied to differences of coordinates, gives the distance
+    between two points in space.
+
+    The formula tells whether a rod, pole or pipe fits inside a box, a room or a car boot. A box
+    3 metres long, 4 metres wide and 12 metres high has a space diagonal of 13 metres.

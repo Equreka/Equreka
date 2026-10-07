@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Volumen del cilindro'
+terms:
+  h:
+    label: 'Altura'
+description: >-
+  El volumen del cilindro es igual a pi por el cuadrado del radio de la base por la altura: el área
+  de la base circular multiplicada por la altura del sólido. Un cilindro circular recto es el sólido
+  limitado por dos círculos iguales y paralelos y por la superficie curva que une sus bordes, y esta
+  regla de la geometría del espacio da la capacidad de latas, tuberías, depósitos y columnas.
+
+  En la fórmula, $\mag{V}$ es el volumen, medido en metros cúbicos, $\var{r}$ es el radio de la base
+  circular, medido en metros, y $\var{h}$ es la altura, la distancia perpendicular entre las dos
+  bases, también en metros. La constante $\const{\pi}$ es un número puro cercano a 3.14159. Ninguna
+  de las magnitudes es negativa, así que no hace falta ningún convenio de signos; si se conoce el
+  diámetro en lugar del radio, el radio es su mitad.
+
+  Un cilindro es un prisma de base circular, y todo prisma recto contiene el área de su base una vez
+  por cada unidad de altura. La base es un círculo cuya área es pi por el radio al cuadrado, así que
+  apilar ese círculo hasta la altura da el volumen. Como el radio aparece al cuadrado, duplicarlo
+  multiplica el volumen por cuatro, mientras que duplicar la altura solo lo duplica. Despejar el
+  radio exige la raíz cuadrada del volumen dividido entre pi y entre la altura.
+
+  La fórmula supone bases circulares paralelas entre sí, con la altura medida perpendicularmente a
+  ellas. Un tubo hueco requiere restar el volumen del cilindro interior al del exterior. Todas las
+  longitudes deben compartir una unidad, que fija a su vez la unidad del volumen.
+
+  Los Elementos de Euclides demostraron que un cilindro contiene exactamente el triple del volumen
+  de un cono con su misma base y altura. Un depósito de 0.5 metros de radio y 2 metros de altura
+  contiene unos 1.57 metros cúbicos.

@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Surface area of a sphere'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{A}=4\const{\pi}\var{r}^{2}'
+terms:
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+solutions:
+  A: '4 * pi * r^2'
+  r: 'sqrt(A / (4 * pi))'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'sphere surface area'
+  - 'area of a sphere'
+  - 'four pi r squared'
+  - 'área de una esfera'
+  - 'área de la esfera'
+  - 'área de la superficie esférica'
+references:
+  - title: 'OpenStax, Prealgebra 2e, 9.6 Solve Geometry Applications: Volume and Surface Area'
+    url: 'https://openstax.org/books/prealgebra-2e/pages/9-6-solve-geometry-applications-volume-and-surface-area'
+  - title: 'E. W. Weisstein, Sphere, MathWorld'
+    url: 'https://mathworld.wolfram.com/Sphere.html'
+  - title: 'AMSI, Cones, Pyramids and Spheres, Teacher Module, Surface area of a sphere'
+    url: 'https://amsi.org.au/teacher_modules/Cones_Pyramids_and_Spheres.html'
+  - title: 'MacTutor History of Mathematics, Archimedes of Syracuse'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Archimedes/'
+description:
+  en: >-
+    The surface area of a sphere equals four times pi times the square of its radius, which is
+    exactly four times the area of a flat circle with the same radius. This formula of solid
+    geometry gives the area of the closed curved surface of a ball, from a soap bubble to a planet,
+    from one measured length.
+
+    In the formula, $\mag{A}$ is the surface area, measured in square metres, and $\var{r}$ is the
+    radius, the distance from the centre to the surface, measured in metres. The constant
+    $\const{\pi}$ is a pure number close to 3.14159. Neither the area nor the radius is negative. A
+    great circle, the largest circle that can be drawn on the sphere, shares the sphere's radius,
+    and the whole surface equals four of the discs it bounds.
+
+    Doubling the radius multiplies the area by four, while the volume grows eightfold, so a large
+    sphere has less surface for each unit of volume than a small one. The area also equals that of
+    the curved side of the cylinder that exactly encloses the sphere, whose height is twice the
+    radius: two pi times the radius times twice the radius. Solving for the radius takes the square
+    root of the area divided by four pi.
+
+    The formula holds for a perfect sphere. Ellipsoids and other flattened or elongated bodies need
+    different formulas, and the curved surface of a hemisphere is half of the total, without its
+    flat base. All lengths must share one unit, and the area then comes out in that unit squared.
+
+    In On the Sphere and Cylinder, Archimedes proved that a sphere's surface equals four times the
+    area of a great circle, the largest circle that can be drawn on it, and two thirds of the
+    surface of the circumscribed cylinder with its two bases included. A ball with a radius of 1
+    metre has a surface area of about 12.57 square metres.

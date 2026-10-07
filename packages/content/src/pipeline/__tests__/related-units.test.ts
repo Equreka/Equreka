@@ -12,11 +12,9 @@ describe('deriveRelatedUnits', () => {
 	it('lists the units behind each term kind once, in term order', () => {
 		const areaCircle = corpus.equations.get('area-circle');
 		const massEnergy = corpus.equations.get('mass-energy-equivalence');
-		const pythagorean = corpus.equations.get('pythagorean-theorem');
 		expect(areaCircle).toBeDefined();
 		expect(massEnergy).toBeDefined();
-		expect(pythagorean).toBeDefined();
-		if (areaCircle === undefined || massEnergy === undefined || pythagorean === undefined) {
+		if (areaCircle === undefined || massEnergy === undefined) {
 			return;
 		}
 		expect(deriveRelatedUnits(areaCircle.terms, corpus)).toEqual([
@@ -29,7 +27,6 @@ describe('deriveRelatedUnits', () => {
 			'kilogram',
 			'metre-per-second',
 		]);
-		expect(deriveRelatedUnits(pythagorean.terms, corpus)).toEqual([]);
 	});
 
 	it('follows a variable term to its defaultUnit and dedupes', () => {

@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Area of a rhombus'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{A}=\frac{\var{d_{1}}\var{d_{2}}}{2}'
+terms:
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  d_{1}:
+    kind: 'symbol'
+    label:
+      en: 'First diagonal'
+    unit: 'metre'
+  d_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Second diagonal'
+    unit: 'metre'
+solutions:
+  A: 'd_1 * d_2 / 2'
+  d_{1}: '2 * A / d_2'
+  d_{2}: '2 * A / d_1'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'rhombus area'
+  - 'area of a rhomb'
+  - 'area of a diamond'
+  - 'área del rombo'
+references:
+  - title: 'E. W. Weisstein, Rhombus, MathWorld'
+    url: 'https://mathworld.wolfram.com/Rhombus.html'
+  - title: 'OpenStax, Contemporary Mathematics, 10.6 Area'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/10-6-area'
+description:
+  en: >-
+    The area of a rhombus equals half the product of its two diagonals. A rhombus is a four-sided
+    plane figure whose sides all have the same length, a parallelogram with equal sides, often
+    drawn as a diamond. Its diagonals, the segments joining opposite corners, cross at right angles,
+    and that is what lets the plane geometry formula use them in place of a side and a height.
+
+    In the formula, $\mag{A}$ is the area in square metres, and $\var{d_{1}}$ and $\var{d_{2}}$ are
+    the lengths of the two diagonals in metres. All three are positive, and the diagonals may be
+    numbered in either order. In general the diagonals differ in length; they are equal only when
+    the rhombus is a square.
+
+    The two diagonals bisect each other at right angles, so they cut the rhombus into four
+    congruent right triangles whose legs are half of each diagonal. Those four triangles fit exactly
+    inside the rectangle whose sides are the two diagonals, filling half of it, which gives half the
+    product. The same rectangle argument works for a kite, a quadrilateral with two pairs of equal
+    adjacent sides whose diagonals are also perpendicular.
+
+    The rule holds for any quadrilateral whose diagonals meet at right angles, but for other
+    shapes, such as a rectangle that is not a square, half the product of the diagonals is not
+    the area. A rhombus can also be treated as a parallelogram, so its area is equally a side times
+    the perpendicular height between opposite sides. Both diagonals must be in the same unit.
+
+    The formula is used for tiles, lattice openings and kites, where the diagonals are easier to
+    measure than the height. A rhombus with diagonals of 6 and 4 metres covers 12 square metres.

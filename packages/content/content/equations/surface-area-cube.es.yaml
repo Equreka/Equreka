@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Área total del cubo'
+terms:
+  a:
+    label: 'Longitud de la arista'
+description: >-
+  El área total del cubo es seis veces el cuadrado de la longitud de su arista: la suma de las áreas
+  de las seis caras cuadradas que limitan el sólido. Mide cuánto material cubriría un cubo por
+  completo, como el cartón de una caja o la pintura de un bloque, y es una de las primeras reglas de
+  superficie de la geometría del espacio.
+
+  En la fórmula, $\mag{A}$ es el área total, medida en metros cuadrados, y $\var{a}$ es la longitud
+  de la arista del cubo, medida en metros. Ninguna de las dos es negativa, así que no hace falta
+  ningún convenio de signos. El área cuenta todas las caras, incluidas la base y la cara superior;
+  el área lateral, solo las cuatro caras de los costados, es cuatro sextos de ella.
+
+  Cada cara del cubo es un cuadrado cuyo lado es la arista, así que cada una tiene por área la
+  arista al cuadrado, y el cubo tiene seis caras de ese tamaño. Desplegar el cubo en una red plana
+  de seis cuadrados unidos muestra la misma suma. Como la arista aparece al cuadrado, duplicarla
+  multiplica el área total por cuatro mientras el volumen crece ocho veces, de modo que la razón
+  entre superficie y volumen disminuye a medida que el cubo crece. La arista se obtiene de un área
+  conocida como la raíz cuadrada de su sexta parte.
+
+  La regla vale para un sólido cuyas seis caras son cuadrados iguales unidos en ángulo recto. Una
+  caja de aristas desiguales tiene en cambio tres pares de caras rectangulares, y su área es el
+  doble de la suma de los tres productos de aristas tomadas de dos en dos. La arista y el área deben
+  usar unidades coherentes: una arista en centímetros da un área en centímetros cuadrados. El área
+  total es distinta del volumen, que mide el espacio interior y crece con el cubo de la arista.
+
+  La fórmula permite estimar embalajes, pintura y el calor que un cubo intercambia por sus caras. Un
+  cubo de 2 metros de arista tiene un área total de 24 metros cuadrados.
