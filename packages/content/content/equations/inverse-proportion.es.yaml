@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Proporcionalidad inversa'
+terms:
+  y:
+    label: 'Cantidad dependiente'
+  k:
+    label: 'Constante de proporcionalidad'
+  x:
+    label: 'Cantidad independiente'
+description: >-
+  La proporcionalidad inversa, o variación inversa, es la relación entre dos cantidades cuyo
+  producto se mantiene constante: cuando una se multiplica por cierto factor, la otra se divide
+  entre el mismo factor. Una cantidad es igual a una constante fija dividida entre la otra, y la
+  gráfica de la relación es una hipérbola que se acerca a ambos ejes sin llegar nunca a tocarlos.
+
+  En la fórmula, $\var{x}$ es la cantidad independiente, $\var{y}$ la cantidad que depende de ella y
+  $\var{k}$ la constante de proporcionalidad, o constante de variación, que nunca es cero. La unidad
+  de $\var{k}$ es el producto de las unidades de las otras dos, como los días de trabajo por persona
+  que exige una tarea; escritos como números puros, los términos valen en cualquier sistema de
+  unidades coherente. La cantidad independiente no puede ser cero. Con una constante positiva ambas
+  cantidades tienen el mismo signo, y cuando una crece la otra disminuye hacia cero.
+
+  La constante se obtiene de un par de valores conocido multiplicándolos: si $\var{y}$ vale 20
+  cuando $\var{x}$ vale 8, la constante es 160. Duplicar $\var{x}$ reduce entonces $\var{y}$ a la
+  mitad, y triplicarla divide $\var{y}$ entre tres. Sustituir $\var{x}$ por su inverso convierte la
+  relación en una proporcionalidad directa entre $\var{y}$ y uno entre $\var{x}$, que es como se
+  reconoce la proporcionalidad inversa en datos medidos: esas dos cantidades representadas una
+  frente a otra quedan sobre una recta que atraviesa el origen.
+
+  Las cantidades reales siguen la relación solo dentro de ciertos límites. El tiempo que lleva un
+  trabajo disminuye en proporción inversa al número de trabajadores solo mientras la tarea se
+  reparte por igual y los trabajadores no se estorban entre sí. La relación difiere de una recta
+  decreciente, que también baja al crecer x pero no mantiene fijo el producto. Leyes afines dividen,
+  en cambio, entre una potencia de x, como su cuadrado o su cubo.
+
+  Entre los ejemplos están el tiempo de viaje en una distancia fija frente a la rapidez, la presión
+  de un gas a temperatura constante frente a su volumen y el tamaño de partes iguales frente al
+  número de personas que reparten. Un viaje de 120 kilómetros dura dos horas a 60 kilómetros por
+  hora y una hora a 120.

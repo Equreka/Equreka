@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Addition rule'
+kind: 'equation'
+level: 'intro'
+expression: '\var{P(A\cup B)}=\var{P(A)}+\var{P(B)}-\var{P(A\cap B)}'
+terms:
+  P(A\cup B):
+    kind: 'symbol'
+    identifier: 'P_AorB'
+    label:
+      en: 'Probability of A or B'
+  P(A):
+    kind: 'symbol'
+    identifier: 'P_A'
+    label:
+      en: 'Probability of A'
+  P(B):
+    kind: 'symbol'
+    identifier: 'P_B'
+    label:
+      en: 'Probability of B'
+  P(A\cap B):
+    kind: 'symbol'
+    identifier: 'P_AandB'
+    label:
+      en: 'Probability of A and B'
+solutions:
+  P(A\cup B): 'P_A + P_B - P_AandB'
+  P(A): 'P_AorB - P_B + P_AandB'
+  P(B): 'P_AorB - P_A + P_AandB'
+  P(A\cap B): 'P_A + P_B - P_AorB'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'statistics-and-probability'
+aliases:
+  - 'addition rule of probability'
+  - 'general addition rule'
+  - 'sum rule of probability'
+  - 'probability of a union'
+  - 'or rule'
+  - 'regla de la adición de la probabilidad'
+  - 'sucesos incompatibles'
+  - 'sucesos mutuamente excluyentes'
+  - 'regla de la suma'
+  - 'probabilidad de la unión'
+references:
+  - title: 'OpenStax, Introductory Statistics 2e, 3.3 Two Basic Rules of Probability'
+    url: 'https://openstax.org/books/introductory-statistics-2e/pages/3-3-two-basic-rules-of-probability'
+  - title: 'OpenStax, Precalculus, 11.7 Probability'
+    url: 'https://openstax.org/books/precalculus/pages/11-7-probability'
+description:
+  en: >-
+    The addition rule of probability gives the chance that at least one of two events happens: the
+    probability of A or B equals the probability of A plus the probability of B, minus the
+    probability that both happen together. It is the general rule for the union of two events, also
+    called the "or" rule, and it holds whether or not the events can occur at the same time.
+
+    In the equation, $\var{P(A\cup B)}$ is the probability of the union, the event that A occurs, B
+    occurs or both occur. $\var{P(A)}$ and $\var{P(B)}$ are the probabilities of each event alone,
+    and $\var{P(A\cap B)}$ is the probability of their intersection, both events occurring on the
+    same trial. All four are pure numbers from 0 to 1, never negative.
+
+    Adding the two single probabilities counts every outcome shared by A and B twice, once inside
+    each event. Subtracting the probability of the intersection removes the second copy, so each
+    outcome of the union is counted exactly once. As a consequence the union is never more likely
+    than the two events added together, and never less likely than the more probable of the two.
+
+    When the events are mutually exclusive, meaning they share no outcome, the intersection has
+    probability zero and the rule reduces to a plain sum. Applying that shortcut to events that can
+    happen together overstates the answer. The rule covers exactly two events; for three or more,
+    the inclusion–exclusion principle adds and subtracts the probabilities of every overlap in turn.
+    Every probability must refer to the same experiment and the same sample space.
+
+    Card games give a direct application: one card drawn from a standard 52-card deck is a heart or
+    a seven with probability 1/4 + 1/13 − 1/52 = 4/13, since the seven of hearts belongs to both
+    events.

@@ -1,0 +1,86 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Quadratic formula'
+kind: 'formula'
+level: 'intro'
+expression: '\var{a}\var{x}^{2}+\var{b}\var{x}+\var{c}=0'
+terms:
+  x:
+    kind: 'symbol'
+    label:
+      en: 'Root'
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Quadratic coefficient'
+  b:
+    kind: 'symbol'
+    label:
+      en: 'Linear coefficient'
+  c:
+    kind: 'symbol'
+    label:
+      en: 'Constant term'
+solutions:
+  x:
+    - '(-b + sqrt(b^2 - 4 * a * c)) / (2 * a)'
+    - '(-b - sqrt(b^2 - 4 * a * c)) / (2 * a)'
+  a: '-(b * x + c) / x^2'
+  b: '-(a * x^2 + c) / x'
+  c: '-(a * x^2 + b * x)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q15909572'
+categories:
+  - 'mathematics'
+branches:
+  - 'algebra'
+aliases:
+  - 'quadratic equation'
+  - 'roots of a quadratic'
+  - 'second-degree equation'
+  - 'abc formula'
+  - 'ecuación de segundo grado'
+  - 'fórmula cuadrática'
+  - 'fórmula resolvente'
+references:
+  - title: 'OpenStax, College Algebra 2e, 2.5 Quadratic Equations'
+    url: 'https://openstax.org/books/college-algebra-2e/pages/2-5-quadratic-equations'
+  - title: 'E. W. Weisstein, Quadratic Formula, MathWorld'
+    url: 'https://mathworld.wolfram.com/QuadraticFormula.html'
+  - title: 'MacTutor History of Mathematics, Quadratic, cubic and quartic equations'
+    url: 'https://mathshistory.st-andrews.ac.uk/HistTopics/Quadratic_etc_equations/'
+description:
+  en: >-
+    The quadratic formula expresses the roots of a quadratic equation, the second-degree polynomial
+    equation in one unknown that combines the square of the unknown, its first power and a constant
+    term and sets the sum equal to zero. It is the general method of school algebra for solving such
+    an equation, including every case that does not factor neatly, and it delivers both solutions in
+    one expression.
+
+    In the standard form, $\var{x}$ is the unknown, $\var{a}$ is the coefficient of its square,
+    $\var{b}$ the coefficient of its first power and $\var{c}$ the constant term. All four are
+    treated here as pure numbers; when the equation models a measurement, each coefficient carries
+    whatever unit keeps the three added terms consistent. The coefficient $\var{a}$ must differ from
+    zero, otherwise the equation is linear, while $\var{b}$ and $\var{c}$ may be positive, negative
+    or zero. A negative root is as valid as a positive one unless the context, such as a length or
+    an elapsed time, excludes it.
+
+    Isolating the unknown gives
+    $$\var{x}=\frac{-\var{b}\pm\sqrt{\var{b}^{2}-4\var{a}\var{c}}}{2\var{a}}$$ The derivation
+    completes the square: divide by $\var{a}$, move the constant to the other side, add the square
+    of half the new first-power coefficient to both sides, then take square roots. The plus sign and
+    the minus sign produce the two roots, placed symmetrically about the midpoint
+    $-\var{b}/(2\var{a})$.
+
+    The expression under the radical is the discriminant. With real coefficients, a positive
+    discriminant yields two different real roots, a zero discriminant one repeated root, and a
+    negative discriminant a pair of complex roots that no real calculation returns. An equivalent
+    rearrangement places the radical in the denominator; it is valid whenever that denominator is
+    not zero.
+
+    Babylonian scribes of about 1800 BC solved problems that lead to quadratic equations by a
+    procedure equal to completing the square, always with positive answers. Around 800, al-Khwarizmi
+    sorted quadratics into six types and gave for each a numerical rule equivalent to the formula,
+    proved geometrically. With coefficients 1, 5 and 1 the roots are about -0.209 and -4.791.

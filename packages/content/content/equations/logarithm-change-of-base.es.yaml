@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Fórmula del cambio de base de logaritmos'
+terms:
+  y:
+    label: 'Logaritmo de x en base b'
+  x:
+    label: 'Argumento'
+  b:
+    label: 'Base'
+description: >-
+  La fórmula del cambio de base de logaritmos expresa el logaritmo de un número en cualquier base
+  como el logaritmo natural del número dividido entre el logaritmo natural de la base. Permite pasar
+  de una base de logaritmos a otra y es la forma en que una calculadora que solo tiene teclas de
+  logaritmo natural y decimal evalúa un logaritmo en base 2, 5 o cualquier otra base positiva
+  distinta de uno.
+
+  En la fórmula, $\var{y}$ es el logaritmo de $\var{x}$ en base $\var{b}$, el exponente al que hay
+  que elevar $\var{b}$ para obtener $\var{x}$. El argumento $\var{x}$ es un número positivo, y la
+  base $\var{b}$ es positiva y distinta de 1. Los tres son números puros. El logaritmo es negativo
+  cuando el argumento y la base quedan a lados opuestos de 1, positivo cuando quedan del mismo lado
+  y cero cuando el argumento es 1.
+
+  Si $\var{y}$ es el logaritmo, entonces $\var{b}$ elevado a $\var{y}$ es igual a $\var{x}$. Al
+  tomar el logaritmo natural de ambos miembros y aplicar la regla de la potencia, esto se convierte
+  en $\var{y}$ por el logaritmo de la base igual al logaritmo del argumento, y al dividir se despeja
+  $\var{y}$. Los mismos pasos sirven con cualquier otra base nueva, por ejemplo la base 10:
+  $$\log_{\var{b}}\var{x}=\frac{\log_{10}\var{x}}{\log_{10}\var{b}}$$ Por tanto, todas las funciones
+  logaritmo son múltiplos constantes unas de otras.
+
+  La regla necesita que todos los logaritmos que intervienen estén definidos: argumentos positivos y
+  bases positivas distintas de 1. Una base igual a 1 pondría un cero en el denominador, y no existe
+  logaritmo real de un argumento nulo o negativo.
+
+  John Napier expuso sus logaritmos en la Mirifici logarithmorum canonis descriptio de 1614, y Henry
+  Briggs, tras sus conversaciones con Napier, construyó tablas en base 10 y publicó su primera obra
+  sobre ellas en 1617. El cambio de base enlaza esas tablas con cualquier otra base: el logaritmo de
+  36 en base 5 vale aproximadamente 2.2266.

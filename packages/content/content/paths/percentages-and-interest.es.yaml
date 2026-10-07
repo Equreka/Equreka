@@ -1,0 +1,106 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.locale.schema.json
+name: 'Porcentajes e interés'
+description: >-
+  De los porcentajes y la proporcionalidad al interés simple, compuesto y continuo y al valor
+  presente: la aritmética de precios, ahorros y préstamos, y cada fórmula despejada en cualquiera de
+  sus términos.
+steps:
+  intro:
+    body: >-
+      Cada fórmula que sigue compara una cantidad con una referencia. Los porcentajes y las tasas
+      entran como fracciones decimales: el 25 por ciento es 0.25 y el 6 por ciento es 0.06. Las
+      cantidades de dinero no llevan una unidad fija, así que sirve cualquier moneda siempre que
+      todas las cantidades de un mismo cálculo usen la misma.
+  percent:
+    note: >-
+      El signo de porcentaje significa una centésima, así que un porcentaje se convierte en fracción
+      dividiéndolo entre 100. Una tasa del 7.5 por ciento es el número 0.075.
+  percentage:
+    note: >-
+      La parte es igual al porcentaje por el total. Despéjala de tres maneras: la parte a partir del
+      porcentaje, el porcentaje a partir de la parte y el total a partir de los otros dos.
+  check-percent-of:
+    prompt: >-
+      ¿Cuánto es el 15 por ciento de 80, y qué porcentaje de 80 es 20?
+    answer: >-
+      El 15 por ciento de 80 es 0.15 por 80, es decir, 12. Y 20 entre 80 es 0.25, así que 20 es el
+      25 por ciento de 80.
+  percentage-change:
+    note: >-
+      La variación se mide siempre respecto del valor de partida. Fíjate en que el valor final es el
+      valor inicial por uno más la variación relativa: ese factor de crecimiento reaparece en todas
+      las fórmulas de interés siguientes.
+  check-up-down:
+    prompt: >-
+      Un precio sube un 20 por ciento y después baja un 20 por ciento. ¿Vuelve al valor de partida?
+    answer: >-
+      No. Los factores se multiplican: 1.2 por 0.8 es 0.96, así que el precio termina un 4 por
+      ciento por debajo del inicial. La bajada se aplica al precio más alto, por lo que quita más de
+      lo que añadió la subida.
+  markup-and-discount:
+    note: >-
+      Los precios de las tiendas aplican los mismos factores de crecimiento. Con el descuento en
+      cero queda solo el recargo, y con el recargo en cero, solo el precio rebajado.
+  proportion:
+    body: >-
+      Un porcentaje es una proporción particular: la parte guarda una razón fija con el total. Las
+      dos relaciones siguientes generalizan la idea. En una proporcionalidad directa la razón entre
+      dos cantidades es constante; en una proporcionalidad inversa lo es su producto.
+  direct-proportion:
+    note: >-
+      Duplicar una cantidad duplica la otra. La constante se halla con un par conocido y luego sirve
+      para cualquier otro valor, que es la regla de tres.
+  inverse-proportion:
+    note: >-
+      Duplicar una cantidad reduce la otra a la mitad, porque su producto se mantiene fijo.
+  check-workers:
+    prompt: >-
+      Cuatro trabajadores terminan una tarea en 6 días. Al mismo ritmo, ¿cuánto tardan 3
+      trabajadores?
+    answer: >-
+      8 días. Trabajadores y días son inversamente proporcionales: su producto, 4 por 6, es 24 días
+      de trabajo por persona, y 24 entre 3 es 8.
+  interest:
+    body: >-
+      El interés es el precio del dinero a lo largo del tiempo, un porcentaje de una suma que se
+      cobra o se paga cada año. Lo que distingue las dos fórmulas siguientes es si el interés, una
+      vez ganado, empieza a su vez a generar interés.
+  simple-interest:
+    note: >-
+      Interés solo sobre el capital: la misma cantidad cada año, una línea recta.
+  compound-interest:
+    note: >-
+      Interés que se suma al saldo y luego genera interés: el saldo se multiplica por el mismo
+      factor en cada periodo. El número de periodos por año siempre es un dato de entrada.
+  check-simple-compound:
+    prompt: >-
+      Se invierte una suma de 1000 durante dos años al 10 por ciento anual. ¿Cuánto vale con interés
+      simple y con interés capitalizado una vez al año?
+    answer: >-
+      1200 con interés simple, porque cada año suma 100. Con capitalización anual el segundo año
+      gana el 10 por ciento de 1100, lo que da 1210: los 10 de más son el interés del interés del
+      primer año.
+  euler-number:
+    note: >-
+      Capitalizar cada vez con más frecuencia a la misma tasa nominal da un saldo que se acerca a un
+      límite, y ese límite introduce el número e, aproximadamente 2.718.
+  continuous-compounding:
+    note: >-
+      El techo al que se acerca cualquier frecuencia de capitalización. Compara su resultado con el
+      del interés compuesto con cuatro o doce periodos al año para el mismo capital, tasa y tiempo.
+  present-value:
+    note: >-
+      La capitalización leída al revés: dividir una suma futura entre el factor de crecimiento da lo
+      que vale hoy.
+  check-present-value:
+    prompt: >-
+      ¿Cuánto hay que depositar hoy, al 10 por ciento anual con capitalización anual, para tener
+      1210 dentro de dos años?
+    answer: >-
+      1000, ya que 1210 dividido entre 1.1 al cuadrado, que es 1.21, da 1000. Es la pregunta
+      anterior recorrida al revés.
+  closing:
+    body: >-
+      Una idea recorre todos los pasos: un cambio según una tasa multiplica una cantidad por uno más
+      esa tasa. Repetir el cambio eleva el factor a una potencia, y deshacerlo divide entre el mismo
+      factor.

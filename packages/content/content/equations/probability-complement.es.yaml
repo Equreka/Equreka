@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Regla del complemento'
+terms:
+  P(A'):
+    label: 'Probabilidad de que A no ocurra'
+  P(A):
+    label: 'Probabilidad de A'
+description: >-
+  La regla del complemento de la probabilidad establece que la probabilidad de que un suceso no
+  ocurra es uno menos la probabilidad de que ocurra. El complemento de un suceso, o suceso
+  contrario, es el conjunto de todos los resultados del experimento que el suceso deja fuera, de
+  modo que la regla es la vía más rápida para hallar la probabilidad de «no A», o de «al menos uno»,
+  a partir de la probabilidad de su opuesto.
+
+  En la ecuación, $\var{P(A)}$ es la probabilidad de que ocurra el suceso A y $\var{P(A')}$ es la
+  probabilidad de que ocurra su complemento, escrito A' y leído «no A». Ambas son números puros
+  entre 0 y 1, a menudo expresados en porcentaje: 0 significa que el suceso no puede ocurrir y 1 que
+  es seguro. Ninguna puede ser negativa.
+
+  Un suceso y su complemento no comparten ningún resultado y juntos cubren todo el espacio muestral,
+  el conjunto de todos los resultados posibles. Por tanto, en cada prueba ocurre exactamente uno de
+  los dos, sus probabilidades suman 1, y al restar cualquiera de ellas de 1 se obtiene la otra. La
+  regla es un caso particular de la regla de la adición para dos sucesos que no pueden ocurrir a la
+  vez.
+
+  La relación vale para cualquier suceso de cualquier experimento aleatorio, con resultados
+  equiprobables o no, siempre que el complemento se tome dentro del mismo espacio muestral. Falla
+  cuando «no A» se interpreta como un suceso más restringido, por ejemplo un único resultado rival,
+  en lugar de todos los resultados fuera de A.
+
+  La monografía de Kolmogórov de 1933 construyó la teoría de la probabilidad sobre un pequeño
+  conjunto de axiomas, y la regla del complemento se deduce directamente de ellos. La regla ahorra
+  trabajo cuando el suceso opuesto es más fácil de contar: la probabilidad de que dos dados sumen
+  más de 3 es 1 menos la probabilidad de una suma de 2 o 3, es decir, 1 − 1/12 = 11/12.

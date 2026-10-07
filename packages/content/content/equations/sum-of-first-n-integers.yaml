@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Sum of the first n positive integers'
+kind: 'formula'
+level: 'intro'
+expression: '\var{S_{n}}=\frac{\var{n}\left(\var{n}+1\right)}{2}'
+terms:
+  S_{n}:
+    kind: 'symbol'
+    label:
+      en: 'Sum of the first n integers'
+  n:
+    kind: 'symbol'
+    label:
+      en: 'Number of integers'
+    integer: true
+solutions:
+  S_{n}: 'n * (n + 1) / 2'
+  n:
+    - '(sqrt(8 * S_n + 1) - 1) / 2'
+    - '-(sqrt(8 * S_n + 1) + 1) / 2'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q245102'
+categories:
+  - 'mathematics'
+branches:
+  - 'algebra'
+aliases:
+  - 'triangular number'
+  - 'triangular numbers'
+  - 'sum of the first n natural numbers'
+  - 'sum of consecutive integers'
+  - 'Gauss sum'
+  - 'número triangular'
+  - 'suma de los primeros n números naturales'
+  - 'suma de Gauss'
+references:
+  - title: 'E. W. Weisstein, Triangular Number, MathWorld'
+    url: 'https://mathworld.wolfram.com/TriangularNumber.html'
+  - title: 'OpenStax, College Algebra 2e, 9.4 Series and Their Notations'
+    url: 'https://openstax.org/books/college-algebra-2e/pages/9-4-series-and-their-notations'
+  - title: 'MacTutor History of Mathematics, Johann Carl Friedrich Gauss'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Gauss/'
+description:
+  en: >-
+    The sum of the first n positive integers, 1 plus 2 plus 3 and so on up to n, equals n times the
+    next integer, halved. The totals it produces, 1, 3, 6, 10, 15 and onward, are the triangular
+    numbers, so the relation is also the formula for the nth triangular number, the count of dots in
+    a triangle with n rows that grow by one dot each.
+
+    Here $\var{S_{n}}$ is the sum and $\var{n}$ the number of integers added, a non-negative whole
+    number; for zero integers the sum is empty and equals zero. Both are pure numbers. One of any
+    two consecutive integers is even, so the product in the numerator is always even and the sum is
+    always a whole number.
+
+    The relation is the special case of the sum of an arithmetic series whose first term is 1 and
+    whose last term is n. Pairing the first integer with the last, the second with the one before
+    the last, and so on, gives pairs that each total one more than n, and there are half as many
+    pairs as integers. A picture shows the same fact: two copies of the triangle of dots fit
+    together into a rectangle n dots wide and one dot taller than it is wide.
+
+    Solving for the count means solving a quadratic equation. Its positive root is the meaningful
+    count; the second root is always negative and has no meaning as a number of terms. The count is
+    a whole number only when the given sum is a triangular number, and otherwise no run of
+    consecutive integers starting at 1 reaches it exactly. The number of clinks when every pair in a
+    group touches glasses is the triangular number of one less than the group size.
+
+    Pairing the ends of the run from 1 to 100, so that 1 goes with 100 and 2 with 99, yields 50
+    pairs worth 101 each and a total of 5050; the shortcut is credited to Carl Friedrich Gauss as a
+    child.

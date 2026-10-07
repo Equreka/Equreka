@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Suma de una serie geométrica finita'
+terms:
+  S_{n}:
+    label: 'Suma de los n primeros términos'
+  a_{1}:
+    label: 'Primer término'
+  r:
+    label: 'Razón común'
+  n:
+    label: 'Número de términos'
+description: >-
+  La suma de una serie geométrica finita da el total de los n primeros términos de una progresión
+  geométrica a partir del primer término, la razón común y el número de términos. Es la forma
+  cerrada de una serie geométrica, una suma en la que cada término es el anterior multiplicado por
+  una razón fija, y totaliza cualquier cosa construida a partir de un crecimiento porcentual
+  repetido, como un plan de ahorro con depósitos periódicos iguales.
+
+  Aquí $\var{S_{n}}$ es la suma de los $\var{n}$ primeros términos, $\var{a_{1}}$ el primer término,
+  $\var{r}$ la razón común y $\var{n}$ el número de términos, un entero positivo. La suma y el
+  primer término son números puros o comparten una unidad; la razón es un número puro y puede ser
+  negativa, en cuyo caso los términos alternan de signo. Se excluye una razón exactamente igual a 1,
+  porque entonces todos los términos son iguales al primero y la suma es el número de términos por
+  el primer término.
+
+  Al multiplicar toda la serie por la razón, cada término se desplaza un lugar. Restar esa copia
+  desplazada de la original cancela todo salvo el primer término y el término siguiente al último,
+  con lo que queda la suma por uno menos la razón igual al primer término por uno menos la razón
+  elevada al número de términos. Al dividir entre uno menos la razón se obtiene la fórmula.
+
+  La relación vale para toda razón distinta de 1, tanto si su valor absoluto es menor que 1 como si
+  es mayor. Hallar la razón a partir de los otros tres valores exige resolver una ecuación
+  polinómica de grado alto, que en general no tiene forma cerrada, así que la calculadora solo
+  admite la razón como dato. Con razones positivas, el número de términos se obtiene con logaritmos
+  y sale entero solo cuando los valores corresponden a una serie real. Cuando la razón está
+  estrictamente entre -1 y 1, la suma tiende a un límite finito al crecer el número de términos, la
+  suma de la serie geométrica infinita.
+
+  Una progresión que empieza en 1 y se duplica en cada paso suma 1023 tras diez términos, uno menos
+  que 2 elevado a la décima potencia.

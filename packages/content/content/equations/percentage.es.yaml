@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Porcentaje'
+terms:
+  a:
+    label: 'Parte'
+  p:
+    label: 'Porcentaje (como fracción)'
+  b:
+    label: 'Total (base)'
+description: >-
+  La fórmula del porcentaje obtiene una parte de un total a partir de un porcentaje: la parte es
+  igual al porcentaje, escrito como fracción, multiplicado por el total, también llamado base. Un
+  porcentaje expresa una razón como un número de centésimas, de modo que el 25 por ciento significa
+  25 partes de cada 100. Esta única relación responde a las tres preguntas clásicas de porcentajes
+  de la aritmética escolar.
+
+  En la fórmula, $\var{a}$ es la parte, a veces llamada cantidad; $\var{b}$ es el total o base, la
+  cantidad de referencia con la que se compara la parte; y $\var{p}$ es el porcentaje escrito como
+  fracción decimal, de modo que el 25 por ciento entra como 0.25 y el 125 por ciento como 1.25. La
+  parte y el total se miden en la misma unidad, ya sea dinero, personas o kilogramos, y la fórmula
+  no fija ninguna; el porcentaje es un número puro. Las tres son normalmente positivas, y un
+  porcentaje mayor que el 100 por ciento da una parte mayor que el total.
+
+  La palabra procede del latín per centum, por cada cien, así que el signo de porcentaje representa
+  el factor una centésima. Multiplicar una fracción por 100 la convierte en porcentaje, y dividir un
+  porcentaje entre 100 la devuelve a fracción. Leída en un sentido, la fórmula pregunta cuánto es un
+  porcentaje dado de un número; dividir la parte entre el total pregunta qué porcentaje es un número
+  de otro; y dividir la parte entre el porcentaje recupera el total del que se tomó un valor.
+
+  La relación es exacta por definición, así que sus límites están en la interpretación. Hay que
+  indicar la base, porque el 20 por ciento de un precio antes de impuestos difiere del 20 por ciento
+  del precio con impuestos. La diferencia entre dos porcentajes se mide en puntos porcentuales: una
+  proporción que pasa del 40 al 50 por ciento gana 10 puntos porcentuales, un aumento relativo del
+  25 por ciento. Un porcentaje nulo da una parte nula, a partir de la cual no se puede recuperar el
+  total.
+
+  Los porcentajes expresan tasas impositivas, descuentos, tasas de interés, notas de exámenes,
+  resultados electorales y la composición de mezclas y disoluciones. Por ejemplo, el 70 por ciento
+  de 3500 es 2450.

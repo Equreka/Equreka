@@ -90,6 +90,7 @@ Names:
 - `name` is sentence case: *Ideal gas law*, *Joule per kelvin*, *Speed of light in vacuum*. Laws named after people take the possessive (*Newton's second law*, *Snell's law*). An equation's `name` is the relation's conventional name, never *X formula*; when that name equals a magnitude's, qualify it (*Kinetic energy of a body in translation*). Roadmap names are working titles.
 - English spelling is British with Oxford *-ize*, matching the SI Brochure's unit names: *metre, litre, behaviour, vapour, fibre, centre*, but *ionization, polarization, standardized*. US forms (*meter, behavior, vapor*) go in `aliases`, never in prose.
 - Unit names are lowercase in running prose (*the joule*, *three newtons*), symbols upright in math.
+- In mathematics entries, a ratio, count or probability with no unit is a *pure number*; *dimensionless quantity* stays the metrological term for a physical quantity of dimension one.
 - Spell numbers one to nine in prose when they count things (*three base units*); use numerals with units, always in math (`$3\,\mathrm{N}$`).
 - Slugs are English kebab-case. An equation that would share a slug with a magnitude, unit or constant takes `-formula` (`density-formula`); `roadmap-check` enforces it.
 

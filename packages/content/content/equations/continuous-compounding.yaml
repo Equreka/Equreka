@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Continuous compounding'
+kind: 'formula'
+level: 'intro'
+expression: '\var{A}=\var{P}\const{e}^{\var{r}\var{t}}'
+terms:
+  A:
+    kind: 'symbol'
+    label:
+      en: 'Future value'
+  P:
+    kind: 'symbol'
+    label:
+      en: 'Principal'
+  e:
+    kind: 'constant'
+    ref: 'euler-number'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Annual interest rate (as a fraction)'
+  t:
+    kind: 'symbol'
+    label:
+      en: 'Time in years'
+solutions:
+  A: 'P * exp(r * t)'
+  P: 'A * exp(-r * t)'
+  r: 'ln(A / P) / t'
+  t: 'ln(A / P) / r'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'arithmetic'
+aliases:
+  - 'continuously compounded interest'
+  - 'continuous compound interest'
+  - 'A = Pe^(rt)'
+  - 'Pert'
+  - 'interés compuesto continuo'
+  - 'interés continuo'
+references:
+  - title: 'OpenStax, Intermediate Algebra 2e, 10.2 Evaluate and Graph Exponential Functions'
+    url: 'https://openstax.org/books/intermediate-algebra-2e/pages/10-2-evaluate-and-graph-exponential-functions'
+  - title: 'OpenStax, Contemporary Mathematics, 6.4 Compound Interest'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/6-4-compound-interest'
+  - title: 'MacTutor History of Mathematics, The number e'
+    url: 'https://mathshistory.st-andrews.ac.uk/HistTopics/e/'
+description:
+  en: >-
+    Continuous compounding is the limit of compound interest when interest is credited infinitely
+    often: the balance equals the principal times Euler's number e raised to the product of the
+    annual rate and the time. The continuous compounding formula, remembered as P e to the r t,
+    describes exponential growth at a constant relative rate and gives the largest balance that any
+    compounding frequency can reach at a given nominal rate.
+
+    In the formula, $\var{A}$ is the future value or final balance, $\var{P}$ the principal,
+    $\var{r}$ the annual interest rate as a decimal fraction, $\var{t}$ the time in years, and
+    $\const{e}$ Euler's number, about 2.718, the base of the natural logarithm. The money amounts
+    share one currency, which the formula leaves open; the rate and the time are pure numbers whose
+    periods must agree. A negative rate describes continuous decline instead of growth.
+
+    Compounding a whole number of times a year multiplies the principal by one plus the rate divided
+    by that number, raised to the power of that number times $\var{t}$. As the number of
+    compoundings grows without bound, the factor approaches e raised to the rate times the time,
+    because one plus the reciprocal of a whole number, raised to that number, tends to e. Natural
+    logarithms then solve for the rate or the time: the time equals the natural logarithm of the
+    growth ratio divided by the rate, so money at 5 percent doubles in about 13.9 years.
+
+    The formula assumes a constant rate and no deposits or withdrawals. No bank credits interest at
+    every instant, but daily compounding already comes very close to the continuous result, so the
+    formula serves as a convenient upper bound and approximation. The same exponential model
+    describes population growth and radioactive decay, wherever a quantity changes at a rate
+    proportional to its own size.
+
+    Jacob Bernoulli met the limit behind the formula in 1683 while examining continuous compound
+    interest. A deposit of 1000 at 5 percent for 18 years reaches about 2459.60 when compounded
+    continuously, against 2445.92 when compounded quarterly.

@@ -1,0 +1,83 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Exponential growth'
+kind: 'formula'
+level: 'intro'
+expression: '\var{N}=\var{N_{0}}\left(1+\var{r}\right)^{\var{t}}'
+terms:
+  N:
+    kind: 'symbol'
+    label:
+      en: 'Final amount'
+  N_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial amount'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Growth rate per period (as a fraction)'
+  t:
+    kind: 'symbol'
+    label:
+      en: 'Elapsed time in periods'
+solutions:
+  N: 'N_0 * (1 + r)^t'
+  N_{0}: 'N / (1 + r)^t'
+  r: '(N / N_0)^(1 / t) - 1'
+  t: 'ln(N / N_0) / ln(1 + r)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q582659'
+categories:
+  - 'mathematics'
+branches:
+  - 'algebra'
+aliases:
+  - 'exponential growth formula'
+  - 'exponential decay'
+  - 'growth factor'
+  - 'percentage growth'
+  - 'Malthusian growth'
+  - 'crecimiento exponencial'
+  - 'decrecimiento exponencial'
+  - 'factor de crecimiento'
+references:
+  - title: 'OpenStax, College Algebra 2e, 6.1 Exponential Functions'
+    url: 'https://openstax.org/books/college-algebra-2e/pages/6-1-exponential-functions'
+  - title: 'OpenStax, Precalculus 2e, 4.1 Exponential Functions'
+    url: 'https://openstax.org/books/precalculus-2e/pages/4-1-exponential-functions'
+  - title: 'C. Stover and E. W. Weisstein, Exponential Growth, MathWorld'
+    url: 'https://mathworld.wolfram.com/ExponentialGrowth.html'
+description:
+  en: >-
+    Exponential growth is the change of a quantity that is multiplied by the same factor in every
+    equal interval of time, so that each period adds a fixed percentage of its current size. The
+    relation gives the amount after a number of periods from the starting amount and the growth rate
+    per period, and with a negative rate it describes exponential decay. It is the basic school
+    model for populations and savings.
+
+    $\var{N_{0}}$ is the initial amount, $\var{N}$ the amount after $\var{t}$ periods, $\var{r}$ the
+    growth rate per period written as a decimal fraction, and $\var{t}$ the elapsed time counted in
+    periods, which need not be a whole number. $\var{N}$ and $\var{N_{0}}$ share whatever unit
+    counts the quantity, while $\var{r}$ and $\var{t}$ are pure numbers. A rate between -1 and 0
+    makes the amount shrink toward zero.
+
+    The sum $1+\var{r}$ is the growth factor: every period multiplies the current amount by it, and
+    over $\var{t}$ periods those factors combine into a power. Linear growth adds the same amount
+    each period; exponential growth adds an amount proportional to what is already present. Finding
+    the number of periods requires a logarithm: it equals the natural logarithm of the ratio of
+    final to initial amount divided by the natural logarithm of the growth factor.
+
+    The model assumes a rate that stays fixed over the whole interval. Real populations grow this
+    way only while predators are absent and resources are plentiful, and an account whose interest
+    rate changes must be split into stretches with factors of their own. When growth is compounded
+    continuously instead of once per period, the factor becomes a power of Euler's number. With an
+    interest rate, it is compound interest credited once per period; solved for the starting amount,
+    it is present value.
+
+    Thomas Malthus took a kind of exponential increase in human numbers as the premise of a 1798
+    text on population, and the older name Malthusian growth recalls him. Starting from 1.25 billion
+    people with growth of 1.2 percent per year, the relation gives about 1.549 billion after 18
+    years.

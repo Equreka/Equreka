@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Sum of an infinite geometric series'
+kind: 'formula'
+level: 'intro'
+expression: '\var{S}=\frac{\var{a_{1}}}{1-\var{r}}'
+terms:
+  S:
+    kind: 'symbol'
+    label:
+      en: 'Sum of the series'
+  a_{1}:
+    kind: 'symbol'
+    label:
+      en: 'First term'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Common ratio'
+solutions:
+  S: 'a_1 / (1 - r)'
+  a_{1}: 'S * (1 - r)'
+  r: '1 - a_1 / S'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q1306887'
+categories:
+  - 'mathematics'
+branches:
+  - 'algebra'
+aliases:
+  - 'infinite geometric series'
+  - 'convergent geometric series'
+  - 'sum to infinity'
+  - 'serie geométrica infinita'
+  - 'serie geométrica convergente'
+references:
+  - title: 'OpenStax, College Algebra 2e, 9.4 Series and Their Notations'
+    url: 'https://openstax.org/books/college-algebra-2e/pages/9-4-series-and-their-notations'
+  - title: 'E. W. Weisstein, Geometric Series, MathWorld'
+    url: 'https://mathworld.wolfram.com/GeometricSeries.html'
+description:
+  en: >-
+    The sum of an infinite geometric series equals the finite value approached by the running totals
+    of a geometric series whose common ratio lies strictly between -1 and 1. It is the first term
+    divided by one minus the ratio, and it shows how infinitely many terms can add up to a finite
+    total, as when the repeating decimal 0.333 and so on equals one third.
+
+    Here $\var{S}$ is the sum of the whole infinite series, $\var{a_{1}}$ its first term and
+    $\var{r}$ the common ratio, a pure number whose absolute value must be less than 1. The sum
+    carries the unit of the first term, if any. With a positive first term and a positive ratio the
+    sum exceeds the first term; with a negative ratio the terms alternate in sign and the sum falls
+    below the first term, though it keeps the sign of the first term.
+
+    Adding only n terms of a geometric series gives the first term times one minus the ratio raised
+    to n, all over one minus the ratio. When the size of the ratio is below 1, its powers shrink
+    toward zero as n grows, so the numerator tends to the first term and the running totals settle
+    on the value of the formula.
+
+    With a ratio of size 1 or more the terms do not shrink and the series diverges: the running
+    totals grow without bound or keep oscillating. The algebra then still returns a number, such as
+    a negative total for a series of positive terms, but that number is not a sum. The calculator
+    applies the relation for any ratio other than 1, so a result is meaningful only after checking
+    that the ratio lies between -1 and 1.
+
+    A decimal that repeats from its first digit is an infinite geometric series: 0.3 plus 0.03 plus
+    0.003 and onward has first term 0.3 and ratio 0.1, so it sums to 0.3 divided by 0.9, which is
+    one third.

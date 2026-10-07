@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Interés compuesto'
+terms:
+  A:
+    label: 'Valor futuro'
+  P:
+    label: 'Capital'
+  r:
+    label: 'Tasa nominal anual (como fracción)'
+  n:
+    label: 'Periodos de capitalización por año'
+  t:
+    label: 'Tiempo en años'
+description: >-
+  El interés compuesto es el interés que se suma al capital a intervalos regulares de modo que, a
+  partir de ese momento, el propio interés genera interés. La fórmula del interés compuesto da el
+  valor futuro de un depósito o un préstamo al cabo de cierto número de años cuando una tasa nominal
+  anual se abona un número fijo de veces al año; el saldo se multiplica por el mismo factor de
+  crecimiento en cada periodo, lo que hace que el crecimiento sea exponencial.
+
+  En la fórmula, $\var{A}$ es el valor futuro o saldo final, $\var{P}$ el capital, $\var{r}$ la tasa
+  nominal anual como fracción decimal, $\var{n}$ el número entero de periodos de capitalización por
+  año (1 si es anual, 4 si es trimestral, 12 si es mensual) y $\var{t}$ el tiempo en años. Las
+  cantidades de dinero comparten una moneda, que la fórmula deja abierta; la tasa, la frecuencia y
+  el tiempo son números puros. Cada periodo gana la tasa anual dividida entre el número de periodos
+  por año, y el depósito dura en total ese número multiplicado por los años.
+
+  Tras un periodo el saldo es el capital por uno más la tasa periódica, y cada periodo siguiente lo
+  multiplica por el mismo factor, lo que da la potencia. Dividir entre ese factor da el capital
+  necesario hoy para alcanzar una meta, su valor presente, y los logaritmos dan el tiempo necesario
+  para alcanzarla. La frecuencia no se puede despejar con funciones elementales, porque aparece a la
+  vez en la base y en el exponente, así que siempre es un dato de entrada.
+
+  La fórmula supone una tasa constante, sin depósitos ni retiradas, y el interés dejado en la
+  cuenta. Con una tasa nominal dada, capitalizar con más frecuencia da un saldo algo mayor, pero la
+  ganancia se reduce a medida que aumenta la frecuencia y se acerca al límite de la capitalización
+  continua. Las ofertas con frecuencias distintas se comparan mediante la tasa efectiva anual, la
+  tasa con una sola capitalización al año que produce el mismo crecimiento.
+
+  Las cuentas de ahorro, los depósitos a plazo fijo, las hipotecas y los saldos de las tarjetas de
+  crédito acumulan interés de esta forma. Un depósito de 1000 al 5 por ciento con capitalización
+  trimestral crece hasta unos 2445.92 en 18 años.

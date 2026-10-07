@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Suma de una serie aritmética'
+terms:
+  S_{n}:
+    label: 'Suma de los n primeros términos'
+  n:
+    label: 'Número de términos'
+  a_{1}:
+    label: 'Primer término'
+  a_{n}:
+    label: 'Último término (término enésimo)'
+description: >-
+  La suma de una serie aritmética da el total de los n primeros términos de una progresión
+  aritmética como el número de términos por la media del primer y el último término. Es la forma
+  cerrada de una serie aritmética, una suma cuyos términos consecutivos difieren en una cantidad
+  constante, y convierte una suma larga en una sola multiplicación.
+
+  Aquí $\var{S_{n}}$ es la suma de los $\var{n}$ primeros términos, $\var{a_{1}}$ el primer término
+  y $\var{a_{n}}$ el último término incluido. El número $\var{n}$ es un entero positivo; cero
+  términos dan una suma vacía. Los términos y la suma son números puros, o comparten una unidad
+  cuando la serie totaliza una magnitud medida. Los términos pueden ser negativos, así que la suma
+  puede ser negativa o nula; una suma nula significa que los términos positivos y negativos se
+  compensan.
+
+  Al escribir la serie una vez hacia delante y otra hacia atrás y sumar las dos copias término a
+  término se obtienen pares que tienen todos el mismo total, el primer término más el último, porque
+  cada paso hacia delante en una copia coincide con un paso hacia atrás en la otra. Hay tantos pares
+  como términos, de modo que la suma duplicada es el número de términos por ese total, y al
+  dividirla entre dos se obtiene la fórmula. Si el último término no se conoce, el término general
+  de la progresión lo da a partir del primer término y de la diferencia común.
+
+  La fórmula requiere una diferencia constante entre términos consecutivos; para cualquier otra
+  sucesión, la media de los dos términos extremos no dice nada del total. Al añadir términos, la
+  suma crece sin límite en valor absoluto, salvo que todos los términos sean nulos, así que una
+  serie aritmética infinita no tiene valor finito. Al despejar el número de términos se obtiene un
+  entero solo cuando los datos describen de verdad una serie aritmética.
+
+  Estas sumas cuentan los asientos de un teatro cuyas filas añaden cada una el mismo número de
+  asientos, o los troncos de una pila cuyas capas tienen uno menos cada vez. La serie 5 + 8 + 11 y
+  así hasta 32 tiene 10 términos y suma 185.

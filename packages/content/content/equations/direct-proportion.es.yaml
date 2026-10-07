@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Proporcionalidad directa'
+terms:
+  y:
+    label: 'Cantidad dependiente'
+  k:
+    label: 'Constante de proporcionalidad'
+  x:
+    label: 'Cantidad independiente'
+description: >-
+  La proporcionalidad directa, o variación directa, es la relación entre dos cantidades cuya razón
+  se mantiene constante: cuando una se multiplica por cierto factor, la otra se multiplica por el
+  mismo factor. Una cantidad es igual a un número fijo, la constante de proporcionalidad, por la
+  otra, y la relación se representa con una recta que atraviesa el origen.
+
+  En la fórmula, $\var{x}$ es la cantidad independiente, $\var{y}$ la cantidad que depende de ella y
+  $\var{k}$ la constante de proporcionalidad, también llamada constante de variación, que nunca es
+  cero. Cada cantidad conserva la unidad que tenga, y la unidad de $\var{k}$ es la unidad de
+  $\var{y}$ dividida entre la de $\var{x}$, como en un precio por kilogramo; escritos como números
+  puros, los términos valen en cualquier sistema de unidades coherente. Una constante positiva hace
+  que ambas cantidades crezcan juntas, y una negativa, que una disminuya cuando la otra aumenta.
+
+  La constante se obtiene de un par de valores conocido dividiendo $\var{y}$ entre $\var{x}$: si
+  $\var{y}$ vale 20 cuando $\var{x}$ vale 8, la constante es 2.5. Dos pares cualesquiera de una
+  proporcionalidad directa forman entonces una proporción, una igualdad entre dos razones. Tres
+  valores conocidos de esa igualdad determinan el cuarto, el procedimiento que se enseña como regla
+  de tres.
+
+  La relación exige que la recta pase por el origen: es la forma pendiente-ordenada en el origen de
+  una recta con ordenada nula, en la que la constante de proporcionalidad hace de pendiente. La
+  tarifa de un taxi con una bajada de bandera fija crece con la distancia, pero no es proporcional a
+  ella, porque al duplicar la distancia no se duplica la tarifa. Muchas proporcionalidades físicas
+  solo se cumplen en un intervalo, como el alargamiento de un muelle dentro de su límite elástico.
+  Una familia afín de relaciones hace una cantidad proporcional a una potencia de otra, como el área
+  de un círculo y el cuadrado de su radio.
+
+  La proporcionalidad directa sustenta los precios unitarios, las recetas ampliadas a más raciones,
+  las escalas de los mapas, el cambio de divisas y la conversión de unidades. En un mapa donde media
+  pulgada representa 3 millas, 2.25 pulgadas representan 13.5 millas.

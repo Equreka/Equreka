@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Interpolación lineal'
+terms:
+  y:
+    label: 'Salida estimada'
+  y_{0}:
+    label: 'Salida del primer punto conocido'
+  x:
+    label: 'Entrada en la que se estima'
+  x_{0}:
+    label: 'Entrada del primer punto conocido'
+  y_{1}:
+    label: 'Salida del segundo punto conocido'
+  x_{1}:
+    label: 'Entrada del segundo punto conocido'
+description: >-
+  La interpolación lineal estima un valor entre dos puntos de datos conocidos suponiendo que la
+  recta que los une describe los datos intermedios. Es el método de interpolación más sencillo, se
+  usa para leer valores entre las filas de una tabla o entre dos medidas, y es el caso de dos puntos
+  de la interpolación polinómica.
+
+  Aquí $\var{x_{0}}$ y $\var{x_{1}}$ son las entradas de los dos puntos conocidos, $\var{y_{0}}$ y
+  $\var{y_{1}}$ sus salidas, $\var{x}$ la entrada en la que se busca una estimación y $\var{y}$ la
+  salida estimada. Las entradas comparten una unidad y las salidas otra, aunque aquí los seis se
+  tratan como números puros. Las dos entradas conocidas deben ser distintas. Cualquier valor puede
+  ser negativo, e intercambiar los dos puntos conocidos no cambia la estimación.
+
+  La fracción es la pendiente de la recta que pasa por los dos puntos conocidos, el cambio de la
+  salida por unidad de cambio de la entrada. Al multiplicarla por la distancia entre la entrada
+  pedida y la primera entrada conocida, y sumar después la primera salida, se obtiene el punto de
+  esa recta en la entrada pedida. De forma equivalente, la estimación es una media ponderada de las
+  dos salidas conocidas, en la que cada salida pesa más cuanto más cerca de su punto queda la
+  entrada pedida.
+
+  La interpolación se mantiene entre las dos entradas conocidas. Usar la misma recta fuera de ellas
+  es extrapolación, que es menos fiable porque nada en los datos restringe los valores allí. La
+  estimación solo es exacta cuando la relación subyacente es realmente lineal; para una relación
+  curva, el error crece con la curvatura y con la separación entre los puntos, y un polinomio que
+  pase por más puntos puede reducirlo.
+
+  La interpolación lineal rellena huecos en tablas de propiedades medidas y en series de datos, y
+  una gráfica dibujada uniendo puntos con segmentos rectos la usa entre cada par de puntos. A medio
+  camino entre los puntos de entradas 10 y 20 y salidas 20 y 30, la estimación en la entrada 15 es
+  25.

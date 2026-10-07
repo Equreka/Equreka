@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Suma de una serie geométrica infinita'
+terms:
+  S:
+    label: 'Suma de la serie'
+  a_{1}:
+    label: 'Primer término'
+  r:
+    label: 'Razón común'
+description: >-
+  La suma de una serie geométrica infinita es el valor finito al que se aproximan los totales
+  acumulados de una serie geométrica cuya razón común está estrictamente entre -1 y 1. Es igual al
+  primer término dividido entre uno menos la razón, y muestra cómo infinitos términos pueden sumar
+  un total finito, como cuando el decimal periódico 0.333 y siguientes es igual a un tercio.
+
+  Aquí $\var{S}$ es la suma de toda la serie infinita, $\var{a_{1}}$ su primer término y $\var{r}$
+  la razón común, un número puro cuyo valor absoluto debe ser menor que 1. La suma lleva la unidad
+  del primer término, si la tiene. Con un primer término positivo y una razón positiva, la suma
+  supera al primer término; con una razón negativa, los términos alternan de signo y la suma queda
+  por debajo del primer término, aunque conserva su signo.
+
+  La suma de los n primeros términos de una serie geométrica es igual al primer término por uno
+  menos la razón elevada a n, todo ello dividido entre uno menos la razón. Cuando el valor absoluto
+  de la razón es menor que 1, sus potencias se reducen hacia cero al crecer n, así que el numerador
+  tiende al primer término y los totales acumulados se estabilizan en el valor de la fórmula.
+
+  Con una razón de valor absoluto 1 o mayor, los términos no disminuyen y la serie diverge: los
+  totales acumulados crecen sin límite o siguen oscilando. El álgebra devuelve entonces un número,
+  como un total negativo para una serie de términos positivos, pero ese número no es una suma. La
+  calculadora aplica la relación para cualquier razón distinta de 1, así que un resultado solo tiene
+  sentido después de comprobar que la razón está entre -1 y 1.
+
+  Un decimal periódico puro es una serie geométrica infinita: 0.3 más 0.03 más 0.003 y así
+  sucesivamente tiene primer término 0.3 y razón 0.1, de modo que suma 0.3 dividido entre 0.9, que
+  es un tercio.

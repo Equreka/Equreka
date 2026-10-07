@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Multiplication rule for independent events'
+kind: 'equation'
+level: 'intro'
+expression: '\var{P(A\cap B)}=\var{P(A)}\var{P(B)}'
+terms:
+  P(A\cap B):
+    kind: 'symbol'
+    identifier: 'P_AandB'
+    label:
+      en: 'Probability of A and B'
+  P(A):
+    kind: 'symbol'
+    identifier: 'P_A'
+    label:
+      en: 'Probability of A'
+  P(B):
+    kind: 'symbol'
+    identifier: 'P_B'
+    label:
+      en: 'Probability of B'
+solutions:
+  P(A\cap B): 'P_A * P_B'
+  P(A): 'P_AandB / P_B'
+  P(B): 'P_AandB / P_A'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'statistics-and-probability'
+aliases:
+  - 'multiplication rule'
+  - 'product rule of probability'
+  - 'probability of independent events'
+  - 'and rule'
+  - 'independent events'
+  - 'regla del producto'
+  - 'regla de la multiplicación'
+  - 'sucesos independientes'
+  - 'eventos independientes'
+references:
+  - title: 'OpenStax, Introductory Statistics 2e, 3.3 Two Basic Rules of Probability'
+    url: 'https://openstax.org/books/introductory-statistics-2e/pages/3-3-two-basic-rules-of-probability'
+  - title: 'LibreTexts, MATH 345 Probability (Kuter), 2.3 Independent Events'
+    url: 'https://stats.libretexts.org/Courses/Saint_Mary''s_College_Notre_Dame/MATH_345__-_Probability_(Kuter)/2:_Computing_Probabilities/2.3:_Independent_Events'
+  - title: 'LibreTexts, MATH 345 Probability (Kuter), 2.2 Conditional Probability and Bayes'' Rule'
+    url: 'https://stats.libretexts.org/Courses/Saint_Mary''s_College_Notre_Dame/MATH_345__-_Probability_(Kuter)/2:_Computing_Probabilities/2.2:_Conditional_Probability_and_Bayes''_Rule'
+description:
+  en: >-
+    The multiplication rule for independent events states that the probability of two independent
+    events both happening is the product of their separate probabilities. Two events are independent
+    when the occurrence of one leaves the probability of the other unchanged, and the rule is often
+    called the product rule or the "and" rule of probability.
+
+    In the equation, $\var{P(A\cap B)}$ is the probability of the intersection, the event that A and
+    B both occur on the same trial, while $\var{P(A)}$ and $\var{P(B)}$ are the probabilities of
+    each event alone. All three are pure numbers from 0 to 1 and never negative. Because each factor
+    is at most 1, the joint probability can never exceed the smaller of the two.
+
+    The general multiplication rule multiplies the probability of B by the conditional probability
+    of A given B. Independence means that knowing B has occurred tells nothing about A, so the
+    conditional probability equals the plain probability of A and the general rule collapses to a
+    product of the two. The same equation serves as the formal test of independence: two events are
+    independent exactly when their joint probability equals that product.
+
+    Independence is a property to be checked, not assumed. Draws without replacement, successive
+    attempts by the same player and events linked by a common cause are usually dependent, and
+    multiplying their probabilities gives a wrong answer; the conditional form is needed there.
+    Independence is also different from mutual exclusivity: two mutually exclusive events with
+    nonzero probabilities are always dependent, since one rules the other out.
+
+    For independent trials the rule extends to any number of events by multiplying all their
+    probabilities, which underlies repeated coin tosses, dice games and the binomial distribution.
+    Two fair coins both land heads with probability 1/2 × 1/2 = 1/4.

@@ -1,0 +1,83 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Present value'
+kind: 'formula'
+level: 'intro'
+expression: '\var{\mathrm{PV}}=\frac{\var{\mathrm{FV}}}{\left(1+\var{r}\right)^{\var{n}}}'
+terms:
+  \mathrm{PV}:
+    kind: 'symbol'
+    label:
+      en: 'Present value'
+  \mathrm{FV}:
+    kind: 'symbol'
+    label:
+      en: 'Future value'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Rate per period (as a fraction)'
+  n:
+    kind: 'symbol'
+    label:
+      en: 'Number of periods'
+solutions:
+  \mathrm{PV}: 'FV / (1 + r)^n'
+  \mathrm{FV}: 'PV * (1 + r)^n'
+  r: '(FV / PV)^(1 / n) - 1'
+  n: 'ln(FV / PV) / ln(1 + r)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q1100466'
+categories:
+  - 'mathematics'
+branches:
+  - 'arithmetic'
+aliases:
+  - 'PV'
+  - 'present discounted value'
+  - 'discounting'
+  - 'discount factor'
+  - 'time value of money'
+  - 'valor actual'
+  - 'descuento compuesto'
+  - 'valor del dinero en el tiempo'
+references:
+  - title: 'OpenStax, Principles of Finance, 7.2 Time Value of Money (TVM) Basics'
+    url: 'https://openstax.org/books/principles-finance/pages/7-2-time-value-of-money-tvm-basics'
+  - title: 'OpenStax, Principles of Finance, 7.3 Methods for Solving Time Value of Money Problems'
+    url: 'https://openstax.org/books/principles-finance/pages/7-3-methods-for-solving-time-value-of-money-problems'
+  - title: 'OpenStax, Contemporary Mathematics, 6.4 Compound Interest'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/6-4-compound-interest'
+  - title: 'D. Lippman, Math in Society, 9.3 Compound Interest (LibreTexts)'
+    url: 'https://math.libretexts.org/Bookshelves/Applied_Mathematics/Math_in_Society_(Lippman)/09%3A_Finance/9.03%3A_Compound_Interest'
+description:
+  en: >-
+    Present value is the amount that, invested today at a given rate, grows to a stated sum at a
+    future date. The present value formula discounts a future value back to today by dividing it by
+    the compound growth factor over the number of periods, so a sum received later is worth less
+    than the same sum received now. Discounting is the reverse of compounding and the basis of the
+    time value of money in finance.
+
+    In the formula, $\var{\mathrm{PV}}$ is the present value, $\var{\mathrm{FV}}$ the future value,
+    $\var{r}$ the interest or discount rate per period as a decimal fraction, and $\var{n}$ the
+    number of periods. The rate and the count must refer to the same period: an annual rate with
+    years, a monthly rate with months. The rate exceeds minus one, and a positive rate makes the
+    present value smaller than the future value.
+
+    The relation is the compound growth rule read backwards: a present sum multiplied by one plus
+    the rate once per period becomes the future sum, so dividing the future sum by that factor
+    undoes the growth. It is compound interest with one compounding per period, or exponential
+    growth, solved for the starting amount, which those relations call the principal or initial
+    amount. The reciprocal of the factor is the discount factor. Solving for the rate gives the
+    return that links two sums, and logarithms give the number of periods needed, which comes out
+    fractional when the target is reached partway through a period.
+
+    The formula values one payment at a constant rate. A stream of payments, such as a loan or an
+    annuity, is valued by adding one such term per payment. With a nominal annual rate compounded
+    several times a year, the rate per period is the annual rate divided by the number of
+    compoundings, and the periods are counted in the same steps.
+
+    Present value prices bonds, compares investment projects and values pensions or lump-sum prizes.
+    A payment of 5000 due in five years is worth about 3917.63 today at 5 percent a year.

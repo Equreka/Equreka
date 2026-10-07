@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Fórmula de Vieta para la suma de las raíces'
+terms:
+  x_{1}:
+    label: 'Primera raíz'
+  x_{2}:
+    label: 'Segunda raíz'
+  a:
+    label: 'Coeficiente cuadrático'
+  b:
+    label: 'Coeficiente lineal'
+description: >-
+  La fórmula de Vieta para la suma de las raíces establece que las dos raíces de una ecuación
+  cuadrática suman el opuesto de su coeficiente de primer grado dividido entre el coeficiente de su
+  cuadrado. Es una de las fórmulas de Vieta, las relaciones que vinculan los coeficientes de un
+  polinomio con sus raíces, y da la suma de las soluciones de una ecuación de segundo grado sin
+  resolverla.
+
+  En la relación, $\var{x_{1}}$ y $\var{x_{2}}$ son las dos raíces de la ecuación cuadrática escrita
+  en forma general, con cero en un miembro, y se cuentan con su multiplicidad, de modo que una raíz
+  doble aparece dos veces. $\var{a}$ es el coeficiente del cuadrado y $\var{b}$ el coeficiente de la
+  primera potencia; ambos son números puros y $\var{a}$ nunca es cero. Cuando $\var{a}$ y $\var{b}$
+  tienen el mismo signo, las raíces suman un número negativo, y cuando sus signos difieren la suma
+  es positiva.
+
+  Una vez conocidas sus raíces, una cuadrática se factoriza como el coeficiente principal por el
+  producto de dos binomios, cada uno formado al restar una raíz a la incógnita. Al desarrollar ese
+  producto e igualar el coeficiente de primer grado con el de la ecuación original se obtiene la
+  relación, mientras que al igualar los términos independientes se obtiene su compañera, el producto
+  de las raíces. Sumar las dos raíces de la fórmula general lleva al mismo resultado, porque las
+  partes con raíz cuadrada se cancelan.
+
+  La relación vale tanto para raíces complejas como para reales: cuando el discriminante es
+  negativo, las dos raíces complejas conjugadas siguen sumando el número real del segundo miembro.
+  Requiere la ecuación en forma general. Para un polinomio de grado mayor, la suma de todas sus
+  raíces es menos el coeficiente de la segunda potencia más alta dividido entre el coeficiente
+  principal.
+
+  François Viète demostró la relación para raíces positivas en 1579, y Girard demostró más tarde el
+  teorema general; Viète introdujo además letras para las incógnitas en su libro de 1591. La fórmula
+  sirve para comprobar raíces calculadas y para construir una ecuación con raíces elegidas: las
+  raíces 2 y 3 suman 5, como en la ecuación de coeficientes 1, -5 y 6.

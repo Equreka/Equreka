@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Simple interest'
+kind: 'formula'
+level: 'intro'
+expression: '\var{I}=\var{P}\var{r}\var{t}'
+terms:
+  I:
+    kind: 'symbol'
+    label:
+      en: 'Interest'
+  P:
+    kind: 'symbol'
+    label:
+      en: 'Principal'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Annual interest rate (as a fraction)'
+  t:
+    kind: 'symbol'
+    label:
+      en: 'Time in years'
+solutions:
+  I: 'P * r * t'
+  P: 'I / (r * t)'
+  r: 'I / (P * t)'
+  t: 'I / (P * r)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q95675530'
+categories:
+  - 'mathematics'
+branches:
+  - 'arithmetic'
+aliases:
+  - 'I = Prt'
+  - 'simple interest formula'
+  - 'interest formula'
+  - 'fórmula del interés simple'
+  - 'capitalización simple'
+references:
+  - title: 'OpenStax, Prealgebra 2e, 6.4 Solve Simple Interest Applications'
+    url: 'https://openstax.org/books/prealgebra-2e/pages/6-4-solve-simple-interest-applications'
+  - title: 'OpenStax, Contemporary Mathematics, 6.3 Simple Interest'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/6-3-simple-interest'
+  - title: 'D. Lippman, Math in Society, 9.2 Simple Interest (LibreTexts)'
+    url: 'https://math.libretexts.org/Bookshelves/Applied_Mathematics/Math_in_Society_(Lippman)/09%3A_Finance/9.02%3A_Simple_Interest'
+description:
+  en: >-
+    Simple interest is interest computed on the original principal only: the interest equals the
+    principal times the interest rate times the time. Because earned interest is never added to the
+    sum that earns it, the balance grows by the same amount every year, a straight-line growth that
+    sets simple interest apart from compound interest in loans, savings and bonds.
+
+    In the formula, $\var{I}$ is the interest earned or owed; $\var{P}$ is the principal, the sum
+    lent, borrowed or deposited; $\var{r}$ is the annual interest rate as a decimal fraction, so 6
+    percent enters as 0.06; and $\var{t}$ is the time in years. The principal and the interest share
+    one currency, which the formula leaves open, while the rate and the time are pure numbers whose
+    periods must match: with a rate per year, 18 months enter as 1.5 and 45 days as 45/365. Some
+    lenders count a year as 360 days instead, which raises the interest slightly.
+
+    The total at the end of the term is the principal plus the interest, that is the principal
+    multiplied by one plus the product of rate and time. Interest is proportional to each of the
+    three inputs: doubling the principal, the rate or the time doubles it. Rearranged, the formula
+    gives the rate a given amount of interest implies, or the time needed to earn it.
+
+    The model assumes a fixed rate and interest that is paid out or set aside rather than
+    reinvested. When interest is credited to the balance and itself earns interest, compound
+    interest applies, and the balance pulls ahead of the straight line by a margin that widens with
+    time. Over terms shorter than a year the two methods give nearly the same result, which is why
+    simple interest suits short loans.
+
+    Treasury notes and many other bonds pay simple interest to their holders at fixed intervals. A
+    deposit of 500 at 6 percent a year for three years earns 90 in interest.

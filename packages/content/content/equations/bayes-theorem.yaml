@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Bayes'' theorem'
+kind: 'equation'
+level: 'intro'
+expression: '\var{P(A\mid B)}=\frac{\var{P(B\mid A)}\var{P(A)}}{\var{P(B)}}'
+terms:
+  P(A\mid B):
+    kind: 'symbol'
+    identifier: 'P_AgivenB'
+    label:
+      en: 'Posterior probability of A given B'
+  P(B\mid A):
+    kind: 'symbol'
+    identifier: 'P_BgivenA'
+    label:
+      en: 'Likelihood of B given A'
+  P(A):
+    kind: 'symbol'
+    identifier: 'P_A'
+    label:
+      en: 'Prior probability of A'
+  P(B):
+    kind: 'symbol'
+    identifier: 'P_B'
+    label:
+      en: 'Probability of B'
+solutions:
+  P(A\mid B): 'P_BgivenA * P_A / P_B'
+  P(B\mid A): 'P_AgivenB * P_B / P_A'
+  P(A): 'P_AgivenB * P_B / P_BgivenA'
+  P(B): 'P_BgivenA * P_A / P_AgivenB'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q182505'
+categories:
+  - 'mathematics'
+branches:
+  - 'statistics-and-probability'
+aliases:
+  - 'Bayes theorem'
+  - 'Bayes''s theorem'
+  - 'Bayes'' rule'
+  - 'Bayes'' law'
+  - 'Bayes formula'
+  - 'teorema de Bayes'
+  - 'regla de Bayes'
+  - 'fórmula de Bayes'
+references:
+  - title: 'LibreTexts, MATH 345 Probability (Kuter), 2.2 Conditional Probability and Bayes'' Rule'
+    url: 'https://stats.libretexts.org/Courses/Saint_Mary''s_College_Notre_Dame/MATH_345__-_Probability_(Kuter)/2:_Computing_Probabilities/2.2:_Conditional_Probability_and_Bayes''_Rule'
+  - title: 'LibreTexts, OpenIntro Statistics (Diez et al.), 2.3 Conditional Probability II'
+    url: 'https://stats.libretexts.org/Bookshelves/Introductory_Statistics/OpenIntro_Statistics_(Diez_et_al)./02%3A_Probability/2.03%3A_Conditional_Probability_II'
+  - title: 'MacTutor History of Mathematics, Thomas Bayes'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Bayes/'
+description:
+  en: >-
+    Bayes' theorem expresses the probability of an event A given an observed event B in terms of the
+    probability of B given A. It reverses the direction of a conditional probability, and it is the
+    rule for updating the probability of a hypothesis once new evidence arrives, also known as
+    Bayes' rule or Bayes' law.
+
+    In the equation, $\var{P(A)}$ is the prior probability of A, its probability before B is
+    observed, and $\var{P(A\mid B)}$ is the posterior probability, after B is known.
+    $\var{P(B\mid A)}$ is the likelihood, the probability of observing B when A holds, and
+    $\var{P(B)}$ is the overall probability of B, often called the evidence. All four are pure
+    numbers from 0 to 1, never negative.
+
+    The theorem follows from writing the probability that A and B both occur in two ways, as the
+    probability of B times that of A given B and as the probability of A times that of B given A,
+    then dividing by the probability of B. When B is not given directly, it is found by the law of
+    total probability: the likelihood of B under each possible case, weighted by the probability of
+    that case and summed.
+
+    The probability of B must be greater than zero. The result is only as reliable as the prior it
+    starts from, and a small prior can outweigh a high likelihood, which is why a positive result
+    for a rare condition is often a false alarm. Confusing the probability of A given B with that of
+    B given A is a common error that the theorem corrects.
+
+    The theorem is named after Thomas Bayes, whose essay on the doctrine of chances was published in
+    1764 in the Philosophical Transactions of the Royal Society, three years after his death, when
+    his friend Richard Price sent it in. A test that detects 90 percent of cases and wrongly flags
+    0.1 percent of healthy people gives, for a condition affecting 1 person in 10 000, a posterior
+    probability of only about 8 percent after a positive result.

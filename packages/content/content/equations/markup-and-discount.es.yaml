@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Recargo y descuento'
+terms:
+  p:
+    label: 'Precio final'
+  c:
+    label: 'Costo o precio original'
+  m:
+    label: 'Tasa de recargo (como fracción)'
+  d:
+    label: 'Tasa de descuento (como fracción)'
+description: >-
+  El recargo y el descuento son las dos variaciones porcentuales de la fijación de precios en el
+  comercio. Un recargo aumenta un costo en una fracción de ese costo para dar un precio de venta, y
+  un descuento reduce un precio en una fracción de él para dar un precio rebajado. Reunidos en una
+  fórmula, el precio final es el costo multiplicado por uno más la tasa de recargo y por uno menos
+  la tasa de descuento.
+
+  En la fórmula, $\var{c}$ es la cantidad de partida: el costo que pagó el vendedor, o el precio
+  original cuando solo se aplica un descuento. $\var{m}$ es la tasa de recargo y $\var{d}$ la tasa
+  de descuento, ambas fracciones decimales, de modo que un recargo del 40 por ciento entra como 0.4;
+  $\var{p}$ es el precio final. Todos los precios comparten una moneda, que la fórmula deja abierta,
+  y las tasas son números puros. Si $\var{d}$ vale cero queda solo el recargo, y si $\var{m}$ vale
+  cero, solo el descuento.
+
+  El importe del recargo es la tasa por el costo, y sumarlo al costo da el precio de venta; el
+  importe del descuento es la tasa por el precio original, y restarlo da el precio rebajado. Cada
+  paso multiplica el precio por un factor, así que dos cambios aplicados uno tras otro multiplican
+  sus factores en lugar de sumar sus tasas. Un recargo del 10 por ciento seguido de un descuento del
+  10 por ciento deja, por tanto, el 99 por ciento del costo, no el costo mismo.
+
+  La fórmula supone que el recargo se calcula sobre el costo, como hace habitualmente la aritmética
+  comercial; el margen, que se expresa como parte del precio de venta, es otra razón y da otros
+  números. Varios descuentos, como unas rebajas de temporada y un descuento para estudiantes, se
+  aplican de uno en uno de la misma forma multiplicativa. La tasa de descuento está entre 0 y 1, ya
+  que una mayor daría un precio negativo, mientras que una tasa de recargo puede superar 1.
+
+  Los comercios usan la relación para fijar los precios de sus productos y anunciar rebajas. Un
+  vestido con un precio original de 140 vendido con un 35 por ciento de descuento cuesta 91.

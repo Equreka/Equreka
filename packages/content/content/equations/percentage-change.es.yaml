@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Variación porcentual'
+terms:
+  r:
+    label: 'Variación relativa (como fracción)'
+  V_{f}:
+    label: 'Valor final'
+  V_{i}:
+    label: 'Valor inicial'
+description: >-
+  La variación porcentual, también llamada variación relativa o cambio porcentual, mide cuánto ha
+  crecido o disminuido una cantidad en comparación con su valor de partida. Es la diferencia entre
+  el valor final y el inicial dividida entre el valor inicial, una razón que suele darse en
+  porcentaje: un resultado positivo es un aumento porcentual y uno negativo, una disminución
+  porcentual.
+
+  En la fórmula, $\var{V_{i}}$ es el valor inicial o de referencia, $\var{V_{f}}$ es el valor final
+  y $\var{r}$ es la variación relativa como fracción decimal, de modo que 0.12 se lee como un
+  aumento del 12 por ciento y menos 0.05 como una disminución del 5 por ciento. Los dos valores se
+  miden en la misma unidad, que se cancela, así que la variación es un número puro sea cual sea la
+  cantidad. El valor inicial no puede ser cero y, para que el resultado se lea como porcentaje de
+  algo, normalmente es positivo.
+
+  El numerador por sí solo, el valor final menos el inicial, es la variación absoluta, expresada en
+  la unidad de la cantidad. Dividirlo entre el valor de partida lo convierte en una medida relativa
+  que sitúa en una misma escala cambios de tamaños muy distintos. Al reorganizar, el valor final es
+  el valor inicial por uno más la variación relativa, el factor de crecimiento; por eso una subida
+  del 10 por ciento multiplica una cantidad por 1.1 y una bajada del 10 por ciento por 0.9.
+
+  La referencia es siempre el valor de partida, así que las variaciones porcentuales sucesivas ni se
+  suman ni se compensan: una caída del 60 por ciento seguida de una subida del 75 por ciento deja la
+  cantidad en el 70 por ciento de su valor original. Cuando las cantidades comparadas son ya
+  porcentajes, su diferencia directa se da en puntos porcentuales, una cifra distinta de la
+  variación relativa.
+
+  La variación porcentual informa de la inflación, el crecimiento de la población, los movimientos
+  de precios y los cambios en ventas, salarios o calificaciones. Cuando el gobernador de California
+  propuso en 2011 subir las tasas de los colegios comunitarios de 26 a 36 por unidad, el aumento
+  previsto de 10 habría supuesto una variación relativa de aproximadamente el 38.5 por ciento.

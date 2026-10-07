@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Percentage change'
+kind: 'formula'
+level: 'intro'
+expression: '\var{r}=\frac{\var{V_{f}}-\var{V_{i}}}{\var{V_{i}}}'
+terms:
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Relative change (as a fraction)'
+  V_{f}:
+    kind: 'symbol'
+    label:
+      en: 'Final value'
+  V_{i}:
+    kind: 'symbol'
+    label:
+      en: 'Initial value'
+solutions:
+  r: '(V_f - V_i) / V_i'
+  V_{f}: 'V_i * (1 + r)'
+  V_{i}: 'V_f / (1 + r)'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'arithmetic'
+aliases:
+  - 'percent change'
+  - 'relative change'
+  - 'percent increase'
+  - 'percent decrease'
+  - 'percentage increase'
+  - 'percentage decrease'
+  - 'cambio porcentual'
+  - 'variación relativa'
+  - 'aumento porcentual'
+  - 'disminución porcentual'
+references:
+  - title: 'OpenStax, Prealgebra 2e, 6.2 Solve General Applications of Percent'
+    url: 'https://openstax.org/books/prealgebra-2e/pages/6-2-solve-general-applications-of-percent'
+  - title: 'D. Lippman, Math in Society, 1.2 Percents (LibreTexts)'
+    url: 'https://math.libretexts.org/Bookshelves/Applied_Mathematics/Math_in_Society_(Lippman)/01%3A_Problem_Solving/1.02%3A_Percents'
+description:
+  en: >-
+    Percentage change, also called relative change or percent change, measures how much a quantity
+    has grown or shrunk compared with its starting value. It is the difference between the final and
+    the initial value divided by the initial value, a ratio usually reported as a percent: a
+    positive result is a percent increase and a negative one a percent decrease.
+
+    In the formula, $\var{V_{i}}$ is the initial or reference value, $\var{V_{f}}$ is the final
+    value, and $\var{r}$ is the relative change as a decimal fraction, so 0.12 reads as a 12 percent
+    increase and minus 0.05 as a 5 percent decrease. Both values are measured in the same unit,
+    which cancels, so the change is a pure number whatever the quantity. The initial value must not
+    be zero, and for the result to read as a percentage of something it is normally positive.
+
+    The numerator alone, the final value minus the initial one, is the absolute change, expressed in
+    the unit of the quantity. Dividing it by the starting value turns it into a relative measure
+    that puts changes of very different sizes on one scale. Rearranged, the final value equals the
+    initial value times one plus the relative change, the growth factor, which is why a 10 percent
+    rise multiplies a quantity by 1.1 and a 10 percent fall by 0.9.
+
+    The reference is always the starting value, so successive percentage changes neither add nor
+    cancel: a fall of 60 percent followed by a rise of 75 percent leaves a quantity at 70 percent of
+    where it began. When the quantities compared are themselves percentages, their plain difference
+    is given in percentage points, a different figure from the relative change.
+
+    Percentage change reports inflation, population growth, price movements and changes in sales,
+    wages or scores. When the governor of California proposed in 2011 to raise community college
+    fees from 26 to 36 per unit, the planned increase of 10 amounted to a relative change of about
+    38.5 percent.

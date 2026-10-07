@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Fórmula de Vieta para el producto de las raíces'
+terms:
+  x_{1}:
+    label: 'Primera raíz'
+  x_{2}:
+    label: 'Segunda raíz'
+  a:
+    label: 'Coeficiente cuadrático'
+  c:
+    label: 'Término independiente'
+description: >-
+  La fórmula de Vieta para el producto de las raíces establece que las dos raíces de una ecuación
+  cuadrática multiplicadas dan su término independiente dividido entre el coeficiente de su
+  cuadrado. Junto con la fórmula para la suma de las raíces forma el caso de segundo grado de las
+  fórmulas de Vieta, que relacionan los coeficientes de un polinomio con sus raíces, y da el
+  producto de las soluciones sin resolver la ecuación.
+
+  Aquí $\var{x_{1}}$ y $\var{x_{2}}$ son las dos raíces de la cuadrática en forma general, con cero
+  en un miembro, contadas con su multiplicidad. $\var{a}$ es el coeficiente del cuadrado y $\var{c}$
+  el término independiente, ambos números puros, con $\var{a}$ nunca nulo. El signo del cociente es
+  informativo: un valor negativo indica una raíz real positiva y otra negativa, y un valor positivo
+  indica dos raíces del mismo signo o un par de complejas conjugadas. Un término independiente nulo
+  hace que una de las raíces sea cero.
+
+  Al escribir la cuadrática como su coeficiente principal por el producto de los binomios que se
+  forman al restar cada raíz a la incógnita, y desarrollar, se ve que el término independiente es
+  igual al coeficiente principal por el producto de las dos raíces; al dividir entre el coeficiente
+  principal se obtiene la relación. Multiplicar las dos raíces de la fórmula general da el mismo
+  resultado, porque el producto es una diferencia de cuadrados en la que el discriminante se
+  cancela.
+
+  La relación es válida tanto para raíces reales como complejas y requiere la ecuación en forma
+  estándar. Para un polinomio de grado n, el producto de todas sus raíces es igual al término
+  independiente dividido entre el coeficiente principal, con el signo cambiado cuando n es impar.
+
+  François Viète demostró las relaciones entre raíces y coeficientes para raíces positivas en 1579,
+  y Girard demostró más tarde el caso general; el libro de Viète de 1591 introdujo letras para las
+  cantidades desconocidas. El producto y la suma juntos reconstruyen una cuadrática: las raíces 2 y
+  3 multiplicadas dan 6, el término independiente de la ecuación de coeficientes 1, -5 y 6.

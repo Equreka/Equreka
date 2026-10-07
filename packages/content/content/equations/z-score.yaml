@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Z-score'
+kind: 'formula'
+level: 'intro'
+expression: '\var{z}=\frac{\var{x}-\var{\mu}}{\var{\sigma}}'
+terms:
+  z:
+    kind: 'symbol'
+    label:
+      en: 'Z-score'
+  x:
+    kind: 'symbol'
+    label:
+      en: 'Value'
+  \mu:
+    kind: 'symbol'
+    label:
+      en: 'Mean'
+  \sigma:
+    kind: 'symbol'
+    label:
+      en: 'Standard deviation'
+solutions:
+  z: '(x - mu) / sigma'
+  x: 'mu + z * sigma'
+  \mu: 'x - z * sigma'
+  \sigma: '(x - mu) / z'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q1050272'
+categories:
+  - 'mathematics'
+branches:
+  - 'statistics-and-probability'
+aliases:
+  - 'standard score'
+  - 'z score'
+  - 'z-value'
+  - 'standardized value'
+  - 'standardization'
+  - 'puntuación típica'
+  - 'puntuación estándar'
+  - 'valor tipificado'
+  - 'unidad tipificada'
+references:
+  - title: 'OpenStax, Introductory Statistics 2e, 6.1 The Standard Normal Distribution'
+    url: 'https://openstax.org/books/introductory-statistics-2e/pages/6-1-the-standard-normal-distribution'
+  - title: 'NIST/SEMATECH e-Handbook of Statistical Methods, 1.3.6.7.1 Cumulative Distribution Function of the Standard Normal Distribution'
+    url: 'https://www.itl.nist.gov/div898/handbook/eda/section3/eda3671.htm'
+  - title: 'NIST/SEMATECH e-Handbook of Statistical Methods, 1.3.6.4 Location and Scale Parameters'
+    url: 'https://www.itl.nist.gov/div898/handbook/eda/section3/eda364.htm'
+description:
+  en: >-
+    The z-score, also called the standard score, states how far a single value lies from the mean of
+    its data set or distribution, counted in standard deviations. Converting a value into its
+    z-score is called standardizing, and it is a basic tool of descriptive statistics for comparing
+    observations taken on different scales.
+
+    In the formula, $\var{x}$ is the observed value, $\var{\mu}$ is the mean and $\var{\sigma}$ is
+    the standard deviation, all three in the same unit, which the division cancels; the z-score
+    $\var{z}$ is therefore a pure number with no unit. The standard deviation must be positive. A
+    positive $\var{z}$ marks a value above the mean, a negative one a value below it, and zero a
+    value equal to the mean.
+
+    Subtracting the mean shifts the centre of the data to zero, and dividing by the standard
+    deviation rescales its spread to one. Read in reverse, the value equals the mean plus $\var{z}$
+    standard deviations, which recovers a raw score from a standardized one. For a normal
+    distribution, about 68 percent of values have a z-score within one unit of zero, about 95
+    percent within two units and about 99.7 percent within three.
+
+    The formula itself holds for any data set, but those percentages, and any tail probability read
+    from a standard normal table, assume that the data are close to normally distributed. With a
+    sample instead of a whole population, the sample mean and the sample standard deviation take the
+    place of the population values, so the result is only an estimate.
+
+    Standardized scores rank test results, flag outliers in quality control and put measurements in
+    different units on a common scale. A value of 17 drawn from a distribution with mean 5 and
+    standard deviation 6 has a z-score of 2: it lies two standard deviations above the mean.

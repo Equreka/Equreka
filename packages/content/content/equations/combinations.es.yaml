@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Combinaciones'
+terms:
+  C:
+    label: 'Número de combinaciones'
+  n:
+    label: 'Número de objetos disponibles'
+  k:
+    label: 'Número de objetos elegidos'
+description: >-
+  La fórmula de las combinaciones cuenta las maneras de elegir un grupo de objetos de un conjunto
+  mayor cuando el orden de los objetos elegidos no importa. El número que da se llama también
+  coeficiente binomial o número combinatorio y se lee «n sobre k»; es una de las dos fórmulas
+  básicas de conteo de la combinatoria, junto con la de las permutaciones.
+
+  En la fórmula, $\var{n}$ es el número de objetos distintos disponibles, $\var{k}$ es el número de
+  objetos elegidos y $\var{C}$ es el número de grupos distintos que pueden formarse. Los tres son
+  números enteros no negativos sin unidad, y $\var{k}$ no puede superar a $\var{n}$. El signo de
+  exclamación es el factorial, el producto de todos los números enteros desde 1 hasta el dado, y el
+  factorial de cero vale 1.
+
+  Colocar en fila los k objetos elegidos puede hacerse de n!/(n − k)! maneras ordenadas. Cada grupo
+  sin orden aparece en esa cuenta una vez por cada una de sus k! ordenaciones internas, así que al
+  dividir entre k! queda el número de grupos. Elegir qué k objetos tomar equivale a elegir qué n − k
+  dejar fuera, de modo que la cuenta es simétrica: intercambiar k y n − k da el mismo valor.
+
+  La fórmula supone objetos distintos extraídos sin reposición, cada uno como máximo una vez, sin
+  tener en cuenta el orden. Cuando el orden importa se aplica la fórmula de las permutaciones, y
+  cuando un objeto puede elegirse más de una vez hace falta otra fórmula. La calculadora solo
+  despeja el número de combinaciones: ni el número disponible ni el número elegido pueden despejarse
+  de los factoriales en forma cerrada.
+
+  El tratado de Pascal sobre el triángulo aritmético fue el estudio temprano más importante de estos
+  números, que forman las filas de ese triángulo y aportan los coeficientes del teorema del binomio.
+  Elegir dos guarniciones de un menú de cinco puede hacerse de 10 maneras.

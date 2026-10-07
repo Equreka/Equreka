@@ -1,0 +1,88 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Linear interpolation'
+kind: 'formula'
+level: 'intro'
+expression: '\var{y}=\var{y_{0}}+\left(\var{x}-\var{x_{0}}\right)\frac{\var{y_{1}}-\var{y_{0}}}{\var{x_{1}}-\var{x_{0}}}'
+terms:
+  y:
+    kind: 'symbol'
+    label:
+      en: 'Estimated output'
+  y_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Output of the first known point'
+  x:
+    kind: 'symbol'
+    label:
+      en: 'Input to estimate at'
+  x_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Input of the first known point'
+  y_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Output of the second known point'
+  x_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Input of the second known point'
+solutions:
+  y: 'y_0 + (x - x_0) * (y_1 - y_0) / (x_1 - x_0)'
+  y_{0}: '(y * (x_1 - x_0) - (x - x_0) * y_1) / (x_1 - x)'
+  x: 'x_0 + (y - y_0) * (x_1 - x_0) / (y_1 - y_0)'
+  x_{0}: '(x * (y_1 - y_0) - x_1 * (y - y_0)) / (y_1 - y)'
+  y_{1}: 'y_0 + (y - y_0) * (x_1 - x_0) / (x - x_0)'
+  x_{1}: 'x_0 + (x - x_0) * (y_1 - y_0) / (y - y_0)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q2266329'
+categories:
+  - 'mathematics'
+branches:
+  - 'algebra'
+aliases:
+  - 'lerp'
+  - 'two-point interpolation'
+  - 'interpolating between two points'
+  - 'reading between table values'
+  - 'interpolación lineal'
+  - 'interpolación entre dos puntos'
+references:
+  - title: 'OpenStax, Algebra and Trigonometry 2e, 4.3 Fitting Linear Models to Data, Interpolation and Extrapolation'
+    url: 'https://openstax.org/books/algebra-and-trigonometry-2e/pages/4-3-fitting-linear-models-to-data'
+  - title: 'OpenStax, College Algebra 2e, 4.1 Linear Functions'
+    url: 'https://openstax.org/books/college-algebra-2e/pages/4-1-linear-functions'
+  - title: 'NIST Digital Library of Mathematical Functions, 3.3 Interpolation'
+    url: 'https://dlmf.nist.gov/3.3'
+description:
+  en: >-
+    Linear interpolation estimates a value between two known data points by assuming that the
+    straight line joining them describes the data in between. It is the simplest interpolation
+    method, used to read values between the rows of a table or between two measurements, and it is
+    the two-point case of polynomial interpolation.
+
+    Here $\var{x_{0}}$ and $\var{x_{1}}$ are the inputs of the two known points, $\var{y_{0}}$ and
+    $\var{y_{1}}$ their outputs, $\var{x}$ the input at which an estimate is wanted and $\var{y}$
+    the estimated output. The inputs share one unit and the outputs another, though all six are
+    treated here as pure numbers. The two known inputs must differ. Any value may be negative, and
+    swapping the two known points leaves the estimate unchanged.
+
+    The fraction is the slope of the line through the two known points, the change in output per
+    unit change of input. Multiplying it by the distance of the requested input from the first known
+    input, then adding the first output, gives the point of that line at the requested input.
+    Equivalently, the estimate is a weighted average of the two known outputs, in which each output
+    weighs more the closer the requested input lies to its point.
+
+    Interpolation stays between the two known inputs. Using the same line outside them is
+    extrapolation, which is less reliable because nothing in the data constrains the values there.
+    The estimate is exact only when the underlying relation is truly linear; for a curved relation
+    the error grows with the curvature and with the spacing between the points, and a polynomial
+    through more points can reduce it.
+
+    Linear interpolation fills gaps in tables of measured properties and in data series, and a graph
+    drawn by joining points with straight segments uses it between every pair of points. Halfway
+    between the points with inputs 10 and 20 and outputs 20 and 30, the estimate at input 15 is 25.

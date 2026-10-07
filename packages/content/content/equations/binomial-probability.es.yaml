@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Probabilidad binomial'
+terms:
+  P(X=k):
+    label: 'Probabilidad de exactamente k éxitos'
+  n:
+    label: 'Número de ensayos'
+  k:
+    label: 'Número de éxitos'
+  p:
+    label: 'Probabilidad de éxito en un ensayo'
+description: >-
+  La fórmula de la probabilidad binomial da la probabilidad de obtener exactamente k éxitos en n
+  ensayos repetidos e independientes, cada uno de los cuales termina en éxito o fracaso con la misma
+  probabilidad de éxito en todas las ocasiones. Es la función de probabilidad de la distribución
+  binomial, la distribución discreta básica de la estadística escolar para contar éxitos.
+
+  En la fórmula, $\var{n}$ es el número de ensayos y $\var{k}$ el número de éxitos, ambos números
+  enteros no negativos con $\var{k}$ no mayor que $\var{n}$. $\var{p}$ es la probabilidad de éxito
+  en un solo ensayo, y $\var{P(X=k)}$ es la probabilidad de que el número de éxitos X valga k. Ambas
+  probabilidades son números puros entre 0 y 1. El signo de exclamación indica el factorial.
+
+  Cada ordenación concreta de k éxitos y n − k fracasos tiene probabilidad p elevado a k por 1 − p
+  elevado a n − k, según la regla del producto para sucesos independientes. La fracción de
+  factoriales es el número de combinaciones de k posiciones entre n, que cuenta cuántas secuencias
+  de ese tipo existen, y al multiplicar ambos factores se obtiene el total. Sumadas para todos los k
+  de 0 a n, las probabilidades valen 1, y el número medio de éxitos es n por p.
+
+  La fórmula exige un número fijo de ensayos, exactamente dos resultados por ensayo, ensayos
+  independientes y una probabilidad de éxito constante. Un muestreo sin reposición en una población
+  pequeña incumple las dos últimas condiciones. La calculadora solo despeja la probabilidad, porque
+  el número de ensayos, el número de éxitos y la probabilidad de éxito no tienen una forma cerrada
+  general en función de los demás.
+
+  Un ensayo único de éxito o fracaso se llama ensayo de Bernoulli en honor de Jacob Bernoulli, cuya
+  obra Ars Conjectandi se publicó en 1713, ocho años después de su muerte. Cuatro éxitos en cinco
+  ensayos con una probabilidad de éxito de 0.25 tienen una probabilidad de 0.0146 aproximadamente.

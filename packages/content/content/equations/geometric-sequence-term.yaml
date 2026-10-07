@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'General term of a geometric sequence'
+kind: 'formula'
+level: 'intro'
+expression: '\var{a_{n}}=\var{a_{1}}\var{r}^{\var{n}-1}'
+terms:
+  a_{n}:
+    kind: 'symbol'
+    label:
+      en: 'nth term'
+  a_{1}:
+    kind: 'symbol'
+    label:
+      en: 'First term'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Common ratio'
+  n:
+    kind: 'symbol'
+    label:
+      en: 'Position of the term'
+    integer: true
+solutions:
+  a_{n}: 'a_1 * r^(n - 1)'
+  a_{1}: 'a_n / r^(n - 1)'
+  r: '(a_n / a_1)^(1 / (n - 1))'
+  n: 'ln(a_n / a_1) / ln(r) + 1'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'algebra'
+aliases:
+  - 'geometric progression'
+  - 'geometric sequence'
+  - 'nth term of a geometric sequence'
+  - 'explicit formula for a geometric sequence'
+  - 'common ratio'
+  - 'progresión geométrica'
+  - 'sucesión geométrica'
+  - 'razón común'
+references:
+  - title: 'OpenStax, College Algebra 2e, 9.3 Geometric Sequences'
+    url: 'https://openstax.org/books/college-algebra-2e/pages/9-3-geometric-sequences'
+  - title: 'E. W. Weisstein, Geometric Sequence, MathWorld'
+    url: 'https://mathworld.wolfram.com/GeometricSequence.html'
+description:
+  en: >-
+    The general term of a geometric sequence gives any term of the sequence from its first term and
+    its common ratio, the fixed factor by which each term is multiplied to produce the next. Also
+    called the explicit or nth-term formula of a geometric progression, it is the step-by-step
+    counterpart of exponential growth and decay.
+
+    Here $\var{a_{n}}$ is the term in position $\var{n}$, $\var{a_{1}}$ the first term and $\var{r}$
+    the common ratio; the position is a positive whole number counted from 1. The terms are pure
+    numbers or share one unit, and the ratio is always a pure number. With a positive first term, a
+    ratio above 1 makes the terms grow, a ratio between 0 and 1 makes them shrink toward zero, and a
+    negative ratio makes them alternate in sign. Neither the ratio nor the first term is zero.
+
+    The first term is multiplied by the ratio once to reach the second term, twice to reach the
+    third, and so on, so the term in a given position carries the ratio raised to one less than the
+    position number. Taking logarithms turns the relation into a straight line in the position,
+    which is why a geometric sequence with positive terms looks linear on a logarithmic scale. The
+    ratio itself is found by dividing any term by the term before it.
+
+    The formula assumes the same ratio at every step. Solving for the ratio takes a root whose order
+    is one less than the position, so the calculator finds the ratio only when the two terms have
+    the same sign and returns the positive root; a negative ratio is entered as a known value.
+    Solving for the position needs a logarithm and works for positive ratios other than 1.
+
+    Geometric sequences describe a balance or a population that grows by a fixed percentage each
+    period, with a ratio of one plus that rate, the growth factor of exponential growth, and any
+    process of repeated halving or doubling. A sequence that starts at 3 and doubles at each step
+    has 24 as its fourth term.
