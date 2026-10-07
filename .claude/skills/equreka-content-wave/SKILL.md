@@ -26,12 +26,14 @@ node scripts/content/roadmap.mjs --wave <id>
 
 ## 3. Run the workflow
 
-Invoke the saved workflow **`content-wave`** with the args file. Per slice it runs one author (opus) under `equreka-author` and one verifier (sonnet) under `equreka-verify`, loops blocker and major findings back to the author until the verifier passes, and returns every author output and verifier report. Slices run in parallel; only the owning slice writes a file.
+Invoke the saved workflow **`content-wave`** (`.claude/workflows/content-wave.js`) with the args JSON plus `branch` (the wave branch) and `baseline` (the preflight artifact sizes). Its phases:
 
-While it runs, do not edit content yourself. After it returns:
+1. **Author → Verify**, pipelined per slice: one author (opus) under `equreka-author` writes only its slice's files; as soon as it returns, one adversarial verifier (sonnet) under `equreka-verify` reports findings without editing.
+2. **Consistency**: one critic (sonnet) reads every slice's files for cross-slice drift (symbols, labels, Spanish terms, duplicates).
+3. **Fix**: one fixer (opus) is the single writer from here on. It applies every blocker and major finding (or rejects it with a fetched reason), applies `sharedEdits[]`, loops `pnpm --filter @equreka/content check` up to 6 rounds, runs `pnpm quality`, and defers (deletes) entries that still cannot pass.
+4. **Gate**: one agent (sonnet) runs every gate, the originality check and the artifact delta, and returns `ready`, the PR title and body. It does not commit.
 
-- Apply `sharedEdits[]` centrally, one by one, after checking each against the rules (an edit no slice owned, such as a `unitOf` entry on a unit of an earlier wave). Re-run the check after them.
-- Every verifier verdict must be `pass`. A slice that still fails after the workflow's retries: revert its unfinished files and park its entries (step 4).
+While it runs, do not edit content yourself. After it returns, read `rejectedFindings` and `deferred`: every blocker must be fixed or rejected with a source; a slice whose author returned nothing has all its items deferred.
 
 ## 4. Reconcile the roadmap
 

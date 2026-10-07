@@ -7,7 +7,7 @@ export const meta = {
     { title: 'Verify', detail: 'one adversarial sonnet verifier per slice, starts as soon as its author ends', model: 'sonnet' },
     { title: 'Consistency', detail: 'cross-slice critic: symbols, labels, Spanish terminology, duplicates', model: 'sonnet' },
     { title: 'Fix', detail: 'single writer applies blockers and majors, loops check until clean', model: 'opus' },
-    { title: 'Gate', detail: 'all quality gates, commit, PR body', model: 'sonnet' },
+    { title: 'Gate', detail: 'all quality gates, originality, artifact delta, PR body (no commit)', model: 'sonnet' },
   ],
 }
 
@@ -197,14 +197,17 @@ Owners: ${JSON.stringify(ownerBySlug)}
 Do not run git commands that change state.`
 }
 
-const gatePrompt = (fix, results) => `You are the GATE for Equreka wave ${wave} (${waveTitle}) on branch ${args.branch}.
+const gatePrompt = (fix, results) => `You are the GATE for Equreka wave ${wave} (${waveTitle}) on branch ${args.branch}. You do not edit files, do not touch docs/content/roadmap.yaml and do not commit: the main session reconciles the roadmap, commits and opens the PR from your report.
 Fixer outcome: ${JSON.stringify({ checkClean: fix?.checkClean, qualityClean: fix?.qualityClean, deferred: fix?.deferred, remaining: fix?.remainingIssues })}
-1. For every deferred entry (from authors and fixer) set its roadmap entry (docs/content/roadmap.yaml) to state deferred with the reason; nothing else in the roadmap changes.
-2. Run from the repo root, in order: \`pnpm lint\`, \`pnpm typecheck\`, \`pnpm test\`, \`pnpm build\`, \`pnpm quality\`, \`pnpm --filter @equreka/content check\`. Record each result. Capture artifact sizes printed by the content build and compare with the base branch build if available (report the delta).
-3. If ALL gates pass: stage only content files, sidecars and the roadmap, and make ONE commit with message \`content(${wave}): ${waveTitle} (draft)\` and a body listing entries, ending with the line \`Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>\`. Do not push. If any gate fails, do not commit; set ready=false.
-4. Write the PR body: summary; entries by collection; flags; deferrals with reasons; a review checklist built from the verifiers' confirmed list (value, QID, source URL per item) — this is what the human uses to promote entries to reviewed; gate results; artifact size delta. End the body with a line "🤖 Generated with [Claude Code](https://claude.com/claude-code)".
+1. Run from the repo root, in order: \`pnpm lint\`, \`pnpm typecheck\`, \`pnpm test\`, \`pnpm build\`, \`pnpm quality\`, \`pnpm --filter @equreka/content check\`. Record each result (ok + a one-line summary; on failure, the failing lines).
+2. Run \`node scripts/content/originality.mjs <every entity file and sidecar this wave wrote> --format json\` (search on). Every new or rewritten description must come back flagged:false; list any that do not. Exit code 2 means the network check failed: rerun once, then report it as not run.
+3. Artifact delta: the content build prints every artifact's bytes and share of budget. Baseline before the wave: ${JSON.stringify(args.baseline ?? null)}. Report before/after/delta for engine.json, presentation/, search/, math bodies, and the mobile-bundled total; flag anything above 90% of its budget.
+4. Write the PR title \`content(${wave}): ${waveTitle}\` and body following the template in .claude/skills/equreka-content-wave/SKILL.md (section 6): summary, entries table, deferred/blocked with reasons, the review checklist built from the verifiers' confirmed list (value, QID, source URL per item), open questions, gates, originality, artifact size. End the body with the line "🤖 Generated with [Claude Code](https://claude.com/claude-code)".
+ready = every gate passed, no originality flag on wave files, no artifact above 90% of budget.
 Verifiers' confirmed lists: ${JSON.stringify(results.flatMap((r) => r.verified?.confirmed ?? []))}
-Authors' entries: ${JSON.stringify(results.flatMap((r) => r.authored?.entries ?? []))}`
+Authors' entries: ${JSON.stringify(results.flatMap((r) => r.authored?.entries ?? []))}
+Deferred: ${JSON.stringify([...results.flatMap((r) => r.authored?.deferred ?? []), ...(fix?.deferred ?? [])])}
+Open questions: ${JSON.stringify(results.flatMap((r) => r.authored?.openQuestions ?? []))}`
 
 phase('Author')
 log(`Wave ${wave}: ${slices.length} slices, ${slices.reduce((n, s) => n + s.items.length, 0)} entries`)
