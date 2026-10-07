@@ -19,8 +19,46 @@ branches:
   - 'mechanics'
 aliases:
   - 'angle'
+  - 'ángulo'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4, note (b) (radian)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (degree, minute, second) and note (a)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (20th CGPM 1995, Resolution 8)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 10.1 Rotational Variables'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-1-rotational-variables'
+  - title: 'NASA NSSDCA, Moon Fact Sheet (apparent diameter)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/moonfact.html'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (obliquity to orbit)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+  - title: 'QUDT, quantity kind PlaneAngle'
+    url: 'https://qudt.org/vocab/quantitykind/PlaneAngle'
 description:
-  en: |-
-    In Euclidean geometry, an angle is the figure formed by two rays, called the sides of the angle, sharing a common endpoint, called the vertex of the angle. Angles formed by two rays lie in the plane that contains the rays. Angles are also formed by the intersection of two planes. These are called dihedral angles. Two intersecting curves define also an angle, which is the angle of the tangents at the intersection point. For example, the spherical angle formed by two great circles on a sphere equals the dihedral angle between the planes containing the great circles.
+  en: >-
+    Plane angle is the geometric quantity that measures the opening between two rays leaving a
+    common vertex, or equivalently the amount of turning in a plane needed to bring one ray onto
+    the other. It is the angle of school geometry and trigonometry, and in mechanics it gives the
+    angular position of a rotating body.
 
-    Angle is also used to designate the measure of an angle or of a rotation. This measure is the ratio of the length of a circular arc to its radius. In the case of a geometric angle, the arc is centered at the vertex and delimited by the sides. In the case of a rotation, the arc is centered at the center of the rotation and delimited by any other point and its image by the rotation.
+    The coherent SI unit is the radian: the angle at the centre of a circle that cuts off an arc
+    exactly as long as the radius, so an angle in radians is the ratio of arc length to radius. A
+    full turn is $2\pi\,\mathrm{rad}$ and a right angle is half of pi radians. The SI treats plane
+    angle as a quantity with the unit one, writing rad to make clear that an angle is meant; the
+    20th CGPM settled that status in 1995 by ending the separate class of supplementary units. The
+    degree, $1^{\circ}=(\pi/180)\,\mathrm{rad}$, with its minute and second of arc, is a non-SI
+    unit still in wide use, and astronomers work in arcseconds and smaller.
+
+    Plane angle is a scalar that may carry a sign. In the usual convention an angle measured
+    counterclockwise from a reference direction is positive and a clockwise one negative, and the
+    angular position of a spinning body keeps growing beyond one full turn, so values above
+    $2\pi\,\mathrm{rad}$ count completed revolutions.
+
+    Protractors, theodolites, goniometers and rotary encoders measure angles directly. The Moon
+    seen from the Earth spans about 1900 arcseconds, close to half a degree, and the axis of the
+    Earth is tilted about 23.44 degrees from the perpendicular to its orbit.
+
+    Plane angle is often confused with solid angle, its three-dimensional counterpart measured in
+    steradians. A frequent practical error is feeding degrees into a formula that expects radians,
+    such as the arc length rule or the series for the sine.

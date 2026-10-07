@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Ángulo plano'
+description: >-
+  El ángulo plano es la magnitud geométrica que mide la abertura entre dos semirrectas que parten
+  de un vértice común o, de forma equivalente, el giro en un plano necesario para llevar una
+  semirrecta sobre la otra. Es el ángulo de la geometría y la trigonometría escolares, y en
+  mecánica da la posición angular de un cuerpo que gira.
+
+  Su unidad SI coherente es el radián: el ángulo central de una circunferencia que intercepta un
+  arco tan largo como el radio, de modo que un ángulo en radianes es el cociente entre la
+  longitud de arco y el radio. Una vuelta completa mide $2\pi\,\mathrm{rad}$ y un ángulo recto,
+  medio pi radianes. El SI trata el ángulo plano como una magnitud de unidad uno y escribe rad para
+  dejar claro que se trata de un ángulo; la 20.ª CGPM fijó esa situación en 1995 al suprimir la
+  clase aparte de unidades suplementarias. El grado, $1^{\circ}=(\pi/180)\,\mathrm{rad}$, con sus
+  minutos y segundos de arco, es una unidad ajena al SI de uso extendido, y los astrónomos trabajan en
+  segundos de arco y fracciones menores.
+
+  El ángulo plano es un escalar que puede llevar signo. Según el convenio habitual, un ángulo
+  medido en sentido antihorario desde una dirección de referencia es positivo y uno en sentido
+  horario, negativo, y la posición angular de un cuerpo que gira sigue creciendo más allá de una
+  vuelta, de modo que los valores mayores que $2\pi\,\mathrm{rad}$ cuentan revoluciones completas.
+
+  Los transportadores, los teodolitos, los goniómetros y los codificadores rotatorios miden ángulos
+  directamente. La Luna vista desde la Tierra abarca unos 1900 segundos de arco, cerca de medio
+  grado, y el eje de la Tierra está inclinado unos 23.44 grados respecto de la perpendicular a su
+  órbita.
+
+  El ángulo plano se confunde a menudo con el ángulo sólido, su análogo tridimensional medido en
+  estereorradianes. Un error práctico frecuente es introducir grados en una fórmula que espera
+  radianes, como la regla de la longitud de arco o la serie del seno.

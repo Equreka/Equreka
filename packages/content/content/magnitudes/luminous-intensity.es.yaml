@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Intensidad luminosa'
+description: >-
+  La intensidad luminosa, de símbolo $I_{\mathrm{v}}$, es el flujo luminoso que una fuente emite en
+  una dirección dada por unidad de ángulo sólido: una medida de la fuerza con que una lámpara
+  brilla hacia un observador situado en esa dirección, ponderada según la sensibilidad espectral
+  del ojo humano. Es una de las siete magnitudes básicas sobre las que se construye el Sistema
+  Internacional de Unidades y el equivalente fotométrico de la intensidad radiante.
+
+  Su unidad SI es la candela, de símbolo cd, una unidad básica igual a un lumen por
+  estereorradián. La candela se define fijando en exactamente 683 lúmenes por vatio la eficacia
+  luminosa de la luz monocromática de 540 terahercios. Como resultado, una fuente de esa
+  radiación tiene una intensidad de una candela en una dirección en la que su intensidad radiante
+  es de un vatio por estereorradián dividido entre 683.
+
+  La intensidad luminosa es un escalar no negativo asociado a una dirección, de modo que una
+  lámpara queda descrita por completo con su distribución de intensidad en todas las direcciones.
+  Una fuente isótropa tiene la misma intensidad en todas partes y emite un flujo total de cuatro
+  pi lúmenes, unos 12.6 lúmenes, por cada candela. La intensidad de una superficie plana
+  lambertiana, como un papel iluminado de forma uniforme, decrece con el coseno del ángulo
+  respecto de su normal. Para la realización práctica, la CIE aproxima la fuente por un punto.
+
+  La intensidad se mide con un fotómetro situado a una distancia conocida, aprovechando que la
+  iluminancia producida por una fuente pequeña disminuye con el cuadrado de la distancia.
+  HyperPhysics señala que la candela equivale aproximadamente a la antigua bujía, que suele
+  tomarse como equivalente.
+
+  La unidad básica tiene una larga historia. El CIPM introdujo la nueva candela en 1946, definida
+  mediante el brillo de un radiador de cuerpo negro mantenido en el punto de solidificación del
+  platino; la 16.ª
+  CGPM sustituyó esa definición en 1979 por la radiométrica, cuya redacción se revisó en 2018 para
+  fijar la constante. La intensidad luminosa se confunde a menudo con el flujo luminoso, la luz
+  total en todas las direcciones, y con la luminancia, la intensidad por unidad de área proyectada
+  de una superficie.

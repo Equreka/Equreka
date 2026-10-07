@@ -103,6 +103,7 @@ Prefix names are already shipped (*mili, ato, zeta, yota* per RAE; the rest unch
 | English | Spanish | Source |
 | --- | --- | --- |
 | magnitude (physical quantity) | magnitud | usage |
+| base quantity, base unit, defining constant | magnitud básica, unidad básica, constante definitoria (*unidad base* in `aliases`) | CEM |
 | speed | rapidez | usage (CEM's Table 5 says *velocidad* for both; this project keeps the scalar/vector distinction) |
 | velocity | velocidad | CEM |
 | acceleration | aceleración | CEM |

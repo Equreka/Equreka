@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Rapidez'
+description: >-
+  La rapidez es la magnitud escalar de la cinemática que indica lo deprisa que se mueve un cuerpo,
+  sin tener en cuenta la dirección. La rapidez instantánea es el módulo de la velocidad
+  instantánea; la rapidez media en un trayecto es la distancia total recorrida a lo largo de la
+  trayectoria dividida entre el tiempo transcurrido.
+
+  Su unidad SI es el metro por segundo, y su dimensión es longitud dividida entre tiempo. El
+  folleto del SI usa la rapidez para mostrar que un mismo valor puede escribirse en unidades
+  distintas: $25\,\mathrm{m/s}$ y 90 kilómetros por hora describen el mismo movimiento. Barcos y
+  aviones usan el nudo, una milla náutica por hora, y el tráfico rodado de algunos países usa
+  millas por hora.
+
+  La rapidez es un escalar y nunca es negativa, porque no lleva dirección. La rapidez media y el
+  módulo de la velocidad media pueden diferir: tras un viaje de ida y vuelta que termina donde
+  empezó, el desplazamiento y, por tanto, la velocidad media son nulos, mientras que la rapidez
+  media es la distancia total recorrida dividida entre el tiempo.
+
+  Los velocímetros, las pistolas de radar y láser, las barreras de cronometraje y los receptores de
+  navegación por satélite miden la rapidez, ya sea contando vueltas de rueda o cronometrando una
+  distancia conocida o una señal que regresa. Sus valores abarcan un intervalo amplio: una pelota
+  de tenis bien golpeada a unos 100 kilómetros por hora, la Tierra recorriendo su órbita a una
+  media de $29.78\,\mathrm{km/s}$ y la luz en el vacío a exactamente
+  $299\,792\,458\,\mathrm{m/s}$, valor fijado por la definición del metro.
+
+  En el habla cotidiana se usan rapidez y velocidad como sinónimos, pero en física la velocidad es
+  un vector que incluye la dirección. Un automóvil que toma una curva con rapidez constante está
+  acelerando, porque cambia la dirección de su velocidad. La rapidez de una onda, como el sonido en
+  el aire, se refiere a la propagación de la perturbación y no al movimiento del medio.

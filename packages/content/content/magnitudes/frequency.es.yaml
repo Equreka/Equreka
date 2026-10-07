@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Frecuencia'
+description: >-
+  La frecuencia, de símbolo $f$ o $\nu$, es el número de veces que se repite un suceso por unidad
+  de tiempo: los ciclos de una oscilación, las vibraciones de una cuerda, las crestas de una onda
+  que pasan por un punto fijo. En un proceso periódico es la inversa del periodo, la duración de
+  un ciclo. A veces se la llama frecuencia temporal u ordinaria para distinguirla de la frecuencia
+  espacial y de la frecuencia angular.
+
+  La unidad SI es el hercio, de símbolo Hz, igual a un segundo a la menos uno, de modo que la
+  frecuencia tiene la dimensión del inverso del tiempo. El folleto del SI reserva el hercio para
+  los fenómenos periódicos; para los sucesos aleatorios de la desintegración radiactiva, el
+  segundo a la menos uno recibe el nombre especial de becquerel. El folleto recomienda además
+  expresar la frecuencia en hercios y la frecuencia angular en radianes por segundo, y no en
+  segundos a la menos uno sin más, porque ambas difieren en un factor $2\pi$ y confundirlas es una
+  fuente conocida de errores.
+
+  La frecuencia es un escalar no negativo: indica cada cuánto se repite un proceso, no en
+  qué sentido se mueve o gira algo. En un oscilador armónico simple depende solo de la rigidez y de
+  la masa, no de la amplitud, por eso una cuerda de guitarra mantiene su tono tanto si se pulsa
+  con suavidad como con fuerza. QUDT añade que la luz conserva su frecuencia al pasar a otro medio,
+  mientras que su longitud de onda cambia.
+
+  La frecuencia se mide contando ciclos durante un intervalo conocido. El oído humano abarca de
+  unos 20 hercios a 20 kilohercios; un ecógrafo cuyo periodo de oscilación es de 0.4
+  microsegundos trabaja a 2.5 megahercios; la transición del cesio que define el segundo tiene una
+  frecuencia de exactamente 9 192 631 770 hercios, y la luz verde con la que se define la candela
+  tiene una frecuencia de 540 terahercios.
+
+  La frecuencia se confunde a menudo con la frecuencia angular, que es mayor en el factor $2\pi$ y
+  se expresa en radianes por segundo, y con el periodo, su inverso. El folleto del SI señala que
+  algunos países aún expresan las frecuencias en ciclos o revoluciones por segundo, aunque ni el
+  ciclo ni la revolución son unidades SI.

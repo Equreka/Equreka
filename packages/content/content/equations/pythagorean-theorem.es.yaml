@@ -1,8 +1,36 @@
 # yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Teorema de Pitágoras'
 terms:
   a:
-    label: 'Cateto'
+    label: 'Cateto a'
   b:
-    label: 'Cateto'
+    label: 'Cateto b'
   c:
     label: 'Hipotenusa'
+description: >-
+  El teorema de Pitágoras establece que en un triángulo rectángulo el cuadrado de la hipotenusa es
+  igual a la suma de los cuadrados de los dos catetos. Un triángulo rectángulo es un triángulo con
+  un ángulo de 90 grados; sus catetos son los dos lados que forman ese ángulo recto, y su hipotenusa
+  es el tercer lado, opuesto al ángulo recto. El teorema es la regla básica de la geometría
+  euclidiana para hallar un lado de ese triángulo a partir de los otros dos.
+
+  En la ecuación, $\var{a}$ y $\var{b}$ son las longitudes de los dos catetos y $\var{c}$ es la
+  longitud de la hipotenusa. La relación vale en cualquier unidad de longitud, siempre que las tres
+  usen la misma; en el SI es el metro. Las tres son positivas. Los catetos pueden nombrarse en cualquier orden, pero la hipotenusa debe ser
+  el lado opuesto al ángulo recto, y siempre es el lado más largo del triángulo.
+
+  En términos geométricos, el cuadrado construido sobre la hipotenusa tiene la misma área que los
+  cuadrados construidos sobre los dos catetos juntos. Al despejar, la hipotenusa es la raíz cuadrada
+  de la suma de los catetos al cuadrado, y cualquiera de los catetos es la raíz cuadrada de la
+  hipotenusa al cuadrado menos el cuadrado del otro cateto. El recíproco también se cumple: tres
+  longitudes que satisfacen la relación forman un triángulo rectángulo.
+
+  El teorema solo se aplica a triángulos rectángulos en un plano. En un triángulo sin ángulo recto,
+  el teorema del coseno añade un término de corrección, y sobre una superficie curva, como una
+  esfera, la relación deja de cumplirse. En un plano de coordenadas da la distancia en línea recta
+  entre dos puntos.
+
+  Los babilonios aplicaron la relación entre aproximadamente el 1900 y el 1600 a. C., unos mil años
+  antes de Pitágoras, que nació hacia el 570 a. C. y quizá fue el primero en dar una demostración; los
+  Elementos de Euclides la enuncian como proposición 47 del libro I. Unos catetos de 3 y 4 unidades
+  dan una hipotenusa de 5.

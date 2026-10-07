@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Momento angular'
+description: >-
+  El momento angular es la magnitud vectorial de la mecánica que mide cuánto movimiento de
+  rotación lleva una partícula, un sólido rígido o un sistema completo respecto de un punto de
+  referencia elegido. Para una partícula es el producto vectorial del vector de posición, trazado
+  desde ese punto, por la cantidad de movimiento; para un sólido rígido que gira alrededor de un
+  eje fijo de simetría es igual al momento de inercia multiplicado por la velocidad angular.
+
+  Su unidad SI es el kilogramo metro cuadrado por segundo, $\mathrm{kg\,m^{2}\,s^{-1}}$, que
+  coincide con el julio segundo, y su dimensión es longitud al cuadrado por masa dividida entre
+  tiempo. El folleto del SI señala que esta unidad, fijada mediante la constante de Planck en la
+  definición del kilogramo, sirve tanto para el momento angular como para la magnitud llamada
+  acción.
+
+  Por ser un producto vectorial, el momento angular es perpendicular al plano que contiene la
+  posición y la cantidad de movimiento, y su sentido lo da la regla de la mano derecha: si los
+  dedos se curvan siguiendo el movimiento, el pulgar apunta a lo largo del vector. Su componente
+  sobre un eje es positiva cuando el giro se ve antihorario desde el extremo positivo de ese eje y
+  negativa en el sentido contrario. El valor depende del punto de referencia: una partícula que se
+  mueve sobre una recta que pasa por ese punto no tiene momento angular respecto de él. El momento
+  neto de las fuerzas externas sobre un sistema es igual al ritmo de cambio de su momento angular,
+  de modo que sin ese momento externo el total se mantiene constante; por eso una patinadora gira más deprisa
+  al recoger los brazos.
+
+  Ningún instrumento lo lee directamente: se calcula a partir de un momento de inercia y una
+  velocidad de giro medidos. En mecánica cuántica su componente sobre un eje está cuantizada en
+  múltiplos enteros o semienteros de la constante de Planck reducida, unos $1.05\times10^{-34}\,\mathrm{J\,s}$, mientras que la rotación diaria de la Tierra
+  lleva aproximadamente $5.8\times10^{33}\,\mathrm{J\,s}$.
+
+  El momento angular se confunde a menudo con el momento de una fuerza, medido en newton metro, que
+  cambia el momento angular en lugar de medirlo. A diferencia de la cantidad de movimiento, varía
+  cuando se desplaza el punto de referencia.

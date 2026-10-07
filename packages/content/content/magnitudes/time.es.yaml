@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Tiempo'
+description: >-
+  El tiempo, en el sentido de duración o intervalo de tiempo, es la magnitud básica que mide cuánto
+  dura un proceso o cuánto distan dos sucesos. Ordena los sucesos en anteriores y posteriores y es
+  una de las siete magnitudes básicas del SI, con el símbolo t; todo ritmo, desde la rapidez hasta
+  la potencia y la frecuencia, divide otra magnitud entre él.
+
+  Su unidad básica en el SI es el segundo. Se define asignando a la transición hiperfina del
+  cesio-133, en su estado fundamental sin perturbar, una frecuencia exacta de
+  $9\,192\,631\,770$ hercios, de modo que un segundo dura ese número de periodos de la radiación
+  correspondiente, cada uno de unos $1.09\times10^{-10}\,\mathrm{s}$. El minuto, la hora y el día,
+  de 60, 3600 y $86\,400\,\mathrm{s}$, son unidades ajenas al SI de uso extendido. La dimensión del tiempo
+  se escribe T.
+
+  Una duración es un escalar y nunca es negativa. Una coordenada temporal, la lectura de un reloj
+  respecto de un origen elegido, puede ser negativa antes de ese origen, pero el intervalo entre dos
+  lecturas no lo es. En relatividad, observadores distintos pueden medir duraciones distintas entre
+  los mismos sucesos; el segundo del SI se define como unidad de tiempo propio, el que marca un
+  reloj que acompaña a los sucesos.
+
+  Los relojes miden el tiempo contando los ciclos de un proceso periódico regular: la oscilación de
+  un péndulo, la vibración de un cristal de cuarzo o la radiación de los átomos. La rotación
+  sideral de la Tierra dura unas 23.93 horas y su órbita alrededor del Sol, unos 365.26 días.
+
+  Antes de 1960 el segundo era una fracción fija del día solar medio, pero las irregularidades de
+  la rotación terrestre hacían insatisfactoria esa definición. La 11.ª CGPM la basó en 1960 en el
+  año trópico de 1900, y la 13.ª CGPM adoptó en 1967 y 1968 la definición del cesio, reformulada
+  en 2018. El tiempo no debe confundirse con la frecuencia, su inversa en los sucesos periódicos.

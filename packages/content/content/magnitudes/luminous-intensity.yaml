@@ -2,7 +2,7 @@
 name:
   en: 'Luminous intensity'
 symbol:
-  tex: 'I_{v}'
+  tex: 'I_{\mathrm{v}}'
   text: 'Iv'
 baseUnit: 'candela'
 dimension:
@@ -15,12 +15,46 @@ categories:
   - 'physics'
 branches:
   - 'optics-and-photometry'
+aliases:
+  - 'candlepower'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 2, 2.3.1 (the candela) and Appendix 1 (CIPM 1946; 13th CGPM, Resolution 5; 16th CGPM, 1979, Resolution 3)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-045 luminous intensity'
+    url: 'https://cie.co.at/eilvterm/17-21-045'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Photometry, the candela and lambertian surfaces'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/vision/photom.html'
+  - title: 'QUDT, quantity kind Luminous Intensity'
+    url: 'https://qudt.org/vocab/quantitykind/LuminousIntensity'
 description:
   en: >-
-    In photometry, luminous intensity is a measure of the wavelength-weighted power emitted by a
-    light source in a particular direction per unit solid angle, based on the luminosity function, a
-    standardized model of the sensitivity of the human eye. The SI unit of luminous intensity is the
-    candela (cd), an SI base unit.
+    Luminous intensity, symbol $I_{\mathrm{v}}$, is the luminous flux that a source emits in a given
+    direction per unit solid angle: a measure of how strongly a lamp shines towards an observer in
+    that direction, weighted by the spectral sensitivity of the human eye. It is one of the seven
+    base quantities on which the International System of Units is built, and the photometric
+    counterpart of radiant intensity.
+
+    Its SI unit is the candela, symbol cd, a base unit equal to one lumen per steradian. The
+    candela is defined by setting at exactly 683 lumens per watt the luminous efficacy of
+    monochromatic radiation at 540 terahertz. As a result, a source of such radiation has an
+    intensity of one candela towards a direction in which its radiant intensity is one watt per
+    steradian divided by 683.
+
+    Luminous intensity is a non-negative scalar attached to a direction, so a full description of
+    a lamp is its distribution of intensity over all directions. An isotropic source has the same
+    intensity everywhere and emits a total flux of four pi lumens, about 12.6 lumens, for each
+    candela. The intensity of a flat lambertian surface, such as evenly lit paper, decreases with the
+    cosine of the angle from its normal. For practical realization the CIE approximates the source by a point.
+
+    Intensity is measured with a photometer placed at a known distance, using the fact that the
+    illuminance from a small source falls with the square of the distance. HyperPhysics notes that
+    the candela is roughly equal to the older candlepower, which is often taken as equivalent.
+
+    The base unit has a long history. The CIPM introduced the new candle in 1946, defined through
+    the brightness of a black body at the freezing point of platinum; the 16th CGPM replaced that
+    definition in 1979 with the radiometric one, whose wording was revised in 2018 to fix the
+    constant. Luminous intensity is often confused with luminous flux, the total light in all
+    directions, and with luminance, the intensity per unit projected area of a surface.
 textSources:
   - title: 'Wikipedia: Luminous intensity'
     url: 'https://en.wikipedia.org/wiki/Luminous_intensity'

@@ -14,15 +14,46 @@ categories:
   - 'mathematics'
 branches:
   - 'geometry'
+aliases:
+  - 'superficie'
+references:
+  - title: 'OpenStax, Contemporary Mathematics, 10.6 Area'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/10-6-area'
+  - title: 'OpenStax, Contemporary Mathematics, 10.7 Volume and Surface Area'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/10-7-volume-and-surface-area'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (hectare, barn)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (volumetric mean radius)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+  - title: 'QUDT, quantity kind Area'
+    url: 'https://qudt.org/vocab/quantitykind/Area'
 description:
   en: >-
-    Area is the quantity that expresses the extent of a two-dimensional region, shape, or planar
-    lamina, in the plane. Surface area is its analog on the two-dimensional surface of a
-    three-dimensional object. Area can be understood as the amount of material with a given
-    thickness that would be necessary to fashion a model of the shape, or the amount of paint
-    necessary to cover the surface with a single coat. It is the two-dimensional analog of the
-    length of a curve (a one-dimensional concept) or the volume of a solid (a three-dimensional
-    concept).
+    Area is the geometric quantity that measures the size of a two-dimensional region, either a
+    figure drawn in a plane or a patch of a curved surface such as the skin of a sphere. It counts
+    how many unit squares, together with their fractions, are needed to cover the region without
+    gaps or overlaps.
+
+    The SI unit is the square metre, the area enclosed by a square with one-metre sides, and the
+    dimension is length squared. Because of that square, enlarging a figure by some factor in every
+    direction multiplies its area by the square of the factor, and converting between units squares
+    the length factor as well: a square kilometre holds a million square metres. Rectangles,
+    triangles, circles and other standard shapes have closed formulas built from their lengths;
+    regions with curved, irregular boundaries need integration or approximation.
+
+    Area is a scalar and never negative. Physics also uses a vector area, which attaches to an
+    oriented surface a direction perpendicular to it; that object, which appears in flux and
+    pressure calculations, is distinct from the plain size of the region.
+
+    Area is rarely read off an instrument; it is computed from measured lengths, from a survey, or
+    from a map or image with a known scale. Values run from the barn, $10^{-28}\,\mathrm{m^{2}}$,
+    used for nuclear cross sections, through the hectare, $10^{4}\,\mathrm{m^{2}}$, used for land,
+    to the whole surface of the Earth, about $5.1\times10^{14}\,\mathrm{m^{2}}$ for a sphere of the
+    planet's mean radius.
+
+    Area is often mixed up with perimeter, the length of the boundary: two shapes with equal
+    perimeters can enclose very different areas. Surface area, the total area of the faces of a
+    solid, is likewise a different quantity from the volume it encloses.
 textSources:
   - title: 'Wikipedia: Area'
     url: 'https://en.wikipedia.org/wiki/Area'

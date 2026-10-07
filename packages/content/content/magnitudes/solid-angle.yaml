@@ -18,11 +18,43 @@ categories:
 branches:
   - 'geometry'
   - 'optics-and-photometry'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4, notes (c) and (g) (steradian)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.3 and Appendix 1 (CIPM 1980 Recommendation 1; 20th CGPM 1995 Resolution 8)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NASA NSSDCA, Moon Fact Sheet (apparent diameter)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/moonfact.html'
+  - title: 'QUDT, quantity kind SolidAngle'
+    url: 'https://qudt.org/vocab/quantitykind/SolidAngle'
 description:
-  en: |-
-    In geometry, a solid angle (symbol: $\Omega$) is a measure of the amount of the field of view from some particular point that a given object covers. That is, it is a measure of how large the object appears to an observer looking from that point. The point from which the object is viewed is called the apex of the solid angle, and the object is said to subtend its solid angle from that point.
+  en: >-
+    Solid angle is the three-dimensional counterpart of the plane angle: it measures how large an
+    object or a surface appears from a given point. Lines drawn from that point to every point of
+    the object's outline form a cone, and the solid angle is the area that this cone cuts out of a
+    sphere centred on the point, divided by the square of the sphere's radius. The quantity belongs
+    to geometry and is used throughout radiometry and photometry.
 
-    In the International System of Units (SI), a solid angle is expressed in a dimensionless unit called a steradian (symbol: $sr$). One steradian corresponds to one unit of area on the unit sphere surrounding the apex, so an object that blocks all rays from the apex would cover a number of steradians equal to the total surface area of the unit sphere, $4\pi$. Solid angles can also be measured in squares of angular measures such as degrees, minutes, and seconds.
+    The coherent SI unit is the steradian, the solid angle at the centre of a sphere subtended by a
+    patch of its surface whose area equals the square of the radius. A whole sphere seen from its
+    centre therefore subtends $4\pi\,\mathrm{sr}$, and a hemisphere half that. Like the radian,
+    the steradian is treated in the SI as the unit one; it is kept in unit symbols, especially in
+    photometry, to separate quantities such as luminous intensity, measured in candela or lumen per
+    steradian, from luminous flux. The CIPM in 1980 and the 20th CGPM in 1995 classed the radian
+    and steradian as dimensionless derived units.
+
+    Solid angle is a scalar and is never negative; a closed surface surrounding the point
+    subtends the full $4\pi\,\mathrm{sr}$, the largest possible value.
+
+    Solid angles are seldom measured directly. They are computed from the geometry of the
+    arrangement, such as the distance to a source and the area of a detector, or from the angular
+    size of an object. The full Moon, about 1900 arcseconds across as seen from the Earth, covers
+    roughly $6.6\times10^{-5}\,\mathrm{sr}$, a small fraction of the sky.
+
+    Solid angle is distinct from plane angle, and the two are not interchangeable even though both
+    carry the unit one. A solid angle also says nothing about shape: a circular cone, a square
+    pyramid and an irregular patch of sky that cut equal areas from the same sphere subtend equal
+    solid angles.
 textSources:
   - title: 'Wikipedia: Solid angle'
     url: 'https://en.wikipedia.org/wiki/Solid_angle'

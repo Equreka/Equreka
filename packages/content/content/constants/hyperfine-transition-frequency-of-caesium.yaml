@@ -1,12 +1,16 @@
 # yaml-language-server: $schema=../../dist/schemas/constants.schema.json
 name:
-  en: 'Hyperfine transition frequency of Caesium'
+  en: 'Hyperfine transition frequency of caesium-133'
 symbol:
-  tex: '\Delta\nu_{\rm Cs}'
+  tex: '\Delta\nu_{\mathrm{Cs}}'
   text: 'ΔνCs'
 value: '9192631770'
 unit: 'hertz'
 exact: true
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?nucs'
+  ref: 'hyperfine transition frequency of Cs-133'
 externalIds:
   wikidata: 'Q94196529'
 categories:
@@ -19,14 +23,46 @@ aliases:
   - 'caesium frequency'
   - 'cesium frequency'
   - 'caesium standard'
+  - 'caesium hyperfine frequency'
+  - 'cesium-133 hyperfine transition frequency'
+references:
+  - title: 'NIST, CODATA 2022 value: hyperfine transition frequency of Cs-133'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?nucs'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.2 (Table 1), section 2.2.1, section 2.3.1 (the second) and Appendix 1 (CIPM 1964; 13th CGPM, 1967/68)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Meet the constants'
+    url: 'https://www.nist.gov/si-redefinition/meet-constants'
+  - title: 'National Physical Laboratory, Louis Essen'
+    url: 'https://www.npl.co.uk/about-us/history/famous/louis-essen'
+  - title: 'National Physical Laboratory, History timeline (1955)'
+    url: 'https://www.npl.co.uk/about-us/history/timeline'
 description:
   en: >-
-    The caesium standard (to be precise: unperturbed ground state hyperfine transition frequency of
-    the Caesium 133 atom) is a primary frequency standard in which the photon absorption by
-    transitions between the two hyperfine ground states of caesium-133 atoms is used to control the
-    output frequency. The first caesium clock was built by Louis Essen in 1955 at the National
-    Physical Laboratory in the UK and promoted worldwide by Gernot M. R. Winkler of the United
-    States Naval Observatory.
+    The hyperfine transition frequency of caesium-133, symbol $\Delta\nu_{\mathrm{Cs}}$, is the
+    frequency of the microwave radiation absorbed or emitted when an unperturbed caesium-133 atom
+    in its ground state passes between its two hyperfine levels. Its value is exactly
+    $9\,192\,631\,770\,\mathrm{Hz}$, about 9.19 gigahertz. It defines the second and has been one
+    of the seven constants whose fixed values define the International System of Units (SI) since 20 May 2019.
+
+    In caesium-133 the ground state is split into two closely spaced hyperfine levels,
+    labelled by the quantum numbers F = 4 and F = 3, and radiation at this frequency drives the atom
+    from one to the other. Unlike the Planck constant or the speed of light, the frequency is a
+    property of one kind of atom rather than a constant of nature. The SI Brochure notes that
+    electromagnetic fields can shift it, so the definition refers to an isolated atom free of any
+    external field, including ambient thermal radiation, and treats the choice as a well-understood,
+    stable reference transition.
+
+    One second spans 9 192 631 770 periods of this radiation, and the hertz, the
+    reciprocal second, follows from it. Through the second the frequency also enters the definitions of the metre, the
+    kilogram, the ampere, the kelvin and the candela; of the seven base units, only the mole is
+    independent of it. Primary caesium clocks realize the second, and their combined signals,
+    corrected for relativistic frequency shifts, build the coordinated time scales used worldwide.
+
+    In 1955 Louis Essen and J. V. L. Parry completed the first accurate caesium clock at the NPL,
+    the British National Physical Laboratory. In 1964 the CIPM named this transition, at
+    $9\,192\,631\,770\,\mathrm{Hz}$, as a temporary frequency standard for time measurements in physics, and the 13th CGPM (1967/68)
+    defined the second through it. The 2018 revision kept the number and restated it as the fixed
+    value of a defining constant.
 textSources:
   - title: 'Wikipedia: Caesium standard'
     url: 'https://en.wikipedia.org/wiki/Caesium_standard'

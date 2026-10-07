@@ -48,7 +48,7 @@ steps:
     note:
       en: >-
         One joule is the work done by a force of one newton over one metre:
-        $\text{J} = \text{N m} = \text{kg m}^{2}\text{ s}^{-2}$. This wiki authors the joule as that
+        $\mathrm{J} = \mathrm{N\,m} = \mathrm{kg\,m^{2}\,s^{-2}}$. The joule is authored as that
         composition of base units, so its dimension is verified rather than typed.
   - id: 'work'
     kind: 'entry'
@@ -67,7 +67,7 @@ steps:
     note:
       en: >-
         Also a process quantity: energy in transit because of a temperature difference. Once inside
-        the system it is simply internal energy, no longer heat.
+        the system it is internal energy, no longer heat.
   - id: 'check-same-unit'
     kind: 'check'
     prompt:
@@ -77,18 +77,17 @@ steps:
       en: >-
         No. Equal dimension is necessary for two quantities to be of the same kind, not sufficient.
         Energy is a state of a system; work and heat are transfers across its boundary. Torque is
-        another warning: it is also $\text{kg m}^{2}\text{ s}^{-2}$, written $\text{N m}$, yet it is
-        not an energy at all. The converter in this wiki checks dimensions only, so it will happily
-        convert a joule of heat into a joule of work; whether that transfer can actually happen is
-        the second law's business, not arithmetic.
+        another warning: it is also $\mathrm{kg\,m^{2}\,s^{-2}}$, written $\mathrm{N\,m}$, yet it is
+        not an energy. The unit converter checks dimensions only, so it turns a joule of heat into a
+        joule of work; whether that transfer can happen is decided by the second law.
   - id: 'power-intro'
     kind: 'prose'
     body:
       en: >-
         Power is how fast energy is transferred or converted: $P = \frac{dE}{dt}$. Its unit, the
-        watt, is one joule per second, and in base units $\text{W} = \text{kg m}^{2}\text{ s}^{-3}$.
+        watt, is one joule per second, and in base units $\mathrm{W} = \mathrm{kg\,m^{2}\,s^{-3}}$.
         Utility bills invert the relation: a kilowatt-hour is power times time, an energy of
-        $1\ \text{kW} \times 3600\ \text{s} = 3.6\ \text{MJ}$.
+        $1\,\mathrm{kW} \times 3600\,\mathrm{s} = 3.6\,\mathrm{MJ}$.
   - id: 'power'
     kind: 'entry'
     ref:
@@ -101,25 +100,25 @@ steps:
       slug: 'watt'
     note:
       en: >-
-        Authored here as $\text{J s}^{-1}$, so the build derives its dimension from the joule's.
+        Authored here as $\mathrm{J\,s^{-1}}$, so the build derives its dimension from the joule's.
   - id: 'check-lamp'
     kind: 'check'
     prompt:
       en: >-
-        A $60\ \text{W}$ lamp runs for one hour. How much energy does it convert, in joules and in
+        A $60\,\mathrm{W}$ lamp runs for one hour. How much energy does it convert, in joules and in
         kilowatt-hours?
     answer:
       en: >-
-        $60\ \text{W} \times 3600\ \text{s} = 216\,000\ \text{J} = 216\ \text{kJ}$, which is
-        $0.06\ \text{kWh}$.
+        $60\,\mathrm{W} \times 3600\,\mathrm{s} = 216\,000\,\mathrm{J} = 216\,\mathrm{kJ}$, which is
+        $0.06\,\mathrm{kWh}$.
   - id: 'mass-energy-intro'
     kind: 'prose'
     body:
       en: >-
         In 1905 Einstein showed that mass itself is a form of energy. A body of mass $m$ at rest
         has energy $E = m c^{2}$, where $c$ is the speed of light in vacuum. The factor $c^{2}$ is
-        about $9 \times 10^{16}\ \text{m}^{2}\text{ s}^{-2}$, which is why a tiny mass corresponds to
-        an enormous energy and why nuclear reactions release so much more than chemical ones.
+        about $9\times10^{16}\,\mathrm{m^{2}\,s^{-2}}$, which is why a tiny mass corresponds to an
+        enormous energy and why nuclear reactions release so much more than chemical ones.
   - id: 'speed-of-light'
     kind: 'entry'
     ref:
@@ -137,16 +136,16 @@ steps:
     note:
       en: >-
         Check the dimensions:
-        $\text{kg} \times (\text{m/s})^{2} = \text{kg m}^{2}\text{ s}^{-2} = \text{J}$. The build
+        $\mathrm{kg} \times (\mathrm{m/s})^{2} = \mathrm{kg\,m^{2}\,s^{-2}} = \mathrm{J}$. The build
         performs this check on every authored solution.
   - id: 'try-calculator'
     kind: 'prose'
     body:
       en: >-
-        Open the calculator for mass-energy equivalence from the equation page. Enter
-        $m = 0.001$ (one gram, in kilograms) and leave $E$ empty. The engine returns about
-        $8.988 \times 10^{13}\ \text{J}$, roughly $25\ \text{GWh}$: the electricity a small city uses
-        in a day, locked in a gram of matter.
+        Open the calculator for mass-energy equivalence from the equation page. Enter $m = 0.001$
+        (one gram, in kilograms) and leave $E$ empty. The engine returns about
+        $8.988\times10^{13}\,\mathrm{J}$, roughly $25\,\mathrm{GWh}$ or 25 million kilowatt-hours,
+        locked in a single gram of matter.
   - id: 'check-exact'
     kind: 'check'
     prompt:
@@ -155,6 +154,11 @@ steps:
         uncertainty?
     answer:
       en: >-
-        Because the metre is defined by fixing $c = 299\,792\,458\ \text{m/s}$. A defining constant
-        has no uncertainty by construction; the experimental uncertainty now lives in how precisely a
-        laboratory can realize the metre, not in $c$.
+        Because the metre is defined by fixing $c$ at exactly $299\,792\,458\,\mathrm{m/s}$. A
+        defining constant has no uncertainty by construction; the experimental uncertainty now lives
+        in how precisely a laboratory can realize the metre, not in $c$.
+references:
+  - title: 'A. Einstein, Ist die Trägheit eines Körpers von seinem Energieinhalt abhängig?, Annalen der Physik 323 (1905) 639-641'
+    url: 'https://doi.org/10.1002/andp.19053231314'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1, 17th CGPM (1983), Resolution 1 (definition of the metre)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'

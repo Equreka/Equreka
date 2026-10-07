@@ -18,11 +18,45 @@ branches:
   - 'electromagnetism'
 aliases:
   - 'wattage'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 7.4 Power'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/7-4-power'
+  - title: 'OpenStax, University Physics Volume 2, 9.5 Electrical Energy and Power'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-5-electrical-energy-and-power'
+  - title: 'OpenStax, College Physics 2e, 7.7 Power, Table 7.3'
+    url: 'https://openstax.org/books/college-physics-2e/pages/7-7-power'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 (watt)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: horsepower'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'QUDT, quantity kind Power'
+    url: 'https://qudt.org/vocab/quantitykind/Power'
 description:
   en: >-
-    In physics, power is the amount of energy transferred or converted per unit time. In the
-    International System of Units, the unit of power is the watt, equal to one joule per second. In
-    older works, power is sometimes called activity. Power is a scalar quantity.
+    Power is the rate at which energy is transferred, converted or used, or equivalently the rate
+    at which work is done. Average power is the energy delivered divided by the time taken;
+    instantaneous power is the limit of that ratio over an ever shorter interval. In mechanics the
+    power supplied by a force equals the scalar product of the force with the velocity of the body
+    it acts on, and in an electric circuit it equals voltage multiplied by current.
+
+    The SI unit is the watt, one joule per second, equal to $\mathrm{kg\,m^{2}\,s^{-3}}$, so the
+    dimension is length squared times mass divided by time cubed. The SI Brochure assigns the watt
+    to power and to radiant flux. Engines are still rated in horsepower, of which several versions
+    exist; the mechanical horsepower of 550 foot pound-force per second is close to 746 watts.
+
+    Power is a scalar. Its sign records the direction of the energy flow: a force delivers positive
+    power to a body when it has a component along the velocity, so the body gains energy, and
+    negative power when it opposes the motion, as friction and air drag do.
+
+    Wattmeters, dynamometers and power meters on bicycles measure power by combining a force or
+    torque with a speed, or a voltage with a current. An introductory textbook lists values from
+    about $10^{-3}\,\mathrm{W}$ for a pocket calculator, through roughly 100 watts given off as heat by
+    a person at rest, to some $4\times10^{26}\,\mathrm{W}$ radiated by the Sun.
+
+    Power is often confused with energy. A household electricity meter counts energy in
+    kilowatt-hours, a power multiplied by a time, while the rating printed on an appliance gives the rate at
+    which it draws that energy. A small heater left on all day can use more energy than a powerful
+    kettle that runs for a few minutes.
 textSources:
   - title: 'Wikipedia: Power (physics)'
     url: 'https://en.wikipedia.org/wiki/Power_(physics)'

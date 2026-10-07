@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
 name:
-  en: 'Dimensionless'
+  en: 'Dimensionless quantity'
 symbol:
   tex: '1'
 baseUnit: 'unitless'
@@ -12,3 +12,44 @@ categories:
   - 'universal'
 branches:
   - 'measurement'
+aliases:
+  - 'quantity of dimension one'
+  - 'quantity with the unit one'
+  - 'magnitud de dimensión uno'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., sections 2.3.3 and 5.4.7'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (CIPM 1980 Recommendation 1; 20th CGPM 1995 Resolution 8)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 12.3 Stress, Strain, and Elastic Modulus'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/12-3-stress-strain-and-elastic-modulus'
+  - title: 'QUDT, quantity kind Dimensionless'
+    url: 'https://qudt.org/vocab/quantitykind/Dimensionless'
+description:
+  en: >-
+    A dimensionless quantity, also called a quantity of dimension one, is a quantity whose
+    dimension, expressed through the seven SI base quantities, has every exponent equal to zero.
+    Two families meet this condition: ratios of two quantities of the same kind, such as
+    the refractive index, strain, efficiency or a mass fraction, and counts of entities, such as a
+    number of photons, molecules or decays.
+
+    The coherent SI unit of such quantities is the unit one, symbol 1, which is almost never
+    written: a refractive index is stated as $n=1.51$, not with a trailing factor of one. SI
+    prefixes cannot attach to the symbol 1, so very large or small values use powers of ten. A
+    ratio may instead keep a quotient of units that shows its nature, such as metre per metre or
+    mole per mole, which then accepts prefixes, as in $\mathrm{\mu m/m}$; a count has no such
+    option. The per cent sign and parts per million are accepted shorthands for fixed fractions.
+
+    Plane angle and solid angle also take the unit one in the SI, with
+    the radian and steradian written when it helps to show that an angle is involved. Their
+    standing was settled when the CIPM in 1980 and then the 20th CGPM in 1995 reclassified the
+    former supplementary units as dimensionless derived units.
+
+    A dimensionless value can be positive, negative or zero according to its definition, and it
+    is measured by comparing two measurements of the same kind or by counting. Strain gives an
+    example of a small value: the top segment of a granite pillar carrying a sculpture is compressed
+    by about three parts per million.
+
+    Dimension one does not make two such quantities interchangeable. An angle, a strain and a
+    number of particles all carry the unit one, yet adding them is meaningless, which is why the
+    SI asks for a clear description of the quantity behind every bare number.

@@ -1,4 +1,29 @@
 # yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
-terms:
-  r:
-    label: 'Radio'
+name: 'Área del círculo'
+description: >-
+  El área del círculo es el tamaño de la región plana que encierra una circunferencia, y es igual a
+  pi por el cuadrado del radio. Esta fórmula de la geometría plana da el área de cualquier círculo,
+  desde una moneda hasta un campo redondo, a partir de una sola longitud medida.
+
+  En la fórmula, $\mag{A}$ es el área del círculo, medida en metros cuadrados, y $\var{r}$ es su
+  radio, la distancia del centro a la circunferencia, medida en metros. La constante $\const{\pi}$
+  es el cociente entre la longitud de una circunferencia y su diámetro, un número puro cercano a
+  3.14159. Aquí ni las longitudes ni las áreas son negativas, así que no hace falta ningún convenio
+  de signos. Si lo que se conoce es el diámetro, el radio es su mitad.
+
+  Como el radio aparece al cuadrado, duplicarlo multiplica el área por cuatro, y todo círculo es una
+  copia a escala de cualquier otro. Una manera de ver la fórmula es cortar el círculo en muchas
+  porciones finas, como una pizza, y colocarlas una junto a otra con las puntas alternadas hacia
+  arriba y hacia abajo. Cuanto más finas son las porciones, más se acerca la figura a un rectángulo
+  de altura igual al radio y base igual a media circunferencia, de modo que su área es pi por el
+  radio por el radio.
+
+  La fórmula vale en el plano euclidiano. Sobre una superficie curva, como la de la Tierra a grandes
+  distancias, una circunferencia de radio dado encierra un área distinta. En los cálculos, el
+  resultado es tan preciso como el valor que se use para pi: los ejercicios escolares suelen tomar
+  3.14 o 22/7.
+
+  Los Elementos de Euclides demostraron que las áreas de dos círculos guardan la misma razón que los
+  cuadrados de sus diámetros, llenando cada círculo con polígonos de cada vez más lados. Más tarde,
+  Arquímedes acotó pi entre 223/71 y 22/7 con polígonos de 96 lados. Una mesa redonda de medio metro
+  de radio ocupa unos 0.785 metros cuadrados.

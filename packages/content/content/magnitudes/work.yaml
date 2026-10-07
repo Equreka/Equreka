@@ -17,14 +17,53 @@ categories:
 branches:
   - 'mechanics'
   - 'thermodynamics'
+aliases:
+  - 'mechanical work'
+  - 'trabajo mecánico'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 7.1 Work'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/7-1-work'
+  - title: 'OpenStax, University Physics Volume 1, 7.2 Kinetic Energy'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/7-2-kinetic-energy'
+  - title: 'OpenStax, University Physics Volume 1, 11.2 Angular Momentum (torque in newton metres, not joules)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/11-2-angular-momentum'
+  - title: 'OpenStax, University Physics Volume 2, 3.2 Work, Heat, and Internal Energy'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/3-2-work-heat-and-internal-energy'
+  - title: 'OpenStax, University Physics Volume 2, 3.3 First Law of Thermodynamics'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/3-3-first-law-of-thermodynamics'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 (joule)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, quantity kind Work'
+    url: 'https://qudt.org/vocab/quantitykind/Work'
 description:
   en: >-
-    In physics, work is the energy transferred to or from an object via the application of force
-    along a displacement. In its simplest form, it is often represented as the product of force and
-    displacement. A force is said to do positive work if (when applied) it has a component in the
-    direction of the displacement of the point of application. A force does negative work if it has
-    a component opposite to the direction of the displacement at the point of application of the
-    force.
+    Work is the amount of energy passed to a body, or taken from it, when a force acts on it while
+    the point where the force is applied moves. For a constant force and a straight displacement it is the scalar
+    product of the two, the size of the force times the distance moved times the cosine of the
+    angle between them; for a varying force it is the sum of such contributions along the path. In
+    thermodynamics, a gas that expands against its surroundings does work on them.
+
+    The SI unit is the joule, the work done by a force of one newton when its point of application
+    moves one metre along the line of the force, and the dimension is that of energy, length
+    squared times mass divided by time squared. The newton metre used for torque has the same
+    dimension, but torque is a different kind of quantity and is not expressed in joules.
+
+    Work is a scalar whose sign carries meaning. A force does positive work when it has a
+    component along the displacement, negative work when the component opposes it, and none when
+    it is perpendicular, as with the normal force on a sliding block. Gravity
+    does negative work on a ball thrown upward and positive work as it falls. The work-energy
+    theorem states that the net work on a particle equals its change of kinetic energy. In
+    thermodynamics the sign depends on the convention: many physics texts count work done by the
+    system as positive.
+
+    Work is calculated rather than measured with a meter, from the force and the displacement, or
+    as the area under a graph of force against position, or under a pressure-volume curve for a
+    gas. Gravity does $20\,\mathrm{J}$ of work on a book of weight
+    $20\,\mathrm{N}$ that moves down one metre from a shelf.
+
+    In everyday speech any effort counts as work, but holding a heavy load still does no work on
+    it, because its point of application does not move. Work and heat are energy in transit during
+    a process, not something a body contains.
 textSources:
   - title: 'Wikipedia: Work (physics)'
     url: 'https://en.wikipedia.org/wiki/Work_(physics)'

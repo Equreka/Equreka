@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Flujo luminoso'
+description: >-
+  El flujo luminoso, de símbolo $\Phi_{\mathrm{v}}$, a veces llamado potencia luminosa, es la
+  magnitud fotométrica que expresa cuánta luz emite una fuente, o recibe una superficie, por
+  unidad de tiempo, con cada longitud de onda ponderada según la sensibilidad del ojo humano. La
+  CIE lo define como el ritmo de cambio de la energía luminosa y lo obtiene del flujo radiante
+  valorando la radiación según su efecto sobre el observador fotométrico patrón de la CIE.
+
+  La unidad SI es el lumen, de símbolo lm, que el folleto del SI expresa como candela
+  estereorradián: un lumen es el flujo que una fuente puntual de una candela emite en un ángulo
+  sólido de un estereorradián. La dimensión del flujo luminoso es, por tanto, intensidad luminosa
+  por ángulo sólido. La definición de la candela enlaza el lumen con el vatio: la radiación
+  monocromática de 540 terahercios de frecuencia da exactamente 683 lúmenes por cada vatio de
+  flujo radiante.
+
+  El flujo luminoso es un escalar no negativo. En la visión diurna el ojo responde con más fuerza
+  cerca de una longitud de onda de 555 nanómetros, y su sensibilidad cae a una diezmilésima del
+  máximo hacia 380 y 750 nanómetros; la radiación fuera del intervalo visible no aporta nada. El
+  flujo de un haz se halla multiplicando el flujo radiante de cada longitud de onda por la
+  sensibilidad relativa del ojo y por unos 683 lúmenes por vatio, y sumando después a lo largo del
+  espectro.
+
+  Los fabricantes de lámparas miden el flujo luminoso en el laboratorio y lo indican como lúmenes
+  iniciales. HyperPhysics da unos 1700 lúmenes para una lámpara incandescente de 100 vatios, unos
+  0.9 lúmenes para un puntero láser rojo de 5 milivatios a 630 nanómetros y solo unos 0.06 lúmenes
+  para uno a 680 nanómetros.
+
+  El flujo luminoso se confunde a menudo con la intensidad luminosa, el flujo por unidad de ángulo
+  sólido en una dirección dada, medida en candelas; con la iluminancia, el flujo recibido por
+  unidad de área, medida en lux, y con el flujo radiante, que cuenta en vatios la potencia de toda
+  la radiación sin importar si es visible.

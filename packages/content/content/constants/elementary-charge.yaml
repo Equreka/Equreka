@@ -4,11 +4,15 @@ name:
 symbol:
   tex: 'e'
 symbolAlt:
-  tex: 'q_{e}'
+  tex: 'q_{\mathrm{e}}'
   text: 'qe'
 value: '1.602176634e-19'
 unit: 'coulomb'
 exact: true
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?e'
+  ref: 'elementary charge'
 externalIds:
   wikidata: 'Q2101'
   qudt: 'http://qudt.org/vocab/constant/ElementaryCharge'
@@ -24,10 +28,47 @@ branches:
 aliases:
   - 'electron charge'
   - 'e'
+references:
+  - title: 'NIST, CODATA 2022 value: elementary charge'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?e'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.2 (Table 1), section 2.2.1, section 2.3.1 (the ampere) and Table 8, note (l)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Ampere: introduction'
+    url: 'https://www.nist.gov/si-redefinition/ampere-introduction'
+  - title: 'M. W. Keller, Elementary again, Nature Physics 14 (2018) 424'
+    url: 'https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=925540'
+  - title: 'R. A. Millikan, On the elementary electrical charge and the Avogadro constant, Physical Review 2 (1913) 109-143'
+    url: 'https://doi.org/10.1103/PhysRev.2.109'
+  - title: 'NIST, CODATA 2022: Faraday constant, defining equation'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?eqf'
+  - title: 'QUDT, constant ElementaryCharge'
+    url: 'https://qudt.org/vocab/constant/ElementaryCharge'
 description:
   en: >-
-    The elementary charge, usually denoted by $e$ or sometimes $q_{e}$ is the electric charge
-    carried by a single proton or, equivalently, the magnitude of the negative electric charge
-    carried by a single electron, which has charge −1 $e$. This elementary charge is a fundamental
-    physical constant. To avoid confusion over its sign, $e$ is sometimes called the elementary
-    positive charge.
+    The elementary charge, symbol $e$, is the electric charge of a single proton and the magnitude
+    of the charge of a single electron. Since 20 May 2019 it has been one of the seven constants whose fixed values define the International System of Units (SI),
+    set at exactly
+    $1.602\,176\,634\times10^{-19}\,\mathrm{C}$; it carries no uncertainty and defines the ampere.
+
+    The charge of a free electron, a proton or an ion is a whole multiple of this amount: an
+    electron carries minus one elementary charge, a proton plus one, and an atom that has lost two
+    electrons plus two. The value is minute on everyday scales, since one coulomb corresponds to
+    about 6.24 billion billion elementary charges. The SI Brochure also notes that the elementary
+    charge sets the strength of the electromagnetic interaction through the fine-structure constant,
+    which combines it with the Planck constant, the speed of light and the vacuum electric
+    permittivity.
+
+    Multiplied by the Avogadro constant it gives the Faraday constant, the charge of one mole of
+    electrons, which links electrolysis to the counting of atoms. The electronvolt, the kinetic
+    energy an electron gains across a potential difference of one volt, equals the elementary charge
+    times one volt, and has been an exact multiple of the joule since the 2019 redefinition. Both the
+    Josephson effect and the quantum Hall effect, which provide standards of voltage and resistance,
+    depend on the elementary charge together with the Planck constant.
+
+    George Stoney proposed a natural unit of electricity in 1874, building on Faraday's laws of
+    electrolysis, and named it the electron in the early 1890s. Robert Millikan's oil-drop
+    experiments, published in their final form in 1913, showed that charge comes in discrete units
+    and measured their size. From 1948 the ampere was defined by the force between parallel
+    currents, so the elementary charge played no part in the definition of units; fixing it in 2019
+    made one ampere the flow of exactly $1/(1.602\,176\,634\times10^{-19})$ elementary charges per
+    second.

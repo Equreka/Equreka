@@ -15,8 +15,44 @@ categories:
   - 'physics'
 branches:
   - 'mechanics'
+aliases:
+  - 'celeridad'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 3.2 Instantaneous Velocity and Speed'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-2-instantaneous-velocity-and-speed'
+  - title: 'OpenStax, University Physics Volume 1, 3.1 Position, Displacement, and Average Velocity'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-1-position-displacement-and-average-velocity'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.1 (speed in m/s and km/h), Table 1 and Table 8 (knot)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, College Physics 2e, 7.6 Conservation of Energy, Table 7.1 (tennis ball at 100 km/h)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/7-6-conservation-of-energy'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (mean orbital velocity)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+  - title: 'QUDT, quantity kind Speed'
+    url: 'https://qudt.org/vocab/quantitykind/Speed'
 description:
   en: >-
-    In everyday use and in kinematics, the speed (commonly referred to as v) of an object is the
-    magnitude of the rate of change of its position with time or the magnitude of the change of its
-    position per unit of time; it is thus a scalar quantity.
+    Speed is the scalar quantity of kinematics that tells how fast a body moves, regardless of
+    direction. Instantaneous speed equals the size of the instantaneous velocity; average speed
+    over a trip is the total distance travelled along the path divided by the elapsed time.
+
+    The SI unit is the metre per second, and the dimension is length divided by time. The SI
+    Brochure uses speed to illustrate that one value may be written in different units:
+    $25\,\mathrm{m/s}$ and 90 kilometres per hour describe the same motion. Ships and aircraft use
+    the knot, one nautical mile per hour, and road traffic in some countries uses miles per hour.
+
+    Speed is a scalar and never negative, because it carries no direction. Average speed and the
+    magnitude of the average velocity can differ: after a round trip that ends where it began, the
+    displacement and hence the average velocity are zero, while the average speed is the full
+    distance driven divided by the time.
+
+    Speedometers, radar and laser guns, timing gates and satellite navigation receivers measure
+    speed, either by counting wheel turns or by timing a known distance or a returning signal.
+    Values span a wide range: a well-struck tennis ball at about 100 kilometres per hour, the
+    Earth moving along its orbit at a mean of $29.78\,\mathrm{km/s}$, and light in vacuum at
+    exactly $299\,792\,458\,\mathrm{m/s}$, a value fixed by the definition of the metre.
+
+    Speed and velocity are used interchangeably in everyday speech, but in physics velocity is a
+    vector that includes direction. A car rounding a bend at a steady speed is accelerating, since
+    the direction of its velocity changes. The speed of a wave, such as sound in air, refers to the
+    propagation of the disturbance rather than to the motion of the medium.

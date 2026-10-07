@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Energía'
+description: >-
+  La energía es la magnitud escalar que posee un sistema físico en virtud de su movimiento, su
+  configuración y su estado interno, y que pasa de un sistema a otro como trabajo o como calor. Sus
+  formas habituales incluyen la energía cinética, la energía potencial, la energía interna
+  (térmica), la energía química y nuclear y la energía que transporta la radiación; el total de un
+  sistema aislado nunca cambia, solo su reparto entre formas.
+
+  Su unidad SI es el julio, igual a un newton metro y a un kilogramo metro cuadrado por segundo al cuadrado, de modo que
+  su dimensión es longitud al cuadrado por masa dividida entre tiempo al cuadrado. El folleto del
+  SI asigna el julio por igual a la energía, al trabajo y a la cantidad de calor. Otras unidades
+  siguen en uso en campos concretos: el electronvoltio en física atómica y de partículas, el
+  kilovatio hora en las facturas de electricidad, igual a 3.6 megajulios, y la caloría en
+  nutrición.
+
+  La energía es un escalar sin dirección. La energía cinética nunca es negativa, pero la energía
+  potencial se mide desde una configuración de referencia elegida por convenio, así que puede ser
+  negativa: la energía potencial gravitatoria de un satélite es negativa cuando el cero se sitúa a
+  separación infinita. En esos casos solo las diferencias de energía tienen sentido físico.
+
+  Ningún aparato mide la energía como tal; se obtiene a partir de magnitudes medidas, por ejemplo
+  de cambios de temperatura en un calorímetro o de la tensión eléctrica, la corriente y el tiempo
+  en un contador de electricidad. Sus valores abarcan un intervalo enorme, desde unos
+  $10^{-19}\,\mathrm{J}$ para romper una hebra de ADN, pasando por unos
+  $1.2\times10^{7}\,\mathrm{J}$ en la ingesta diaria de alimentos recomendada, hasta cerca de
+  $4\times10^{20}\,\mathrm{J}$ para un año de consumo mundial de energía, el orden de magnitud que
+  cita un libro de texto introductorio.
+
+  La energía se confunde a menudo con la potencia, el ritmo al que se transfiere energía, y con la
+  fuerza. El trabajo y el calor no se almacenan en un cuerpo: designan energía en tránsito durante
+  un proceso, mientras que la energía interna describe el estado que deja ese proceso.

@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Peso'
+description: >-
+  El peso es la fuerza gravitatoria que la Tierra, o cualquier otro cuerpo astronómico, ejerce
+  sobre un objeto. Cerca de la superficie es igual a la masa del objeto multiplicada por la
+  aceleración local de la gravedad, y es la fuerza que registra en reposo una báscula de resorte o de
+  baño.
+
+  Como fuerza, el peso se mide en newtons, y su dimensión es longitud por masa dividida entre
+  tiempo al cuadrado. La 3.ª CGPM declaró en 1901 que el peso pertenece a la misma clase de
+  magnitud que la fuerza, igual a la masa por la aceleración de la gravedad, y definió el peso
+  normal de un cuerpo con una aceleración normal de $9.806\,65\,\mathrm{m/s^{2}}$, valor que
+  escribió como 980.665 centímetros por segundo al cuadrado.
+
+  El peso es un vector que apunta hacia abajo, hacia el centro del cuerpo que atrae; su tamaño
+  nunca es negativo. A diferencia de la masa, depende del lugar donde está el objeto. En la Tierra
+  la aceleración de la gravedad crece desde unos 9.78 metros por segundo al cuadrado en el ecuador
+  hasta unos 9.83 en los polos, y en la Luna es de solo $1.62\,\mathrm{m/s^{2}}$, alrededor de un
+  sexto del valor terrestre, de modo que allí un astronauta pesa cerca de la sexta parte con la
+  misma masa.
+
+  Los dinamómetros de resorte y los sensores de fuerza miden el peso a través de la deformación que
+  produce. Un cuerpo de un kilogramo pesa unos $9.80\,\mathrm{N}$ en la superficie de la Tierra.
+  Una báscula lee en realidad la fuerza de apoyo que ejerce, que solo coincide con el peso cuando
+  el objeto y la báscula no aceleran; en un ascensor que acelera o en caída libre la lectura se
+  aparta del peso, y por eso los astronautas en órbita parecen ingrávidos.
+
+  En el lenguaje cotidiano peso y masa se usan como sinónimos, y se dice que un cuerpo pesa tantos
+  kilogramos. En física son distintos: la masa es una propiedad del cuerpo que se mide en
+  kilogramos, mientras que el peso es una fuerza que depende de la gravedad y se mide en newtons.

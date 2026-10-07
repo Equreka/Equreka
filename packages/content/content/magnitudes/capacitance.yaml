@@ -16,12 +16,51 @@ categories:
   - 'physics'
 branches:
   - 'electromagnetism'
+aliases:
+  - 'electric capacitance'
+  - 'electrostatic capacity'
+  - 'self-capacitance'
+  - 'capacitancia'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 (farad) and Appendix 1 (CIPM 1946, definitions of electric units)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 8.1 Capacitors and Capacitance'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance'
+  - title: 'OpenStax, University Physics Volume 2, 5.1 Electric Charge (Leyden jar)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/5-1-electric-charge'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Capacitance and capacitor combinations'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/electric/capac.html'
+  - title: 'QUDT, quantity kind Capacitance (C = Q/U)'
+    url: 'https://qudt.org/vocab/quantitykind/Capacitance'
 description:
   en: >-
-    Capacitance is the ratio of the amount of electric charge stored on a conductor to a difference
-    in electric potential. There are two closely related notions of capacitance: self capacitance
-    and mutual capacitance. Any object that can be electrically charged exhibits self capacitance.
-    In this case the electric potential difference is measured between the object and ground.
+    Capacitance, symbol $C$, is the ability of a conductor or an arrangement of conductors to store
+    electric charge, expressed as the charge stored per unit of potential difference. For a
+    capacitor, two conductors separated by an insulator, it is the charge on either conductor
+    divided by the voltage between them. For a single isolated conductor, its self-capacitance, the
+    voltage is taken between the conductor and a reference at infinity.
+
+    The SI unit is the farad, symbol F, equal to one coulomb per volt; in base units it is
+    $\mathrm{kg^{-1}\,m^{-2}\,s^{4}\,A^{2}}$, which fixes the dimension of capacitance. The
+    definitions of electric units adopted by the CIPM in 1946 described the farad as the capacitance
+    of a capacitor whose plates show a potential difference of one volt when it holds one coulomb.
+
+    Capacitance is a scalar and is positive for every physical capacitor. It depends only on the
+    geometry of the conductors and on the insulating material between them, not on the charge or
+    the voltage: doubling the voltage doubles the stored charge and leaves the ratio unchanged. A
+    parallel-plate capacitor gains capacitance with larger plates, a closer gap or a dielectric of
+    higher permittivity.
+
+    Capacitance follows from measuring the charge a component takes up at a known voltage.
+    One farad is a very large value, so OpenStax notes that practical capacitors range from
+    picofarads to millifarads. Capacitors connected in parallel add their capacitances, while
+    those in series combine as reciprocals; HyperPhysics points out that two capacitors rated for
+    600 volts can be placed in series to withstand 1200 volts.
+
+    Capacitance is a property, whereas the capacitor is the component that has it, and the Leyden
+    jar of Benjamin Franklin's time was an early example. It also differs from permittivity, the
+    material property in farads per metre that, together with geometry, sets the capacitance. The
+    farad is named after Michael Faraday.
 textSources:
   - title: 'Wikipedia: Capacitance'
     url: 'https://en.wikipedia.org/wiki/Capacitance'

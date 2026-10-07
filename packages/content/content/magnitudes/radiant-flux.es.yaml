@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Flujo radiante'
+description: >-
+  El flujo radiante, de símbolo $\Phi_{\mathrm{e}}$, también llamado potencia radiante, es el ritmo
+  al que se emite, transfiere o recibe energía en forma de radiación electromagnética: la energía
+  radiante que sale de una fuente o atraviesa una superficie por unidad de tiempo. Es la magnitud
+  central de la radiometría y cuenta por igual la radiación infrarroja, visible y ultravioleta, sin
+  ponderarla según la respuesta del ojo humano.
+
+  La unidad SI es el vatio, de símbolo W, igual a un julio por segundo, y el folleto del SI recoge
+  el flujo radiante junto a la potencia bajo esa unidad. Su dimensión es la de la potencia, y QUDT
+  clasifica el flujo radiante como una clase más restringida de potencia. En el vocabulario de
+  la CIE, el subíndice e lo separa del flujo luminoso, de subíndice v, y del flujo de fotones, de
+  subíndice p, que comparten la letra griega fi. La CIE señala que flujo radiante es el término preferido en casi
+  toda la radiometría, mientras que en la radiometría láser se suele decir potencia radiante.
+
+  El flujo radiante es un escalar: da la potencia que transporta la radiación, pero no hacia dónde
+  va. La distribución angular la describe la intensidad radiante, el flujo radiante por unidad de
+  ángulo sólido en una dirección dada, y la distribución sobre una superficie la irradiancia, el
+  flujo radiante recibido por unidad de área.
+
+  El flujo radiante se mide con radiómetros calibrados y medidores de potencia láser. Un puntero
+  láser pequeño emite unos 5 milivatios. HyperPhysics muestra que un mismo flujo radiante puede
+  parecer muy distinto al ojo: un puntero de 5 milivatios a 630 nanómetros da unos 0.9 lúmenes,
+  mientras que uno a 680 nanómetros da solo unos 0.06 lúmenes.
+
+  El flujo radiante se confunde a menudo con el flujo luminoso, su equivalente fotométrico en
+  lúmenes, que pondera cada longitud de onda según la sensibilidad del ojo y no tiene en cuenta la
+  radiación fuera del intervalo visible. También se distingue de la potencia eléctrica que consume
+  una lámpara, ya que parte de esa potencia se pierde como calor en la lámpara antes de que salga
+  radiación alguna.

@@ -18,10 +18,46 @@ categories:
 branches:
   - 'mechanics'
   - 'gravitation'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 5.4 Mass and Weight'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/5-4-mass-and-weight'
+  - title: 'OpenStax, University Physics Volume 1, 6.1 Solving Problems with Newton''s Laws, Example 6.3'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/6-1-solving-problems-with-newtons-laws'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1, 3rd CGPM (1901): declaration on the unit of mass and on the definition of weight'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (surface acceleration at equator and pole)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+  - title: 'NASA NSSDCA, Moon Fact Sheet (surface gravity)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/moonfact.html'
+  - title: 'QUDT, quantity kind Weight'
+    url: 'https://qudt.org/vocab/quantitykind/Weight'
 description:
   en: >-
-    In science and engineering, the weight of an object is the force acting on the object due to
-    gravity.
+    Weight is the gravitational force that the Earth, or any other astronomical body, exerts on an
+    object. Near the surface it equals the mass of the object multiplied by the local acceleration
+    due to gravity, and it is the force that a spring or bathroom scale registers when at rest.
+
+    As a force, weight is measured in newtons, and its dimension is length times mass divided by
+    time squared. The 3rd CGPM declared in 1901 that weight belongs to the same kind of quantity as
+    force, equal to mass times the acceleration due to gravity, and defined the standard weight of
+    a body with a standard acceleration of $9.806\,65\,\mathrm{m/s^{2}}$, a value it wrote as
+    980.665 centimetres per second squared.
+
+    Weight is a vector that points down, toward the centre of the attracting body; its size is
+    never negative. Unlike mass, it depends on where the object is. On the Earth the acceleration
+    due to gravity grows from about 9.78 metres per second squared at the equator to about 9.83 at
+    the poles, and on the Moon it is only $1.62\,\mathrm{m/s^{2}}$, about one sixth of the
+    terrestrial value, so an astronaut weighs about a sixth as much there with an unchanged mass.
+
+    Spring scales and force sensors measure weight through the deformation it produces. A body of
+    one kilogram weighs about $9.80\,\mathrm{N}$ at the surface of the Earth. A scale actually
+    reads the supporting force it exerts, which equals the weight only when the object and the
+    scale are not accelerating; in an accelerating lift or in free fall the reading departs from
+    the weight, which is why orbiting astronauts appear weightless.
+
+    In everyday language weight and mass are used as synonyms, and bodies are said to weigh so
+    many kilograms. In physics the two are distinct: mass is a property of the body measured in
+    kilograms, while weight is a force that depends on gravity, measured in newtons.
 textSources:
   - title: 'Wikipedia: Weight'
     url: 'https://en.wikipedia.org/wiki/Weight'

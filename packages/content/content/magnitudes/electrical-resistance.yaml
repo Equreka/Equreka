@@ -19,13 +19,47 @@ branches:
   - 'electromagnetism'
 aliases:
   - 'resistance'
+  - 'electric resistance'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 (ohm)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 9.3 Resistivity and Resistance'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-3-resistivity-and-resistance'
+  - title: 'OpenStax, University Physics Volume 2, 9.4 Ohm''s Law'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-4-ohms-law'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Resistance and resistivity'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/electric/resis.html'
+  - title: 'QUDT, quantity kind Electrical Resistance'
+    url: 'https://qudt.org/vocab/quantitykind/ElectricalResistance'
 description:
   en: >-
-    The electrical resistance of an object is a measure of its opposition to the flow of electric
-    current. Its reciprocal quantity is electrical conductance, measuring the ease with which an
-    electric current passes. Electrical resistance shares some conceptual parallels with mechanical
-    friction. The SI unit of electrical resistance is the ohm (Ω), while electrical conductance is
-    measured in siemens (S) (formerly called "mho"s and then represented by ℧).
+    Electrical resistance, symbol $R$, measures how strongly a conductor or circuit component
+    opposes the passage of electric current. For a component with two terminals it is defined as
+    the voltage applied across it divided by the current that flows through it, so a high
+    resistance lets only a small current pass for a given voltage. Its reciprocal is electrical
+    conductance.
+
+    The SI unit is the ohm, symbol Ω, equal to one volt per ampere and, in base units, to
+    $\mathrm{kg\,m^{2}\,s^{-3}\,A^{-2}}$, which gives the dimension of resistance. OpenStax notes
+    that the capital Greek omega was chosen for the symbol so that it cannot be mistaken for the
+    digit zero.
+
+    Resistance is a scalar that is never negative for passive components, and it drops to zero in
+    a superconductor at low temperature. It depends on the material, through its resistivity, and
+    on the shape of the object: a uniform wire offers more resistance the longer and thinner it is.
+    The resistivity of most metals rises with temperature, while that of semiconductors falls. A
+    component whose ratio of voltage to current stays constant is called ohmic, as a resistor is;
+    a diode, which conducts in only one direction, is a standard example of a nonohmic component.
+
+    Resistance is measured with an ohmmeter or calculated from simultaneous readings of voltage and
+    current. OpenStax lists values that span about seventeen orders of magnitude: a million million
+    ohms or more for the ceramic insulators that hold up power lines, about a hundred thousand ohms
+    from hand to foot for a dry person, about a thousand ohms for the human heart, and roughly ten
+    microohms for a metre of thick copper wire.
+
+    Resistance belongs to an object, whereas resistivity, measured in ohm metres, belongs to a
+    material; the two are linked by the length and cross-section of the sample. Resistance is also
+    distinct from conductance, its reciprocal in siemens. The ohm honours Georg Simon Ohm.
 textSources:
   - title: 'Wikipedia: Electrical resistance and conductance'
     url: 'https://en.wikipedia.org/wiki/Electrical_resistance_and_conductance'

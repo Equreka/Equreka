@@ -26,15 +26,42 @@ aliases:
   - '3.14'
 description:
   en: >-
-    The number π (/paɪ/; spelled out as "pi") is a mathematical constant, approximately equal to
-    $3.14159$. It is defined in Euclidean geometry as the ratio of a circle's circumference to its
-    diameter, and also has various equivalent definitions. The number appears in many formulas in
-    all areas of mathematics and physics. The earliest known use of the Greek letter $\pi$ to
-    represent the ratio of a circle's circumference to its diameter was by Welsh mathematician
-    William Jones in 1706. It is also referred to as Archimedes's constant.
+    Pi, written $\pi$, is the circumference of a circle divided by its diameter in Euclidean
+    geometry, the same for every circle whatever its size. It is a pure number, about 3.14159, and
+    it is irrational: its decimal expansion never ends and never settles into a repeating pattern,
+    so any written value, however long, is a truncation. The approximations 3.14
+    and 22/7 serve for everyday arithmetic.
+
+    Because all circles are scaled copies of one another, the circumference grows in exact
+    proportion to the diameter, and pi is that fixed proportion. The same number governs area:
+    Euclid proved that the areas of two circles stand in the same ratio as the squares of their
+    diameters, and the constant of that proportion is a quarter of pi when the diameter is used, or pi itself when the
+    radius is. Angles inherit it as well, since a half turn measures pi radians.
+
+    The circumference of a circle is $2\pi$ times its radius and its area is pi times the square of
+    the radius. In trigonometry the sine and cosine repeat after $2\pi$ radians, which is why the
+    constant appears wherever periodic motion, waves or rotation are described, from angular
+    frequency to the reduced Planck constant, the Planck constant divided by $2\pi$.
+
+    A Mesopotamian value of 25/8 and an Egyptian value near 3.16, from the Rhind papyrus of about
+    1650 BC, are among the oldest known estimates. Archimedes (287–212 BC) trapped pi between 223/71
+    and 22/7 by inscribing and circumscribing regular polygons of 96 sides. William Jones introduced
+    the Greek letter for the ratio in 1706, Euler's adoption of it from 1737 made the notation
+    standard, and Lambert proved the number irrational in 1761; Lindemann later proved it
+    transcendental, which settled that a circle cannot be squared with compass and straightedge.
 references:
-  - title: 'A000796'
+  - title: 'OEIS, A000796: decimal expansion of Pi'
     url: 'http://oeis.org/A000796'
+  - title: 'MacTutor History of Mathematics, Pi through the ages'
+    url: 'https://mathshistory.st-andrews.ac.uk/HistTopics/Pi_through_the_ages/'
+  - title: 'MacTutor History of Mathematics, Archimedes of Syracuse'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Archimedes/'
+  - title: 'D. E. Joyce, Euclid''s Elements, Book XII, Proposition 2'
+    url: 'https://mathcs.clarku.edu/~djoyce/java/elements/bookXII/propXII2.html'
+  - title: 'OpenStax, Prealgebra 2e, 9.5 Solve Geometry Applications: Circles and Irregular Figures'
+    url: 'https://openstax.org/books/prealgebra-2e/pages/9-5-solve-geometry-applications-circles-and-irregular-figures'
+  - title: 'QUDT, constant Pi'
+    url: 'https://qudt.org/vocab/constant/Pi'
 textSources:
   - title: 'Wikipedia: Pi'
     url: 'https://en.wikipedia.org/wiki/Pi'

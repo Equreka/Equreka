@@ -2,7 +2,7 @@
 name:
   en: 'Luminous flux'
 symbol:
-  tex: '\Phi_{v}'
+  tex: '\Phi_{\mathrm{v}}'
   text: 'Φv'
 baseUnit: 'lumen'
 dimension:
@@ -16,12 +16,47 @@ categories:
   - 'physics'
 branches:
   - 'optics-and-photometry'
+aliases:
+  - 'luminous power'
+references:
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-039 luminous flux'
+    url: 'https://cie.co.at/eilvterm/17-21-039'
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.1 (the candela) and Table 4 (lumen)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Luminous flux and the lumen'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/vision/lumpow.html'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Luminous efficacy tables'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/vision/efficacy.html'
+  - title: 'QUDT, quantity kind Luminous Flux'
+    url: 'https://qudt.org/vocab/quantitykind/LuminousFlux'
 description:
   en: >-
-    In photometry, luminous flux or luminous power is the measure of the perceived power of light.
-    It differs from radiant flux, the measure of the total power of electromagnetic radiation
-    (including infrared, ultraviolet, and visible light), in that luminous flux is adjusted to
-    reflect the varying sensitivity of the human eye to different wavelengths of light.
+    Luminous flux, symbol $\Phi_{\mathrm{v}}$, sometimes called luminous power, is the photometric
+    quantity that expresses how much light a source emits, or a surface receives, per unit time,
+    with each wavelength weighted by the sensitivity of the human eye. The CIE defines it as the
+    rate of change of luminous energy and derives it from radiant flux by rating the radiation
+    according to its effect on the CIE standard photometric observer.
+
+    The SI unit is the lumen, symbol lm, which the SI Brochure expresses as the candela steradian:
+    one lumen is the flux that a point source of one candela emits into a solid angle of one
+    steradian. The dimension of luminous flux is therefore luminous intensity times solid angle.
+    The definition of the candela links the lumen to the watt: monochromatic radiation of
+    frequency 540 terahertz yields exactly 683 lumens for each watt of radiant flux.
+
+    Luminous flux is a non-negative scalar. For daylight vision the eye responds most strongly near
+    a wavelength of 555 nanometres, and its sensitivity falls to about one ten-thousandth of the
+    peak at 380 and 750 nanometres; radiation outside the visible range adds nothing. The flux of a
+    beam is found by multiplying the radiant flux at each wavelength by the relative sensitivity of
+    the eye and by about 683 lumens per watt, then summing over the spectrum.
+
+    Lamp makers measure luminous flux in the laboratory and list it as initial lumens. HyperPhysics
+    gives about 1700 lumens for a 100-watt incandescent lamp, about 0.9 lumen for a 5-milliwatt red
+    laser pointer at 630 nanometres, and only about 0.06 lumen for one at 680 nanometres.
+
+    Luminous flux is often confused with luminous intensity, the flux per unit solid angle in a
+    given direction, measured in candelas; with illuminance, the flux received per unit area,
+    measured in lux; and with radiant flux, which counts the power of all radiation in watts
+    regardless of how visible it is.
 textSources:
   - title: 'Wikipedia: Luminous flux'
     url: 'https://en.wikipedia.org/wiki/Luminous_flux'

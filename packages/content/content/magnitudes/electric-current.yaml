@@ -16,11 +16,47 @@ branches:
 aliases:
   - 'current'
   - 'amperage'
+  - 'electrical current'
+  - 'intensidad de corriente'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 2 and 2.3.1 (the ampere)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 9.1 Electrical Current'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-1-electrical-current'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Electric current and conventional current direction'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/electric/elecur.html'
+  - title: 'QUDT, quantity kind Electric Current'
+    url: 'https://qudt.org/vocab/quantitykind/ElectricCurrent'
 description:
   en: >-
-    An electric current is a stream of charged particles, such as electrons or ions, moving through
-    an electrical conductor or space. It is measured as the net rate of flow of electric charge
-    through a surface or into a control volume.
+    Electric current, symbol $I$, is the net rate at which electric charge passes through a given
+    surface, such as a section through a wire, an electrolyte or a particle beam. It counts the
+    charge crossing that surface per unit time, whatever carries it: electrons in a metal, ions in
+    a salt solution or a nerve cell, protons in an accelerator. Electric current is one of the
+    seven base quantities on which the International System of Units is built.
+
+    Its SI unit is the ampere, symbol A, a base unit. Since 20 May 2019 the ampere has been defined
+    by assigning the elementary charge an exact numerical value, so one ampere is the current that
+    carries $1/(1.602\,176\,634\times10^{-19})$ elementary charges past a point each second, about
+    six billion billion. Equivalently, one ampere is one coulomb per second. Current has its own
+    base dimension, from which the dimensions of the other electrical quantities are built.
+
+    Measured through a surface, current is a scalar whose sign gives the direction of flow relative
+    to a chosen orientation of that surface. By a convention dating from Benjamin Franklin,
+    conventional current points the way positive charge would move: out of the positive terminal
+    of a source, through the external circuit and back to the negative terminal. In a metal wire
+    the electrons drift the opposite way, and a negative value means flow against the reference
+    direction.
+
+    Current is measured with an ammeter connected in series with the circuit. OpenStax quotes
+    examples spanning nearly six orders of magnitude: about 0.3 milliamperes to run a solar-powered
+    calculator, 10 to 30 amperes as the ratings of household circuit breakers, and some 180
+    amperes drawn for a few seconds by the starter motor of a truck.
+
+    Current is often confused with voltage, the energy per unit charge that drives it, and with
+    charge itself, which is the amount transported rather than its rate. The severity of an
+    electric shock depends mainly on the current through the body, not on the voltage. The unit
+    honours André-Marie Ampère.
 textSources:
   - title: 'Wikipedia: Electric current'
     url: 'https://en.wikipedia.org/wiki/Electric_current'

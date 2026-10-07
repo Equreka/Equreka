@@ -1,4 +1,30 @@
 # yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Área del cuadrado'
 terms:
   l:
     label: 'Longitud del lado'
+description: >-
+  El área de un cuadrado es igual a la longitud de su lado multiplicada por sí misma, el lado al
+  cuadrado. Un cuadrado es una figura plana de cuatro lados, todos de la misma longitud, cuyos
+  ángulos son todos rectos, y esta fórmula es la regla más básica para medir una superficie.
+
+  En la fórmula, $\mag{A}$ es el área que encierra el cuadrado, medida en metros cuadrados, y
+  $\var{l}$ es la longitud de un lado, medida en metros. Ninguna de las dos puede ser negativa, así
+  que no surge ningún convenio de signos. La unidad de área es a su vez un cuadrado: un metro
+  cuadrado es el área de un cuadrado de un metro de lado, y toda área indica cuántos de esos
+  cuadrados unidad cubrirían la superficie.
+
+  Un cuadrado es un rectángulo de largo y ancho iguales, así que la regla del rectángulo, largo por
+  ancho, se convierte en lado por lado. Contar da el mismo resultado: un cuadrado de tres metros de
+  lado contiene tres filas de tres cuadrados unidad, nueve metros cuadrados en total. Como el lado
+  aparece al cuadrado, duplicarlo multiplica el área por cuatro, y el lado se obtiene a partir de un
+  área conocida sacando su raíz cuadrada.
+
+  La fórmula supone una superficie plana y ángulos exactamente rectos. Un rombo también tiene cuatro
+  lados iguales, pero cuando sus ángulos no son rectos encierra menos área que un cuadrado del
+  mismo lado. El lado y el área deben usar unidades coherentes entre sí: un lado medido en
+  centímetros da un área en centímetros cuadrados. El área es además distinta del perímetro, la
+  distancia alrededor de la figura, que en un cuadrado vale cuatro veces el lado.
+
+  La fórmula sirve para dimensionar baldosas, parcelas y pantallas. Una parcela cuadrada de 100
+  metros cuadrados de área tiene lados de 10 metros.

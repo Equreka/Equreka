@@ -15,11 +15,58 @@ categories:
   - 'physics'
 branches:
   - 'mechanics'
+aliases:
+  - 'moment of momentum'
+  - 'rotational momentum'
+  - 'momento cinético'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 11.2 Angular Momentum'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/11-2-angular-momentum'
+  - title: 'OpenStax, University Physics Volume 1, 11.3 Conservation of Angular Momentum'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/11-3-conservation-of-angular-momentum'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.1 (the kilogram)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 3, 8.1 The Hydrogen Atom (Equation 8.5)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/8-1-the-hydrogen-atom'
+  - title: 'OpenStax, University Physics Volume 3, 8.3 Electron Spin (Equation 8.27)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/8-3-electron-spin'
+  - title: 'NIST, CODATA 2022 value: reduced Planck constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?hbar'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (mass, mean radius, moment of inertia factor, sidereal rotation period)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+  - title: 'QUDT, quantity kind AngularMomentum'
+    url: 'https://qudt.org/vocab/quantitykind/AngularMomentum'
 description:
-  en: |-
-    In physics, angular momentum (rarely, moment of momentum or rotational momentum) is the rotational equivalent of linear momentum. It is an important quantity in physics because it is a conserved quantity—the total angular momentum of a closed system remains constant.
+  en: >-
+    Angular momentum is the vector quantity of mechanics that measures how much rotational motion
+    a particle, a rigid body or a whole system carries about a chosen reference point. For a single
+    particle it is the vector product of its position vector, drawn from that point, and its
+    linear momentum; for a rigid body turning about a fixed symmetry axis it equals the moment of inertia
+    multiplied by the angular velocity.
 
-    In three dimensions, the angular momentum for a point particle is a pseudovector $r×p$, the cross product of the particle's position vector r (relative to some origin) and its momentum vector; the latter is $p = mv$ in Newtonian mechanics. Unlike momentum, angular momentum depends on where the origin is chosen, since the particle's position is measured from it.
+    The SI unit is the kilogram metre squared per second, $\mathrm{kg\,m^{2}\,s^{-1}}$, which is the
+    same as the joule second, and the dimension is length squared times mass divided by time. The SI
+    Brochure points out that this unit, fixed through the Planck constant in the definition of the
+    kilogram, serves both angular momentum and the quantity called action.
+
+    As a cross product, angular momentum is perpendicular to the plane that contains the position
+    and the momentum, with its sense given by the right-hand rule: when the fingers curl with the
+    motion, the thumb points along the vector. Its component on an axis is positive for rotation
+    that looks counterclockwise from the positive end of that axis and negative for the opposite
+    sense. The value depends on the reference point; a particle moving along a line through that
+    point has none about it. The net external torque on a system equals the rate of change of its
+    angular momentum, so without external torque the total stays constant, which is why a spinning
+    skater turns faster after pulling in the arms.
+
+    No instrument reads it directly: it is computed from a measured moment of inertia and rotation
+    rate. In quantum mechanics its component along an axis is quantized in integer or half-integer
+    multiples of the reduced Planck constant, about
+    $1.05\times10^{-34}\,\mathrm{J\,s}$, while the daily spin of the Earth carries roughly
+    $5.8\times10^{33}\,\mathrm{J\,s}$.
+
+    Angular momentum is easily confused with torque, the moment of a force, measured in newton
+    metres, which changes angular momentum rather than measuring it. Unlike linear momentum, it
+    changes when the reference point moves.
 textSources:
   - title: 'Wikipedia: Angular momentum'
     url: 'https://en.wikipedia.org/wiki/Angular_momentum'

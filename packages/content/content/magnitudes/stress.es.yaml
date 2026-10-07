@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Tensión mecánica'
+description: >-
+  La tensión mecánica es la fuerza interna por unidad de superficie que se ejercen entre sí las
+  partes vecinas de un sólido deformado a través de un corte imaginario. Es la
+  medida de carga de la mecánica de medios continuos y de la resistencia de materiales: la
+  tensión de tracción aparece cuando un cuerpo se estira, la de compresión cuando se aprieta en
+  una dirección, la volumétrica cuando se comprime por todos lados y la tangencial cuando las
+  fuerzas actúan paralelas al corte.
+
+  Su unidad SI es el pascal, un newton por metro cuadrado, la misma unidad que la presión, de modo
+  que su dimensión es masa dividida entre longitud y entre tiempo al cuadrado. Como los materiales
+  soportan tensiones grandes, los ingenieros trabajan habitualmente en megapascales y gigapascales,
+  y en libras por pulgada cuadrada donde persisten las unidades tradicionales.
+
+  Sobre un plano concreto, la tensión se descompone en una componente normal, perpendicular al
+  plano, y una componente tangencial contenida en él. El estado completo de tensiones en un punto,
+  que relaciona la fuerza sobre un corte con la orientación del corte, es un tensor y no un solo
+  número. En resistencia de materiales, una tensión normal de tracción se cuenta como positiva y
+  una de compresión, como negativa.
+
+  La tensión mecánica no se lee directamente; las galgas extensométricas miden la pequeña
+  deformación que produce, y la tensión se obtiene a partir del módulo elástico del material. Un
+  ejemplo de libro de texto halla unos $128\,\mathrm{kPa}$ de compresión en un pilar de granito que
+  sostiene una estatua, y unos $1.8\times10^{8}\,\mathrm{Pa}$ de tracción en una barra de acero de
+  la que cuelga un equipo pesado.
+
+  La tensión mecánica se confunde a menudo con la deformación unitaria, la deformación relativa
+  adimensional que provoca, y con la presión. Un fluido en reposo no puede resistir una fuerza
+  cortante, así que su estado de tensiones se reduce a una presión que actúa por igual en todas las
+  direcciones, mientras que un sólido sí soporta tensiones tangenciales.

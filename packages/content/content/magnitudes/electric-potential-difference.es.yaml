@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Diferencia de potencial eléctrico'
+description: >-
+  La diferencia de potencial eléctrico, llamada comúnmente tensión eléctrica o voltaje, es la
+  diferencia entre los potenciales eléctricos de dos puntos: el trabajo por unidad de carga
+  necesario para llevar una carga de prueba pequeña de un punto al otro en un campo eléctrico
+  estático.
+  Su símbolo habitual es $V$, a veces $U$.
+
+  La unidad SI es el voltio, de símbolo V, igual a
+  un julio por culombio o a un vatio por amperio. El folleto del SI recoge el voltio con el nombre
+  de diferencia de potencial eléctrico y añade que la magnitud también se conoce como voltaje o
+  tensión eléctrica, a menudo abreviada como tensión. Su dimensión es la del potencial: energía dividida entre
+  carga.
+
+  La diferencia de potencial es un escalar cuyo signo depende del orden de los dos puntos. Tomada
+  como el potencial del segundo punto menos el del primero, es positiva cuando el segundo punto
+  está a mayor potencial, e intercambiar los puntos invierte el signo. Una carga positiva que pasa
+  a un potencial menor pierde una energía potencial igual a su carga por la tensión. En un
+  electrón el signo se invierte porque su carga es negativa: su energía potencial disminuye cuando
+  pasa a un potencial mayor, y esa energía reaparece como movimiento. A diferencia del propio potencial, la
+  diferencia no depende de dónde se sitúe el cero de potencial.
+
+  La tensión se mide con un voltímetro conectado entre los dos puntos. Los valores típicos van
+  desde unos 1.5 voltios en una pila seca hasta 12 voltios en una batería de plomo y ácido de
+  automóvil, que une seis celdas en serie, y miles de voltios en los cañones de electrones.
+
+  La tensión se confunde a menudo con la energía, pero dos baterías con la misma tensión pueden
+  entregar energías distintas, porque la energía es igual a la tensión por la carga movida.
+  También se distingue de la fuerza electromotriz, la energía por unidad de carga que aporta una
+  fuente, que solo coincide con la tensión en bornes cuando no circula corriente. Cuando los campos
+  varían con el tiempo, el campo eléctrico integrado a lo largo de un camino entre dos puntos da un
+  resultado que depende del camino y deja de coincidir con la diferencia de potenciales.

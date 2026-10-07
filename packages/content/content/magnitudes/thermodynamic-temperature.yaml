@@ -16,10 +16,48 @@ branches:
   - 'thermodynamics'
 aliases:
   - 'temperature'
+  - 'absolute temperature'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 2 and 2.3.1 (the kelvin, Celsius temperature, ITS-90)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, CODATA 2022 recommended values: Boltzmann constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?k'
+  - title: 'OpenStax, University Physics Volume 2, 1.2 Thermometers and Temperature Scales'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-2-thermometers-and-temperature-scales'
+  - title: 'OpenStax, University Physics Volume 2, 4.7 Entropy on a Microscopic Scale (third law)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/4-7-entropy-on-a-microscopic-scale'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Temperature'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/thermo/temper.html'
+  - title: 'QUDT, quantity kind Thermodynamic Temperature'
+    url: 'https://qudt.org/vocab/quantitykind/ThermodynamicTemperature'
 description:
   en: >-
-    Thermodynamic temperature is the measure of absolute temperature and is one of the principal
-    parameters of thermodynamics. A thermodynamic temperature reading of zero denotes the point at
-    which the fundamental physical property that imbues matter with a temperature, transferable
-    kinetic energy due to atomic motion, begins. In science, thermodynamic temperature is measured
-    on the Kelvin scale and the unit of measure is the $kelvin$ ($K$).
+    Thermodynamic temperature, symbol $T$, also called absolute temperature, is temperature counted
+    from absolute zero, the lowest temperature physically possible. It sets the direction of heat
+    flow, since energy passes spontaneously from a system at higher temperature to one at lower
+    temperature, and two systems in thermal equilibrium share the same value. It is one of the seven
+    base quantities on which the International System of Units is built.
+
+    Its SI unit is the kelvin, symbol K, a base unit written without a degree sign. Since 20 May
+    2019 the kelvin has been defined by fixing the Boltzmann constant at exactly
+    $k = 1.380\,649\times10^{-23}\,\mathrm{J/K}$, so that a change of one kelvin corresponds to a
+    change of thermal energy, the Boltzmann constant times the temperature, of that many joules. The previous definition fixed the
+    triple point of water at exactly 273.16 kelvin; that temperature is now measured, and at the time of
+    the change it agreed with 273.16 kelvin to a relative standard uncertainty of 3.7 parts in ten
+    million.
+
+    Thermodynamic temperature is a scalar that is never negative. The third law of thermodynamics
+    states that absolute zero cannot be reached in any finite number of cooling steps, so every real
+    system lies above zero kelvin. Celsius temperature is defined from it by subtracting exactly 273.15 kelvin:
+    a temperature difference has the same numerical value in kelvins and in degrees Celsius, but a
+    temperature does not.
+
+    Practical measurements follow the International Temperature Scale of 1990, adopted by the CIPM
+    in 1989, whose values closely approximate thermodynamic temperatures. Water freezes at standard
+    pressure near 273.15 kelvin, and the room temperature used in physics problems, 25 degrees Celsius,
+    is 298.15 kelvin.
+
+    Temperature is often confused with heat, the energy that flows because of a temperature
+    difference, and with internal energy: two bodies at the same temperature can hold very different
+    amounts of energy. For many systems temperature reflects the mean kinetic energy of
+    translation of the molecules, which is why it measures only part of the internal energy.

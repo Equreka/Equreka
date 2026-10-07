@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Trabajo'
+description: >-
+  El trabajo es la energía transferida a un cuerpo o desde él cuando una fuerza actúa sobre él
+  mientras se desplaza su punto de aplicación. Para una fuerza constante y un
+  desplazamiento rectilíneo es el producto escalar de ambos, el módulo de la fuerza por el
+  recorrido por el coseno del ángulo que forman; para una fuerza variable es la suma de
+  esas contribuciones a lo largo de la trayectoria. En termodinámica, un gas que se expande contra
+  su entorno realiza trabajo sobre él.
+
+  Su unidad SI es el julio, el trabajo que realiza una fuerza de un newton cuando su punto de
+  aplicación se desplaza un metro en la dirección de la fuerza, y su dimensión es la de la energía,
+  longitud al cuadrado por masa dividida entre tiempo al cuadrado. El newton metro que se usa para
+  el momento de una fuerza tiene la misma dimensión, pero es una magnitud de otra clase y no se
+  expresa en julios.
+
+  El trabajo es un escalar cuyo signo tiene significado. Una fuerza realiza trabajo positivo cuando
+  tiene una componente en la dirección del desplazamiento, negativo cuando esa componente se opone a
+  él y nulo cuando es perpendicular, como la fuerza normal sobre un bloque que se desliza. La gravedad realiza trabajo negativo sobre una pelota lanzada hacia arriba y
+  positivo mientras cae. El teorema del trabajo y la energía establece que el trabajo neto sobre
+  una partícula es igual a su variación de energía cinética. En termodinámica el signo depende del
+  convenio: muchos textos de física cuentan como positivo el trabajo realizado por el sistema.
+
+  El trabajo se calcula, no se mide con un aparato: a partir de la fuerza y del desplazamiento, o
+  como el área bajo una gráfica de la fuerza frente a la posición, o bajo una curva de presión
+  frente a volumen en un gas. La gravedad realiza
+  $20\,\mathrm{J}$ de trabajo sobre un libro de peso $20\,\mathrm{N}$ que baja un metro desde una
+  estantería.
+
+  En el habla cotidiana cualquier esfuerzo cuenta como trabajo, pero sostener quieta una carga
+  pesada no realiza trabajo sobre ella, porque su punto de aplicación no se mueve. El trabajo y el
+  calor son energía en tránsito durante un proceso, no algo que un cuerpo contenga.

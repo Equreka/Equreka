@@ -2,7 +2,7 @@
 name:
   en: 'Radiant flux'
 symbol:
-  tex: '\Phi _{\mathrm {e}}'
+  tex: '\Phi_{\mathrm{e}}'
   text: 'Φe'
 baseUnit: 'watt'
 dimension:
@@ -17,15 +17,51 @@ categories:
   - 'physics'
 branches:
   - 'optics-and-photometry'
+aliases:
+  - 'radiant power'
+  - 'radiant energy flux'
+references:
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-038 radiant flux'
+    url: 'https://cie.co.at/eilvterm/17-21-038'
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-040 photon flux'
+    url: 'https://cie.co.at/eilvterm/17-21-040'
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-044 radiant intensity'
+    url: 'https://cie.co.at/eilvterm/17-21-044'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 (watt)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, quantity kind Radiant Flux (skos:broader Power)'
+    url: 'https://qudt.org/vocab/quantitykind/RadiantFlux'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Luminous flux (laser pointer examples)'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/vision/lumpow.html'
 description:
   en: >-
-    In radiometry, radiant flux or radiant power is the radiant energy emitted, reflected,
-    transmitted or received, per unit time, and spectral flux or spectral power is the radiant flux
-    per unit frequency or wavelength, depending on whether the spectrum is taken as a function of
-    frequency or of wavelength. The SI unit of radiant flux is the watt ($W$), that is the joule per
-    second ($\frac{J}{s}$) in SI base units, while that of spectral flux in frequency is the watt
-    per hertz ($\frac{W}{Hz}$) and that of spectral flux in wavelength is the watt per metre
-    ($\frac{W}{m}$)—commonly the watt per nanometre ($\frac{W}{nm}$).
+    Radiant flux, symbol $\Phi_{\mathrm{e}}$, also called radiant power, is the rate at which
+    energy is emitted, transferred or received in the form of electromagnetic radiation: the
+    radiant energy leaving a source or crossing a surface per unit time. It is the central quantity
+    of radiometry and counts infrared, visible and ultraviolet radiation alike, with no weighting
+    for the response of the human eye.
+
+    The SI unit is the watt, symbol W, equal to one joule per second, and the SI Brochure lists
+    radiant flux beside power under that unit. The dimension is that of power, and QUDT classifies
+    radiant flux as a narrower kind of power. In the CIE vocabulary the subscript e separates it from
+    luminous flux, subscript v, and from photon flux, subscript p, which share the Greek letter phi.
+    The CIE notes that radiant flux is the preferred term in most of radiometry, while laser
+    radiometry usually says radiant power.
+
+    Radiant flux is a scalar: it gives the power carried by the radiation but not where that power
+    goes. The angular spread is described by radiant intensity, the radiant flux per unit solid
+    angle in a given direction, and the spread over a surface by irradiance, the radiant flux
+    received per unit area.
+
+    Radiant flux is measured with calibrated radiometers and laser power meters. A small laser
+    pointer emits about 5 milliwatts. HyperPhysics shows how the same radiant flux can look very
+    different to the eye: a 5-milliwatt pointer at 630 nanometres yields about 0.9 lumen, while one
+    at 680 nanometres yields only about 0.06 lumen.
+
+    Radiant flux is often confused with luminous flux, its photometric counterpart in lumens, which
+    weights each wavelength by the sensitivity of the eye and ignores radiation outside the visible
+    range. It also differs from the electrical power a lamp draws, since part of that power is lost
+    as heat in the lamp before any radiation leaves it.
 textSources:
   - title: 'Wikipedia: Radiant flux'
     url: 'https://en.wikipedia.org/wiki/Radiant_flux'

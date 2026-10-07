@@ -4,7 +4,8 @@ name:
 symbol:
   tex: 'f'
 symbolAlt:
-  tex: 'v'
+  tex: '\nu'
+  text: 'ν'
 baseUnit: 'hertz'
 dimension:
   T: -1
@@ -16,12 +17,47 @@ categories:
   - 'physics'
 branches:
   - 'waves-and-oscillations'
+aliases:
+  - 'temporal frequency'
+  - 'ordinary frequency'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 note (d), 2.3.4 on hertz and radian per second, and 2.3.1 (second, candela)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, quantity kind Frequency'
+    url: 'https://qudt.org/vocab/quantitykind/Frequency'
+  - title: 'OpenStax, University Physics Volume 1, 15.1 Simple Harmonic Motion'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/15-1-simple-harmonic-motion'
 description:
   en: >-
-    Frequency is the number of occurrences of a repeating event per unit of time. It is also
-    occasionally referred to as temporal frequency to emphasize the contrast to spatial frequency,
-    and ordinary frequency to emphasize the contrast to angular frequency. Frequency is measured in
-    hertz ($Hz$) which is equal to <strong>one event per second</strong>.
+    Frequency, symbol $f$ or $\nu$, is the number of times a repeating event occurs per unit time:
+    the cycles of an oscillation, the vibrations of a string, the crests of a wave passing a fixed
+    point. For a periodic process it is the reciprocal of the period, the duration of one cycle. It
+    is sometimes called temporal or ordinary frequency to set it apart from spatial frequency and
+    from angular frequency.
+
+    The SI unit is the hertz, symbol Hz, equal to one reciprocal second, so frequency has the
+    dimension of inverse time. The SI Brochure reserves the hertz for periodic phenomena; for the
+    random events of radioactive decay the reciprocal second takes the special name becquerel. The
+    brochure also recommends quoting frequency in hertz and angular frequency in radians per second
+    rather than in bare reciprocal seconds, because the two differ by a factor of $2\pi$ and mixing
+    them up is a known source of error.
+
+    Frequency is a non-negative scalar: it says how often a process repeats, not in which direction
+    anything moves or turns. For a simple harmonic oscillator it depends only on the stiffness and
+    the mass and not on the amplitude, which is why a guitar string keeps its pitch whether plucked
+    gently or hard. QUDT adds that light keeps its frequency when it passes into a different
+    medium, while its wavelength changes.
+
+    Frequency is measured by counting cycles over a known interval. Human hearing spans roughly 20
+    hertz to 20 kilohertz; an ultrasound imaging device whose oscillation period is 0.4
+    microseconds works at 2.5 megahertz; the caesium transition that defines the second has a
+    frequency of exactly 9 192 631 770 hertz; and the green light used to define the candela has a
+    frequency of 540 terahertz.
+
+    Frequency is often confused with angular frequency, which is larger by the factor $2\pi$ and
+    expressed in radians per second, and with the period, its reciprocal. The SI Brochure notes
+    that some countries still state frequencies in cycles or revolutions per second, although
+    neither the cycle nor the revolution is an SI unit.
 textSources:
   - title: 'Wikipedia: Frequency'
     url: 'https://en.wikipedia.org/wiki/Frequency'

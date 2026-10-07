@@ -16,11 +16,51 @@ categories:
   - 'physics'
 branches:
   - 'thermodynamics'
+aliases:
+  - 'amount of heat'
+  - 'quantity of heat'
+  - 'heat energy'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 (joule) and Appendix 1 (9th CGPM, 1948, Resolution 3)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 1.4 Heat Transfer, Specific Heat, and Calorimetry'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-4-heat-transfer-specific-heat-and-calorimetry'
+  - title: 'OpenStax, University Physics Volume 2, 3.3 First Law of Thermodynamics'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/3-3-first-law-of-thermodynamics'
+  - title: 'OpenStax, University Physics Volume 2, 4.6 Entropy (melting ice)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/4-6-entropy'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Heat and mechanical equivalent of heat'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/thermo/heat.html'
+  - title: 'QUDT, quantity kind Heat (skos:broader Thermal Energy)'
+    url: 'https://qudt.org/vocab/quantitykind/Heat'
 description:
   en: >-
-    In thermodynamics, heat is energy in transfer to or from a thermodynamic system, by mechanisms
-    other than thermodynamic work or transfer of matter. The various mechanisms of energy transfer
-    that define heat are stated in the next section of this article.
+    Heat, symbol $Q$, is energy transferred between a system and its surroundings because of a
+    difference in temperature, as distinct from energy transferred as work or carried across the
+    boundary by matter. Left to itself, heat passes from a hotter body to a colder one until both
+    reach the same temperature.
+
+    As an amount of energy, heat is expressed in joules, symbol J, and has the dimension of energy.
+    The SI Brochure lists amount of heat beside energy and work under the joule, and in 1948 the
+    9th CGPM resolved that quantities of heat be expressed in joules. The calorie, defined through
+    the warming of water, survives in nutrition, where the food Calorie is a kilocalorie, about
+    4186 joules.
+
+    Heat is a scalar whose sign is fixed by convention. In the first law of thermodynamics as
+    usually written in physics, heat is positive when it enters the system and negative when it
+    leaves, and the change in internal energy equals the heat received minus the work done by the
+    system. Heat is not a state function: the same change of state can be produced by heating, by
+    doing work or by a mixture of both, so a body cannot be said to hold a definite amount of heat.
+
+    Heat is measured by calorimetry, from the temperature change of a substance of known mass and
+    specific heat capacity or from the mass that melts or boils. Melting 50 grams of ice at 0 degrees
+    Celsius takes about 16.8 kilojoules. In 1843 James Joule warmed water by stirring it with
+    paddles driven by falling weights and found the temperature rise proportional to the work done,
+    which established the energy equivalence of heat and work.
+
+    Heat is often confused with temperature, which describes how hot a body is rather than how much
+    energy crosses its boundary, and with internal energy, the total microscopic energy a system
+    holds. QUDT classifies heat as a narrower kind of thermal energy, itself a kind of energy.
 textSources:
   - title: 'Wikipedia: Thermal energy'
     url: 'https://en.wikipedia.org/wiki/Thermal_energy'

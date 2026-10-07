@@ -1,8 +1,10 @@
 # yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
 name:
-  en: 'Electric potential difference (Voltage)'
+  en: 'Electric potential difference'
 symbol:
   tex: 'V'
+symbolAlt:
+  tex: 'U'
 baseUnit: 'volt'
 dimension:
   L: 2
@@ -18,17 +20,55 @@ categories:
 branches:
   - 'electromagnetism'
 aliases:
-  - 'Voltage'
-  - 'Electric pressure'
-  - 'Electric tension'
+  - 'voltage'
+  - 'electric pressure'
+  - 'electric tension'
+  - 'potential difference'
+  - 'tensión eléctrica'
+  - 'voltaje'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 (volt) and note (e)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 7.2 Electric Potential and Potential Difference'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/7-2-electric-potential-and-potential-difference'
+  - title: 'OpenStax, University Physics Volume 2, 10.1 Electromotive Force'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/10-1-electromotive-force'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Voltage'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/electric/elevol.html'
+  - title: 'QUDT, quantity kind Electric Potential Difference'
+    url: 'https://qudt.org/vocab/quantitykind/ElectricPotentialDifference'
+  - title: 'Wikidata, Q25428 voltage (line integral of the electric field strength)'
+    url: 'https://www.wikidata.org/wiki/Q25428'
 description:
   en: >-
-    **Voltage, electric potential difference, electric pressure or electric tension** is the
-    difference in electric potential between two points, which (in a static electric field) is
-    defined as the work needed per unit of charge to move a test charge between the two points. In
-    the International System of Units, the derived unit for voltage (potential difference) is named
-    volt.In SI units, work per unit charge is expressed as joules per coulomb, where $1 ~volt = 1
-    ~joule$ (of work) per $1 ~coulomb$ (of charge).
+    Electric potential difference, commonly called voltage and in some countries electric tension,
+    is the difference between the electric potentials of two points: the work per unit charge
+    needed to carry a small test charge from one point to the other in a static electric field.
+    Its usual symbol is $V$, sometimes $U$.
+
+    The SI unit is the volt, symbol V, equal to one joule
+    per coulomb or one watt per ampere. The SI Brochure lists the volt under the name electric
+    potential difference and adds that the quantity is also known as voltage or electric tension,
+    the last often shortened to tension. Its dimension is that of potential: energy divided by charge.
+
+    Potential difference is a scalar whose sign depends on the order of the two points. Taken as
+    the potential of the second point minus that of the first, it is positive when the second point
+    lies at the higher potential, and swapping the points reverses the sign. A positive charge that
+    moves to lower potential loses potential energy equal to its charge times the voltage. For an
+    electron the sign reverses, because its charge is negative: its potential energy falls when it
+    moves to higher potential, and the energy reappears as motion. Unlike the potential itself, the difference does
+    not depend on where the zero of potential is placed.
+
+    Voltage is measured with a voltmeter connected across the two points. Typical values run from
+    about 1.5 volts for a dry cell to 12 volts for a lead-acid car battery, which joins six cells in
+    series, and to thousands of volts in electron guns.
+
+    Voltage is often mistaken for energy, yet two batteries with the same voltage can deliver
+    different energies, because the energy equals the voltage times the charge moved. It also
+    differs from electromotive force, the energy per unit charge supplied by a source, which equals
+    the terminal voltage only when no current flows. When fields change with time, the electric
+    field integrated along a path between two points gives a result that depends on the path and no longer equals the
+    difference of potentials.
 textSources:
   - title: 'Wikipedia: Voltage'
     url: 'https://en.wikipedia.org/wiki/Voltage'

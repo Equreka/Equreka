@@ -26,7 +26,7 @@ node scripts/content/roadmap.mjs --wave <id>
 
 ## 3. Run the workflow
 
-Invoke the saved workflow **`content-wave`** (`.claude/workflows/content-wave.js`) with the args JSON plus `branch` (the wave branch) and `baseline` (the preflight artifact sizes). Its phases:
+Invoke the workflow with `scriptPath` set to the absolute path of `.claude/workflows/content-wave.js` (invoking it by name can serve a stale cached copy after an edit), with the args JSON plus `branch` (the wave branch) and `baseline` (the preflight artifact sizes). Its phases:
 
 1. **Author → Verify**, pipelined per slice: one author (opus) under `equreka-author` writes only its slice's files; as soon as it returns, one adversarial verifier (sonnet) under `equreka-verify` reports findings without editing.
 2. **Consistency**: one critic (sonnet) reads every slice's files for cross-slice drift (symbols, labels, Spanish terms, duplicates).

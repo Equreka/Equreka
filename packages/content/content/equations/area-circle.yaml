@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../dist/schemas/equations.schema.json
 name:
-  en: 'Circle area'
+  en: 'Area of a circle'
 kind: 'formula'
 level: 'intro'
 expression: '\mag{A}=\const{\pi}\var{r}^{2}'
@@ -12,25 +12,58 @@ terms:
     kind: 'constant'
     ref: 'pi'
   r:
-    kind: 'symbol'
-    label:
-      en: 'Radius'
-    unit: 'metre'
+    kind: 'variable'
+    ref: 'radius'
 solutions:
   A: 'pi * r^2'
   r: 'sqrt(A / pi)'
 calculator:
   enabled: true
+externalIds:
+  wikidata: 'Q4115331'
 categories:
   - 'mathematics'
 branches:
   - 'geometry'
+aliases:
+  - 'circle area'
+  - 'area of a disc'
+  - 'area of a disk'
+  - 'pi r squared'
+references:
+  - title: 'OpenStax, Prealgebra 2e, 9.5 Solve Geometry Applications: Circles and Irregular Figures'
+    url: 'https://openstax.org/books/prealgebra-2e/pages/9-5-solve-geometry-applications-circles-and-irregular-figures'
+  - title: 'D. E. Joyce, Euclid''s Elements, Book XII, Proposition 2'
+    url: 'https://mathcs.clarku.edu/~djoyce/java/elements/bookXII/propXII2.html'
+  - title: 'MacTutor History of Mathematics, Archimedes of Syracuse'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Archimedes/'
+  - title: 'E. W. Weisstein, Radius, MathWorld'
+    url: 'https://mathworld.wolfram.com/Radius.html'
 description:
   en: >-
-    In geometry, the area enclosed by a circle of radius $r$ is $\pi r^{2}$. Here the Greek letter π
-    represents the constant ratio of the circumference of any circle to its diameter, approximately
-    equal to 3.1416. One method of deriving this formula, which originated with Archimedes, involves
-    viewing the circle as the limit of a sequence of regular polygons.
+    The area of a circle is the size of the flat region that a circle encloses, and it equals pi
+    times the square of the radius. This formula of plane geometry gives the area of any disc, from
+    a coin to a circular field, from one measured length.
+
+    In the formula, $\mag{A}$ is the area of the disc, measured in square metres, and $\var{r}$ is
+    its radius, the distance from the centre to the circle, measured in metres. The constant $\const{\pi}$ is the number of times the diameter of any circle fits into its circumference, a pure number close to 3.14159. Both lengths and areas here are never negative, so no sign convention is needed.
+    When the diameter is known instead, the radius is half of it.
+
+    Because the radius enters squared, doubling it multiplies the area by four, and every circle is
+    a scaled copy of every other. One way to see the formula is to cut the disc into many thin
+    slices, like a pizza, and lay them side by side alternately pointing up and down. As the slices
+    get thinner the shape approaches a rectangle whose height is the radius and whose base is half
+    the circumference, so its area is pi times the radius times the radius.
+
+    The formula holds in the flat Euclidean plane. On a curved surface, such as the surface of the
+    Earth over large distances, a circle of given radius encloses a different area. In calculation
+    the result is only as precise as the value used for pi: school exercises often take 3.14 or
+    22/7.
+
+    Euclid's Elements proved that the areas of two circles have the same ratio as the squares of
+    their diameters, by filling each circle with polygons of more and more sides. Archimedes later
+    bounded pi between 223/71 and 22/7 with polygons of 96 sides. A round table of radius half a
+    metre covers about 0.785 square metres.
 textSources:
   - title: 'Wikipedia: Area of a circle'
     url: 'https://en.wikipedia.org/wiki/Area_of_a_circle'

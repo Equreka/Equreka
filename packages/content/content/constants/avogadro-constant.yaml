@@ -2,11 +2,15 @@
 name:
   en: 'Avogadro constant'
 symbol:
-  tex: 'N_{\rm {A}}'
+  tex: 'N_{\mathrm{A}}'
   text: 'NA'
 value: '6.02214076e+23'
 unit: 'reciprocal-mole'
 exact: true
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?na'
+  ref: 'Avogadro constant'
 externalIds:
   wikidata: 'Q6203'
   qudt: 'http://qudt.org/vocab/constant/AvogadroConstant'
@@ -21,13 +25,47 @@ aliases:
   - 'avogadro number'
   - 'NA'
   - 'N_A'
+references:
+  - title: 'NIST, CODATA 2022 value: Avogadro constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?na'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.2 (Table 1), section 2.2.1 and section 2.3.1 (the mole)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Redefining the mole'
+    url: 'https://www.nist.gov/si-redefinition/redefining-mole'
+  - title: 'NIST, Meet the constants'
+    url: 'https://www.nist.gov/si-redefinition/meet-constants'
+  - title: 'NIST, CODATA 2022: Faraday constant, defining equation'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?eqf'
+  - title: 'NIST, CODATA 2022: molar gas constant, defining equation'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?eqr'
+  - title: 'QUDT, constant AvogadroConstant'
+    url: 'https://qudt.org/vocab/constant/AvogadroConstant'
 description:
   en: >-
-    The Avogadro constant ($N_{\rm {A}}$ or $L$) is the proportionality factor that relates the
-    number of constituent particles (usually molecules, atoms or ions) in a sample with the amount
-    of substance in that sample. Its SI unit is the reciprocal mole, and it is defined as $N_{A} =
-    6.02214076×10^{23} mol^{−1}$. It is named after the Italian scientist Amedeo Avogadro. Although
-    this is called Avogadro's constant (or number), he is not the chemist who determined its value.
+    The Avogadro constant, symbol $N_{\mathrm{A}}$, gives the number of elementary entities in
+    one mole of any substance. It is one of the seven constants whose fixed values define the International System of Units (SI): since 20 May 2019 its value has been fixed at exactly
+    $6.022\,140\,76\times10^{23}$ per mole, with no uncertainty. The same digits without the unit
+    are called the Avogadro number.
+
+    The constant converts between two ways of stating how much matter a sample holds. Amount of
+    substance, the SI base quantity measured in moles, counts entities in bulk, while the number of
+    entities is a plain count whose unit is one. Atoms, molecules, ions, electrons and other defined groups of
+    particles all qualify as entities, so a statement of amount must say what is being counted: a mole of oxygen atoms
+    and a mole of oxygen molecules hold the same number of entities but have different masses.
+
+    The number of entities in a sample is its amount of substance multiplied by the Avogadro
+    constant. The molar mass of a substance equals the constant times the mass of one entity, which
+    is how the scale of atomic masses connects to grams per mole. Multiplied by the Boltzmann
+    constant it gives the molar gas constant, and multiplied by the elementary charge it gives the
+    Faraday constant, the charge carried by one mole of electrons.
+
+    The name honours Amedeo Avogadro (1776–1856), who held that equal volumes of gases at the same
+    temperature and pressure contain equal numbers of molecules. Early in the twentieth century the
+    name Avogadro number was given to the number of oxygen molecules in a gram-molecule of oxygen, and it became
+    the Avogadro constant when the mole entered the SI in 1971. From then until 2019 the mole was
+    tied to 0.012 kilogram of carbon-12, so the constant had to be measured; the value finally fixed
+    rests largely on counting the atoms in nearly perfect spheres of silicon enriched in silicon-28,
+    a project of the International Avogadro Coordination begun in 2004.
 textSources:
   - title: 'Wikipedia: Avogadro constant'
     url: 'https://en.wikipedia.org/wiki/Avogadro_constant'

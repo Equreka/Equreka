@@ -4,17 +4,39 @@ name:
 symbol:
   tex: 'r'
 defaultUnit: 'metre'
+externalIds:
+  wikidata: 'Q173817'
 categories:
   - 'mathematics'
 branches:
   - 'geometry'
+aliases:
+  - 'radii'
+references:
+  - title: 'E. W. Weisstein, Radius, MathWorld'
+    url: 'https://mathworld.wolfram.com/Radius.html'
+  - title: 'OpenStax, Prealgebra 2e, 9.5 Solve Geometry Applications: Circles and Irregular Figures'
+    url: 'https://openstax.org/books/prealgebra-2e/pages/9-5-solve-geometry-applications-circles-and-irregular-figures'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.1 (Table 2)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
 description:
   en: >-
-    In classical geometry, a radius of a circle or sphere is any of the line segments from its
-    center to its perimeter, and in more modern usage, it is also their length. The name comes from
-    the Latin radius, meaning ray but also the spoke of a chariot wheel. The plural of radius can be
-    either radii (from the Latin plural) or the conventional English plural radiuses. The typical
-    abbreviation and mathematical variable name for radius is r.
+    The radius of a circle or a sphere is the distance from its centre to any point on its boundary:
+    the curve of the circle or the surface of the sphere. The word also names any straight segment
+    joining the centre to the boundary, and all such segments have the same length. The radius is
+    half the diameter, the distance across the figure through its centre.
+
+    The usual symbol is $r$, with a capital $R$ when two radii must be told apart, such as the outer and inner radii of a ring. A
+    radius is a length, so its SI unit is the metre, and in practice it is often quoted in
+    centimetres, millimetres or kilometres. It is never negative, and the SI Brochure lists $r$
+    among the typical symbols for the base quantity length.
+
+    A single radius fixes a circle or a sphere completely, so most of their measures follow from it.
+    The circumference of a circle is $2\pi$ times the radius, and its area is pi times the square of
+    the radius; the surface area and volume of a sphere grow with the second and third powers of the
+    radius. Beyond pure geometry, the radius appears in circular motion, in orbits, in the field of a
+    point charge or mass at a given distance, and in quantities such as the radius of curvature of a
+    lens or a road.
 textSources:
   - title: 'Wikipedia: Radius'
     url: 'https://en.wikipedia.org/wiki/Radius'
