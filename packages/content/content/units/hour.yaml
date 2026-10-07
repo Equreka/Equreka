@@ -5,6 +5,7 @@ symbol:
   tex: 'h'
 unitOf:
   - 'time'
+  - 'period'
 system: 'other'
 toBase:
   factor: '3600'
@@ -25,11 +26,38 @@ branches:
 aliases:
   - 'hr'
   - 'hrs'
+  - 'hours'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (hour) and 5.2'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: hour (h), kilowatt hour (kW · h)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'M. A. Lombardi (NIST), Why is a minute divided into 60 seconds, an hour into 60 minutes, yet there are only 24 hours in a day?, Scientific American, 5 March 2007'
+    url: 'https://www.scientificamerican.com/article/experts-time-division-days-hours-minutes/'
 description:
   en: >-
-    An hour (symbol: $h$; also abbreviated hr) is a unit of time conventionally reckoned as
-    $\frac{1}{24}$ of a day and scientifically reckoned as 3,599–3,601 seconds, depending on
-    conditions. There are 60 minutes in an hour, and 24 hours in a day.
+    The hour, symbol h, is a unit of time equal to 60 minutes or 3600 seconds. It lies outside the
+    SI proper, but the SI Brochure lists it in Table 8 among the long-standing non-SI units of
+    time, and it is the unit of the clock face, the working day and travel times.
+
+    Its value follows from the SI second: $1\,\mathrm{h}=60\,\mathrm{min}=3600\,\mathrm{s}$
+    exactly, and NIST Special Publication 811 gives the same factor. Twenty-four hours make one day,
+    and 8760 hours make a calendar year of 365 days.
+
+    The hour appears inside several compound units in daily use. A kilometre per hour is $5/18$ of
+    a metre per second, and the kilowatt hour on an electricity bill is one thousand joules per
+    second sustained for 3600 seconds, or 3.6 million joules. Coherent SI calculations convert hours
+    to seconds before substituting into a formula.
+
+    Timetables, working shifts, flight durations, medication schedules and road speed limits are
+    given in hours. The SI Brochure keeps the hour in its table of non-SI units because such
+    units are widely used and are expected to remain so for many years.
+
+    Egyptian sundials of about 1500 BC already split daylight into 12 parts, and star tables split
+    the night likewise, which produced a day of 24 seasonal hours whose length changed through the
+    year. Hipparchus proposed 24 equal hours in the second century BC, but equal hours became
+    common only with the mechanical clocks of 14th-century Europe, as the NIST metrologist Michael
+    Lombardi recounts. The symbol is h, never hr or hrs, with no plural ending and no full stop.
 textSources:
   - title: 'Wikipedia: Hour'
     url: 'https://en.wikipedia.org/wiki/Hour'

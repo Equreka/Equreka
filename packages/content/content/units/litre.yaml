@@ -39,13 +39,43 @@ aliases:
   - 'liter'
   - 'liters'
   - 'L'
+  - 'ℓ'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 and note (d), and 5.2'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1: 3rd CGPM 1901, 11th CGPM 1960 Resolution 13, 12th CGPM 1964 Resolution 6, 16th CGPM 1979 Resolution 6'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, liter (L), and footnote 19'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-footnotes'
+  - title: 'QUDT, unit L (litre)'
+    url: 'https://qudt.org/vocab/unit/L'
 description:
   en: >-
-    The litre (British English spelling) or liter (American English spelling) (SI symbols $l$ and
-    $L$, other symbol used: $ℓ$) is a metric unit of volume. It is equal to 1 cubic decimetre
-    ($dm^{3}$), 1000 cubic centimetres ($cm^{3}$) or 0.001 cubic metre ($m^{3}$). A cubic decimetre
-    (or litre) occupies a volume of $10 cm × 10 cm × 10 cm$ and is thus equal to one-thousandth of a
-    cubic metre.
+    The litre, symbol $\mathrm{l}$ or $\mathrm{L}$, is a unit of volume equal to one cubic
+    decimetre, the volume of a cube ten centimetres on each edge. It is not a coherent SI unit,
+    but the SI Brochure includes it in its table of non-SI units that may be used alongside SI
+    units, and it is the everyday measure of liquids, gases and containers.
+
+    Its present definition dates from 1964, when the 12th CGPM declared the word litre a special
+    name for the cubic decimetre, so that $1\,\mathrm{L}=1\,\mathrm{dm^{3}}=10^{-3}\,\mathrm{m^{3}}$
+    exactly. The same resolution recommended against using the name for the results of
+    high-accuracy volume measurements, which are expressed in cubic metres and their submultiples.
+
+    One thousand litres make a cubic metre, and a millilitre is the same volume as a cubic
+    centimetre. The litre takes the SI prefixes, and the millilitre, centilitre and decilitre are
+    the forms most often printed on bottles, cartons and medicine labels.
+
+    Fuel, drinks, engine displacement and the capacity of tanks, lungs and laboratory glassware are
+    quoted in litres or millilitres, and chemistry uses the litre in concentrations in moles per
+    litre and in molar volumes of gases.
+
+    The CIPM adopted the litre and the symbol l in 1879. In 1901 the 3rd CGPM tied it to water: the
+    space filled by a kilogram of pure water at maximum density under standard atmospheric pressure;
+    that litre was about 28 parts per million larger than the cubic decimetre, a gap NIST gives as
+    1.000 028 cubic decimetres, until the 1964 change removed it. Because a lowercase l is easily
+    confused with the numeral one, the 16th CGPM in 1979 allowed the capital L as a second symbol,
+    and the CIPM judged in 1990 that it was still too early to keep only one. The spelling liter is
+    American.
 textSources:
   - title: 'Wikipedia: Litre'
     url: 'https://en.wikipedia.org/wiki/Litre'

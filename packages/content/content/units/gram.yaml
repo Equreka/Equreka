@@ -30,12 +30,43 @@ categories:
   - 'physics'
 branches:
   - 'mechanics'
+aliases:
+  - 'gramme'
+  - 'grams'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., section 3 (prefixes and the unit of mass) and Table 8 (tonne)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (9th CGPM, 1948, Resolution 7; CIPM, 1967, Recommendation 2) and Appendix 4 (Gauss, 1832; BAAS CGS system, 1874)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: ounce (avoirdupois)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'QUDT, unit GM'
+    url: 'https://qudt.org/vocab/unit/GM'
 description:
   en: >-
-    The gram is the main unit of mass in the Cegesimal System of Units, and the unit of weight in
-    the metric system. Originally defined as the weight of a cubic centimeter of water at 3.98 ° C,
-    and is currently defined as one thousandth of a kilogram, the basic unit of mass in the
-    International System of Units.
+    The gram, symbol $\mathrm{g}$, is a unit of mass equal to one thousandth of a kilogram. It is
+    the stem to which the SI prefixes attach for every unit of mass, so the milligram, the microgram
+    and the kilogram itself are all named from it, and it was the unit of mass of the
+    centimetre-gram-second system of physics.
+
+    The gram has no definition of its own: it is exactly $1\,\mathrm{g}=10^{-3}\,\mathrm{kg}$, and
+    so it follows the kilogram, which since 2019 has been fixed through the Planck constant. A
+    recommendation of the CIPM in 1967 settled the naming rule: larger and smaller mass units carry
+    their prefix on the word gram, never on kilogram.
+
+    A milligram is a thousandth of a gram and a microgram a millionth, while the tonne, a unit
+    accepted for use with the SI, is a million grams, the megagram. NIST Special Publication 811
+    gives the avoirdupois ounce as about 28.35 grams.
+
+    The gram is the everyday unit of food labels and recipes, and the working unit of laboratory
+    balances. Chemistry expresses molar masses in grams per mole, and the densities of liquids and
+    solids are commonly quoted in $\mathrm{g/cm^{3}}$.
+
+    Gauss used the millimetre, the gram and the second in 1832 for absolute measurements of the
+    magnetic field of the Earth, and in 1874 the BAAS, a British society for the advancement of
+    science, built its centimetre-gram-second system on the gram. The 9th CGPM listed the symbol g
+    in 1948. The symbol is a lowercase g written without a full stop, and the plural of the name is
+    grams.
 textSources:
   - title: 'Wikipedia: Gram'
     url: 'https://en.wikipedia.org/wiki/Gram'

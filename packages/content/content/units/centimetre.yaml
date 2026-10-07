@@ -12,8 +12,39 @@ prefixOf:
 externalIds:
   wikidata: 'Q174728'
   qudt: 'http://qudt.org/vocab/unit/CentiM'
+aliases:
+  - 'centimeter'
+  - 'centimeters'
+  - 'centimetres'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., section 3 (Table 7 and prefixed unit symbols), Table 8 (gal) and section 5.2'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 4 (BAAS CGS system, 1874) and Appendix 1 (9th CGPM, 1948, Resolution 7)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: inch'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'QUDT, unit CentiM'
+    url: 'https://qudt.org/vocab/unit/CentiM'
 description:
   en: >-
-    The centimetre is one hundredth of a metre ($1\ \mathrm{cm} = 10^{-2}\ \mathrm{m}$), formed with
-    the SI prefix centi. It was the base unit of length of the centimetre–gram–second (CGS) system,
-    which is why CGS units such as the erg, the dyne and the gal are defined through it.
+    The centimetre, symbol $\mathrm{cm}$, is a unit of length equal to one hundredth of a metre,
+    formed with the SI prefix centi. It suits lengths on the scale of the human body and of objects
+    held in the hand, and it was the base unit of length of the centimetre-gram-second (CGS) system
+    of physics.
+
+    The relation $1\,\mathrm{cm}=10^{-2}\,\mathrm{m}$ is exact, so the centimetre follows the
+    definition of the metre through the speed of light. Under the SI rules the prefix and the unit
+    form a single symbol, and a power applies to both: a square centimetre is a ten-thousandth of a
+    square metre and a cubic centimetre a millionth of a cubic metre. NIST Special Publication 811
+    lists the international inch as exactly 2.54 centimetres.
+
+    The BAAS, a British society for the advancement of science, introduced the CGS system in 1874,
+    and several of its units are still defined through the centimetre. The gal, which geodesy and
+    geophysics use for the acceleration due to gravity, is one centimetre per second squared, and
+    the dyne and the erg, the CGS units of force and energy, are built on the centimetre and the
+    gram. Spectroscopists quote wavenumbers in reciprocal centimetres, where one reciprocal
+    centimetre equals 100 reciprocal metres.
+
+    Rulers, tape measures, clothing sizes and body measurements are commonly graduated in
+    centimetres. American English spells the name centimeter. The symbol cm takes no plural s and no
+    full stop.

@@ -10,14 +10,50 @@ externalIds:
   wikidata: 'Q11579'
   qudt: 'http://qudt.org/vocab/unit/K'
 categories:
+  - 'universal'
   - 'physics'
 branches:
   - 'thermodynamics'
+  - 'si-system'
+aliases:
+  - 'kelvins'
+  - 'degree Kelvin'
+  - 'absolute temperature unit'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.1 (the kelvin) and Appendix 4 (unit of thermodynamic temperature, kelvin)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (10th CGPM, 1954, Resolutions 3 and 6; 13th CGPM, 1967/68, Resolutions 3 and 4)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, SI Redefinition: Kelvin, introduction'
+    url: 'https://www.nist.gov/si-redefinition/kelvin-introduction'
+  - title: 'BIPM, SI base unit: kelvin (K)'
+    url: 'https://www.bipm.org/en/si-base-units/kelvin'
 description:
   en: >-
-    The kelvin is the base unit of temperature in the International System of Units (SI), having the
-    unit symbol $K$. It is named after the Belfast-born Glasgow University engineer and physicist
-    William Thomson, 1st Baron Kelvin (1824–1907).
+    The kelvin, symbol $\mathrm{K}$, is the SI base unit of thermodynamic temperature, the absolute
+    temperature that physics and chemistry use in the gas laws and in thermodynamics. Its scale
+    starts at absolute zero, so a thermodynamic temperature in kelvins is positive for ordinary matter, and the
+    same unit also expresses temperature differences.
+
+    Since 20 May 2019 the kelvin has been defined by fixing the Boltzmann constant at exactly
+    $k=1.380\,649\times10^{-23}\,\mathrm{J/K}$, with the joule tied to the kilogram, the metre and
+    the second. A change of one kelvin is thus the change in temperature that alters the thermal
+    energy $kT$ by that many joules. The triple point of water, which earlier anchored the unit at
+    exactly 273.16 K, has become a measured value.
+
+    The degree Celsius has the same size as the kelvin, and a Celsius temperature is the
+    thermodynamic temperature minus 273.15 K, so differences have the same number in both units.
+    Absolute zero lies at -273.15 degrees Celsius, or -459.67 degrees Fahrenheit.
+
+    Scientists use the kelvin for cryogenics, gases and radiation. NIST gives a few landmarks:
+    mercury loses all electrical resistance at 4.2 K, room temperature is near 294 K, and an
+    incandescent bulb has a colour temperature of about 3000 K, against about 5800 K for the surface
+    of the Sun. Practical thermometry follows the International Temperature Scale of 1990.
+
+    The unit is named after the British physicist William Thomson, Lord Kelvin, who lived from 1824
+    to 1907. The 10th CGPM adopted the degree Kelvin as a base unit in 1954, fixing the triple point
+    of water at 273.16 degrees, and the 13th CGPM renamed it the kelvin, symbol K, in 1967. It is
+    written without a degree sign or the word degree; the plural is kelvins.
 textSources:
   - title: 'Wikipedia: Kelvin'
     url: 'https://en.wikipedia.org/wiki/Kelvin'

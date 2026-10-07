@@ -66,7 +66,7 @@ describe('groupByBranch', () => {
 		expect(groups.some((group) => group.branch === null)).toBe(false);
 		expect(groups.find((group) => group.branch === 'thermodynamics')?.entries).toContainEqual({
 			slug: 'kelvin',
-			branches: ['thermodynamics'],
+			branches: ['thermodynamics', 'si-system'],
 		});
 	});
 });

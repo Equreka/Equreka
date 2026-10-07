@@ -5,6 +5,7 @@ symbol:
   tex: 'd'
 unitOf:
   - 'time'
+  - 'period'
 system: 'other'
 toBase:
   factor: '86400'
@@ -22,7 +23,42 @@ categories:
 branches:
   - 'mechanics'
   - 'measurement'
+aliases:
+  - 'days'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (day)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: day (d), day (sidereal), year (365 days)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST SP 811, footnotes to Appendix B (Julian century of 36 525 d)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-footnotes'
+  - title: 'NIST, Time and Frequency Division, Leap Seconds FAQs'
+    url: 'https://www.nist.gov/pml/time-and-frequency-division/leap-seconds-faqs'
+  - title: 'M. A. Lombardi (NIST), Why is a minute divided into 60 seconds, an hour into 60 minutes, yet there are only 24 hours in a day?, Scientific American, 5 March 2007'
+    url: 'https://www.scientificamerican.com/article/experts-time-division-days-hours-minutes/'
 description:
   en: >-
-    As a term in physics and astronomy it is approximately the period during which the Earth
-    completes one rotation around its axis, which takes about 24 hours.
+    The day, symbol d, is a unit of time equal to 24 hours or 86 400 seconds. It is not an SI unit,
+    but the SI Brochure lists it in Table 8 with the minute and the hour among the long-standing
+    non-SI units of time whose use it expects to continue. In everyday terms it is the period of light
+    and darkness set by the rotation of the Earth.
+
+    As a unit, the day is fixed by the SI second, not by the Earth: Table 8 of the SI Brochure gives
+    $1\,\mathrm{d}=24\,\mathrm{h}=86\,400\,\mathrm{s}$ exactly, and NIST Special Publication 811
+    lists the same factor. Its length therefore never varies, unlike the solar day it was named
+    after.
+
+    Seven days make a week, and NIST tabulates a year of 365 days as 31 536 000 seconds and, for
+    astronomy, a Julian century as exactly 36 525 days. The sidereal day, one turn of the Earth
+    measured against the stars, is shorter, about 86 164.09 seconds in NIST's table.
+
+    Ages, calendars, incubation periods, drug dosing and the half-lives of many radioactive
+    isotopes are stated in days. In astronomy the unit counts the dates of observations, while in
+    physics calculations a time in days is converted to seconds before it enters a formula.
+
+    The rotation of the Earth is irregular and, averaged over long intervals, slowing. NIST
+    explains that leap seconds have been inserted into Coordinated Universal Time since 1972 to keep
+    it within 0.9 seconds of the time scale based on that rotation, so a civil day occasionally
+    lasts 86 401 seconds. The division of the day into 24 hours goes back to ancient Egypt, where
+    sundials and star tables split daylight and night into 12 parts each. The symbol d takes no
+    plural ending and no full stop.

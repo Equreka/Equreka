@@ -13,8 +13,38 @@ externalIds:
   qudt: 'http://qudt.org/vocab/unit/MicroGM'
 aliases:
   - 'mcg'
+  - 'micrograms'
+  - 'ug'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., section 3 (prefixes and the unit of mass) and section 5.2 (unit symbols)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 4 (unit of mass, kilogram: third periodic verification)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'ISMP, List of Error-Prone Abbreviations, Symbols, and Dose Designations: µg'
+    url: 'https://online.ecri.org/hubfs/ISMP/Resources/ISMP_ErrorProneAbbreviation_List.pdf'
+  - title: 'NIST, SI Redefinition: Kilogram, introduction'
+    url: 'https://www.nist.gov/si-redefinition/kilogram-introduction'
+  - title: 'QUDT, unit MicroGM'
+    url: 'https://qudt.org/vocab/unit/MicroGM'
 description:
   en: >-
-    The microgram is one millionth of a gram ($1\ \mathrm{μg} = 10^{-9}\ \mathrm{kg}$), formed with
-    the SI prefix micro. Medicine and nutrition labelling write it mcg rather than μg, because a
-    handwritten μ is easily misread as m, which would denote a dose a thousand times larger.
+    The microgram, symbol $\mathrm{μg}$, is the unit of mass that equals a millionth of a gram,
+    formed by attaching the SI prefix micro to the gram. It measures very small masses such as drug
+    doses, vitamin contents and trace pollutants, and medicine commonly writes it mcg.
+
+    The relation $1\,\mathrm{μg}=10^{-9}\,\mathrm{kg}$ is exact, and a thousand micrograms make one
+    milligram. The prefix goes on the gram because the kilogram already carries one and the SI
+    forbids compound prefixes, so the unit is never called a nanokilogram.
+
+    Pharmacology, nutrition, toxicology and environmental monitoring all work at this scale, for
+    example with concentrations in micrograms per cubic metre of air or per litre of water. NIST
+    notes that drug research and environmental testing increasingly need accurate mass measurements
+    at the level of micrograms and below. The scale also mattered for the old kilogram: when the
+    national copies were checked against the international prototype between 1989 and 1991, they
+    differed from it by a median of about 25 micrograms.
+
+    The symbol μg is easily misread as mg, an error that turns micrograms into milligrams and
+    multiplies a dose a thousandfold. The ISMP list of error-prone abbreviations therefore names μg
+    and recommends mcg on prescriptions, medication labels and order-entry screens. Outside medicine
+    the SI symbol μg remains the correct form, since the SI admits no abbreviations in place of unit
+    symbols.

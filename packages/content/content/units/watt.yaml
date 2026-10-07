@@ -29,16 +29,55 @@ externalIds:
   wikidata: 'Q25236'
   qudt: 'http://qudt.org/vocab/unit/W'
 categories:
+  - 'universal'
   - 'physics'
 branches:
   - 'mechanics'
   - 'electromagnetism'
+  - 'si-system'
+aliases:
+  - 'watts'
+  - 'J/s'
+  - 'joule per second'
+  - 'V A'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.2 (definition of the SI), 2.3.1 (candela), Table 4, Table 8 note (n) (var)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (CIPM, 1946, Resolution 2; 11th CGPM, 1960, Resolution 12)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: horsepower (550 ft lbf/s), kilowatt hour'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'OpenStax, University Physics Volume 1, 7.4 Power'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/7-4-power'
+  - title: 'OpenStax, Physics, 9.1 Work, Power, and the Work-Energy Theorem'
+    url: 'https://openstax.org/books/physics/pages/9-1-work-power-and-the-work-energy-theorem'
+  - title: 'QUDT, unit W'
+    url: 'https://qudt.org/vocab/unit/W'
 description:
   en: >-
-    The watt (symbol: $W$) is a unit of power or radiant flux. In the International System of Units
-    (SI), it is defined as a derived unit of (in SI base units) $1 kg⋅m^{2}⋅s^{−3}$ or,
-    equivalently, 1 joule per second. It is used to quantify the rate of energy transfer. The watt
-    is named after James Watt (1736-1819), an 18th-century Scottish inventor.
+    The watt, symbol $\mathrm{W}$, is the coherent SI derived unit of power, the rate at which
+    energy is transferred or converted, and of radiant flux, the power carried by electromagnetic
+    radiation. One watt is one joule per second; in SI base units it is the kilogram square metre
+    per second cubed.
+
+    The CIPM defined the watt in 1946 as the power that gives rise to one joule of energy in one
+    second, and the same resolution used the watt to define the volt. In a circuit the power
+    delivered is the product of potential difference and current, so for direct current one watt
+    is one volt ampere. The SI Brochure lists the var as a special name of the volt ampere when it
+    expresses reactive power, a unit equal in size to the watt but reserved for that quantity.
+    The watt is also one of the units named in the present definition of the SI.
+
+    Energy is power multiplied by time, so a kilowatt sustained for an hour delivers one kilowatt
+    hour, exactly $3.6\times10^{6}\,\mathrm{J}$, and electricity is sold in that unit. The
+    horsepower of 550 foot pounds-force per second is about 745.7 watts.
+
+    In photometry the watt links light to energy: the SI fixes the luminous efficacy of
+    monochromatic radiation at 540 terahertz at exactly $683\,\mathrm{lm/W}$, which defines the
+    candela and, through it, the lumen.
+
+    The unit is named after James Watt (1736-1819), the Scottish engineer and inventor who found
+    ways to obtain more power from steam engines. The 11th CGPM listed the watt among the derived
+    units of the SI in 1960. The plural is watts.
 textSources:
   - title: 'Wikipedia: Watt'
     url: 'https://en.wikipedia.org/wiki/Watt'

@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Mol inverso'
+description: >-
+  El mol inverso, de símbolo $\mathrm{mol^{-1}}$, es la unidad SI coherente de una magnitud que se
+  cuenta por cantidad de sustancia, y se lee «por mol». Es el inverso del mol, la unidad básica SI
+  de cantidad de sustancia, y en química y física es sobre todo la unidad de la constante de
+  Avogadro.
+
+  Desde la revisión del SI que entró en vigor en 2019, el mol se define fijando la constante de
+  Avogadro en exactamente $6.022\,140\,76\times10^{23}$ por mol. Un mol es, por tanto, una
+  cantidad que contiene exactamente ese número de entidades elementales especificadas, ya sean
+  átomos, moléculas, iones o electrones. La definición anterior fijaba en cambio la masa molar del
+  carbono-12, que ahora debe medirse.
+
+  Al multiplicar una cantidad en moles por la constante de Avogadro se obtiene un recuento puro de
+  entidades, y al dividir un recuento entre ella se obtiene una cantidad en moles; el mol inverso es
+  lo que cancela el mol en ese paso. OpenStax insiste en que la constante se expresa correctamente
+  con una unidad explícita «por mol» y la redondea a $6.022\times10^{23}$ por mol para los cálculos.
+
+  El mismo factor aparece dentro de muchas unidades compuestas de la química. El julio por mol, el
+  gramo por mol y el culombio por mol contienen un mol inverso, y al dividir cualquier magnitud
+  molar entre la constante de Avogadro se convierte en un valor por entidad. QUDT clasifica la
+  unidad bajo la clase de magnitud cantidad de sustancia inversa.
+
+  El folleto del SI llama número de Avogadro al valor numérico fijado por sí solo, un número puro,
+  mientras que la constante de Avogadro es ese número multiplicado por el mol inverso; confundir
+  ambos hace perder la unidad. El símbolo puede escribirse también 1/mol, y el nombre se pronuncia
+  «por mol», así que en la práctica la unidad no tiene plural.

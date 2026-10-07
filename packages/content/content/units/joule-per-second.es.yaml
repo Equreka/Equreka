@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Julio por segundo'
+description: >-
+  El julio por segundo, de símbolo $\mathrm{J/s}$, es la unidad SI derivada de potencia escrita a
+  partir de su definición: un julio de energía transferido, convertido o entregado en cada segundo.
+  Es la misma unidad que el vatio, el nombre especial que le da el SI, y sirve por igual en
+  mecánica, en transmisión de calor y en electromagnetismo.
+
+  El vatio, y con él el julio por segundo, procede de una resolución del CIPM de 1946, que definió
+  la unidad de potencia como la potencia que produce un julio de energía en un segundo. El folleto
+  del SI incluye el vatio entre las unidades derivadas con nombre especial y lo expresa en
+  unidades básicas como el kilogramo metro cuadrado por segundo al cubo.
+
+  Como los dos nombres designan una misma unidad, la conversión entre ellos es exacta e igual a
+  uno: una lámpara que consume 60 julios por segundo consume 60 vatios. OpenStax usa esta identidad
+  para presentar la potencia como el ritmo al que se realiza trabajo. Mantener en marcha un aparato de un kilovatio durante una hora entrega 3.6 millones de
+  julios, el kilovatio hora de la factura eléctrica.
+
+  Escribir julios por segundo en lugar de vatios mantiene a la vista el significado de la
+  potencia, por eso los libros de texto lo usan cuando un cálculo divide una energía entre un
+  tiempo, y por eso los flujos de calor en termodinámica se dan a menudo en esta forma. En los
+  circuitos, el producto de una tensión eléctrica en julios por culombio y una corriente en
+  culombios por segundo da julios por segundo, la potencia eléctrica disipada o suministrada.
+
+  El símbolo puede escribirse también con exponente negativo, $\mathrm{J\,s^{-1}}$, y el plural es
+  julios por segundo. En la escritura técnica se prefiere el vatio; el nombre largo indica que el
+  valor se obtuvo como energía entre tiempo.

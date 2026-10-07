@@ -18,11 +18,41 @@ branches:
 aliases:
   - 'dimensionless'
   - 'pure number'
+  - 'unit one'
+  - 'dimension one'
+  - 'unidad uno'
+  - 'sin unidad'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.3 Dimensions of quantities (quantities with the unit one)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., 3 Decimal multiples and sub-multiples, and 5.4.7 Quantities with the unit one'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Chapter 7, 7.10 Values of quantities expressed simply as numbers: the unit one, symbol 1'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-7-rules-and-style-conventions-expressing-values'
+  - title: 'QUDT, unit UNITLESS'
+    url: 'https://qudt.org/vocab/unit/UNITLESS'
 description:
   en: >-
-    In science, a unitless quantity or dimension is a quantity without a physical dimension, being a
-    number that can describe a physical characteristic without a physical unit of measurement or
-    expression, and that as such, always has a dimension of 1.​ Unitless quantities are widely used
-    in mathematics, physics, engineering and economics, and in daily life (for example, in
-    counting). Many well-known numbers, such as π, e and φ, are also unitless. On the other hand,
-    non-unitless quantities are measured in units of length, area, time, etc.
+    Unitless denotes the unit one, symbol 1, the SI unit of every quantity of dimension one. Such
+    quantities, often called dimensionless, come in two families: ratios of two quantities of the
+    same kind, such as a refractive index, a relative permittivity or a mass fraction, and numbers
+    of entities, such as a count of molecules or of decays. Their values are stated as pure
+    numbers.
+
+    The SI Brochure calls the unit one the neutral element of every system of units, present
+    automatically and needing no formal decision to introduce it. When every dimensional exponent
+    of a quantity is zero, its coherent SI unit is a quotient of two identical units, such as metre
+    per metre, which reduces to the number one. The symbol 1 is seldom written: a refractive index
+    is given as 1.51, not as 1.51 times 1.
+
+    For reasons of history and convention, the SI also counts plane angle and solid angle among the
+    quantities with the unit one, but gives their units the special names radian and steradian,
+    which may be written or left out as convenient. Ratios of quantities of the same kind may be
+    written with explicit units, such as mol/mol or m/m, to make the quantity clearer and to allow
+    prefixes; counts of entities have no such option.
+
+    SI prefixes cannot be attached to the symbol 1 or to the name one, so very large and very small
+    values are written with powers of ten. The per cent sign stands for the number 0.01 and may be
+    used with the SI, with a space before it. Parts per million means a relative value of
+    $10^{-6}$, whereas the brochure advises against ppb and ppt because their meaning depends on the
+    language.

@@ -10,17 +10,49 @@ externalIds:
   wikidata: 'Q83216'
   qudt: 'http://qudt.org/vocab/unit/CD'
 categories:
+  - 'universal'
   - 'physics'
 branches:
   - 'optics-and-photometry'
+  - 'si-system'
+aliases:
+  - 'candelas'
+  - 'new candle'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.1 (the candela), Table 4 (lumen, lux), Table 5 (luminance) and Appendix 4 (unit of luminous intensity, candela)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (CIPM, 1946; 13th CGPM, 1967/68, Resolution 5; 16th CGPM, 1979, Resolution 3)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, SI Redefinition: Candela'
+    url: 'https://www.nist.gov/si-redefinition/candela'
+  - title: 'BIPM, SI base unit: candela (cd)'
+    url: 'https://www.bipm.org/en/si-base-units/candela'
 description:
   en: >-
-    The candela (/kænˈdɛlə/ or /kænˈdiːlə/; symbol: $cd$) is the base unit of luminous intensity in
-    the International System of Units (SI); that is, luminous power per unit solid angle emitted by
-    a point light source in a particular direction. Luminous intensity is analogous to radiant
-    intensity, but instead of simply adding up the contributions of every wavelength of light in the
-    source's spectrum, the contribution of each wavelength is weighted by the standard luminosity
-    function (a model of the sensitivity of the human eye to different wavelengths).
+    The candela, symbol $\mathrm{cd}$, is the SI base unit of luminous intensity: the power that a
+    light source sends in one direction per unit solid angle, weighted by how sensitive the human
+    eye is to each wavelength. It is the only SI base unit that rests on human vision.
+
+    The definition sets at exactly $K_{\mathrm{cd}}=683\,\mathrm{lm/W}$ the luminous efficacy of
+    single-frequency light at $540\times10^{12}\,\mathrm{Hz}$, a green near the peak of daylight
+    vision, with the watt tied to the kilogram, the metre and the second. In practice, a green source whose radiant intensity in some direction is one 683rd of a
+    watt per steradian has there a luminous intensity of one candela. For other colours and for white light, a
+    standard visual response curve weights each wavelength.
+
+    The lumen, unit of luminous flux, equals one candela steradian, so a one-candela source shining equally in every direction emits
+    one lumen per steradian over the full $4\pi\,\mathrm{sr}$. Luminance is expressed in candelas per square
+    metre, and illuminance in lux, or lumens per square metre.
+
+    Lamp packaging usually states lumens, the total light output, whereas the candela describes how
+    bright a source looks from a given direction. NIST notes that the 1979 definition allowed the
+    unit to be realized with calibrated photodetectors instead of lamps, and that its measurement
+    uncertainty is still no better than about one part in a thousand.
+
+    The name is the Latin word for candle. Flame and filament standards gave way to the new candle,
+    based on a black body at the freezing temperature of platinum, which the CIPM promulgated in
+    1946 and the 9th CGPM named the candela in 1948. The 10th CGPM made it a base unit in 1954, and
+    the 16th CGPM replaced the black body with monochromatic radiation in 1979. The plural is
+    candelas.
 textSources:
   - title: 'Wikipedia: Candela'
     url: 'https://en.wikipedia.org/wiki/Candela'

@@ -2,10 +2,11 @@
 name:
   en: 'Joule per second'
 symbol:
-  tex: '\frac{J}{s}'
+  tex: 'J/s'
   text: 'J/s'
 unitOf:
   - 'power'
+  - 'radiant-flux'
 system: 'si-derived'
 compose:
   of:
@@ -23,6 +24,43 @@ branches:
   - 'electromagnetism'
 aliases:
   - 'J/s'
+  - 'J s-1'
+  - 'J s^-1'
+  - 'joules per second'
+  - 'julio por segundo'
+  - 'joule por segundo'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 (watt)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1: CIPM 1946, Resolution 2 (definitions of electric units: watt)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 7.4 Power'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/7-4-power'
+  - title: 'QUDT, unit J-PER-SEC (joule per second)'
+    url: 'https://qudt.org/vocab/unit/J-PER-SEC'
 description:
   en: >-
-    The SI units for work and time are Joules and seconds, respectively.
+    The joule per second, symbol $\mathrm{J/s}$, is the SI derived unit of power written out from
+    its definition: one joule of energy transferred, converted or delivered in each second. It is
+    the same unit as the watt, the special name the SI gives to it, and it serves mechanics, heat
+    transfer and electromagnetism alike.
+
+    The watt, and with it the joule per second, goes back to a 1946 resolution of the CIPM, which
+    defined the unit of power as the power that produces one joule of energy in one second. The SI
+    Brochure lists the watt among the derived units with special names and expresses it in base
+    units as the kilogram square metre per second cubed.
+
+    Because the two names denote one unit, the conversion between them is exact and equal to one:
+    a lamp drawing 60 joules per second draws 60 watts. OpenStax uses the identity to introduce power as the rate at which work is done. Running a
+    device of one kilowatt for one hour delivers 3.6 million joules, the kilowatt hour on an
+    electricity bill.
+
+    Writing joules per second instead of watts keeps the meaning of power in view, which is why
+    textbooks use it when a calculation divides an energy by a time, and why heat flow rates in
+    thermodynamics are often quoted in it. In circuits, the product of a voltage in joules per
+    coulomb and a current in coulombs per second comes out in joules per second, the electrical
+    power dissipated or supplied.
+
+    The symbol can also be written with a negative exponent, $\mathrm{J\,s^{-1}}$, and the plural is
+    joules per second. In technical writing the watt is preferred; the longer name signals that a
+    value was obtained as energy over time.

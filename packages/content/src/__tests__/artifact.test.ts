@@ -428,13 +428,13 @@ describe('build over the real corpus', () => {
 			.map(([slug]) => slug);
 		expect(physicsOrder[0]).toBe('mechanics');
 		const units = readJson<Record<string, { branches: string[] }>>('presentation', 'units.json');
-		expect(units.kelvin?.branches).toEqual(['thermodynamics']);
+		expect(units['joule-per-kelvin']?.branches).toEqual(['thermodynamics']);
 		const catalog = readJson<{ collection: string; slug: string; branches: string[] }[]>(
 			'search',
 			'catalog-lite.es.json',
 		);
 		expect(
-			catalog.find((row) => row.collection === 'units' && row.slug === 'kelvin'),
+			catalog.find((row) => row.collection === 'units' && row.slug === 'joule-per-kelvin'),
 		).toMatchObject({ branches: ['Termodinámica'] });
 		expect(
 			catalog.find((row) => row.collection === 'branches' && row.slug === 'thermodynamics'),
@@ -448,7 +448,7 @@ describe('build over the real corpus', () => {
 		);
 		const categoriesOf = (collection: string, slug: string): string[] | undefined =>
 			catalog.find((row) => row.collection === collection && row.slug === slug)?.categories;
-		expect(categoriesOf('units', 'kelvin')).toEqual(['physics']);
+		expect(categoriesOf('units', 'joule-per-kelvin')).toEqual(['physics']);
 		expect(categoriesOf('branches', 'thermodynamics')).toEqual(['physics']);
 		expect(categoriesOf('categories', 'physics')).toEqual([]);
 		expect(catalog.every((row) => Array.isArray(row.categories))).toBe(true);

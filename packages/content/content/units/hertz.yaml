@@ -26,14 +26,59 @@ externalIds:
   wikidata: 'Q39369'
   qudt: 'http://qudt.org/vocab/unit/HZ'
 categories:
+  - 'universal'
   - 'physics'
 branches:
   - 'waves-and-oscillations'
+  - 'si-system'
+aliases:
+  - 'cycles per second'
+  - 'cycle per second'
+  - 'cps'
+  - 's^-1'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.2 (definition of the SI), Table 4 and note (d), 2.3.4 (frequency and angular frequency), 3 Decimal multiples and sub-multiples'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (11th CGPM, 1960, Resolution 12)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Chapter 9, 9.2 Plurals'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-9-rules-and-style-conventions-spelling-unit-names'
+  - title: 'OpenStax, University Physics Volume 1, 15.1 Simple Harmonic Motion'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/15-1-simple-harmonic-motion'
+  - title: 'OpenStax, College Physics 2e, 24.1 Maxwell''s Equations: Electromagnetic Waves Predicted and Observed'
+    url: 'https://openstax.org/books/college-physics-2e/pages/24-1-maxwells-equations-electromagnetic-waves-predicted-and-observed'
+  - title: 'MacTutor History of Mathematics, Heinrich Hertz'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Hertz_Heinrich/'
+  - title: 'QUDT, unit HZ'
+    url: 'https://qudt.org/vocab/unit/HZ'
 description:
   en: >-
-    The $hertz$ (symbol: $Hz$) is the derived unit of frequency in the International System of Units
-    (SI) and is defined as <strong>one cycle per second</strong>. It is named after Heinrich Rudolf
-    Hertz (1857-1894)
+    The hertz, symbol $\mathrm{Hz}$, is the coherent SI derived unit of frequency, the number of
+    cycles that a periodic phenomenon completes per unit of time. One hertz is one cycle per
+    second, and in SI base units it is the reciprocal second, $\mathrm{s^{-1}}$.
+
+    The SI Brochure reserves the hertz for periodic phenomena. The reciprocal second also measures
+    the activity of a radionuclide, but that quantity takes the becquerel, and angular frequency
+    and angular velocity take the radian per second. Because angular frequency is larger than
+    frequency by the number of radians in a turn, the brochure recommends stating frequencies in
+    hertz and angular quantities in rad/s rather than as bare reciprocal seconds. It also notes
+    that cycle and revolution, though used in expressions such as cycles per second, are not SI
+    units.
+
+    The period of an oscillation is the reciprocal of its frequency, so a vibration at 50 hertz
+    repeats every 20 milliseconds. The hertz also anchors the definition of the second, since the
+    SI fixes the frequency of the caesium-133 hyperfine transition at exactly
+    $9\,192\,631\,770\,\mathrm{Hz}$, and it is one of the units named in the present definition of
+    the SI.
+
+    Prefixed forms cover a very wide range: the candela is defined with radiation of 540
+    terahertz, and the terahertz appears among the brochure's examples of prefixed units. Prefixed
+    names such as kilohertz and megahertz are written as single words.
+
+    The unit honours Heinrich Hertz (1857-1894), a German physicist who in 1887
+    began the experiments in which he first generated and detected electromagnetic waves in the
+    laboratory. The 11th CGPM listed the hertz among the derived units of the SI in 1960. The
+    plural is hertz, the same as the singular.
 textSources:
   - title: 'Wikipedia: Hertz'
     url: 'https://en.wikipedia.org/wiki/Hertz'

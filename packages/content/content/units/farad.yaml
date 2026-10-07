@@ -28,22 +28,48 @@ externalIds:
   wikidata: 'Q131255'
   qudt: 'http://qudt.org/vocab/unit/FARAD'
 categories:
+  - 'universal'
   - 'physics'
 branches:
   - 'electromagnetism'
+  - 'si-system'
+aliases:
+  - 'farads'
+  - 'C/V'
+  - 'coulomb per volt'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4, Table 6 (farad per metre)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (CIPM, 1946, Resolution 2; 11th CGPM, 1960, Resolution 12)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 8.1 Capacitors and Capacitance'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance'
+  - title: 'MacTutor History of Mathematics, Michael Faraday'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Faraday/'
+  - title: 'QUDT, unit FARAD'
+    url: 'https://qudt.org/vocab/unit/FARAD'
 description:
-  en: |-
-    The farad (symbol: $F$) is the SI derived unit of electrical capacitance, the ability of a body to store an electrical charge. It is named after the English physicist Michael Faraday (1791-1867). In SI base units $1 ~F = 1 ~kg^{−1}⋅m^{−2}⋅s^{4}⋅A^{2}$.
+  en: >-
+    The farad, symbol $\mathrm{F}$, is the coherent SI derived unit of capacitance, the amount of
+    charge a conductor or capacitor holds for each unit of potential difference across it. One
+    farad is one coulomb per volt; in SI base units it is the second to the fourth power square
+    ampere per kilogram per square metre.
 
-    One farad is defined as the capacitance across which, when charged with one coulomb, there is a potential difference of one volt. Equally, one farad can be described as the capacitance which stores a one-coulomb charge across a potential difference of one volt.
+    The CIPM definition of 1946 describes the farad as the capacitance of a capacitor whose plates
+    show a potential difference of one volt when it is charged with one coulomb. Since a coulomb is
+    an ampere second and a volt is a watt per ampere, the farad can also be written as a second per
+    ohm, and the product of a resistance in ohms and a capacitance in farads is a time in seconds.
+    The unit of permittivity, which describes how a medium affects the capacitance of conductors
+    placed in it, is the farad per metre.
 
-    ### Equalities
+    One farad is a very large capacitance: a capacitor of that size would hold a whole coulomb at
+    only one volt. Practical capacitors are therefore rated with prefixes: the largest
+    common ones in millifarads and microfarads, the smallest in picofarads, $10^{-12}\,\mathrm{F}$. An empty
+    parallel-plate capacitor of one farad with plates one millimetre apart would need square plates more than 10 kilometres across.
 
-    A farad is a derived unit based on four of the seven base units of the International System of Units: **kilogram ($kg$), metre ($m$), second ($s$), and ampere ($A$)**. Expressed in combinations of SI units, the farad is:
-
-    $${\displaystyle {\text{F}}={\dfrac {{\text{s}}^{4}{\cdot }{\text{A}}^{2}}{{\text{m}}^{2}{\cdot }{\text{kg}}}}={\dfrac {{\text{s}}^{2}{\cdot }{\text{C}}^{2}}{{\text{m}}^{2}{\cdot }{\text{kg}}}}={\dfrac {\text{C}}{\text{V}}}={\dfrac {{\text{A}}{\cdot }{\text{s}}}{\text{V}}}={\dfrac {{\text{W}}{\cdot }{\text{s}}}{{\text{V}}^{2}}}={\dfrac {\text{J}}{{\text{V}}^{2}}}={\dfrac {{\text{N}}{\cdot }{\text{m}}}{{\text{V}}^{2}}}={\dfrac {{\text{C}}^{2}}{\text{J}}}={\dfrac {{\text{C}}^{2}}{{\text{N}}{\cdot }{\text{m}}}}={\dfrac {\text{s}}{\Omega }}={\dfrac {1}{\Omega {\cdot }{\text{Hz}}}}={\dfrac {\text{S}}{\text{Hz}}}={\dfrac {{\text{s}}^{2}}{\text{H}}}}$$
-
-    Where: F = farad, s = second, A = ampere, m = metre, kg = kilogram, C = coulomb, V = volt, W = watt, J = joule, N = newton, Ω = ohm, S = siemens, Hz = hertz, H = henry.
+    The unit honours Michael Faraday (1791-1867), an English physicist known for his
+    discoveries in electricity. The 11th CGPM listed the farad, symbol F, among the derived units
+    of the SI in 1960. The plural is farads.
 textSources:
   - title: 'Wikipedia: Farad'
     url: 'https://en.wikipedia.org/wiki/Farad'

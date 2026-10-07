@@ -23,7 +23,46 @@ branches:
   - 'thermodynamics'
 aliases:
   - 'J/K'
+  - 'J K-1'
+  - 'J K^-1'
+  - 'joules per kelvin'
+  - 'julio por kelvin'
+  - 'joule por kelvin'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 6 (joule per kelvin) and the note on quantities that share a unit'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1: 13th CGPM 1967/68, Resolution 6 (SI derived units)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 1.4 Heat Transfer, Specific Heat, and Calorimetry'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-4-heat-transfer-specific-heat-and-calorimetry'
+  - title: 'OpenStax, University Physics Volume 2, 4.6 Entropy'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/4-6-entropy'
+  - title: 'QUDT, unit J-PER-K (joule per kelvin)'
+    url: 'https://qudt.org/vocab/unit/J-PER-K'
 description:
   en: >-
-    The joule per kelvin ($\mathrm{J/K}$) is the quotient of an SI derived unit, the joule, by an SI
-    base unit, the kelvin.
+    The joule per kelvin, symbol $\mathrm{J/K}$, is the coherent SI derived unit of heat capacity
+    and of entropy in thermodynamics. It divides an energy in joules by a thermodynamic temperature
+    in kelvins and carries no special name of its own.
+
+    The SI Brochure lists it among the coherent derived units whose names contain a unit with a
+    special name; reduced to base units it is the kilogram square metre per second squared per
+    kelvin. The 13th CGPM, meeting in 1967 and 1968, added it to the list of SI derived units with
+    entropy as its quantity.
+
+    Heat capacity is the energy an object absorbs for each kelvin its temperature rises. OpenStax
+    gives the specific heat of liquid water as 4186 joules per kilogram kelvin, so one kilogram of
+    water has a heat capacity of about 4186 joules per kelvin. Dividing by mass or by amount of
+    substance gives the joule per kilogram kelvin and the joule per mole kelvin. For heat passed
+    reversibly at a fixed temperature, the entropy change is the heat divided by that temperature:
+    in an OpenStax example, 50 grams of ice melting at 273 kelvin take in 16.8 kilojoules and gain
+    about 61.5 joules per kelvin of entropy.
+
+    The Boltzmann constant, fixed at exactly $1.380\,649\times10^{-23}\,\mathrm{J/K}$ when the kelvin
+    was redefined in 2018, has the same unit and turns a temperature into an energy per particle,
+    which is why the unit runs through statistical physics as well as engineering thermodynamics.
+
+    The brochure warns that heat capacity and entropy share this unit, so a value in joules per
+    kelvin must always say which quantity it reports. The symbol may also be written with a
+    negative exponent, $\mathrm{J\,K^{-1}}$, the plural is joules per kelvin, and the temperature
+    unit is the kelvin, never the degree kelvin.

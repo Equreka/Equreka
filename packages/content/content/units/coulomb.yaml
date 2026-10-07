@@ -28,12 +28,55 @@ externalIds:
   wikidata: 'Q25406'
   qudt: 'http://qudt.org/vocab/unit/C'
 categories:
+  - 'universal'
   - 'physics'
 branches:
   - 'electromagnetism'
+  - 'si-system'
+aliases:
+  - 'coulombs'
+  - 'A s'
+  - 'ampere second'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.2 (definition of the SI), 2.3.1 (ampere), Table 4'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (CIPM, 1946, Resolution 2; 11th CGPM, 1960, Resolution 12; 26th CGPM, 2018, Resolution 1)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, CODATA 2022 recommended values: elementary charge'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?e'
+  - title: 'OpenStax, University Physics Volume 2, 5.1 Electric Charge'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/5-1-electric-charge'
+  - title: 'OpenStax, University Physics Volume 2, 8.1 Capacitors and Capacitance'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance'
+  - title: 'OpenStax, University Physics Volume 2, 7.2 Electric Potential and Potential Difference'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/7-2-electric-potential-and-potential-difference'
+  - title: 'MacTutor History of Mathematics, Charles Coulomb'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Coulomb/'
+  - title: 'QUDT, unit C'
+    url: 'https://qudt.org/vocab/unit/C'
 description:
   en: >-
-    The coulomb (symbol: $C$) is the International System of Units (SI) unit of electric charge.
-    Under the 2019 redefinition of the SI base units, which took effect on 20 May 2019, the coulomb
-    is exactly $\frac{1}{1.602176634×10^{−19}}$ elementary charges. The same number of electrons has
-    the same magnitude but opposite sign of charge, that is, a charge of $−1~C$.
+    The coulomb, symbol $\mathrm{C}$, is the coherent SI derived unit of electric charge, the
+    property that makes bodies attract or repel one another electrically. One coulomb is the charge
+    carried in one second by a steady current of one ampere, so in SI base units it is the ampere
+    second.
+
+    The CIPM adopted this definition in 1946, calling the coulomb the unit of quantity of
+    electricity. Since the revision of the SI that took effect in 2019, the elementary charge has
+    the exact value $1.602\,176\,634\times10^{-19}\,\mathrm{C}$, and the ampere is defined from it
+    as the current corresponding to a flow of the reciprocal of that number of elementary charges
+    per second. One coulomb therefore equals about $6.241\,509\times10^{18}$ elementary charges, a number that is exact but has no finite decimal expansion.
+
+    Charge stored on a capacitor equals capacitance times potential difference, so one coulomb is
+    one farad volt, and a coulomb moved through a potential difference of one volt gains or loses
+    one joule. A 12-volt battery that moves 5000 coulombs through a circuit therefore delivers 60
+    kilojoules. The ampere hour equals exactly 3600 coulombs.
+
+    By the standards of electrostatics a coulomb is a very large charge: a capacitor that holds one
+    coulomb at a potential difference of only one volt has a capacitance of a full farad, far
+    beyond that of common capacitors.
+
+    The unit honours Charles-Augustin de Coulomb (1736-1806), a French physicist who
+    used a torsion balance to show, in papers presented between 1785 and 1791, that the force
+    between charges follows an inverse square law. The 11th CGPM listed the coulomb, symbol C, among
+    the derived units of the SI in 1960. The plural is coulombs.

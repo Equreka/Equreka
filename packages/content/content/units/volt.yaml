@@ -30,14 +30,54 @@ externalIds:
   wikidata: 'Q25250'
   qudt: 'http://qudt.org/vocab/unit/V'
 categories:
+  - 'universal'
   - 'physics'
 branches:
   - 'electromagnetism'
+  - 'si-system'
+aliases:
+  - 'volts'
+  - 'W/A'
+  - 'J/C'
+  - 'joule per coulomb'
+  - 'watt per ampere'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 and note (e), Table 6, Table 8 note (l) (electronvolt)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (CIPM, 1946, Resolution 2; 11th CGPM, 1960, Resolution 12; 18th CGPM, 1987, Resolution 6; CIPM, 1988, Recommendation 1; 26th CGPM, 2018, Resolution 1)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, CODATA 2022 recommended values: Josephson constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?kjos'
+  - title: 'OpenStax, University Physics Volume 2, 7.2 Electric Potential and Potential Difference'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/7-2-electric-potential-and-potential-difference'
+  - title: 'QUDT, unit V'
+    url: 'https://qudt.org/vocab/unit/V'
 description:
   en: >-
-    The volt (symbol: $V$) is the derived unit for electric potential, electric potential difference
-    (voltage), and electromotive force. It is named after the Italian physicist Alessandro Volta
-    (1745–1827).
+    The volt, symbol $\mathrm{V}$, is the coherent SI derived unit of electric potential difference,
+    also called voltage or electric tension, and of electric potential and electromotive force. One
+    volt equals one joule for every coulomb moved, or one watt per ampere; in SI base units it
+    is the kilogram square metre per second cubed per ampere.
+
+    Under the CIPM definition of 1946, two points on a wire that carries a steady current of one
+    ampere differ in potential by one volt when the wire dissipates one watt of power between
+    them. Voltage is energy per unit charge, not energy: one coulomb moved
+    across 12 volts carries 12 joules, while a thousand coulombs moved across the same 12 volts
+    carry 12 000 joules.
+
+    The volt enters many other units. Electric field strength is measured in volts per metre, and
+    the electronvolt, the kinetic energy an electron gains when it is accelerated through one
+    volt in vacuum, has been exactly $1.602\,176\,634\times10^{-19}\,\mathrm{J}$ since the
+    elementary charge was fixed.
+
+    National laboratories maintain the volt with the Josephson effect, which links a voltage to a
+    frequency through the Josephson constant. From 1990 a conventional value of that constant,
+    483 597.9 gigahertz per volt, was used worldwide for these standards. The 2018 revision of the
+    SI, by fixing the Planck constant and the elementary charge, gave the Josephson constant an exact value, 483 597.848 4... gigahertz per volt,
+    whose decimal digits never end, and abrogated the conventional one.
+
+    The unit is named after Alessandro Volta. The 11th CGPM listed the volt,
+    symbol V, among the derived units of the SI in 1960. The plural is volts.
 textSources:
   - title: 'Wikipedia: Volt'
     url: 'https://en.wikipedia.org/wiki/Volt'

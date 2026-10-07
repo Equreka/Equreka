@@ -20,16 +20,45 @@ branches:
   - 'mechanics'
 aliases:
   - 'cubic meter'
+  - 'cubic metres'
+  - 'cubic meters'
   - 'm3'
   - 'm^3'
+  - 'kilolitre'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 5 (volume, density), section 3 (prefixed unit symbols), Table 8 (litre) and section 5.2 (unit symbols)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (3rd CGPM, 1901; 9th CGPM, 1948, Resolution 7; 11th CGPM, 1960, Resolution 13; 12th CGPM, 1964, Resolution 6)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: cubic foot, gallon (U.S.)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'QUDT, unit M3'
+    url: 'https://qudt.org/vocab/unit/M3'
 description:
   en: >-
-    The cubic metre (in Commonwealth English and international spelling as used by the International
-    Bureau of Weights and Measures) or cubic meter (in American English) is the SI derived unit of
-    volume. Its SI symbol is $m^{3}$. It is the volume of a cube with edges one metre in length. An
-    alternative name, which allowed a different usage with metric prefixes, was the stère, still
-    sometimes used for dry measure (for instance, in reference to wood). Another alternative name,
-    no longer widely used, was the kilolitre.
+    The cubic metre, symbol $\mathrm{m^{3}}$, is the coherent SI derived unit of volume: the volume
+    of a cube whose edges each measure one metre. It suits large volumes such as tanks, reservoirs,
+    rooms, excavated earth, concrete and freight, and it underlies density and flow units such as
+    the kilogram per cubic metre and the cubic metre per second.
+
+    The unit has no special name and follows directly from the metre. With a prefix the exponent
+    covers the prefixed unit as a whole, so a cubic decimetre is a thousandth of a cubic metre and a
+    cubic centimetre a millionth.
+
+    The litre is a special name for the cubic decimetre, a status the 12th CGPM gave it in 1964,
+    hence $1\,\mathrm{m^{3}}=1000\,\mathrm{L}$ exactly. The 1901 definition had made the litre the
+    volume of one kilogram of pure water instead, and in 1960 the 11th CGPM noted that this volume
+    and the cubic decimetre differed by about 28 parts per million. NIST Special Publication 811
+    gives the US gallon as about $3.785\,412\times10^{-3}\,\mathrm{m^{3}}$ and the cubic foot as
+    about 0.028 316 85 cubic metre.
+
+    Engineering, construction, shipping and the metering of water and gas all work in cubic metres,
+    while smaller volumes of liquids are usually quoted in litres.
+
+    The 9th CGPM listed the symbol m³ in 1948, together with st for the stere, a volume unit then
+    used for firewood. The symbol is written with a raised 3 and no full stop; abbreviations such as
+    cc for the cubic centimetre are not allowed as symbols. American English spells the name cubic meter, and the plural is
+    cubic metres.
 textSources:
   - title: 'Wikipedia: Cubic metre'
     url: 'https://en.wikipedia.org/wiki/Cubic_metre'

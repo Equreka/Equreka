@@ -30,15 +30,44 @@ branches:
   - 'si-system'
 aliases:
   - 'sec'
-description:
-  en: >-
-    The second, symbol $s$, is the SI unit of $time$. It is defined by taking the fixed numerical
-    value of the caesium frequency $Δν_{Cs}$ the unperturbed ground-state hyperfine transition
-    frequency of the caesium-133 atom, to be 9 192 631 770 when expressed in the unit Hz, which is
-    equal to $s^{–1}$.
+  - 'seconds'
+  - 'secs'
 references:
   - title: 'SI base unit: second (s)'
     url: 'https://www.bipm.org/en/si-base-units/second'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.1 (the second), Table 8 (minute, hour, day) and section 5.2 (unit symbols)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (CIPM, 1956; 13th CGPM, 1967/68, Resolution 1; CCDS, 1970) and Appendix 4 (unit of time, second)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, SI Redefinition: Second, introduction'
+    url: 'https://www.nist.gov/si-redefinition/second-introduction'
+description:
+  en: >-
+    The second, symbol $\mathrm{s}$, is the SI base unit of time. It measures durations, the
+    intervals between events and the periods of oscillations and orbits, and through its reciprocal,
+    the hertz, it also sets the unit of frequency.
+
+    The definition rests on the caesium-133 atom. The frequency of the hyperfine transition in its
+    unperturbed ground state is fixed at exactly
+    $\Delta\nu_{\mathrm{Cs}}=9\,192\,631\,770\,\mathrm{Hz}$, so one second lasts as long as that
+    many periods of the corresponding radiation. The SI Brochure specifies an isolated atom, free of
+    disturbing fields, and treats the second as the unit of proper time of general relativity. The
+    definitions of the metre, the kilogram and most other SI units call on this frequency.
+
+    The minute, the hour and the day are accepted for use with the SI as exact multiples, the day
+    being $1\,\mathrm{d}=86\,400\,\mathrm{s}$. Prefixed forms such as the millisecond and the
+    nanosecond serve in electronics and physics.
+
+    Atomic clocks realize the unit, and the readings of many of them are combined into International
+    Atomic Time, a scale first defined in 1970. NIST notes that commercial caesium clocks stay
+    within about a third of a microsecond per year.
+
+    The second began as an astronomical subdivision: the Almagest of Ptolemy, around 150 CE, divided
+    the degree into sixty minutes and each of those into sixty seconds. Until 1960 the time unit was
+    one 86 400th of the mean solar day; irregularities in the rotation of the Earth led the 11th
+    CGPM to ratify in 1960 a second based on the tropical year 1900, and the 13th CGPM adopted the
+    caesium definition in 1967. The 26th CGPM restated it in terms of a fixed constant in 2018. The
+    symbol is s, never sec.
 textSources:
   - title: 'Wikipedia: Second'
     url: 'https://en.wikipedia.org/wiki/Second'

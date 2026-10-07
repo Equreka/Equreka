@@ -17,14 +17,47 @@ branches:
   - 'geometry'
   - 'mechanics'
   - 'si-system'
+aliases:
+  - 'radians'
+  - 'radianes'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.3 (quantities with the unit one), Table 4 and note (b), 2.3.4, Table 8 (degree)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (11th CGPM, 1960, Resolution 12; 20th CGPM, 1995, Resolution 8)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Chapter 7, 7.10 Values of quantities expressed simply as numbers: the unit one'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-7-rules-and-style-conventions-expressing-values'
+  - title: 'OpenStax, University Physics Volume 1, 10.1 Rotational Variables'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-1-rotational-variables'
+  - title: 'OpenStax, University Physics Volume 1, 15.1 Simple Harmonic Motion'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/15-1-simple-harmonic-motion'
+  - title: 'QUDT, unit RAD'
+    url: 'https://qudt.org/vocab/unit/RAD'
 description:
   en: >-
-    The radian, denoted by the symbol ${\displaystyle {\text{rad}}}{\displaystyle {\text{rad}}}$, is
-    the SI unit for measuring angles, and is the standard unit of angular measure used in many areas
-    of mathematics. The unit was formerly an SI supplementary unit (before that category was
-    abolished in 1995) and the radian is now an SI derived unit. The radian is defined in the SI as
-    being a dimensionless value, and its symbol is accordingly often omitted, especially in
-    mathematical writing.
+    The radian, symbol $\mathrm{rad}$, is the coherent SI unit of plane angle, the amount of
+    turning between two rays that meet at a point, and also of phase angle. It is one of the 22
+    SI derived units with a special name and the angle unit of calculus and rotational mechanics.
+
+    The SI Brochure defines one radian as the angle at the centre of a circle that intercepts an
+    arc as long as the radius; equivalently, a right angle is a quarter of a full turn of
+    $2\pi\,\mathrm{rad}$. Because an arc divided by a radius is a ratio of two lengths, the SI
+    treats plane angle as a quantity with the unit one, while noting that angles differ in kind from
+    other ratios of lengths. The symbol rad is written where it shows that an
+    angle is meant; mathematics often leaves it out.
+
+    A full turn of 360 degrees contains $2\pi\,\mathrm{rad}$, so one radian is about 57.3
+    degrees; the degree is a non-SI unit accepted for use with the SI and defined from the radian.
+    Angular velocity and angular frequency are expressed in radians per second. The brochure asks
+    for angular frequencies in rad/s and frequencies in hertz, since mixing them up gives results
+    wrong by the number of radians in a turn.
+
+    Physics textbooks state angular positions as arc length over radius and tell readers to set
+    calculators to radian mode before evaluating the motion of an oscillator.
+
+    The 11th CGPM placed the radian and the steradian in a class of supplementary units when it
+    established the SI in 1960. The CIPM read that class in 1980 as dimensionless derived units,
+    and the 20th CGPM abolished it in 1995. The plural is radians.
 textSources:
   - title: 'Wikipedia: Radian'
     url: 'https://en.wikipedia.org/wiki/Radian'

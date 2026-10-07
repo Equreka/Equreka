@@ -16,16 +16,53 @@ externalIds:
   wikidata: 'Q484092'
   qudt: 'http://qudt.org/vocab/unit/LM'
 categories:
+  - 'universal'
   - 'physics'
 branches:
   - 'optics-and-photometry'
+  - 'si-system'
+aliases:
+  - 'lumens'
+  - 'cd sr'
+  - 'candela steradian'
+  - 'lúmenes'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.2 (definition of the SI and the constant Kcd), Table 4 and note (g), 2.3.5'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (CIPM, 1946, Resolution on photometric units; 16th CGPM, 1979, Resolution 3)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-039 luminous flux'
+    url: 'https://cie.co.at/eilvterm/17-21-039'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: the lumen'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/vision/lumpow.html'
+  - title: 'QUDT, unit LM'
+    url: 'https://qudt.org/vocab/unit/LM'
 description:
   en: >-
-    The lumen (symbol: $lm$) is the SI derived unit of luminous flux, a measure of the total
-    quantity of visible light emitted by a source per unit of time. Luminous flux differs from power
-    (radiant flux) in that radiant flux includes all electromagnetic waves emitted, while luminous
-    flux is weighted according to a model (a "luminosity function") of the human eye's sensitivity
-    to various wavelengths. Lumens are related to lux in that one lux is one lumen per square metre.
+    The lumen, symbol $\mathrm{lm}$, is the coherent SI derived unit of luminous flux, the power of
+    radiation weighted by the spectral sensitivity of human vision. One lumen is the luminous flux
+    that a point source of one candela sends uniformly into a solid angle of one steradian, so the
+    lumen equals the candela steradian.
+
+    The CIE defines luminous flux as the rate of transfer of luminous energy and obtains it from
+    radiant flux by weighting each wavelength according to its effect on the CIE standard
+    photometric observer. The SI ties this weighting to physics through a defining constant: the
+    luminous efficacy fixed for monochromatic radiation at 540 terahertz is exactly
+    $683\,\mathrm{lm/W}$. One watt of radiation at that frequency therefore carries 683 lumens,
+    whereas the same watt at wavelengths the eye barely sees yields far fewer.
+
+    The SI Brochure notes that the lumen, the lux and the candela carry information about human
+    vision. Illuminance, the luminous flux falling on a surface per
+    unit area, is measured in lux, the lux being the lumen per square metre. In photometry the
+    steradian is usually kept in written expressions, so the lumen appears as cd sr rather than as
+    the candela alone.
+
+    Lamp output is stated in lumens: a typical 100-watt incandescent bulb gives about 1700 lumens.
+
+    The CIPM defined a new lumen in 1946 as the flux emitted into one steradian by a uniform point
+    source of one new candle; the qualifier new was later dropped. The 16th CGPM in 1979 redefined
+    the candela through the value of 683 lumens per watt, which the 2018 revision kept as an exact
+    defining constant. The plural is lumens.
 textSources:
   - title: 'Wikipedia: Lumen (unit)'
     url: 'https://en.wikipedia.org/wiki/Lumen_(unit)'

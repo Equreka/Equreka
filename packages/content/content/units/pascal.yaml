@@ -31,15 +31,57 @@ externalIds:
   wikidata: 'Q44395'
   qudt: 'http://qudt.org/vocab/unit/PA'
 categories:
+  - 'universal'
   - 'physics'
 branches:
   - 'mechanics'
   - 'thermodynamics'
+  - 'fluid-mechanics'
+  - 'si-system'
+aliases:
+  - 'pascals'
+  - 'N/m^2'
+  - 'newton per square metre'
+  - 'newton per square meter'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4, 2.3.4'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (11th CGPM, 1960, Resolution 12; 14th CGPM, 1971, pascal and siemens), Table 8 (bar)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: atmosphere, standard; bar; millibar; pound-force per square inch'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'OpenStax, University Physics Volume 1, 14.1 Fluids, Density, and Pressure'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure'
+  - title: 'MacTutor History of Mathematics, Blaise Pascal'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Pascal/'
+  - title: 'QUDT, unit PA'
+    url: 'https://qudt.org/vocab/unit/PA'
 description:
-  en: |-
-    The pascal (symbol: $Pa$) is the SI derived unit of pressure used to quantify internal pressure, stress, Young's modulus, and ultimate tensile strength. The unit, named after Blaise Pascal, is defined as one newton per square metre and is equivalent to $10~barye$ ($Ba$) in the CGS system. The unit of measurement called standard atmosphere ($atm$) is defined as $101,325 Pa$.
+  en: >-
+    The pascal, symbol $\mathrm{Pa}$, is the coherent SI derived unit of pressure and of
+    mechanical stress, equal to one newton per square metre. It measures any force spread over an
+    area: the pressure of a gas or liquid, normal and shear stress inside a solid, and elastic
+    moduli such as Young's modulus, which have the same dimension. In SI base units it is the
+    kilogram per metre per second squared.
 
-    $$1~ Pa=1~{\frac {N}{m^{2}}}=1~{\frac {kg}{m{\cdot }s^{2}}}=1~{\frac {J}{m^{3}}}$$
+    The SI Brochure lists the pascal among the 22 units with special names, expressed in other SI
+    units as the newton per square metre. Like the other derived units, it has no standard of its
+    own and follows from the kilogram, the metre and the second. Pressure is a scalar, built from
+    the force acting perpendicular to a surface; a fluid cannot sustain shear, whereas a solid
+    also carries shear stress, and both kinds of stress take the pascal.
+
+    One newton over a whole square metre is a small pressure, so everyday values run into
+    thousands or hundreds of thousands of pascals. The standard atmosphere is defined as exactly
+    $101\,325\,\mathrm{Pa}$ and the bar as exactly $10^{5}\,\mathrm{Pa}$, which makes the
+    hectopascal equal to the millibar. The pound-force per square inch is about 6895 pascals.
+
+    Pressure is also an energy density, since a pascal equals a joule per cubic metre, and in
+    fluids it grows with depth by the weight of the overlying column. Prefixed names such as
+    micropascal, kilopascal and megapascal are written as single words.
+
+    The 14th CGPM gave the newton per square metre the special name pascal, symbol Pa, in 1971.
+    The name honours Blaise Pascal (1623-1662), French mathematician and physicist. The plural is
+    pascals.
 textSources:
   - title: 'Wikipedia: Pascal (unit)'
     url: 'https://en.wikipedia.org/wiki/Pascal_(unit)'

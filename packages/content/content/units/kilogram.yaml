@@ -10,16 +10,48 @@ externalIds:
   wikidata: 'Q11570'
   qudt: 'http://qudt.org/vocab/unit/KiloGM'
 categories:
+  - 'universal'
   - 'physics'
 branches:
   - 'mechanics'
+  - 'si-system'
 aliases:
   - 'kilo'
   - 'kilos'
+  - 'kilogramme'
+  - 'kilograms'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.1 (the kilogram), section 3 (prefixes and the unit of mass) and Table 8 (tonne)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (1st CGPM, 1889; 3rd CGPM, 1901) and Appendix 4 (unit of mass, kilogram)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, SI Redefinition: Kilogram, introduction'
+    url: 'https://www.nist.gov/si-redefinition/kilogram-introduction'
+  - title: 'BIPM, SI base unit: kilogram (kg)'
+    url: 'https://www.bipm.org/en/si-base-units/kilogram'
 description:
-  en: |-
-    The kilogram is the basic unit of mass of the International System of Units (SI). It is a widely used measure in science, engineering, and commerce around the world, and is often simply called a kilo in everyday speech.
+  en: >-
+    The kilogram, symbol $\mathrm{kg}$, is the base unit of mass of the International System of
+    Units (SI). Mass expresses how strongly a body resists changes in its motion and how strongly it
+    takes part in gravitation, and the kilogram measures it in trade, engineering, medicine and
+    science. Everyday speech shortens it to kilo.
 
-    The kilogram is defined by setting the Planck constant $h$ exactly to $6.62607015×10^{−34} J⋅s$ $(J = kg⋅m^{2}⋅s^{−2})$, given the definitions of the metre and the second.
+    The current definition, adopted by the 26th General Conference on Weights and Measures (CGPM) in
+    2018 and in force since 20 May 2019, fixes the Planck constant at exactly
+    $h=6.626\,070\,15\times10^{-34}\,\mathrm{J\,s}$. Because the joule second equals the kilogram
+    square metre per second, and the metre and the second are already tied to the speed of light and
+    the caesium frequency, this fixed value determines the kilogram. Primary realizations are no
+    longer bound to one kilogram and can in principle start at any mass.
 
-    Then the formula would be $kg = \frac{h}{6.62607015×10^{−34}⋅m^{2}⋅s^{−1}}$
+    A legacy of its history sets the kilogram apart: among the coherent SI units it alone carries a
+    prefix in both its name and its symbol. Decimal multiples and submultiples are therefore built
+    on the gram, which is one thousandth of a kilogram: a millionth of a kilogram is a milligram,
+    never a microkilogram. The tonne, a unit accepted for use with the SI, equals
+    $1000\,\mathrm{kg}$.
+
+    From 1889 to 2019 the kilogram was the mass of a single artefact, the international prototype, a
+    platinum-iridium cylinder cast in 1879 and kept in a vault at Sèvres, near Paris, by the BIPM,
+    the international metrology bureau. The 3rd CGPM in 1901 confirmed it as the unit of mass and
+    declared that weight is a force. Periodic verifications showed the national copies drifting from
+    the prototype, with a median difference of about 25 micrograms by 1989-1991, which led to the
+    definition through a constant of nature. The English plural is kilograms.

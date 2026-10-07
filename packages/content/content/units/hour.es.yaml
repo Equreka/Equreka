@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Hora'
+description: >-
+  La hora, de símbolo h, es una unidad de tiempo igual a 60 minutos o 3600 segundos. Queda fuera del SI,
+  pero el folleto del SI la incluye en la tabla 8 entre las unidades de tiempo no SI de larga
+  tradición, y es la unidad de la esfera del reloj, la jornada laboral y los tiempos de viaje.
+
+  Su valor se deriva del segundo del SI: $1\,\mathrm{h}=60\,\mathrm{min}=3600\,\mathrm{s}$
+  exactamente, y la publicación especial 811 del NIST da el mismo factor. Veinticuatro horas forman
+  un día, y 8760, un año civil de 365 días.
+
+  La hora aparece dentro de varias unidades compuestas de uso diario. Un kilómetro por hora es
+  $5/18$ de metro por segundo, y el kilovatio hora de la factura eléctrica son mil julios por
+  segundo mantenidos durante 3600 segundos, o 3.6 millones de julios. Los cálculos SI
+  coherentes pasan las horas a segundos antes de usar una fórmula.
+
+  Los horarios, los turnos de trabajo, la duración de los vuelos, las pautas de medicación y los
+  límites de velocidad en carretera se dan en horas. El folleto del SI mantiene la hora en su tabla
+  de unidades no SI porque su uso está muy extendido y se espera que continúe muchos años.
+
+  Los relojes de sol egipcios de hacia 1500 a. C. ya dividían la luz del día en 12 partes, y las
+  tablas de estrellas dividían igual la noche, lo que dio un día de 24 horas estacionales cuya
+  duración cambiaba a lo largo del año. Hiparco propuso 24 horas iguales en el siglo II a. C.,
+  pero las horas iguales solo se generalizaron con los relojes mecánicos de la Europa del siglo
+  XIV, como relata el metrólogo del NIST Michael Lombardi. El símbolo es h, nunca hr ni hrs, sin
+  marca de plural y sin punto.

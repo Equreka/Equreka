@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Grado Celsius'
+description: >-
+  El grado Celsius, de símbolo $^{\circ}\mathrm{C}$, es la unidad de la temperatura Celsius, la
+  escala de temperatura cotidiana en la mayoría de los países, antes llamada escala centígrada. Es
+  una de las unidades SI derivadas con nombre especial, y un intervalo de un grado Celsius tiene
+  exactamente el mismo tamaño que un kelvin, la unidad básica SI de temperatura termodinámica.
+
+  El folleto del SI define la temperatura Celsius como la temperatura termodinámica menos una
+  referencia de 273.15 kelvin, próxima al punto de congelación del agua:
+  $t/^{\circ}\mathrm{C}=T/\mathrm{K}-273.15$, de modo que el cero absoluto queda en -273.15 grados
+  Celsius y 293.15 kelvin se leen como 20 grados Celsius. Cuando la 26.ª CGPM redefinió el kelvin
+  en 2018 fijando el valor de la constante de Boltzmann, el grado Celsius adoptó esa definición,
+  ya que su tamaño y su cero dependen del kelvin.
+
+  Como ambas unidades tienen el mismo tamaño, una diferencia de temperatura lleva el mismo número
+  en las dos: calentar 15 grados Celsius equivale a calentar 15 kelvin. El desplazamiento solo
+  importa para una temperatura en sí, y el folleto del SI señala que el grado Celsius es coherente
+  solo cuando expresa diferencias, por lo que la ley de los gases ideales y relaciones parecidas
+  requieren kelvin.
+
+  Los termómetros calibrados siguen la Escala Internacional de Temperatura de 1990, adoptada por
+  el CIPM en 1989, que expresa sus resultados en ambas unidades.
+
+  El astrónomo sueco Anders Celsius propuso en 1742 una escala de cien pasos entre los puntos de
+  ebullición y de congelación del agua, numerada con 0 en la ebullición y 100 en la congelación; la
+  numeración se invirtió tras su muerte en 1744. En 1948 el CIPM y la 9.ª CGPM prefirieron el
+  nombre grado Celsius a grado centígrado y grado centesimal. Un espacio separa el número del
+  símbolo, como en $30.2\,^{\circ}\mathrm{C}$.

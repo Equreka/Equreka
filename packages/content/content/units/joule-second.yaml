@@ -1,8 +1,9 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
-  en: 'Joule-second'
+    en: 'Joule second'
 symbol:
-  tex: 'J⋅s'
+  tex: 'J\,s'
+  text: 'J s'
 unitOf:
   - 'angular-momentum'
 system: 'si-derived'
@@ -23,12 +24,49 @@ branches:
 aliases:
   - 'J s'
   - 'Js'
+  - 'J·s'
+  - 'joule-second'
+  - 'joule-seconds'
+  - 'julio segundo'
+  - 'joule segundo'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.1 (the kilogram) and Table 1 (Planck constant)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., 5.2 (products of unit symbols)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 3, 6.2 Photoelectric Effect'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-2-photoelectric-effect'
+  - title: 'OpenStax, University Physics Volume 1, 11.3 Conservation of Angular Momentum'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/11-3-conservation-of-angular-momentum'
+  - title: 'QUDT, unit J-SEC (joule second)'
+    url: 'https://qudt.org/vocab/unit/J-SEC'
 description:
   en: >-
-    The joule-second (symbol $J⋅s$ or $J s$) is the product of an SI derived unit, the joule ($J$),
-    and an SI base unit, the second ($s$). The joule-second is a unit of action or of angular
-    momentum. The joule-second also appears in quantum mechanics within the definition of Planck's
-    constant.
+    The joule second, symbol $\mathrm{J\,s}$, is the coherent SI derived unit of action and of
+    angular momentum: the product of the joule, the SI unit of energy, and the second. Reduced to
+    base units it is the kilogram square metre per second, so it measures both the action of
+    classical and quantum mechanics and the spin of rotating bodies and particles.
+
+    Since the revision of the SI that took effect in 2019, the kilogram is defined by fixing the
+    Planck constant at exactly $6.626\,070\,15\times10^{-34}\,\mathrm{J\,s}$, and the SI Brochure
+    states that the joule second equals the kilogram square metre per second. The unit therefore
+    sits inside the definition of the SI unit of mass.
+
+    Angular momentum of a rigid body is its moment of inertia, in kilogram square metres, times its
+    angular velocity, in radians per second, which yields joule seconds. Action is an energy
+    multiplied by a time. Multiplying the Planck constant by a frequency in hertz gives the energy
+    of one photon in joules, which is how the photoelectric effect is analysed; OpenStax asks
+    readers to estimate the constant from stopping-potential data in joule seconds and in
+    electronvolt seconds.
+
+    Quantities measured in joule seconds are tiny on the atomic scale, so quantum physics also uses
+    the electronvolt second and states angular momentum as multiples of the reduced Planck
+    constant, the Planck constant divided by $2\pi$, which has the same unit. In everyday mechanics
+    the unit appears as the kilogram square metre per second in problems on spinning wheels, skaters
+    and planets.
+
+    The SI Brochure requires a space or a half-high dot between the two symbols, so the unit is
+    written J s or J·s and not Js. In prose the name is two words, joule second.
 textSources:
   - title: 'Wikipedia: Joule-second'
     url: 'https://en.wikipedia.org/wiki/Joule-second'

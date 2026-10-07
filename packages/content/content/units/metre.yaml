@@ -27,19 +27,53 @@ externalIds:
   wikidata: 'Q11573'
   qudt: 'http://qudt.org/vocab/unit/M'
 categories:
+  - 'universal'
   - 'physics'
 branches:
   - 'mechanics'
+  - 'si-system'
 aliases:
   - 'meter'
   - 'metres'
   - 'meters'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.1 (the metre) and Appendix 4 (unit of length, metre)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (1st CGPM, 1889; 11th CGPM, 1960, Resolution 6; 17th CGPM, 1983, Resolution 1)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, SI Redefinition: Meter'
+    url: 'https://www.nist.gov/si-redefinition/meter'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: foot, inch'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'BIPM, SI base unit: metre (m)'
+    url: 'https://www.bipm.org/en/si-base-units/metre'
 description:
   en: >-
-    The $metre$ (International spelling) or $meter$ (American spelling; see spelling differences)
-    (from the French unit mètre, from the Greek noun μέτρον, "measure") is the base unit of length
-    in the International System of Units (SI). The SI unit symbol is $m$. It's the distance
-    travelled by light in vacuum in $\frac{1}{299792458}$ second.
+    The metre, symbol $\mathrm{m}$, is the SI base unit of length, the unit from which the
+    International System of Units builds every measure of distance. It measures distances of every
+    scale and derived lengths such as the wavelength of light. Every other SI unit of length, from
+    the nanometre to the kilometre, is a decimal multiple or submultiple of it.
+
+    The definition in force since 2019, written in the SI Brochure, sets the speed of light in
+    vacuum to exactly $299\,792\,458\,\mathrm{m/s}$. One metre is therefore the distance light
+    crosses in empty space in one 299 792 458th of a second, a little over three nanoseconds, so its
+    realization rests on the caesium definition of the second.
+
+    Customary length units are now fixed through the metre. NIST Special Publication 811 lists the
+    international inch as exactly $0.0254\,\mathrm{m}$ and the foot as exactly 0.3048 metre, so
+    every inch, foot, yard and mile in commerce traces back to the SI unit.
+
+    The metre and its prefixed forms serve for road distances, building plans, machining tolerances
+    and nearly all scientific work. Metrology laboratories realize it with frequency-stabilized
+    lasers and interferometers.
+
+    The unit was born in revolutionary France. A commission of the French Academy of Sciences
+    proposed in 1791 that it equal a ten-millionth part of the meridian arc between the North Pole
+    and the equator, and the astronomers Méchain and Delambre surveyed the meridian arc from Dunkirk
+    to Barcelona from 1792. The 1st CGPM sanctioned a platinum-iridium prototype bar in 1889, the
+    11th CGPM replaced it in 1960 with a count of wavelengths of a krypton-86 line, and the 17th
+    CGPM adopted the definition based on light in 1983. The name comes from the Greek metron,
+    measure; American English spells it meter, and the plural is metres.
 textSources:
   - title: 'Wikipedia: Metre'
     url: 'https://en.wikipedia.org/wiki/Metre'

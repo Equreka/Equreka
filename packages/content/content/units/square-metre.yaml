@@ -20,12 +20,44 @@ branches:
   - 'mechanics'
 aliases:
   - 'square meter'
+  - 'square metres'
+  - 'square meters'
   - 'm2'
   - 'm^2'
+  - 'sq m'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Tables 4, 5 and 6 (pascal, area, luminance, irradiance), section 3 (prefixed unit symbols), Table 8 (are, hectare) and section 5.2 (unit symbols)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (9th CGPM, 1948, Resolution 7)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: square foot, acre'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'QUDT, unit M2'
+    url: 'https://qudt.org/vocab/unit/M2'
 description:
   en: >-
-    The square metre (international spelling as used by the International Bureau of Weights and
-    Measures) or square meter (American spelling) is the SI derived unit of area with symbol $m^{2}$
+    The square metre, symbol $\mathrm{m^{2}}$, is the coherent SI derived unit of area: the area of
+    a square whose sides each measure one metre. It quantifies floor space, land, the surface of
+    objects and the cross-sections that enter many physical quantities.
+
+    The unit has no special name. It is the metre multiplied by itself, so its definition follows
+    entirely from that of the metre and the fixed speed of light. When a prefix is used, the
+    exponent applies to the prefixed unit as a whole: a square kilometre is a million square metres,
+    $1\,\mathrm{km^{2}}=10^{6}\,\mathrm{m^{2}}$, and a square centimetre is a ten-thousandth of a
+    square metre.
+
+    For land, the SI Brochure lists two decimal non-SI units, both adopted by
+    the CIPM in 1879: the are, equal to 100 square metres, and the hectare,
+    $1\,\mathrm{ha}=10^{4}\,\mathrm{m^{2}}$. NIST Special Publication 811 gives the square foot as
+    exactly 0.092 903 04 square metre and the US survey acre as about 4046.873 square metres.
+
+    The square metre states the floor area of homes and offices and the size of building plots, and
+    it appears in the denominator of many coherent units: the pascal is a newton per square metre,
+    irradiance is expressed in watts per square metre and luminance in candelas per square metre.
+
+    The symbol is written with a raised 2 and no full stop; abbreviations such as sq. mm for the square
+    millimetre are not allowed as symbols. The 9th CGPM included the symbol among the unit symbols it confirmed in
+    1948. American English spells the name square meter, and the plural is square metres.
 textSources:
   - title: 'Wikipedia: Square metre'
     url: 'https://en.wikipedia.org/wiki/Square_metre'
