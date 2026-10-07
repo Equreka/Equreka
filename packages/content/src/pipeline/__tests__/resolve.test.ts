@@ -142,7 +142,13 @@ describe('resolveUnits over the real corpus', () => {
 });
 
 function syntheticCorpus(units: Record<string, unknown>): Corpus {
-	return corpusWith({
+	return corpusWith(syntheticEntities(units));
+}
+
+function syntheticEntities(
+	units: Record<string, unknown>,
+): Partial<Record<keyof Corpus, Record<string, unknown>>> {
+	return {
 		magnitudes: {
 			energy: {
 				name: { en: 'Energy' },
@@ -170,7 +176,7 @@ function syntheticCorpus(units: Record<string, unknown>): Corpus {
 			},
 		},
 		units,
-	});
+	};
 }
 
 const BASE_UNITS = {
@@ -311,6 +317,60 @@ describe('resolveUnits identity anchors', () => {
 		);
 		expect(result.issues).toEqual([]);
 		expect(result.resolved.get('joule-alias')?.factorText).toBe('1');
+	});
+
+	const kilo = { name: { en: 'Kilo' }, symbol: { tex: 'k' }, value: '1e3' };
+	const millimetreCompose = {
+		name: { en: 'Millimetre by composition' },
+		symbol: { tex: 'mm' },
+		unitOf: ['length'],
+		compose: { of: [{ unit: 'metre', exp: 1 }], factor: '1e-3' },
+	};
+
+	it('accepts a prefixed compose base that lands on the identity (mmol/L next to mol/m3)', () => {
+		const result = resolveUnits(
+			corpusWith({
+				...syntheticEntities({
+					...BASE_UNITS,
+					'millimetre-compose': millimetreCompose,
+					'kilomillimetre-compose': {
+						name: { en: 'Kilomillimetre by composition' },
+						symbol: { tex: 'kmm' },
+						unitOf: ['length'],
+						prefixOf: { prefix: 'kilo', base: 'millimetre-compose' },
+					},
+				}),
+				prefixes: { kilo },
+			}),
+		);
+		expect(result.issues).toEqual([]);
+		expect(result.resolved.get('kilomillimetre-compose')?.factorText).toBe('1');
+	});
+
+	it('still rejects a prefixed toBase base that lands on the identity (kL next to m3)', () => {
+		const result = resolveUnits(
+			corpusWith({
+				...syntheticEntities({
+					...BASE_UNITS,
+					millimetre: {
+						name: { en: 'Millimetre' },
+						symbol: { tex: 'mm' },
+						unitOf: ['length'],
+						toBase: { factor: '1e-3' },
+					},
+					kilomillimetre: {
+						name: { en: 'Kilomillimetre' },
+						symbol: { tex: 'kmm' },
+						unitOf: ['length'],
+						prefixOf: { prefix: 'kilo', base: 'millimetre' },
+					},
+				}),
+				prefixes: { kilo },
+			}),
+		);
+		expect(result.issues).toHaveLength(1);
+		expect(result.issues[0]).toMatchObject({ file: 'units/kilomillimetre.yaml' });
+		expect(result.issues[0]?.message).toContain("anchored by 'metre'");
 	});
 });
 

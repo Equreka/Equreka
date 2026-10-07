@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Cubic centimetre'
+symbol:
+  tex: 'cm^{3}'
+  text: 'cm³'
+unitOf:
+  - 'volume'
+system: 'cgs'
+compose:
+  of:
+    - unit: 'centimetre'
+      exp: 3
+externalIds:
+  wikidata: 'Q1022113'
+  qudt: 'http://qudt.org/vocab/unit/CentiM3'
+categories:
+  - 'chemistry'
+  - 'physics'
+branches:
+  - 'solutions'
+  - 'mechanics'
+aliases:
+  - 'cubic centimeter'
+  - 'cubic centimetres'
+  - 'cc'
+  - 'c.c.'
+  - 'cm3'
+  - 'cm^3'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (litre), 5.2 Unit symbols and Appendix 1, 12th CGPM (1964) Resolution 6'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Guide to the SI (SP 811), Chapter 6, 6.1.8 and 6.2.3'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-6-rules-and-style-conventions-printing-and-using'
+  - title: 'QUDT, unit CentiM3'
+    url: 'https://qudt.org/vocab/unit/CentiM3'
+description:
+  en: >-
+    The cubic centimetre, symbol $\mathrm{cm^{3}}$, is a unit of volume equal to the volume of a
+    cube whose edges are one centimetre long. It is a decimal submultiple of the cubic metre, the
+    coherent SI unit of volume, and it served as the unit of volume of the centimetre-gram-second
+    system.
+
+    Under the SI rules a prefix forms one inseparable symbol with its unit, so the exponent applies
+    to the prefixed unit as a whole: one cubic centimetre is the cube of one hundredth of a metre,
+    $1\,\mathrm{cm^{3}}=10^{-6}\,\mathrm{m^{3}}$ exactly. NIST Special Publication 811 works through
+    this case as an example of the rule.
+
+    A litre holds 1000 cubic centimetres, and one millilitre equals one cubic centimetre exactly.
+    That equality dates from 1964, when the 12th CGPM made the litre a special name for the cubic
+    decimetre. The 1901 definition had tied the litre to the volume of a kilogram of water, which
+    differed from the cubic decimetre by about 28 parts per million.
+
+    The unit suits small laboratory volumes and the volumes of solid samples, and it enters the
+    gram per cubic centimetre, the customary unit for the densities of liquids and solids. It is
+    numerically interchangeable with the millilitre, yet the two remain distinct units in name: one
+    is built from the metre, the other from the litre.
+
+    The abbreviation cc remains common in everyday speech, but the SI Brochure and NIST both forbid
+    it as a symbol for the cubic centimetre and require cm³. The name is spelled cubic centimeter in
+    American English, and the plural is cubic centimetres.

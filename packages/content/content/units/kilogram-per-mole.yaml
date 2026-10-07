@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Kilogram per mole'
+symbol:
+  tex: 'kg/mol'
+unitOf:
+  - 'molar-mass'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'kilogram'
+      exp: 1
+    - unit: 'mole'
+      exp: -1
+externalIds:
+  wikidata: 'Q28924753'
+  qudt: 'http://qudt.org/vocab/unit/KiloGM-PER-MOL'
+categories:
+  - 'chemistry'
+branches:
+  - 'amount-of-substance'
+aliases:
+  - 'kilograms per mole'
+  - 'kg mol-1'
+  - 'kg mol^-1'
+  - 'kilogramo por mol'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.1 (the mole), 2.3.4 (derived units) and Appendix 4'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, CODATA 2022 value: molar mass constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mu'
+  - title: 'NIST, CODATA 2022 value: molar mass of carbon-12'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mm12c'
+  - title: 'QUDT, unit KiloGM-PER-MOL (kilogram per mole)'
+    url: 'https://qudt.org/vocab/unit/KiloGM-PER-MOL'
+description:
+  en: >-
+    The kilogram per mole, symbol $\mathrm{kg/mol}$, is the coherent SI derived unit of molar mass,
+    the mass of a substance divided by its amount of substance. It is the quotient of two SI base
+    units, the kilogram and the mole, and has no special name.
+
+    A substance has a molar mass of one kilogram per mole when one mole of its entities, exactly
+    $6.022\,140\,76\times10^{23}$ of them since the 2019 redefinition of the mole, has a mass of one
+    kilogram. Because both factors are base units, the unit needs no numerical coefficient and
+    forms coherent equations with the other SI units.
+
+    The unit is large for chemistry: one kilogram per mole equals 1000 grams per mole, and the
+    molar masses of small molecules are a few grams to a few hundred grams per mole, so tables and
+    textbooks quote them in grams per mole. The kilogram per mole appears instead in calculations
+    that must stay in coherent SI units, such as the relation between the density, pressure and
+    temperature of a gas, and in CODATA values. The molar mass constant has the CODATA 2022 value
+    $1.000\,000\,001\,05(31)\times10^{-3}\,\mathrm{kg/mol}$, about one part in a thousand million
+    above 0.001 kilograms per mole.
+
+    From its adoption by the 14th General Conference on Weights and Measures in 1971 until 2019,
+    the definition of the mole fixed the molar mass of carbon-12 at exactly 0.012 kilograms per
+    mole; that value is now measured. The symbol may also be written kg mol⁻¹, and the plural is
+    kilograms per mole.

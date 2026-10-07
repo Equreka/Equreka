@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Gray'
+namePlural:
+  en: 'grays'
+symbol:
+  tex: 'Gy'
+unitOf:
+  - 'absorbed-dose'
+system: 'si-derived'
+prefixes:
+  - 'milli'
+compose:
+  of:
+    - unit: 'joule'
+      exp: 1
+    - unit: 'kilogram'
+      exp: -1
+externalIds:
+  wikidata: 'Q190095'
+  qudt: 'http://qudt.org/vocab/unit/GRAY'
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'grays'
+  - 'grais'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4, section 2.3.4, and Appendix 1 (15th CGPM, 1975, Resolution 9; CIPM, 1976)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: rad (absorbed dose)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'US EPA, Radiation terms and units: absorbed dose'
+    url: 'https://www.epa.gov/radiation/radiation-terms-and-units'
+  - title: 'Radiological Physics and Technology 10 (2017): Louis Harold Gray (1905-1965), a pioneer in radiobiology'
+    url: 'https://link.springer.com/article/10.1007/s12194-016-0379-9'
+  - title: 'COPE, reprint of the Fundéu BBVA recommendation «siévert», adaptación al español (plural of gray)'
+    url: 'https://www.cope.es/actualidad/cultura/noticias/fundeu-bbva-sievert-adaptacion-espanol-20180315_183912'
+  - title: 'QUDT, unit GRAY'
+    url: 'https://qudt.org/vocab/unit/GRAY'
+description:
+  en: >-
+    The gray, symbol $\mathrm{Gy}$, is the coherent SI derived unit of absorbed dose, the energy
+    that ionizing radiation deposits per unit mass of the matter it crosses. One gray corresponds to
+    one joule absorbed by each kilogram, and the gray is one of the 22 SI units with a special name
+    and symbol.
+
+    The 15th CGPM adopted the name in 1975 through Resolution 9, setting the gray equal to the joule
+    per kilogram, $\mathrm{J/kg}$. The following year the CIPM, on the advice of the ICRU, extended
+    its use to kerma and to specific energy imparted. The SI Brochure insists on the special name
+    rather than the joule per kilogram so that absorbed dose is never mistaken for equivalent dose,
+    whose unit, the sievert, has the same dimension.
+
+    The older rad equals exactly 0.01 gray, so one gray is 100 rad. Doses received by patients are
+    usually quoted in milligrays: a chest CT scan delivers
+    about 10 milligrays to the thyroid, and a brain CT scan about 60 milligrays to the lens of the
+    eye.
+
+    The unit honours Louis Harold Gray, the British physicist who helped found radiobiology. With
+    John Read he defined an early unit of absorbed energy for all kinds of ionizing radiation, a
+    forerunner of the rad that the ICRU named in 1953. The name is written in lowercase in running
+    text, its plural is grays, and the symbol Gy begins with a capital letter.

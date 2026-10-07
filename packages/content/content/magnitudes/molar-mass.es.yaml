@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Masa molar'
+description: >-
+  La masa molar, de símbolo $M$, es la masa de una muestra de una sustancia pura dividida entre la
+  cantidad de sustancia que contiene, de modo que da la masa de un mol de las entidades
+  especificadas: átomos, moléculas, iones o unidades fórmula. Es una propiedad de la sustancia, no
+  de la muestra, y la química la usa para pasar de masas pesadas a cantidades en moles.
+
+  La unidad SI coherente es el kilogramo por mol, pero las tablas dan casi siempre las masas
+  molares en gramos por mol, una unidad mil veces menor. Su dimensión es masa dividida entre
+  cantidad de sustancia. La masa molar es una magnitud escalar positiva.
+
+  Para un elemento o un compuesto, la masa molar en gramos por mol tiene el mismo número que su
+  masa atómica o molecular relativa, igual a la masa de una entidad expresada en la unidad dalton: un átomo
+  de carbono-12 tiene una masa de 12 Da, y un mol de carbono-12 tiene una masa muy próxima a
+  12 gramos. El nitrógeno molecular tiene una masa molar de $28.01\,\mathrm{g/mol}$ y el cloruro de
+  sodio de unos 58.44 gramos por mol. En un gas se deduce de la ley de los gases ideales tras pesar
+  una muestra y medir su presión, su volumen y su temperatura.
+
+  La masa molar se distingue de la masa molecular, que es la masa de una sola molécula y no la de
+  un mol de ellas, y de la masa molecular relativa, adimensional, a la que todavía se llama a
+  menudo peso molecular. Antes de 2019 el SI fijaba la masa molar del carbono-12 en exactamente
+  0.012 kilogramos por mol; desde que el mol se redefinió fijando la constante de Avogadro, ese
+  valor es medido, y CODATA 2022 da $12.000\,000\,0126(37)\times10^{-3}\,\mathrm{kg/mol}$.

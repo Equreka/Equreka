@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Mole per cubic metre'
+symbol:
+  tex: 'mol/m^{3}'
+  text: 'mol/m³'
+unitOf:
+  - 'amount-concentration'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'mole'
+      exp: 1
+    - unit: 'metre'
+      exp: -3
+externalIds:
+  wikidata: 'Q2415352'
+  qudt: 'http://qudt.org/vocab/unit/MOL-PER-M3'
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'mole per cubic meter'
+  - 'mol/m3'
+  - 'mol/m^3'
+  - 'mol m-3'
+  - 'moles per cubic metre'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 5 and 5.2 Unit symbols'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Guide to the SI (SP 811), Chapter 8, 8.6.5 and Table 12'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-8'
+  - title: 'QUDT, unit MOL-PER-M3'
+    url: 'https://qudt.org/vocab/unit/MOL-PER-M3'
+  - title: 'QUDT, unit MilliMOL-PER-L'
+    url: 'https://qudt.org/vocab/unit/MilliMOL-PER-L'
+description:
+  en: >-
+    The mole per cubic metre, symbol $\mathrm{mol/m^{3}}$, is the coherent SI derived unit of amount
+    concentration: the concentration of a substance of which one mole is present in each cubic
+    metre of a mixture. The SI Brochure includes it in its table of coherent derived units written
+    in terms of base units.
+
+    It is the mole divided by the cube of the metre and has no special name, so its definition
+    follows directly from those of two SI base units. NIST Special Publication 811 gives it as the
+    SI unit of amount-of-substance concentration, the amount of a substance divided by the volume
+    of the mixture that contains it.
+
+    Chemists seldom state concentrations in this unit, because a cubic metre is a very large volume
+    for laboratory work. The mole per litre is a thousand times larger, so a solution of one mole
+    per litre has a concentration of 1000 moles per cubic metre, and NIST notes that one mole per
+    cubic decimetre equals one kilomole per cubic metre. In the other direction, one millimole per
+    litre is exactly one mole per cubic metre, which is why physiological concentrations quoted in
+    millimoles per litre read the same in the coherent unit.
+
+    Besides concentration itself, QUDT lists the unit for equilibrium constants expressed in terms
+    of concentrations and for the solubility of substances in water, and it files the millimole per
+    litre, numerically the same unit, under blood glucose level.
+
+    The name is spelled mole per cubic meter in American English. The symbol may also be written
+    with a negative exponent, as mol m⁻³, and the plural is moles per cubic metre.

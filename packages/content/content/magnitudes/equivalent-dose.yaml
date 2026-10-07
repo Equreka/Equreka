@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Equivalent dose'
+symbol:
+  tex: 'H'
+symbolAlt:
+  tex: 'H_{\mathrm{T}}'
+  text: 'HT'
+baseUnit: 'sievert'
+dimension:
+  L: 2
+  T: -2
+nonNegative: true
+externalIds:
+  wikidata: 'Q256106'
+  qudt: 'http://qudt.org/vocab/quantitykind/DoseEquivalent'
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'dose equivalent'
+  - 'radiation weighted dose'
+  - 'equivalente de dosis'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4, sections 2.3.4 and 2.3.5, and Appendix 1 (16th CGPM, 1979, Resolution 5; CIPM, 1984, Recommendation 1; CIPM, 2002, Recommendation 2)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: rem'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'Ministry of the Environment of Japan, Booklet on health effects of radiation, 2.3 Conversion from gray to sievert'
+    url: 'https://www.env.go.jp/en/chemi/rhm/basic-info/1st/02-03-04.html'
+  - title: 'Ministry of the Environment of Japan, Booklet on health effects of radiation, 2.3 Various factors'
+    url: 'https://www.env.go.jp/en/chemi/rhm/basic-info/1st/02-03-05.html'
+  - title: 'Ministry of the Environment of Japan, Booklet on health effects of radiation, 2.5 Exposure dose from natural and artificial radiation'
+    url: 'https://www.env.go.jp/en/chemi/rhm/basic-info/1st/02-05-01.html'
+  - title: 'Ministry of the Environment of Japan, Booklet on health effects of radiation, 2.3 Origin of sievert'
+    url: 'https://www.env.go.jp/en/chemi/rhm/basic-info/1st/02-03-02.html'
+  - title: 'US EPA, Radiation terms and units: effective dose'
+    url: 'https://www.epa.gov/radiation/radiation-terms-and-units'
+  - title: 'QUDT, quantity kind DoseEquivalent (skos:broader SpecificEnergy)'
+    url: 'https://qudt.org/vocab/quantitykind/DoseEquivalent'
+description:
+  en: >-
+    Equivalent dose, symbol $H$, is the absorbed dose of ionizing radiation multiplied by a
+    dimensionless factor that expresses how much biological damage a given type of radiation does
+    for each joule it deposits. Also called dose equivalent, it is the quantity of radiation
+    protection that lets exposures to alpha particles, beta particles, gamma rays and neutrons be
+    compared and added on one scale of harm to human tissue.
+
+    Its SI unit is the sievert, $\mathrm{Sv}$, which like the gray equals the joule per kilogram, so
+    the dimension is again length squared over time squared. The 16th CGPM gave this unit its own
+    name in 1979 because confusing absorbed dose with equivalent dose could lead to an
+    underestimated risk. The older rem equals exactly 0.01 sievert.
+
+    Equivalent dose is a scalar that is never negative. Since a 2002 CIPM decision, the SI Brochure
+    explains it as the product of the absorbed dose and a quality factor that depends on the
+    energy and kind of radiation, $H=QD$. The International Commission on Radiological Protection
+    applies a close relative to each organ or tissue, weighting its absorbed dose with a radiation
+    weighting factor of 1 for beta particles and gamma rays and 20 for alpha particles.
+
+    It is obtained by calculation, applying weighting factors to absorbed doses that are measured
+    or estimated. Values are small fractions of a sievert in daily life: natural sources give a
+    worldwide average of about 2.4 millisieverts a year, and the annual dose limit for radiation
+    workers in the United States is 0.05 sievert.
+
+    Two quantities share its unit and its confusion. Absorbed dose, in grays, is the unweighted
+    physical energy per kilogram; effective dose adds up the equivalent doses of all organs, each
+    multiplied by a tissue weighting factor, and is the figure quoted for a whole person. The
+    sievert is named after the Swedish radiation-protection researcher Rolf Sievert.

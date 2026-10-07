@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/branches.schema.json
+name:
+  en: 'Thermochemistry'
+category: 'chemistry'
+order: 4
+externalIds:
+  wikidata: 'Q183410'
+aliases:
+  - 'chemical energetics'
+  - 'heat of reaction'
+  - 'calorimetry'
+  - 'energética química'
+  - 'calor de reacción'
+  - 'calorimetría'
+description:
+  en: >-
+    Thermochemistry is the branch of chemistry that studies the heat absorbed or released when
+    substances react, dissolve or change phase. At constant pressure that heat equals the change in
+    enthalpy: a negative enthalpy change marks an exothermic process, which gives off heat, and a
+    positive one an endothermic process, which takes heat in.
+
+    Calorimetry measures these heats from the temperature change of a calorimeter whose heat
+    capacity is known. Hess's law states that the enthalpy change of a reaction depends only on its
+    initial and final states, so it equals the sum over any sequence of steps; with standard
+    enthalpies of formation it gives the standard enthalpy of reaction without a direct measurement.
+    Gibbs energy combines enthalpy, entropy and temperature to decide whether a reaction proceeds on
+    its own, and the temperature at which the Gibbs energy change is zero marks where that verdict
+    changes. The relation between Gibbs energy and the equilibrium constant ties energy to the
+    composition at equilibrium, while the Clausius-Clapeyron equation and the van 't Hoff equation
+    follow how vapour pressure and equilibrium constants vary with temperature. Results are stated
+    per mole, as molar energy and molar entropy.
+
+    Thermochemistry applies the first law of thermodynamics, treated in physics, to chemical
+    systems. It relies on amount of substance to state heats per mole, and it supplies the Gibbs
+    energy that electrochemistry converts into a cell potential.

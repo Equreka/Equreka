@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Amount concentration'
+symbol:
+  tex: 'c'
+baseUnit: 'mole-per-cubic-metre'
+dimension:
+  L: -3
+  N: 1
+nonNegative: true
+externalIds:
+  wikidata: 'Q672821'
+  qudt: 'http://qudt.org/vocab/quantitykind/AmountOfSubstanceConcentration'
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'amount-of-substance concentration'
+  - 'amount of substance concentration'
+  - 'substance concentration'
+  - 'molar concentration'
+  - 'molarity'
+  - 'concentration'
+  - 'concentración molar'
+  - 'molaridad'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.1 and Table 5'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Guide to the SI (SP 811), Chapter 8, 8.6.5 Amount-of-substance concentration of B'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-8'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.10, notes 13 and 16'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'OpenStax, Chemistry 2e, 3.3 Molarity'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-3-molarity'
+  - title: 'OpenStax, Chemistry 2e, 11.4 Colligative Properties'
+    url: 'https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties'
+  - title: 'OpenStax, Chemistry 2e, 14.2 pH and pOH'
+    url: 'https://openstax.org/books/chemistry-2e/pages/14-2-ph-and-poh'
+  - title: 'QUDT, quantity kind AmountOfSubstanceConcentration'
+    url: 'https://qudt.org/vocab/quantitykind/AmountOfSubstanceConcentration'
+description:
+  en: >-
+    Amount concentration, in full amount-of-substance concentration, is the amount of a substance B
+    present in a mixture divided by the volume of the whole mixture, $c_{\mathrm{B}}=n_{\mathrm{B}}/V$.
+    It is the standard way to state how much solute a chemical solution holds, and it is often
+    shortened to concentration when no other kind is meant. Clinical chemists call it substance
+    concentration, and older textbooks call it molarity.
+
+    Its coherent SI unit is the mole per cubic metre, and its dimension is amount of substance
+    divided by length cubed. Laboratory work uses the mole per litre, $\mathrm{mol/L}$, which equals
+    1000 moles per cubic metre and is the same unit as the mole per cubic decimetre. The unit symbol
+    M, read as molar, survives in teaching and on reagent labels, but NIST lists both that symbol
+    and the name molarity as obsolete, and IUPAC discourages molarity because it is easily mistaken
+    for molality.
+
+    Amount concentration is a scalar that is never negative, and it is zero when the substance is
+    absent. A solution expands as it warms while the amount of solute stays the same, so its amount
+    concentration falls slightly with rising temperature. Work that must not depend on temperature,
+    such as the treatment of colligative properties, therefore uses molality instead.
+
+    A solution of known amount concentration is made by weighing the solute, converting its mass to
+    moles with the molar mass, and adding solvent up to a marked volume. Pure water at
+    $25\,^{\circ}\mathrm{C}$ holds about $1.0\times10^{-7}\,\mathrm{mol/L}$ of hydronium ions, a
+    sweetened soft drink carries a few tenths of a mole of sucrose per litre, and white vinegar has
+    close to 0.84 mole of acetic acid in each litre.
+
+    Mass concentration counts the solute in kilograms instead of moles, and molality divides by the
+    mass of the solvent alone rather than by the volume of the solution. In equilibrium expressions
+    the amount concentration of a species is often written with square brackets, as [B].

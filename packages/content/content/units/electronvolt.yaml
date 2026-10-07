@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Electronvolt'
+namePlural:
+  en: 'electronvolts'
+symbol:
+  tex: 'eV'
+unitOf:
+  - 'energy'
+system: 'other'
+prefixes:
+  - 'kilo'
+  - 'mega'
+  - 'giga'
+  - 'tera'
+toBase:
+  factor: '1.602176634e-19'
+  exact: true
+  source:
+    name: 'BIPM SI Brochure 9th ed.'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+    ref: 'Table 8: electronvolt, 1 eV = 1.602 176 634 x 10^-19 J; note (l): exact since 26th CGPM (2018) Resolution 1'
+externalIds:
+  wikidata: 'Q83327'
+  qudt: 'http://qudt.org/vocab/unit/EV'
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+  - 'nuclear-physics'
+aliases:
+  - 'electron volt'
+  - 'electron-volt'
+  - 'electronvoltio'
+  - 'electrón-voltio'
+  - 'electrón voltio'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 and note (l)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'CEM, El Sistema Internacional de Unidades, 9.ª ed., Tabla 8, nota (g)'
+    url: 'https://www.cem.es/sites/default/files/documentos/2022-08/30362_elsistemainternacionaldeunidades_web_0.pdf'
+  - title: 'NIST, CODATA 2022 value: electron volt'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?evj'
+  - title: 'NIST, CODATA 2022 value: electron mass energy equivalent in MeV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mec2mev'
+  - title: 'NIST, CODATA 2022 value: proton mass energy equivalent in MeV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mpc2mev'
+  - title: 'NIST, CODATA 2022 value: Rydberg constant times hc in eV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?rydhcev'
+  - title: 'NIST SP 811, Chapter 5, Units outside the SI, Table 7 and note (a)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: electronvolt'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'QUDT, unit EV'
+    url: 'https://qudt.org/vocab/unit/EV'
+description:
+  en: >-
+    The electronvolt, symbol $\mathrm{eV}$, is a unit of energy sized for single electrons, atoms,
+    nuclei and elementary particles. It does not belong to the SI, but the SI Brochure lists it
+    among the non-SI units accepted for use with the SI, and it is routinely combined with SI
+    prefixes as the kiloelectronvolt, megaelectronvolt, gigaelectronvolt and teraelectronvolt.
+
+    One electronvolt is the energy picked up by a single electron accelerated in vacuum across a
+    one-volt potential difference, which equals the elementary charge multiplied by one volt. Since
+    the 26th CGPM gave the elementary charge an exact value in 2018, the conversion to SI
+    units is exact: $1\,\mathrm{eV}=1.602\,176\,634\times10^{-19}\,\mathrm{J}$.
+
+    Energies of the microscopic world fall neatly on this scale. The Rydberg energy, which sets the scale of the
+    binding energies in the hydrogen atom, is about 13.6 electronvolts; the rest energy of the
+    electron is about 0.511 megaelectronvolt, and that of the proton about 938 megaelectronvolts.
+
+    Before the 2019 revision of the SI the electronvolt belonged to the units whose value in joules
+    had to be measured: NIST Special Publication 811 still lists it that way, quoting the 2006
+    CODATA value, with a relative uncertainty of about 2.5 parts in one hundred million. The SI
+    Brochure writes the name as one word, electronvolt, while NIST tables also use electron volt.
+    The plural is electronvolts and the symbol eV is never split; a prefix attaches directly, as in
+    keV, MeV and GeV.

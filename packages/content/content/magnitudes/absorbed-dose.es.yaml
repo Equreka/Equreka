@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Dosis absorbida'
+description: >-
+  La dosis absorbida, de símbolo $D$, es la energía que la radiación ionizante deposita en la
+  materia dividida entre la masa de esa materia. Es la magnitud física básica de la dosimetría de
+  las radiaciones, la dosis de radiación de la que parten la radioterapia, la imagen médica y la
+  protección radiológica, tanto si la radiación consiste en rayos X, rayos gamma, partículas
+  cargadas o neutrones.
+
+  Su unidad SI es el gray, $\mathrm{Gy}$, nombre especial del julio por kilogramo, por lo que su
+  dimensión es la longitud al cuadrado dividida entre el tiempo al cuadrado, la misma que la de la
+  energía específica. La 15.ª CGPM adoptó el gray en 1975, y el CIPM permitió después usarlo
+  también para el kerma y para la energía específica impartida. El antiguo rad equivale exactamente
+  a 0.01 gray.
+
+  La dosis absorbida es una magnitud escalar que no puede ser negativa, y siempre se refiere a un
+  material concreto en un lugar dado, como el tejido blando de un órgano. Es una magnitud puramente
+  física que no distingue el tipo de radiación: un gray de partículas alfa y un gray de rayos gamma
+  depositan la misma energía en cada kilogramo, pero las partículas alfa causan un daño biológico
+  mucho mayor.
+
+  Las dosis en los órganos se calculan o se miden para cada tejido expuesto, y son el primer paso
+  de cualquier estimación del riesgo radiológico. La imagen médica trabaja con miligrais: una
+  tomografía computarizada de tórax da al tiroides unos 10 miligrais, y una de cráneo da al
+  cristalino unos 60 miligrais.
+
+  La dosis absorbida se confunde con facilidad con la dosis equivalente y la dosis efectiva, que la
+  ponderan según el tipo de radiación y la sensibilidad de cada órgano y se expresan en sieverts, y
+  con la actividad, que describe la fuente y no el cuerpo irradiado. En 1953 la ICRU dio el nombre
+  de rad a la unidad de dosis absorbida; la unidad SI que la sustituyó honra al radiobiólogo
+  británico Louis Harold Gray.

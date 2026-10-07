@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Molar entropy'
+symbol:
+  tex: 'S_{\mathrm{m}}'
+  text: 'Sm'
+baseUnit: 'joule-per-mole-kelvin'
+dimension:
+  L: 2
+  M: 1
+  T: -2
+  Th: -1
+  N: -1
+externalIds:
+  wikidata: 'Q68972876'
+  qudt: 'http://qudt.org/vocab/quantitykind/MolarEntropy'
+categories:
+  - 'chemistry'
+branches:
+  - 'thermochemistry'
+aliases:
+  - 'entropy per mole'
+  - 'standard molar entropy'
+  - 'standard entropy'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 6 (joule per mole kelvin) and section 5.4.1'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, quantity kind MolarEntropy'
+    url: 'https://qudt.org/vocab/quantitykind/MolarEntropy'
+  - title: 'OpenStax, Chemistry 2e, 16.2 Entropy'
+    url: 'https://openstax.org/books/chemistry-2e/pages/16-2-entropy'
+  - title: 'OpenStax, Chemistry 2e, 16.3 The Second and Third Laws of Thermodynamics'
+    url: 'https://openstax.org/books/chemistry-2e/pages/16-3-the-second-and-third-laws-of-thermodynamics'
+description:
+  en: >-
+    Molar entropy, symbol $S_{\mathrm{m}}$, is the entropy of a sample of a substance divided by
+    its amount of substance: the entropy of one mole. Its standard value, the standard molar
+    entropy, is the entropy of one mole of a pure substance in its standard state, and chemistry
+    and thermochemistry tables list it for a wide range of substances.
+
+    The coherent SI unit is the joule per mole kelvin, the same unit as molar heat capacity, and
+    the dimension is mass times length squared divided by time squared, by thermodynamic
+    temperature and by amount of substance. Values are usually quoted directly in joules per mole
+    kelvin.
+
+    Molar entropy is a scalar. The third law of thermodynamics gives entropy an absolute zero: a
+    pure, perfect crystal at zero kelvin has zero entropy. Starting from there, careful
+    calorimetric measurements of heat capacities and of the heat absorbed in each phase change give
+    the entropy of a substance at any higher temperature.
+
+    Printed tables give standard molar entropies for the standard state, 1 bar and 298.15 kelvin.
+    They grow with the freedom of motion of the particles: diamond has 2.38 and graphite
+    5.740 joules per mole kelvin, liquid water $70.0\,\mathrm{J\,mol^{-1}\,K^{-1}}$ and water vapour
+    188.8. Combining these values, weighted by the stoichiometric coefficients of the reaction, gives the
+    standard entropy change of a reaction.
+
+    Molar entropy shares its unit with molar heat capacity, but the two answer different questions:
+    heat capacity is the heat needed per kelvin of temperature rise, whereas entropy measures how
+    widely energy is dispersed among the microstates of the substance. It also differs from the entropy change of a process, which is reported in
+    joules per kelvin for the amounts actually involved.

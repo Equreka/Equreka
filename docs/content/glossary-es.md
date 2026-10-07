@@ -15,6 +15,7 @@ Conventions for every `<slug>.es.yaml` sidecar. Companion to the [style guide](s
 - **Symbols are international** and never translated or abbreviated differently: `s` (not *seg*), `h` (not *hr*), `min`, `L` or `l`.
 - **Decimal separator: the point**, in both languages. CEM writes the comma, which the 22nd CGPM (2003, Resolution 10) allows alongside the point; this project uses the point so every `$…$` fragment is byte-identical to the English one and matches what the calculator accepts. Digit groups use a thin space (`101\,325`), never a point or a comma, which CEM also prescribes.
 - **Math is byte-identical** to the English entity: copy every `$…$` and `$$…$$` fragment exactly, macros included. A fragment changes only if its notation is itself localized, which no current entry needs.
+- **Isotopes** take a hyphen between the element name and the mass number, as in English and IUPAC nomenclature: *carbono-12*, *radio-226*, *cesio-133*.
 - **Typography**: accents on capitals (*Óptica*), opening `¿` and `¡`, ordinals *9.ª*, angle quotes *«…»* when a quotation is unavoidable.
 - **No calques**:
 
@@ -52,7 +53,7 @@ Conventions for every `<slug>.es.yaml` sidecar. Companion to the [style guide](s
 | henry | henrio | CEM |
 | degree Celsius | grado Celsius | CEM |
 | lumen, lux | lumen, lux | CEM |
-| becquerel, gray, sievert | becquerel, gray, sievert | CEM |
+| becquerel, gray, sievert | becquerel (becquerels), gray (grais), sievert (sieverts) | CEM; plural *becquerels*: [RAE, DLE *curio*](https://dle.rae.es/curio); *sieverts*: [RAE, *El plural de los préstamos*](https://www.rae.es/buen-uso-espa%C3%B1ol/el-plural-de-los-pr%C3%A9stamos-de-otras-lenguas); *grais*: Fundéu BBVA recommendation ([COPE reprint](https://www.cope.es/actualidad/cultura/noticias/fundeu-bbva-sievert-adaptacion-espanol-20180315_183912)), rare in the press |
 | litre, gram | litro (litros), gramo (gramos) | CEM, sidecar |
 | minute, hour, day | minuto, hora, día | CEM |
 | degree, arcminute, arcsecond | grado, minuto de arco, segundo de arco | CEM (Table 8 names them grado, minuto, segundo; add *de arco* in prose to avoid ambiguity) |
@@ -61,13 +62,18 @@ Conventions for every `<slug>.es.yaml` sidecar. Companion to the [style guide](s
 | dalton, electronvolt | dalton, electronvoltio | CEM |
 | neper, bel, decibel | neper, belio, decibelio | CEM |
 | erg, dyne, poise | ergio, dina, poise | CEM |
-| curie | curie | CEM |
+| curie | curie (curies) | CEM; plural per [RAE, *El plural de los préstamos*](https://www.rae.es/buen-uso-espa%C3%B1ol/el-plural-de-los-pr%C3%A9stamos-de-otras-lenguas) (loans ending in a vowel add *-s*) |
 | kilowatt-hour, watt-hour | kilovatio hora (kilovatios hora), vatio hora (vatios hora) | [RAE, *Diccionario del estudiante*](https://www.rae.es/diccionario-estudiante/kilovatio) (*362 kilovatios hora*); plural on the first noun per *El plural de los compuestos* |
 | ampere-hour | amperio hora (amperios hora) | usage; plural on the first noun per *El plural de los compuestos*, as *kilovatios hora* |
 | calorie, kilocalorie | caloría, kilocaloría | usage |
 | bar, torr | bar (bares), torr | usage |
 | standard atmosphere | atmósfera estándar (*atmósfera normal* in `aliases`) | usage |
 | millimetre of mercury | milímetro de mercurio | usage |
+| joule per mole | julio por mol (julios por mol) | CEM (Table 6); plural on the first noun, as CEM's *julios por kilogramo* |
+| joule per mole kelvin | julio por mol y kelvin (*julio por mol kelvin* in `aliases`) | CEM (Table 6) |
+| kilogram per mole, gram per mole | kilogramo por mol, gramo por mol | usage |
+| cubic metre per mole, litre per mole | metro cúbico por mol, litro por mol | usage |
+| coulomb per mole | culombio por mol | usage |
 | ångström | ángstrom (ángstroms; *ångström* in `aliases`) | RAE (DLE headword *ángstrom*), Wikidata Q81454 `es` label |
 | light-year, parsec | año luz (años luz), pársec | usage |
 | knot, nautical mile, mile | nudo, milla náutica, milla | usage |
@@ -124,6 +130,7 @@ Prefix names are already shipped (*mili, ato, zeta, yota* per RAE; the rest unch
 | coefficient of restitution | coeficiente de restitución | usage |
 | Newton's second law | segunda ley de Newton | usage |
 | Newtonian constant of gravitation | constante de gravitación universal | usage |
+| atomic mass constant | constante de masa atómica (*constante de masa atómica unificada* in `aliases`) | usage |
 | standard acceleration of gravity | aceleración normal de la gravedad (*gravedad normal* in prose after first mention); *standard* is *normal* here but *estándar* in *atmósfera estándar*, a deliberate split that follows each term's usage | CEM |
 | gravitational field strength | intensidad del campo gravitatorio | usage |
 | escape velocity, orbital period | velocidad de escape, periodo orbital | usage |

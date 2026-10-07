@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Cubic metre per mole'
+symbol:
+  tex: 'm^{3}/mol'
+  text: 'm³/mol'
+unitOf:
+  - 'molar-volume'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'metre'
+      exp: 3
+    - unit: 'mole'
+      exp: -1
+externalIds:
+  wikidata: 'Q21615967'
+  qudt: 'http://qudt.org/vocab/unit/M3-PER-MOL'
+categories:
+  - 'chemistry'
+branches:
+  - 'amount-of-substance'
+  - 'gases'
+aliases:
+  - 'cubic meter per mole'
+  - 'cubic metres per mole'
+  - 'cubic meters per mole'
+  - 'm3/mol'
+  - 'm^3/mol'
+  - 'm3 mol-1'
+  - 'metro cúbico por mol'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.4 (derived units), Table 8 (litre) and section 5.2'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, CODATA 2022 value: molar volume of ideal gas (273.15 K, 100 kPa)'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mvol'
+  - title: 'NIST, CODATA 2022 value: molar volume of ideal gas (273.15 K, 101.325 kPa)'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mvolstd'
+  - title: 'QUDT, unit M3-PER-MOL (cubic metre per mole)'
+    url: 'https://qudt.org/vocab/unit/M3-PER-MOL'
+description:
+  en: >-
+    The cubic metre per mole, symbol $\mathrm{m^{3}/mol}$, is the coherent SI derived unit of
+    molar volume, the volume that a substance occupies divided by its amount of substance. It is
+    built from the cube of the metre, the SI base unit of length, and the reciprocal of the mole,
+    the base unit of amount of substance, and has no special name.
+
+    A substance has a molar volume of one cubic metre per mole when one mole of it, exactly
+    $6.022\,140\,76\times10^{23}$ specified entities, fills one cubic metre. Since both factors are
+    SI base units or powers of them, the unit carries no numerical coefficient.
+
+    The cubic metre is a large volume next to one mole of most substances, so practical values are
+    small in this unit. CODATA gives the molar volume of an ideal gas as
+    $22.710\,954\,64\ldots\times10^{-3}\,\mathrm{m^{3}/mol}$ at 273.15 kelvin and 100 kilopascals,
+    and as about 22.414 thousandths of a cubic metre per mole at the same temperature and 101.325
+    kilopascals. One cubic metre per mole equals 1000 litres per mole, or a million cubic
+    centimetres per mole, which is why gas data are usually tabulated in litres or cubic
+    decimetres per mole and data for liquids and solids in cubic centimetres per mole.
+
+    The unit appears when the ideal gas law is applied with every quantity in coherent SI units,
+    with pressure in pascals and temperature in kelvins. Its symbol may also be written m³ mol⁻¹,
+    and the plural is cubic metres per mole.

@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.locale.schema.json
+name: 'Constante molar de los gases'
+description: >-
+  La constante molar de los gases, de símbolo $R$, llamada también constante de los gases o
+  constante de los gases ideales, tiene el valor
+  $8.314\,462\,618\,153\,24\,\mathrm{J\,mol^{-1}\,K^{-1}}$. Es exacta, sin incertidumbre, porque
+  CODATA la define como la constante de Avogadro por la constante de Boltzmann, y el SI fija ambas
+  desde 2019.
+
+  El producto de esos dos valores fijados termina tras catorce cifras decimales, así que el valor es
+  finito; el NIST imprime las primeras cifras seguidas de puntos suspensivos. La constante es la
+  constante de Boltzmann llevada de una partícula a un mol: donde la constante
+  de Boltzmann relaciona la temperatura con la energía por entidad, la constante molar de los gases
+  la relaciona con la energía por mol. El producto de la constante de los gases por la temperatura
+  absoluta es una energía por mol, unos 2.48 kilojulios por mol a 298.15 kelvin.
+
+  Su papel más conocido está en la ley de los gases ideales, que iguala el producto de la presión
+  por el volumen a la cantidad de gas por la constante de los gases por la temperatura absoluta.
+  Los químicos la dan a menudo en unidades adaptadas al laboratorio, como 0.08206 litros atmósfera
+  por mol y kelvin o 8.314 kilopascales litro por mol y kelvin. Aparece también donde la energía
+  térmica por mol interviene en la química: en la relación entre la energía de Gibbs estándar de
+  una reacción y su constante de equilibrio, y en la ecuación de Nernst para potenciales de celda
+  fuera de las condiciones estándar.
+
+  Hasta 2019 las constantes de Avogadro y de Boltzmann tenían incertidumbres de medida, que
+  heredaba la constante de los gases. La 26.ª Conferencia General de Pesas
+  y Medidas fijó ambas constantes en 2018 para definir el kelvin y el mol, con efecto desde el
+  20 de mayo de 2019, y desde entonces la constante molar de los gases es exacta.

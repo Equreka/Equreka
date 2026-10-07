@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Culombio por mol'
+description: >-
+  El culombio por mol, de símbolo $\mathrm{C/mol}$, es la unidad SI derivada coherente de carga
+  eléctrica por cantidad de sustancia. Es el culombio, la unidad SI de carga eléctrica, dividido
+  entre el mol, la unidad básica de cantidad de sustancia, y en unidades básicas es el amperio
+  segundo por mol. No tiene nombre especial, y su uso principal en química es como unidad de la
+  constante de Faraday.
+
+  Una carga de un culombio transportada por cada mol de entidades especificadas, como iones o
+  electrones, es un culombio por mol. Como ambos factores son unidades SI, la unidad no necesita
+  coeficiente numérico y encaja en las ecuaciones coherentes de la electroquímica.
+
+  La constante de Faraday, la carga de un mol de cargas elementales, es exactamente el producto de
+  la constante de Avogadro por la carga elemental, ambas fijadas por la redefinición del SI de 2019,
+  lo que da $96\,485.332\,123\,310\,018\,4\,\mathrm{C/mol}$. Los cálculos de electrólisis la usan
+  para convertir una carga medida, la corriente eléctrica multiplicada por el tiempo, en moles
+  de electrones transferidos: una carga de 96 485 culombios corresponde aproximadamente a un mol de
+  electrones, suficiente para depositar un mol de plata a partir de una disolución de iones plata.
+
+  En la misma unidad, la carga que transporta un mol de un ion de carga uno, como el sodio, es una
+  constante de Faraday, y la de un ion de carga tres, como el cromo(III), el triple, razón por la
+  cual el número de electrones de una semirreacción multiplica la constante en todo cálculo de
+  electrólisis. El símbolo puede escribirse también C mol⁻¹, y el plural es culombios por mol.

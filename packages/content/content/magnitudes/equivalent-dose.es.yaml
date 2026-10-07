@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Dosis equivalente'
+description: >-
+  La dosis equivalente, de símbolo $H$, es la dosis absorbida de radiación ionizante multiplicada
+  por un factor adimensional que expresa cuánto daño biológico causa un tipo de radiación por cada
+  julio que deposita. Llamada también equivalente de dosis, es la magnitud de la protección
+  radiológica que permite comparar y sumar en una sola escala de daño al tejido humano las
+  exposiciones a partículas alfa, partículas beta, rayos gamma y neutrones.
+
+  Su unidad SI es el sievert, $\mathrm{Sv}$, que como el gray equivale al julio por kilogramo, de
+  modo que la dimensión vuelve a ser la longitud al cuadrado entre el tiempo al cuadrado. La 16.ª
+  CGPM dio nombre propio a esta unidad en 1979 porque confundir la dosis absorbida con la dosis
+  equivalente podía llevar a subestimar el riesgo. El antiguo rem equivale exactamente a 0.01
+  sievert.
+
+  La dosis equivalente es una magnitud escalar que nunca es negativa. Desde una decisión del CIPM de
+  2002, el folleto del SI la explica como el producto de la dosis absorbida por un factor de
+  calidad que depende de la energía y del tipo de radiación, $H=QD$. La Comisión Internacional de
+  Protección Radiológica aplica una forma muy próxima a cada órgano o tejido, ponderando su dosis
+  absorbida con un factor de ponderación de la radiación que vale 1 para las partículas beta y los
+  rayos gamma y 20 para las partículas alfa.
+
+  Se obtiene por cálculo, aplicando factores de ponderación a dosis absorbidas medidas o
+  estimadas. En la vida diaria sus valores son pequeñas fracciones de un sievert: las fuentes
+  naturales dan un promedio mundial de unos 2.4 milisieverts al año, y el límite anual de dosis
+  para los trabajadores expuestos en Estados Unidos es de 0.05 sievert.
+
+  Dos magnitudes comparten su unidad y su confusión. La dosis absorbida, en grais, es la energía
+  física por kilogramo sin ponderar; la dosis efectiva suma las dosis equivalentes de todos los
+  órganos, cada una multiplicada por un factor de ponderación del tejido, y es la cifra que se da
+  para una persona completa. El sievert lleva el nombre del investigador sueco de protección
+  radiológica Rolf Sievert.

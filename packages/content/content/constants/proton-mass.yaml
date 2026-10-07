@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Proton mass'
+symbol:
+  tex: 'm_{\mathrm{p}}'
+  text: 'mp'
+value: '1.67262192595e-27'
+approximations:
+  - '1.673e-27'
+unit: 'kilogram'
+exact: false
+uncertainty: '5.2e-37'
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mp'
+  ref: 'proton mass'
+externalIds:
+  wikidata: 'Q97275155'
+  qudt: 'http://qudt.org/vocab/constant/ProtonMass'
+categories:
+  - 'physics'
+  - 'chemistry'
+branches:
+  - 'nuclear-physics'
+  - 'atomic-structure'
+aliases:
+  - 'proton rest mass'
+  - 'mass of the proton'
+  - 'mp'
+  - 'm_p'
+references:
+  - title: 'NIST, CODATA 2022 value: proton mass'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mp'
+  - title: 'NIST, CODATA 2022 value: proton-electron mass ratio'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mpsme'
+  - title: 'NIST, CODATA 2022 value: proton mass energy equivalent in MeV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mpc2mev'
+  - title: 'P. J. Mohr, D. B. Newell, B. N. Taylor and E. Tiesinga, CODATA recommended values of the fundamental physical constants: 2022, section II'
+    url: 'https://arxiv.org/abs/2409.03787'
+  - title: 'Ministry of the Environment of Japan, Booklet on health effects of radiation, 1.2 Atomic structure and periodic law'
+    url: 'https://www.env.go.jp/en/chemi/rhm/basic-info/1st/01-02-01.html'
+  - title: 'Ministry of the Environment of Japan, Booklet on health effects of radiation, 1.2 Various nuclei'
+    url: 'https://www.env.go.jp/en/chemi/rhm/basic-info/1st/01-02-03.html'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.2: the seven defining constants'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+description:
+  en: >-
+    The proton mass, symbol $m_{\mathrm{p}}$, is the rest mass of a free proton. Its CODATA 2022
+    recommended value is $1.672\,621\,925\,95(52)\times10^{-27}\,\mathrm{kg}$, a measured value with
+    a relative standard uncertainty of $3.1\times10^{-10}$. Like the masses of the other particles,
+    it is not among the SI defining constants and remains a measured quantity after
+    the 2019 redefinition.
+
+    The proton is the nucleus of ordinary hydrogen, a single positively charged particle, and every
+    atomic nucleus is built from protons and neutrons, with the number of protons, the atomic
+    number, deciding the chemical element. The proton is about 1836.15 times as heavy as the
+    electron, so nearly all the mass of an atom sits in its nucleus. Its rest energy is about 938.27
+    megaelectronvolts.
+
+    The ratio of the electron mass to the proton mass appears in the reduced-mass corrections to
+    the energy levels of hydrogen and of simple molecular ions. Combined with the neutron mass, the
+    proton mass gives the binding energy of nuclei: the deuteron, for example, weighs the sum of a
+    proton and a neutron minus its binding energy divided by the square of the speed of light.
+
+    The proton mass is determined through relative atomic masses. Penning-trap mass spectrometers
+    cooled to a few kelvins compare the cyclotron frequencies of pairs of ions, such as protons,
+    molecular hydrogen ions and highly charged carbon-12 ions, against the carbon-12 standard. Since
+    2020 laser spectroscopy of the molecular ion HD+ has added independent constraints on the
+    ratios of proton, deuteron and electron masses.

@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Atomic mass constant'
+symbol:
+  tex: 'm_{\mathrm{u}}'
+  text: 'mu'
+value: '1.66053906892e-27'
+approximations:
+  - '1.6605e-27'
+unit: 'kilogram'
+exact: false
+uncertainty: '5.2e-37'
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?u'
+  ref: 'atomic mass constant'
+externalIds:
+  wikidata: 'Q4817337'
+  qudt: 'http://qudt.org/vocab/constant/AtomicMassConstant'
+categories:
+  - 'chemistry'
+branches:
+  - 'atomic-structure'
+  - 'amount-of-substance'
+aliases:
+  - 'unified atomic mass constant'
+  - 'm_u'
+  - 'constante de masa atómica unificada'
+references:
+  - title: 'NIST, CODATA 2022 value: atomic mass constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?u'
+  - title: 'NIST, CODATA 2022: atomic mass constant, defining equation'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?equ'
+  - title: 'NIST, CODATA 2022 value: molar mass constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mu'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.1 (the mole), Table 8 note (i) and Appendix 4'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, Chemistry 2e, 2.3 Atomic Structure and Symbolism'
+    url: 'https://openstax.org/books/chemistry-2e/pages/2-3-atomic-structure-and-symbolism'
+  - title: 'QUDT, constant AtomicMassConstant'
+    url: 'https://qudt.org/vocab/constant/AtomicMassConstant'
+description:
+  en: >-
+    The atomic mass constant, symbol $m_{\mathrm{u}}$, also called the unified atomic mass
+    constant, is the mass of one carbon-12 atom divided by twelve, the atom being unbound,
+    motionless and in its lowest energy state. Its CODATA 2022 value is $1.660\,539\,068\,92(52)\times10^{-27}\,\mathrm{kg}$, a measured value with
+    a relative standard uncertainty of $3.1\times10^{-10}$.
+
+    The constant is the mass of the dalton, or unified atomic mass unit, expressed in kilograms: the
+    SI Brochure gives the dalton this same CODATA 2022 value, uncertainty included. It sets the scale on which the masses of
+    atoms and molecules are compared. A relative atomic mass, such as 12 exactly for carbon-12 or
+    about 1.00727 for the proton, is the mass of the particle divided by the atomic mass constant.
+
+    Multiplied by the Avogadro constant, the atomic mass constant gives the molar mass constant,
+    $1.000\,000\,001\,05(31)\times10^{-3}\,\mathrm{kg/mol}$ in CODATA 2022. The SI Brochure writes
+    the molar mass of an atom or a molecule as the Avogadro constant times its relative atomic mass
+    times the atomic mass constant, which is how the mass of a single entity connects to the mass
+    of one mole of it.
+
+    The carbon-12 scale behind the constant dates from 1959 and 1960, when the international unions
+    of physics and of chemistry replaced their two oxygen-based scales with a single one. From 1971
+    until 2019 the mole was defined so that the molar mass of carbon-12 was exactly 0.012 kilograms
+    per mole, which made the molar mass constant exact and left the uncertainty of the atomic mass
+    constant tied to that of the Avogadro constant. Since the 2019 redefinition fixed the Avogadro
+    constant instead, the molar mass constant is measured, and it now differs from one gram per
+    mole by about one part in a thousand million.

@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Faraday constant'
+symbol:
+  tex: 'F'
+value: '96485.3321233100184'
+approximations:
+  - '96485'
+unit: 'coulomb-per-mole'
+exact: true
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?f'
+  ref: 'Faraday constant'
+externalIds:
+  wikidata: 'Q192819'
+  qudt: 'http://qudt.org/vocab/constant/FaradayConstant'
+categories:
+  - 'chemistry'
+branches:
+  - 'electrochemistry'
+aliases:
+  - 'Faraday''s constant'
+  - 'constante de Faraday'
+references:
+  - title: 'NIST, CODATA 2022 value: Faraday constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?f'
+  - title: 'NIST, CODATA 2022: Faraday constant, defining equation'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?eqf'
+  - title: 'NIST, CODATA 2022 value: elementary charge'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?e'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.2 (Table 1) and Appendix 1 (26th CGPM, 2018)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, Chemistry 2e, 17.4 Potential, Free Energy, and Equilibrium'
+    url: 'https://openstax.org/books/chemistry-2e/pages/17-4-potential-free-energy-and-equilibrium'
+  - title: 'OpenStax, Chemistry 2e, 17.7 Electrolysis'
+    url: 'https://openstax.org/books/chemistry-2e/pages/17-7-electrolysis'
+  - title: 'MacTutor History of Mathematics, Michael Faraday'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Faraday/'
+  - title: 'QUDT, constant FaradayConstant'
+    url: 'https://qudt.org/vocab/constant/FaradayConstant'
+description:
+  en: >-
+    The Faraday constant, symbol $F$, is the amount of charge carried by a mole of elementary charges, with
+    the value $96\,485.332\,123\,310\,018\,4\,\mathrm{C/mol}$. CODATA defines it as the Avogadro
+    constant times the elementary charge, and the SI has fixed both since 2019, so the Faraday
+    constant is exact. Their product has a finite decimal expansion, which NIST prints truncated as
+    96 485.332 12 followed by an ellipsis.
+
+    Physically, it converts between a count of charges expressed in moles and a quantity of charge
+    in coulombs. One mole of electrons carries a charge of minus one Faraday constant, and one mole
+    of singly charged positive ions a charge of plus one. Chemistry texts usually round it to
+    96 485 coulombs per mole of electrons.
+
+    In electrolysis, the charge that passes through a cell equals the amount of electrons
+    transferred times the Faraday constant, so a measured current and time give the moles of metal
+    deposited or gas released: a current of 10.23 amperes for one hour, for example, moves about
+    0.381 moles of electrons. In galvanic cells, the standard Gibbs energy change of a reaction
+    equals minus the moles of electrons times the Faraday constant times the standard cell
+    potential, and the constant also enters the Nernst equation and the relation between cell
+    potential and equilibrium constant.
+
+    The constant is named after Michael Faraday, who made his major discoveries in
+    electrochemistry from 1833 onwards. Before 2019 the Avogadro constant and the elementary charge
+    were measured, so the Faraday constant carried an uncertainty. The 26th General Conference on
+    Weights and Measures fixed both in 2018, with effect from 20 May 2019, which made it exact.

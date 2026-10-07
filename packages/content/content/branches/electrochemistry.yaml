@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/branches.schema.json
+name:
+  en: 'Electrochemistry'
+category: 'chemistry'
+order: 8
+externalIds:
+  wikidata: 'Q7877'
+aliases:
+  - 'redox reactions'
+  - 'electrolysis'
+  - 'galvanic cells'
+  - 'reacciones redox'
+  - 'electrólisis'
+  - 'pilas galvánicas'
+description:
+  en: >-
+    Electrochemistry is the branch of chemistry that links chemical reactions with electricity. Its
+    reactions are redox reactions, in which electrons pass from a species that is oxidized to one
+    that is reduced. A galvanic cell lets a spontaneous redox reaction push a current through an
+    external circuit, and an electrolytic cell uses an applied current to drive a reaction that
+    would not run by itself.
+
+    The standard cell potential follows from the standard electrode potentials of the two
+    half-reactions, and a positive value marks a spontaneous reaction. The Faraday constant, the
+    charge of one mole of electrons, converts between charge and amount of substance: Faraday's law
+    of electrolysis gives the mass deposited by a current flowing for a given time, and the Gibbs
+    energy of a reaction is minus the number of electrons transferred times the Faraday constant
+    times the cell potential. The same link turns a standard cell potential into an equilibrium
+    constant. The Nernst equation corrects the cell potential for concentrations that differ from
+    the standard ones, and it takes a shorter form at $25\,^{\circ}\mathrm{C}$.
+
+    Electrochemistry joins thermochemistry, through Gibbs energy, with electromagnetism, through
+    charge, current and potential difference. It explains batteries, fuel cells, corrosion,
+    electroplating and the production of metals by electrolysis, and the half-reactions that
+    involve hydrogen ions connect it with acids and bases.

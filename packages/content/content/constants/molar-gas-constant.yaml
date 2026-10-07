@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Molar gas constant'
+symbol:
+  tex: 'R'
+value: '8.31446261815324'
+approximations:
+  - '8.314'
+unit: 'joule-per-mole-kelvin'
+exact: true
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?r'
+  ref: 'molar gas constant'
+externalIds:
+  wikidata: 'Q182333'
+  qudt: 'http://qudt.org/vocab/constant/MolarGasConstant'
+categories:
+  - 'chemistry'
+branches:
+  - 'gases'
+  - 'thermochemistry'
+aliases:
+  - 'gas constant'
+  - 'ideal gas constant'
+  - 'universal gas constant'
+  - 'constante de los gases ideales'
+  - 'constante universal de los gases'
+references:
+  - title: 'NIST, CODATA 2022 value: molar gas constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?r'
+  - title: 'NIST, CODATA 2022: molar gas constant, defining equation'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?eqr'
+  - title: 'NIST, CODATA 2022 value: Avogadro constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?na'
+  - title: 'NIST, CODATA 2022 value: Boltzmann constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?k'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.2 (Table 1) and section 2.3.1 (the kelvin)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, Chemistry 2e, 9.2 Relating Pressure, Volume, Amount, and Temperature: The Ideal Gas Law'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-2-relating-pressure-volume-amount-and-temperature-the-ideal-gas-law'
+  - title: 'OpenStax, Chemistry 2e, 17.4 Potential, Free Energy, and Equilibrium'
+    url: 'https://openstax.org/books/chemistry-2e/pages/17-4-potential-free-energy-and-equilibrium'
+  - title: 'QUDT, constant MolarGasConstant'
+    url: 'https://qudt.org/vocab/constant/MolarGasConstant'
+description:
+  en: >-
+    The molar gas constant, symbol $R$, also called the gas constant or the ideal gas constant, has
+    the value $8.314\,462\,618\,153\,24\,\mathrm{J\,mol^{-1}\,K^{-1}}$. It is exact, with no
+    uncertainty, because CODATA defines it as the Avogadro constant times the Boltzmann constant,
+    and the SI has fixed both since 2019. The product of their two fixed decimals ends after
+    fourteen decimal places, so the full value is finite; NIST prints the first digits followed by
+    an ellipsis.
+
+    The constant is the Boltzmann constant scaled from one particle up to one mole: where the
+    Boltzmann constant links temperature to energy per entity, the molar gas constant links it to
+    energy per mole. The product of the gas constant and the absolute temperature is an energy per
+    mole, about 2.48 kilojoules per mole at 298.15 kelvin.
+
+    Its best-known role is in the ideal gas law, which makes the product of pressure and volume
+    equal to the amount of gas times the gas constant times the absolute temperature. Chemists
+    often quote it in units adapted to the laboratory, such as 0.08206 litre atmospheres per mole
+    kelvin or 8.314 kilopascal litres per mole kelvin. It also appears wherever thermal energy per
+    mole enters chemistry: in the relation between the standard Gibbs energy of a reaction and its
+    equilibrium constant, and in the Nernst equation for cell potentials away from standard
+    conditions.
+
+    Until 2019 both the Avogadro and Boltzmann constants carried measurement uncertainties, which
+    the gas constant inherited. The 26th General Conference on Weights and Measures fixed both constants in
+    2018 to define the kelvin and the mole, with effect from 20 May 2019, and the molar gas
+    constant has been exact ever since.

@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Joule per mole kelvin'
+symbol:
+  tex: 'J/(mol\,K)'
+  text: 'J/(mol·K)'
+unitOf:
+  - 'molar-entropy'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'joule'
+      exp: 1
+    - unit: 'mole'
+      exp: -1
+    - unit: 'kelvin'
+      exp: -1
+externalIds:
+  wikidata: 'Q20966455'
+  qudt: 'http://qudt.org/vocab/unit/J-PER-MOL-K'
+categories:
+  - 'chemistry'
+branches:
+  - 'thermochemistry'
+aliases:
+  - 'joule per mole per kelvin'
+  - 'joule per kelvin per mole'
+  - 'joules per mole kelvin'
+  - 'J mol-1 K-1'
+  - 'J K-1 mol-1'
+  - 'J/mol K'
+  - 'J/(mol K)'
+  - 'julio por mol kelvin'
+  - 'joule por mol kelvin'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 6 (joule per mole kelvin), sections 5.2 and 5.4.1'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, CODATA 2022 value: molar gas constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?r'
+  - title: 'OpenStax, Chemistry 2e, 16.3 The Second and Third Laws of Thermodynamics'
+    url: 'https://openstax.org/books/chemistry-2e/pages/16-3-the-second-and-third-laws-of-thermodynamics'
+  - title: 'QUDT, unit J-PER-MOL-K (joule per mole kelvin)'
+    url: 'https://qudt.org/vocab/unit/J-PER-MOL-K'
+description:
+  en: >-
+    The joule per mole kelvin, symbol $\mathrm{J/(mol\,K)}$, is the coherent SI derived unit of
+    molar entropy and of molar heat capacity, two different quantities that share one dimension. It
+    is the joule divided by both the mole and the kelvin, and has no special name.
+
+    The SI Brochure lists it in its table of coherent derived units whose names include a unit
+    with a special name, giving molar entropy and molar heat capacity as its quantities; in base
+    units it is the kilogram square metre per second squared per mole per kelvin. A substance whose
+    entropy rises by one joule per kelvin for each mole present has a molar entropy of one joule per
+    mole kelvin, and the same reading applies to the heat needed to warm one mole by one kelvin.
+
+    The unit is also the unit of the molar gas constant, which since 2019 has the exact value
+    $8.314\,462\,618\,153\,24\,\mathrm{J\,mol^{-1}\,K^{-1}}$. Because a step of one kelvin equals a
+    step of one degree Celsius, a value in joules per mole degree Celsius is numerically the same.
+
+    Tables of standard molar entropies are printed in this unit: under standard conditions, solid
+    graphite has 5.740 joules per mole kelvin, liquid water 70.0 and water vapour 188.8. The
+    entropy change of a reaction follows from such values, and multiplied by a temperature in
+    kelvins a value in this unit becomes an energy per mole, which links it to the kilojoule per
+    mole of thermochemistry.
+
+    The symbol may be written J mol⁻¹ K⁻¹ or J K⁻¹ mol⁻¹. With a solidus it takes parentheses,
+    J/(mol K), because the SI rules out using the solidus more than once in an expression without
+    parentheses, as in J/mol/K. The plural is joules per mole kelvin.

@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.locale.schema.json
+name: 'Constante de Faraday'
+description: >-
+  La constante de Faraday, de símbolo $F$, es la cantidad de carga que transporta un mol de cargas elementales,
+  con el valor $96\,485.332\,123\,310\,018\,4\,\mathrm{C/mol}$. CODATA la define como la constante
+  de Avogadro por la carga elemental, y el SI fija ambas desde 2019, de modo que la constante de
+  Faraday es exacta. Su producto tiene un desarrollo decimal finito, que el NIST imprime truncado
+  como 96 485.332 12 seguido de puntos suspensivos.
+
+  Convierte un recuento de cargas expresado en moles en una cantidad de carga en
+  culombios. Un mol de electrones transporta una carga de menos una constante de Faraday, y un mol
+  de iones con carga +1 transporta una constante de Faraday. Los textos de química suelen redondearla a
+  96 485 culombios por mol de electrones.
+
+  En la electrólisis, la carga que atraviesa una celda es igual a la cantidad de electrones
+  transferidos por la constante de Faraday, de modo que una corriente eléctrica y un tiempo medidos dan los
+  moles de metal depositado o de gas desprendido: una corriente de 10.23 amperios durante una hora,
+  por ejemplo, mueve unos 0.381 moles de electrones. En las celdas galvánicas, la variación de
+  energía de Gibbs estándar de una reacción es igual a menos los moles de electrones por la
+  constante de Faraday por el potencial estándar de la celda, y la constante interviene también en
+  la ecuación de Nernst y en la relación entre el potencial de la celda y la constante de
+  equilibrio.
+
+  La constante lleva el nombre de Michael Faraday, que hizo sus principales descubrimientos en
+  electroquímica a partir de 1833. Antes de 2019 la constante de Avogadro y la carga elemental eran
+  medidas, por lo que la constante de Faraday tenía incertidumbre. La 26.ª Conferencia General de
+  Pesas y Medidas fijó ambas en 2018, con efecto desde el 20 de mayo de 2019, lo que la hizo exacta.

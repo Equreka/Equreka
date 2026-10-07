@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Curie'
+namePlural:
+  en: 'curies'
+symbol:
+  tex: 'Ci'
+unitOf:
+  - 'activity'
+system: 'other'
+prefixes:
+  - 'pico'
+toBase:
+  factor: '3.7e10'
+  exact: true
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+    ref: 'B.8: curie (Ci), 3.7 E+10 Bq exact; 12th CGPM (1964) Resolution 7: 3.7 x 10^10 s^-1'
+externalIds:
+  wikidata: 'Q229354'
+  qudt: 'http://qudt.org/vocab/unit/CI'
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'curies'
+  - 'curio'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (12th CGPM, 1964, Resolution 7: Curie)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: curie'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST SP 811, Chapter 5, Units outside the SI, section 5.2 and Table 9'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si'
+  - title: 'US EPA, Radiation terms and units: radioactivity'
+    url: 'https://www.epa.gov/radiation/radiation-terms-and-units'
+  - title: 'Real Academia Española, Diccionario de la lengua española: curio (2)'
+    url: 'https://dle.rae.es/curio'
+  - title: 'Real Academia Española, El plural de los préstamos de otras lenguas (loans ending in a vowel add -s)'
+    url: 'https://www.rae.es/buen-uso-espa%C3%B1ol/el-plural-de-los-pr%C3%A9stamos-de-otras-lenguas'
+  - title: 'QUDT, unit CI'
+    url: 'https://qudt.org/vocab/unit/CI'
+description:
+  en: >-
+    The curie, symbol $\mathrm{Ci}$, is a unit of activity that lies outside the SI. It measures
+    the rate of radioactive decay of a source and is still common in the United States, especially
+    in regulations on health and safety. One curie is a large activity, tens of billions of nuclear
+    decays every second.
+
+    Its value is fixed at exactly $3.7\times10^{10}\,\mathrm{Bq}$. In 1964 the 12th CGPM, through
+    Resolution 7, accepted that the curie be kept outside the SI as a unit of activity with that
+    value expressed in reciprocal seconds, and NIST Special Publication 811 prints the factor as
+    exact.
+
+    Turned around, one becquerel is about 27 trillionths of a curie. Because the curie is so large,
+    environmental results are usually given in picocuries, trillionths of a curie: the natural
+    radium-226 in surface water generally lies between 0.1 and 0.5 picocurie per litre.
+
+    The NIST guide to the SI strongly discourages the curie, together with the rad, the rem and the
+    roentgen, and asks authors who still need it to give the value in becquerels first. The US
+    Environmental Protection Agency describes the curie as roughly the number of decays that occur
+    each second in one gram of radium.
+
+    The unit is named after the French scientists Marie and Pierre Curie. Its symbol is Ci, with a
+    capital C, and its plural is curies.

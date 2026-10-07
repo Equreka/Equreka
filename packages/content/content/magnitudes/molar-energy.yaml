@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Molar energy'
+symbol:
+  tex: 'U_{\mathrm{m}}'
+  text: 'Um'
+baseUnit: 'joule-per-mole'
+dimension:
+  L: 2
+  M: 1
+  T: -2
+  N: -1
+externalIds:
+  wikidata: 'Q69427512'
+  qudt: 'http://qudt.org/vocab/quantitykind/MolarEnergy'
+categories:
+  - 'chemistry'
+branches:
+  - 'thermochemistry'
+aliases:
+  - 'energy per mole'
+  - 'molar internal energy'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 6 (joule per mole) and section 2.3.1 (the mole)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, quantity kind MolarEnergy'
+    url: 'https://qudt.org/vocab/quantitykind/MolarEnergy'
+  - title: 'OpenStax, Chemistry 2e, 5.3 Enthalpy'
+    url: 'https://openstax.org/books/chemistry-2e/pages/5-3-enthalpy'
+  - title: 'OpenStax, Chemistry 2e, 17.4 Potential, Free Energy, and Equilibrium'
+    url: 'https://openstax.org/books/chemistry-2e/pages/17-4-potential-free-energy-and-equilibrium'
+description:
+  en: >-
+    Molar energy, symbol $U_{\mathrm{m}}$ for molar internal energy, is an energy divided by the
+    amount of substance it refers to: the energy per mole of a substance, or the energy change per
+    mole of a reaction or phase change. In chemistry and thermochemistry, molar enthalpies of
+    formation, combustion and reaction and molar Gibbs energies are all molar energies.
+
+    The coherent SI unit is the joule per mole, and the dimension is mass times length squared
+    divided by time squared and by amount of substance. Chemical data are almost always tabulated
+    in kilojoules per mole, because reaction energies typically amount to tens or hundreds of
+    kilojoules for each mole that reacts.
+
+    Molar energy is a scalar, and when it describes a change it takes the sign of the process: in
+    thermochemistry a negative molar enthalpy of reaction marks an exothermic process, which
+    releases heat, and a positive one an endothermic process, which absorbs it. A negative molar
+    Gibbs energy of reaction marks a reaction that proceeds spontaneously under standard
+    conditions.
+
+    Molar energies are obtained mostly by calorimetry, by combining tabulated values through Hess's
+    law, and from cell potentials. Standard enthalpies of formation span a wide range: acetylene
+    has a positive value of 226.7 kilojoules per mole, while solid $\mathrm{P_{4}O_{10}}$ reaches
+    $-2984\,\mathrm{kJ/mol}$. Burning one mole of ethanol releases about 1366.8 kilojoules, and
+    forming carbon dioxide from graphite and oxygen releases 393.5 kilojoules per mole.
+
+    A molar energy is the energy carried by a single entity multiplied by the Avogadro constant, so
+    it is easily converted to an energy per molecule. It is distinct from specific energy, which is
+    taken per kilogram rather than per mole, and from the total energy change of a reaction, which
+    is measured in joules and grows with the amount that reacts.

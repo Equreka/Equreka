@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Concentración másica'
+description: >-
+  La concentración másica es la masa de un componente B de una mezcla dividida entre el volumen de
+  toda la mezcla, $\gamma_{\mathrm{B}}=m_{\mathrm{B}}/V$. Indica cuántos gramos o kilogramos de una
+  sustancia disuelta o en suspensión hay en un volumen dado de una disolución, de agua o de aire, y
+  es la medida habitual para los solutos de los líquidos corporales y para los contaminantes.
+
+  Su unidad SI es el kilogramo por metro cúbico, la misma unidad coherente que la de la densidad, y
+  el folleto del SI la recoge por separado para cada una de las dos magnitudes. Su dimensión es masa
+  dividida entre longitud al cubo. Un gramo por litro equivale exactamente a un kilogramo por metro
+  cúbico, de modo que los valores en ambas unidades coinciden, y el miligramo por litro se usa para
+  las sustancias en trazas. La IUPAC le asigna el símbolo $\gamma$ y admite también $\rho$.
+
+  La concentración másica es un escalar y nunca es negativa. Se refiere al volumen de toda la
+  disolución, por lo que varía un poco con la temperatura cuando la disolución se dilata o se
+  contrae. QUDT la clasifica como un tipo más específico de densidad: la suma de las concentraciones
+  másicas de todos los componentes de una mezcla da la densidad de la mezcla.
+
+  Se mide disolviendo una masa pesada de sustancia en un volumen medido, o evaporando un volumen
+  conocido de disolución y pesando el residuo. El suero fisiológico contiene 9 gramos de cloruro de
+  sodio por litro, y la glucosa en sangre en ayunas ronda entre 0.7 y 1.0 gramos por litro, valor
+  que los informes médicos expresan como 70 a 100 miligramos por decilitro.
+
+  La concentración másica no es lo mismo que la fracción másica, que divide entre la masa de la
+  mezcla y no tiene unidad. Se diferencia de la concentración de cantidad de sustancia en la masa
+  molar de la sustancia, $\gamma_{\mathrm{B}}=M_{\mathrm{B}}c_{\mathrm{B}}$, ya que esta última
+  cuenta moles y no kilogramos.

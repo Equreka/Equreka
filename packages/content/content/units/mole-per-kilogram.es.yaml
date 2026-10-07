@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Mol por kilogramo'
+namePlural: 'moles por kilogramo'
+description: >-
+  El mol por kilogramo, de símbolo $\mathrm{mol/kg}$, es la unidad derivada coherente del SI de la
+  molalidad, la cantidad de un soluto dividida entre la masa del disolvente que lo disuelve. Una
+  disolución tiene una molalidad de un mol por kilogramo cuando cada kilogramo de disolvente contiene
+  un mol de soluto.
+
+  Es el mol dividido entre el kilogramo, dos unidades básicas del SI, y no tiene nombre especial. La
+  publicación especial 811 del NIST la da como unidad SI de la molalidad de un soluto B y la incluye
+  con los demás cocientes de cantidad, volumen y masa que describen las mezclas.
+
+  El milimol por kilogramo, la milésima parte de la unidad, resulta adecuado para las disoluciones
+  diluidas. La IUPAC fija la molalidad estándar en exactamente un mol por kilogramo; la actividad de
+  un soluto, y a través de ella el pH, se mide respecto de esa referencia. Las constantes de los
+  puntos de congelación y de ebullición se tabulan por unidad de molalidad: en el agua, cada mol de
+  partículas disueltas por kilogramo desplaza el punto de congelación unos 1.86 grados Celsius.
+
+  QUDT asocia la unidad a la molalidad, a la fuerza iónica y a la cantidad de sustancia por unidad de
+  masa en general. Como ni el mol ni el kilogramo dependen de la temperatura, un valor en esta unidad
+  no cambia al calentar una disolución, y por eso los cálculos de propiedades coligativas la
+  emplean.
+
+  La antigua costumbre de llamar uno molal a una disolución de un mol por kilogramo, escrita 1 m, es
+  obsoleta según el NIST, y la IUPAC advierte que la letra m no debe representar la unidad junto a
+  otros símbolos de unidades. El plural es moles por kilogramo.

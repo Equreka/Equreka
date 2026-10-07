@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Actividad'
+description: >-
+  La actividad, de símbolo $A$, es el número de núcleos de una muestra de un radionucleido que
+  sufren una transformación espontánea por unidad de tiempo: el ritmo de desintegración radiactiva
+  de la muestra. Llamada también actividad radiactiva o velocidad de desintegración, es la magnitud
+  de la física nuclear y de la protección radiológica que indica la intensidad de una fuente
+  radiactiva, con independencia de la dosis que reciba una persona u objeto cercano.
+
+  Su unidad SI es el becquerel, $\mathrm{Bq}$, nombre especial de la inversa del segundo, de modo
+  que su dimensión es el tiempo elevado a menos uno. El folleto del SI reserva el becquerel para
+  los procesos aleatorios de desintegración en radionucleidos y el hercio para los fenómenos
+  periódicos, y explica que el nombre propio evita errores que podrían dañar la salud. Todavía se
+  encuentra el antiguo curie, que vale exactamente $3.7\times10^{10}\,\mathrm{Bq}$.
+
+  La actividad es una magnitud escalar y nunca es negativa. Cada núcleo de un radionucleido dado se
+  desintegra al azar con una probabilidad fija por unidad de tiempo, así que la actividad de una
+  muestra pura es proporcional al número de núcleos que aún no se han desintegrado, y el factor es
+  la constante de desintegración de ese radionucleido. Por ello la actividad disminuye de forma
+  exponencial y se reduce a la mitad en cada semivida, sin que la temperatura, la presión o la
+  forma química alteren ese ritmo.
+
+  Los detectores y los medidores portátiles registran la radiación que emite una fuente, y así se
+  determina el contenido radiactivo del suelo, de los alimentos y del agua. Los valores abarcan
+  muchos órdenes de magnitud: el radio-226 natural del agua superficial suele situarse entre 0.0037 y
+  0.0185 becquerels por litro, mientras que un gramo de radio tiene una actividad cercana a un
+  curie.
+
+  Tres ideas se confunden a menudo con ella. La radiactividad es la propiedad de emitir radiación,
+  un material radiactivo es la sustancia que la posee, y el folleto del SI considera incorrecto
+  llamar radiactividad a la actividad. La dosis absorbida y la dosis equivalente, en grais y
+  sieverts, describen en cambio el lado que recibe la radiación. Henri Becquerel descubrió la
+  radiactividad en 1896 mientras estudiaba sales de uranio.

@@ -1,0 +1,25 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.locale.schema.json
+name: 'Volumen molar del gas ideal (273.15 K, 100 kPa)'
+description: >-
+  El volumen molar de un gas ideal a 273.15 kelvin y 100 kilopascales, de símbolo
+  $V_{\mathrm{m}}$, llamado a menudo volumen molar estándar, es el volumen
+  que ocupa un mol de gas ideal a cero grados Celsius y una presión de un bar. CODATA 2022 lo da
+  como $22.710\,954\,64\ldots\times10^{-3}\,\mathrm{m^{3}/mol}$, unos 22.711 litros por mol, y es
+  exacto.
+
+  El valor no es medido: el NIST lo define como la constante molar de los gases por la temperatura
+  dividida entre la presión, con ambas condiciones fijadas por convenio. Desde 2019 la constante de
+  los gases es exacta y, como 100 kilopascales es una potencia de diez, el cociente tiene un
+  desarrollo decimal finito, $0.022\,710\,954\,641\,485\,575\,06\,\mathrm{m^{3}/mol}$; el NIST
+  imprime solo sus diez primeras cifras significativas. Las condiciones deben indicarse siempre.
+  CODATA recoge también el valor a 273.15 kelvin y una atmósfera estándar, 101.325 kilopascales,
+  que es de unos 22.414 litros por mol; los libros de texto que mantienen la definición antigua de
+  presión estándar usan esa cifra, redondeada a 22.4 litros. La Unión Internacional de Química Pura
+  y Aplicada cambió la presión estándar de una atmósfera a un bar en 1982.
+
+  La ley de Avogadro establece que, fijadas la temperatura y la presión, la cantidad de un gas ideal
+  depende solo del volumen que ocupa y no de qué gas se trate, de modo que la constante se aplica a
+  cualquier gas de comportamiento ideal. Sirve para convertir volúmenes de gas en cantidades en
+  la estequiometría: en estas condiciones, un mol de gas ocupa unos 22.7 litros, y la densidad de
+  un gas es su masa molar dividida entre este volumen. Los gases reales se apartan de él, más a
+  presión alta y temperatura baja.
