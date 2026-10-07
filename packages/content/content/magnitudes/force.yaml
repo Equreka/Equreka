@@ -16,13 +16,48 @@ categories:
   - 'physics'
 branches:
   - 'mechanics'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 5.1 Forces'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/5-1-forces'
+  - title: 'OpenStax, University Physics Volume 1, 5.5 Newton''s Third Law'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/5-5-newtons-third-law'
+  - title: 'OpenStax, University Physics Volume 1, 5.4 Mass and Weight'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/5-4-mass-and-weight'
+  - title: 'OpenStax, University Physics Volume 1, 14.1 Fluids, Density, and Pressure, Example 14.1'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: dyne'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'QUDT, quantity kind Force'
+    url: 'https://qudt.org/vocab/quantitykind/Force'
 description:
   en: >-
-    In physics, a force is an influence that can change the motion of an object. A force can cause
-    an object with mass to change its velocity (e.g. moving from a state of rest), i.e., to
-    accelerate. Force can also be described intuitively as a push or a pull. A force has both
-    magnitude and direction, making it a vector quantity. It is measured in the SI unit of newton
-    ($N$). Force is represented by the symbol $F$ (formerly $P$).
+    Force is the vector quantity of mechanics that describes a push or a pull exerted on a body by
+    another body or by a field, able to change the body's state of motion or to deform it. The net
+    force acting on a body equals the rate of change of its momentum, which for a body of constant
+    mass is its mass multiplied by its acceleration.
+
+    The SI unit is the newton, the force that gives a mass of one kilogram an acceleration of one
+    metre per second squared; in base units it is $\mathrm{kg\,m\,s^{-2}}$, so the dimension is
+    length times mass divided by time squared. Older units include the dyne of the CGS system,
+    equal to ten micronewtons, and the pound-force and kilogram-force of gravitational systems.
+
+    A force has both a size and a direction, and forces acting on the same body add as vectors.
+    Along a chosen axis, each component is positive when it points in the positive direction of
+    that axis and negative otherwise. Forces always come in pairs: when one body pushes on a second,
+    the second pushes back on the first with a force of equal size and opposite direction, and the
+    two forces act on different bodies.
+
+    Spring scales, force gauges and load cells measure force through the deformation it causes in
+    an elastic element. Near the surface of the Earth, gravity pulls on a one-kilogram object with
+    about $9.80\,\mathrm{N}$, while the water behind a large dam presses on the dam with
+    roughly $1.6\times10^{10}\,\mathrm{N}$.
+
+    Force differs from pressure, which is force divided by the area over which it acts, and from
+    energy and momentum, which describe the effect of a force acting over a distance or over a
+    time. Weight is one particular force, the pull of gravity; mass, by contrast, is not a force at
+    all.
 textSources:
   - title: 'Wikipedia: Glossary of aerospace engineering'
     url: 'https://en.wikipedia.org/wiki/Glossary_of_aerospace_engineering'

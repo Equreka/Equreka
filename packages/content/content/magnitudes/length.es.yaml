@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Longitud'
+description: >-
+  La longitud es la magnitud básica del Sistema Internacional de Magnitudes que expresa la
+  extensión en una dimensión: la distancia entre dos puntos, o el tamaño de un objeto medido a lo
+  largo de una línea o una curva. Anchura, altura, profundidad, espesor, radio, longitud de onda y
+  longitud de trayectoria son longitudes con otros nombres.
+
+  Su unidad básica en el SI es el metro. Desde que la velocidad de la luz en el vacío tiene un valor exacto en
+  metros por segundo, un metro es la distancia que recorre la luz en el vacío durante
+  $1/299\,792\,458$ de segundo. Su dimensión se escribe L, y la mayoría
+  de las dimensiones de la mecánica la combinan con la masa y el tiempo.
+
+  La longitud es un escalar y nunca es negativa. Las magnitudes con signo o dirección basadas en
+  ella, como una coordenada de posición o un desplazamiento, se tratan
+  aparte: un desplazamiento puede apuntar hacia atrás y ser nulo tras un viaje de ida y vuelta,
+  mientras que la distancia recorrida no puede disminuir.
+
+  Las reglas, las cintas métricas y los calibres sirven a escala cotidiana; los interferómetros
+  láser cuentan longitudes de onda de la luz en el trabajo de precisión, y el radar, la telemetría
+  láser y la navegación por satélite convierten en distancia el tiempo que tarda la luz. Los valores típicos van desde el ángstrom, $10^{-10}\,\mathrm{m}$, la escala de los
+  átomos, pasando por el radio medio de la Tierra, 6371 kilómetros, hasta la unidad astronómica,
+  próxima a la distancia media Tierra-Sol y fijada en exactamente
+  $149\,597\,870\,700\,\mathrm{m}$.
+
+  Desde 1889 el metro se ha definido de tres maneras. En 1889 era la longitud de una barra prototipo de
+  platino e iridio; en 1960 la 11.ª CGPM la sustituyó por una longitud de onda de la radiación del
+  criptón-86; en 1983 la 17.ª CGPM la basó en lo que recorre la luz durante un tiempo dado,
+  definición que se reformuló en 2018 para apoyarse en el valor fijo de la velocidad de la luz.

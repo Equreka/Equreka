@@ -352,8 +352,8 @@ describe('migrated corpus round-trip', () => {
 		expect(corpus.equations.get('pythagorean-theorem')?.terms.c).toMatchObject({
 			label: { en: 'Hypotenuse', es: 'Hipotenusa' },
 		});
-		expect(corpus.equations.get('area-circle')?.terms.r).toMatchObject({
-			label: { en: 'Radius', es: 'Radio' },
+		expect(corpus.equations.get('pythagorean-theorem')?.terms.a).toMatchObject({
+			label: { en: 'Leg a', es: 'Cateto a' },
 		});
 	});
 });

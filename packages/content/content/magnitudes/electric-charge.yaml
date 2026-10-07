@@ -16,14 +16,52 @@ branches:
   - 'electromagnetism'
 aliases:
   - 'charge'
+  - 'electrical charge'
+  - 'quantity of electricity'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.1 (the ampere) and Table 4 (coulomb)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, CODATA 2022 recommended values: elementary charge'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?e'
+  - title: 'OpenStax, University Physics Volume 2, 5.1 Electric Charge'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/5-1-electric-charge'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Electric current and electric charge'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/electric/elecur.html'
+  - title: 'OpenStax, University Physics Volume 2, 7.2 Electric Potential and Potential Difference'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/7-2-electric-potential-and-potential-difference'
+  - title: 'QUDT, quantity kind Electric Charge'
+    url: 'https://qudt.org/vocab/quantitykind/ElectricCharge'
 description:
   en: >-
-    Electric charge is the physical property of matter that causes it to experience a force when
-    placed in an electromagnetic field. Electric charge can be positive or negative (commonly
-    carried by protons and electrons respectively). Like charges repel each other and unlike charges
-    attract each other. An object with an absence of net charge is referred to as neutral. Early
-    knowledge of how charged substances interact is now called classical electrodynamics, and is
-    still accurate for problems that do not require consideration of quantum effects.
+    Electric charge, symbol $q$, is the property of matter through which bodies exert electric and
+    magnetic forces on one another and respond to electromagnetic fields. It comes in two kinds,
+    named positive and negative: charges of the same kind repel and charges of opposite kinds
+    attract. The charge of an object is the algebraic sum of the charges of the particles that make
+    it up, so equal amounts of both kinds leave it electrically neutral.
+
+    The SI unit of charge is the coulomb, symbol C, a derived unit equal to one ampere second, so
+    the dimension of charge is electric current multiplied by time. One coulomb is the charge that
+    a steady current of one ampere carries past a point in one second. Since the revision of the SI
+    that came into force on 20 May 2019, the elementary charge has the exact value
+    $e = 1.602\,176\,634\times10^{-19}\,\mathrm{C}$, and that fixed number defines the ampere and,
+    through it, the coulomb.
+
+    Charge is a scalar whose sign has physical meaning. A proton carries one elementary charge and
+    an electron carries minus one; ordinary bodies become charged by gaining or losing electrons.
+    Charge is quantized, since every free particle carries a whole multiple of the elementary
+    charge, and it is conserved: the net charge of an isolated system stays constant even when
+    particles are created or annihilated. Which kind is called positive is a convention that goes
+    back to Benjamin Franklin.
+
+    Charge is seldom measured directly. It is usually found by integrating a measured current over
+    time, or inferred from the force between charged bodies. HyperPhysics notes that a 120-watt
+    lamp on a 120-volt supply passes roughly one coulomb every second, and OpenStax describes a
+    12-volt car battery able to move about sixty thousand coulombs.
+
+    Charge is often confused with electric current, which is the rate at which charge flows, and
+    with the energy a battery stores, which also depends on its voltage. Physicists also speak of a
+    charge when they mean a charged particle; strictly, charge is a property that a particle has,
+    like mass.
 textSources:
   - title: 'Wikipedia: Electric charge'
     url: 'https://en.wikipedia.org/wiki/Electric_charge'

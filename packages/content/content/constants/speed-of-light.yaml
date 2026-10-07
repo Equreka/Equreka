@@ -8,6 +8,10 @@ approximations:
   - '3e+8'
 unit: 'metre-per-second'
 exact: true
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?c'
+  ref: 'speed of light in vacuum'
 externalIds:
   wikidata: 'Q2111'
   qudt: 'http://qudt.org/vocab/constant/SpeedOfLight_Vacuum'
@@ -22,15 +26,44 @@ aliases:
   - 'speed of light'
   - 'light speed'
   - 'c0'
+references:
+  - title: 'NIST, CODATA 2022 value: speed of light in vacuum'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?c'
+  - title: 'BIPM, The International System of Units, 9th ed., sections 2.1, 2.2 (Table 1), 2.2.1 and 2.3.1 (the metre and the ampere); Appendix 1 (15th CGPM, 1975, Resolution 2; 17th CGPM, 1983, Resolution 1)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Meet the constants'
+    url: 'https://www.nist.gov/si-redefinition/meet-constants'
+  - title: 'OpenStax, University Physics Volume 3, 5.9 Relativistic Energy'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/5-9-relativistic-energy'
+  - title: 'National Physical Laboratory, Louis Essen'
+    url: 'https://www.npl.co.uk/about-us/history/famous/louis-essen'
+  - title: 'QUDT, constant SpeedOfLight_Vacuum'
+    url: 'https://qudt.org/vocab/constant/SpeedOfLight_Vacuum'
 description:
   en: >-
-    The speed of light in vacuum, commonly denoted $c$, is a universal physical constant important
-    in many areas of physics. Its exact value is defined as $299,792,458$ $m/s$ (approximately
-    $300,000$ $km/s$, or $18,6000$ $mi/s$). It is exact because, by international agreement, a metre
-    is defined as the length of the path travelled by light in vacuum during a time interval of
-    $\frac{1}{299,792,458}$ second. According to special relativity, $c$ is the upper limit for the
-    speed at which conventional matter, energy or any information can travel through coordinate
-    space.
+    The speed of light in vacuum, symbol $c$, is the speed at which light and every other kind of
+    electromagnetic radiation travel through empty space. Its value is exactly
+    $299\,792\,458\,\mathrm{m/s}$, close to 300 000 kilometres per second. The value is exact
+    because the metre has been defined through it since 1983, and since 20 May 2019 it has been one
+    of the seven constants whose fixed values define the International System of Units (SI).
+
+    In special relativity the speed of light bounds every motion: accelerating any body that
+    has mass up to it would require energy without limit, and nothing that carries matter,
+    energy or information travels faster. The SI Brochure groups it with the Planck constant as a
+    truly fundamental constant, one that fixes the properties of space and time and acts alike on
+    all particles and fields.
+
+    The constant sets the scale of mass-energy equivalence, in which the rest energy of a body is its
+    mass times the square of the speed of light. In electromagnetism it links the two vacuum
+    constants: the product of the magnetic permeability and the electric permittivity of vacuum
+    equals one over its square, a relation that stayed exact when the 2019 redefinition made each of
+    them a measured quantity. For any light wave in vacuum it equals the frequency times the
+    wavelength.
+
+    Louis Essen at the National Physical Laboratory obtained 299 792 kilometres per second for
+    the speed of light in 1946 and refined it to 299 792.5 kilometres per second in 1950. Laser
+    measurements of frequency and wavelength led the 15th CGPM in 1975 to recommend 299 792 458 metres per second as the value, and in 1983 the 17th CGPM redefined the metre as the distance light
+    covers in vacuum in 1/299 792 458 of a second, which made that value exact.
 textSources:
   - title: 'Wikipedia: Speed of light'
     url: 'https://en.wikipedia.org/wiki/Speed_of_light'

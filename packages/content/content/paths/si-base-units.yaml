@@ -37,8 +37,8 @@ steps:
     note:
       en: >-
         The second comes first because the metre and the kilogram are defined through it. It is
-        fixed by the caesium-133 hyperfine transition frequency
-        $\Delta\nu_{\text{Cs}} = 9\,192\,631\,770\ \text{Hz}$.
+        fixed by the caesium-133 hyperfine transition frequency $\Delta\nu_{\mathrm{Cs}}$, set at
+        exactly $9\,192\,631\,770\,\mathrm{Hz}$.
   - id: 'metre'
     kind: 'entry'
     ref:
@@ -46,8 +46,8 @@ steps:
       slug: 'metre'
     note:
       en: >-
-        Fixed by the speed of light, $c = 299\,792\,458\ \text{m/s}$: one metre is the distance light
-        travels in vacuum in $\frac{1}{299\,792\,458}$ of a second.
+        Fixed by the speed of light $c$, exactly $299\,792\,458\,\mathrm{m/s}$: one metre is the
+        distance light travels in vacuum in $1/299\,792\,458$ of a second.
   - id: 'kilogram'
     kind: 'entry'
     ref:
@@ -55,8 +55,8 @@ steps:
       slug: 'kilogram'
     note:
       en: >-
-        Fixed by the Planck constant, $h = 6.626\,070\,15 \times 10^{-34}\ \text{J s}$. Because
-        $\text{J s} = \text{kg}\,\text{m}^{2}\,\text{s}^{-1}$, the kilogram follows once the metre
+        Fixed by the Planck constant $h$, exactly $6.626\,070\,15\times10^{-34}\,\mathrm{J\,s}$.
+        Because $\mathrm{J\,s} = \mathrm{kg\,m^{2}\,s^{-1}}$, the kilogram follows once the metre
         and the second are known.
   - id: 'kilogram-anomaly'
     kind: 'prose'
@@ -65,17 +65,18 @@ steps:
         The kilogram is the anomaly of the set. It is the only base unit whose name already carries
         an SI prefix, a leftover from the metric system's original base unit, the gram. Prefixes
         therefore attach to the gram, never to the kilogram: a thousandth of a kilogram is a gram
-        ($\text{g}$), a millionth is a milligram ($\text{mg}$), and $\mu\text{kg}$ is never written.
-        It was also the last base unit defined by an artefact: until 2019 the kilogram was the mass
-        of the International Prototype, a platinum-iridium cylinder kept near Paris, whose mass
-        drifted by roughly $50\ \mu\text{g}$ relative to its official copies over a century. Fixing
-        $h$ removed that dependence on a single object.
+        ($\mathrm{g}$), a millionth is a milligram ($\mathrm{mg}$), and $\mu\mathrm{kg}$ is never
+        written. It was also the last base unit defined by an artefact: from 1889 until 2019 the
+        kilogram was the mass of the international prototype, a platinum-iridium artefact kept at
+        the BIPM. At the third periodic verification, from 1989 to 1991, the national copies
+        differed from it by a median of about 25 micrograms. Fixing $h$ removed that dependence on a
+        single object.
   - id: 'check-prefix'
     kind: 'check'
     prompt:
       en: >-
-        A thousandth of a gram is written $\text{mg}$. Why is a millionth of a kilogram not written
-        $\mu\text{kg}$?
+        A thousandth of a gram is written $\mathrm{mg}$. Why is a millionth of a kilogram not
+        written $\mu\mathrm{kg}$?
     answer:
       en: >-
         SI prefixes never stack. The kilogram already contains the prefix kilo, so further prefixes
@@ -87,9 +88,9 @@ steps:
       slug: 'ampere'
     note:
       en: >-
-        Fixed by the elementary charge, $e = 1.602\,176\,634 \times 10^{-19}\ \text{C}$, with
-        $\text{C} = \text{A s}$: one ampere carries about $6.24 \times 10^{18}$ elementary charges
-        per second.
+        Fixed by the elementary charge $e$, exactly $1.602\,176\,634\times10^{-19}\,\mathrm{C}$,
+        with $\mathrm{C} = \mathrm{A\,s}$: one ampere carries about $6.24\times10^{18}$ elementary
+        charges per second.
   - id: 'kelvin'
     kind: 'entry'
     ref:
@@ -97,9 +98,9 @@ steps:
       slug: 'kelvin'
     note:
       en: >-
-        Fixed by the Boltzmann constant, $k = 1.380\,649 \times 10^{-23}\ \text{J/K}$, which links
-        temperature to energy per particle. The triple point of water, once exactly $273.16\ \text{K}$
-        by definition, is now a measured value.
+        Fixed by the Boltzmann constant $k$, exactly $1.380\,649\times10^{-23}\,\mathrm{J/K}$, which
+        links temperature to energy per particle. The triple point of water, once exactly
+        $273.16\,\mathrm{K}$ by definition, is now a measured value.
   - id: 'mole'
     kind: 'entry'
     ref:
@@ -107,8 +108,9 @@ steps:
       slug: 'mole'
     note:
       en: >-
-        Fixed by the Avogadro constant, $N_{\text{A}} = 6.022\,140\,76 \times 10^{23}\ \text{mol}^{-1}$.
-        The mole is a pure count of entities, so it is the only base unit that depends on no other.
+        Fixed by the Avogadro constant $N_{\mathrm{A}}$, exactly
+        $6.022\,140\,76\times10^{23}\,\mathrm{mol^{-1}}$. The mole is a pure count of entities, so
+        it is the only base unit that depends on no other.
   - id: 'candela'
     kind: 'entry'
     ref:
@@ -116,17 +118,17 @@ steps:
       slug: 'candela'
     note:
       en: >-
-        Fixed by the luminous efficacy of monochromatic radiation at $540\ \text{THz}$,
-        $K_{\text{cd}} = 683\ \text{lm/W}$. It is the one base unit tied to human perception: the
-        weighting follows the sensitivity of the eye.
+        Fixed by the luminous efficacy of monochromatic radiation at $540\,\mathrm{THz}$,
+        $K_{\mathrm{cd}}$, exactly $683\,\mathrm{lm/W}$. It is the one base unit tied to human
+        perception: the weighting follows the sensitivity of the eye.
   - id: 'closing'
     kind: 'prose'
     body:
       en: >-
         Notice the order of dependence. The second stands alone; the metre needs the second; the
         kilogram needs both; the ampere, kelvin and candela need the second through their constants'
-        units. Every other unit in this wiki, from the joule to the pascal, is a product of powers of
-        these seven, which is exactly how the build verifies each derived unit's dimension.
+        units. Every other SI unit, from the joule to the pascal, is a product of powers of these
+        seven.
   - id: 'check-dependence'
     kind: 'check'
     prompt:
@@ -134,10 +136,14 @@ steps:
         Which of the seven base unit definitions do not depend on the second?
     answer:
       en: >-
-        Only the mole. The metre uses $c$ in $\text{m/s}$; the kilogram uses $h$ in
-        $\text{kg m}^{2}\text{ s}^{-1}$; the ampere uses $e$ in $\text{A s}$; the kelvin uses $k$ in
-        $\text{J/K}$ and the joule contains $\text{s}^{-2}$; the candela uses $\text{W}$ and
-        $\text{Hz}$. The Avogadro constant is a count per mole with no time in it.
+        Only the mole. The metre uses $c$ in $\mathrm{m/s}$; the kilogram uses $h$ in
+        $\mathrm{kg\,m^{2}\,s^{-1}}$; the ampere uses $e$ in $\mathrm{A\,s}$; the kelvin uses $k$ in
+        $\mathrm{J/K}$ and the joule contains $\mathrm{s^{-2}}$; the candela uses $\mathrm{W}$ and
+        $\mathrm{Hz}$. The Avogadro constant is a count per mole with no time in it.
 references:
-  - title: 'The International System of Units (SI), 9th edition'
-    url: 'https://www.bipm.org/en/publications/si-brochure'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.1 (base units) and Table 1 (defining constants)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1, 26th CGPM (2018), Resolution 1 (in force 20 May 2019)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 4, Part 3: unit of mass, kilogram (third verification, 1989 to 1991)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'

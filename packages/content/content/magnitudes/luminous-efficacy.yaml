@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
 name:
-  en: 'Luminous efficacy'
+  en: 'Luminous efficacy of radiation'
 symbol:
   tex: 'K'
 baseUnit: 'lumen-per-watt'
@@ -10,6 +10,7 @@ dimension:
   M: -1
   L: -2
   T: 3
+nonNegative: true
 externalIds:
   wikidata: 'Q1504173'
   qudt: 'http://qudt.org/vocab/quantitykind/LuminousEfficacy'
@@ -17,11 +18,55 @@ categories:
   - 'physics'
 branches:
   - 'optics-and-photometry'
+aliases:
+  - 'luminous efficacy'
+  - 'eficacia luminosa'
+references:
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-090 luminous efficacy of radiation'
+    url: 'https://cie.co.at/eilvterm/17-21-090'
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-089 luminous efficacy of a light source'
+    url: 'https://cie.co.at/eilvterm/17-21-089'
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-093 luminous efficacy for monochromatic radiation of frequency 540 THz'
+    url: 'https://cie.co.at/eilvterm/17-21-093'
+  - title: 'BIPM, The International System of Units, 9th ed., 2.2.1 and 2.3.1 (the candela)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Luminous efficacy tables'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/vision/efficacy.html'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Luminous flux and the lumen'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/vision/lumpow.html'
+  - title: 'QUDT, quantity kind Luminous Efficacy'
+    url: 'https://qudt.org/vocab/quantitykind/LuminousEfficacy'
 description:
   en: >-
-    Luminous efficacy is a measure of how well a light source produces visible light: the ratio of
-    luminous flux to power, measured in lumens per watt ($\frac{lm}{W}$). The legacy data classified
-    lumen-per-watt under speed; this magnitude corrects that.
+    Luminous efficacy, symbol $K$, is here the luminous efficacy of radiation: the luminous flux of
+    a beam of electromagnetic radiation divided by its radiant flux, for a stated photometric
+    condition. It tells how many lumens of visual effect each watt of radiation produces for the
+    standard human observer, and so describes the spectral make-up of the radiation rather than the
+    lamp or device that emits it.
+
+    The SI unit is the lumen per watt, lm/W, equal to the candela steradian per watt; the dimension
+    is luminous intensity times solid angle divided by power. For monochromatic radiation of
+    frequency 540 terahertz the value is fixed at exactly 683 lumens per watt. This number is the
+    defining constant of the candela, which the SI Brochure describes as a technical constant
+    linking the physical power of radiation to the response of the eye.
+
+    Luminous efficacy of radiation is a non-negative scalar. The CIE asks for the photometric
+    condition to be stated: without qualification it refers to daylight (photopic) vision and
+    takes the symbol K, while night (scotopic) vision uses K prime. For monochromatic light it is the
+    peak value multiplied by the relative sensitivity of the eye at that wavelength, so it falls
+    from about 683 lumens per watt near 555 nanometres to about 181 at 630 nanometres and 11.6 at
+    680 nanometres. Infrared and ultraviolet radiation have zero luminous efficacy.
+
+    It cannot be read from a single meter. It is computed from the measured spectrum of the
+    radiation, weighting each wavelength by the eye's sensitivity, summing to obtain the luminous
+    flux and dividing by the total radiant flux.
+
+    It is often confused with the luminous efficacy of a light source, which the CIE defines
+    separately as emitted luminous flux divided by the electrical power consumed. HyperPhysics
+    gives about 17 lumens per watt for an incandescent lamp in that sense. Since a lamp cannot emit
+    more radiant power than it draws, the efficacy of a source never exceeds the efficacy of the
+    radiation it produces. It also differs from spectral luminous efficiency, a dimensionless
+    weighting between zero and one.
 textSources:
   - title: 'Wikipedia: Luminous efficacy'
     url: 'https://en.wikipedia.org/wiki/Luminous_efficacy'

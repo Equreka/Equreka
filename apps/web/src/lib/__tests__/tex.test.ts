@@ -112,7 +112,10 @@ describe('renderRichTextHtml', () => {
 describe('authored hard line breaks', () => {
 	it('survive KaTeX segment rendering as a raw newline in the text after the math', () => {
 		const equation = entity(equations, 'mass-energy-equivalence');
-		const html = renderSegmentsHtml(segmentsOf(equation, 'en'), termsOf(equation));
+		const authored = splitRichText(
+			'Rest energy is $(\\const{c}^{2})$.\nBecause the speed of light is large, so is the energy.',
+		);
+		const html = renderSegmentsHtml(authored, termsOf(equation));
 		expect(html).toMatch(/<\/span>\.\nBecause the speed of light/);
 		expect(html.split('\n').filter((line) => line.startsWith('Because')).length).toBe(1);
 		const nauticalMile = renderRichTextHtml(entity(units, 'nautical-mile').description.en ?? '');

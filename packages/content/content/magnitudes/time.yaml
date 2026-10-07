@@ -18,11 +18,45 @@ branches:
   - 'measurement'
 aliases:
   - 'duration'
+  - 'time interval'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 1, Table 2 and section 2.3.1 (the second)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (minute, hour, day)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 4, Part 3: unit of time, second'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (sidereal rotation period, sidereal orbit period)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+  - title: 'QUDT, quantity kind Time'
+    url: 'https://qudt.org/vocab/quantitykind/Time'
 description:
   en: >-
-    Time in physics is defined by its measurement: time is what a clock reads. In classical,
-    non-relativistic physics, it is a scalar quantity (often denoted by the symbol $t$) and, like
-    length, mass, and charge, is usually described as a fundamental quantity.
+    Time, in the sense of a duration or time interval, is the base quantity that measures how long
+    a process lasts or how far apart two events are. It orders events into earlier and later and is
+    one of the seven SI base quantities, with the symbol t; every rate, from speed to power
+    and frequency, divides another quantity by it.
+
+    The SI base unit is the second. It is defined by fixing the frequency of the unperturbed
+    ground-state hyperfine transition of the caesium-133 atom at exactly $9\,192\,631\,770$ hertz,
+    so one second lasts that many periods of the corresponding radiation, each about
+    $1.09\times10^{-10}\,\mathrm{s}$ long. The minute, the hour and the day, of 60, 3600 and
+    $86\,400\,\mathrm{s}$, are non-SI units still in wide use. The dimension of time is written T.
+
+    A duration is a scalar and is never negative. A time coordinate, the reading of a clock
+    against a chosen origin, can be negative before that origin, but the interval between two
+    readings is not. In relativity different observers may measure different durations between the
+    same events; the SI second is defined as a unit of proper time, the time kept by a clock
+    travelling with the events.
+
+    Clocks measure time by counting the cycles of a regular periodic process: the swing of a
+    pendulum, the vibration of a quartz crystal or the radiation of atoms. The sidereal rotation of
+    the Earth takes about 23.93 hours and its orbit around the Sun about 365.26 days.
+
+    Before 1960 the second was a fixed fraction of the mean solar day, but the Earth turns too unevenly
+    for that definition to hold up. The 11th CGPM in 1960 based it on the tropical
+    year 1900, and the 13th CGPM in 1967 and 1968 adopted the caesium definition, reworded in 2018.
+    Time should not be confused with frequency, its reciprocal for periodic events.
 textSources:
   - title: 'Wikipedia: Time in physics'
     url: 'https://en.wikipedia.org/wiki/Time_in_physics'

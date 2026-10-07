@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Ángulo sólido'
+description: >-
+  El ángulo sólido es el análogo tridimensional del ángulo plano: mide lo grande que se ve un
+  objeto o una superficie desde un punto dado. Las rectas trazadas desde ese punto hasta todos los
+  puntos del contorno del objeto forman un cono, y el ángulo sólido es el área que ese cono recorta
+  en una esfera centrada en el punto, dividida entre el cuadrado del radio de la esfera. La
+  magnitud pertenece a la geometría y se usa en toda la radiometría y la fotometría.
+
+  Su unidad SI coherente es el estereorradián, el ángulo sólido en el centro de una esfera que
+  abarca una porción de su superficie de área igual al cuadrado del radio. Por tanto, una esfera
+  completa vista desde su centro abarca $4\pi\,\mathrm{sr}$, y un hemisferio, la mitad. Como el
+  radián, el estereorradián se trata en el SI como la unidad uno; se conserva en los símbolos de
+  unidades, sobre todo en fotometría, para distinguir magnitudes como la intensidad luminosa, medida
+  en candelas o lúmenes por estereorradián, del flujo luminoso. El CIPM en 1980 y la 20.ª CGPM en
+  1995 pasaron el radián y el estereorradián a la categoría de unidades derivadas sin dimensión.
+
+  El ángulo sólido es un escalar y nunca es negativo; una superficie cerrada que rodea el punto
+  abarca los $4\pi\,\mathrm{sr}$ completos, el mayor valor posible.
+
+  Los ángulos sólidos rara vez se miden directamente. Se calculan a partir de la geometría de la
+  disposición, como la distancia a una fuente y el área de un detector, o a partir del tamaño
+  angular de un objeto. La Luna llena, de unos 1900 segundos de arco de diámetro vista desde la
+  Tierra, ocupa unos $6.6\times10^{-5}\,\mathrm{sr}$, una fracción pequeña del cielo.
+
+  El ángulo sólido es distinto del ángulo plano, y ambos no son intercambiables aunque los dos
+  lleven la unidad uno. Además, un ángulo sólido no dice nada de la forma: un cono circular, una
+  pirámide cuadrada y una porción irregular del cielo que recortan áreas iguales en la misma esfera
+  abarcan ángulos sólidos iguales.

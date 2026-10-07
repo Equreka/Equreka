@@ -4,11 +4,15 @@ name:
 symbol:
   tex: 'k'
 symbolAlt:
-  tex: 'k_{\rm {B}}'
+  tex: 'k_{\mathrm{B}}'
   text: 'kB'
 value: '1.380649e-23'
 unit: 'joule-per-kelvin'
 exact: true
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?k'
+  ref: 'Boltzmann constant'
 externalIds:
   wikidata: 'Q5962'
   qudt: 'http://qudt.org/vocab/constant/BoltzmannConstant'
@@ -22,10 +26,47 @@ aliases:
   - 'boltzmann'
   - 'kB'
   - 'k_B'
+references:
+  - title: 'NIST, CODATA 2022 value: Boltzmann constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?k'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.2 (Table 1), section 2.2.1 and section 2.3.1 (the kelvin)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Kelvin: Boltzmann constant'
+    url: 'https://www.nist.gov/si-redefinition/kelvin/kelvin-boltzmann-constant'
+  - title: 'OpenStax, University Physics Volume 2, 2.2 Pressure, Temperature, and RMS Speed'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/2-2-pressure-temperature-and-rms-speed'
+  - title: 'NIST, CODATA 2022: molar gas constant, defining equation'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?eqr'
+  - title: 'MacTutor History of Mathematics, Ludwig Boltzmann'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Boltzmann/'
+  - title: 'QUDT, constant BoltzmannConstant'
+    url: 'https://qudt.org/vocab/constant/BoltzmannConstant'
 description:
   en: >-
-    Boltzmann's constant ($k$ or $k_{\rm {B}}$) is the physical constant that relates absolute
-    temperature and energy. Named after the Austrian physicist Ludwig Boltzmann, who made important
-    contributions to the theory of statistical mechanics, in fundamental equations this constant
-    plays a central role. Its value is a fixed number without uncertainty (November 26, 2018 CGPM,
-    effective from May 20, 2019)
+    The Boltzmann constant, symbol $k$ or $k_{\mathrm{B}}$, is the proportionality factor that
+    converts thermodynamic temperature into energy at the scale of single particles. Since 20 May
+    2019 it has been one of the seven constants whose fixed values define the International System of Units (SI),
+    set at exactly $1.380\,649\times10^{-23}\,\mathrm{J/K}$; it defines the kelvin and carries no
+    uncertainty.
+
+    Multiplying a temperature by the constant gives a characteristic thermal energy per particle.
+    The SI Brochure stresses that temperature tracks this thermal energy, though not necessarily the
+    whole internal energy of a system. The factor is tiny because a single molecule holds very little
+    energy: at 293 kelvin, or 20 degrees Celsius, a common room temperature, the mean translational kinetic energy of a gas
+    molecule is only $6.07\times10^{-21}\,\mathrm{J}$.
+
+    In kinetic theory, the product of the pressure and volume of an ideal gas equals the number of
+    molecules times the constant times the absolute temperature, and the mean translational kinetic
+    energy of each molecule is three halves of the constant times the temperature, whatever the gas.
+    Scaled up by the Avogadro constant it becomes the molar gas constant, the same relation per mole.
+    In statistical physics it links the entropy of a system to the logarithm of the number of
+    microscopic states accessible to it.
+
+    The constant bears the name of the Austrian physicist Ludwig Boltzmann (1844–1906), who built
+    statistical mechanics on probability. Until 2019 the kelvin was defined by the triple point of
+    water, set at exactly 273.16 kelvin, and the constant had to be measured. The decisive values came
+    from acoustic gas thermometry, which infers temperature from the speed of sound in a gas, checked
+    against dielectric-constant gas thermometry and Johnson noise thermometry. The redefinition
+    required one method below one part per million and an independent one agreeing within three
+    parts per million; once the constant was fixed, the triple point of water became a measured
+    temperature.

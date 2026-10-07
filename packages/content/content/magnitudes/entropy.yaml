@@ -16,10 +16,48 @@ categories:
   - 'physics'
 branches:
   - 'thermodynamics'
+aliases:
+  - 'thermodynamic entropy'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.2.1 (Boltzmann constant), 2.3.4 and Appendix 1 (13th CGPM, Resolution 6)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, quantity kind Entropy (dS = dQ/T)'
+    url: 'https://qudt.org/vocab/quantitykind/Entropy'
+  - title: 'OpenStax, University Physics Volume 2, 4.6 Entropy'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/4-6-entropy'
+  - title: 'OpenStax, University Physics Volume 2, 4.7 Entropy on a Microscopic Scale'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/4-7-entropy-on-a-microscopic-scale'
+  - title: 'OpenStax, Chemistry 2e, 16.3 The Second and Third Laws of Thermodynamics, Table 16.2'
+    url: 'https://openstax.org/books/chemistry-2e/pages/16-3-the-second-and-third-laws-of-thermodynamics'
 description:
   en: >-
-    Entropy is a scientific concept, as well as a measurable physical property that is most commonly
-    associated with a state of disorder, randomness, or uncertainty.
+    Entropy, symbol $S$, is a thermodynamic state function that measures how the energy of a system
+    is spread over the microscopic states available to it. When a system at absolute temperature
+    receives a small amount of heat reversibly, its entropy rises by that heat divided by the
+    temperature. The second law of thermodynamics is expressed through entropy: in every
+    irreversible process the combined entropy of a system and its surroundings increases.
+
+    The SI unit of entropy is the joule per kelvin, J/K, so its dimension is energy divided by
+    temperature. The 13th CGPM, meeting in 1967 and 1968, added the joule per kelvin for entropy to
+    the list of SI derived units. Heat capacity shares the same unit, an example the SI Brochure
+    gives of why a unit alone never identifies a quantity.
+
+    Entropy is a scalar. Because it is a state function, the change between two states does not
+    depend on the path, so it can be computed along any reversible route joining them. The entropy
+    of a system can fall, for instance when it gives off heat, but the surroundings then gain at
+    least as much. In statistical physics the Boltzmann constant links entropy to the number of
+    accessible quantum states through $S = k\ln\Omega$. The third law sets a natural zero: a perfect crystal of a pure substance at absolute
+    zero has zero entropy.
+
+    Absolute entropies come from calorimetry, by measuring heat capacities from very low
+    temperatures upward and adding up heat divided by temperature. Standard molar entropies at
+    298.15 kelvin tabulated by OpenStax include 2.38 joules per mole kelvin for diamond, 70.0 for
+    liquid water and 188.8 for water vapour. Melting 50 grams of ice at its melting point raises its
+    entropy by about 61 joules per kelvin.
+
+    Entropy is popularly described as disorder, but the measured quantity is defined through heat and temperature or through counts of microscopic
+    states. It differs from molar entropy, entropy per amount of substance, and from heat capacity,
+    which shares its unit but describes the heat needed to raise the temperature.
 textSources:
   - title: 'Wikipedia: Maximum entropy'
     url: 'https://en.wikipedia.org/wiki/Maximum_entropy'

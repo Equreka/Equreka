@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Potencia'
+description: >-
+  La potencia es el ritmo al que se transfiere, se transforma o se consume energía o, de forma
+  equivalente, el ritmo al que se realiza trabajo. La potencia media es la energía entregada
+  dividida entre el tiempo empleado; la potencia instantánea es el límite de ese cociente en un
+  intervalo cada vez más corto. En mecánica, la potencia de una fuerza es el producto escalar de la
+  fuerza por la velocidad del cuerpo, y en un circuito, la tensión eléctrica por la corriente.
+
+  Su unidad SI es el vatio, un julio por segundo, igual a $\mathrm{kg\,m^{2}\,s^{-3}}$, de modo que
+  su dimensión es longitud al cuadrado por masa dividida entre tiempo al cubo. El folleto del SI
+  asigna el vatio a la potencia y al flujo radiante. Los motores aún se miden en caballos de fuerza,
+  que tienen varias versiones; el caballo de fuerza mecánico se define con el pie libra
+  fuerza por segundo, a razón de 550 por caballo, y equivale a unos 746 vatios.
+
+  La potencia es un escalar. Su signo indica el sentido del flujo de energía: una fuerza aporta
+  potencia positiva a un cuerpo cuando tiene una componente en la dirección de la velocidad, de
+  modo que el cuerpo gana energía, y potencia negativa cuando se opone al movimiento, como hacen el
+  rozamiento y la resistencia del aire.
+
+  Los vatímetros, los dinamómetros y los medidores de potencia de las bicicletas miden la potencia
+  combinando una fuerza o un momento de fuerza con una rapidez, o una tensión eléctrica con una
+  corriente. Un libro de texto introductorio da valores desde unos
+  $10^{-3}\,\mathrm{W}$ para una calculadora de bolsillo, pasando por unos 100 vatios que una
+  persona en reposo desprende como calor, hasta unos $4\times10^{26}\,\mathrm{W}$ que radia el Sol.
+
+  La potencia se confunde a menudo con la energía. Un contador eléctrico doméstico cuenta energía
+  en kilovatios hora, una potencia multiplicada por un tiempo, mientras que el valor impreso en un
+  aparato indica el ritmo al que consume esa energía. Un calefactor pequeño encendido todo el día
+  puede gastar más que un hervidor potente usado unos minutos.

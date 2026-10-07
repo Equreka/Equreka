@@ -15,14 +15,55 @@ externalIds:
 categories:
   - 'physics'
 branches:
-  - 'mechanics'
   - 'fluid-mechanics'
   - 'thermodynamics'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 14.1 Fluids, Density, and Pressure'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure'
+  - title: 'OpenStax, College Physics 2e, 11.3 Pressure'
+    url: 'https://openstax.org/books/college-physics-2e/pages/11-3-pressure'
+  - title: 'OpenStax, College Physics 2e, 11.6 Gauge Pressure, Absolute Pressure, and Pressure Measurement'
+    url: 'https://openstax.org/books/college-physics-2e/pages/11-6-gauge-pressure-absolute-pressure-and-pressure-measurement'
+  - title: 'OpenStax, University Physics Volume 2, 2.2 Pressure, Temperature, and RMS Speed'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/2-2-pressure-temperature-and-rms-speed'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 (pascal) and Table 8 (bar)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: atmosphere, standard'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (surface pressure)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+  - title: 'QUDT, quantity kind Pressure'
+    url: 'https://qudt.org/vocab/quantitykind/Pressure'
 description:
-  en: |-
-    Pressure (symbol: $p$ or $P$) is the force applied perpendicular to the surface of an object per unit area over which that force is distributed. Gauge pressure (also spelled gage pressure) is the pressure relative to the ambient pressure.
+  en: >-
+    Pressure is the force per unit area that a fluid exerts perpendicular to any surface in contact
+    with it, or more generally the normal force pressing on a surface divided by the area of that
+    surface. At a point inside a fluid at rest it has the same value whatever the orientation of
+    the surface, which makes it a basic variable of fluid mechanics and, for gases, a state
+    variable of thermodynamics.
 
-    Various units are used to express pressure. Some of these derive from a unit of force divided by a unit of area; the SI unit of pressure, the pascal ($Pa$), for example, is one newton per square metre (N/m2); similarly, the pound-force per square inch ($psi$) is the traditional unit of pressure in the imperial and U.S. customary systems. Pressure may also be expressed in terms of standard atmospheric pressure; the atmosphere (atm) is equal to this pressure, and the torr is defined as $\frac{1}{760}$ of this. Manometric units such as the centimetre of water, millimetre of mercury, and inch of mercury are used to express pressures in terms of the height of column of a particular fluid in a manometer.
+    The SI unit is the pascal, one newton per square metre, so the dimension is mass divided by
+    length and by time squared. Other units persist in particular fields: the bar, exactly
+    $10^{5}\,\mathrm{Pa}$, and its millibar in meteorology; the standard atmosphere, exactly
+    $101\,325\,\mathrm{Pa}$; and the pound per square inch for tyres and compressed gas.
+
+    Pressure is a scalar; the force it produces always acts normal to the surface, but the
+    pressure itself has no direction. Two reference levels are in use. Gauge pressure is measured
+    relative to the surrounding atmosphere, so it is positive above atmospheric pressure and
+    negative below it, as inside a vacuum-packed jar. Absolute pressure is measured from a perfect
+    vacuum and, for a fluid at rest, does not drop below zero.
+
+    Barometers measure atmospheric pressure, manometers balance a pressure against the height of a
+    liquid column, and many gauges read the deflection of an elastic element. Mean air pressure at
+    the surface of the Earth is about 1014 millibars; at a depth of 40 metres in fresh water the
+    pressure of the water alone reaches about $392\,\mathrm{kPa}$, and a compressed-air tank can hold
+    several million pascals.
+
+    Pressure is not force: the same force spread over a larger area gives a lower pressure.
+    Mechanical stress shares the unit and the dimension but describes internal forces in solids,
+    which, unlike fluids at rest, can also resist shear. In the kinetic theory of gases, pressure
+    arises from the momentum that molecules transfer to the container walls as they collide with
+    them.
 textSources:
   - title: 'Wikipedia: Pressure'
     url: 'https://en.wikipedia.org/wiki/Pressure'

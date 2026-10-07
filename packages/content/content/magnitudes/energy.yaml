@@ -16,13 +16,50 @@ categories:
 branches:
   - 'mechanics'
   - 'thermodynamics'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 8.1 Potential Energy of a System'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/8-1-potential-energy-of-a-system'
+  - title: 'OpenStax, University Physics Volume 1, 13.3 Gravitational Potential Energy and Total Energy'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/13-3-gravitational-potential-energy-and-total-energy'
+  - title: 'OpenStax, University Physics Volume 1, 7.2 Kinetic Energy'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/7-2-kinetic-energy'
+  - title: 'OpenStax, College Physics 2e, 7.6 Conservation of Energy, Table 7.1'
+    url: 'https://openstax.org/books/college-physics-2e/pages/7-6-conservation-of-energy'
+  - title: 'OpenStax, University Physics Volume 2, 3.3 First Law of Thermodynamics'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/3-3-first-law-of-thermodynamics'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 and Table 8 (electronvolt)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, quantity kind Energy'
+    url: 'https://qudt.org/vocab/quantitykind/Energy'
 description:
   en: >-
-    In physics, energy is the quantitative property that must be transferred to an object in order
-    to perform work on, or to heat, the object. Energy is a conserved quantity; the law of
-    conservation of energy states that energy can be converted in form, but not created or
-    destroyed. The SI unit of energy is the joule, which is the energy transferred to an object by
-    the work of moving it a distance of 1 metre against a force of 1 newton.
+    Energy is the scalar quantity that a physical system holds by virtue of its motion, its
+    configuration and its internal state, and that passes from one system to another as work or as
+    heat. Its familiar forms include kinetic energy, potential energy, internal (thermal) energy,
+    chemical and nuclear energy, and the energy carried by radiation; the total for an isolated
+    system never changes, only its distribution among forms.
+
+    The SI unit is the joule, equal to a newton metre and to a kilogram metre squared per second squared, so the
+    dimension is length squared times mass divided by time squared. The SI Brochure assigns the
+    joule to energy, work and amount of heat alike. Other units remain in use for particular
+    fields: the electronvolt in atomic and particle physics, the kilowatt-hour on electricity
+    bills, equal to 3.6 megajoules, and the calorie in nutrition.
+
+    Energy is a scalar with no direction. Kinetic energy is never negative, but potential energy
+    is measured from a reference configuration chosen by convention, so it can be negative: the
+    gravitational potential energy of a satellite is negative when the zero is placed at infinite
+    separation. In such cases only differences of energy carry physical meaning.
+
+    No meter reads energy as such; it is obtained from measured quantities, for example from
+    temperature changes in a calorimeter or from voltage, current and time in an electricity meter.
+    Its values span a vast range, from about $10^{-19}\,\mathrm{J}$ to break one strand of DNA,
+    through about $1.2\times10^{7}\,\mathrm{J}$ in a recommended daily food intake, to around
+    $4\times10^{20}\,\mathrm{J}$ for a year of world energy use, the order of magnitude quoted in an
+    introductory textbook.
+
+    Energy is commonly confused with power, the rate at which energy is transferred, and with
+    force. Work and heat are not stored in a body: they name energy in transit during a process,
+    while internal energy describes the state that the process leaves behind.
 textSources:
   - title: 'Wikipedia: Energy'
     url: 'https://en.wikipedia.org/wiki/Energy'

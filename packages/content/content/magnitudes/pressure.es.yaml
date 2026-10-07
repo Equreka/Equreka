@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Presión'
+description: >-
+  La presión es la fuerza por unidad de superficie que un fluido ejerce perpendicularmente sobre
+  cualquier superficie en contacto con él o, de forma más general, la fuerza normal que actúa sobre
+  una superficie dividida entre el área de esa superficie. En un punto de un fluido en reposo tiene
+  el mismo valor sea cual sea la orientación de la superficie, por lo que es una variable básica de
+  la mecánica de fluidos y, en los gases, una variable de estado termodinámica.
+
+  Su unidad SI es el pascal, un newton por metro cuadrado, de modo que su dimensión es masa
+  dividida entre longitud y entre tiempo al cuadrado. Otras unidades se mantienen en campos
+  concretos: el bar, exactamente $10^{5}\,\mathrm{Pa}$, y su milibar en meteorología; la atmósfera
+  estándar, exactamente $101\,325\,\mathrm{Pa}$; y la libra por pulgada cuadrada para neumáticos y
+  gases comprimidos.
+
+  La presión es un escalar; la fuerza que produce actúa siempre perpendicularmente a la superficie,
+  pero la presión en sí no tiene dirección. Se usan dos niveles de referencia. La presión
+  manométrica se mide respecto de la atmósfera circundante, de modo que es positiva por encima de
+  la presión atmosférica y negativa por debajo, como dentro de un tarro envasado al vacío. La
+  presión absoluta se mide desde el vacío perfecto y, en un fluido en reposo, no baja de cero.
+
+  Los barómetros miden la presión atmosférica, los manómetros equilibran una presión con la altura
+  de una columna de líquido y muchos medidores leen la deformación de un elemento elástico. La
+  presión media del aire en la superficie de la Tierra es de unos 1014 milibares; a 40 metros de
+  profundidad en agua dulce, la presión debida solo al agua alcanza unos $392\,\mathrm{kPa}$, y un
+  depósito de aire comprimido puede contener varios millones de pascales.
+
+  La presión no es una fuerza: la misma fuerza repartida sobre un área mayor da una presión menor.
+  La tensión mecánica comparte unidad y dimensión, pero describe fuerzas internas en los sólidos,
+  que, a diferencia de los fluidos en reposo, también resisten tensiones tangenciales. En la teoría
+  cinética de los gases, la presión procede de la cantidad de movimiento que las moléculas
+  transfieren a las paredes del recipiente al chocar con ellas.

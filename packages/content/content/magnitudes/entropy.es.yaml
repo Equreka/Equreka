@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Entropía'
+description: >-
+  La entropía, de símbolo $S$, es una función de estado que mide cómo se reparte la
+  energía de un sistema entre los estados microscópicos a su alcance. Cuando un sistema a una
+  temperatura absoluta dada recibe de forma reversible un poco de calor, su entropía
+  aumenta en ese calor dividido entre la temperatura. El segundo principio de la termodinámica se
+  enuncia mediante la entropía: en todo proceso irreversible aumenta la entropía conjunta de un
+  sistema y su entorno.
+
+  La unidad SI de entropía es el julio por kelvin, J/K, de modo que su dimensión es energía
+  dividida entre temperatura. La 13.ª CGPM, reunida en 1967 y 1968, añadió el julio por kelvin para
+  la entropía a la lista de unidades SI derivadas. La capacidad calorífica comparte la misma
+  unidad, un ejemplo que da el folleto del SI de por qué una unidad nunca identifica por sí sola a
+  una magnitud.
+
+  La entropía es un escalar. Como es una función de estado, la variación entre dos estados no
+  depende del camino, de modo que puede calcularse a lo largo de cualquier trayecto reversible que
+  los una. La entropía de un sistema puede disminuir, por ejemplo cuando cede calor, pero el
+  entorno gana entonces al menos otro tanto. En física estadística, la constante de Boltzmann
+  relaciona la entropía con el número de estados cuánticos accesibles mediante $S = k\ln\Omega$. El tercer principio fija un cero
+  natural: un cristal perfecto de una sustancia pura en el cero absoluto tiene entropía nula.
+
+  Las entropías absolutas se obtienen por calorimetría, midiendo capacidades caloríficas desde
+  temperaturas muy bajas hacia arriba y sumando el calor dividido entre la temperatura. Entre las
+  entropías molares estándar a 298.15 kelvin que tabula OpenStax figuran 2.38 julios por mol y
+  kelvin para el diamante, 70.0 para el agua líquida y 188.8 para el vapor de agua. Fundir 50
+  gramos de hielo en su punto de fusión eleva su entropía en unos 61 julios por kelvin.
+
+  La entropía se describe popularmente como desorden, pero la magnitud medida se define mediante el calor y la temperatura o mediante el
+  recuento de estados microscópicos. Se distingue de la entropía molar, la entropía por cantidad
+  de sustancia, y de la capacidad calorífica, que comparte su unidad pero describe el calor
+  necesario para elevar la temperatura.

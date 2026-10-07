@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Fuerza electromotriz'
+description: >-
+  La fuerza electromotriz, abreviada fem y escrita $\mathcal{E}$, es la energía por unidad de carga
+  que una fuente como una pila, un generador o una celda solar entrega a las cargas que impulsa por
+  un circuito. Es igual al trabajo que la acción no electrostática de la fuente realiza sobre cada
+  unidad de carga llevada de su terminal negativo al positivo cuando no circula corriente. Pese a
+  su nombre, no es una fuerza.
+
+  Al ser energía por unidad de carga, la fem se mide en voltios, julios por culombio, y tiene la
+  misma dimensión que la diferencia de potencial eléctrico. QUDT la clasifica como una clase más
+  restringida de potencial eléctrico y de tensión, y señala que el sistema de magnitudes de ISO
+  desaconseja el término; Wikidata registra tensión de fuente como otro nombre de la
+  magnitud.
+
+  La fem es un escalar. Su signo sigue el sentido en que la fuente empuja la corriente
+  convencional: es positiva cuando la fuente eleva el potencial de las cargas que la atraviesan del
+  terminal negativo al positivo. En las pilas la aportan reacciones químicas, en los generadores la
+  fuerza magnética sobre conductores en movimiento, como describe la ley de Faraday, y en las
+  celdas solares la luz.
+
+  Una fuente real tiene resistencia interna, de modo que, cuando entrega corriente, su tensión en
+  bornes cae por debajo de la fem en el producto de la corriente por esa resistencia. Por eso la fem
+  se determina como la tensión en bornes sin corriente, o a partir de la tensión en bornes medida
+  con varias corrientes conocidas. HyperPhysics indica unos 1.5 voltios para una pila de
+  carbón-zinc nueva, y una batería de plomo y ácido de automóvil une seis celdas para dar unos 12
+  voltios.
+
+  Según OpenStax, Alessandro Volta acuñó el término en el siglo XIX, cuando construyó la pila
+  voltaica, la primera batería. HyperPhysics señala que el nombre se conserva por razones
+  históricas y que ayuda a separar las tensiones generadas por una fuente de las caídas de tensión
+  en los resistores, donde se disipa energía. En el uso corriente la fem de una batería y su
+  tensión se tratan a menudo como lo mismo, lo que solo es cierto cuando no circula corriente.

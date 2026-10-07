@@ -19,12 +19,51 @@ solutions:
   m: 'E / c^2'
 calculator:
   enabled: true
+externalIds:
+  wikidata: 'Q35875'
 categories:
   - 'physics'
 branches:
   - 'modern-physics'
   - 'nuclear-physics'
+aliases:
+  - 'E=mc2'
+  - 'E = mc^2'
+  - 'rest energy'
+  - 'mass–energy equivalence'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 5.9 Relativistic Energy'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/5-9-relativistic-energy'
+  - title: 'A. Einstein, Ist die Trägheit eines Körpers von seinem Energieinhalt abhängig?, Annalen der Physik 323 (1905) 639-641'
+    url: 'https://doi.org/10.1002/andp.19053231314'
+  - title: 'NIST, CODATA 2022 value: speed of light in vacuum'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?c'
+  - title: 'NIST, Kilogram: mass and Planck''s constant'
+    url: 'https://www.nist.gov/si-redefinition/kilogram-mass-and-plancks-constant'
 description:
-  en: |-
-    This formula states that the equivalent $energy$ $(\mag{E})$ can be calculated as the mass $(\mag{m})$ multiplied by the speed of light $(\const{c})$ squared. Similarly, anything having energy exhibits a corresponding mass $(\mag{m})$ given by its energy $(\mag{E})$ divided by the speed of light squared $(\const{c}^{2})$.
-    Because the speed of light is a very large number in everyday units, the formula implies that even an everyday object at rest with a modest amount of mass has a very large amount of energy intrinsically.
+  en: >-
+    Mass-energy equivalence states that a body at rest has an energy equal to its mass multiplied
+    by the square of the speed of light in vacuum. Written E equals m c squared, it is a result of
+    special relativity: mass and energy are two measures of the same property, so a body that
+    gains or loses energy gains or loses mass with it.
+
+    In the equation, $\mag{E}$ is the rest energy of the body, in joules, and $\mag{m}$ is its mass,
+    in kilograms. The constant $\const{c}$ is the speed of light in vacuum, exactly 299 792 458
+    metres per second. Mass and rest energy are never negative. The square of the speed of light is
+    close to 90 million billion square metres per second squared, so a very small mass corresponds
+    to a very large energy.
+
+    Energy stored in a body adds to its mass, and energy released by a body removes some of it. In
+    a nuclear reaction the products have measurably less mass than the reactants, and the missing
+    mass reappears as the kinetic energy of the fragments and as radiation; that is why fission and
+    fusion release far more energy per kilogram of fuel than burning. A chemical reaction changes
+    mass too, but by an amount far too small to weigh.
+
+    The equation gives the rest energy only. A moving body has a larger total energy, the rest
+    energy multiplied by the Lorentz factor, and the difference is its kinetic energy, which at low
+    speeds reduces to the classical one half of mass times speed squared. The mass in the equation
+    is the mass measured at rest, the same for every observer.
+
+    Albert Einstein derived the relation in 1905, in a short paper in Annalen der Physik that asked
+    whether the inertia of a body depends on its energy content. A single gram of matter has a rest
+    energy of about $8.99\times10^{13}\,\mathrm{J}$.

@@ -14,6 +14,43 @@ categories:
   - 'physics'
 branches:
   - 'mechanics'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 2 and section 2.3.1 (the kilogram)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (dalton, tonne)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 4, Part 3: unit of mass, kilogram; Appendix 1, 3rd CGPM (1901)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 5.4 Mass and Weight'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/5-4-mass-and-weight'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (mass)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+  - title: 'QUDT, quantity kind Mass'
+    url: 'https://qudt.org/vocab/quantitykind/Mass'
 description:
   en: >-
-    Property of matter to resist changes of the state of motion and to attract other bodies
+    Mass is the base quantity of mechanics that measures how much a body resists a change in its
+    motion and how strongly it takes part in gravitational attraction. In Newton's second law it is
+    the factor linking force to acceleration, and in Newton's law of gravitation it sets the pull
+    between two bodies.
+
+    The SI base unit is the kilogram, and the dimension is written M. Since the 2019 revision of
+    the SI the kilogram is defined by fixing the Planck constant at exactly
+    $6.626\,070\,15\times10^{-34}\,\mathrm{J\,s}$, which, together with the definitions of the
+    metre and the second, determines the unit of mass.
+
+    Mass is a scalar and never negative, and in ordinary mechanics the mass of a combined body is
+    the sum of the masses of its parts. Unlike weight, it does not depend on location: a body has
+    the same mass on the ground, in orbit and on the Moon.
+
+    Balances measure mass by comparing an unknown body with reference masses, so the result does
+    not depend on local gravity, while spring scales read a force and infer mass from it.
+    Values range from the dalton, about $1.66\times10^{-27}\,\mathrm{kg}$, used for atoms and
+    molecules, through the tonne of 1000 kilograms used in trade, to the mass of the Earth, close to
+    $5.97\times10^{24}\,\mathrm{kg}$.
+
+    Mass and weight are confused in everyday speech; the 3rd CGPM declared in 1901 that mass
+    has the kilogram as its unit and that weight belongs to the same kind of quantity as force. From 1889
+    the kilogram was the mass of a platinum-iridium prototype kept at the BIPM. Periodic
+    comparisons showed the masses of its national copies drifting away from it, by a median of
+    about 25 micrograms in the 1989 to 1991 verification, and the 26th CGPM adopted the Planck-constant definition in 2018.

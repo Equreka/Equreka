@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.locale.schema.json
+name: 'Eficacia luminosa de la radiación de 540 THz'
+description: >-
+  La eficacia luminosa de la radiación monocromática de frecuencia 540 terahercios, de símbolo
+  $K_{\mathrm{cd}}$, es el número de lúmenes de flujo luminoso que produce cada vatio de potencia
+  radiante en una luz verde de esa única frecuencia. Su valor es exactamente $683\,\mathrm{lm/W}$,
+  fijado por definición. Define la candela, la unidad básica de intensidad luminosa, y es una de las
+  siete constantes definitorias del Sistema Internacional de Unidades (SI).
+
+  Las magnitudes radiométricas miden la potencia electromagnética como tal, en vatios. Las
+  magnitudes fotométricas ponderan esa potencia según la intensidad con que la percibe un observador
+  humano patrón, y de ahí salen el lumen y la candela. Esta constante es el puente exacto entre
+  ambas a una sola frecuencia, elegida en la zona verde del espectro, donde la visión diurna está
+  cerca de su máxima sensibilidad. El folleto del SI la llama constante técnica: a diferencia de la
+  constante de Planck o de la velocidad de la luz, expresa una convención sobre la visión humana,
+  por lo que en principio su valor podría haberse elegido libremente.
+
+  Así, un vatio de potencia radiante a 540 terahercios corresponde a 683 lúmenes, y la candela equivale a la
+  intensidad luminosa, en una dirección elegida, de una fuente que emite esa radiación con una
+  intensidad radiante de 1/683 de vatio por estereorradián. En otras longitudes de onda, el flujo
+  luminoso es el flujo radiante ponderado por la función de eficiencia luminosa espectral para la
+  visión diurna, que la Comisión Internacional de Iluminación (CIE) definió en 1924 con su máximo en
+  555 nanómetros. La frecuencia de 540 terahercios corresponde a 555.016 nanómetros en aire
+  normal, cerca de ese máximo pero no exactamente en él; la eficacia a 555 nanómetros, 683.002
+  lúmenes por vatio, suele redondearse a 683.
+
+  Las unidades fotométricas se basaron durante mucho tiempo en llamas y materiales incandescentes,
+  desde velas patrón hasta el platino calentado y, más tarde, un radiador de cuerpo negro. La
+  16.ª CGPM redefinió la candela en 1979 mediante la radiación monocromática de 540 terahercios y
+  el factor 683, elegido para que la nueva unidad coincidiera estrechamente con la anterior. La
+  revisión del SI de 2018 mantuvo el mismo número y lo reformuló como valor fijo de esta constante.

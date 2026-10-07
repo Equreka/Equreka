@@ -6,6 +6,10 @@ symbol:
 value: '6.62607015e-34'
 unit: 'joule-second'
 exact: true
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?h'
+  ref: 'Planck constant'
 externalIds:
   wikidata: 'Q122894'
   qudt: 'http://qudt.org/vocab/constant/PlanckConstant'
@@ -18,12 +22,47 @@ branches:
 aliases:
   - 'planck'
   - 'h'
+  - 'quantum of action'
+references:
+  - title: 'NIST, CODATA 2022 value: Planck constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?h'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.2 (Table 1), section 2.2.1 and section 2.3.1 (the kilogram)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Kilogram: mass and Planck''s constant'
+    url: 'https://www.nist.gov/si-redefinition/kilogram-mass-and-plancks-constant'
+  - title: 'NIST, Kilogram: the Kibble balance'
+    url: 'https://www.nist.gov/si-redefinition/kilogram-kibble-balance'
+  - title: 'M. W. Keller, Elementary again, Nature Physics 14 (2018) 424'
+    url: 'https://tsapps.nist.gov/publication/get_pdf.cfm?pub_id=925540'
+  - title: 'QUDT, constant PlanckConstant'
+    url: 'https://qudt.org/vocab/constant/PlanckConstant'
 description:
   en: >-
-    The Planck constant is a physical constant that plays a central role in the theory of quantum
-    mechanics and receives its name from its discoverer, the German physicist and mathematician Max
-    Planck, one of the fathers of this theory. Denoted as $h$, it is the constant that is often
-    defined as the elementary quantum of action. Planck would call it precisely "quantum of action"
-    (in German, Wirkungsquantum), because the quantity called action of a physical process (the
-    product of the energy involved and the time used) could only take discrete values, that is,
-    integer multiples of $h$.
+    The Planck constant, symbol $h$, is the quantum of action: the factor that converts the
+    frequency of radiation into the energy of one quantum of it. Since 20 May 2019 it has been one
+    of the seven constants whose fixed values define the International System of Units (SI),
+    set at exactly
+    $6.626\,070\,15\times10^{-34}\,\mathrm{J\,s}$; it carries no uncertainty and defines the
+    kilogram.
+
+    Its unit, the joule second, equals the kilogram metre squared per second, the unit shared by
+    action and angular momentum. The constant is so small that quantization passes unnoticed in
+    everyday objects, yet it governs the behaviour of atoms, electrons and light. The SI Brochure
+    groups it with the speed of light as a truly fundamental constant: the Planck constant fixes
+    quantum effects, the speed of light the structure of space-time, and both act alike on every
+    particle and field.
+
+    The energy of a quantum of radiation is the Planck constant times the frequency, and dividing
+    the constant by $2\pi$ gives the reduced Planck constant used throughout quantum mechanics.
+    Combined with mass-energy equivalence, the same relation ties mass to the Planck constant, which
+    is what allows it to define the kilogram. Together with the elementary charge it also governs
+    the Josephson and quantum Hall effects, the basis of today's electrical standards.
+
+    Max Planck introduced the constant in 1900, when he proposed that radiation of a given frequency
+    is emitted only in discrete amounts of energy, the step that removed the failure of classical
+    theory for thermal radiation at high frequencies. Until 2019 the kilogram was the mass of the
+    international prototype and the constant had to be measured. Kibble balances, conceived by Bryan
+    Kibble at the National Physical Laboratory in 1975, weigh a mass against an electromagnetic force
+    and so compare mechanical with electrical power; the NIST-4 balance reached an uncertainty of 34
+    parts per billion. The fixed value was chosen so that, at its adoption, the kilogram still equalled
+    the prototype within a relative standard uncertainty of one part in a hundred million.

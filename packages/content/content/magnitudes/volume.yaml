@@ -19,14 +19,44 @@ branches:
   - 'mechanics'
 aliases:
   - 'capacity'
+references:
+  - title: 'OpenStax, Contemporary Mathematics, 10.7 Volume and Surface Area'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/10-7-volume-and-surface-area'
+  - title: 'OpenStax, University Physics Volume 1, 14.1 Fluids, Density, and Pressure'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 and note (d) (litre)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (3rd CGPM 1901; 12th CGPM 1964; 16th CGPM 1979: the litre)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (volume)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+  - title: 'QUDT, quantity kind Volume'
+    url: 'https://qudt.org/vocab/quantitykind/Volume'
 description:
   en: >-
-    Volume is the quantity of three-dimensional space enclosed by a closed surface. For example, the
-    space that a substance (solid, liquid, gas, or plasma) or 3D shape occupies or contains. Volume
-    is often quantified numerically using the SI derived unit, the cubic metre. The volume of a
-    container is generally understood to be the capacity of the container; i.e., the amount of fluid
-    (gas or liquid) that the container could hold, rather than the amount of space the container
-    itself displaces. Three dimensional mathematical shapes are also assigned volumes.
+    Volume is the geometric quantity that measures the amount of three-dimensional space occupied
+    by a body or enclosed by a closed surface. Applied to a container, it usually means capacity:
+    the volume of fluid the container can hold, rather than the space taken up by its walls.
+
+    The SI unit is the cubic metre, the volume of a cube one metre on each side, and the dimension
+    is length cubed. Enlarging a solid by some factor in every direction multiplies its volume by
+    the cube of that factor. The litre, a special name for the cubic decimetre, equals
+    $10^{-3}\,\mathrm{m^{3}}$ and is a non-SI unit still in wide use; a millilitre is a cubic
+    centimetre. Prisms, cylinders, cones and spheres have volume formulas built from their lengths.
+
+    Volume is a scalar and is never negative. The volumes of separate, non-overlapping parts add
+    up, and dividing a mass by the volume it occupies gives the density of the material.
+
+    Regular solids have their volume calculated from measured lengths; liquids are measured in
+    graduated cylinders, burettes and pipettes; an irregular solid can be measured by the rise of a
+    liquid in which it is immersed. Values range from a teaspoon of a few millilitres,
+    through a litre carton, to the Earth itself, about $1.08\times10^{21}\,\mathrm{m^{3}}$.
+
+    The 3rd CGPM defined the litre in 1901 as the volume taken up by one kilogram of pure water
+    at the temperature of its greatest density, which differed slightly from the cubic decimetre. The 12th CGPM abrogated that
+    definition in 1964, and in 1979 the 16th CGPM allowed the capital L beside the lowercase l to
+    avoid confusion with the digit one. Volume is often confused with mass; for a gas, volume also
+    changes strongly with temperature and pressure.
 textSources:
   - title: 'Wikipedia: Volume'
     url: 'https://en.wikipedia.org/wiki/Volume'

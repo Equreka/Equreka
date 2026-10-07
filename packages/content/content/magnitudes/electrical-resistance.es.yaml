@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Resistencia eléctrica'
+description: >-
+  La resistencia eléctrica, de símbolo $R$, mide con qué intensidad un conductor o un componente de
+  circuito se opone al paso de la corriente eléctrica. En un componente de dos terminales se define
+  como la tensión aplicada entre ellos dividida entre la corriente que lo atraviesa, de modo que
+  una resistencia alta solo deja pasar una corriente pequeña para una tensión dada. Su inversa es
+  la conductancia eléctrica.
+
+  La unidad SI es el ohmio, de símbolo Ω, igual a un voltio por amperio y, en unidades básicas, a
+  $\mathrm{kg\,m^{2}\,s^{-3}\,A^{-2}}$, lo que da la dimensión de la resistencia. OpenStax señala
+  que para el símbolo se eligió la omega mayúscula griega para que no pueda confundirse con la
+  cifra cero.
+
+  La resistencia es un escalar que nunca es negativo en los componentes pasivos, y se anula en un
+  superconductor a baja temperatura. Depende del material, a través de su resistividad, y de la
+  forma del objeto: un hilo uniforme ofrece más resistencia cuanto más largo y fino es. La
+  resistividad de la mayoría de los metales aumenta con la temperatura, mientras que la de los
+  semiconductores disminuye. Un componente cuya razón entre tensión y corriente se mantiene
+  constante se llama óhmico, como un resistor; un diodo, que conduce en un solo sentido, es un
+  ejemplo habitual de componente no óhmico.
+
+  La resistencia se mide con un óhmetro o se calcula a partir de lecturas simultáneas de tensión y
+  corriente. OpenStax recoge valores que abarcan unos diecisiete órdenes de magnitud: un billón de
+  ohmios o más en los aisladores cerámicos que sostienen las líneas eléctricas, unos cien mil
+  ohmios de la mano al pie en una persona seca, unos mil ohmios en el corazón humano y unos diez
+  microohmios en un metro de hilo grueso de cobre.
+
+  La resistencia es propia de un objeto, mientras que la resistividad, medida en ohmio metro, es
+  propia de un material; ambas se relacionan mediante la longitud y la sección de la muestra. La
+  resistencia también se distingue de la conductancia, su inversa en siemens. La unidad lleva el
+  nombre de Georg Simon Ohm.

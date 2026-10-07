@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=../../dist/schemas/equations.schema.json
 name:
-  en: 'Square area'
+  en: 'Area of a square'
 kind: 'formula'
 level: 'intro'
 expression: '\mag{A}=\var{l}^{2}'
@@ -22,8 +22,37 @@ categories:
   - 'mathematics'
 branches:
   - 'geometry'
+aliases:
+  - 'square area'
+  - 'side squared'
+references:
+  - title: 'OpenStax, Prealgebra 2e, 9.4 Use Properties of Rectangles, Triangles, and Trapezoids'
+    url: 'https://openstax.org/books/prealgebra-2e/pages/9-4-use-properties-of-rectangles-triangles-and-trapezoids'
+  - title: 'E. W. Weisstein, Square, MathWorld'
+    url: 'https://mathworld.wolfram.com/Square.html'
 description:
   en: >-
-    The area of a square is the measure of the surface occupied by it and it's equal to the product
-    of the length of its two sides ($lxl$ or $l^{2}$), because fo this the unit of the area is given
-    in square units ($m^{2}$).
+    The area of a square equals the length of its side multiplied by itself, the side squared. A
+    square is a flat four-sided figure whose sides are all the same length and whose corners are
+    all right angles, and this formula is the most basic rule for measuring a surface.
+
+    In the formula, $\mag{A}$ is the area enclosed by the square, measured in square metres, and
+    $\var{l}$ is the length of one side, measured in metres. Neither can be negative, so no sign
+    convention arises. The unit of area is itself a square: one square metre is the area of a
+    square whose side is one metre, and any area states how many such unit squares would cover the
+    surface.
+
+    A square is a rectangle whose length and width are equal, so the rectangle rule, length times
+    width, becomes the side times the side. Counting gives the same result: a square with sides of
+    three metres holds three rows of three unit squares, nine square metres in all. Because the
+    side enters squared, doubling it multiplies the area by four, and the side is recovered from a
+    known area by taking its square root.
+
+    The formula assumes a flat surface and exact right angles. A rhombus has four equal sides too,
+    but when its angles are not right angles it encloses less area than a square with the same
+    side. The side and the area must use matching units: a side measured in centimetres gives an
+    area in square centimetres. The area is also distinct from the perimeter, the distance around
+    the figure, which for a square is four times the side.
+
+    The formula is used to size floor tiles, plots of land and screens. A square plot with an area
+    of 100 square metres has sides of 10 metres.

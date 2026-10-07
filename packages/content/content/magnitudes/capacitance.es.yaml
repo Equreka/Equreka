@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Capacidad eléctrica'
+description: >-
+  La capacidad eléctrica, de símbolo $C$, es la aptitud de un conductor o de un conjunto de
+  conductores para almacenar carga eléctrica, expresada como la carga almacenada por unidad de
+  diferencia de potencial. En un condensador, dos conductores separados por un aislante, es la
+  carga de cualquiera de los conductores dividida entre la tensión entre ellos. En un conductor
+  aislado, su capacidad propia, la tensión se toma entre el conductor y una referencia en el
+  infinito.
+
+  La unidad SI es el faradio, de símbolo F, igual a un culombio por voltio; en unidades básicas es
+  $\mathrm{kg^{-1}\,m^{-2}\,s^{4}\,A^{2}}$, lo que fija la dimensión de la capacidad. Las
+  definiciones de unidades eléctricas adoptadas por el CIPM en 1946 describían el faradio como la
+  capacidad de un condensador cuyas placas presentan una diferencia de potencial de un voltio
+  cuando almacena un culombio.
+
+  La capacidad es un escalar y es positiva en todo condensador físico. Depende solo de la geometría
+  de los conductores y del material aislante entre ellos, no de la carga ni de la tensión: duplicar
+  la tensión duplica la carga almacenada y deja la razón sin cambios. Un condensador de placas
+  paralelas gana capacidad con placas más grandes, una separación menor o un dieléctrico de mayor
+  permitividad.
+
+  La capacidad se obtiene midiendo la carga que toma un componente a una tensión conocida. Un
+  faradio es un valor muy grande, por lo que, según OpenStax, los condensadores prácticos van de
+  los picofaradios a los milifaradios. Los condensadores en paralelo suman sus capacidades,
+  mientras que los conectados en serie se combinan por sus inversas; HyperPhysics señala que dos
+  condensadores previstos para 600 voltios pueden ponerse en serie para soportar 1200 voltios.
+
+  La capacidad es una propiedad, mientras que el condensador es el componente que la tiene, y la
+  botella de Leyden de la época de Benjamin Franklin fue un ejemplo temprano. También se distingue
+  de la permitividad, la propiedad del material en faradios por metro que, junto con la geometría,
+  determina la capacidad. El faradio debe su nombre a Michael Faraday.

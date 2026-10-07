@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Magnitud adimensional'
+description: >-
+  Una magnitud adimensional, también llamada magnitud de dimensión uno, es aquella cuya dimensión,
+  expresada mediante las siete magnitudes básicas del SI, tiene todos los exponentes nulos. Cumplen esta condición dos familias: los cocientes entre dos magnitudes de la misma
+  naturaleza, como el índice de refracción, la deformación unitaria, el rendimiento o una fracción
+  másica, y los recuentos de entidades, como un número de fotones, de moléculas o de
+  desintegraciones.
+
+  La unidad SI coherente de estas magnitudes es la unidad uno, de símbolo 1, que casi nunca se
+  escribe: un índice de refracción se expresa como $n=1.51$, sin un factor uno al final. Los
+  prefijos del SI no pueden unirse al símbolo 1, de modo que los valores muy grandes o muy
+  pequeños se escriben con potencias de diez. Una razón puede conservar en cambio un cociente de
+  unidades que muestre su naturaleza, como metro por metro o mol por mol, que entonces admite
+  prefijos, como en $\mathrm{\mu m/m}$; un recuento no tiene esa opción. El signo de por ciento y
+  las partes por millón son abreviaturas aceptadas de fracciones fijas.
+
+  El ángulo plano y el ángulo sólido también se tratan en el SI como magnitudes de unidad uno, y
+  el radián y el estereorradián se escriben cuando conviene indicar que interviene un ángulo. Su
+  situación quedó fijada cuando el CIPM en 1980 y después la 20.ª CGPM en 1995 reclasificaron las
+  antiguas unidades suplementarias como unidades derivadas adimensionales.
+
+  Un valor adimensional puede ser positivo, negativo o nulo según su definición, y se mide
+  comparando dos medidas de la misma naturaleza o contando. La deformación unitaria ofrece un
+  ejemplo de valor pequeño: el tramo superior de un pilar de granito que sostiene una escultura se
+  comprime unas tres partes por millón.
+
+  Tener dimensión uno no hace intercambiables dos de estas magnitudes. Un ángulo, una deformación
+  unitaria y un número de partículas llevan la unidad uno, pero sumarlos no tiene sentido; por eso
+  el SI pide describir con claridad la magnitud que hay detrás de cada número sin unidad.

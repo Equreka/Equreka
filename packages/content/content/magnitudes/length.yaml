@@ -16,12 +16,47 @@ branches:
   - 'mechanics'
 aliases:
   - 'distance'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 2 and section 2.3.1 (the metre)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (ångström, astronomical unit)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 4, Part 3: unit of length, metre'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 3.1 Position, Displacement, and Average Velocity'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/3-1-position-displacement-and-average-velocity'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (volumetric mean radius)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+  - title: 'QUDT, quantity kind Length'
+    url: 'https://qudt.org/vocab/quantitykind/Length'
 description:
   en: >-
-    Length is a measure of distance. In the International System of Quantities, length is a quantity
-    with dimension distance. In most systems of measurement a base unit for length is chosen, from
-    which all other units are derived. In the International System of Units (SI) system the base
-    unit for length is the metre.
+    Length is the base quantity of the International System of Quantities that expresses
+    one-dimensional extent: the distance between two points, or the size of an object measured
+    along a line or a curve. Width, height, depth, thickness, radius, wavelength and path length
+    are all lengths under different names.
+
+    The SI base unit is the metre. Since the speed of light in vacuum was given an exact value in metres per
+    second, one metre is the distance light travels in vacuum during $1/299\,792\,458$ of a
+    second. The dimension of length is written L, and most dimensions in mechanics
+    combine it with mass and time.
+
+    Length is a scalar and is never negative. Signed and directed quantities built on it, such as a
+    position coordinate or a displacement, are kept separate: a displacement can point backwards
+    and can be zero after a round trip, whereas the distance covered along the way cannot shrink.
+
+    Rulers, tape measures and calipers serve at everyday scales; laser interferometers count light
+    wavelengths for precision work, and radar, laser ranging and satellite navigation turn a
+    measured travel time of light into a distance. Typical values run from the ångström,
+    $10^{-10}\,\mathrm{m}$, the scale of atoms, through the mean radius of the Earth, 6371
+    kilometres, to the astronomical unit, close to the average distance between the Earth and the
+    Sun and fixed at exactly
+    $149\,597\,870\,700\,\mathrm{m}$.
+
+    Since 1889 the metre has been defined in three ways. In 1889 it was the length of a platinum-iridium
+    prototype bar; in 1960 the 11th CGPM replaced it with a wavelength of krypton-86 radiation; in
+    1983 the 17th CGPM based it on the distance travelled by light in a set time, a definition
+    reworded in 2018 to rest on the fixed value of the speed of light.
 textSources:
   - title: 'Wikipedia: Length'
     url: 'https://en.wikipedia.org/wiki/Length'

@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Potencial eléctrico'
+description: >-
+  El potencial eléctrico, de símbolo $V$, es la energía potencial eléctrica que tendría una carga
+  de prueba pequeña en un punto de un campo eléctrico, dividida entre esa carga. Como la carga se
+  cancela, el potencial describe el campo en cada punto con un único número que no depende de la
+  carga de prueba. También se llama potencial electrostático o potencial escalar eléctrico, y
+  siempre se expresa respecto de un punto de referencia elegido.
+
+  La unidad SI es el voltio, de símbolo V, igual a un julio por culombio y, en unidades básicas, a
+  un kilogramo metro cuadrado por segundo al cubo y por amperio. La dimensión del potencial es, por
+  tanto, energía dividida entre carga. La diferencia de potencial y la fuerza electromotriz
+  comparten la unidad y la dimensión.
+
+  El potencial es un escalar que puede ser positivo, negativo o nulo, y su cero se elige
+  libremente. Para cargas aisladas la referencia suele colocarse
+  infinitamente lejos, de modo que el potencial cerca de una carga puntual positiva es positivo y
+  cerca de una negativa es negativo; en las medidas prácticas se suele tomar como cero el potencial de tierra. QUDT
+  define el potencial en un punto integrando el campo eléctrico a lo largo de un camino desde ese
+  punto hasta el infinito, un resultado independiente del camino solo si el campo no varía con el tiempo.
+
+  Como solo se observan diferencias, un voltímetro compara siempre el punto de interés con la
+  referencia. Los valores van desde unos 1.5 voltios entre los terminales de una pila seca nueva y
+  12 voltios en una batería de automóvil hasta los 5000 voltios que aceleran los electrones en el cañón
+  de electrones descrito por OpenStax. En la escala atómica, las energías se dan en electronvoltios,
+  la energía que gana una carga elemental al atravesar un voltio.
+
+  El potencial eléctrico no es la energía potencial eléctrica: el potencial es energía por unidad
+  de carga, de modo que una batería pequeña y otra grande con la misma tensión guardan energías
+  muy distintas. También se distingue de la diferencia de potencial, o tensión, que compara dos
+  puntos, y del campo eléctrico, cuya intensidad es el ritmo al que cambia el potencial con la
+  distancia.

@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Corriente eléctrica'
+description: >-
+  La corriente eléctrica, de símbolo $I$, es el ritmo neto al que la carga eléctrica atraviesa una
+  superficie dada, como una sección de un hilo, un electrolito o un haz de partículas. Cuenta la
+  carga que cruza esa superficie por unidad de tiempo, sea cual sea su portador: electrones en un
+  metal, iones en una disolución salina o en una neurona, protones en un acelerador. La corriente
+  eléctrica es una de las siete magnitudes básicas del SI.
+
+  Su unidad SI es el amperio, de símbolo A, una unidad básica. Desde la revisión del SI de 2019 el
+  amperio se define asignando a la carga elemental un valor numérico exacto, de modo que un amperio es la
+  corriente que transporta $1/(1.602\,176\,634\times10^{-19})$ cargas elementales por segundo a
+  través de un punto, unos seis trillones. Dicho de otro modo, un amperio es un culombio por
+  segundo. La corriente tiene su propia dimensión básica, a partir de la cual se construyen las
+  dimensiones de las demás magnitudes eléctricas.
+
+  Medida a través de una superficie, la corriente es una magnitud escalar cuyo signo indica el
+  sentido del flujo respecto de una orientación elegida para esa superficie. Según una convención
+  que se remonta a Benjamin Franklin, la corriente convencional apunta hacia donde se movería la
+  carga positiva: sale del terminal positivo de una fuente, recorre el circuito exterior y vuelve
+  al terminal negativo. En un hilo metálico los electrones derivan en sentido contrario, y un
+  valor negativo indica un flujo opuesto al sentido de referencia.
+
+  La corriente se mide con un amperímetro conectado en serie con el circuito. OpenStax cita
+  ejemplos que abarcan casi seis órdenes de magnitud: unos 0.3 miliamperios para hacer funcionar una
+  calculadora solar, entre 10 y 30 amperios como valores nominales de los interruptores
+  automáticos domésticos, y unos 180 amperios que el motor de arranque de un camión consume
+  durante unos segundos.
+
+  La corriente se confunde a menudo con la tensión, la energía por unidad de carga que la impulsa,
+  y con la propia carga, que es la cantidad transportada y no su ritmo. La gravedad de una descarga
+  eléctrica depende sobre todo de la corriente que atraviesa el cuerpo, no de la tensión. La unidad
+  rinde homenaje a André-Marie Ampère.

@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Volumen'
+description: >-
+  El volumen es la magnitud geométrica que mide la cantidad de espacio tridimensional que ocupa un
+  cuerpo o que encierra una superficie cerrada. Aplicado a un recipiente suele significar
+  capacidad: el volumen de fluido que el recipiente puede contener, no el espacio que ocupan sus
+  paredes.
+
+  Su unidad SI es el metro cúbico, el volumen de un cubo de un metro de arista, y su dimensión es
+  longitud al cubo. Ampliar un sólido por un factor en todas las direcciones multiplica su volumen
+  por el cubo de ese factor. El litro, nombre especial del decímetro cúbico, equivale a
+  $10^{-3}\,\mathrm{m^{3}}$ y es una unidad ajena al SI de uso extendido; un mililitro es un centímetro
+  cúbico. Los prismas, los cilindros, los conos y las esferas tienen fórmulas de volumen
+  construidas con sus longitudes.
+
+  El volumen es un escalar y nunca es negativo. Los volúmenes de partes separadas que no se
+  solapan se suman, y al dividir una masa entre el volumen que ocupa se obtiene la densidad del
+  material.
+
+  El volumen de los sólidos regulares se calcula a partir de longitudes medidas; los líquidos se
+  miden con probetas graduadas, buretas y pipetas; un sólido irregular puede medirse por la
+  subida del nivel de un líquido en el que se sumerge. Los valores van desde una cucharadita de
+  unos pocos mililitros, pasando por un envase de un litro, hasta la propia Tierra, unos
+  $1.08\times10^{21}\,\mathrm{m^{3}}$.
+
+  La 3.ª CGPM definió en 1901 el litro como el volumen que ocupa un kilogramo de agua pura a la temperatura de su densidad
+  máxima, que difería ligeramente del decímetro cúbico. La 12.ª CGPM derogó esa definición en 1964,
+  y en 1979 la 16.ª CGPM admitió la L mayúscula junto a la l minúscula para evitar la confusión con
+  la cifra uno. El volumen se confunde a menudo con la masa; en un gas, además, el volumen cambia
+  mucho con la temperatura y la presión.

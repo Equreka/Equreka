@@ -17,11 +17,46 @@ categories:
   - 'physics'
 branches:
   - 'mechanics'
+aliases:
+  - 'mechanical stress'
+  - 'esfuerzo'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 12.3 Stress, Strain, and Elastic Modulus'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/12-3-stress-strain-and-elastic-modulus'
+  - title: 'Engineering LibreTexts, Mechanics and Science of Materials (Cal Poly Humboldt), Chapter 5, 5.1 Sign Conventions'
+    url: 'https://eng.libretexts.org/Courses/California_State_Polytechnic_University_Humboldt/Mechanics_and_Science_of_Materials/Chapter_5:_Mechanical_Behavior_of_Materials_Part_I'
+  - title: 'OpenStax, University Physics Volume 1, 14.1 Fluids, Density, and Pressure'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-1-fluids-density-and-pressure'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4 (pascal)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, quantity kind Stress'
+    url: 'https://qudt.org/vocab/quantitykind/Stress'
 description:
   en: >-
-    In continuum mechanics, stress is a physical quantity that expresses the internal forces that
-    neighbouring particles of a continuous material exert on each other, while strain is the measure
-    of the deformation of the material.
+    Stress, or mechanical stress, is the internal force per unit area that neighbouring parts of a
+    deformed solid exert on each other across an imagined cut through the material. It is the
+    basic load measure of continuum mechanics and strength of materials: tensile stress arises
+    when a body is stretched, compressive stress when it is squeezed along one direction, bulk
+    stress when it is squeezed from all sides, and shear stress when forces act parallel to the cut.
+
+    The SI unit is the pascal, one newton per square metre, the same unit as pressure, so the
+    dimension is mass divided by length and by time squared. Because materials withstand large
+    stresses, engineers usually work in megapascals and gigapascals, and in the pound per square
+    inch where customary units persist.
+
+    On a single chosen plane, stress splits into a normal component, perpendicular to the plane,
+    and a shear component lying in it. The full state of stress at a point, which links the force
+    on a cut to the orientation of the cut, is a tensor rather than a single number. In mechanics
+    of materials a tensile normal stress is counted as positive and a compressive one as negative.
+
+    Stress cannot be read directly; strain gauges measure the small deformation it produces, and
+    the stress follows from the elastic modulus of the material. A textbook example finds about
+    $128\,\mathrm{kPa}$ of compression in a granite pillar carrying a statue, and about
+    $1.8\times10^{8}\,\mathrm{Pa}$ of tension in a steel rod that suspends heavy equipment.
+
+    Stress is often confused with strain, the dimensionless relative deformation that a stress
+    causes, and with pressure. A fluid at rest cannot withstand a shearing force, so its state of
+    stress reduces to a pressure acting equally in every direction, whereas a solid can carry shear.
 textSources:
   - title: 'Wikipedia: Stress (mechanics)'
     url: 'https://en.wikipedia.org/wiki/Stress_(mechanics)'

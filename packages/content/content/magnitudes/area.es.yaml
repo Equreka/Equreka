@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Área'
+description: >-
+  El área es la magnitud geométrica que mide el tamaño de una región bidimensional, ya sea una
+  figura trazada en un plano o un trozo de una superficie curva como la de una esfera. Cuenta
+  cuántos cuadrados unidad, junto con sus fracciones, hacen falta para cubrir la región sin huecos
+  ni solapamientos.
+
+  Su unidad SI es el metro cuadrado, el área de un cuadrado de un metro de lado, y su dimensión es
+  longitud al cuadrado. Por ese cuadrado, ampliar una figura por un factor en todas las direcciones
+  multiplica su área por el cuadrado del factor, y al cambiar de unidad también se eleva al cuadrado
+  el factor de longitud: un kilómetro cuadrado contiene un millón de metros cuadrados. Los
+  rectángulos, los triángulos, los círculos y otras figuras habituales tienen fórmulas cerradas
+  construidas con sus longitudes; las regiones de contorno curvo e irregular requieren integración
+  o aproximación.
+
+  El área es un escalar y nunca es negativa. La física usa además un área vectorial, que asigna a
+  una superficie orientada una dirección perpendicular a ella; ese objeto, presente en los cálculos
+  de flujo y de presión, es distinto del simple tamaño de la región.
+
+  Rara vez se lee en un instrumento: se calcula a partir de longitudes medidas, de un levantamiento
+  topográfico o de un mapa o imagen de escala conocida. Sus valores van desde el barn,
+  $10^{-28}\,\mathrm{m^{2}}$, usado para secciones eficaces nucleares, pasando por la hectárea,
+  $10^{4}\,\mathrm{m^{2}}$, usada para terrenos, hasta la superficie entera de la Tierra, unos
+  $5.1\times10^{14}\,\mathrm{m^{2}}$ para una esfera del radio medio del planeta.
+
+  El área se confunde a menudo con el perímetro, la longitud del contorno: dos figuras de igual
+  perímetro pueden encerrar áreas muy distintas. El área total, la suma de las áreas de las caras
+  de un sólido, es igualmente una magnitud distinta del volumen que encierra.

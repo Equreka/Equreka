@@ -160,9 +160,8 @@ describe('build over the real corpus', () => {
 			identifier: 'pi',
 		});
 		expect(parsed.equations['area-circle']?.terms.r).toEqual({
-			kind: 'symbol',
-			label: { en: 'Radius', es: 'Radio' },
-			unit: 'metre',
+			kind: 'variable',
+			ref: 'radius',
 			identifier: 'r',
 		});
 		expect(parsed.equations['pythagorean-theorem']?.terms.c).toEqual({
@@ -317,7 +316,7 @@ describe('build over the real corpus', () => {
 		expect(paths['temperature-scales']?.prerequisites).toEqual(['si-base-units']);
 		const equationStep = paths['energy-work-heat']?.steps.find((step) => step.id === 'mass-energy');
 		expect(equationStep?.target).toEqual({
-			name: { en: 'Mass-energy equivalence' },
+			name: { en: 'Mass-energy equivalence', es: 'Equivalencia entre masa y energía' },
 			symbolText: '',
 		});
 		const piStep = paths['geometry-of-circles-and-triangles']?.steps.find((s) => s.id === 'pi');
@@ -331,18 +330,22 @@ describe('build over the real corpus', () => {
 		const row = catalog.find(
 			(entry) => entry.collection === 'paths' && entry.slug === 'si-base-units',
 		);
-		expect(row).toMatchObject({ name: 'Las siete unidades base del SI' });
+		expect(row).toMatchObject({ name: 'Las siete unidades básicas del SI' });
 		expect(row?.aliases).toContain('unidades base');
 	});
 
 	it('ships prose raw, hard line breaks intact, with no pre-split segments', () => {
-		const equations = readJson<Record<string, { description: { en: string } }>>(
-			'presentation',
-			'equations.json',
-		);
-		expect(equations['mass-energy-equivalence']?.description.en).toContain(
-			'$(\\const{c}^{2})$.\nBecause the speed of light',
-		);
+		for (const collection of COLLECTIONS) {
+			const shipped = readJson<Record<string, { description?: { en: string } }>>(
+				'presentation',
+				`${collection}.json`,
+			);
+			const authored: ReadonlyMap<string, { description?: { en: string } | undefined }> =
+				report.corpus[collection];
+			for (const [slug, entry] of authored) {
+				expect(shipped[slug]?.description?.en, `${collection}/${slug}`).toBe(entry.description?.en);
+			}
+		}
 		const units = readJson<Record<string, { description: { en: string } }>>(
 			'presentation',
 			'units.json',

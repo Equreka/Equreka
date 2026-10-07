@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Eficacia luminosa de la radiación'
+description: >-
+  La eficacia luminosa, de símbolo $K$, es aquí la eficacia luminosa de la radiación: el flujo
+  luminoso de un haz de radiación electromagnética dividido entre su flujo radiante, para una
+  condición fotométrica indicada. Expresa cuántos lúmenes de efecto visual produce cada vatio de
+  radiación para el observador humano patrón, de modo que describe la composición espectral de la
+  radiación y no la lámpara o el dispositivo que la emite.
+
+  La unidad SI es el lumen por vatio, lm/W, igual a la candela estereorradián por vatio; la
+  dimensión es intensidad luminosa por ángulo sólido dividida entre potencia. Para la radiación
+  monocromática de 540 terahercios de frecuencia el valor está fijado en exactamente 683 lúmenes
+  por vatio. Ese número es la constante que define la candela, y el folleto del SI la describe
+  como una constante técnica que relaciona la potencia física de la radiación con la respuesta del
+  ojo.
+
+  La eficacia luminosa de la radiación es un escalar no negativo. La CIE pide indicar la condición
+  fotométrica: sin más precisión se refiere a la visión diurna (fotópica) y lleva el símbolo K,
+  mientras que la visión nocturna (escotópica) usa K prima. Para la luz monocromática es el valor
+  máximo multiplicado por la sensibilidad relativa del ojo a esa longitud de onda, por lo que baja
+  de unos 683 lúmenes por vatio cerca de 555 nanómetros a unos 181 a 630 nanómetros y 11.6 a 680
+  nanómetros. La radiación infrarroja y la ultravioleta tienen eficacia luminosa nula.
+
+  No puede leerse en un único instrumento. Se calcula a partir del espectro medido de la
+  radiación, ponderando cada longitud de onda según la sensibilidad del ojo, sumando para obtener
+  el flujo luminoso y dividiendo entre el flujo radiante total.
+
+  Se confunde a menudo con la eficacia luminosa propia de una lámpara u otra fuente, que la CIE define por
+  separado como el flujo luminoso emitido dividido entre la potencia eléctrica consumida.
+  HyperPhysics da unos 17 lúmenes por vatio para una lámpara incandescente en ese sentido. Como
+  una lámpara no puede emitir más potencia radiante de la que consume, la eficacia de una fuente
+  nunca supera la eficacia de la radiación que produce. También se distingue de la eficiencia
+  luminosa espectral, una ponderación adimensional entre cero y uno.
