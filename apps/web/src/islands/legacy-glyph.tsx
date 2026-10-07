@@ -7,6 +7,7 @@ export const LEGACY_GLYPHS = {
 	'arrow-clockwise': 0xf116,
 	'box-arrow-in-down': 0xf1bc,
 	'box-arrow-up': 0xf1c6,
+	calculator: 0xf1e0,
 	check2: 0xf272,
 	'chevron-right': 0xf285,
 	clipboard: 0xf290,

@@ -1,7 +1,6 @@
 import type { CalculatorSolution } from '@equreka/core/hooks/use-calculator-units';
 import type { EngineError, EngineResult } from '@equreka/engine';
-import { formatSigFigs } from '@equreka/engine/format';
-import { toSuperscript } from './notation';
+import { formatResult, type NumberFormat, resultText } from '@equreka/engine/format';
 
 /**
  * What the result card shows. `needed` is the legacy "Enter data to solve"
@@ -62,41 +61,25 @@ export function calculatorViewOf(
 	return { status: 'solved', solution: outcome.value, unitSymbol: unitSymbolOf(outcome.value) };
 }
 
-export interface ScientificParts {
-	mantissa: string;
-	exponent: string | null;
-}
-
-/**
- * Splits formatSigFigs output at its exponent ("2.2253e-17" → 2.2253 and
- * -17) so the card can set the power of ten as a superscript; a leading
- * '+' is dropped.
- */
-export function scientificParts(formatted: string): ScientificParts {
-	const at = formatted.search(/e/i);
-	if (at === -1) return { mantissa: formatted, exponent: null };
-	return {
-		mantissa: formatted.slice(0, at),
-		exponent: formatted.slice(at + 1).replace(/^\+/, ''),
-	};
-}
-
 export function resultOperator(solution: CalculatorSolution): '=' | '≈' {
 	return solution.exact ? '=' : '≈';
 }
 
 /**
- * Plain-text form of the result card ("m = 2.2253 × 10⁻¹⁷ kg") for the
- * clipboard: superscript digits keep the exponent readable once pasted.
+ * Plain-text twin of the result card for the clipboard, in the format the
+ * card shows ("m = 2.225300112 × 10⁻¹⁷ kg").
  */
 export function calculatorResultText(
 	symbol: string,
 	solution: CalculatorSolution,
 	unitSymbol: string,
+	format: NumberFormat,
 ): string {
-	const { mantissa, exponent } = scientificParts(formatSigFigs(solution.value));
-	const value = exponent === null ? mantissa : `${mantissa} × 10${toSuperscript(Number(exponent))}`;
-	const parts = [symbol, resultOperator(solution), value];
+	const parts = [
+		symbol,
+		resultOperator(solution),
+		resultText(formatResult(solution.value, format)),
+	];
 	if (unitSymbol !== '') parts.push(unitSymbol);
 	return parts.join(' ');
 }

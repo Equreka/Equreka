@@ -241,6 +241,8 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'calculator.hint':
 		'Llena todos los valores excepto el que quieres despejar — se calcula mientras escribes.',
 	'calculator.allRoots': 'Todas las raíces: {roots} — arriba se muestra la raíz admisible.',
+	'calculator.precision.readable': '(hasta {count} cifras significativas)',
+	'calculator.precision.scientific': '(precisión completa)',
 	'calculator.failed': 'El cálculo falló.',
 	'calculator.unitFor': 'Unidad de {name}',
 	'calculator.resultUnit': 'Unidad del resultado',
@@ -362,6 +364,9 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'settings.theme.light': 'Claro',
 	'settings.theme.dark': 'Oscuro',
 	'settings.language': 'Idioma',
+	'settings.numberFormat': 'Formato de resultados',
+	'settings.numberFormat.readable': 'Legible',
+	'settings.numberFormat.scientific': 'Científico (precisión completa)',
 	'settings.favorites': 'Favoritos',
 	'settings.version': 'Versión',
 

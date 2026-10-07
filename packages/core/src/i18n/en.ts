@@ -235,6 +235,8 @@ export const en = {
 	'calculator.hint':
 		'Fill in every value except the one to solve for — it is computed as you type.',
 	'calculator.allRoots': 'All roots: {roots} — the admissible root is shown above.',
+	'calculator.precision.readable': '(up to {count} significant figures)',
+	'calculator.precision.scientific': '(full precision)',
 	'calculator.failed': 'The calculation failed.',
 	'calculator.unitFor': 'Unit for {name}',
 	'calculator.resultUnit': 'Result unit',
@@ -349,6 +351,9 @@ export const en = {
 	'settings.theme.light': 'Light',
 	'settings.theme.dark': 'Dark',
 	'settings.language': 'Language',
+	'settings.numberFormat': 'Result format',
+	'settings.numberFormat.readable': 'Readable',
+	'settings.numberFormat.scientific': 'Scientific (full precision)',
 	'settings.favorites': 'Favorites',
 	'settings.version': 'Version',
 

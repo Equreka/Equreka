@@ -1,8 +1,5 @@
-import {
-	formatFullPrecision,
-	powerOfTenExponent,
-	toSuperscript,
-} from '../../entities/content/notation';
+import { toSuperscript } from '@equreka/engine/format';
+import { formatFullPrecision, powerOfTenExponent } from '../../entities/content/notation';
 import type { PresentationPrefix } from '../../entities/content/types';
 import { useT } from '../../shared/providers/equreka-provider';
 import { VStack } from '../../shared/ui/screen';

@@ -1,19 +1,5 @@
+import { toSuperscript } from '@equreka/engine/format';
 import type { CompiledDimension } from '@equreka/schema';
-
-const SUPERSCRIPT_DIGITS: Record<string, string> = {
-	'0': '⁰',
-	'1': '¹',
-	'2': '²',
-	'3': '³',
-	'4': '⁴',
-	'5': '⁵',
-	'6': '⁶',
-	'7': '⁷',
-	'8': '⁸',
-	'9': '⁹',
-	'-': '⁻',
-	'+': '',
-};
 
 /**
  * Display symbols for the compiled 8-tuple's positions [L, M, T, I, Th, N,
@@ -21,13 +7,6 @@ const SUPERSCRIPT_DIGITS: Record<string, string> = {
  * A for the engine's synthetic angle dimension.
  */
 const DIMENSION_SYMBOLS = ['L', 'M', 'T', 'I', 'Θ', 'N', 'J', 'A'] as const;
-
-export function toSuperscript(value: number): string {
-	return String(value)
-		.split('')
-		.map((char) => SUPERSCRIPT_DIGITS[char] ?? char)
-		.join('');
-}
 
 /**
  * Exponent notation for a compiled dimension vector ("L² M T⁻²"); the empty
