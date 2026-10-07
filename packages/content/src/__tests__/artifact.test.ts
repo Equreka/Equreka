@@ -238,6 +238,22 @@ describe('build over the real corpus', () => {
 		expect(branches.measurement?.externalIds?.wikidata).toBe('Q394');
 	});
 
+	it('carries textSources on every presentation record, crediting only described entries', () => {
+		for (const collection of COLLECTIONS) {
+			const records = readJson<
+				Record<string, { textSources?: { url: string }[]; description?: unknown }>
+			>('presentation', `${collection}.json`);
+			for (const [slug, record] of Object.entries(records)) {
+				expect(Array.isArray(record.textSources), `${collection}/${slug}`).toBe(true);
+				if ((record.textSources ?? []).length > 0) {
+					expect(record.description, `${collection}/${slug} credits text it lacks`).toBeDefined();
+				}
+			}
+		}
+		const engine = readFileSync(join(outDir, 'engine.json'), 'utf8');
+		expect(engine).not.toContain('textSources');
+	});
+
 	it('derives related units and canonical expression TeX into the equations presentation slice', () => {
 		const equations = readJson<
 			Record<

@@ -10,6 +10,7 @@ import { categoryColor } from '../../shared/theme/theme';
 import { Badge, LinkCard } from '../../shared/ui/card';
 import { HStack, Screen, VStack } from '../../shared/ui/screen';
 import { Muted, SectionTitle, Title } from '../../shared/ui/text';
+import { TextSources } from '../../shared/ui/text-sources';
 import { CollectionGroups } from '../branch/collection-groups';
 
 export interface CategoryScreenProps {
@@ -47,6 +48,7 @@ export function CategoryScreen({ slug }: CategoryScreenProps) {
 				</HStack>
 				{description === undefined ? null : <RichText segments={description.segments} />}
 				{description?.untranslated ? <Muted>{t('badge.untranslated')}</Muted> : null}
+				<TextSources sources={category.textSources} />
 			</VStack>
 			{sections.length === 0 ? <Muted>{t('mobile.category.empty')}</Muted> : null}
 			{sections.map((section) => {

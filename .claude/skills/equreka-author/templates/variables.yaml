@@ -1,0 +1,22 @@
+# yaml-language-server: $schema=../../dist/schemas/variables.schema.json
+name:
+  en: '<Name>'
+symbol:
+  tex: '<TeX symbol>'
+defaultUnit: '<SI-coherent unit slug>'
+externalIds:
+  wikidata: '<QID, fetched and matched>'
+categories:
+  - '<category>'
+branches:
+  - '<branch>'
+references:
+  - title: '<Publication, locator>'
+    url: '<fetched URL>'
+description:
+  en: >-
+    <Definition.>
+
+    <Conventional symbols and unit.>
+
+    <Where the variable appears.>

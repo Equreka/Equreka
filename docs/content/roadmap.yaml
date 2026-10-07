@@ -1,0 +1,1017 @@
+# Content roadmap: the single source of truth for planned slugs (docs/content/README.md).
+# Parse only with the eemeli `yaml` package. Progress (done, draft/reviewed, Spanish
+# completeness, word counts) is computed from packages/content/content by
+# scripts/content/roadmap.mjs and never stored here. Structure is gated by
+# scripts/quality/roadmap-check.mjs in `pnpm quality`.
+
+waves:
+  - id: 'W1.1'
+    title: 'Taxonomy: categories and branches, English and Spanish'
+    milestone: 1
+    slices:
+      - { id: mathematics, title: 'Mathematics category and branches', branches: [arithmetic, algebra, geometry, trigonometry] }
+      - { id: physics, title: 'Physics category and branches', branches: [mechanics, gravitation, fluid-mechanics, waves-and-oscillations, thermodynamics, electromagnetism, optics-and-photometry, modern-physics, nuclear-physics] }
+      - { id: chemistry-and-universal, title: 'Chemistry and universal categories and branches', branches: [amount-of-substance, atomic-structure, gases, solutions, thermochemistry, acids-and-bases, electrochemistry, si-system, measurement] }
+    paths: []
+  - id: 'W1.2'
+    title: 'Prerequisites: mechanics, waves, mathematics and gravitation'
+    milestone: 1
+    slices:
+      - { id: kinematics-and-angles, title: 'Kinematic and angular quantities, angle and speed units', branches: [mechanics, geometry, trigonometry, waves-and-oscillations] }
+      - { id: dynamics, title: 'Dynamic quantities and force, momentum and density units', branches: [mechanics] }
+      - { id: pressure-astronomy-constants, title: 'Pressure, astronomical and area units; mechanics and mathematical constants', branches: [fluid-mechanics, gravitation, mechanics, algebra, geometry] }
+    paths: []
+  - id: 'W1.3'
+    title: 'Prerequisites: thermodynamics, electromagnetism and optics'
+    milestone: 1
+    slices:
+      - { id: thermodynamics, title: 'Thermal quantities, units and radiation constants', branches: [thermodynamics] }
+      - { id: electromagnetic-fields, title: 'Field quantities, units and vacuum constants', branches: [electromagnetism] }
+      - { id: circuits-and-light, title: 'Conduction, energy-billing and photometric quantities and units', branches: [electromagnetism, optics-and-photometry, modern-physics] }
+    paths: []
+  - id: 'W1.4'
+    title: 'Prerequisites: modern physics, nuclear physics and chemistry'
+    milestone: 1
+    slices:
+      - { id: modern-and-nuclear, title: 'Radiation quantities, atomic units and particle constants', branches: [modern-physics, nuclear-physics, atomic-structure] }
+      - { id: molar-quantities, title: 'Molar quantities, molar units and chemical constants', branches: [amount-of-substance, thermochemistry, electrochemistry, gases] }
+      - { id: concentration, title: 'Concentration quantities and units, pH', branches: [solutions, acids-and-bases] }
+    paths: []
+  - id: 'W1.5'
+    title: 'Legacy rewrite I: magnitudes, constants, variables, equations and paths'
+    milestone: 1
+    slices:
+      - { id: mechanics-and-geometry-magnitudes, title: 'Mechanics and geometry magnitudes', branches: [mechanics, geometry, measurement] }
+      - { id: field-thermal-and-light-magnitudes, title: 'Electromagnetic, thermal, photometric and chemical magnitudes', branches: [electromagnetism, thermodynamics, optics-and-photometry, amount-of-substance, waves-and-oscillations] }
+      - { id: constants-equations-paths, title: 'Constants, the variable, equations and learning paths', branches: [si-system, geometry, modern-physics] }
+    paths: []
+  - id: 'W1.6'
+    title: 'Legacy rewrite II: SI and SI-accepted units'
+    milestone: 1
+    slices:
+      - { id: si-base-units, title: 'SI base units, gram and hand overrides, area and volume', branches: [si-system, mechanics] }
+      - { id: si-derived-units, title: 'Named SI derived units', branches: [mechanics, electromagnetism, thermodynamics, optics-and-photometry] }
+      - { id: compound-and-accepted-units, title: 'Compound SI units and units accepted for use with the SI', branches: [mechanics, thermodynamics, measurement] }
+    paths: []
+  - id: 'W1.7'
+    title: 'Legacy rewrite III: customary and historical units, prefixes'
+    milestone: 1
+    slices:
+      - { id: customary-length-mass-volume, title: 'Imperial and US customary length, mass and volume units', branches: [mechanics] }
+      - { id: time-temperature-energy, title: 'Calendar, historical temperature and non-SI energy units', branches: [measurement, thermodynamics, mechanics] }
+      - { id: prefixes, title: 'SI prefixes', branches: [si-system] }
+    paths: []
+  - id: 'W2'
+    title: 'School: arithmetic, algebra, statistics and probability'
+    milestone: 1
+    slices:
+      - { id: arithmetic, title: 'Percentages, proportion and interest', branches: [arithmetic] }
+      - { id: algebra, title: 'Equations, exponentials, logarithms and sequences', branches: [algebra] }
+      - { id: statistics, title: 'Statistics and probability', branches: [statistics-and-probability] }
+    paths: [percentages-and-interest]
+  - id: 'W3'
+    title: 'School: geometry and trigonometry'
+    milestone: 1
+    slices:
+      - { id: plane-geometry, title: 'Plane figures', branches: [geometry] }
+      - { id: solid-and-analytic-geometry, title: 'Solids and analytic geometry', branches: [geometry] }
+      - { id: trigonometry, title: 'Trigonometry', branches: [trigonometry] }
+    paths: [right-triangle-trigonometry]
+  - id: 'W4'
+    title: 'School: kinematics'
+    milestone: 1
+    slices:
+      - { id: constant-acceleration, title: 'Uniform and uniformly accelerated motion', branches: [mechanics] }
+      - { id: free-fall-and-projectiles, title: 'Free fall and projectiles', branches: [mechanics] }
+      - { id: circular-motion, title: 'Circular motion', branches: [mechanics] }
+    paths: [kinematics]
+  - id: 'W5'
+    title: 'School: dynamics, energy and momentum'
+    milestone: 1
+    slices:
+      - { id: dynamics, title: 'Forces and Newton''s laws', branches: [mechanics] }
+      - { id: energy, title: 'Work, energy and power', branches: [mechanics] }
+      - { id: momentum, title: 'Momentum and collisions', branches: [mechanics] }
+    paths: [newtons-laws]
+  - id: 'W6'
+    title: 'School: gravitation, fluids, rotation and statics'
+    milestone: 1
+    slices:
+      - { id: gravitation-and-rotation, title: 'Gravitation, torque and levers', branches: [gravitation, mechanics] }
+      - { id: fluid-statics, title: 'Fluids at rest', branches: [fluid-mechanics] }
+      - { id: fluid-flow, title: 'Fluid flow and viscosity', branches: [fluid-mechanics] }
+    paths: [fluids-at-rest]
+  - id: 'W7'
+    title: 'School: waves, sound and optics'
+    milestone: 1
+    slices:
+      - { id: oscillations-and-waves, title: 'Oscillations and waves', branches: [waves-and-oscillations] }
+      - { id: sound, title: 'Sound', branches: [waves-and-oscillations] }
+      - { id: optics, title: 'Optics and photometry', branches: [optics-and-photometry] }
+    paths: [waves-and-sound]
+  - id: 'W8'
+    title: 'School: thermodynamics and gases'
+    milestone: 1
+    slices:
+      - { id: thermodynamics, title: 'Heat, expansion and thermodynamic laws', branches: [thermodynamics] }
+      - { id: gases, title: 'Gas laws', branches: [gases] }
+    paths: [gas-laws]
+  - id: 'W9'
+    title: 'School: electrostatics and circuits'
+    milestone: 1
+    slices:
+      - { id: electrostatics, title: 'Electrostatics and capacitors', branches: [electromagnetism] }
+      - { id: circuits, title: 'Direct-current circuits', branches: [electromagnetism] }
+    paths: [dc-circuits]
+  - id: 'W10'
+    title: 'School: magnetism, induction and modern physics'
+    milestone: 1
+    slices:
+      - { id: magnetism-and-induction, title: 'Magnetism, induction and alternating current', branches: [electromagnetism] }
+      - { id: modern-physics, title: 'Photons, relativity and the Bohr model', branches: [modern-physics] }
+    paths: [light-and-quanta]
+  - id: 'W11'
+    title: 'School: nuclear physics, amount of substance, atomic structure and solutions'
+    milestone: 1
+    slices:
+      - { id: nuclear-physics, title: 'Radioactivity and binding energy', branches: [nuclear-physics] }
+      - { id: amount-and-atoms, title: 'Amount of substance and atomic structure', branches: [amount-of-substance, atomic-structure] }
+      - { id: solutions, title: 'Solutions and concentration', branches: [solutions] }
+    paths: [moles-and-concentration]
+  - id: 'W12'
+    title: 'School: acids and bases, thermochemistry, kinetics and electrochemistry'
+    milestone: 1
+    slices:
+      - { id: acids-and-bases, title: 'pH and neutralization', branches: [acids-and-bases] }
+      - { id: reactions, title: 'Thermochemistry, reaction rate and electrochemistry', branches: [thermochemistry, chemical-kinetics, electrochemistry] }
+    paths: [ph]
+  - id: 'W13'
+    title: 'University: mathematics, mechanics, gravitation and fluids'
+    milestone: 1
+    slices:
+      - { id: mathematics, title: 'Mathematics', branches: [arithmetic, algebra, statistics-and-probability, trigonometry] }
+      - { id: mechanics, title: 'Mechanics, gravitation and fluids', branches: [mechanics, gravitation, fluid-mechanics] }
+      - { id: rotation-and-elasticity, title: 'Rigid-body rotation and elasticity', branches: [mechanics] }
+    paths: []
+  - id: 'W14'
+    title: 'University: waves, optics, thermodynamics and gases'
+    milestone: 1
+    slices:
+      - { id: waves-and-optics, title: 'Oscillations, waves and wave optics', branches: [waves-and-oscillations, optics-and-photometry] }
+      - { id: thermodynamics, title: 'Kinetic theory, processes and entropy', branches: [thermodynamics] }
+    paths: []
+  - id: 'W15'
+    title: 'University: electromagnetism, modern and nuclear physics'
+    milestone: 1
+    slices:
+      - { id: electromagnetism, title: 'Capacitors, transients, magnetism and alternating current', branches: [electromagnetism] }
+      - { id: modern-and-nuclear, title: 'Relativity, quantum models and nuclear physics', branches: [modern-physics, nuclear-physics] }
+    paths: []
+  - id: 'W16'
+    title: 'University: chemistry'
+    milestone: 1
+    slices:
+      - { id: atoms-solutions-and-acids, title: 'Atomic structure, colligative properties and acid equilibria', branches: [atomic-structure, solutions, acids-and-bases] }
+      - { id: kinetics-and-equilibrium, title: 'Chemical kinetics and equilibrium', branches: [chemical-kinetics, chemical-equilibrium] }
+      - { id: thermochemistry-and-electrochemistry, title: 'Thermochemistry and electrochemistry', branches: [thermochemistry, electrochemistry] }
+    paths: []
+  - id: 'W17'
+    title: 'Milestone 2'
+    milestone: 2
+    slices:
+      - { id: mathematics-and-mechanics, title: 'Mathematics, mechanics and fluids', branches: [arithmetic, algebra, statistics-and-probability, geometry, mechanics, fluid-mechanics] }
+      - { id: fields-waves-and-heat, title: 'Waves, heat, electromagnetism and optics', branches: [waves-and-oscillations, thermodynamics, electromagnetism, optics-and-photometry] }
+      - { id: quantum-nuclear-and-chemistry, title: 'Modern and nuclear physics, chemistry', branches: [modern-physics, nuclear-physics, gases, solutions, thermochemistry, chemical-kinetics, chemical-equilibrium] }
+    paths: []
+
+entries:
+  # W1.1 · mathematics
+  - { collection: categories, slug: mathematics, action: rewrite, wave: 'W1.1', slice: mathematics, branches: [], milestone: 1, flags: [], name: 'Mathematics', note: 'order 1; Spanish sidecar', state: planned }
+  - { collection: branches, slug: arithmetic, action: create, wave: 'W1.1', slice: mathematics, branches: [], milestone: 1, flags: [], name: 'Arithmetic', note: 'mathematics, order 0; split from arithmetic-and-algebra: percentages, proportion, interest', state: planned }
+  - { collection: branches, slug: algebra, action: create, wave: 'W1.1', slice: mathematics, branches: [], milestone: 1, flags: [], name: 'Algebra', note: 'mathematics, order 1; equations, exponentials and logarithms, sequences', state: planned }
+  - { collection: branches, slug: geometry, action: rewrite, wave: 'W1.1', slice: mathematics, branches: [], milestone: 1, flags: [], name: 'Geometry', note: 'mathematics, order 2 (was 1); absorbs analytic geometry', state: planned }
+  - { collection: branches, slug: trigonometry, action: create, wave: 'W1.1', slice: mathematics, branches: [], milestone: 1, flags: [], name: 'Trigonometry', note: 'mathematics, order 3', state: planned }
+  - { collection: branches, slug: arithmetic-and-algebra, action: retire, wave: 'W1.1', slice: mathematics, branches: [], milestone: 1, flags: [], name: 'Arithmetic and algebra', note: 'split into arithmetic and algebra; re-file pi and pythagorean-theorem to geometry and trigonometry, then delete the branch and its sidecar', state: planned, edits: [constants/pi, equations/pythagorean-theorem] }
+  # W1.1 · physics
+  - { collection: categories, slug: physics, action: rewrite, wave: 'W1.1', slice: physics, branches: [], milestone: 1, flags: [], name: 'Physics', note: 'order 2; Spanish sidecar', state: planned }
+  - { collection: branches, slug: mechanics, action: rewrite, wave: 'W1.1', slice: physics, branches: [], milestone: 1, flags: [], name: 'Mechanics', note: 'physics, order 0', state: planned }
+  - { collection: branches, slug: gravitation, action: create, wave: 'W1.1', slice: physics, branches: [], milestone: 1, flags: [], name: 'Gravitation', note: 'physics, order 1', state: planned }
+  - { collection: branches, slug: fluid-mechanics, action: create, wave: 'W1.1', slice: physics, branches: [], milestone: 1, flags: [], name: 'Fluid mechanics', note: 'physics, order 2', state: planned }
+  - { collection: branches, slug: waves-and-oscillations, action: rewrite, wave: 'W1.1', slice: physics, branches: [], milestone: 1, flags: [], name: 'Waves and oscillations', note: 'physics, order 3 (was 1)', state: planned }
+  - { collection: branches, slug: thermodynamics, action: rewrite, wave: 'W1.1', slice: physics, branches: [], milestone: 1, flags: [], name: 'Thermodynamics', note: 'physics, order 4 (was 2)', state: planned }
+  - { collection: branches, slug: electromagnetism, action: rewrite, wave: 'W1.1', slice: physics, branches: [], milestone: 1, flags: [], name: 'Electromagnetism', note: 'physics, order 5 (was 3)', state: planned }
+  - { collection: branches, slug: optics-and-photometry, action: rewrite, wave: 'W1.1', slice: physics, branches: [], milestone: 1, flags: [], name: 'Optics and photometry', note: 'physics, order 6 (was 4)', state: planned }
+  - { collection: branches, slug: modern-physics, action: rewrite, wave: 'W1.1', slice: physics, branches: [], milestone: 1, flags: [], name: 'Modern physics', note: 'physics, order 7 (was 5)', state: planned }
+  - { collection: branches, slug: nuclear-physics, action: create, wave: 'W1.1', slice: physics, branches: [], milestone: 1, flags: [], name: 'Nuclear physics', note: 'physics, order 8', state: planned }
+  # W1.1 · chemistry-and-universal
+  - { collection: categories, slug: chemistry, action: rewrite, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Chemistry', note: 'order 3; Spanish sidecar', state: planned }
+  - { collection: categories, slug: universal, action: rewrite, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Universal', note: 'order 0; internal grouping of constants and units, no QID; Spanish sidecar', state: planned }
+  - { collection: branches, slug: amount-of-substance, action: rewrite, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Amount of substance', note: 'chemistry, order 0', state: planned }
+  - { collection: branches, slug: atomic-structure, action: rewrite, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Atomic structure', note: 'chemistry, order 1', state: planned }
+  - { collection: branches, slug: gases, action: create, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Gases', note: 'chemistry, order 2', state: planned }
+  - { collection: branches, slug: solutions, action: create, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Solutions and concentration', note: 'chemistry, order 3; display name "Solutions and concentration"', state: planned }
+  - { collection: branches, slug: thermochemistry, action: create, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Thermochemistry', note: 'chemistry, order 4', state: planned }
+  - { collection: branches, slug: acids-and-bases, action: create, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Acids and bases', note: 'chemistry, order 7', state: planned }
+  - { collection: branches, slug: electrochemistry, action: create, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Electrochemistry', note: 'chemistry, order 8', state: planned }
+  - { collection: branches, slug: si-system, action: rewrite, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Si system', note: 'universal, order 0 (unchanged)', state: planned }
+  - { collection: branches, slug: measurement, action: rewrite, wave: 'W1.1', slice: chemistry-and-universal, branches: [], milestone: 1, flags: [], name: 'Measurement', note: 'universal, order 1 (unchanged)', state: planned }
+  # W1.2 · kinematics-and-angles
+  - { collection: magnitudes, slug: velocity, action: create, wave: 'W1.2', slice: kinematics-and-angles, branches: [mechanics], milestone: 1, flags: [], name: 'Velocity', note: 'L T^-1; baseUnit metre-per-second; signed (vector component); takes the velocity alias from speed and joins metre-per-second unitOf', state: planned, edits: [magnitudes/speed, units/metre-per-second] }
+  - { collection: magnitudes, slug: acceleration, action: create, wave: 'W1.2', slice: kinematics-and-angles, branches: [mechanics], milestone: 1, flags: [], name: 'Acceleration', note: 'L T^-2; baseUnit metre-per-second-squared', state: planned }
+  - { collection: magnitudes, slug: angular-velocity, action: create, wave: 'W1.2', slice: kinematics-and-angles, branches: [mechanics], milestone: 1, flags: [], name: 'Angular velocity', note: 'A T^-1; baseUnit radian-per-second', state: planned }
+  - { collection: magnitudes, slug: angular-acceleration, action: create, wave: 'W1.2', slice: kinematics-and-angles, branches: [mechanics], milestone: 1, flags: [], name: 'Angular acceleration', note: 'A T^-2; baseUnit radian-per-second-squared', state: planned }
+  - { collection: magnitudes, slug: angular-frequency, action: create, wave: 'W1.2', slice: kinematics-and-angles, branches: [waves-and-oscillations, mechanics], milestone: 1, flags: [], name: 'Angular frequency', note: 'A T^-1; baseUnit radian-per-second; kindOf angular-velocity is a hypothesis: check QUDT skos:broader', state: planned }
+  - { collection: magnitudes, slug: period, action: create, wave: 'W1.2', slice: kinematics-and-angles, branches: [waves-and-oscillations, mechanics], milestone: 1, flags: [], name: 'Period', note: 'T; baseUnit second; nonNegative; kindOf time is a hypothesis: check QUDT', state: planned }
+  - { collection: magnitudes, slug: wavelength, action: create, wave: 'W1.2', slice: kinematics-and-angles, branches: [waves-and-oscillations, optics-and-photometry], milestone: 1, flags: [], name: 'Wavelength', note: 'L; baseUnit metre; nonNegative; kindOf length is a hypothesis: check QUDT', state: planned }
+  - { collection: units, slug: degree, action: create, wave: 'W1.2', slice: kinematics-and-angles, branches: [geometry, trigonometry], milestone: 1, flags: [], name: 'Degree', note: 'toBase pi/180 rad as a 36-digit decimal, exact: false; SI Brochure 9th ed. Table 8', state: planned }
+  - { collection: units, slug: arcminute, action: create, wave: 'W1.2', slice: kinematics-and-angles, branches: [geometry], milestone: 1, flags: [], name: 'Arcminute', note: 'compose degree with factor 1/60; SI Brochure Table 8', state: planned }
+  - { collection: units, slug: arcsecond, action: create, wave: 'W1.2', slice: kinematics-and-angles, branches: [geometry], milestone: 1, flags: [], name: 'Arcsecond', note: 'compose degree with factor 1/3600; SI Brochure Table 8', state: planned }
+  - { collection: units, slug: revolution, action: create, wave: 'W1.2', slice: kinematics-and-angles, branches: [geometry, mechanics], milestone: 1, flags: [], name: 'Revolution', note: 'toBase 2*pi rad as a 36-digit decimal, exact: false', state: planned }
+  - { collection: units, slug: radian-per-second, action: create, wave: 'W1.2', slice: kinematics-and-angles, branches: [mechanics], milestone: 1, flags: [], name: 'Radian per second', note: 'compose radian, second^-1; unitOf angular-velocity, angular-frequency', state: planned }
+  - { collection: units, slug: radian-per-second-squared, action: create, wave: 'W1.2', slice: kinematics-and-angles, branches: [mechanics], milestone: 1, flags: [], name: 'Radian per second squared', note: 'compose radian, second^-2', state: planned }
+  - { collection: units, slug: revolution-per-minute, action: create, wave: 'W1.2', slice: kinematics-and-angles, branches: [mechanics], milestone: 1, flags: [], name: 'Revolution per minute', note: 'compose revolution, minute^-1; aliases rpm', state: planned }
+  - { collection: units, slug: metre-per-second-squared, action: create, wave: 'W1.2', slice: kinematics-and-angles, branches: [mechanics], milestone: 1, flags: [], name: 'Metre per second squared', note: 'compose metre, second^-2', state: planned }
+  - { collection: units, slug: kilometre-per-hour, action: create, wave: 'W1.2', slice: kinematics-and-angles, branches: [mechanics], milestone: 1, flags: [], name: 'Kilometre per hour', note: 'compose kilometre (generated) or metre with factor 1000, hour^-1; exact', state: planned }
+  - { collection: units, slug: mile-per-hour, action: create, wave: 'W1.2', slice: kinematics-and-angles, branches: [mechanics], milestone: 1, flags: [], name: 'Mile per hour', note: 'compose mile, hour^-1; exact', state: planned }
+  - { collection: units, slug: knot, action: create, wave: 'W1.2', slice: kinematics-and-angles, branches: [mechanics], milestone: 1, flags: [], name: 'Knot', note: 'compose nautical-mile, hour^-1 (1852/3600 m/s exact); NIST SP 811 B.8', state: planned }
+  # W1.2 · dynamics
+  - { collection: magnitudes, slug: momentum, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Momentum', note: 'L M T^-1; baseUnit kilogram-metre-per-second; vector component, signed', state: planned }
+  - { collection: magnitudes, slug: impulse, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Impulse', note: 'L M T^-1; baseUnit newton-second; kindOf momentum is a hypothesis: check QUDT', state: planned }
+  - { collection: magnitudes, slug: density, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics, fluid-mechanics], milestone: 1, flags: [], name: 'Density', note: 'L^-3 M; baseUnit kilogram-per-cubic-metre; nonNegative', state: planned }
+  - { collection: magnitudes, slug: torque, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Torque', note: 'L^2 M T^-2; baseUnit newton-metre; no kindOf (torque is not an energy)', state: planned }
+  - { collection: magnitudes, slug: moment-of-inertia, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Moment of inertia', note: 'L^2 M; baseUnit kilogram-square-metre; nonNegative', state: planned }
+  - { collection: magnitudes, slug: kinetic-energy, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Kinetic energy', note: 'L^2 M T^-2; baseUnit joule; nonNegative; kindOf energy is a hypothesis: check QUDT', state: planned }
+  - { collection: magnitudes, slug: potential-energy, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Potential energy', note: 'L^2 M T^-2; baseUnit joule; kindOf energy is a hypothesis: check QUDT', state: planned }
+  - { collection: magnitudes, slug: spring-constant, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Spring constant', note: 'M T^-2; baseUnit newton-per-metre; create only if an exact Wikidata item and QUDT kind exist, else defer with the reason', state: planned }
+  - { collection: units, slug: kilogram-metre-per-second, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Kilogram metre per second', note: 'compose kilogram, metre, second^-1; unitOf momentum', state: planned }
+  - { collection: units, slug: newton-second, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Newton second', note: 'compose newton, second; unitOf impulse', state: planned }
+  - { collection: units, slug: kilogram-per-cubic-metre, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics, fluid-mechanics], milestone: 1, flags: [], name: 'Kilogram per cubic metre', note: 'compose kilogram, metre^-3; unitOf density', state: planned }
+  - { collection: units, slug: gram-per-cubic-centimetre, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics, fluid-mechanics], milestone: 1, flags: [], name: 'Gram per cubic centimetre', note: 'compose gram, centimetre^-3 (1000 kg/m3); unitOf density', state: planned }
+  - { collection: units, slug: newton-metre, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Newton metre', note: 'compose newton, metre; unitOf torque (ADR 0006: never energy)', state: planned }
+  - { collection: units, slug: kilogram-square-metre, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Kilogram square metre', note: 'compose kilogram, metre^2; unitOf moment-of-inertia', state: planned }
+  - { collection: units, slug: newton-per-metre, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Newton per metre', note: 'compose newton, metre^-1; unitOf spring-constant, or [] if that magnitude is deferred', state: planned }
+  - { collection: units, slug: dyne, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Dyne', note: 'toBase 1e-5 N, system cgs; NIST SP 811 B.8', state: planned }
+  - { collection: units, slug: kilogram-force, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Kilogram force', note: 'toBase 9.80665 N exact; NIST SP 811 B.8', state: planned }
+  - { collection: units, slug: pound-force, action: create, wave: 'W1.2', slice: dynamics, branches: [mechanics], milestone: 1, flags: [], name: 'Pound force', note: 'toBase 4.4482216152605 N exact; NIST SP 811 B.8', state: planned }
+  # W1.2 · pressure-astronomy-constants
+  - { collection: magnitudes, slug: force-per-area, action: create, wave: 'W1.2', slice: pressure-astronomy-constants, branches: [mechanics, fluid-mechanics], milestone: 1, flags: [], name: 'Force per area', note: 'L^-1 M T^-2; baseUnit pascal; head kind of pressure and stress (ADR 0006: QUDT siblings under ForcePerArea); set kindOf force-per-area on both', state: planned, edits: [magnitudes/pressure, magnitudes/stress, units/pascal] }
+  - { collection: units, slug: bar, action: create, wave: 'W1.2', slice: pressure-astronomy-constants, branches: [fluid-mechanics, thermodynamics], milestone: 1, flags: [], name: 'Bar', note: 'toBase 1e5 Pa exact; prefixes milli; NIST SP 811 B.8', state: planned }
+  - { collection: units, slug: standard-atmosphere, action: create, wave: 'W1.2', slice: pressure-astronomy-constants, branches: [fluid-mechanics, gases], milestone: 1, flags: [], name: 'Standard atmosphere', note: 'toBase 101325 Pa exact; NIST SP 811 B.8; unit only, never a constant', state: planned }
+  - { collection: units, slug: millimetre-of-mercury, action: create, wave: 'W1.2', slice: pressure-astronomy-constants, branches: [fluid-mechanics], milestone: 1, flags: [], name: 'Millimetre of mercury', note: 'toBase 133.322387415 Pa (conventional); NIST SP 811 B.8', state: planned }
+  - { collection: units, slug: torr, action: create, wave: 'W1.2', slice: pressure-astronomy-constants, branches: [fluid-mechanics, gases], milestone: 1, flags: [], name: 'Torr', note: 'toBase rational 101325/760 Pa; NIST SP 811 B.8', state: planned }
+  - { collection: units, slug: pound-per-square-inch, action: create, wave: 'W1.2', slice: pressure-astronomy-constants, branches: [fluid-mechanics], milestone: 1, flags: [], name: 'Pound per square inch', note: 'compose pound-force, inch^-2; aliases psi', state: planned }
+  - { collection: units, slug: astronomical-unit, action: create, wave: 'W1.2', slice: pressure-astronomy-constants, branches: [gravitation], milestone: 1, flags: [], name: 'Astronomical unit', note: 'toBase 149597870700 m exact; IAU 2012 Resolution B2, SI Brochure Table 8', state: planned }
+  - { collection: units, slug: light-year, action: create, wave: 'W1.2', slice: pressure-astronomy-constants, branches: [gravitation], milestone: 1, flags: [], name: 'Light year', note: 'toBase 9460730472580800 m (Julian year times c), exact by that definition; IAU', state: planned }
+  - { collection: units, slug: parsec, action: create, wave: 'W1.2', slice: pressure-astronomy-constants, branches: [gravitation], milestone: 1, flags: [], name: 'Parsec', note: 'toBase 648000/pi au as a 36-digit decimal, exact: false; IAU 2015 Resolution B2', state: planned }
+  - { collection: units, slug: angstrom, action: create, wave: 'W1.2', slice: pressure-astronomy-constants, branches: [mechanics, atomic-structure], milestone: 1, flags: [], name: 'Ångström', note: 'toBase 1e-10 m exact; NIST SP 811 B.8', state: planned }
+  - { collection: units, slug: hectare, action: create, wave: 'W1.2', slice: pressure-astronomy-constants, branches: [geometry, mechanics], milestone: 1, flags: [], name: 'Hectare', note: 'toBase 1e4 m2 exact; SI Brochure Table 8', state: planned }
+  - { collection: units, slug: acre, action: create, wave: 'W1.2', slice: pressure-astronomy-constants, branches: [geometry], milestone: 1, flags: [], name: 'Acre', note: 'optional; international acre 4046.8564224 m2 exact; NIST SP 811 B.8', state: planned }
+  - { collection: units, slug: cubic-metre-per-kilogram-second-squared, action: create, wave: 'W1.2', slice: pressure-astronomy-constants, branches: [gravitation], milestone: 1, flags: [], name: 'Cubic metre per kilogram second squared', note: 'magnitude-less compound unit (unitOf []) for the gravitational constant', state: planned }
+  - { collection: constants, slug: gravitational-constant, action: create, wave: 'W1.2', slice: pressure-astronomy-constants, branches: [gravitation], milestone: 1, flags: [], name: 'Newtonian constant of gravitation', note: 'G; NIST CODATA 2022 value and uncertainty; unit cubic-metre-per-kilogram-second-squared', state: planned }
+  - { collection: constants, slug: standard-acceleration-of-gravity, action: create, wave: 'W1.2', slice: pressure-astronomy-constants, branches: [gravitation, mechanics], milestone: 1, flags: [], name: 'Standard acceleration of gravity', note: 'g_n = 9.80665 m/s2 exact by definition (3rd CGPM 1901); unit metre-per-second-squared', state: planned }
+  - { collection: constants, slug: euler-number, action: create, wave: 'W1.2', slice: pressure-astronomy-constants, branches: [algebra], milestone: 1, flags: [], name: 'Euler''s number', note: 'e; irrational: true, truncated: true; unit unitless', state: planned }
+  - { collection: constants, slug: golden-ratio, action: create, wave: 'W1.2', slice: pressure-astronomy-constants, branches: [algebra, geometry], milestone: 1, flags: [], name: 'Golden ratio', note: 'phi; irrational: true, truncated: true; unit unitless', state: planned }
+  # W1.3 · thermodynamics
+  - { collection: magnitudes, slug: internal-energy, action: create, wave: 'W1.3', slice: thermodynamics, branches: [thermodynamics], milestone: 1, flags: [], name: 'Internal energy', note: 'L^2 M T^-2; baseUnit joule; kindOf energy is a hypothesis: check QUDT', state: planned }
+  - { collection: magnitudes, slug: heat-capacity, action: create, wave: 'W1.3', slice: thermodynamics, branches: [thermodynamics], milestone: 1, flags: [], name: 'Heat capacity', note: 'L^2 M T^-2 Th^-1; baseUnit joule-per-kelvin (add to its unitOf beside entropy)', state: planned, edits: [units/joule-per-kelvin] }
+  - { collection: magnitudes, slug: specific-heat-capacity, action: create, wave: 'W1.3', slice: thermodynamics, branches: [thermodynamics], milestone: 1, flags: [], name: 'Specific heat capacity', note: 'L^2 T^-2 Th^-1; baseUnit joule-per-kilogram-kelvin', state: planned }
+  - { collection: magnitudes, slug: specific-latent-heat, action: create, wave: 'W1.3', slice: thermodynamics, branches: [thermodynamics], milestone: 1, flags: [], name: 'Specific latent heat', note: 'L^2 T^-2; baseUnit joule-per-kilogram; shares its dimension with absorbed dose: no kindOf', state: planned }
+  - { collection: magnitudes, slug: thermal-conductivity, action: create, wave: 'W1.3', slice: thermodynamics, branches: [thermodynamics], milestone: 1, flags: [], name: 'Thermal conductivity', note: 'L M T^-3 Th^-1; baseUnit watt-per-metre-kelvin', state: planned }
+  - { collection: magnitudes, slug: linear-expansion-coefficient, action: create, wave: 'W1.3', slice: thermodynamics, branches: [thermodynamics], milestone: 1, flags: [], name: 'Linear expansion coefficient', note: 'Th^-1; baseUnit reciprocal-kelvin', state: planned }
+  - { collection: units, slug: joule-per-kilogram-kelvin, action: create, wave: 'W1.3', slice: thermodynamics, branches: [thermodynamics], milestone: 1, flags: [], name: 'Joule per kilogram kelvin', note: 'compose joule, kilogram^-1, kelvin^-1', state: planned }
+  - { collection: units, slug: joule-per-kilogram, action: create, wave: 'W1.3', slice: thermodynamics, branches: [thermodynamics], milestone: 1, flags: [], name: 'Joule per kilogram', note: 'compose joule, kilogram^-1; unitOf specific-latent-heat only (gray and sievert are separate units)', state: planned }
+  - { collection: units, slug: watt-per-metre-kelvin, action: create, wave: 'W1.3', slice: thermodynamics, branches: [thermodynamics], milestone: 1, flags: [], name: 'Watt per metre kelvin', note: 'compose watt, metre^-1, kelvin^-1', state: planned }
+  - { collection: units, slug: reciprocal-kelvin, action: create, wave: 'W1.3', slice: thermodynamics, branches: [thermodynamics], milestone: 1, flags: [], name: 'Reciprocal kelvin', note: 'compose kelvin^-1', state: planned }
+  - { collection: units, slug: calorie, action: create, wave: 'W1.3', slice: thermodynamics, branches: [thermodynamics], milestone: 1, flags: [], name: 'Calorie', note: 'thermochemical calorie, toBase 4.184 J exact; prefixes kilo; NIST SP 811 B.8 (name the variant)', state: planned }
+  - { collection: units, slug: british-thermal-unit, action: create, wave: 'W1.3', slice: thermodynamics, branches: [thermodynamics], milestone: 1, flags: [], name: 'British thermal unit', note: 'International Table Btu, toBase 1055.05585262 J exact; NIST SP 811 B.8', state: planned }
+  - { collection: units, slug: watt-per-square-metre-kelvin-to-the-fourth, action: create, wave: 'W1.3', slice: thermodynamics, branches: [thermodynamics], milestone: 1, flags: [], name: 'Watt per square metre per kelvin to the fourth', note: 'magnitude-less compound unit (unitOf []) for the Stefan-Boltzmann constant', state: planned }
+  - { collection: units, slug: metre-kelvin, action: create, wave: 'W1.3', slice: thermodynamics, branches: [thermodynamics], milestone: 1, flags: [], name: 'Metre kelvin', note: 'magnitude-less compound unit (unitOf []) for the Wien displacement constant', state: planned }
+  - { collection: constants, slug: stefan-boltzmann-constant, action: create, wave: 'W1.3', slice: thermodynamics, branches: [thermodynamics], milestone: 1, flags: [], name: 'Stefan-Boltzmann constant', note: 'sigma; exact since 2019 with endless digits: exact: true, truncated: true; NIST CODATA 2022', state: planned }
+  - { collection: constants, slug: wien-displacement-constant, action: create, wave: 'W1.3', slice: thermodynamics, branches: [thermodynamics, optics-and-photometry], milestone: 1, flags: [], name: 'Wien wavelength displacement law constant', note: 'b (wavelength form); exact, truncated; unit metre-kelvin; NIST CODATA 2022', state: planned }
+  # W1.3 · electromagnetic-fields
+  - { collection: magnitudes, slug: electric-field-strength, action: create, wave: 'W1.3', slice: electromagnetic-fields, branches: [electromagnetism], milestone: 1, flags: [], name: 'Electric field strength', note: 'L M T^-3 I^-1; baseUnit volt-per-metre; vector component', state: planned }
+  - { collection: magnitudes, slug: magnetic-flux-density, action: create, wave: 'W1.3', slice: electromagnetic-fields, branches: [electromagnetism], milestone: 1, flags: [], name: 'Magnetic flux density', note: 'M T^-2 I^-1; baseUnit tesla', state: planned }
+  - { collection: magnitudes, slug: magnetic-flux, action: create, wave: 'W1.3', slice: electromagnetic-fields, branches: [electromagnetism], milestone: 1, flags: [], name: 'Magnetic flux', note: 'L^2 M T^-2 I^-1; baseUnit weber', state: planned }
+  - { collection: magnitudes, slug: inductance, action: create, wave: 'W1.3', slice: electromagnetic-fields, branches: [electromagnetism], milestone: 1, flags: [], name: 'Inductance', note: 'L^2 M T^-2 I^-2; baseUnit henry', state: planned }
+  - { collection: magnitudes, slug: permittivity, action: create, wave: 'W1.3', slice: electromagnetic-fields, branches: [electromagnetism], milestone: 1, flags: [], name: 'Permittivity', note: 'L^-3 M^-1 T^4 I^2; baseUnit farad-per-metre', state: planned }
+  - { collection: magnitudes, slug: permeability, action: create, wave: 'W1.3', slice: electromagnetic-fields, branches: [electromagnetism], milestone: 1, flags: [], name: 'Permeability', note: 'L M T^-2 I^-2; baseUnit henry-per-metre', state: planned }
+  - { collection: units, slug: volt-per-metre, action: create, wave: 'W1.3', slice: electromagnetic-fields, branches: [electromagnetism], milestone: 1, flags: [], name: 'Volt per metre', note: 'compose volt, metre^-1', state: planned }
+  - { collection: units, slug: tesla, action: create, wave: 'W1.3', slice: electromagnetic-fields, branches: [electromagnetism], milestone: 1, flags: [], name: 'Tesla', note: 'compose weber, metre^-2 (or kg s^-2 A^-1); named SI derived unit', state: planned }
+  - { collection: units, slug: weber, action: create, wave: 'W1.3', slice: electromagnetic-fields, branches: [electromagnetism], milestone: 1, flags: [], name: 'Weber', note: 'compose volt, second; named SI derived unit', state: planned }
+  - { collection: units, slug: henry, action: create, wave: 'W1.3', slice: electromagnetic-fields, branches: [electromagnetism], milestone: 1, flags: [], name: 'Henry', note: 'compose weber, ampere^-1; named SI derived unit', state: planned }
+  - { collection: units, slug: farad-per-metre, action: create, wave: 'W1.3', slice: electromagnetic-fields, branches: [electromagnetism], milestone: 1, flags: [], name: 'Farad per metre', note: 'compose farad, metre^-1', state: planned }
+  - { collection: units, slug: henry-per-metre, action: create, wave: 'W1.3', slice: electromagnetic-fields, branches: [electromagnetism], milestone: 1, flags: [], name: 'Henry per metre', note: 'compose henry, metre^-1', state: planned }
+  - { collection: units, slug: gauss, action: create, wave: 'W1.3', slice: electromagnetic-fields, branches: [electromagnetism], milestone: 1, flags: [], name: 'Gauss', note: 'toBase 1e-4 T exact, system cgs; NIST SP 811 B.8', state: planned }
+  - { collection: units, slug: newton-square-metre-per-square-coulomb, action: create, wave: 'W1.3', slice: electromagnetic-fields, branches: [electromagnetism], milestone: 1, flags: [], name: 'Newton square metre per square coulomb', note: 'magnitude-less compound unit (unitOf []) for the Coulomb constant', state: planned }
+  - { collection: constants, slug: vacuum-electric-permittivity, action: create, wave: 'W1.3', slice: electromagnetic-fields, branches: [electromagnetism], milestone: 1, flags: [], name: 'Vacuum electric permittivity', note: 'epsilon_0; measured since 2019 (not exact): NIST CODATA 2022 value and uncertainty; unit farad-per-metre', state: planned }
+  - { collection: constants, slug: vacuum-magnetic-permeability, action: create, wave: 'W1.3', slice: electromagnetic-fields, branches: [electromagnetism], milestone: 1, flags: [], name: 'Vacuum magnetic permeability', note: 'mu_0; measured since 2019: NIST CODATA 2022; unit henry-per-metre', state: planned }
+  - { collection: constants, slug: coulomb-constant, action: create, wave: 'W1.3', slice: electromagnetic-fields, branches: [electromagnetism], milestone: 1, flags: [], name: 'Coulomb constant', note: 'k_e = 1/(4 pi epsilon_0), derived (not a CODATA entry): state the derivation and propagate the uncertainty; unit newton-square-metre-per-square-coulomb', state: planned }
+  # W1.3 · circuits-and-light
+  - { collection: magnitudes, slug: electrical-conductance, action: create, wave: 'W1.3', slice: circuits-and-light, branches: [electromagnetism], milestone: 1, flags: [], name: 'Electrical conductance', note: 'L^-2 M^-1 T^3 I^2; baseUnit siemens', state: planned }
+  - { collection: magnitudes, slug: electrical-resistivity, action: create, wave: 'W1.3', slice: circuits-and-light, branches: [electromagnetism], milestone: 1, flags: [], name: 'Electrical resistivity', note: 'L^3 M T^-3 I^-2; baseUnit ohm-metre', state: planned }
+  - { collection: magnitudes, slug: refractive-index, action: create, wave: 'W1.3', slice: circuits-and-light, branches: [optics-and-photometry], milestone: 1, flags: [], name: 'Refractive index', note: 'dimensionless; baseUnit unitless; kindOf dimensionless or a unitless unitOf entry: check QUDT', state: planned }
+  - { collection: magnitudes, slug: illuminance, action: create, wave: 'W1.3', slice: circuits-and-light, branches: [optics-and-photometry], milestone: 1, flags: [], name: 'Illuminance', note: 'L^-2 J A^2 (lux composes lumen = cd sr, so the synthetic angle dimension A^2 carries over); baseUnit lux', state: planned }
+  - { collection: magnitudes, slug: luminance, action: create, wave: 'W1.3', slice: circuits-and-light, branches: [optics-and-photometry], milestone: 1, flags: [], name: 'Luminance', note: 'L^-2 J; baseUnit candela-per-square-metre', state: planned }
+  - { collection: magnitudes, slug: irradiance, action: create, wave: 'W1.3', slice: circuits-and-light, branches: [optics-and-photometry], milestone: 1, flags: [], name: 'Irradiance', note: 'M T^-3; baseUnit watt-per-square-metre', state: planned }
+  - { collection: units, slug: siemens, action: create, wave: 'W1.3', slice: circuits-and-light, branches: [electromagnetism], milestone: 1, flags: [], name: 'Siemens', note: 'compose ohm^-1; named SI derived unit', state: planned }
+  - { collection: units, slug: ohm-metre, action: create, wave: 'W1.3', slice: circuits-and-light, branches: [electromagnetism], milestone: 1, flags: [], name: 'Ohm metre', note: 'compose ohm, metre', state: planned }
+  - { collection: units, slug: ampere-hour, action: create, wave: 'W1.3', slice: circuits-and-light, branches: [electromagnetism], milestone: 1, flags: [], name: 'Ampere hour', note: 'compose ampere, hour (3600 C); prefixes milli; unitOf electric-charge', state: planned }
+  - { collection: units, slug: watt-hour, action: create, wave: 'W1.3', slice: circuits-and-light, branches: [electromagnetism, mechanics], milestone: 1, flags: [], name: 'Watt hour', note: 'compose watt, hour (3600 J); prefixes kilo, mega, giga, tera', state: planned }
+  - { collection: units, slug: horsepower, action: create, wave: 'W1.3', slice: circuits-and-light, branches: [mechanics], milestone: 1, flags: [], name: 'Horsepower', note: 'mechanical horsepower, toBase 745.69987158227022 W; NIST SP 811 B.8 (state the exact definition 550 ft lbf/s)', state: planned }
+  - { collection: units, slug: metric-horsepower, action: create, wave: 'W1.3', slice: circuits-and-light, branches: [mechanics], milestone: 1, flags: [], name: 'Metric horsepower', note: 'toBase 735.49875 W exact (75 kgf m/s); NIST SP 811 B.8', state: planned }
+  - { collection: units, slug: lux, action: create, wave: 'W1.3', slice: circuits-and-light, branches: [optics-and-photometry], milestone: 1, flags: [], name: 'Lux', note: 'compose lumen, metre^-2; named SI derived unit', state: planned }
+  - { collection: units, slug: candela-per-square-metre, action: create, wave: 'W1.3', slice: circuits-and-light, branches: [optics-and-photometry], milestone: 1, flags: [], name: 'Candela per square metre', note: 'compose candela, metre^-2; aliases nit', state: planned }
+  - { collection: units, slug: watt-per-square-metre, action: create, wave: 'W1.3', slice: circuits-and-light, branches: [optics-and-photometry, thermodynamics], milestone: 1, flags: [], name: 'Watt per square metre', note: 'compose watt, metre^-2; unitOf irradiance', state: planned }
+  - { collection: constants, slug: reduced-planck-constant, action: create, wave: 'W1.3', slice: circuits-and-light, branches: [modern-physics], milestone: 1, flags: [], name: 'Reduced Planck constant', note: 'hbar = h/(2 pi); exact, truncated; unit joule-second; NIST CODATA 2022', state: planned }
+  # W1.4 · modern-and-nuclear
+  - { collection: magnitudes, slug: activity, action: create, wave: 'W1.4', slice: modern-and-nuclear, branches: [nuclear-physics], milestone: 1, flags: [], name: 'Activity', note: 'T^-1; baseUnit becquerel; no kindOf frequency (ADR 0006)', state: planned }
+  - { collection: magnitudes, slug: absorbed-dose, action: create, wave: 'W1.4', slice: modern-and-nuclear, branches: [nuclear-physics], milestone: 1, flags: [], name: 'Absorbed dose', note: 'L^2 T^-2; baseUnit gray; sibling of equivalent-dose, no kindOf', state: planned }
+  - { collection: magnitudes, slug: equivalent-dose, action: create, wave: 'W1.4', slice: modern-and-nuclear, branches: [nuclear-physics], milestone: 1, flags: [], name: 'Equivalent dose', note: 'L^2 T^-2; baseUnit sievert; sibling of absorbed-dose, no kindOf', state: planned }
+  - { collection: units, slug: electronvolt, action: create, wave: 'W1.4', slice: modern-and-nuclear, branches: [modern-physics, nuclear-physics], milestone: 1, flags: [], name: 'Electronvolt', note: 'toBase 1.602176634e-19 J exact; prefixes kilo, mega, giga, tera; SI Brochure Table 8; never an equation anchor', state: planned }
+  - { collection: units, slug: becquerel, action: create, wave: 'W1.4', slice: modern-and-nuclear, branches: [nuclear-physics], milestone: 1, flags: [], name: 'Becquerel', note: 'compose second^-1; unitOf activity; named SI derived unit', state: planned }
+  - { collection: units, slug: curie, action: create, wave: 'W1.4', slice: modern-and-nuclear, branches: [nuclear-physics], milestone: 1, flags: [], name: 'Curie', note: 'toBase 3.7e10 Bq exact; NIST SP 811 B.8', state: planned }
+  - { collection: units, slug: gray, action: create, wave: 'W1.4', slice: modern-and-nuclear, branches: [nuclear-physics], milestone: 1, flags: [], name: 'Gray', note: 'compose joule, kilogram^-1; prefixes milli; unitOf absorbed-dose', state: planned }
+  - { collection: units, slug: sievert, action: create, wave: 'W1.4', slice: modern-and-nuclear, branches: [nuclear-physics], milestone: 1, flags: [], name: 'Sievert', note: 'compose joule, kilogram^-1; prefixes milli, micro; unitOf equivalent-dose', state: planned }
+  - { collection: units, slug: reciprocal-metre, action: create, wave: 'W1.4', slice: modern-and-nuclear, branches: [modern-physics, waves-and-oscillations], milestone: 1, flags: [], name: 'Reciprocal metre', note: 'compose metre^-1; unit of the Rydberg constant; wavenumber joins its unitOf in W7', state: planned }
+  - { collection: constants, slug: electron-mass, action: create, wave: 'W1.4', slice: modern-and-nuclear, branches: [modern-physics, atomic-structure], milestone: 1, flags: [], name: 'Electron mass', note: 'm_e; NIST CODATA 2022 value and uncertainty; unit kilogram', state: planned }
+  - { collection: constants, slug: proton-mass, action: create, wave: 'W1.4', slice: modern-and-nuclear, branches: [modern-physics, atomic-structure], milestone: 1, flags: [], name: 'Proton mass', note: 'm_p; NIST CODATA 2022; unit kilogram', state: planned }
+  - { collection: constants, slug: neutron-mass, action: create, wave: 'W1.4', slice: modern-and-nuclear, branches: [nuclear-physics, atomic-structure], milestone: 1, flags: [], name: 'Neutron mass', note: 'm_n; NIST CODATA 2022; unit kilogram', state: planned }
+  - { collection: constants, slug: rydberg-constant, action: create, wave: 'W1.4', slice: modern-and-nuclear, branches: [modern-physics, atomic-structure], milestone: 1, flags: [], name: 'Rydberg constant', note: 'R_infinity; NIST CODATA 2022; unit reciprocal-metre', state: planned }
+  - { collection: constants, slug: bohr-radius, action: create, wave: 'W1.4', slice: modern-and-nuclear, branches: [modern-physics, atomic-structure], milestone: 1, flags: [], name: 'Bohr radius', note: 'a_0; NIST CODATA 2022; unit metre', state: planned }
+  - { collection: constants, slug: fine-structure-constant, action: create, wave: 'W1.4', slice: modern-and-nuclear, branches: [modern-physics], milestone: 1, flags: [], name: 'Fine structure constant', note: 'alpha; NIST CODATA 2022; unit unitless', state: planned }
+  # W1.4 · molar-quantities
+  - { collection: magnitudes, slug: molar-mass, action: create, wave: 'W1.4', slice: molar-quantities, branches: [amount-of-substance], milestone: 1, flags: [], name: 'Molar mass', note: 'M N^-1; baseUnit kilogram-per-mole', state: planned }
+  - { collection: magnitudes, slug: molar-volume, action: create, wave: 'W1.4', slice: molar-quantities, branches: [amount-of-substance, gases], milestone: 1, flags: [], name: 'Molar volume', note: 'L^3 N^-1; baseUnit cubic-metre-per-mole', state: planned }
+  - { collection: magnitudes, slug: molar-energy, action: create, wave: 'W1.4', slice: molar-quantities, branches: [thermochemistry], milestone: 1, flags: [], name: 'Molar energy', note: 'L^2 M T^-2 N^-1; baseUnit joule-per-mole', state: planned }
+  - { collection: magnitudes, slug: molar-entropy, action: create, wave: 'W1.4', slice: molar-quantities, branches: [thermochemistry], milestone: 1, flags: [], name: 'Molar entropy', note: 'L^2 M T^-2 Th^-1 N^-1; baseUnit joule-per-mole-kelvin (shared with molar heat capacity)', state: planned }
+  - { collection: units, slug: dalton, action: create, wave: 'W1.4', slice: molar-quantities, branches: [atomic-structure, amount-of-substance], milestone: 1, flags: [], name: 'Dalton', note: 'toBase = atomic mass constant, NIST CODATA 2022, exact: false; SI Brochure Table 8; aliases u, amu', state: planned }
+  - { collection: units, slug: kilogram-per-mole, action: create, wave: 'W1.4', slice: molar-quantities, branches: [amount-of-substance], milestone: 1, flags: [], name: 'Kilogram per mole', note: 'compose kilogram, mole^-1; unitOf molar-mass', state: planned }
+  - { collection: units, slug: gram-per-mole, action: create, wave: 'W1.4', slice: molar-quantities, branches: [amount-of-substance], milestone: 1, flags: [], name: 'Gram per mole', note: 'compose gram, mole^-1', state: planned }
+  - { collection: units, slug: cubic-metre-per-mole, action: create, wave: 'W1.4', slice: molar-quantities, branches: [amount-of-substance, gases], milestone: 1, flags: [], name: 'Cubic metre per mole', note: 'compose metre^3, mole^-1', state: planned }
+  - { collection: units, slug: litre-per-mole, action: create, wave: 'W1.4', slice: molar-quantities, branches: [amount-of-substance, gases], milestone: 1, flags: [], name: 'Litre per mole', note: 'compose litre, mole^-1', state: planned }
+  - { collection: units, slug: joule-per-mole, action: create, wave: 'W1.4', slice: molar-quantities, branches: [thermochemistry], milestone: 1, flags: [], name: 'Joule per mole', note: 'compose joule, mole^-1; prefixes kilo', state: planned }
+  - { collection: units, slug: joule-per-mole-kelvin, action: create, wave: 'W1.4', slice: molar-quantities, branches: [thermochemistry], milestone: 1, flags: [], name: 'Joule per mole kelvin', note: 'compose joule, mole^-1, kelvin^-1', state: planned }
+  - { collection: units, slug: coulomb-per-mole, action: create, wave: 'W1.4', slice: molar-quantities, branches: [electrochemistry], milestone: 1, flags: [], name: 'Coulomb per mole', note: 'magnitude-less compound unit (unitOf []) for the Faraday constant', state: planned }
+  - { collection: constants, slug: molar-gas-constant, action: create, wave: 'W1.4', slice: molar-quantities, branches: [gases, thermochemistry], milestone: 1, flags: [], name: 'Molar gas constant', note: 'R = N_A k, exact since 2019 with a finite decimal (not truncated); unit joule-per-mole-kelvin; NIST CODATA 2022', state: planned }
+  - { collection: constants, slug: faraday-constant, action: create, wave: 'W1.4', slice: molar-quantities, branches: [electrochemistry], milestone: 1, flags: [], name: 'Faraday constant', note: 'F = N_A e, exact since 2019; unit coulomb-per-mole; NIST CODATA 2022', state: planned }
+  - { collection: constants, slug: atomic-mass-constant, action: create, wave: 'W1.4', slice: molar-quantities, branches: [atomic-structure, amount-of-substance], milestone: 1, flags: [], name: 'Atomic mass constant', note: 'm_u; NIST CODATA 2022 value and uncertainty; unit kilogram', state: planned }
+  - { collection: constants, slug: molar-volume-ideal-gas-stp, action: create, wave: 'W1.4', slice: molar-quantities, branches: [gases], milestone: 1, flags: [], name: 'Molar volume of an ideal gas at STP', note: 'V_m at 273.15 K and 100 kPa (state the conditions; CODATA also lists 101.325 kPa); exact, truncated; unit cubic-metre-per-mole', state: planned }
+  # W1.4 · concentration
+  - { collection: magnitudes, slug: amount-concentration, action: create, wave: 'W1.4', slice: concentration, branches: [solutions], milestone: 1, flags: [], name: 'Amount concentration', note: 'L^-3 N; baseUnit mole-per-cubic-metre; aliases molarity', state: planned }
+  - { collection: magnitudes, slug: mass-concentration, action: create, wave: 'W1.4', slice: concentration, branches: [solutions], milestone: 1, flags: [], name: 'Mass concentration', note: 'L^-3 M; baseUnit kilogram-per-cubic-metre (add to its unitOf); sibling of density, no kindOf', state: planned, edits: [units/kilogram-per-cubic-metre] }
+  - { collection: magnitudes, slug: molality, action: create, wave: 'W1.4', slice: concentration, branches: [solutions], milestone: 1, flags: [], name: 'Molality', note: 'M^-1 N; baseUnit mole-per-kilogram', state: planned }
+  - { collection: magnitudes, slug: ph, action: create, wave: 'W1.4', slice: concentration, branches: [acids-and-bases], milestone: 1, flags: [], name: 'pH', note: 'dimensionless; baseUnit unitless; nonNegative is false (pH can be negative)', state: planned }
+  - { collection: units, slug: mole-per-cubic-metre, action: create, wave: 'W1.4', slice: concentration, branches: [solutions], milestone: 1, flags: [], name: 'Mole per cubic metre', note: 'compose mole, metre^-3', state: planned }
+  - { collection: units, slug: mole-per-litre, action: create, wave: 'W1.4', slice: concentration, branches: [solutions], milestone: 1, flags: [], name: 'Mole per litre', note: 'compose mole, litre^-1; aliases M, molar; prefixes milli, micro, nano', state: planned }
+  - { collection: units, slug: mole-per-kilogram, action: create, wave: 'W1.4', slice: concentration, branches: [solutions], milestone: 1, flags: [], name: 'Mole per kilogram', note: 'compose mole, kilogram^-1; unitOf molality', state: planned }
+  - { collection: units, slug: percent, action: create, wave: 'W1.4', slice: concentration, branches: [arithmetic, solutions], milestone: 1, flags: [], name: 'Percent', note: 'compose unitless with factor 1/100; unitOf dimensionless; never an equation anchor', state: planned }
+  - { collection: units, slug: cubic-centimetre, action: create, wave: 'W1.4', slice: concentration, branches: [solutions, mechanics], milestone: 1, flags: [], name: 'Cubic centimetre', note: 'compose centimetre^3; aliases cc, mL is a different unit with the same factor', state: planned }
+  - { collection: units, slug: gram-per-litre, action: create, wave: 'W1.4', slice: concentration, branches: [solutions], milestone: 1, flags: [], name: 'Gram per litre', note: 'compose gram, litre^-1 (lands on the kg/m3 identity, legal only as compose)', state: planned }
+  # W1.5 · mechanics-and-geometry-magnitudes
+  - { collection: magnitudes, slug: angular-momentum, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [mechanics], milestone: 1, flags: [], name: 'Angular momentum', state: planned }
+  - { collection: magnitudes, slug: area, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [geometry], milestone: 1, flags: [], name: 'Area', state: planned }
+  - { collection: magnitudes, slug: dimensionless, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [measurement], milestone: 1, flags: [], name: 'Dimensionless', note: 'no description yet; describe quantities of dimension one', state: planned }
+  - { collection: magnitudes, slug: energy, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [mechanics, thermodynamics], milestone: 1, flags: [], name: 'Energy', state: planned }
+  - { collection: magnitudes, slug: force, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [mechanics], milestone: 1, flags: [], name: 'Force', state: planned }
+  - { collection: magnitudes, slug: length, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [mechanics], milestone: 1, flags: [], name: 'Length', state: planned }
+  - { collection: magnitudes, slug: mass, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [mechanics], milestone: 1, flags: [], name: 'Mass', state: planned }
+  - { collection: magnitudes, slug: plane-angle, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [geometry, mechanics], milestone: 1, flags: [], name: 'Plane angle', state: planned }
+  - { collection: magnitudes, slug: power, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [mechanics, electromagnetism], milestone: 1, flags: [], name: 'Power', state: planned }
+  - { collection: magnitudes, slug: pressure, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [fluid-mechanics, thermodynamics], milestone: 1, flags: [], name: 'Pressure', note: 'kindOf force-per-area set in W1.2; re-file under fluid-mechanics and thermodynamics', state: planned }
+  - { collection: magnitudes, slug: solid-angle, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [geometry, optics-and-photometry], milestone: 1, flags: [], name: 'Solid angle', state: planned }
+  - { collection: magnitudes, slug: speed, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [mechanics], milestone: 1, flags: [], name: 'Speed', note: 'scalar, nonNegative; the velocity alias moved to magnitudes/velocity in W1.2', state: planned }
+  - { collection: magnitudes, slug: stress, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [mechanics], milestone: 1, flags: [], name: 'Stress', note: 'kindOf force-per-area set in W1.2', state: planned }
+  - { collection: magnitudes, slug: time, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [mechanics, measurement], milestone: 1, flags: [], name: 'Time', state: planned }
+  - { collection: magnitudes, slug: volume, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [geometry, mechanics], milestone: 1, flags: [], name: 'Volume', state: planned }
+  - { collection: magnitudes, slug: weight, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [mechanics], milestone: 1, flags: [], name: 'Weight', state: planned }
+  - { collection: magnitudes, slug: work, action: rewrite, wave: 'W1.5', slice: mechanics-and-geometry-magnitudes, branches: [mechanics, thermodynamics], milestone: 1, flags: [], name: 'Work', state: planned }
+  # W1.5 · field-thermal-and-light-magnitudes
+  - { collection: magnitudes, slug: capacitance, action: rewrite, wave: 'W1.5', slice: field-thermal-and-light-magnitudes, branches: [electromagnetism], milestone: 1, flags: [], name: 'Capacitance', state: planned }
+  - { collection: magnitudes, slug: electric-charge, action: rewrite, wave: 'W1.5', slice: field-thermal-and-light-magnitudes, branches: [electromagnetism], milestone: 1, flags: [], name: 'Electric charge', state: planned }
+  - { collection: magnitudes, slug: electric-current, action: rewrite, wave: 'W1.5', slice: field-thermal-and-light-magnitudes, branches: [electromagnetism], milestone: 1, flags: [], name: 'Electric current', state: planned }
+  - { collection: magnitudes, slug: electric-potential, action: rewrite, wave: 'W1.5', slice: field-thermal-and-light-magnitudes, branches: [electromagnetism], milestone: 1, flags: [], name: 'Electric potential', state: planned }
+  - { collection: magnitudes, slug: electric-potential-difference, action: rewrite, wave: 'W1.5', slice: field-thermal-and-light-magnitudes, branches: [electromagnetism], milestone: 1, flags: [], name: 'Electric potential difference (Voltage)', note: 'the name carries "(Voltage)", which Wikidata and QUDT keep distinct (ADR 0003 follow-up): raise a rename in openQuestions, never change the slug', state: planned }
+  - { collection: magnitudes, slug: electrical-resistance, action: rewrite, wave: 'W1.5', slice: field-thermal-and-light-magnitudes, branches: [electromagnetism], milestone: 1, flags: [], name: 'Electrical resistance', state: planned }
+  - { collection: magnitudes, slug: electromotive-force, action: rewrite, wave: 'W1.5', slice: field-thermal-and-light-magnitudes, branches: [electromagnetism], milestone: 1, flags: [], name: 'Electromotive force', state: planned }
+  - { collection: magnitudes, slug: entropy, action: rewrite, wave: 'W1.5', slice: field-thermal-and-light-magnitudes, branches: [thermodynamics], milestone: 1, flags: [], name: 'Entropy', state: planned }
+  - { collection: magnitudes, slug: frequency, action: rewrite, wave: 'W1.5', slice: field-thermal-and-light-magnitudes, branches: [waves-and-oscillations], milestone: 1, flags: [], name: 'Frequency', state: planned }
+  - { collection: magnitudes, slug: heat, action: rewrite, wave: 'W1.5', slice: field-thermal-and-light-magnitudes, branches: [thermodynamics], milestone: 1, flags: [], name: 'Heat', state: planned }
+  - { collection: magnitudes, slug: luminous-efficacy, action: rewrite, wave: 'W1.5', slice: field-thermal-and-light-magnitudes, branches: [optics-and-photometry], milestone: 1, flags: [], name: 'Luminous efficacy', note: 'say it is the luminous efficacy of radiation (ISO 80000-7), not of a source (ADR 0003 follow-up)', state: planned }
+  - { collection: magnitudes, slug: luminous-flux, action: rewrite, wave: 'W1.5', slice: field-thermal-and-light-magnitudes, branches: [optics-and-photometry], milestone: 1, flags: [], name: 'Luminous flux', state: planned }
+  - { collection: magnitudes, slug: luminous-intensity, action: rewrite, wave: 'W1.5', slice: field-thermal-and-light-magnitudes, branches: [optics-and-photometry], milestone: 1, flags: [], name: 'Luminous intensity', state: planned }
+  - { collection: magnitudes, slug: radiant-flux, action: rewrite, wave: 'W1.5', slice: field-thermal-and-light-magnitudes, branches: [optics-and-photometry], milestone: 1, flags: [], name: 'Radiant flux', state: planned }
+  - { collection: magnitudes, slug: substance, action: rewrite, wave: 'W1.5', slice: field-thermal-and-light-magnitudes, branches: [amount-of-substance], milestone: 1, flags: [], name: 'Amount of substance', state: planned }
+  - { collection: magnitudes, slug: thermodynamic-temperature, action: rewrite, wave: 'W1.5', slice: field-thermal-and-light-magnitudes, branches: [thermodynamics], milestone: 1, flags: [], name: 'Thermodynamic temperature', state: planned }
+  # W1.5 · constants-equations-paths
+  - { collection: constants, slug: avogadro-constant, action: rewrite, wave: 'W1.5', slice: constants-equations-paths, branches: [amount-of-substance, si-system], milestone: 1, flags: [], name: 'Avogadro constant', state: planned }
+  - { collection: constants, slug: boltzmann-constant, action: rewrite, wave: 'W1.5', slice: constants-equations-paths, branches: [thermodynamics, si-system], milestone: 1, flags: [], name: 'Boltzmann constant', state: planned }
+  - { collection: constants, slug: elementary-charge, action: rewrite, wave: 'W1.5', slice: constants-equations-paths, branches: [electromagnetism, modern-physics, atomic-structure, si-system], milestone: 1, flags: [], name: 'Elementary charge', state: planned }
+  - { collection: constants, slug: hyperfine-transition-frequency-of-caesium, action: rewrite, wave: 'W1.5', slice: constants-equations-paths, branches: [atomic-structure, si-system], milestone: 1, flags: [], name: 'Hyperfine transition frequency of Caesium', state: planned }
+  - { collection: constants, slug: luminous-efficacy-of-radiation, action: rewrite, wave: 'W1.5', slice: constants-equations-paths, branches: [optics-and-photometry, si-system], milestone: 1, flags: [], name: 'Luminous efficacy of 540 THz radiation', state: planned }
+  - { collection: constants, slug: pi, action: rewrite, wave: 'W1.5', slice: constants-equations-paths, branches: [geometry, trigonometry], milestone: 1, flags: [], name: 'Pi', note: 're-filed from arithmetic-and-algebra in W1.1', state: planned }
+  - { collection: constants, slug: planck-constant, action: rewrite, wave: 'W1.5', slice: constants-equations-paths, branches: [modern-physics, si-system], milestone: 1, flags: [], name: 'Planck constant', state: planned }
+  - { collection: constants, slug: speed-of-light, action: rewrite, wave: 'W1.5', slice: constants-equations-paths, branches: [electromagnetism, modern-physics, si-system], milestone: 1, flags: [], name: 'Speed of light in vacuum', state: planned }
+  - { collection: variables, slug: radius, action: rewrite, wave: 'W1.5', slice: constants-equations-paths, branches: [geometry], milestone: 1, flags: [], name: 'Radius', note: 'wiki entity with its own page; not an equation-local symbol', state: planned }
+  - { collection: equations, slug: area-circle, action: rewrite, wave: 'W1.5', slice: constants-equations-paths, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Circle area', state: planned }
+  - { collection: equations, slug: area-square, action: rewrite, wave: 'W1.5', slice: constants-equations-paths, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Square area', state: planned }
+  - { collection: equations, slug: mass-energy-equivalence, action: rewrite, wave: 'W1.5', slice: constants-equations-paths, branches: [modern-physics], level: intro, milestone: 1, flags: [], name: 'Mass-energy equivalence', state: planned }
+  - { collection: equations, slug: pythagorean-theorem, action: rewrite, wave: 'W1.5', slice: constants-equations-paths, branches: [geometry, trigonometry], level: intro, milestone: 1, flags: [], name: 'Pythagorean theorem', note: 're-filed from arithmetic-and-algebra in W1.1', state: planned }
+  - { collection: paths, slug: energy-work-heat, action: edit, wave: 'W1.5', slice: constants-equations-paths, branches: [mechanics, thermodynamics, modern-physics], level: intermediate, milestone: 1, flags: [], name: 'Energy, work and heat', note: 'Spanish prose: replace regional unit names (joule, watt, ampere) with julio, vatio, amperio per glossary-es.md; English unchanged unless a style rule is broken', state: planned }
+  - { collection: paths, slug: geometry-of-circles-and-triangles, action: edit, wave: 'W1.5', slice: constants-equations-paths, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Geometry of circles and triangles', note: 'Spanish prose: replace regional unit names (joule, watt, ampere) with julio, vatio, amperio per glossary-es.md; English unchanged unless a style rule is broken', state: planned }
+  - { collection: paths, slug: si-base-units, action: edit, wave: 'W1.5', slice: constants-equations-paths, branches: [mechanics, thermodynamics, electromagnetism, optics-and-photometry], level: intro, milestone: 1, flags: [], name: 'The seven SI base units', note: 'Spanish prose: replace regional unit names (joule, watt, ampere) with julio, vatio, amperio per glossary-es.md; English unchanged unless a style rule is broken', state: planned }
+  - { collection: paths, slug: temperature-scales, action: edit, wave: 'W1.5', slice: constants-equations-paths, branches: [thermodynamics], level: intro, milestone: 1, flags: [], name: 'Temperature scales', note: 'Spanish prose: replace regional unit names (joule, watt, ampere) with julio, vatio, amperio per glossary-es.md; English unchanged unless a style rule is broken', state: planned }
+  # W1.6 · si-base-units
+  - { collection: units, slug: metre, action: rewrite, wave: 'W1.6', slice: si-base-units, branches: [mechanics], milestone: 1, flags: [], name: 'Metre', state: planned }
+  - { collection: units, slug: kilogram, action: rewrite, wave: 'W1.6', slice: si-base-units, branches: [mechanics], milestone: 1, flags: [], name: 'Kilogram', state: planned }
+  - { collection: units, slug: second, action: rewrite, wave: 'W1.6', slice: si-base-units, branches: [mechanics, si-system], milestone: 1, flags: [], name: 'Second', state: planned }
+  - { collection: units, slug: ampere, action: rewrite, wave: 'W1.6', slice: si-base-units, branches: [electromagnetism], milestone: 1, flags: [], name: 'Ampere', state: planned }
+  - { collection: units, slug: kelvin, action: rewrite, wave: 'W1.6', slice: si-base-units, branches: [thermodynamics], milestone: 1, flags: [], name: 'Kelvin', state: planned }
+  - { collection: units, slug: mole, action: rewrite, wave: 'W1.6', slice: si-base-units, branches: [amount-of-substance], milestone: 1, flags: [], name: 'Mole', state: planned }
+  - { collection: units, slug: candela, action: rewrite, wave: 'W1.6', slice: si-base-units, branches: [optics-and-photometry], milestone: 1, flags: [], name: 'Candela', state: planned }
+  - { collection: units, slug: gram, action: rewrite, wave: 'W1.6', slice: si-base-units, branches: [mechanics], milestone: 1, flags: [], name: 'Gram', state: planned }
+  - { collection: units, slug: centimetre, action: rewrite, wave: 'W1.6', slice: si-base-units, branches: [], milestone: 1, flags: [], name: 'Centimetre', state: planned }
+  - { collection: units, slug: micrometre, action: rewrite, wave: 'W1.6', slice: si-base-units, branches: [], milestone: 1, flags: [], name: 'Micrometre', state: planned }
+  - { collection: units, slug: microgram, action: rewrite, wave: 'W1.6', slice: si-base-units, branches: [], milestone: 1, flags: [], name: 'Microgram', state: planned }
+  - { collection: units, slug: square-metre, action: rewrite, wave: 'W1.6', slice: si-base-units, branches: [mechanics], milestone: 1, flags: [], name: 'Square metre', state: planned }
+  - { collection: units, slug: cubic-metre, action: rewrite, wave: 'W1.6', slice: si-base-units, branches: [mechanics], milestone: 1, flags: [], name: 'Cubic metre', state: planned }
+  # W1.6 · si-derived-units
+  - { collection: units, slug: radian, action: rewrite, wave: 'W1.6', slice: si-derived-units, branches: [geometry, mechanics, si-system], milestone: 1, flags: [], name: 'Radian', state: planned }
+  - { collection: units, slug: steradian, action: rewrite, wave: 'W1.6', slice: si-derived-units, branches: [geometry, optics-and-photometry, si-system], milestone: 1, flags: [], name: 'Steradian', state: planned }
+  - { collection: units, slug: unitless, action: rewrite, wave: 'W1.6', slice: si-derived-units, branches: [measurement], milestone: 1, flags: [], name: 'Unitless', state: planned }
+  - { collection: units, slug: newton, action: rewrite, wave: 'W1.6', slice: si-derived-units, branches: [mechanics], milestone: 1, flags: [], name: 'Newton', state: planned }
+  - { collection: units, slug: pascal, action: rewrite, wave: 'W1.6', slice: si-derived-units, branches: [mechanics, thermodynamics], milestone: 1, flags: [], name: 'Pascal', state: planned }
+  - { collection: units, slug: joule, action: rewrite, wave: 'W1.6', slice: si-derived-units, branches: [mechanics, thermodynamics], milestone: 1, flags: [], name: 'Joule', state: planned }
+  - { collection: units, slug: watt, action: rewrite, wave: 'W1.6', slice: si-derived-units, branches: [mechanics, electromagnetism], milestone: 1, flags: [], name: 'Watt', state: planned }
+  - { collection: units, slug: hertz, action: rewrite, wave: 'W1.6', slice: si-derived-units, branches: [waves-and-oscillations], milestone: 1, flags: [], name: 'Hertz', state: planned }
+  - { collection: units, slug: coulomb, action: rewrite, wave: 'W1.6', slice: si-derived-units, branches: [electromagnetism], milestone: 1, flags: [], name: 'Coulomb', state: planned }
+  - { collection: units, slug: volt, action: rewrite, wave: 'W1.6', slice: si-derived-units, branches: [electromagnetism], milestone: 1, flags: [], name: 'Volt', state: planned }
+  - { collection: units, slug: ohm, action: rewrite, wave: 'W1.6', slice: si-derived-units, branches: [electromagnetism], milestone: 1, flags: [], name: 'Ohm', state: planned }
+  - { collection: units, slug: farad, action: rewrite, wave: 'W1.6', slice: si-derived-units, branches: [electromagnetism], milestone: 1, flags: [], name: 'Farad', state: planned }
+  - { collection: units, slug: lumen, action: rewrite, wave: 'W1.6', slice: si-derived-units, branches: [optics-and-photometry], milestone: 1, flags: [], name: 'Lumen', state: planned }
+  # W1.6 · compound-and-accepted-units
+  - { collection: units, slug: celsius, action: rewrite, wave: 'W1.6', slice: compound-and-accepted-units, branches: [thermodynamics], milestone: 1, flags: [], name: 'Celsius', state: planned }
+  - { collection: units, slug: joule-per-kelvin, action: rewrite, wave: 'W1.6', slice: compound-and-accepted-units, branches: [thermodynamics], milestone: 1, flags: [], name: 'Joule per Kelvin', state: planned }
+  - { collection: units, slug: joule-per-second, action: rewrite, wave: 'W1.6', slice: compound-and-accepted-units, branches: [mechanics, electromagnetism], milestone: 1, flags: [], name: 'Joule per second', state: planned }
+  - { collection: units, slug: joule-second, action: rewrite, wave: 'W1.6', slice: compound-and-accepted-units, branches: [mechanics, modern-physics], milestone: 1, flags: [], name: 'Joule-second', state: planned }
+  - { collection: units, slug: lumen-per-watt, action: rewrite, wave: 'W1.6', slice: compound-and-accepted-units, branches: [optics-and-photometry], milestone: 1, flags: [], name: 'Lumen per watt', note: 'no description yet', state: planned }
+  - { collection: units, slug: metre-per-second, action: rewrite, wave: 'W1.6', slice: compound-and-accepted-units, branches: [mechanics], milestone: 1, flags: [], name: 'Metre per second', state: planned }
+  - { collection: units, slug: reciprocal-mole, action: rewrite, wave: 'W1.6', slice: compound-and-accepted-units, branches: [amount-of-substance], milestone: 1, flags: [], name: 'Reciprocal mole', state: planned }
+  - { collection: units, slug: litre, action: rewrite, wave: 'W1.6', slice: compound-and-accepted-units, branches: [mechanics], milestone: 1, flags: [], name: 'Litre', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: minute, action: rewrite, wave: 'W1.6', slice: compound-and-accepted-units, branches: [mechanics, measurement], milestone: 1, flags: [], name: 'Minute', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: hour, action: rewrite, wave: 'W1.6', slice: compound-and-accepted-units, branches: [mechanics, measurement], milestone: 1, flags: [], name: 'Hour', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: day, action: rewrite, wave: 'W1.6', slice: compound-and-accepted-units, branches: [mechanics, measurement], milestone: 1, flags: [], name: 'Day', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: tonne, action: rewrite, wave: 'W1.6', slice: compound-and-accepted-units, branches: [mechanics], milestone: 1, flags: [], name: 'Tonne', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  # W1.7 · customary-length-mass-volume
+  - { collection: units, slug: foot, action: rewrite, wave: 'W1.7', slice: customary-length-mass-volume, branches: [mechanics], milestone: 1, flags: [], name: 'Foot', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: inch, action: rewrite, wave: 'W1.7', slice: customary-length-mass-volume, branches: [mechanics], milestone: 1, flags: [], name: 'Inch', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: yard, action: rewrite, wave: 'W1.7', slice: customary-length-mass-volume, branches: [mechanics], milestone: 1, flags: [], name: 'Yard', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: mile, action: rewrite, wave: 'W1.7', slice: customary-length-mass-volume, branches: [mechanics], milestone: 1, flags: [], name: 'Mile', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: nautical-mile, action: rewrite, wave: 'W1.7', slice: customary-length-mass-volume, branches: [mechanics], milestone: 1, flags: [], name: 'Nautical mile', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical; remove the Markdown list and bold; keep the symbol variants as prose', state: planned }
+  - { collection: units, slug: pound, action: rewrite, wave: 'W1.7', slice: customary-length-mass-volume, branches: [mechanics], milestone: 1, flags: [], name: 'Pound', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: ounce, action: rewrite, wave: 'W1.7', slice: customary-length-mass-volume, branches: [mechanics], milestone: 1, flags: [], name: 'Ounce', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: stone, action: rewrite, wave: 'W1.7', slice: customary-length-mass-volume, branches: [mechanics], milestone: 1, flags: [], name: 'Stone', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: long-ton, action: rewrite, wave: 'W1.7', slice: customary-length-mass-volume, branches: [mechanics], milestone: 1, flags: [], name: 'Long ton', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: short-ton, action: rewrite, wave: 'W1.7', slice: customary-length-mass-volume, branches: [mechanics], milestone: 1, flags: [], name: 'Short ton', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: imperial-gallon, action: rewrite, wave: 'W1.7', slice: customary-length-mass-volume, branches: [mechanics], milestone: 1, flags: [], name: 'Imperial Gallon', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: imperial-pint, action: rewrite, wave: 'W1.7', slice: customary-length-mass-volume, branches: [mechanics], milestone: 1, flags: [], name: 'Imperial Pint', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: imperial-quart, action: rewrite, wave: 'W1.7', slice: customary-length-mass-volume, branches: [mechanics], milestone: 1, flags: [], name: 'Imperial Quart', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: us-gallon, action: rewrite, wave: 'W1.7', slice: customary-length-mass-volume, branches: [mechanics], milestone: 1, flags: [], name: 'U.S. Gallon', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: us-pint, action: rewrite, wave: 'W1.7', slice: customary-length-mass-volume, branches: [mechanics], milestone: 1, flags: [], name: 'U.S. Pint', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: us-quart, action: rewrite, wave: 'W1.7', slice: customary-length-mass-volume, branches: [mechanics], milestone: 1, flags: [], name: 'U.S. Quart', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  # W1.7 · time-temperature-energy
+  - { collection: units, slug: century, action: rewrite, wave: 'W1.7', slice: time-temperature-energy, branches: [mechanics, measurement], milestone: 1, flags: [], name: 'Century', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: decade, action: rewrite, wave: 'W1.7', slice: time-temperature-energy, branches: [mechanics, measurement], milestone: 1, flags: [], name: 'Decade', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: year, action: rewrite, wave: 'W1.7', slice: time-temperature-energy, branches: [mechanics, measurement], milestone: 1, flags: [], name: 'Year', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical; the 365-day common year (ADR 0003 follow-up open): describe it as such, never change the factor', state: planned }
+  - { collection: units, slug: month, action: rewrite, wave: 'W1.7', slice: time-temperature-energy, branches: [mechanics, measurement], milestone: 1, flags: [], name: 'Month', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical; one twelfth of the common year (2 628 000 s); no QUDT IRI exists for it (ADR 0003)', state: planned }
+  - { collection: units, slug: week, action: rewrite, wave: 'W1.7', slice: time-temperature-energy, branches: [mechanics, measurement], milestone: 1, flags: [], name: 'Week', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: fahrenheit, action: rewrite, wave: 'W1.7', slice: time-temperature-energy, branches: [thermodynamics], milestone: 1, flags: [], name: 'Fahrenheit', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: rankine, action: rewrite, wave: 'W1.7', slice: time-temperature-energy, branches: [thermodynamics], milestone: 1, flags: [], name: 'Rankine', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: reaumur, action: rewrite, wave: 'W1.7', slice: time-temperature-energy, branches: [thermodynamics], milestone: 1, flags: [], name: 'Réaumur', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: romer, action: rewrite, wave: 'W1.7', slice: time-temperature-energy, branches: [thermodynamics], milestone: 1, flags: [], name: 'Rømer', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: delisle, action: rewrite, wave: 'W1.7', slice: time-temperature-energy, branches: [thermodynamics], milestone: 1, flags: [], name: 'Delisle', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: newton-degree, action: rewrite, wave: 'W1.7', slice: time-temperature-energy, branches: [thermodynamics], milestone: 1, flags: [], name: 'Newton degree', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: erg, action: rewrite, wave: 'W1.7', slice: time-temperature-energy, branches: [mechanics], milestone: 1, flags: [], name: 'Erg', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  - { collection: units, slug: foot-pound, action: rewrite, wave: 'W1.7', slice: time-temperature-energy, branches: [mechanics], milestone: 1, flags: [], name: 'Foot-pound', note: 'status reviewed: prose-only rewrite, numeric lines byte-identical', state: planned }
+  # W1.7 · prefixes
+  - { collection: prefixes, slug: atto, action: rewrite, wave: 'W1.7', slice: prefixes, branches: [si-system], milestone: 1, flags: [], name: 'Atto', state: planned }
+  - { collection: prefixes, slug: centi, action: rewrite, wave: 'W1.7', slice: prefixes, branches: [si-system], milestone: 1, flags: [], name: 'Centi', state: planned }
+  - { collection: prefixes, slug: deca, action: rewrite, wave: 'W1.7', slice: prefixes, branches: [si-system], milestone: 1, flags: [], name: 'Deca', state: planned }
+  - { collection: prefixes, slug: deci, action: rewrite, wave: 'W1.7', slice: prefixes, branches: [si-system], milestone: 1, flags: [], name: 'Deci', state: planned }
+  - { collection: prefixes, slug: exa, action: rewrite, wave: 'W1.7', slice: prefixes, branches: [si-system], milestone: 1, flags: [], name: 'Exa', state: planned }
+  - { collection: prefixes, slug: femto, action: rewrite, wave: 'W1.7', slice: prefixes, branches: [si-system], milestone: 1, flags: [], name: 'Femto', state: planned }
+  - { collection: prefixes, slug: giga, action: rewrite, wave: 'W1.7', slice: prefixes, branches: [si-system], milestone: 1, flags: [], name: 'Giga', state: planned }
+  - { collection: prefixes, slug: hecto, action: rewrite, wave: 'W1.7', slice: prefixes, branches: [si-system], milestone: 1, flags: [], name: 'Hecto', state: planned }
+  - { collection: prefixes, slug: kilo, action: rewrite, wave: 'W1.7', slice: prefixes, branches: [si-system], milestone: 1, flags: [], name: 'Kilo', state: planned }
+  - { collection: prefixes, slug: mega, action: rewrite, wave: 'W1.7', slice: prefixes, branches: [si-system], milestone: 1, flags: [], name: 'Mega', state: planned }
+  - { collection: prefixes, slug: micro, action: rewrite, wave: 'W1.7', slice: prefixes, branches: [si-system], milestone: 1, flags: [], name: 'Micro', state: planned }
+  - { collection: prefixes, slug: milli, action: rewrite, wave: 'W1.7', slice: prefixes, branches: [si-system], milestone: 1, flags: [], name: 'Milli', state: planned }
+  - { collection: prefixes, slug: nano, action: rewrite, wave: 'W1.7', slice: prefixes, branches: [si-system], milestone: 1, flags: [], name: 'Nano', state: planned }
+  - { collection: prefixes, slug: peta, action: rewrite, wave: 'W1.7', slice: prefixes, branches: [si-system], milestone: 1, flags: [], name: 'Peta', state: planned }
+  - { collection: prefixes, slug: pico, action: rewrite, wave: 'W1.7', slice: prefixes, branches: [si-system], milestone: 1, flags: [], name: 'Pico', state: planned }
+  - { collection: prefixes, slug: tera, action: rewrite, wave: 'W1.7', slice: prefixes, branches: [si-system], milestone: 1, flags: [], name: 'Tera', state: planned }
+  - { collection: prefixes, slug: yocto, action: rewrite, wave: 'W1.7', slice: prefixes, branches: [si-system], milestone: 1, flags: [], name: 'Yocto', state: planned }
+  - { collection: prefixes, slug: yotta, action: rewrite, wave: 'W1.7', slice: prefixes, branches: [si-system], milestone: 1, flags: [], name: 'Yotta', state: planned }
+  - { collection: prefixes, slug: zepto, action: rewrite, wave: 'W1.7', slice: prefixes, branches: [si-system], milestone: 1, flags: [], name: 'Zepto', state: planned }
+  - { collection: prefixes, slug: zetta, action: rewrite, wave: 'W1.7', slice: prefixes, branches: [si-system], milestone: 1, flags: [], name: 'Zetta', state: planned }
+  # W2 · arithmetic
+  - { collection: equations, slug: percentage, action: create, wave: 'W2', slice: arithmetic, branches: [arithmetic], level: intro, milestone: 1, flags: [], name: 'Percentage', state: planned }
+  - { collection: equations, slug: percentage-change, action: create, wave: 'W2', slice: arithmetic, branches: [arithmetic], level: intro, milestone: 1, flags: [], name: 'Percentage change', state: planned }
+  - { collection: equations, slug: markup-and-discount, action: create, wave: 'W2', slice: arithmetic, branches: [arithmetic], level: intro, milestone: 1, flags: [], name: 'Markup and discount', state: planned }
+  - { collection: equations, slug: direct-proportion, action: create, wave: 'W2', slice: arithmetic, branches: [arithmetic], level: intro, milestone: 1, flags: [], name: 'Direct proportion', state: planned }
+  - { collection: equations, slug: inverse-proportion, action: create, wave: 'W2', slice: arithmetic, branches: [arithmetic], level: intro, milestone: 1, flags: [], name: 'Inverse proportion', state: planned }
+  - { collection: equations, slug: simple-interest, action: create, wave: 'W2', slice: arithmetic, branches: [arithmetic], level: intro, milestone: 1, flags: [], name: 'Simple interest', state: planned }
+  - { collection: equations, slug: compound-interest, action: create, wave: 'W2', slice: arithmetic, branches: [arithmetic], level: intro, milestone: 1, flags: ['NC:n'], name: 'Compound interest', state: planned }
+  - { collection: equations, slug: continuous-compounding, action: create, wave: 'W2', slice: arithmetic, branches: [arithmetic], level: intro, milestone: 1, flags: [], name: 'Continuous compounding', state: planned }
+  - { collection: equations, slug: present-value, action: create, wave: 'W2', slice: arithmetic, branches: [arithmetic], level: intro, milestone: 1, flags: [], name: 'Present value', state: planned }
+  - { collection: paths, slug: percentages-and-interest, action: create, wave: 'W2', slice: arithmetic, branches: [arithmetic], level: intro, milestone: 1, flags: [], name: 'Percentages and interest', note: 'learning path over this wave''s entries; intro level; prose and checks in English and Spanish', state: planned }
+  # W2 · algebra
+  - { collection: equations, slug: quadratic-formula, action: create, wave: 'W2', slice: algebra, branches: [algebra], level: intro, milestone: 1, flags: ['MR'], name: 'Quadratic formula', state: planned }
+  - { collection: equations, slug: discriminant, action: create, wave: 'W2', slice: algebra, branches: [algebra], level: intro, milestone: 1, flags: [], name: 'Discriminant', state: planned }
+  - { collection: equations, slug: vieta-sum-of-roots, action: create, wave: 'W2', slice: algebra, branches: [algebra], level: intro, milestone: 1, flags: [], name: 'Vieta sum of roots', state: planned }
+  - { collection: equations, slug: vieta-product-of-roots, action: create, wave: 'W2', slice: algebra, branches: [algebra], level: intro, milestone: 1, flags: [], name: 'Vieta product of roots', state: planned }
+  - { collection: equations, slug: slope-intercept-form, action: create, wave: 'W2', slice: algebra, branches: [algebra], level: intro, milestone: 1, flags: [], name: 'Slope intercept form', state: planned }
+  - { collection: equations, slug: exponential-growth, action: create, wave: 'W2', slice: algebra, branches: [algebra], level: intro, milestone: 1, flags: [], name: 'Exponential growth', state: planned }
+  - { collection: equations, slug: logarithm-change-of-base, action: create, wave: 'W2', slice: algebra, branches: [algebra], level: intro, milestone: 1, flags: [], name: 'Logarithm change of base', state: planned }
+  - { collection: equations, slug: arithmetic-sequence-term, action: create, wave: 'W2', slice: algebra, branches: [algebra], level: intro, milestone: 1, flags: [], name: 'Arithmetic sequence term', state: planned }
+  - { collection: equations, slug: arithmetic-series-sum, action: create, wave: 'W2', slice: algebra, branches: [algebra], level: intro, milestone: 1, flags: [], name: 'Arithmetic series sum', state: planned }
+  - { collection: equations, slug: geometric-sequence-term, action: create, wave: 'W2', slice: algebra, branches: [algebra], level: intro, milestone: 1, flags: [], name: 'Geometric sequence term', state: planned }
+  - { collection: equations, slug: geometric-series-sum, action: create, wave: 'W2', slice: algebra, branches: [algebra], level: intro, milestone: 1, flags: ['NC:r'], name: 'Geometric series sum', state: planned }
+  - { collection: equations, slug: infinite-geometric-series, action: create, wave: 'W2', slice: algebra, branches: [algebra], level: intro, milestone: 1, flags: [], name: 'Infinite geometric series', state: planned }
+  - { collection: equations, slug: sum-of-first-n-integers, action: create, wave: 'W2', slice: algebra, branches: [algebra], level: intro, milestone: 1, flags: ['MR'], name: 'Sum of first n integers', state: planned }
+  - { collection: equations, slug: linear-interpolation, action: create, wave: 'W2', slice: algebra, branches: [algebra], level: intro, milestone: 1, flags: [], name: 'Linear interpolation', state: planned }
+  # W2 · statistics
+  - { collection: branches, slug: statistics-and-probability, action: create, wave: 'W2', slice: statistics, branches: [], milestone: 1, flags: [], name: 'Statistics and probability', note: 'mathematics, order 4; no Wikidata item for the pair: cite none', state: planned }
+  - { collection: equations, slug: z-score, action: create, wave: 'W2', slice: statistics, branches: [statistics-and-probability], level: intro, milestone: 1, flags: [], name: 'Z-score', state: planned }
+  - { collection: equations, slug: probability-complement, action: create, wave: 'W2', slice: statistics, branches: [statistics-and-probability], level: intro, milestone: 1, flags: [], name: 'Probability complement', state: planned }
+  - { collection: equations, slug: addition-rule-probability, action: create, wave: 'W2', slice: statistics, branches: [statistics-and-probability], level: intro, milestone: 1, flags: [], name: 'Addition rule probability', state: planned }
+  - { collection: equations, slug: multiplication-rule-independent, action: create, wave: 'W2', slice: statistics, branches: [statistics-and-probability], level: intro, milestone: 1, flags: [], name: 'Multiplication rule independent', state: planned }
+  - { collection: equations, slug: conditional-probability, action: create, wave: 'W2', slice: statistics, branches: [statistics-and-probability], level: intro, milestone: 1, flags: [], name: 'Conditional probability', state: planned }
+  - { collection: equations, slug: bayes-theorem, action: create, wave: 'W2', slice: statistics, branches: [statistics-and-probability], level: intro, milestone: 1, flags: [], name: 'Bayes'' theorem', state: planned }
+  - { collection: equations, slug: combinations, action: create, wave: 'W2', slice: statistics, branches: [statistics-and-probability], level: intro, milestone: 1, flags: ['INT', 'G:factorial', 'NC:n,k'], name: 'Combinations', state: planned }
+  - { collection: equations, slug: permutations, action: create, wave: 'W2', slice: statistics, branches: [statistics-and-probability], level: intro, milestone: 1, flags: ['INT', 'G:factorial', 'NC:n,k'], name: 'Permutations', state: planned }
+  - { collection: equations, slug: binomial-probability, action: create, wave: 'W2', slice: statistics, branches: [statistics-and-probability], level: intro, milestone: 1, flags: ['INT', 'G:factorial', 'NC:n,k,p'], name: 'Binomial probability', state: planned }
+  # W3 · plane-geometry
+  - { collection: equations, slug: area-rectangle, action: create, wave: 'W3', slice: plane-geometry, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Area rectangle', state: planned }
+  - { collection: equations, slug: perimeter-rectangle, action: create, wave: 'W3', slice: plane-geometry, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Perimeter rectangle', state: planned }
+  - { collection: equations, slug: area-triangle, action: create, wave: 'W3', slice: plane-geometry, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Area triangle', state: planned }
+  - { collection: equations, slug: herons-formula, action: create, wave: 'W3', slice: plane-geometry, branches: [geometry], level: intro, milestone: 1, flags: ['MR'], name: 'Heron''s formula', state: planned }
+  - { collection: equations, slug: area-parallelogram, action: create, wave: 'W3', slice: plane-geometry, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Area parallelogram', state: planned }
+  - { collection: equations, slug: area-trapezoid, action: create, wave: 'W3', slice: plane-geometry, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Area trapezoid', state: planned }
+  - { collection: equations, slug: area-rhombus, action: create, wave: 'W3', slice: plane-geometry, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Area rhombus', state: planned }
+  - { collection: equations, slug: area-regular-polygon, action: create, wave: 'W3', slice: plane-geometry, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Area regular polygon', state: planned }
+  - { collection: equations, slug: circumference, action: create, wave: 'W3', slice: plane-geometry, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Circumference', state: planned }
+  - { collection: equations, slug: arc-length, action: create, wave: 'W3', slice: plane-geometry, branches: [geometry], level: intro, milestone: 1, flags: ['ANG'], name: 'Arc length', state: planned }
+  - { collection: equations, slug: area-circular-sector, action: create, wave: 'W3', slice: plane-geometry, branches: [geometry], level: intro, milestone: 1, flags: ['ANG'], name: 'Area circular sector', state: planned }
+  - { collection: equations, slug: area-ellipse, action: create, wave: 'W3', slice: plane-geometry, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Area ellipse', state: planned }
+  - { collection: equations, slug: area-annulus, action: create, wave: 'W3', slice: plane-geometry, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Area annulus', state: planned }
+  - { collection: equations, slug: polygon-interior-angle-sum, action: create, wave: 'W3', slice: plane-geometry, branches: [geometry], level: intro, milestone: 1, flags: ['ANG'], name: 'Polygon interior angle sum', state: planned }
+  - { collection: equations, slug: polygon-diagonals, action: create, wave: 'W3', slice: plane-geometry, branches: [geometry], level: intro, milestone: 1, flags: ['MR', 'INT'], name: 'Polygon diagonals', state: planned }
+  # W3 · solid-and-analytic-geometry
+  - { collection: equations, slug: volume-cube, action: create, wave: 'W3', slice: solid-and-analytic-geometry, branches: [geometry], level: intro, milestone: 1, flags: ['G:cbrt'], name: 'Volume cube', state: planned }
+  - { collection: equations, slug: surface-area-cube, action: create, wave: 'W3', slice: solid-and-analytic-geometry, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Surface area cube', state: planned }
+  - { collection: equations, slug: volume-rectangular-prism, action: create, wave: 'W3', slice: solid-and-analytic-geometry, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Volume rectangular prism', state: planned }
+  - { collection: equations, slug: space-diagonal-box, action: create, wave: 'W3', slice: solid-and-analytic-geometry, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Space diagonal box', state: planned }
+  - { collection: equations, slug: volume-cylinder, action: create, wave: 'W3', slice: solid-and-analytic-geometry, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Volume cylinder', state: planned }
+  - { collection: equations, slug: surface-area-cylinder, action: create, wave: 'W3', slice: solid-and-analytic-geometry, branches: [geometry], level: intro, milestone: 1, flags: ['MR'], name: 'Surface area cylinder', state: planned }
+  - { collection: equations, slug: volume-cone, action: create, wave: 'W3', slice: solid-and-analytic-geometry, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Volume cone', state: planned }
+  - { collection: equations, slug: surface-area-cone, action: create, wave: 'W3', slice: solid-and-analytic-geometry, branches: [geometry], level: intro, milestone: 1, flags: ['MR'], name: 'Surface area cone', state: planned }
+  - { collection: equations, slug: volume-pyramid, action: create, wave: 'W3', slice: solid-and-analytic-geometry, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Volume pyramid', state: planned }
+  - { collection: equations, slug: volume-sphere, action: create, wave: 'W3', slice: solid-and-analytic-geometry, branches: [geometry], level: intro, milestone: 1, flags: ['G:cbrt'], name: 'Volume sphere', state: planned }
+  - { collection: equations, slug: surface-area-sphere, action: create, wave: 'W3', slice: solid-and-analytic-geometry, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Surface area sphere', state: planned }
+  - { collection: equations, slug: eulers-polyhedron-formula, action: create, wave: 'W3', slice: solid-and-analytic-geometry, branches: [geometry], level: intro, milestone: 1, flags: ['INT'], name: 'Euler''s polyhedron formula', state: planned }
+  - { collection: equations, slug: distance-between-points, action: create, wave: 'W3', slice: solid-and-analytic-geometry, branches: [geometry], level: intro, milestone: 1, flags: ['MR'], name: 'Distance between points', state: planned }
+  - { collection: equations, slug: slope-of-a-line, action: create, wave: 'W3', slice: solid-and-analytic-geometry, branches: [geometry], level: intro, milestone: 1, flags: [], name: 'Slope of a line', state: planned }
+  - { collection: equations, slug: circle-equation, action: create, wave: 'W3', slice: solid-and-analytic-geometry, branches: [geometry], level: intro, milestone: 1, flags: ['MR'], name: 'Circle equation', state: planned }
+  # W3 · trigonometry
+  - { collection: equations, slug: sine-ratio, action: create, wave: 'W3', slice: trigonometry, branches: [trigonometry], level: intro, milestone: 1, flags: ['ANG', 'G:asin'], name: 'Sine ratio', state: planned }
+  - { collection: equations, slug: cosine-ratio, action: create, wave: 'W3', slice: trigonometry, branches: [trigonometry], level: intro, milestone: 1, flags: ['ANG', 'G:acos'], name: 'Cosine ratio', state: planned }
+  - { collection: equations, slug: tangent-ratio, action: create, wave: 'W3', slice: trigonometry, branches: [trigonometry], level: intro, milestone: 1, flags: ['ANG', 'G:atan'], name: 'Tangent ratio', state: planned }
+  - { collection: equations, slug: law-of-sines, action: create, wave: 'W3', slice: trigonometry, branches: [trigonometry], level: intro, milestone: 1, flags: ['ANG', 'G:asin', 'MR'], name: 'Law of sines', state: planned }
+  - { collection: equations, slug: law-of-cosines, action: create, wave: 'W3', slice: trigonometry, branches: [trigonometry], level: intro, milestone: 1, flags: ['ANG', 'G:acos', 'MR'], name: 'Law of cosines', state: planned }
+  - { collection: equations, slug: triangle-area-sas, action: create, wave: 'W3', slice: trigonometry, branches: [trigonometry], level: intro, milestone: 1, flags: ['ANG', 'G:asin', 'MR'], name: 'Triangle area SAS', state: planned }
+  - { collection: equations, slug: height-from-elevation-angle, action: create, wave: 'W3', slice: trigonometry, branches: [trigonometry], level: intro, milestone: 1, flags: ['ANG', 'G:atan'], name: 'Height from elevation angle', state: planned }
+  - { collection: equations, slug: triangle-angle-sum, action: create, wave: 'W3', slice: trigonometry, branches: [trigonometry], level: intro, milestone: 1, flags: ['ANG'], name: 'Triangle angle sum', state: planned }
+  - { collection: paths, slug: right-triangle-trigonometry, action: create, wave: 'W3', slice: trigonometry, branches: [trigonometry, geometry], level: intro, milestone: 1, flags: [], name: 'Right-triangle trigonometry', note: 'learning path over this wave''s entries; intro level; prose and checks in English and Spanish', state: planned }
+  # W4 · constant-acceleration
+  - { collection: equations, slug: average-speed, action: create, wave: 'W4', slice: constant-acceleration, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Average speed', state: planned }
+  - { collection: equations, slug: average-velocity, action: create, wave: 'W4', slice: constant-acceleration, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Average velocity', state: planned }
+  - { collection: equations, slug: average-acceleration, action: create, wave: 'W4', slice: constant-acceleration, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Average acceleration', state: planned }
+  - { collection: equations, slug: uniform-motion-position, action: create, wave: 'W4', slice: constant-acceleration, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Uniform motion position', state: planned }
+  - { collection: equations, slug: velocity-time-constant-acceleration, action: create, wave: 'W4', slice: constant-acceleration, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Velocity time constant acceleration', state: planned }
+  - { collection: equations, slug: position-time-constant-acceleration, action: create, wave: 'W4', slice: constant-acceleration, branches: [mechanics], level: intro, milestone: 1, flags: ['MR'], name: 'Position time constant acceleration', state: planned }
+  - { collection: equations, slug: velocity-displacement-constant-acceleration, action: create, wave: 'W4', slice: constant-acceleration, branches: [mechanics], level: intro, milestone: 1, flags: ['MR'], name: 'Velocity displacement constant acceleration', state: planned }
+  - { collection: equations, slug: displacement-average-velocity, action: create, wave: 'W4', slice: constant-acceleration, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Displacement average velocity', state: planned }
+  - { collection: equations, slug: displacement-final-velocity, action: create, wave: 'W4', slice: constant-acceleration, branches: [mechanics], level: intro, milestone: 1, flags: ['MR'], name: 'Displacement final velocity', state: planned }
+  - { collection: equations, slug: stopping-distance, action: create, wave: 'W4', slice: constant-acceleration, branches: [mechanics], level: intro, milestone: 1, flags: ['MR'], name: 'Stopping distance', state: planned }
+  - { collection: equations, slug: relative-velocity-1d, action: create, wave: 'W4', slice: constant-acceleration, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Relative velocity in one dimension', state: planned }
+  # W4 · free-fall-and-projectiles
+  - { collection: equations, slug: free-fall-distance, action: create, wave: 'W4', slice: free-fall-and-projectiles, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Free fall distance', state: planned }
+  - { collection: equations, slug: free-fall-velocity, action: create, wave: 'W4', slice: free-fall-and-projectiles, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Free fall velocity', state: planned }
+  - { collection: equations, slug: impact-velocity-from-height, action: create, wave: 'W4', slice: free-fall-and-projectiles, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Impact velocity from height', state: planned }
+  - { collection: equations, slug: projectile-range, action: create, wave: 'W4', slice: free-fall-and-projectiles, branches: [mechanics], level: intro, milestone: 1, flags: ['ANG', 'G:asin', 'MR'], name: 'Projectile range', state: planned }
+  - { collection: equations, slug: projectile-maximum-height, action: create, wave: 'W4', slice: free-fall-and-projectiles, branches: [mechanics], level: intro, milestone: 1, flags: ['ANG', 'G:asin'], name: 'Projectile maximum height', state: planned }
+  - { collection: equations, slug: projectile-time-of-flight, action: create, wave: 'W4', slice: free-fall-and-projectiles, branches: [mechanics], level: intro, milestone: 1, flags: ['ANG', 'G:asin'], name: 'Projectile time of flight', state: planned }
+  - { collection: equations, slug: horizontal-launch-range, action: create, wave: 'W4', slice: free-fall-and-projectiles, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Horizontal launch range', state: planned }
+  # W4 · circular-motion
+  - { collection: equations, slug: uniform-circular-speed, action: create, wave: 'W4', slice: circular-motion, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Uniform circular speed', state: planned }
+  - { collection: equations, slug: centripetal-acceleration, action: create, wave: 'W4', slice: circular-motion, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Centripetal acceleration', state: planned }
+  - { collection: equations, slug: centripetal-acceleration-angular, action: create, wave: 'W4', slice: circular-motion, branches: [mechanics], level: intro, milestone: 1, flags: ['ANG'], name: 'Centripetal acceleration angular', state: planned }
+  - { collection: equations, slug: angular-velocity-period, action: create, wave: 'W4', slice: circular-motion, branches: [mechanics], level: intro, milestone: 1, flags: ['ANG'], name: 'Angular velocity period', state: planned }
+  - { collection: equations, slug: linear-angular-speed, action: create, wave: 'W4', slice: circular-motion, branches: [mechanics], level: intro, milestone: 1, flags: ['ANG'], name: 'Linear angular speed', state: planned }
+  - { collection: paths, slug: kinematics, action: create, wave: 'W4', slice: circular-motion, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Kinematics', note: 'learning path over this wave''s entries; intro level; prose and checks in English and Spanish', state: planned }
+  # W5 · dynamics
+  - { collection: equations, slug: newtons-second-law, action: create, wave: 'W5', slice: dynamics, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Newton''s second law', state: planned }
+  - { collection: equations, slug: weight-formula, action: create, wave: 'W5', slice: dynamics, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Weight', state: planned }
+  - { collection: equations, slug: friction-force, action: create, wave: 'W5', slice: dynamics, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Friction force', state: planned }
+  - { collection: equations, slug: hookes-law, action: create, wave: 'W5', slice: dynamics, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Hooke''s law', state: planned }
+  - { collection: equations, slug: centripetal-force, action: create, wave: 'W5', slice: dynamics, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Centripetal force', state: planned }
+  - { collection: equations, slug: inclined-plane-gravity-component, action: create, wave: 'W5', slice: dynamics, branches: [mechanics], level: intro, milestone: 1, flags: ['ANG', 'G:asin'], name: 'Inclined plane gravity component', state: planned }
+  - { collection: equations, slug: normal-force-incline, action: create, wave: 'W5', slice: dynamics, branches: [mechanics], level: intro, milestone: 1, flags: ['ANG', 'G:acos'], name: 'Normal force incline', state: planned }
+  - { collection: equations, slug: inclined-plane-acceleration, action: create, wave: 'W5', slice: dynamics, branches: [mechanics], level: intro, milestone: 1, flags: ['ANG', 'NC:θ'], name: 'Inclined plane acceleration', state: planned }
+  - { collection: equations, slug: atwood-machine-acceleration, action: create, wave: 'W5', slice: dynamics, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Atwood machine acceleration', state: planned }
+  - { collection: equations, slug: maximum-speed-flat-curve, action: create, wave: 'W5', slice: dynamics, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Maximum speed flat curve', state: planned }
+  - { collection: equations, slug: apparent-weight-elevator, action: create, wave: 'W5', slice: dynamics, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Apparent weight elevator', state: planned }
+  - { collection: paths, slug: newtons-laws, action: create, wave: 'W5', slice: dynamics, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Newton''s laws', note: 'learning path over this wave''s entries; intro level; prose and checks in English and Spanish', state: planned }
+  # W5 · energy
+  - { collection: equations, slug: work-constant-force, action: create, wave: 'W5', slice: energy, branches: [mechanics], level: intro, milestone: 1, flags: ['ANG', 'G:acos'], name: 'Work constant force', state: planned }
+  - { collection: equations, slug: kinetic-energy-formula, action: create, wave: 'W5', slice: energy, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Kinetic energy', state: planned }
+  - { collection: equations, slug: gravitational-potential-energy, action: create, wave: 'W5', slice: energy, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Gravitational potential energy', state: planned }
+  - { collection: equations, slug: elastic-potential-energy, action: create, wave: 'W5', slice: energy, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Elastic potential energy', state: planned }
+  - { collection: equations, slug: work-energy-theorem, action: create, wave: 'W5', slice: energy, branches: [mechanics], level: intro, milestone: 1, flags: ['MR'], name: 'Work energy theorem', state: planned }
+  - { collection: equations, slug: mechanical-energy-conservation, action: create, wave: 'W5', slice: energy, branches: [mechanics], level: intro, milestone: 1, flags: ['MR'], name: 'Mechanical energy conservation', state: planned }
+  - { collection: equations, slug: power-work-time, action: create, wave: 'W5', slice: energy, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Power work time', state: planned }
+  - { collection: equations, slug: power-force-velocity, action: create, wave: 'W5', slice: energy, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Power force velocity', state: planned }
+  - { collection: equations, slug: efficiency, action: create, wave: 'W5', slice: energy, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Efficiency', state: planned }
+  # W5 · momentum
+  - { collection: equations, slug: linear-momentum-formula, action: create, wave: 'W5', slice: momentum, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Linear momentum', state: planned }
+  - { collection: equations, slug: impulse-formula, action: create, wave: 'W5', slice: momentum, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Impulse', state: planned }
+  - { collection: equations, slug: impulse-momentum-theorem, action: create, wave: 'W5', slice: momentum, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Impulse momentum theorem', state: planned }
+  - { collection: equations, slug: perfectly-inelastic-collision, action: create, wave: 'W5', slice: momentum, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Perfectly inelastic collision', state: planned }
+  - { collection: equations, slug: momentum-conservation-two-bodies, action: create, wave: 'W5', slice: momentum, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Momentum conservation two bodies', state: planned }
+  - { collection: equations, slug: center-of-mass-two-particles, action: create, wave: 'W5', slice: momentum, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Center of mass two particles', state: planned }
+  - { collection: equations, slug: recoil-velocity, action: create, wave: 'W5', slice: momentum, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Recoil velocity', state: planned }
+  # W6 · gravitation-and-rotation
+  - { collection: equations, slug: torque-formula, action: create, wave: 'W6', slice: gravitation-and-rotation, branches: [mechanics], level: intro, milestone: 1, flags: ['ANG', 'G:asin'], name: 'Torque', state: planned }
+  - { collection: equations, slug: law-of-the-lever, action: create, wave: 'W6', slice: gravitation-and-rotation, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Law of the lever', state: planned }
+  - { collection: equations, slug: angular-momentum-point-particle, action: create, wave: 'W6', slice: gravitation-and-rotation, branches: [mechanics], level: intro, milestone: 1, flags: [], name: 'Angular momentum point particle', state: planned }
+  - { collection: equations, slug: newtons-law-of-gravitation, action: create, wave: 'W6', slice: gravitation-and-rotation, branches: [gravitation], level: intro, milestone: 1, flags: [], name: 'Newton''s law of gravitation', state: planned }
+  - { collection: equations, slug: gravitational-field-strength, action: create, wave: 'W6', slice: gravitation-and-rotation, branches: [gravitation], level: intro, milestone: 1, flags: [], name: 'Gravitational field strength', state: planned }
+  - { collection: equations, slug: gravity-at-altitude, action: create, wave: 'W6', slice: gravitation-and-rotation, branches: [gravitation], level: intro, milestone: 1, flags: ['MR'], name: 'Gravity at altitude', state: planned }
+  - { collection: equations, slug: gravitational-potential-energy-general, action: create, wave: 'W6', slice: gravitation-and-rotation, branches: [gravitation], level: intro, milestone: 1, flags: [], name: 'Gravitational potential energy general', state: planned }
+  - { collection: equations, slug: orbital-speed, action: create, wave: 'W6', slice: gravitation-and-rotation, branches: [gravitation], level: intro, milestone: 1, flags: [], name: 'Orbital speed', state: planned }
+  - { collection: equations, slug: orbital-period, action: create, wave: 'W6', slice: gravitation-and-rotation, branches: [gravitation], level: intro, milestone: 1, flags: ['G:cbrt'], name: 'Orbital period', state: planned }
+  - { collection: equations, slug: keplers-third-law-ratio, action: create, wave: 'W6', slice: gravitation-and-rotation, branches: [gravitation], level: intro, milestone: 1, flags: ['G:cbrt'], name: 'Kepler''s third law ratio', state: planned }
+  - { collection: equations, slug: escape-velocity, action: create, wave: 'W6', slice: gravitation-and-rotation, branches: [gravitation], level: intro, milestone: 1, flags: [], name: 'Escape velocity', state: planned }
+  # W6 · fluid-statics
+  - { collection: equations, slug: density-formula, action: create, wave: 'W6', slice: fluid-statics, branches: [fluid-mechanics], level: intro, milestone: 1, flags: [], name: 'Density', state: planned }
+  - { collection: equations, slug: pressure-formula, action: create, wave: 'W6', slice: fluid-statics, branches: [fluid-mechanics], level: intro, milestone: 1, flags: [], name: 'Pressure', state: planned }
+  - { collection: equations, slug: hydrostatic-pressure, action: create, wave: 'W6', slice: fluid-statics, branches: [fluid-mechanics], level: intro, milestone: 1, flags: [], name: 'Hydrostatic pressure', state: planned }
+  - { collection: equations, slug: absolute-pressure-at-depth, action: create, wave: 'W6', slice: fluid-statics, branches: [fluid-mechanics], level: intro, milestone: 1, flags: [], name: 'Absolute pressure at depth', state: planned }
+  - { collection: equations, slug: pascals-principle, action: create, wave: 'W6', slice: fluid-statics, branches: [fluid-mechanics], level: intro, milestone: 1, flags: [], name: 'Pascal''s principle', state: planned }
+  - { collection: equations, slug: buoyant-force, action: create, wave: 'W6', slice: fluid-statics, branches: [fluid-mechanics], level: intro, milestone: 1, flags: [], name: 'Buoyant force', state: planned }
+  - { collection: equations, slug: floating-fraction-submerged, action: create, wave: 'W6', slice: fluid-statics, branches: [fluid-mechanics], level: intro, milestone: 1, flags: [], name: 'Floating fraction submerged', state: planned }
+  - { collection: equations, slug: specific-gravity, action: create, wave: 'W6', slice: fluid-statics, branches: [fluid-mechanics], level: intro, milestone: 1, flags: [], name: 'Specific gravity', state: planned }
+  - { collection: paths, slug: fluids-at-rest, action: create, wave: 'W6', slice: fluid-statics, branches: [fluid-mechanics], level: intro, milestone: 1, flags: [], name: 'Fluids at rest', note: 'learning path over this wave''s entries; intro level; prose and checks in English and Spanish', state: planned }
+  # W6 · fluid-flow
+  - { collection: magnitudes, slug: dynamic-viscosity, action: create, wave: 'W6', slice: fluid-flow, branches: [fluid-mechanics], milestone: 1, flags: [], name: 'Dynamic viscosity', note: 'L^-1 M T^-1; baseUnit pascal-second', state: planned }
+  - { collection: magnitudes, slug: volumetric-flow-rate, action: create, wave: 'W6', slice: fluid-flow, branches: [fluid-mechanics], milestone: 1, flags: [], name: 'Volumetric flow rate', note: 'L^3 T^-1; baseUnit cubic-metre-per-second', state: planned }
+  - { collection: units, slug: pascal-second, action: create, wave: 'W6', slice: fluid-flow, branches: [fluid-mechanics], milestone: 1, flags: [], name: 'Pascal second', note: 'compose pascal, second', state: planned }
+  - { collection: units, slug: poise, action: create, wave: 'W6', slice: fluid-flow, branches: [fluid-mechanics], milestone: 1, flags: [], name: 'Poise', note: 'toBase 0.1 Pa s exact, system cgs; prefixes centi; NIST SP 811 B.8', state: planned }
+  - { collection: units, slug: cubic-metre-per-second, action: create, wave: 'W6', slice: fluid-flow, branches: [fluid-mechanics], milestone: 1, flags: [], name: 'Cubic metre per second', note: 'compose metre^3, second^-1', state: planned }
+  - { collection: equations, slug: volumetric-flow-rate-formula, action: create, wave: 'W6', slice: fluid-flow, branches: [fluid-mechanics], level: intro, milestone: 1, flags: [], name: 'Volumetric flow rate', note: 'renamed from volumetric-flow-rate (slug rule: the magnitude owns the bare slug)', state: planned }
+  - { collection: equations, slug: continuity-equation, action: create, wave: 'W6', slice: fluid-flow, branches: [fluid-mechanics], level: intro, milestone: 1, flags: [], name: 'Continuity equation', state: planned }
+  - { collection: equations, slug: torricellis-law, action: create, wave: 'W6', slice: fluid-flow, branches: [fluid-mechanics], level: intro, milestone: 1, flags: [], name: 'Torricelli''s law', state: planned }
+  # W7 · oscillations-and-waves
+  - { collection: magnitudes, slug: wavenumber, action: create, wave: 'W7', slice: oscillations-and-waves, branches: [waves-and-oscillations], milestone: 1, flags: [], name: 'Wavenumber', note: 'L^-1; baseUnit reciprocal-metre (add to its unitOf); state which convention (1/lambda or 2 pi/lambda) the entry means', state: planned, edits: [units/reciprocal-metre] }
+  - { collection: equations, slug: period-frequency, action: create, wave: 'W7', slice: oscillations-and-waves, branches: [waves-and-oscillations], level: intro, milestone: 1, flags: [], name: 'Period frequency', state: planned }
+  - { collection: equations, slug: wave-speed, action: create, wave: 'W7', slice: oscillations-and-waves, branches: [waves-and-oscillations], level: intro, milestone: 1, flags: [], name: 'Wave speed', state: planned }
+  - { collection: equations, slug: wave-speed-period, action: create, wave: 'W7', slice: oscillations-and-waves, branches: [waves-and-oscillations], level: intro, milestone: 1, flags: [], name: 'Wave speed period', state: planned }
+  - { collection: equations, slug: angular-frequency-formula, action: create, wave: 'W7', slice: oscillations-and-waves, branches: [waves-and-oscillations], level: intro, milestone: 1, flags: ['ANG'], name: 'Angular frequency', state: planned }
+  - { collection: equations, slug: simple-pendulum-period, action: create, wave: 'W7', slice: oscillations-and-waves, branches: [waves-and-oscillations], level: intro, milestone: 1, flags: [], name: 'Simple pendulum period', state: planned }
+  - { collection: equations, slug: mass-spring-period, action: create, wave: 'W7', slice: oscillations-and-waves, branches: [waves-and-oscillations], level: intro, milestone: 1, flags: [], name: 'Mass spring period', state: planned }
+  - { collection: equations, slug: string-harmonics, action: create, wave: 'W7', slice: oscillations-and-waves, branches: [waves-and-oscillations], level: intro, milestone: 1, flags: [], name: 'String harmonics', state: planned }
+  - { collection: equations, slug: closed-pipe-harmonics, action: create, wave: 'W7', slice: oscillations-and-waves, branches: [waves-and-oscillations], level: intro, milestone: 1, flags: [], name: 'Closed pipe harmonics', state: planned }
+  - { collection: equations, slug: beat-frequency, action: create, wave: 'W7', slice: oscillations-and-waves, branches: [waves-and-oscillations], level: intro, milestone: 1, flags: [], name: 'Beat frequency', state: planned }
+  # W7 · sound
+  - { collection: magnitudes, slug: sound-intensity, action: create, wave: 'W7', slice: sound, branches: [waves-and-oscillations], milestone: 1, flags: [], name: 'Sound intensity', note: 'M T^-3; baseUnit watt-per-square-metre; kindOf irradiance is a hypothesis: check QUDT', state: planned, edits: [units/watt-per-square-metre] }
+  - { collection: magnitudes, slug: sound-intensity-level, action: create, wave: 'W7', slice: sound, branches: [waves-and-oscillations], milestone: 1, flags: [], name: 'Sound intensity level', note: 'dimensionless level; baseUnit unitless (the decibel is nonConvertible and cannot anchor)', state: planned }
+  - { collection: units, slug: decibel, action: create, wave: 'W7', slice: sound, branches: [waves-and-oscillations], milestone: 1, flags: [], name: 'Decibel', note: 'nonConvertible: true (a level, not a linear unit; ADR 0003)', state: planned }
+  - { collection: constants, slug: threshold-of-hearing-intensity, action: create, wave: 'W7', slice: sound, branches: [waves-and-oscillations], milestone: 1, flags: [], name: 'Reference sound intensity (threshold of hearing)', note: 'I_0 = 1e-12 W/m2 by convention (ISO 1683): source name convention, exact: true; unit watt-per-square-metre', state: planned }
+  - { collection: equations, slug: speed-of-sound-air, action: create, wave: 'W7', slice: sound, branches: [waves-and-oscillations], level: intro, milestone: 1, flags: [], name: 'Speed of sound air', state: planned }
+  - { collection: equations, slug: doppler-effect, action: create, wave: 'W7', slice: sound, branches: [waves-and-oscillations], level: intro, milestone: 1, flags: [], name: 'Doppler effect', state: planned }
+  - { collection: equations, slug: sound-intensity-formula, action: create, wave: 'W7', slice: sound, branches: [waves-and-oscillations], level: intro, milestone: 1, flags: [], name: 'Sound intensity', note: 'renamed from sound-intensity (slug rule)', state: planned }
+  - { collection: equations, slug: sound-intensity-level-formula, action: create, wave: 'W7', slice: sound, branches: [waves-and-oscillations], level: intro, milestone: 1, flags: ['G:log10'], name: 'Sound intensity level', note: 'renamed from sound-intensity-level (slug rule); L in decibels as 10 log10(I/I_0)', state: planned }
+  - { collection: equations, slug: inverse-square-law, action: create, wave: 'W7', slice: sound, branches: [waves-and-oscillations], level: intro, milestone: 1, flags: [], name: 'Inverse square law', state: planned }
+  - { collection: paths, slug: waves-and-sound, action: create, wave: 'W7', slice: sound, branches: [waves-and-oscillations], level: intro, milestone: 1, flags: [], name: 'Waves and sound', note: 'learning path over this wave''s entries; intro level; prose and checks in English and Spanish', state: planned }
+  # W7 · optics
+  - { collection: magnitudes, slug: optical-power, action: create, wave: 'W7', slice: optics, branches: [optics-and-photometry], milestone: 1, flags: [], name: 'Optical power', note: 'L^-1; baseUnit dioptre; sibling of wavenumber, no kindOf', state: planned }
+  - { collection: units, slug: dioptre, action: create, wave: 'W7', slice: optics, branches: [optics-and-photometry], milestone: 1, flags: [], name: 'Dioptre', note: 'compose metre^-1 (lands on the identity, legal only as compose); unitOf optical-power', state: planned }
+  - { collection: equations, slug: refractive-index-formula, action: create, wave: 'W7', slice: optics, branches: [optics-and-photometry], level: intro, milestone: 1, flags: [], name: 'Refractive index', state: planned }
+  - { collection: equations, slug: snells-law, action: create, wave: 'W7', slice: optics, branches: [optics-and-photometry], level: intro, milestone: 1, flags: ['ANG', 'G:asin'], name: 'Snell''s law', state: planned }
+  - { collection: equations, slug: critical-angle, action: create, wave: 'W7', slice: optics, branches: [optics-and-photometry], level: intro, milestone: 1, flags: ['ANG', 'G:asin'], name: 'Critical angle', state: planned }
+  - { collection: equations, slug: thin-lens-equation, action: create, wave: 'W7', slice: optics, branches: [optics-and-photometry], level: intro, milestone: 1, flags: [], name: 'Thin lens equation', state: planned }
+  - { collection: equations, slug: magnification, action: create, wave: 'W7', slice: optics, branches: [optics-and-photometry], level: intro, milestone: 1, flags: [], name: 'Magnification', state: planned }
+  - { collection: equations, slug: mirror-equation, action: create, wave: 'W7', slice: optics, branches: [optics-and-photometry], level: intro, milestone: 1, flags: [], name: 'Mirror equation', state: planned }
+  - { collection: equations, slug: mirror-focal-length, action: create, wave: 'W7', slice: optics, branches: [optics-and-photometry], level: intro, milestone: 1, flags: [], name: 'Mirror focal length', state: planned }
+  - { collection: equations, slug: lens-power, action: create, wave: 'W7', slice: optics, branches: [optics-and-photometry], level: intro, milestone: 1, flags: [], name: 'Lens power', state: planned }
+  - { collection: equations, slug: double-slit-fringe-spacing, action: create, wave: 'W7', slice: optics, branches: [optics-and-photometry], level: intro, milestone: 1, flags: [], name: 'Double slit fringe spacing', state: planned }
+  - { collection: equations, slug: diffraction-grating, action: create, wave: 'W7', slice: optics, branches: [optics-and-photometry], level: intro, milestone: 1, flags: ['ANG', 'G:asin'], name: 'Diffraction grating', state: planned }
+  - { collection: equations, slug: illuminance-inverse-square, action: create, wave: 'W7', slice: optics, branches: [optics-and-photometry], level: intro, milestone: 1, flags: [], name: 'Illuminance inverse square', state: planned }
+  - { collection: equations, slug: illuminance-formula, action: create, wave: 'W7', slice: optics, branches: [optics-and-photometry], level: intro, milestone: 1, flags: [], name: 'Illuminance formula', state: planned }
+  - { collection: equations, slug: luminous-efficacy-of-a-source, action: create, wave: 'W7', slice: optics, branches: [optics-and-photometry], level: intro, milestone: 1, flags: [], name: 'Luminous efficacy of a source', state: planned }
+  # W8 · thermodynamics
+  - { collection: equations, slug: sensible-heat, action: create, wave: 'W8', slice: thermodynamics, branches: [thermodynamics], level: intro, milestone: 1, flags: ['T2'], name: 'Sensible heat', state: planned }
+  - { collection: equations, slug: latent-heat, action: create, wave: 'W8', slice: thermodynamics, branches: [thermodynamics], level: intro, milestone: 1, flags: [], name: 'Latent heat', state: planned }
+  - { collection: equations, slug: thermal-equilibrium-temperature, action: create, wave: 'W8', slice: thermodynamics, branches: [thermodynamics], level: intro, milestone: 1, flags: [], name: 'Thermal equilibrium temperature', state: planned }
+  - { collection: equations, slug: heat-capacity-formula, action: create, wave: 'W8', slice: thermodynamics, branches: [thermodynamics], level: intro, milestone: 1, flags: ['T2'], name: 'Heat capacity', state: planned }
+  - { collection: equations, slug: linear-thermal-expansion, action: create, wave: 'W8', slice: thermodynamics, branches: [thermodynamics], level: intro, milestone: 1, flags: ['T2'], name: 'Linear thermal expansion', state: planned }
+  - { collection: equations, slug: volumetric-thermal-expansion, action: create, wave: 'W8', slice: thermodynamics, branches: [thermodynamics], level: intro, milestone: 1, flags: ['T2'], name: 'Volumetric thermal expansion', state: planned }
+  - { collection: equations, slug: fourier-heat-conduction, action: create, wave: 'W8', slice: thermodynamics, branches: [thermodynamics], level: intro, milestone: 1, flags: ['T2'], name: 'Fourier heat conduction', state: planned }
+  - { collection: equations, slug: first-law-of-thermodynamics, action: create, wave: 'W8', slice: thermodynamics, branches: [thermodynamics], level: intro, milestone: 1, flags: [], name: 'First law of thermodynamics', state: planned }
+  - { collection: equations, slug: isobaric-work, action: create, wave: 'W8', slice: thermodynamics, branches: [thermodynamics, gases], level: intro, milestone: 1, flags: ['SHARED'], name: 'Isobaric work', state: planned }
+  - { collection: equations, slug: ideal-gas-law, action: create, wave: 'W8', slice: thermodynamics, branches: [thermodynamics, gases], level: intro, milestone: 1, flags: ['SHARED'], name: 'Ideal gas law', state: planned }
+  - { collection: equations, slug: carnot-efficiency, action: create, wave: 'W8', slice: thermodynamics, branches: [thermodynamics], level: intro, milestone: 1, flags: [], name: 'Carnot efficiency', state: planned }
+  - { collection: equations, slug: thermal-efficiency, action: create, wave: 'W8', slice: thermodynamics, branches: [thermodynamics], level: intro, milestone: 1, flags: [], name: 'Thermal efficiency', state: planned }
+  # W8 · gases
+  - { collection: equations, slug: boyles-law, action: create, wave: 'W8', slice: gases, branches: [gases], level: intro, milestone: 1, flags: [], name: 'Boyle''s law', state: planned }
+  - { collection: equations, slug: charles-law, action: create, wave: 'W8', slice: gases, branches: [gases], level: intro, milestone: 1, flags: [], name: 'Charles''s law', state: planned }
+  - { collection: equations, slug: gay-lussac-law, action: create, wave: 'W8', slice: gases, branches: [gases], level: intro, milestone: 1, flags: [], name: 'Gay-Lussac''s law', state: planned }
+  - { collection: equations, slug: avogadros-law, action: create, wave: 'W8', slice: gases, branches: [gases], level: intro, milestone: 1, flags: [], name: 'Avogadro''s law', state: planned }
+  - { collection: equations, slug: combined-gas-law, action: create, wave: 'W8', slice: gases, branches: [gases], level: intro, milestone: 1, flags: [], name: 'Combined gas law', state: planned }
+  - { collection: equations, slug: gas-density, action: create, wave: 'W8', slice: gases, branches: [gases], level: intro, milestone: 1, flags: [], name: 'Gas density', state: planned }
+  - { collection: equations, slug: daltons-law-partial-pressures, action: create, wave: 'W8', slice: gases, branches: [gases], level: intro, milestone: 1, flags: [], name: 'Dalton''s law partial pressures', state: planned }
+  - { collection: equations, slug: partial-pressure-mole-fraction, action: create, wave: 'W8', slice: gases, branches: [gases], level: intro, milestone: 1, flags: [], name: 'Partial pressure mole fraction', state: planned }
+  - { collection: equations, slug: grahams-law, action: create, wave: 'W8', slice: gases, branches: [gases], level: intro, milestone: 1, flags: [], name: 'Graham''s law', state: planned }
+  - { collection: equations, slug: molar-volume-ideal-gas, action: create, wave: 'W8', slice: gases, branches: [gases], level: intro, milestone: 1, flags: [], name: 'Molar volume ideal gas', state: planned }
+  - { collection: paths, slug: gas-laws, action: create, wave: 'W8', slice: gases, branches: [gases, thermodynamics], level: intro, milestone: 1, flags: [], name: 'Gas laws', note: 'learning path over this wave''s entries; intro level; prose and checks in English and Spanish', state: planned }
+  # W9 · electrostatics
+  - { collection: equations, slug: coulombs-law, action: create, wave: 'W9', slice: electrostatics, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Coulomb''s law', state: planned }
+  - { collection: equations, slug: electric-field-definition, action: create, wave: 'W9', slice: electrostatics, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Electric field definition', state: planned }
+  - { collection: equations, slug: electric-field-point-charge, action: create, wave: 'W9', slice: electrostatics, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Electric field point charge', state: planned }
+  - { collection: equations, slug: electric-potential-point-charge, action: create, wave: 'W9', slice: electrostatics, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Electric potential point charge', state: planned }
+  - { collection: equations, slug: electric-potential-energy-two-charges, action: create, wave: 'W9', slice: electrostatics, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Electric potential energy two charges', state: planned }
+  - { collection: equations, slug: uniform-field-potential-difference, action: create, wave: 'W9', slice: electrostatics, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Uniform field potential difference', state: planned }
+  - { collection: equations, slug: work-moving-charge, action: create, wave: 'W9', slice: electrostatics, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Work moving charge', state: planned }
+  - { collection: equations, slug: capacitance-formula, action: create, wave: 'W9', slice: electrostatics, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Capacitance', state: planned }
+  - { collection: equations, slug: capacitor-energy, action: create, wave: 'W9', slice: electrostatics, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Capacitor energy', state: planned }
+  - { collection: equations, slug: capacitors-in-series, action: create, wave: 'W9', slice: electrostatics, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Capacitors in series', state: planned }
+  - { collection: equations, slug: capacitors-in-parallel, action: create, wave: 'W9', slice: electrostatics, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Capacitors in parallel', state: planned }
+  # W9 · circuits
+  - { collection: equations, slug: ohms-law, action: create, wave: 'W9', slice: circuits, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Ohm''s law', state: planned }
+  - { collection: equations, slug: electric-power, action: create, wave: 'W9', slice: circuits, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Electric power', state: planned }
+  - { collection: equations, slug: power-current-resistance, action: create, wave: 'W9', slice: circuits, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Power current resistance', state: planned }
+  - { collection: equations, slug: power-voltage-resistance, action: create, wave: 'W9', slice: circuits, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Power voltage resistance', state: planned }
+  - { collection: equations, slug: electric-current-formula, action: create, wave: 'W9', slice: circuits, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Electric current', state: planned }
+  - { collection: equations, slug: electrical-energy, action: create, wave: 'W9', slice: circuits, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Electrical energy', state: planned }
+  - { collection: equations, slug: resistance-resistivity, action: create, wave: 'W9', slice: circuits, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Resistance resistivity', state: planned }
+  - { collection: equations, slug: resistance-temperature, action: create, wave: 'W9', slice: circuits, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Resistance temperature', state: planned }
+  - { collection: equations, slug: resistors-in-series, action: create, wave: 'W9', slice: circuits, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Resistors in series', state: planned }
+  - { collection: equations, slug: resistors-in-parallel, action: create, wave: 'W9', slice: circuits, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Resistors in parallel', state: planned }
+  - { collection: equations, slug: resistors-in-parallel-three, action: create, wave: 'W9', slice: circuits, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Resistors in parallel three', state: planned }
+  - { collection: equations, slug: emf-internal-resistance, action: create, wave: 'W9', slice: circuits, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'EMF internal resistance', state: planned }
+  - { collection: equations, slug: voltage-divider, action: create, wave: 'W9', slice: circuits, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Voltage divider', state: planned }
+  - { collection: equations, slug: conductance, action: create, wave: 'W9', slice: circuits, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Conductance', state: planned }
+  - { collection: paths, slug: dc-circuits, action: create, wave: 'W9', slice: circuits, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Direct-current circuits', note: 'learning path over this wave''s entries; intro level; prose and checks in English and Spanish', state: planned }
+  # W10 · magnetism-and-induction
+  - { collection: equations, slug: magnetic-force-moving-charge, action: create, wave: 'W10', slice: magnetism-and-induction, branches: [electromagnetism], level: intro, milestone: 1, flags: ['ANG'], name: 'Magnetic force moving charge', state: planned }
+  - { collection: equations, slug: magnetic-force-on-wire, action: create, wave: 'W10', slice: magnetism-and-induction, branches: [electromagnetism], level: intro, milestone: 1, flags: ['ANG'], name: 'Magnetic force on wire', state: planned }
+  - { collection: equations, slug: magnetic-field-straight-wire, action: create, wave: 'W10', slice: magnetism-and-induction, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Magnetic field straight wire', state: planned }
+  - { collection: equations, slug: magnetic-field-solenoid, action: create, wave: 'W10', slice: magnetism-and-induction, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Magnetic field solenoid', state: planned }
+  - { collection: equations, slug: cyclotron-radius, action: create, wave: 'W10', slice: magnetism-and-induction, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Cyclotron radius', state: planned }
+  - { collection: equations, slug: magnetic-flux-formula, action: create, wave: 'W10', slice: magnetism-and-induction, branches: [electromagnetism], level: intro, milestone: 1, flags: ['ANG'], name: 'Magnetic flux', state: planned }
+  - { collection: equations, slug: faradays-law, action: create, wave: 'W10', slice: magnetism-and-induction, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Faraday''s law', state: planned }
+  - { collection: equations, slug: motional-emf, action: create, wave: 'W10', slice: magnetism-and-induction, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Motional EMF', state: planned }
+  - { collection: equations, slug: transformer-equation, action: create, wave: 'W10', slice: magnetism-and-induction, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'Transformer equation', state: planned }
+  - { collection: equations, slug: rms-voltage, action: create, wave: 'W10', slice: magnetism-and-induction, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'RMS voltage', state: planned }
+  - { collection: equations, slug: rms-current, action: create, wave: 'W10', slice: magnetism-and-induction, branches: [electromagnetism], level: intro, milestone: 1, flags: [], name: 'RMS current', state: planned }
+  # W10 · modern-physics
+  - { collection: equations, slug: photon-energy-frequency, action: create, wave: 'W10', slice: modern-physics, branches: [modern-physics], level: intro, milestone: 1, flags: [], name: 'Photon energy frequency', state: planned }
+  - { collection: equations, slug: photon-energy-wavelength, action: create, wave: 'W10', slice: modern-physics, branches: [modern-physics], level: intro, milestone: 1, flags: [], name: 'Photon energy wavelength', state: planned }
+  - { collection: equations, slug: photon-momentum, action: create, wave: 'W10', slice: modern-physics, branches: [modern-physics], level: intro, milestone: 1, flags: [], name: 'Photon momentum', state: planned }
+  - { collection: equations, slug: de-broglie-wavelength, action: create, wave: 'W10', slice: modern-physics, branches: [modern-physics], level: intro, milestone: 1, flags: [], name: 'De Broglie wavelength', state: planned }
+  - { collection: equations, slug: photoelectric-equation, action: create, wave: 'W10', slice: modern-physics, branches: [modern-physics], level: intro, milestone: 1, flags: [], name: 'Photoelectric equation', state: planned }
+  - { collection: equations, slug: threshold-frequency, action: create, wave: 'W10', slice: modern-physics, branches: [modern-physics], level: intro, milestone: 1, flags: [], name: 'Threshold frequency', state: planned }
+  - { collection: equations, slug: photon-emission-rate, action: create, wave: 'W10', slice: modern-physics, branches: [modern-physics], level: intro, milestone: 1, flags: [], name: 'Photon emission rate', state: planned }
+  - { collection: equations, slug: stopping-potential, action: create, wave: 'W10', slice: modern-physics, branches: [modern-physics], level: intro, milestone: 1, flags: [], name: 'Stopping potential', state: planned }
+  - { collection: equations, slug: time-dilation, action: create, wave: 'W10', slice: modern-physics, branches: [modern-physics], level: intro, milestone: 1, flags: [], name: 'Time dilation', state: planned }
+  - { collection: equations, slug: length-contraction, action: create, wave: 'W10', slice: modern-physics, branches: [modern-physics], level: intro, milestone: 1, flags: [], name: 'Length contraction', state: planned }
+  - { collection: equations, slug: bohr-energy-levels, action: create, wave: 'W10', slice: modern-physics, branches: [modern-physics], level: intro, milestone: 1, flags: ['INT'], name: 'Bohr energy levels', state: planned }
+  - { collection: equations, slug: rydberg-formula, action: create, wave: 'W10', slice: modern-physics, branches: [modern-physics], level: intro, milestone: 1, flags: ['INT'], name: 'Rydberg formula', state: planned }
+  - { collection: paths, slug: light-and-quanta, action: create, wave: 'W10', slice: modern-physics, branches: [modern-physics, optics-and-photometry], level: intro, milestone: 1, flags: [], name: 'Light and quanta', note: 'learning path over this wave''s entries; intro level; prose and checks in English and Spanish', state: planned }
+  # W11 · nuclear-physics
+  - { collection: equations, slug: radioactive-decay-law, action: create, wave: 'W11', slice: nuclear-physics, branches: [nuclear-physics], level: intro, milestone: 1, flags: [], name: 'Radioactive decay law', state: planned }
+  - { collection: equations, slug: decay-constant-half-life, action: create, wave: 'W11', slice: nuclear-physics, branches: [nuclear-physics], level: intro, milestone: 1, flags: [], name: 'Decay constant half life', state: planned }
+  - { collection: equations, slug: decay-law-half-life-form, action: create, wave: 'W11', slice: nuclear-physics, branches: [nuclear-physics], level: intro, milestone: 1, flags: [], name: 'Decay law half life form', state: planned }
+  - { collection: equations, slug: activity-formula, action: create, wave: 'W11', slice: nuclear-physics, branches: [nuclear-physics], level: intro, milestone: 1, flags: [], name: 'Activity', state: planned }
+  - { collection: equations, slug: activity-decay, action: create, wave: 'W11', slice: nuclear-physics, branches: [nuclear-physics], level: intro, milestone: 1, flags: [], name: 'Activity decay', state: planned }
+  - { collection: equations, slug: radiocarbon-age, action: create, wave: 'W11', slice: nuclear-physics, branches: [nuclear-physics], level: intro, milestone: 1, flags: [], name: 'Radiocarbon age', state: planned }
+  - { collection: equations, slug: nuclear-binding-energy, action: create, wave: 'W11', slice: nuclear-physics, branches: [nuclear-physics], level: intro, milestone: 1, flags: [], name: 'Nuclear binding energy', state: planned }
+  # W11 · amount-and-atoms
+  - { collection: equations, slug: amount-from-mass, action: create, wave: 'W11', slice: amount-and-atoms, branches: [amount-of-substance], level: intro, milestone: 1, flags: [], name: 'Amount from mass', state: planned }
+  - { collection: equations, slug: number-of-entities, action: create, wave: 'W11', slice: amount-and-atoms, branches: [amount-of-substance], level: intro, milestone: 1, flags: [], name: 'Number of entities', state: planned }
+  - { collection: equations, slug: amount-of-gas-molar-volume, action: create, wave: 'W11', slice: amount-and-atoms, branches: [amount-of-substance], level: intro, milestone: 1, flags: [], name: 'Amount of gas molar volume', state: planned }
+  - { collection: equations, slug: mass-of-one-particle, action: create, wave: 'W11', slice: amount-and-atoms, branches: [amount-of-substance], level: intro, milestone: 1, flags: [], name: 'Mass of one particle', state: planned }
+  - { collection: equations, slug: percent-composition, action: create, wave: 'W11', slice: amount-and-atoms, branches: [amount-of-substance], level: intro, milestone: 1, flags: [], name: 'Percent composition', state: planned }
+  - { collection: equations, slug: percent-yield, action: create, wave: 'W11', slice: amount-and-atoms, branches: [amount-of-substance], level: intro, milestone: 1, flags: [], name: 'Percent yield', state: planned }
+  - { collection: equations, slug: stoichiometric-mass-relation, action: create, wave: 'W11', slice: amount-and-atoms, branches: [amount-of-substance], level: intro, milestone: 1, flags: [], name: 'Stoichiometric mass relation', state: planned }
+  - { collection: equations, slug: atom-economy, action: create, wave: 'W11', slice: amount-and-atoms, branches: [amount-of-substance], level: intro, milestone: 1, flags: [], name: 'Atom economy', state: planned }
+  - { collection: equations, slug: mass-number, action: create, wave: 'W11', slice: amount-and-atoms, branches: [atomic-structure], level: intro, milestone: 1, flags: ['INT'], name: 'Mass number', state: planned }
+  - { collection: equations, slug: average-atomic-mass-two-isotopes, action: create, wave: 'W11', slice: amount-and-atoms, branches: [atomic-structure], level: intro, milestone: 1, flags: [], name: 'Average atomic mass two isotopes', state: planned }
+  # W11 · solutions
+  - { collection: equations, slug: molarity, action: create, wave: 'W11', slice: solutions, branches: [solutions], level: intro, milestone: 1, flags: [], name: 'Molarity', state: planned }
+  - { collection: equations, slug: molality-formula, action: create, wave: 'W11', slice: solutions, branches: [solutions], level: intro, milestone: 1, flags: [], name: 'Molality', state: planned }
+  - { collection: equations, slug: mass-percent, action: create, wave: 'W11', slice: solutions, branches: [solutions], level: intro, milestone: 1, flags: [], name: 'Mass percent', state: planned }
+  - { collection: equations, slug: mass-concentration-formula, action: create, wave: 'W11', slice: solutions, branches: [solutions], level: intro, milestone: 1, flags: [], name: 'Mass concentration', state: planned }
+  - { collection: equations, slug: dilution-equation, action: create, wave: 'W11', slice: solutions, branches: [solutions], level: intro, milestone: 1, flags: [], name: 'Dilution equation', state: planned }
+  - { collection: equations, slug: mole-fraction, action: create, wave: 'W11', slice: solutions, branches: [solutions], level: intro, milestone: 1, flags: [], name: 'Mole fraction', state: planned }
+  - { collection: equations, slug: parts-per-million, action: create, wave: 'W11', slice: solutions, branches: [solutions], level: intro, milestone: 1, flags: [], name: 'Parts per million', state: planned }
+  - { collection: equations, slug: molarity-from-mass-percent, action: create, wave: 'W11', slice: solutions, branches: [solutions], level: intro, milestone: 1, flags: [], name: 'Molarity from mass percent', state: planned }
+  - { collection: paths, slug: moles-and-concentration, action: create, wave: 'W11', slice: solutions, branches: [amount-of-substance, solutions], level: intro, milestone: 1, flags: [], name: 'Moles and concentration', note: 'learning path over this wave''s entries; intro level; prose and checks in English and Spanish', state: planned }
+  # W12 · acids-and-bases
+  - { collection: equations, slug: ph-definition, action: create, wave: 'W12', slice: acids-and-bases, branches: [acids-and-bases], level: intro, milestone: 1, flags: ['G:log10', 'KEY'], name: 'PH definition', state: planned }
+  - { collection: equations, slug: poh-definition, action: create, wave: 'W12', slice: acids-and-bases, branches: [acids-and-bases], level: intro, milestone: 1, flags: ['G:log10', 'KEY'], name: 'POH definition', state: planned }
+  - { collection: equations, slug: ph-poh-relation, action: create, wave: 'W12', slice: acids-and-bases, branches: [acids-and-bases], level: intro, milestone: 1, flags: [], name: 'PH pOH relation', state: planned }
+  - { collection: equations, slug: water-ion-product, action: create, wave: 'W12', slice: acids-and-bases, branches: [acids-and-bases], level: intro, milestone: 1, flags: ['KEY'], name: 'Water ion product', state: planned }
+  - { collection: equations, slug: titration-neutralization, action: create, wave: 'W12', slice: acids-and-bases, branches: [acids-and-bases], level: intro, milestone: 1, flags: ['KEY'], name: 'Titration neutralization', state: planned }
+  - { collection: paths, slug: ph, action: create, wave: 'W12', slice: acids-and-bases, branches: [acids-and-bases], level: intro, milestone: 1, flags: [], name: 'pH', note: 'learning path over this wave''s entries; intro level; prose and checks in English and Spanish', state: planned }
+  # W12 · reactions
+  - { collection: branches, slug: chemical-kinetics, action: create, wave: 'W12', slice: reactions, branches: [], milestone: 1, flags: [], name: 'Chemical kinetics', note: 'chemistry, order 5; concentrations are written c_{A}, never [A]', state: planned }
+  - { collection: equations, slug: gibbs-free-energy, action: create, wave: 'W12', slice: reactions, branches: [thermochemistry], level: intro, milestone: 1, flags: [], name: 'Gibbs free energy', state: planned }
+  - { collection: equations, slug: reaction-enthalpy-calorimetry, action: create, wave: 'W12', slice: reactions, branches: [thermochemistry], level: intro, milestone: 1, flags: [], name: 'Reaction enthalpy calorimetry', state: planned }
+  - { collection: equations, slug: hess-law, action: create, wave: 'W12', slice: reactions, branches: [thermochemistry], level: intro, milestone: 1, flags: [], name: 'Hess''s law', state: blocked, reason: 'needs a summation over species (sum of nu times Delta_f H); the solution grammar has no summation' }
+  - { collection: equations, slug: standard-enthalpy-of-reaction, action: create, wave: 'W12', slice: reactions, branches: [thermochemistry], level: intro, milestone: 1, flags: [], name: 'Standard enthalpy of reaction', state: blocked, reason: 'needs a summation over species (sum of nu times Delta_f H); the solution grammar has no summation' }
+  - { collection: equations, slug: average-reaction-rate, action: create, wave: 'W12', slice: reactions, branches: [chemical-kinetics], level: intro, milestone: 1, flags: ['KEY'], name: 'Average reaction rate', note: 'concentrations written c_{A}, never [A]', state: planned }
+  - { collection: equations, slug: standard-cell-potential, action: create, wave: 'W12', slice: reactions, branches: [electrochemistry], level: intro, milestone: 1, flags: [], name: 'Standard cell potential', state: planned }
+  - { collection: equations, slug: faradays-law-of-electrolysis, action: create, wave: 'W12', slice: reactions, branches: [electrochemistry], level: intro, milestone: 1, flags: [], name: 'Faraday''s law of electrolysis', state: planned }
+  # W13 · mathematics
+  - { collection: equations, slug: effective-annual-rate, action: create, wave: 'W13', slice: mathematics, branches: [arithmetic], level: intermediate, milestone: 1, flags: ['NC:n'], name: 'Effective annual rate', state: planned }
+  - { collection: equations, slug: cramers-rule-2x2, action: create, wave: 'W13', slice: mathematics, branches: [algebra], level: intermediate, milestone: 1, flags: [], name: 'Cramer''s rule (2×2)', state: planned }
+  - { collection: equations, slug: standard-error-of-the-mean, action: create, wave: 'W13', slice: mathematics, branches: [statistics-and-probability], level: intermediate, milestone: 1, flags: [], name: 'Standard error of the mean', state: planned }
+  - { collection: equations, slug: margin-of-error, action: create, wave: 'W13', slice: mathematics, branches: [statistics-and-probability], level: intermediate, milestone: 1, flags: [], name: 'Margin of error', state: planned }
+  - { collection: equations, slug: coefficient-of-variation, action: create, wave: 'W13', slice: mathematics, branches: [statistics-and-probability], level: intermediate, milestone: 1, flags: [], name: 'Coefficient of variation', state: planned }
+  - { collection: equations, slug: exponential-distribution-cdf, action: create, wave: 'W13', slice: mathematics, branches: [statistics-and-probability], level: intermediate, milestone: 1, flags: [], name: 'Exponential distribution CDF', state: planned }
+  - { collection: equations, slug: extended-law-of-sines, action: create, wave: 'W13', slice: mathematics, branches: [trigonometry], level: intermediate, milestone: 1, flags: ['ANG'], name: 'Extended law of sines', state: planned }
+  - { collection: equations, slug: triangle-area-circumradius, action: create, wave: 'W13', slice: mathematics, branches: [trigonometry], level: intermediate, milestone: 1, flags: [], name: 'Triangle area circumradius', state: planned }
+  # W13 · mechanics
+  - { collection: equations, slug: tangential-acceleration, action: create, wave: 'W13', slice: mechanics, branches: [mechanics], level: intermediate, milestone: 1, flags: ['ANG'], name: 'Tangential acceleration', state: planned }
+  - { collection: equations, slug: angular-velocity-constant-acceleration, action: create, wave: 'W13', slice: mechanics, branches: [mechanics], level: intermediate, milestone: 1, flags: ['ANG'], name: 'Angular velocity constant acceleration', state: planned }
+  - { collection: equations, slug: angular-position-constant-acceleration, action: create, wave: 'W13', slice: mechanics, branches: [mechanics], level: intermediate, milestone: 1, flags: ['ANG', 'MR'], name: 'Angular position constant acceleration', state: planned }
+  - { collection: equations, slug: angular-velocity-displacement, action: create, wave: 'W13', slice: mechanics, branches: [mechanics], level: intermediate, milestone: 1, flags: ['ANG', 'MR'], name: 'Angular velocity displacement', state: planned }
+  - { collection: equations, slug: banked-curve-speed, action: create, wave: 'W13', slice: mechanics, branches: [mechanics], level: intermediate, milestone: 1, flags: ['ANG', 'G:atan'], name: 'Banked curve speed', state: planned }
+  - { collection: equations, slug: angle-of-repose, action: create, wave: 'W13', slice: mechanics, branches: [mechanics], level: intermediate, milestone: 1, flags: ['ANG', 'G:atan'], name: 'Angle of repose', state: planned }
+  - { collection: equations, slug: kinetic-energy-momentum, action: create, wave: 'W13', slice: mechanics, branches: [mechanics], level: intermediate, milestone: 1, flags: [], name: 'Kinetic energy momentum', state: planned }
+  - { collection: equations, slug: elastic-collision-velocities, action: create, wave: 'W13', slice: mechanics, branches: [mechanics], level: intermediate, milestone: 1, flags: [], name: 'Elastic collision velocities', state: planned }
+  - { collection: equations, slug: coefficient-of-restitution, action: create, wave: 'W13', slice: mechanics, branches: [mechanics], level: intermediate, milestone: 1, flags: [], name: 'Coefficient of restitution', state: planned }
+  - { collection: equations, slug: gravitational-potential, action: create, wave: 'W13', slice: mechanics, branches: [gravitation], level: intermediate, milestone: 1, flags: [], name: 'Gravitational potential', state: planned }
+  - { collection: equations, slug: orbital-energy, action: create, wave: 'W13', slice: mechanics, branches: [gravitation], level: intermediate, milestone: 1, flags: [], name: 'Orbital energy', state: planned }
+  - { collection: equations, slug: schwarzschild-radius, action: create, wave: 'W13', slice: mechanics, branches: [gravitation], level: intermediate, milestone: 1, flags: [], name: 'Schwarzschild radius', state: planned }
+  - { collection: equations, slug: bernoulli-equation, action: create, wave: 'W13', slice: mechanics, branches: [fluid-mechanics], level: intermediate, milestone: 1, flags: ['MR'], name: 'Bernoulli equation', state: planned }
+  - { collection: equations, slug: drag-equation, action: create, wave: 'W13', slice: mechanics, branches: [fluid-mechanics], level: intermediate, milestone: 1, flags: [], name: 'Drag equation', state: planned }
+  - { collection: equations, slug: terminal-velocity, action: create, wave: 'W13', slice: mechanics, branches: [fluid-mechanics], level: intermediate, milestone: 1, flags: [], name: 'Terminal velocity', state: planned }
+  - { collection: equations, slug: stokes-law, action: create, wave: 'W13', slice: mechanics, branches: [fluid-mechanics], level: intermediate, milestone: 1, flags: [], name: 'Stokes law', state: planned }
+  # W13 · rotation-and-elasticity
+  - { collection: equations, slug: moment-of-inertia-point-mass, action: create, wave: 'W13', slice: rotation-and-elasticity, branches: [mechanics], level: intermediate, milestone: 1, flags: [], name: 'Moment of inertia point mass', state: planned }
+  - { collection: equations, slug: moment-of-inertia-solid-cylinder, action: create, wave: 'W13', slice: rotation-and-elasticity, branches: [mechanics], level: intermediate, milestone: 1, flags: [], name: 'Moment of inertia solid cylinder', state: planned }
+  - { collection: equations, slug: moment-of-inertia-solid-sphere, action: create, wave: 'W13', slice: rotation-and-elasticity, branches: [mechanics], level: intermediate, milestone: 1, flags: [], name: 'Moment of inertia solid sphere', state: planned }
+  - { collection: equations, slug: moment-of-inertia-thin-rod, action: create, wave: 'W13', slice: rotation-and-elasticity, branches: [mechanics], level: intermediate, milestone: 1, flags: [], name: 'Moment of inertia thin rod', state: planned }
+  - { collection: equations, slug: parallel-axis-theorem, action: create, wave: 'W13', slice: rotation-and-elasticity, branches: [mechanics], level: intermediate, milestone: 1, flags: [], name: 'Parallel axis theorem', state: planned }
+  - { collection: equations, slug: newtons-second-law-rotation, action: create, wave: 'W13', slice: rotation-and-elasticity, branches: [mechanics], level: intermediate, milestone: 1, flags: ['ANG'], name: 'Newton''s second law rotation', state: planned }
+  - { collection: equations, slug: rotational-kinetic-energy, action: create, wave: 'W13', slice: rotation-and-elasticity, branches: [mechanics], level: intermediate, milestone: 1, flags: ['ANG'], name: 'Rotational kinetic energy', state: planned }
+  - { collection: equations, slug: angular-momentum-rigid-body, action: create, wave: 'W13', slice: rotation-and-elasticity, branches: [mechanics], level: intermediate, milestone: 1, flags: ['ANG'], name: 'Angular momentum rigid body', state: planned }
+  - { collection: equations, slug: rotational-power, action: create, wave: 'W13', slice: rotation-and-elasticity, branches: [mechanics], level: intermediate, milestone: 1, flags: ['ANG'], name: 'Rotational power', state: planned }
+  - { collection: equations, slug: normal-stress, action: create, wave: 'W13', slice: rotation-and-elasticity, branches: [mechanics], level: intermediate, milestone: 1, flags: [], name: 'Normal stress', state: planned }
+  - { collection: equations, slug: strain, action: create, wave: 'W13', slice: rotation-and-elasticity, branches: [mechanics], level: intermediate, milestone: 1, flags: [], name: 'Strain', state: planned }
+  - { collection: equations, slug: youngs-modulus, action: create, wave: 'W13', slice: rotation-and-elasticity, branches: [mechanics], level: intermediate, milestone: 1, flags: [], name: 'Young''s modulus', state: planned }
+  # W14 · waves-and-optics
+  - { collection: equations, slug: wavenumber-formula, action: create, wave: 'W14', slice: waves-and-optics, branches: [waves-and-oscillations], level: intermediate, milestone: 1, flags: [], name: 'Wavenumber', state: planned }
+  - { collection: equations, slug: mass-spring-angular-frequency, action: create, wave: 'W14', slice: waves-and-optics, branches: [waves-and-oscillations], level: intermediate, milestone: 1, flags: ['ANG'], name: 'Mass spring angular frequency', state: planned }
+  - { collection: equations, slug: shm-displacement, action: create, wave: 'W14', slice: waves-and-optics, branches: [waves-and-oscillations], level: intermediate, milestone: 1, flags: ['ANG', 'G:acos', 'MR'], name: 'Simple harmonic motion displacement', state: planned }
+  - { collection: equations, slug: shm-maximum-speed, action: create, wave: 'W14', slice: waves-and-optics, branches: [waves-and-oscillations], level: intermediate, milestone: 1, flags: [], name: 'Simple harmonic motion maximum speed', state: planned }
+  - { collection: equations, slug: shm-maximum-acceleration, action: create, wave: 'W14', slice: waves-and-optics, branches: [waves-and-oscillations], level: intermediate, milestone: 1, flags: [], name: 'Simple harmonic motion maximum acceleration', state: planned }
+  - { collection: equations, slug: shm-energy, action: create, wave: 'W14', slice: waves-and-optics, branches: [waves-and-oscillations], level: intermediate, milestone: 1, flags: [], name: 'Simple harmonic motion energy', state: planned }
+  - { collection: equations, slug: wave-speed-on-string, action: create, wave: 'W14', slice: waves-and-optics, branches: [waves-and-oscillations], level: intermediate, milestone: 1, flags: [], name: 'Wave speed on string', state: planned }
+  - { collection: equations, slug: speed-of-sound-ideal-gas, action: create, wave: 'W14', slice: waves-and-optics, branches: [waves-and-oscillations], level: intermediate, milestone: 1, flags: [], name: 'Speed of sound ideal gas', state: planned }
+  - { collection: equations, slug: lensmakers-equation, action: create, wave: 'W14', slice: waves-and-optics, branches: [optics-and-photometry], level: intermediate, milestone: 1, flags: [], name: 'Lensmaker''s equation', state: planned }
+  - { collection: equations, slug: wavelength-in-medium, action: create, wave: 'W14', slice: waves-and-optics, branches: [optics-and-photometry], level: intermediate, milestone: 1, flags: [], name: 'Wavelength in medium', state: planned }
+  - { collection: equations, slug: double-slit-maxima, action: create, wave: 'W14', slice: waves-and-optics, branches: [optics-and-photometry], level: intermediate, milestone: 1, flags: ['ANG', 'G:asin'], name: 'Double slit maxima', state: planned }
+  - { collection: equations, slug: single-slit-minima, action: create, wave: 'W14', slice: waves-and-optics, branches: [optics-and-photometry], level: intermediate, milestone: 1, flags: ['ANG', 'G:asin'], name: 'Single slit minima', state: planned }
+  - { collection: equations, slug: malus-law, action: create, wave: 'W14', slice: waves-and-optics, branches: [optics-and-photometry], level: intermediate, milestone: 1, flags: ['ANG', 'G:acos'], name: 'Malus''s law', state: planned }
+  # W14 · thermodynamics
+  - { collection: equations, slug: stefan-boltzmann-law, action: create, wave: 'W14', slice: thermodynamics, branches: [thermodynamics], level: intermediate, milestone: 1, flags: [], name: 'Stefan-Boltzmann law', state: planned }
+  - { collection: equations, slug: ideal-gas-law-molecular, action: create, wave: 'W14', slice: thermodynamics, branches: [thermodynamics], level: intermediate, milestone: 1, flags: [], name: 'Ideal gas law molecular', state: planned }
+  - { collection: equations, slug: mean-kinetic-energy-gas, action: create, wave: 'W14', slice: thermodynamics, branches: [thermodynamics], level: intermediate, milestone: 1, flags: [], name: 'Mean kinetic energy gas', state: planned }
+  - { collection: equations, slug: rms-speed, action: create, wave: 'W14', slice: thermodynamics, branches: [thermodynamics], level: intermediate, milestone: 1, flags: [], name: 'RMS speed', state: planned }
+  - { collection: equations, slug: internal-energy-monatomic-gas, action: create, wave: 'W14', slice: thermodynamics, branches: [thermodynamics], level: intermediate, milestone: 1, flags: [], name: 'Internal energy monatomic gas', state: planned }
+  - { collection: equations, slug: isothermal-work, action: create, wave: 'W14', slice: thermodynamics, branches: [thermodynamics], level: intermediate, milestone: 1, flags: [], name: 'Isothermal work', state: planned }
+  - { collection: equations, slug: adiabatic-process, action: create, wave: 'W14', slice: thermodynamics, branches: [thermodynamics], level: intermediate, milestone: 1, flags: [], name: 'Adiabatic process', state: planned }
+  - { collection: equations, slug: refrigerator-cop, action: create, wave: 'W14', slice: thermodynamics, branches: [thermodynamics], level: intermediate, milestone: 1, flags: [], name: 'Refrigerator COP', state: planned }
+  - { collection: equations, slug: entropy-change-reversible, action: create, wave: 'W14', slice: thermodynamics, branches: [thermodynamics], level: intermediate, milestone: 1, flags: [], name: 'Entropy change reversible', state: planned }
+  - { collection: equations, slug: boltzmann-entropy, action: create, wave: 'W14', slice: thermodynamics, branches: [thermodynamics], level: intermediate, milestone: 1, flags: [], name: 'Boltzmann entropy', state: planned }
+  - { collection: equations, slug: wiens-displacement-law, action: create, wave: 'W14', slice: thermodynamics, branches: [thermodynamics], level: intermediate, milestone: 1, flags: [], name: 'Wien''s displacement law', state: planned }
+  - { collection: equations, slug: newtons-law-of-cooling, action: create, wave: 'W14', slice: thermodynamics, branches: [thermodynamics], level: intermediate, milestone: 1, flags: [], name: 'Newton''s law of cooling', state: planned }
+  # W15 · electromagnetism
+  - { collection: equations, slug: parallel-plate-capacitor, action: create, wave: 'W15', slice: electromagnetism, branches: [electromagnetism], level: intermediate, milestone: 1, flags: [], name: 'Parallel plate capacitor', state: planned }
+  - { collection: equations, slug: rc-time-constant, action: create, wave: 'W15', slice: electromagnetism, branches: [electromagnetism], level: intermediate, milestone: 1, flags: [], name: 'RC time constant', state: planned }
+  - { collection: equations, slug: rc-charging, action: create, wave: 'W15', slice: electromagnetism, branches: [electromagnetism], level: intermediate, milestone: 1, flags: [], name: 'RC charging', state: planned }
+  - { collection: equations, slug: rc-discharging, action: create, wave: 'W15', slice: electromagnetism, branches: [electromagnetism], level: intermediate, milestone: 1, flags: [], name: 'RC discharging', state: planned }
+  - { collection: equations, slug: magnetic-field-circular-loop, action: create, wave: 'W15', slice: electromagnetism, branches: [electromagnetism], level: intermediate, milestone: 1, flags: [], name: 'Magnetic field circular loop', state: planned }
+  - { collection: equations, slug: force-between-parallel-wires, action: create, wave: 'W15', slice: electromagnetism, branches: [electromagnetism], level: intermediate, milestone: 1, flags: [], name: 'Force between parallel wires', state: planned }
+  - { collection: equations, slug: cyclotron-frequency, action: create, wave: 'W15', slice: electromagnetism, branches: [electromagnetism], level: intermediate, milestone: 1, flags: [], name: 'Cyclotron frequency', state: planned }
+  - { collection: equations, slug: ac-generator-peak-emf, action: create, wave: 'W15', slice: electromagnetism, branches: [electromagnetism], level: intermediate, milestone: 1, flags: [], name: 'AC generator peak EMF', state: planned }
+  - { collection: equations, slug: inductor-energy, action: create, wave: 'W15', slice: electromagnetism, branches: [electromagnetism], level: intermediate, milestone: 1, flags: [], name: 'Inductor energy', state: planned }
+  - { collection: equations, slug: solenoid-inductance, action: create, wave: 'W15', slice: electromagnetism, branches: [electromagnetism], level: intermediate, milestone: 1, flags: [], name: 'Solenoid inductance', state: planned }
+  - { collection: equations, slug: rl-time-constant, action: create, wave: 'W15', slice: electromagnetism, branches: [electromagnetism], level: intermediate, milestone: 1, flags: [], name: 'RL time constant', state: planned }
+  - { collection: equations, slug: lc-resonant-frequency, action: create, wave: 'W15', slice: electromagnetism, branches: [electromagnetism], level: intermediate, milestone: 1, flags: [], name: 'LC resonant frequency', state: planned }
+  - { collection: equations, slug: inductive-reactance, action: create, wave: 'W15', slice: electromagnetism, branches: [electromagnetism], level: intermediate, milestone: 1, flags: [], name: 'Inductive reactance', state: planned }
+  - { collection: equations, slug: capacitive-reactance, action: create, wave: 'W15', slice: electromagnetism, branches: [electromagnetism], level: intermediate, milestone: 1, flags: [], name: 'Capacitive reactance', state: planned }
+  # W15 · modern-and-nuclear
+  - { collection: equations, slug: lorentz-factor, action: create, wave: 'W15', slice: modern-and-nuclear, branches: [modern-physics], level: intermediate, milestone: 1, flags: ['MR'], name: 'Lorentz factor', state: planned }
+  - { collection: equations, slug: relativistic-momentum, action: create, wave: 'W15', slice: modern-and-nuclear, branches: [modern-physics], level: intermediate, milestone: 1, flags: [], name: 'Relativistic momentum', state: planned }
+  - { collection: equations, slug: relativistic-energy-momentum, action: create, wave: 'W15', slice: modern-and-nuclear, branches: [modern-physics], level: intermediate, milestone: 1, flags: [], name: 'Relativistic energy momentum', state: planned }
+  - { collection: equations, slug: relativistic-kinetic-energy, action: create, wave: 'W15', slice: modern-and-nuclear, branches: [modern-physics], level: intermediate, milestone: 1, flags: [], name: 'Relativistic kinetic energy', state: planned }
+  - { collection: equations, slug: bohr-orbit-radius, action: create, wave: 'W15', slice: modern-and-nuclear, branches: [modern-physics], level: intermediate, milestone: 1, flags: ['INT'], name: 'Bohr orbit radius', state: planned }
+  - { collection: equations, slug: particle-in-a-box, action: create, wave: 'W15', slice: modern-and-nuclear, branches: [modern-physics], level: intermediate, milestone: 1, flags: ['INT'], name: 'Particle in a box', state: planned }
+  - { collection: equations, slug: mass-defect, action: create, wave: 'W15', slice: modern-and-nuclear, branches: [nuclear-physics], level: intermediate, milestone: 1, flags: [], name: 'Mass defect', state: planned }
+  - { collection: equations, slug: binding-energy-per-nucleon, action: create, wave: 'W15', slice: modern-and-nuclear, branches: [nuclear-physics], level: intermediate, milestone: 1, flags: [], name: 'Binding energy per nucleon', state: planned }
+  - { collection: equations, slug: q-value, action: create, wave: 'W15', slice: modern-and-nuclear, branches: [nuclear-physics], level: intermediate, milestone: 1, flags: [], name: 'Q-value of a nuclear reaction', state: planned }
+  - { collection: equations, slug: nuclear-radius, action: create, wave: 'W15', slice: modern-and-nuclear, branches: [nuclear-physics], level: intermediate, milestone: 1, flags: [], name: 'Nuclear radius', state: planned }
+  - { collection: equations, slug: absorbed-dose-formula, action: create, wave: 'W15', slice: modern-and-nuclear, branches: [nuclear-physics], level: intermediate, milestone: 1, flags: [], name: 'Absorbed dose', state: planned }
+  - { collection: equations, slug: equivalent-dose-formula, action: create, wave: 'W15', slice: modern-and-nuclear, branches: [nuclear-physics], level: intermediate, milestone: 1, flags: [], name: 'Equivalent dose', state: planned }
+  # W16 · atoms-solutions-and-acids
+  - { collection: equations, slug: effective-nuclear-charge, action: create, wave: 'W16', slice: atoms-solutions-and-acids, branches: [atomic-structure], level: intermediate, milestone: 1, flags: [], name: 'Effective nuclear charge', state: planned }
+  - { collection: equations, slug: hydrogen-like-energy-levels, action: create, wave: 'W16', slice: atoms-solutions-and-acids, branches: [atomic-structure], level: intermediate, milestone: 1, flags: [], name: 'Hydrogen like energy levels', state: planned }
+  - { collection: equations, slug: boiling-point-elevation, action: create, wave: 'W16', slice: atoms-solutions-and-acids, branches: [solutions], level: intermediate, milestone: 1, flags: ['T2'], name: 'Boiling point elevation', state: planned }
+  - { collection: equations, slug: freezing-point-depression, action: create, wave: 'W16', slice: atoms-solutions-and-acids, branches: [solutions], level: intermediate, milestone: 1, flags: ['T2'], name: 'Freezing point depression', state: planned }
+  - { collection: equations, slug: osmotic-pressure, action: create, wave: 'W16', slice: atoms-solutions-and-acids, branches: [solutions], level: intermediate, milestone: 1, flags: [], name: 'Osmotic pressure', state: planned }
+  - { collection: equations, slug: raoults-law, action: create, wave: 'W16', slice: atoms-solutions-and-acids, branches: [solutions], level: intermediate, milestone: 1, flags: [], name: 'Raoult''s law', state: planned }
+  - { collection: equations, slug: acid-dissociation-constant, action: create, wave: 'W16', slice: atoms-solutions-and-acids, branches: [acids-and-bases], level: intermediate, milestone: 1, flags: ['KEY'], name: 'Acid dissociation constant', state: planned }
+  - { collection: equations, slug: pka-definition, action: create, wave: 'W16', slice: atoms-solutions-and-acids, branches: [acids-and-bases], level: intermediate, milestone: 1, flags: ['G:log10', 'KEY'], name: 'PKa definition', state: planned }
+  - { collection: equations, slug: weak-acid-ph, action: create, wave: 'W16', slice: atoms-solutions-and-acids, branches: [acids-and-bases], level: intermediate, milestone: 1, flags: ['G:log10', 'KEY'], name: 'Weak acid pH', state: planned }
+  - { collection: equations, slug: henderson-hasselbalch, action: create, wave: 'W16', slice: atoms-solutions-and-acids, branches: [acids-and-bases], level: intermediate, milestone: 1, flags: ['G:log10', 'KEY'], name: 'Henderson-Hasselbalch equation', state: planned }
+  - { collection: equations, slug: ka-kb-relation, action: create, wave: 'W16', slice: atoms-solutions-and-acids, branches: [acids-and-bases], level: intermediate, milestone: 1, flags: ['KEY'], name: 'Ka-Kb relation', state: planned }
+  - { collection: equations, slug: percent-ionization, action: create, wave: 'W16', slice: atoms-solutions-and-acids, branches: [acids-and-bases], level: intermediate, milestone: 1, flags: ['KEY'], name: 'Percent ionization', state: planned }
+  # W16 · kinetics-and-equilibrium
+  - { collection: branches, slug: chemical-equilibrium, action: create, wave: 'W16', slice: kinetics-and-equilibrium, branches: [], milestone: 1, flags: [], name: 'Chemical equilibrium', note: 'chemistry, order 6', state: planned }
+  - { collection: equations, slug: rate-law, action: create, wave: 'W16', slice: kinetics-and-equilibrium, branches: [chemical-kinetics], level: intermediate, milestone: 1, flags: ['KEY'], name: 'Rate law', state: planned }
+  - { collection: equations, slug: zero-order-integrated-rate-law, action: create, wave: 'W16', slice: kinetics-and-equilibrium, branches: [chemical-kinetics], level: intermediate, milestone: 1, flags: ['KEY'], name: 'Zero order integrated rate law', state: planned }
+  - { collection: equations, slug: first-order-integrated-rate-law, action: create, wave: 'W16', slice: kinetics-and-equilibrium, branches: [chemical-kinetics], level: intermediate, milestone: 1, flags: ['KEY'], name: 'First order integrated rate law', state: planned }
+  - { collection: equations, slug: second-order-integrated-rate-law, action: create, wave: 'W16', slice: kinetics-and-equilibrium, branches: [chemical-kinetics], level: intermediate, milestone: 1, flags: ['KEY'], name: 'Second order integrated rate law', state: planned }
+  - { collection: equations, slug: first-order-half-life, action: create, wave: 'W16', slice: kinetics-and-equilibrium, branches: [chemical-kinetics], level: intermediate, milestone: 1, flags: [], name: 'First order half life', state: planned }
+  - { collection: equations, slug: arrhenius-equation, action: create, wave: 'W16', slice: kinetics-and-equilibrium, branches: [chemical-kinetics], level: intermediate, milestone: 1, flags: [], name: 'Arrhenius equation', state: planned }
+  - { collection: equations, slug: arrhenius-two-temperatures, action: create, wave: 'W16', slice: kinetics-and-equilibrium, branches: [chemical-kinetics], level: intermediate, milestone: 1, flags: [], name: 'Arrhenius two temperatures', state: planned }
+  - { collection: equations, slug: equilibrium-constant-expression, action: create, wave: 'W16', slice: kinetics-and-equilibrium, branches: [chemical-equilibrium], level: intermediate, milestone: 1, flags: ['NC', 'KEY'], name: 'Equilibrium constant expression', state: planned }
+  - { collection: equations, slug: kp-kc-relation, action: create, wave: 'W16', slice: kinetics-and-equilibrium, branches: [chemical-equilibrium], level: intermediate, milestone: 1, flags: ['KEY'], name: 'Kp-Kc relation', state: planned }
+  - { collection: equations, slug: ostwald-dilution-law, action: create, wave: 'W16', slice: kinetics-and-equilibrium, branches: [chemical-equilibrium], level: intermediate, milestone: 1, flags: ['MR', 'KEY'], name: 'Ostwald dilution law', state: planned }
+  - { collection: equations, slug: solubility-product-1-1, action: create, wave: 'W16', slice: kinetics-and-equilibrium, branches: [chemical-equilibrium], level: intermediate, milestone: 1, flags: ['KEY'], name: 'Solubility product 1 1', state: planned }
+  # W16 · thermochemistry-and-electrochemistry
+  - { collection: equations, slug: gibbs-equilibrium-constant, action: create, wave: 'W16', slice: thermochemistry-and-electrochemistry, branches: [thermochemistry], level: intermediate, milestone: 1, flags: [], name: 'Gibbs equilibrium constant', state: planned }
+  - { collection: equations, slug: calorimeter-heat, action: create, wave: 'W16', slice: thermochemistry-and-electrochemistry, branches: [thermochemistry], level: intermediate, milestone: 1, flags: ['T2'], name: 'Calorimeter heat', state: planned }
+  - { collection: equations, slug: crossover-temperature, action: create, wave: 'W16', slice: thermochemistry-and-electrochemistry, branches: [thermochemistry], level: intermediate, milestone: 1, flags: [], name: 'Crossover temperature', state: planned }
+  - { collection: equations, slug: clausius-clapeyron, action: create, wave: 'W16', slice: thermochemistry-and-electrochemistry, branches: [thermochemistry], level: intermediate, milestone: 1, flags: [], name: 'Clausius-Clapeyron equation', state: planned }
+  - { collection: equations, slug: nernst-equation, action: create, wave: 'W16', slice: thermochemistry-and-electrochemistry, branches: [electrochemistry], level: intermediate, milestone: 1, flags: ['KEY'], name: 'Nernst equation', state: planned }
+  - { collection: equations, slug: gibbs-energy-cell-potential, action: create, wave: 'W16', slice: thermochemistry-and-electrochemistry, branches: [electrochemistry], level: intermediate, milestone: 1, flags: [], name: 'Gibbs energy cell potential', state: planned }
+  - { collection: equations, slug: cell-potential-equilibrium-constant, action: create, wave: 'W16', slice: thermochemistry-and-electrochemistry, branches: [electrochemistry], level: intermediate, milestone: 1, flags: [], name: 'Cell potential equilibrium constant', state: planned }
+  - { collection: equations, slug: nernst-equation-25c, action: create, wave: 'W16', slice: thermochemistry-and-electrochemistry, branches: [electrochemistry], level: intermediate, milestone: 1, flags: ['G:log10', 'KEY'], name: 'Nernst equation at 25 °C', state: planned }
+  # W17 · mathematics-and-mechanics
+  - { collection: magnitudes, slug: surface-tension, action: create, wave: 'W17', slice: mathematics-and-mechanics, branches: [fluid-mechanics], milestone: 2, flags: [], name: 'Surface tension', note: 'M T^-2; baseUnit newton-per-metre (add to its unitOf)', state: planned, edits: [units/newton-per-metre] }
+  - { collection: equations, slug: loan-payment, action: create, wave: 'W17', slice: mathematics-and-mechanics, branches: [arithmetic], level: intro, milestone: 2, flags: ['NC:r'], name: 'Loan payment', state: planned }
+  - { collection: equations, slug: annuity-future-value, action: create, wave: 'W17', slice: mathematics-and-mechanics, branches: [arithmetic], level: intro, milestone: 2, flags: ['NC:r'], name: 'Annuity future value', state: planned }
+  - { collection: equations, slug: sum-of-squares, action: create, wave: 'W17', slice: mathematics-and-mechanics, branches: [algebra], level: intro, milestone: 2, flags: ['NC:n'], name: 'Sum of squares', state: planned }
+  - { collection: equations, slug: normal-distribution-density, action: create, wave: 'W17', slice: mathematics-and-mechanics, branches: [statistics-and-probability], level: intermediate, milestone: 2, flags: ['MR', 'NC:σ'], name: 'Normal distribution density', state: planned }
+  - { collection: equations, slug: poisson-probability, action: create, wave: 'W17', slice: mathematics-and-mechanics, branches: [statistics-and-probability], level: intermediate, milestone: 2, flags: ['INT', 'G:factorial'], name: 'Poisson probability', state: planned }
+  - { collection: equations, slug: volume-frustum-of-cone, action: create, wave: 'W17', slice: mathematics-and-mechanics, branches: [geometry], level: intro, milestone: 2, flags: [], name: 'Volume frustum of cone', state: planned }
+  - { collection: equations, slug: point-line-distance, action: create, wave: 'W17', slice: mathematics-and-mechanics, branches: [geometry], level: intro, milestone: 2, flags: ['NC'], name: 'Point line distance', state: planned }
+  - { collection: equations, slug: projectile-trajectory, action: create, wave: 'W17', slice: mathematics-and-mechanics, branches: [mechanics], level: intro, milestone: 2, flags: ['ANG', 'NC:θ'], name: 'Projectile trajectory', state: planned }
+  - { collection: equations, slug: rolling-kinetic-energy, action: create, wave: 'W17', slice: mathematics-and-mechanics, branches: [mechanics], level: intermediate, milestone: 2, flags: [], name: 'Rolling kinetic energy', state: planned }
+  - { collection: equations, slug: terminal-velocity-stokes, action: create, wave: 'W17', slice: mathematics-and-mechanics, branches: [fluid-mechanics], level: intermediate, milestone: 2, flags: [], name: 'Terminal velocity Stokes', state: planned }
+  - { collection: equations, slug: poiseuille-law, action: create, wave: 'W17', slice: mathematics-and-mechanics, branches: [fluid-mechanics], level: intermediate, milestone: 2, flags: [], name: 'Poiseuille law', state: planned }
+  - { collection: equations, slug: reynolds-number, action: create, wave: 'W17', slice: mathematics-and-mechanics, branches: [fluid-mechanics], level: intermediate, milestone: 2, flags: [], name: 'Reynolds number', state: planned }
+  - { collection: equations, slug: surface-tension-formula, action: create, wave: 'W17', slice: mathematics-and-mechanics, branches: [fluid-mechanics], level: intermediate, milestone: 2, flags: [], name: 'Surface tension', state: planned }
+  - { collection: equations, slug: capillary-rise, action: create, wave: 'W17', slice: mathematics-and-mechanics, branches: [fluid-mechanics], level: intermediate, milestone: 2, flags: [], name: 'Capillary rise', state: planned }
+  # W17 · fields-waves-and-heat
+  - { collection: equations, slug: physical-pendulum-period, action: create, wave: 'W17', slice: fields-waves-and-heat, branches: [waves-and-oscillations], level: intermediate, milestone: 2, flags: [], name: 'Physical pendulum period', state: planned }
+  - { collection: equations, slug: rayleigh-criterion, action: create, wave: 'W17', slice: fields-waves-and-heat, branches: [optics-and-photometry], level: intermediate, milestone: 2, flags: [], name: 'Rayleigh criterion', state: planned }
+  - { collection: equations, slug: brewster-angle, action: create, wave: 'W17', slice: fields-waves-and-heat, branches: [optics-and-photometry], level: intermediate, milestone: 2, flags: [], name: 'Brewster angle', state: planned }
+  - { collection: equations, slug: thin-film-interference, action: create, wave: 'W17', slice: fields-waves-and-heat, branches: [optics-and-photometry], level: intermediate, milestone: 2, flags: [], name: 'Thin-film interference', state: planned }
+  - { collection: equations, slug: heat-pump-cop, action: create, wave: 'W17', slice: fields-waves-and-heat, branches: [thermodynamics], level: intro, milestone: 2, flags: [], name: 'Heat pump COP', state: planned }
+  - { collection: equations, slug: entropy-change-isothermal-gas, action: create, wave: 'W17', slice: fields-waves-and-heat, branches: [thermodynamics], level: intermediate, milestone: 2, flags: [], name: 'Entropy change isothermal gas', state: planned }
+  - { collection: equations, slug: electric-flux, action: create, wave: 'W17', slice: fields-waves-and-heat, branches: [electromagnetism], level: intermediate, milestone: 2, flags: [], name: 'Electric flux', state: planned }
+  - { collection: equations, slug: field-infinite-plane, action: create, wave: 'W17', slice: fields-waves-and-heat, branches: [electromagnetism], level: intermediate, milestone: 2, flags: [], name: 'Field infinite plane', state: planned }
+  - { collection: equations, slug: field-line-charge, action: create, wave: 'W17', slice: fields-waves-and-heat, branches: [electromagnetism], level: intermediate, milestone: 2, flags: [], name: 'Field line charge', state: planned }
+  - { collection: equations, slug: wheatstone-bridge, action: create, wave: 'W17', slice: fields-waves-and-heat, branches: [electromagnetism], level: intro, milestone: 2, flags: [], name: 'Wheatstone bridge', state: planned }
+  - { collection: equations, slug: rlc-impedance, action: create, wave: 'W17', slice: fields-waves-and-heat, branches: [electromagnetism], level: intermediate, milestone: 2, flags: ['MR'], name: 'RLC impedance', state: planned }
+  # W17 · quantum-nuclear-and-chemistry
+  - { collection: equations, slug: compressibility-factor, action: create, wave: 'W17', slice: quantum-nuclear-and-chemistry, branches: [gases], level: intermediate, milestone: 2, flags: [], name: 'Compressibility factor', state: planned }
+  - { collection: equations, slug: van-der-waals-equation, action: create, wave: 'W17', slice: quantum-nuclear-and-chemistry, branches: [gases], level: intermediate, milestone: 2, flags: [], name: 'Van der waals equation', state: planned }
+  - { collection: equations, slug: relativistic-velocity-addition, action: create, wave: 'W17', slice: quantum-nuclear-and-chemistry, branches: [modern-physics], level: intermediate, milestone: 2, flags: [], name: 'Relativistic velocity addition', state: planned }
+  - { collection: equations, slug: compton-shift, action: create, wave: 'W17', slice: quantum-nuclear-and-chemistry, branches: [modern-physics], level: intermediate, milestone: 2, flags: [], name: 'Compton shift', state: planned }
+  - { collection: equations, slug: planck-radiation-law, action: create, wave: 'W17', slice: quantum-nuclear-and-chemistry, branches: [modern-physics], level: intermediate, milestone: 2, flags: [], name: 'Planck radiation law', state: planned }
+  - { collection: equations, slug: duane-hunt-law, action: create, wave: 'W17', slice: quantum-nuclear-and-chemistry, branches: [modern-physics], level: intermediate, milestone: 2, flags: [], name: 'Duane-Hunt law', state: planned }
+  - { collection: equations, slug: heisenberg-uncertainty, action: create, wave: 'W17', slice: quantum-nuclear-and-chemistry, branches: [modern-physics], level: intermediate, milestone: 2, flags: ['NONALG'], name: 'Heisenberg uncertainty', note: 'an inequality: algebraic: false, no solutions, no calculator', state: planned }
+  - { collection: equations, slug: gamma-attenuation, action: create, wave: 'W17', slice: quantum-nuclear-and-chemistry, branches: [nuclear-physics], level: intermediate, milestone: 2, flags: [], name: 'Gamma attenuation', state: planned }
+  - { collection: equations, slug: half-value-layer, action: create, wave: 'W17', slice: quantum-nuclear-and-chemistry, branches: [nuclear-physics], level: intermediate, milestone: 2, flags: [], name: 'Half value layer', state: planned }
+  - { collection: equations, slug: henrys-law, action: create, wave: 'W17', slice: quantum-nuclear-and-chemistry, branches: [solutions], level: intermediate, milestone: 2, flags: [], name: 'Henry''s law', state: planned }
+  - { collection: equations, slug: vant-hoff-equation, action: create, wave: 'W17', slice: quantum-nuclear-and-chemistry, branches: [thermochemistry], level: intermediate, milestone: 2, flags: [], name: 'Van ''t Hoff equation', state: planned }
+  - { collection: equations, slug: zero-order-half-life, action: create, wave: 'W17', slice: quantum-nuclear-and-chemistry, branches: [chemical-kinetics], level: intermediate, milestone: 2, flags: ['KEY'], name: 'Zero order half life', state: planned }
+  - { collection: equations, slug: second-order-half-life, action: create, wave: 'W17', slice: quantum-nuclear-and-chemistry, branches: [chemical-kinetics], level: intermediate, milestone: 2, flags: ['KEY'], name: 'Second order half life', state: planned }
+  - { collection: equations, slug: solubility-product-general, action: create, wave: 'W17', slice: quantum-nuclear-and-chemistry, branches: [chemical-equilibrium], level: intermediate, milestone: 2, flags: ['NC', 'KEY'], name: 'Solubility product general', state: planned }

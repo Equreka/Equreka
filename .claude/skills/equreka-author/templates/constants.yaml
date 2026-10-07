@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: '<Name as NIST lists it, sentence case>'
+symbol:
+  tex: '<TeX symbol>'
+value: '<every published digit, decimal string>'
+approximations:
+  - '<rounded value readers quote, optional>'
+unit: '<SI-coherent unit slug>'
+exact: <true only when fixed by definition>
+uncertainty: '<standard uncertainty in the same unit; measured values only>'
+source:
+  name: 'NIST CODATA 2022'
+  url: 'https://physics.nist.gov/cgi-bin/cuu/Value?<code>'
+  ref: '<constant name as listed>'
+externalIds:
+  wikidata: '<QID, fetched and matched>'
+  qudt: 'http://qudt.org/vocab/constant/<Name>'
+categories:
+  - '<category>'
+branches:
+  - '<branch>'
+aliases:
+  - '<nickname or ASCII symbol>'
+references:
+  - title: '<Publication, locator>'
+    url: '<fetched URL>'
+description:
+  en: >-
+    <Value and status: exact since the 2019 redefinition, or measured with its CODATA 2022 relative uncertainty.>
+
+    <Physical meaning.>
+
+    <Key equations it appears in.>
+
+    <Measurement history, each claim referenced.>

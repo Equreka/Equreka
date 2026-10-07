@@ -29,6 +29,11 @@ console.log(`@equreka/content ${command}: ${total} entities (${countSummary})`);
 console.log(
 	`prefix expansion: ${report.generatedUnits.size + report.overriddenUnits.size} prefixed units (${report.generatedUnits.size} generated, ${report.overriddenUnits.size} hand overrides)`,
 );
+for (const coverage of report.locale) {
+	console.log(
+		`locale ${coverage.locale}: ${coverage.complete}/${coverage.total} authored entities complete, ${coverage.inDebt} in debt`,
+	);
+}
 console.log(`content hash ${report.contentHash.slice(0, 12)}…`);
 const nonAlgebraic = [...report.corpus.equations.values()].filter(
 	(equation) => !equation.algebraic,

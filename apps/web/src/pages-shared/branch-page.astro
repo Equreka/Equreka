@@ -6,6 +6,7 @@ import CollapseCard from '../components/collapse-card.astro';
 import CollectionListCards from '../components/collection-list-cards.astro';
 import EntryIdentifiers from '../components/entry-identifiers.astro';
 import PageHeader from '../components/page-header.astro';
+import TextSources from '../components/text-sources.astro';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
 import FavoriteToggle from '../islands/favorite-toggle';
 import BaseLayout from '../layouts/base-layout.astro';
@@ -45,6 +46,7 @@ const metaDescription =
 ---
 
 <BaseLayout
+	definedTerm={{ name, externalIds: branch.externalIds, textSources: branch.textSources }}
 	title={`${name} — Equreka`}
 	description={metaDescription}
 	locale={locale}
@@ -74,6 +76,7 @@ const metaDescription =
 						</div>
 					)}
 					{description !== undefined && <p class="eq-prose">{description.value}</p>}
+					<TextSources locale={locale} sources={branch.textSources} />
 					<EntryIdentifiers locale={locale} externalIds={branch.externalIds} />
 				</CollapseCard>
 			)

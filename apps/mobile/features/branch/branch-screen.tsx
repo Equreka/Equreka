@@ -11,6 +11,7 @@ import { categoryColor } from '../../shared/theme/theme';
 import { Badge } from '../../shared/ui/card';
 import { HStack, Screen, VStack } from '../../shared/ui/screen';
 import { Muted, Title } from '../../shared/ui/text';
+import { TextSources } from '../../shared/ui/text-sources';
 import { FavoriteButton } from '../favorites/favorite-button';
 import { CollectionGroups } from './collection-groups';
 
@@ -55,6 +56,7 @@ export function BranchScreen({ slug }: BranchScreenProps) {
 				</HStack>
 				{description === undefined ? null : <RichText segments={description.segments} />}
 				{description?.untranslated ? <Muted>{t('badge.untranslated')}</Muted> : null}
+				<TextSources sources={branch.textSources} />
 			</VStack>
 			{groups.length === 0 ? <Muted>{t('mobile.branch.empty')}</Muted> : null}
 			<CollectionGroups groups={groups} />

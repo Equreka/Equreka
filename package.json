@@ -2,7 +2,7 @@
 	"name": "equreka-monorepo",
 	"version": "2.0.0-beta.1",
 	"private": true,
-	"license": "GPL-3.0",
+	"license": "GPL-3.0-or-later",
 	"engines": {
 		"node": ">=22",
 		"pnpm": ">=11"
@@ -19,7 +19,7 @@
 		"test": "turbo run test",
 		"typecheck": "turbo run typecheck",
 		"verify": "turbo run typecheck test --affected",
-		"quality": "node scripts/quality/catalog-drift.mjs && node scripts/quality/contrast-check.mjs && node scripts/quality/yaml-lint.selftest.mjs && node scripts/quality/yaml-lint.mjs",
+		"quality": "node scripts/quality/catalog-drift.mjs && node scripts/quality/contrast-check.mjs && node scripts/quality/yaml-lint.selftest.mjs && node --test scripts/content/lib/*.test.mjs && node scripts/quality/yaml-lint.mjs && node scripts/quality/roadmap-check.selftest.mjs && node scripts/quality/roadmap-check.mjs",
 		"env:init": "node scripts/env/init-env.mjs development",
 		"env:test:init": "node scripts/env/init-env.mjs test",
 		"prepare": "node -e \"if(process.env.LEFTHOOK!=='0'){try{require('child_process').execSync('lefthook install',{stdio:'inherit'})}catch{}}\""
@@ -28,6 +28,7 @@
 		"@biomejs/biome": "catalog:",
 		"lefthook": "catalog:",
 		"turbo": "catalog:",
-		"typescript": "catalog:"
+		"typescript": "catalog:",
+		"yaml": "catalog:"
 	}
 }

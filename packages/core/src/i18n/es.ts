@@ -363,6 +363,16 @@ export const es: Partial<Record<MessageKey, string>> = {
 	'settings.favorites': 'Favoritos',
 	'settings.version': 'Versión',
 
+	'license.title': 'Licencia',
+	'license.content':
+		'Las descripciones, los datos y las rutas de aprendizaje se publican bajo {license}. Si los reutilizas, da crédito a «{attribution}» y enlaza al repositorio.',
+	'license.code':
+		'El código fuente es software libre bajo la {license}, versión 3 o cualquier versión posterior.',
+	'license.repository':
+		'Código fuente, textos completos de las licencias y colaboradores: {repository}',
+	'license.textAdaptedFrom': 'Texto adaptado de {source} ({license}).',
+	'license.publicDomain': 'dominio público',
+
 	'nav.home': 'Inicio',
 	'mobile.notFound.title': 'Pantalla no encontrada',
 	'mobile.notFound.lead': 'Ese enlace no lleva a ningún lugar en esta versión.',

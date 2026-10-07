@@ -350,6 +350,15 @@ export const en = {
 	'settings.favorites': 'Favorites',
 	'settings.version': 'Version',
 
+	'license.title': 'License',
+	'license.content':
+		'Descriptions, data and learning paths are licensed under {license}. When you reuse them, credit “{attribution}” and link to the repository.',
+	'license.code':
+		'The source code is free software under the {license}, version 3 or any later version.',
+	'license.repository': 'Source code, full license texts and contributors: {repository}',
+	'license.textAdaptedFrom': 'Text adapted from {source} ({license}).',
+	'license.publicDomain': 'public domain',
+
 	'nav.home': 'Home',
 	'mobile.notFound.title': 'Screen not found',
 	'mobile.notFound.lead': 'That link points nowhere in this build.',

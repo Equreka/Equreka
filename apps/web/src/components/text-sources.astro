@@ -1,0 +1,33 @@
+---
+import { type Locale, tParts } from '@equreka/core/i18n';
+import { textSourceLicenseLink } from '@equreka/core/license';
+import type { TextSource } from '@equreka/schema';
+
+interface Props {
+	locale: Locale;
+	sources: readonly TextSource[];
+}
+
+const { locale, sources } = Astro.props;
+const parts = tParts(locale, 'license.textAdaptedFrom');
+const credits = sources.map((source) => ({
+	source: { label: source.title, url: source.url },
+	license: textSourceLicenseLink(locale, source.license),
+}));
+---
+
+{
+	credits.map((credit) => (
+		<p class="eq-card-note eq-text-source">
+			{parts.map((part) => {
+				if (part.kind === 'text') return part.text;
+				const link = part.name === 'source' ? credit.source : credit.license;
+				return (
+					<a class="eq-link" href={link.url} rel="external noopener">
+						{link.label}
+					</a>
+				);
+			})}
+		</p>
+	))
+}

@@ -10,6 +10,7 @@ import DraftBadge from '../components/draft-badge.astro';
 import EntryActions from '../components/entry-actions.astro';
 import EntryIdentifiers from '../components/entry-identifiers.astro';
 import PageHeader from '../components/page-header.astro';
+import TextSources from '../components/text-sources.astro';
 import UnitConversionTable from '../components/unit-conversion-table.astro';
 import UntranslatedBadge from '../components/untranslated-badge.astro';
 import ConverterIsland from '../islands/converter-island';
@@ -87,7 +88,7 @@ const metaDescription =
 ---
 
 <BaseLayout
-	definedTerm={{ name, externalIds: unit.externalIds }}
+	definedTerm={{ name, externalIds: unit.externalIds, textSources: unit.textSources }}
 	title={`${name} (${symbolText}) — Equreka`}
 	description={metaDescription}
 	locale={locale}
@@ -144,6 +145,8 @@ const metaDescription =
 					<div class="eq-prose" set:html={renderRichTextHtml(description.value)} />
 				)
 			}
+
+			<TextSources locale={locale} sources={unit.textSources} />
 
 			{
 				derivation !== undefined && (

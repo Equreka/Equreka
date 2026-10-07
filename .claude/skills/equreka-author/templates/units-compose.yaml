@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: '<Name>'
+namePlural:
+  en: '<lowercase plural, required with prefixes>'
+symbol:
+  tex: '<symbol, valid inside \mathrm{}: m/s^{2}, N\,m>'
+unitOf:
+  - '<magnitude; [] only for a magnitude-less compound unit>'
+system: 'si-derived'
+prefixes:
+  - '<prefix, only as the roadmap note says>'
+compose:
+  factor: '<exact coefficient, omit when 1>'
+  of:
+    - unit: '<unit>'
+      exp: <nonzero integer>
+    - unit: '<unit>'
+      exp: <nonzero integer>
+externalIds:
+  wikidata: '<QID, fetched and matched>'
+  qudt: 'http://qudt.org/vocab/unit/<ID>'
+categories:
+  - '<category>'
+branches:
+  - '<branch>'
+aliases:
+  - '<symbol variant users type, e.g. m/s2>'
+references:
+  - title: '<Publication, locator>'
+    url: '<fetched URL>'
+description:
+  en: >-
+    <What it measures; how it is composed from other units.>
+
+    <Definition and defining document.>
+
+    <Relations to other units; where it is used.>

@@ -1,7 +1,8 @@
 ---
 import '../styles/global.css';
 import { type Locale, t } from '@equreka/core/i18n';
-import type { ExternalIds } from '@equreka/schema';
+import { CONTENT_LICENSE } from '@equreka/core/license';
+import type { ExternalIds, TextSource } from '@equreka/schema';
 import { tokens } from '@equreka/tokens';
 import IconGlyph from '../components/icon-glyph.astro';
 import Logo from '../components/logo.astro';
@@ -16,7 +17,11 @@ interface Props {
 	description?: string;
 	locale?: Locale;
 	ogType?: 'website' | 'article';
-	definedTerm?: { name: string; externalIds?: ExternalIds | undefined };
+	definedTerm?: {
+		name: string;
+		externalIds?: ExternalIds | undefined;
+		textSources?: readonly TextSource[] | undefined;
+	};
 }
 
 const { title, description, locale = 'en', ogType = 'website', definedTerm } = Astro.props;
@@ -38,6 +43,7 @@ const jsonLd =
 					url: canonicalUrl.href,
 					inLanguage: locale,
 					externalIds: definedTerm.externalIds,
+					textSources: definedTerm.textSources,
 				}),
 			);
 
@@ -89,6 +95,7 @@ const isSearchPage = path === localePath(locale, '/search/');
 		<title>{title}</title>
 		{description !== undefined && <meta name="description" content={description} />}
 		<link rel="canonical" href={canonicalUrl.href} />
+		<link rel="license" href={CONTENT_LICENSE.url} />
 		<link rel="alternate" hreflang="en" href={enUrl.href} />
 		<link rel="alternate" hreflang="es" href={esUrl.href} />
 		<link rel="alternate" hreflang="x-default" href={enUrl.href} />

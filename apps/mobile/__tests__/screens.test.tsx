@@ -1,10 +1,12 @@
 import { describe, expect, it, jest } from '@jest/globals';
 import { fireEvent, screen } from '@testing-library/react-native';
+import { Linking } from 'react-native';
 import { BranchScreen } from '../features/branch/branch-screen';
 import { CategoryScreen } from '../features/category/category-screen';
 import { EntryScreen } from '../features/entry/entry-screen';
 import { HomeScreen } from '../features/home/home-screen';
 import { SettingsScreen } from '../features/settings/settings-screen';
+import { getPresentation } from '../shared/content/artifact';
 import { renderWithProvider } from './helpers/render';
 
 const mockPush = jest.fn();
@@ -52,6 +54,18 @@ describe('SettingsScreen', () => {
 		await fireEvent.press(screen.getByText('English'));
 		expect(screen.getByText('Settings')).toBeTruthy();
 	});
+
+	it('shows the license card and opens its links in the system browser', async () => {
+		const openURL = jest.spyOn(Linking, 'openURL').mockResolvedValue(true);
+		await renderWithProvider(<SettingsScreen />);
+		expect(screen.getByText('License')).toBeTruthy();
+		expect(screen.getByText(/credit “Equreka contributors”/)).toBeTruthy();
+		await fireEvent.press(screen.getByText('CC BY-SA 4.0'));
+		expect(openURL).toHaveBeenCalledWith('https://creativecommons.org/licenses/by-sa/4.0/');
+		await fireEvent.press(screen.getByText('github.com/Equreka/Equreka'));
+		expect(openURL).toHaveBeenCalledWith('https://github.com/Equreka/Equreka');
+		openURL.mockRestore();
+	});
 });
 
 describe('EntryScreen', () => {
@@ -87,6 +101,27 @@ describe('EntryScreen', () => {
 	it('marks a draft entry', async () => {
 		await renderWithProvider(<EntryScreen collection="units" slug="metre" />);
 		expect(screen.getByText('draft')).toBeTruthy();
+	});
+
+	it('credits every text source of an entry, linking the work and its license', async () => {
+		const [slug, unit] =
+			Object.entries(getPresentation('units')).find(([, entry]) => entry.textSources.length > 0) ??
+			[];
+		expect(slug).toBeDefined();
+		await renderWithProvider(<EntryScreen collection="units" slug={slug ?? ''} />);
+		expect(screen.getAllByText(/^Text adapted from /)).toHaveLength(unit?.textSources.length ?? 0);
+		for (const source of unit?.textSources ?? []) {
+			expect(screen.getByText(source.title)).toBeTruthy();
+		}
+	});
+
+	it('shows no credit line for an entry with no text sources', async () => {
+		const slug = Object.entries(getPresentation('units')).find(
+			([, entry]) => entry.description !== undefined && entry.textSources.length === 0,
+		)?.[0];
+		expect(slug).toBeDefined();
+		await renderWithProvider(<EntryScreen collection="units" slug={slug ?? ''} />);
+		expect(screen.queryByText(/^Text adapted from /)).toBeNull();
 	});
 
 	it('leaves a reviewed entry unmarked', async () => {

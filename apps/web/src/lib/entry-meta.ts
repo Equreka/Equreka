@@ -1,4 +1,5 @@
-import type { EditorialStatus, EngineSlice, ExternalIds } from '@equreka/schema';
+import { CONTENT_LICENSE, textSourceLicenseUrl } from '@equreka/core/license';
+import type { EditorialStatus, EngineSlice, ExternalIds, TextSource } from '@equreka/schema';
 
 export interface ExternalLink {
 	label: 'Wikidata' | 'QUDT';
@@ -11,6 +12,7 @@ export interface DefinedTermInput {
 	url: string;
 	inLanguage: string;
 	externalIds?: ExternalIds;
+	textSources?: readonly TextSource[] | undefined;
 }
 
 /**
@@ -41,11 +43,18 @@ export function externalLinks(ids: ExternalIds | undefined): ExternalLink[] {
 }
 
 /**
- * schema.org DefinedTerm for one wiki entry; `sameAs` lists the external
- * identities only when at least one is authored.
+ * schema.org DefinedTerm for one wiki entry, under the content license
+ * (ADR 0011). `sameAs` lists the external identities and `isBasedOn` the
+ * credited third-party works, each only when at least one is authored.
  */
 export function definedTermJsonLd(input: DefinedTermInput): Record<string, unknown> {
 	const sameAs = externalLinks(input.externalIds).map((link) => link.href);
+	const isBasedOn = (input.textSources ?? []).map((source) => ({
+		'@type': 'CreativeWork',
+		name: source.title,
+		url: source.url,
+		license: textSourceLicenseUrl(source.license),
+	}));
 	return {
 		'@context': 'https://schema.org',
 		'@type': 'DefinedTerm',
@@ -53,7 +62,9 @@ export function definedTermJsonLd(input: DefinedTermInput): Record<string, unkno
 		...(input.description === undefined ? {} : { description: input.description }),
 		url: input.url,
 		inLanguage: input.inLanguage,
+		license: CONTENT_LICENSE.url,
 		...(sameAs.length === 0 ? {} : { sameAs }),
+		...(isBasedOn.length === 0 ? {} : { isBasedOn }),
 	};
 }
 

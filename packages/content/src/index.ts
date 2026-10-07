@@ -5,6 +5,7 @@ export {
 	compileContent,
 } from './pipeline/compile.js';
 export type { EmittedArtifact } from './pipeline/emit.js';
+export type { LocaleCoverage } from './pipeline/locale-completeness.js';
 export type { MathArtifact, MathStats } from './pipeline/math-artifact.js';
 export type { PathStepTarget, PresentationPathStep } from './pipeline/path-targets.js';
 export type { ResolvedUnit } from './pipeline/resolve.js';

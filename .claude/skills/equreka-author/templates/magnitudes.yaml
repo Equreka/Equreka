@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: '<Name>'
+symbol:
+  tex: '<TeX symbol>'
+  text: '<plain-text symbol, only when the TeX is not plain ASCII>'
+baseUnit: '<SI-coherent unit slug>'
+dimension:
+  L: <exponent>
+  M: <exponent>
+  T: <exponent>
+kindOf: '<parent magnitude, only when QUDT skos:broader says so>'
+nonNegative: true
+externalIds:
+  wikidata: '<QID, fetched and matched>'
+  qudt: 'http://qudt.org/vocab/quantitykind/<Kind>'
+categories:
+  - '<category>'
+branches:
+  - '<branch>'
+aliases:
+  - '<variant>'
+references:
+  - title: '<Publication, locator>'
+    url: '<fetched URL>'
+description:
+  en: >-
+    <Definition in the ISO/IEC 80000 sense.>
+
+    <SI unit and dimension; scalar or vector; what the sign means.>
+
+    <How it is measured; typical values from everyday to extreme.>
+
+    <Commonly confused quantities; optional history, each claim referenced.>

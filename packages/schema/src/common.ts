@@ -138,11 +138,48 @@ export const externalIds = z
 	.strict();
 
 /**
+ * Licenses third-party text may carry into Equreka content: each permits an
+ * adaptation published under CC BY-SA 4.0, the content license (ADR 0011).
+ */
+export const textSourceLicense = z.enum([
+	'CC-BY-SA-4.0',
+	'CC-BY-SA-3.0',
+	'CC-BY-4.0',
+	'CC0-1.0',
+	'public-domain',
+]);
+
+/**
+ * A third-party work an entry's prose is adapted from, credited on the
+ * entry page as its license requires. `title` names the work as credited
+ * ('Wikipedia: Metre') and is deliberately not localized.
+ */
+export const textSource = z
+	.object({
+		title: z.string().min(1),
+		url: z.url({ protocol: /^https?$/ }),
+		license: textSourceLicense,
+	})
+	.strict();
+
+/**
+ * Every entity's credits, shared by `entityBase`, categories and branches
+ * (whose descriptions are prose too). A work is credited once.
+ */
+export const textSources = z
+	.array(textSource)
+	.refine((sources) => new Set(sources.map((source) => source.url)).size === sources.length, {
+		message: 'textSources must not credit the same url twice',
+	})
+	.default([]);
+
+/**
  * Fields shared by every entity. `aliases` holds ASCII transliterations and
  * notation variants ("mu", "ohm", "km/h", "kmh") that feed the exact-match
  * search lane — symbol lookup fails on default tokenizers without them.
  * Every `branches` ref must belong to one of the entity's own `categories`
- * (pipeline-enforced; a branch never implies its category).
+ * (pipeline-enforced; a branch never implies its category). `textSources`
+ * credits third-party text the prose is adapted from.
  */
 export const entityBase = z.object({
 	name: localizedText,
@@ -153,6 +190,7 @@ export const entityBase = z.object({
 	references: z.array(reference).default([]),
 	status: editorialStatus.default('draft'),
 	externalIds: externalIds.optional(),
+	textSources,
 });
 
 export type Slug = z.infer<typeof slug>;
@@ -165,3 +203,5 @@ export type Reference = z.infer<typeof reference>;
 export type ValueSource = z.infer<typeof valueSource>;
 export type EditorialStatus = z.infer<typeof editorialStatus>;
 export type ExternalIds = z.infer<typeof externalIds>;
+export type TextSourceLicense = z.infer<typeof textSourceLicense>;
+export type TextSource = z.infer<typeof textSource>;

@@ -2,6 +2,8 @@
 
 Content lives in `packages/content/content/<collection>/<slug>.yaml`. The filename is the slug (kebab-case) and is never repeated inside the file. Every file is validated by `@equreka/schema`, cross-checked by the pipeline (`pnpm --filter @equreka/content check`), and compiled into the sharded artifact by `build`. Nothing ships that the pipeline cannot verify.
 
+This guide is the field and YAML contract. How prose reads (length, structure, tone, sources, TeX) is in [`docs/content/style-guide.md`](../content/style-guide.md); Spanish names and terms are in [`docs/content/glossary-es.md`](../content/glossary-es.md).
+
 ## Editor setup
 
 Every file starts with a schema header pointing at the JSON Schema the build emits:
@@ -24,8 +26,30 @@ Run `pnpm --filter @equreka/content build` once so `dist/schemas/*.schema.json` 
 - **Failsafe parse.** The pipeline parses YAML 1.2 with the failsafe schema: every scalar arrives as a string. Booleans are exactly `true`/`false` (never `yes`/`on`); integers are digit strings; both coerce in the schema.
 - **Quoting.** Single quotes or plain scalars for short values. Never double quotes around TeX: `"\mu"` is an illegal YAML escape. Apostrophes inside single quotes are doubled (`'it''s'`), which is why prose uses block scalars instead.
 - **Prose.** `description.en` uses a folded block scalar `>-` for ordinary wrapped prose: single line breaks fold to spaces, so wrap the source freely, and a blank line is a paragraph break. Use a literal block scalar `|-` only when a hard line break inside a paragraph is intended (the line before *Because the speed of light...* in `equations/mass-energy-equivalence.yaml`, the symbol lines of `units/nautical-mile.yaml`): every newline is kept, so each source line is exactly one rendered line and must not be wrapped. Every description container renders with `white-space: pre-line`, as the original's `.card-information p` did, so a kept newline is a visible break on web, and React Native `Text` breaks on it on mobile. Search indexing folds every whitespace run to one space, so a break never glues two words into one token. Block scalars carry TeX, `#`, and apostrophes byte-literally. Inline math is `$...$` and cannot span a line break; display math is `$$...$$`; every fragment must pass strict KaTeX at build.
-- **Comments.** Only the schema header. Rationale belongs in `description`, sources in `references`, numeric provenance in `toBase.source` (units) or `source` (constants).
-- **Localization.** Entity files carry English only: every localized field is `{ en: ... }`. Translations live in one sidecar per locale beside the entity (`<slug>.es.yaml`, see *Translations*); an inline `es:` key is rejected by both yaml-lint and the loader, so each language has exactly one home. A missing translation falls back to English with an untranslated notice.
+- **Comments.** Only the schema header. Rationale belongs in `description`, sources in `references`, numeric provenance in `toBase.source` (units) or `source` (constants), credits for adapted text in `textSources`.
+- **License.** Everything in `packages/content/content/` is CC BY-SA 4.0 (`packages/content/content/LICENSE`, ADR 0011). The code beside it is GPL-3.0-or-later. By authoring an entry you license it under CC BY-SA 4.0. Reusers credit "Equreka contributors, https://github.com/Equreka/Equreka".
+- **Originality.** Write every description, label and path step in your own words: explain the concept for a learner, cite the numbers in `references` and `source`, and leave the encyclopedia's phrasing behind. Run the check on what you wrote before you open a PR:
+
+  ```
+  node scripts/content/originality.mjs packages/content/content/units/metre.yaml --check
+  ```
+
+  The check fetches the Wikipedia article linked from the entry's `externalIds.wikidata` item (enwiki for the English description, eswiki for the `.es.yaml` one). It also phrase-searches the wiki for the description. A description is flagged when it shares a run of 8 or more words with the entry's own article, or 15% of its 8-word shingles. A search hit must meet both rules. `--check` exits 1 for a flagged description with no credit, and 2 when the network is down, since a skipped check is not a pass. `docs/content/originality-baseline.md` lists the legacy descriptions still awaiting a rewrite.
+- **`textSources`.** Text you adapt from a third-party work needs a credit. Rewrite instead whenever you can. A credit is one item per work, and its license must let the adaptation be published under CC BY-SA 4.0. That means one of `CC-BY-SA-4.0` (Wikipedia today), `CC-BY-SA-3.0`, `CC-BY-4.0`, `CC0-1.0` or `public-domain`. GFDL-only, NC and ND texts cannot be adapted at all.
+
+  ```yaml
+  textSources:
+    - title: 'Wikipedia: Metre'
+      url: 'https://en.wikipedia.org/wiki/Metre'
+      license: 'CC-BY-SA-4.0'
+  ```
+
+  - `title` names the work as credited and is not translated: a Spanish source keeps its own title, and its URL points at es.wikipedia.org.
+  - A URL is credited once per entry.
+  - `originality.mjs --apply` writes these items for every flagged description.
+  - The entry page shows each credit under the description ("Text adapted from …") and lists it as `isBasedOn` in its JSON-LD.
+  - When you rewrite a credited description in your own words, re-run the check. Once it no longer flags the description, delete that source in the same change.
+- **Localization.** Entity files carry English only: every localized field is `{ en: ... }`. Translations live in one sidecar per locale beside the entity (`<slug>.es.yaml`, see *Translations*); an inline `es:` key is rejected by both yaml-lint and the loader, so each language has exactly one home. Every English field an entity authors needs its Spanish: a new entity without a complete sidecar fails the `locale` stage (see *Translations*). Only entities on the shrinking locale debt, and generated prefixed units, still fall back to English with an untranslated notice.
 - **Aliases.** `aliases` feeds the exact-match search lane: US spellings (`meter`), ASCII forms of Greek (`mu`, `ohm`), degree-text forms (`degC`), symbol variants users type (`m/s`, `J/K`), nicknames (`avogadro number`). Lowercase-insensitive; diacritics are folded at index and query time.
 - **Taxonomy.** Every entity except categories and branches takes `categories` and `branches` (see *branches*).
 - **Editorial status.** Every entity except categories and branches takes `status: 'draft' | 'reviewed'` (default `draft`). `reviewed` asserts that a person checked the entry's numbers against the source it cites; it is not a claim about prose polish. Web and mobile show a subtle *draft* badge on every entry that is not `reviewed`. Set it only in the same change that adds or verifies the citation.
@@ -133,7 +157,7 @@ prefixes: ['milli', 'centi', 'kilo']
 Each generated unit has slug `<prefix><base>` (`kilometre`), name prefix + base (`Kilometre`; Spanish `metro` compounds take the esdrújula stress, `Kilómetro`), symbol prefix TeX + base TeX, a templated description with the power of ten (en and es), aliases derived from the base's spellings (`meter` → `kilometer`), notation variants (`L` → `mL`) and single-letter ASCII prefix aliases (`u` → `um`), and `unitOf`, `system`, `categories`, `branches` and `status` copied from the base; its factor is the prefix value × the base factor. A locale is generated only when the prefix, the base name and the base plural all carry it — otherwise it falls back to English with the untranslated notice. The presentation artifact marks these units `generated: true`; pages show "Derived from <base> with the SI prefix <prefix>".
 
 - **Which prefixes.** SI coherent units take the 3n prefixes `femto pico nano micro milli kilo mega giga tera`. `metre`, `gram` and `litre` add the school ladder `centi deci deca hecto`; `pascal` adds `hecto` (hPa, meteorology). `gram` never takes `kilo` — `kilogram` is the SI anchor. `litre` omits `kilo`: 1 kL = 1 m³ would duplicate the cubic metre's identity mapping, which the identity rule rejects.
-- **Overrides.** A hand file `units/<prefix><base>.yaml` authored as `prefixOf` the same pair overrides the generated unit: every field it writes wins, localized fields merge per locale (a hand `name.en` keeps the generated `name.es`, a hand `description.en` keeps the generated Spanish description), and `aliases` are unioned. Write an override only for knowledge the generator cannot derive — `micrometre` (the micron), `microgram` (mcg in medicine), `centimetre` (the CGS base unit).
+- **Overrides.** A hand file `units/<prefix><base>.yaml` authored as `prefixOf` the same pair overrides the generated unit: every field it writes wins, localized fields merge per locale (a hand `name.en` keeps the generated `name.es`, a hand `description.en` keeps the generated Spanish description), and `aliases` are unioned. Write an override only for knowledge the generator cannot derive — `micrometre` (the micron), `microgram` (mcg in medicine), `centimetre` (the CGS base unit). The `locale` stage judges an override on what it authors, not on the merged result: a hand `description.en` needs a hand Spanish description in `<slug>.es.yaml`, because the generated one does not translate the hand text.
 - **Errors.** Prefixes on an affine unit, on a prefixed unit, or on a nonConvertible unit; an unknown or non-power-of-ten prefix; a repeated prefix; `prefixes` without `namePlural`; a hand file with a generated slug that is not its `prefixOf` override; a `prefixOf` file for a pair its base does not declare, or under a slug other than `<prefix><base>`.
 
 **`nonConvertible: true`** marks wiki-only units with no linear or affine mapping (levels such as the decibel). They resolve no factor, are excluded from the engine slice (no converter, no conversion table), may not anchor a magnitude, and may not appear in any `compose.of` or `prefixOf.base`. They keep their presentation entry and page.
@@ -278,7 +302,7 @@ steps:
 ```
 
 - **Step kinds.** `entry` points at one wiki entry through `ref: { collection, slug }` (the build resolves its name and symbol into `presentation/paths.json`, so readers need no second lookup; the target is nested because Astro's content layer reads any flat `{ collection, id }` object as a reference and would take the step's own `id` for the target); `prose` is transition text; `check` is a question with a revealable answer. Every prose field (`note`, `body`, `prompt`, `answer`) takes `$...$` math and is strict-KaTeX-linted like descriptions — never allowlist-downgradable.
-- **Localization.** Translate every prose field in the path's sidecar, not only `name`/`description`: step text renders on the page in the reader's locale and falls back to English per field. Sidecar step entries are keyed by step `id`, so reordering steps never misattaches a translation.
+- **Localization.** Translate every prose field in the path's sidecar, not only `name`/`description`: step text renders on the page in the reader's locale, and the `locale` stage fails a path whose step prose lacks its Spanish (`steps.<id>.body`). Sidecar step entries are keyed by step `id`, so reordering steps never misattaches a translation.
 - **Progress** is a reader-side concern (completed step ids under a local storage key), so renaming a step `id` resets learners' progress for that step — treat ids as stable.
 
 ## Translations
@@ -308,16 +332,24 @@ Localizable fields are derived from the schema — every `localizedText` positio
 1. Copy the entity's `en` text fields into `<slug>.es.yaml`, keeping the nesting; flatten each `{ en: ... }` to the bare string and key path steps by their `id` (equation terms by their key).
 2. Put the sidecar header on line 1 (`$schema=../../dist/schemas/<collection>.locale.schema.json`) — the editor then rejects any key that is not a localized field.
 3. Translate. Keep `$...$` math byte-identical unless the notation itself is localized; it is strict-KaTeX-linted like the English. The quoting rules are the same as entity files: single quotes for short labels, `>-` folded blocks for prose.
-4. Partial sidecars are fine — an untranslated field falls back to English.
+4. Translate every field. A sidecar is complete when every localized field the entity authors in English has its Spanish beside it; the build fails on a partial one.
 
-**What fails the build.** A sidecar for a slug with no entity file; a key that is not a localized field (`level:`, a misspelled `bdy:`); a step id, term key or optional field (`description`, `note`) the entity itself does not author — a translation needs English source text to translate; a locale suffix other than a supported locale (`.en.yaml` is rejected: English lives in the entity file); and any non-`en` key authored inline in an entity file.
+**What fails the build.**
+
+- **Malformed sidecars** (stage `load`): a sidecar for a slug with no entity file; a key that is not a localized field (`level:`, a misspelled `bdy:`); a step id, term key or optional field (`description`, `note`) the entity itself does not author — a translation needs English source text to translate; a locale suffix other than a supported locale (`.en.yaml` is rejected: English lives in the entity file); and any non-`en` key authored inline in an entity file.
+- **Missing translations** (stage `locale`, ADR 0012): an entity file that authors English text at a localized position with no Spanish beside it. The error is reported against the sidecar the text belongs in and lists the missing positions in sidecar addressing: `incomplete es translation — missing: description, terms.v_{0}.label, steps.composing.body`. Generated prefixed units are never judged. A hand override is judged on what it authors (see *Prefixed units*).
+- **The locale debt** (`packages/content/locale-debt.json`, `{ "es": ["<collection>/<slug>", ...] }`, sorted, unique). It lists the existing entities that predate the gate and are allowed to stay incomplete until the content waves backfill them. It only shrinks:
+  - Never add a new entity to it. Translate the entity instead. The debt test holds the list at exactly `LOCALE_DEBT_CEILING`, so growing it means raising that constant in review.
+  - When you complete a listed entity, the build fails with `stale locale debt: remove '<id>'`. Delete that line, and lower `LOCALE_DEBT_CEILING` in `src/pipeline/__tests__/locale-completeness.test.ts` to the new length in the same change.
+  - `check` prints the coverage: `locale es: <complete>/<total> authored entities complete, <n> in debt`.
 
 ## Checking your work
 
 ```
-pnpm --filter @equreka/content check   # load → validate → integrity → resolve → anchors → dimensions → solutions → tex
+pnpm --filter @equreka/content check   # load → validate → locale → expand → integrity → resolve → anchors → dimensions → solutions → tex
 pnpm quality                            # yaml-lint (raw-text hazards) + catalog drift
 pnpm --filter @equreka/content build    # emits dist/ (engine.json, presentation/*, search/*, schemas/*)
+node scripts/content/originality.mjs <files> --check   # network: prose overlap with Wikipedia (see Originality)
 ```
 
 Issues are aggregated per file with the failing stage in brackets; the build refuses to emit while any error stands.

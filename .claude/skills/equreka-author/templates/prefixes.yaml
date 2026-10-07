@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=../../dist/schemas/prefixes.schema.json
+name:
+  en: '<Name>'
+symbol:
+  tex: '<symbol>'
+value: '<decimal string, e.g. 1e3>'
+externalIds:
+  wikidata: '<QID, fetched and matched>'
+  qudt: 'http://qudt.org/vocab/prefix/<Name>'
+categories:
+  - 'universal'
+branches:
+  - 'si-system'
+references:
+  - title: '<CGPM resolution or SI Brochure section>'
+    url: '<fetched URL>'
+description:
+  en: >-
+    <Factor and symbol, and the symbol's case.>
+
+    <CGPM adoption and etymology, each claim referenced.>
+
+    <Typical uses and pitfalls.>

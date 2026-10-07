@@ -17,6 +17,7 @@ Open-source, offline-first educational wiki + calculator (equations, constants, 
 - Versions come from the pnpm catalog (`catalog:`); exact-pinned entries (katex, mathjax, minisearch, biome, compute-engine, typescript) are pinned for reasons documented in `pnpm-workspace.yaml` — do not float them.
 - Package purity is enforced by Biome presets: `engine`/`schema`/`content` import no React; `core` imports no react-dom/react-native.
 - TeX in YAML: plain/single-quoted/block scalars only; double quotes break on `\m`.
+- Licensing: code is GPL-3.0-or-later; everything under `packages/content/content/` is CC BY-SA 4.0 (ADR 0011). Prose is original; adapted third-party text needs a `textSources` credit.
 - Quality gates: `pnpm lint && pnpm typecheck && pnpm test && pnpm build` — all green or the change is not done.
 
 ## Workflow
@@ -24,3 +25,4 @@ Open-source, offline-first educational wiki + calculator (equations, constants, 
 - Conventional Commits (commit-msg hook enforces; type `content` exists for data-only changes).
 - main is protected; PRs only. Skip idiom for hooks: `LEFTHOOK=0 git commit` (exceptional, not routine).
 - Env files: `envs/<environment>/.env`, bootstrapped by `pnpm env:init`, consumed via explicit dotenv-cli.
+- Content program: `docs/content/` (roadmap, style guide, Spanish glossary); skills `equreka-author`, `equreka-verify`, `equreka-content-wave` in `.claude/skills/`.

@@ -1195,6 +1195,10 @@
 		color: var(--eq-btn-primary-ink);
 	}
 
+	.eq-settings-license {
+		margin-top: var(--eq-space-card-gap);
+	}
+
 	.eq-settings-links {
 		display: none;
 	}

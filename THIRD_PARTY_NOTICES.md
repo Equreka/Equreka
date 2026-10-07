@@ -1,6 +1,40 @@
 # Third-party notices
 
-Equreka is licensed under GPL-3.0. The web app redistributes the following third-party assets under their own licenses.
+Equreka's code is licensed under GPL-3.0-or-later and its content under CC BY-SA 4.0 (README, *License*; ADR 0011). This file covers two kinds of third-party material:
+
+- third-party text adapted in the content and in the UI catalogs;
+- the third-party assets the web app redistributes under their own licenses.
+
+## Content adapted from third-party text
+
+The content in `packages/content/content/` is licensed under CC BY-SA 4.0 (`packages/content/content/LICENSE`). Some entries adapt text from works under compatible licenses, mostly Wikipedia articles under CC BY-SA 4.0.
+
+The credits are kept per entry, not in this file:
+
+- **Source of truth:** each entry's `textSources` field lists the title, URL and license of every work it adapts.
+- **Web page:** the entry's page shows each credit as a "Text adapted from" line under the description.
+- **Metadata:** the page's JSON-LD carries each credit as an `isBasedOn` work.
+
+`docs/content/originality-baseline.md` records the check that found the current credits.
+
+## Text in the UI catalogs
+
+These strings in `packages/core/src/i18n/en.ts` and `es.ts` come from the legacy app. Their text is adapted from Wikipedia, CC BY-SA 4.0, measured against each article's revision of 2026-10-06. Wikipedia contributors hold the copyright. The strings are used in this GPL-3.0-or-later code under Creative Commons' declared one-way compatibility of CC BY-SA 4.0 with GPLv3 (ADR 0011).
+
+| Key | Locale | Source |
+| --- | --- | --- |
+| `design.content.home.type.formulas` | en | [Wikipedia: Formula](https://en.wikipedia.org/wiki/Formula) |
+| `design.content.home.type.constants` | en | [Wikipedia: Constant (mathematics)](https://en.wikipedia.org/wiki/Constant_(mathematics)) |
+| `design.content.home.type.magnitudes` | es | [Wikipedia: Magnitud física](https://es.wikipedia.org/wiki/Magnitud_f%C3%ADsica) |
+| `design.content.home.type.units` | en | [Wikipedia: Unit of measurement](https://en.wikipedia.org/wiki/Unit_of_measurement) |
+| `design.content.home.type.units` | es | [Wikipedia: Unidad de medida](https://es.wikipedia.org/wiki/Unidad_de_medida) |
+| `design.content.home.type.prefixes` | en | [Wikipedia: Unit prefix](https://en.wikipedia.org/wiki/Unit_prefix) |
+| `design.content.home.category.mathematics` | en | [Wikipedia: Glossary of engineering: M–Z](https://en.wikipedia.org/wiki/Glossary_of_engineering:_M%E2%80%93Z) |
+| `design.content.home.category.physics` | en | [Wikipedia: Physics](https://en.wikipedia.org/wiki/Physics) |
+| `design.content.home.category.physics` | es | [Wikipedia: Física](https://es.wikipedia.org/wiki/F%C3%ADsica) |
+| `design.content.home.category.chemistry` | en | [Wikipedia: Glossary of engineering: A–L](https://en.wikipedia.org/wiki/Glossary_of_engineering:_A%E2%80%93L) |
+
+The other `design.content.home.*` strings read as encyclopedia prose too, but no longer match a current revision. The content rewrite wave replaces all of them with original text.
 
 ## Bootstrap Icons 1.9.1
 
