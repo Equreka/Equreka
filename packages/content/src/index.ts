@@ -1,10 +1,11 @@
+export type { ArtifactBudget } from './artifact-budgets.js';
 export {
 	type CompileMode,
 	type CompileOptions,
 	type CompileReport,
 	compileContent,
 } from './pipeline/compile.js';
-export type { ArtifactBudget, EmittedArtifact } from './pipeline/emit.js';
+export type { EmittedArtifact } from './pipeline/emit.js';
 export type { LocaleCoverage } from './pipeline/locale-completeness.js';
 export type { MathArtifact, MathStats } from './pipeline/math-artifact.js';
 export type { PathStepTarget, PresentationPathStep } from './pipeline/path-targets.js';
@@ -14,9 +15,15 @@ export { CONTENT_PIPELINE_VERSION } from './pipeline-version.js';
 export {
 	canonicalTex,
 	hydrateMathBody,
+	type LeanMathBody,
+	MATH_SHARD_COUNT,
 	type MathAtlas,
 	type MathBodies,
 	type MathBody,
+	type MathBodyShard,
+	type MathBodyV2,
+	mathShardName,
+	mathShardOf,
 	type RichTextSegment,
 	splitRichText,
 	stripMacros,

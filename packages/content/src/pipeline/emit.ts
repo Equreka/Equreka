@@ -14,7 +14,14 @@ import {
 } from '@equreka/schema';
 import MiniSearch from 'minisearch';
 import { z } from 'zod';
-import { canonicalTex, termIdentifier } from '../rich-text.js';
+import {
+	ARTIFACT_BUDGETS,
+	type ArtifactBudget,
+	artifactBudgetPatterns,
+	BUDGET_WARN_RATIO,
+	MOBILE_BUNDLE_BUDGET_BYTES,
+} from '../artifact-budgets.js';
+import { canonicalTex, mathShardName, termIdentifier } from '../rich-text.js';
 import {
 	type CatalogLiteEntry,
 	SEARCH_LOCALES,
@@ -26,154 +33,21 @@ import {
 import type { SolutionAst } from '../solution-grammar.js';
 import { calculatorTargets } from './integrity.js';
 import type { MathArtifact } from './math-artifact.js';
+import { shardMathBodies } from './math-shards.js';
 import { presentationSteps } from './path-targets.js';
 import { deriveRelatedUnits } from './related-units.js';
 import type { ResolvedUnit } from './resolve.js';
-import { generateSolutionsModule } from './solution-codegen.js';
+import {
+	generateEquationSolutionModules,
+	generateSolutionsLoader,
+	generateSolutionsModule,
+	SOLUTIONS_LOADER_NAME,
+} from './solution-codegen.js';
 import type { EquationVerification } from './solution-verify.js';
 import { stableStringify } from './stable-json.js';
 import { symbolText } from './tex.js';
 import { type Issue, issue } from './types.js';
-import type { Corpus } from './validate.js';
-
-const KIB = 1024;
-
-const MIB = 1024 * KIB;
-
-/**
- * How one emitted file is judged (ADR 0010). `maxBytes` caps its raw
- * compact bytes and is null for a build-only file that ships nowhere;
- * `mobileBundled` counts the file toward MOBILE_BUNDLE_BUDGET_BYTES;
- * `protects` names the cost the cap bounds and is quoted in every finding.
- */
-export interface ArtifactBudget {
-	maxBytes: number | null;
-	mobileBundled: boolean;
-	protects: string;
-}
-
-/**
- * Every file the build may emit, keyed by path pattern: `<collection>`
- * matches a COLLECTIONS name, `<locale>` a SEARCH_LOCALES code, `<shard>`
- * a lowercase hex shard id. A file that matches no pattern, or several,
- * fails the build, so no artifact ships unbudgeted. `mobileBundled` must
- * mirror the artifact imports of `apps/mobile/shared/content/artifact.ts`.
- */
-export const ARTIFACT_BUDGETS: Readonly<Record<string, ArtifactBudget>> = {
-	'engine.json': {
-		maxBytes: 500 * KIB,
-		mobileBundled: true,
-		protects: 'mobile bundle and OTA size; parsed on the first engine call',
-	},
-	'meta.json': {
-		maxBytes: 4 * KIB,
-		mobileBundled: true,
-		protects: 'mobile bundle; stays a fixed-size header, never a data carrier',
-	},
-	'solutions.js': {
-		maxBytes: 512 * KIB,
-		mobileBundled: true,
-		protects: 'web calculator island chunk; mobile bundle and OTA size',
-	},
-	'solutions.d.ts': {
-		maxBytes: null,
-		mobileBundled: false,
-		protects: 'build-only TypeScript declarations',
-	},
-	'presentation/<collection>.json': {
-		maxBytes: 2 * MIB,
-		mobileBundled: true,
-		protects: 'mobile bundle and OTA size; one JSON parse on the first screen of the collection',
-	},
-	'presentation/math/atlas.json': {
-		maxBytes: 200 * KIB,
-		mobileBundled: true,
-		protects: 'mobile bundle; glyph atlas parsed with the first rendered math',
-	},
-	'presentation/math/bodies.json': {
-		maxBytes: MIB,
-		mobileBundled: true,
-		protects: 'mobile bundle; pre-rendered math SVG parsed with the first rendered math',
-	},
-	'presentation/math/bodies/<shard>.json': {
-		maxBytes: 256 * KIB,
-		mobileBundled: true,
-		protects: 'mobile bundle; one hash shard of pre-rendered math SVG, parsed on demand',
-	},
-	'search/<locale>.json': {
-		maxBytes: MIB,
-		mobileBundled: false,
-		protects: 'web transfer on search focus and the 6 MiB PWA precache',
-	},
-	'search/catalog-lite.<locale>.json': {
-		maxBytes: 512 * KIB,
-		mobileBundled: true,
-		protects: 'web transfer and PWA precache (search, favorites, offline reader); mobile bundle',
-	},
-	'schemas/<collection>.schema.json': {
-		maxBytes: null,
-		mobileBundled: false,
-		protects: 'build-only editor JSON Schema',
-	},
-	'schemas/<collection>.locale.schema.json': {
-		maxBytes: null,
-		mobileBundled: false,
-		protects: 'build-only editor JSON Schema',
-	},
-};
-
-/**
- * Ceiling on the summed `mobileBundled` bytes: the app compiles every such
- * file into its JavaScript bundle, and each OTA update ships that bundle
- * whole (ADR 0005, ADR 0010).
- */
-export const MOBILE_BUNDLE_BUDGET_BYTES = 8 * MIB;
-
-/**
- * Share of a budget at which the build starts warning, so growth is seen
- * a content wave before it fails.
- */
-export const BUDGET_WARN_RATIO = 0.8;
-
-const PATTERN_PLACEHOLDERS: Readonly<Record<string, string>> = {
-	collection: COLLECTIONS.join('|'),
-	locale: SEARCH_LOCALES.join('|'),
-	shard: '[0-9a-f]+',
-};
-
-function patternRegExp(pattern: string): RegExp {
-	const source = pattern
-		.split(/(<[a-z]+>)/)
-		.map((part) => {
-			const placeholder = /^<([a-z]+)>$/.exec(part)?.[1];
-			if (placeholder === undefined) {
-				return part.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-			}
-			const alternatives = PATTERN_PLACEHOLDERS[placeholder];
-			if (alternatives === undefined) {
-				throw new Error(`artifact budget pattern ${pattern}: unknown placeholder <${placeholder}>`);
-			}
-			return `(?:${alternatives})`;
-		})
-		.join('');
-	return new RegExp(`^${source}$`);
-}
-
-const BUDGET_MATCHERS = Object.entries(ARTIFACT_BUDGETS).map(([pattern, budget]) => ({
-	pattern,
-	budget,
-	regExp: patternRegExp(pattern),
-}));
-
-/**
- * The ARTIFACT_BUDGETS patterns a dist-relative path matches; a well-formed
- * table yields exactly one for every emitted file.
- */
-export function artifactBudgetPatterns(relPath: string): string[] {
-	return BUDGET_MATCHERS.filter((matcher) => matcher.regExp.test(relPath)).map(
-		(matcher) => matcher.pattern,
-	);
-}
+import { type Corpus, fileOf } from './validate.js';
 
 /**
  * `pattern` and `budget` are undefined when the file matched no
@@ -261,7 +135,8 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 	const { corpus, outDir } = input;
 
 	rmSync(outDir, { recursive: true, force: true });
-	mkdirSync(join(outDir, 'presentation', 'math'), { recursive: true });
+	mkdirSync(join(outDir, 'presentation', 'math', 'bodies'), { recursive: true });
+	mkdirSync(join(outDir, 'solutions'), { recursive: true });
 	mkdirSync(join(outDir, 'search'), { recursive: true });
 	mkdirSync(join(outDir, 'schemas'), { recursive: true });
 
@@ -278,7 +153,12 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 					? 'matches no ARTIFACT_BUDGETS pattern'
 					: `matches several ARTIFACT_BUDGETS patterns (${patterns.join(', ')})`;
 			issues.push(
-				issue('error', 'emit', '', `${relPath} ${reason}; classify it in emit.ts (ADR 0010)`),
+				issue(
+					'error',
+					'emit',
+					'',
+					`${relPath} ${reason}; classify it in artifact-budgets.ts (ADR 0010)`,
+				),
 			);
 			return;
 		}
@@ -310,6 +190,24 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 	const solutionsModule = generateSolutionsModule(solutionAsts);
 	write('solutions.js', solutionsModule.js);
 	write('solutions.d.ts', solutionsModule.dts);
+	const equationModules = generateEquationSolutionModules(solutionAsts);
+	if (equationModules.has(SOLUTIONS_LOADER_NAME)) {
+		issues.push(
+			issue(
+				'error',
+				'emit',
+				fileOf('equations', SOLUTIONS_LOADER_NAME),
+				`the slug '${SOLUTIONS_LOADER_NAME}' is reserved for the solutions loader module; rename the equation`,
+			),
+		);
+	}
+	const shippedModules = [...equationModules].filter(([slug]) => slug !== SOLUTIONS_LOADER_NAME);
+	for (const [slug, js] of shippedModules) {
+		write(`solutions/${slug}.js`, js);
+	}
+	const loader = generateSolutionsLoader(shippedModules.map(([slug]) => slug));
+	write(`solutions/${SOLUTIONS_LOADER_NAME}.js`, loader.js);
+	write(`solutions/${SOLUTIONS_LOADER_NAME}.d.ts`, loader.dts);
 
 	for (const collection of COLLECTIONS) {
 		const record: Record<string, unknown> = {};
@@ -347,7 +245,11 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 	}
 
 	write('presentation/math/atlas.json', compactJson(input.math.atlas));
-	write('presentation/math/bodies.json', compactJson(input.math.bodies));
+	const mathShards = shardMathBodies(input.math.bodies, input.math.atlas);
+	issues.push(...mathShards.issues);
+	mathShards.shards.forEach((shard, index) => {
+		write(`presentation/math/bodies/${mathShardName(index)}.json`, compactJson(shard));
+	});
 
 	for (const locale of SEARCH_LOCALES) {
 		const documents = searchDocuments(corpus, locale);
@@ -512,7 +414,7 @@ function sidecarAuthoringSchema(collection: CollectionName): unknown {
 
 /**
  * Presentation form of one entity. TeX fields are canonical (the exact
- * `math/bodies.json` keys); prose ships raw and every reader splits it with
+ * math body keys); prose ships raw and every reader splits it with
  * `splitRichText`, since pre-split segments outweighed the prose itself
  * (ADR 0010).
  */

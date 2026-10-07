@@ -14,7 +14,7 @@ import type {
 
 /**
  * Fields the pipeline puts in place of the authored `symbol`/`symbolAlt`
- * objects: canonical TeX (the exact `math/bodies.json` key) plus a
+ * objects: canonical TeX (the exact math body key) plus a
  * plain-text form. Prose stays raw; screens split it with `pickRichText`.
  */
 export interface PresentedSymbol {

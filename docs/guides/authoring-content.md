@@ -354,7 +354,7 @@ node scripts/content/originality.mjs <files> --check   # network: prose overlap 
 
 Issues are aggregated per file with the failing stage in brackets; the build refuses to emit while any error stands.
 
-**Artifact budgets** (ADR 0010). Every file the build emits has a budget in `ARTIFACT_BUDGETS` (`packages/content/src/pipeline/emit.ts`). `build` prints one line per artifact: raw bytes, gzip bytes, the share of its budget, and `· mobile` when the app bundles it. It ends with the mobile-bundled total against its 8 MiB ceiling:
+**Artifact budgets** (ADR 0010). Every file the build emits has a budget in `ARTIFACT_BUDGETS` (`packages/content/src/artifact-budgets.ts`). `build` prints one line per artifact: raw bytes, gzip bytes, the share of its budget, and `· mobile` when the app bundles it. It ends with the mobile-bundled total against its 8 MiB ceiling:
 
 ```
 dist/presentation/units.json                174.5 KiB  gzip   26.8 KiB  8.5% of 2.00 MiB · mobile

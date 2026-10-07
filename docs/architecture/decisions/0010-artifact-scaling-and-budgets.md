@@ -1,6 +1,6 @@
 # 0010 — Artifact scaling and budgets
 
-Date: 2026-10-06 · Status: accepted
+Date: 2026-10-06 · Status: accepted · Amended 2026-10-06 (math body shards and per-equation solutions)
 
 ## Context
 
@@ -31,26 +31,30 @@ Full-text indexing crosses the 1 MiB budget at about 630 added entries when comp
 
 ### Budget table
 
-`ARTIFACT_BUDGETS` in `packages/content/src/pipeline/emit.ts` is the single source of truth. Each key is a path pattern relative to `dist/`, and each value is `{ maxBytes, mobileBundled, protects }`. `<collection>` matches a `COLLECTIONS` name, `<locale>` a `SEARCH_LOCALES` code and `<shard>` a lowercase hex shard id.
+`ARTIFACT_BUDGETS` is the single source of truth. It lived in `packages/content/src/pipeline/emit.ts` and now lives in `packages/content/src/artifact-budgets.ts`, exported as `@equreka/content/artifact-budgets` (*Math body shards and per-equation solutions*). Each key is a path pattern relative to `dist/`, and each value is `{ maxBytes, mobileBundled, protects }`. `<collection>` matches a `COLLECTIONS` name, `<locale>` a `SEARCH_LOCALES` code, `<shard>` a lowercase hex shard id and `<equation>` an equation slug other than `index`.
+
+The table as amended by A7:
 
 | Pattern | Max (raw compact bytes) | Mobile-bundled | Protects |
 | --- | --- | --- | --- |
 | `engine.json` | 500 KiB | yes | mobile bundle and OTA size |
 | `meta.json` | 4 KiB | yes | a fixed-size header, never a data carrier |
-| `solutions.js` | 512 KiB | yes | web calculator island chunk; mobile bundle |
+| `solutions.js` | 512 KiB | yes | mobile bundle; every equation, evaluated on the first mobile solve |
 | `solutions.d.ts` | none (build-only) | no | — |
+| `solutions/index.js` | 64 KiB | no | web calculator island chunk: one dynamic-import case per equation |
+| `solutions/index.d.ts` | none (build-only) | no | — |
+| `solutions/<equation>.js` | 16 KiB each | no | web transfer: the one solution chunk a calculator page loads; PWA precache |
 | `presentation/<collection>.json` | 2 MiB each | yes | mobile bundle; one JSON parse on the collection's first screen |
 | `presentation/math/atlas.json` | 200 KiB | yes | mobile bundle |
-| `presentation/math/bodies.json` | 1 MiB | yes | mobile bundle |
-| `presentation/math/bodies/<shard>.json` | 256 KiB each | yes | reserved for the sharded bodies (see *Next*) |
+| `presentation/math/bodies/<shard>.json` | 128 KiB each | yes | mobile bundle; one shard evaluated when a screen first renders a body in it |
 | `search/<locale>.json` | 1 MiB | no | web transfer on search focus; PWA precache |
 | `search/catalog-lite.<locale>.json` | 512 KiB | yes | web transfer and PWA precache (search, favorites, offline reader); mobile bundle |
 | `schemas/<collection>.schema.json`, `schemas/<collection>.locale.schema.json` | none (build-only) | no | — |
 
 The budgets protect three different costs:
 
-- **Mobile bundle and OTA size.** The sum of the `mobileBundled` files may not exceed `MOBILE_BUNDLE_BUDGET_BYTES`, 8 MiB. `mobileBundled` mirrors the imports of `apps/mobile/shared/content/artifact.ts`.
-- **Web transfer.** The search index and catalog-lite are fetched on demand. `solutions.js` is part of the calculator island's chunk.
+- **Mobile bundle and OTA size.** The sum of the `mobileBundled` files may not exceed `MOBILE_BUNDLE_BUDGET_BYTES`, 8 MiB. `mobileBundled` mirrors the imports of `apps/mobile/shared/content/artifact.ts`, which a mobile test asserts (*Math body shards and per-equation solutions*).
+- **Web transfer.** The search index and catalog-lite are fetched on demand. A calculator page loads `solutions/index.js` as part of the calculator island's chunk, and then the one `solutions/<equation>.js` chunk for its own equation.
 - **PWA precache.** The search indexes, catalog-lite and the web's derived payloads are precached against the 6 MiB manifest budget that `equreka-pwa.ts` enforces.
 
 ### Enforcement
@@ -143,6 +147,62 @@ Before is the W1.0 base (pretty JSON, full-text search, segments). After is this
 - Words deep in a description no longer find the entry.
 - Consumers outside this repository, if any appear, must split prose with `splitRichText` themselves.
 
-## Next
+## Math body shards and per-equation solutions (A7)
 
-The next Wave 0 step, A7, replaces `presentation/math/bodies.json`, the largest artifact at 52.7% of its budget, with a denser body encoding (bodies v2) split into hash shards (`presentation/math/bodies/<shard>.json`, a pattern already in the table). It also splits `solutions.js` into per-equation solution modules. Shards do not shrink the mobile bundle, but they let a screen parse only the bodies it renders. A7 sets the shard budget, adds a pattern for the solution modules, and moves the mobile imports and their `mobileBundled` rows together.
+The step this record announced as *Next* shipped the same day. ADR 0005 holds the body encoding (bodies v2) and its proof of identity; this section covers sharding, solutions and budgets.
+
+### Hash shards
+
+`presentation/math/bodies.json` is gone. The bodies ship in `MATH_SHARD_COUNT` (16) files, `presentation/math/bodies/00.json` … `0f.json`. A body's shard is `mathShardOf(tex)`, the low bits of the standard 32-bit FNV-1a hash of its canonical TeX's UTF-8 bytes. The build emits every shard, empty ones included, so the mobile loader table always matches the files on disk.
+
+Shards are keyed by hash, not by collection, for two reasons. Callers hold only the TeX string, and much of the math a screen renders belongs to another collection: a path step quotes a unit's symbol, a calculator chip shows a magnitude's. Collection-affinity shards would need a TeX-to-shard manifest shipped with the bodies, while a hash needs nothing beyond the string the caller already has.
+
+Hashing does scatter one screen's math across shards. A description with five fragments may touch five shards, and a shard, once evaluated, stays in memory. Shards do not shrink the mobile bundle either, since every shard is still compiled into it. What they bound is the cost of one first render, and the budget below gives the signal to split further.
+
+**Raising `MATH_SHARD_COUNT`.** When a shard approaches its budget (the build warns at 80%), double the constant in `packages/content/src/rich-text.ts`. It must stay a power of two of at most 256. Then:
+
+1. Extend the loader table in `apps/mobile/shared/content/artifact.ts` with one literal `require` per new shard file. The table is typed as a tuple of exactly `MATH_SHARD_COUNT` loaders, so `tsc` fails until it is complete. `__tests__/content-artifact.test.ts` checks that loader `i` returns `bodies/<mathShardName(i)>.json`.
+2. Update the golden shard values in `rich-text.test.ts`: every body moves, so the old pins fail on purpose.
+
+Nothing else changes. The hash is a pure function of the TeX, and the artifact carries no shard map.
+
+**Per-shard budget: 128 KiB, not the 256 KiB this record reserved.** Today's largest shard is 19,105 bytes. At the program's end, about 2,000 bodies are projected, with display expressions above today's 368-byte average, so the mean shard lands near 80 KB and the largest about 25% above it. 128 KiB therefore lets the program finish without resharding while still flagging a skewed shard. Sixteen shards at 128 KiB allow 2 MiB of bodies, twice the old single-file budget and a quarter of the mobile total. At 256 KiB, the first warning would come only after bodies reached about 3.3 MB, 40% of the mobile budget. The 8 MiB mobile-bundled total stays enforced across all shards.
+
+### Per-equation solutions
+
+`solutions.js` was imported statically by the web calculator island, so every calculator page shipped every equation's functions. The codegen now writes three things:
+
+- **`dist/solutions/<slug>.js`**, one module per solved equation. Its default export is the term map, generated by the same function as the aggregate's entry.
+- **`dist/solutions/index.js`**, which exports `loadSolutions(slug)`. Inside a `switch`, each slug has its own literal `import('./<slug>.js')`, because bundlers split only static specifiers into chunks and a `switch` cannot resolve a slug to an `Object.prototype` member. An unknown slug resolves to `undefined`. The slug `index` is reserved for this loader: an equation with that slug is a build error.
+- **`dist/solutions.js`**, the aggregate, still inlined and byte-identical to before. Mobile keeps importing it, so its bundle carries one module rather than one per equation.
+
+The web island calls `loadSolutions(meta.slug)` on mount and keeps Calculate disabled until the chunk arrives. If the chunk fails to load, for example after a deploy has replaced a hashed chunk, the island shows `calculator.solverUnavailable`.
+
+Vite emits one chunk per equation (143–242 bytes today). The PWA's `_astro/*.js` glob precaches all of them, raising the manifest from 80 URLs and 1,769.9 KiB to 84 URLs and 1,772.3 KiB. A preview of the built site confirmed that each calculator page, in either locale, requests only its own equation's chunk and solves with it.
+
+The island chunk grew from 12,883 to 14,421 bytes. It gained Vite's preload helper, about 1 KB once, and a `switch` case of about 110 bytes per equation, and it lost the inlined functions. The `switch` grows linearly: about 50 KB raw at 437 equations, against an inlined aggregate that grows with every solution's size. The `solutions/index.js` budget (64 KiB of source) guards that slope.
+
+### Budget table and the mobile mirror
+
+`ARTIFACT_BUDGETS`, `MOBILE_BUNDLE_BUDGET_BYTES`, `BUDGET_WARN_RATIO` and `artifactBudgetPatterns` moved to `packages/content/src/artifact-budgets.ts`. That module imports nothing from Node, so the mobile app's jest suite can read it. `apps/mobile/__tests__/content-artifact.test.ts` asserts that a file under `dist/` is `mobileBundled` exactly when `artifact.ts` imports or requires it.
+
+The check lives in the app, not in `@equreka/content`. Turborepo reruns a package's tests when the package or one of its dependencies changes. A content test that read the app's source would be served from cache after an edit to `artifact.ts`, while the app's test reruns whenever either side changes.
+
+### Lazy JSON, corrected
+
+The `--no-bytecode` export showed that `artifact.ts`'s default JSON imports compiled to interop-wrapped requires at the top of the module. The first accessor call therefore evaluated every artifact file. ADR 0005 records the finding. Every JSON file is now read through a literal `require` inside its accessor, so the per-collection laziness that this record and ADR 0002 assumed now holds, and a math lookup evaluates one shard.
+
+### Versions
+
+- **`SCHEMA_VERSION` stays 4.** It tracks the engine-slice contract, and `engine.json` is unchanged. The atlas carries its own version, now 2 (ADR 0005). The aggregate `solutions.js` is byte-identical, and the per-equation modules and their loader are new files with the same functions.
+- **`CONTENT_PIPELINE_VERSION` stays 5.** It invalidates the verification cache (messages and samples) and the math render cache (rendered bodies), and neither cached value changed. Codegen and the body encoding run at emit time, from ASTs and bodies that are never cached in encoded form. A bump would only force a cold re-render and a full re-verification. The doc comment on the constant listed "codegen output shape" as a reason to bump; it now names what the caches hold.
+
+### Results
+
+| Artifact | Before (A6) | After |
+| --- | --- | --- |
+| Math bodies | `bodies.json` 552,262 | 16 shards, 220,668 in total (6,631 to 19,105 each) |
+| Mobile-bundled total | 1,071,925 | 740,331 (−30.9%) |
+| Hermes bundle (`expo export --platform android`) | 6,210,405 | 5,930,950 (−4.5%) |
+| Web calculator island chunk | 12,883 | 14,421, plus one 143–242-byte chunk per page |
+| Web HTML | 584 pages | same 584 pages; identical once asset hashes and island ids are normalized, except that the 8 calculator pages render Calculate `disabled` until hydration |

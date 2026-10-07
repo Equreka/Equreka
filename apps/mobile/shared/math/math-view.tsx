@@ -3,7 +3,7 @@ import type { RichTextSegment } from '@equreka/content/rich-text';
 import { memo, type ReactNode } from 'react';
 import { ScrollView, StyleSheet, View } from 'react-native';
 import { SvgXml } from 'react-native-svg';
-import { getMathAtlas, getMathBodies } from '../content/artifact';
+import { getMathAtlas, getMathBody } from '../content/artifact';
 import { useTheme } from '../providers/equreka-provider';
 import type { TextSize } from '../theme/theme';
 import { AppText } from '../ui/text';
@@ -82,7 +82,7 @@ export const MathSvg = memo(function MathSvg({
 	const theme = useTheme();
 	const fontSize = theme.text[size].fontSize;
 	const ink = color ?? theme.color.ink;
-	const body = getMathBodies()[tex];
+	const body = getMathBody(tex);
 	const hydrated = body === undefined ? null : hydrateForSvg(body, getMathAtlas(), fontSize);
 	if (hydrated === null) {
 		return (

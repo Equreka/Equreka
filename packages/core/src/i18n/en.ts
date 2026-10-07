@@ -242,6 +242,8 @@ export const en = {
 		"The substituted form shows each value in its term's base unit, the units the formula is written in.",
 	'calculator.unitsUnavailable':
 		'Unit choices could not be loaded. Enter values in the units shown.',
+	'calculator.solverUnavailable':
+		'The calculator could not be loaded. Reload the page to try again.',
 
 	'engine.inputs/empty': 'Fill in every value except the one to solve for.',
 	'engine.inputs/underdetermined': 'Leave exactly one field empty — the one to solve for.',

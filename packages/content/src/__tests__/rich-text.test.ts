@@ -1,7 +1,17 @@
 import { describe, expect, it } from 'vitest';
 import {
 	canonicalTex,
+	fnv1a32,
 	hydrateMathBody,
+	isLeanMathBody,
+	leanMathBody,
+	MATH_SHARD_COUNT,
+	type MathAtlas,
+	type MathBody,
+	mathBodyGlyphs,
+	mathBodySvg,
+	mathShardName,
+	mathShardOf,
 	splitRichText,
 	stripMacros,
 	stripMacrosToText,
@@ -152,9 +162,9 @@ describe('termIdentifier', () => {
 });
 
 describe('hydrateMathBody', () => {
-	const atlas = {
-		schemaVersion: 1 as const,
-		font: 'mathjax-newcm' as const,
+	const atlas: MathAtlas = {
+		schemaVersion: 2,
+		font: 'mathjax-newcm',
 		glyphs: { 'MJX-NCM-I-1D465': 'M1 2' },
 	};
 
@@ -174,5 +184,146 @@ describe('hydrateMathBody', () => {
 		expect(() => hydrateMathBody({ ...body, glyphs: ['MJX-NCM-N-30'] }, atlas)).toThrow(
 			/no glyph 'MJX-NCM-N-30'/,
 		);
+	});
+});
+
+describe('lean math bodies', () => {
+	const atlas: MathAtlas = {
+		schemaVersion: 2,
+		font: 'mathjax-newcm',
+		glyphs: { 'MJX-NCM-N-30': 'M0 0', 'MJX-NCM-N-31': 'M1 1', 'MJX-NCM-I-1D465': 'M2 2' },
+	};
+
+	const root = (width: string, height: string, viewBox: string): string =>
+		`<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}" viewBox="${viewBox}" xmlns:xlink="http://www.w3.org/1999/xlink"><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="scale(1,-1)">`;
+
+	const rendered: MathBody = {
+		svg: `${root('3.393ex', '1.507ex', '0 -666 1500 666')}<g><g><use xlink:href="#MJX-NCM-N-31"></use><use xlink:href="#MJX-NCM-N-30" transform="translate(500,0)"></use><use xlink:href="#MJX-NCM-N-31" transform="translate(1000,0)"></use></g><rect width="1500" height="60" x="0" y="220"></rect></g></g></svg>`,
+		wEx: 3.393,
+		hEx: 1.507,
+		dyEx: -0.025,
+		glyphs: ['MJX-NCM-N-31', 'MJX-NCM-N-30'],
+	};
+
+	it('keeps only the varying root fields and compacts glyph references', () => {
+		expect(leanMathBody(rendered)).toEqual({
+			viewBox: '0 -666 1500 666',
+			wEx: 3.393,
+			hEx: 1.507,
+			dyEx: -0.025,
+			inner:
+				'<g><g>[N-31][N-30 translate(500,0)][N-31 translate(1000,0)]</g><rect width="1500" height="60" x="0" y="220"></rect></g>',
+		});
+	});
+
+	it('reassembles the rendered svg and hydrates to the same XML as the rendered body', () => {
+		const lean = leanMathBody(rendered);
+		expect(lean).toBeDefined();
+		if (lean === undefined) return;
+		expect(isLeanMathBody(lean)).toBe(true);
+		expect(isLeanMathBody(rendered)).toBe(false);
+		expect(mathBodySvg(lean)).toBe(rendered.svg);
+		expect(mathBodySvg(rendered)).toBe(rendered.svg);
+		expect(mathBodyGlyphs(mathBodySvg(lean))).toEqual(rendered.glyphs);
+		expect(hydrateMathBody(lean, atlas)).toBe(hydrateMathBody(rendered, atlas));
+	});
+
+	it('hydrates a lean body without glyph references with no defs block', () => {
+		const lean = leanMathBody({
+			svg: `${root('1ex', '0.5ex', '0 0 500 250')}<rect width="500" height="60" x="0" y="0"></rect></g></svg>`,
+			wEx: 1,
+			hEx: 0.5,
+			dyEx: 0,
+			glyphs: [],
+		});
+		expect(lean).toBeDefined();
+		if (lean === undefined) return;
+		expect(hydrateMathBody(lean, atlas)).not.toContain('<defs>');
+		expect(hydrateMathBody(lean, atlas)).toBe(mathBodySvg(lean));
+	});
+
+	it('throws when a lean body references a glyph the atlas lacks', () => {
+		const lean = leanMathBody({ ...rendered, svg: rendered.svg.replace('N-30', 'N-39') });
+		expect(lean).toBeDefined();
+		if (lean === undefined) return;
+		expect(() => hydrateMathBody(lean, atlas)).toThrow(/no glyph 'MJX-NCM-N-39'/);
+	});
+
+	it('refuses markup outside the lean grammar', () => {
+		const outside: [string, MathBody][] = [
+			[
+				'an unexpected root attribute',
+				{ ...rendered, svg: rendered.svg.replace('<svg ', '<svg class="x" ') },
+			],
+			[
+				'another top-level group',
+				{ ...rendered, svg: rendered.svg.replace('stroke-width="0"', 'stroke-width="1"') },
+			],
+			['a width that is not wEx in ex', { ...rendered, wEx: 3.39 }],
+			[
+				'a bracket anywhere',
+				{ ...rendered, svg: rendered.svg.replace('<rect ', '<rect data-x="[" ') },
+			],
+			['no viewBox', { ...rendered, svg: rendered.svg.replace(' viewBox="0 -666 1500 666"', '') }],
+			['text after the root', { ...rendered, svg: `${rendered.svg}\n` }],
+		];
+		for (const [reason, body] of outside) {
+			expect(leanMathBody(body), reason).toBeUndefined();
+		}
+	});
+
+	it('derives glyphs in first-use order without repeats', () => {
+		expect(mathBodyGlyphs(rendered.svg)).toEqual(['MJX-NCM-N-31', 'MJX-NCM-N-30']);
+		expect(mathBodyGlyphs('<svg></svg>')).toEqual([]);
+	});
+});
+
+describe('math shards', () => {
+	it('hashes with standard FNV-1a 32 over UTF-8, matching published vectors', () => {
+		expect(fnv1a32('')).toBe(0x811c9dc5);
+		expect(fnv1a32('a')).toBe(0xe40c292c);
+		expect(fnv1a32('foobar')).toBe(0xbf9cf968);
+	});
+
+	it('encodes non-ASCII TeX exactly as TextEncoder, astral characters and lone surrogates included', () => {
+		const reference = (text: string): number =>
+			Array.from(new TextEncoder().encode(text)).reduce(
+				(hash, byte) => Math.imul(hash ^ byte, 0x01000193),
+				0x811c9dc5,
+			) >>> 0;
+		for (const text of ['°F', 'ℓ', 'Å', 'α_{0}', '\\mathcal{E}', '𝔼', '\ud800', 'x\udc00y']) {
+			expect(fnv1a32(text), JSON.stringify(text)).toBe(reference(text));
+		}
+	});
+
+	it('pins the shard of known TeX, so a hash or count change cannot pass unnoticed', () => {
+		expect(MATH_SHARD_COUNT).toBe(16);
+		const golden: [string, number, number][] = [
+			['m', 0xe80c2f78, 8],
+			['0', 0x350ca8af, 15],
+			['\\theta', 0x6e786b6d, 13],
+			['\\frac{1}{2}mv^{2}', 0xdf5404df, 15],
+			['\\mathrm{J}\\,\\mathrm{K}^{-1}', 0xbba9b8d8, 8],
+			['°F', 0x772ba00b, 11],
+			['ℓ', 0x4e8245e0, 0],
+			['\\mathcal{E}', 0xb64f525a, 10],
+			['𝔼', 0x1d52918e, 14],
+		];
+		for (const [tex, hash, shard] of golden) {
+			expect(fnv1a32(tex), tex).toBe(hash);
+			expect(mathShardOf(tex), tex).toBe(shard);
+		}
+	});
+
+	it('keeps the shard count a power of two that two hex digits can name', () => {
+		expect(MATH_SHARD_COUNT & (MATH_SHARD_COUNT - 1)).toBe(0);
+		expect(MATH_SHARD_COUNT).toBeLessThanOrEqual(256);
+		expect(mathShardName(0)).toBe('00');
+		expect(mathShardName(15)).toBe('0f');
+		expect(mathShardName(255)).toBe('ff');
+		for (const tex of ['', 'a', '\\sqrt{2}', 'E=mc^{2}']) {
+			expect(mathShardOf(tex)).toBeGreaterThanOrEqual(0);
+			expect(mathShardOf(tex)).toBeLessThan(MATH_SHARD_COUNT);
+		}
 	});
 });

@@ -224,7 +224,7 @@ export async function buildMathArtifact(
 	}
 	return {
 		artifact: {
-			atlas: { schemaVersion: 1, font: 'mathjax-newcm', glyphs },
+			atlas: { schemaVersion: 2, font: 'mathjax-newcm', glyphs },
 			bodies,
 			stats: {
 				uniqueTex: uses.size,

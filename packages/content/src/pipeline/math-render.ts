@@ -1,6 +1,6 @@
 import { createRequire } from 'node:module';
 import type { MathJaxAdaptor, MathJaxDocument, MathJaxInstance, MathJaxOutputJax } from 'mathjax';
-import type { MathBody } from '../rich-text.js';
+import { type MathBody, mathBodyGlyphs } from '../rich-text.js';
 import { sha256 } from './load.js';
 import { stableStringify } from './stable-json.js';
 
@@ -142,8 +142,6 @@ export async function createMathRenderer(
 
 const STRIP_ATTRIBUTES_RE = /\s(?:data-[a-z-]+|role|focusable|aria-[a-z-]+|style)="[^"]*"/g;
 
-const GLYPH_REF_RE = /href="#(MJX-[^"]+)"/g;
-
 const GLYPH_PATH_RE = /<path id="([^"]+)" d="([^"]*)"><\/path>/g;
 
 const MERROR_RE = /data-mml-node="merror"[^>]*data-mjx-error="([^"]*)"/;
@@ -182,7 +180,7 @@ export function normalizeMathBody(raw: string): MathBody {
 		/\sstyle="vertical-align:\s*(-?\d+(?:\.\d+)?)([a-z%]*);?"/,
 		'vertical-align',
 	);
-	const glyphs = [...new Set([...raw.matchAll(GLYPH_REF_RE)].map((match) => match[1] ?? ''))];
+	const glyphs = mathBodyGlyphs(raw);
 	const svg = stripPresentationAttributes(raw.replace(/<defs>[\s\S]*?<\/defs>/, ''));
 	return { svg, wEx, hEx, dyEx, glyphs };
 }

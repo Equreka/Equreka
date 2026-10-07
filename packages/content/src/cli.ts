@@ -1,5 +1,6 @@
+import { MOBILE_BUNDLE_BUDGET_BYTES } from './artifact-budgets.js';
 import { compileContent } from './pipeline/compile.js';
-import { MOBILE_BUNDLE_BUDGET_BYTES, mobileBundledBytes } from './pipeline/emit.js';
+import { mobileBundledBytes } from './pipeline/emit.js';
 
 function formatBytes(bytes: number): string {
 	return bytes >= 1024 * 1024
