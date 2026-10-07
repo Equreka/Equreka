@@ -59,7 +59,9 @@ node scripts/content/originality.mjs <every file the wave wrote> --format json -
 
 `--continue` keeps turbo from stopping at the first failing package, which would hide the others; `--force` bypasses the task cache.
 
-The originality report must show `flagged: false` for every new or rewritten description (legacy entries outside the wave may still flag until W1.5–W1.7 rewrite them).
+The originality report must show `flagged: false` for every new or rewritten description (legacy entries outside the wave may still flag until W1.5–W1.7 rewrite them). It covers the entry's Wikipedia article, phrase-search hits and every URL in its `references`; run it without `--no-search` or `--no-references`. A flag `via: reference` is never cleared by `textSources`: the description is rewritten. Reference pages are cached in `.cache/originality/` for 30 days, so a rerun after a fix does not refetch them.
+
+Not checkable is not a pass. List in the PR body every wave description whose `status` is not `checked` and every reference marked `not-checkable` (PDF, non-HTML, HTTP error, no answer, too little text), with whether the verifier compared it by hand.
 
 Measure the artifact delta against the preflight baseline. `pnpm --filter @equreka/content build` prints every artifact's size, gzip size and share of its budget (`ARTIFACT_BUDGETS` in `packages/content/src/artifact-budgets.ts`, ADR 0010), then the mobile-bundled total against 8 MiB; the web build checks its derived payloads the same way. The build warns from 80% of a budget and fails over it. If any artifact passes 90% of its budget, stop before committing and raise it with the user: the README records the open budget decision.
 
@@ -94,7 +96,7 @@ For each entry: values and uncertainties with the NIST/BIPM/IUPAC URL, QIDs with
 - lint / typecheck / test / build: pass
 - quality (yaml-lint, roadmap-check): pass
 - content check: 0 errors, N warnings (<which, why>)
-- originality: 0 flagged of N descriptions
+- originality: 0 flagged of N descriptions (Wikipedia and cited references); not checkable: <entries and reference URLs, or none>
 
 ### Artifact size
 | File | Before | After | Delta |

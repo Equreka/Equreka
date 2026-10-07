@@ -58,13 +58,18 @@ Date: 2026-10-06 · Status: accepted
 `scripts/content/originality.mjs` is dev-only and network-bound: never in CI, never in `pnpm quality`. Its pure functions (`scripts/content/lib/`) are unit-tested by node:test inside `pnpm quality`.
 
 - **Sources.** The entry's `externalIds.wikidata` item gives the article through its sitelinks (`wbgetentities`, batched by 50, lighter than `Special:EntityData`). English descriptions are compared with enwiki, Spanish sidecar descriptions with eswiki. A description that article does not flag, or that has no article, is compared with the hits of phrase searches for up to 5 of its shingles. Requests are sequential and paced, with the User-Agent `EquerekaOriginalityCheck/1.0 (https://github.com/Equreka/Equreka)`.
+- **Cited references** (amended 2026-10-07). Both descriptions are also compared with every URL in the entry's `references`. Two content waves found copied runs from cited pages by hand while the check, which then read Wikipedia only, reported none: 12 words from OpenStax in W3 and 11 from MacTutor in W5. New entries also often have no Wikidata item.
+  - The page is fetched (timeout 30 s, redirects followed, 10 MB cap) and reduced to its readable text by a dependency-free extractor (`scripts/content/lib/html-text.mjs`). It drops navigation, banners, footers, sidebars, scripts, styles, SVG, MathML and MathJax TeX, and decodes character references. It does not narrow to `<main>`, because a missed copy is the failure that matters.
+  - Text is cached in `.cache/originality/` (gitignored), keyed by the SHA-256 of the URL without its fragment, with the fetch date and the extractor version. It is reused for 30 days unless `--refresh-references` is passed.
+  - A reference match is flagged on either rule, like the entry's own article, and no `textSources` credit clears it. References are where facts come from, not CC BY-SA text an entry may adapt, so the description is rewritten.
+  - A PDF, another non-HTML type, an HTTP error, no answer, or a page under 40 words is *not checkable*, with its reason. That is a property of the page, not a run failure, so it never exits 2. The verifier compares those pages by hand.
 - **Normalization.** `$...$` and `$$...$$` TeX are stripped, then the text goes through NFKD with combining marks removed, lowercasing, and punctuation removal.
-- **Measure.** 8-word shingles. The report gives the shared shingles, the longest shared run in words, and the share of the description's shingles found in the article.
+- **Measure.** 8-word shingles. The report gives the shared shingles, the longest shared run in words (and, since the reference amendment, its normalized text), and the share of the description's shingles found in the article.
 - **Threshold.** Against the entry's own article, a description is flagged when the longest run is at least 8 words or the overlap is at least 15%.
   - A run of 8 words is one shared shingle, so the run rule subsumes the overlap rule. The overlap ranks how much was copied.
   - A search hit is not the entry's own article, so it must meet both rules. On the run rule alone, one stock 8-word phrase credited a Spanish branch description to an unrelated article.
-- **Failure.** It fails closed: a network or API failure exits 2 and no source is guessed.
-- **Modes.** `--apply` appends the missing credits as text and re-parses the file with the eemeli `yaml` parser to prove the edit; prose is never touched. `--check` exits 1 when a flagged description has no credit: this is the hook for the content verifier.
+- **Failure.** It fails closed: a Wikimedia network or API failure exits 2 and no source is guessed.
+- **Modes.** `--apply` appends the missing Wikipedia credits as text and re-parses the file with the eemeli `yaml` parser to prove the edit; prose is never touched. `--check` exits 1 when a flagged description has no credit, or is flagged against a cited reference: this is the hook for the content verifier.
 - **Limits.** The check compares against today's revision of each article. A legacy copy of a passage Wikipedia has since reworded escapes it, so *below the threshold* does not mean original. Stock phrases can over-credit. Over-crediting is harmless; under-crediting is the violation.
 
 ### Legacy-copy debt and its retirement
@@ -81,4 +86,4 @@ Date: 2026-10-06 · Status: accepted
   - Content and code changes carry different licenses. A PR touching both is two contributions under two licenses.
   - Authors either write original prose or credit what they adapt (`docs/guides/authoring-content.md`, *Universal rules*).
 - **Visual cost.** The settings page gains one card, and entry pages gain one note line when an entry credits a source. The shell and footer are untouched (ADR 0008).
-- **Tool limits.** The originality tool depends on Wikimedia APIs and on Wikidata identifiers. Entries without a QID are checked only by phrase search, and the tool cannot prove a text original.
+- **Tool limits.** The originality tool depends on Wikimedia APIs, on Wikidata identifiers, and on cited pages being readable HTML. An entry without a QID is checked by phrase search and against its references; PDFs and script-rendered pages stay a manual comparison. The tool cannot prove a text original.

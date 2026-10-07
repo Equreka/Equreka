@@ -20,7 +20,8 @@ You edit nothing. Never run Expo or Metro commands (`expo`, `pnpm --filter mobil
 1. Run the mechanical checks:
    - `pnpm --filter @equreka/content check` (errors or new warnings in the file are findings).
    - `node scripts/content/roadmap.mjs --entry <collection>/<slug>`: `words.en` in range, `ratio` 0.85–1.15, `esMissing` and `regional` empty.
-   - `node scripts/content/originality.mjs <file> <sidecar> --format json` (search pass on; never `--no-search`): every result `flagged: false`. Exit code 2 is a failed run, not a pass: rerun it. A flagged result names the article and whether it was found `via` Wikidata or search.
+   - `node scripts/content/originality.mjs <file> <sidecar> --format json` (search and reference passes on; never `--no-search` or `--no-references`): every result `flagged: false`. It compares both descriptions with the entry's Wikipedia article, phrase-search hits, and the readable text of every URL in `references`. A flagged result names its source in `article` (`via` `wikidata`, `search` or `reference`, with the URL) and the copied words in `run`; `sources[]` lists every source compared. A `via: reference` flag is a blocker however `textSources` reads: a copy from a cited reference is rewritten, never credited. Exit code 2 is a failed run, not a pass: rerun it.
+   - Not checkable is not a pass. A result with `status` other than `checked`, or a `sources[]` entry with `status: not-checkable` (PDF, non-HTML, HTTP error, no answer, too little text), names a source the tool could not read: compare the prose with that source yourself and record it in `mechanical.originality`.
    - For a rewrite: `git diff -- <file>`; on a `reviewed` entry no numeric line (`value`, `uncertainty`, `factor`, `offset`, `num`, `den`, `exact`, `dimension`, `compose`, `expression`, `solutions`) may change.
 2. Apply every lens below, fetching sources yourself. Do not reuse the author's fetched text: fetch the URL again, and find a second source where the lens asks for one.
 3. Record each problem as a finding and each confirmed fact in `confirmed[]`.
@@ -35,7 +36,7 @@ You edit nothing. Never run Expo or Metro commands (`expo`, `pnpm --filter mobil
 
 **Taxonomy.** Teacher test: the entry sits in the branches where a teacher would teach it, every branch's category is in `categories`, nothing is filed everywhere it merely appears.
 
-**Prose.** Length and paragraph plan per the style guide; tone and banned words; no Markdown, HTML or URLs; originality (`originality.mjs` plus your own comparison against the sources the author cited: no run of 8 copied words, no mirrored sentence order); every dated or attributed claim backed by a `references` entry whose page actually supports it. An unsupported history claim is a blocker even if it is true.
+**Prose.** Length and paragraph plan per the style guide; tone and banned words; no Markdown, HTML or URLs; originality (`originality.mjs`, which reads the cited references too, plus your own comparison against them for what shingles cannot see: close paraphrase, mirrored sentence order, and every reference the tool could not read); every dated or attributed claim backed by a `references` entry whose page actually supports it. An unsupported history claim is a blocker even if it is true.
 
 **Spanish.** Glossary terms and CEM unit names; no regional unit names outside `aliases`; agreement and accents; no calques; math byte-identical to the English; every localized field present; length within ±15%.
 
@@ -73,7 +74,7 @@ Blockers and majors go back to the author; the wave does not commit a file with 
     { "file": "…", "what": "Q11573 labels metre / metro", "url": "https://www.wikidata.org/wiki/Special:EntityData/Q11573.json" },
     { "file": "…", "what": "worked example: v_0 = 0, a = 9.81, x = 20 gives t = 2.019 s", "url": "<textbook page>" }
   ],
-  "mechanical": { "contentCheck": "…", "originality": "0 flagged of N", "lengths": "all in range" }
+  "mechanical": { "contentCheck": "…", "originality": "0 flagged of N; not checkable: <url> (PDF), compared by hand", "lengths": "all in range" }
 }
 ```
 
