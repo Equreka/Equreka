@@ -1,6 +1,6 @@
 # 0009 — Solution contract v2: term identity and scale-free verification
 
-Date: 2026-10-06 · Status: accepted · Amended 2026-10-06 (grammar v2 and multi-root solutions; coverage and calculator rules)
+Date: 2026-10-06 · Status: accepted · Amended 2026-10-06 (grammar v2 and multi-root solutions; coverage and calculator rules) · Amended 2026-10-10 (side precision and the wide sampling box)
 
 ## Context
 
@@ -40,7 +40,7 @@ Both sides are flattened into their additive operands (`Add`, `Subtract`, `Negat
 
 ### Complex samples
 
-A sample where any operand is non-finite or has a non-zero imaginary part is invalid: it is skipped and counts toward the 400-attempt cap, never compared. Fewer than 20 valid samples remains an error.
+A sample where any operand is non-finite or has a non-zero imaginary part is invalid: it is skipped and counts toward the 400-attempt cap, never compared. Fewer than 20 valid samples remains an error (after both sampling boxes since the 2026-10-10 amendment, *Precision and sampling range*).
 
 ### Cache
 
@@ -143,6 +143,22 @@ Equations take a required `level` on the scale learning paths already use, now o
 
 `SCHEMA_VERSION` goes from 3 to 4: the engine slice carries `delta`, which a consumer must honor (ignoring it applies an offset to an interval), and `solvable` changed meaning (scoped by `solveFor`, never a constant). `CONTENT_PIPELINE_VERSION` goes from 4 to 5: verification messages changed (influence rule, non-algebraic skip), so every cached verification is invalid.
 
+## Precision and sampling range
+
+Amended 2026-10-10. The university pass brings relativistic formulas whose checks the verifier could not run. In $K = mc^{2}\left(1/\sqrt{1 - v^{2}/c^{2}} - 1\right)$ the bracket is near 1e-16 at the speeds the unit box samples, and compute-engine's default 21 digits keep about five of them, so a correct root disagreed by 1e-5 against the 1e-9 tolerance. In $E^{2} = (pc)^{2} + (mc^{2})^{2}$ the roots for `p` and `m` are real only where `E` exceeds `mc²`, about 9e16 times the mass in kilograms, which the box [0.1, 10) never reaches. The existing remedy, narrowing `solveFor`, would have dropped the invariant mass, a main use of the relation.
+
+### Side precision
+
+Compute-engine evaluates the sides at 50 significant digits. A side is then exact to well under the tolerance across both boxes, so a disagreement measures the root. The root runs in float64, as the calculator runs it, which turns the check into a numerical-stability gate: a root that cancels catastrophically (`m * c^2 * (1 / sqrt(1 - v^2 / c^2) - 1)` at a few metres per second) fails, and the stable form (`m * v^2 / (sqrt(1 - v^2 / c^2) * (1 + sqrt(1 - v^2 / c^2)))`) passes. A cold verification of the 339 algebraic equations at 50 digits reported no failure, so no existing root was unstable in the unit box.
+
+### Wide sampling box
+
+A root short of 20 valid samples after its 400 unit-box attempts gets a second pass of 400 attempts, with each free real term log-uniform over 1e-30 to 1e30 and integer terms unchanged (0–10). The pass has its own seed (`slug:key#index:wide`). The unit-box seed and samples never move, so every root that passed before passes on the same samples. Wide-box samples face the same balance check, so a wrong root still fails (`p = sqrt(E^2 - (m c^2)^2) / (2 c)` disagrees). A root still short after both passes fails as before, with the message naming both boxes.
+
+### Version
+
+`CONTENT_PIPELINE_VERSION` goes from 5 to 6: verdicts and messages changed, so every cached verification is invalid.
+
 ## Consequences
 
 - Authors may use the TeX a textbook uses for a term key. The derivation unwraps font and text wrappers but stays lossy for anything else (`[\mathrm{H}^{+}]` derives a bare `H`), and the `identifier` override is the escape hatch.
@@ -152,4 +168,6 @@ Equations take a required `level` on the scale learning paths already use, now o
 - Verification is order-independent and cache-independent, and a wrong coefficient on a quantity of order 1e-34 fails like any other.
 - Every algebraic expression is parsed by compute-engine, whether or not it has solutions. Non-algebraic notation (∇, ∂, ∫) is declared with `algebraic: false` and is rendered and linted but never parsed, solved or offered to the calculator (*Coverage and calculator rules*).
 - An algebraic equation with an enabled calculator answers for every unknown it offers, every root depends on every input, and every number the calculator handles is in SI-coherent units; a degenerate, incomplete or mis-anchored equation fails the build instead of shipping.
-- Cold verification costs one engine and two parses per equation, plus one evaluation per additive operand per sample.
+- Cold verification costs one engine and two parses per equation, plus one evaluation per additive operand per sample, at 50 digits since the 2026-10-10 amendment (a cold check of the 860-entity corpus took about 9 s when amended).
+- A root must be numerically stable in float64 over the sampling box, not only algebraically right; an author rewrites a cancelling difference (`1/sqrt(1 - x) - 1`, `1 - cos(x)` at small x) into a stable equivalent.
+- A root whose domain depends on a constant's scale verifies without narrowing `solveFor`; narrowing remains for a root whose domain lies outside both boxes (a negative-only input such as a Bohr energy).

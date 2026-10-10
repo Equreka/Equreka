@@ -26,6 +26,41 @@ const RELATIVE_TOLERANCE = 1e-9;
 const INTEGER_SAMPLE_MAX = 10;
 
 /**
+ * Significant digits compute-engine evaluates the sides at; its default, 21,
+ * keeps about five of `1/\sqrt{1 - v^2/c^2} - 1` at a few metres per second
+ * (the difference is near 1e-16), far from the 1e-9 balance. At 50 a side
+ * is exact to well under the tolerance across the sampling boxes, so a
+ * disagreement measures the root, which the calculator evaluates in float64:
+ * a root that cancels catastrophically fails here instead of printing noise.
+ */
+const SIDE_PRECISION = 50;
+
+/**
+ * Where a free real term is drawn from. Every root first samples the unit
+ * box; a root real only where terms differ by many orders of magnitude
+ * (`p = sqrt(E^2 - (m c^2)^2) / c` needs E above m c², about 9e16 m) is left
+ * short there and gets a second, log-uniform pass with its own seed, so the
+ * unit-box samples, and the verdicts they give, never move. Integer terms
+ * keep the integers 0–INTEGER_SAMPLE_MAX in both.
+ */
+interface SamplingBox {
+	label: string;
+	seedSuffix: string;
+	draw: (random: () => number) => number;
+}
+
+const WIDE_BOX_DECADES = 30;
+
+const SAMPLING_BOXES: readonly SamplingBox[] = [
+	{ label: '[0.1, 10)', seedSuffix: '', draw: (random) => 0.1 + random() * 9.9 },
+	{
+		label: `log-uniform over 1e-${WIDE_BOX_DECADES} to 1e${WIDE_BOX_DECADES}`,
+		seedSuffix: ':wide',
+		draw: (random) => 10 ** (WIDE_BOX_DECADES * (2 * random() - 1)),
+	},
+];
+
+/**
  * `\log` with no base subscript: compute-engine reads it as base 10, many
  * readers as base e, so an expression must name the base.
  */
@@ -56,7 +91,7 @@ const PLACEHOLDER_DERIVED_RE = /^(q\d+)(_.*)$/;
 
 /**
  * A term as the verifier samples it: an `integer` term draws from the
- * integers 0–INTEGER_SAMPLE_MAX instead of the reals in [0.1, 10).
+ * integers 0–INTEGER_SAMPLE_MAX instead of a sampling box's reals.
  */
 export interface SampledTerm extends IdentityTerm {
 	integer?: boolean | undefined;
@@ -285,17 +320,22 @@ function bareLogMessages(expression: string): string[] {
 		: [];
 }
 
-function sampleValue(term: SampledTerm | undefined, random: () => number): number {
+function sampleValue(
+	term: SampledTerm | undefined,
+	box: SamplingBox,
+	random: () => number,
+): number {
 	return term?.integer === true
 		? Math.floor(random() * (INTEGER_SAMPLE_MAX + 1))
-		: 0.1 + random() * 9.9;
+		: box.draw(random);
 }
 
 /**
- * Samples one root with its own seed (`slug:key#index`), so adding a root
- * never moves the samples of the roots before it. A sample where the root
- * is not real, or a side is not finite and real, is skipped and counts
- * toward the attempt cap.
+ * Samples one root with its own seed (`slug:key#index`, plus the box's
+ * suffix), so adding a root never moves the samples of the roots before it.
+ * The boxes run in order until SAMPLE_TARGET valid samples are in hand. A
+ * sample where the root is not real, or a side is not finite and real, is
+ * skipped and counts toward that box's attempt cap.
  */
 function sampleRoot(
 	context: SamplingContext,
@@ -308,41 +348,43 @@ function sampleRoot(
 	const freeKeys = context.termKeys.filter(
 		(key) => key !== targetKey && !context.constants.has(key),
 	);
-	const random = mulberry32(fnv1a(`${context.slug}:${targetKey}#${index}`));
 	const points: Record<string, number>[] = [];
-	for (
-		let attempt = 0;
-		attempt < SAMPLE_ATTEMPT_LIMIT && points.length < SAMPLE_TARGET;
-		attempt += 1
-	) {
-		const values = new Map(context.constants);
-		for (const key of freeKeys) {
-			values.set(key, sampleValue(context.terms[key], random));
+	for (const box of SAMPLING_BOXES) {
+		const random = mulberry32(fnv1a(`${context.slug}:${targetKey}#${index}${box.seedSuffix}`));
+		for (
+			let attempt = 0;
+			attempt < SAMPLE_ATTEMPT_LIMIT && points.length < SAMPLE_TARGET;
+			attempt += 1
+		) {
+			const values = new Map(context.constants);
+			for (const key of freeKeys) {
+				values.set(key, sampleValue(context.terms[key], box, random));
+			}
+			const env = identifierEnv(context.identifiers, values);
+			const candidate = evaluateSolution(ast, env);
+			if (!Number.isFinite(candidate)) {
+				continue;
+			}
+			values.set(targetKey, candidate);
+			const balance = sideBalance(context.sides, placeholderEnv(context.termKeys, values));
+			if (balance === undefined) {
+				continue;
+			}
+			if (!balance.balanced) {
+				return {
+					points,
+					message:
+						`${label} disagrees with the equation: ` +
+						`with ${formatValues(values)} the sides evaluate to ${balance.lhs} vs ${balance.rhs}`,
+				};
+			}
+			points.push(env);
 		}
-		const env = identifierEnv(context.identifiers, values);
-		const candidate = evaluateSolution(ast, env);
-		if (!Number.isFinite(candidate)) {
-			continue;
-		}
-		values.set(targetKey, candidate);
-		const balance = sideBalance(context.sides, placeholderEnv(context.termKeys, values));
-		if (balance === undefined) {
-			continue;
-		}
-		if (!balance.balanced) {
-			return {
-				points,
-				message:
-					`${label} disagrees with the equation: ` +
-					`with ${formatValues(values)} the sides evaluate to ${balance.lhs} vs ${balance.rhs}`,
-			};
-		}
-		points.push(env);
 	}
 	return points.length < SAMPLE_TARGET
 		? {
 				points,
-				message: `${label} produced only ${points.length}/${SAMPLE_TARGET} valid samples in ${SAMPLE_ATTEMPT_LIMIT} attempts`,
+				message: `${label} produced only ${points.length}/${SAMPLE_TARGET} valid samples in ${SAMPLE_ATTEMPT_LIMIT} attempts per sampling box (${SAMPLING_BOXES.map((box) => box.label).join(', then ')})`,
 			}
 		: { points };
 }
@@ -418,6 +460,7 @@ function parseSides(
 	const residueTex = stripMacrosWith(expression, () => '1');
 
 	const ce = new ComputeEngine();
+	ce.precision = SIDE_PRECISION;
 	const synthetic = stripMacrosWith(
 		expression,
 		(arg) => `\\mathrm{${placeholders.get(arg) ?? ''}}`,
