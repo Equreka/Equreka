@@ -16,7 +16,7 @@ export * from './common.js';
 export * from './entities.js';
 export * from './locale.js';
 
-export const SCHEMA_VERSION = 4;
+export const SCHEMA_VERSION = 5;
 
 /**
  * Collection name → authored-entity schema. The pipeline validates every

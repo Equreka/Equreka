@@ -15,7 +15,11 @@ import {
 	useState,
 } from 'react';
 import type { ConverterPayload } from '../integrations/equreka-assets';
-import { type CalculatorField, termIdFragment } from '../lib/calculator-fields';
+import {
+	type CalculatorField,
+	calculatorUnitSymbol,
+	termIdFragment,
+} from '../lib/calculator-fields';
 import {
 	type CalculatorView,
 	calculatorFormReducer,
@@ -107,7 +111,7 @@ export default function CalculatorIsland({
 }: CalculatorIslandProps) {
 	const [form, dispatch] = useReducer(calculatorFormReducer, INITIAL_CALCULATOR_FORM);
 	const [copyStatus, setCopyStatus] = useState<CopyStatus>('idle');
-	const needsUnits = fields.some((field) => field.unitSymbol !== '');
+	const needsUnits = fields.some((field) => field.convertible);
 	const [state, setState] = useState<PayloadState>(
 		needsUnits ? { status: 'loading' } : { status: 'idle' },
 	);
@@ -166,10 +170,12 @@ export default function CalculatorIsland({
 		[constants],
 	);
 
-	const symbolOf = (slug: string, fallback: string): string =>
-		source?.registry.getUnit(slug)?.symbolText ?? fallback;
+	const unitSymbolOf = (field: CalculatorField, slug: string): string => {
+		const unit = field.convertible ? source?.registry.getUnit(slug) : undefined;
+		return unit === undefined ? field.unitSymbol : calculatorUnitSymbol(unit);
+	};
 	const fieldUnitSymbol = (field: CalculatorField): string =>
-		field.unitSymbol === '' ? '' : symbolOf(unitState.unitFor(field.key), field.unitSymbol);
+		unitSymbolOf(field, unitState.unitFor(field.key));
 	const fieldOf = (key: string): CalculatorField | undefined =>
 		fields.find((field) => field.key === key);
 	const solvableOnly = fields.some((field) => !field.solvable)
@@ -196,9 +202,7 @@ export default function CalculatorIsland({
 		);
 		const view = calculatorViewOf(outcome, (solution) => {
 			const field = fieldOf(solution.symbol);
-			return field === undefined || field.unitSymbol === ''
-				? ''
-				: symbolOf(solution.unit, field.unitSymbol);
+			return field === undefined ? '' : unitSymbolOf(field, solution.unit);
 		});
 		setCopyStatus('idle');
 		dispatch({ type: 'submit', view });

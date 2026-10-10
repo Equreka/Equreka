@@ -76,8 +76,10 @@ function localized(field: LocalizedField, locale: Locale): string {
  * conversion parameters and per-magnitude picker metadata only — no TeX, no
  * prefixes/constants/equations, names flattened to locale-resolved strings
  * (es falls back to en while content is untranslated). Unit `magnitudes`
- * and magnitude `kindOf` carry the quantity-kind scope (ADR 0006). The
- * island rebuilds an EngineSlice-shaped object from this at runtime.
+ * and magnitude `kindOf` carry the quantity-kind scope (ADR 0006); a
+ * magnitude's `displayUnit` tells the calculator to offer its terms no
+ * unit. The island rebuilds an EngineSlice-shaped object from this at
+ * runtime.
  */
 export interface ConverterPayload {
 	units: Record<
@@ -95,7 +97,13 @@ export interface ConverterPayload {
 	>;
 	magnitudes: Record<
 		string,
-		{ name: string; baseUnit: string; dimension: number[]; kindOf?: string }
+		{
+			name: string;
+			baseUnit: string;
+			displayUnit?: { slug: string };
+			dimension: number[];
+			kindOf?: string;
+		}
 	>;
 }
 
@@ -257,6 +265,9 @@ export function buildConverterPayload(slice: EngineSlice, locale: Locale): Conve
 		payload.magnitudes[magnitude.slug] = {
 			name: localized(magnitude.name, locale),
 			baseUnit: magnitude.baseUnit,
+			...(magnitude.displayUnit === undefined
+				? {}
+				: { displayUnit: { slug: magnitude.displayUnit.slug } }),
 			dimension: magnitude.dimension,
 			...(magnitude.kindOf === undefined ? {} : { kindOf: magnitude.kindOf }),
 		};

@@ -9,7 +9,7 @@ import { renderToString } from 'react-dom/server';
 import { describe, expect, it } from 'vitest';
 import { buildConverterPayload } from '../../integrations/equreka-assets';
 import CalculatorIsland from '../../islands/calculator-island';
-import { calculatorField } from '../calculator-fields';
+import { type CalculatorFieldUnit, calculatorField } from '../calculator-fields';
 import { calculatorUnitSourceOf } from '../calculator-units';
 
 const slice = engineArtifact as unknown as EngineSlice;
@@ -23,6 +23,8 @@ function meta(slug: string): CompiledEquationMeta {
 }
 
 const slugs = (units: readonly { slug: string }[]): string[] => units.map((u) => u.slug).sort();
+
+const convertible = (symbol: string): CalculatorFieldUnit => ({ symbol, convertible: true });
 
 const fullRegistry = createUnitRegistry(slice);
 
@@ -100,8 +102,22 @@ describe('CalculatorIsland server render', () => {
 			createElement(CalculatorIsland, {
 				meta: meta('mass-energy-equivalence'),
 				fields: [
-					{ key: 'E', label: 'Energy', symbolText: 'E', unitSymbol: 'J', solvable: true },
-					{ key: 'm', label: 'Mass', symbolText: 'm', unitSymbol: 'kg', solvable: true },
+					{
+						key: 'E',
+						label: 'Energy',
+						symbolText: 'E',
+						unitSymbol: 'J',
+						convertible: true,
+						solvable: true,
+					},
+					{
+						key: 'm',
+						label: 'Mass',
+						symbolText: 'm',
+						unitSymbol: 'kg',
+						convertible: true,
+						solvable: true,
+					},
 				],
 				constants: [
 					{ key: 'c', name: 'Speed of light', symbolText: 'c', value: C, unitSymbol: 'm/s' },
@@ -125,8 +141,8 @@ describe('CalculatorIsland server render', () => {
 			createElement(CalculatorIsland, {
 				meta: equation,
 				fields: [
-					calculatorField(equation, 'E', 'Energy', 'J'),
-					calculatorField(equation, 'm', 'Mass', 'kg'),
+					calculatorField(equation, 'E', 'Energy', convertible('J')),
+					calculatorField(equation, 'm', 'Mass', convertible('kg')),
 				],
 				constants: [],
 				nonNegative: [],
