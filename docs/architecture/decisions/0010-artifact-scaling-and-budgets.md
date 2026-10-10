@@ -1,6 +1,6 @@
 # 0010 — Artifact scaling and budgets
 
-Date: 2026-10-06 · Status: accepted · Amended 2026-10-06 (math body shards and per-equation solutions)
+Date: 2026-10-06 · Status: accepted · Amended 2026-10-06 (math body shards and per-equation solutions) · Amended by ADR 0015 (presentation shards, search leads, mobile transfer budget)
 
 ## Context
 
@@ -51,9 +51,11 @@ The table as amended by A7:
 | `search/catalog-lite.<locale>.json` | 512 KiB | yes | web transfer and PWA offline install (search, favorites, offline reader); mobile bundle |
 | `schemas/<collection>.schema.json`, `schemas/<collection>.locale.schema.json` | none (build-only) | no | — |
 
+*Amended by ADR 0015:* `presentation/<collection>.json` splits into `presentation/<whole>.json` (2 MiB, unsharded slices), `presentation/<sharded>.json` (the index of a sharded slice, 256 KiB) and `presentation/<sharded>/<shard>.json` (128 KiB each). `search/leads.<locale>.json` (512 KiB, mobile-bundled) is new.
+
 The budgets protect three different costs:
 
-- **Mobile bundle and OTA size.** The sum of the `mobileBundled` files may not exceed `MOBILE_BUNDLE_BUDGET_BYTES`, 8 MiB. `mobileBundled` mirrors the imports of `apps/mobile/shared/content/artifact.ts`, which a mobile test asserts (*Math body shards and per-equation solutions*).
+- **Mobile bundle and OTA size.** The sum of the `mobileBundled` files may not exceed `MOBILE_BUNDLE_BUDGET_BYTES`, 8 MiB. `mobileBundled` mirrors the imports of `apps/mobile/shared/content/artifact.ts`, which a mobile test asserts (*Math body shards and per-equation solutions*). *Superseded by ADR 0015:* the mobile-bundled set is held to `MOBILE_TRANSFER_BUDGET_BYTES`, 3 MiB of gzip over the set as one stream, with `MOBILE_STORAGE_CEILING_BYTES`, 16 MiB raw, as a backstop.
 - **Web transfer.** The search index and catalog-lite are fetched on demand. A calculator page loads `solutions/index.js` as part of the calculator island's chunk, and then the one `solutions/<equation>.js` chunk for its own equation.
 - **PWA precache.** The search indexes, catalog-lite and the web's derived payloads are precached against the 6 MiB manifest budget that `equreka-pwa.ts` enforces. *Amended by ADR 0013:* they now live in a per-locale data cache filled for the locales the reader uses, and the 6 MiB budget counts the precached shell plus the largest locale's payloads.
 
@@ -61,8 +63,8 @@ The budgets protect three different costs:
 
 - `write()` classifies every emitted file. A file that matches no pattern, or more than one, is a build error, so a new artifact cannot ship without a budget.
 - At 80% of a budget (`BUDGET_WARN_RATIO`) the build warns. Over the budget it errors. The same two thresholds apply to the mobile-bundled total.
-- `EmittedArtifact` carries `bytes`, `gzipBytes` (zlib default level, for information), `pattern` and `budget`. The CLI prints every artifact's raw and gzip size, its share of its budget and whether it is mobile-bundled, then the mobile-bundled total against 8 MiB.
-- Budgets cap raw bytes, not gzip, because the mobile bundle and every JSON parse pay the uncompressed size.
+- `EmittedArtifact` carries `bytes`, `gzipBytes` (zlib default level, for information), `pattern` and `budget`. The CLI prints every artifact's raw and gzip size, its share of its budget and whether it is mobile-bundled, then the mobile-bundled total against 8 MiB (since ADR 0015, the transfer against 3 MiB and the raw storage against 16 MiB).
+- Budgets cap raw bytes, not gzip, because the mobile bundle and every JSON parse pay the uncompressed size. Per-file caps still do; ADR 0015 moves the mobile total to a transfer budget.
 - `artifact.test.ts` reads the table: every file on disk is classified by exactly one pattern, sits within its `maxBytes` and adds to a mobile total within the ceiling. No number is restated in the test.
 
 ### Web payload budgets
@@ -137,7 +139,7 @@ Before is the W1.0 base (pretty JSON, full-text search, segments). After is this
 - **Shard the search index per collection.** The search box queries every collection at once, so it would fetch every shard anyway. Sharding does not shrink the precache.
 - **Keep full text and drop the PWA precache of the index.** Search would stop working offline on first use, contradicting ADR 0002's offline promise.
 - **Keep segments and drop the raw text.** Search, the reader payload and meta descriptions need the raw text, and the segments are the larger form.
-- **Budget gzip bytes.** The mobile bundle and JSON parsing pay raw bytes, and gzip ratios differ by file (SVG bodies compress 16:1, search 5:1). A gzip cap would let the mobile-side cost grow unseen.
+- **Budget gzip bytes.** The mobile bundle and JSON parsing pay raw bytes, and gzip ratios differ by file (SVG bodies compress 16:1, search 5:1). A gzip cap would let the mobile-side cost grow unseen. *ADR 0015 adopts it for the mobile total only, measured as one stream, and keeps a raw storage ceiling; per-file caps stay raw.*
 
 ## Consequences
 
