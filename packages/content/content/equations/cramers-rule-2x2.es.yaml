@@ -1,0 +1,47 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Regla de Cramer para dos ecuaciones lineales'
+terms:
+  x:
+    label: 'Incógnita x'
+  a_{1}:
+    label: 'Coeficiente de x en la primera ecuación'
+  b_{1}:
+    label: 'Coeficiente de y en la primera ecuación'
+  c_{1}:
+    label: 'Término independiente de la primera ecuación'
+  a_{2}:
+    label: 'Coeficiente de x en la segunda ecuación'
+  b_{2}:
+    label: 'Coeficiente de y en la segunda ecuación'
+  c_{2}:
+    label: 'Término independiente de la segunda ecuación'
+description: >-
+  La regla de Cramer resuelve un par de ecuaciones lineales con dos incógnitas por medio de
+  determinantes: cada incógnita es el cociente de dos determinantes de 2×2. Para el sistema escrito
+  como una primera ecuación con coeficientes de x e y y un término independiente, y una segunda de
+  la misma forma, la regla da la incógnita x en forma cerrada, sin eliminación ni sustitución,
+  siempre que el determinante de los coeficientes no sea cero.
+
+  En la fórmula, $\var{a_{1}}$ y $\var{b_{1}}$ son los coeficientes de x e y en la primera ecuación
+  y $\var{c_{1}}$ su término independiente, en el miembro derecho; $\var{a_{2}}$, $\var{b_{2}}$ y
+  $\var{c_{2}}$ desempeñan los mismos papeles en la segunda ecuación, y $\var{x}$ es la primera
+  incógnita. Todos son números puros de cualquier signo. El denominador es el determinante de los
+  coeficientes y no puede ser cero.
+
+  El numerador es el mismo determinante con la columna de los coeficientes de x sustituida por los
+  términos independientes. Sustituir en cambio la columna de los coeficientes de y da la segunda
+  incógnita,
+  $$y=\frac{\var{a_{1}}\var{c_{2}}-\var{c_{1}}\var{a_{2}}}{\var{a_{1}}\var{b_{2}}-\var{b_{1}}\var{a_{2}}}$$
+  con el mismo denominador. Eliminar y a mano en las dos ecuaciones reproduce la misma expresión
+  para x. Como la relación es lineal en cada coeficiente, cualquiera de ellos también puede
+  recuperarse cuando se conocen la solución y los otros cinco.
+
+  Un determinante nulo significa que las dos rectas son paralelas o la misma recta: el sistema no
+  tiene entonces solución o tiene infinitas, y la eliminación indica cuál de los dos casos se da.
+  La regla se extiende a n ecuaciones con n incógnitas: cada incógnita es el determinante con su
+  propia columna sustituida por los términos independientes, dividido entre el determinante de los
+  coeficientes.
+
+  El Treatise of algebra de Maclaurin, publicado en 1748, demostró la regla para dos y tres
+  incógnitas; Cramer la enunció para cualquier número de incógnitas en 1750, sin demostración. Las
+  ecuaciones $12x+3y=15$ y $2x-3y=13$ tienen un determinante de -42 y la solución x = 2, y = -3.

@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Parallel axis theorem'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{I}=\var{I_\mathrm{cm}}+\mag{M}\var{d}^{2}'
+terms:
+  I:
+    kind: 'symbol'
+    label:
+      en: 'Moment of inertia about the parallel axis'
+    unit: 'kilogram-square-metre'
+  I_\mathrm{cm}:
+    kind: 'symbol'
+    label:
+      en: 'Moment of inertia about the axis through the centre of mass'
+    unit: 'kilogram-square-metre'
+  M:
+    kind: 'magnitude'
+    ref: 'mass'
+  d:
+    kind: 'symbol'
+    label:
+      en: 'Distance between the axes'
+    unit: 'metre'
+solutions:
+  I: 'I_cm + M * d^2'
+  I_\mathrm{cm}: 'I - M * d^2'
+  M: '(I - I_cm) / d^2'
+  d: 'sqrt((I - I_cm) / M)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q828284'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'Steiner''s theorem'
+  - 'parallel-axis theorem'
+  - 'I = I_cm + M d^2'
+  - 'teorema de Steiner'
+  - 'teorema de los ejes paralelos'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 10.5 Calculating Moments of Inertia (Parallel-Axis Theorem, Example 10.12)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-5-calculating-moments-of-inertia'
+  - title: 'R. Nave, HyperPhysics, Parallel Axis Theorem'
+    url: 'https://hyperphysics.gsu.edu/hbase/parax.html'
+  - title: 'R. Nave, HyperPhysics, Moment of Inertia: Rod (rod about its end)'
+    url: 'https://hyperphysics.gsu.edu/hbase/mi2.html'
+description:
+  en: >-
+    The parallel axis theorem gives the moment of inertia of a rigid body about any axis from its
+    value about the parallel axis that passes through its centre of mass: add the mass of the body
+    times the square of the distance between the two axes. Also known as Steiner's theorem, it lets
+    rotational mechanics reuse a short table of centre-of-mass results for every offset axis.
+
+    Here $\var{I}$ is the moment of inertia about the new axis and $\var{I_\mathrm{cm}}$ the moment
+    of inertia about the parallel axis through the centre of mass, both in kilogram square metres;
+    $\mag{M}$ is the total mass in kilograms; and $\var{d}$ is the perpendicular distance between
+    the two axes in metres, never negative, so solving for it keeps only the non-negative square
+    root.
+
+    The extra term is the moment of inertia the body would have if its whole mass sat at its centre
+    of mass. Because that term is never negative, the axis through the centre of mass gives the
+    smallest moment of inertia among all axes pointing in that direction, and the value grows with
+    the square of the offset. A thin rod shows the effect: moving the axis from the centre to one
+    end, half a length away, raises its moment of inertia from one twelfth to one third of the mass
+    times the squared length.
+
+    The theorem holds for any rigid body, whatever its shape or density, but only between parallel
+    axes, and one of the two must pass through the centre of mass. Going between two axes that both
+    miss the centre of mass takes two steps through it, never a single offset between them. The
+    moments of inertia of the parts of a composite body add only when each is taken about the same
+    axis, which is where the theorem is most used: a pendulum made of a rod and a ball, a wheel with
+    weights on its spokes or a door hung on its hinges.

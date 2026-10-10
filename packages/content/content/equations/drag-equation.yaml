@@ -1,0 +1,86 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Drag equation'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{F_\mathrm{d}}=\frac{1}{2}\var{C_\mathrm{d}}\mag{\rho}\var{A}\mag{v}^{2}'
+terms:
+  F_\mathrm{d}:
+    kind: 'symbol'
+    label:
+      en: 'Drag force'
+    unit: 'newton'
+  C_\mathrm{d}:
+    kind: 'symbol'
+    label:
+      en: 'Drag coefficient'
+  \rho:
+    kind: 'magnitude'
+    ref: 'density'
+  A:
+    kind: 'symbol'
+    label:
+      en: 'Reference area'
+    unit: 'square-metre'
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+solutions:
+  F_\mathrm{d}: 'C_d * rho * A * v^2 / 2'
+  C_\mathrm{d}: '2 * F_d / (rho * A * v^2)'
+  \rho: '2 * F_d / (C_d * A * v^2)'
+  A: '2 * F_d / (C_d * rho * v^2)'
+  v: 'sqrt(2 * F_d / (C_d * rho * A))'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q9300786'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'quadratic drag'
+  - 'aerodynamic drag'
+  - 'air resistance'
+  - 'drag force'
+  - 'F = 1/2 Cd rho A v^2'
+  - 'ecuación de arrastre'
+  - 'fuerza de arrastre'
+  - 'resistencia aerodinámica'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 6.4 Drag Force and Terminal Speed, equation 6.5 and Table 6.2'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/6-4-drag-force-and-terminal-speed'
+  - title: 'NASA Glenn Research Center, Beginner''s Guide to Aeronautics, The Drag Equation'
+    url: 'https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/drag-equation/'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Air friction'
+    url: 'https://hyperphysics.gsu.edu/hbase/airfri2.html'
+description:
+  en: >-
+    The drag equation gives the resistive force on a body moving through a fluid at high enough
+    speed for the flow to be turbulent: half the drag coefficient times the density of the fluid
+    times a reference area times the square of the speed. It is the standard model of air
+    resistance and aerodynamic drag for cars, aircraft, cyclists, skydivers and thrown balls.
+
+    In the equation, $\var{F_\mathrm{d}}$ is the size of the drag force in newtons, directed against
+    the motion of the body through the fluid; $\var{C_\mathrm{d}}$ is the drag coefficient, a
+    dimensionless number; $\mag{\rho}$ the density of the fluid in kilograms per cubic metre;
+    $\var{A}$ the reference area in square metres; and $\mag{v}$ the speed of the body relative to
+    the fluid in metres per second. All five are non-negative.
+
+    The product of half the density and the speed squared is the dynamic pressure, the kinetic
+    energy per unit volume of the oncoming fluid, so the equation reads as that pressure acting over
+    an area, scaled by a coefficient that absorbs everything else: the shape of the body, its
+    surface, and the effects of viscosity and compressibility. Because the force grows with the
+    square of the speed, doubling the speed quadruples the drag. Measured coefficients run from
+    about 0.05 for an airfoil through 0.28 to 0.64 for road vehicles to about 1.1 for a circular
+    flat plate facing the flow.
+
+    The reference area is a convention, usually the frontal area facing the flow, but sometimes the
+    wing or total surface area; a coefficient is valid only with the area it was measured for. The
+    coefficient is found in wind tunnels and stays nearly constant only over a range of speeds; at
+    very low speeds or for very small bodies, drag instead becomes proportional to the speed, as in
+    Stokes' law.
+
+    A skydiver diving at 98 metres per second through air of density 1.21 kilograms per
+    cubic metre, with coefficient 0.70 and area 0.18 square metres, feels a drag of about 730 newtons.

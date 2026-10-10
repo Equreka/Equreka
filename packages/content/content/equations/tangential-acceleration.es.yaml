@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Aceleración tangencial'
+terms:
+  a_\mathrm{t}:
+    label: 'Aceleración tangencial'
+description: >-
+  La aceleración tangencial es el ritmo al que un punto de un cuerpo en rotación gana o pierde
+  rapidez a lo largo de su trayectoria circular, y es igual a la distancia del punto al eje por la
+  aceleración angular del cuerpo. La relación convierte la aceleración angular de la cinemática
+  rotacional en la aceleración lineal que se experimenta a un radio dado, como en el borde de una
+  rueda.
+
+  En la fórmula, $\var{a_\mathrm{t}}$ es la aceleración tangencial en metros por segundo al cuadrado,
+  $\var{r}$ la distancia perpendicular al eje de rotación en metros, nunca negativa, y $\mag{\alpha}$
+  la aceleración angular en radianes por segundo al cuadrado. Las magnitudes angulares tienen signo
+  respecto al eje, positivo en sentido contrario a las agujas del reloj visto desde el extremo
+  positivo del eje, y la aceleración tangencial lleva el mismo signo: positiva en el sentido
+  contrario a las agujas del reloj a lo largo del recorrido. Cuando tiene el signo de la velocidad angular, el punto acelera; con el
+  signo contrario, frena.
+
+  La rapidez de un punto a radio fijo es ese radio por la rapidez angular. Al derivar respecto al
+  tiempo con el radio constante, el ritmo de cambio de la velocidad angular queda multiplicado por el
+  mismo radio, de modo que todos los puntos de un sólido rígido comparten una sola aceleración
+  angular mientras la aceleración tangencial crece en proporción a la distancia al eje. Los ángulos
+  deben expresarse en radianes para que el producto resulte en metros por segundo al cuadrado.
+
+  La aceleración tangencial es solo una componente de la aceleración de un punto que describe una
+  circunferencia. Siempre que el punto se mueve existe además una componente centrípeta, dirigida
+  hacia el eje e igual al cuadrado de la rapidez entre el radio, incluso con velocidad angular
+  constante; las dos son perpendiculares y la aceleración total es su suma vectorial. La relación
+  supone un sólido rígido que gira alrededor de un eje fijo.
+
+  Una moto que alcanza 30.0 metros por segundo desde el reposo en 4.20 segundos tiene una aceleración
+  tangencial de unos 7.14 metros por segundo al cuadrado en el borde de sus neumáticos; con ruedas de
+  0.320 metros de radio, la aceleración angular es de unos 22.3 radianes por segundo al cuadrado.

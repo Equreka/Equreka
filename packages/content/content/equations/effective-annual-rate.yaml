@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Effective annual rate'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{r_\mathrm{eff}}=\left(1+\frac{\var{r}}{\var{n}}\right)^{\var{n}}-1'
+terms:
+  r_\mathrm{eff}:
+    kind: 'symbol'
+    label:
+      en: 'Effective annual rate'
+    unit: 'unitless'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Nominal annual rate'
+    unit: 'unitless'
+  n:
+    kind: 'symbol'
+    integer: true
+    label:
+      en: 'Compounding periods per year'
+solutions:
+  r_\mathrm{eff}: '(1 + r / n)^n - 1'
+  r: 'n * ((1 + r_eff)^(1 / n) - 1)'
+calculator:
+  enabled: true
+  solveFor: ['r_\mathrm{eff}', 'r']
+externalIds:
+  wikidata: 'Q1336231'
+categories:
+  - 'mathematics'
+branches:
+  - 'arithmetic'
+aliases:
+  - 'effective annual yield'
+  - 'effective interest rate'
+  - 'annual equivalent rate'
+  - 'AER'
+  - 'EAR'
+  - 'annual percentage yield'
+  - 'APY'
+  - 'tasa efectiva'
+  - 'interés efectivo anual'
+  - 'tipo de interés efectivo'
+  - 'rendimiento efectivo anual'
+references:
+  - title: 'OpenStax, Contemporary Mathematics, 6.4 Compound Interest (effective annual yield)'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/6-4-compound-interest'
+  - title: 'Consumer Financial Protection Bureau, Regulation DD (12 CFR 1030), Appendix A: Annual Percentage Yield Calculation'
+    url: 'https://www.consumerfinance.gov/rules-policy/regulations/1030/a/'
+description:
+  en: >-
+    The effective annual rate is the interest rate that, credited once a year, produces the same
+    growth as a nominal annual rate compounded several times within the year. Also called the
+    effective annual yield, and for bank deposits in the United States the annual percentage yield,
+    it is the tool of financial mathematics that puts offers with different
+    compounding frequencies on one comparable scale.
+
+    In the formula, $\var{r_\mathrm{eff}}$ is the effective annual rate and $\var{r}$ the nominal
+    annual rate, both written as decimal fractions (0.05 for 5 percent), and $\var{n}$ is the whole
+    number of compounding periods per year: 1 for yearly, 4 for quarterly, 12 for monthly and 365
+    for daily crediting. All three are pure numbers. A positive nominal rate gives a positive
+    effective rate, and with one period per year the two rates coincide.
+
+    Each period credits the nominal rate divided by $\var{n}$, so one unit of money grows by the end
+    of the year to one plus that periodic rate, raised to the power $\var{n}$. Subtracting the
+    original unit leaves the interest earned per unit, which is the effective rate. Read backwards
+    through an n-th root, the formula gives the nominal rate that must be quoted at a given
+    frequency to deliver a target effective rate. The count $\var{n}$ sits both in the base and in
+    the exponent, so it cannot be isolated with elementary functions and is always an input.
+
+    The formula assumes a rate that stays constant through the year, periods of equal length and
+    interest left in the account. At a fixed nominal rate the effective rate rises with the
+    frequency but levels off, approaching the limit of continuous compounding. United States rules
+    for consumer deposits base that yield on a 365-day year, with a 366-day year allowed in a leap year.
+
+    Savers compare accounts through this figure rather than the quoted rate: 6 percent compounded
+    quarterly is equivalent to about 6.14 percent credited once a year.

@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Ideal speed on a banked curve'
+kind: 'formula'
+level: 'intermediate'
+expression: '\tan\mag{\theta}=\frac{\mag{v}^{2}}{\var{r}\var{g}}'
+terms:
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+solutions:
+  \theta: 'atan(v^2 / (r * g))'
+  v: 'sqrt(r * g * tan(theta))'
+  r: 'v^2 / (g * tan(theta))'
+  g: 'v^2 / (r * tan(theta))'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'banked curve'
+  - 'banked turn'
+  - 'ideal banking angle'
+  - 'design speed of a banked curve'
+  - 'frictionless banked curve'
+  - 'tan theta = v^2 / (r g)'
+  - 'curva con peralte'
+  - 'ángulo de peralte'
+  - 'peralte ideal'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 6.3 Centripetal Force, equation 6.4 and Example 6.16'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/6-3-centripetal-force'
+  - title: 'OpenStax, College Physics 2e, 6.3 Centripetal Force, Example 6.5 (steeply banked curve)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/6-3-centripetal-force'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Banked curve'
+    url: 'https://hyperphysics.gsu.edu/hbase/Mechanics/carbank.html'
+  - title: 'NIST, CODATA Value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+description:
+  en: >-
+    The ideal speed on a banked curve is the one speed at which a vehicle can follow a curve whose
+    road surface is tilted towards the centre with no help from friction: the tangent of the banking
+    angle equals the speed squared divided by the radius times the gravitational acceleration. The
+    relation sets the banking of roads, railway tracks, velodromes and racing circuits for a chosen
+    design speed.
+
+    Here $\mag{\theta}$ is the banking angle between the road surface and the horizontal, in
+    radians, $\mag{v}$ the speed of the vehicle in metres per second, $\var{r}$ the radius of the
+    curve in metres, and $\var{g}$ the gravitational acceleration, entered as a positive number; its
+    standard value is 9.80665 metres per second squared, while the local value varies with place
+    and on other bodies. All four are non-negative, the angle lies between zero and a right angle,
+    and the speed is the non-negative square root.
+
+    On a frictionless banked road only two forces act on the vehicle: its weight and the normal force
+    perpendicular to the surface. The vertical component of the normal force balances the weight,
+    while its horizontal component, pointing towards the centre of the curve, supplies the
+    centripetal force, the mass times the speed squared over the radius. Dividing one balance by the
+    other cancels the mass and the normal force and leaves the tangent of the angle, so the ideal
+    speed is the same for a bicycle and a lorry.
+
+    The relation assumes a curve of constant radius taken at constant speed, a vehicle small
+    compared with the radius and no friction. On a real road, static friction lets a vehicle take
+    the curve somewhat faster or slower than the ideal speed without sliding up or down the slope;
+    with no banking the angle is zero and friction must supply the whole centripetal force.
+
+    A curve of radius 100 metres banked at 65.0 degrees has an ideal speed of about 45.9 metres per
+    second, roughly 165 kilometres per hour.

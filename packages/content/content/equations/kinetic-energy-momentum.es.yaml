@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Energía cinética en función de la cantidad de movimiento'
+description: >-
+  La energía cinética de un cuerpo puede expresarse a partir de su cantidad de movimiento en lugar de
+  su rapidez: es igual al cuadrado de la cantidad de movimiento dividido entre el doble de la masa.
+  Esta forma es habitual en los problemas de choques, donde se conserva la cantidad de movimiento, y
+  en la física atómica y de partículas, donde una diferencia de potencial aceleradora fija la
+  energía cinética y la cantidad de movimiento determina la longitud de onda de De Broglie.
+
+  En la fórmula, $\mag{E_\mathrm{k}}$ es la energía cinética en julios, $\mag{p}$ la cantidad de
+  movimiento, cuya unidad es el kilogramo metro por segundo, y $\mag{m}$ la masa en kilogramos. La
+  cantidad de movimiento tiene signo a lo largo de un eje elegido, mientras que la energía cinética y
+  la masa nunca son negativas; como la cantidad de movimiento aparece al cuadrado, un cuerpo que avanza en
+  cualquiera de los dos sentidos tiene la misma energía cinética. Por eso, al despejarla se obtienen
+  una raíz positiva, que figura primero, y otra negativa del mismo valor absoluto para el
+  movimiento en sentido contrario.
+
+  La relación se obtiene al sustituir la rapidez, cantidad de movimiento entre masa, en la expresión
+  habitual de la energía cinética como la mitad de la masa por el cuadrado de la rapidez. Leída al
+  revés, dos cuerpos con igual cantidad de movimiento no tienen igual energía cinética: el más ligero
+  tiene más, en proporción inversa a la masa. Por eso, al disparar un arma, la bala ligera se lleva
+  casi toda la energía cinética, aunque arma y bala reciben cantidades de movimiento iguales y
+  opuestas. Duplicar la cantidad de movimiento de un cuerpo cuadruplica su energía cinética.
+
+  La fórmula es newtoniana y solo vale a rapideces muy inferiores a la de la luz. A rapideces
+  relativistas, ambas se relacionan a través de la energía en reposo del cuerpo, y la forma
+  cuadrática subestima la cantidad de movimiento correspondiente a una energía dada. Se aplica a la traslación; un cuerpo que gira tiene además energía cinética de
+  rotación, que no se incluye aquí.
+
+  Un electrón acelerado desde el reposo a través de 54 voltios adquiere 54 electronvoltios de
+  energía cinética y una cantidad de movimiento de unos $3.97\times10^{-24}\,\mathrm{kg\,m/s}$.

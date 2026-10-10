@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Area of a triangle from its sides and circumradius'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{A}=\frac{\var{a}\var{b}\var{c}}{4\var{R}}'
+terms:
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Side a'
+    unit: 'metre'
+  b:
+    kind: 'symbol'
+    label:
+      en: 'Side b'
+    unit: 'metre'
+  c:
+    kind: 'symbol'
+    label:
+      en: 'Side c'
+    unit: 'metre'
+  R:
+    kind: 'symbol'
+    label:
+      en: 'Circumradius'
+    unit: 'metre'
+solutions:
+  A: 'a * b * c / (4 * R)'
+  a: '4 * A * R / (b * c)'
+  b: '4 * A * R / (a * c)'
+  c: '4 * A * R / (a * b)'
+  R: 'a * b * c / (4 * A)'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'trigonometry'
+aliases:
+  - 'abc over 4R'
+  - 'A = abc / (4R)'
+  - 'circumradius formula'
+  - 'circumradius of a triangle from its area'
+  - 'área de un triángulo con el circunradio'
+  - 'radio de la circunferencia circunscrita'
+  - 'circunradio'
+references:
+  - title: 'M. Corral, Elementary Trigonometry, 2.5 Circumscribed and Inscribed Circles (LibreTexts)'
+    url: 'https://math.libretexts.org/Bookshelves/Precalculus/Elementary_Trigonometry_(Corral)/02%3A_General_Triangles/2.05%3A_Circumscribed_and_Inscribed_Circles'
+  - title: 'E. W. Weisstein, Triangle Area, MathWorld'
+    url: 'https://mathworld.wolfram.com/TriangleArea.html'
+  - title: 'E. W. Weisstein, Circumradius, MathWorld'
+    url: 'https://mathworld.wolfram.com/Circumradius.html'
+description:
+  en: >-
+    The area of a triangle equals the product of its three sides divided by four times its
+    circumradius, the radius of the circle through the three vertices. The relation links the two
+    measures every triangle has, its area and its circumscribed circle, so it is used both ways: to
+    find the area when the circumradius is known, and more often to find the circumradius of a
+    triangle from its sides and area.
+
+    In the formula, $\mag{A}$ is the area of the triangle in square metres, $\var{a}$, $\var{b}$ and
+    $\var{c}$ its three sides and $\var{R}$ its circumradius, lengths in metres or in any shared unit.
+    All five are positive. The sides must satisfy the triangle inequality, each shorter than the sum
+    of the other two.
+
+    By the extended law of sines, the sine of the angle opposite any side equals that side divided by
+    twice the circumradius. Substituting the sine of the angle between $\var{a}$ and $\var{b}$ into
+    the rule of half the product of two sides times the sine of their included angle turns it into
+    the product of all three sides over four times $\var{R}$. Read backwards, the circumradius is the
+    product of the sides over four times the area, and with Heron's formula for the area it follows
+    from the three sides alone.
+
+    The five quantities are not independent: three sides fix the triangle, and with it both the area
+    and the circumradius. The calculator therefore solves for any one of them, but a result describes
+    a real triangle only when the inputs come from one. For a right triangle the hypotenuse is a
+    diameter, so the circumradius is half of it. The formula applies to plane triangles.
+
+    Geometry problems on inscribed triangles and the placement of a point equidistant from three
+    sites use it. A triangle with sides 2, 3 and 4 has an area of about 2.905 and a circumradius of
+    about 2.07.

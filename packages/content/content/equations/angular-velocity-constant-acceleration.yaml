@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Angular velocity under constant angular acceleration'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{\omega}=\var{\omega_{0}}+\mag{\alpha}\mag{t}'
+terms:
+  \omega:
+    kind: 'symbol'
+    label:
+      en: 'Final angular velocity'
+    unit: 'radian-per-second'
+  \omega_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial angular velocity'
+    unit: 'radian-per-second'
+  \alpha:
+    kind: 'magnitude'
+    ref: 'angular-acceleration'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  \omega: 'omega_0 + alpha * t'
+  \omega_{0}: 'omega - alpha * t'
+  \alpha: '(omega - omega_0) / t'
+  t: '(omega - omega_0) / alpha'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'first equation of rotational motion'
+  - 'rotational kinematics angular velocity equation'
+  - 'omega = omega0 + alpha t'
+  - 'ω = ω0 + αt'
+  - 'velocidad angular en el movimiento circular uniformemente acelerado'
+  - 'MCUA'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 10.2 Rotation with Constant Angular Acceleration, equation 10.11 and Examples 10.4 and 10.5'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-2-rotation-with-constant-angular-acceleration'
+  - title: 'OpenStax, College Physics 2e, 10.2 Kinematics of Rotational Motion'
+    url: 'https://openstax.org/books/college-physics-2e/pages/10-2-kinematics-of-rotational-motion'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Rotational quantities'
+    url: 'https://hyperphysics.gsu.edu/hbase/rotq.html'
+description:
+  en: >-
+    The angular velocity equation of uniformly accelerated rotation gives the angular velocity of a
+    body turning about a fixed axis with constant angular acceleration: the initial angular velocity
+    plus the angular acceleration times the elapsed time. It is the rotational analogue of the
+    velocity–time equation of linear kinematics and the first of the equations of rotational
+    kinematics.
+
+    In the equation, $\var{\omega}$ and $\var{\omega_{0}}$ are the final and initial angular
+    velocities in radians per second, $\mag{\alpha}$ is the constant angular acceleration in radians
+    per second squared, and $\mag{t}$ is the elapsed time in seconds, never negative. The angular
+    quantities are signed about the axis, anticlockwise positive when viewed from the positive end
+    of the axis. When the angular acceleration has the sign of the angular velocity the body
+    spins faster; with the opposite sign it slows down and, if the acceleration lasts long enough,
+    reverses its sense of rotation.
+
+    Angular acceleration measures how fast the angular velocity changes. When it is constant, the change
+    in angular velocity over an interval is that acceleration multiplied by the length of the
+    interval, and adding the starting value gives the relation. On a graph of angular velocity
+    against time the line is straight, with the angular acceleration as its slope. Solving for the
+    time requires a non-zero angular acceleration, and a negative result means that angular velocity
+    is never reached going forward.
+
+    The equation describes a rigid body rotating about a fixed axis with constant angular
+    acceleration, the rotational analogue of constant linear acceleration. A motor that ramps up
+    unevenly or a wheel slowed by a speed-dependent drag has a varying angular acceleration and needs
+    calculus instead. The equation says nothing about the torques that produce the motion.
+
+    A fishing reel starting from rest with an angular acceleration of 110 radians per second
+    squared reaches 220 radians per second after 2.00 seconds, about 2100 revolutions per minute.

@@ -1,0 +1,91 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Terminal velocity'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{v_\mathrm{t}}=\sqrt{\frac{2\mag{m}\var{g}}{\var{C_\mathrm{d}}\mag{\rho}\var{A}}}'
+terms:
+  v_\mathrm{t}:
+    kind: 'magnitude'
+    ref: 'speed'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+  C_\mathrm{d}:
+    kind: 'symbol'
+    label:
+      en: 'Drag coefficient'
+  \rho:
+    kind: 'magnitude'
+    ref: 'density'
+  A:
+    kind: 'symbol'
+    label:
+      en: 'Reference area'
+    unit: 'square-metre'
+solutions:
+  v_\mathrm{t}: 'sqrt(2 * m * g / (C_d * rho * A))'
+  m: 'C_d * rho * A * v_t^2 / (2 * g)'
+  g: 'C_d * rho * A * v_t^2 / (2 * m)'
+  C_\mathrm{d}: '2 * m * g / (rho * A * v_t^2)'
+  \rho: '2 * m * g / (C_d * A * v_t^2)'
+  A: '2 * m * g / (C_d * rho * v_t^2)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q614981'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'terminal speed'
+  - 'terminal velocity formula'
+  - 'settling velocity'
+  - 'v_t = sqrt(2 m g / (rho C A))'
+  - 'velocidad límite'
+  - 'velocidad terminal'
+  - 'rapidez límite'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 6.4 Drag Force and Terminal Speed, Example 6.17'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/6-4-drag-force-and-terminal-speed'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Air friction'
+    url: 'https://hyperphysics.gsu.edu/hbase/airfri2.html'
+  - title: 'NASA Glenn Research Center, Beginner''s Guide to Aeronautics, The Drag Equation'
+    url: 'https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/drag-equation/'
+  - title: 'NIST, CODATA Value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+description:
+  en: >-
+    Terminal velocity is the steady speed that a body falling through a fluid approaches when the
+    drag on it has grown to equal its weight, so that it stops accelerating. For drag that grows
+    with the square of the speed, as for skydivers and other large bodies falling through air, it
+    is the square root of twice the weight divided by the product of the drag coefficient, the
+    density of the fluid and the reference area.
+
+    In the formula, $\mag{v_\mathrm{t}}$ is the terminal speed in metres per second, $\mag{m}$ the
+    mass of the falling body in kilograms, $\var{g}$ the gravitational acceleration, entered as a
+    positive number (standard value 9.80665 metres per second squared, varying with place),
+    $\var{C_\mathrm{d}}$ the dimensionless drag coefficient, $\mag{\rho}$ the density of the fluid in
+    kilograms per cubic metre, and $\var{A}$ the reference area, usually the area the body presents
+    to the flow, in square metres. All are non-negative, and the speed is the non-negative root.
+
+    A body released from rest speeds up while its weight exceeds the drag, but the drag grows with
+    the square of the speed until the two balance and the net force vanishes. Setting the weight
+    equal to the drag equation and solving for the speed gives the formula. A heavier body, or one
+    presenting a smaller area, falls faster: a skydiver who changes from a streamlined dive to a
+    spread-eagle position raises the area and the drag coefficient and slows markedly.
+
+    The formula neglects buoyancy, which is small in air but not in water, assumes a constant drag
+    coefficient and fluid density, and applies to the quadratic drag of larger, faster bodies.
+    Small particles, droplets and microorganisms moving slowly through a viscous fluid follow Stokes'
+    law instead, with a terminal speed proportional to the weight rather than to its square root.
+
+    An 85-kilogram skydiver in the spread-eagle position, with area 0.70 square metres and
+    coefficient 1.0, reaches a terminal speed of about 44 metres per second in air of density 1.21
+    kilograms per cubic metre.

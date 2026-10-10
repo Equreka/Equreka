@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Radio de Schwarzschild'
+terms:
+  r_\mathrm{s}:
+    label: 'Radio de Schwarzschild'
+description: >-
+  El radio de Schwarzschild de una masa es el radio de la esfera en la que habría que comprimir esa
+  masa para formar un agujero negro sin rotación: el doble de la constante de gravitación universal
+  por la masa dividido entre el cuadrado de la velocidad de la luz. La esfera de ese radio es el
+  horizonte de sucesos, la frontera desde cuyo interior no puede escapar materia, luz ni señal
+  alguna.
+
+  En la fórmula, $\var{r_\mathrm{s}}$ es el radio de Schwarzschild en metros, $\const{G}$ la
+  constante de gravitación universal, $\mag{M}$ la masa en kilogramos y $\const{c}$ la velocidad de
+  la luz en el vacío. Todas las magnitudes son positivas, y el radio crece en proporción directa a
+  la masa, de modo que un agujero negro con el doble de masa tiene un horizonte el doble de grande.
+
+  El radio procede de la solución exacta de las ecuaciones de campo de la relatividad general para
+  el espacio exterior a una masa esférica, sin rotación y sin carga. Igualar la velocidad de escape
+  newtoniana a la velocidad de la luz da la misma expresión, pero solo por casualidad, ya que ese
+  razonamiento trata la luz con la fórmula clásica de la energía cinética y no tiene en cuenta la
+  curvatura del espacio-tiempo.
+
+  En una estrella o un planeta corrientes, el radio de Schwarzschild queda muy dentro del cuerpo,
+  donde la solución exterior no se aplica, y no existe horizonte; solo una masa comprimida dentro de
+  su propio radio de Schwarzschild se convierte en agujero negro. La fórmula describe únicamente el
+  horizonte de un agujero negro estático y sin carga.
+
+  Karl Schwarzschild publicó la solución en 1916 en las actas de la Academia Prusiana de Ciencias; sus
+  contemporáneos la vieron como un resultado abstracto, sin ningún cuerpo conocido lo bastante
+  pequeño y denso al que aplicarla. Comprimido hasta formar un agujero
+  negro, el Sol tendría un radio de unos 2.95 kilómetros y la Tierra uno de menos de un centímetro.

@@ -1,0 +1,93 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Velocities after a one-dimensional elastic collision'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{v_{1}}=\frac{\left(\var{m_{1}}-\var{m_{2}}\right)\var{u_{1}}+2\var{m_{2}}\var{u_{2}}}{\var{m_{1}}+\var{m_{2}}}'
+terms:
+  v_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Final velocity of body 1'
+    unit: 'metre-per-second'
+  m_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of body 1'
+    unit: 'kilogram'
+  m_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of body 2'
+    unit: 'kilogram'
+  u_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Initial velocity of body 1'
+    unit: 'metre-per-second'
+  u_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Initial velocity of body 2'
+    unit: 'metre-per-second'
+solutions:
+  v_{1}: '((m_1 - m_2) * u_1 + 2 * m_2 * u_2) / (m_1 + m_2)'
+  u_{1}: '((m_1 + m_2) * v_1 - 2 * m_2 * u_2) / (m_1 - m_2)'
+  u_{2}: '((m_1 + m_2) * v_1 - (m_1 - m_2) * u_1) / (2 * m_2)'
+  m_{1}: 'm_2 * (2 * u_2 - u_1 - v_1) / (v_1 - u_1)'
+  m_{2}: 'm_1 * (v_1 - u_1) / (2 * u_2 - u_1 - v_1)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q1044799'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'elastic collision'
+  - 'perfectly elastic collision'
+  - 'head-on elastic collision'
+  - 'final velocities in an elastic collision'
+  - 'elastic collision formula'
+  - 'choque elástico'
+  - 'colisión elástica'
+  - 'choque perfectamente elástico'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 9.4 Types of Collisions, Example 9.11 (ice hockey pucks)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/9-4-types-of-collisions'
+  - title: 'R. Fitzpatrick, Survey of Physics (University of Texas at Austin lecture notes), One-dimensional collisions, equations 1.122, 1.137 and 1.138'
+    url: 'https://farside.ph.utexas.edu/teaching/355/Surveyhtml/node34.html'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Elastic collisions'
+    url: 'https://hyperphysics.gsu.edu/hbase/elacol2.html'
+description:
+  en: >-
+    In a one-dimensional elastic collision two bodies meet head-on along a line and separate with the
+    total momentum and the total kinetic energy unchanged. Those two conservation laws fix both final
+    velocities from the masses and the initial velocities; the formula gives the final velocity of
+    body 1, and the final velocity of body 2 follows from the same formula with the labels 1 and 2
+    exchanged.
+
+    Here $\var{m_{1}}$ and $\var{m_{2}}$ are the masses in kilograms, $\var{u_{1}}$ and
+    $\var{u_{2}}$ the velocities of bodies 1 and 2 before the collision, and $\var{v_{1}}$ the
+    velocity of body 1 after it, all in metres per second. Velocities are signed along the line of
+    motion, positive in a chosen direction; a final velocity with the opposite sign to the initial
+    one means the body bounced back.
+
+    Momentum conservation alone leaves one unknown too many. Kinetic energy conservation, combined
+    with it, reduces to the statement that the relative velocity reverses: the bodies separate at
+    the same speed at which they approached. Solving that linear condition together with momentum
+    conservation gives the weighted average in the formula. Three limits show its meaning: equal
+    masses exchange their velocities, a light body striking a much heavier one at rest rebounds
+    with almost its original speed, and a heavy body striking a light one at rest barely slows
+    while the light one moves off at nearly twice its speed. With equal masses the first final
+    velocity no longer depends on the first initial one, so that initial velocity cannot be solved
+    for.
+
+    The formula assumes a closed system with no external impulse during the brief contact, motion
+    confined to one line, and no loss of kinetic energy to heat, sound or deformation. Most real
+    collisions lose some energy and are described by a coefficient of restitution below one, for
+    which the relative velocity reverses but shrinks.
+
+    A 12-gram puck sliding at 2.5 metres per second into a resting 15-gram puck rebounds at about
+    0.28 metres per second, while the struck puck moves off at about 2.22 metres per second.

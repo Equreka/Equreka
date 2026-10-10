@@ -35,6 +35,7 @@ Conventions for every `<slug>.es.yaml` sidecar. Companion to the [style guide](s
   | en orden a | para |
   | decaimiento radiactivo | desintegración radiactiva |
   | resolver por x (solve for x) | despejar x |
+  | contrapartida (counterpart) | análogo, equivalente (*el análogo rotacional*) |
 
 - **Banned**, mirroring the English list: *tú, usted, vosotros, nosotros*; rhetorical questions; *simplemente, obviamente, claramente, por supuesto*; *crucial*, *juega un papel clave*, *cabe destacar*, *es importante señalar*, *vale la pena mencionar*, *en conclusión*; *fundamental* except in its technical sense (*constante fundamental*, *estado fundamental*); emojis, Markdown, HTML, URLs, mentions of Equreka or *esta wiki*.
 
@@ -183,6 +184,19 @@ Prefix names: *mili* per RAE; *atto* per the DLE entry *atto-* and, with *zetta*
 | perfectly inelastic collision | choque perfectamente inelástico (*colisión perfectamente inelástica*, *choque plástico* in `aliases`) | Wikidata [Q2074917](https://www.wikidata.org/wiki/Q2074917) `es` alias; [OpenStax *Física universitaria* vol. 1, 9.4](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/9-4-tipos-de-colisiones) |
 | recoil, recoil velocity | retroceso, velocidad de retroceso | Wikidata [Q749601](https://www.wikidata.org/wiki/Q749601) `es` label |
 | barycentre (centre of mass of two bodies) | baricentro (prose only; the term stays *centro de masas*) | usage |
+| rigid body | sólido rígido (*cuerpo rígido*, the OpenStax form and the Wikidata `es` label, in `aliases`) | sidecar (the shipped magnitudes and equations); Wikidata [Q192788](https://www.wikidata.org/wiki/Q192788) `es` alias; *cuerpo rígido*: [OpenStax *Física universitaria* vol. 1, 10.4](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/10-4-momento-de-inercia-y-energia-cinetica-rotacional) |
+| torque after its first mention | *momento de fuerza* (the variant of the torque row) or *momento de las fuerzas*; each sidecar names *momento de una fuerza* once, and a bare *momento* never stands next to *momento de inercia* or *momento angular* | usage (collision with the moment of inertia and angular momentum rows) |
+| anticlockwise, clockwise (sign of a rotation) | sentido contrario a las agujas del reloj, sentido de las agujas del reloj, *visto desde el extremo positivo del eje*; never *antihorario* in prose | usage |
+| angular displacement, angular position, angular acceleration, tangential acceleration | desplazamiento angular, posición angular, aceleración angular, aceleración tangencial | [OpenStax *Física universitaria* vol. 1, 10.1](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/10-1-variables-rotacionales); [OpenStax *Física universitaria* vol. 1, 10.2](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/10-2-rotacion-con-aceleracion-angular-constante) |
+| point mass, solid cylinder, solid sphere, thin rod | masa puntual, cilindro macizo, esfera maciza, varilla delgada | [OpenStax *Física universitaria* vol. 1, 10.5](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/10-5-calcular-momentos-de-inercia) (*masa puntual*, *varilla delgada*); [OpenStax *Física universitaria* vol. 1, 10.4](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/10-4-momento-de-inercia-y-energia-cinetica-rotacional) (*esfera maciza*); *cilindro macizo*: usage |
+| parallel axis theorem | teorema del eje paralelo (*teorema de Steiner*, the Wikidata `es` label, and *teorema de los ejes paralelos* in `aliases`) | [OpenStax *Física universitaria* vol. 1, 10.5](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/10-5-calcular-momentos-de-inercia); Wikidata [Q828284](https://www.wikidata.org/wiki/Q828284) |
+| rotational kinetic energy | energía cinética de rotación (*energía cinética rotacional*, the OpenStax form and the Wikidata `es` label, in `aliases`) | sidecar (`magnitudes/kinetic-energy`, `magnitudes/moment-of-inertia`); [OpenStax *Física universitaria* vol. 1, 10.4](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/10-4-momento-de-inercia-y-energia-cinetica-rotacional); Wikidata [Q2140940](https://www.wikidata.org/wiki/Q2140940) |
+| normal stress; tensile, compressive | tensión normal (*esfuerzo normal* in `aliases`); de tracción, de compresión | Wikidata [Q11425837](https://www.wikidata.org/wiki/Q11425837) `es` label |
+| linear strain | deformación unitaria lineal, extending the stress/strain row (*dilatación lineal relativa*, the Wikidata `es` label, in `aliases`) | Wikidata [Q1990546](https://www.wikidata.org/wiki/Q1990546) |
+| angle of repose (body on an incline) | ángulo de reposo (*ángulo de rozamiento* only in `aliases`) | Wikidata [Q532078](https://www.wikidata.org/wiki/Q532078) `es` label |
+| gravitational potential | potencial gravitatorio (*potencial gravitacional* in `aliases`) | Wikidata [Q1544012](https://www.wikidata.org/wiki/Q1544012) `es` label |
+| Schwarzschild radius, event horizon | radio de Schwarzschild, horizonte de sucesos | Wikidata [Q72755](https://www.wikidata.org/wiki/Q72755) `es` label; *horizonte de sucesos*: usage |
+| total mechanical energy of an orbit | energía mecánica total de la órbita (*energía orbital* in `aliases`) | usage |
 
 ### Fluids, waves and optics
 
@@ -240,6 +254,11 @@ Prefix names: *mili* per RAE; *atto* per the DLE entry *atto-* and, with *zetta*
 | irradiance | irradiancia | CEM |
 | optical power | potencia óptica | Wikidata [Q559265](https://www.wikidata.org/wiki/Q559265) `es` label |
 | luminous efficacy of a source | eficacia luminosa de una fuente (*rendimiento luminoso* in `aliases`) | Wikidata [Q3425218](https://www.wikidata.org/wiki/Q3425218) `es` label and alias |
+| Bernoulli's equation, Bernoulli's principle, streamline | ecuación de Bernoulli, principio de Bernoulli, línea de corriente | [OpenStax *Física universitaria* vol. 1, 14.6](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/14-6-ecuacion-de-bernoulli); Wikidata [Q181328](https://www.wikidata.org/wiki/Q181328) |
+| drag force, drag coefficient, Stokes' law | fuerza de arrastre, coeficiente de arrastre, ley de Stokes | [OpenStax *Física universitaria* vol. 1, 6.4](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/6-4-fuerza-de-arrastre-y-velocidad-limite); Wikidata [Q824561](https://www.wikidata.org/wiki/Q824561) |
+| terminal velocity | velocidad límite as the entry name; *rapidez límite* in term labels and prose, per the speed row; *velocidad terminal* in `aliases` | [OpenStax *Física universitaria* vol. 1, 6.4](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/6-4-fuerza-de-arrastre-y-velocidad-limite); Wikidata [Q614981](https://www.wikidata.org/wiki/Q614981) `es` label |
+| drag equation, reference area | ecuación de arrastre, área de referencia (OpenStax says *área transversal*) | Wikidata [Q9300786](https://www.wikidata.org/wiki/Q9300786) `es` label; *área de referencia*: usage |
+| Reynolds number, viscous stress | número de Reynolds, tensión viscosa (per the stress row, never *esfuerzo viscoso*) | usage |
 
 ### Thermodynamics
 
@@ -456,3 +475,11 @@ Prefix names: *mili* per RAE; *atto* per the DLE entry *atto-* and, with *zetta*
 | rectangular prism (cuboid), space diagonal | prisma rectangular (*ortoedro* and *paralelepípedo rectangular* in `aliases`), diagonal espacial | usage |
 | lateral area, surface area | área lateral, área total; the sphere follows its siblings (*Área total de la esfera*) | usage |
 | opposite leg, adjacent leg | cateto opuesto, cateto contiguo (*cateto adyacente* in `aliases`) | usage |
+| standard error of the mean | error estándar de la media (*error típico de la media* in `aliases`) | [OpenStax *Introducción a la estadística*, 8 Introducción](https://openstax.org/books/introducci%C3%B3n-estad%C3%ADstica/pages/8-introduccion); Wikidata [Q620994](https://www.wikidata.org/wiki/Q620994) `es` label *error estándar* |
+| margin of error, confidence interval, confidence level, critical value, sample size | margen de error, intervalo de confianza, nivel de confianza, valor crítico, tamaño de la muestra | [OpenStax *Introducción a la estadística*, 8 Introducción](https://openstax.org/books/introducci%C3%B3n-estad%C3%ADstica/pages/8-introduccion); Wikidata [Q1352827](https://www.wikidata.org/wiki/Q1352827); *valor crítico*: usage |
+| coefficient of variation | coeficiente de variación (*coeficiente de variabilidad*, the Wikidata `es` alias, and *desviación típica relativa* in `aliases`) | Wikidata [Q623738](https://www.wikidata.org/wiki/Q623738) |
+| exponential distribution, cumulative distribution function, rate parameter, memoryless property | distribución exponencial, función de distribución acumulada (*acumulativa*, the OpenStax form, in `aliases`), parámetro de tasa (the OpenStax *parámetro de decaimiento* is named once in the exponential entry; the *decaimiento* row of the no-calques table covers radioactivity), propiedad de falta de memoria | [OpenStax *Introducción a la estadística*, 5.3](https://openstax.org/books/introducci%C3%B3n-estad%C3%ADstica/pages/5-3-la-distribucion-exponencial); Wikidata [Q237193](https://www.wikidata.org/wiki/Q237193); Wikidata [Q386228](https://www.wikidata.org/wiki/Q386228) `es` alias *función de distribución acumulada* |
+| Cramer's rule, determinant, constant term (of a linear equation) | regla de Cramer (*método de Cramer* in `aliases`), determinante, término independiente | Wikidata [Q322666](https://www.wikidata.org/wiki/Q322666) `es` label and alias |
+| circumradius, circumscribed circle, circumcentre | circunradio, circunferencia circunscrita (term label *Radio de la circunferencia circunscrita*), circuncentro | Wikidata [Q3678113](https://www.wikidata.org/wiki/Q3678113) `es` label |
+| extended law of sines | teorema del seno generalizado, per the law of sines row (*teorema de los senos generalizado*, *teorema del seno extendido*, *ley de senos extendida* in `aliases`) | usage: Spanish Wikipedia names the 2R form *teorema de los senos generalizado*; no source found for *extendido* |
+| nominal annual rate | tasa nominal anual | sidecar (`equations/compound-interest`) |

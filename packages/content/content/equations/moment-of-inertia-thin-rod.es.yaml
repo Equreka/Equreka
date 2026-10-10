@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Momento de inercia de una varilla delgada respecto a su centro'
+terms:
+  L:
+    label: 'Longitud de la varilla'
+description: >-
+  El momento de inercia de una varilla delgada y uniforme respecto a un eje que pasa por su centro,
+  perpendicular a su longitud, es un doceavo de su masa por el cuadrado de su longitud. Esta fórmula
+  de forma de la mecánica de la rotación describe un bastón, un par de palas de hélice, el tablón de
+  un balancín o subibaja, o un palo que gira, cualquier cuerpo esbelto que da vueltas de punta a punta alrededor
+  de su punto medio.
+
+  Aquí $\mag{I}$ es el momento de inercia en kilogramo metro cuadrado, $\mag{M}$ es la masa de la
+  varilla en kilogramos y $\var{L}$ es su longitud total en metros. Las tres son no negativas, así
+  que al despejar la longitud solo se conserva la raíz cuadrada no negativa.
+
+  La varilla puede tratarse como una sucesión de trozos diminutos, cada uno de los cuales contribuye con
+  su masa por el cuadrado de su distancia al centro. Con la masa repartida por igual a lo largo de la
+  varilla, integrar de un extremo al otro, media longitud a cada lado del centro, da el factor un
+  doceavo. Respecto a un eje paralelo que pasa por un extremo, el teorema del eje paralelo añade la
+  masa por el cuadrado de media longitud, y el resultado pasa a ser un tercio de la masa por la
+  longitud al cuadrado, cuatro veces el valor respecto al centro.
+
+  La fórmula supone una varilla uniforme cuyo grosor es despreciable frente a su longitud; una barra
+  gruesa o un cilindro que gira alrededor de un diámetro requieren un término más para su radio. Vale
+  solo para el eje que pasa por el centro en ángulo recto con la varilla: respecto a su propio eje
+  longitudinal, una varilla delgada casi no tiene momento de inercia.
+
+  Una varilla uniforme de 2.0 kilogramos y 0.50 metros de longitud tiene un momento de inercia de
+  unos $0.042\,\mathrm{kg\,m^{2}}$ respecto a su centro y de unos $0.17\,\mathrm{kg\,m^{2}}$ respecto a
+  un extremo.

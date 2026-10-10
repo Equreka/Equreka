@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Velocidad angular y desplazamiento angular con aceleración angular constante'
+terms:
+  \omega:
+    label: 'Velocidad angular final'
+  \omega_{0}:
+    label: 'Velocidad angular inicial'
+  \Delta\theta:
+    label: 'Desplazamiento angular'
+description: >-
+  Con aceleración angular constante, esta ecuación relaciona las velocidades angulares inicial y
+  final de un cuerpo que gira alrededor de un eje fijo con el ángulo girado, sin el tiempo: el
+  cuadrado de la velocidad angular final es el de la inicial más el doble de la aceleración angular
+  por el desplazamiento angular. Es el análogo rotacional de la ecuación lineal de velocidad y
+  desplazamiento.
+
+  En la ecuación, $\var{\omega}$ y $\var{\omega_{0}}$ son las velocidades angulares final e inicial
+  en radianes por segundo, $\mag{\alpha}$ la aceleración angular constante en radianes por segundo al
+  cuadrado y $\var{\Delta\theta}$ el desplazamiento angular en radianes, posición angular final menos
+  inicial. Las cuatro tienen signo respecto al eje, positivo en sentido contrario a las agujas del
+  reloj visto desde el extremo positivo del eje. El producto de la aceleración angular por el
+  desplazamiento es positivo cuando el cuerpo es impulsado en el sentido de su giro, lo que aumenta
+  su rapidez angular, y negativo cuando la aceleración se opone a él, como al frenar.
+
+  La relación se obtiene al eliminar el tiempo entre las ecuaciones de la velocidad angular y del
+  desplazamiento angular: el ángulo girado es la velocidad angular media por el tiempo, y el tiempo
+  es el cambio de velocidad angular dividido entre la aceleración angular. Multiplicada por la mitad
+  del momento de inercia, se convierte en el teorema de trabajo-energía para un momento de una fuerza
+  constante.
+
+  Como las dos velocidades angulares aparecen al cuadrado, la ecuación fija su valor absoluto pero no
+  su sentido. Al despejar cualquiera de ellas se obtienen una raíz positiva y otra negativa; la
+  positiva figura primero y vale cuando el cuerpo gira en el sentido positivo, mientras que la
+  negativa es la misma rapidez angular en sentido contrario. Un número negativo bajo la raíz cuadrada
+  indica que el cuerpo nunca llega a girar ese ángulo, como una rueda frenada que se detiene antes.
+  Los ángulos van en radianes y la aceleración angular es constante.
+
+  Una rueda de tren que parte del reposo con una aceleración angular de 0.250 radianes por segundo al
+  cuadrado alcanza unos 25.1 radianes por segundo tras 200 revoluciones.

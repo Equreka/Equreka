@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Energía cinética de rotación'
+description: >-
+  La energía cinética de rotación de un sólido rígido que gira alrededor de un eje fijo es la mitad
+  de su momento de inercia respecto a ese eje por el cuadrado de su velocidad angular. Es la energía
+  de movimiento almacenada en ruedas, volantes de inercia, turbinas y rotores que giran, el
+  equivalente rotacional en mecánica de la mitad de la masa por la rapidez al cuadrado.
+
+  Aquí $\mag{E_\mathrm{rot}}$ es la energía cinética de rotación en julios, $\mag{I}$ es el momento
+  de inercia en kilogramo metro cuadrado y $\mag{\omega}$ es la velocidad angular en radianes por
+  segundo. La velocidad angular lleva signo, positivo para un sentido de giro y negativo para el
+  otro, pero aparece al cuadrado, de modo que la energía nunca es negativa. Por eso, al despejarla
+  se obtienen dos raíces del mismo valor absoluto, con la positiva en primer lugar, y el sentido de
+  giro debe deducirse de la situación.
+
+  Todas las partículas del cuerpo comparten la misma velocidad angular, y una situada a cierta
+  distancia del eje se mueve con una rapidez igual a esa distancia por la velocidad angular. Al
+  sumar la mitad de la masa de cada partícula por su rapidez al cuadrado, las masas y las distancias
+  al cuadrado se agrupan en el momento de inercia y queda la fórmula. La energía crece con el
+  cuadrado del ritmo de giro: duplicar la velocidad angular almacena cuatro veces más energía.
+
+  La velocidad angular debe expresarse en radianes por segundo para que el resultado salga en
+  julios; las revoluciones por minuto o los grados por segundo deben convertirse antes. Un cuerpo que
+  a la vez se traslada y gira, como una rueda que rueda o un bastón lanzado, tiene una energía
+  cinética total igual a este término, tomado respecto a un eje que pasa por el centro de masas, más
+  la energía de traslación del centro de masas. La fórmula no es relativista, igual que su
+  equivalente lineal.
+
+  Cuatro palas de helicóptero con un momento de inercia conjunto de $1067\,\mathrm{kg\,m^{2}}$ que
+  giran a 31.4 radianes por segundo almacenan unos $5.26\times10^{5}\,\mathrm{J}$.

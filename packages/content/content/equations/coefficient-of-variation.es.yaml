@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Coeficiente de variación'
+terms:
+  c_\mathrm{v}:
+    label: 'Coeficiente de variación'
+  \sigma:
+    label: 'Desviación típica'
+  \mu:
+    label: 'Media'
+description: >-
+  El coeficiente de variación es la desviación típica de un conjunto de datos o de una distribución
+  dividida entre su media. También llamado desviación típica relativa, y expresado a menudo como
+  porcentaje, es una medida de dispersión relativa de la estadística descriptiva: expresa la
+  dispersión como fracción del tamaño típico de los valores, de modo que se pueden comparar
+  directamente conjuntos de datos con unidades distintas o con medias muy diferentes.
+
+  En la fórmula, $\var{c_\mathrm{v}}$ es el coeficiente de variación, un número puro que suele darse
+  como decimal o como porcentaje, $\var{\sigma}$ la desviación típica y $\var{\mu}$ la media, ambas
+  en la unidad de los datos, que la división cancela. La desviación típica nunca es negativa y la
+  media no puede ser cero; con datos positivos, el caso habitual, el coeficiente es positivo.
+
+  La desviación típica por sí sola indica cuánto se dispersan los valores en la unidad de medida, lo
+  que hace que una dispersión de 5 gramos sea grande para una muestra de 10 gramos y despreciable
+  para una de 10 kilogramos. Dividir entre la media elimina la unidad y la escala, y deja la
+  dispersión por unidad de tamaño medio. Leída al revés, un coeficiente y una media conocidos dan la
+  desviación típica, y un coeficiente y una desviación típica conocidos dan la media.
+
+  El cociente solo tiene sentido con datos en una escala de razón, con un cero verdadero, como
+  longitudes, masas o temperaturas en kelvin. En una escala de intervalo como los grados Celsius el
+  cero es arbitrario, y las mismas temperaturas dan coeficientes distintos en Celsius y en
+  Fahrenheit. Cuando la media está cerca de cero, pequeños cambios en ella hacen oscilar mucho el
+  coeficiente, y la medida deja de ser fiable. Con una muestra, la desviación típica y la media
+  muestrales sustituyen a los valores de la población.
+
+  Los laboratorios expresan así la repetibilidad de un ensayo, y los ingenieros lo usan para
+  comparar la regularidad de distintos procesos. Unos valores con media 50 y desviación típica 5
+  tienen un coeficiente de variación de 0.10, es decir, del 10 por ciento.

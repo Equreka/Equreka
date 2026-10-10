@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Momento angular de un sólido rígido'
+description: >-
+  El momento angular de un sólido rígido que gira alrededor de un eje fijo es su momento de inercia
+  respecto a ese eje por su velocidad angular. Es el equivalente rotacional de masa por velocidad en
+  mecánica, y la magnitud que se mantiene constante cuando un patinador, un saltador de trampolín o
+  un planeta que giran quedan libres de momentos de fuerzas externas.
+
+  Aquí $\mag{L}$ es el momento angular a lo largo del eje en kilogramo metro cuadrado por segundo, la
+  misma unidad que el julio segundo; $\mag{I}$ es el momento de inercia en kilogramo metro cuadrado,
+  nunca negativo; y $\mag{\omega}$ es la velocidad angular en radianes por segundo. El momento
+  angular lleva el signo de la velocidad angular: si el giro contrario a las agujas del reloj se toma
+  como positivo, un giro en el sentido de las agujas del reloj tiene momento angular negativo. Como vectores,
+  ambos apuntan a lo largo del eje según la regla de la mano derecha.
+
+  Cada partícula del cuerpo contribuye con su masa por su rapidez por su distancia al eje. Como todas
+  las partículas comparten la misma velocidad angular, su rapidez es esa distancia por la velocidad
+  angular, y al sumar las contribuciones las masas y las distancias al cuadrado se agrupan en el
+  momento de inercia. El momento neto de las fuerzas externas es igual a la variación por unidad de tiempo de este
+  momento angular, que para un momento de inercia fijo se reduce al momento de inercia por la
+  aceleración angular.
+
+  La fórmula da el momento angular completo solo cuando el cuerpo es simétrico respecto al eje de
+  giro o gira alrededor de uno de sus ejes principales; en otro caso, las componentes de los momentos
+  angulares de las partículas transversales al eje no se anulan y el momento angular no es paralelo
+  a la velocidad angular. Sin momento de fuerzas externas, el producto permanece fijo, de modo que un patinador
+  que recoge los brazos reduce su momento de inercia y gira más deprisa.
+
+  Un brazo robótico con un momento de inercia de $1.67\,\mathrm{kg\,m^{2}}$ que gira a 0.314
+  radianes por segundo tiene un momento angular de unos $0.52\,\mathrm{kg\,m^{2}/s}$.

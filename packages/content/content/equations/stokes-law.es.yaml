@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de Stokes'
+terms:
+  F_\mathrm{d}:
+    label: 'Fuerza de arrastre'
+description: >-
+  La ley de Stokes da la fuerza de arrastre sobre una esfera pequeña que se mueve despacio a través
+  de un fluido viscoso: seis pi por la viscosidad dinámica del fluido por el radio de la esfera por
+  su rapidez. A diferencia del arrastre cuadrático sobre cuerpos grandes y rápidos, este arrastre
+  viscoso crece en proporción directa a la rapidez, y rige la sedimentación del polvo, el polen, los
+  granos de sedimento y los microorganismos.
+
+  En la ecuación, $\var{F_\mathrm{d}}$ es el módulo de la fuerza de arrastre en newtons, opuesta al
+  movimiento de la esfera respecto al fluido; $\mag{\eta}$ es la viscosidad dinámica del fluido, que
+  se expresa en pascal segundo; $\var{r}$ el radio de la esfera en metros, y $\mag{v}$ su rapidez
+  respecto al fluido no perturbado lejos de ella, en metros por segundo. Las cuatro son no
+  negativas.
+
+  A rapideces muy bajas la inercia del fluido es despreciable frente a sus tensiones viscosas, de
+  modo que el flujo se cierra suavemente detrás de la esfera sin formar estela, y al resolver las
+  ecuaciones del flujo viscoso para ese caso se obtiene la fuerza de forma exacta. Igualar el
+  arrastre al peso de una esfera que se hunde da una rapidez límite proporcional al peso e
+  inversamente proporcional a la viscosidad y al radio; el empuje, el peso del fluido desalojado, se
+  resta cuando es apreciable, como en el agua.
+
+  La ley solo vale con un número de Reynolds bajo, la razón entre los efectos inerciales y los
+  viscosos que se forma con la densidad del fluido, la rapidez y el diámetro de la esfera divididos
+  entre la viscosidad: por debajo de aproximadamente uno. Con números de Reynolds mayores el flujo
+  se separa detrás de la esfera y el arrastre supera el valor de Stokes, acercándose a la ecuación
+  de arrastre cuadrático. La ley supone además una esfera rígida lejos de paredes y de otras
+  partículas, en un fluido por lo demás en reposo.
+
+  George Gabriel Stokes dedujo el resultado en 1851, mientras estudiaba cómo un fluido
+  amortigua la oscilación de un péndulo. Una bola de acero de densidad 7860 kilogramos por metro cúbico y un
+  centímetro de diámetro que se hunde en miel de viscosidad $5\,\mathrm{Pa\,s}$ desciende a unos
+  8.56 centímetros por segundo sin contar el empuje; en la miel, el empuje reduce esa cifra de forma
+  apreciable.

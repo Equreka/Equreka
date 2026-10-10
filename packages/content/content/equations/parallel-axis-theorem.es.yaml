@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Teorema del eje paralelo'
+terms:
+  I:
+    label: 'Momento de inercia respecto al eje paralelo'
+  I_\mathrm{cm}:
+    label: 'Momento de inercia respecto al eje que pasa por el centro de masas'
+  d:
+    label: 'Distancia entre los ejes'
+description: >-
+  El teorema del eje paralelo permite obtener el momento de inercia de un sólido rígido para
+  cualquier eje partiendo del valor respecto al eje paralelo trazado por su centro de masas: basta
+  sumar la masa del cuerpo por el cuadrado de la distancia entre ambos ejes. Conocido también como
+  teorema de Steiner, permite a la mecánica de la rotación reutilizar una tabla breve de resultados
+  respecto al centro de masas para cualquier eje desplazado.
+
+  Aquí $\var{I}$ es el momento de inercia respecto al nuevo eje y $\var{I_\mathrm{cm}}$ el momento de
+  inercia respecto al eje paralelo por el centro de masas, ambos en kilogramo metro
+  cuadrado; $\mag{M}$ es la masa total en kilogramos; y $\var{d}$ es la distancia perpendicular
+  entre los dos ejes en metros, nunca negativa, así que al despejarla solo se conserva la raíz
+  cuadrada no negativa.
+
+  El término añadido es el momento de inercia que tendría el cuerpo si toda su masa estuviera en su
+  centro de masas. Como ese término nunca es negativo, el eje por el centro de masas da el
+  menor momento de inercia entre todos los ejes con esa dirección, y el valor crece con el cuadrado
+  del desplazamiento. Una varilla delgada muestra el efecto: llevar el eje del centro a un extremo,
+  a media longitud de distancia, eleva su momento de inercia de un doceavo a un tercio de la masa
+  por la longitud al cuadrado.
+
+  El teorema vale para cualquier sólido rígido, sea cual sea su forma o su densidad, pero solo entre
+  ejes paralelos, y uno de los dos debe pasar por el centro de masas. Para pasar entre dos ejes que no
+  pasan por el centro de masas hacen falta dos pasos a través de él, nunca un único desplazamiento
+  entre ellos. Los momentos de inercia de las partes de un cuerpo compuesto solo se suman si todos
+  se toman respecto al mismo eje, que es donde más se usa el teorema: un péndulo formado por una
+  varilla y una bola, una rueda con pesas en los radios o una puerta colgada de sus bisagras.

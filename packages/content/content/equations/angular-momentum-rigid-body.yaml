@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Angular momentum of a rigid body'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{L}=\mag{I}\mag{\omega}'
+terms:
+  L:
+    kind: 'magnitude'
+    ref: 'angular-momentum'
+  I:
+    kind: 'magnitude'
+    ref: 'moment-of-inertia'
+  \omega:
+    kind: 'magnitude'
+    ref: 'angular-velocity'
+solutions:
+  L: 'I * omega'
+  I: 'L / omega'
+  \omega: 'L / I'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'L = I omega'
+  - 'L = I w'
+  - 'spin angular momentum of a rigid body'
+  - 'angular momentum of a rotating body'
+  - 'momento angular de un sólido rígido'
+  - 'momento cinético de un sólido rígido'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 11.2 Angular Momentum, Example 11.6'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/11-2-angular-momentum'
+  - title: 'R. Nave, HyperPhysics, Angular Momentum'
+    url: 'https://hyperphysics.gsu.edu/hbase/amom.html'
+  - title: 'Embry-Riddle Aeronautical University, PS 161 lecture notes, Chapter 10 Dynamics of Rotational Motion, section 5'
+    url: 'https://physicsx.erau.edu/Courses/CoursesF2024/PS161/Lectures/chapter_10.pdf'
+description:
+  en: >-
+    A rigid body turning about a fixed axis has an angular momentum equal to its moment of inertia
+    about that axis times its angular velocity. It is the rotational counterpart of mass times velocity in
+    mechanics, and the quantity that stays constant when a spinning skater, diver or planet is left
+    free of external torque.
+
+    Here $\mag{L}$ is the angular momentum along the axis in kilogram square metres per second, the
+    same unit as the joule second; $\mag{I}$ is the moment of inertia in kilogram square metres,
+    never negative; and $\mag{\omega}$ is the angular velocity in radians per second. The angular
+    momentum carries the sign of the angular velocity: with anticlockwise rotation taken as
+    positive, a clockwise spin has negative angular momentum. As vectors, both point along the axis
+    by the right-hand rule.
+
+    Each particle of the body contributes its mass times its speed times its distance from the
+    axis. Because every particle shares the same angular velocity, its speed is that distance times
+    the angular velocity, and adding the contributions collects the masses and squared distances
+    into the moment of inertia. The net external torque equals the rate at which this angular
+    momentum changes, which for a fixed moment of inertia reduces to the moment of inertia times
+    the angular acceleration.
+
+    The formula gives the full angular momentum only when the body is symmetric about the axis of
+    rotation, or turns about one of its principal axes; otherwise the components of the particles'
+    angular momenta across the axis do not cancel and the angular momentum is not parallel to the
+    angular velocity. When no external torque acts, the product stays fixed, so a skater who pulls
+    in their arms lowers the moment of inertia and spins faster.
+
+    A robot arm with a moment of inertia of $1.67\,\mathrm{kg\,m^{2}}$ turning at 0.314 radians per
+    second has an angular momentum of about $0.52\,\mathrm{kg\,m^{2}/s}$.

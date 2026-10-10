@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Módulo de Young'
+terms:
+  E:
+    label: 'Módulo de Young'
+  \varepsilon:
+    label: 'Deformación unitaria lineal'
+description: >-
+  El módulo de Young es el cociente entre la tensión normal en un sólido estirado o comprimido y la
+  deformación unitaria lineal que produce, dentro del intervalo en que ambas son proporcionales.
+  Llamado también módulo de elasticidad, mide la rigidez de un material a tracción y compresión y es
+  la pendiente del primer tramo recto de su curva tensión-deformación.
+
+  Aquí $\var{E}$ es el módulo de Young en pascales, que suele expresarse en gigapascales;
+  $\mag{\sigma}$ es la tensión normal en pascales; y $\var{\varepsilon}$ es la deformación unitaria
+  lineal, un cociente sin unidad. La tensión y la deformación llevan el mismo signo, positivo a
+  tracción y negativo a compresión, de modo que el módulo siempre es positivo. Cuanto mayor es el
+  módulo, menos se deforma un material bajo una tensión dada.
+
+  Reordenada, la relación dice que la tensión es proporcional a la deformación, la forma de la ley
+  de Hooke para los materiales. Si se escribe la tensión como fuerza entre área y la deformación como
+  variación de longitud entre longitud original, el alargamiento de una barra resulta ser la fuerza
+  por la longitud original dividida entre el área y el módulo, y así se estima cuánto se estira un
+  cable o cuánto se acorta una columna.
+
+  La proporcionalidad vale solo para deformaciones pequeñas, hasta el límite de proporcionalidad, y
+  el módulo predice la deformación solo mientras la tensión no supere el límite elástico;
+  más allá, el material se deforma de forma permanente. El valor es una propiedad del material, no
+  del tamaño de la pieza, y se aplica al estiramiento y la compresión en una dirección; el
+  cizallamiento y los cambios de volumen tienen sus propios módulos, el módulo de cizalladura y el
+  módulo de compresibilidad.
+
+  Thomas Young introdujo el módulo en una lección sobre la elasticidad incluida en el curso de
+  lecciones que publicó en 1807. El acero estructural tiene un
+  módulo de Young de unos $2.0\times10^{11}\,\mathrm{Pa}$, y el aluminio, alrededor de un tercio de
+  ese valor.

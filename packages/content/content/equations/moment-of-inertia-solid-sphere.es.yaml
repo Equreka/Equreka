@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Momento de inercia de una esfera maciza'
+description: >-
+  El momento de inercia de una esfera maciza respecto a cualquier diámetro es dos quintos de su masa
+  por el cuadrado de su radio. Esta fórmula de forma de la mecánica de la rotación se aplica a una
+  bola uniforme que gira alrededor de un eje que pasa por su centro, desde una bola de bolos o la
+  bola de un rodamiento hasta una primera estimación para un planeta o una estrella.
+
+  Aquí $\mag{I}$ es el momento de inercia en kilogramo metro cuadrado, $\mag{M}$ es la masa de la
+  esfera en kilogramos y $\var{r}$ es su radio en metros. Las tres son no negativas, así que al
+  despejar el radio solo se conserva la raíz cuadrada no negativa. Todo diámetro es un eje de
+  simetría, de modo que el resultado es el mismo sea cual sea el diámetro alrededor del que gira la
+  esfera.
+
+  La esfera puede cortarse en discos delgados perpendiculares al eje, cada uno con la mitad de su
+  masa por el cuadrado de su propio radio. Al integrar esos discos de un polo al otro se obtiene el
+  factor dos quintos, menor que los dos tercios de una capa esférica delgada de igual masa y radio,
+  porque en la esfera maciza buena parte de la masa está cerca del eje y no en la superficie.
+
+  La fórmula supone que la densidad es la misma en todo el volumen y vale solo para ejes que pasan
+  por el centro. Para la Tierra, el cociente entre el momento de inercia y la masa por el radio al
+  cuadrado es 0.3308, por debajo del 0.4 de una bola uniforme, señal de que su masa se concentra
+  hacia el centro. Para un eje tangente a la superficie, o cualquier otro eje paralelo a un
+  diámetro, el teorema del eje paralelo añade la masa por el cuadrado de la distancia entre los
+  ejes.
+
+  Una esfera uniforme de 1.0 kilogramo y 0.20 metros de radio tiene un momento de inercia de
+  $0.016\,\mathrm{kg\,m^{2}}$ respecto a un diámetro.

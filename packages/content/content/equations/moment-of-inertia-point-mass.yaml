@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Moment of inertia of a point mass'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{I}=\mag{m}\var{r}^{2}'
+terms:
+  I:
+    kind: 'magnitude'
+    ref: 'moment-of-inertia'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Distance from the axis'
+    unit: 'metre'
+solutions:
+  I: 'm * r^2'
+  m: 'I / r^2'
+  r: 'sqrt(I / m)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'I = m r^2'
+  - 'I = mr^2'
+  - 'rotational inertia of a particle'
+  - 'moment of inertia of a particle'
+  - 'momento de inercia de una partícula'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 10.4 Moment of Inertia and Rotational Kinetic Energy'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-4-moment-of-inertia-and-rotational-kinetic-energy'
+  - title: 'OpenStax, University Physics Volume 1, 10.5 Calculating Moments of Inertia, Example 10.11'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-5-calculating-moments-of-inertia'
+  - title: 'R. Nave, HyperPhysics, Moment of Inertia'
+    url: 'https://hyperphysics.gsu.edu/hbase/mi.html'
+description:
+  en: >-
+    A point mass has a moment of inertia about any axis equal to its mass times the square of its
+    perpendicular distance from that axis. In rotational mechanics it is the simplest case of
+    rotational inertia, the resistance of a body to a change in its rate of turning, and the
+    building block from which the moment of inertia of every extended body is assembled.
+
+    Here $\mag{I}$ is the moment of inertia in kilogram square metres, $\mag{m}$ is the mass in
+    kilograms and $\var{r}$ is the distance in metres from the axis to the particle, measured at
+    right angles to the axis. All three are non-negative, so solving for the distance keeps only the
+    non-negative square root. The value belongs to a chosen axis: the same particle has a different
+    moment of inertia about every other axis.
+
+    Because the distance enters squared, mass far from the axis counts much more than mass near it:
+    moving a particle twice as far out multiplies its moment of inertia by four. For several
+    particles turning together about one axis, the moments add, so a system of masses has the sum
+    of each mass times the square of its own distance. A continuous body replaces that sum with an
+    integral over its mass, which yields the familiar results for rods, cylinders and spheres.
+
+    The formula treats the body as a point, with all its mass at one distance from the axis. It is a
+    good approximation when the size of the object is small compared with that distance, such as a
+    child on the edge of a playground merry-go-round or a small weight on a long, light arm.
+
+    A child of 25 kilograms sitting 1.0 metre from the axis of a merry-go-round adds
+    $25\,\mathrm{kg\,m^{2}}$ to its moment of inertia.

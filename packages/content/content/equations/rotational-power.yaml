@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Power delivered by a torque'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{P}=\mag{\tau}\mag{\omega}'
+terms:
+  P:
+    kind: 'magnitude'
+    ref: 'power'
+  \tau:
+    kind: 'magnitude'
+    ref: 'torque'
+  \omega:
+    kind: 'magnitude'
+    ref: 'angular-velocity'
+solutions:
+  P: 'tau * omega'
+  \tau: 'P / omega'
+  \omega: 'P / tau'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'rotational power'
+  - 'power in rotational motion'
+  - 'P = tau omega'
+  - 'power equals torque times angular velocity'
+  - 'shaft power'
+  - 'potencia en el movimiento de rotación'
+  - 'potencia de rotación'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 10.8 Work and Power for Rotational Motion, Example 10.19'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-8-work-and-power-for-rotational-motion'
+  - title: 'Embry-Riddle Aeronautical University, PS 161 lecture notes, Chapter 10 Dynamics of Rotational Motion, section 4'
+    url: 'https://physicsx.erau.edu/Courses/CoursesF2024/PS161/Lectures/chapter_10.pdf'
+description:
+  en: >-
+    The power delivered by a torque to a body rotating about a fixed axis is the torque times the
+    angular velocity. It is the rate at which the torque does work, the rotational counterpart of
+    force times velocity in mechanics, and it links the torque and spin rate of an engine, motor,
+    turbine or drive shaft to the power it transmits.
+
+    Here $\mag{P}$ is the power in watts, $\mag{\tau}$ is the torque about the axis in newton metres
+    and $\mag{\omega}$ is the angular velocity in radians per second. Torque and angular velocity are
+    signed with the same convention, anticlockwise positive when viewed from the positive end of the
+    axis. Their product is positive when
+    the torque acts in the sense of rotation, so the torque feeds energy into the body, and negative
+    when it opposes the rotation, as a brake or a load on a generator does.
+
+    While the body turns through a small angle, a torque does work equal to the torque times that
+    angle. Dividing by the time taken turns the angle into the angular velocity and the work into
+    power. For a constant torque the same reasoning applied to a finite interval gives the average
+    power as the torque times the average angular velocity.
+
+    The relation gives the power at one instant and holds while the spin rate changes. The angular
+    velocity must be in radians per second for the result to come out in watts; an engine speed in
+    revolutions per minute is first multiplied by two pi and divided by sixty. The same power can
+    come from a large torque at low speed or a small torque at high speed, which is why gearboxes
+    trade one for the other.
+
+    A boat engine delivering 90 kilowatts to its propeller shaft at 31.4 radians per second, about
+    300 revolutions per minute, applies a torque of about $2.87\times10^{3}\,\mathrm{N\,m}$.

@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Momento de inercia de un cilindro macizo respecto a su eje'
+description: >-
+  El momento de inercia de un cilindro macizo respecto a su propio eje de simetría es la mitad de su
+  masa por el cuadrado de su radio. El resultado describe cuánto cuesta cambiar el giro de una rueda,
+  un disco, un rodillo o un eje uniformes que giran alrededor de la recta que pasa por los centros
+  de sus dos caras planas, y es una de las fórmulas de forma habituales de la mecánica de la
+  rotación.
+
+  Aquí $\mag{I}$ es el momento de inercia en kilogramo metro cuadrado, $\mag{M}$ es la masa del
+  cilindro en kilogramos y $\var{r}$ es su radio en metros. Las tres son no negativas, así que al
+  despejar el radio solo se conserva la raíz cuadrada no negativa. La longitud del cilindro no
+  aparece: un disco delgado y una barra larga de igual masa y radio tienen el mismo momento de
+  inercia respecto a este eje.
+
+  El cilindro puede construirse con capas cilíndricas delgadas y coaxiales. Cada capa tiene toda su
+  masa a una misma distancia del eje, de modo que contribuye con su masa por el cuadrado de su
+  radio; al sumar las capas desde el eje hasta el borde se obtiene la mitad del valor que tendría un
+  aro delgado de igual masa y radio, porque buena parte del sólido está cerca del eje.
+
+  La fórmula supone una densidad uniforme y vale solo para el eje central de simetría. Respecto a un
+  diámetro que pasa por el centro, perpendicular a ese eje, el momento de inercia depende también
+  de la longitud; respecto a cualquier otro eje paralelo al de simetría, el teorema del eje paralelo
+  añade la masa por el cuadrado de la distancia entre los ejes. Un cilindro hueco o una rueda con el
+  borde pesado tienen un valor mayor que el macizo.
+
+  Un disco uniforme de 50.0 kilogramos y 1.50 metros de radio, como un carrusel, tiene un momento de
+  inercia de $56.25\,\mathrm{kg\,m^{2}}$.

@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Error estándar de la media'
+terms:
+  \mathrm{SE}:
+    label: 'Error estándar de la media'
+  \sigma:
+    label: 'Desviación típica'
+  n:
+    label: 'Tamaño de la muestra'
+description: >-
+  El error estándar de la media mide cuánto se espera que varíe la media de una muestra aleatoria de
+  una muestra a otra: es el cociente entre la desviación típica de la población y la raíz del número
+  de observaciones. Abreviado SE o SEM, da la dispersión de las medias muestrales que produciría un
+  muestreo repetido, la medida básica de precisión de la estadística inferencial.
+
+  En la fórmula, $\var{\mathrm{SE}}$ es el error estándar de la media, $\var{\sigma}$ la desviación
+  típica de los valores individuales y $\var{n}$ el tamaño de la muestra, un número entero positivo.
+  El error estándar y la desviación típica comparten la unidad de los datos, que la fórmula deja
+  abierta, y ninguno de los dos es nunca negativo.
+
+  Cada observación añade un ruido aleatorio independiente a la media muestral, y promediar
+  $\var{n}$ valores de ese tipo divide la varianza de la media entre $\var{n}$; la raíz cuadrada lo
+  convierte en la división de la desviación típica entre la raíz de $\var{n}$. Por eso el error
+  estándar disminuye despacio con el tamaño de la muestra: reducirlo a la mitad exige cuatro veces
+  más observaciones. Despejar el tamaño de la muestra a partir de un error estándar objetivo da el
+  cuadrado del cociente de las dos dispersiones, que en la práctica se redondea al entero
+  siguiente.
+
+  La fórmula supone observaciones independientes extraídas al azar de una misma población, como en
+  un muestreo aleatorio simple; cuando las observaciones sucesivas están correlacionadas, la
+  dispersión real de la media difiere de este valor, mayor o menor según el signo de la
+  correlación. La desviación típica de la población casi nunca se conoce, así que suele ocupar su lugar la desviación típica muestral, lo que convierte el resultado
+  en una estimación. Por el teorema central del límite, la media muestral sigue aproximadamente una
+  distribución normal en muestras grandes, de modo que el error estándar fija la anchura de los
+  intervalos de confianza y la escala de las pruebas sobre una media.
+
+  Los informes de mediciones y de encuestas lo citan junto a la media. En una población con una
+  desviación típica de 15, las muestras de 25 valores dan un error estándar de 3.

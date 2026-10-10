@@ -1,0 +1,110 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Bernoulli''s equation'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{p_{1}}+\frac{1}{2}\mag{\rho}\var{v_{1}}^{2}+\mag{\rho}\var{g}\var{h_{1}}=\var{p_{2}}+\frac{1}{2}\mag{\rho}\var{v_{2}}^{2}+\mag{\rho}\var{g}\var{h_{2}}'
+terms:
+  p_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Pressure at point 1'
+    unit: 'pascal'
+  p_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Pressure at point 2'
+    unit: 'pascal'
+  v_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Flow speed at point 1'
+    unit: 'metre-per-second'
+  v_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Flow speed at point 2'
+    unit: 'metre-per-second'
+  h_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Height of point 1'
+    unit: 'metre'
+  h_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Height of point 2'
+    unit: 'metre'
+  \rho:
+    kind: 'magnitude'
+    ref: 'density'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+solutions:
+  p_{1}: 'p_2 + rho * (v_2^2 - v_1^2) / 2 + rho * g * (h_2 - h_1)'
+  p_{2}: 'p_1 + rho * (v_1^2 - v_2^2) / 2 + rho * g * (h_1 - h_2)'
+  v_{1}: 'sqrt(v_2^2 + 2 * (p_2 - p_1) / rho + 2 * g * (h_2 - h_1))'
+  v_{2}: 'sqrt(v_1^2 + 2 * (p_1 - p_2) / rho + 2 * g * (h_1 - h_2))'
+  h_{1}: 'h_2 + (p_2 - p_1) / (rho * g) + (v_2^2 - v_1^2) / (2 * g)'
+  h_{2}: 'h_1 + (p_1 - p_2) / (rho * g) + (v_1^2 - v_2^2) / (2 * g)'
+  \rho: '(p_2 - p_1) / ((v_1^2 - v_2^2) / 2 + g * (h_1 - h_2))'
+  g: '((p_2 - p_1) / rho + (v_2^2 - v_1^2) / 2) / (h_1 - h_2)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q181328'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'Bernoulli equation'
+  - 'Bernoulli''s principle'
+  - 'Bernoulli''s theorem'
+  - 'Bernoullis equation'
+  - 'p + 1/2 rho v^2 + rho g h = constant'
+  - 'ecuación de Bernoulli'
+  - 'principio de Bernoulli'
+  - 'teorema de Bernoulli'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 14.6 Bernoulli''s Equation, equation 14.16 and Example 14.6'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-6-bernoullis-equation'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Bernoulli equation'
+    url: 'https://hyperphysics.gsu.edu/hbase/pber.html'
+  - title: 'MacTutor History of Mathematics, Daniel Bernoulli (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Bernoulli_Daniel/'
+  - title: 'NIST, CODATA Value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+description:
+  en: >-
+    Bernoulli's equation states that, along a streamline of a steady flow of an ideal fluid, the
+    pressure plus the kinetic energy per unit volume plus the gravitational potential energy per
+    unit volume keeps the same value. Written between two points of the flow, it is the energy
+    balance of fluid dynamics, behind Venturi meters, siphons, nozzles and the lower pressure in a
+    fast stream; at equal heights it reduces to Bernoulli's principle.
+
+    Here $\var{p_{1}}$ and $\var{p_{2}}$ are the pressures at points 1 and 2 in pascals, both
+    absolute or both gauge; $\var{v_{1}}$ and $\var{v_{2}}$ the flow speeds there in metres per
+    second, never negative, so each is solved as the non-negative root; $\var{h_{1}}$ and
+    $\var{h_{2}}$ their heights in metres above any common reference level; $\mag{\rho}$ the density
+    of the fluid in kilograms per cubic metre; and $\var{g}$ the gravitational acceleration, entered
+    as a positive number, standard value 9.80665 metres per second squared, varying with place.
+
+    The equation is the work–energy theorem applied to a small parcel of fluid: the net work done by
+    the pressure of the surrounding fluid as the parcel moves from one point to the other equals the
+    gain in its kinetic and gravitational potential energy. With the fluid at rest it reduces to the
+    increase of pressure with depth; at constant height, a faster stream has a lower pressure.
+
+    The equation assumes an incompressible fluid of constant density, no viscous losses, steady flow
+    without turbulence, and two points on the same streamline; pumps, turbines and friction in pipes
+    need extra terms. It describes liquids well and gases only at speeds low enough for their density
+    to stay nearly constant.
+
+    Daniel Bernoulli set out the energy analysis of fluid flow in Hydrodynamica, published in 1738.
+    Water, of density 1000 kilograms per cubic metre, in a level hose at 1.96 metres per second
+    leaving a nozzle at 25.5 metres per second into open air at an absolute pressure of
+    $1.01\times10^{5}\,\mathrm{Pa}$ needs an absolute pressure in the hose of about
+    $4.24\times10^{5}\,\mathrm{Pa}$.

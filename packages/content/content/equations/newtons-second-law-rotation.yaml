@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Newton''s second law for rotation'
+kind: 'equation'
+level: 'intermediate'
+expression: '\mag{\tau}=\mag{I}\mag{\alpha}'
+terms:
+  \tau:
+    kind: 'magnitude'
+    ref: 'torque'
+  I:
+    kind: 'magnitude'
+    ref: 'moment-of-inertia'
+  \alpha:
+    kind: 'magnitude'
+    ref: 'angular-acceleration'
+solutions:
+  \tau: 'I * alpha'
+  I: 'tau / alpha'
+  \alpha: 'tau / I'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'tau = I alpha'
+  - 'torque equals moment of inertia times angular acceleration'
+  - 'rotational form of Newton''s second law'
+  - 'second law for rotation'
+  - 'equation of rotational motion'
+  - 'ecuación fundamental de la dinámica de rotación'
+  - 'segunda ley de Newton de la rotación'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 10.7 Newton''s Second Law for Rotation, Example 10.16'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-7-newtons-second-law-for-rotation'
+  - title: 'R. Nave, HyperPhysics, Newton''s Second Law for Rotation'
+    url: 'https://hyperphysics.gsu.edu/hbase/n2r.html'
+  - title: 'Embry-Riddle Aeronautical University, PS 161 lecture notes, Chapter 10 Dynamics of Rotational Motion, section 2'
+    url: 'https://physicsx.erau.edu/Courses/CoursesF2024/PS161/Lectures/chapter_10.pdf'
+  - title: 'MacTutor History of Mathematics, Leonhard Euler (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Euler/'
+description:
+  en: >-
+    Newton's second law for rotation states that the net torque on a rigid body turning about a
+    fixed axis equals its moment of inertia about that axis times its angular acceleration. It is
+    the rotational analogue of net force equals mass times acceleration, the equation of motion for
+    wheels, pulleys, flywheels and doors in rotational dynamics.
+
+    Here $\mag{\tau}$ is the net torque in newton metres, the sum of the torques of every external
+    force about the axis; $\mag{I}$ is the moment of inertia about the same axis in kilogram square
+    metres, never negative; and $\mag{\alpha}$ is the angular acceleration in radians per second
+    squared. Torque and angular acceleration are signed anticlockwise positive, viewed from the
+    positive end of the axis, and always share their sign: a positive torque on a body turning
+    clockwise gives a positive angular acceleration, which slows that turning.
+
+    The law follows from the linear form applied to each particle of the body. A tangential force on
+    a particle at a given distance from the axis produces a tangential acceleration equal to that
+    distance times the angular acceleration; multiplying both sides by the distance turns force into
+    torque and mass into mass times squared distance, and summing over all particles collects those
+    terms into the moment of inertia.
+
+    The relation needs every torque and the moment of inertia to be taken about the same axis, which
+    must be fixed in direction; it also holds about an axis through the centre of mass that moves
+    without turning, as in rolling, provided that axis is an axis of symmetry. For bodies spinning
+    about other axes, the angular momentum is not parallel to the angular velocity and the general
+    rule, net torque equals the rate of change of angular momentum, replaces it.
+
+    In his 1765 Theoria motus corporum solidorum, Leonhard Euler split the motion of a solid body
+    into a translation and a rotation, the setting of this law. A torque of 375 newton metres on a
+    uniform disc with a moment of inertia of $56.25\,\mathrm{kg\,m^{2}}$ gives an angular
+    acceleration of about 6.67 radians per second squared.

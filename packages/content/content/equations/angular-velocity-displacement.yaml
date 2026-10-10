@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Angular velocity and angular displacement under constant angular acceleration'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{\omega}^{2}=\var{\omega_{0}}^{2}+2\mag{\alpha}\var{\Delta\theta}'
+terms:
+  \omega:
+    kind: 'symbol'
+    label:
+      en: 'Final angular velocity'
+    unit: 'radian-per-second'
+  \omega_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial angular velocity'
+    unit: 'radian-per-second'
+  \alpha:
+    kind: 'magnitude'
+    ref: 'angular-acceleration'
+  \Delta\theta:
+    kind: 'symbol'
+    label:
+      en: 'Angular displacement'
+    unit: 'radian'
+solutions:
+  \omega:
+    - 'sqrt(omega_0^2 + 2 * alpha * Deltatheta)'
+    - '-sqrt(omega_0^2 + 2 * alpha * Deltatheta)'
+  \omega_{0}:
+    - 'sqrt(omega^2 - 2 * alpha * Deltatheta)'
+    - '-sqrt(omega^2 - 2 * alpha * Deltatheta)'
+  \alpha: '(omega^2 - omega_0^2) / (2 * Deltatheta)'
+  \Delta\theta: '(omega^2 - omega_0^2) / (2 * alpha)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'third equation of rotational motion'
+  - 'rotational velocity-displacement equation'
+  - 'omega^2 = omega0^2 + 2 alpha theta'
+  - 'ω² = ω0² + 2αθ'
+  - 'velocidad angular y desplazamiento angular'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 10.2 Rotation with Constant Angular Acceleration, equation 10.13'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-2-rotation-with-constant-angular-acceleration'
+  - title: 'OpenStax, College Physics 2e, 10.2 Kinematics of Rotational Motion, Example 10.5 (freight train wheels)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/10-2-kinematics-of-rotational-motion'
+description:
+  en: >-
+    Under constant angular acceleration, this equation links the initial and final angular
+    velocities of a body turning about a fixed axis to the angle it turns through, without the
+    time: the square of the final angular velocity equals the square of the initial one plus twice
+    the angular acceleration times the angular displacement. It is the rotational analogue of the
+    linear velocity–displacement equation.
+
+    In the equation, $\var{\omega}$ and $\var{\omega_{0}}$ are the final and initial angular
+    velocities in radians per second, $\mag{\alpha}$ the constant angular acceleration in radians per
+    second squared, and $\var{\Delta\theta}$ the angular displacement in radians, final angular
+    position minus initial. All four are signed about the axis, anticlockwise positive when
+    viewed from the positive end of the axis. The product of angular acceleration and displacement is
+    positive when the body is driven along its rotation, raising its angular speed, and negative
+    when the acceleration opposes it, as in braking.
+
+    The relation follows from eliminating the time between the angular velocity and angular
+    displacement equations: the angle turned is the mean angular velocity times the time, and the
+    time is the change in angular velocity divided by the angular acceleration. Multiplied by half
+    the moment of inertia, it becomes the work–energy theorem for a constant torque.
+
+    Because both angular velocities appear squared, the equation fixes their size but not their
+    sense. Solving for either gives a positive and a negative root; the positive one is listed first
+    and applies when the body turns in the positive sense, while the negative root is the same
+    angular speed the other way. A negative number under the square root means the body never turns
+    through that angle, as when a braked wheel stops short of it. Angles must be in radians, and the
+    angular acceleration constant.
+
+    A train wheel starting from rest with an angular acceleration of 0.250 radians per second
+    squared reaches about 25.1 radians per second after 200 revolutions.

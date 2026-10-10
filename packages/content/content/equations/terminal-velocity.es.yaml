@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Velocidad límite'
+terms:
+  g:
+    label: 'Aceleración de la gravedad'
+  C_\mathrm{d}:
+    label: 'Coeficiente de arrastre'
+  A:
+    label: 'Área de referencia'
+description: >-
+  La velocidad límite es la rapidez estable a la que tiende un cuerpo que cae a través de un fluido
+  cuando el arrastre ha crecido hasta igualar su peso, de modo que deja de acelerar. Para un
+  arrastre que crece con el cuadrado de la rapidez, como el de los paracaidistas y otros cuerpos
+  grandes que caen en el aire, es la raíz cuadrada del doble del peso dividido entre el producto del
+  coeficiente de arrastre, la densidad del fluido y el área de referencia.
+
+  En la fórmula, $\mag{v_\mathrm{t}}$ es la rapidez límite en metros por segundo, $\mag{m}$ la masa
+  del cuerpo que cae en kilogramos, $\var{g}$ la aceleración de la gravedad, introducida como número
+  positivo (valor normal 9.80665 metros por segundo al cuadrado, variable según el lugar),
+  $\var{C_\mathrm{d}}$ el coeficiente de arrastre adimensional, $\mag{\rho}$ la densidad del fluido
+  en kilogramos por metro cúbico y $\var{A}$ el área de referencia, normalmente la que el cuerpo
+  presenta al flujo, en metros cuadrados. Todas son no negativas, y la rapidez es la raíz no
+  negativa.
+
+  Un cuerpo que se suelta desde el reposo acelera mientras su peso supera al arrastre, pero el
+  arrastre crece con el cuadrado de la rapidez hasta que ambos se equilibran y la fuerza neta se
+  anula. Igualar el peso a la ecuación de arrastre y despejar la rapidez da la fórmula. Un cuerpo
+  más pesado, o que presenta menos área, cae más deprisa: un paracaidista que pasa de un picado
+  aerodinámico a extender brazos y piernas aumenta el área y el coeficiente de arrastre y se frena
+  notablemente.
+
+  La fórmula desprecia el empuje, pequeño en el aire pero no en el agua, supone constantes el
+  coeficiente de arrastre y la densidad del fluido y se aplica al arrastre cuadrático de cuerpos
+  grandes y rápidos. Las partículas pequeñas, las gotitas y los microorganismos que se mueven
+  despacio en un fluido viscoso siguen en cambio la ley de Stokes, con una rapidez límite
+  proporcional al peso y no a su raíz cuadrada.
+
+  Un paracaidista de 85 kilogramos con brazos y piernas extendidos, área de 0.70 metros cuadrados y
+  coeficiente 1.0, alcanza una rapidez límite de unos 44 metros por segundo en aire de densidad 1.21
+  kilogramos por metro cúbico.

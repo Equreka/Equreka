@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Total energy of a circular orbit'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{E}=-\frac{\const{G}\var{M}\var{m}}{2\var{r}}'
+terms:
+  E:
+    kind: 'symbol'
+    label:
+      en: 'Total mechanical energy of the orbit'
+    unit: 'joule'
+  G:
+    kind: 'constant'
+    ref: 'gravitational-constant'
+  M:
+    kind: 'symbol'
+    label:
+      en: 'Mass of the attracting body'
+    unit: 'kilogram'
+  m:
+    kind: 'symbol'
+    label:
+      en: 'Mass of the other body'
+    unit: 'kilogram'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Distance between centres'
+    unit: 'metre'
+solutions:
+  E: '-G * M * m / (2 * r)'
+  M: '-2 * E * r / (G * m)'
+  m: '-2 * E * r / (G * M)'
+  r: '-G * M * m / (2 * E)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'gravitation'
+aliases:
+  - 'orbital energy'
+  - 'energy of a satellite'
+  - 'total energy of a satellite'
+  - 'binding energy of an orbit'
+  - 'E = -G M m / (2 r)'
+  - 'energía orbital'
+  - 'energía de un satélite'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 13.4 Satellite Orbits and Energy, equation 13.9 and Example 13.12'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/13-4-satellite-orbits-and-energy'
+  - title: 'OpenStax, University Physics Volume 1, 13.5 Kepler''s Laws of Planetary Motion (energy of an elliptical orbit)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/13-5-keplers-laws-of-planetary-motion'
+  - title: 'OpenStax, University Physics Volume 1, 13.3 Gravitational Potential Energy and Total Energy'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/13-3-gravitational-potential-energy-and-total-energy'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (GM, volumetric mean radius)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+description:
+  en: >-
+    The total energy of a circular orbit, the sum of the kinetic energy of the orbiting body and the
+    gravitational potential energy of the pair, equals minus the gravitational constant times the
+    two masses divided by twice the orbital radius. It is the orbital energy of satellites, moons
+    and planets, and it sets the energy a rocket must supply to raise or lower an orbit.
+
+    In the formula, $\var{E}$ is the total mechanical energy in joules, $\const{G}$ the Newtonian
+    constant of gravitation, $\var{M}$ the mass of the attracting body and $\var{m}$ the mass of the
+    orbiting body, both in kilograms, and $\var{r}$ the radius of the orbit, the distance between
+    the two centres, in metres. Potential energy is zero at infinite separation, so the total energy
+    of any closed orbit is negative: the body is bound and would need that much energy, in size, to
+    escape.
+
+    For a circular orbit, gravity provides exactly the centripetal force, which makes the kinetic
+    energy equal to the gravitational constant times the two masses over twice the radius. The
+    potential energy is twice that size and negative, so the sum is the kinetic energy with its sign
+    reversed. A larger orbit therefore has a higher, less negative total energy but a lower speed:
+    to climb, a satellite must gain energy, yet it ends up moving more slowly.
+
+    The formula assumes the orbiting mass is much smaller than the attracting one, so that the
+    larger body stays at rest, and that both are point masses or spherical bodies. For an elliptical
+    orbit the same expression holds with the semi-major axis in place of the radius. A total energy
+    of zero marks a parabolic escape path and a positive one a hyperbolic path that never returns.
+
+    A 9000-kilogram spacecraft in a circular orbit 400 kilometres above the Earth has a total energy
+    of about minus 265 gigajoules.

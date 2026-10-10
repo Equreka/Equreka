@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Momento de inercia de una masa puntual'
+terms:
+  r:
+    label: 'Distancia al eje'
+description: >-
+  El momento de inercia de una masa puntual respecto a un eje es su masa por el cuadrado de su
+  distancia perpendicular a ese eje. En la mecánica de la rotación es el caso más sencillo de
+  inercia rotacional, la resistencia de un cuerpo a que cambie su ritmo de giro, y la pieza básica
+  con la que se construye el momento de inercia de cualquier cuerpo extenso.
+
+  Aquí $\mag{I}$ es el momento de inercia en kilogramo metro cuadrado, $\mag{m}$ es la masa en
+  kilogramos y $\var{r}$ es la distancia en metros del eje a la partícula, medida en ángulo recto
+  con el eje. Las tres son no negativas, así que al despejar la distancia solo se conserva la raíz
+  cuadrada no negativa. El valor corresponde a un eje elegido: la misma partícula tiene un momento
+  de inercia distinto respecto a cada otro eje.
+
+  Como la distancia aparece al cuadrado, la masa alejada del eje cuenta mucho más que la cercana:
+  llevar una partícula al doble de distancia multiplica su momento de inercia por cuatro. Para
+  varias partículas que giran juntas alrededor de un mismo eje, los momentos se suman, de modo que
+  un sistema de masas tiene la suma de cada masa por el cuadrado de su propia distancia. Un cuerpo
+  continuo sustituye esa suma por una integral sobre su masa, que conduce a los resultados conocidos
+  para varillas, cilindros y esferas.
+
+  La fórmula trata el cuerpo como un punto, con toda su masa a una sola distancia del eje. Es una
+  buena aproximación cuando el tamaño del objeto es pequeño frente a esa distancia, como un niño en
+  el borde de un carrusel o una pesa pequeña en el extremo de un brazo largo y ligero.
+
+  Un niño de 25 kilogramos sentado a 1.0 metro del eje de un carrusel añade
+  $25\,\mathrm{kg\,m^{2}}$ a su momento de inercia.

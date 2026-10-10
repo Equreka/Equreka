@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Desplazamiento angular con aceleración angular constante'
+terms:
+  \Delta\theta:
+    label: 'Desplazamiento angular'
+  \omega_{0}:
+    label: 'Velocidad angular inicial'
+description: >-
+  La ecuación del desplazamiento angular de la rotación uniformemente acelerada da el ángulo que gira
+  un cuerpo alrededor de un eje fijo en un tiempo dado cuando su aceleración angular es constante: la
+  velocidad angular inicial por el tiempo, más la mitad de la aceleración angular por el cuadrado del
+  tiempo. Es el análogo rotacional de la ecuación de la posición de la cinemática lineal.
+
+  En la ecuación, $\var{\Delta\theta}$ es el desplazamiento angular en radianes, la posición angular
+  final menos la inicial, $\var{\omega_{0}}$ es la velocidad angular inicial en radianes por segundo,
+  $\mag{\alpha}$ la aceleración angular constante en radianes por segundo al cuadrado y $\mag{t}$ el
+  tiempo transcurrido en segundos, nunca negativo. Las magnitudes angulares tienen signo respecto al
+  eje, positivo en sentido contrario a las agujas del reloj visto desde el extremo positivo del eje.
+  Al sumar la posición angular inicial al desplazamiento se obtiene la posición angular final.
+
+  Con aceleración angular constante, la velocidad angular media es la media de los valores inicial y
+  final. Al multiplicar esa media por el tiempo, escribiendo la velocidad angular final como la
+  inicial más la aceleración angular por el tiempo, aparecen los dos términos: el ángulo girado al
+  ritmo de partida y el ángulo adicional debido a la aceleración, que crece con el cuadrado del
+  tiempo. Una vuelta completa son dos pi radianes, así que dividir el resultado entre esa cifra da
+  el número de revoluciones.
+
+  Al despejar el tiempo se obtiene una ecuación de segundo grado con dos raíces. Con el sentido
+  positivo a lo largo de la velocidad angular inicial, la primera raíz es el primer instante en que
+  el cuerpo ha girado el ángulo indicado; una raíz negativa corresponde a un instante anterior al
+  inicio del cronómetro y se descarta, y una segunda raíz positiva es un paso posterior, después de
+  que la rotación se haya invertido. Despejar el tiempo exige una aceleración angular distinta de
+  cero. La ecuación supone un sólido rígido, un eje fijo y una aceleración angular constante.
+
+  Una hélice que se frena de manera uniforme desde 30 radianes por segundo hasta detenerse en 5
+  segundos tiene una aceleración angular de menos 6.0 radianes por segundo al cuadrado y gira 75
+  radianes mientras se para.

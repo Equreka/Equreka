@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Stokes'' law'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{F_\mathrm{d}}=6\pi\mag{\eta}\var{r}\mag{v}'
+terms:
+  F_\mathrm{d}:
+    kind: 'symbol'
+    label:
+      en: 'Drag force'
+    unit: 'newton'
+  \eta:
+    kind: 'magnitude'
+    ref: 'dynamic-viscosity'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+solutions:
+  F_\mathrm{d}: '6 * pi * eta * r * v'
+  \eta: 'F_d / (6 * pi * r * v)'
+  r: 'F_d / (6 * pi * eta * v)'
+  v: 'F_d / (6 * pi * eta * r)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q824561'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'Stokes law'
+  - 'Stokes drag'
+  - 'Stokes''s law'
+  - 'viscous drag on a sphere'
+  - 'creeping flow drag'
+  - 'F = 6 pi eta r v'
+  - 'ley de Stokes'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 6.4 Drag Force and Terminal Speed (Stokes'' law)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/6-4-drag-force-and-terminal-speed'
+  - title: 'J. Southard, Introduction to Fluid Motions and Sediment Transport (MIT, Geosciences LibreTexts), 3.2 Flow Past a Sphere at Low Reynolds Numbers'
+    url: 'https://geo.libretexts.org/Bookshelves/Sedimentology/Introduction_to_Fluid_Motions_and_Sediment_Transport_(Southard)/03%3A_Flow_Past_a_Sphere_II_-_Stokes''_Law_The_Bernoulli_Equation_Turbulence_Boundary_Layers_Flow_Separation/3.02%3A_Flow_Past_a_Sphere_at_Low_Reynolds_Numbers'
+  - title: 'J. Halpern, Physics LibreTexts, General Physics I, 52.8 Stokes''s Law, Example 52.8.1'
+    url: 'https://phys.libretexts.org/Courses/Prince_Georges_Community_College/General_Physics_I%3A_Classical_Mechanics/52%3A_Fluid_Dynamics/52.08%3A_Stokess_Law'
+  - title: 'MacTutor History of Mathematics, George Gabriel Stokes (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Stokes/'
+description:
+  en: >-
+    Stokes' law gives the drag force on a small sphere moving slowly through a viscous fluid: six pi
+    times the dynamic viscosity of the fluid times the radius of the sphere times its speed. Unlike
+    the quadratic drag on large, fast bodies, this viscous drag grows in direct proportion to the
+    speed, and it governs the settling of dust, pollen, sediment grains and microorganisms.
+
+    In the equation, $\var{F_\mathrm{d}}$ is the size of the drag force in newtons, directed against
+    the motion of the sphere relative to the fluid; $\mag{\eta}$ is the dynamic viscosity of the
+    fluid in pascal seconds; $\var{r}$ the radius of the sphere in metres; and $\mag{v}$ its speed
+    relative to the undisturbed fluid far away, in metres per second. All four are non-negative.
+
+    At very low speeds the inertia of the fluid is negligible beside its viscous stresses, so the
+    flow closes smoothly behind the sphere without a wake, and solving the equations of viscous flow
+    for that case gives the force exactly. Setting the drag equal to the weight of a sinking sphere
+    gives a terminal speed proportional to the weight and inversely proportional to the viscosity and
+    the radius; buoyancy, the weight of displaced fluid, is subtracted when it matters, as in water.
+
+    The law holds only at low Reynolds number, the ratio of inertial to viscous effects built from
+    the density of the fluid, the speed and the diameter of the sphere divided by the viscosity:
+    below about one. At larger Reynolds numbers the flow separates behind the sphere and the drag
+    exceeds the Stokes value, tending towards the quadratic drag equation. The law also assumes a
+    rigid sphere far from walls and other particles, in a fluid otherwise at rest.
+
+    George Gabriel Stokes derived the result in 1851, while studying how a fluid damps a swinging pendulum.
+    A steel ball of density 7860 kilograms per cubic metre and one centimetre across, sinking
+    through honey of viscosity $5\,\mathrm{Pa\,s}$, settles at about 8.56 centimetres per second
+    with buoyancy neglected; in honey the buoyant force lowers that figure noticeably.

@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Moment of inertia of a solid sphere'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{I}=\frac{2}{5}\mag{M}\var{r}^{2}'
+terms:
+  I:
+    kind: 'magnitude'
+    ref: 'moment-of-inertia'
+  M:
+    kind: 'magnitude'
+    ref: 'mass'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+solutions:
+  I: '2 * M * r^2 / 5'
+  M: '5 * I / (2 * r^2)'
+  r: 'sqrt(5 * I / (2 * M))'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'I = 2/5 M R^2'
+  - 'moment of inertia of a ball'
+  - 'moment of inertia of a uniform sphere'
+  - 'moment of inertia of a sphere about a diameter'
+  - 'momento de inercia de una esfera sólida'
+  - 'momento de inercia de una bola'
+references:
+  - title: 'R. Nave, HyperPhysics, Moment of Inertia: Sphere'
+    url: 'https://hyperphysics.gsu.edu/hbase/isph.html'
+  - title: 'OpenStax, University Physics Volume 1, 10.5 Calculating Moments of Inertia, Example 10.12'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-5-calculating-moments-of-inertia'
+  - title: 'OpenStax, University Physics Volume 1, 10.4 Moment of Inertia and Rotational Kinetic Energy, Figure 10.20'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-4-moment-of-inertia-and-rotational-kinetic-energy'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (moment of inertia, I/MR²)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+description:
+  en: >-
+    A solid sphere has a moment of inertia about any diameter equal to two fifths of its mass times
+    the square of its radius. This shape formula of rotational mechanics applies to a uniform ball
+    spinning about an axis through its centre, from a bowling ball or a ball bearing to a first
+    estimate for a planet or a star.
+
+    Here $\mag{I}$ is the moment of inertia in kilogram square metres, $\mag{M}$ is the mass of the
+    sphere in kilograms and $\var{r}$ is its radius in metres. All three are non-negative, so solving
+    for the radius keeps only the non-negative square root. Every diameter is an axis of symmetry,
+    so the result is the same whichever one the sphere turns about.
+
+    The sphere can be sliced into thin discs perpendicular to the axis, each with half its mass
+    times the square of its own radius. Integrating those discs from one pole to the other yields
+    the factor two fifths, smaller than the two thirds of a thin spherical shell with the same mass
+    and radius, because in the solid much of the mass sits near the axis rather than at the surface.
+
+    The formula assumes the density is the same throughout and holds only for axes through the
+    centre. For the Earth, the ratio of the moment of inertia to mass times squared radius is
+    0.3308, below the 0.4 of a uniform ball, a sign that its mass is concentrated towards the
+    centre. For an axis tangent to the surface, or any other axis parallel to a diameter, the
+    parallel axis theorem adds the mass times the square of the distance between the axes.
+
+    A uniform sphere of 1.0 kilogram and radius 0.20 metres has a moment of inertia of
+    $0.016\,\mathrm{kg\,m^{2}}$ about a diameter.
