@@ -4,4 +4,4 @@
  * math render cache (rendered bodies). Emit-time derivations, such as
  * codegen and the math body encoding, are never cached and need no bump.
  */
-export const CONTENT_PIPELINE_VERSION = 6;
+export const CONTENT_PIPELINE_VERSION = 7;
