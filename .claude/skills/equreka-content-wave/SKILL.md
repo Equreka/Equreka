@@ -63,7 +63,7 @@ The originality report must show `flagged: false` for every new or rewritten des
 
 Not checkable is not a pass. List in the PR body every wave description whose `status` is not `checked` and every reference marked `not-checkable` (PDF, non-HTML, HTTP error, no answer, too little text), with whether the verifier compared it by hand.
 
-Measure the artifact delta against the preflight baseline. `pnpm --filter @equreka/content build` prints every artifact's size, gzip size and share of its budget (`ARTIFACT_BUDGETS` in `packages/content/src/artifact-budgets.ts`, ADR 0010), then the mobile-bundled total against 8 MiB; the web build checks its derived payloads the same way. The build warns from 80% of a budget and fails over it. If any artifact passes 90% of its budget, stop before committing and raise it with the user: the README records the open budget decision.
+Measure the artifact delta against the preflight baseline. `pnpm --filter @equreka/content build` prints every artifact's size, gzip size and share of its budget (`ARTIFACT_BUDGETS` in `packages/content/src/artifact-budgets.ts`, ADR 0010), then the mobile-bundled transfer (gzip of the set as one stream) against 3 MiB and its raw storage against 16 MiB (ADR 0015); the web build checks its derived payloads the same way. Equations and units ship as an index plus hash shards (`PRESENTATION_SHARDS`); a shard nearing its cap means doubling that collection's count, not raising the cap. The build warns from 80% of a budget and fails over it. If any artifact passes 90% of its budget, stop before committing and raise it with the user: the README records the open budget decision.
 
 ## 6. Commit and PR
 

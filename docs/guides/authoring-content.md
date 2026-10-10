@@ -376,17 +376,20 @@ node scripts/content/originality.mjs <files> --check   # network: prose overlap 
 
 Issues are aggregated per file with the failing stage in brackets; the build refuses to emit while any error stands.
 
-**Artifact budgets** (ADR 0010). Every file the build emits has a budget in `ARTIFACT_BUDGETS` (`packages/content/src/artifact-budgets.ts`). `build` prints one line per artifact: raw bytes, gzip bytes, the share of its budget, and `· mobile` when the app bundles it. It ends with the mobile-bundled total against its 8 MiB ceiling:
+**Artifact budgets** (ADR 0010). Every file the build emits has a budget in `ARTIFACT_BUDGETS` (`packages/content/src/artifact-budgets.ts`). `build` prints one line per artifact: raw bytes, gzip bytes, the share of its budget, and `· mobile` when the app bundles it. It ends with the mobile-bundled set against its two limits (ADR 0015): the transfer, the gzip of the set as one stream, against 3 MiB, and the raw storage against 16 MiB:
 
 ```
-dist/presentation/units.json                174.5 KiB  gzip   26.8 KiB  8.5% of 2.00 MiB · mobile
-dist/search/en.json                         139.7 KiB  gzip   29.5 KiB  13.6% of 1.00 MiB
+dist/presentation/units.json                 56.1 KiB  gzip    7.5 KiB  21.9% of 256.0 KiB · mobile
+dist/presentation/units/0d.json              90.2 KiB  gzip   26.7 KiB  70.5% of 128.0 KiB · mobile
+dist/search/en.json                        492.9 KiB  gzip  116.8 KiB  48.1% of 1.00 MiB
 dist/schemas/units.schema.json                6.7 KiB  gzip    1.1 KiB  build-only
-mobile-bundled total: 1.02 MiB of 8.00 MiB (12.8%)
+mobile-bundled transfer (113 files gzipped as one stream): 1.32 MiB of 3.00 MiB (43.8%)
+mobile-bundled storage (raw): 5.31 MiB of 16.00 MiB (33.2%)
 ```
 
-- A file at 80% of its budget, or a mobile total at 80% of 8 MiB, is a warning. Over budget is an error.
+- A file at 80% of its budget, or a mobile figure at 80% of its limit, is a warning. Over budget is an error.
+- `presentation/equations.json` and `presentation/units.json` are list indexes: each entry's other fields ship in `presentation/<collection>/<shard>.json`, the shard its slug hashes to (`PRESENTATION_SHARDS`, ADR 0015). A shard near its 128 KiB cap means doubling the collection's shard count; an unsharded slice near its 2 MiB cap means sharding it.
 - A file that matches no pattern is an error: add its row to the table rather than emitting it unbudgeted.
-- The web build holds its derived payloads to their own budgets in `apps/web/src/integrations/equreka-assets.ts`: `data/reader.<locale>.json` 1 MiB, `data/converter.<locale>.json` 256 KiB, `data/paths.<locale>.json` 128 KiB.
+- The web build holds its derived payloads to their own budgets in `apps/web/src/integrations/equreka-assets.ts`: `data/reader.<locale>.json` 2 MiB (ADR 0013), `data/converter.<locale>.json` 256 KiB, `data/paths.<locale>.json` 128 KiB.
 - The web build then prints the offline install against 6 MiB: the precached shell plus the largest locale's payloads (ADR 0013), for example `offline install: shell 168 URLs 1211.5 KiB + largest locale data (es) = 2568.6 KiB of 6144.0 KiB (41.8%)`. It warns from 80% and fails over the budget.
-- The costs that grow with content are math bodies (every new unique `$…$` fragment; see the style guide's TeX budget) and the search lede (480 characters per entry at most).
+- The costs that grow with content are math bodies (every new unique `$…$` fragment; see the style guide's TeX budget) and the search lede (480 characters per entry at most), which ships twice: in the web index and in the mobile `search/leads.<locale>.json`.

@@ -1,4 +1,4 @@
-import { MOBILE_BUNDLE_BUDGET_BYTES } from './artifact-budgets.js';
+import { MOBILE_STORAGE_CEILING_BYTES, MOBILE_TRANSFER_BUDGET_BYTES } from './artifact-budgets.js';
 import { compileContent } from './pipeline/compile.js';
 import { mobileBundledBytes } from './pipeline/emit.js';
 
@@ -80,8 +80,14 @@ if (report.mode === 'build' && report.artifacts.length > 0) {
 		);
 	}
 	const mobileBytes = mobileBundledBytes(report.artifacts);
+	const mobileFiles = report.artifacts.filter(
+		(artifact) => artifact.budget?.mobileBundled === true,
+	);
 	console.log(
-		`mobile-bundled total: ${formatBytes(mobileBytes)} of ${formatBytes(MOBILE_BUNDLE_BUDGET_BYTES)} (${percentOf(mobileBytes, MOBILE_BUNDLE_BUDGET_BYTES)})`,
+		`mobile-bundled transfer (${mobileFiles.length} files gzipped as one stream): ${formatBytes(report.mobileTransferBytes)} of ${formatBytes(MOBILE_TRANSFER_BUDGET_BYTES)} (${percentOf(report.mobileTransferBytes, MOBILE_TRANSFER_BUDGET_BYTES)})`,
+	);
+	console.log(
+		`mobile-bundled storage (raw): ${formatBytes(mobileBytes)} of ${formatBytes(MOBILE_STORAGE_CEILING_BYTES)} (${percentOf(mobileBytes, MOBILE_STORAGE_CEILING_BYTES)})`,
 	);
 }
 console.log(`${errorCount} error(s), ${warningCount} warning(s) — ${report.ok ? 'ok' : 'FAILED'}`);

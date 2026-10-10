@@ -2,6 +2,8 @@ import { SETTINGS_KEY } from '@equreka/core';
 import { describe, expect, it, jest } from '@jest/globals';
 import { fireEvent, screen } from '@testing-library/react-native';
 import { Linking } from 'react-native';
+import { getEntity } from '../entities/content/lookup';
+import type { PresentationUnit } from '../entities/content/types';
 import { BranchScreen } from '../features/branch/branch-screen';
 import { CategoryScreen } from '../features/category/category-screen';
 import { EntryScreen } from '../features/entry/entry-screen';
@@ -36,6 +38,16 @@ jest.mock('expo-file-system', () => ({
 	},
 	Paths: { cache: { uri: 'file:///cache/' } },
 }));
+
+/**
+ * Every unit as the entry screen reads it, which evaluates every units shard.
+ */
+function unitEntities(): [string, PresentationUnit][] {
+	return Object.keys(getPresentation('units')).flatMap((slug) => {
+		const unit = getEntity('units', slug);
+		return unit === undefined ? [] : [[slug, unit]];
+	});
+}
 
 describe('HomeScreen', () => {
 	it('renders the lead, category chips and browse cards, and navigates on press', async () => {
@@ -122,9 +134,7 @@ describe('EntryScreen', () => {
 	});
 
 	it('credits every text source of an entry, linking the work and its license', async () => {
-		const [slug, unit] =
-			Object.entries(getPresentation('units')).find(([, entry]) => entry.textSources.length > 0) ??
-			[];
+		const [slug, unit] = unitEntities().find(([, entry]) => entry.textSources.length > 0) ?? [];
 		expect(slug).toBeDefined();
 		await renderWithProvider(<EntryScreen collection="units" slug={slug ?? ''} />);
 		expect(screen.getAllByText(/^Text adapted from /)).toHaveLength(unit?.textSources.length ?? 0);
@@ -134,7 +144,7 @@ describe('EntryScreen', () => {
 	});
 
 	it('shows no credit line for an entry with no text sources', async () => {
-		const slug = Object.entries(getPresentation('units')).find(
+		const slug = unitEntities().find(
 			([, entry]) => entry.description !== undefined && entry.textSources.length === 0,
 		)?.[0];
 		expect(slug).toBeDefined();

@@ -1,12 +1,18 @@
+import {
+	isShardedCollection,
+	mergePresentationEntry,
+	presentationShardOf,
+} from '@equreka/content/presentation-shards';
 import { collectionRank, MEMBER_LISTING_ORDER, TAXONOMY_MEMBERS } from '@equreka/core/collections';
 import type { Locale } from '@equreka/core/i18n';
 import { localizedName } from '@equreka/core/i18n';
 import { branchesOfCategory, groupByBranch } from '@equreka/core/taxonomy';
-import { getPresentation } from '../../shared/content/artifact';
+import { getPresentation, getPresentationShard } from '../../shared/content/artifact';
 import type {
 	EntryCollection,
 	MemberCollection,
 	PresentationEntry,
+	PresentationIndexRow,
 	PresentationSlices,
 } from './types';
 
@@ -28,7 +34,7 @@ function symbolTextOf(entity: object): string {
 function summaryOf(
 	collection: EntryCollection,
 	slug: string,
-	entity: PresentationSlices[EntryCollection][string],
+	entity: PresentationIndexRow<EntryCollection>,
 	locale: Locale,
 ): EntrySummary {
 	return {
@@ -43,8 +49,52 @@ export function compareByName(a: EntrySummary, b: EntrySummary): number {
 	return a.name.localeCompare(b.name);
 }
 
+/**
+ * Own rows only: a slug such as 'constructor' (a deep link is untrusted
+ * input) must not resolve to an Object.prototype member of the parsed JSON.
+ */
+function ownRow<T>(rows: Readonly<Record<string, T>> | undefined, slug: string): T | undefined {
+	return rows !== undefined && Object.hasOwn(rows, slug) ? rows[slug] : undefined;
+}
+
+/**
+ * Merged entries by `<collection>/<slug>`, so an entry keeps its identity
+ * across renders and each shard row is merged once.
+ */
+const mergedEntities = new Map<string, unknown>();
+
+/**
+ * One full entry. A sharded collection's entry is its index row merged with
+ * its row in the one shard its slug hashes to, the only shard this
+ * evaluates; list screens read `getPresentation` rows and never reach here.
+ */
+export function getEntity<C extends EntryCollection>(
+	collection: C,
+	slug: string,
+): PresentationSlices[C][string] | undefined {
+	const row = ownRow(getPresentation(collection), slug);
+	if (row === undefined || !isShardedCollection(collection)) {
+		return row as PresentationSlices[C][string] | undefined;
+	}
+	const key = `${collection}/${slug}`;
+	const cached = mergedEntities.get(key);
+	if (cached !== undefined) {
+		return cached as PresentationSlices[C][string];
+	}
+	const detail = ownRow(
+		getPresentationShard(collection, presentationShardOf(collection, slug)),
+		slug,
+	);
+	if (detail === undefined) {
+		return undefined;
+	}
+	const entity = mergePresentationEntry(row, detail);
+	mergedEntities.set(key, entity);
+	return entity as PresentationSlices[C][string];
+}
+
 export function getEntry(collection: EntryCollection, slug: string): PresentationEntry | undefined {
-	const entity = getPresentation(collection)[slug];
+	const entity = getEntity(collection, slug);
 	return entity === undefined
 		? undefined
 		: ({ collection, slug, entity } as unknown as PresentationEntry);
@@ -55,7 +105,7 @@ export function getSummary(
 	slug: string,
 	locale: Locale,
 ): EntrySummary | undefined {
-	const entity = getPresentation(collection)[slug];
+	const entity = ownRow<PresentationIndexRow<EntryCollection>>(getPresentation(collection), slug);
 	return entity === undefined ? undefined : summaryOf(collection, slug, entity, locale);
 }
 

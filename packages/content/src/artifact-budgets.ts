@@ -1,4 +1,5 @@
 import { COLLECTIONS } from '@equreka/schema';
+import { isShardedCollection, SHARDED_COLLECTIONS } from './presentation-shards.js';
 import { SEARCH_LOCALES } from './search-options.js';
 
 const KIB = 1024;
@@ -8,8 +9,9 @@ const MIB = 1024 * KIB;
 /**
  * How one emitted file is judged (ADR 0010). `maxBytes` caps its raw
  * compact bytes and is null for a build-only file that ships nowhere;
- * `mobileBundled` counts the file toward MOBILE_BUNDLE_BUDGET_BYTES;
- * `protects` names the cost the cap bounds and is quoted in every finding.
+ * `mobileBundled` counts the file toward the mobile transfer budget and
+ * storage ceiling (ADR 0015); `protects` names the cost the cap bounds and
+ * is quoted in every finding.
  */
 export interface ArtifactBudget {
 	maxBytes: number | null;
@@ -19,7 +21,8 @@ export interface ArtifactBudget {
 
 /**
  * Every file the build may emit, keyed by path pattern: `<collection>`
- * matches a COLLECTIONS name, `<locale>` a SEARCH_LOCALES code, `<shard>`
+ * matches a COLLECTIONS name, `<sharded>` one in PRESENTATION_SHARDS and
+ * `<whole>` one outside it, `<locale>` a SEARCH_LOCALES code, `<shard>`
  * a lowercase hex shard id, `<equation>` an equation slug. A file that
  * matches no pattern, or several, fails the build, so no artifact ships
  * unbudgeted. `mobileBundled` must equal whether
@@ -63,10 +66,23 @@ export const ARTIFACT_BUDGETS: Readonly<Record<string, ArtifactBudget>> = {
 		mobileBundled: false,
 		protects: 'web transfer: the one solution chunk a calculator page loads; PWA precache',
 	},
-	'presentation/<collection>.json': {
+	'presentation/<whole>.json': {
 		maxBytes: 2 * MIB,
 		mobileBundled: true,
-		protects: 'mobile bundle and OTA size; one JSON parse on the first screen of the collection',
+		protects:
+			'mobile bundle; one JSON parse on the first screen of the collection; nearing the cap means sharding it in PRESENTATION_SHARDS',
+	},
+	'presentation/<sharded>.json': {
+		maxBytes: 256 * KIB,
+		mobileBundled: true,
+		protects:
+			'mobile bundle; the list index every list, browse and cross-reference screen of the collection parses; growth beyond the entry count means a heavy field joined its indexFields',
+	},
+	'presentation/<sharded>/<shard>.json': {
+		maxBytes: 128 * KIB,
+		mobileBundled: true,
+		protects:
+			'mobile bundle; one hash shard of entry details, parsed when a screen first opens an entry in it; nearing the cap means doubling the collection count in PRESENTATION_SHARDS',
 	},
 	'presentation/math/atlas.json': {
 		maxBytes: 200 * KIB,
@@ -91,6 +107,12 @@ export const ARTIFACT_BUDGETS: Readonly<Record<string, ArtifactBudget>> = {
 		protects:
 			'web transfer and the active locale offline data cache (search, favorites, offline reader); mobile bundle',
 	},
+	'search/leads.<locale>.json': {
+		maxBytes: 512 * KIB,
+		mobileBundled: true,
+		protects:
+			'mobile bundle; parsed once per locale when the search tab first builds its on-device index',
+	},
 	'schemas/<collection>.schema.json': {
 		maxBytes: null,
 		mobileBundled: false,
@@ -104,11 +126,19 @@ export const ARTIFACT_BUDGETS: Readonly<Record<string, ArtifactBudget>> = {
 };
 
 /**
- * Ceiling on the summed `mobileBundled` bytes: the app compiles every such
- * file into its JavaScript bundle, and each OTA update ships that bundle
- * whole (ADR 0005, ADR 0010).
+ * Budget on the `mobileBundled` files gzipped as one stream in path order:
+ * the app compiles them into its one JavaScript bundle, and every OTA update
+ * and store install downloads that bundle compressed, so cross-file
+ * redundancy is shared and splitting a file into shards does not inflate
+ * the figure (ADR 0015).
  */
-export const MOBILE_BUNDLE_BUDGET_BYTES = 8 * MIB;
+export const MOBILE_TRANSFER_BUDGET_BYTES = 3 * MIB;
+
+/**
+ * Backstop on the summed raw `mobileBundled` bytes, which the installed
+ * bundle stores uncompressed (ADR 0015).
+ */
+export const MOBILE_STORAGE_CEILING_BYTES = 16 * MIB;
 
 /**
  * Share of a budget at which the build starts warning, so growth is seen
@@ -122,6 +152,8 @@ export const BUDGET_WARN_RATIO = 0.8;
  */
 const PATTERN_PLACEHOLDERS: Readonly<Record<string, string>> = {
 	collection: COLLECTIONS.join('|'),
+	sharded: SHARDED_COLLECTIONS.join('|'),
+	whole: COLLECTIONS.filter((collection) => !isShardedCollection(collection)).join('|'),
 	locale: SEARCH_LOCALES.join('|'),
 	shard: '[0-9a-f]+',
 	equation: '(?!index\\.)[a-z0-9]+(?:-[a-z0-9]+)*',

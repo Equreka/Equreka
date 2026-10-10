@@ -1,4 +1,8 @@
 import type {
+	PresentationIndexField,
+	ShardedCollection,
+} from '@equreka/content/presentation-shards';
+import type {
 	Branch,
 	Category,
 	Constant,
@@ -51,6 +55,10 @@ export type PresentationPathStep =
 
 export type PresentationPath = Omit<Path, 'steps'> & { steps: PresentationPathStep[] };
 
+/**
+ * Full entries per collection; for a sharded collection, an entry is its
+ * index row merged with its shard row (`getEntity`).
+ */
 export interface PresentationSlices {
 	categories: Record<string, PresentationCategory>;
 	branches: Record<string, PresentationBranch>;
@@ -64,6 +72,31 @@ export interface PresentationSlices {
 }
 
 export type EntryCollection = keyof PresentationSlices;
+
+/**
+ * One row of `presentation/<collection>.json`: only the index fields for a
+ * sharded collection (ADR 0015), the whole entry otherwise. List, browse and
+ * cross-reference screens read nothing else, so they never evaluate a shard.
+ */
+export type PresentationIndexRow<C extends EntryCollection> = C extends ShardedCollection
+	? Pick<
+			PresentationSlices[C][string],
+			Extract<PresentationIndexField<C>, keyof PresentationSlices[C][string]>
+		>
+	: PresentationSlices[C][string];
+
+export type PresentationIndexes = {
+	[C in EntryCollection]: Record<string, PresentationIndexRow<C>>;
+};
+
+/**
+ * One `presentation/<collection>/<shard>.json`: the fields of each entry the
+ * index leaves out, keyed by slug.
+ */
+export type PresentationDetailShard<C extends ShardedCollection> = Record<
+	string,
+	Omit<PresentationSlices[C][string], PresentationIndexField<C>>
+>;
 
 export type { MemberCollection } from '@equreka/core/collections';
 
