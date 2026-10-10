@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Tasa efectiva anual'
+terms:
+  r_\mathrm{eff}:
+    label: 'Tasa efectiva anual'
+  r:
+    label: 'Tasa nominal anual'
+  n:
+    label: 'Periodos de capitalización por año'
+description: >-
+  La tasa efectiva anual es la tasa de interés que, abonada una sola vez al año, produce el mismo
+  crecimiento que una tasa nominal anual capitalizada varias veces dentro del año. También llamada
+  rendimiento efectivo anual, y en los depósitos bancarios de Estados Unidos rendimiento porcentual
+  anual, es la herramienta de la matemática financiera que lleva ofertas con frecuencias
+  de capitalización distintas a una misma escala comparable.
+
+  En la fórmula, $\var{r_\mathrm{eff}}$ es la tasa efectiva anual y $\var{r}$ la tasa nominal
+  anual, ambas escritas como fracciones decimales (0.05 para el 5 por ciento), y $\var{n}$ es el
+  número entero de periodos de capitalización por año: 1 si es anual, 4 si es trimestral, 12 si es
+  mensual y 365 si es diaria. Las tres son números puros. Una tasa nominal positiva da una tasa
+  efectiva positiva, y con un solo periodo al año ambas tasas coinciden.
+
+  Cada periodo abona la tasa nominal dividida entre $\var{n}$, así que una unidad de dinero crece al
+  final del año hasta uno más esa tasa periódica, elevado a la potencia $\var{n}$. Restar la unidad
+  original deja el interés ganado por unidad, que es la tasa efectiva. Leída al revés mediante una
+  raíz n-ésima, la fórmula da la tasa nominal que hay que anunciar con una frecuencia dada para
+  obtener una tasa efectiva objetivo. El número $\var{n}$ aparece a la vez en la base y en el
+  exponente, por lo que no se puede despejar con funciones elementales y siempre es un dato de
+  entrada.
+
+  La fórmula supone una tasa constante durante el año, periodos de igual duración y el interés
+  dejado en la cuenta. Con una tasa nominal fija, la tasa efectiva aumenta con la frecuencia pero se
+  estabiliza y se acerca al límite de la capitalización continua. Las normas de Estados Unidos para
+  los depósitos de consumidores basan ese rendimiento en un año de 365 días, con uno de 366 permitido en un
+  año bisiesto.
+
+  Los ahorradores comparan cuentas con esta cifra y no con la tasa anunciada: un 6 por ciento
+  capitalizado trimestralmente equivale a cerca de un 6.14 por ciento abonado una vez al año.

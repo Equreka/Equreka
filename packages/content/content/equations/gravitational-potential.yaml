@@ -1,0 +1,83 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Gravitational potential of a point mass'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{\Phi}=-\frac{\const{G}\mag{M}}{\var{r}}'
+terms:
+  \Phi:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational potential'
+    unit: 'joule-per-kilogram'
+  G:
+    kind: 'constant'
+    ref: 'gravitational-constant'
+  M:
+    kind: 'magnitude'
+    ref: 'mass'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Distance between centres'
+    unit: 'metre'
+solutions:
+  \Phi: '-G * M / r'
+  M: '-Phi * r / G'
+  r: '-G * M / Phi'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q91195033'
+categories:
+  - 'physics'
+branches:
+  - 'gravitation'
+aliases:
+  - 'gravitational potential'
+  - 'Newtonian gravitational potential'
+  - 'gravity potential'
+  - 'potential energy per unit mass'
+  - 'Phi = -G M / r'
+  - 'V = -GM/r'
+  - 'potencial gravitatorio'
+  - 'potencial gravitacional'
+references:
+  - title: 'R. Fitzpatrick, An Introduction to Celestial Mechanics (University of Texas at Austin), 3.2 Gravitational potential'
+    url: 'https://farside.ph.utexas.edu/teaching/celestial/Celestial/node15.html'
+  - title: 'R. Fitzpatrick, An Introduction to Celestial Mechanics (University of Texas at Austin), Potential due to uniform sphere'
+    url: 'https://farside.ph.utexas.edu/teaching/celestial/Celestial/node18.html'
+  - title: 'OpenStax, University Physics Volume 1, 13.3 Gravitational Potential Energy and Total Energy'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/13-3-gravitational-potential-energy-and-total-energy'
+  - title: 'OpenStax, University Physics Volume 1, 13.7 Einstein''s Theory of Gravity'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/13-7-einsteins-theory-of-gravity'
+  - title: 'NASA NSSDCA, Earth Fact Sheet (GM, volumetric mean radius, escape velocity)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/earthfact.html'
+description:
+  en: >-
+    The gravitational potential of a point mass is the gravitational potential energy per unit mass
+    that a test body would have at a given distance from it: minus the gravitational constant times
+    the mass of the source divided by the distance. It describes the gravitational field of a
+    planet, star or other body as a single number at each point, independent of the body placed
+    there.
+
+    In the formula, $\var{\Phi}$ is the gravitational potential in joules per kilogram, $\const{G}$
+    the Newtonian constant of gravitation, $\mag{M}$ the mass of the body producing the field, in
+    kilograms, and $\var{r}$ the distance from its centre, in metres. The zero of potential is taken
+    infinitely far away, so the potential is negative everywhere at a finite distance and rises
+    towards zero with distance: work must be done on a body to carry it away from the source.
+
+    Multiplying the potential by the mass of a test body gives its potential energy in the field,
+    and the difference of potential between two points, times that mass, is the work needed to move
+    it between them. The field itself is the negative rate of change of the potential with
+    position, so a body tends to move towards lower potential, here towards the source. Because the
+    potential is a scalar, the potentials of several bodies add as plain numbers, which is often
+    easier than adding their field vectors.
+
+    The formula is Newtonian and holds for a point mass and, outside it, for any spherically
+    symmetric body, whose external field is that of a point mass at its centre; inside a uniform
+    sphere the potential instead varies quadratically with distance from the centre. Near
+    extremely compact bodies such as black holes, general relativity is needed instead.
+
+    At the surface of the Earth the potential is about minus 62.6 megajoules per kilogram; a body
+    needs at least that much kinetic energy per kilogram, about 11.2 kilometres per second, to escape.

@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Moment of inertia of a solid cylinder about its axis'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{I}=\frac{1}{2}\mag{M}\var{r}^{2}'
+terms:
+  I:
+    kind: 'magnitude'
+    ref: 'moment-of-inertia'
+  M:
+    kind: 'magnitude'
+    ref: 'mass'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+solutions:
+  I: 'M * r^2 / 2'
+  M: '2 * I / r^2'
+  r: 'sqrt(2 * I / M)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'I = 1/2 M R^2'
+  - 'moment of inertia of a disc'
+  - 'moment of inertia of a disk'
+  - 'moment of inertia of a uniform disc'
+  - 'moment of inertia of a solid cylinder'
+  - 'momento de inercia de un disco'
+  - 'momento de inercia de un cilindro sólido'
+references:
+  - title: 'R. Nave, HyperPhysics, Moment of Inertia: Cylinder'
+    url: 'https://hyperphysics.gsu.edu/hbase/icyl.html'
+  - title: 'OpenStax, University Physics Volume 1, 10.5 Calculating Moments of Inertia'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-5-calculating-moments-of-inertia'
+  - title: 'OpenStax, University Physics Volume 1, 10.7 Newton''s Second Law for Rotation, Example 10.16'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-7-newtons-second-law-for-rotation'
+  - title: 'OpenStax, College Physics 2e, 10.3 Dynamics of Rotational Motion: Rotational Inertia'
+    url: 'https://openstax.org/books/college-physics-2e/pages/10-3-dynamics-of-rotational-motion-rotational-inertia'
+description:
+  en: >-
+    A solid cylinder turning about its own axis of symmetry has a moment of inertia equal to half
+    its mass times the square of its radius. The result describes how hard it is to change the spin of a uniform
+    wheel, disc, roller or shaft turning about the line through the centres of its two flat faces,
+    and it is one of the standard shape formulas of rotational mechanics.
+
+    Here $\mag{I}$ is the moment of inertia in kilogram square metres, $\mag{M}$ is the mass of the
+    cylinder in kilograms and $\var{r}$ is its radius in metres. All three are non-negative, so
+    solving for the radius keeps only the non-negative square root. The length of the cylinder does
+    not appear: a thin disc and a long rod of the same mass and radius have the same moment of
+    inertia about this axis.
+
+    The cylinder can be built from thin coaxial shells. Every shell has all its mass at one distance
+    from the axis, so its contribution is its mass times the square of its radius; adding the shells
+    from the axis out to the rim gives half the value that a thin hoop of the same mass and radius
+    would have, because much of the solid lies close to the axis.
+
+    The formula assumes a uniform density and applies only to the central symmetry axis. About a
+    diameter through the centre, perpendicular to that axis, the moment of inertia also depends on
+    the length; about any other axis parallel to the symmetry axis, the parallel axis theorem adds
+    the mass times the square of the distance between the axes. A hollow cylinder or a wheel with
+    a heavy rim has a larger value than the solid one.
+
+    A uniform disc of 50.0 kilograms and radius 1.50 metres, such as a merry-go-round, has a moment
+    of inertia of $56.25\,\mathrm{kg\,m^{2}}$.

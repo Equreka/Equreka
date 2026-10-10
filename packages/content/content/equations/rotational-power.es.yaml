@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Potencia desarrollada por el momento de una fuerza'
+description: >-
+  La potencia que desarrolla el momento de una fuerza sobre un cuerpo que gira alrededor de un eje
+  fijo es ese momento de fuerza por la velocidad angular. Es el ritmo al que el momento de fuerza
+  realiza trabajo, el equivalente rotacional en mecánica de fuerza por velocidad, y relaciona el
+  momento de fuerza y la velocidad de giro de un motor, una turbina o un árbol de transmisión con la potencia que transmite.
+
+  Aquí $\mag{P}$ es la potencia en vatios, $\mag{\tau}$ es el momento de fuerza respecto al eje en newton metro
+  y $\mag{\omega}$ es la velocidad angular en radianes por segundo. El momento de fuerza y la velocidad
+  angular llevan signo con el mismo convenio, positivo en sentido contrario a las agujas del reloj
+  visto desde el extremo positivo del eje. Su producto es positivo cuando el momento de fuerza actúa en el sentido del giro, de modo que aporta
+  energía al cuerpo, y negativo cuando se opone al giro, como hacen un freno o la carga de un
+  generador.
+
+  Mientras el cuerpo gira un ángulo pequeño, un momento de fuerza realiza un trabajo igual a ese
+  momento por el ángulo. Al dividir por el tiempo empleado, el ángulo se convierte en la velocidad angular y el
+  trabajo en potencia. Para un momento de fuerza constante, el mismo razonamiento aplicado a un intervalo
+  finito da la potencia media como el momento de fuerza por la velocidad angular media.
+
+  La relación da la potencia en un instante y vale aunque cambie el ritmo de giro. La velocidad
+  angular debe expresarse en radianes por segundo para que el resultado salga en vatios; una
+  velocidad de motor en revoluciones por minuto se multiplica primero por dos pi y se divide entre
+  sesenta. La misma potencia puede obtenerse con un momento de fuerza grande a baja velocidad o con uno pequeño
+  a alta velocidad, y por eso las cajas de cambios intercambian uno por otro.
+
+  Un motor de barco que entrega 90 kilovatios al eje de la hélice a 31.4 radianes por segundo, unas
+  300 revoluciones por minuto, aplica un momento de fuerza de unos $2.87\times10^{3}\,\mathrm{N\,m}$.

@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Área de un triángulo a partir de sus lados y el circunradio'
+terms:
+  a:
+    label: 'Lado a'
+  b:
+    label: 'Lado b'
+  c:
+    label: 'Lado c'
+  R:
+    label: 'Radio de la circunferencia circunscrita'
+description: >-
+  El área de un triángulo es igual al producto de sus tres lados dividido entre cuatro veces su
+  circunradio, el radio de la circunferencia que pasa por los tres vértices. La relación une dos
+  medidas que tiene todo triángulo, su área y su circunferencia circunscrita, así que se usa en los
+  dos sentidos: para hallar el área cuando se conoce el circunradio y, con más frecuencia, para
+  hallar el circunradio de un triángulo a partir de sus lados y su área.
+
+  En la fórmula, $\mag{A}$ es el área del triángulo en metros cuadrados, $\var{a}$, $\var{b}$ y
+  $\var{c}$ sus tres lados y $\var{R}$ su circunradio, longitudes en metros o en cualquier unidad
+  común. Las cinco son positivas. Los lados deben cumplir la desigualdad triangular, cada uno menor
+  que la suma de los otros dos.
+
+  Por el teorema del seno generalizado, el seno del ángulo opuesto a cualquier lado es igual a ese lado
+  dividido entre el doble del circunradio. Sustituir el seno del ángulo entre $\var{a}$ y $\var{b}$
+  en la regla de la mitad del producto de dos lados por el seno del ángulo comprendido la convierte
+  en el producto de los tres lados dividido entre cuatro veces $\var{R}$. Leída al revés, el
+  circunradio es el producto de los lados dividido entre cuatro veces el área, y con la fórmula de
+  Herón para el área se obtiene a partir de los tres lados solamente.
+
+  Las cinco magnitudes no son independientes: tres lados determinan el triángulo y, con él, el área
+  y el circunradio. Por eso la calculadora despeja cualquiera de ellas, pero el resultado describe un
+  triángulo real solo cuando los datos proceden de uno. En un triángulo rectángulo la hipotenusa es
+  un diámetro, así que el circunradio es su mitad. La fórmula se aplica a triángulos planos.
+
+  La usan los problemas de geometría sobre triángulos inscritos y la ubicación de un punto
+  equidistante de tres lugares. Un triángulo de lados 2, 3 y 4 tiene un área de unos 2.905 y un
+  circunradio de unos 2.07.

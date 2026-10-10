@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Angle of repose'
+kind: 'formula'
+level: 'intermediate'
+expression: '\tan\mag{\theta}=\var{\mu}'
+terms:
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  \mu:
+    kind: 'symbol'
+    label:
+      en: 'Coefficient of static friction'
+solutions:
+  \theta: 'atan(mu)'
+  \mu: 'tan(theta)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'angle of friction'
+  - 'limiting angle of friction'
+  - 'critical angle of an incline'
+  - 'tilting-plane method'
+  - 'tan theta = mu_s'
+  - 'ángulo de reposo'
+  - 'ángulo de rozamiento'
+references:
+  - title: 'University of Mississippi, Department of Physics and Astronomy, PHYS 221 laboratory manual, Friction (angle of repose method)'
+    url: 'https://www.phy.olemiss.edu/lab/LabPDFs/221/LabManual/7_Friction_221/TAP_Friction_221.pdf'
+  - title: 'J. Halpern, Physics LibreTexts, General Physics I, 20.5 The Coefficient of Friction'
+    url: 'https://phys.libretexts.org/Courses/Prince_Georges_Community_College/General_Physics_I%3A_Classical_Mechanics/20%3A__Friction/20.05%3A_The_Coefficient_of_Friction'
+  - title: 'OpenStax, University Physics Volume 1, 6.2 Friction (inclined plane and Table 6.1)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/6-2-friction'
+description:
+  en: >-
+    The angle of repose of a body on an inclined plane is the steepest tilt at which it stays at
+    rest without sliding, and its tangent equals the coefficient of static friction between the body
+    and the surface. It gives the standard tilting-plane method for measuring a static coefficient: raise the plane slowly and note the angle at which sliding
+    begins.
+
+    In the relation, $\mag{\theta}$ is the angle of repose between the plane and the horizontal, in
+    radians, and $\var{\mu}$ is the coefficient of static friction, a non-negative dimensionless number with
+    no unit. The angle lies between zero and a right angle; a larger coefficient means a steeper
+    angle, and a coefficient of one corresponds to 45 degrees. A coefficient above one, possible for
+    very grippy surfaces, gives an angle beyond 45 degrees.
+
+    On the plane, the weight of the body splits into a component down the slope, the weight times
+    the sine of the angle, and a component into the surface, the weight times the cosine, which the
+    normal force balances. Static friction holds the body until the down-slope component exceeds its
+    maximum, the coefficient times the normal force. At the threshold the two are equal, and
+    dividing one by the other leaves the tangent of the angle equal to the coefficient: the mass
+    cancels, so a heavy block and a light one with the same surfaces start sliding together.
+
+    The relation assumes dry friction obeying the proportional friction law, a rigid body that
+    slides rather than tips over, and a plane tilted slowly enough that no impact starts the motion.
+    The kinetic coefficient follows in the same way from the gentler angle at which a body, once
+    nudged, slides down at constant speed; since the static coefficient is the larger, sliding needs
+    a steeper plane to begin than to continue. For piles of sand, gravel or grain, the same name
+    denotes the steepest slope at which the heap stands without slumping.
+
+    With a static coefficient of 0.5, typical of wood on wood, a block starts to slide at about 26.6
+    degrees.

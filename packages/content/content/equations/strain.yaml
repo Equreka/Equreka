@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Linear strain'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{\varepsilon}=\frac{\var{\Delta L}}{\var{L_{0}}}'
+terms:
+  \varepsilon:
+    kind: 'symbol'
+    label:
+      en: 'Linear strain'
+    unit: 'unitless'
+  \Delta L:
+    kind: 'symbol'
+    label:
+      en: 'Change in length'
+    unit: 'metre'
+  L_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial length'
+    unit: 'metre'
+solutions:
+  \varepsilon: 'DeltaL / L_0'
+  \Delta L: 'varepsilon * L_0'
+  L_{0}: 'DeltaL / varepsilon'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q1990546'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'strain'
+  - 'normal strain'
+  - 'engineering strain'
+  - 'tensile strain'
+  - 'compressive strain'
+  - 'relative elongation'
+  - 'epsilon = delta L / L0'
+  - 'deformación unitaria'
+  - 'deformación unitaria lineal'
+  - 'dilatación lineal relativa'
+  - 'alargamiento unitario'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 12.3 Stress, Strain, and Elastic Modulus'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/12-3-stress-strain-and-elastic-modulus'
+  - title: 'C. Camp, University of Memphis, CIVL 1101 Introduction to Strength of Materials, Section 1'
+    url: 'https://www.ce.memphis.edu/1101/notes/concrete/section_1_strength_of_materials.html'
+description:
+  en: >-
+    Linear strain is the change in length of a stretched or compressed body divided by its original
+    length. Also called normal or engineering strain, it is the measure of deformation used in the
+    mechanics of materials: a pure number that says by what fraction a rod, wire, column or
+    specimen has lengthened or shortened under load.
+
+    Here $\var{\varepsilon}$ is the strain, a ratio with no unit that can also be written as a
+    percentage or in parts per million; $\var{\Delta L}$ is the change in length in metres, the
+    final length minus the original one; and $\var{L_{0}}$ is the original length in metres, never
+    negative. A body that lengthens has positive strain, called tensile, and one that shortens has
+    negative strain, called compressive, matching the sign convention of normal stress.
+
+    Dividing by the original length makes the result independent of the size of the specimen: a
+    long cable and a short sample of the same wire under the same stress stretch by the same
+    fraction, though by very different lengths. Strains in steel at typical working stresses are
+    small, below a tenth of a percent, so engineers often quote them in microstrain, millionths of
+    the original length.
+
+    The formula measures length change along one direction only and assumes the strain is the same
+    along the whole length, which holds for a uniform bar under an axial load. The ratio can be
+    computed for any deformation, but only small strains stay proportional to the stress; beyond the
+    proportional limit the material follows a curved stress-strain path, and rubber stays elastic
+    far past it. Strain by itself says nothing about the material; Young's modulus connects it to
+    the stress that produced it.
+
+    A steel bar 2.0 metres long that lengthens by 1.4 millimetres has a strain of 0.0007, or 0.07
+    percent.

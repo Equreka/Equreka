@@ -1,0 +1,88 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Coefficient of restitution'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{e}=\frac{\var{v_{2}}-\var{v_{1}}}{\var{u_{1}}-\var{u_{2}}}'
+terms:
+  e:
+    kind: 'symbol'
+    label:
+      en: 'Coefficient of restitution'
+    unit: 'unitless'
+  v_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Final velocity of body 1'
+    unit: 'metre-per-second'
+  v_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Final velocity of body 2'
+    unit: 'metre-per-second'
+  u_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Initial velocity of body 1'
+    unit: 'metre-per-second'
+  u_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Initial velocity of body 2'
+    unit: 'metre-per-second'
+solutions:
+  e: '(v_2 - v_1) / (u_1 - u_2)'
+  v_{1}: 'v_2 - e * (u_1 - u_2)'
+  v_{2}: 'v_1 + e * (u_1 - u_2)'
+  u_{1}: 'u_2 + (v_2 - v_1) / e'
+  u_{2}: 'u_1 - (v_2 - v_1) / e'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q1143011'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'COR'
+  - 'restitution coefficient'
+  - 'Newton''s experimental law'
+  - 'e = (v2 - v1) / (u1 - u2)'
+  - 'coeficiente de restitución'
+references:
+  - title: 'C. Duston, Physics LibreTexts, Gettysburg College Phys 111, 1.6.6 Relative Velocity and the Coefficient of Restitution'
+    url: 'https://phys.libretexts.org/Courses/Gettysburg_College/Phys_111%3A_Physics_Symmetry_and_Conservation/01%3A_Conservation_and_Symmetry/1.06%3A_Conservation_of_Energy-_Kinetic_and_Gravitational/1.6.06%3A_Relative_Velocity_and_the_Coefficient_of_Restitution'
+  - title: 'D. Kagan, The Coefficient of Restitution, California State University Chico, Physics of Baseball activities (2008)'
+    url: 'https://physics.csuchico.edu/baseball/resources/POBActivities/SW/COR.pdf'
+  - title: 'R. Fitzpatrick, Survey of Physics (University of Texas at Austin lecture notes), One-dimensional collisions, equation 1.122'
+    url: 'https://farside.ph.utexas.edu/teaching/355/Surveyhtml/node34.html'
+description:
+  en: >-
+    The coefficient of restitution measures how bouncy a collision is: it is the speed at which two
+    colliding bodies separate after impact divided by the speed at which they approached before it.
+    A value of one marks a perfectly elastic collision, zero a perfectly inelastic one in which the
+    bodies stick together, and values in between the partly inelastic collisions of everyday life.
+
+    In the formula, $\var{e}$ is the coefficient of restitution, a dimensionless number normally
+    between 0 and 1; $\var{u_{1}}$ and $\var{u_{2}}$ are the velocities of bodies 1 and 2 before the
+    collision and $\var{v_{1}}$ and $\var{v_{2}}$ their velocities after it, in metres per second.
+    Velocities are signed along the line of impact, positive in a chosen direction, with body 1
+    initially behind body 2 and catching up with it, so that both the numerator, the speed of
+    separation, and the denominator, the speed of approach, are positive.
+
+    For a head-on collision, conserving kinetic energy as well as momentum forces the relative
+    velocity to reverse with unchanged size, which is the case of a coefficient equal to one. A
+    smaller coefficient means the relative velocity reverses but shrinks, the missing kinetic energy
+    having gone into deformation, heat and sound. Combined with momentum conservation, the
+    coefficient fixes both final velocities of a one-dimensional collision. For a ball bouncing off
+    a fixed floor the coefficient is the rebound speed over the impact speed, so without air
+    resistance it equals the square root of the rebound height over the drop height.
+
+    The coefficient depends on the materials and on how hard they strike each other, so a single
+    value describes a pair of surfaces only over a limited range of conditions. Values below zero or above one occur only when a body passes
+    through the other or stored energy is released.
+
+    Sports rules reflect that dependence. For a regulation baseball the coefficient against a wall of
+    northern white ash must be 0.546, give or take 0.032, at an impact speed fixed at 60 miles per
+    hour, since a harder impact deforms the ball more and shifts the value.

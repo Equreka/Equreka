@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Normal stress'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{\sigma}=\frac{\mag{F}}{\mag{A}}'
+terms:
+  \sigma:
+    kind: 'magnitude'
+    ref: 'stress'
+  F:
+    kind: 'magnitude'
+    ref: 'force'
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+solutions:
+  \sigma: 'F / A'
+  F: 'sigma * A'
+  A: 'F / sigma'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q11425837'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'axial stress'
+  - 'tensile stress'
+  - 'compressive stress'
+  - 'sigma = F / A'
+  - 'stress formula'
+  - 'tensión normal'
+  - 'esfuerzo normal'
+  - 'tensión de tracción'
+  - 'tensión de compresión'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 12.3 Stress, Strain, and Elastic Modulus, Example 12.8'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/12-3-stress-strain-and-elastic-modulus'
+  - title: 'C. Camp, University of Memphis, CIVL 1101 Introduction to Strength of Materials, Section 1'
+    url: 'https://www.ce.memphis.edu/1101/notes/concrete/section_1_strength_of_materials.html'
+description:
+  en: >-
+    Normal stress is the force acting at right angles to a cross-section of a solid divided by the
+    area of that cross-section. It measures how intensely the material is pulled apart or pushed
+    together, and in the mechanics of materials it is the first quantity computed for a cable,
+    column, rod or bolt carrying an axial load.
+
+    Here $\mag{\sigma}$ is the stress in pascals, a newton per square metre; $\mag{F}$ is the
+    component of the force perpendicular to the section, in newtons; and $\mag{A}$ is the area of
+    the section in square metres, never negative. Engineering practice counts tension as positive
+    and compression as negative, so a force pulling on the section gives a positive stress and one
+    pushing on it a negative stress. Stresses in solids are usually quoted in megapascals or
+    gigapascals.
+
+    Dividing by the area turns a load into a measure that no longer depends on the size of the
+    part: a thick bar and a thin wire of the same material fail at about the same stress, though
+    under very different forces. The force here is the internal force carried across the cut,
+    which for a bar of negligible weight hanging a load or resting under one equals the load.
+
+    The formula gives the average stress over the section and equals the actual stress only when
+    the load acts along the line through the centroid of the section and the section lies away from
+    the ends of the member, where the load is applied and the stress is uneven. A force parallel to
+    the section produces shear stress instead, which this formula does not cover.
+
+    A steel rod with a cross-section of 0.30 square centimetres holding a load of 550 kilograms
+    carries a tensile stress of about $1.8\times10^{8}\,\mathrm{Pa}$.

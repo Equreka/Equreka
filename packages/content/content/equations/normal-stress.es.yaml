@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Tensión normal'
+description: >-
+  La tensión normal es la fuerza que actúa en ángulo recto sobre una sección transversal de un sólido
+  dividida entre el área de esa sección. Mide con qué intensidad el material es estirado o
+  comprimido, y en la mecánica de materiales es la primera magnitud que se calcula para un cable,
+  una columna, una barra o un perno sometidos a una carga axial.
+
+  Aquí $\mag{\sigma}$ es la tensión mecánica en pascales, un newton por metro cuadrado; $\mag{F}$ es
+  la componente de la fuerza perpendicular a la sección, en newtons; y $\mag{A}$ es el área de la
+  sección en metros cuadrados, nunca negativa. En ingeniería la tracción se cuenta positiva y la
+  compresión negativa, de modo que una fuerza que tira de la sección da una tensión positiva y una
+  que empuja sobre ella, una tensión negativa. Las tensiones en sólidos suelen expresarse en
+  megapascales o gigapascales.
+
+  Dividir entre el área convierte una carga en una medida que ya no depende del tamaño de la pieza:
+  una barra gruesa y un alambre fino del mismo material fallan con aproximadamente la misma tensión,
+  aunque con fuerzas muy distintas. La fuerza es aquí la fuerza interna transmitida a través del
+  corte, que para una barra de peso despreciable que cuelga una carga o que la soporta es igual a
+  la carga.
+
+  La fórmula da la tensión media en la sección y coincide con la tensión real solo cuando la carga
+  actúa a lo largo de la recta que pasa por el centroide de la sección y la sección está lejos de
+  los extremos de la pieza, donde se aplica la carga y la tensión no es uniforme. Una fuerza paralela
+  a la sección produce en cambio una tensión tangencial, que esta fórmula no cubre.
+
+  Una barra de acero de 0.30 centímetros cuadrados de sección que sostiene una carga de 550
+  kilogramos soporta una tensión de tracción de unos $1.8\times10^{8}\,\mathrm{Pa}$.

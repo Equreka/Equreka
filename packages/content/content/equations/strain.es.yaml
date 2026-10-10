@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Deformación unitaria lineal'
+terms:
+  \varepsilon:
+    label: 'Deformación unitaria lineal'
+  \Delta L:
+    label: 'Variación de longitud'
+  L_{0}:
+    label: 'Longitud inicial'
+description: >-
+  La deformación unitaria lineal es la variación de longitud de un cuerpo estirado o comprimido
+  dividida entre su longitud original. Llamada también deformación normal, es la medida de la
+  deformación que se usa en la mecánica de materiales: un número sin unidad que indica en qué
+  fracción una barra, un alambre, una columna o una probeta se ha alargado o acortado bajo carga.
+
+  Aquí $\var{\varepsilon}$ es la deformación unitaria, un cociente sin unidad que también puede
+  escribirse como porcentaje o en partes por millón; $\var{\Delta L}$ es la variación de longitud en
+  metros, la longitud final menos la original; y $\var{L_{0}}$ es la longitud original en metros,
+  nunca negativa. Un cuerpo que se alarga tiene deformación positiva, llamada de tracción, y uno que
+  se acorta tiene deformación negativa, llamada de compresión, en concordancia con el convenio de
+  signos de la tensión normal.
+
+  Dividir entre la longitud original hace que el resultado no dependa del tamaño de la probeta: un
+  cable largo y una muestra corta del mismo alambre sometidos a la misma tensión se estiran en la
+  misma fracción, aunque en longitudes muy distintas. Las deformaciones del acero con las tensiones
+  de trabajo habituales son pequeñas, por debajo de una décima de porcentaje, por lo que en
+  ingeniería suelen expresarse en microdeformaciones, millonésimas de la longitud original.
+
+  La fórmula mide la variación de longitud en una sola dirección y supone que la deformación es la
+  misma a lo largo de toda la pieza, lo que se cumple en una barra uniforme bajo carga axial. El
+  cociente puede calcularse para cualquier deformación, pero solo las pequeñas se mantienen
+  proporcionales a la tensión; más allá del límite de proporcionalidad el material sigue una curva
+  tensión-deformación, y el caucho sigue siendo elástico mucho más allá de ese límite. La
+  deformación por sí sola no dice nada del material; el módulo de Young la relaciona con la tensión
+  que la produjo.
+
+  Una barra de acero de 2.0 metros que se alarga 1.4 milímetros tiene una deformación de 0.0007, es
+  decir, un 0.07 por ciento.

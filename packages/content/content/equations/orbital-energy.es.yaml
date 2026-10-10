@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Energía total de una órbita circular'
+terms:
+  E:
+    label: 'Energía mecánica total de la órbita'
+  M:
+    label: 'Masa del cuerpo que atrae'
+  m:
+    label: 'Masa del otro cuerpo'
+  r:
+    label: 'Distancia entre centros'
+description: >-
+  La energía total de una órbita circular, suma de la energía cinética del cuerpo en órbita y de la
+  energía potencial gravitatoria del par, es igual a menos la constante de gravitación universal por
+  las dos masas dividida entre el doble del radio de la órbita. Es la energía orbital de satélites,
+  lunas y planetas, y fija la energía que un cohete debe aportar para subir o bajar una órbita.
+
+  En la fórmula, $\var{E}$ es la energía mecánica total en julios, $\const{G}$ la constante de
+  gravitación universal, $\var{M}$ la masa del cuerpo que atrae y $\var{m}$ la del cuerpo en órbita,
+  ambas en kilogramos, y $\var{r}$ el radio de la órbita, la distancia entre los dos centros, en
+  metros. La energía potencial es nula a separación infinita, así que la energía total de cualquier
+  órbita cerrada es negativa: el cuerpo está ligado y necesitaría esa energía, en valor absoluto,
+  para escapar.
+
+  En una órbita circular la gravedad aporta exactamente la fuerza centrípeta, lo que hace que la
+  energía cinética sea la constante de gravitación por las dos masas entre el doble del radio. La
+  energía potencial tiene el doble de ese valor absoluto y es negativa, así que la suma es la
+  energía cinética cambiada de signo. Una órbita mayor tiene por tanto una energía total más alta,
+  menos negativa, pero una rapidez menor: para subir, un satélite debe ganar energía y, sin embargo,
+  acaba moviéndose más despacio.
+
+  La fórmula supone que la masa en órbita es mucho menor que la que atrae, de modo que el cuerpo
+  mayor permanece en reposo, y que ambos son masas puntuales o cuerpos esféricos. Para una órbita
+  elíptica vale la misma expresión con el semieje mayor en lugar del radio. Una energía total nula
+  corresponde a una trayectoria parabólica de escape, y una positiva a una trayectoria hiperbólica
+  que no regresa.
+
+  Una nave de 9000 kilogramos en una órbita circular a 400 kilómetros sobre la Tierra tiene una
+  energía total de unos menos 265 gigajulios.

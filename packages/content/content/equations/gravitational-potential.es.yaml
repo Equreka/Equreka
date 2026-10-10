@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Potencial gravitatorio de una masa puntual'
+terms:
+  \Phi:
+    label: 'Potencial gravitatorio'
+  r:
+    label: 'Distancia entre centros'
+description: >-
+  El potencial gravitatorio de una masa puntual es la energía potencial gravitatoria por unidad de
+  masa que tendría un cuerpo de prueba a una distancia dada de ella: menos la constante de
+  gravitación universal por la masa de la fuente dividida entre la distancia. Describe el campo
+  gravitatorio de un planeta, una estrella u otro cuerpo mediante un único número en cada punto,
+  independiente del cuerpo que se coloque allí.
+
+  En la fórmula, $\var{\Phi}$ es el potencial gravitatorio en julios por kilogramo, $\const{G}$ la
+  constante de gravitación universal, $\mag{M}$ la masa del cuerpo que crea el campo, en kilogramos,
+  y $\var{r}$ la distancia a su centro, en metros. El cero del potencial se toma infinitamente
+  lejos, así que el potencial es negativo en todo punto a distancia finita y aumenta hacia cero al
+  alejarse: hay que realizar trabajo sobre un cuerpo para llevarlo lejos de la fuente.
+
+  Al multiplicar el potencial por la masa de un cuerpo de prueba se obtiene su energía potencial en
+  el campo, y la diferencia de potencial entre dos puntos, por esa masa, es el trabajo necesario
+  para llevarlo de uno a otro. El campo es el ritmo de cambio del potencial con la posición,
+  cambiado de signo, de modo que un cuerpo tiende a moverse hacia potenciales menores, aquí hacia la
+  fuente. Como el potencial es un escalar, los potenciales de varios cuerpos se suman como números,
+  lo que suele ser más fácil que sumar sus vectores de campo.
+
+  La fórmula es newtoniana y vale para una masa puntual y, en su exterior, para cualquier cuerpo
+  con simetría esférica, cuyo campo exterior es el de una masa puntual situada en su centro; dentro
+  de una esfera uniforme el potencial varía en cambio de forma cuadrática con la distancia al
+  centro. Cerca de cuerpos extremadamente compactos, como los agujeros negros, hace falta la
+  relatividad general.
+
+  En la superficie de la Tierra el potencial es de unos menos 62.6 megajulios por kilogramo; un
+  cuerpo necesita al menos esa energía cinética por kilogramo, unos 11.2 kilómetros por segundo,
+  para escapar.

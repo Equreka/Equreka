@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Margen de error'
+terms:
+  E:
+    label: 'Margen de error'
+  z^{*}:
+    label: 'Valor crítico (puntuación z)'
+  \sigma:
+    label: 'Desviación típica'
+  n:
+    label: 'Tamaño de la muestra'
+description: >-
+  El margen de error de una media estimada es la semiamplitud de su intervalo de confianza: el valor
+  crítico de la distribución normal estándar por el error estándar de la media. Indica a qué
+  distancia de la media muestral puede estar la media verdadera con un nivel de confianza elegido,
+  y en la estadística inferencial fija además el tamaño de la muestra necesario para alcanzar una
+  precisión deseada.
+
+  En la fórmula, $\var{E}$ es el margen de error, $\var{z^{*}}$ el valor crítico, una puntuación z
+  que deja el nivel de confianza elegido entre menos y más ella misma bajo la curva normal
+  estándar, $\var{\sigma}$ la desviación típica de la población y $\var{n}$ el tamaño de la
+  muestra, un número entero positivo. El margen y la desviación típica comparten la unidad de los
+  datos, que la fórmula deja abierta; el valor crítico y el tamaño de la muestra son números puros.
+  Los cuatro son positivos.
+
+  El intervalo va de la media muestral menos $\var{E}$ a la media muestral más $\var{E}$. Un nivel
+  de confianza más alto exige un valor crítico mayor y ensancha el intervalo, mientras que una
+  muestra mayor lo estrecha según la raíz cuadrada de $\var{n}$. Despejar $\var{n}$ da la fórmula
+  de planificación de una encuesta: el cuadrado del valor crítico por la desviación típica dividido
+  entre el margen deseado, siempre redondeado al entero siguiente.
+
+  La fórmula supone una muestra aleatoria, una desviación típica poblacional conocida y una media
+  muestral con distribución aproximadamente normal, porque los datos son normales o porque la
+  muestra es grande. Cuando la desviación típica debe estimarse con la misma muestra, el valor
+  crítico se toma de la distribución t con un grado de libertad menos que el tamaño de la muestra.
+  Un nivel de confianza describe la proporción a largo plazo de intervalos que contienen la media
+  verdadera, no la probabilidad de que la contenga un intervalo ya calculado. Las encuestas que
+  estiman una proporción usan una forma distinta.
+
+  Los valores críticos habituales son 1.645 para un 90 por ciento y 1.96 para un 95 por ciento de
+  confianza. Con una desviación típica de 3 y 36 observaciones, un 90 por ciento de confianza da un
+  margen de cerca de 0.82.

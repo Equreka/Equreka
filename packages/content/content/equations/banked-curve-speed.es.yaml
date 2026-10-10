@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Rapidez ideal en una curva con peralte'
+terms:
+  g:
+    label: 'Aceleración de la gravedad'
+description: >-
+  La rapidez ideal en una curva con peralte es la única rapidez con la que un vehículo puede seguir
+  una curva cuya calzada está inclinada hacia el centro sin ayuda del rozamiento: la tangente del
+  ángulo de peralte es igual al cuadrado de la rapidez dividido entre el radio por la aceleración de
+  la gravedad. La relación fija el peralte de carreteras, vías de tren, velódromos y circuitos de
+  carreras para una rapidez de diseño elegida.
+
+  Aquí $\mag{\theta}$ es el ángulo de peralte entre la calzada y la horizontal, en radianes,
+  $\mag{v}$ la rapidez del vehículo en metros por segundo, $\var{r}$ el radio de la curva en metros
+  y $\var{g}$ la aceleración de la gravedad, introducida como número positivo; su valor normal es
+  9.80665 metros por segundo al cuadrado, mientras que el valor local varía de un lugar a otro y en
+  otros cuerpos celestes. Las cuatro son no negativas, el ángulo está entre cero y un ángulo recto y
+  la rapidez es la raíz cuadrada no negativa.
+
+  En una carretera con peralte y sin rozamiento solo actúan dos fuerzas sobre el vehículo: su peso y
+  la fuerza normal, perpendicular a la calzada. La componente vertical de la fuerza normal equilibra
+  el peso, mientras que su componente horizontal, dirigida hacia el centro de la curva, aporta la
+  fuerza centrípeta, la masa por el cuadrado de la rapidez entre el radio. Al dividir un equilibrio
+  entre el otro se cancelan la masa y la fuerza normal y queda la tangente del ángulo, de modo que la
+  rapidez ideal es la misma para una bicicleta y para un camión.
+
+  La relación supone una curva de radio constante recorrida a rapidez constante, un vehículo pequeño
+  frente al radio y ausencia de rozamiento. En una carretera real, el rozamiento estático permite
+  tomar la curva algo más deprisa o más despacio que la rapidez ideal sin deslizar hacia arriba ni
+  hacia abajo de la pendiente; sin peralte el ángulo es nulo y el rozamiento debe aportar toda la
+  fuerza centrípeta.
+
+  Una curva de 100 metros de radio con un peralte de 65.0 grados tiene una rapidez ideal de unos
+  45.9 metros por segundo, aproximadamente 165 kilómetros por hora.

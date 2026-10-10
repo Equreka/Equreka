@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Schwarzschild radius'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{r_\mathrm{s}}=\frac{2\const{G}\mag{M}}{\const{c}^{2}}'
+terms:
+  r_\mathrm{s}:
+    kind: 'symbol'
+    label:
+      en: 'Schwarzschild radius'
+    unit: 'metre'
+  G:
+    kind: 'constant'
+    ref: 'gravitational-constant'
+  M:
+    kind: 'magnitude'
+    ref: 'mass'
+  c:
+    kind: 'constant'
+    ref: 'speed-of-light'
+solutions:
+  r_\mathrm{s}: '2 * G * M / c^2'
+  M: 'r_s * c^2 / (2 * G)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q72755'
+categories:
+  - 'physics'
+branches:
+  - 'gravitation'
+aliases:
+  - 'gravitational radius'
+  - 'event horizon radius'
+  - 'black hole radius'
+  - 'r_s = 2GM/c^2'
+  - 'radio de Schwarzschild'
+  - 'radio gravitacional'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 13.7 Einstein''s Theory of Gravity, equation 13.12'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/13-7-einsteins-theory-of-gravity'
+  - title: 'K. Schwarzschild, On the gravitational field of a mass point according to Einstein''s theory, Sitzungsberichte der Preussischen Akademie der Wissenschaften (1916) 189-196, English translation by S. Antoci and A. Loinger, arXiv:physics/9905030'
+    url: 'https://arxiv.org/abs/physics/9905030'
+  - title: 'R. Nave, HyperPhysics (Georgia State University), Black holes'
+    url: 'https://hyperphysics.gsu.edu/hbase/Astro/blkhol.html'
+  - title: 'NASA NSSDCA, Sun Fact Sheet (GM, volumetric mean radius)'
+    url: 'https://nssdc.gsfc.nasa.gov/planetary/factsheet/sunfact.html'
+description:
+  en: >-
+    The Schwarzschild radius of a mass is the radius of the sphere into which that mass would have to
+    be compressed to form a non-rotating black hole: twice the gravitational constant times the mass
+    divided by the square of the speed of light. The sphere of that radius is the event horizon,
+    the boundary from inside which no matter, light or signal can escape.
+
+    In the formula, $\var{r_\mathrm{s}}$ is the Schwarzschild radius in metres, $\const{G}$ the
+    Newtonian constant of gravitation, $\mag{M}$ the mass in kilograms, and $\const{c}$ the speed of
+    light in vacuum. All quantities are positive, and the radius grows in direct proportion to the
+    mass, so a black hole of twice the mass has a horizon twice as large.
+
+    The radius comes from the exact solution of the field equations of general relativity for the
+    space outside a spherical, non-rotating, uncharged mass. Setting the Newtonian escape speed
+    equal to the speed of light gives the same expression, but only by coincidence, since that
+    argument treats light with the classical kinetic energy formula and ignores the curvature of
+    space-time.
+
+    For an ordinary star or planet the Schwarzschild radius lies deep inside the body, where the
+    exterior solution does not apply, and no horizon exists; only a mass squeezed within its own
+    Schwarzschild radius becomes a black hole. The formula describes the horizon of a static,
+    uncharged black hole only.
+
+    Karl Schwarzschild published the solution in 1916 in the proceedings of the Prussian Academy of
+    Sciences; his contemporaries saw it as an abstract result, with no known body small and dense
+    enough to apply it to. Compressed to a
+    black hole, the Sun would have a radius of about 2.95 kilometres and the Earth one of under a
+    centimetre.

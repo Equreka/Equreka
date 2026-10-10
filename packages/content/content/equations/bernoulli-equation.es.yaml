@@ -1,0 +1,49 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ecuación de Bernoulli'
+terms:
+  p_{1}:
+    label: 'Presión en el punto 1'
+  p_{2}:
+    label: 'Presión en el punto 2'
+  v_{1}:
+    label: 'Rapidez del flujo en el punto 1'
+  v_{2}:
+    label: 'Rapidez del flujo en el punto 2'
+  h_{1}:
+    label: 'Altura del punto 1'
+  h_{2}:
+    label: 'Altura del punto 2'
+  g:
+    label: 'Aceleración de la gravedad'
+description: >-
+  La ecuación de Bernoulli establece que, sobre una misma línea de corriente de un flujo
+  estacionario de un fluido ideal, la presión sumada a las energías cinética y potencial
+  gravitatoria de cada unidad de volumen conserva el mismo valor. Escrita entre dos
+  puntos, es el balance de energía de la dinámica de fluidos que explica los medidores Venturi, los
+  sifones, las boquillas y la menor presión de una corriente rápida; a igual altura se reduce al
+  principio de Bernoulli.
+
+  Aquí $\var{p_{1}}$ y $\var{p_{2}}$ son las presiones en los puntos 1 y 2 en pascales, ambas
+  absolutas o ambas manométricas; $\var{v_{1}}$ y $\var{v_{2}}$ las rapideces del flujo en ellos en
+  metros por segundo, nunca negativas, por lo que cada una se despeja como la raíz no negativa;
+  $\var{h_{1}}$ y $\var{h_{2}}$ sus alturas en metros sobre un nivel de referencia común;
+  $\mag{\rho}$ la densidad del fluido en kilogramos por metro cúbico, y $\var{g}$ la aceleración de
+  la gravedad, introducida como número positivo, de valor normal 9.80665 metros por segundo al
+  cuadrado y variable según el lugar.
+
+  La ecuación es el teorema de trabajo-energía aplicado a una pequeña porción de fluido: el trabajo
+  neto que realiza la presión del fluido circundante mientras la porción pasa de un punto a otro es
+  igual al aumento de su energía cinética y de su energía potencial gravitatoria. Con el fluido en
+  reposo se reduce al aumento de la presión con la profundidad; a altura constante, una corriente
+  más rápida tiene menor presión.
+
+  La ecuación supone un fluido incompresible de densidad constante, sin pérdidas viscosas, un flujo
+  estacionario sin turbulencia y dos puntos sobre la misma línea de corriente; las bombas, las
+  turbinas y el rozamiento en las tuberías exigen términos adicionales. Describe bien los líquidos,
+  y los gases solo a rapideces lo bastante bajas para que su densidad apenas varíe.
+
+  Daniel Bernoulli expuso el análisis energético del flujo de fluidos en Hydrodynamica, publicada en
+  1738. El agua, de densidad 1000 kilogramos por metro cúbico, de una manguera horizontal que
+  circula a 1.96 metros por segundo y sale por una boquilla a 25.5 metros por segundo al aire libre,
+  a una presión absoluta de $1.01\times10^{5}\,\mathrm{Pa}$, necesita en la manguera una presión
+  absoluta de unos $4.24\times10^{5}\,\mathrm{Pa}$.

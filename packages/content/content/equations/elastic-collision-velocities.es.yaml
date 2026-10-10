@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Velocidades tras un choque elástico unidimensional'
+terms:
+  v_{1}:
+    label: 'Velocidad final del cuerpo 1'
+  m_{1}:
+    label: 'Masa del cuerpo 1'
+  m_{2}:
+    label: 'Masa del cuerpo 2'
+  u_{1}:
+    label: 'Velocidad inicial del cuerpo 1'
+  u_{2}:
+    label: 'Velocidad inicial del cuerpo 2'
+description: >-
+  En un choque elástico unidimensional dos cuerpos se encuentran de frente a lo largo de una recta y
+  se separan conservando la cantidad de movimiento total y la energía cinética total. Esas dos
+  leyes de conservación fijan las dos velocidades finales a partir de las masas y las velocidades
+  iniciales; la fórmula da la velocidad final del cuerpo 1, y la del cuerpo 2 se obtiene con la misma
+  fórmula intercambiando los índices 1 y 2.
+
+  Aquí $\var{m_{1}}$ y $\var{m_{2}}$ son las masas en kilogramos, $\var{u_{1}}$ y $\var{u_{2}}$ las
+  velocidades de los cuerpos 1 y 2 antes del choque y $\var{v_{1}}$ la velocidad del cuerpo 1
+  después de él, todas en metros por segundo. Las velocidades tienen signo a lo largo de la recta
+  del movimiento, positivo en un sentido elegido; una velocidad final de signo contrario a la
+  inicial indica que el cuerpo ha rebotado.
+
+  La conservación de la cantidad de movimiento sola deja una incógnita de más. La
+  conservación de la energía cinética, combinada con ella, se reduce a que la velocidad relativa se
+  invierte: los cuerpos se separan con la misma rapidez con la que se acercaban. Resolver esa
+  condición lineal junto con la anterior da la media ponderada de la fórmula. Tres casos límite muestran su sentido: masas iguales intercambian sus velocidades, un
+  cuerpo ligero que golpea a otro mucho más pesado en reposo rebota casi con su rapidez original, y
+  un cuerpo pesado que golpea a otro ligero en reposo apenas se frena mientras el ligero sale con
+  casi el doble de su rapidez. Con masas iguales, la primera velocidad final deja de depender de la
+  primera inicial, así que esa velocidad inicial no puede despejarse.
+
+  La fórmula supone un sistema aislado sin impulso externo durante el breve contacto, un movimiento
+  limitado a una recta y ninguna pérdida de energía cinética en forma de calor, sonido o
+  deformación. La mayoría de los choques reales pierden algo de energía y se describen con un
+  coeficiente de restitución menor que uno, con el que la velocidad relativa se invierte pero
+  disminuye.
+
+  Un disco de 12 gramos que se desliza a 2.5 metros por segundo contra otro de 15 gramos en reposo
+  rebota a unos 0.28 metros por segundo, mientras que el disco golpeado sale a unos 2.22 metros por
+  segundo.

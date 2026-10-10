@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Coeficiente de restitución'
+terms:
+  e:
+    label: 'Coeficiente de restitución'
+  v_{1}:
+    label: 'Velocidad final del cuerpo 1'
+  v_{2}:
+    label: 'Velocidad final del cuerpo 2'
+  u_{1}:
+    label: 'Velocidad inicial del cuerpo 1'
+  u_{2}:
+    label: 'Velocidad inicial del cuerpo 2'
+description: >-
+  El coeficiente de restitución mide lo elástico que es un choque: es la rapidez con la que dos
+  cuerpos que chocan se separan tras el impacto dividida entre la rapidez con la que se acercaban
+  antes de él. Un valor de uno corresponde a un choque perfectamente elástico, cero a uno
+  perfectamente inelástico en el que los cuerpos quedan unidos, y los valores intermedios a los
+  choques parcialmente inelásticos cotidianos.
+
+  Aquí $\var{e}$ es el coeficiente de restitución, un número adimensional,
+  normalmente entre 0 y 1; $\var{u_{1}}$ y $\var{u_{2}}$ son las velocidades de los cuerpos 1 y 2
+  antes del choque y $\var{v_{1}}$ y $\var{v_{2}}$ sus velocidades después de él, en metros por
+  segundo. Las velocidades tienen signo a lo largo de la línea de impacto, positivo en un sentido
+  elegido, con el cuerpo 1 inicialmente detrás del cuerpo 2 y alcanzándolo, de modo que tanto el
+  numerador, la rapidez de separación, como el denominador, la rapidez de acercamiento, son
+  positivos.
+
+  En un choque frontal, conservar la energía cinética además de la cantidad de movimiento obliga a
+  que la velocidad relativa se invierta sin cambiar de valor absoluto, caso del
+  coeficiente igual a uno. Un coeficiente menor indica que la velocidad relativa se invierte pero
+  disminuye, porque la energía cinética perdida se ha ido en deformación, calor y sonido.
+  Junto con la conservación de la cantidad de movimiento, el coeficiente fija las dos velocidades
+  finales de un choque unidimensional. Para una pelota que rebota en un suelo fijo, el coeficiente
+  es la rapidez de rebote entre la rapidez de impacto, así que sin resistencia del aire es igual a
+  la raíz cuadrada de la altura de rebote entre la altura de caída.
+
+  El coeficiente depende de los materiales y de la fuerza con que chocan, así que un único
+  valor describe un par de superficies solo en un intervalo limitado de condiciones. Los valores menores que cero o
+  mayores que uno solo aparecen cuando un cuerpo atraviesa al otro o se libera energía almacenada.
+
+  Los reglamentos deportivos reflejan esa dependencia. Para una pelota de béisbol reglamentaria, el
+  coeficiente contra una pared de fresno blanco del norte debe ser 0.546, con un margen de 0.032 en
+  cada sentido, a una rapidez de impacto fijada en 60 millas por hora, ya que un impacto más fuerte
+  deforma más la pelota y cambia el valor.

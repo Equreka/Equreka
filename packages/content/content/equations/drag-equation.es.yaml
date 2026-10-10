@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ecuación de arrastre'
+terms:
+  F_\mathrm{d}:
+    label: 'Fuerza de arrastre'
+  C_\mathrm{d}:
+    label: 'Coeficiente de arrastre'
+  A:
+    label: 'Área de referencia'
+description: >-
+  La ecuación de arrastre da la fuerza resistente sobre un cuerpo que se mueve a través de un fluido
+  con rapidez suficiente para que el flujo sea turbulento: la mitad del coeficiente de arrastre por
+  la densidad del fluido por un área de referencia por el cuadrado de la rapidez. Es el modelo
+  habitual de la resistencia del aire y del arrastre aerodinámico de coches, aviones, ciclistas,
+  paracaidistas y pelotas lanzadas.
+
+  En la ecuación, $\var{F_\mathrm{d}}$ es el módulo de la fuerza de arrastre en newtons, opuesta al
+  movimiento del cuerpo a través del fluido; $\var{C_\mathrm{d}}$ es el coeficiente de arrastre, un
+  número adimensional; $\mag{\rho}$ la densidad del fluido en kilogramos por metro cúbico; $\var{A}$
+  el área de referencia en metros cuadrados, y $\mag{v}$ la rapidez del cuerpo respecto al fluido en
+  metros por segundo. Las cinco son no negativas.
+
+  El producto de la mitad de la densidad por el cuadrado de la rapidez es la presión dinámica, la
+  energía cinética por unidad de volumen del fluido que llega, de modo que la ecuación se lee como
+  esa presión actuando sobre un área, multiplicada por un coeficiente que recoge todo lo demás: la
+  forma del cuerpo, su superficie y los efectos de la viscosidad y la compresibilidad. Como la
+  fuerza crece con el cuadrado de la rapidez, duplicar la rapidez cuadruplica el arrastre. Los
+  coeficientes medidos van de unos 0.05 para un perfil alar, pasando por 0.28 a 0.64 para vehículos
+  de carretera, hasta cerca de 1.1 para una placa circular plana de frente al flujo.
+
+  El área de referencia es una convención, normalmente el área frontal expuesta al flujo, aunque a
+  veces se usa el área del ala o la superficie total; un coeficiente solo es válido con el área para
+  la que se midió. El coeficiente se determina en túneles de viento y se mantiene casi constante solo
+  en un intervalo de rapideces; a rapideces muy bajas o para cuerpos muy pequeños, el arrastre pasa a
+  ser proporcional a la rapidez, como en la ley de Stokes.
+
+  Un paracaidista que se lanza en picado a 98 metros por segundo en aire de densidad 1.21 kilogramos por
+  metro cúbico, con coeficiente 0.70 y área 0.18 metros cuadrados, sufre un arrastre de unos 730
+  newtons.

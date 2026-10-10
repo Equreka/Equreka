@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Young''s modulus'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{E}=\frac{\mag{\sigma}}{\var{\varepsilon}}'
+terms:
+  E:
+    kind: 'symbol'
+    label:
+      en: 'Young''s modulus'
+    unit: 'pascal'
+  \sigma:
+    kind: 'magnitude'
+    ref: 'stress'
+  \varepsilon:
+    kind: 'symbol'
+    label:
+      en: 'Linear strain'
+    unit: 'unitless'
+solutions:
+  E: 'sigma / varepsilon'
+  \sigma: 'E * varepsilon'
+  \varepsilon: 'sigma / E'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q2091584'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'modulus of elasticity'
+  - 'elastic modulus'
+  - 'Young modulus'
+  - 'tensile modulus'
+  - 'E = sigma / epsilon'
+  - 'stress over strain'
+  - 'módulo de elasticidad'
+  - 'módulo de elasticidad longitudinal'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 12.3 Stress, Strain, and Elastic Modulus, Table 12.1 and Example 12.8'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/12-3-stress-strain-and-elastic-modulus'
+  - title: 'R. Nave, HyperPhysics, Young''s Modulus'
+    url: 'https://hyperphysics.gsu.edu/hbase/permot3.html'
+  - title: 'C. Camp, University of Memphis, CIVL 1101 Introduction to Strength of Materials, Section 1'
+    url: 'https://www.ce.memphis.edu/1101/notes/concrete/section_1_strength_of_materials.html'
+  - title: 'MacTutor History of Mathematics, Thomas Young (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Young_Thomas/'
+description:
+  en: >-
+    Young's modulus is the ratio of the normal stress in a stretched or compressed solid to the
+    linear strain it produces, within the range where the two are proportional. Also called the
+    modulus of elasticity, it measures the stiffness of a material in tension and compression and
+    is the slope of the straight first part of its stress-strain curve.
+
+    Here $\var{E}$ is Young's modulus in pascals, usually quoted in gigapascals; $\mag{\sigma}$ is
+    the normal stress in pascals; and $\var{\varepsilon}$ is the linear strain, a ratio with no
+    unit. Stress and strain carry the same sign, positive in tension and negative in compression,
+    so the modulus is always positive. The higher the modulus, the less a material deforms under a
+    given stress.
+
+    Rearranged, the relation says that stress is proportional to strain, the material form of
+    Hooke's law. Writing the stress as force over area and the strain as change in length over
+    original length gives the elongation of a bar as the force times the original length divided
+    by the area and the modulus, which is how the stretch of a cable or the shortening of a column
+    is estimated.
+
+    The proportionality holds only for small strains, up to the proportional limit, and the modulus
+    predicts deformation only while the stress stays below the yield strength; beyond it the
+    material deforms permanently. The value is a property of the material, not of the size of the
+    piece, and applies to stretching and squeezing along one direction; shear and changes of volume
+    have their own moduli, the shear modulus and the bulk modulus.
+
+    Thomas Young introduced the modulus in a lecture on elasticity included in the course of
+    lectures he published in 1807. Structural steel has a Young's
+    modulus of about $2.0\times10^{11}\,\mathrm{Pa}$, aluminium about a third of that.

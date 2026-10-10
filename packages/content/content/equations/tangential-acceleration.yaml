@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Tangential acceleration'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{a_\mathrm{t}}=\var{r}\mag{\alpha}'
+terms:
+  a_\mathrm{t}:
+    kind: 'symbol'
+    label:
+      en: 'Tangential acceleration'
+    unit: 'metre-per-second-squared'
+  r:
+    kind: 'variable'
+    ref: 'radius'
+  \alpha:
+    kind: 'magnitude'
+    ref: 'angular-acceleration'
+solutions:
+  a_\mathrm{t}: 'r * alpha'
+  r: 'a_t / alpha'
+  \alpha: 'a_t / r'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q2673034'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'tangential acceleration from angular acceleration'
+  - 'linear acceleration of a point on a rotating body'
+  - 'a_t = r alpha'
+  - 'at = r alpha'
+  - 'aceleración tangencial'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 10.1 Rotational Variables, equation 10.8'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-1-rotational-variables'
+  - title: 'OpenStax, College Physics 2e, 10.1 Angular Acceleration (motorcycle wheel example)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/10-1-angular-acceleration'
+description:
+  en: >-
+    Tangential acceleration is the rate at which a point on a rotating body speeds up or slows down
+    along its circular path, and it equals the distance of the point from the axis times the angular
+    acceleration of the body. The relation turns the angular acceleration of rotational kinematics
+    into the linear acceleration felt at a given radius, as at the rim of a wheel.
+
+    In the formula, $\var{a_\mathrm{t}}$ is the tangential acceleration in metres per second squared,
+    $\var{r}$ the perpendicular distance from the axis of rotation in metres, never negative, and
+    $\mag{\alpha}$ the angular acceleration in radians per second squared. Angular quantities are
+    signed about the axis, anticlockwise positive when viewed from the positive end of the axis,
+    and the tangential acceleration takes the same sign: positive along the anticlockwise direction
+    of travel. When it has the sign of the angular velocity the point speeds up; with the
+    opposite sign it slows down.
+
+    The speed of a point at a fixed radius is that radius times the angular speed. Differentiating
+    with respect to time, with the radius held constant, multiplies the rate of change of angular
+    velocity by the same radius, so every point of a rigid body shares one angular acceleration
+    while the tangential acceleration grows in proportion to the distance from the axis. Angles must be in radians
+    for the product to come out in metres per second squared.
+
+    The tangential acceleration is only one component of the acceleration of a point moving in a
+    circle. A centripetal component, directed towards the axis and equal to the speed squared over
+    the radius, is present whenever the point moves, even at constant angular velocity; the two are
+    perpendicular and the total acceleration is their vector sum. The relation assumes a rigid body
+    turning about a fixed axis.
+
+    A motorcycle that reaches 30.0 metres per second from rest in 4.20 seconds has a tangential
+    acceleration of about 7.14 metres per second squared at the edge of its tyres; with wheels of
+    radius 0.320 metres, the angular acceleration is about 22.3 radians per second squared.

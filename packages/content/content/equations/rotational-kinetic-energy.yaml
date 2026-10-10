@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Rotational kinetic energy'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{E_\mathrm{rot}}=\frac{1}{2}\mag{I}\mag{\omega}^{2}'
+terms:
+  E_\mathrm{rot}:
+    kind: 'magnitude'
+    ref: 'kinetic-energy'
+  I:
+    kind: 'magnitude'
+    ref: 'moment-of-inertia'
+  \omega:
+    kind: 'magnitude'
+    ref: 'angular-velocity'
+solutions:
+  E_\mathrm{rot}: 'I * omega^2 / 2'
+  I: '2 * E_rot / omega^2'
+  \omega:
+    - 'sqrt(2 * E_rot / I)'
+    - '-sqrt(2 * E_rot / I)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q2140940'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'rotational energy'
+  - 'kinetic energy of rotation'
+  - 'KE = 1/2 I omega^2'
+  - 'E = 1/2 I w^2'
+  - 'energía cinética rotacional'
+  - 'energía de rotación'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 10.4 Moment of Inertia and Rotational Kinetic Energy, Example 10.9'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-4-moment-of-inertia-and-rotational-kinetic-energy'
+  - title: 'R. Nave, HyperPhysics, Rotational Kinetic Energy'
+    url: 'https://hyperphysics.gsu.edu/hbase/rke.html'
+  - title: 'Embry-Riddle Aeronautical University, PS 161 lecture notes, Chapter 10 Dynamics of Rotational Motion, section 3.1'
+    url: 'https://physicsx.erau.edu/Courses/CoursesF2024/PS161/Lectures/chapter_10.pdf'
+description:
+  en: >-
+    The rotational kinetic energy of a rigid body turning about a fixed axis is half its moment of
+    inertia about that axis times the square of its angular velocity. It is the energy of motion
+    stored in spinning wheels, flywheels, turbines and rotors, the rotational counterpart in
+    mechanics of half the mass times the squared speed.
+
+    Here $\mag{E_\mathrm{rot}}$ is the rotational kinetic energy in joules, $\mag{I}$ is the moment of
+    inertia in kilogram square metres and $\mag{\omega}$ is the angular velocity in radians per
+    second. The angular velocity is signed, positive for one sense of turning and negative for the
+    other, but it enters squared, so the energy is never negative. Solving for it therefore gives
+    two roots of equal size, the positive one listed first, and the sense of rotation has to come
+    from the situation.
+
+    Every particle of the body shares the same angular velocity, and one at a given distance from
+    the axis moves with a speed equal to that distance times the angular velocity. Adding half of
+    each particle's mass times its squared speed collects the masses and squared distances into the
+    moment of inertia, which leaves the formula. The energy grows with the square of the spin rate:
+    doubling the angular velocity stores four times as much energy.
+
+    The angular velocity must be in radians per second for the result to come out in joules;
+    revolutions per minute or degrees per second have to be converted first. A body that both moves
+    and spins, such as a rolling wheel or a thrown baton, has a total kinetic energy equal to this
+    term, taken about an axis through the centre of mass, plus the translational energy of the
+    centre of mass. The formula is non-relativistic, like its linear counterpart.
+
+    Four helicopter blades with a combined moment of inertia of $1067\,\mathrm{kg\,m^{2}}$ turning at
+    31.4 radians per second store about $5.26\times10^{5}\,\mathrm{J}$.

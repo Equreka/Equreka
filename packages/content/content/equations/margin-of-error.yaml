@@ -1,0 +1,84 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Margin of error'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{E}=\var{z^{*}}\frac{\var{\sigma}}{\sqrt{\var{n}}}'
+terms:
+  E:
+    kind: 'symbol'
+    label:
+      en: 'Margin of error'
+  z^{*}:
+    kind: 'symbol'
+    label:
+      en: 'Critical value (z-score)'
+  \sigma:
+    kind: 'symbol'
+    label:
+      en: 'Standard deviation'
+  n:
+    kind: 'symbol'
+    integer: true
+    label:
+      en: 'Sample size'
+solutions:
+  E: 'z * sigma / sqrt(n)'
+  z^{*}: 'E * sqrt(n) / sigma'
+  \sigma: 'E * sqrt(n) / z'
+  n: '(z * sigma / E)^2'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q1352827'
+categories:
+  - 'mathematics'
+branches:
+  - 'statistics-and-probability'
+aliases:
+  - 'margin of error for a mean'
+  - 'error bound for a population mean'
+  - 'EBM'
+  - 'MOE'
+  - 'confidence interval half-width'
+  - 'sample size formula'
+  - 'margen de error'
+  - 'error máximo de estimación'
+  - 'semiamplitud del intervalo de confianza'
+references:
+  - title: 'OpenStax, Introductory Statistics 2e, 8.1 A Single Population Mean Using the Normal Distribution'
+    url: 'https://openstax.org/books/introductory-statistics-2e/pages/8-1-a-single-population-mean-using-the-normal-distribution'
+  - title: 'NIST/SEMATECH e-Handbook of Statistical Methods, 1.3.5.2 Confidence Limits for the Mean'
+    url: 'https://www.itl.nist.gov/div898/handbook/eda/section3/eda352.htm'
+  - title: 'OpenStax, Introductory Statistics 2e, 8.3 A Population Proportion'
+    url: 'https://openstax.org/books/introductory-statistics-2e/pages/8-3-a-population-proportion'
+description:
+  en: >-
+    The margin of error of an estimated mean is the half-width of its confidence interval: the
+    critical value of the standard normal distribution times the standard error of the mean. Some
+    textbooks name it the error bound of the mean; it states how far the true mean may lie from the
+    sample mean at a chosen confidence level, and in inferential statistics it also fixes the sample
+    size needed for a target precision.
+
+    In the formula, $\var{E}$ is the margin of error, $\var{z^{*}}$ the critical value, a z-score
+    that leaves the chosen confidence level between minus and plus itself under the standard normal
+    curve, $\var{\sigma}$ the standard deviation of the population and $\var{n}$ the sample size, a
+    positive whole number. The margin and the standard deviation share the unit of the data, which
+    the formula leaves open; the critical value and the sample size are pure numbers. All four are
+    positive.
+
+    The interval runs from the sample mean minus $\var{E}$ to the sample mean plus $\var{E}$. A
+    higher confidence level needs a larger critical value and widens the interval, while a larger
+    sample narrows it with the square root of $\var{n}$. Solving for $\var{n}$ gives the planning
+    formula for a survey: the square of the critical value times the standard deviation over the
+    desired margin, always rounded up to the next whole number.
+
+    The formula assumes a random sample, a known population standard deviation and a sample mean
+    that is close to normally distributed, either because the data are normal or because the sample
+    is large. When the standard deviation must be estimated from the same sample, the critical value
+    comes from the t distribution with one degree of freedom fewer than the sample size. A confidence
+    level describes the long-run share of intervals that contain the true mean, not the chance that
+    one computed interval does. Polls estimating a proportion use a separate form.
+
+    Common critical values are 1.645 for 90 percent and 1.96 for 95 percent confidence. With a
+    standard deviation of 3 and 36 observations, 90 percent confidence gives a margin of about 0.82.

@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Coefficient of variation'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{c_\mathrm{v}}=\frac{\var{\sigma}}{\var{\mu}}'
+terms:
+  c_\mathrm{v}:
+    kind: 'symbol'
+    label:
+      en: 'Coefficient of variation'
+    unit: 'unitless'
+  \sigma:
+    kind: 'symbol'
+    label:
+      en: 'Standard deviation'
+  \mu:
+    kind: 'symbol'
+    label:
+      en: 'Mean'
+solutions:
+  c_\mathrm{v}: 'sigma / mu'
+  \sigma: 'c_v * mu'
+  \mu: 'sigma / c_v'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q623738'
+categories:
+  - 'mathematics'
+branches:
+  - 'statistics-and-probability'
+aliases:
+  - 'CV'
+  - 'relative standard deviation'
+  - 'RSD'
+  - 'variation coefficient'
+  - 'percentage standard deviation'
+  - 'coeficiente de variabilidad'
+  - 'desviación típica relativa'
+  - 'desviación estándar relativa'
+references:
+  - title: 'NIST, Dataplot Reference Manual, Coefficient of Variation'
+    url: 'https://itl.nist.gov/div898/software/dataplot/refman2/auxillar/coefvari.htm'
+  - title: 'OpenStax, Introductory Business Statistics 2e, 2.7 Measures of the Spread of the Data (coefficient of variation)'
+    url: 'https://openstax.org/books/introductory-business-statistics-2e/pages/2-7-measures-of-the-spread-of-the-data'
+description:
+  en: >-
+    The coefficient of variation is the standard deviation of a data set or distribution divided by
+    its mean. Also called the relative standard deviation, and often quoted as a percentage, it is a
+    measure of relative dispersion in descriptive statistics: it expresses spread as a fraction of
+    the typical size of the values, so data sets with different units or very different means can be
+    compared directly.
+
+    In the formula, $\var{c_\mathrm{v}}$ is the coefficient of variation, a pure number usually given
+    as a decimal or a percentage, $\var{\sigma}$ the standard deviation and $\var{\mu}$ the mean,
+    both in the unit of the data, which the division cancels. The standard deviation is never
+    negative and the mean must not be zero; for positive data, the usual case, the coefficient is
+    positive.
+
+    The standard deviation alone says how widely values scatter in the unit of measurement, which
+    makes a scatter of 5 grams large for a 10-gram sample and negligible for a 10-kilogram one.
+    Dividing by the mean removes the unit and the scale, leaving the scatter per unit of average
+    size. Read the other way, a known coefficient and mean give the standard deviation, and a known
+    coefficient and standard deviation give the mean.
+
+    The ratio is meaningful only for data on a ratio scale, with a true zero, such as lengths, masses
+    or temperatures in kelvin. On an interval scale such as degrees Celsius the zero is arbitrary,
+    and the same temperatures give different coefficients in Celsius and Fahrenheit. When the mean
+    lies close to zero, small changes in it swing the coefficient wildly, so the measure becomes
+    unreliable. With a sample, the sample standard deviation and mean replace the population values.
+
+    Laboratories report the repeatability of an assay this way, and engineers use it to compare the
+    consistency of processes. Values with a mean of 50 and a standard deviation of 5 have a
+    coefficient of variation of 0.10, or 10 percent.

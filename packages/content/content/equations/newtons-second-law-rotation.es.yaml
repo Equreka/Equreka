@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Segunda ley de Newton para la rotación'
+description: >-
+  La segunda ley de Newton para la rotación establece que el momento neto de las fuerzas sobre un
+  sólido rígido que gira alrededor de un eje fijo es igual a su momento de inercia respecto a ese eje
+  por su aceleración angular. Es el análogo rotacional de fuerza neta igual a masa por aceleración,
+  la ecuación del movimiento de ruedas, poleas, volantes de inercia y puertas.
+
+  Aquí $\mag{\tau}$ es ese momento de fuerza neto en newton metro, la suma de los momentos de todas
+  las fuerzas externas respecto al eje; $\mag{I}$ es el momento de inercia respecto al mismo eje en
+  kilogramo metro cuadrado, nunca negativo; y $\mag{\alpha}$ es la aceleración angular en radianes
+  por segundo al cuadrado. Ambos llevan signo, positivo en sentido contrario a las agujas del reloj
+  visto desde el extremo positivo del eje, y siempre lo comparten: un momento de fuerza positivo
+  sobre un cuerpo que gira en el sentido de las agujas del reloj da una aceleración angular
+  positiva, que frena ese giro.
+
+  La ley se deduce de la forma lineal aplicada a cada partícula del cuerpo. Una fuerza tangencial
+  sobre una partícula a cierta distancia del eje produce una aceleración tangencial igual a esa
+  distancia por la aceleración angular; al multiplicar ambos miembros por la distancia, la fuerza
+  pasa a ser momento de fuerza y la masa, masa por distancia al cuadrado, y al sumar sobre todas
+  las partículas esos términos forman el momento de inercia.
+
+  La relación exige tomar todos los momentos de fuerza y el momento de inercia respecto al mismo
+  eje, de dirección fija; también vale respecto a un eje que pasa por el centro de masas y se
+  desplaza sin girar, como en la rodadura, si ese eje es de simetría. Para cuerpos que giran
+  alrededor de otros ejes, el momento angular no es paralelo a la velocidad angular y la regla
+  general, momento de fuerza neto igual a la variación del momento angular por unidad de tiempo, la
+  sustituye.
+
+  En su obra de 1765 Theoria motus corporum solidorum, Leonhard Euler separó el movimiento de un
+  cuerpo sólido en una traslación y una rotación, el marco de esta ley. Un momento de fuerza de 375
+  newton metro sobre un disco uniforme con un momento de inercia de $56.25\,\mathrm{kg\,m^{2}}$
+  produce una aceleración angular de unos 6.67 radianes por segundo al cuadrado.

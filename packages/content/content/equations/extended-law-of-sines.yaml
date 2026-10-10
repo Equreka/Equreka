@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Extended law of sines'
+kind: 'equation'
+level: 'intermediate'
+expression: '\frac{\var{a}}{\sin\mag{\alpha}}=2\var{R}'
+terms:
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Side a'
+    unit: 'metre'
+  \alpha:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  R:
+    kind: 'symbol'
+    label:
+      en: 'Circumradius'
+    unit: 'metre'
+solutions:
+  a: '2 * R * sin(alpha)'
+  \alpha:
+    - 'asin(a / (2 * R))'
+    - 'pi - asin(a / (2 * R))'
+  R: 'a / (2 * sin(alpha))'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'trigonometry'
+aliases:
+  - 'extended sine rule'
+  - 'law of sines with circumradius'
+  - 'a / sin A = 2R'
+  - 'circumradius from a side and its opposite angle'
+  - 'teorema de los senos generalizado'
+  - 'teorema del seno extendido'
+  - 'ley de senos extendida'
+references:
+  - title: 'M. Corral, Elementary Trigonometry, 2.5 Circumscribed and Inscribed Circles (LibreTexts)'
+    url: 'https://math.libretexts.org/Bookshelves/Precalculus/Elementary_Trigonometry_(Corral)/02%3A_General_Triangles/2.05%3A_Circumscribed_and_Inscribed_Circles'
+  - title: 'E. W. Weisstein, Law of Sines, MathWorld'
+    url: 'https://mathworld.wolfram.com/LawofSines.html'
+description:
+  en: >-
+    The extended law of sines states that in any triangle a side divided by the sine of the opposite
+    angle equals the diameter of the circumscribed circle, the circle through the three vertices.
+    It completes the ordinary law of sines, which says only that this quotient is the same for all
+    three sides, by naming the common value, and it is the standard trigonometric route to the
+    circumradius of a triangle.
+
+    In the equation, $\var{a}$ is one side of the triangle, $\mag{\alpha}$ the angle facing it, in
+    radians, strictly between zero and a straight angle, and $\var{R}$ the circumradius, the radius
+    of the circumscribed circle. The side and the radius are lengths in metres or in any shared unit;
+    both are positive.
+
+    Draw the radii from the circumcentre to the two ends of side $\var{a}$. For an acute
+    $\mag{\alpha}$ they form an isosceles triangle whose apex angle is twice $\mag{\alpha}$, because
+    an inscribed angle is half the central angle on the same arc; for an obtuse one the apex angle is
+    a full turn minus twice $\mag{\alpha}$, whose half has the same sine. The perpendicular from the centre bisects that apex angle and the side,
+    giving a right triangle in which the sine of $\mag{\alpha}$ is half the side over the radius.
+    When the angle is right, the side is a diameter and the relation still holds.
+
+    The circumcentre lies inside an acute triangle, on the hypotenuse of a right triangle and outside
+    an obtuse one. Solving for the angle gives two roots, an acute angle and its supplement, since
+    both have the same sine and fit the same chord of the circle; other data about the triangle
+    decide between them, and no angle exists when the side exceeds the diameter. The equation holds
+    for plane triangles.
+
+    Combined with the area formula, it yields the area as the product of the three sides over four
+    times the circumradius. A triangle with sides 2, 3 and 4 has a circumradius of about 2.07.

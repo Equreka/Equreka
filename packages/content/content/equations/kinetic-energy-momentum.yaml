@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Kinetic energy in terms of momentum'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{E_\mathrm{k}}=\frac{\mag{p}^{2}}{2\mag{m}}'
+terms:
+  E_\mathrm{k}:
+    kind: 'magnitude'
+    ref: 'kinetic-energy'
+  p:
+    kind: 'magnitude'
+    ref: 'momentum'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+solutions:
+  E_\mathrm{k}: 'p^2 / (2 * m)'
+  p:
+    - 'sqrt(2 * m * E_k)'
+    - '-sqrt(2 * m * E_k)'
+  m: 'p^2 / (2 * E_k)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'kinetic energy and momentum relation'
+  - 'kinetic energy from momentum'
+  - 'momentum from kinetic energy'
+  - 'KE = p^2/2m'
+  - 'Ek = p^2 / (2m)'
+  - 'p = sqrt(2 m Ek)'
+  - 'energía cinética y cantidad de movimiento'
+  - 'energía cinética en función del momento lineal'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 6.5 De Broglie''s Matter Waves, equation 6.61 and Example 6.11'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-5-de-broglies-matter-waves'
+  - title: 'University of Illinois Urbana-Champaign, Physics Van, Ask the Van: Masses, Momentum, and Kinetic Energy'
+    url: 'https://van.physics.illinois.edu/ask/listing/344'
+  - title: 'OpenStax, University Physics Volume 1, 7.2 Kinetic Energy'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/7-2-kinetic-energy'
+  - title: 'NIST, CODATA Value: electron mass'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?me'
+description:
+  en: >-
+    The kinetic energy of a body can be written in terms of its momentum instead of its speed: it
+    equals the square of the momentum divided by twice the mass. The form is standard in collision
+    problems, where momentum is the conserved quantity, and in atomic and particle physics, where an
+    accelerating voltage fixes the kinetic energy and the momentum sets the de Broglie wavelength.
+
+    In the formula, $\mag{E_\mathrm{k}}$ is the kinetic energy in joules, $\mag{p}$ the momentum in
+    kilogram metres per second, and $\mag{m}$ the mass in kilograms. Momentum is signed along a
+    chosen axis, positive in the chosen direction, while kinetic energy and mass are never negative;
+    because the momentum appears squared, a body moving either way along the axis has the same
+    kinetic energy. Solving for the momentum therefore gives a positive root, listed first, and a
+    negative root of the same size for motion in the opposite sense.
+
+    The relation follows from substituting the speed, momentum divided by mass, into the usual
+    expression of kinetic energy as half the mass times the speed squared. Read the other way, two
+    bodies carrying equal momentum do not carry equal kinetic energy: the lighter one has more, in
+    inverse proportion to the mass. This is why, when a gun fires, the light bullet takes almost all
+    the kinetic energy while the gun and the bullet share equal and opposite momenta. Doubling the
+    momentum of a given body quadruples its kinetic energy.
+
+    The formula is Newtonian and holds only at speeds well below the speed of light. At relativistic
+    speeds the kinetic energy and momentum are related through the rest energy of the body, and the
+    quadratic form understates the momentum needed for a given energy. It applies to
+    translation; a spinning body has rotational kinetic energy in addition, not included here.
+
+    An electron accelerated from rest through 54 volts gains 54 electronvolts of kinetic energy and
+    a momentum of about $3.97\times10^{-24}\,\mathrm{kg\,m/s}$.

@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Moment of inertia of a thin rod about its centre'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{I}=\frac{1}{12}\mag{M}\var{L}^{2}'
+terms:
+  I:
+    kind: 'magnitude'
+    ref: 'moment-of-inertia'
+  M:
+    kind: 'magnitude'
+    ref: 'mass'
+  L:
+    kind: 'symbol'
+    label:
+      en: 'Length of the rod'
+    unit: 'metre'
+solutions:
+  I: 'M * L^2 / 12'
+  M: '12 * I / L^2'
+  L: 'sqrt(12 * I / M)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'I = 1/12 M L^2'
+  - 'moment of inertia of a rod'
+  - 'moment of inertia of a thin rod'
+  - 'moment of inertia of a slender rod about its center'
+  - 'moment of inertia of a stick'
+  - 'momento de inercia de una varilla'
+  - 'momento de inercia de una barra delgada'
+references:
+  - title: 'R. Nave, HyperPhysics, Moment of Inertia: Rod'
+    url: 'https://hyperphysics.gsu.edu/hbase/mi2.html'
+  - title: 'OpenStax, University Physics Volume 1, 10.5 Calculating Moments of Inertia'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-5-calculating-moments-of-inertia'
+description:
+  en: >-
+    The moment of inertia of a thin uniform rod about an axis through its centre, perpendicular to
+    its length, is one twelfth of its mass times the square of its length. This shape formula of
+    rotational mechanics describes a baton, a propeller blade pair, a seesaw plank or a spinning
+    stick, any slender body turning end over end about its midpoint.
+
+    Here $\mag{I}$ is the moment of inertia in kilogram square metres, $\mag{M}$ is the mass of the
+    rod in kilograms and $\var{L}$ is its full length in metres. All three are non-negative, so
+    solving for the length keeps only the non-negative square root.
+
+    The rod can be treated as a line of tiny pieces, each contributing its mass times the square of
+    its distance from the centre. With the mass spread evenly along the length, integrating from one
+    end to the other, half a length on each side of the centre, gives the factor one twelfth. About
+    a parallel axis through one end, the parallel axis theorem adds the mass times the square of
+    half the length, and the result becomes one third of the mass times the squared length, four
+    times the value about the centre.
+
+    The formula assumes a uniform rod whose thickness is negligible next to its length; a thick bar
+    or a cylinder turning about a diameter needs a further term for its radius. It applies only to
+    the axis through the centre at right angles to the rod: about the rod's own long axis a thin rod
+    has almost no moment of inertia.
+
+    A uniform rod of 2.0 kilograms and length 0.50 metres has a moment of inertia of about
+    $0.042\,\mathrm{kg\,m^{2}}$ about its centre and about $0.17\,\mathrm{kg\,m^{2}}$ about one end.

@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Función de distribución acumulada de la distribución exponencial'
+terms:
+  F:
+    label: 'Probabilidad acumulada'
+  \lambda:
+    label: 'Parámetro de tasa'
+  x:
+    label: 'Valor de la variable'
+description: >-
+  La función de distribución acumulada de la distribución exponencial da la probabilidad de que
+  una variable con distribución exponencial tome un valor no mayor que uno dado: uno menos e elevado
+  a menos la tasa por ese valor. La distribución exponencial es la distribución de probabilidad
+  continua de los tiempos de espera entre sucesos que ocurren a un ritmo medio constante, y de la
+  vida de piezas que fallan a una tasa constante.
+
+  En la fórmula, $\var{F}$ es la probabilidad acumulada, un número puro entre 0 y 1,
+  $\var{\lambda}$ el parámetro de tasa, también llamado parámetro de decaimiento, y $\var{x}$ el
+  valor de la variable, cero o positivo. La unidad de $\var{\lambda}$ es la inversa de la unidad de
+  $\var{x}$: una tasa de 0.1 por año corresponde a tiempos en años, de modo que el producto del
+  exponente es un número puro. La tasa es positiva.
+
+  La densidad de probabilidad es la tasa por e elevado a menos la tasa por el valor; integrarla
+  desde cero hasta $\var{x}$ da la fórmula. El complemento, e elevado a menos la tasa por el valor,
+  es la probabilidad de esperar más de $\var{x}$. La media y la desviación típica son ambas iguales
+  a la inversa de la tasa. Tomar el logaritmo natural de uno menos la probabilidad permite despejar
+  el valor, lo que da los cuantiles: la mediana, por ejemplo, es el logaritmo natural de 2 dividido
+  entre la tasa.
+
+  El modelo supone una tasa constante, así que la probabilidad de un suceso en el intervalo
+  siguiente no depende de cuánto haya durado ya la espera, la propiedad de falta de memoria. Si los sucesos siguen un proceso de Poisson, los
+  tiempos entre ellos son exponenciales, y también a la inversa. Las piezas que se desgastan, cuya
+  tasa de fallo crece con la edad, necesitan otras distribuciones de vida.
+
+  La usan la ingeniería de fiabilidad, la teoría de colas y el estudio de los tiempos entre
+  terremotos o llamadas. Una pieza con una vida media de 10 años tiene una tasa de 0.1 por año y una
+  probabilidad de cerca de 0.50 de fallar en menos de 7 años.

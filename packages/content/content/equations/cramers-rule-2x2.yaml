@@ -1,0 +1,97 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Cramer''s rule for two linear equations'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{x}=\frac{\var{c_{1}}\var{b_{2}}-\var{b_{1}}\var{c_{2}}}{\var{a_{1}}\var{b_{2}}-\var{b_{1}}\var{a_{2}}}'
+terms:
+  x:
+    kind: 'symbol'
+    label:
+      en: 'Unknown x'
+  a_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Coefficient of x in the first equation'
+  b_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Coefficient of y in the first equation'
+  c_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Constant term of the first equation'
+  a_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Coefficient of x in the second equation'
+  b_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Coefficient of y in the second equation'
+  c_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Constant term of the second equation'
+solutions:
+  x: '(c_1 * b_2 - b_1 * c_2) / (a_1 * b_2 - b_1 * a_2)'
+  a_{1}: '(c_1 * b_2 - b_1 * c_2 + x * b_1 * a_2) / (x * b_2)'
+  b_{1}: 'b_2 * (c_1 - x * a_1) / (c_2 - x * a_2)'
+  c_{1}: '(x * (a_1 * b_2 - b_1 * a_2) + b_1 * c_2) / b_2'
+  a_{2}: '(x * a_1 * b_2 - c_1 * b_2 + b_1 * c_2) / (x * b_1)'
+  b_{2}: 'b_1 * (x * a_2 - c_2) / (x * a_1 - c_1)'
+  c_{2}: '(c_1 * b_2 - x * (a_1 * b_2 - b_1 * a_2)) / b_1'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q322666'
+categories:
+  - 'mathematics'
+branches:
+  - 'algebra'
+aliases:
+  - 'Cramer''s rule'
+  - 'Cramer rule 2x2'
+  - 'Cramers rule'
+  - 'determinant method for linear systems'
+  - 'x = Dx / D'
+  - 'regla de Cramer'
+  - 'método de Cramer'
+references:
+  - title: 'OpenStax, Algebra and Trigonometry 2e, 11.8 Solving Systems with Cramer''s Rule'
+    url: 'https://openstax.org/books/algebra-and-trigonometry-2e/pages/11-8-solving-systems-with-cramers-rule'
+  - title: 'E. W. Weisstein, Cramer''s Rule, MathWorld'
+    url: 'https://mathworld.wolfram.com/CramersRule.html'
+  - title: 'MacTutor History of Mathematics, Matrices and determinants'
+    url: 'https://mathshistory.st-andrews.ac.uk/HistTopics/Matrices_and_determinants/'
+  - title: 'MacTutor History of Mathematics, Gabriel Cramer (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Cramer/'
+description:
+  en: >-
+    Cramer's rule solves a pair of linear equations in two unknowns by means of determinants: each
+    unknown equals a quotient of two 2×2 determinants. For the system written as a first equation
+    with x and y coefficients and a constant, and a second of the same shape, the rule gives the
+    unknown x in closed form, without elimination or substitution, as long as the determinant of the
+    coefficients is not zero.
+
+    In the formula, $\var{a_{1}}$ and $\var{b_{1}}$ are the coefficients of x and y in the first
+    equation and $\var{c_{1}}$ its constant term, on the right-hand side; $\var{a_{2}}$,
+    $\var{b_{2}}$ and $\var{c_{2}}$ play the same roles in the second equation, and $\var{x}$ is the
+    first unknown. All are pure numbers of any sign. The denominator is the determinant of the
+    coefficients and must not be zero.
+
+    The numerator is the same determinant with the column of x coefficients replaced by the
+    constants. Swapping instead the column of y coefficients gives the second unknown,
+    $$y=\frac{\var{a_{1}}\var{c_{2}}-\var{c_{1}}\var{a_{2}}}{\var{a_{1}}\var{b_{2}}-\var{b_{1}}\var{a_{2}}}$$
+    with the same denominator. Eliminating y by hand from the two equations reproduces the same
+    expression for x. Since the relation is linear in every coefficient, any one of them can also be
+    recovered when the solution and the other five are known.
+
+    A zero determinant means the two lines are parallel or the same line: the system then has no
+    solution or infinitely many, and elimination tells which. The rule extends to n equations in n
+    unknowns: each unknown is the determinant with its own column replaced by the constants, divided
+    by the determinant of the coefficients.
+
+    Maclaurin's Treatise of algebra, published in 1748, proved the rule for two and three
+    unknowns; Cramer stated it for any number of unknowns in 1750, without proof. The equations
+    $12x+3y=15$ and $2x-3y=13$ have a determinant of -42 and the solution x = 2, y = -3.

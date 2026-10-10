@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Angular displacement under constant angular acceleration'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{\Delta\theta}=\var{\omega_{0}}\mag{t}+\frac{1}{2}\mag{\alpha}\mag{t}^{2}'
+terms:
+  \Delta\theta:
+    kind: 'symbol'
+    label:
+      en: 'Angular displacement'
+    unit: 'radian'
+  \omega_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial angular velocity'
+    unit: 'radian-per-second'
+  \alpha:
+    kind: 'magnitude'
+    ref: 'angular-acceleration'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  \Delta\theta: 'omega_0 * t + alpha * t^2 / 2'
+  \omega_{0}: 'Deltatheta / t - alpha * t / 2'
+  \alpha: '2 * (Deltatheta - omega_0 * t) / t^2'
+  t:
+    - '(-omega_0 + sqrt(omega_0^2 + 2 * alpha * Deltatheta)) / alpha'
+    - '(-omega_0 - sqrt(omega_0^2 + 2 * alpha * Deltatheta)) / alpha'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'angular position under constant angular acceleration'
+  - 'second equation of rotational motion'
+  - 'theta = omega0 t + 1/2 alpha t^2'
+  - 'θ = ω0t + ½αt²'
+  - 'posición angular en el movimiento circular uniformemente acelerado'
+  - 'desplazamiento angular con aceleración angular constante'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 10.2 Rotation with Constant Angular Acceleration, equation 10.12 and Example 10.6'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/10-2-rotation-with-constant-angular-acceleration'
+  - title: 'OpenStax, College Physics 2e, 10.2 Kinematics of Rotational Motion'
+    url: 'https://openstax.org/books/college-physics-2e/pages/10-2-kinematics-of-rotational-motion'
+description:
+  en: >-
+    The angular displacement equation of uniformly accelerated rotation gives the angle through which
+    a body turns about a fixed axis in a given time when its angular acceleration is constant: the
+    initial angular velocity times the time, plus half the angular acceleration times the square of
+    the time. It is the rotational analogue of the position equation of linear kinematics.
+
+    In the equation, $\var{\Delta\theta}$ is the angular displacement in radians, the final angular
+    position minus the initial one, $\var{\omega_{0}}$ is the initial angular velocity in radians per
+    second, $\mag{\alpha}$ the constant angular acceleration in radians per second squared, and
+    $\mag{t}$ the elapsed time in seconds, never negative. The angular quantities are signed about
+    the axis, anticlockwise positive when viewed from the positive end of the axis. Adding the
+    initial angular position to the displacement gives the final angular position.
+
+    With constant angular acceleration the average angular velocity is the mean of the initial and
+    final values. Multiplying that average by the time, with the final angular velocity written as
+    the initial one plus the angular acceleration times the time, yields the two terms: the angle
+    turned at the starting rate and the extra angle due to the acceleration, which grows with the
+    square of the time. One full turn is two pi radians, so dividing the result by that figure gives
+    revolutions.
+
+    Solving for the time gives a quadratic equation with two roots. With the positive sense along
+    the initial angular velocity, the first root listed is the earliest instant at which the body
+    has turned through the stated angle; a negative root lies before the clock started and is
+    discarded, and a second positive root is a later passage after the rotation has reversed.
+    Solving for the time needs a non-zero angular acceleration. The equation assumes a rigid body, a
+    fixed axis and constant angular acceleration.
+
+    A propeller slowing uniformly from 30 radians per second to rest in 5 seconds has an angular
+    acceleration of minus 6.0 radians per second squared and turns through 75 radians as it stops.

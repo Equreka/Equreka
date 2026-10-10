@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Cumulative distribution function of the exponential distribution'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{F}=1-e^{-\var{\lambda}\var{x}}'
+terms:
+  F:
+    kind: 'symbol'
+    label:
+      en: 'Cumulative probability'
+  \lambda:
+    kind: 'symbol'
+    label:
+      en: 'Rate parameter'
+  x:
+    kind: 'symbol'
+    label:
+      en: 'Value of the variable'
+solutions:
+  F: '1 - exp(-lambda * x)'
+  \lambda: '-ln(1 - F) / x'
+  x: '-ln(1 - F) / lambda'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'statistics-and-probability'
+aliases:
+  - 'exponential CDF'
+  - 'exponential distribution CDF'
+  - 'exponential cumulative distribution function'
+  - 'exponential waiting time'
+  - 'distribución exponencial'
+  - 'función de distribución exponencial'
+  - 'función de distribución acumulada exponencial'
+  - 'función de distribución acumulativa exponencial'
+references:
+  - title: 'OpenStax, Introductory Statistics 2e, 5.3 The Exponential Distribution'
+    url: 'https://openstax.org/books/introductory-statistics-2e/pages/5-3-the-exponential-distribution'
+  - title: 'NIST/SEMATECH e-Handbook of Statistical Methods, 1.3.6.6.7 Exponential Distribution'
+    url: 'https://www.itl.nist.gov/div898/handbook/eda/section3/eda3667.htm'
+description:
+  en: >-
+    The exponential cumulative distribution function, or exponential CDF, gives the probability that
+    an exponentially distributed variable takes a value no greater than a given one: one minus e
+    raised to minus the rate times that value. The exponential distribution is the continuous
+    probability distribution of waiting times between events that occur at a constant average rate,
+    and of lifetimes of parts that fail at a constant rate.
+
+    In the formula, $\var{F}$ is the cumulative probability, a pure number from 0 to 1,
+    $\var{\lambda}$ the rate parameter, also called the decay parameter, and $\var{x}$ the value of
+    the variable, zero or positive. The unit of $\var{\lambda}$ is the reciprocal of the unit of
+    $\var{x}$: a rate of 0.1 per year goes with times in years, so the product in the exponent is a
+    pure number. The rate is positive.
+
+    The probability density is the rate times e to the minus rate times the value; integrating it
+    from zero to $\var{x}$ gives the formula. The complement, e to the minus rate times the value, is
+    the probability of waiting longer than $\var{x}$. The mean and the standard deviation both equal
+    the reciprocal of the rate. Taking the natural logarithm of one minus the probability solves for
+    the value, which gives the quantiles: the median, for instance, is the natural logarithm of 2
+    divided by the rate.
+
+    The model assumes a constant rate, so the chance of an event in the next interval does not depend
+    on how long the wait has already lasted, the memoryless property. If events follow a Poisson process, the times between them are exponential, and
+    the reverse also holds. Parts that wear out, whose failure rate grows with age, need other
+    lifetime distributions.
+
+    Reliability engineering, queues and the timing of earthquakes or calls use it. A part with a mean
+    life of 10 years has a rate of 0.1 per year and a probability of about 0.50 of failing within 7
+    years.

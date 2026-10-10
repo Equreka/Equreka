@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Teorema del seno generalizado'
+terms:
+  a:
+    label: 'Lado a'
+  R:
+    label: 'Radio de la circunferencia circunscrita'
+description: >-
+  El teorema del seno generalizado establece que en cualquier triángulo un lado dividido entre el seno
+  del ángulo opuesto es igual al diámetro de la circunferencia circunscrita, la que pasa por los
+  tres vértices. Completa el teorema del seno ordinario, que solo afirma que ese cociente es el mismo
+  para los tres lados, al dar nombre al valor común, y es el camino trigonométrico habitual para
+  hallar el radio de la circunferencia circunscrita a un triángulo.
+
+  En la ecuación, $\var{a}$ es un lado del triángulo, $\mag{\alpha}$ el ángulo opuesto, en
+  radianes, estrictamente entre cero y un ángulo llano, y $\var{R}$ el circunradio, el radio de la
+  circunferencia circunscrita. El lado y el radio son longitudes en metros o en cualquier unidad
+  común; ambos son positivos.
+
+  Se trazan los radios desde el circuncentro hasta los dos extremos del lado $\var{a}$. Si
+  $\mag{\alpha}$ es agudo, forman un triángulo isósceles cuyo ángulo en el vértice es el doble de
+  $\mag{\alpha}$, porque un ángulo inscrito es la mitad del ángulo central que abarca el mismo arco;
+  si es obtuso, ese ángulo es una vuelta completa menos el doble de $\mag{\alpha}$, y su mitad tiene
+  el mismo seno. La perpendicular desde el centro
+  divide en dos partes iguales ese ángulo y el lado, y deja un triángulo rectángulo en el que el seno
+  de $\mag{\alpha}$ es la mitad del lado entre el radio. Cuando el ángulo es recto, el lado es un
+  diámetro y la relación sigue valiendo.
+
+  El circuncentro está dentro de un triángulo acutángulo, sobre la hipotenusa de uno rectángulo y
+  fuera de uno obtusángulo. Despejar el ángulo da dos raíces, un ángulo agudo y su suplementario, ya
+  que ambos tienen el mismo seno y abarcan la misma cuerda de la circunferencia; otros datos del
+  triángulo deciden entre ellas, y no existe ningún ángulo cuando el lado supera el diámetro. La
+  ecuación vale para triángulos planos.
+
+  Combinado con la fórmula del área, da el área como el producto de los tres lados dividido entre
+  cuatro veces el circunradio. Un triángulo de lados 2, 3 y 4 tiene un circunradio de unos 2.07.

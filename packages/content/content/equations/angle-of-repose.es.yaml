@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ángulo de reposo'
+terms:
+  \mu:
+    label: 'Coeficiente de rozamiento estático'
+description: >-
+  El ángulo de reposo de un cuerpo sobre un plano inclinado es la inclinación máxima con la que
+  permanece en reposo sin deslizar, y su tangente es igual al coeficiente de rozamiento estático
+  entre el cuerpo y la superficie. Proporciona el método
+  habitual del plano basculante para medir un coeficiente estático: se inclina el plano lentamente y
+  se anota el ángulo al que empieza el deslizamiento.
+
+  En la relación, $\mag{\theta}$ es el ángulo de reposo entre el plano y la horizontal, en radianes,
+  y $\var{\mu}$ es el coeficiente de rozamiento estático, un número adimensional no negativo y sin
+  unidad. El ángulo está entre cero y un ángulo recto; un coeficiente mayor implica un ángulo más
+  pronunciado, y un coeficiente igual a uno corresponde a 45 grados. Un coeficiente mayor que uno,
+  posible con superficies de mucho agarre, da un ángulo superior a 45 grados.
+
+  Sobre el plano, el peso del cuerpo se descompone en una componente a lo largo de la pendiente, el
+  peso por el seno del ángulo, y otra hacia la superficie, el peso por el coseno, que equilibra la
+  fuerza normal. El rozamiento estático sujeta el cuerpo hasta que la componente a lo largo de la
+  pendiente supera su valor máximo, el coeficiente por la fuerza normal. En el umbral ambas son
+  iguales, y al dividir una entre otra queda la tangente del ángulo igual al coeficiente: la masa se
+  cancela, de modo que un bloque pesado y uno ligero con las mismas superficies empiezan a deslizar a
+  la vez.
+
+  La relación supone un rozamiento seco que obedece la ley de proporcionalidad del rozamiento, un
+  sólido rígido que desliza en lugar de volcar y un plano que se inclina con la lentitud suficiente
+  para que ningún golpe inicie el movimiento. El coeficiente cinético se obtiene del mismo modo a
+  partir del ángulo, más suave, con el que un cuerpo, una vez empujado, baja a rapidez constante;
+  como el coeficiente estático es el mayor, el deslizamiento necesita un plano más inclinado para
+  empezar que para continuar. En montones de arena, grava o grano, el mismo nombre designa la
+  pendiente máxima con la que el montón se mantiene sin desmoronarse.
+
+  Con un coeficiente estático de 0.5, típico de madera sobre madera, un bloque empieza a deslizar a
+  unos 26.6 grados.

@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Velocidad angular con aceleración angular constante'
+terms:
+  \omega:
+    label: 'Velocidad angular final'
+  \omega_{0}:
+    label: 'Velocidad angular inicial'
+description: >-
+  La ecuación de la velocidad angular de la rotación uniformemente acelerada da la velocidad angular
+  de un cuerpo que gira alrededor de un eje fijo con aceleración angular constante: la velocidad
+  angular inicial más la aceleración angular por el tiempo transcurrido. Es el análogo
+  rotacional de la ecuación de la velocidad en función del tiempo de la cinemática lineal y la
+  primera de las ecuaciones de la cinemática rotacional.
+
+  En la ecuación, $\var{\omega}$ y $\var{\omega_{0}}$ son las velocidades angulares final e inicial
+  en radianes por segundo, $\mag{\alpha}$ es la aceleración angular constante en radianes por segundo
+  al cuadrado y $\mag{t}$ es el tiempo transcurrido en segundos, nunca negativo. Las magnitudes
+  angulares tienen signo respecto al eje, positivo en sentido contrario a las agujas del reloj visto
+  desde el extremo positivo del eje. Cuando la aceleración angular tiene el signo de la velocidad
+  angular, el cuerpo gira cada vez más deprisa; con el signo contrario se frena y, si la aceleración
+  dura lo suficiente, invierte su sentido de giro.
+
+  La aceleración angular mide lo deprisa que cambia la velocidad angular. Si es constante, el cambio de
+  velocidad angular en un intervalo es esa aceleración multiplicada por la duración del intervalo, y
+  al sumar el valor de partida se obtiene la relación. En una gráfica de la velocidad angular frente
+  al tiempo la línea es recta y su pendiente es la aceleración angular. Despejar el tiempo exige una
+  aceleración angular distinta de cero, y un resultado negativo indica que esa velocidad angular
+  nunca se alcanza hacia delante en el tiempo.
+
+  La ecuación describe un sólido rígido que gira alrededor de un eje fijo con aceleración angular
+  constante, el análogo rotacional de la aceleración lineal constante. Un motor que acelera de
+  forma irregular o una rueda frenada por un rozamiento dependiente de la rapidez tienen
+  aceleración angular variable y requieren cálculo diferencial. La ecuación no dice nada de los
+  momentos de las fuerzas que producen el movimiento.
+
+  Un carrete de pesca que parte del reposo con una aceleración angular de 110 radianes por segundo al
+  cuadrado alcanza 220 radianes por segundo al cabo de 2.00 segundos, unas 2100 revoluciones por
+  minuto.
