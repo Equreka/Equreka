@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Número de entidades en una cantidad de sustancia'
+terms:
+  N:
+    label: 'Número de entidades'
+description: >-
+  El número de entidades de una muestra, sean átomos, moléculas, iones o electrones, es igual a su
+  cantidad de sustancia multiplicada por la constante de Avogadro. La relación convierte moles en un
+  recuento de partículas y a la inversa, y es la vía por la que la química pasa de la escala del
+  laboratorio, en gramos y moles, a la escala de los átomos y las moléculas individuales.
+
+  $\var{N}$ es el número de entidades, un número puro sin unidad; es un recuento, pero en cualquier
+  muestra que pueda pesarse resulta tan grande que se trata como una magnitud continua. $\mag{n}$ es
+  la cantidad de sustancia, en moles. $\const{N_\mathrm{A}}$ es la constante de Avogadro, exactamente
+  $6.022\,140\,76\times10^{23}\,\mathrm{mol^{-1}}$. Tanto $\var{N}$ como $\mag{n}$ son no negativos.
+
+  La relación es la definición del mol leída al revés: un mol es la cantidad que contiene tantas
+  entidades como indica el valor numérico de la constante de Avogadro, de modo que cada mol añade
+  ese número de partículas. Hay que nombrar el tipo de entidad, porque la misma muestra da recuentos
+  distintos para las moléculas y para los átomos que las forman.
+
+  La relación es exacta para cualquier sustancia y cualquier estado de la materia; la única
+  incertidumbre procede de la propia cantidad, que suele obtenerse de una masa mediante la masa
+  molar. Unas pocas entidades, como una sola molécula, corresponden a una cantidad demasiado pequeña
+  para pesarla.
+
+  Desde la revisión del SI de 2018, vigente desde el 20 de mayo de 2019, la constante de Avogadro
+  tiene un valor fijo exacto, de modo que el mol se define por un número de entidades y no por una
+  masa de carbono-12. Por ejemplo, 5.00 gramos de cobre son unos 0.0787 moles, es decir,
+  $4.74\times10^{22}$ átomos de cobre.

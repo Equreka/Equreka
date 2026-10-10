@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Mass number'
+kind: 'formula'
+level: 'intro'
+expression: '\var{A}=\var{Z}+\var{N}'
+terms:
+  A:
+    kind: 'symbol'
+    label:
+      en: 'Mass number'
+    integer: true
+  Z:
+    kind: 'symbol'
+    label:
+      en: 'Atomic number'
+    integer: true
+  N:
+    kind: 'symbol'
+    label:
+      en: 'Neutron number'
+    integer: true
+solutions:
+  A: 'Z + N'
+  Z: 'A - N'
+  N: 'A - Z'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+  - 'physics'
+branches:
+  - 'atomic-structure'
+  - 'nuclear-physics'
+aliases:
+  - 'nucleon number'
+  - 'atomic mass number'
+  - 'A = Z + N'
+  - 'number of neutrons'
+  - 'protons plus neutrons'
+  - 'número de masa'
+  - 'número de neutrones'
+  - 'número de nucleones'
+references:
+  - title: 'OpenStax, Chemistry 2e, 2.3 Atomic Structure and Symbolism (Example 2.3)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/2-3-atomic-structure-and-symbolism'
+  - title: 'OpenStax, University Physics Volume 3, 10.1 Properties of Nuclei'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/10-1-properties-of-nuclei'
+  - title: 'NIST, CODATA 2022 value: proton mass in u'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mpu'
+  - title: 'NIST, CODATA 2022 value: neutron mass in u'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mnu'
+description:
+  en: >-
+    The mass number of an atom is the total count of protons and neutrons in its nucleus: the
+    atomic number plus the neutron number. Also called the nucleon number, it identifies an isotope
+    together with the element and is the number written after the element name in carbon-12 or
+    uranium-235.
+
+    $\var{A}$ is the mass number, $\var{Z}$ the atomic number, the number of protons, and
+    $\var{N}$ the neutron number. All three are counts, whole numbers with no unit and never
+    negative. Protons and neutrons are together called nucleons, so the mass number is the number
+    of nucleons; the electrons are not counted.
+
+    The atomic number fixes the element, because every atom of an element has the same number of
+    protons, and in a neutral atom it also equals the number of electrons. Isotopes of one element
+    share the atomic number and differ in neutron number, hence in mass number: magnesium-24,
+    magnesium-25 and magnesium-26 all have 12 protons and 12, 13 and 14 neutrons. Read backwards,
+    the relation gives the neutrons of a nuclide as its mass number minus its atomic number.
+
+    In nuclide notation the mass number is a superscript and the atomic number a subscript, both
+    on the left of the element symbol, as in $^{12}_{6}\mathrm{C}$. The mass number is not the mass
+    of the atom: it is an integer, while the atomic mass in daltons is close to it but not equal,
+    because a free proton or neutron weighs slightly more than one dalton and binding the nucleus
+    together removes some mass.
+
+    An ion keeps its mass number: gaining or losing electrons changes the charge, not the nucleus.
+    Iodine-127, with 53 protons, has 74 neutrons.

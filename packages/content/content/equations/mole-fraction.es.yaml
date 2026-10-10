@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Fracción molar'
+terms:
+  x_\mathrm{A}:
+    label: 'Fracción molar del componente A'
+  n_\mathrm{A}:
+    label: 'Cantidad del componente A'
+  n_\mathrm{total}:
+    label: 'Cantidad total de todos los componentes'
+description: >-
+  La fracción molar de un componente de una mezcla es su cantidad de sustancia dividida entre la
+  cantidad de sustancia total de todos los componentes. También llamada fracción de cantidad de
+  sustancia, describe la composición de las disoluciones y de las mezclas de gases contando
+  partículas en lugar de pesarlas.
+
+  $\var{x_\mathrm{A}}$ es la fracción molar del componente A, un número entre 0 y 1 que la
+  calculadora puede mostrar también en porcentaje. $\var{n_\mathrm{A}}$ es la cantidad del
+  componente A y $\var{n_\mathrm{total}}$ la suma de las cantidades de todos los componentes, A
+  incluido, ambas en moles y ambas positivas. El NIST prefiere el nombre fracción de cantidad de
+  sustancia, que evita nombrar la unidad dentro de la magnitud, y admite y como símbolo alternativo.
+
+  Como un mol siempre contiene el mismo número de entidades, la fracción molar es también la parte
+  de todas las partículas de la mezcla que pertenecen a A. Las fracciones molares de todos los
+  componentes suman 1, así que en una mezcla de dos componentes una fracción fija la otra. Las masas
+  se convierten en cantidades con las masas molares antes de aplicar la fórmula.
+
+  El cociente no incluye ningún volumen, de modo que no cambia con la temperatura, lo que lo hace
+  adecuado para las leyes de la presión de vapor y para las propiedades coligativas. Una sal disuelta
+  se cuenta ion por ion cuando importan las partículas. En una mezcla de gases, la fracción molar de
+  un componente da también su parte de la presión total, y el contenido de dióxido de carbono de la
+  atmósfera se expresa como fracción molar en aire seco, en partes por millón.
+
+  Una disolución de 3.0 mol de cloruro de sodio en 55 mol de agua tiene una fracción molar de cloruro
+  de sodio de 0.052.

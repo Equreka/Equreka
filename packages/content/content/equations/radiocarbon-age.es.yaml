@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Edad radiocarbónica'
+terms:
+  t_{1/2}:
+    label: 'Semivida del carbono-14'
+  f:
+    label: 'Fracción de carbono-14 restante'
+description: >-
+  La fórmula de la edad radiocarbónica da el tiempo transcurrido desde la muerte de un organismo a
+  partir de la fracción de su carbono-14 original que conserva. Es la base de la datación por
+  carbono-14, o datación por radiocarbono, método de la física nuclear y la arqueología que
+  fecha madera, hueso, carbón vegetal, conchas y otros restos que estuvieron vivos.
+
+  Aquí $\mag{t}$ es la edad, el tiempo transcurrido desde la muerte, en segundos, aunque suele
+  darse en años. $\var{t_{1/2}}$ es la semivida del carbono-14, en segundos; los textos escolares
+  usan el valor de Cambridge de 1962, 5730 años, el valor evaluado actual es de 5700 ± 30 años, y
+  cualquiera de ellos se introduce como dato, no fijado en la fórmula. $\var{f}$ es la
+  fracción de carbono-14 restante, el cociente entre el contenido de carbono-14 de la muestra y el
+  de la materia viva, un número entre 0 y 1 (también se admite un porcentaje). Una fracción menor
+  que uno da una edad positiva.
+
+  Los organismos vivos intercambian carbono con la atmósfera, donde los rayos cósmicos producen
+  carbono-14 a partir del nitrógeno, de modo que su proporción de carbono-14 se mantiene próxima a
+  la del aire. Al morir cesa el intercambio y el carbono-14 se desintegra sin reponerse. Despejando
+  el tiempo en la ley de desintegración escrita con la semivida se obtiene la fórmula: el logaritmo
+  cuenta cuántas semividas han pasado. Cada vez que la fracción se reduce a la mitad, la edad suma
+  una semivida.
+
+  La fórmula supone que el nivel de carbono-14 de la atmósfera ha sido siempre el mismo, lo que
+  solo es aproximadamente cierto, así que los laboratorios calibran las edades brutas con
+  los anillos de los árboles y otros registros. Por convenio, publican una edad radiocarbónica
+  convencional calculada con la semivida de Libby, 5568 años, y contada antes de 1950, que luego
+  convierten en edad de calendario. El método alcanza unos 50 000 años; más allá queda demasiado
+  poco carbono-14 para medirlo.
+
+  Willard Libby desarrolló el método en 1949 y recibió por él el Premio Nobel de Química de 1960.
+  Con la semivida de 5730 años, una madera que conserva el 80 por ciento de su carbono-14 tiene
+  unos 1840 años.

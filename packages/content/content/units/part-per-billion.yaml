@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Part per billion'
+symbol:
+  tex: 'ppb'
+unitOf:
+  - 'dimensionless'
+system: 'other'
+toBase:
+  factor: '0.000000001'
+  exact: true
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-7-rules-and-style-conventions-expressing-values'
+    ref: '7.10.3 ppm, ppb, and ppt: 1 billion = 1 × 10^9 in the United States (short scale)'
+externalIds:
+  wikidata: 'Q2055118'
+  qudt: 'http://qudt.org/vocab/unit/PPB'
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'parts per billion'
+  - 'ppbv'
+  - 'partes por mil millones'
+  - 'partes por billón'
+references:
+  - title: 'NIST, Guide to the SI (SP 811), Chapter 7, 7.10.3 ppm, ppb, and ppt'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-7-rules-and-style-conventions-expressing-values'
+  - title: 'BIPM, The International System of Units, 9th ed., 5.4.7 Quantities with the unit one'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, Chemistry 2e, 3.4 Other Units for Solution Concentrations'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-4-other-units-for-solution-concentrations'
+  - title: 'University of Texas at Austin, GPAIR, Glossary of terms (ppmV, ppbV)'
+    url: 'https://gpair.ceer.utexas.edu/glossary-of-terms.php'
+  - title: 'RAE and ASALE, Diccionario panhispánico de dudas, 2nd ed., billón'
+    url: 'https://www.rae.es/dpd/bill%C3%B3n'
+  - title: 'OpenStax, Química 2ed, 3.4 Otras unidades para las concentraciones de las soluciones'
+    url: 'https://openstax.org/books/qu%C3%ADmica-2ed/pages/3-4-otras-unidades-para-las-concentraciones-de-las-soluciones'
+  - title: 'QUDT, unit PPB'
+    url: 'https://qudt.org/vocab/unit/PPB'
+description:
+  en: >-
+    The part per billion, symbol ppb, states a ratio of two quantities of the same kind as a number
+    of billionths, where a billion is a thousand million. Like the part per million, it is a name for
+    a pure number rather than an SI unit, used for very small mass fractions of contaminants in water
+    and for trace gases in air.
+
+    Its value rests on the short-scale billion of American and modern British usage, so that
+    $1\,\mathrm{ppb}=10^{-9}$ exactly. NIST Special Publication 811 points out that many countries
+    read a billion as a million million instead. Spanish is one of them: there a billón is a million
+    million, and ppb is read as partes por mil millones rather than partes por billón, which would
+    mean $10^{-12}$.
+
+    One part per billion is a thousandth of a part per million. A mass fraction of 1 ppb is one
+    microgram of substance in each kilogram of sample, and in dilute solutions in water, about one
+    microgram per litre.
+
+    The unit suits the lowest concentrations that analysts report. OpenStax notes that the United
+    States Environmental Protection Agency requires remedial action once lead in tap water reaches
+    15 ppb, which is 0.015 ppm.
+
+    Two separate ambiguities follow the symbol. One is the meaning of billion, which led the SI
+    Brochure to advise against ppb and ppt. The other is the kind of fraction, since ppb may count
+    mass, amount of substance or volume, the last sometimes marked ppbV. NIST does not accept ppb for
+    values stated with the SI and recommends an explicit ratio of units or a power of ten.

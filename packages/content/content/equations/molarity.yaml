@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Molarity'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{c}=\frac{\mag{n}}{\mag{V}}'
+terms:
+  c:
+    kind: 'magnitude'
+    ref: 'amount-concentration'
+  n:
+    kind: 'magnitude'
+    ref: 'substance'
+  V:
+    kind: 'magnitude'
+    ref: 'volume'
+solutions:
+  c: 'n / V'
+  n: 'c * V'
+  V: 'n / c'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'molar concentration'
+  - 'molarity formula'
+  - 'amount concentration formula'
+  - 'moles per litre'
+  - 'moles per liter'
+  - 'c = n/V'
+  - 'M = mol/L'
+  - 'molaridad'
+  - 'concentración de cantidad de sustancia'
+references:
+  - title: 'OpenStax, Chemistry 2e, 3.3 Molarity'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-3-molarity'
+  - title: 'NIST, Guide to the SI (SP 811), Chapter 8, 8.6.5 Amount-of-substance concentration of B'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-8'
+  - title: 'OpenStax, Chemistry 2e, 11.4 Colligative Properties'
+    url: 'https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties'
+  - title: 'Portland Community College, CH105 Allied Health Chemistry II, 3.2 Units of Concentration (LibreTexts)'
+    url: 'https://chem.libretexts.org/Courses/Portland_Community_College/CH105%3A_Allied_Health_Chemistry_II/03%3A_Solutions/3.02%3A_Units_of_Concentration'
+  - title: 'Eames, General Chemistry Supplement, Chemistry Calculations: Molarity (LibreTexts)'
+    url: 'https://chem.libretexts.org/Bookshelves/General_Chemistry/General_Chemistry_Supplement_(Eames)/Chemistry_Calculations/Molarity'
+description:
+  en: >-
+    Molarity, also called molar concentration or amount concentration, measures how many moles of a
+    solute are present per unit volume of the finished solution. It is the measure of concentration
+    used most often in a chemistry laboratory, where it is stated as the moles of dissolved
+    substance in each litre of solution.
+
+    $\mag{c}$ is the amount concentration of the solute, $\mag{n}$ its amount of substance and
+    $\mag{V}$ the volume of the whole solution, solvent and solute together. The coherent SI unit of
+    $\mag{c}$ is the mole per cubic metre, but laboratories state it in $\mathrm{mol/L}$, a thousand
+    times larger. All three quantities are positive. NIST considers the name molarity and the symbol
+    M for mol/L obsolete.
+
+    Because a mole always holds the same number of entities, two solutions with equal molarity carry
+    the same number of solute particles per litre, whatever the solute. Multiplying the
+    concentration by a volume therefore counts the moles delivered by that volume, the step behind
+    dilution and titration. For a dissolved salt, the concentration of each ion follows from the
+    formula unit: one mole per litre of calcium chloride gives two moles per litre of chloride ions.
+
+    The volume is that of the finished solution, which is why it is prepared by filling a volumetric
+    flask to its mark rather than by adding a measured volume of solvent. A solution expands as it
+    warms while its amount of solute stays the same, so its molarity falls slightly with
+    temperature; molality, which uses the mass of the solvent, does not change.
+
+    A 355 mL soft drink with 0.133 mol of sucrose has a sucrose concentration of 0.375 mol/L.

@@ -1,0 +1,233 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.schema.json
+name:
+  en: 'Moles and concentration'
+level: 'intro'
+prerequisites:
+  - 'si-base-units'
+estimatedMinutes: '60'
+categories:
+  - 'chemistry'
+branches:
+  - 'amount-of-substance'
+  - 'solutions'
+aliases:
+  - 'the mole and solutions'
+  - 'solution concentration'
+  - 'molarity and dilution'
+  - 'moles y concentración'
+  - 'el mol y las disoluciones'
+references:
+  - title: 'OpenStax, Chemistry 2e, 3.3 Molarity'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-3-molarity'
+  - title: 'OpenStax, Chemistry 2e, 3.4 Other Units for Solution Concentrations'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-4-other-units-for-solution-concentrations'
+  - title: 'OpenStax, Chemistry 2e, 11.4 Colligative Properties'
+    url: 'https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties'
+  - title: 'Eames, General Chemistry Supplement, Chemistry Calculations: Molarity (LibreTexts)'
+    url: 'https://chem.libretexts.org/Bookshelves/General_Chemistry/General_Chemistry_Supplement_(Eames)/Chemistry_Calculations/Molarity'
+  - title: 'NIST, CODATA 2022 value: Avogadro constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?na'
+description:
+  en: >-
+    From the mole to the concentration of a solution: converting masses to moles and moles to
+    particles, then molarity, dilution, mass concentration, mass percent, molality, mole fraction
+    and parts per million, with worked checks at each stage.
+steps:
+  - id: 'intro'
+    kind: 'prose'
+    body:
+      en: >-
+        Chemists weigh substances on a balance but reason about them by counting particles. The mole
+        bridges the two: it fixes a number of entities, so a mass becomes an amount of substance
+        through the molar mass. A solution then spreads that amount through a volume or a mass of
+        solvent, and each measure of concentration divides it by something different. Keep track of
+        what is divided by what; most mistakes come from mixing up the solute, the solvent and the
+        whole solution.
+  - id: 'substance'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'substance'
+    note:
+      en: >-
+        Amount of substance, in moles, is a count of entities expressed in a convenient unit. One
+        mole of any substance holds the same number of particles.
+  - id: 'amount-from-mass'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'amount-from-mass'
+    note:
+      en: >-
+        Divide a mass by the molar mass to get moles. Use grams with grams per mole, or kilograms
+        with kilograms per mole; the units must match.
+  - id: 'check-moles'
+    kind: 'check'
+    prompt:
+      en: >-
+        How many moles of sodium chloride are in 29.2 grams of it? Its molar mass is 58.44 grams per
+        mole.
+    answer:
+      en: >-
+        About 0.500 mol: 29.2 divided by 58.44 is 0.4997.
+  - id: 'number-of-entities'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'number-of-entities'
+    note:
+      en: >-
+        Multiply an amount of substance by the Avogadro constant to count the particles. The
+        constant is exact, so the count is as precise as the amount.
+  - id: 'check-entities'
+    kind: 'check'
+    prompt:
+      en: >-
+        How many formula units of sodium chloride are in 0.500 mol of it?
+    answer:
+      en: >-
+        About $3.01\times10^{23}$: 0.500 times $6.022\,140\,76\times10^{23}$ per mole.
+  - id: 'concentration'
+    kind: 'prose'
+    body:
+      en: >-
+        Dissolve the salt in water and a new question appears: how much of it is in a given portion
+        of the solution? Concentration answers it. The measures that follow differ only in their
+        denominator: the volume of the solution, the mass of the solution, the mass of the solvent,
+        or the total amount of every component.
+  - id: 'molarity'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'molarity'
+    note:
+      en: >-
+        Moles of solute per volume of solution, usually stated in moles per litre. The volume is
+        that of the finished solution, not of the water poured in.
+  - id: 'check-molarity'
+    kind: 'check'
+    prompt:
+      en: >-
+        The 0.500 mol of sodium chloride is dissolved and made up to 250 mL of solution. What is its
+        molar concentration?
+    answer:
+      en: >-
+        2.00 mol/L: 0.500 mol divided by 0.250 L.
+  - id: 'dilution-equation'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'dilution-equation'
+    note:
+      en: >-
+        Adding solvent keeps the moles of solute, so concentration times volume stays the same.
+        Express both volumes in one unit and both concentrations in another.
+  - id: 'check-dilution'
+    kind: 'check'
+    prompt:
+      en: >-
+        25.0 mL of the 2.00 mol/L solution is diluted to 500 mL. What is the new concentration?
+    answer:
+      en: >-
+        0.100 mol/L: 2.00 times 25.0 divided by 500. The volume grew twenty times, so the
+        concentration fell twenty times.
+  - id: 'mass-concentration-formula'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'mass-concentration-formula'
+    note:
+      en: >-
+        The same idea counted in grams: mass of solute per volume of solution. Dividing it by the
+        molar mass gives the molar concentration.
+  - id: 'mass-percent'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'mass-percent'
+    note:
+      en: >-
+        Mass of solute over mass of solution, a ratio with no unit. Reagent bottles state their
+        contents this way, with a density beside it.
+  - id: 'molarity-from-mass-percent'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'molarity-from-mass-percent'
+    note:
+      en: >-
+        Density times mass fraction gives the mass of solute per volume; dividing by the molar mass
+        turns it into moles per volume.
+  - id: 'check-stock'
+    kind: 'check'
+    prompt:
+      en: >-
+        Hydrochloric acid at 32 % by mass has a concentration of about 10.2 mol/L. What volume of it
+        makes 1.00 L of 2.5 mol/L acid after dilution?
+    answer:
+      en: >-
+        About 245 mL: 2.5 mol/L times 1.00 L, divided by 10.2 mol/L, is 0.245 L. Add it to water in a
+        1 L flask and fill to the mark.
+  - id: 'molality-formula'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'molality-formula'
+    note:
+      en: >-
+        Moles of solute per kilogram of solvent alone. Masses do not change with temperature, so
+        molality does not either.
+  - id: 'mole-fraction'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'mole-fraction'
+    note:
+      en: >-
+        Moles of one component over the moles of all of them, a ratio from 0 to 1. Count every
+        component, solvent included.
+  - id: 'check-molality'
+    kind: 'check'
+    prompt:
+      en: >-
+        0.500 mol of sodium chloride is dissolved in 1.00 kg of water, which is about 55 mol of
+        water. What are the molality and the mole fraction of the salt?
+    answer:
+      en: >-
+        The molality is 0.500 mol/kg: 0.500 mol divided by 1.00 kg. The mole fraction is about
+        0.0090: 0.500 divided by 55.5, the total amount.
+  - id: 'part-per-million'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'part-per-million'
+    note:
+      en: >-
+        One millionth, written ppm. Say which fraction it is, mass, amount or volume, because the
+        symbol does not.
+  - id: 'part-per-billion'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'part-per-billion'
+    note:
+      en: >-
+        One thousand-millionth, written ppb, for still smaller traces. Billion is the short-scale
+        thousand million, which is why the symbol is best avoided in international work.
+  - id: 'parts-per-million'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'parts-per-million'
+    note:
+      en: >-
+        The mass fraction of a trace substance, shown in parts per million instead of percent.
+  - id: 'check-ppm'
+    kind: 'check'
+    prompt:
+      en: >-
+        Drinking water may hold at most 4 ppm of fluoride ion by mass under the United States limit.
+        How many milligrams of fluoride can 2.0 kg of such water contain?
+    answer:
+      en: >-
+        8 mg: a mass fraction of $4\times10^{-6}$ times 2.0 kg is $8\times10^{-6}$ kg.

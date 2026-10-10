@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Concentración molar a partir del porcentaje en masa'
+terms:
+  w:
+    label: 'Fracción másica del soluto'
+description: >-
+  La concentración molar de una disolución puede obtenerse de su porcentaje en masa: se multiplica la
+  densidad de la disolución por la fracción másica del soluto y se divide entre la masa molar del
+  soluto. Esta conversión transforma la etiqueta de un ácido o una base concentrados, que da un
+  porcentaje en masa y una densidad, en la concentración molar que hace falta para planificar una
+  dilución.
+
+  $\mag{c}$ es la concentración de cantidad de sustancia del soluto, en moles por metro cúbico en el
+  SI. $\mag{\rho}$ es la densidad de toda la disolución, no la del disolvente puro, en kilogramos por
+  metro cúbico. $\var{w}$ es la fracción másica del soluto, un número entre 0 y 1 que la calculadora
+  puede mostrar también en porcentaje, y $\mag{M}$ es la masa molar del soluto en kilogramos por mol.
+  Las cuatro magnitudes son positivas.
+
+  Cualquier volumen de la disolución tiene una masa igual a su densidad por ese volumen. La fracción
+  másica separa la parte de esa masa que es soluto, y al dividir entre la masa molar se convierte en
+  moles; al dividir después entre el mismo volumen queda la fórmula, en la que el volumen se ha
+  cancelado. Los libros de texto citan a menudo un atajo para las unidades de laboratorio: la
+  concentración en moles por litro es diez veces la densidad en gramos por mililitro por el
+  porcentaje, dividido entre la masa molar en gramos por mol. El factor diez solo absorbe esas
+  unidades concretas, así que la forma SI de arriba funciona con cualquier conjunto coherente.
+
+  La fracción debe ser másica; un porcentaje en volumen o un porcentaje masa volumen exige otra
+  conversión. La densidad tiene que ser la de la misma disolución a la temperatura de uso, porque la
+  densidad y la concentración molar cambian cuando el líquido se dilata.
+
+  El ácido clorhídrico etiquetado al 32 % en masa, con una densidad de 1.1593 g/mL, tiene alrededor
+  de 10.2 mol/L de cloruro de hidrógeno (masa molar 36.46 g/mol).

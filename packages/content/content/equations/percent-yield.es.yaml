@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Rendimiento porcentual'
+terms:
+  Y:
+    label: 'Rendimiento porcentual'
+  m_\mathrm{act}:
+    label: 'Rendimiento real'
+  m_\mathrm{th}:
+    label: 'Rendimiento teórico'
+description: >-
+  El rendimiento porcentual de una reacción química compara la cantidad de producto que se obtiene
+  realmente con la máxima que permite la ecuación química: el rendimiento real dividido entre el
+  rendimiento teórico, multiplicado normalmente por 100 y expresado como porcentaje. Sirve para
+  valorar el resultado de una preparación o de un proceso industrial.
+
+  $\var{Y}$ es el rendimiento porcentual, un cociente entre 0 y 1 que la calculadora muestra también
+  como porcentaje. $\var{m_\mathrm{act}}$ es el rendimiento real, la masa de producto recuperada y
+  pesada, y $\var{m_\mathrm{th}}$ el rendimiento teórico, la masa que predice la estequiometría a
+  partir del reactivo limitante, ambas en kilogramos o en cualquier unidad de masa común. El cociente
+  es el mismo con cantidades en moles del mismo producto, aunque la calculadora toma masas.
+
+  El rendimiento teórico supone que el reactivo limitante, el que se agota primero, se transforma por
+  completo en el producto deseado. Las reacciones reales no llegan a tanto: algunas se detienen en un
+  equilibrio antes de consumir el reactivo limitante, las reacciones secundarias forman otros
+  productos y parte del producto se pierde al separarlo, lavarlo y secarlo. Por eso el rendimiento
+  real suele quedar por debajo del teórico.
+
+  Un valor mayor que 1, más del 100 por ciento, no indica producto adicional: señala un error, casi
+  siempre impurezas que suman su propia masa al producto pesado. En una síntesis de varias etapas, el
+  rendimiento global es el producto de los rendimientos de las etapas, de modo que diez etapas de
+  0.90 cada una acaban cerca de 0.35.
+
+  El rendimiento porcentual mide el resultado en la práctica; la economía atómica de la misma
+  reacción mide en teoría qué parte de la masa de los reactivos puede contener el producto deseado.
+  Recuperar 0.392 gramos de cobre frente a 0.5072 gramos teóricos supone un rendimiento del 77.3 por
+  ciento.

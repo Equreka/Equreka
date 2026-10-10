@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Number of entities in an amount of substance'
+kind: 'formula'
+level: 'intro'
+expression: '\var{N}=\mag{n}\const{N_\mathrm{A}}'
+terms:
+  N:
+    kind: 'symbol'
+    label:
+      en: 'Number of entities'
+  n:
+    kind: 'magnitude'
+    ref: 'substance'
+  N_\mathrm{A}:
+    kind: 'constant'
+    ref: 'avogadro-constant'
+solutions:
+  N: 'n * N_A'
+  n: 'N / N_A'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'amount-of-substance'
+aliases:
+  - 'number of particles'
+  - 'number of atoms from moles'
+  - 'number of molecules from moles'
+  - 'moles to molecules'
+  - 'moles to atoms'
+  - 'N = n NA'
+  - 'número de partículas'
+  - 'número de moléculas'
+  - 'número de átomos'
+  - 'moles a moléculas'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.1 (the mole) and Appendix 4 (amount of substance)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, CODATA 2022 value: Avogadro constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?na'
+  - title: 'OpenStax, Chemistry 2e, 3.1 Formula Mass and the Mole Concept (Examples 3.5 and 3.8)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-1-formula-mass-and-the-mole-concept'
+description:
+  en: >-
+    The number of entities in a sample, whether atoms, molecules, ions or electrons, equals its
+    amount of substance multiplied by the Avogadro constant. The relation turns moles into a count
+    of particles and back, and it is how chemistry passes from the laboratory scale of grams and
+    moles to the scale of single atoms and molecules.
+
+    $\var{N}$ is the number of entities, a pure number with no unit; it is a count, but for any
+    weighable sample it is so large that it is treated as a continuous quantity. $\mag{n}$ is the
+    amount of substance, in moles. $\const{N_\mathrm{A}}$ is the Avogadro constant, exactly
+    $6.022\,140\,76\times10^{23}\,\mathrm{mol^{-1}}$. Both $\var{N}$ and $\mag{n}$ are non-negative.
+
+    The relation is the definition of the mole read in reverse: one mole is the amount that holds
+    as many entities as the numerical value of the Avogadro constant, so every mole adds that
+    number of particles. The kind of entity must be named, because the same sample gives different
+    counts for molecules and for the atoms inside them.
+
+    The relation is exact for any substance and any state of matter; the only uncertainty comes
+    from the amount itself, usually found from a mass through the molar mass. A count of a few
+    entities, such as a single molecule, corresponds to an amount far too small to weigh.
+
+    Since the 2018 revision of the SI, in force from 20 May 2019, the Avogadro constant has had an
+    exact fixed value, so the mole is defined by a number of entities rather than by a mass of
+    carbon-12. For example, 5.00 grams of copper is about 0.0787 mole, or $4.74\times10^{22}$
+    copper atoms.

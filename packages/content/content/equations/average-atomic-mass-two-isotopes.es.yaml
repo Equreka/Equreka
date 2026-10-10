@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Masa atómica media de un elemento con dos isótopos'
+terms:
+  \bar{m}:
+    label: 'Masa atómica media'
+  x_{1}:
+    label: 'Abundancia del isótopo 1'
+  m_{1}:
+    label: 'Masa del isótopo 1'
+  m_{2}:
+    label: 'Masa del isótopo 2'
+description: >-
+  La masa atómica media de un elemento formado por dos isótopos es la media ponderada de sus
+  masas, cada una ponderada por su abundancia, la fracción de los átomos del elemento que pertenecen a
+  ese isótopo. Explica por qué la masa atómica que figura en una tabla periódica, como unos 10.81
+  para el boro o 35.453 para el cloro, no es un número entero.
+
+  $\var{\bar{m}}$ es la masa atómica media y $\var{m_{1}}$, $\var{m_{2}}$ las masas de los dos
+  isótopos, en kilogramos en el SI y normalmente en daltons, que la calculadora ofrece.
+  $\var{x_{1}}$ es la abundancia del isótopo 1, una fracción entre 0 y 1 que la calculadora muestra
+  también como porcentaje; la abundancia del isótopo 2 es uno menos la del isótopo 1, ya que entre los dos
+  forman todos los átomos. Las abundancias son fracciones de cantidad, recuentos de átomos, no
+  fracciones másicas.
+
+  La media queda entre las masas de los dos isótopos y más cerca de la del más abundante. Leída
+  al revés, la fórmula da la abundancia de un isótopo a partir de la media conocida y de las dos
+  masas isotópicas, que es como se deducen las proporciones de cloro-35 y cloro-37 a partir de la
+  masa atómica del cloro. Un elemento con tres o más isótopos necesita un término por isótopo, y sus
+  abundancias suman 1.
+
+  Las abundancias varían ligeramente entre fuentes naturales, por lo que los pesos atómicos estándar
+  que publica la CIAAW para algunos elementos son intervalos en lugar de valores únicos, de 10.806 a
+  10.821 para el boro desde 2009. La fórmula requiere las abundancias de la muestra concreta.
+
+  El boro tiene un 19.9 por ciento de boro-10, de masa 10.0129 daltons, y un 80.1 por ciento de
+  boro-11, de masa 11.0093 daltons, lo que da una media de unos 10.81 daltons.

@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Radioactive decay law in terms of half-life'
+kind: 'equation'
+level: 'intro'
+expression: '\var{N}=\var{N_{0}}\left(\frac{1}{2}\right)^{\mag{t}/\var{t_{1/2}}}'
+terms:
+  N:
+    kind: 'symbol'
+    label:
+      en: 'Number of undecayed nuclei'
+  N_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial number of nuclei'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+  t_{1/2}:
+    kind: 'symbol'
+    label:
+      en: 'Half-life'
+    unit: 'second'
+solutions:
+  N: 'N_0 * 2^(-t / t_12)'
+  N_{0}: 'N * 2^(t / t_12)'
+  t: 't_12 * log2(N_0 / N)'
+  t_{1/2}: 't / log2(N_0 / N)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'half-life equation'
+  - 'half-life decay formula'
+  - 'decay law with half-life'
+  - 'number of half-lives'
+  - 'N = N0 (1/2)^(t/T)'
+  - 'ley del decaimiento radiactivo con la semivida'
+  - 'ecuación de la semivida'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 10.3 Radioactive Decay (half-life, equations 10.11, 10.12 and 10.15)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/10-3-radioactive-decay'
+  - title: 'HyperPhysics, Georgia State University, Radioactive half-life and radioactive decay constant'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/Nuclear/halfli2.html'
+description:
+  en: >-
+    The half-life form of the radioactive decay law gives the number of undecayed nuclei of a
+    radionuclide as the initial number multiplied by one half raised to the number of half-lives
+    that have elapsed. It is the same exponential decay law of nuclear physics written with the
+    half-life instead of the decay constant, the form most school texts and isotope tables use.
+
+    Here $\var{N}$ is the number of nuclei not yet decayed at time $\mag{t}$, $\var{N_{0}}$ the
+    number at the start, both counts with no unit, never negative and large enough to be treated as continuous
+    quantities. $\var{t_{1/2}}$ is the
+    half-life of the radionuclide, the time in which half of any large sample decays, in seconds
+    and always positive. The elapsed time $\mag{t}$ is in seconds and runs forward from the start;
+    because only the ratio of the two times enters, any time unit works if both use it.
+
+    The exponent counts half-lives. After one half-life half of the nuclei remain, after two a
+    quarter, after three an eighth, and the count halves again with each further half-life without
+    ever reaching zero. Replacing one half to the power of the ratio by the exponential of minus
+    the natural logarithm of two times the ratio recovers the decay constant form, because the
+    decay constant equals that logarithm divided by the half-life. Taking the base-two logarithm
+    of the initial-to-final ratio gives the number of half-lives, and from it the elapsed time.
+
+    The law describes the average behaviour of many nuclei of one radionuclide decaying at random.
+    It ignores daughter products, and for very few nuclei the actual count departs from the
+    prediction. The same expression applies to the mass of the radionuclide and to the activity of
+    the sample, since both are proportional to the number of nuclei.
+
+    The form suits mental arithmetic and quick estimates in radiation protection, nuclear medicine
+    and dating. A sample of strontium-90, whose half-life is 28.8 years, keeps a quarter of its
+    nuclei after 57.6 years.

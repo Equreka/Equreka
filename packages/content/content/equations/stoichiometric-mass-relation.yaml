@@ -1,0 +1,92 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Stoichiometric mass relation'
+kind: 'formula'
+level: 'intro'
+expression: '\var{m_\mathrm{B}}=\var{m_\mathrm{A}}\frac{\var{\nu_\mathrm{B}}\var{M_\mathrm{B}}}{\var{\nu_\mathrm{A}}\var{M_\mathrm{A}}}'
+terms:
+  m_\mathrm{B}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of substance B'
+    unit: 'kilogram'
+  m_\mathrm{A}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of substance A'
+    unit: 'kilogram'
+  \nu_\mathrm{B}:
+    kind: 'symbol'
+    label:
+      en: 'Stoichiometric coefficient of B'
+    integer: true
+  \nu_\mathrm{A}:
+    kind: 'symbol'
+    label:
+      en: 'Stoichiometric coefficient of A'
+    integer: true
+  M_\mathrm{B}:
+    kind: 'symbol'
+    label:
+      en: 'Molar mass of B'
+    unit: 'kilogram-per-mole'
+  M_\mathrm{A}:
+    kind: 'symbol'
+    label:
+      en: 'Molar mass of A'
+    unit: 'kilogram-per-mole'
+solutions:
+  m_\mathrm{B}: 'm_A * nu_B * M_B / (nu_A * M_A)'
+  m_\mathrm{A}: 'm_B * nu_A * M_A / (nu_B * M_B)'
+  \nu_\mathrm{B}: 'm_B * nu_A * M_A / (m_A * M_B)'
+  \nu_\mathrm{A}: 'm_A * nu_B * M_B / (m_B * M_A)'
+  M_\mathrm{B}: 'm_B * nu_A * M_A / (m_A * nu_B)'
+  M_\mathrm{A}: 'm_A * nu_B * M_B / (m_B * nu_A)'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'amount-of-substance'
+aliases:
+  - 'mass-to-mass stoichiometry'
+  - 'mass to mass conversion'
+  - 'grams to grams'
+  - 'reacting masses'
+  - 'stoichiometry formula'
+  - 'estequiometría masa-masa'
+  - 'cálculo estequiométrico'
+  - 'relación de masas en una reacción'
+references:
+  - title: 'OpenStax, Chemistry 2e, 4.3 Reaction Stoichiometry (Examples 4.10 and 4.11)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/4-3-reaction-stoichiometry'
+  - title: 'OpenStax, Chemistry 2e, 3.1 Formula Mass and the Mole Concept'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-1-formula-mass-and-the-mole-concept'
+  - title: 'OpenStax, Chemistry 2e, 4.4 Reaction Yields'
+    url: 'https://openstax.org/books/chemistry-2e/pages/4-4-reaction-yields'
+description:
+  en: >-
+    The stoichiometric mass relation gives the mass of one substance in a chemical reaction that
+    corresponds to a known mass of another, using the coefficients of the balanced equation and the
+    molar masses of both. It packs the classic mass-to-mass stoichiometry calculation, grams of A to
+    moles of A, to moles of B, to grams of B, into a single step.
+
+    $\var{m_\mathrm{A}}$ is the known mass of substance A and $\var{m_\mathrm{B}}$ the mass of
+    substance B that reacts with it or forms from it, both in kilograms or any common mass unit.
+    $\var{\nu_\mathrm{A}}$ and $\var{\nu_\mathrm{B}}$ are the stoichiometric coefficients of A and
+    B in the balanced equation, positive whole numbers. $\var{M_\mathrm{A}}$ and
+    $\var{M_\mathrm{B}}$ are their molar masses, in kilograms per mole or both in grams per mole.
+
+    Dividing a mass by its molar mass gives an amount in moles. The coefficients fix the ratio in
+    which amounts react, so the amount of B is the amount of A times the coefficient of B over that
+    of A; multiplying by the molar mass of B turns it back into a mass. A and B may be two
+    reactants, two products, or a reactant and a product.
+
+    The relation assumes the reaction runs exactly as written and goes to completion. If A is not
+    the limiting reactant, the mass of product it predicts is more than can form; the real mass of a
+    product is the theoretical one times the percent yield. The equation must be balanced before its
+    coefficients are read.
+
+    For the combustion of octane, in which two molecules of octane react with twenty-five of oxygen,
+    702 grams of octane at 114.23 grams per mole consume about 2460 grams of oxygen at 32.00 grams
+    per mole.

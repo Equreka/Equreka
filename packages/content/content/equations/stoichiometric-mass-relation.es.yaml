@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Relación estequiométrica de masas'
+terms:
+  m_\mathrm{B}:
+    label: 'Masa de la sustancia B'
+  m_\mathrm{A}:
+    label: 'Masa de la sustancia A'
+  \nu_\mathrm{B}:
+    label: 'Coeficiente estequiométrico de B'
+  \nu_\mathrm{A}:
+    label: 'Coeficiente estequiométrico de A'
+  M_\mathrm{B}:
+    label: 'Masa molar de B'
+  M_\mathrm{A}:
+    label: 'Masa molar de A'
+description: >-
+  La relación estequiométrica de masas da la masa de una sustancia de una reacción química que
+  corresponde a una masa conocida de otra, a partir de los coeficientes de la ecuación química y de
+  las masas molares de ambas. Reúne en un solo paso el cálculo estequiométrico clásico de masa a
+  masa: de gramos de A a moles de A, de ahí a moles de B y por último a gramos de B.
+
+  $\var{m_\mathrm{A}}$ es la masa conocida de la sustancia A y $\var{m_\mathrm{B}}$ la masa de la
+  sustancia B que reacciona con ella o se forma a partir de ella, ambas en kilogramos o en cualquier
+  unidad de masa común. $\var{\nu_\mathrm{A}}$ y $\var{\nu_\mathrm{B}}$ son los coeficientes
+  estequiométricos de A y B en la ecuación química, números enteros positivos. $\var{M_\mathrm{A}}$
+  y $\var{M_\mathrm{B}}$ son sus masas molares, en kilogramos por mol o ambas en gramos por mol.
+
+  Al dividir una masa entre su masa molar se obtiene una cantidad en moles. Los coeficientes fijan la
+  proporción en que reaccionan las cantidades, así que la cantidad de B es la cantidad de A por el
+  coeficiente de B dividido entre el de A; al multiplicarla por la masa molar de B vuelve a ser una
+  masa. A y B pueden ser dos reactivos, dos productos o un reactivo y un producto.
+
+  La relación supone que la reacción transcurre tal como está escrita y llega hasta el final. Si A no
+  es el reactivo limitante, la masa de producto que predice es mayor que la que puede formarse; la
+  masa real de un producto es la teórica por el rendimiento porcentual. Los coeficientes solo valen
+  cuando la ecuación química conserva cada tipo de átomo.
+
+  En la combustión del octano, en la que dos moléculas de octano reaccionan con veinticinco de
+  oxígeno, 702 gramos de octano, a 114.23 gramos por mol, consumen unos 2460 gramos de oxígeno, a
+  32.00 gramos por mol.

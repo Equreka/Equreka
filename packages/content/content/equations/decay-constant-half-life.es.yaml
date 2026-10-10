@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Semivida y constante de desintegración'
+terms:
+  t_{1/2}:
+    label: 'Semivida'
+  \lambda:
+    label: 'Constante de desintegración'
+description: >-
+  La semivida de un radionucleido es igual al logaritmo natural de dos dividido entre su constante
+  de desintegración. La fórmula pasa de una a otra de las dos maneras de expresar en
+  física nuclear la rapidez con que se desintegra un isótopo radiactivo: la semivida, o periodo de
+  semidesintegración, tiempo en que se desintegra la mitad de los núcleos presentes, y la constante
+  de desintegración, probabilidad por unidad de tiempo de que se desintegre un solo núcleo.
+
+  Aquí $\var{t_{1/2}}$ es la semivida, en segundos, y $\var{\lambda}$ es la constante de
+  desintegración, en segundos inversos. Ambas son positivas y fijas para cada radionucleido. El
+  número $\ln 2$ vale unos 0.693, así que la semivida es aproximadamente siete décimas partes del
+  inverso de la constante de desintegración. En los isótopos de vida larga, la semivida suele darse
+  en años y la constante en años inversos; el producto de ambas conserva su valor con cualquier
+  unidad de tiempo.
+
+  La fórmula procede de la ley de la desintegración exponencial. Al igualar el número de núcleos
+  restantes a la mitad del inicial, el número inicial se cancela, queda un medio igual a la
+  exponencial de menos la constante por la semivida, y al tomar logaritmos se obtiene el resultado.
+  Una constante de desintegración grande implica, por tanto, una semivida corta, y una pequeña, una
+  semivida larga.
+
+  La relación es exacta para todo radionucleido que siga la ley exponencial, válida para poblaciones
+  grandes de núcleos. La semivida no es el tiempo de vida medio de un núcleo: este es el inverso de
+  la constante de desintegración y supera a la semivida en un factor de 1.44 aproximadamente. Las
+  dos se confunden con facilidad, porque el diccionario académico da «vida media» como sinónimo de
+  semivida.
+
+  Las tablas de nucleidos recogen semividas, de modo que la fórmula suele ser el primer paso de un
+  cálculo de desintegración o de actividad. El estroncio-90, con una semivida de 28.8 años, tiene
+  una constante de desintegración de unos $7.6\times10^{-10}\,\mathrm{s^{-1}}$.

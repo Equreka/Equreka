@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Cantidad de gas a partir del volumen molar'
+description: >-
+  La cantidad de sustancia de una muestra de gas es igual a su volumen dividido entre el volumen
+  molar del gas a la misma temperatura y presión. En química sirve para convertir un volumen de gas
+  medido en moles, y moles de gas en litros, cuando las condiciones están fijadas, por ejemplo a
+  temperatura y presión estándar.
+
+  $\mag{n}$ es la cantidad de sustancia, en moles. $\mag{V}$ es el volumen que ocupa el gas, en
+  metros cúbicos; un litro es la milésima parte de un metro cúbico. $\mag{V_\mathrm{m}}$ es el
+  volumen molar, el volumen de un mol, en metros cúbicos por mol, que la calculadora también admite
+  en litros por mol. Las tres magnitudes son positivas, y ambos volúmenes se refieren a la misma
+  temperatura y presión.
+
+  Según la ley de Avogadro, volúmenes iguales de gases ideales a una misma temperatura y presión
+  contienen el mismo número de moléculas; por eso todos esos gases tienen el mismo volumen molar y
+  el volumen de una muestra indica cuántos moles contiene, sea cual sea el gas. Una mezcla de gases
+  se cuenta en conjunto: el resultado es la cantidad total de todos sus componentes.
+
+  La relación solo es exacta para un gas ideal. Los gases reales se acercan a baja presión y alta
+  temperatura, cuando sus moléculas están muy separadas, y se alejan de ella a alta presión y baja
+  temperatura, cuando importan el tamaño de las moléculas y la atracción entre ellas. El volumen
+  molar debe corresponder a las condiciones reales, ya que aumenta con la temperatura y disminuye
+  con la presión.
+
+  CODATA 2022 da unos 22.414 litros por mol a 273.15 kelvin y 101.325 kilopascales, los 22.4 litros
+  de los libros de texto, y unos 22.711 litros por mol a 100 kilopascales, la presión estándar que
+  la IUPAC adoptó en 1982. Así, 11.2 litros de un gas a 273.15 kelvin y 101.325 kilopascales son
+  unos 0.500 moles.

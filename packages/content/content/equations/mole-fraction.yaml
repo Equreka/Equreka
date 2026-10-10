@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Mole fraction'
+kind: 'formula'
+level: 'intro'
+expression: '\var{x_\mathrm{A}}=\frac{\var{n_\mathrm{A}}}{\var{n_\mathrm{total}}}'
+terms:
+  x_\mathrm{A}:
+    kind: 'symbol'
+    label:
+      en: 'Mole fraction of component A'
+    unit: 'unitless'
+  n_\mathrm{A}:
+    kind: 'symbol'
+    label:
+      en: 'Amount of component A'
+    unit: 'mole'
+  n_\mathrm{total}:
+    kind: 'symbol'
+    label:
+      en: 'Total amount of all components'
+    unit: 'mole'
+solutions:
+  x_\mathrm{A}: 'n_A / n_total'
+  n_\mathrm{A}: 'x_A * n_total'
+  n_\mathrm{total}: 'n_A / x_A'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'amount fraction'
+  - 'amount-of-substance fraction'
+  - 'molar fraction'
+  - 'mole fraction formula'
+  - 'x_A = n_A / n'
+  - 'fracción de cantidad de sustancia'
+references:
+  - title: 'NIST, Guide to the SI (SP 811), Chapter 8, 8.6.2 Amount-of-substance fraction of B'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-8'
+  - title: 'OpenStax, Chemistry 2e, 11.4 Colligative Properties'
+    url: 'https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties'
+  - title: 'NOAA Global Monitoring Laboratory, How we measure background CO2 levels on Mauna Loa'
+    url: 'https://gml.noaa.gov/ccgg/about/co2_measurements.html'
+description:
+  en: >-
+    The mole fraction of a component of a mixture is its amount of substance divided by the total
+    amount of substance of all the components. Also called the amount fraction or
+    amount-of-substance fraction, it describes the composition of solutions and gas mixtures by
+    counting particles rather than weighing them.
+
+    $\var{x_\mathrm{A}}$ is the mole fraction of component A, a number from 0 to 1 that the
+    calculator can also show in percent. $\var{n_\mathrm{A}}$ is the amount of component A and
+    $\var{n_\mathrm{total}}$ the sum of the amounts of every component, A included, both in moles and
+    both positive. NIST prefers the name amount-of-substance fraction, which avoids naming the unit
+    in the quantity, and lists y as an alternative symbol.
+
+    Because a mole always holds the same number of entities, the mole fraction is also the share of
+    all the particles in the mixture that belong to A. The mole fractions of all the components add
+    up to 1, so in a two-component mixture one fraction fixes the other. Masses are turned into
+    amounts with the molar masses before the formula is applied.
+
+    The ratio involves no volume, so it does not change with temperature, which suits it to the
+    laws of vapour pressure and colligative properties. A dissolved salt is counted ion by ion when
+    the particles matter. In a gas mixture the mole fraction of a component also gives its share of
+    the total pressure, and the carbon dioxide content of the atmosphere is reported as a mole
+    fraction in dry air, in parts per million.
+
+    A solution of 3.0 mol of sodium chloride in 55 mol of water has a sodium chloride mole fraction of
+    0.052.

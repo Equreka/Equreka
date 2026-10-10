@@ -14,6 +14,7 @@ terms:
     kind: 'symbol'
     label:
       en: 'Mole fraction of gas A'
+    unit: 'unitless'
   p_\mathrm{total}:
     kind: 'symbol'
     label:
@@ -54,7 +55,8 @@ description:
     $\var{p_\mathrm{A}}$ is the partial pressure of gas A, the pressure it would produce if it
     occupied the container by itself at the temperature of the mixture. $\var{x_\mathrm{A}}$ is its
     mole fraction: the amount of gas A in moles divided by the total amount of all the gases, a
-    dimensionless quantity between 0 and 1, entered as a decimal rather than a percentage.
+    dimensionless quantity between 0 and 1, entered as a decimal or, in the calculator, as a
+    percentage.
     $\var{p_\mathrm{total}}$ is the absolute total pressure. Both pressures share one unit, the
     pascal in SI, and all three quantities are positive.
 

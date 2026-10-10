@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Disminución de la actividad con el tiempo'
+terms:
+  A:
+    label: 'Actividad tras el tiempo transcurrido'
+  A_{0}:
+    label: 'Actividad inicial'
+  \lambda:
+    label: 'Constante de desintegración'
+description: >-
+  La actividad de una muestra radiactiva disminuye de forma exponencial con el tiempo: tras
+  cualquier tiempo transcurrido, es igual a la actividad inicial multiplicada por la exponencial de
+  menos la constante de desintegración por ese tiempo. La relación es la ley de la desintegración
+  radiactiva escrita para la velocidad de desintegración, el número de desintegraciones por
+  segundo, que es lo que cuenta en realidad un detector en física nuclear.
+
+  Aquí $\var{A}$ es la actividad tras el tiempo transcurrido $\mag{t}$ y $\var{A_{0}}$ la actividad
+  al inicio, ambas en becquerels, una desintegración por segundo, y también se admite el curie, unidad
+  ajena al SI conservada para la actividad (un curie vale exactamente $3.7\times10^{10}\,\mathrm{Bq}$). Las actividades nunca son negativas. La
+  constante de desintegración $\var{\lambda}$, en segundos inversos, es la probabilidad fija por
+  unidad de tiempo de que se desintegre un solo núcleo y siempre es positiva. El tiempo transcurrido
+  $\mag{t}$ se mide en segundos y avanza desde el momento en que se midió la actividad inicial.
+
+  La actividad de una muestra pura es su constante de desintegración por su número de núcleos sin
+  desintegrar, y la constante no cambia. Por eso la actividad es proporcional al número de núcleos
+  en cada instante y disminuye de la misma manera exponencial, reduciéndose a la mitad en cada
+  semivida. Por tanto, dos medidas de la actividad separadas por un intervalo conocido dan la
+  constante de desintegración, y con ella la semivida, mediante el logaritmo de su cociente.
+
+  La relación vale para un solo radionucleido cuyos productos de desintegración son estables o se
+  cuentan por separado. Cuando se acumula un hijo radiactivo, como en una cadena de desintegración,
+  la actividad total deja de seguir una única exponencial. Como la desintegración es aleatoria, el
+  recuento medido fluctúa alrededor de la predicción, tanto más cuantas menos desintegraciones se
+  registran, de modo que las fuentes débiles exigen tiempos de recuento largos.
+
+  La relación fija cuánto tiempo siguen siendo útiles las fuentes médicas e industriales y cuánto
+  deben almacenarse los residuos. Una fuente de estroncio-90, de semivida 28.8 años, conserva cerca
+  del 79 por ciento de su actividad al cabo de diez años.

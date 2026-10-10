@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Half-life and decay constant'
+kind: 'formula'
+level: 'intro'
+expression: '\var{t_{1/2}}=\frac{\ln 2}{\var{\lambda}}'
+terms:
+  t_{1/2}:
+    kind: 'symbol'
+    label:
+      en: 'Half-life'
+    unit: 'second'
+  \lambda:
+    kind: 'symbol'
+    label:
+      en: 'Decay constant'
+    unit: 'reciprocal-second'
+solutions:
+  t_{1/2}: 'ln(2) / lambda'
+  \lambda: 'ln(2) / t_12'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'half-life formula'
+  - 'half-life from decay constant'
+  - 'decay constant from half-life'
+  - 'relation between half-life and decay constant'
+  - 'ln 2 over lambda'
+  - 'periodo de semidesintegración'
+  - 'período de semidesintegración'
+  - 'vida media'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 10.3 Radioactive Decay (half-life, equation 10.15, lifetime, Example 10.4)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/10-3-radioactive-decay'
+  - title: 'HyperPhysics, Georgia State University, Radioactive half-life and radioactive decay constant'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/Nuclear/halfli2.html'
+  - title: 'RAE, Diccionario de la lengua española, semivida (Fís.: vida media)'
+    url: 'https://dle.rae.es/semivida'
+description:
+  en: >-
+    The half-life of a radionuclide equals the natural logarithm of two divided by its decay
+    constant. The formula converts between the two usual ways of stating how fast a radioactive
+    isotope decays in nuclear physics: the half-life, the time in which half of the nuclei present
+    decay, and the decay constant, the probability per unit time that a single nucleus decays.
+
+    Here $\var{t_{1/2}}$ is the half-life, in seconds, and $\var{\lambda}$ is the decay constant, in
+    reciprocal seconds. Both are positive and fixed for a given radionuclide. The number
+    $\ln 2$ is about 0.693, so the half-life is roughly seven tenths of the reciprocal of the
+    decay constant. For long-lived isotopes the half-life is usually quoted in years and the decay
+    constant in reciprocal years; the product of the two keeps the same value whatever the time
+    unit.
+
+    The formula comes from the exponential decay law. Setting the number of remaining nuclei equal
+    to half of the initial number cancels the initial number, leaves one half equal to the
+    exponential of minus the decay constant times the half-life, and taking logarithms gives the
+    result. A large decay constant therefore means a short half-life, and a small one a long
+    half-life.
+
+    The relation is exact for any radionuclide that follows the exponential law, which holds for
+    large populations of nuclei. The half-life is not the mean lifetime of a nucleus, which equals
+    one over the decay constant and exceeds the half-life by a factor of about 1.44. The two are
+    easily confused, since both are times that describe the same decay, but the half-life is always
+    the shorter of the two.
+
+    Tables of nuclides list half-lives, so the formula is the usual first step of a decay or
+    activity calculation. Strontium-90, with a half-life of 28.8 years, has a decay constant of
+    about $7.6\times10^{-10}\,\mathrm{s^{-1}}$.

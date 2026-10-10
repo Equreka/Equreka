@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Masa de una partícula'
+terms:
+  m:
+    label: 'Masa de una entidad'
+description: >-
+  La masa de una partícula de una sustancia, sea un átomo, una molécula o una unidad fórmula, es
+  igual a la masa molar de la sustancia dividida entre la constante de Avogadro. La fórmula enlaza la
+  masa molar que se lee en una tabla periódica, una magnitud de laboratorio, con la masa de una
+  entidad individual, y muestra lo pequeños que son los átomos en la escala del kilogramo.
+
+  $\var{m}$ es la masa de una entidad, en kilogramos; la calculadora ofrece también el dalton, la
+  unidad en que suelen darse las masas atómicas y moleculares. $\mag{M}$ es la masa molar, en
+  kilogramos por mol. $\const{N_\mathrm{A}}$ es la constante de Avogadro, exactamente
+  $6.022\,140\,76\times10^{23}\,\mathrm{mol^{-1}}$. Tanto $\var{m}$ como $\mag{M}$ son positivas.
+
+  Un mol contiene el número de Avogadro de entidades, así que repartir a partes iguales la masa de un
+  mol entre todas ellas da la masa de cada una. Leída al revés, la masa molar es la masa de una
+  entidad multiplicada por la constante de Avogadro. Como el dalton se define como la doceava parte
+  de la masa de un átomo de carbono-12, la masa de una partícula en daltons tiene el mismo valor
+  numérico que la masa molar en gramos por mol, con una diferencia de una parte en mil millones con
+  los valores de CODATA 2022.
+
+  Para un solo átomo, el resultado es un promedio cuando la masa molar es el valor estándar de un
+  elemento, que mezcla sus isótopos; la masa de un isótopo concreto exige la masa molar de ese
+  isótopo. Las moléculas de un compuesto también pueden contener isótopos distintos, de modo que la
+  fórmula da su masa media.
+
+  Al redefinirse el mol en 2019, la constante de Avogadro se fijó de modo que la masa molar del
+  carbono-12 siguiera valiendo 0.012 kilogramos por mol con una incertidumbre relativa de
+  $4.5\times10^{-10}$; esa masa molar se mide ahora en lugar de estar definida. Un átomo de carbono-12 tiene, por tanto, una masa de
+  unos $1.993\times10^{-26}\,\mathrm{kg}$, exactamente 12 daltons.

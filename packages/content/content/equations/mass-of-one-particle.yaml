@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Mass of one particle'
+kind: 'formula'
+level: 'intro'
+expression: '\var{m}=\frac{\mag{M}}{\const{N_\mathrm{A}}}'
+terms:
+  m:
+    kind: 'symbol'
+    label:
+      en: 'Mass of one entity'
+    unit: 'kilogram'
+  M:
+    kind: 'magnitude'
+    ref: 'molar-mass'
+  N_\mathrm{A}:
+    kind: 'constant'
+    ref: 'avogadro-constant'
+solutions:
+  m: 'M / N_A'
+  M: 'm * N_A'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'amount-of-substance'
+aliases:
+  - 'mass of one atom'
+  - 'mass of one molecule'
+  - 'mass of a single atom'
+  - 'molecular mass from molar mass'
+  - 'm = M/NA'
+  - 'masa de un átomo'
+  - 'masa de una molécula'
+  - 'masa de una entidad'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.1 (the mole: M(X) = NA m(X)) and Table 8 (dalton)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, CODATA 2022 value: Avogadro constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?na'
+  - title: 'NIST, CODATA 2022 value: atomic mass constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?u'
+  - title: 'OpenStax, Chemistry 2e, 3.1 Formula Mass and the Mole Concept'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-1-formula-mass-and-the-mole-concept'
+description:
+  en: >-
+    The mass of one particle of a substance, a single atom, molecule or formula unit, equals the
+    molar mass of the substance divided by the Avogadro constant. The formula links the molar mass
+    read from a periodic table, a laboratory quantity, to the mass of an individual entity, and it
+    shows how small atoms are on the kilogram scale.
+
+    $\var{m}$ is the mass of one entity, in kilograms; the calculator also offers the dalton, the
+    unit in which atomic and molecular masses are usually quoted. $\mag{M}$ is the molar mass, in
+    kilograms per mole. $\const{N_\mathrm{A}}$ is the Avogadro constant, exactly
+    $6.022\,140\,76\times10^{23}\,\mathrm{mol^{-1}}$. Both $\var{m}$ and $\mag{M}$ are positive.
+
+    One mole holds the Avogadro number of entities, so sharing the mass of one mole equally among
+    them gives the mass of each. Read the other way, the molar mass is the mass of one entity
+    multiplied by the Avogadro constant. Because the dalton is defined as one twelfth of the mass of
+    a carbon-12 atom, the mass of a particle in daltons has the same numerical value as the molar
+    mass in grams per mole, to about one part in a billion with the CODATA 2022 values.
+
+    For a single atom the result is an average when the molar mass is the standard value for an
+    element, which mixes its isotopes; the mass of one particular isotope needs that isotope's own
+    molar mass. Molecules of one compound may also contain different isotopes, so the formula gives
+    their mean mass.
+
+    When the mole was redefined in 2019, the Avogadro constant was fixed so that the molar mass of
+    carbon-12 stayed at 0.012 kilogram per mole to a relative uncertainty of $4.5\times10^{-10}$;
+    that molar mass is now measured rather than defined. One carbon-12 atom therefore has a mass of about
+    $1.993\times10^{-26}\,\mathrm{kg}$, exactly 12 daltons.

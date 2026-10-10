@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Molality of a solution'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{b}=\frac{\mag{n}}{\var{m_\mathrm{solvent}}}'
+terms:
+  b:
+    kind: 'magnitude'
+    ref: 'molality'
+  n:
+    kind: 'magnitude'
+    ref: 'substance'
+  m_\mathrm{solvent}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of the solvent'
+    unit: 'kilogram'
+solutions:
+  b: 'n / m_solvent'
+  n: 'b * m_solvent'
+  m_\mathrm{solvent}: 'n / b'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'molality formula'
+  - 'molal concentration'
+  - 'moles per kilogram of solvent'
+  - 'b = n / m'
+  - 'molalidad'
+  - 'concentración molal'
+references:
+  - title: 'OpenStax, Chemistry 2e, 11.4 Colligative Properties'
+    url: 'https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties'
+  - title: 'NIST, Guide to the SI (SP 811), Chapter 8, 8.6.8 Molality of solute B'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-8'
+description:
+  en: >-
+    The molality of a solution counts the moles of solute per kilogram of the solvent alone, the
+    liquid in which the solute is dissolved. Also called molal concentration, it is the measure of concentration
+    used for colligative properties such as freezing point depression and boiling point elevation,
+    because it does not change with temperature.
+
+    $\mag{b}$ is the molality of the solute, in moles per kilogram, the coherent SI unit.
+    $\mag{n}$ is the amount of solute in moles, and $\var{m_\mathrm{solvent}}$ the mass of the
+    solvent alone, in kilograms, without the mass of the solute. All three are positive. NIST writes
+    the quantity as molality of solute B and treats the older name molal and the symbol m for mol/kg
+    as obsolete; textbooks still print the lower-case m, which is easily confused with mass.
+
+    Molality counts solute particles against a mass rather than a volume. Masses and amounts of
+    substance stay the same when a solution is heated or cooled, while volumes do not, so the
+    molality of a given solution is fixed once it is made. It is found by weighing the solvent and
+    the solute, with no need for a volumetric flask.
+
+    The formula holds for any solute and solvent, but it counts only the dissolved entity named. A
+    salt that splits into ions gives each ion its own molality, and colligative effects follow the
+    total number of particles. Molality and molarity are different numbers for the same solution,
+    and converting one into the other requires the density of the solution and the molar mass of
+    the solute.
+
+    Antifreeze made from 35.8 mol of ethylene glycol in 2.00 kg of water has a molality of
+    17.9 mol/kg.
