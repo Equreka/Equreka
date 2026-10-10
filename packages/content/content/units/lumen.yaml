@@ -1,11 +1,23 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Lumen'
+namePlural:
+  en: 'lumens'
 symbol:
   tex: 'lm'
 unitOf:
   - 'luminous-flux'
 system: 'si-derived'
+prefixes:
+  - 'femto'
+  - 'pico'
+  - 'nano'
+  - 'micro'
+  - 'milli'
+  - 'kilo'
+  - 'mega'
+  - 'giga'
+  - 'tera'
 compose:
   of:
     - unit: 'candela'

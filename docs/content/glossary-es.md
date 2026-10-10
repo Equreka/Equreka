@@ -53,9 +53,9 @@ Conventions for every `<slug>.es.yaml` sidecar. Companion to the [style guide](s
 | coulomb, volt | culombio (culombios), voltio (voltios) | CEM, sidecar |
 | farad, ohm | faradio (faradios), ohmio (ohmios) | CEM, sidecar |
 | siemens, weber, tesla | siemens, weber (no plural confirmed: avoid *webers*), tesla (teslas) | CEM; plural *teslas*: [RAE, *Diccionario del estudiante*](https://www.rae.es/diccionario-estudiante/tesla) |
-| henry | henrio | CEM |
+| henry | henrio (henrios) | CEM; plural *henrios* (regular, vowel ending): [Wikcionario, *henrio*](https://es.wiktionary.org/wiki/henrio); the RAE dictionaries answer automated fetches with a bot challenge |
 | degree Celsius | grado Celsius | CEM |
-| lumen, lux | lumen, lux | CEM |
+| lumen, lux | lumen (lúmenes), lux (invariable) | CEM; plural *lúmenes* (paroxytone ending in *-n* takes *-es*, as *exámenes*): [Wikcionario, *lumen*](https://es.wiktionary.org/wiki/lumen); the RAE dictionaries answer automated fetches with a bot challenge |
 | becquerel, gray, sievert | becquerel (becquerels), gray (grais), sievert (sieverts) | CEM; plural *becquerels*: [RAE, DLE *curio*](https://dle.rae.es/curio); *sieverts*: [RAE, *El plural de los préstamos*](https://www.rae.es/buen-uso-espa%C3%B1ol/el-plural-de-los-pr%C3%A9stamos-de-otras-lenguas); *grais*: Fundéu BBVA recommendation ([COPE reprint](https://www.cope.es/actualidad/cultura/noticias/fundeu-bbva-sievert-adaptacion-espanol-20180315_183912)), rare in the press |
 | litre, gram | litro (litros), gramo (gramos) | CEM, sidecar |
 | minute, hour, day | minuto, hora, día | CEM |
