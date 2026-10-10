@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Coefficient of performance of a refrigerator'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{K_\mathrm{R}}=\frac{\var{Q_\mathrm{c}}}{\mag{W}}'
+terms:
+  K_\mathrm{R}:
+    kind: 'symbol'
+    label:
+      en: 'Coefficient of performance of the refrigerator'
+  Q_\mathrm{c}:
+    kind: 'symbol'
+    label:
+      en: 'Heat removed from the cold reservoir'
+    unit: 'joule'
+  W:
+    kind: 'magnitude'
+    ref: 'work'
+solutions:
+  K_\mathrm{R}: 'Q_c / W'
+  Q_\mathrm{c}: 'K_R * W'
+  W: 'Q_c / K_R'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'refrigerator COP'
+  - 'COP of a refrigerator'
+  - 'coefficient of performance for cooling'
+  - 'COP of an air conditioner'
+  - 'K = Qc / W'
+  - 'coeficiente de rendimiento de un refrigerador'
+  - 'COP de un refrigerador'
+  - 'coeficiente de operatividad'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 4.3 Refrigerators and Heat Pumps (Equations 4.3 and 4.4)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/4-3-refrigerators-and-heat-pumps'
+  - title: 'OpenStax, University Physics Volume 2, 4.5 The Carnot Cycle (Equations 4.6 and 4.7)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/4-5-the-carnot-cycle'
+  - title: 'OpenStax, College Physics 2e, 15.5 Applications of Thermodynamics: Heat Pumps and Refrigerators (Equations 15.43 and 15.44)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/15-5-applications-of-thermodynamics-heat-pumps-and-refrigerators'
+description:
+  en: >-
+    The coefficient of performance of a refrigerator is the heat it removes from the cold space
+    divided by the work needed to drive it. Abbreviated COP, it is the figure of merit of
+    refrigerators, freezers and air conditioners in thermodynamics, the counterpart for a machine
+    that pumps heat from cold to hot of the thermal efficiency of a heat engine.
+
+    $\var{K_\mathrm{R}}$ is the coefficient of performance, a dimensionless ratio of two energies.
+    Unlike an efficiency it is not bounded by 1 and usually exceeds it, because a refrigerator
+    moves more heat than the work it consumes. $\var{Q_\mathrm{c}}$ is the heat removed from the
+    cold reservoir and $\mag{W}$ the work done on the working substance, both in joules over the
+    same cycle or the same time interval and both counted as positive. This is work done on the machine, the
+    opposite sense to the first-law form in which the work is done by the system. Rates in watts
+    give the same ratio.
+
+    By conservation of energy the refrigerator delivers to the hot reservoir the heat it extracts
+    plus the work it receives. Its coefficient of performance is therefore one less than that of the
+    same machine used as a heat pump, which counts the heat delivered to the hot side. A reversible
+    Carnot refrigerator working between a cold reservoir and a hot one reaches the highest possible
+    value: the cold absolute temperature divided by the difference between the two temperatures.
+
+    That bound grows without limit as the two temperatures approach each other and falls as the gap
+    widens, so cooling into a hot room costs more work. The second law of thermodynamics forbids a
+    refrigerator that needs no work, which would have an infinite coefficient. Real refrigerators and
+    air conditioners stay below the Carnot value through friction and heat flow across finite
+    temperature differences, with values typically from 2 to 6.
+
+    A Carnot refrigerator keeping a space at 0 degrees Celsius inside a room at 20 degrees Celsius
+    would reach about 13.7.

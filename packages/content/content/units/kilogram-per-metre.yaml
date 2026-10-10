@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Kilogram per metre'
+symbol:
+  tex: 'kg/m'
+unitOf:
+  - 'linear-density'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'kilogram'
+      exp: 1
+    - unit: 'metre'
+      exp: -1
+externalIds:
+  wikidata: 'Q25999243'
+  qudt: 'http://qudt.org/vocab/unit/KiloGM-PER-M'
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+  - 'mechanics'
+aliases:
+  - 'kilogram per meter'
+  - 'kilograms per metre'
+  - 'kg/m'
+  - 'kg m-1'
+  - 'kg·m⁻¹'
+  - 'kilogramo por metro'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.4 Derived units'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, unit KiloGM-PER-M'
+    url: 'https://qudt.org/vocab/unit/KiloGM-PER-M'
+  - title: 'QUDT, quantity kind LinearDensity and unit TEX'
+    url: 'https://qudt.org/vocab/quantitykind/LinearDensity'
+  - title: 'OpenStax, University Physics Volume 1, 16.3 Wave Speed on a Stretched String (Equation 16.7, Example 16.5)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/16-3-wave-speed-on-a-stretched-string'
+description:
+  en: >-
+    The kilogram per metre, symbol $\mathrm{kg/m}$, is the coherent SI unit of linear mass density,
+    the mass carried by each metre of a long, thin object such as a string, wire, cable, chain or
+    fibre. It describes how heavy an object is along its length without regard to its total length
+    or cross-section.
+
+    The unit has no special name: it is the base unit kilogram over the base unit metre, and it is
+    coherent in the sense of the SI Brochure because the combination carries no numerical factor
+    other than one. A uniform string
+    of 2 metres with a mass of 0.06 kilograms, an OpenStax example, has a linear density of 0.03
+    kilograms per metre.
+
+    One kilogram per metre equals 1000 grams per metre, or one gram per millimetre. The textile
+    trade measures yarns and fibres in the tex, one gram per kilometre, so one kilogram per metre is
+    a million tex. QUDT files the unit under the quantity kinds mass per length and lineic mass, and
+    lists it among the units applicable to linear density.
+
+    In physics the unit enters the speed of a transverse wave on a stretched string, which grows
+    with the square root of the ratio of tension to linear density. OpenStax gives the high E string of a guitar
+    as 0.000 309 kilograms per metre and the low E string as 0.005 78, a ratio close to 20: at equal tension a
+    wave would run more than four times slower on the heavier string.
+
+    The symbol may also be written $\mathrm{kg\,m^{-1}}$. In American English the name is spelled
+    kilogram per meter, and the plural is kilograms per metre.

@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Coeficiente de rendimiento de un refrigerador'
+terms:
+  K_\mathrm{R}:
+    label: 'Coeficiente de rendimiento del refrigerador'
+  Q_\mathrm{c}:
+    label: 'Calor extraído del reservorio frío'
+description: >-
+  El coeficiente de rendimiento de un refrigerador es el calor que extrae del espacio frío dividido
+  entre el trabajo necesario para hacerlo funcionar. Abreviado COP, es la cifra de mérito de
+  refrigeradores, congeladores y aparatos de aire acondicionado en termodinámica, el equivalente,
+  para una máquina que bombea calor de lo frío a lo caliente, del rendimiento térmico de una máquina
+  térmica.
+
+  $\var{K_\mathrm{R}}$ es el coeficiente de rendimiento, un cociente adimensional entre dos
+  energías. A diferencia de un rendimiento, no está acotado por 1 y suele superarlo, porque un
+  refrigerador traslada más calor que el trabajo que consume. $\var{Q_\mathrm{c}}$ es el calor
+  extraído del reservorio frío y $\mag{W}$ el trabajo realizado sobre la sustancia de trabajo, ambos
+  en julios durante el mismo ciclo o el mismo intervalo de tiempo y ambos contados como positivos.
+  Es trabajo realizado sobre la máquina, el sentido opuesto al del primer principio, donde el
+  trabajo lo realiza el sistema. Las potencias en vatios dan el mismo cociente.
+
+  Por conservación de la energía, el refrigerador entrega al reservorio caliente el calor que
+  extrae más el trabajo que recibe. Por eso su coeficiente de rendimiento es una unidad menor que el
+  de la misma máquina usada como bomba de calor, que cuenta el calor entregado al lado caliente. Un
+  refrigerador de Carnot reversible que funcione entre un reservorio frío y uno caliente alcanza el
+  mayor valor posible: la temperatura absoluta fría dividida entre la diferencia de las dos
+  temperaturas.
+
+  Esa cota crece sin límite cuando las dos temperaturas se acercan y baja cuando la diferencia
+  aumenta, de modo que enfriar hacia una habitación caliente cuesta más trabajo. El segundo
+  principio de la termodinámica prohíbe un refrigerador que no necesite trabajo, que tendría un
+  coeficiente infinito. Los refrigeradores y aparatos de aire acondicionado reales quedan por
+  debajo del valor de Carnot por el rozamiento y el flujo de calor a través de diferencias de
+  temperatura finitas, con valores típicos de 2 a 6.
+
+  Un refrigerador de Carnot que mantuviera un espacio a 0 grados Celsius dentro de una habitación a
+  20 grados Celsius alcanzaría unos 13.7.

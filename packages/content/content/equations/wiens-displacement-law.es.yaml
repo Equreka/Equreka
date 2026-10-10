@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de desplazamiento de Wien'
+description: >-
+  La ley de desplazamiento de Wien establece que la longitud de onda del máximo del espectro de
+  emisión de un cuerpo negro es inversamente proporcional a su temperatura absoluta, con un
+  producto constante. En termodinámica y en la física de la radiación térmica explica por qué el máximo de la
+  emisión de cuerpo negro pasa a longitudes de onda más cortas al calentarse el cuerpo, del
+  infrarrojo hacia la luz visible y más allá.
+
+  $\mag{\lambda_{\max}}$ es la longitud de onda del máximo en metros, aquella en la que la
+  potencia emitida por unidad de longitud de onda es máxima; es positiva. $\mag{T}$ es la temperatura termodinámica del cuerpo en kelvin; la ley exige
+  temperatura absoluta, así que una lectura en grados Celsius se convierte sumándole 273.15.
+  $\const{b}$ es la constante de la ley de desplazamiento de Wien, de unos
+  $2.898\times10^{-3}\,\mathrm{m\,K}$, exacta en el SI.
+
+  La ley sale de localizar el máximo de la ley de radiación de Planck, que hace que la longitud
+  de onda del máximo por la temperatura sea igual para todo cuerpo negro. Un cuerpo a temperatura ambiente,
+  cerca de 300 kelvin, tiene su máximo en el infrarrojo, mientras que la superficie del Sol, entre
+  5000 y 6000 kelvin, lo tiene en la luz visible; por eso una estrella azulada está más caliente que una
+  rojiza. Medir el máximo de un espectro da la temperatura de una
+  estrella lejana o de un horno sin tocarlos.
+
+  La ley es exacta para un cuerpo negro ideal y vale también para un cuerpo gris, cuya emisividad es
+  la misma en todas las longitudes de onda. En las superficies reales cuya emisividad varía con la
+  longitud de onda el máximo se desplaza, así que las temperaturas leídas en él son estimaciones.
+
+  Wilhelm Wien formuló la ley en 1893 y recibió el Premio Nobel de Física de 1911 por su trabajo
+  sobre las leyes de la radiación del calor. Un máximo en 560 nanómetros corresponde a unos 5200
+  kelvin.

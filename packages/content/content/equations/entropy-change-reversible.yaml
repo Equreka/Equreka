@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Entropy change in a reversible isothermal process'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{\Delta S}=\frac{\mag{Q}}{\mag{T}}'
+terms:
+  \Delta S:
+    kind: 'magnitude'
+    ref: 'entropy'
+  Q:
+    kind: 'magnitude'
+    ref: 'heat'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+solutions:
+  \Delta S: 'Q / T'
+  Q: 'DeltaS * T'
+  T: 'Q / DeltaS'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'Clausius definition of entropy'
+  - 'thermodynamic definition of entropy change'
+  - 'entropy change at constant temperature'
+  - 'reversible entropy change'
+  - 'dS = dQ/T'
+  - 'ΔS = Q/T'
+  - 'variación de entropía en un proceso reversible'
+  - 'cambio de entropía'
+  - 'definición de entropía de Clausius'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 4.6 Entropy (Equations 4.8 and 4.10, Example 4.4)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/4-6-entropy'
+  - title: 'OpenStax, Chemistry 2e, 16.2 Entropy'
+    url: 'https://openstax.org/books/chemistry-2e/pages/16-2-entropy'
+  - title: 'OpenStax, College Physics 2e, 15.7 Statistical Interpretation of Entropy and the Second Law of Thermodynamics'
+    url: 'https://openstax.org/books/college-physics-2e/pages/15-7-statistical-interpretation-of-entropy-and-the-second-law-of-thermodynamics-the-underlying-explanation'
+description:
+  en: >-
+    The entropy change of a system that exchanges heat reversibly at a constant absolute temperature
+    equals the heat it absorbs divided by that temperature. This is the thermodynamic definition of
+    entropy in its simplest case and the working rule behind the second law of
+    thermodynamics for phase changes and isothermal processes.
+
+    $\mag{\Delta S}$ is the change in entropy of the system, final minus initial, in joules per
+    kelvin: positive when the system takes in heat and negative when it gives heat out.
+    $\mag{Q}$ is the heat absorbed by the system in joules, positive inward and negative outward.
+    $\mag{T}$ is the thermodynamic temperature in kelvin at which the exchange happens, constant
+    throughout; it must be absolute, so a Celsius reading is converted by adding 273.15.
+
+    In general the entropy change along a reversible path is the sum of the small amounts of heat
+    absorbed, each divided by the temperature at which it enters; when the temperature does not
+    change it comes out of the sum and leaves this ratio. Because entropy is a state function, the
+    change between two equilibrium states is the same whatever happens in between, so the value
+    found along an imagined reversible path also holds for a real, irreversible one.
+
+    The formula applies directly when heat flows reversibly at a fixed temperature: melting or
+    boiling at the transition temperature, an isothermal expansion of an ideal gas, or heat taken up
+    by a reservoir so large that its temperature does not move. When the temperature varies the sum
+    must be integrated. In an irreversible process the total entropy of a system and its
+    surroundings increases.
+
+    Rudolf Clausius gave the property the name entropy in 1865. Melting 50 grams of ice at 273
+    kelvin takes 16.8 kilojoules and raises its entropy by about 61.5 joules per kelvin.

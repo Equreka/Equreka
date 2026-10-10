@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Molecular form of the ideal gas law'
+kind: 'equation'
+level: 'intermediate'
+expression: '\mag{p}\mag{V}=\var{N}\const{k_\mathrm{B}}\mag{T}'
+terms:
+  p:
+    kind: 'magnitude'
+    ref: 'pressure'
+  V:
+    kind: 'magnitude'
+    ref: 'volume'
+  N:
+    kind: 'symbol'
+    label:
+      en: 'Number of molecules'
+  k_\mathrm{B}:
+    kind: 'constant'
+    ref: 'boltzmann-constant'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+solutions:
+  p: 'N * k_B * T / V'
+  V: 'N * k_B * T / p'
+  N: 'p * V / (k_B * T)'
+  T: 'p * V / (N * k_B)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+  - 'chemistry'
+branches:
+  - 'thermodynamics'
+  - 'gases'
+aliases:
+  - 'ideal gas law in molecular form'
+  - 'ideal gas law with the Boltzmann constant'
+  - 'pV = NkT'
+  - 'PV = NkT'
+  - 'pV = N k_B T'
+  - 'ley de los gases ideales en forma molecular'
+  - 'forma molecular de la ley de los gases ideales'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 2.1 Molecular Model of an Ideal Gas (Equation 2.1, Example 2.2)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/2-1-molecular-model-of-an-ideal-gas'
+  - title: 'OpenStax, College Physics 2e, 13.4 Kinetic Theory: Atomic and Molecular Explanation of Pressure and Temperature (Equation 13.43)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/13-4-kinetic-theory-atomic-and-molecular-explanation-of-pressure-and-temperature'
+  - title: 'NIST, CODATA 2022 value: Boltzmann constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?k'
+description:
+  en: >-
+    The molecular form of the ideal gas law states that the pressure of a gas times its volume
+    equals the number of its molecules times the Boltzmann constant times its absolute temperature.
+    It is the ideal gas equation of state written for kinetic theory and statistical physics: it
+    counts particles one by one instead of in moles, so it ties the bulk properties of a gas
+    directly to its molecules.
+
+    $\mag{p}$ is the absolute pressure in pascals, never the gauge reading of a tyre gauge.
+    $\mag{V}$ is the volume of the gas in cubic metres. $\var{N}$ is the number of molecules, or of
+    atoms for a monatomic gas, a count with no unit so large that it is treated as a continuous
+    quantity. $\const{k_\mathrm{B}}$ is the Boltzmann constant,
+    $1.380\,649\times10^{-23}\,\mathrm{J/K}$, exact in the SI. $\mag{T}$ is the thermodynamic
+    temperature in kelvin; a Celsius reading is converted by adding 273.15. All four quantities are
+    positive.
+
+    Writing the number of molecules as the amount of substance times the Avogadro constant turns
+    this form into the familiar molar one, because the Avogadro constant times the Boltzmann
+    constant is the molar gas constant. Dividing both sides by the volume shows that the number of
+    molecules per unit volume depends only on pressure and temperature, whatever the gas: equal
+    volumes at equal pressure and temperature hold equal numbers of molecules.
+
+    The law describes an ideal gas, whose molecules take up a negligible share of the volume and
+    interact only through brief elastic collisions. Real gases come close to it at low density and
+    at temperatures well above their boiling points; at high pressure the size of the molecules and
+    the attraction between them make it fail.
+
+    The constant in the law honours Ludwig Boltzmann (1844–1906). By the law, one breath of 500
+    millilitres at 0 degrees Celsius and one standard atmosphere holds about
+    $1.34\times10^{22}$ molecules.

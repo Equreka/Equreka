@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ecuación del fabricante de lentes'
+terms:
+  f:
+    label: 'Distancia focal'
+  R_{1}:
+    label: 'Radio de curvatura de la primera superficie'
+  R_{2}:
+    label: 'Radio de curvatura de la segunda superficie'
+description: >-
+  La ecuación del fabricante de lentes da la distancia focal de una lente delgada a partir de su
+  material y de cómo están talladas sus dos caras: la inversa de la distancia focal es igual al
+  índice de refracción menos uno, por la diferencia entre las inversas de los dos radios de
+  curvatura. Los diseñadores de lentes la usan para elegir curvaturas y vidrio.
+
+  Aquí $\var{f}$ es la distancia focal en metros, positiva cuando la lente hace converger la luz y
+  negativa cuando la dispersa. $\mag{n}$ es el índice de refracción del vidrio o del plástico, un
+  número puro, para una lente en el aire. $\var{R_{1}}$ y $\var{R_{2}}$ son los radios de curvatura,
+  en metros, de la superficie que la luz encuentra primero y de la segunda. Según OpenStax, un radio
+  es positivo si su superficie es convexa hacia el objeto y negativo si es cóncava hacia él, de modo
+  que una lente biconvexa tiene el primer radio positivo y el segundo negativo; son los signos del
+  convenio de lo real positivo de la ecuación de las lentes delgadas, y dan a una lente convergente
+  una distancia focal positiva. Una cara plana tiene un radio infinito de inversa nula; la
+  calculadora no lo admite, así que una lente plana por una cara se resuelve a mano con esa inversa
+  igual a cero.
+
+  Cada cara curva refracta la luz como una frontera esférica; tomar la imagen que forma la primera
+  cara como objeto de la segunda y reducir el grosor a cero combina ambas en una sola distancia
+  focal. Para una lente sumergida en un medio, el cociente entre el
+  índice de la lente y el del medio sustituye al índice, y por eso una lente pierde potencia en el
+  agua.
+
+  La ecuación vale para lentes delgadas y rayos próximos al eje; una lente gruesa necesita un
+  término con su grosor, y como el índice varía con la longitud de onda, la luz azul y la roja se
+  enfocan a distancias algo distintas.
+
+  En un ejemplo de OpenStax, una lente bicóncava simétrica de vidrio de índice 1.55 y distancia
+  focal de menos 20 centímetros en el aire necesita radios de 22 centímetros, el primero negativo y
+  el segundo positivo.

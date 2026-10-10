@@ -1,0 +1,82 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Root-mean-square speed of gas molecules'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{v_\mathrm{rms}}=\sqrt{\frac{3\const{k_\mathrm{B}}\mag{T}}{\var{m}}}'
+terms:
+  v_\mathrm{rms}:
+    kind: 'magnitude'
+    ref: 'speed'
+  k_\mathrm{B}:
+    kind: 'constant'
+    ref: 'boltzmann-constant'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+  m:
+    kind: 'symbol'
+    label:
+      en: 'Mass of one molecule'
+    unit: 'kilogram'
+solutions:
+  v_\mathrm{rms}: 'sqrt(3 * k_B * T / m)'
+  T: 'm * v_rms^2 / (3 * k_B)'
+  m: '3 * k_B * T / v_rms^2'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q3272901'
+categories:
+  - 'physics'
+  - 'chemistry'
+branches:
+  - 'thermodynamics'
+  - 'gases'
+aliases:
+  - 'rms speed'
+  - 'RMS speed'
+  - 'root mean square speed'
+  - 'root-mean-square velocity'
+  - 'thermal speed of gas molecules'
+  - 'v_rms = sqrt(3kT/m)'
+  - 'velocidad media cuadrática'
+  - 'velocidad rms'
+  - 'velocidad cuadrática media'
+  - 'rapidez cuadrática media'
+  - 'media cuadrática de la velocidad de un gas'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 2.2 Pressure, Temperature, and RMS Speed (Equations 2.8 and 2.9, Example 2.4)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/2-2-pressure-temperature-and-rms-speed'
+  - title: 'OpenStax, University Physics Volume 2, 2.4 Distribution of Molecular Speeds'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/2-4-distribution-of-molecular-speeds'
+  - title: 'OpenStax, College Physics 2e, 13.4 Kinetic Theory: Atomic and Molecular Explanation of Pressure and Temperature (Equation 13.56, Examples 13.10 and 13.11)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/13-4-kinetic-theory-atomic-and-molecular-explanation-of-pressure-and-temperature'
+description:
+  en: >-
+    The root-mean-square speed of the molecules of a gas is the square root of three times the
+    Boltzmann constant times the absolute temperature, divided by the mass of one molecule. Known
+    as the rms speed, it is the typical speed of molecular motion in the kinetic theory of gases,
+    found by squaring every molecular speed, averaging the squares and taking the square root.
+
+    $\mag{v_\mathrm{rms}}$ is the rms speed in metres per second, never negative.
+    $\const{k_\mathrm{B}}$ is the Boltzmann constant, $1.380\,649\times10^{-23}\,\mathrm{J/K}$,
+    exact in the SI. $\mag{T}$ is the thermodynamic temperature in kelvin; the formula needs
+    absolute temperature, so a Celsius reading is converted by adding 273.15. $\var{m}$ is the mass
+    of one molecule in kilograms, the molar mass divided by the Avogadro constant; the calculator
+    also accepts daltons.
+
+    The mean translational kinetic energy of a molecule is one half its mass times the mean squared
+    speed, and kinetic theory sets it equal to three halves of the Boltzmann constant times the
+    temperature; solving for the square root of the mean squared speed gives the formula.
+    Multiplying the numerator and the denominator by the Avogadro constant gives the equivalent
+    molar form, with the molar gas constant over the molar mass. At a given temperature lighter
+    molecules move faster, in inverse proportion to the square root of their mass.
+
+    The result holds for an ideal gas in thermal equilibrium described by classical mechanics.
+    Individual molecules spread over a wide range of speeds, the Maxwell-Boltzmann distribution,
+    and the rms speed exceeds both its mean speed and its most probable speed, so the three figures
+    must not be mixed up.
+
+    For nitrogen at 293 kelvin, with a molecular mass of $4.65\times10^{-26}$ kilograms, the
+    formula gives about 511 metres per second, a little over half a kilometre per second.

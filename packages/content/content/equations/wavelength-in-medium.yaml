@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Wavelength of light in a medium'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{\lambda_{n}}=\frac{\var{\lambda}}{\mag{n}}'
+terms:
+  \lambda_{n}:
+    kind: 'symbol'
+    label:
+      en: 'Wavelength in the medium'
+    unit: 'metre'
+  \lambda:
+    kind: 'symbol'
+    label:
+      en: 'Wavelength in vacuum'
+    unit: 'metre'
+  n:
+    kind: 'magnitude'
+    ref: 'refractive-index'
+solutions:
+  \lambda_{n}: 'lambda / n'
+  \lambda: 'n * lambda_n'
+  n: 'lambda / lambda_n'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'lambda_n = lambda / n'
+  - 'λn = λ/n'
+  - 'wavelength in a medium'
+  - 'wavelength in glass'
+  - 'wavelength in water'
+  - 'longitud de onda en un medio'
+references:
+  - title: 'OpenStax, College Physics 2e, 27.1 The Wave Aspect of Light: Interference (Equation 27.2)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/27-1-the-wave-aspect-of-light-interference'
+  - title: 'OpenStax, University Physics Volume 3, 3.4 Interference in Thin Films'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/3-4-interference-in-thin-films'
+  - title: 'OpenStax, University Physics Volume 3, 1.1 The Propagation of Light (index of refraction)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/1-1-the-propagation-of-light'
+description:
+  en: >-
+    The wavelength of light in a medium is its wavelength in vacuum divided by the refractive index
+    of the medium. Light entering water, glass or any other transparent material keeps its
+    frequency but slows down, so each wave crest is packed closer to the next and the wavelength
+    shrinks by the same factor as the speed.
+
+    Here $\var{\lambda_{n}}$ is the wavelength inside the medium and $\var{\lambda}$ the wavelength
+    the same light has in vacuum, both in metres and both positive. $\mag{n}$ is the refractive
+    index of the medium, a pure number equal to the speed of light in vacuum divided by the speed
+    of light in the medium; it is at least one for ordinary transparent materials, so the
+    wavelength in a medium is never longer than in vacuum.
+
+    The frequency of a wave is set by its source and does not change when the wave crosses a
+    boundary, since each crest arriving at the surface launches one crest beyond it. Wave speed is
+    frequency times wavelength, and the speed in the medium is the speed in vacuum divided by the
+    index; dividing both sides of the vacuum relation by the index therefore leaves the frequency
+    untouched and divides the wavelength. The colour of light follows its frequency, which is why a
+    red beam stays red under water even though its wavelength there matches that of another colour
+    in air.
+
+    The relation is needed wherever paths inside a material are counted in wavelengths: thin films,
+    anti-reflection coatings and soap bubbles interfere according to the wavelength in the film,
+    not in air. The index varies with wavelength, so it must be taken for the colour in question,
+    and an absorbing medium needs a complex index.
+
+    Water has an index of 1.333, so the visible band from about 380 to 760 nanometres in vacuum
+    becomes about 285 to 570 nanometres inside water, an example OpenStax works out.

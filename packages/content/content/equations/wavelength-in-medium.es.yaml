@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Longitud de onda de la luz en un medio'
+terms:
+  \lambda_{n}:
+    label: 'Longitud de onda en el medio'
+  \lambda:
+    label: 'Longitud de onda en el vacío'
+description: >-
+  La longitud de onda de la luz en un medio es su longitud de onda en el vacío dividida entre el
+  índice de refracción del medio. La luz que entra en el agua, el vidrio u otro material
+  transparente conserva su frecuencia pero se frena, de modo que cada cresta queda más cerca de la
+  siguiente y la longitud de onda se reduce en el mismo factor que la rapidez.
+
+  Aquí $\var{\lambda_{n}}$ es la longitud de onda dentro del medio y $\var{\lambda}$ la que tiene
+  la misma luz en el vacío, ambas en metros y positivas. $\mag{n}$ es el índice de refracción del
+  medio, un número puro igual a la velocidad de la luz en el vacío dividida entre su rapidez en el
+  medio; vale al menos uno en los materiales transparentes, así que la longitud de onda
+  en un medio nunca es mayor que en el vacío.
+
+  La frecuencia de una onda la fija su fuente y no cambia al cruzar una frontera, porque cada cresta
+  que llega a la superficie genera una cresta al otro lado. La rapidez de una onda es la frecuencia
+  por la longitud de onda, y la rapidez en el medio es la del vacío dividida entre el índice; al
+  dividir entre el índice la relación del vacío, la frecuencia no cambia y la longitud de onda se
+  divide. El color de la luz sigue a su frecuencia, y por eso un haz rojo sigue
+  siendo rojo bajo el agua aunque allí su longitud de onda coincida con la de otro color en el aire.
+
+  La relación hace falta cuando los caminos dentro de un material se cuentan en longitudes de onda: las láminas delgadas, los recubrimientos antirreflectantes y las pompas de jabón
+  interfieren según la longitud de onda en la lámina, no en el aire. El índice varía con la
+  longitud de onda, así que debe tomarse para cada color, y un medio absorbente
+  requiere un índice complejo.
+
+  El agua tiene un índice de 1.333, de modo que la banda visible, de unos 380 a 760 nanómetros en el
+  vacío, pasa a unos 285 a 570 nanómetros dentro del agua, como calcula OpenStax.

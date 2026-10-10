@@ -1,0 +1,88 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Stefan-Boltzmann law'
+kind: 'equation'
+level: 'intermediate'
+expression: '\mag{P}=\var{\varepsilon}\const{\sigma}\mag{A}\mag{T}^{4}'
+terms:
+  P:
+    kind: 'magnitude'
+    ref: 'power'
+  \varepsilon:
+    kind: 'symbol'
+    label:
+      en: 'Emissivity'
+    unit: 'unitless'
+  \sigma:
+    kind: 'constant'
+    ref: 'stefan-boltzmann-constant'
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+solutions:
+  P: 'varepsilon * sigma * A * T^4'
+  \varepsilon: 'P / (sigma * A * T^4)'
+  A: 'P / (varepsilon * sigma * T^4)'
+  T: 'sqrt(sqrt(P / (varepsilon * sigma * A)))'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q704747'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'Stefan''s law'
+  - 'Stefan-Boltzmann law of radiation'
+  - 'Stefan–Boltzmann law'
+  - 'Stefan Boltzmann law'
+  - 'fourth-power law of thermal radiation'
+  - 'P = e sigma A T^4'
+  - 'ley de Stefan-Boltzmann'
+  - 'ley de Stefan'
+  - 'ley de Stefan-Boltzmann de radiación'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 1.6 Mechanisms of Heat Transfer (Stefan-Boltzmann law of radiation, Example 1.13)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-6-mechanisms-of-heat-transfer'
+  - title: 'OpenStax, College Physics 2e, 14.7 Radiation (Equations 14.43 and 14.44)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/14-7-radiation'
+  - title: 'HyperPhysics, Georgia State University, Stefan-Boltzmann Law'
+    url: 'https://hyperphysics.gsu.edu/hbase/thermo/stefan.html'
+  - title: 'MacTutor History of Mathematics, Josef Stefan'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Stefan_Josef/'
+  - title: 'NIST, CODATA 2022 value: Stefan-Boltzmann constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?sigma'
+description:
+  en: >-
+    The Stefan-Boltzmann law gives the total power that the surface of a body emits as thermal
+    radiation: it grows with the area of the surface, with its emissivity and with the fourth power
+    of its absolute temperature. Also known as Stefan's law, it is the basic rule of radiative heat
+    transfer in thermodynamics and of black-body radiation in astrophysics.
+
+    $\mag{P}$ is the radiated power in watts, summed over every wavelength and direction.
+    $\var{\varepsilon}$ is the emissivity, a ratio with no unit from 0 to 1: it equals 1 for an
+    ideal black body, the best possible emitter and absorber, and approaches 0 for a perfect
+    reflector. $\const{\sigma}$ is the Stefan-Boltzmann constant, about
+    $5.67\times10^{-8}\,\mathrm{W/(m^{2}\,K^{4})}$ and exact in the SI. $\mag{A}$ is the emitting
+    area in square metres and $\mag{T}$ the thermodynamic temperature of the surface in kelvin. The
+    law needs absolute temperature, so a Celsius reading is first converted by adding 273.15. All
+    the quantities are non-negative.
+
+    The fourth power makes the law steep: doubling the absolute temperature multiplies the emitted
+    power by sixteen. A body also absorbs radiation from what surrounds it, so its net loss to
+    cooler surroundings follows the same product with the difference between the two fourth powers
+    of temperature in place of $\mag{T}^{4}$, and the flow reverses when the surroundings are the
+    hotter side.
+
+    The law treats the body as a grey emitter, one whose emissivity is the same at every wavelength,
+    with a surface at a single uniform temperature. Real materials have emissivities that change
+    with wavelength and temperature, so a tabulated figure is an average: about 0.97 for human skin
+    in the infrared and about 0.5 for a tungsten lamp filament.
+
+    Josef Stefan found the fourth-power dependence empirically in 1879, and Ludwig Boltzmann derived
+    it theoretically in 1884. Skin at 306 kelvin with an area of 1.50 square metres radiates
+    about 720 watts, most of it balanced by what a room at 295 kelvin sends back.

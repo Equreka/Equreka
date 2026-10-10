@@ -1,0 +1,92 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Displacement in simple harmonic motion'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{x}=\var{A}\cos\left(\mag{\omega}\mag{t}+\var{\phi}\right)'
+terms:
+  x:
+    kind: 'symbol'
+    label:
+      en: 'Displacement from equilibrium'
+    unit: 'metre'
+  A:
+    kind: 'symbol'
+    label:
+      en: 'Amplitude'
+    unit: 'metre'
+  \omega:
+    kind: 'magnitude'
+    ref: 'angular-frequency'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+  \phi:
+    kind: 'symbol'
+    label:
+      en: 'Phase constant'
+    unit: 'radian'
+solutions:
+  x: 'A * cos(omega * t + phi)'
+  A: 'x / cos(omega * t + phi)'
+  \omega:
+    - '(acos(x / A) - phi) / t'
+    - '(2 * pi - acos(x / A) - phi) / t'
+    - '(2 * pi + acos(x / A) - phi) / t'
+  t:
+    - '(acos(x / A) - phi) / omega'
+    - '(2 * pi - acos(x / A) - phi) / omega'
+    - '(2 * pi + acos(x / A) - phi) / omega'
+  \phi:
+    - 'acos(x / A) - omega * t'
+    - '-acos(x / A) - omega * t'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'x = A cos(ωt + φ)'
+  - 'x(t) = A cos(omega t + phi)'
+  - 'position in simple harmonic motion'
+  - 'SHM equation of motion'
+  - 'harmonic oscillator position'
+  - 'elongación'
+  - 'ecuación del movimiento armónico simple'
+  - 'posición en el MAS'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 15.1 Simple Harmonic Motion (Equation 15.3 and the block-on-a-spring example)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/15-1-simple-harmonic-motion'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Simple harmonic motion'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/shm.html'
+  - title: 'J. Bosch, Universitat de València, Movimiento armónico simple (MAS), problem set'
+    url: 'https://www.uv.es/jbosch/PDF/MAS.pdf'
+description:
+  en: >-
+    The displacement in simple harmonic motion gives the position of a harmonic oscillator at any
+    instant: the amplitude times the cosine of the angular frequency multiplied by the time, plus
+    the phase constant. It is the general solution for a body under a linear restoring force, such
+    as a block on a spring or a pendulum swinging through small angles.
+
+    Here $\var{x}$ is the displacement from the equilibrium position in metres, positive on a
+    chosen side and negative on the other; $\var{A}$ is the amplitude, the largest displacement, a
+    positive length; $\mag{\omega}$ is the angular frequency in radians per second; $\mag{t}$ is the
+    time in seconds from a chosen origin; and $\var{\phi}$ is the phase constant, also called the
+    initial phase, in radians, which fixes where the cycle stands at time zero and is taken here between 0 and two pi.
+
+    The cosine repeats after every two pi of its argument, so the motion repeats after one period,
+    two pi divided by the angular frequency, and never leaves the band from minus A to plus A. A
+    phase constant of zero describes a body released from rest at its positive extreme.
+
+    Each position inside the band is reached twice per cycle, so the inverse cosine gives two
+    instants per period; the calculator also lists the first one a period later and offers the
+    earliest time that is not negative. For the angular frequency it offers the smallest consistent
+    value. Of the two phase-constant roots, the first fits a body then moving towards negative
+    displacement and the second one moving towards positive displacement; each is fixed only up to
+    whole multiples of two pi, added or subtracted to bring it between 0 and two pi. A negative
+    solved amplitude means the same motion with the phase shifted by half a cycle.
+
+    The form is exact for an undamped oscillator with a linear restoring force. In an OpenStax
+    example a block released from rest 0.02 metres from equilibrium, with a period of 1.57
+    seconds, follows an angular frequency of 4.00 reciprocal seconds and a phase constant of zero.

@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Boltzmann''s entropy formula'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{S}=\const{k_\mathrm{B}}\ln\var{W}'
+terms:
+  S:
+    kind: 'magnitude'
+    ref: 'entropy'
+  k_\mathrm{B}:
+    kind: 'constant'
+    ref: 'boltzmann-constant'
+  W:
+    kind: 'symbol'
+    label:
+      en: 'Number of microstates'
+solutions:
+  S: 'k_B * ln(W)'
+calculator:
+  enabled: true
+  solveFor: ['S']
+externalIds:
+  wikidata: 'Q375553'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'Boltzmann entropy'
+  - 'Boltzmann equation for entropy'
+  - 'statistical definition of entropy'
+  - 'S = k ln W'
+  - 'S = k log W'
+  - 'fórmula de entropía de Boltzmann'
+  - 'entropía de Boltzmann'
+  - 'definición estadística de la entropía'
+references:
+  - title: 'OpenStax, College Physics 2e, 15.7 Statistical Interpretation of Entropy and the Second Law of Thermodynamics'
+    url: 'https://openstax.org/books/college-physics-2e/pages/15-7-statistical-interpretation-of-entropy-and-the-second-law-of-thermodynamics-the-underlying-explanation'
+  - title: 'OpenStax, Chemistry 2e, 16.2 Entropy (Example 16.2)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/16-2-entropy'
+  - title: 'Stanford Encyclopedia of Philosophy, Boltzmann''s Work in Statistical Physics'
+    url: 'https://plato.stanford.edu/entries/statphys-Boltzmann/'
+  - title: 'NIST, CODATA 2022 value: Boltzmann constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?k'
+description:
+  en: >-
+    Boltzmann's entropy formula states that the entropy of a macroscopic state equals the Boltzmann
+    constant times the natural logarithm of how many microstates realize it. It is the
+    statistical definition of entropy, the bridge between thermodynamics and statistical mechanics:
+    entropy becomes a count of the microscopic arrangements compatible with what is measured.
+
+    $\mag{S}$ is the entropy in joules per kelvin, never negative. $\const{k_\mathrm{B}}$ is the
+    Boltzmann constant, $1.380\,649\times10^{-23}\,\mathrm{J/K}$, exact in the SI. $\var{W}$ is the
+    number of microstates, a count with no unit of at least 1; a state that can occur in only one
+    way has zero entropy. The calculator takes the number of microstates as an input only: for any
+    macroscopic entropy it is far too large to write, since one joule per kelvin already needs e
+    raised to about $7\times10^{22}$.
+
+    A microstate fixes where every particle is and how much energy it carries; a macrostate is what
+    bulk measurements such as pressure, volume and temperature fix. A macrostate
+    reached in more ways is more probable, so the tendency of isolated systems towards higher
+    entropy is a tendency towards the most probable states. The logarithm makes entropy additive:
+    for two independent systems the numbers of microstates multiply while their entropies add.
+
+    The formula assumes that every microstate compatible with the macrostate is equally probable,
+    as for an isolated system in equilibrium. Applied to processes, it agrees with the thermodynamic
+    rule that a reversible heat exchange changes entropy by the heat divided by the absolute
+    temperature.
+
+    Ludwig Boltzmann identified entropy with the probability of a state in a paper of 1877; his
+    gravestone bears the formula in a notation that appears nowhere in his own writings. A change from one
+    microstate to six raises the entropy by about $2.47\times10^{-23}$ joules per kelvin.

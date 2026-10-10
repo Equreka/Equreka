@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Angular frequency of a mass on a spring'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{\omega}=\sqrt{\frac{\var{k}}{\mag{m}}}'
+terms:
+  \omega:
+    kind: 'magnitude'
+    ref: 'angular-frequency'
+  k:
+    kind: 'symbol'
+    label:
+      en: 'Spring constant'
+    unit: 'newton-per-metre'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+solutions:
+  \omega: 'sqrt(k / m)'
+  k: 'm * omega^2'
+  m: 'k / omega^2'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'omega = sqrt(k/m)'
+  - 'ω = √(k/m)'
+  - 'natural angular frequency of a spring'
+  - 'spring-mass angular frequency'
+  - 'mass-spring oscillator frequency'
+  - 'frecuencia angular masa-muelle'
+  - 'pulsación de un oscilador masa-resorte'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 15.1 Simple Harmonic Motion (Equation 15.9)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/15-1-simple-harmonic-motion'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Simple harmonic motion, mass on a spring'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/shm2.html'
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.4 (radian per second for angular frequency)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+description:
+  en: >-
+    The angular frequency of a mass on a spring is the rate at which the phase of an ideal
+    mass-spring oscillator advances: the square root of the spring constant divided by the mass.
+    It is the natural angular frequency of the system, fixed by stiffness and inertia alone, and it
+    sets the period and the frequency of any simple harmonic oscillator that can be modelled as a
+    body held by a linear spring.
+
+    Here $\mag{\omega}$ is the angular frequency in radians per second, never negative; $\var{k}$
+    is the spring constant in newtons per metre, the restoring force per metre of stretch, always
+    positive; and $\mag{m}$ is the mass of the oscillating body in kilograms. The radian is a
+    derived unit of one in the SI, so the same value can be written in reciprocal seconds, which is
+    how OpenStax prints it.
+
+    Hooke's law makes the spring force proportional to the displacement and opposite to it, so
+    Newton's second law gives an acceleration equal to minus $\var{k}$ over $\mag{m}$ times the displacement. The
+    cosine solution of simple harmonic motion has an acceleration equal to minus the square of the
+    angular frequency times the displacement, and matching the two coefficients gives the relation.
+    Dividing by two pi yields the frequency in hertz, and two pi divided by the angular frequency is
+    the period of a mass on a spring, the companion entry.
+
+    The result assumes a spring that obeys Hooke's law over the whole motion, a spring mass that is
+    negligible next to the load, and no damping. Within those limits the angular frequency is
+    independent of the amplitude. A vertical spring gives the same value, because gravity only
+    moves the equilibrium position; a heavy spring or strong friction calls for a corrected model.
+
+    Read backwards, the relation gives a spring constant from a timed oscillation or a mass from a
+    calibrated spring. A 2.00-kilogram body on a spring of 32.0 newtons per metre has an angular frequency
+    of 4.00 radians per second, which matches a period of about 1.57 seconds.

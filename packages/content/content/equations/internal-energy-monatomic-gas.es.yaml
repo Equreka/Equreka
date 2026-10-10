@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Energía interna de un gas ideal monoatómico'
+description: >-
+  Para un gas ideal monoatómico, la energía interna es igual a tres medios de la cantidad de
+  sustancia por la constante molar de los gases por la temperatura absoluta. En termodinámica, la
+  fórmula hace que la energía interna de un gas así dependa solo de su temperatura, y fija la
+  capacidad calorífica molar de un gas monoatómico mantenido a volumen constante en tres medios de
+  la constante molar de los gases.
+
+  $\mag{U}$ es la energía interna en julios, la energía cinética total del movimiento desordenado
+  de los átomos, que en este modelo solo se anula en el cero absoluto. $\mag{n}$ es la cantidad de
+  sustancia en moles. $\const{R}$ es la constante molar de los gases, de unos 8.314 julios por mol
+  y kelvin y exacta en el SI. $\mag{T}$ es la temperatura termodinámica en kelvin; la fórmula exige
+  temperatura absoluta, así que una lectura en grados Celsius se convierte sumándole 273.15. Todas
+  las magnitudes son positivas.
+
+  Los átomos de un gas monoatómico como el helio, el neón o el argón solo tienen energía cinética
+  de traslación, en promedio tres medios de la constante de Boltzmann por la temperatura cada uno.
+  Multiplicar por el número de átomos, la cantidad de sustancia por la constante de Avogadro, da la
+  fórmula, porque la constante de Avogadro por la constante de Boltzmann es la constante molar de
+  los gases. Por eso la energía interna solo cambia cuando cambia la temperatura, nunca con la
+  presión o el volumen por sí solos; a volumen constante, todo el calor que absorbe el gas va a
+  ella.
+
+  La fórmula supone un gas ideal, cuyos átomos no ejercen fuerzas entre sí y por tanto no tienen
+  energía potencial. Las moléculas diatómicas y poliatómicas también almacenan energía en la
+  rotación y la vibración, lo que aumenta el coeficiente: el aire, en su mayor parte diatómico,
+  suele modelarse con cinco medios en lugar de tres medios.
+
+  Aplicada a un cambio de estado, la fórmula muestra que calentar 0.952 moles de xenón 15.2 kelvin a
+  volumen constante aumenta su energía interna en unos 180 julios.

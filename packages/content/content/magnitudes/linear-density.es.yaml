@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Densidad lineal de masa'
+description: >-
+  La densidad lineal de masa, a menudo abreviada densidad lineal, es la masa de un cuerpo largo y
+  delgado por unidad de longitud: la masa de un trozo corto dividida entre la longitud de ese
+  trozo, en el límite de un trozo muy corto. Describe cuerdas, alambres, cables, cadenas, fibras e
+  hilos, cuerpos cuya sección solo importa por la masa que lleva cada tramo de longitud.
+
+  Su unidad SI coherente es el kilogramo por metro, y su dimensión es masa dividida entre longitud.
+  En un cuerpo uniforme, el valor es la masa total entre la longitud total: una cuerda de 2.00
+  metros con una masa de 0.06 kilogramos, un ejemplo de OpenStax, tiene 0.03 kilogramos por metro.
+  Las cuerdas de los instrumentos musicales suelen darse en gramos por metro, una unidad mil veces
+  menor.
+
+  La densidad lineal es un escalar y nunca es negativa. Un cuerpo no uniforme, como una varilla que
+  se estrecha, tiene una densidad lineal que cambia a lo largo de su longitud, y su masa es entonces
+  la integral de la densidad lineal sobre esa longitud.
+
+  Se mide pesando una longitud conocida. En física su uso principal es la rapidez de las ondas
+  transversales en una cuerda tensa, que crece como la raíz cuadrada de la tensión entre la
+  densidad lineal. En el mismo capítulo de OpenStax, la cuerda mi aguda de una guitarra tiene 0.000 309
+  kilogramos por metro y la mi grave 0.005 78, cerca de veinte veces más. La industria textil
+  clasifica los hilos con sus propias unidades de densidad lineal, el tex y el denier, que QUDT
+  recoge para esta magnitud.
+
+  La densidad lineal no es la densidad ordinaria, masa por volumen en kilogramos por metro cúbico,
+  ni la densidad superficial de una lámina, en kilogramos por metro cuadrado: dos alambres del
+  mismo metal comparten densidad pero difieren en densidad lineal si sus grosores son distintos.
+  QUDT y Wikidata le asignan el símbolo rho con subíndice l, mientras que los textos de ondas,
+  OpenStax entre ellos, escriben mu.

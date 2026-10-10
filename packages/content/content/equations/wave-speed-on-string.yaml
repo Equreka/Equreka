@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Speed of a wave on a stretched string'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{v}=\sqrt{\frac{\var{F_\mathrm{T}}}{\mag{\mu}}}'
+terms:
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  F_\mathrm{T}:
+    kind: 'symbol'
+    label:
+      en: 'Tension in the string'
+    unit: 'newton'
+  \mu:
+    kind: 'magnitude'
+    ref: 'linear-density'
+solutions:
+  v: 'sqrt(F_T / mu)'
+  F_\mathrm{T}: 'mu * v^2'
+  \mu: 'F_T / v^2'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'v = sqrt(F_T/mu)'
+  - 'v = √(F/μ)'
+  - 'wave speed on a string'
+  - 'string wave velocity'
+  - 'speed of a transverse wave on a string'
+  - 'velocidad de una onda en una cuerda'
+  - 'rapidez de onda en una cuerda tensa'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 16.3 Wave Speed on a Stretched String (Equations 16.7 and 16.8, Example 16.5)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/16-3-wave-speed-on-a-stretched-string'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Vibrating string, wave velocity in a string'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/Waves/string.html'
+  - title: 'OpenStax, University Physics Volume 1, 17.2 Speed of Sound (elastic and inertial properties)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/17-2-speed-of-sound'
+description:
+  en: >-
+    The speed of a wave on a stretched string is the square root of the tension in the string
+    divided by its linear mass density. It gives how fast a transverse pulse or wave travels along
+    a taut string, wire or cord, and with the length of the string it sets the pitch of guitars,
+    violins and pianos.
+
+    Here $\mag{v}$ is the wave speed in metres per second, never negative. $\var{F_\mathrm{T}}$ is
+    the tension, the pulling force along the string in newtons; it is written with a subscript
+    because a bare T stands for the period. $\mag{\mu}$ is the linear mass density, the mass of
+    the string per unit length in kilograms per metre; strings are often quoted in grams per metre,
+    and the calculator converts them. Both inputs are positive.
+
+    A short piece of displaced string feels the tension at its two ends pulling in slightly
+    different directions, and the difference is a net transverse force proportional to how sharply
+    the string curves. Newton's second law for that piece, whose mass is the linear density times
+    its length, turns into the wave equation, and the square of the wave speed is the tension over
+    the linear density. The pattern is general: a restoring, elastic property over an inertial
+    one, as in the speed of sound in a fluid. Tightening a string raises the speed, while a heavier
+    string slows it.
+
+    The result assumes a perfectly flexible string of uniform density, displacements small enough
+    that the slope stays small, and a tension that the wave does not change. Real strings have some
+    stiffness, so their higher harmonics drift above exact whole-number multiples of the
+    fundamental, and wound bass strings add mass without much extra stiffness. The speed belongs to
+    the string, not to the sound it radiates into the air.
+
+    In an OpenStax example the high E string of a guitar, with a linear density of 0.000 309
+    kilograms per metre under a tension of 56.40 newtons, carries waves at about 427 metres per
+    second.

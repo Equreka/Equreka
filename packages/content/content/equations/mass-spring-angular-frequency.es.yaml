@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Frecuencia angular de una masa unida a un resorte'
+terms:
+  k:
+    label: 'Constante elástica'
+description: >-
+  La frecuencia angular de una masa unida a un resorte es el ritmo al que avanza la fase de un
+  oscilador ideal de masa y resorte: la raíz cuadrada de la constante elástica dividida entre la
+  masa. Es la frecuencia angular natural del sistema, fijada solo por la rigidez y la inercia, y
+  determina el periodo y la frecuencia de cualquier oscilador armónico simple que se modele como un
+  cuerpo sujeto a un resorte lineal.
+
+  Aquí $\mag{\omega}$ es la frecuencia angular en radianes por segundo, nunca negativa; $\var{k}$
+  es la constante elástica en newtons por metro, la fuerza recuperadora por metro de estiramiento,
+  siempre positiva, y $\mag{m}$ es la masa del cuerpo que oscila en kilogramos. En el SI el radián
+  es una unidad derivada igual a uno, de modo que el mismo valor puede escribirse en segundos
+  inversos, como hace OpenStax.
+
+  La ley de Hooke hace la fuerza del resorte proporcional al desplazamiento y opuesta a él, así que
+  la segunda ley de Newton da una aceleración igual a menos $\var{k}$ entre $\mag{m}$ por el desplazamiento. La
+  solución coseno del movimiento armónico simple tiene una aceleración igual a menos el cuadrado de
+  la frecuencia angular por el desplazamiento, e igualar ambos coeficientes da la relación. Al
+  dividir entre dos pi se obtiene la frecuencia en hercios, y dos pi entre la frecuencia angular es
+  el periodo de una masa unida a un resorte, la entrada complementaria.
+
+  El resultado supone un resorte que cumple la ley de Hooke en todo el movimiento, una masa del
+  resorte despreciable frente a la carga y ausencia de amortiguamiento. Dentro de esos límites, la
+  frecuencia angular no depende de la amplitud. Un resorte vertical da el mismo valor, porque la
+  gravedad solo desplaza la posición de equilibrio; un resorte pesado o un rozamiento fuerte exigen
+  un modelo corregido.
+
+  Leída al revés, la relación da la constante elástica a partir de una oscilación cronometrada, o
+  una masa a partir de un resorte calibrado. Un cuerpo de 2.00 kilogramos unido a un resorte de 32.0
+  newtons por metro tiene una frecuencia angular de 4.00 radianes por segundo, que corresponde a un
+  periodo de unos 1.57 segundos.

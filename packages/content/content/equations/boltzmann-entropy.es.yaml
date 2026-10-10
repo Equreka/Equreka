@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Fórmula de la entropía de Boltzmann'
+terms:
+  W:
+    label: 'Número de microestados'
+description: >-
+  La fórmula de la entropía de Boltzmann establece que la entropía de un estado macroscópico es igual
+  a la constante de Boltzmann por el logaritmo natural de cuántos microestados lo realizan.
+  Es la definición estadística de la entropía, el puente entre la termodinámica y la mecánica
+  estadística: la entropía pasa a ser un recuento de las disposiciones microscópicas compatibles con
+  lo que se mide.
+
+  $\mag{S}$ es la entropía en julios por kelvin, nunca negativa. $\const{k_\mathrm{B}}$ es la
+  constante de Boltzmann, $1.380\,649\times10^{-23}\,\mathrm{J/K}$, exacta en el SI. $\var{W}$ es
+  el número de microestados, un recuento sin unidad de al menos 1; un estado que solo puede darse de
+  una manera tiene entropía nula. La calculadora solo admite el número de microestados como dato:
+  para cualquier entropía macroscópica es demasiado grande para escribirlo, pues un julio por kelvin
+  ya exige e elevado a unos $7\times10^{22}$.
+
+  Un microestado fija dónde está cada partícula y cuánta energía lleva; un macroestado es lo que fijan medidas globales como la presión, el volumen y la
+  temperatura. Un macroestado que se alcanza de más maneras es más probable, así que la tendencia de
+  los sistemas aislados hacia una entropía mayor es una tendencia hacia los estados más probables.
+  El logaritmo hace aditiva la entropía: para dos sistemas independientes, los números de
+  microestados se multiplican mientras sus entropías se suman.
+
+  La fórmula supone que todos los microestados compatibles con el macroestado son igual de
+  probables, como en un sistema aislado en equilibrio. Aplicada a procesos, concuerda con la regla
+  termodinámica según la cual un intercambio reversible de calor cambia la entropía en el calor
+  dividido entre la temperatura absoluta.
+
+  Ludwig Boltzmann identificó la entropía con la probabilidad de un estado en un artículo de 1877;
+  su lápida muestra la fórmula con una notación que no aparece en ninguno de sus escritos. Pasar de un
+  microestado a seis aumenta la entropía en unos $2.47\times10^{-23}$ julios por kelvin.

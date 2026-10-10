@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Proceso adiabático de un gas ideal'
+terms:
+  p_{1}:
+    label: 'Presión inicial'
+  V_{1}:
+    label: 'Volumen inicial'
+  p_{2}:
+    label: 'Presión final'
+  V_{2}:
+    label: 'Volumen final'
+  \gamma:
+    label: 'Índice adiabático'
+description: >-
+  En un proceso adiabático reversible de un gas ideal, la presión por el volumen elevado al índice
+  adiabático se mantiene constante, de modo que tiene el mismo valor en el estado inicial y en el
+  final. La relación describe la expansión y la compresión adiabáticas en termodinámica, en las que
+  no cruza calor la frontera del gas: la carrera de compresión de un motor, el aire que asciende y
+  desciende en la atmósfera, las rápidas oscilaciones de presión de una onda sonora.
+
+  $\var{p_{1}}$ y $\var{p_{2}}$ son las presiones absolutas inicial y final en pascales, nunca
+  lecturas manométricas, y $\var{V_{1}}$ y $\var{V_{2}}$ los volúmenes inicial y final en metros
+  cúbicos. $\var{\gamma}$ es el índice adiabático, una magnitud adimensional: el cociente entre la
+  capacidad calorífica molar a presión constante y la capacidad calorífica molar a volumen
+  constante, siempre mayor que 1. Vale cinco tercios, unos 1.67, para un gas ideal
+  monoatómico y 1.40 para el aire, en su mayor parte diatómico.
+
+  Sin intercambio de calor, el primer principio hace que todo el trabajo realizado por el gas salga
+  de su energía interna, así que un gas que se expande se enfría. Escribir ese balance de energía
+  para un paso pequeño, eliminar la temperatura con la ley de los gases ideales e integrar da la
+  relación. En un diagrama presión-volumen, la adiabática que pasa por un punto es más empinada que
+  la isoterma que pasa por el mismo punto, porque la temperatura baja a lo largo de ella; la
+  temperatura final se obtiene después de la ley de los gases ideales.
+
+  La relación exige un gas ideal con un índice adiabático constante y un proceso a la vez
+  adiabático y cuasiestático. Una compresión rápida se le aproxima porque el calor no tiene tiempo
+  de fluir, mientras que la expansión libre de un gas en el vacío es adiabática pero no
+  cuasiestática y no la cumple.
+
+  Comprimir un gas diatómico como el aire, de índice adiabático 1.40, de 240 a 40 centímetros
+  cúbicos, partiendo de 100 kilopascales, eleva su presión a unos 1.23 megapascales.

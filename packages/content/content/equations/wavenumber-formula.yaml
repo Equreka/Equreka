@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Wavenumber from the wavelength'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{\sigma}=\frac{1}{\mag{\lambda}}'
+terms:
+  \sigma:
+    kind: 'magnitude'
+    ref: 'wavenumber'
+  \lambda:
+    kind: 'magnitude'
+    ref: 'wavelength'
+solutions:
+  \sigma: '1 / lambda'
+  \lambda: '1 / sigma'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'sigma = 1/lambda'
+  - 'σ = 1/λ'
+  - 'wave number formula'
+  - 'reciprocal wavelength'
+  - 'repetency'
+  - 'spatial frequency'
+  - 'número de onda'
+  - 'inverso de la longitud de onda'
+references:
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry (Green Book), 3rd ed., 2.7 Electromagnetic radiation, and 2.6 Spectroscopy, note 1'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'Wikidata, wavenumber (Q192510): defining formula and symbols'
+    url: 'https://www.wikidata.org/wiki/Q192510'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 5 (wavenumber, reciprocal metre)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 16.2 Mathematics of Waves (wave number k)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/16-2-mathematics-of-waves'
+description:
+  en: >-
+    The wavenumber from the wavelength is the defining relation of the wavenumber: one divided by
+    the wavelength, which counts how many whole wavelengths of a wave fit into one metre. Physics,
+    optics and spectroscopy use it to say how finely a wave is divided in space, and infrared and
+    Raman spectra are plotted against wavenumber, usually in reciprocal centimetres.
+
+    Here $\mag{\sigma}$ is the wavenumber in reciprocal metres and $\mag{\lambda}$ is the
+    wavelength in metres, the distance between two neighbouring crests. Both are positive. ISO
+    80000-3 writes the wavenumber with sigma and allows nu with a tilde; the IUPAC Green Book keeps
+    nu with a tilde for the wavenumber in vacuum, the form used in spectroscopy, and sigma for the
+    wavenumber in a medium. The SI Brochure gives the reciprocal metre as its coherent unit; one
+    reciprocal centimetre equals 100 reciprocal metres.
+
+    Wavelength and wavenumber hold the same information in reciprocal form: halving the wavelength
+    doubles the wavenumber. For light in vacuum the wavenumber also equals the frequency divided by
+    the speed of light, so it rises in proportion to the photon energy, which is why spectral lines
+    are so often labelled by it rather than by wavelength.
+
+    The relation is a definition and holds for any periodic wave, but two cautions apply. Many
+    physics textbooks, OpenStax among them, give the name wave number and the symbol k to the
+    angular wavenumber, two pi divided by the wavelength, measured in radians per metre; that
+    quantity is larger by a factor of two pi and is the one that sits beside the angular frequency
+    in the function of a travelling wave. And because light shortens its wavelength inside a
+    medium, the wavenumber quoted for a spectral line normally refers to the wavelength in vacuum,
+    as the Green Book notes.
+
+    A wavelength of 10 micrometres, in the thermal infrared, corresponds to 100 000 reciprocal
+    metres, or 1000 reciprocal centimetres; a sound wave 2 metres long has a wavenumber of 0.5
+    reciprocal metres.

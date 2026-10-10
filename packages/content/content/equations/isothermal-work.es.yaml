@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Trabajo isotérmico de un gas ideal'
+terms:
+  V_{2}:
+    label: 'Volumen final'
+  V_{1}:
+    label: 'Volumen inicial'
+description: >-
+  El trabajo isotérmico de un gas ideal es el trabajo que realiza el gas cuando se expande o se
+  comprime lentamente a temperatura constante: su cantidad de sustancia por la constante molar de
+  los gases por la temperatura absoluta por el logaritmo natural del cociente entre el volumen
+  final y el inicial. Es el trabajo de un proceso isotérmico reversible en termodinámica, el proceso
+  que forma dos de las cuatro etapas del ciclo de Carnot.
+
+  $\mag{W}$ es el trabajo realizado por el gas en julios, positivo cuando se expande y negativo
+  cuando se comprime, el signo del primer principio en la forma variación de energía interna igual
+  a calor menos trabajo; los textos de química suelen contar el trabajo realizado sobre el gas, con
+  el signo contrario. $\mag{n}$ es la cantidad de sustancia en moles y $\const{R}$ la constante
+  molar de los gases, de unos 8.314 julios por mol y kelvin y exacta en el SI. $\mag{T}$ es la temperatura
+  termodinámica constante en kelvin; una lectura en grados Celsius se convierte sumándole 273.15.
+  $\var{V_{1}}$ y $\var{V_{2}}$ son los volúmenes inicial y final en metros cúbicos.
+
+  El trabajo es la integral de la presión sobre la variación de volumen. Con la presión dada por la
+  ley de los gases ideales y la temperatura fija, el factor que acompaña al volumen es constante, y
+  la integral del inverso del volumen es el logaritmo. Como la energía interna de un gas ideal solo
+  depende de su temperatura, no cambia, así que el gas absorbe exactamente tanto calor como trabajo
+  realiza.
+
+  La fórmula exige un gas ideal, un proceso lo bastante lento para ser cuasiestático y el contacto
+  con un reservorio de calor que mantenga fija la temperatura. Una expansión rápida contra una
+  presión exterior menor es irreversible y entrega menos trabajo entre los mismos dos estados.
+
+  Un mol de gas a 273 kelvin que duplica así su volumen realiza unos 1570 julios de trabajo.

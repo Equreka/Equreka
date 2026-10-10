@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Rapidez del sonido en un gas ideal a partir de la masa molecular'
+terms:
+  \gamma:
+    label: 'Índice adiabático'
+  m:
+    label: 'Masa de una molécula'
+description: >-
+  Para un gas ideal, la rapidez del sonido calculada a partir de la masa molecular es la raíz cuadrada del índice
+  adiabático por la constante de Boltzmann por la temperatura absoluta, dividida entre la masa de
+  una molécula. Es la versión de la teoría cinética de la relación molar, rapidez del sonido
+  en un gas ideal, adecuada para un gas descrito por la masa de sus moléculas.
+
+  Aquí $\mag{v}$ es la rapidez del sonido en metros por segundo, nunca negativa. $\var{\gamma}$ es
+  el índice adiabático, un número puro, 1.40 para el aire. $\const{k_\mathrm{B}}$ es la constante
+  de Boltzmann, $1.380\,649\times10^{-23}\,\mathrm{J/K}$, exacta en el SI. $\mag{T}$
+  es la temperatura absoluta en kelvin, nunca una diferencia de temperatura; una lectura en grados
+  Celsius se convierte sumando 273.15. $\var{m}$ es la masa de una molécula en kilogramos, la
+  masa molar dividida entre la constante de Avogadro, o la masa molecular media de una mezcla; la
+  calculadora acepta también daltons.
+
+  El sonido en un fluido viaja a la raíz cuadrada de una rigidez entre una densidad. Las
+  oscilaciones de presión de una onda sonora son demasiado rápidas para que fluya calor, así que la
+  rigidez del gas es su módulo de compresibilidad adiabático, el índice adiabático por la presión.
+  En un gas ideal, la presión es el número de moléculas por unidad de volumen por la constante de
+  Boltzmann por la temperatura, y la densidad es ese número por la masa molecular; el número se
+  cancela y queda la relación. Al multiplicar numerador y denominador por la constante de Avogadro,
+  con la constante molar de los gases igual a la constante de Avogadro por la de Boltzmann, se
+  recupera la forma molar.
+
+  La relación supone un gas ideal, compresiones adiabáticas de pequeña amplitud y un índice
+  adiabático que no cambia con la temperatura. Las moléculas se mueven más rápido que el sonido que
+  transportan: su rapidez cuadrática media usa un tres en lugar del índice adiabático.
+
+  Para el aire seco, cuya masa molecular media es de unos $4.81\times10^{-26}$ kilogramos,
+  la relación da unos 343 metros por segundo a 20 grados Celsius; HyperPhysics lo compara con una
+  rapidez cuadrática media de las moléculas de 502 metros por segundo.

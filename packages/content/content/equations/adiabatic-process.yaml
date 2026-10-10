@@ -1,0 +1,93 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Adiabatic process of an ideal gas'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{p_{1}}\var{V_{1}}^{\var{\gamma}}=\var{p_{2}}\var{V_{2}}^{\var{\gamma}}'
+terms:
+  p_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Initial pressure'
+    unit: 'pascal'
+  V_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Initial volume'
+    unit: 'cubic-metre'
+  p_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Final pressure'
+    unit: 'pascal'
+  V_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Final volume'
+    unit: 'cubic-metre'
+  \gamma:
+    kind: 'symbol'
+    label:
+      en: 'Adiabatic index'
+solutions:
+  p_{1}: 'p_2 * (V_2 / V_1)^gamma'
+  V_{1}: 'V_2 * (p_2 / p_1)^(1 / gamma)'
+  p_{2}: 'p_1 * (V_1 / V_2)^gamma'
+  V_{2}: 'V_1 * (p_1 / p_2)^(1 / gamma)'
+  \gamma: 'ln(p_1 / p_2) / ln(V_2 / V_1)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+  - 'chemistry'
+branches:
+  - 'thermodynamics'
+  - 'gases'
+aliases:
+  - 'adiabatic relation'
+  - 'adiabatic condition of an ideal gas'
+  - 'reversible adiabatic process'
+  - 'isentropic process of an ideal gas'
+  - 'pV^gamma = constant'
+  - 'PV^γ = constant'
+  - 'proceso adiabático'
+  - 'proceso adiabático cuasiestático'
+  - 'ecuación de la adiabática'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 3.6 Adiabatic Processes for an Ideal Gas (Equations 3.11 and 3.12, Example 3.7)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/3-6-adiabatic-processes-for-an-ideal-gas'
+  - title: 'J. Tatum, Heat and Thermodynamics, 8.4 Reversible Adiabatic Expansion of an Ideal Gas (Physics LibreTexts)'
+    url: 'https://phys.libretexts.org/Bookshelves/Thermodynamics_and_Statistical_Mechanics/Heat_and_Thermodynamics_(Tatum)/08%3A_Heat_Capacity_and_the_Expansion_of_Gases/8.04%3A_Reversible_Adiabatic_Expansion_of_an_Ideal_Gas'
+  - title: 'HyperPhysics, Georgia State University, Adiabatic Processes'
+    url: 'https://hyperphysics.gsu.edu/hbase/thermo/adiab.html'
+  - title: 'MIT OpenCourseWare, 5.60 Thermodynamics and Kinetics, Lecture 5'
+    url: 'https://ocw.mit.edu/courses/5-60-thermodynamics-kinetics-spring-2008/ab10710189fe5c16622dfa772a3c3edd_lec_5.pdf'
+description:
+  en: >-
+    In a reversible adiabatic process of an ideal gas, the pressure times the volume raised to the
+    adiabatic index stays constant, so it has the same value in the initial and the final state.
+    The relation describes adiabatic expansion and compression in thermodynamics, where no heat
+    crosses the boundary of the gas: the compression stroke of an engine, rising and sinking air in
+    the atmosphere, the rapid pressure swings of a sound wave.
+
+    $\var{p_{1}}$ and $\var{p_{2}}$ are the initial and final absolute pressures in pascals, never
+    gauge readings, and $\var{V_{1}}$ and $\var{V_{2}}$ the initial and final volumes in cubic
+    metres. $\var{\gamma}$ is the adiabatic index, a dimensionless quantity: the ratio of the
+    molar heat capacity at constant pressure to that at constant volume, always greater than 1. It
+    is five thirds, about 1.67, for a monatomic ideal gas and 1.40 for air, which is mostly
+    diatomic.
+
+    With no heat exchanged, the first law makes the work done by the gas come entirely out of its
+    internal energy, so an expanding gas cools. Writing that energy balance for a small step,
+    eliminating the temperature with the ideal gas law and integrating gives the relation. On a
+    pressure-volume diagram the adiabat through a point is steeper than the isotherm through the
+    same point, because the temperature falls along it; the final temperature then follows from the
+    ideal gas law.
+
+    The relation needs an ideal gas with a constant adiabatic index and a process that is both
+    adiabatic and quasi-static. A fast compression approximates it because heat has no time to
+    flow, whereas the free expansion of a gas into a vacuum is adiabatic but not quasi-static and
+    does not follow it.
+
+    Compressing a diatomic gas such as air, with an adiabatic index of 1.40, from 240 to 40 cubic
+    centimetres, starting at 100 kilopascals, raises its pressure to about 1.23 megapascals.

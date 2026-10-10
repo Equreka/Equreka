@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Total energy in simple harmonic motion'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{E}=\frac{1}{2}\var{k}\var{A}^{2}'
+terms:
+  E:
+    kind: 'symbol'
+    label:
+      en: 'Total mechanical energy of the oscillator'
+    unit: 'joule'
+  k:
+    kind: 'symbol'
+    label:
+      en: 'Spring constant'
+    unit: 'newton-per-metre'
+  A:
+    kind: 'symbol'
+    label:
+      en: 'Amplitude'
+    unit: 'metre'
+solutions:
+  E: 'k * A^2 / 2'
+  k: '2 * E / A^2'
+  A: 'sqrt(2 * E / k)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'E = 1/2 k A^2'
+  - 'E = ½kA²'
+  - 'energy of a harmonic oscillator'
+  - 'energy of a mass on a spring'
+  - 'SHM energy'
+  - 'energía del oscilador armónico'
+  - 'energía total del MAS'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 15.2 Energy in Simple Harmonic Motion (Equation 15.12)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/15-2-energy-in-simple-harmonic-motion'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Simple harmonic motion'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/shm.html'
+description:
+  en: >-
+    The total energy in simple harmonic motion is the constant mechanical energy of an undamped
+    oscillator: half the spring constant times the square of the amplitude. For a mass on a spring
+    it is the sum of the kinetic energy of the body and the elastic potential energy stored in the
+    spring, a sum that stays fixed while the two parts trade energy back and forth twice per cycle.
+
+    Here $\var{E}$ is the total mechanical energy in joules, never negative; $\var{k}$ is the
+    spring constant in newtons per metre, the force needed per metre of stretch; and $\var{A}$ is
+    the amplitude in metres, the largest displacement from the equilibrium position. Solving for
+    the amplitude takes the non-negative square root, because an amplitude is a length.
+
+    At either extreme the body stops for an instant, so all of the energy sits in the spring as
+    elastic potential energy, half the spring constant times the amplitude squared. At the
+    equilibrium position the spring is relaxed and all of it is kinetic, half the mass times the
+    maximum speed squared. Inserting the displacement and velocity of simple harmonic motion into
+    the sum of the two energies, and using the square of the angular frequency equal to the spring
+    constant over the mass, makes the cosine-squared and sine-squared terms add to one, so the
+    total is the same at every instant. The relation therefore connects the elastic
+    potential energy of a spring with the maximum speed.
+
+    Energy is conserved only without friction or air resistance; a damped oscillator loses energy
+    and its amplitude decays. The result needs a linear restoring force, so it fails for springs
+    stretched beyond the range of Hooke's law. Because the energy grows with the square of the
+    amplitude, doubling the amplitude stores four times as much energy.
+
+    A spring of 32.0 newtons per metre set oscillating with an amplitude of 0.100 metres holds a
+    total energy of 0.160 joules.

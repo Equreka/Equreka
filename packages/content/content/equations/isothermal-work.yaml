@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Isothermal work of an ideal gas'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{W}=\mag{n}\const{R}\mag{T}\ln\left(\frac{\var{V_{2}}}{\var{V_{1}}}\right)'
+terms:
+  W:
+    kind: 'magnitude'
+    ref: 'work'
+  n:
+    kind: 'magnitude'
+    ref: 'substance'
+  R:
+    kind: 'constant'
+    ref: 'molar-gas-constant'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+  V_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Final volume'
+    unit: 'cubic-metre'
+  V_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Initial volume'
+    unit: 'cubic-metre'
+solutions:
+  W: 'n * R * T * ln(V_2 / V_1)'
+  n: 'W / (R * T * ln(V_2 / V_1))'
+  T: 'W / (n * R * ln(V_2 / V_1))'
+  V_{2}: 'V_1 * exp(W / (n * R * T))'
+  V_{1}: 'V_2 * exp(-W / (n * R * T))'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+  - 'chemistry'
+branches:
+  - 'thermodynamics'
+  - 'gases'
+aliases:
+  - 'work in an isothermal process'
+  - 'isothermal expansion work'
+  - 'work of a reversible isothermal expansion'
+  - 'W = nRT ln(V2/V1)'
+  - 'trabajo isotérmico'
+  - 'trabajo en un proceso isotérmico'
+  - 'trabajo de expansión isotérmica'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 3.2 Work, Heat, and Internal Energy (isothermal expansion of an ideal gas)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/3-2-work-heat-and-internal-energy'
+  - title: 'J. Tatum, Heat and Thermodynamics, 8.3 Isothermal Expansion of an Ideal Gas (Physics LibreTexts)'
+    url: 'https://phys.libretexts.org/Bookshelves/Thermodynamics_and_Statistical_Mechanics/Heat_and_Thermodynamics_(Tatum)/08%3A_Heat_Capacity_and_the_Expansion_of_Gases/8.03%3A_Isothermal_Expansion_of_an_Ideal_Gas'
+  - title: 'OpenStax, University Physics Volume 2, 4.5 The Carnot Cycle (isothermal steps)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/4-5-the-carnot-cycle'
+description:
+  en: >-
+    The isothermal work of an ideal gas is the work the gas does when it expands or is compressed
+    slowly at constant temperature: its amount of substance times the molar gas constant times the
+    absolute temperature times the natural logarithm of the ratio of the final to the initial
+    volume. It is the work of a reversible isothermal process in thermodynamics, the process that
+    makes up two of the four steps of the Carnot cycle.
+
+    $\mag{W}$ is the work done by the gas in joules, positive when it expands and negative when it
+    is compressed, the sign of the first law in the form internal energy change equals heat minus
+    work; chemistry texts often count the work done on the gas, with the opposite sign.
+    $\mag{n}$ is the amount of substance in moles and $\const{R}$ the molar gas constant, about
+    8.314 joules per mole kelvin and exact in the SI. $\mag{T}$ is the constant thermodynamic temperature in kelvin; a
+    Celsius reading is converted by adding 273.15. $\var{V_{1}}$ and $\var{V_{2}}$ are the initial
+    and final volumes in cubic metres.
+
+    The work is the integral of pressure over the change in volume. With the pressure given by the
+    ideal gas law and the temperature held fixed, the factor outside the volume is constant, and
+    the integral of the reciprocal of the volume is the logarithm. Since the internal energy of an
+    ideal gas depends only on its temperature, it does not change, so the gas absorbs exactly as
+    much heat as the work it does.
+
+    The formula needs an ideal gas, a process slow enough to stay quasi-static, and contact with a
+    heat reservoir that holds the temperature fixed. A rapid expansion against a lower outside
+    pressure is irreversible and delivers less work between the same two states.
+
+    One mole of gas at 273 kelvin that doubles its volume this way does about 1570 joules of work.

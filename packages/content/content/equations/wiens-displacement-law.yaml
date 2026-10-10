@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Wien''s displacement law'
+kind: 'equation'
+level: 'intermediate'
+expression: '\mag{\lambda_{\max}}\mag{T}=\const{b}'
+terms:
+  \lambda_{\max}:
+    kind: 'magnitude'
+    ref: 'wavelength'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+  b:
+    kind: 'constant'
+    ref: 'wien-displacement-constant'
+solutions:
+  \lambda_{\max}: 'b / T'
+  T: 'b / lambda_max'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q214336'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'Wien''s law'
+  - 'Wien displacement law'
+  - 'Wien law'
+  - 'peak wavelength of black-body radiation'
+  - 'lambda_max T = b'
+  - 'ley de desplazamiento de Wien'
+  - 'ley de Wien'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 6.1 Blackbody Radiation (Equation 6.1)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-1-blackbody-radiation'
+  - title: 'HyperPhysics, Georgia State University, Wien Displacement Law'
+    url: 'https://hyperphysics.gsu.edu/hbase/wien.html'
+  - title: 'Nobel Prize Outreach, Wilhelm Wien, Facts (Nobel Prize in Physics 1911)'
+    url: 'https://www.nobelprize.org/prizes/physics/1911/wien/facts/'
+  - title: 'NIST, CODATA 2022 value: Wien wavelength displacement law constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?bwien'
+description:
+  en: >-
+    Wien's displacement law states that the wavelength at which the emitted spectrum of a black
+    body peaks is inversely proportional to its absolute temperature, their product being a fixed
+    constant.
+    In thermodynamics and the physics of thermal radiation it explains why the peak of black-body
+    emission shifts to shorter wavelengths as a body heats up, from the infrared towards visible
+    light and beyond.
+
+    $\mag{\lambda_{\max}}$ is the peak wavelength in metres, the wavelength at which the spectral
+    distribution of the emitted power per unit wavelength reaches its maximum; it is positive.
+    $\mag{T}$ is the thermodynamic temperature of the body in kelvin; the law needs absolute
+    temperature, so a Celsius reading is converted by adding 273.15. $\const{b}$ is the Wien
+    wavelength displacement law constant, about $2.898\times10^{-3}\,\mathrm{m\,K}$, exact in the
+    SI.
+
+    The law comes from locating the maximum of Planck's radiation law, which makes peak wavelength
+    times temperature the same for every black body. A body at room temperature, near 300
+    kelvin, peaks in the infrared, while the surface of the Sun, between 5000 and 6000 kelvin,
+    peaks in visible light; a star that looks bluish is therefore hotter than one that looks
+    reddish. Measuring the peak of a spectrum gives the temperature of a distant star or a furnace
+    without touching it.
+
+    The law is exact for an ideal black body and also holds for a grey body, whose emissivity is the
+    same at every wavelength. Real surfaces whose emissivity varies with wavelength have their peak
+    shifted, so temperatures read from the peak are estimates.
+
+    Wilhelm Wien formulated the law in 1893 and received the 1911 Nobel Prize in Physics for his
+    work on the laws of heat radiation. A peak at 560 nanometres corresponds to about 5200 kelvin.

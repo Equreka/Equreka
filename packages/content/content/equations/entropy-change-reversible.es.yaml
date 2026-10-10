@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Variación de entropía en un proceso isotérmico reversible'
+description: >-
+  La variación de entropía de un sistema que intercambia calor de forma reversible a una
+  temperatura absoluta constante es igual al calor que absorbe dividido entre esa temperatura. Es la
+  definición termodinámica de la entropía en su caso más sencillo y la regla
+  práctica del segundo principio de la termodinámica para los cambios de fase y los procesos
+  isotérmicos.
+
+  $\mag{\Delta S}$ es la variación de entropía del sistema, final menos inicial, en julios por
+  kelvin: positiva cuando el sistema recibe calor y negativa cuando lo cede. $\mag{Q}$ es el calor
+  absorbido por el sistema en julios, positivo hacia dentro y negativo hacia fuera. $\mag{T}$ es la
+  temperatura termodinámica en kelvin a la que ocurre el intercambio, constante durante todo él;
+  debe ser absoluta, así que una lectura en grados Celsius se convierte sumándole 273.15.
+
+  En general, la variación de entropía a lo largo de un camino reversible es la suma de las pequeñas
+  cantidades de calor absorbidas, cada una dividida entre la temperatura a la que entra; si la
+  temperatura no cambia, sale de la suma y queda este cociente. Como la entropía es una función de
+  estado, la variación entre dos estados de equilibrio es la misma pase lo que pase entre ellos, así
+  que el valor hallado por un camino reversible imaginado vale también para uno real e
+  irreversible.
+
+  La fórmula se aplica directamente cuando el calor fluye de forma reversible a temperatura fija: la
+  fusión o la ebullición a la temperatura de cambio de fase, una expansión isotérmica de un gas
+  ideal o el calor que recibe un reservorio tan grande que su temperatura no se mueve. Si la
+  temperatura varía, la suma debe integrarse. En un proceso irreversible, la entropía total de un
+  sistema y su entorno aumenta.
+
+  Rudolf Clausius dio a la propiedad el nombre de entropía en 1865. Fundir 50 gramos de hielo a 273
+  kelvin requiere 16.8 kilojulios y aumenta su entropía en unos 61.5 julios por kelvin.

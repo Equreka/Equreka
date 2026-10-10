@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Elongación en el movimiento armónico simple'
+terms:
+  x:
+    label: 'Desplazamiento desde el equilibrio'
+  A:
+    label: 'Amplitud'
+  \phi:
+    label: 'Fase inicial'
+description: >-
+  La elongación en el movimiento armónico simple da la posición de un oscilador armónico en
+  cualquier instante: la amplitud por el coseno de la frecuencia angular multiplicada por el
+  tiempo, más la fase inicial. Es la solución general para un cuerpo sometido a una fuerza
+  recuperadora lineal, como un bloque unido a un resorte o un péndulo que oscila con ángulos
+  pequeños.
+
+  Aquí $\var{x}$ es el desplazamiento desde la posición de equilibrio en metros, positivo a un lado
+  elegido y negativo al otro; $\var{A}$ es la amplitud, el desplazamiento máximo, una longitud
+  positiva; $\mag{\omega}$ es la frecuencia angular en radianes por segundo; $\mag{t}$ es el tiempo
+  en segundos desde un origen elegido, y $\var{\phi}$ es la fase inicial en radianes, también
+  llamada constante de fase, que fija en qué punto del ciclo está el cuerpo en el instante cero y
+  se toma aquí entre 0 y dos pi.
+
+  El coseno se repite cada dos pi de su argumento, así que el movimiento se repite tras un periodo,
+  dos pi dividido entre la frecuencia angular, y nunca sale de la franja entre menos A y más A. Una
+  fase inicial nula describe un cuerpo que se suelta en reposo desde su extremo positivo.
+
+  Cada posición de la franja se alcanza dos veces por ciclo, así que el arcocoseno da dos instantes
+  por periodo; la calculadora muestra también el primero un periodo después y ofrece el instante
+  más temprano que no sea negativo. Para la frecuencia angular ofrece el menor valor compatible. De
+  las dos raíces de la fase inicial, la primera corresponde a un cuerpo que entonces se mueve hacia
+  desplazamientos negativos y la segunda a uno que se mueve hacia desplazamientos positivos; cada
+  una está definida salvo múltiplos enteros de dos pi, que se suman o se restan para llevarla entre
+  0 y dos pi. Una amplitud negativa al despejar indica el mismo movimiento con la fase desplazada
+  medio ciclo.
+
+  La forma es exacta para un oscilador sin amortiguamiento con fuerza recuperadora lineal. En un
+  ejemplo de OpenStax, un bloque soltado en reposo a 0.02 metros del equilibrio, con un periodo de
+  1.57 segundos, sigue una frecuencia angular de 4.00 segundos inversos y una fase inicial nula.

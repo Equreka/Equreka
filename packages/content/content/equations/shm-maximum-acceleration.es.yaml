@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Aceleración máxima en el movimiento armónico simple'
+terms:
+  A:
+    label: 'Amplitud'
+description: >-
+  La aceleración máxima en el movimiento armónico simple es la mayor aceleración que sufre un
+  oscilador armónico: la amplitud multiplicada por el cuadrado de la frecuencia angular. Se produce
+  en los dos puntos de retorno del ciclo, donde el cuerpo se detiene un instante y la fuerza
+  recuperadora es más intensa, y mide la violencia con que se sacude una pieza que oscila.
+
+  Aquí $\mag{a_{\max}}$ es la aceleración máxima en metros por segundo al cuadrado, expresada como
+  un valor no negativo; $\var{A}$ es la amplitud en metros, y $\mag{\omega}$ es la frecuencia
+  angular en radianes por segundo, que interviene al cuadrado. En el extremo positivo la
+  aceleración apunta hacia los desplazamientos negativos y en el extremo negativo hacia los
+  positivos, de modo que el valor con signo oscila entre menos y más este valor.
+
+  Al derivar dos veces el desplazamiento se obtiene una aceleración igual a menos el cuadrado de la
+  frecuencia angular por el propio desplazamiento, la propiedad que define el movimiento armónico
+  simple: la aceleración es proporcional al desplazamiento y de sentido opuesto. Su valor absoluto
+  es, por tanto, máximo donde el desplazamiento es máximo, en más o menos la amplitud. Para una
+  masa unida a un resorte, el mismo máximo se deduce de la segunda ley de Newton, ya que la mayor
+  fuerza del resorte, la constante elástica por la amplitud, dividida entre la masa es igual a la
+  amplitud por el cuadrado de la frecuencia angular.
+
+  La relación supone un movimiento sin amortiguamiento con fuerza recuperadora lineal. Como la
+  frecuencia angular está al cuadrado, duplicar la frecuencia con la misma amplitud cuadruplica la
+  aceleración máxima; por eso vibraciones rápidas de poca amplitud pueden producir fuerzas grandes.
+  Para despejar la frecuencia angular se toma la raíz cuadrada no negativa de la aceleración máxima
+  dividida entre la amplitud.
+
+  En un ejemplo de OpenStax, un bloque que oscila con una amplitud de 0.02 metros y una frecuencia
+  angular de 4.00 segundos inversos tiene una aceleración máxima de 0.32 metros por segundo al
+  cuadrado.
