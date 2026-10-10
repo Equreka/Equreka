@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Valor eficaz de una tensión sinusoidal'
+terms:
+  V_\mathrm{rms}:
+    label: 'Tensión eficaz'
+  V_{0}:
+    label: 'Tensión de pico'
+description: >-
+  Para una tensión eléctrica alterna sinusoidal, el valor eficaz, o valor cuadrático medio (rms), es igual a
+  la tensión de pico dividida entre la raíz cuadrada de dos, unas 0.707 veces el pico. En el
+  electromagnetismo y la electrotecnia es la cifra que se da para la red eléctrica y la que
+  muestran los voltímetros de corriente alterna habituales, porque es la tensión constante que entregaría la
+  misma potencia media a un resistor.
+
+  $\var{V_\mathrm{rms}}$ es la tensión eficaz, en voltios. $\var{V_{0}}$ es la tensión de pico, o
+  amplitud, también en voltios: el mayor valor que alcanza la tensión en cada ciclo, un número no
+  negativo, entre el cual y su opuesto oscila la tensión. La raíz cuadrada de dos es un número
+  puro, así que el cociente entre el valor de pico y el eficaz es el mismo a cualquier frecuencia.
+
+  El valor eficaz se construye en tres pasos que le dan su nombre en inglés: elevar al cuadrado la
+  tensión en cada instante, promediar los cuadrados durante un ciclo completo y sacar la raíz
+  cuadrada de esa media. El cuadrado de un seno vale en promedio la mitad a lo largo de un ciclo,
+  así que la media del cuadrado de la tensión es la mitad del pico al cuadrado, y su raíz cuadrada
+  es el pico entre la raíz cuadrada de dos. En un resistor, la potencia media es entonces la
+  tensión eficaz por la corriente eficaz, la misma forma que en corriente continua.
+
+  El factor vale solo para una sinusoide pura. Las ondas cuadradas, triangulares y distorsionadas
+  tienen otros cocientes entre el valor de pico y el eficaz, que se deducen de su propia forma. El
+  promedio simple de una tensión alterna durante un ciclo es cero, por eso se usa el valor eficaz,
+  y no el promedio, para caracterizarla.
+
+  Las tensiones de la red se dan como valores eficaces: 120 V eficaces en Norteamérica tienen un
+  pico de unos 170 V. Una onda sinusoidal de
+  amplitud 4.00 V tiene un valor eficaz de unos 2.83 V.

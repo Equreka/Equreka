@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Dilatación del tiempo'
+terms:
+  \Delta t:
+    label: 'Intervalo de tiempo dilatado'
+  \Delta t_{0}:
+    label: 'Intervalo de tiempo propio'
+description: >-
+  La dilatación del tiempo es el efecto de la relatividad especial por el que un reloj en movimiento
+  respecto de un observador marcha más despacio según la medida de este. La ecuación da el intervalo
+  que mide el observador como el intervalo de tiempo propio dividido entre la raíz cuadrada de uno
+  menos el cuadrado de la rapidez entre el cuadrado de la velocidad de la luz.
+
+  Aquí $\var{\Delta t_{0}}$ es el intervalo de tiempo propio, en segundos: el tiempo entre dos
+  sucesos medido por un reloj presente en ambos, para el que ocurren en el mismo lugar.
+  $\var{\Delta t}$ es el intervalo dilatado entre los mismos sucesos, en segundos, medido por un
+  observador que ve moverse ese reloj. La rapidez $\mag{v}$ del reloj respecto del observador va en
+  metros por segundo y debe ser menor que la velocidad de la luz en el vacío, $\const{c}$. Todos los
+  términos son no negativos, y la rapidez despejada es la raíz no negativa.
+
+  El inverso de la raíz es el factor de Lorentz, escrito a menudo gamma, que vale uno en reposo y
+  crece sin límite al acercarse la rapidez a la de la luz. Un pulso de luz que rebota entre dos
+  espejos muestra por qué: para quien ve moverse los espejos, el pulso recorre un camino diagonal
+  más largo a la misma velocidad de la luz, y cada tic dura más.
+
+  La ecuación vale entre sistemas de referencia inerciales con velocidad relativa constante. A las
+  velocidades cotidianas el factor difiere de uno en una cantidad ínfima. Un viajero que da la
+  vuelta para volver no permanece en un solo sistema inercial; por eso un gemelo que regresa de un viaje rápido es más joven sin contradicción.
+
+  Albert Einstein dedujo el efecto en 1905. En 1941 Bruno Rossi y David Hall hallaron que el ritmo
+  de desintegración de los muones de los rayos cósmicos depende de su cantidad de movimiento, y en
+  octubre de 1971 Hafele y Keating llevaron relojes de cesio en aviones comerciales alrededor del
+  mundo y los compararon con relojes en tierra. Los muones que viven 2.20 microsegundos en su propio
+  sistema, a 0.950 veces la velocidad de la luz, viven unos 7.05 microsegundos medidos desde tierra.

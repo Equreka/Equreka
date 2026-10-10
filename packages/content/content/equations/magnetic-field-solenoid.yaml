@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Magnetic field inside a long solenoid'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{B}=\const{\mu_{0}}\var{n}\mag{I}'
+terms:
+  B:
+    kind: 'magnitude'
+    ref: 'magnetic-flux-density'
+  \mu_{0}:
+    kind: 'constant'
+    ref: 'vacuum-magnetic-permeability'
+  n:
+    kind: 'symbol'
+    label:
+      en: 'Number of turns per unit length'
+    unit: 'reciprocal-metre'
+  I:
+    kind: 'magnitude'
+    ref: 'electric-current'
+solutions:
+  B: 'mu_0 * n * I'
+  n: 'B / (mu_0 * I)'
+  I: 'B / (mu_0 * n)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'B = mu0 n I'
+  - 'solenoid field'
+  - 'field of a solenoid'
+  - 'turns density'
+  - 'campo magnético de un solenoide'
+  - 'campo en el interior de un solenoide'
+references:
+  - title: 'OpenStax, College Physics 2e, 22.9 Magnetic Fields Produced by Currents: Ampere''s Law (Example 22.7)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/22-9-magnetic-fields-produced-by-currents-amperes-law'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Solenoids as magnetic field sources'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/magnetic/solenoid.html'
+  - title: 'OpenStax, Física universitaria volumen 2, 12.6 Solenoides y toroides'
+    url: 'https://openstax.org/books/f%C3%ADsica-universitaria-volumen-2/pages/12-6-solenoides-y-toroides'
+  - title: 'NIST, CODATA 2022 recommended values: vacuum magnetic permeability'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mu0'
+description:
+  en: >-
+    The magnetic field inside a long solenoid, a straight coil of wire wound as a close helix,
+    is uniform and equal to the vacuum magnetic permeability times the number of turns per unit
+    length times the current. The relation is the standard electromagnetism recipe for a known and
+    nearly uniform magnetic field, from laboratory coils to electromagnets.
+
+    $\mag{B}$ is the magnetic flux density inside the coil, in teslas (the gauss is also accepted).
+    $\var{n}$ counts the turns in each unit of length, in turns per metre, written with the
+    reciprocal metre: the total number of turns divided by the length of the coil. $\mag{I}$ is the
+    current in the wire, in amperes. $\const{\mu_{0}}$ is the vacuum magnetic permeability, about
+    $1.257\times10^{-6}\,\mathrm{N/A^{2}}$. The field runs along the axis: with the fingers of the
+    right hand curled round the turns in the sense of the current, the thumb points along the field.
+
+    Ampère's law, applied to a rectangle with one long side inside the coil along its axis and the
+    opposite side far outside, yields the result. Only the inner side contributes, because the field
+    outside a long solenoid is nearly zero and the short sides cross the turns at right angles to
+    the field. The rectangle encloses the current once for every turn it surrounds, so the field
+    depends on how tightly the turns are packed and not on the radius of the coil.
+
+    The formula is exact for an infinitely long solenoid and a good approximation well inside a long
+    one, away from the ends, where the field weakens and spreads out. It assumes closely wound turns
+    around an empty or air-filled core. An iron core strengthens the field greatly, which is why
+    electromagnets use one; the vacuum permeability is then no longer the right factor.
+
+    Solenoids serve as electromagnets, as inductors and, wound from superconducting wire, as
+    high-field magnets. A coil of 2000 turns over 2.00 m, so 1000 turns per
+    metre, carrying 1600 amperes produces a field of about 2.01 T.

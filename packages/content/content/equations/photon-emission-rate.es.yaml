@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Tasa de emisión de fotones'
+terms:
+  \Phi_\mathrm{p}:
+    label: 'Tasa de emisión de fotones'
+description: >-
+  La fórmula de la tasa de emisión de fotones da el número de fotones que emite cada segundo una
+  fuente de luz de un solo color: su potencia radiante por la longitud de onda, dividida entre la
+  constante de Planck y la velocidad de la luz. El mismo recuento por segundo, llamado flujo
+  fotónico, describe la luz que recibe un detector o una superficie, y relaciona la potencia de un haz
+  con los cuantos que la transportan.
+
+  Aquí $\var{\Phi_\mathrm{p}}$ es la tasa de emisión de fotones, en segundos inversos: un recuento
+  de fotones por unidad de tiempo, que el SI no expresa en hercios, unidad reservada a los fenómenos
+  periódicos. $\mag{\Phi_\mathrm{e}}$ es el flujo radiante, la potencia que sale de la fuente en
+  forma de luz, en vatios; no es la potencia eléctrica que consume la fuente. $\mag{\lambda}$ es la
+  longitud de onda en el vacío, en metros. Las constantes son la constante de Planck $\const{h}$ y
+  la velocidad de la luz en el vacío $\const{c}$. Las tres variables son positivas.
+
+  Cada fotón lleva la constante de Planck por la velocidad de la luz entre la longitud de onda, así
+  que al dividir la potencia entre esa energía se cuentan los fotones que pasan cada segundo. A
+  igual potencia, una fuente de mayor longitud de onda emite más fotones, cada uno con menos
+  energía: un vatio de luz roja contiene más fotones que un vatio de luz azul. La forma equivalente
+  divide el flujo radiante entre la constante de Planck por la frecuencia.
+
+  La fórmula se aplica a la luz monocromática, como la de un láser. Para una fuente de espectro
+  ancho, la tasa de fotones es la suma de las contribuciones de cada longitud de onda, ponderadas
+  según cómo se reparte la potencia en el espectro.
+
+  El recuento explica por qué una luz brillante significa muchos fotones y no fotones más
+  energéticos: un puntero láser rojo que emite un milivatio a 633 nanómetros envía unos
+  $3.19\times10^{15}$ fotones cada segundo.

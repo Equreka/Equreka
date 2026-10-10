@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Campo magnético en el interior de un solenoide largo'
+terms:
+  n:
+    label: 'Número de vueltas por unidad de longitud'
+description: >-
+  Dentro de un solenoide largo, una bobina recta de hilo enrollado en hélice apretada, el campo magnético es uniforme e igual a la permeabilidad magnética del vacío por la cantidad de vueltas que hay en cada unidad de longitud y por la corriente. La relación es la receta habitual del
+  electromagnetismo para obtener un campo magnético conocido y casi uniforme, desde las bobinas de
+  laboratorio hasta los electroimanes.
+
+  $\mag{B}$ es la densidad de flujo magnético dentro de la bobina, en teslas (también se acepta el
+  gauss). $\var{n}$ es el número de vueltas, o espiras, por unidad de longitud, en vueltas por
+  metro, expresado con el metro recíproco: el número total de vueltas dividido entre la
+  longitud de la bobina. $\mag{I}$ es la corriente en el hilo, en amperios. $\const{\mu_{0}}$ es la
+  permeabilidad magnética del vacío, de unos $1.257\times10^{-6}\,\mathrm{N/A^{2}}$. El campo va a
+  lo largo del eje: con los dedos de la mano derecha curvados alrededor de las vueltas en el
+  sentido de la corriente, el pulgar señala el sentido del campo.
+
+  La ley de Ampère, aplicada a un rectángulo con un lado largo dentro de la bobina a lo largo de su
+  eje y el lado opuesto muy afuera, da el resultado. Solo contribuye el lado interior, porque el
+  campo fuera de un solenoide largo es casi nulo y los lados cortos cruzan las vueltas
+  perpendiculares al campo. El rectángulo encierra la corriente una vez por cada vuelta que rodea,
+  de modo que el campo depende de lo juntas que estén las vueltas y no del radio de la bobina.
+
+  La fórmula es exacta para un solenoide infinitamente largo y es una buena aproximación bien
+  dentro de uno largo, lejos de los extremos, donde el campo se debilita y se abre. Supone vueltas
+  muy juntas alrededor de un núcleo vacío o de aire. Un núcleo de hierro refuerza mucho el campo,
+  por eso los electroimanes lo llevan; entonces la permeabilidad del vacío ya no es el factor
+  correcto.
+
+  Los solenoides sirven como electroimanes, como bobinas de inductancia y, hechos con hilo
+  superconductor, como imanes de campo intenso. Una bobina de 2000 vueltas en 2.00 m, es decir,
+  1000 vueltas por metro, que lleva 1600 amperios produce un campo de unos 2.01 T.

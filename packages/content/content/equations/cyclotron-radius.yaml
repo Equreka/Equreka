@@ -1,0 +1,87 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Cyclotron radius'
+kind: 'formula'
+level: 'intro'
+expression: '\var{r}=\frac{\mag{m}\mag{v}}{\left|\mag{q}\right|\mag{B}}'
+terms:
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Radius of the circular path'
+    unit: 'metre'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  q:
+    kind: 'magnitude'
+    ref: 'electric-charge'
+  B:
+    kind: 'magnitude'
+    ref: 'magnetic-flux-density'
+solutions:
+  r: 'm * v / (abs(q) * B)'
+  m: 'r * abs(q) * B / v'
+  v: 'r * abs(q) * B / m'
+  q:
+    - 'm * v / (r * B)'
+    - '-(m * v / (r * B))'
+  B: 'm * v / (abs(q) * r)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q1194458'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'gyroradius'
+  - 'gyro radius'
+  - 'Larmor radius'
+  - 'r = mv / qB'
+  - 'radius of a charged particle in a magnetic field'
+  - 'girorradio'
+  - 'radio de Larmor'
+  - 'radio de giro de una partícula cargada'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 11.3 Motion of a Charged Particle in a Magnetic Field'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/11-3-motion-of-a-charged-particle-in-a-magnetic-field'
+  - title: 'OpenStax, College Physics 2e, 22.5 Force on a Moving Charge in a Magnetic Field: Examples and Applications (Equation 22.7, Example 22.2)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/22-5-force-on-a-moving-charge-in-a-magnetic-field-examples-and-applications'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Cyclotron and cyclotron frequency'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/magnetic/cyclot.html'
+description:
+  en: >-
+    The cyclotron radius, also called the gyroradius or Larmor radius, is the radius of the circle
+    a charged particle follows when it moves at right angles to a uniform magnetic field. It equals
+    the particle's mass times its speed, divided by the size of its charge times the magnetic flux
+    density. In electromagnetism it describes how magnetic fields bend particle beams in
+    accelerators, in mass spectrometers and in the space around Earth.
+
+    $\var{r}$ is the radius of the path in metres. $\mag{m}$ is the mass of the particle in
+    kilograms and $\mag{v}$ its speed in metres per second, measured across the field. $\mag{q}$ is
+    the charge in coulombs; the formula takes its absolute value, so a proton and an electron of
+    equal momentum trace circles of equal size, turning in opposite senses. Solving for the charge
+    therefore returns both signs, and the sense of rotation picks one. $\mag{B}$ is the magnetic
+    flux density in teslas (the gauss is also accepted).
+
+    The magnetic force on the particle is always perpendicular to its velocity, so it changes only
+    the direction of motion and supplies the centripetal force of a circle. Equating the size of
+    the charge times the speed times the field with the mass times the speed squared over the
+    radius, and solving, gives the formula. One turn takes two pi times the mass over the charge
+    times the field, a time that does not depend on the speed.
+
+    The formula assumes a steady, uniform field and no electric field. If the velocity has a part
+    along the field, that part is unaffected, the path becomes a helix, and only the speed across
+    the field enters the formula. It also treats the particle classically, so close to the speed of
+    light relativistic corrections are required.
+
+    Since the time per turn stays fixed while the radius grows with speed, an electric field reversed
+    at that same steady rate can push a particle across a gap on each crossing as it spirals
+    outwards. That is how the cyclotron works, and at high energies its magnetic field must be tuned
+    to offset relativity. An electron at $6.00\times10^{7}\,\mathrm{m/s}$ in a 0.500 T field circles
+    with a radius of about 0.68 mm.

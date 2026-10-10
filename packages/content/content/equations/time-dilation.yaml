@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Time dilation'
+kind: 'equation'
+level: 'intro'
+expression: '\var{\Delta t}=\frac{\var{\Delta t_{0}}}{\sqrt{1-\frac{\mag{v}^{2}}{\const{c}^{2}}}}'
+terms:
+  \Delta t:
+    kind: 'symbol'
+    label:
+      en: 'Dilated time interval'
+    unit: 'second'
+  \Delta t_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Proper time interval'
+    unit: 'second'
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  c:
+    kind: 'constant'
+    ref: 'speed-of-light'
+solutions:
+  \Delta t: 'Deltat_0 / sqrt(1 - v^2 / c^2)'
+  \Delta t_{0}: 'Deltat * sqrt(1 - v^2 / c^2)'
+  v: 'c * sqrt(1 - (Deltat_0 / Deltat)^2)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q185918'
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+aliases:
+  - 'relativistic time dilation'
+  - 'time dilation formula'
+  - 'moving clocks run slow'
+  - 'proper time'
+  - 'dilatación temporal'
+  - 'tiempo propio'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 5.3 Time Dilation (Equation 5.1, proper time, Example 5.3)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/5-3-time-dilation'
+  - title: 'HyperPhysics (Georgia State University), Time dilation and length contraction'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/Relativ/tdil.html'
+  - title: 'HyperPhysics (Georgia State University), Muon experiment in relativity'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/Relativ/muon.html'
+  - title: 'A. Einstein, Zur Elektrodynamik bewegter Körper, Annalen der Physik 322 (1905) 891-921'
+    url: 'https://doi.org/10.1002/andp.19053221004'
+  - title: 'B. Rossi and D. B. Hall, Variation of the Rate of Decay of Mesotrons with Momentum, Physical Review 59 (1941) 223-228'
+    url: 'https://doi.org/10.1103/PhysRev.59.223'
+  - title: 'J. C. Hafele and R. E. Keating, Around-the-World Atomic Clocks: Predicted Relativistic Time Gains, Science 177 (1972) 166-168'
+    url: 'https://doi.org/10.1126/science.177.4044.166'
+  - title: 'J. C. Hafele and R. E. Keating, Around-the-World Atomic Clocks: Observed Relativistic Time Gains, Science 177 (1972) 168-170'
+    url: 'https://doi.org/10.1126/science.177.4044.168'
+description:
+  en: >-
+    Time dilation is the effect of special relativity by which a clock moving relative to an
+    observer is measured to run slow. The equation gives the interval the observer measures as the
+    proper time interval divided by the square root of one minus the speed squared over the speed of
+    light squared.
+
+    Here $\var{\Delta t_{0}}$ is the proper time interval, in seconds: the time between two events
+    measured by a clock present at both, for which the events happen at the same place.
+    $\var{\Delta t}$ is the dilated interval between the same events, in seconds, measured by an
+    observer who sees that clock move. The speed $\mag{v}$ of the clock relative to the observer is
+    in metres per second and must be less than the speed of light in vacuum, $\const{c}$. All
+    terms are non-negative, and the solved speed is the non-negative root.
+
+    The reciprocal of the square root is the Lorentz factor, often written gamma, which is one at
+    rest and grows without limit as the speed approaches that of light. A light pulse bouncing
+    between two mirrors shows why: for an observer who sees the mirrors move, the pulse follows a
+    longer diagonal path at the same speed of light, so each tick takes longer.
+
+    The equation holds between inertial frames moving at constant relative velocity. At everyday
+    speeds the factor differs from one by a tiny amount. A traveller who turns round to come home is not in one inertial frame, which is
+    why a twin returning from a fast journey is younger without any contradiction.
+
+    Albert Einstein derived the effect in 1905. In 1941 Bruno Rossi and David Hall found that the
+    decay rate of cosmic-ray muons depends on their momentum, and in October 1971 Hafele and Keating
+    flew caesium clocks around the world on airliners and compared them with clocks on the ground. A muon living
+    2.20 microseconds in its own frame, moving at 0.950 times the speed of light, lives about 7.05
+    microseconds as measured from the ground.

@@ -1,0 +1,86 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Planck–Einstein relation'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{E}=\const{h}\mag{f}'
+terms:
+  E:
+    kind: 'magnitude'
+    ref: 'energy'
+  h:
+    kind: 'constant'
+    ref: 'planck-constant'
+  f:
+    kind: 'magnitude'
+    ref: 'frequency'
+solutions:
+  E: 'h * f'
+  f: 'E / h'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q12757333'
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+  - 'optics-and-photometry'
+aliases:
+  - 'E = hf'
+  - 'E = h nu'
+  - 'E = hν'
+  - 'Planck relation'
+  - 'Planck-Einstein relation'
+  - 'photon energy'
+  - 'energy of a photon'
+  - 'photon energy from frequency'
+  - 'relación de Planck'
+  - 'energía del fotón'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 6.2 Photoelectric Effect (Equation 6.13)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-2-photoelectric-effect'
+  - title: 'OpenStax, University Physics Volume 3, 6.1 Blackbody Radiation (Planck''s hypothesis of energy quanta)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-1-blackbody-radiation'
+  - title: 'NIST, CODATA 2022 value: Planck constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?h'
+  - title: 'NIST, CODATA 2022 value: Planck constant in eV/Hz'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?hev'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.2 (Table 1, the defining constants of the SI from 20 May 2019)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'M. Planck, Ueber das Gesetz der Energieverteilung im Normalspectrum, Annalen der Physik 309 (1901) 553-563'
+    url: 'https://doi.org/10.1002/andp.19013090310'
+  - title: 'A. Einstein, Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt, Annalen der Physik 322 (1905) 132-148'
+    url: 'https://doi.org/10.1002/andp.19053220607'
+  - title: 'The Nobel Prize in Physics 1921, Albert Einstein, facts'
+    url: 'https://www.nobelprize.org/prizes/physics/1921/einstein/facts/'
+description:
+  en: >-
+    The Planck–Einstein relation states that the energy of a single photon is the Planck constant
+    multiplied by the frequency of the light. Also called the Planck relation or the photon energy
+    equation, it is the starting point of quantum and modern physics: light of a given frequency
+    exchanges energy with matter only in whole packets of that size.
+
+    In the relation, $\mag{E}$ is the energy of one photon, in joules; atomic and optical work often
+    quotes it in electronvolts, one electronvolt being exactly
+    $1.602\,176\,634\times10^{-19}\,\mathrm{J}$. The frequency $\mag{f}$ of the radiation is in
+    hertz. The constant $\const{h}$ is the Planck constant, exactly
+    $6.626\,070\,15\times10^{-34}\,\mathrm{J\,s}$ since the 2019 revision of the SI. Energy and
+    frequency are both non-negative, and the energy grows in direct proportion to the frequency.
+
+    The relation separates the colour of light from its brightness. A higher frequency means more
+    energetic photons, so ultraviolet photons carry more energy than red ones; a brighter beam of
+    the same frequency carries more photons, each with the same energy. The total energy of a
+    monochromatic beam is the number of photons times one photon energy. Combined with the wave
+    relation linking frequency, wavelength and the speed of light, it gives the photon energy in
+    terms of wavelength.
+
+    The relation holds for every photon, in vacuum or in a material, because a photon keeps its
+    frequency when it enters a medium. It describes single quanta: a light source of mixed colours
+    emits photons of many energies, and the relation applies to each of them separately.
+
+    Max Planck introduced discrete energy elements of this size in 1900 to explain the spectrum of
+    blackbody radiation, publishing the result in Annalen der Physik. In 1905 Albert Einstein
+    proposed that light itself travels as such quanta, which explained the photoelectric effect and
+    was cited in his 1921 Nobel Prize. A photon of frequency $10^{15}\,\mathrm{Hz}$ carries about
+    $6.63\times10^{-19}\,\mathrm{J}$, or 4.14 electronvolts.

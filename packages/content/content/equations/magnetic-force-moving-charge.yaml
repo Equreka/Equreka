@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Magnetic force on a moving charge'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{F}=\mag{q}\mag{v}\mag{B}\sin\mag{\theta}'
+terms:
+  F:
+    kind: 'magnitude'
+    ref: 'force'
+  q:
+    kind: 'magnitude'
+    ref: 'electric-charge'
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  B:
+    kind: 'magnitude'
+    ref: 'magnetic-flux-density'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+solutions:
+  F: 'q * v * B * sin(theta)'
+  q: 'F / (v * B * sin(theta))'
+  v: 'F / (q * B * sin(theta))'
+  B: 'F / (q * v * sin(theta))'
+  \theta:
+    - 'asin(F / (q * v * B))'
+    - 'pi - asin(F / (q * v * B))'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'F = qvB sin theta'
+  - 'magnetic Lorentz force'
+  - 'magnetic part of the Lorentz force'
+  - 'force on a charge in a magnetic field'
+  - 'fuerza magnética sobre una carga en movimiento'
+  - 'fuerza de Lorentz magnética'
+  - 'fuerza sobre una carga en un campo magnético'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 11.2 Magnetic Fields and Lines (Equation 11.2, Example 11.1)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/11-2-magnetic-fields-and-lines'
+  - title: 'OpenStax, College Physics 2e, 22.4 Magnetic Field Strength: Force on a Moving Charge in a Magnetic Field (Example 22.1)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/22-4-magnetic-field-strength-force-on-a-moving-charge-in-a-magnetic-field'
+  - title: 'OpenStax, College Physics 2e, 22.5 Force on a Moving Charge in a Magnetic Field: Examples and Applications'
+    url: 'https://openstax.org/books/college-physics-2e/pages/22-5-force-on-a-moving-charge-in-a-magnetic-field-examples-and-applications'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Magnetic force and the Lorentz force law'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/magnetic/magfor.html'
+description:
+  en: >-
+    A magnetic field pushes sideways on any electric charge that travels through it. Counted along
+    the direction given by the right-hand rule, this magnetic force on a moving charge equals the
+    product of the charge, the speed, the magnetic flux density and the sine of the angle between
+    velocity and field. In
+    electromagnetism it is the magnetic part of the Lorentz force law.
+
+    $\mag{F}$ is the force in newtons. $\mag{q}$ is the charge in coulombs, entered with its sign;
+    $\mag{v}$ is the speed of the charge in metres per second; $\mag{B}$ is the magnetic flux
+    density in teslas (the gauss is also accepted).
+    $\mag{\theta}$ measures the angle from the velocity to the field, from 0 to 180 degrees. The
+    force acts at right angles to both the velocity and the field. For a positive charge, sweeping
+    the fingers of the right hand from the velocity towards the field leaves the thumb along the
+    force; a negative charge gives a negative result, a force in the opposite direction. The force
+    on a current-carrying wire follows the same rule with the current entered positive, so there
+    the result is never negative.
+
+    A charge at rest, or one moving along the field lines, feels no magnetic force, and the force
+    is largest when the charge crosses the field at a right angle. Since the push is always
+    perpendicular to the motion, it does no work: it bends the path while the speed and kinetic
+    energy stay the same.
+
+    The field is the one at the charge's own position, so in a field that varies from place to
+    place the force changes along the path. If an electric field is also present, its force adds
+    to the magnetic one, and the sum is the full Lorentz force. Added over the many charges that
+    make up a current, the same force acts on a wire.
+
+    The unit of magnetic flux density honours the inventor Nikola Tesla. The force steers particles
+    in accelerators and mass spectrometers and guides cosmic-ray particles along Earth's field
+    towards the poles, where they help produce auroras. A 20 nC charge moving at 10 m/s across
+    Earth's field of about $5\times10^{-5}\,\mathrm{T}$ feels only $10^{-11}$ newtons.

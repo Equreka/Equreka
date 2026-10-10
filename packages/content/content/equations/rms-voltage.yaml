@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'RMS value of a sinusoidal voltage'
+kind: 'formula'
+level: 'intro'
+expression: '\var{V_\mathrm{rms}}=\frac{\var{V_{0}}}{\sqrt{2}}'
+terms:
+  V_\mathrm{rms}:
+    kind: 'symbol'
+    label:
+      en: 'RMS voltage'
+    unit: 'volt'
+  V_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Peak voltage'
+    unit: 'volt'
+solutions:
+  V_\mathrm{rms}: 'V_0 / sqrt(2)'
+  V_{0}: 'sqrt(2) * V_rms'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'RMS voltage'
+  - 'root-mean-square voltage'
+  - 'effective voltage'
+  - 'Vrms = V0 / sqrt 2'
+  - 'peak voltage to rms'
+  - 'tensión eficaz'
+  - 'voltaje eficaz'
+  - 'voltaje rms'
+  - 'valor eficaz de la tensión'
+references:
+  - title: 'OpenStax, College Physics 2e, 20.5 Alternating Current versus Direct Current (Example 20.9)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/20-5-alternating-current-versus-direct-current'
+  - title: 'OpenStax, University Physics Volume 2, 15.4 Power in an AC Circuit (Example 15.3)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/15-4-power-in-an-ac-circuit'
+description:
+  en: >-
+    For a sinusoidal alternating voltage, the root-mean-square or rms value equals the peak voltage
+    divided by the square root of two, about 0.707 times the peak. In electromagnetism and
+    electrical engineering it is the figure quoted for mains supplies and shown by everyday AC
+    voltmeters, because it is the steady voltage that would deliver the same average power to a
+    resistor.
+
+    $\var{V_\mathrm{rms}}$ is the rms voltage, in volts. $\var{V_{0}}$ is the peak voltage, or
+    amplitude, also in volts: the largest value the voltage reaches in each cycle, a non-negative
+    number, with the voltage swinging between it and its negative. The square root of two is a
+    pure number, so the ratio of peak to rms value is the same at every frequency.
+
+    The rms value is built in three steps that give it its name: square the voltage at each
+    instant, average the squares over a whole cycle, then take the square root of that mean. The
+    square of a sine averages to one half over a cycle, so the mean square of the voltage is half
+    the peak squared, and its square root is the peak over the square root of two. In a resistor,
+    the average power is then the rms voltage times the rms current, the same form as for direct
+    current.
+
+    The factor holds only for a pure sinusoid. Square, triangular and distorted waveforms have
+    other ratios of peak to rms value, which follow from their own shapes. The plain average of an
+    alternating voltage over a cycle is zero, which is why the rms value, and not the average, is
+    used to state its size.
+
+    Supply voltages are given as rms values: 120 V rms in North America has a peak of about 170 V.
+    A sine wave of amplitude 4.00 V has an rms value of
+    about 2.83 V.

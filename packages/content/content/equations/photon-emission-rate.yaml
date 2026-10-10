@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Photon emission rate'
+kind: 'formula'
+level: 'intro'
+expression: '\var{\Phi_\mathrm{p}}=\frac{\mag{\Phi_\mathrm{e}}\mag{\lambda}}{\const{h}\const{c}}'
+terms:
+  \Phi_\mathrm{p}:
+    kind: 'symbol'
+    label:
+      en: 'Photon emission rate'
+    unit: 'reciprocal-second'
+  \Phi_\mathrm{e}:
+    kind: 'magnitude'
+    ref: 'radiant-flux'
+  \lambda:
+    kind: 'magnitude'
+    ref: 'wavelength'
+  h:
+    kind: 'constant'
+    ref: 'planck-constant'
+  c:
+    kind: 'constant'
+    ref: 'speed-of-light'
+solutions:
+  \Phi_\mathrm{p}: 'Phi_e * lambda / (h * c)'
+  \Phi_\mathrm{e}: 'Phi_p * h * c / lambda'
+  \lambda: 'Phi_p * h * c / Phi_e'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+  - 'optics-and-photometry'
+aliases:
+  - 'photons per second'
+  - 'number of photons per second'
+  - 'photon flux'
+  - 'photon rate'
+  - 'photon flux from power'
+  - 'fotones por segundo'
+  - 'flujo de fotones'
+  - 'flujo fotónico'
+references:
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017:2020), 17-21-040 photon flux (Notes 1, 2 and 4)'
+    url: 'https://cie.co.at/eilvterm/17-21-040'
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-038 radiant flux'
+    url: 'https://cie.co.at/eilvterm/17-21-038'
+  - title: 'OpenStax, University Physics Volume 3, 6.2 Photoelectric Effect (photon energy E = hc/lambda)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-2-photoelectric-effect'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.3 (number of photons as a quantity with the unit one) and Table 4, note (d)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, CODATA 2022 value: Planck constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?h'
+  - title: 'NIST, CODATA 2022 value: speed of light in vacuum'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?c'
+description:
+  en: >-
+    The photon emission rate formula gives the number of photons a source of single-colour light
+    emits each second: its radiant power multiplied by the wavelength, divided by the Planck constant
+    and the speed of light. The same count per second, called the photon flux, describes light
+    received by a detector or a surface, and it links the power of a beam to the quanta that carry
+    it.
+
+    Here $\var{\Phi_\mathrm{p}}$ is the photon emission rate, in reciprocal seconds: a count of
+    photons per unit time, which the SI does not express in hertz, a unit kept for periodic
+    phenomena. $\mag{\Phi_\mathrm{e}}$ is the radiant flux, the power leaving the source as light,
+    in watts; it is not the electrical power the source draws. $\mag{\lambda}$ is the wavelength in
+    vacuum, in metres. The constants are the Planck constant $\const{h}$ and the speed of light in
+    vacuum $\const{c}$. All three variables are positive.
+
+    Each photon carries the Planck constant times the speed of light over the wavelength, so
+    dividing the power by that photon energy counts how many photons pass each second. At equal
+    power, a source of longer wavelength therefore emits more photons, each with less energy: a
+    watt of red light contains more photons than a watt of blue light. The equivalent form divides
+    the radiant flux by the Planck constant times the frequency.
+
+    The formula applies to monochromatic light such as that of a laser. For a source with a broad
+    spectrum, the photon rate is the sum of the contributions of every wavelength, weighted by how
+    the power is spread across the spectrum.
+
+    The count explains why bright light means many photons rather than more energetic ones: a red
+    laser pointer emitting one milliwatt at 633 nanometres sends out about
+    $3.19\times10^{15}$ photons every second.

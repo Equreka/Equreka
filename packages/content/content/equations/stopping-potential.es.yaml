@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Potencial de frenado'
+terms:
+  K_{\max}:
+    label: 'Energía cinética máxima de los fotoelectrones'
+description: >-
+  El potencial de frenado es la tensión inversa que detiene a los electrones más rápidos
+  arrancados de una superficie en el efecto fotoeléctrico. Multiplicado por la carga elemental, es
+  igual a la energía cinética máxima de esos fotoelectrones, de modo que una lectura del voltímetro
+  se convierte en una medida de energía; la relación es la forma habitual de estudiar el efecto
+  fotoeléctrico en el laboratorio.
+
+  Aquí $\mag{V_\mathrm{stop}}$ es el potencial de frenado, en voltios, tomado como el valor positivo de
+  la diferencia de potencial inversa, con el colector a un potencial eléctrico menor que el emisor; la
+  fotocorriente se anula cuando la tensión inversa lo alcanza. $\var{K_{\max}}$ es la energía
+  cinética máxima de los fotoelectrones en la superficie, en julios. La constante $\const{e}$ es la
+  carga elemental, exactamente $1.602\,176\,634\times10^{-19}\,\mathrm{C}$, así que un potencial de
+  frenado de un voltio corresponde a una energía cinética máxima de un electronvoltio.
+
+  Al atravesar la diferencia de potencial inversa, cada electrón pierde una energía cinética igual a
+  su carga por la tensión, según el teorema de trabajo-energía. Los más rápidos llegan al colector
+  solo mientras esa pérdida sea menor que su energía cinética; en el potencial de frenado incluso
+  ellos se vuelven, y la corriente cesa. Como la energía cinética máxima crece con la frecuencia de
+  la luz y no con su intensidad, el potencial de frenado es el mismo para luz brillante o tenue de
+  un mismo color.
+
+  La relación supone que entre los electrodos solo actúan fuerzas eléctricas sobre los electrones;
+  los electrodos están en un tubo al vacío para que no se pierda energía con las moléculas de aire.
+
+  Combinado con la ecuación fotoeléctrica de Einstein, el potencial de frenado crece en línea recta
+  con la frecuencia, con pendiente igual a la constante de Planck entre la carga elemental; Robert
+  Millikan usó esas medidas en 1916 para determinar la constante de Planck. Una luz de 180
+  nanómetros frenada con 0.80 voltios indica fotoelectrones de 0.80 electronvoltios como máximo.

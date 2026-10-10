@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ecuación del transformador'
+terms:
+  V_\mathrm{s}:
+    label: 'Tensión del secundario'
+  V_\mathrm{p}:
+    label: 'Tensión del primario'
+  N_\mathrm{s}:
+    label: 'Número de vueltas de la bobina secundaria'
+  N_\mathrm{p}:
+    label: 'Número de vueltas de la bobina primaria'
+description: >-
+  La ecuación del transformador establece que, en un transformador ideal, el cociente entre la
+  tensión eléctrica del secundario y la del primario es igual al cociente entre el número de vueltas
+  de la bobina secundaria y el de la primaria. Describe cómo los transformadores, dispositivos de
+  inducción electromagnética, elevan o reducen las tensiones alternas para las redes eléctricas y
+  los aparatos domésticos.
+
+  $\var{V_\mathrm{s}}$ y $\var{V_\mathrm{p}}$ son las tensiones en las bobinas secundaria y
+  primaria, en voltios, expresadas las dos del mismo modo: ambas como valores eficaces, ambas como
+  valores de pico o ambas como valores instantáneos. $\var{N_\mathrm{s}}$ y $\var{N_\mathrm{p}}$
+  son los números de vueltas, o espiras, de las bobinas secundaria y primaria, números enteros.
+  Un transformador elevador tiene más vueltas en el secundario que en el primario y eleva la
+  tensión; un transformador reductor tiene menos y la reduce.
+
+  Las dos bobinas se enrollan sobre un mismo núcleo de hierro que lleva el mismo flujo magnético
+  a través de cada vuelta. Según la ley de Faraday, la fem de cada bobina es su número de vueltas
+  por la rapidez de variación de ese flujo común, así que al dividir una fem entre la otra se
+  cancela esa rapidez y queda el cociente de vueltas. Como un transformador ideal conserva además
+  la potencia, las corrientes cambian al revés: la corriente del secundario entre la del primario
+  es igual a las vueltas del primario entre las del secundario.
+
+  La ecuación describe un transformador ideal: no se escapa flujo del núcleo, las bobinas tienen
+  una resistencia despreciable y se ignoran las pérdidas por histéresis y por corrientes de Foucault
+  en el núcleo. Los grandes transformadores reales se acercan a ese ideal y pierden apenas un uno
+  por ciento de la potencia que manejan. Un transformador necesita un flujo variable, así que
+  funciona con corriente alterna; una corriente continua estable no induce tensión en el
+  secundario.
+
+  A finales del siglo XIX, la facilidad para cambiar la tensión con transformadores ayudó a que la
+  corriente alterna que defendían George Westinghouse y Nikola Tesla se impusiera a la distribución
+  en corriente continua de Thomas Edison. Un cargador que reduce 120 V a 15.0 V con 200 vueltas en
+  el primario necesita 25 vueltas en el secundario.

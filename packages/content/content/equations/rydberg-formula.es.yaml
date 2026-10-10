@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Fórmula de Rydberg'
+terms:
+  n_{1}:
+    label: 'Número cuántico principal del nivel inferior'
+  n_{2}:
+    label: 'Número cuántico principal del nivel superior'
+description: >-
+  La fórmula de Rydberg da las longitudes de onda de las líneas espectrales del hidrógeno: el
+  inverso de cada longitud de onda es la constante de Rydberg por la diferencia entre los inversos de
+  los cuadrados de dos números enteros. Resume todo el espectro del hidrógeno, desde la serie de
+  Lyman en el ultravioleta hasta la de Balmer en el visible y las series infrarrojas, y es una
+  base de la espectroscopia atómica y de la física moderna.
+
+  Aquí $\mag{\lambda}$, en metros, es la longitud de onda en el vacío de la luz que el átomo emite o
+  absorbe.
+  $\var{n_{1}}$ y $\var{n_{2}}$ son los números cuánticos principales de los niveles inferior y
+  superior, enteros con $\var{n_{1}}$ al menos uno y $\var{n_{2}}$ mayor que $\var{n_{1}}$; la
+  calculadora no puede imponer ese orden, y un par invertido da una longitud de onda negativa. La
+  constante $\const{R_{\infty}}$ es la constante de Rydberg, de unos $1.097\times10^{7}$ metros
+  recíprocos.
+
+  En el modelo de Bohr, el electrón del nivel n tiene una energía proporcional a menos uno entre n
+  al cuadrado. Un salto del nivel superior al inferior libera un fotón que lleva la diferencia, y al
+  dividir esa energía entre la constante de Planck y la velocidad de la luz se obtiene el inverso de
+  la longitud de onda. Cada valor del número inferior nombra una serie: uno para Lyman, dos para
+  Balmer, tres para Paschen.
+
+  La constante así escrita supone un núcleo de masa infinita. En el hidrógeno el
+  electrón y el protón se mueven en torno a su centro común, y la constante debe dividirse entre uno
+  más la razón entre las masas del electrón y del protón, lo que la reduce un 0.05 por ciento, un
+  desplazamiento mucho mayor que la incertidumbre de las medidas espectrales. La fórmula
+  solo vale para el hidrógeno y, escalada por el cuadrado de la carga nuclear, para los iones con
+  un solo electrón.
+
+  Johann Balmer ajustó las cuatro líneas visibles del hidrógeno en 1885, y Johannes Rydberg había
+  hallado su regla más general en 1887 y la publicó en 1890. Niels Bohr la dedujo de su modelo
+  atómico en 1913. La línea de Balmer del nivel tres al dos está cerca de 656 nanómetros, la línea
+  roja del hidrógeno.

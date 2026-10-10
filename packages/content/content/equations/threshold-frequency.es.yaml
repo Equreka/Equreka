@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Frecuencia umbral'
+terms:
+  f_{0}:
+    label: 'Frecuencia umbral'
+  \phi:
+    label: 'Función de trabajo'
+description: >-
+  La frecuencia umbral es la menor frecuencia de la luz capaz de arrancar electrones de una
+  superficie en el efecto fotoeléctrico; es igual a la función de trabajo de la superficie dividida
+  entre la constante de Planck. Llamada también frecuencia de corte, es una propiedad de cada
+  material y marca el límite por debajo del cual no aparecen fotoelectrones, por intensa que sea la
+  luz.
+
+  Aquí $\var{f_{0}}$ es la frecuencia umbral, en hercios, y $\var{\phi}$ es la función de trabajo,
+  la energía mínima necesaria para liberar un electrón de la superficie, en julios. La constante
+  $\const{h}$ es la constante de Planck, exactamente $6.626\,070\,15\times10^{-34}\,\mathrm{J\,s}$,
+  o unos $4.136\times10^{-15}$ electronvoltios segundo si la función de trabajo se da en
+  electronvoltios. Ambas variables son positivas y proporcionales entre sí.
+
+  La fórmula se deduce de la ecuación fotoeléctrica de Einstein: en el umbral, un fotón lleva exactamente
+  la energía necesaria para liberar un electrón, de modo que la energía cinética máxima de los
+  fotoelectrones es cero. La luz por encima de la frecuencia umbral arranca electrones con cierta
+  energía cinética; por debajo no arranca ninguno, porque un solo fotón nunca basta y los fotones no
+  suman su energía sobre un electrón. La velocidad de la luz dividida entre la frecuencia umbral da
+  la longitud de onda de corte: las longitudes de onda mayores no producen emisión.
+
+  La fórmula supone una superficie con una sola función de trabajo y luz de una sola frecuencia. El
+  umbral no depende de la intensidad: una luz más o menos brillante cambia el número de fotones, no
+  la energía de cada uno, y por debajo del umbral ningún tiempo de exposición, por largo que sea,
+  acumula energía suficiente para la emisión.
+
+  El umbral decide qué luz actúa sobre qué metal: la plata, con una función de trabajo de 4.73
+  electronvoltios, no emite electrones con luz de 300 nanómetros, porque su longitud de onda de
+  corte está cerca de 262 nanómetros.

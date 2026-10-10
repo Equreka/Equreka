@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Fuerza magnética sobre una carga en movimiento'
+description: >-
+  La fuerza magnética sobre una carga en movimiento es el empuje lateral que un campo magnético
+  ejerce sobre una carga eléctrica que lo atraviesa. Su componente en la dirección que da la regla
+  de la mano derecha es el producto de la carga, la rapidez, la densidad de flujo magnético y el seno del ángulo entre la velocidad y el campo. En el
+  electromagnetismo es la parte magnética de la ley de la fuerza de Lorentz.
+
+  $\mag{F}$ es la fuerza en newtons. $\mag{q}$ es la carga en culombios, con su signo; $\mag{v}$
+  es la rapidez de la carga en metros por segundo; $\mag{B}$ es la densidad de flujo magnético en
+  teslas (también se acepta el gauss). $\mag{\theta}$ es el
+  ángulo entre la velocidad y el campo, de 0 a 180 grados. La fuerza es perpendicular a la vez a la
+  velocidad y al campo. Para una carga positiva, al girar los dedos de la mano derecha desde la
+  velocidad hacia el campo, el pulgar queda en la dirección de la fuerza; una carga negativa da un
+  resultado negativo, una fuerza en sentido opuesto. La fuerza sobre un hilo con corriente sigue la
+  misma regla con la corriente positiva, así que allí el resultado nunca es negativo.
+
+  Una carga en reposo, o que se mueve a lo largo de las líneas de campo, no sufre fuerza magnética,
+  y la fuerza es máxima cuando la carga cruza el campo en ángulo recto. Como el empuje es siempre
+  perpendicular al movimiento, no realiza trabajo: curva la trayectoria sin cambiar la rapidez ni
+  la energía cinética.
+
+  El campo es el que hay en la posición de la propia carga, de modo que en un campo que varía de un
+  punto a otro la fuerza cambia a lo largo de la trayectoria. Si además hay un campo eléctrico, su
+  fuerza se suma a la magnética, y el total es la fuerza de Lorentz completa. Sumada sobre las
+  muchas cargas que forman una corriente, la misma fuerza actúa sobre un hilo conductor.
+
+  La unidad de la densidad de flujo magnético honra al inventor Nikola Tesla. Esta fuerza guía las
+  partículas en los aceleradores y los espectrómetros de masas, y conduce las partículas de los
+  rayos cósmicos a lo largo del campo terrestre hacia los polos, donde contribuyen a las auroras.
+  Una carga de 20 nC que se mueve a 10 m/s a través del campo terrestre, de unos
+  $5\times10^{-5}\,\mathrm{T}$, sufre apenas $10^{-11}$ newtons.

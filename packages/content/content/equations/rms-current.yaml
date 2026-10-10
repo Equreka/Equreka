@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'RMS value of a sinusoidal current'
+kind: 'formula'
+level: 'intro'
+expression: '\var{I_\mathrm{rms}}=\frac{\var{I_{0}}}{\sqrt{2}}'
+terms:
+  I_\mathrm{rms}:
+    kind: 'symbol'
+    label:
+      en: 'RMS current'
+    unit: 'ampere'
+  I_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Peak current'
+    unit: 'ampere'
+solutions:
+  I_\mathrm{rms}: 'I_0 / sqrt(2)'
+  I_{0}: 'sqrt(2) * I_rms'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'RMS current'
+  - 'root-mean-square current'
+  - 'effective current'
+  - 'Irms = I0 / sqrt 2'
+  - 'peak current to rms'
+  - 'corriente eficaz'
+  - 'corriente rms'
+  - 'valor eficaz de la corriente'
+references:
+  - title: 'OpenStax, College Physics 2e, 20.5 Alternating Current versus Direct Current'
+    url: 'https://openstax.org/books/college-physics-2e/pages/20-5-alternating-current-versus-direct-current'
+  - title: 'OpenStax, University Physics Volume 2, 15.4 Power in an AC Circuit'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/15-4-power-in-an-ac-circuit'
+description:
+  en: >-
+    For a sinusoidal alternating current, the root-mean-square or rms current equals the peak
+    current divided by the square root of two, roughly 0.707 of the peak. It is the effective
+    value of an AC current in electromagnetism and electrical engineering: the steady direct current
+    that would heat the same resistor at the same average rate. Ratings of fuses, circuit breakers
+    and appliances are stated in rms amperes.
+
+    $\var{I_\mathrm{rms}}$ is the rms current, in amperes. $\var{I_{0}}$ is the peak current, or
+    amplitude, in amperes: the largest value the current reaches in a cycle, a non-negative number.
+    During each cycle the current flows one way, falls to zero and reverses, reaching the negative
+    of the peak half a period later. The square root of two is a pure number, so the ratio holds
+    at any frequency.
+
+    Heating in a resistor depends on the square of the current, which is never negative even while
+    the current itself reverses. Averaging the square of a sinusoid over a full cycle gives half
+    its peak value squared, and the square root of that mean square is the peak divided by the
+    square root of two. With rms values, the familiar direct-current rules carry over to a resistor:
+    the rms current is the rms voltage over the resistance, and the average power is the rms
+    current squared times the resistance.
+
+    The factor is exact only for a pure sine wave. A current with any other waveform, such as a
+    square or a distorted wave, has its own ratio of peak to rms value, found by averaging the
+    square of its actual shape. The ordinary average of a sinusoidal current over a cycle is zero
+    and says nothing about its heating effect.
+
+    A breaker rated at 10 A trips when the rms current stays above 10 A, which for a sine wave
+    means a peak near 14 A.

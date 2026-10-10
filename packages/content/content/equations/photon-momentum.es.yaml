@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Cantidad de movimiento del fotón'
+description: >-
+  La fórmula de la cantidad de movimiento del fotón establece que un fotón lleva una cantidad de
+  movimiento lineal igual a la constante de Planck entre su longitud de onda. Aunque no tiene masa,
+  el fotón empuja lo que lo absorbe o lo refleja, y esta fórmula de la física moderna y la
+  relatividad especial da el módulo de ese empuje para un cuanto de luz.
+
+  Aquí $\mag{p}$ es el módulo de la cantidad de movimiento del fotón, en kilogramo metro por
+  segundo, y $\mag{\lambda}$ es su longitud de onda en el vacío, en metros. La constante $\const{h}$
+  es la constante de Planck, exactamente $6.626\,070\,15\times10^{-34}\,\mathrm{J\,s}$. La fórmula
+  solo da un valor no negativo: la cantidad de movimiento apunta hacia donde viaja el fotón, y esa
+  dirección se indica aparte.
+
+  La relatividad especial relaciona la energía, la cantidad de movimiento y la masa en reposo de
+  toda partícula. Con masa en reposo nula, la cantidad de movimiento es la energía entre la
+  velocidad de la luz, y la energía del fotón, constante de Planck por velocidad de la luz entre
+  longitud de onda, lleva a esta fórmula. Las longitudes de onda más cortas dan, por tanto, valores
+  mayores, como ocurre con la energía.
+
+  La relación vale para todo fotón en el vacío. Un fotón de luz visible lleva solo unos
+  $10^{-27}\,\mathrm{kg\,m/s}$, así que la presión de la luz ordinaria pasa inadvertida, pero se
+  vuelve medible con haces intensos y tiempos largos, y contribuye a formar las colas de los
+  cometas. Leída como longitud de onda igual a constante de Planck entre cantidad de movimiento, la
+  misma expresión es la relación de De Broglie para partículas con masa.
+
+  Arthur Compton explicó en 1923 por qué los rayos X dispersados por grafito salen con longitudes de
+  onda mayores: trató cada dispersión como un choque en que el fotón cede energía y cantidad de
+  movimiento a un electrón, y el acuerdo con los desplazamientos medidos convenció a los físicos de
+  que la luz actúa como una corriente de partículas con cantidad de movimiento. Un fotón de 500
+  nanómetros tiene una cantidad de movimiento de $1.33\times10^{-27}\,\mathrm{kg\,m/s}$.

@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Length contraction'
+kind: 'equation'
+level: 'intro'
+expression: '\var{L}=\var{L_{0}}\sqrt{1-\frac{\mag{v}^{2}}{\const{c}^{2}}}'
+terms:
+  L:
+    kind: 'symbol'
+    label:
+      en: 'Contracted length'
+    unit: 'metre'
+  L_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Proper length'
+    unit: 'metre'
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  c:
+    kind: 'constant'
+    ref: 'speed-of-light'
+solutions:
+  L: 'L_0 * sqrt(1 - v^2 / c^2)'
+  L_{0}: 'L / sqrt(1 - v^2 / c^2)'
+  v: 'c * sqrt(1 - (L / L_0)^2)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q836595'
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+aliases:
+  - 'Lorentz contraction'
+  - 'Lorentz-FitzGerald contraction'
+  - 'relativistic length contraction'
+  - 'proper length'
+  - 'contracción de Lorentz'
+  - 'contracción de longitud'
+  - 'longitud propia'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 5.4 Length Contraction (Equation 5.4, proper length, muon example)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/5-4-length-contraction'
+  - title: 'OpenStax, University Physics Volume 3, 5.3 Time Dilation (Lorentz factor)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/5-3-time-dilation'
+  - title: 'HyperPhysics (Georgia State University), Time dilation and length contraction'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/Relativ/tdil.html'
+  - title: 'A. Einstein, Zur Elektrodynamik bewegter Körper, Annalen der Physik 322 (1905) 891-921'
+    url: 'https://doi.org/10.1002/andp.19053221004'
+description:
+  en: >-
+    Length contraction is the effect of special relativity by which an object moving relative to an
+    observer is measured to be shorter along its direction of motion. The equation gives the measured
+    length as the proper length multiplied by the square root of one minus the speed squared over
+    the speed of light squared, so the faster the object, the shorter it appears.
+
+    Here $\var{L_{0}}$ is the proper length, in metres: the length measured by an observer at rest
+    relative to the object, or the distance between two points at rest relative to that observer.
+    $\var{L}$ is the contracted length, in metres, measured by an observer for whom the object or
+    the two points move. The speed $\mag{v}$ of that relative motion is in metres per second and
+    must be less than the speed of light in vacuum, $\const{c}$. All terms are non-negative, and the
+    solved speed is the non-negative root.
+
+    The square root is the reciprocal of the Lorentz factor gamma, so the contracted length is the
+    proper length divided by gamma. The result follows from time dilation: two observers agree on
+    their relative speed but not on elapsed time, so they must disagree on the distance covered.
+    The proper length is always the longest length measured.
+
+    Only lengths parallel to the motion contract; widths and heights across it are the same for
+    every observer. The equation holds between inertial frames at constant relative velocity, and at
+    everyday speeds the contraction is far too small to notice.
+
+    Albert Einstein derived the effect in 1905 from the postulates of special relativity. A muon
+    created high in the atmosphere and moving at 0.950 times the speed of light covers 2.01
+    kilometres in the frame of the Earth, while in its own frame that stretch of air measures only
+    about 0.627 kilometres; the same effect, seen from the ground, is time dilation.

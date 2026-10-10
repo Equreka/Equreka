@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Rydberg formula'
+kind: 'formula'
+level: 'intro'
+expression: '\frac{1}{\mag{\lambda}}=\frac{\const{R_{\infty}}}{\var{n_{1}}^{2}}-\frac{\const{R_{\infty}}}{\var{n_{2}}^{2}}'
+terms:
+  \lambda:
+    kind: 'magnitude'
+    ref: 'wavelength'
+  R_{\infty}:
+    kind: 'constant'
+    ref: 'rydberg-constant'
+  n_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Principal quantum number of the lower level'
+    integer: true
+  n_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Principal quantum number of the upper level'
+    integer: true
+solutions:
+  \lambda: '1 / (R_infty * (1 / n_1^2 - 1 / n_2^2))'
+  n_{1}: '1 / sqrt(1 / (lambda * R_infty) + 1 / n_2^2)'
+  n_{2}: '1 / sqrt(1 / n_1^2 - 1 / (lambda * R_infty))'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q661248'
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+aliases:
+  - 'Rydberg equation'
+  - 'Rydberg-Ritz formula'
+  - 'hydrogen spectrum formula'
+  - 'hydrogen spectral lines'
+  - 'fórmula de Rydberg'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 6.4 Bohr''s Model of the Hydrogen Atom (Equations 6.31, 6.32 and 6.49, Example 6.9)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-4-bohrs-model-of-the-hydrogen-atom'
+  - title: 'HyperPhysics (Georgia State University), Hydrogen energies and spectrum'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/hyde.html'
+  - title: 'NIST, CODATA 2022 value: Rydberg constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?ryd'
+  - title: 'NIST, CODATA 2022 value: proton-electron mass ratio'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mpsme'
+  - title: 'MacTutor History of Mathematics, Johannes Robert Rydberg (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Rydberg/'
+  - title: 'N. Bohr, On the constitution of atoms and molecules, Philosophical Magazine 26 (1913) 1-25'
+    url: 'https://doi.org/10.1080/14786441308634955'
+description:
+  en: >-
+    The Rydberg formula gives the wavelengths of the spectral lines of hydrogen: the reciprocal of
+    each wavelength equals the Rydberg constant times the difference between the reciprocal squares
+    of two whole numbers. It sums up the whole hydrogen spectrum, from the ultraviolet Lyman series
+    to the visible Balmer series and the infrared series beyond, and is a cornerstone of atomic
+    spectroscopy and modern physics.
+
+    Here $\mag{\lambda}$ is the wavelength of the emitted or absorbed light in vacuum, in metres.
+    $\var{n_{1}}$ and $\var{n_{2}}$ are the principal quantum numbers of the lower and upper levels,
+    whole numbers with $\var{n_{1}}$ at least one and $\var{n_{2}}$ greater than $\var{n_{1}}$; the
+    calculator cannot enforce that order, and a reversed pair returns a negative wavelength. The
+    constant $\const{R_{\infty}}$ is the Rydberg constant, about $1.097\times10^{7}$ reciprocal
+    metres.
+
+    In the Bohr model the electron in level n has an energy proportional to minus one over n
+    squared. A jump from the upper to the lower level releases a photon carrying the difference, and
+    dividing that energy by the Planck constant and the speed of light gives the reciprocal
+    wavelength. Each value of the lower number names a series: one for Lyman, two for Balmer, three
+    for Paschen.
+
+    The constant as written assumes a nucleus of infinite mass. For hydrogen the electron and proton
+    both move about their common centre, and the constant must be divided by one plus the
+    electron-to-proton mass ratio, which lowers it by about 0.05 percent, a shift far larger than
+    the uncertainty of spectral measurements. The formula applies only to hydrogen and, scaled by
+    the square of the nuclear charge, to ions with a single electron.
+
+    Johann Balmer fitted the four visible hydrogen lines in 1885, and Johannes Rydberg had found his
+    more general rule by 1887, publishing it in 1890. Niels Bohr derived it from his atomic model in
+    1913. The Balmer line from level three to level two lies near 656 nanometres, the red line of
+    hydrogen.

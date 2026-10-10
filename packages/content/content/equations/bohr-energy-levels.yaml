@@ -1,0 +1,89 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Bohr energy levels of hydrogen'
+kind: 'formula'
+level: 'intro'
+expression: '\var{E_{n}}=-\frac{\const{h}\const{c}\const{R_{\infty}}}{\var{n}^{2}}'
+terms:
+  E_{n}:
+    kind: 'symbol'
+    label:
+      en: 'Energy of level n'
+    unit: 'joule'
+  h:
+    kind: 'constant'
+    ref: 'planck-constant'
+  c:
+    kind: 'constant'
+    ref: 'speed-of-light'
+  R_{\infty}:
+    kind: 'constant'
+    ref: 'rydberg-constant'
+  n:
+    kind: 'symbol'
+    label:
+      en: 'Principal quantum number'
+    integer: true
+solutions:
+  E_{n}: '-h * c * R_infty / n^2'
+calculator:
+  enabled: true
+  solveFor: ['E_{n}']
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+aliases:
+  - 'Bohr model energy levels'
+  - 'hydrogen energy levels'
+  - 'energy levels of hydrogen'
+  - 'En = -13.6 eV / n^2'
+  - 'Bohr formula'
+  - 'Rydberg energy'
+  - 'niveles de energía del hidrógeno'
+  - 'modelo de Bohr'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 6.4 Bohr''s Model of the Hydrogen Atom (Equations 6.44 and 6.45, energy spectrum of hydrogen)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-4-bohrs-model-of-the-hydrogen-atom'
+  - title: 'NIST, CODATA 2022 value: Rydberg constant times hc in J'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?rydhcj'
+  - title: 'NIST, CODATA 2022 value: Rydberg constant times hc in eV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?rydhcev'
+  - title: 'NIST, CODATA 2022 value: Rydberg constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?ryd'
+  - title: 'NIST, CODATA 2022 value: proton-electron mass ratio'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mpsme'
+  - title: 'HyperPhysics (Georgia State University), Hydrogen energies and spectrum'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/hyde.html'
+  - title: 'N. Bohr, On the constitution of atoms and molecules, Philosophical Magazine 26 (1913) 1-25'
+    url: 'https://doi.org/10.1080/14786441308634955'
+  - title: 'The Nobel Prize in Physics 1922, Niels Bohr, facts'
+    url: 'https://www.nobelprize.org/prizes/physics/1922/bohr/facts/'
+description:
+  en: >-
+    The Bohr energy levels of hydrogen are the allowed energies of the electron in a hydrogen atom
+    according to the Bohr model: minus the Planck constant times the speed of light times the
+    Rydberg constant, divided by the square of a whole number. The formula of atomic and modern
+    physics shows that the energy of an atom is quantized, taking only a ladder of discrete values.
+
+    Here $\var{E_{n}}$ is the energy of level $\var{n}$, in joules, and $\var{n}$ is the principal
+    quantum number, a whole number from one upwards. It is an input only: the calculator returns the
+    energy, does not solve for the level, and cannot enforce that lower bound.
+    The constants are the Planck constant $\const{h}$, the speed of light in vacuum $\const{c}$ and
+    the Rydberg constant $\const{R_{\infty}}$. Their product is the Rydberg energy, about 13.6
+    electronvolts. Every level is negative: zero energy belongs to an electron that has escaped
+    and is at rest far from the nucleus, so a negative value means a bound electron.
+
+    The ground state, with the principal quantum number equal to one, lies at about minus 13.6
+    electronvolts, and that is the energy needed to ionize the atom from it. The next levels lie at
+    about minus 3.40 and minus 1.51 electronvolts, crowding towards zero as the number grows. When
+    the electron drops from one level to a lower one, the atom emits a photon whose energy is the
+    difference, which gives the Rydberg formula for the hydrogen spectrum.
+
+    The formula assumes a single electron and a nucleus of infinite mass, the meaning of the
+    infinity sign on the constant. Real hydrogen needs a reduced-mass correction of about 0.05
+    percent, and ions with one electron and nuclear charge Z have levels Z squared times deeper.
+    Finer splittings of the levels lie beyond the model.
+
+    Niels Bohr proposed the model in 1913, in the Philosophical Magazine, by quantizing the orbits of
+    the electron, and received the 1922 Nobel Prize for his work on atomic structure.

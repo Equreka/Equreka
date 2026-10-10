@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Niveles de energía de Bohr del hidrógeno'
+terms:
+  E_{n}:
+    label: 'Energía del nivel n'
+  n:
+    label: 'Número cuántico principal'
+description: >-
+  Los niveles de energía de Bohr del hidrógeno son las energías permitidas del electrón en un átomo
+  de hidrógeno según el modelo de Bohr: menos la constante de Planck por la velocidad de la luz por
+  la constante de Rydberg, dividido entre el cuadrado de un número entero. Esta fórmula de la física
+  atómica y moderna muestra que la energía de un átomo está cuantizada y solo toma una escalera de
+  valores discretos.
+
+  Aquí $\var{E_{n}}$ es la energía del nivel $\var{n}$, en julios, y $\var{n}$ es el número cuántico
+  principal, un entero desde uno en adelante. Es solo un dato de entrada: la calculadora devuelve la
+  energía, no despeja el nivel y no puede imponer ese límite inferior.
+  Las constantes son la constante de Planck $\const{h}$, la velocidad de la luz en el vacío
+  $\const{c}$ y la constante de Rydberg $\const{R_{\infty}}$. Su producto es la energía de Rydberg,
+  de unos 13.6 electronvoltios. Todos los niveles son negativos: la energía cero corresponde a un
+  electrón que ha escapado y queda en reposo lejos del núcleo, así que un valor negativo indica
+  un electrón ligado.
+
+  El estado fundamental, con número cuántico principal igual a uno, está en unos menos 13.6
+  electronvoltios, y esa es la energía necesaria para ionizar el átomo desde él. Los niveles
+  siguientes están en unos menos 3.40 y menos 1.51 electronvoltios, y se apiñan hacia cero al crecer
+  el número. Cuando el electrón baja de un nivel a otro inferior, el átomo emite un fotón cuya
+  energía es la diferencia, lo que da la fórmula de Rydberg del espectro del hidrógeno.
+
+  La fórmula supone un solo electrón y un núcleo de masa infinita, el sentido del símbolo de
+  infinito en la constante. El hidrógeno real requiere una corrección de masa reducida de un 0.05
+  por ciento, y los iones con un electrón y carga nuclear Z tienen niveles Z al cuadrado veces más
+  profundos. Los desdoblamientos más finos de los niveles quedan fuera del modelo.
+
+  Niels Bohr propuso el modelo en 1913, en el Philosophical Magazine, cuantizando las órbitas del
+  electrón, y recibió el Premio Nobel de 1922 por su trabajo sobre la estructura atómica.

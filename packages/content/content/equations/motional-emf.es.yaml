@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Fem de movimiento'
+terms:
+  L:
+    label: 'Longitud de la varilla'
+description: >-
+  La fem de movimiento es la fuerza electromotriz que aparece entre los extremos de un conductor que
+  se mueve a través de un campo magnético. Para una varilla recta que se desliza perpendicular a un
+  campo uniforme, es igual a la densidad de flujo magnético por la longitud de la varilla por su
+  rapidez. Es un caso particular de la ley de inducción de Faraday del electromagnetismo y el
+  principio de los generadores más sencillos.
+
+  $\mag{\mathcal{E}}$ es el módulo de la fem inducida, en voltios. $\mag{B}$ es la densidad de
+  flujo magnético en teslas (también se acepta el gauss), $\var{L}$ es la longitud de la varilla en
+  metros y $\mag{v}$ es su rapidez en metros por segundo. El campo, la varilla y la velocidad son
+  perpendiculares entre sí. La polaridad sigue la ley de Lenz: el extremo hacia el que la fuerza
+  magnética empuja las cargas positivas pasa a ser el terminal positivo. La ley de inducción de
+  Faraday da la misma fem con un signo ligado a la normal elegida para el flujo; esta forma da solo
+  su módulo.
+
+  Cuando la varilla cierra un circuito al deslizarse sobre dos rieles paralelos, cada segundo
+  barre un área igual a su longitud por su rapidez, así que el flujo a través del circuito
+  crece al ritmo del campo por la longitud por la rapidez, y la ley de Faraday convierte ese ritmo
+  en la fem. El mismo resultado se obtiene de la fuerza magnética sobre las cargas libres de la
+  varilla, que las empuja hacia un extremo hasta que la carga acumulada allí equilibra el empuje.
+
+  La fórmula vale para una varilla recta en un campo uniforme con las tres direcciones
+  perpendiculares entre sí. Si el movimiento está inclinado, solo cuenta la parte de la velocidad
+  perpendicular al campo, y una varilla que se mueve a lo largo de las líneas de campo no tiene fem.
+  En cuanto circula corriente, el campo frena la varilla oponiéndose a su movimiento, de modo que
+  mantenerla en marcha exige trabajo, que reaparece como energía eléctrica en el circuito.
+
+  En un experimento con un cable atado a un satélite en órbita, un conductor de 20.0 km de largo que
+  se movía a 7.80 km/s a través del campo terrestre, de unos $5\times10^{-5}\,\mathrm{T}$, debía
+  generar 7.80 kilovoltios según la predicción; el valor medido fue menor porque el movimiento no
+  era perpendicular al campo.

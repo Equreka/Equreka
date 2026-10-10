@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Photon energy from wavelength'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{E}=\frac{\const{h}\const{c}}{\mag{\lambda}}'
+terms:
+  E:
+    kind: 'magnitude'
+    ref: 'energy'
+  h:
+    kind: 'constant'
+    ref: 'planck-constant'
+  c:
+    kind: 'constant'
+    ref: 'speed-of-light'
+  \lambda:
+    kind: 'magnitude'
+    ref: 'wavelength'
+solutions:
+  E: 'h * c / lambda'
+  \lambda: 'h * c / E'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+  - 'optics-and-photometry'
+aliases:
+  - 'E = hc/lambda'
+  - 'E = hc/λ'
+  - 'energy of a photon from its wavelength'
+  - 'photon energy wavelength'
+  - 'hc over lambda'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 6.3 The Compton Effect (Equations 6.19 and 6.20)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-3-the-compton-effect'
+  - title: 'OpenStax, University Physics Volume 3, 6.2 Photoelectric Effect (Equation 6.16 and Example 6.7)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-2-photoelectric-effect'
+  - title: 'NIST, CODATA 2022 value: Planck constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?h'
+  - title: 'NIST, CODATA 2022 value: speed of light in vacuum'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?c'
+  - title: 'NIST, CODATA 2022 value: electron volt'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?evj'
+description:
+  en: >-
+    The photon energy from wavelength formula gives the energy of a single photon as the Planck
+    constant times the speed of light in vacuum, divided by the wavelength of the light. It is the
+    wavelength form of the Planck–Einstein relation and the version most used in optics,
+    spectroscopy and atomic physics, where light is usually labelled by its wavelength rather than
+    by its frequency.
+
+    Here $\mag{E}$ is the energy of one photon, in joules, and $\mag{\lambda}$ is the wavelength of
+    the light in vacuum, in metres; both are positive. The constant $\const{h}$ is the Planck
+    constant, exactly $6.626\,070\,15\times10^{-34}\,\mathrm{J\,s}$, and $\const{c}$ is the speed of
+    light in vacuum, exactly 299 792 458 metres per second. With energies in electronvolts and
+    wavelengths in nanometres the product of the two constants is close to
+    $1240\,\mathrm{eV\,nm}$, a shortcut common in textbook work.
+
+    For light in vacuum the frequency equals the speed of light divided by the wavelength, and
+    putting that into the energy-frequency relation gives this formula. The energy is inversely
+    proportional to the wavelength: halving the wavelength doubles the energy of each photon, so a
+    violet photon carries more energy than a red one, and an X-ray photon far more than either.
+
+    The wavelength must be the vacuum value. Inside glass or water the wavelength shrinks while the
+    frequency and the photon energy stay the same, so the in-medium wavelength would overstate the
+    energy. As with the frequency form, the formula describes one photon of a single colour; a beam
+    of mixed colours is a mixture of photon energies.
+
+    The same expression, read backwards, turns an energy threshold into a cut-off wavelength, as in
+    the photoelectric effect. Violet light of wavelength 430 nanometres carries photons of about
+    2.88 electronvolts.

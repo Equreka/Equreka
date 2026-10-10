@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Fuerza magnética sobre un hilo con corriente'
+terms:
+  L:
+    label: 'Longitud del hilo dentro del campo'
+description: >-
+  La fuerza magnética sobre un hilo con corriente es el empuje lateral que un campo magnético
+  uniforme ejerce sobre un conductor recto: el producto de la corriente, la longitud de hilo dentro
+  del campo, la densidad de flujo magnético y el seno del ángulo entre el hilo y el campo. Es la
+  fuerza electromagnética que mueve los motores eléctricos y que bombea líquidos conductores.
+
+  $\mag{F}$ es la fuerza en newtons, contada en la dirección de la regla de la mano derecha que se
+  describe más abajo. $\mag{I}$ es la corriente en amperios, que se introduce positiva porque el
+  ángulo ya fija su sentido, así que aquí la fuerza nunca es negativa; la forma para una carga en
+  movimiento conserva, en cambio, el signo de la carga. $\var{L}$ es la longitud de hilo recto que está
+  dentro del campo, en metros, y $\mag{B}$ es la densidad de flujo magnético en teslas (también se
+  acepta el gauss). $\mag{\theta}$ es el ángulo entre el sentido de la corriente convencional y el
+  campo, de 0 a 180 grados. La fuerza es perpendicular al hilo y al campo: con el pulgar derecho
+  en el sentido de la corriente y los dedos a lo largo del campo, la fuerza sale de la palma.
+
+  Una corriente es un flujo de cargas en movimiento, y cada una de ellas sufre la fuerza magnética
+  sobre una carga en movimiento. Sumados sobre todos los portadores del tramo, esos empujes dan la
+  fuerza sobre el hilo, de modo que la carga por la velocidad de aquella relación pasa a ser aquí
+  la corriente por la longitud. Un hilo
+  tendido a lo largo de las líneas de campo no sufre ninguna, y uno perpendicular a ellas sufre la
+  máxima.
+
+  La fórmula supone un hilo recto y un campo con el mismo módulo y la misma dirección en toda su
+  longitud. Para un hilo curvado o un campo que varía, el hilo se divide en tramos rectos cortos
+  cuyas fuerzas se suman como vectores. Solo cuenta la parte que está dentro del campo. Una espira
+  cerrada de corriente en un campo uniforme no sufre fuerza neta, porque los empujes sobre lados
+  opuestos se anulan.
+
+  En 1820, Hans Christian Oersted vio que una corriente desviaba la aguja de una brújula, lo que
+  mostró que las corrientes eléctricas producen campos magnéticos. Además de los motores, esta
+  fuerza impulsa bombas magnetohidrodinámicas sin piezas móviles. Un tramo de hilo de 5.00 cm que
+  lleva 20.0 amperios perpendicular a un campo de 1.50 T sufre una fuerza de 1.50 newtons.

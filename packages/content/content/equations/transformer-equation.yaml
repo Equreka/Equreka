@@ -1,0 +1,89 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Transformer equation'
+kind: 'equation'
+level: 'intro'
+expression: '\frac{\var{V_\mathrm{s}}}{\var{V_\mathrm{p}}}=\frac{\var{N_\mathrm{s}}}{\var{N_\mathrm{p}}}'
+terms:
+  V_\mathrm{s}:
+    kind: 'symbol'
+    label:
+      en: 'Secondary voltage'
+    unit: 'volt'
+  V_\mathrm{p}:
+    kind: 'symbol'
+    label:
+      en: 'Primary voltage'
+    unit: 'volt'
+  N_\mathrm{s}:
+    kind: 'symbol'
+    label:
+      en: 'Number of turns of the secondary coil'
+    integer: true
+  N_\mathrm{p}:
+    kind: 'symbol'
+    label:
+      en: 'Number of turns of the primary coil'
+    integer: true
+solutions:
+  V_\mathrm{s}: 'V_p * N_s / N_p'
+  V_\mathrm{p}: 'V_s * N_p / N_s'
+  N_\mathrm{s}: 'N_p * V_s / V_p'
+  N_\mathrm{p}: 'N_s * V_p / V_s'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'ideal transformer equation'
+  - 'transformer turns ratio'
+  - 'turns ratio'
+  - 'Vs/Vp = Ns/Np'
+  - 'step-up transformer'
+  - 'step-down transformer'
+  - 'ecuación del transformador'
+  - 'relación de transformación'
+  - 'transformador elevador'
+  - 'transformador reductor'
+  - 'bobinado primario'
+  - 'bobinado secundario'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 15.6 Transformers (Example 15.6)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/15-6-transformers'
+  - title: 'OpenStax, College Physics 2e, 23.7 Transformers (Examples 23.5 and 23.6)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/23-7-transformers'
+  - title: 'OpenStax, College Physics 2e, 20.5 Alternating Current versus Direct Current'
+    url: 'https://openstax.org/books/college-physics-2e/pages/20-5-alternating-current-versus-direct-current'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Transformer'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/magnetic/transf.html'
+description:
+  en: >-
+    The transformer equation states that in an ideal transformer the ratio of the secondary voltage
+    to the primary voltage is the same as the ratio between the turn counts of the secondary and primary coils. It describes how transformers, devices of electromagnetic induction,
+    raise or lower alternating voltages for power grids and for household equipment.
+
+    $\var{V_\mathrm{s}}$ and $\var{V_\mathrm{p}}$ are the voltages across the secondary and primary
+    coils, in volts, both stated the same way: both rms values, both peak values or both
+    instantaneous values. $\var{N_\mathrm{s}}$ and $\var{N_\mathrm{p}}$ are the numbers of turns of
+    the secondary and primary coils, whole numbers. A step-up transformer has more turns on the
+    secondary than on the primary and raises the voltage; a step-down transformer has fewer and
+    lowers it.
+
+    Both coils are wound on a single iron core that carries the same magnetic flux through every
+    turn. By Faraday's law, the emf of each coil is its number of turns times the rate of change of
+    that shared flux, so dividing one emf by the other cancels the rate and leaves the turns ratio.
+    Because an ideal transformer also conserves power, the currents scale the other way: the
+    secondary current over the primary current equals the primary turns over the secondary turns.
+
+    The equation describes an ideal transformer: no flux leaks out of the core, the windings have
+    negligible resistance, and the losses from hysteresis and eddy currents in the core are
+    neglected. Large real transformers come close, losing as little as about one percent of the
+    power they handle. A transformer needs a changing flux, so it works with alternating current; a
+    steady direct current induces no secondary voltage.
+
+    Late in the nineteenth century, the ease of changing voltage with transformers helped the
+    alternating current championed by George Westinghouse and Nikola Tesla prevail over Thomas
+    Edison's direct-current distribution. A charger that reduces 120 V to 15.0 V with 200 primary
+    turns needs 25 secondary turns.

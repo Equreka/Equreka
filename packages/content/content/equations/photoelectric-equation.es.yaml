@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ecuación fotoeléctrica de Einstein'
+terms:
+  K_{\max}:
+    label: 'Energía cinética máxima de los fotoelectrones'
+  \phi:
+    label: 'Función de trabajo'
+description: >-
+  La ecuación fotoeléctrica de Einstein da la mayor energía cinética que puede tener un electrón
+  cuando la luz lo arranca de una superficie metálica: la energía de un fotón, constante de Planck
+  por frecuencia, menos la función de trabajo del metal. Es el balance de energía del efecto
+  fotoeléctrico, uno de los primeros resultados de la física cuántica y moderna.
+
+  Aquí $\var{K_{\max}}$ es la energía cinética máxima de los fotoelectrones al salir de la
+  superficie, en julios; $\mag{f}$ es la frecuencia de la luz incidente, en hercios, y $\var{\phi}$
+  es la función de trabajo, la energía mínima necesaria para liberar un electrón de esa superficie,
+  también en julios. La constante $\const{h}$ es la constante de Planck. En este campo las energías
+  suelen darse en electronvoltios: la función de trabajo vale 2.46 electronvoltios para el sodio y
+  4.73 para la plata. Un resultado negativo indica que cada fotón lleva menos energía que la función
+  de trabajo y no se emite ningún electrón.
+
+  Cada fotón cede toda su energía a un solo electrón. Una parte paga la función de trabajo y el resto
+  sale como energía cinética; los electrones más ligados que los menos ligados conservan menos, y
+  por eso la ecuación da un máximo. La energía cinética máxima crece en línea recta con la
+  frecuencia, con pendiente igual a la constante de Planck, y no depende del brillo de la luz: una
+  luz más brillante solo libera más electrones.
+
+  La ecuación supone que un fotón actúa sobre un electrón y que la luz tiene una sola frecuencia.
+  Los experimentos mantienen los electrodos en un tubo al vacío, para que los electrones no pierdan
+  energía en choques con moléculas de aire antes de medirla.
+
+  Albert Einstein propuso la ecuación en 1905, y su Premio Nobel de 1921 citó la ley del efecto
+  fotoeléctrico. Robert Millikan puso a prueba su predicción lineal y en 1916 midió con ella la
+  constante de Planck. La luz violeta de 430 nanómetros sobre calcio, de función de trabajo 2.71
+  electronvoltios, arranca electrones de unos 0.17 electronvoltios como máximo.

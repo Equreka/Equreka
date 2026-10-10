@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Faraday''s law of induction'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{\mathcal{E}}=-\var{N}\frac{\var{\Delta\Phi}}{\mag{\Delta t}}'
+terms:
+  \mathcal{E}:
+    kind: 'magnitude'
+    ref: 'electromotive-force'
+    identifier: 'emf'
+  N:
+    kind: 'symbol'
+    label:
+      en: 'Number of turns'
+    integer: true
+  \Delta\Phi:
+    kind: 'symbol'
+    label:
+      en: 'Change in magnetic flux through one turn'
+    unit: 'weber'
+  \Delta t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  \mathcal{E}: '-N * DeltaPhi / Deltat'
+  N: '-emf * Deltat / DeltaPhi'
+  \Delta\Phi: '-emf * Deltat / N'
+  \Delta t: '-N * DeltaPhi / emf'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q181465'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'Faraday''s law'
+  - 'Faraday law'
+  - 'law of electromagnetic induction'
+  - 'Faraday-Lenz law'
+  - 'emf = -N dPhi/dt'
+  - 'induced emf'
+  - 'ley de Faraday'
+  - 'ley de inducción de Faraday'
+  - 'ley de Faraday-Lenz'
+  - 'fem inducida'
+references:
+  - title: 'OpenStax, College Physics 2e, 23.2 Faraday''s Law of Induction: Lenz''s Law (Example 23.1)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/23-2-faradays-law-of-induction-lenzs-law'
+  - title: 'OpenStax, University Physics Volume 2, 13.1 Faraday''s Law'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/13-1-faradays-law'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Faraday''s law'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/electric/farlaw.html'
+description:
+  en: >-
+    Faraday's law of induction states that a changing magnetic flux through a coil induces an
+    electromotive force in it, equal to minus the number of turns times the change in flux divided
+    by the time the change takes. It is the founding law of electromagnetic induction, the effect
+    behind electric generators and transformers.
+
+    $\mag{\mathcal{E}}$ is the average induced emf over the interval, in volts. $\var{N}$ is the
+    number of turns of the coil, a whole number, each turn enclosing the same flux.
+    $\var{\Delta\Phi}$ is the change in magnetic flux through one turn, final minus initial, in
+    webers, and $\mag{\Delta t}$ is the time over which it happens, in seconds. The minus sign
+    carries Lenz's law: the emf drives a current whose own magnetic field opposes the change in
+    flux. The emf is counted positive in the sense that the right-hand rule links to the normal
+    used for the flux, so a rising flux gives a negative emf. Motional emf, a special case, is
+    usually quoted as a size, with its polarity found from Lenz's law.
+
+    A large but steady flux induces nothing, while a small flux that changes
+    quickly can induce a large emf. The flux can change because the field grows or weakens, because
+    the area of the coil changes, or because the coil turns in the field. Each turn contributes its
+    own emf and the turns are in series, so the total grows in proportion to their number.
+
+    In this form the law gives the average emf over a finite interval; as the interval shrinks, the
+    ratio becomes the rate of change of the flux and the emf becomes instantaneous. It assumes that
+    every turn links the same flux, which holds for a tightly wound coil.
+
+    Michael Faraday carried out the first productive induction experiments in 1831, finding that a
+    moving magnet or a changing current nearby induces an emf only while the field changes. The rule
+    that fixes the direction of the induced current carries the name of Heinrich Lenz, who is
+    credited with its discovery. A single loop of 0.0113 square
+    metres whose field rises by 0.200 T in 0.100 s has an average emf of 22.6 millivolts.
