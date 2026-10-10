@@ -39,14 +39,30 @@ export const compiledUnit = z.object({
 });
 
 /**
+ * The nonConvertible unit a magnitude's values are stated in. It never
+ * enters `units` (it has no factor), so it carries its own name and
+ * symbol for the calculator to print.
+ */
+export const compiledDisplayUnit = z.object({
+	slug,
+	name: localizedText,
+	symbolTex: z.string(),
+	symbolText: z.string(),
+});
+
+/**
  * Engine-slice magnitude. `kindOf` is the build-verified parent quantity
- * kind (same dimension, acyclic); absent on a root kind.
+ * kind (same dimension, acyclic); absent on a root kind. `displayUnit`,
+ * present only on a dimension-one level (sound intensity level → dB),
+ * binds consumers: a term of this magnitude takes and shows the number
+ * as typed, labelled with that unit, and is offered no unit conversion.
  */
 export const compiledMagnitude = z.object({
 	slug,
 	name: localizedText,
 	symbolTex: z.string(),
 	baseUnit: slug,
+	displayUnit: compiledDisplayUnit.optional(),
 	dimension: compiledDimension,
 	kindOf: slug.optional(),
 	nonNegative: z.boolean(),
@@ -128,6 +144,7 @@ export const DIMENSION_KEYS = ['L', 'M', 'T', 'I', 'Th', 'N', 'J', 'A'] as const
 
 export type CompiledDimension = z.infer<typeof compiledDimension>;
 export type CompiledUnit = z.infer<typeof compiledUnit>;
+export type CompiledDisplayUnit = z.infer<typeof compiledDisplayUnit>;
 export type CompiledMagnitude = z.infer<typeof compiledMagnitude>;
 export type CompiledPrefix = z.infer<typeof compiledPrefix>;
 export type CompiledConstant = z.infer<typeof compiledConstant>;

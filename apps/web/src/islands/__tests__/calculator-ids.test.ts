@@ -5,7 +5,11 @@ import { createElement } from 'react';
 import { createRoot, type Root } from 'react-dom/client';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import { buildConverterPayload } from '../../integrations/equreka-assets';
-import { calculatorField } from '../../lib/calculator-fields';
+import {
+	type CalculatorFieldUnit,
+	calculatorField,
+	NO_FIELD_UNIT,
+} from '../../lib/calculator-fields';
 import CalculatorIsland from '../calculator-island';
 
 const payload = buildConverterPayload(engineArtifact as unknown as EngineSlice, 'en');
@@ -29,12 +33,19 @@ const TEX_KEYS: CompiledEquationMeta = {
 	solvable: ['E_\\mathrm{k}', '\\gamma', 'v_{0}'],
 };
 
+const convertible = (symbol: string): CalculatorFieldUnit => ({ symbol, convertible: true });
+
 const FIELDS = [
-	calculatorField(TEX_KEYS, '\\gamma', 'Angle', 'rad'),
-	calculatorField(TEX_KEYS, 'v_{0}', 'Initial speed', 'm/s'),
-	calculatorField(TEX_KEYS, 'E_\\mathrm{k}', 'Kinetic energy', 'J'),
-	calculatorField(TEX_KEYS, '[\\mathrm{H}^{+}]', 'Hydrogen ion concentration', 'mol/m³'),
-	calculatorField(TEX_KEYS, 'x^{\\prime}', 'Uncompiled term', ''),
+	calculatorField(TEX_KEYS, '\\gamma', 'Angle', convertible('rad')),
+	calculatorField(TEX_KEYS, 'v_{0}', 'Initial speed', convertible('m/s')),
+	calculatorField(TEX_KEYS, 'E_\\mathrm{k}', 'Kinetic energy', convertible('J')),
+	calculatorField(
+		TEX_KEYS,
+		'[\\mathrm{H}^{+}]',
+		'Hydrogen ion concentration',
+		convertible('mol/m³'),
+	),
+	calculatorField(TEX_KEYS, 'x^{\\prime}', 'Uncompiled term', NO_FIELD_UNIT),
 ];
 
 const SAFE_ID = /^[A-Za-z0-9_:-]+$/;

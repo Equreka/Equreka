@@ -495,6 +495,44 @@ describe('magnitude', () => {
 		expect(magnitude.safeParse({ ...work, kindOf: 'Energy' }).success).toBe(false);
 		expect(magnitude.safeParse({ ...work, kindOf: ['energy'] }).success).toBe(false);
 	});
+
+	describe('displayUnit', () => {
+		const level = {
+			name: { en: 'Sound intensity level' },
+			symbol: { tex: 'L_{I}' },
+			baseUnit: 'unitless',
+			dimension: {},
+		};
+
+		it('is absent unless authored, and takes a units slug on a dimension-one magnitude', () => {
+			expect(magnitude.parse(level).displayUnit).toBeUndefined();
+			expect(magnitude.parse({ ...level, displayUnit: 'decibel' }).displayUnit).toBe('decibel');
+			expect(
+				magnitude.parse({ ...level, dimension: { L: '0' }, displayUnit: 'decibel' }).displayUnit,
+			).toBe('decibel');
+		});
+
+		it('rejects a value that is not one units slug', () => {
+			expect(magnitude.safeParse({ ...level, displayUnit: 'Decibel' }).success).toBe(false);
+			expect(magnitude.safeParse({ ...level, displayUnit: ['decibel'] }).success).toBe(false);
+		});
+
+		it('rejects a display unit on a magnitude that is not dimension one', () => {
+			const result = magnitude.safeParse({
+				...level,
+				baseUnit: 'pascal',
+				dimension: { L: '-1', M: '1', T: '-2' },
+				displayUnit: 'decibel',
+			});
+			expect(result.success).toBe(false);
+			expect(result.error?.issues).toEqual([
+				expect.objectContaining({
+					path: ['displayUnit'],
+					message: expect.stringContaining('must have dimension one'),
+				}),
+			]);
+		});
+	});
 });
 
 describe('failsafe-parse coercions (every YAML scalar arrives as a string)', () => {

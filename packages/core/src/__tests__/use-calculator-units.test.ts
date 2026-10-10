@@ -13,6 +13,7 @@ import {
 	type CalculatorInputs,
 	type CalculatorUnitSource,
 	createCalculatorUnits,
+	isUnitOne,
 	solveInUnits,
 	useCalculatorUnits,
 } from '../hooks/use-calculator-units';
@@ -251,6 +252,67 @@ describe('createCalculatorUnits', () => {
 		expect(units.isExact('m', 'kilogram')).toBe(true);
 		const rejected = units.toBase('m', 1, 'joule');
 		expect(rejected.ok ? null : rejected.error.code).toBe('units/incompatible-dimensions');
+	});
+});
+
+describe('display units and the unit one', () => {
+	const ONE: CompiledDimension = [0, 0, 0, 0, 0, 0, 0, 0];
+	const level: CompiledMagnitude = {
+		...magnitude('level', 'one', ONE),
+		displayUnit: { slug: 'bel', name: { en: 'Bel' }, symbolTex: 'B', symbolText: 'B' },
+	};
+	const slice: EngineSlice = {
+		...SLICE,
+		magnitudes: { ratio: magnitude('ratio', 'one', ONE), level },
+		units: {
+			one: unit('one', ['ratio', 'level'], ONE, '1'),
+			percent: unit('percent', ['ratio'], ONE, '0.01'),
+		},
+	};
+	const source: CalculatorUnitSource = {
+		registry: createUnitRegistry(slice),
+		magnitudes: slice.magnitudes,
+	};
+	const LEVEL = equation('level', {
+		L: { kind: 'magnitude', ref: 'level', identifier: 'L' },
+		r: { kind: 'magnitude', ref: 'ratio', identifier: 'r' },
+	});
+	const fns: SolutionsModule = {
+		level: {
+			L: ({ r }) => Math.log10(r ?? Number.NaN),
+			r: ({ L }) => 10 ** (L ?? Number.NaN),
+		},
+	};
+	const units = createCalculatorUnits(LEVEL, source);
+
+	it('gives a display-unit term no base unit, no options and no conversion', () => {
+		expect(units.baseUnit('L')).toBe('');
+		expect(units.options('L', false)).toEqual({ units: [], hiddenByKind: 0 });
+		expect(units.options('L', true)).toEqual({ units: [], hiddenByKind: 0 });
+		expect(units.toBase('L', 3, '')).toEqual({ ok: true, value: 3 });
+		expect(units.isExact('L', '')).toBe(true);
+	});
+
+	it('keeps a unit-one term convertible to the other units of its kind', () => {
+		expect(units.baseUnit('r')).toBe('one');
+		expect(units.options('r', false).units.map((u) => u.slug)).toEqual(['percent', 'one']);
+	});
+
+	it('solves a level from a ratio as the number typed, with no unit', () => {
+		const run = solveInUnits(
+			LEVEL,
+			fns,
+			{ fields: ['L', 'r'], raw: { r: '1000' }, constants: {}, selected: {} },
+			units,
+		);
+		expect(run.outcome).toMatchObject({ ok: true, value: { symbol: 'L', unit: '', value: 3 } });
+	});
+
+	it('recognises the unit one by dimension, factor and offset, not by name', () => {
+		expect(isUnitOne(unit('one', [], ONE, '1'))).toBe(true);
+		expect(isUnitOne(unit('percent', [], ONE, '0.01'))).toBe(false);
+		expect(isUnitOne(unit('joule', [], ENERGY, '1'))).toBe(false);
+		expect(isUnitOne(unit('shifted', [], ONE, '1', { offset: '1' }))).toBe(false);
 	});
 });
 

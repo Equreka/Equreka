@@ -295,7 +295,9 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 	return { issues, artifacts };
 }
 
-function buildEngineSlice(input: EmitInput): EngineSlice {
+export function buildEngineSlice(
+	input: Pick<EmitInput, 'corpus' | 'resolved' | 'contentHash'>,
+): EngineSlice {
 	const { corpus, resolved } = input;
 	const slice: EngineSlice = {
 		schemaVersion: SCHEMA_VERSION,
@@ -308,11 +310,23 @@ function buildEngineSlice(input: EmitInput): EngineSlice {
 	};
 	for (const [slug, magnitude] of corpus.magnitudes) {
 		const baseUnit = resolved.get(magnitude.baseUnit);
+		const displayUnit =
+			magnitude.displayUnit === undefined ? undefined : corpus.units.get(magnitude.displayUnit);
 		slice.magnitudes[slug] = {
 			slug,
 			name: magnitude.name,
 			symbolTex: magnitude.symbol.tex,
 			baseUnit: magnitude.baseUnit,
+			...(magnitude.displayUnit === undefined || displayUnit === undefined
+				? {}
+				: {
+						displayUnit: {
+							slug: magnitude.displayUnit,
+							name: displayUnit.name,
+							symbolTex: displayUnit.symbol.tex,
+							symbolText: symbolText(displayUnit.symbol),
+						},
+					}),
 			dimension: baseUnit?.dimension ?? [0, 0, 0, 0, 0, 0, 0, 0],
 			...(magnitude.kindOf === undefined ? {} : { kindOf: magnitude.kindOf }),
 			nonNegative: magnitude.nonNegative,

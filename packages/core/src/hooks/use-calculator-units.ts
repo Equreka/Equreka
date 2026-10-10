@@ -5,15 +5,31 @@ import type { CompiledEquationMeta, CompiledUnit } from '@equreka/schema';
 import { useCallback, useMemo, useState } from 'react';
 
 /**
- * What resolves a term's base unit: `magnitudes` needs only `baseUnit`, so
- * the web converter payload and the mobile engine slice both satisfy it;
- * `variables` maps a variable slug to its `defaultUnit`. Callers keep the
- * object referentially stable — the hook memoizes on it.
+ * What resolves a term's base unit: `magnitudes` needs only `baseUnit` and
+ * the presence of `displayUnit`, so the web converter payload and the
+ * mobile engine slice both satisfy it; `variables` maps a variable slug to
+ * its `defaultUnit`. Callers keep the object referentially stable — the
+ * hook memoizes on it.
  */
 export interface CalculatorUnitSource {
 	registry: UnitRegistry;
-	magnitudes: Readonly<Record<string, { baseUnit: string }>>;
+	magnitudes: Readonly<
+		Record<string, { baseUnit: string; displayUnit?: { slug: string } | undefined }>
+	>;
 	variables?: Readonly<Record<string, { defaultUnit?: string | undefined }>> | undefined;
+}
+
+/**
+ * The unit one, symbol 1: dimension one at factor 1, offset 0. A
+ * calculator prints no symbol after a value in it, so a ratio reads
+ * "η = 0.8"; unit pages, reference tables and the converter keep the 1.
+ */
+export function isUnitOne(unit: Pick<CompiledUnit, 'dimension' | 'factor' | 'offset'>): boolean {
+	return (
+		unit.dimension.every((exponent) => exponent === 0) &&
+		Number(unit.factor) === 1 &&
+		Number(unit.offset) === 0
+	);
 }
 
 /**
@@ -29,7 +45,10 @@ export interface CalculatorUnitOptions {
 /**
  * Per-term unit logic over one equation. Every term's base unit is what
  * solveEquation expects (magnitude → baseUnit, variable → defaultUnit,
- * symbol → its unit; '' when the term is unitless). A `delta` term (ΔT)
+ * symbol → its unit; '' when the term is unitless). A magnitude with a
+ * display unit (a level in dB) also has base unit '': its value is the
+ * number as typed, so nothing converts and no unit is offered, and the
+ * screen prints the display unit's symbol. A `delta` term (ΔT)
  * converts with convertDelta, factors only, and is offered affine units
  * (°C, °F), since an interval of 10 °C is 10 K. Every other term is
  * offered linear units only: convert() and convertDelta() agree on those,
@@ -69,8 +88,12 @@ export function createCalculatorUnits(
 	function baseUnit(key: string): string {
 		const term = meta.terms[key];
 		switch (term?.kind) {
-			case 'magnitude':
-				return term.ref === undefined ? '' : (source.magnitudes[term.ref]?.baseUnit ?? '');
+			case 'magnitude': {
+				const magnitude = term.ref === undefined ? undefined : source.magnitudes[term.ref];
+				return magnitude === undefined || magnitude.displayUnit !== undefined
+					? ''
+					: magnitude.baseUnit;
+			}
 			case 'variable':
 				return term.ref === undefined ? '' : (source.variables?.[term.ref]?.defaultUnit ?? '');
 			case 'symbol':
