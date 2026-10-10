@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Iluminancia de una superficie iluminada uniformemente'
+description: >-
+  La iluminancia de una superficie es el flujo luminoso que cae sobre ella dividido entre su área.
+  Cuando la luz se reparte de manera uniforme, este cociente da la iluminancia en cada punto; cuando
+  no, da el promedio sobre la superficie. La fórmula conecta los lúmenes que emite una lámpara con
+  los lux que mide un luxómetro sobre una mesa, un suelo o una pared.
+
+  La iluminancia $\mag{E_\mathrm{v}}$ se expresa en lux, el flujo luminoso $\mag{\Phi_\mathrm{v}}$
+  que llega a la superficie en lúmenes y el área $\mag{A}$ en metros cuadrados; un lux es un lumen
+  por metro cuadrado. Las tres son positivas, y el flujo que se cuenta es solo la parte que llega de
+  verdad a la superficie, no la emisión total de la fuente.
+
+  El flujo luminoso es la potencia radiante ponderada por la sensibilidad del ojo humano, así que la
+  iluminancia describe con qué intensidad se ilumina una superficie para la visión humana. La CIE
+  define la iluminancia en un punto como la densidad de flujo luminoso incidente respecto del área,
+  el límite de este cociente para un trozo muy pequeño alrededor del punto.
+
+  La fórmula solo da un valor puntual exacto con iluminación uniforme. Bajo una sola lámpara, la luz
+  suele ser más fuerte debajo de ella que en los bordes de una habitación, y el cociente es entonces
+  un promedio. Además solo cuenta la luz que cae sobre la superficie: la que la superficie refleja o
+  emite se describe con otras magnitudes, como la luminancia. Su equivalente radiométrico, la
+  irradiancia, usa la potencia sin ponderar en vatios por metro cuadrado.
+
+  Los diseñadores de iluminación usan la fórmula al revés para estimar cuántos lúmenes necesita una
+  sala. Una lámpara cuyos 1700 lúmenes caen de manera uniforme sobre 4 metros cuadrados da 425 lux.

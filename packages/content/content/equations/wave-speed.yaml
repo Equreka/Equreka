@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Wave speed'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{v}=\mag{f}\mag{\lambda}'
+terms:
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  f:
+    kind: 'magnitude'
+    ref: 'frequency'
+  \lambda:
+    kind: 'magnitude'
+    ref: 'wavelength'
+solutions:
+  v: 'f * lambda'
+  f: 'v / lambda'
+  \lambda: 'v / f'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'v = f lambda'
+  - 'v = f λ'
+  - 'wave speed equation'
+  - 'speed of a wave'
+  - 'wave velocity'
+  - 'phase speed'
+  - 'velocidad de una onda'
+  - 'velocidad de propagación'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 16.1 Traveling Waves'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/16-1-traveling-waves'
+  - title: 'OpenStax, University Physics Volume 1, 16.2 Mathematics of Waves'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/16-2-mathematics-of-waves'
+  - title: 'HyperPhysics (Georgia State University), Traveling wave relationships'
+    url: 'https://hyperphysics.gsu.edu/hbase/Waves/wavsol.html'
+description:
+  en: >-
+    The wave speed relation states that a periodic wave travels at a speed equal to its frequency
+    multiplied by its wavelength. It is the central relation of wave kinematics in waves and
+    oscillations, and it applies to waves on strings, water waves, sound and light alike: knowing
+    any two of the three quantities fixes the third.
+
+    Here $\mag{v}$ is the speed of the wave, the rate at which a crest moves through the medium, in
+    metres per second; $\mag{f}$ is the frequency, the number of crests passing a fixed point each
+    second, in hertz; and $\mag{\lambda}$ is the wavelength, the distance between neighbouring
+    crests, in metres. All three are non-negative; the direction of travel is not part of the
+    relation and must be stated separately.
+
+    During one period each crest moves forward into the place of the crest ahead of it, so the wave
+    advances one wavelength per period. Dividing that distance by the period, the reciprocal of the
+    frequency, gives the speed as the wavelength multiplied by the frequency; the equivalent form
+    with the period is the wave speed from the period.
+
+    The source sets the frequency, while the medium sets the speed: the tension and mass of a
+    string, the temperature of the air or the refractive index of glass. When a wave crosses into a
+    slower medium its frequency stays the same and its wavelength shrinks in proportion. In a
+    dispersive medium, where waves of different frequency travel at different speeds, the relation
+    gives the speed of a single crest pattern, the phase speed, rather than the speed at which a
+    pulse carries energy.
+
+    A wave sent along a string at 2.00 hertz that travels at 5.00 metres per second has a wavelength
+    of 2.50 metres. The same relation turns the frequency of a radio station into the length of its
+    waves, and the pitch of a note into the size of the pipe or string that sounds it.

@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Sound intensity level in decibels'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{L_{I}}=10\log_{10}\left(\frac{\mag{I}}{\const{I_{0}}}\right)'
+terms:
+  L_{I}:
+    kind: 'magnitude'
+    ref: 'sound-intensity-level'
+  I:
+    kind: 'magnitude'
+    ref: 'sound-intensity'
+  I_{0}:
+    kind: 'constant'
+    ref: 'threshold-of-hearing-intensity'
+solutions:
+  L_{I}: '10 * log10(I / I_0)'
+  I: 'I_0 * 10^(L_I / 10)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'decibel formula'
+  - 'decibel scale'
+  - 'sound level formula'
+  - 'intensity level formula'
+  - 'beta = 10 log(I/I0)'
+  - 'fórmula del decibelio'
+  - 'fórmula del nivel de intensidad'
+references:
+  - title: 'OpenStax, College Physics 2e, 17.3 Sound Intensity and Sound Level, Example 17.2'
+    url: 'https://openstax.org/books/college-physics-2e/pages/17-3-sound-intensity-and-sound-level'
+  - title: 'OpenStax, University Physics Volume 1, 17.3 Sound Intensity'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/17-3-sound-intensity'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 note (m): neper, bel and decibel'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'ISO 1683:2015, Acoustics, Preferred reference values for acoustical and vibratory levels, Table 1 (preview)'
+    url: 'https://cdn.standards.iteh.ai/samples/64648/c189c8c51eec455985692ae5b2672cad/ISO-1683-2015.pdf'
+description:
+  en: >-
+    The sound intensity level in decibels is ten times the base-ten logarithm of a sound intensity
+    divided by the reference intensity of one picowatt per square metre. In acoustics this decibel
+    formula converts an intensity in watts per square metre into the level that tables of everyday
+    sounds quote, and it is also the rule for turning a level back into an intensity.
+
+    Here $\mag{L_{I}}$ is the sound intensity level, a number of decibels; it can be negative, and
+    because the decibel is not a linear unit it is entered and returned as a plain number. $\mag{I}$
+    is the sound intensity, in watts per square metre, which must be greater than zero.
+    $\const{I_{0}}$ is the reference sound intensity, exactly $10^{-12}\,\mathrm{W/m^{2}}$, fixed at
+    that value by ISO 1683; it lies close to the faintest sound that normal hearing detects at 1000
+    hertz.
+
+    The logarithm turns ratios of intensity into differences of level. Multiplying the intensity by
+    ten adds 10 decibels, by a hundred adds 20, and doubling it adds about 3. An intensity equal to
+    the reference gives 0 decibels, and one a million million times larger, one watt per square
+    metre, gives 120. Read the other way, the intensity is the reference times ten raised to a tenth
+    of the level.
+
+    The value means something only with its reference, which the SI Brochure requires to be stated
+    with every level; sound pressure level, built from sound pressure against 20 micropascals, is a
+    different quantity. The formula is a definition and holds for any positive intensity; an
+    intensity of zero has no level.
+
+    The bel, of which the decibel is a tenth, is named after Alexander Graham Bell. A sound of
+    $5.04\times10^{-4}$ watts per square metre has a level of about 87 decibels.

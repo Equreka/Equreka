@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Nivel de intensidad del sonido'
+description: >-
+  El nivel de intensidad del sonido, de símbolo $L_{I}$, es una medida logarítmica de la intensidad
+  del sonido: diez veces el logaritmo decimal del cociente entre una intensidad y una intensidad de
+  referencia fija, expresado en decibelios. En acústica convierte el enorme intervalo de
+  intensidades audibles en una escala corta de números cotidianos, y la física introductoria suele
+  escribirlo con la letra griega $\beta$.
+
+  El folleto del SI incluye el belio y el decibelio entre las unidades no SI empleadas en campos
+  especializados: un nivel de m decibelios significa que m es igual a diez veces el logaritmo
+  decimal del cociente, y deben indicarse tanto la magnitud como su valor de referencia. Para la
+  intensidad del sonido, la norma ISO 1683 fija esa referencia en un picovatio por metro cuadrado,
+  cerca del sonido más débil que se oye a 1000 hercios. El nivel es una magnitud de dimensión uno,
+  así que un cálculo lo trata como un número puro igual a la cantidad de decibelios; el decibelio
+  indica cómo se formó ese número en lugar de convertirse linealmente en otra unidad.
+
+  El nivel es un escalar con signo. Cero decibelios corresponde a una intensidad igual a la de
+  referencia, y un nivel negativo a una intensidad menor. Cada factor de diez en la intensidad suma
+  10 decibelios y cada duplicación suma unos 3, de modo que un sonido de 90 decibelios es mil veces
+  más intenso que uno de 60, y pasos iguales en la escala son cocientes iguales de intensidad.
+
+  El susurro de las hojas ronda los 10 decibelios, una conversación normal los 60, el tráfico denso
+  los 70, un concierto de rock fuerte los 120, donde el sonido empieza a doler, y un avión a
+  reacción situado a 30 metros los 140.
+
+  El nivel no es la intensidad misma, que es una potencia por unidad de área en vatios por metro
+  cuadrado, ni la sonoridad que percibe quien escucha. El nivel de presión sonora es otro nivel,
+  construido a partir de la presión sonora, con una referencia de 20 micropascales en el aire fijada
+  por la misma norma ISO. El belio, diez decibelios, debe su nombre a Alexander Graham Bell, el
+  inventor del teléfono.

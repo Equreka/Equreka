@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Relation between period and frequency'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{T}=\frac{1}{\mag{f}}'
+terms:
+  T:
+    kind: 'magnitude'
+    ref: 'period'
+  f:
+    kind: 'magnitude'
+    ref: 'frequency'
+solutions:
+  T: '1 / f'
+  f: '1 / T'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'T = 1/f'
+  - 'f = 1/T'
+  - 'period from frequency'
+  - 'frequency from period'
+  - 'period and frequency'
+  - 'periodo y frecuencia'
+  - 'frecuencia y periodo'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 15.1 Simple Harmonic Motion'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/15-1-simple-harmonic-motion'
+  - title: 'OpenStax, University Physics Volume 1, 16.1 Traveling Waves'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/16-1-traveling-waves'
+  - title: 'HyperPhysics (Georgia State University), Traveling wave relationships'
+    url: 'https://hyperphysics.gsu.edu/hbase/Waves/wavsol.html'
+description:
+  en: >-
+    The relation between period and frequency says that the period of a repeating process is the
+    reciprocal of its frequency: the more cycles fit into one second, the shorter each cycle lasts.
+    It applies to oscillations, rotations and waves alike, and it is the usual first step in waves
+    and oscillations for passing from a frequency read on a dial to a duration measured with a
+    clock.
+
+    Here $\mag{T}$ is the period, the duration of one complete cycle, in seconds, and $\mag{f}$ is
+    the frequency, the number of cycles completed per unit time, in hertz; one hertz is one cycle
+    per second. Both quantities are non-negative, so the relation carries no sign convention: the
+    direction in which something moves, turns or travels plays no part in it.
+
+    If a process repeats a given number of times each second, that second is shared among the same
+    number of identical cycles, so each cycle lasts the reciprocal of that number. The argument runs
+    equally well in reverse, which is why either quantity fixes the other and why their product is
+    always exactly one.
+
+    The relation assumes a strictly periodic process, one whose cycles all take the same time. For a
+    motion whose rate drifts, such as a swing slowly losing energy to friction, it gives only the
+    average over the cycles that were timed. For a wave, both quantities describe the oscillation
+    seen at one fixed point; the frequency is set by the source and does not change when the wave
+    enters another medium.
+
+    Timing many cycles and dividing by their number gives an accurate period, and the reciprocal
+    then gives the frequency. The same relation converts the specification of an oscillator: a
+    medical ultrasound transducer whose oscillation period is 0.400 microseconds works at a
+    frequency of 2.50 megahertz.

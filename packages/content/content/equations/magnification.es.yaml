@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Aumento de una lente o un espejo'
+terms:
+  m:
+    label: 'Aumento'
+  d_\mathrm{i}:
+    label: 'Distancia de la imagen'
+  d_\mathrm{o}:
+    label: 'Distancia del objeto'
+description: >-
+  El aumento de una imagen formada por una lente delgada o un espejo esférico, llamado también
+  aumento lateral o lineal, es la razón entre la altura de la imagen y la del objeto, y es igual a
+  menos la distancia de la imagen dividida entre la distancia del objeto. La relación indica el
+  tamaño de una imagen y si está derecha o invertida, una vez que la ecuación de las lentes delgadas
+  o la de los espejos la han situado.
+
+  El aumento $\var{m}$ es un número puro. La distancia de la imagen $\var{d_\mathrm{i}}$ y la
+  distancia del objeto $\var{d_\mathrm{o}}$ son longitudes en metros con los signos del convenio de
+  real positivo de OpenStax: un objeto real tiene distancia positiva, una imagen real distancia
+  positiva y una imagen virtual, negativa. Un aumento negativo indica una imagen invertida, y uno
+  positivo, una imagen derecha; un valor absoluto mayor que uno indica una imagen mayor que el
+  objeto, y uno menor que uno, una imagen más pequeña.
+
+  El rayo que pasa por el centro de una lente no se desvía, así que el extremo del objeto, el extremo
+  de su imagen y el centro de la lente están en una misma recta. Los dos triángulos rectángulos que
+  esa recta forma con el eje son semejantes, y sus alturas guardan la misma razón que sus
+  distancias; el signo menos recoge que una imagen real queda al otro lado del eje que su objeto.
+
+  La relación comparte las hipótesis de las ecuaciones de las lentes delgadas y de los espejos:
+  lentes delgadas o espejos pequeños, y rayos cercanos al eje. Describe el tamaño de la propia
+  imagen, no el aumento angular de una lupa, un telescopio o un microscopio, que compara los ángulos
+  con que el ojo ve un objeto con el instrumento y sin él.
+
+  Una imagen real formada 1.50 metros detrás de una lente a partir de un objeto situado 0.750 metros
+  delante tiene un aumento de menos 2.00: el doble de alta que el objeto e invertida.

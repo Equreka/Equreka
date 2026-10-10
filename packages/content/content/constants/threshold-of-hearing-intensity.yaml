@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Reference sound intensity'
+symbol:
+  tex: 'I_{0}'
+  text: 'I_0'
+value: '1e-12'
+unit: 'watt-per-square-metre'
+exact: true
+source:
+  name: 'convention'
+  url: 'https://cdn.standards.iteh.ai/samples/64648/c189c8c51eec455985692ae5b2672cad/ISO-1683-2015.pdf'
+  ref: 'ISO 1683:2015, Table 1: sound intensity, reference value 1 pW/m2'
+externalIds:
+  wikidata: 'Q106368671'
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'threshold of hearing intensity'
+  - 'threshold of hearing'
+  - 'threshold intensity'
+  - 'reference intensity'
+  - 'I0'
+  - 'umbral de audición'
+  - 'intensidad umbral'
+references:
+  - title: 'ISO 1683:2015, Acoustics, Preferred reference values for acoustical and vibratory levels, Introduction and Tables 1 and 2 (preview)'
+    url: 'https://cdn.standards.iteh.ai/samples/64648/c189c8c51eec455985692ae5b2672cad/ISO-1683-2015.pdf'
+  - title: 'OpenStax, College Physics 2e, 17.3 Sound Intensity and Sound Level'
+    url: 'https://openstax.org/books/college-physics-2e/pages/17-3-sound-intensity-and-sound-level'
+  - title: 'OpenStax, University Physics Volume 1, 17.3 Sound Intensity'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/17-3-sound-intensity'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 note (m): reference values of logarithmic ratio quantities'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+description:
+  en: >-
+    The reference sound intensity, symbol $I_{0}$, is exactly $10^{-12}\,\mathrm{W/m^{2}}$, one
+    picowatt per square metre. Being fixed by agreement, not measured, it carries no uncertainty:
+    ISO 1683 sets it as the reference for sound intensity levels in air and other gases, and the
+    same value serves for water and other liquids. Because it lies close to the weakest sound that
+    normal hearing detects, it is also called the threshold of hearing intensity.
+
+    Physically it stands for a tone of 1000 hertz at the edge of audibility for a person with normal
+    hearing. The standard notes that the reference decides whether a level comes out positive or
+    negative, and that levels of one kind are best kept consistently positive; a reference this low
+    does that for ordinary sounds, while a sound fainter than it has a negative level. ISO writes
+    each such reference as the number one times an SI unit with a suitable prefix, here the picowatt
+    per square metre.
+
+    The reference appears in the sound intensity level, ten times the base-ten logarithm of an
+    intensity divided by it. An intensity equal to the reference gives 0 decibels, and a loud rock
+    concert at one watt per square metre is a million million times the reference, or 120 decibels.
+    The SI Brochure requires the reference to be stated with any level given in decibels, since the
+    same number of decibels means different intensities against different references.
+
+    The value quoted here comes from the third edition of ISO 1683, published in 2015, which
+    replaced the edition of 2008. Its table for air lists this intensity beside one picowatt of
+    sound power and 20 micropascals of sound pressure, the references for sound power level and
+    sound pressure level.

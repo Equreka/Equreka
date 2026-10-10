@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ecuación de los espejos'
+terms:
+  d_\mathrm{o}:
+    label: 'Distancia del objeto'
+  d_\mathrm{i}:
+    label: 'Distancia de la imagen'
+  f:
+    label: 'Distancia focal'
+description: >-
+  La ecuación de los espejos da la posición de la imagen que forma un espejo curvo esférico: el
+  inverso de la distancia del objeto más el inverso de la distancia de la imagen es igual al inverso
+  de la distancia focal. Tiene la misma forma que la ecuación de las lentes delgadas y localiza las
+  imágenes de los reflectores cóncavos, de los espejos de maquillaje y de los espejos convexos de
+  visión amplia que se usan por seguridad.
+
+  La distancia del objeto $\var{d_\mathrm{o}}$, la distancia de la imagen $\var{d_\mathrm{i}}$ y la
+  distancia focal $\var{f}$ son longitudes en metros medidas desde el espejo a lo largo de su eje.
+  Los signos siguen el convenio de real positivo de OpenStax: la distancia del objeto es positiva
+  para un objeto real delante del espejo; la distancia de la imagen es positiva para una imagen real
+  delante del espejo, del mismo lado que el objeto, y negativa para una imagen virtual detrás de él;
+  la distancia focal es positiva en un espejo cóncavo, convergente, y negativa en uno convexo,
+  divergente.
+
+  Un rayo paralelo al eje se refleja pasando por el foco, y un rayo que pasa por el centro de
+  curvatura vuelve sobre sí mismo; los triángulos que forman dan la ecuación. La distancia focal de
+  un espejo esférico es la mitad de su radio de curvatura, así que un espejo cóncavo forma la imagen
+  real de un objeto lejano a la mitad del radio, y un objeto más cerca que el foco da una imagen
+  virtual y ampliada detrás del espejo. Un espejo convexo da siempre una imagen virtual y pequeña.
+
+  La ecuación se basa en rayos paraxiales: el espejo debe ser pequeño frente a su radio de curvatura
+  para que todos los ángulos sigan siendo pequeños. Los espejos amplios sufren aberración esférica y
+  no reúnen todos los rayos paralelos en un punto. Algunos textos usan un convenio de signos
+  cartesiano, que cambia los signos pero no la física. La misma relación, con los mismos signos,
+  sirve para las lentes delgadas como ecuación de las lentes delgadas.
+
+  OpenStax resuelve un reflector cóncavo de 50.0 centímetros de radio cuya imagen está a 3.00
+  metros: el objeto queda entonces a unos 27.3 centímetros del espejo.

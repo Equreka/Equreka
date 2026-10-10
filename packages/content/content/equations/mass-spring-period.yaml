@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Period of a mass on a spring'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{T}=2\const{\pi}\sqrt{\frac{\mag{m}}{\var{k}}}'
+terms:
+  T:
+    kind: 'magnitude'
+    ref: 'period'
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  k:
+    kind: 'symbol'
+    label:
+      en: 'Spring constant'
+    unit: 'newton-per-metre'
+solutions:
+  T: '2 * pi * sqrt(m / k)'
+  m: 'k * (T / (2 * pi))^2'
+  k: 'm * (2 * pi / T)^2'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'T = 2 pi sqrt(m/k)'
+  - 'spring period'
+  - 'mass-spring system'
+  - 'spring-mass oscillator'
+  - 'period of a spring oscillator'
+  - 'oscilador masa-resorte'
+  - 'periodo de un resorte'
+  - 'masa y muelle'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 15.1 Simple Harmonic Motion'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/15-1-simple-harmonic-motion'
+  - title: 'HyperPhysics (Georgia State University), Simple harmonic motion: mass on a spring'
+    url: 'https://hyperphysics.gsu.edu/hbase/shm2.html'
+description:
+  en: >-
+    The period of a mass on a spring is the time a body attached to an ideal spring takes to
+    complete one oscillation: two pi times the square root of the mass divided by the spring
+    constant. It is the model system of simple harmonic motion in waves and oscillations, and it
+    describes any body held by a linear restoring force, from a vehicle on its suspension to a
+    weight bobbing on a spring.
+
+    Here $\mag{T}$ is the period in seconds, the time of one full oscillation; $\mag{m}$ is the mass
+    of the oscillating body in kilograms; and $\var{k}$ is the spring constant in newtons per metre,
+    the force needed per metre of stretch, positive and larger for a stiffer spring. All three
+    quantities are positive.
+
+    Hooke's law gives a restoring force proportional to the displacement from equilibrium and
+    opposite to it, so the acceleration is proportional to the displacement and opposite to it,
+    which is the defining property of simple harmonic motion. Solving that motion gives an angular
+    frequency equal to the square root of k over m, and dividing two pi by it gives the period. A
+    heavier body responds more sluggishly and lengthens the period; a stiffer spring shortens it.
+
+    The period does not depend on the amplitude, as long as the spring obeys Hooke's law over the
+    whole stretch. The formula treats the spring as massless and neglects damping by friction or air
+    resistance; a spring whose own mass is not small compared with the load, or a motion that dies
+    away quickly, needs a corrected model.
+
+    Read backwards, the formula gives a spring constant from a timed oscillation, or an unknown mass
+    from a calibrated spring. A 2.00-kilogram block on a spring with a constant of 32.00 newtons per
+    metre oscillates with a period of about 1.57 seconds.

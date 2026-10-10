@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Número de ondas'
+description: >-
+  El número de ondas, llamado también frecuencia espacial, es el inverso de la longitud de onda:
+  cuenta cuántas longitudes de onda caben en una unidad de longitud a lo largo de la dirección de
+  propagación. La norma ISO 80000-3 y el Libro Verde de la IUPAC lo definen como $\sigma=1/\lambda$,
+  y ese es el sentido que se usa aquí; el número de ondas angular, mayor en un factor dos pi, es una
+  magnitud distinta.
+
+  La unidad SI es el metro recíproco, $\mathrm{m^{-1}}$, y su dimensión es la inversa de una
+  longitud. La 13.ª CGPM, reunida en 1967 y 1968, añadió el número de ondas con la unidad uno por
+  metro a la lista de unidades derivadas del SI. En espectroscopia se expresa casi siempre en
+  centímetros recíprocos, y un centímetro recíproco equivale a 100 metros recíprocos. La
+  espectroscopia prefiere el símbolo alternativo, nu con tilde.
+
+  El número de ondas es un escalar y nunca es negativo. Indica lo finamente que una onda se divide
+  en el espacio, igual que la frecuencia indica lo finamente que se divide en el tiempo. Para la luz
+  en el vacío es la frecuencia dividida entre la velocidad de la luz, así que las líneas espectrales
+  se rotulan por su número de ondas sin pasar a energía.
+
+  La luz visible, con longitudes de onda de unos 400 a 750 nanómetros, tiene números de ondas de
+  aproximadamente 1.3 millones a 2.5 millones de metros recíprocos. La constante de Rydberg, que
+  fija la escala del espectro del hidrógeno, es un número de ondas de 10 973 731.568 157 metros
+  recíprocos. Una onda sonora de un metro de longitud de onda tiene un metro recíproco de número de
+  ondas.
+
+  El número de ondas angular, $k=2\pi/\lambda$, se mide en radianes por metro y es la magnitud que
+  aparece junto a la frecuencia angular en la función de onda de una onda viajera. Muchos textos
+  intercambian ambos nombres, así que hay que comprobar el factor dos pi antes de usar un valor.
+  Como la magnitud no es un número puro, el Libro Verde señala que la ISO propone en inglés el
+  nombre paralelo repetency, y advierte contra llamar número de ondas a la propia unidad.

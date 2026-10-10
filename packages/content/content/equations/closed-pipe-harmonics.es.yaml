@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Armónicos de un tubo cerrado en un extremo'
+terms:
+  n:
+    label: 'Número de armónico (impar)'
+  L:
+    label: 'Longitud del tubo'
+description: >-
+  Los armónicos de un tubo cerrado en un extremo son las frecuencias a las que resuena la columna de
+  aire de su interior: múltiplos enteros impares de la frecuencia fundamental, que es igual a la
+  rapidez del sonido dividida entre cuatro veces la longitud del tubo. En ondas y oscilaciones la
+  regla explica el tono de los tubos de órgano tapados y de los tubos de resonancia con los que se
+  mide la rapidez del sonido.
+
+  Aquí $\mag{f_{n}}$ es la frecuencia del armónico n-ésimo en hercios; $\var{n}$ es el número de
+  armónico, que debe ser impar, uno para la fundamental y después tres, cinco, etcétera; $\mag{v}$
+  es la rapidez del sonido en el aire del tubo en metros por segundo, y $\var{L}$ es la longitud de
+  la columna de aire en metros. La imparidad es una condición física que la fórmula no impone: un
+  valor par de $\var{n}$ da una frecuencia que el tubo no puede producir. Todas las magnitudes son
+  positivas.
+
+  En el extremo cerrado el aire no puede moverse, así que ese extremo es un nodo de la onda sonora
+  estacionaria, mientras que el extremo abierto es un antinodo. El patrón más sencillo encaja un
+  cuarto de longitud de onda en el tubo, de modo que la longitud de onda fundamental es cuatro veces
+  la longitud; los patrones siguientes añaden medias longitudes de onda, con tres, cinco y más
+  cuartos de longitud de onda. Un armónico par exigiría un nodo en el extremo abierto, y por eso no
+  aparece ninguno.
+
+  La regla supone un tubo estrecho de sección uniforme y aire a temperatura uniforme, porque la
+  rapidez del sonido depende de la temperatura. Como el antinodo del extremo abierto queda un poco
+  fuera de la boca, la longitud efectiva supera a la física en unas seis décimas del radio del tubo.
+  Un tubo abierto en ambos extremos sigue otra regla que incluye todos los armónicos.
+
+  Un tubo cerrado en un extremo que da una fundamental de 128 hercios en aire a 22.0 grados Celsius,
+  donde el sonido viaja a 344 metros por segundo, mide 0.672 metros; su noveno armónico ronda los
+  1.15 kilohercios.

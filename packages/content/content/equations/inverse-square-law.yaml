@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Inverse-square law for sound intensity'
+kind: 'equation'
+level: 'intro'
+expression: '\var{I_{2}}=\var{I_{1}}\left(\frac{\var{r_{1}}}{\var{r_{2}}}\right)^{2}'
+terms:
+  I_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Intensity at the first distance'
+    unit: 'watt-per-square-metre'
+  I_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Intensity at the second distance'
+    unit: 'watt-per-square-metre'
+  r_{1}:
+    kind: 'symbol'
+    label:
+      en: 'First distance from the source'
+    unit: 'metre'
+  r_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Second distance from the source'
+    unit: 'metre'
+solutions:
+  I_{2}: 'I_1 * (r_1 / r_2)^2'
+  I_{1}: 'I_2 * (r_2 / r_1)^2'
+  r_{1}: 'r_2 * sqrt(I_2 / I_1)'
+  r_{2}: 'r_1 * sqrt(I_1 / I_2)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q333094'
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'inverse square law'
+  - 'inverse-square law of sound'
+  - 'sound intensity and distance'
+  - 'ley de la inversa del cuadrado del sonido'
+  - 'ley del inverso del cuadrado'
+  - 'ley cuadrática inversa'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 17.3 Sound Intensity'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/17-3-sound-intensity'
+  - title: 'OpenStax, College Physics 2e, 17.3 Sound Intensity and Sound Level'
+    url: 'https://openstax.org/books/college-physics-2e/pages/17-3-sound-intensity-and-sound-level'
+description:
+  en: >-
+    The inverse-square law for sound intensity states that the intensity of sound from a small
+    source radiating equally in all directions falls with the square of the distance from it. In
+    acoustics it compares the intensities at two distances: the intensity at the second equals the
+    intensity at the first times the square of the ratio of the first distance to the second.
+
+    Here $\var{I_{1}}$ and $\var{I_{2}}$ are the sound intensities at the two places, in watts per
+    square metre, and $\var{r_{1}}$ and $\var{r_{2}}$ are the distances of those places from the
+    source, in metres. All four are positive; either place may be the nearer one.
+
+    The sound power leaving the source spreads over spheres centred on it. The area of a sphere
+    grows with the square of its radius, so the same power is shared over four times the area at
+    twice the distance, and the intensity there is a quarter as large. On the decibel scale each
+    doubling of the distance lowers the sound intensity level by about 6 decibels, and each tenfold
+    increase in distance lowers it by 20.
+
+    The law assumes a source small compared with the distances involved, sending out the same power
+    equally in every direction, in open air with no walls or ground to reflect sound and no
+    absorption along the way. Close to a large source, inside rooms, or over long distances where
+    the air absorbs part of the energy, measured intensities depart from it. Light from a small lamp
+    follows the same geometry, in the inverse-square law for illuminance.
+
+    A sound of $1.0\times10^{-4}$ watts per square metre at 2.0 metres from a small loudspeaker
+    drops to $2.5\times10^{-5}$ at 4.0 metres, from 80 to about 74 decibels.

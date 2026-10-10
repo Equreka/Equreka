@@ -1,0 +1,58 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Decibel'
+symbol:
+  tex: 'dB'
+unitOf:
+  - 'sound-intensity-level'
+system: 'other'
+nonConvertible: true
+externalIds:
+  wikidata: 'Q5329'
+  qudt: 'http://qudt.org/vocab/unit/DeciB'
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'decibels'
+  - 'dB'
+  - 'decibelio'
+  - 'decibeles'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 and note (m): neper, bel and decibel'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Guide to the SI (SP 811), Chapter 5, Table 6: neper, bel and decibel'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si'
+  - title: 'ISO 1683:2015, Acoustics, Preferred reference values for acoustical and vibratory levels, Table 1 (preview)'
+    url: 'https://cdn.standards.iteh.ai/samples/64648/c189c8c51eec455985692ae5b2672cad/ISO-1683-2015.pdf'
+  - title: 'OpenStax, College Physics 2e, 17.3 Sound Intensity and Sound Level'
+    url: 'https://openstax.org/books/college-physics-2e/pages/17-3-sound-intensity-and-sound-level'
+  - title: 'QUDT, unit DeciB'
+    url: 'https://qudt.org/vocab/unit/DeciB'
+description:
+  en: >-
+    The decibel, symbol $\mathrm{dB}$, is a unit for logarithmic ratio quantities: it expresses how
+    many tenths of a power of ten separate a power-like quantity from a stated reference value. In
+    acoustics it is the unit in which sound intensity level and other sound levels are given. It is
+    not an SI unit; the SI Brochure lists it, with the bel and the neper, among the units used in
+    specialized technical fields.
+
+    The SI Brochure defines its use through a rule rather than a factor. A level of m decibels means
+    that m is ten times the decimal logarithm of the ratio of the quantity to its reference, and the
+    Brochure and NIST both require the quantity and the reference value to be named with the result.
+    ISO 1683 fixes the references used in acoustics, among them one picowatt per square metre for
+    sound intensity and 20 micropascals for sound pressure in air.
+
+    One decibel is a tenth of a bel. Because a level is a logarithm, decibels do not convert by a
+    constant factor into any linear unit: 10 decibels above a reference is ten times the reference
+    intensity, 20 decibels a hundred times and 30 a thousand times. Levels in decibels add only in
+    the sense that the underlying ratios multiply.
+
+    QUDT attaches the decibel to sound power level, sound pressure level, sound exposure level and
+    sound reduction index, as well as to base-ten logarithmic ratios in general, each with its own
+    reference.
+
+    The bel takes its name from Alexander Graham Bell, who invented the telephone, and the decibel
+    is the tenth part used in practice. The symbol is dB, with a lowercase d for the prefix deci and
+    a capital B for the bel; the plural is decibels.

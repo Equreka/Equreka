@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Separación entre franjas en el experimento de la doble rendija de Young'
+terms:
+  \Delta y:
+    label: 'Separación entre franjas'
+  D:
+    label: 'Distancia de las rendijas a la pantalla'
+  d:
+    label: 'Separación entre las rendijas'
+description: >-
+  En el experimento de la doble rendija de Young, la luz de una sola longitud de onda que atraviesa
+  dos rendijas estrechas y muy próximas produce en una pantalla lejana una fila de franjas de
+  interferencia brillantes y oscuras igualmente espaciadas. La separación entre franjas, la
+  distancia entre franjas brillantes vecinas, es igual a la longitud de onda por la distancia a la
+  pantalla dividida entre la separación de las rendijas.
+
+  La separación entre franjas $\var{\Delta y}$ es una longitud en metros medida sobre la pantalla.
+  La longitud de onda $\mag{\lambda}$ es la de la luz, $\var{D}$ es la distancia de las rendijas a
+  la pantalla y $\var{d}$ la distancia entre los centros de las dos rendijas, todas en metros y
+  positivas.
+
+  La luz de las dos rendijas llega a un punto de la pantalla por caminos que difieren en la
+  separación de las rendijas por el seno del ángulo respecto a la dirección central. Donde esa
+  diferencia es un número entero de longitudes de onda, las ondas llegan cresta con cresta y aparece
+  una franja brillante; a medio camino, la cresta se encuentra con el valle y la pantalla queda
+  oscura. Para ángulos pequeños, el seno se aproxima a la posición en la pantalla dividida entre la
+  distancia a esta, así que las franjas brillantes sucesivas quedan a pasos iguales cuyo tamaño es
+  la separación entre franjas.
+
+  La relación supone una pantalla mucho más lejana que la separación de las rendijas y franjas cerca
+  del centro, donde los ángulos son pequeños; lejos del centro se separan de forma desigual. También
+  necesita luz de una sola longitud de onda que llegue en fase a las dos rendijas, como la de un
+  láser; la luz blanca da franjas de colores, porque cada longitud de onda tiene su propia
+  separación. La anchura finita de cada rendija modula el brillo de las franjas, pero no su
+  separación.
+
+  Thomas Young realizó el experimento en 1801, y este respaldó la teoría ondulatoria de la luz. Luz
+  láser roja de 633 nanómetros, rendijas separadas 0.100 milímetros y una pantalla a 1.00 metro dan
+  franjas separadas unos 6.33 milímetros.

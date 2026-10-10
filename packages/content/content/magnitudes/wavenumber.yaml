@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Wavenumber'
+symbol:
+  tex: '\sigma'
+  text: 'σ'
+symbolAlt:
+  tex: '\tilde{\nu}'
+  text: 'ν̃'
+baseUnit: 'reciprocal-metre'
+dimension:
+  L: -1
+nonNegative: true
+externalIds:
+  wikidata: 'Q192510'
+  qudt: 'http://qudt.org/vocab/quantitykind/Wavenumber'
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'wave number'
+  - 'repetency'
+  - 'spatial frequency'
+  - 'reciprocal wavelength'
+  - 'inverse wavelength'
+  - 'número de onda'
+references:
+  - title: 'Wikidata, wavenumber (Q192510): defining formula and symbols referenced to ISO 80000-3:2019, item 3-20'
+    url: 'https://www.wikidata.org/wiki/Q192510'
+  - title: 'Wikidata, angular wavenumber (Q30338487): defining formula referenced to ISO 80000-3:2019, item 3-22'
+    url: 'https://www.wikidata.org/wiki/Q30338487'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry (Green Book), 3rd ed., Sections 2.6 and 2.7'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 5 and Appendix 1 (13th CGPM, 1967/68, Resolution 6)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, quantity kind Wavenumber'
+    url: 'https://qudt.org/vocab/quantitykind/Wavenumber'
+  - title: 'OpenStax, University Physics Volume 1, 16.2 Mathematics of Waves'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/16-2-mathematics-of-waves'
+  - title: 'OpenStax, University Physics Volume 2, 16.5 The Electromagnetic Spectrum'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/16-5-the-electromagnetic-spectrum'
+  - title: 'NIST, CODATA 2022 value: Rydberg constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?ryd'
+description:
+  en: >-
+    Wavenumber, also called repetency or spatial frequency, is the reciprocal of the wavelength of
+    a wave: it counts how many wavelengths fit into one unit of length along the direction of
+    travel. ISO 80000-3 and the IUPAC Green Book define it as $\sigma=1/\lambda$, and that is the
+    meaning used here; the angular wavenumber, larger by a factor of two pi, is a
+    separate quantity.
+
+    The SI unit is the reciprocal metre, $\mathrm{m^{-1}}$, so the dimension is inverse length. The
+    13th CGPM, meeting in 1967 and 1968, added the wave number with the unit one per metre to the
+    list of SI derived units. Spectroscopists nearly always quote it in reciprocal centimetres, and
+    one reciprocal centimetre equals 100 reciprocal metres. The alternative symbol, nu with a tilde,
+    is the one spectroscopy prefers.
+
+    Wavenumber is a scalar and never negative. It describes how finely a wave is divided in space,
+    exactly as frequency describes how finely it is divided in time. For light in vacuum it is the
+    frequency divided by the speed of light, so spectral lines can be labelled by wavenumber without
+    converting to energy.
+
+    Visible light, with wavelengths from about 400 to 750 nanometres, has wavenumbers from about 1.3
+    million to 2.5 million reciprocal metres. The Rydberg constant, which sets the scale of the
+    hydrogen spectrum, is a wavenumber of 10 973 731.568 157 reciprocal metres. A sound wave one
+    metre long has a wavenumber of one reciprocal metre.
+
+    The angular wavenumber, $k=2\pi/\lambda$, is measured in radians per metre and is the quantity
+    that appears with the angular frequency in the wave function of a travelling wave. The two
+    names are often swapped in textbooks, so the factor of two pi must be checked before a value is
+    used. Because the quantity is not a pure number, the Green Book notes that ISO offers repetency
+    as a parallel name, and it warns against calling the unit itself a wavenumber.

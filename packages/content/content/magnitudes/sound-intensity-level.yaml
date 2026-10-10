@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Sound intensity level'
+symbol:
+  tex: 'L_{I}'
+  text: 'L_I'
+symbolAlt:
+  tex: '\beta'
+  text: 'β'
+baseUnit: 'unitless'
+dimension: {}
+externalIds:
+  wikidata: 'Q106368657'
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'intensity level'
+  - 'acoustic intensity level'
+  - 'sound level'
+  - 'SIL'
+  - 'decibel level'
+  - 'nivel de intensidad sonora'
+  - 'nivel de intensidad acústica'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 and note (m): neper, bel and decibel'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'ISO 1683:2015, Acoustics, Preferred reference values for acoustical and vibratory levels, Table 1 (preview)'
+    url: 'https://cdn.standards.iteh.ai/samples/64648/c189c8c51eec455985692ae5b2672cad/ISO-1683-2015.pdf'
+  - title: 'OpenStax, College Physics 2e, 17.3 Sound Intensity and Sound Level, Table 17.2'
+    url: 'https://openstax.org/books/college-physics-2e/pages/17-3-sound-intensity-and-sound-level'
+  - title: 'OpenStax, University Physics Volume 1, 17.3 Sound Intensity'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/17-3-sound-intensity'
+description:
+  en: >-
+    Sound intensity level, symbol $L_{I}$, is a logarithmic measure of sound intensity: ten times
+    the base-ten logarithm of the ratio between an intensity and a fixed reference intensity,
+    expressed in decibels. In acoustics it turns the huge span of audible intensities into a short
+    scale of everyday numbers, and introductory physics often writes it with the Greek letter
+    $\beta$.
+
+    The SI Brochure lists the bel and the decibel among the non-SI units used in specialized fields:
+    a level of m decibels means that m equals ten times the decimal logarithm of the ratio, and the
+    quantity and its reference value must both be stated. For sound intensity, ISO 1683 fixes that
+    reference at one picowatt per square metre, close to the faintest sound heard at 1000 hertz. The
+    level is a quantity of dimension one, so a calculation carries it as a pure number equal to the
+    count of decibels; the decibel records how that number was formed rather than converting
+    linearly into another unit.
+
+    The level is a signed scalar. Zero decibels marks an intensity equal to the reference, and a
+    negative level an intensity below it. Each factor of ten in intensity adds 10 decibels and each
+    doubling adds about 3, so a sound at 90 decibels is a thousand times as intense as one at 60,
+    and equal steps on the scale are equal ratios of intensity.
+
+    Rustling leaves sit near 10 decibels, normal conversation near 60, busy traffic near 70, a loud
+    rock concert near 120, where sound starts to hurt, and a jet airliner 30 metres away near 140.
+
+    The level is not the intensity itself, which is a power per area in watts per square metre, nor
+    the loudness a listener perceives. Sound pressure level is a separate level built from sound
+    pressure, with a reference of 20 micropascals in air set by the same ISO standard. The bel, ten
+    decibels, takes its name from Alexander Graham Bell, who invented the telephone.

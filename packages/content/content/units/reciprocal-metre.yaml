@@ -4,7 +4,9 @@ name:
 symbol:
   tex: 'm^{-1}'
   text: 'm⁻¹'
-unitOf: []
+unitOf:
+  - 'wavenumber'
+  - 'optical-power'
 system: 'si-derived'
 compose:
   of:
@@ -18,6 +20,7 @@ categories:
 branches:
   - 'modern-physics'
   - 'waves-and-oscillations'
+  - 'optics-and-photometry'
 aliases:
   - 'inverse metre'
   - 'inverse meter'
@@ -45,7 +48,8 @@ description:
     The reciprocal metre, symbol $\mathrm{m^{-1}}$, also called the inverse metre or per metre, is
     the coherent SI unit of quantities that count or change per unit length. The best known is the
     wavenumber, the number of wavelengths of a wave that fit in one metre; the Rydberg constant of
-    atomic physics, attenuation coefficients and the curvature of a line are also expressed in it.
+    atomic physics, attenuation coefficients and the curvature of a line are also expressed in it,
+    and so is the optical power of a lens, for which optics uses the special name dioptre.
 
     It is the metre raised to the power minus one and has no special name. The SI Brochure lists it
     as the coherent unit of wavenumber in its table of derived units written in base units, and the
@@ -58,8 +62,8 @@ description:
     reciprocal centimetre, as exactly 100 reciprocal metres.
 
     The values met in practice are often large. The Rydberg constant, the wavenumber scale of the
-    hydrogen spectrum, is close to eleven million reciprocal metres. A curve with a radius of one metre has a
-    curvature of one reciprocal metre.
+    hydrogen spectrum, is close to eleven million reciprocal metres. A curve with a radius of one
+    metre has a curvature of one reciprocal metre.
 
     The symbol can be written as a negative power, $\mathrm{m^{-1}}$, or with a solidus, 1/m. Like
     every unit symbol it takes no plural ending and no full stop.

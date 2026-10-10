@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Magnification of a lens or mirror'
+kind: 'formula'
+level: 'intro'
+expression: '\var{m}=-\frac{\var{d_\mathrm{i}}}{\var{d_\mathrm{o}}}'
+terms:
+  m:
+    kind: 'symbol'
+    label:
+      en: 'Magnification'
+  d_\mathrm{i}:
+    kind: 'symbol'
+    label:
+      en: 'Image distance'
+    unit: 'metre'
+  d_\mathrm{o}:
+    kind: 'symbol'
+    label:
+      en: 'Object distance'
+    unit: 'metre'
+solutions:
+  m: '-d_i / d_o'
+  d_\mathrm{i}: '-m * d_o'
+  d_\mathrm{o}: '-d_i / m'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q675287'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'magnification equation'
+  - 'lateral magnification'
+  - 'linear magnification'
+  - 'transverse magnification'
+  - 'aumento lateral'
+  - 'aumento óptico'
+references:
+  - title: 'OpenStax, College Physics 2e, 25.6 Image Formation by Lenses (magnification, Example 25.6)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/25-6-image-formation-by-lenses'
+  - title: 'OpenStax, College Physics 2e, 25.7 Image Formation by Mirrors'
+    url: 'https://openstax.org/books/college-physics-2e/pages/25-7-image-formation-by-mirrors'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Thin lens equation (linear magnification)'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/geoopt/lenseq.html'
+description:
+  en: >-
+    The magnification of an image formed by a thin lens or a spherical mirror, also called the
+    lateral or linear magnification, is the ratio of the image height to the object height, and it
+    equals minus the image distance divided by the object distance. The relation tells how large
+    an image is and whether it stands upright or inverted, once the thin lens equation or the
+    mirror equation has located it.
+
+    The magnification $\var{m}$ is a pure number. The image distance $\var{d_\mathrm{i}}$ and the
+    object distance $\var{d_\mathrm{o}}$ are lengths in metres with the signs of the real-is-positive
+    convention of OpenStax: a real object has a positive distance, a real image a positive distance
+    and a virtual image a negative one. A negative magnification means an inverted image, a
+    positive one an upright image; an absolute value above one means the image is larger than the
+    object, and one below one that it is smaller.
+
+    The ray through the centre of a lens passes undeviated, so the tip of the object, the tip of its
+    image and the lens centre lie on one straight line. The two right triangles it forms with the axis are similar,
+    and their heights are in the same ratio as their distances; the minus sign records that a real
+    image lies on the other side of the axis from its object.
+
+    The relation shares the assumptions of the thin lens and mirror equations: thin lenses or small
+    mirrors, and rays close to the axis. It describes the size of the image itself, not the angular
+    magnification of a magnifier, telescope or microscope, which compares the angles under which
+    the eye sees an object with and without the instrument.
+
+    A real image formed 1.50 metres behind a lens from an object 0.750 metres in front of it has a
+    magnification of minus 2.00: twice as tall as the object and upside down.

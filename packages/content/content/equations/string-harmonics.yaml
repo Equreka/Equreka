@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Harmonics of a string fixed at both ends'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{f_{n}}=\frac{\var{n}\mag{v}}{2\var{L}}'
+terms:
+  f_{n}:
+    kind: 'magnitude'
+    ref: 'frequency'
+  n:
+    kind: 'symbol'
+    label:
+      en: 'Harmonic number'
+    integer: true
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  L:
+    kind: 'symbol'
+    label:
+      en: 'Length of the string'
+    unit: 'metre'
+solutions:
+  f_{n}: 'n * v / (2 * L)'
+  n: '2 * L * f_n / v'
+  v: '2 * L * f_n / n'
+  L: 'n * v / (2 * f_n)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'f_n = n v / 2L'
+  - 'vibrating string'
+  - 'standing waves on a string'
+  - 'string harmonics'
+  - 'natural frequencies of a string'
+  - 'fundamental frequency of a string'
+  - 'cuerda vibrante'
+  - 'ondas estacionarias en una cuerda'
+  - 'modos normales de una cuerda'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 16.6 Standing Waves and Resonance'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/16-6-standing-waves-and-resonance'
+  - title: 'HyperPhysics (Georgia State University), Vibrating string'
+    url: 'https://hyperphysics.gsu.edu/hbase/Waves/string.html'
+  - title: 'MacTutor History of Mathematics, Marin Mersenne (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Mersenne/'
+description:
+  en: >-
+    The harmonics of a string fixed at both ends are the frequencies at which the string can vibrate
+    as a standing wave: each is a whole-number multiple of the lowest one, the fundamental, which
+    equals the wave speed on the string divided by twice its length. In waves and oscillations this
+    rule explains the pitch of guitars, violins and pianos and the series of overtones that colours
+    their sound.
+
+    Here $\mag{f_{n}}$ is the frequency of the nth harmonic in hertz; $\var{n}$ is the harmonic
+    number, a positive whole number, one for the fundamental, two for the second harmonic or first
+    overtone, and so on; $\mag{v}$ is the speed of transverse waves along the string in metres per
+    second; and $\var{L}$ is the length of the string between its fixed ends in metres. All
+    quantities are positive.
+
+    Both ends are held still, so each must be a node of the standing wave, and a whole number of
+    half wavelengths has to fit between them. The allowed wavelengths are therefore twice the length
+    divided by n, and the wave speed relation turns each one into a frequency. The wave speed itself
+    is a property of the string: the square root of its tension divided by its mass per unit length.
+
+    The rule assumes an ideal, perfectly flexible string with rigidly fixed ends and a uniform mass
+    per unit length. Real strings have some stiffness, and their higher modes drift progressively
+    above the exact whole-number multiples. Tension and length must also stay constant while the
+    string sounds.
+
+    Marin Mersenne was the first to publish the laws of the vibrating string, relating its frequency
+    to its length, its tension and its thickness. A 2.00-metre string carrying waves at 57.15 metres
+    per second has a fundamental of 14.29 hertz and further harmonics at 28.58 and 42.86 hertz.

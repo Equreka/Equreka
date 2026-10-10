@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Rapidez del sonido en un gas ideal'
+terms:
+  \gamma:
+    label: 'Índice adiabático'
+description: >-
+  La rapidez del sonido en un gas ideal es la raíz cuadrada del índice adiabático por la constante
+  molar de los gases por la temperatura absoluta, dividida entre la masa molar del gas. En acústica
+  y termodinámica predice con qué rapidez viaja el sonido por el aire y otros gases a partir de su
+  temperatura y su composición, y da unos 331 metros por segundo en aire seco a 0 grados Celsius.
+
+  Aquí $\mag{v}$ es la rapidez del sonido, en metros por segundo, nunca negativa. $\var{\gamma}$ es
+  el índice adiabático del gas, un número puro que vale 1.40 para el aire. $\const{R}$ es la
+  constante molar de los gases, de unos 8.314 julios por mol y kelvin. $\mag{T}$ es la temperatura
+  termodinámica en kelvin; una lectura en grados Celsius debe convertirse antes sumándole 273.15.
+  $\mag{M}$ es la masa molar del gas, en kilogramos por mol, de unos 0.02897 para el aire seco.
+
+  Una onda sonora es una sucesión de compresiones y rarefacciones que avanza, y su rapidez equilibra
+  cuánto se resiste el gas a ser comprimido frente a cuánta masa hay que poner en movimiento. En un
+  gas ideal ese equilibrio depende solo de la temperatura y de la masa molar, de modo que la presión
+  no aparece: a una temperatura fija, el sonido viaja igual de rápido en el aire de una montaña que
+  al nivel del mar. La rapidez crece con la raíz cuadrada de la temperatura absoluta, y pasa de 331
+  metros por segundo a 0 grados Celsius a 343 a 20 grados; un gas ligero transmite el sonido más
+  deprisa que uno pesado.
+
+  La relación trata el gas como ideal y las compresiones como adiabáticas: se producen y desaparecen
+  tan deprisa que no entra ni sale calor de cada pequeño volumen de gas. No se aplica a líquidos ni
+  a sólidos, donde el sonido es mucho más rápido, unos 1480 metros por segundo en agua dulce y 5960
+  en el acero.
+
+  En aire a 30 grados Celsius la relación da unos 349 metros por segundo, de modo que un tono de 20
+  hercios tiene una longitud de onda de unos 17 metros.

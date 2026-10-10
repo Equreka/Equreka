@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Dioptre'
+symbol:
+  tex: 'D'
+unitOf:
+  - 'optical-power'
+system: 'other'
+compose:
+  of:
+    - unit: 'metre'
+      exp: -1
+externalIds:
+  wikidata: 'Q193933'
+  qudt: 'http://qudt.org/vocab/unit/DIOPTER'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'diopter'
+  - 'diopters'
+  - 'dioptres'
+  - 'dpt'
+  - 'dioptrie'
+references:
+  - title: 'Council Directive 80/181/EEC on units of measurement, consolidated text of 13 June 2020, Annex, Chapter I, 4 (dioptre: 1 dioptre = 1 m-1)'
+    url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:01980L0181-20200613'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 5 (wavenumber, m-1) and Table 8 (non-SI units)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'The Unified Code for Units of Measure, Table 18, clinical medicine: diopter [diop]'
+    url: 'https://ucum.org/ucum'
+  - title: 'OpenStax, College Physics 2e, 25.6 Image Formation by Lenses (1 D = 1/m)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/25-6-image-formation-by-lenses'
+  - title: 'OpenStax, College Physics 2e, 26.1 Physics of the Eye (reading glasses)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/26-1-physics-of-the-eye'
+  - title: 'P. T. V. M. de Jong, The diopter, Eye 35 (2021)'
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8225652/'
+  - title: 'QUDT, unit DIOPTER'
+    url: 'https://qudt.org/vocab/unit/DIOPTER'
+description:
+  en: >-
+    The dioptre, symbol D, is the unit in which the optical power of lenses, curved mirrors and the
+    eye is expressed. It is a special name for the reciprocal metre, used in optics, optometry and
+    ophthalmology, and it lies outside the International System of Units.
+
+    By definition, one dioptre equals exactly one reciprocal metre. Council Directive 80/181/EEC of
+    the European Union lists the dioptre, with that value, among the units permitted only in
+    specialized fields, for what it calls the vergency of optical systems. The SI Brochure leaves it
+    out of its table of non-SI units; for quantities of inverse length, such as wavenumber, it gives
+    the reciprocal metre as the coherent unit.
+
+    A lens of focal length one metre has a power of one dioptre, and the power in dioptres is the
+    reciprocal of the focal length in metres. A focal length of 25 centimetres corresponds to four
+    dioptres, and a diverging lens of focal length minus 50 centimetres to minus two dioptres.
+
+    Spectacle prescriptions, eye examinations and the ratings of magnifiers quote powers in
+    dioptres; OpenStax describes common reading glasses rated from 1.0 to 3.5 dioptres. Medical data
+    standards include the unit as well: the Unified Code for Units of Measure defines its diopter as
+    one per metre.
+
+    The French ophthalmologist Ferdinand Monoyer proposed the name in 1872 in the Annales
+    d'Oculistique, taking a lens of one metre focal length as the unit of refraction. The symbol D
+    appears in textbooks and in QUDT; diopter is the American spelling.

@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Harmonics of a pipe closed at one end'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{f_{n}}=\frac{\var{n}\mag{v}}{4\var{L}}'
+terms:
+  f_{n}:
+    kind: 'magnitude'
+    ref: 'frequency'
+  n:
+    kind: 'symbol'
+    label:
+      en: 'Harmonic number (odd)'
+    integer: true
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  L:
+    kind: 'symbol'
+    label:
+      en: 'Length of the pipe'
+    unit: 'metre'
+solutions:
+  f_{n}: 'n * v / (4 * L)'
+  n: '4 * L * f_n / v'
+  v: '4 * L * f_n / n'
+  L: 'n * v / (4 * f_n)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'f_n = n v / 4L'
+  - 'closed pipe'
+  - 'stopped pipe'
+  - 'closed tube resonance'
+  - 'air column closed at one end'
+  - 'quarter-wave resonator'
+  - 'tubo cerrado'
+  - 'tubo cerrado por un extremo'
+  - 'columna de aire cerrada'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 17.5 Sources of Musical Sound'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/17-5-sources-of-musical-sound'
+  - title: 'HyperPhysics (Georgia State University), Closed cylinder air column'
+    url: 'https://hyperphysics.gsu.edu/hbase/Waves/clocol.html'
+description:
+  en: >-
+    The harmonics of a pipe closed at one end are the frequencies at which the column of air inside
+    resonates: odd whole-number multiples of the fundamental, which equals the speed of sound
+    divided by four times the length of the pipe. In waves and oscillations the rule explains the
+    pitch of stopped organ pipes and of the resonance tubes used to measure the speed of sound.
+
+    Here $\mag{f_{n}}$ is the frequency of the nth harmonic in hertz; $\var{n}$ is the harmonic
+    number, which must be odd, one for the fundamental and then three, five and so on; $\mag{v}$ is
+    the speed of sound in the air of the pipe in metres per second; and $\var{L}$ is the length of
+    the air column in metres. Oddness is a condition of the physics that the formula itself does not
+    enforce: an even value of $\var{n}$ gives a frequency the pipe cannot produce. All quantities
+    are positive.
+
+    At the closed end the air cannot move, so that end is a node of the standing sound wave, while
+    the open end is an antinode. The simplest pattern fits a quarter of a wavelength into the pipe,
+    so the fundamental wavelength is four times the length; the next patterns add half wavelengths,
+    giving three, five and more quarter wavelengths. An even harmonic would need a node at the open
+    end, which is why none is present.
+
+    The rule assumes a narrow pipe of uniform cross-section and air of uniform temperature, because
+    the speed of sound depends on temperature. Since the open-end antinode sits a little outside the
+    mouth, the effective length exceeds the physical one by roughly six tenths of the pipe radius. A
+    pipe open at both ends follows a different rule that includes every harmonic.
+
+    A pipe closed at one end that sounds a fundamental of 128 hertz in air at 22.0 degrees Celsius,
+    where sound travels at 344 metres per second, is 0.672 metres long; its ninth harmonic is near
+    1.15 kilohertz.

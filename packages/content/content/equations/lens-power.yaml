@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Power of a lens'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{P}=\frac{1}{\var{f}}'
+terms:
+  P:
+    kind: 'magnitude'
+    ref: 'optical-power'
+  f:
+    kind: 'symbol'
+    label:
+      en: 'Focal length'
+    unit: 'metre'
+solutions:
+  P: '1 / f'
+  f: '1 / P'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'lens power formula'
+  - 'P = 1/f'
+  - 'dioptre formula'
+  - 'diopter formula'
+  - 'potencia de una lente'
+references:
+  - title: 'OpenStax, College Physics 2e, 25.6 Image Formation by Lenses (power of a lens, Example 25.5)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/25-6-image-formation-by-lenses'
+  - title: 'OpenStax, College Physics 2e, 26.1 Physics of the Eye'
+    url: 'https://openstax.org/books/college-physics-2e/pages/26-1-physics-of-the-eye'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Thin lens equation (lens power in diopters)'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/geoopt/lenseq.html'
+  - title: 'P. T. V. M. de Jong, The diopter, Eye 35 (2021)'
+    url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC8225652/'
+description:
+  en: >-
+    The power of a lens is the reciprocal of its focal length. This optical power, or dioptric
+    power, measures how strongly the lens converges or diverges light, and with the focal length in
+    metres it comes out in dioptres, the unit of spectacle prescriptions, contact lenses and
+    magnifiers.
+
+    Here $\mag{P}$ is the optical power, in dioptres, not a power in watts; where one dioptre is one
+    reciprocal metre, and $\var{f}$ is the focal length, in metres. Both carry the sign of the
+    real-is-positive convention used for the thin lens equation: a converging lens has a positive
+    focal length and a positive power, a diverging lens negative ones.
+
+    A short focal length means rays are bent sharply and brought to a focus close to the lens, so
+    the power is large; a weak lens has a long focal length and a power near zero. Writing the thin
+    lens equation in terms of power turns the reciprocal of the focal length into a single number
+    that eye specialists can add and subtract: two thin lenses in contact have very nearly the sum
+    of their powers.
+
+    The formula holds for a thin lens, with the focal length measured from its centre; for a thick
+    lens or a system of separated lenses the power is the reciprocal of an equivalent focal length.
+    The same definition applies to curved mirrors, a concave mirror having positive power.
+
+    The French ophthalmologist Ferdinand Monoyer proposed the dioptre as the unit of lens power in
+    1872. OpenStax gives the power of the human eye as 50.0 to 54.0 dioptres, and a magnifier with a
+    focal length of 8.00 centimetres has a power of 12.5 dioptres.

@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Mirror equation'
+kind: 'equation'
+level: 'intro'
+expression: '\frac{1}{\var{d_\mathrm{o}}}+\frac{1}{\var{d_\mathrm{i}}}=\frac{1}{\var{f}}'
+terms:
+  d_\mathrm{o}:
+    kind: 'symbol'
+    label:
+      en: 'Object distance'
+    unit: 'metre'
+  d_\mathrm{i}:
+    kind: 'symbol'
+    label:
+      en: 'Image distance'
+    unit: 'metre'
+  f:
+    kind: 'symbol'
+    label:
+      en: 'Focal length'
+    unit: 'metre'
+solutions:
+  d_\mathrm{o}: 'd_i * f / (d_i - f)'
+  d_\mathrm{i}: 'd_o * f / (d_o - f)'
+  f: 'd_o * d_i / (d_o + d_i)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'mirror formula'
+  - 'spherical mirror equation'
+  - 'curved mirror equation'
+  - 'ecuación del espejo'
+  - 'fórmula de los espejos'
+references:
+  - title: 'OpenStax, College Physics 2e, 25.7 Image Formation by Mirrors (mirror equations, Example 25.9)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/25-7-image-formation-by-mirrors'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Spherical mirror equation (same form, Cartesian sign convention)'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/geoopt/mireq.html'
+  - title: 'OpenStax, College Physics 2e, 25.6 Image Formation by Lenses'
+    url: 'https://openstax.org/books/college-physics-2e/pages/25-6-image-formation-by-lenses'
+description:
+  en: >-
+    The mirror equation gives the position of the image formed by a curved, spherical mirror: the
+    reciprocal of the object distance plus the reciprocal of the image distance equals the
+    reciprocal of the focal length. It has the same form as the thin lens equation and locates the
+    images of concave reflectors, make-up mirrors and the wide-view convex mirrors used for safety.
+
+    The object distance $\var{d_\mathrm{o}}$, the image distance $\var{d_\mathrm{i}}$ and the focal
+    length $\var{f}$ are lengths in metres measured from the mirror along its axis. The signs follow
+    the real-is-positive convention of OpenStax: the object distance is positive for a real object
+    in front of the mirror; the image distance is positive for a real image in front of the mirror,
+    on the same side as the object, and negative for a virtual image behind it; a concave,
+    converging mirror has a positive focal length and a convex, diverging one a negative focal
+    length.
+
+    A ray parallel to the axis reflects through the focal point, and a ray through the centre of
+    curvature returns along itself; the triangles these rays form give the equation. The focal
+    length of a spherical mirror is half its radius of curvature, so a concave mirror forms a real
+    image of a distant object at half the radius, and an object closer than the focal point gives a
+    virtual, magnified image behind the mirror. A convex mirror always gives a small virtual image.
+
+    The equation relies on paraxial rays: the mirror must be small compared with its radius of
+    curvature so that every angle stays small. Wide mirrors suffer spherical aberration and do not
+    bring all parallel rays to one point. Some texts use a Cartesian sign convention, which changes
+    the signs but not the physics. The same relation, with the same signs, serves for thin lenses as
+    the thin-lens equation.
+
+    OpenStax works out a concave reflector of radius 50.0 centimetres whose image lies 3.00 metres
+    away: the object then sits about 27.3 centimetres from the mirror.

@@ -6,6 +6,7 @@ symbol:
   text: 'W/m²'
 unitOf:
   - 'irradiance'
+  - 'sound-intensity'
 system: 'si-derived'
 compose:
   of:
@@ -20,6 +21,7 @@ categories:
   - 'physics'
 branches:
   - 'optics-and-photometry'
+  - 'waves-and-oscillations'
 aliases:
   - 'watt per square meter'
   - 'watts per square metre'
@@ -40,24 +42,24 @@ references:
 description:
   en: >-
     The watt per square metre, symbol $\mathrm{W/m^{2}}$, is the coherent SI derived unit of
-    irradiance and of heat flux density: a power of one watt arriving on, or passing through, each
-    square metre of a surface. The SI Brochure lists it in Table 6, among coherent derived units
-    whose names contain a unit with a special name.
+    irradiance, of heat flux density and of sound intensity: a power of one watt arriving on, or
+    passing through, each square metre of a surface. The SI Brochure lists it in Table 6, among
+    coherent derived units whose names contain a unit with a special name.
 
-    It is the quotient of the watt by the square metre. In base units it reduces to the kilogram
-    per second cubed, because the square metres inside the watt cancel those of the area, so it
-    converts with factor one between its two forms.
+    It is the quotient of the watt by the square metre. In base units it reduces to the kilogram per
+    second cubed, because the square metres inside the watt cancel those of the area, so it converts
+    with factor one between its two forms.
 
     NIST Special Publication 811 converts the watt per square centimetre as exactly $10^{4}$ watts
     per square metre and the watt per square inch as about 1550.003 watts per square metre. QUDT
-    attaches the unit to power per area in general and to the Poynting vector, the energy flux of
-    an electromagnetic wave.
+    attaches the unit to power per area in general and to the Poynting vector, the energy flux of an
+    electromagnetic wave.
 
-    The unit describes sunlight, heat flow through walls and the intensity of radiation. NASA
-    puts the total solar irradiance, measured at the top of the atmosphere on a surface turned
-    towards the Sun at the Earth's mean distance, near 1360 watts per square metre; because only one
-    hemisphere is lit and the light strikes most latitudes at a slant, the global mean is a quarter
-    of that, about 340 watts per square metre.
+    The unit describes sunlight, heat flow through walls and the intensity of radiation and of
+    sound. NASA puts the total solar irradiance, measured at the top of the atmosphere on a surface
+    turned towards the Sun at the Earth's mean distance, near 1360 watts per square metre; because
+    only one hemisphere is lit and the light strikes most latitudes at a slant, the global mean is a
+    quarter of that, about 340 watts per square metre.
 
     The plural is watts per square metre. The symbol may be W/m² or W m⁻², but the SI rules allow
     only one solidus in a symbol without parentheses. Because irradiance, heat flux density and

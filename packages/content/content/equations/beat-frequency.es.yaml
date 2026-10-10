@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Frecuencia de batimiento'
+terms:
+  f_{1}:
+    label: 'Frecuencia de la primera fuente'
+  f_{2}:
+    label: 'Frecuencia de la segunda fuente'
+description: >-
+  La frecuencia de batimiento es el ritmo al que crece y decae el volumen de dos sonidos
+  superpuestos de frecuencias ligeramente distintas: es el tamaño de la separación entre las dos
+  frecuencias de las fuentes, tomado sin signo. En ondas y oscilaciones los batimientos, también
+  llamados pulsaciones, son la señal audible de la interferencia en el tiempo, y los músicos y los
+  afinadores de pianos los usan para llevar dos tonos al unísono.
+
+  Aquí $\mag{f_\mathrm{beat}}$ es la frecuencia de batimiento en hercios, el número de refuerzos de
+  sonido que se oyen cada segundo, y $\var{f_{1}}$ y $\var{f_{2}}$ son las frecuencias de las dos
+  fuentes en hercios. El valor absoluto hace que la frecuencia de batimiento sea no negativa sea
+  cual sea la fuente más aguda. Por eso, al despejar la frecuencia de una fuente se obtienen dos
+  raíces, la otra frecuencia más o menos la frecuencia de batimiento; la mayor se da primero, y una
+  segunda observación, como comprobar si los batimientos se aceleran o se frenan al reajustar un
+  poco una de las fuentes, decide cuál es la real.
+
+  Al sumar dos ondas de frecuencias casi iguales se obtiene un tono de frecuencia igual a su media
+  cuya amplitud sube y baja. Las dos ondas entran y salen de fase: cuando coinciden sus crestas, la
+  interferencia es constructiva y el sonido es fuerte, y medio batimiento después es destructiva y
+  el sonido casi desaparece. El patrón se repite una vez por cada ciclo que una onda adelanta a la
+  otra, que es la diferencia de las frecuencias.
+
+  La regla supone dos tonos estables de amplitudes comparables y frecuencias próximas entre sí. Si
+  un tono es mucho más débil, los refuerzos son poco marcados, y si las frecuencias están muy
+  separadas la variación es demasiado rápida para oírse como un batimiento lento.
+
+  Un afinador de pianos golpea un diapasón y toca la nota correspondiente: al ajustar la cuerda, los
+  batimientos se hacen más lentos y desaparecen cuando ambas frecuencias coinciden. Dos tonos de 440
+  y 443 hercios producen tres batimientos por segundo.

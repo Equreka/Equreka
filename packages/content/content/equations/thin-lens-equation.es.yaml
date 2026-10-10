@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ecuación de las lentes delgadas'
+terms:
+  d_\mathrm{o}:
+    label: 'Distancia del objeto'
+  d_\mathrm{i}:
+    label: 'Distancia de la imagen'
+  f:
+    label: 'Distancia focal'
+description: >-
+  La ecuación de las lentes delgadas, llamada también ecuación de la lente o fórmula gaussiana de
+  las lentes, relaciona la distancia de un objeto a una lente delgada, la distancia de la imagen
+  que forma la lente y la distancia focal de esta: los inversos de las dos distancias suman el
+  inverso de la distancia focal. Predice dónde forman la imagen una cámara, un proyector, una lupa o
+  el ojo.
+
+  La distancia del objeto $\var{d_\mathrm{o}}$, la distancia de la imagen $\var{d_\mathrm{i}}$ y la
+  distancia focal $\var{f}$ son longitudes en metros, medidas desde el centro de la lente. Los signos
+  siguen el convenio de real positivo de OpenStax: la distancia del objeto es positiva para un objeto
+  real; la distancia de la imagen es positiva para una imagen real al otro lado de la lente y
+  negativa para una imagen virtual del mismo lado que el objeto; la distancia focal es positiva en
+  una lente convergente y negativa en una divergente.
+
+  Dos rayos fijan la imagen: uno por el centro de la lente, que sigue sin desviarse, y otro paralelo
+  al eje, que la lente envía por un foco. Los triángulos semejantes que forman relacionan alturas y
+  distancias, y al eliminar las alturas queda la ecuación. Un objeto en el foco de una lente
+  convergente lleva su imagen al infinito, y un objeto más cerca que la distancia focal da una
+  distancia de imagen negativa, la imagen virtual que se ve a través de una lupa.
+
+  La ecuación vale para rayos paraxiales, cercanos al eje y poco inclinados respecto de él, y para
+  una lente de grosor pequeño frente a las distancias en juego. Quedan fuera las lentes gruesas, los
+  ángulos amplios, las aberraciones y la variación de la distancia focal con el color. Los textos
+  avanzados usan a menudo un convenio de signos cartesiano, en el que la suma pasa a ser una resta.
+
+  La misma relación, con los mismos signos, sirve para los espejos esféricos como ecuación de los
+  espejos. Con una distancia focal de 0.500 metros, un objeto a 0.750 metros de la lente forma una
+  imagen real a 1.50 metros detrás de ella.

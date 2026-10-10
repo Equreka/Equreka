@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de la inversa del cuadrado para la iluminancia'
+terms:
+  r:
+    label: 'Distancia a la fuente'
+description: >-
+  La ley de la inversa del cuadrado para la iluminancia establece que una fuente de luz pequeña
+  ilumina una superficie orientada hacia ella con una iluminancia igual a la intensidad luminosa de
+  la fuente en dirección a la superficie dividida entre el cuadrado de la distancia que las separa.
+  Duplicar la distancia reparte la misma luz en un área cuatro veces mayor y reduce la iluminancia a
+  la cuarta parte.
+
+  La iluminancia $\mag{E_\mathrm{v}}$ es el flujo luminoso que llega por unidad de área, en lux; la
+  intensidad luminosa $\mag{I_\mathrm{v}}$ es el flujo luminoso que la fuente envía por unidad de
+  ángulo sólido en la dirección de la superficie, en candelas; y $\var{r}$ es la distancia de la
+  fuente al punto iluminado, en metros. Las tres son positivas.
+
+  Una candela es un lumen por estereorradián. Un pequeño trozo de superficie orientado hacia la
+  fuente subtiende un ángulo sólido igual a su área dividida entre el cuadrado de la distancia, de
+  modo que recibe como flujo luminoso la intensidad por ese ángulo sólido. Al dividir entre el área
+  del trozo queda la intensidad entre el cuadrado de la distancia, y por eso una candela a un metro
+  da un lux.
+
+  La ley trata la fuente como un punto. En la práctica es una buena estimación cuando la distancia
+  es unas diez veces el tamaño de la fuente o más; más cerca, una fuente extensa como un tubo
+  fluorescente largo no la cumple. La superficie debe estar orientada hacia la fuente: cuando la luz
+  llega formando un ángulo con la normal a la superficie, la iluminancia se reduce según el coseno
+  de ese ángulo, la ley del coseno. Se desprecian la absorción y la dispersión en el aire. El sonido
+  que se propaga desde una fuente pequeña sigue la misma geometría, en la ley de la inversa del
+  cuadrado para la intensidad del sonido.
+
+  Los luxómetros y el diseño de iluminación se apoyan en la ley para prever la luz sobre una mesa o
+  una superficie de trabajo bajo una lámpara. Una lámpara de 100 candelas da 25 lux sobre una
+  superficie a 2 metros.

@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.locale.schema.json
+name: 'Intensidad de referencia del sonido'
+description: >-
+  La intensidad de referencia del sonido, de símbolo $I_{0}$, vale exactamente
+  $10^{-12}\,\mathrm{W/m^{2}}$, un picovatio por metro cuadrado. Como se fija por acuerdo y no se
+  mide, no tiene incertidumbre: la norma ISO 1683 lo establece como referencia de los niveles de
+  intensidad del sonido en el aire y otros gases, y el mismo valor sirve para el agua y otros
+  líquidos. Como está cerca del sonido más débil que detecta una audición normal, también se llama
+  intensidad del umbral de audición.
+
+  Físicamente representa un tono de 1000 hercios en el límite de lo audible para una persona con
+  audición normal. La norma señala que la referencia decide si un nivel resulta positivo o negativo,
+  y que conviene que los niveles de un mismo tipo sean siempre positivos; una referencia tan baja lo
+  consigue para los sonidos corrientes, mientras que un sonido más débil que ella tiene un nivel
+  negativo. La ISO expresa cada referencia de este tipo como el número uno por una unidad SI con el
+  prefijo adecuado, aquí el picovatio por metro cuadrado.
+
+  La referencia aparece en el nivel de intensidad del sonido, diez veces el logaritmo decimal de una
+  intensidad dividida entre ella. Una intensidad igual a la de referencia da 0 decibelios, y un
+  concierto de rock fuerte, a un vatio por metro cuadrado, es un billón de veces la referencia, es
+  decir, 120 decibelios. El folleto del SI exige indicar la referencia junto a cualquier nivel dado
+  en decibelios, porque el mismo número de decibelios corresponde a intensidades distintas con
+  referencias distintas.
+
+  El valor citado aquí procede de la tercera edición de la norma ISO 1683, publicada en 2015, que
+  sustituyó a la edición de 2008. Su tabla para el aire incluye esta intensidad junto a un picovatio
+  de potencia sonora y 20 micropascales de presión sonora, las referencias del nivel de potencia
+  sonora y del nivel de presión sonora.

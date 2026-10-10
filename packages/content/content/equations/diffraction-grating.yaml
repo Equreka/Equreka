@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Diffraction grating equation'
+kind: 'equation'
+level: 'intro'
+expression: '\var{d}\sin\mag{\theta}=\var{m}\mag{\lambda}'
+terms:
+  d:
+    kind: 'symbol'
+    label:
+      en: 'Grating spacing'
+    unit: 'metre'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  m:
+    kind: 'symbol'
+    label:
+      en: 'Order of the maximum'
+    integer: true
+  \lambda:
+    kind: 'magnitude'
+    ref: 'wavelength'
+solutions:
+  d: 'm * lambda / sin(theta)'
+  \theta: 'asin(m * lambda / d)'
+  m: 'd * sin(theta) / lambda'
+  \lambda: 'd * sin(theta) / m'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'grating equation'
+  - 'diffraction grating'
+  - 'grating relation'
+  - 'ecuación de la red de difracción'
+  - 'red de difracción'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 4.4 Diffraction Gratings (Example 4.5)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/4-4-diffraction-gratings'
+  - title: 'OpenStax, University Physics Volume 3, 3.2 Mathematics of Interference'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/3-2-mathematics-of-interference'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Diffraction grating calculation (condition for maxima)'
+    url: 'https://hyperphysics.gsu.edu/hbase/phyopt/gratcal.html'
+description:
+  en: >-
+    The diffraction grating equation gives the directions in which a grating, a surface ruled with
+    many equally spaced parallel slits or lines, sends light of a given wavelength: the spacing of
+    the lines times the sine of the diffraction angle equals a whole number of wavelengths. Each
+    whole number marks one bright maximum, so a grating spreads light into sharp lines and serves
+    as a high-resolution prism in spectroscopy.
+
+    The grating spacing $\var{d}$ is the distance between neighbouring slits in metres, the
+    reciprocal of the number of lines per metre. The angle $\mag{\theta}$ is measured from the
+    straight-through direction of the incoming beam, in radians. The order $\var{m}$ is a whole
+    number: zero for the central maximum and one, two and so on for the maxima on either side,
+    negative values marking the side opposite to positive ones. The wavelength $\mag{\lambda}$ is
+    that of the light, in metres.
+
+    Light from adjacent slits reaches a distant point by paths that differ by the grating spacing
+    times the sine of the angle. When that difference is a whole number of wavelengths, the waves
+    from all slits arrive in step and add to a bright maximum; with thousands of slits, any small
+    departure from that condition makes the waves cancel, so the maxima are much narrower and
+    brighter than those of a double slit. Longer wavelengths leave at larger angles, which separates
+    colours.
+
+    The equation assumes light striking the grating perpendicularly and a screen or detector far
+    away. The sine cannot exceed one, so a grating shows only the orders whose wavelength times
+    order is at most the spacing. Solving for the order gives a whole number only where a maximum
+    lies; at an angle of 90 degrees, the whole part of the result is the highest order the
+    grating can show.
+
+    Gratings with 10 000 lines per centimetre, a spacing of one micrometre, are common: OpenStax
+    computes 22.33 degrees for violet light of 380 nanometres in the first order.

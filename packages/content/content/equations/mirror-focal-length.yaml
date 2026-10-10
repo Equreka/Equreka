@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Focal length of a spherical mirror'
+kind: 'formula'
+level: 'intro'
+expression: '\var{f}=\frac{\var{R}}{2}'
+terms:
+  f:
+    kind: 'symbol'
+    label:
+      en: 'Focal length'
+    unit: 'metre'
+  R:
+    kind: 'symbol'
+    label:
+      en: 'Radius of curvature'
+    unit: 'metre'
+solutions:
+  f: 'R / 2'
+  R: '2 * f'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'mirror focal length'
+  - 'f = R/2'
+  - 'focal length and radius of curvature'
+  - 'distancia focal de un espejo'
+references:
+  - title: 'OpenStax, College Physics 2e, 25.7 Image Formation by Mirrors (f = R/2, Example 25.9)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/25-7-image-formation-by-mirrors'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Spherical mirror equation and mirror geometry'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/geoopt/mireq.html'
+description:
+  en: >-
+    The focal length of a spherical mirror is half its radius of curvature. The relation places the
+    focal point, where a concave mirror gathers rays that arrive parallel to its axis, midway between
+    the mirror and the centre of the sphere of which the mirror is a part, and it sets the focal
+    length used in the mirror equation.
+
+    The focal length $\var{f}$ and the radius of curvature $\var{R}$ are lengths in metres measured
+    from the mirror along its axis. In the real-is-positive convention of OpenStax both are positive
+    for a concave mirror, whose centre of curvature lies in front of the reflecting surface, and
+    both are negative for a convex mirror, whose centre lies behind it; a plane mirror has an
+    infinite radius and no focus.
+
+    A ray parallel to the axis strikes the mirror at a small height and reflects with equal angles
+    on either side of the radius drawn to that point, which is the normal to the surface. The
+    reflected ray, the radius and the axis form an isosceles triangle, and for small angles the
+    point where the reflected ray crosses the axis lies half a radius from the mirror.
+
+    The result is exact only for paraxial rays. The mirror must be small compared with its radius
+    of curvature, so that all angles stay small; rays striking far from the axis of a spherical
+    mirror cross it closer to the mirror, an error called spherical aberration that blurs the
+    focus.
+
+    The relation lets the focal length be found from a measured curvature, or the reverse. OpenStax
+    describes a concave reflector with a radius of curvature of 50.0 centimetres, which has a focal
+    length of 25.0 centimetres.

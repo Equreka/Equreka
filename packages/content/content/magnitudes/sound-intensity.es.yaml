@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Intensidad del sonido'
+description: >-
+  La intensidad del sonido, de símbolo $I$, es la potencia que una onda sonora transporta a través
+  de una superficie dividida entre el área de esa superficie, tomada perpendicular a la dirección en
+  que avanza la onda. En acústica es la energía que llega cada segundo a través de cada metro
+  cuadrado en un lugar dado, y es la magnitud física que determina la fuerza con que se oye allí un
+  sonido.
+
+  Su unidad SI es el vatio por metro cuadrado, $\mathrm{W/m^{2}}$, la misma unidad que la
+  irradiancia. En unidades básicas equivale al kilogramo por segundo al cubo, de modo que la
+  dimensión de la intensidad del sonido es masa dividida entre tiempo al cubo. QUDT clasifica la
+  intensidad del sonido y la irradiancia una junto a otra bajo la potencia por unidad de área, sin
+  que ninguna sea un tipo de la otra: una describe la energía transportada por la vibración de un
+  medio y la otra la energía transportada por la radiación electromagnética.
+
+  En física introductoria la intensidad del sonido es el promedio temporal de la potencia por unidad
+  de área, un escalar no negativo. QUDT da la definición general como un vector, la presión sonora
+  por la velocidad de las partículas; el escalar que se usa aquí es el módulo de ese producto
+  promediado en el tiempo. Para una onda sonora de una sola frecuencia crece con el cuadrado de la
+  amplitud de presión, la mayor oscilación de la presión por encima y por debajo de su valor sin
+  perturbar, y disminuye cuando aumentan la densidad del medio y la velocidad del sonido. El doble
+  de amplitud de presión supone, por tanto, el cuádruple de intensidad.
+
+  El oído responde en un intervalo enorme. A 1000 hercios el sonido más débil que percibe una
+  audición normal tiene una intensidad de $10^{-12}\,\mathrm{W/m^{2}}$; una conversación corriente
+  alcanza alrededor de una millonésima de vatio por metro cuadrado, un concierto de rock fuerte
+  cerca de un vatio por metro cuadrado y un avión a reacción situado a 30 metros unos cien. Como el
+  intervalo abarca catorce potencias de diez, las intensidades suelen expresarse como nivel de
+  intensidad del sonido en decibelios.
+
+  La intensidad del sonido no es lo mismo que ese nivel, que es el logaritmo del cociente con un
+  valor de referencia, ni que la sonoridad, que es una percepción. También difiere de la potencia
+  sonora de la fuente, en vatios: repartida sobre una esfera alrededor de una fuente pequeña, la
+  misma potencia da la cuarta parte de la intensidad al doble de distancia.

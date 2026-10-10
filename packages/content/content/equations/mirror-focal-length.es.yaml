@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Distancia focal de un espejo esférico'
+terms:
+  f:
+    label: 'Distancia focal'
+  R:
+    label: 'Radio de curvatura'
+description: >-
+  La distancia focal de un espejo esférico es la mitad de su radio de curvatura. La relación sitúa el
+  foco, donde un espejo cóncavo reúne los rayos que llegan paralelos a su eje, a medio camino entre
+  el espejo y el centro de la esfera de la que el espejo forma parte, y fija la distancia focal que
+  se usa en la ecuación de los espejos.
+
+  La distancia focal $\var{f}$ y el radio de curvatura $\var{R}$ son longitudes en metros medidas
+  desde el espejo a lo largo de su eje. Con el convenio de real positivo de OpenStax, las dos son
+  positivas en un espejo cóncavo, cuyo centro de curvatura está delante de la superficie
+  reflectante, y negativas en un espejo convexo, cuyo centro está detrás; un espejo plano tiene un
+  radio infinito y carece de foco.
+
+  Un rayo paralelo al eje llega al espejo a poca altura y se refleja con ángulos iguales a ambos
+  lados del radio trazado hasta ese punto, que es la normal a la superficie. El rayo reflejado, el
+  radio y el eje forman un triángulo isósceles, y para ángulos pequeños el punto donde el rayo
+  reflejado corta el eje queda a medio radio del espejo.
+
+  El resultado solo es exacto para rayos paraxiales. El espejo debe ser pequeño frente a su radio de
+  curvatura para que todos los ángulos sigan siendo pequeños; los rayos que inciden lejos del eje de
+  un espejo esférico lo cortan más cerca del espejo, un error llamado aberración esférica que
+  emborrona el foco.
+
+  La relación permite hallar la distancia focal a partir de una curvatura medida, o al revés.
+  OpenStax describe un reflector cóncavo con un radio de curvatura de 50.0 centímetros, que tiene una
+  distancia focal de 25.0 centímetros.

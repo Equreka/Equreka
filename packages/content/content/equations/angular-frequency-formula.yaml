@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Angular frequency from the frequency'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{\omega}=2\const{\pi}\mag{f}'
+terms:
+  \omega:
+    kind: 'magnitude'
+    ref: 'angular-frequency'
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+  f:
+    kind: 'magnitude'
+    ref: 'frequency'
+solutions:
+  \omega: '2 * pi * f'
+  f: 'omega / (2 * pi)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'omega = 2 pi f'
+  - 'ω = 2πf'
+  - 'angular frequency formula'
+  - 'radian frequency from frequency'
+  - 'frecuencia angular y frecuencia'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Section 2.3.4: hertz and radian per second'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 1, 15.1 Simple Harmonic Motion'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/15-1-simple-harmonic-motion'
+  - title: 'OpenStax, University Physics Volume 1, 16.2 Mathematics of Waves'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/16-2-mathematics-of-waves'
+  - title: 'HyperPhysics (Georgia State University), Traveling wave relationships'
+    url: 'https://hyperphysics.gsu.edu/hbase/Waves/wavsol.html'
+description:
+  en: >-
+    Angular frequency from the frequency converts the number of cycles per second of an oscillation
+    or a wave into the rate at which its phase advances: the angular frequency is two pi times the
+    frequency, because each complete cycle advances the phase by one full turn of two pi radians. In
+    waves and oscillations the angular form is the one used in the equations of simple harmonic
+    motion, travelling waves and alternating current.
+
+    Here $\mag{\omega}$ is the angular frequency in radians per second, $\mag{f}$ the frequency in
+    hertz, and $\const{\pi}$ the ratio of a circle's circumference to its diameter. Both quantities
+    are non-negative. The SI Brochure assigns the hertz to frequency and the radian per second to
+    angular frequency so that the two are kept apart: their numerical values always differ by the
+    factor two pi, and mixing them up produces an error of exactly that size.
+
+    The phase of an oscillation is an angle that grows steadily with time and returns to its
+    starting value after each cycle. A process that completes a given number of cycles each second
+    therefore sweeps that many turns of two pi radians per second. Dividing two pi by the period
+    instead of multiplying by the frequency gives the same angular frequency, since the period is
+    the reciprocal of the frequency.
+
+    The relation is exact for any steady periodic process and involves no approximation. Angular
+    frequency describes the advance of a phase, not a physical rotation, so it applies to a
+    vibrating string or an alternating voltage where nothing turns; for a rotating body the same
+    factor links the rate of turning to the angular velocity.
+
+    For a mass on a spring the angular frequency is the square root of the spring constant divided
+    by the mass, and the relation then gives the frequency in hertz. An ultrasound transducer
+    working at 2.50 megahertz has an angular frequency of about $1.57\times10^{7}\,\mathrm{rad/s}$.

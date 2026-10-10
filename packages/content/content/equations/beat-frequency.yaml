@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Beat frequency'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{f_\mathrm{beat}}=\left|\var{f_{1}}-\var{f_{2}}\right|'
+terms:
+  f_\mathrm{beat}:
+    kind: 'magnitude'
+    ref: 'frequency'
+  f_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Frequency of the first source'
+    unit: 'hertz'
+  f_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Frequency of the second source'
+    unit: 'hertz'
+solutions:
+  f_\mathrm{beat}: 'abs(f_1 - f_2)'
+  f_{1}:
+    - 'f_2 + f_beat'
+    - 'f_2 - f_beat'
+  f_{2}:
+    - 'f_1 + f_beat'
+    - 'f_1 - f_beat'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q106371934'
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'f_beat = |f1 - f2|'
+  - 'beats'
+  - 'beat note'
+  - 'acoustic beats'
+  - 'batimiento'
+  - 'batimientos'
+  - 'frecuencia de batimiento'
+  - 'pulsaciones'
+  - 'frecuencia de pulsación'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 17.6 Beats'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/17-6-beats'
+  - title: 'HyperPhysics (Georgia State University), Beats'
+    url: 'https://hyperphysics.gsu.edu/hbase/Sound/beat.html'
+description:
+  en: >-
+    The beat frequency is the rate at which the loudness of two superposed sounds of slightly
+    different frequency swells and fades: it is the size of the gap between the two source
+    frequencies, taken without sign. In waves and oscillations beats are the audible sign of
+    interference in time, and musicians and piano tuners use them to bring two tones into unison.
+
+    Here $\mag{f_\mathrm{beat}}$ is the beat frequency in hertz, the number of loud swells heard
+    each second, and $\var{f_{1}}$ and $\var{f_{2}}$ are the frequencies of the two sources in
+    hertz. The absolute value makes the beat frequency non-negative whichever source is higher.
+    Solving for one source frequency therefore gives two roots, the other frequency plus or minus
+    the beat frequency; the higher one is listed first, and a second observation, such as whether
+    the beats speed up or slow down when one source is retuned slightly, decides which one is real.
+
+    Adding two waves of nearly equal frequency gives a tone at their average frequency whose
+    amplitude rises and falls. The two waves drift in and out of step: when their crests coincide
+    the interference is constructive and the sound is loud, and half a beat later it is destructive
+    and the sound almost vanishes. The pattern repeats once for every cycle that one wave gains on
+    the other, which is the difference of the frequencies.
+
+    The rule assumes two steady tones of comparable amplitude whose frequencies are close to each
+    other. When one tone is much weaker the swells are shallow, and when the frequencies are far
+    apart the variation is too fast to be heard as a slow beat.
+
+    A piano tuner strikes a tuning fork and plays the matching note: as the string is adjusted, the
+    beats slow down and disappear when the two frequencies agree. Two tones of 440 and 443 hertz
+    beat three times per second.

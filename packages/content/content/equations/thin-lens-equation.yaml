@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Thin lens equation'
+kind: 'equation'
+level: 'intro'
+expression: '\frac{1}{\var{d_\mathrm{o}}}+\frac{1}{\var{d_\mathrm{i}}}=\frac{1}{\var{f}}'
+terms:
+  d_\mathrm{o}:
+    kind: 'symbol'
+    label:
+      en: 'Object distance'
+    unit: 'metre'
+  d_\mathrm{i}:
+    kind: 'symbol'
+    label:
+      en: 'Image distance'
+    unit: 'metre'
+  f:
+    kind: 'symbol'
+    label:
+      en: 'Focal length'
+    unit: 'metre'
+solutions:
+  d_\mathrm{o}: 'd_i * f / (d_i - f)'
+  d_\mathrm{i}: 'd_o * f / (d_o - f)'
+  f: 'd_o * d_i / (d_o + d_i)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q351959'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'lens equation'
+  - 'lens formula'
+  - 'thin lens formula'
+  - 'Gaussian lens equation'
+  - 'ecuación de lentes delgadas'
+  - 'ecuación de lentes'
+  - 'fórmula de las lentes'
+references:
+  - title: 'OpenStax, College Physics 2e, 25.6 Image Formation by Lenses (thin lens equations, sign rules, Example 25.6)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/25-6-image-formation-by-lenses'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Thin lens equation'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/geoopt/lenseq.html'
+  - title: 'OpenStax, University Physics Volume 3, 1.3 Refraction'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/1-3-refraction'
+description:
+  en: >-
+    The thin lens equation, also called the lens equation or the Gaussian lens formula, links the
+    distance of an object from a thin lens, the distance of the image the lens forms and the focal
+    length of the lens: the reciprocals of the two distances add up to the reciprocal of the focal
+    length. It predicts where a camera, a projector, a magnifying glass or the eye forms an image.
+
+    The object distance $\var{d_\mathrm{o}}$, the image distance $\var{d_\mathrm{i}}$ and the focal
+    length $\var{f}$ are lengths in metres, measured from the centre of the lens. The signs follow
+    the real-is-positive convention of OpenStax: the object distance is positive for a real object;
+    the image distance is positive for a real image on the far side of the lens and negative for a
+    virtual image on the same side as the object; the focal length is positive for a converging
+    lens and negative for a diverging one.
+
+    Two rays fix the image: one through the centre of the lens, which goes on undeviated, and one
+    parallel to the axis, which the lens sends through a focal point. Similar triangles along these
+    rays relate the heights and distances, and eliminating the heights leaves the equation. An
+    object at the focal point of a converging lens sends its image to infinity, and an object
+    inside the focal length gives a negative image distance, the virtual image seen through a
+    magnifier.
+
+    The equation holds for paraxial rays, close to the axis and at small angles to it, and for a
+    lens whose thickness is small compared with the distances involved. Thick lenses, wide angles,
+    aberrations and the dependence of focal length on colour are outside it. Advanced texts often
+    use a Cartesian sign convention instead, in which the sum becomes a difference.
+
+    The same relation, with the same signs, serves for spherical mirrors as the mirror equation.
+    With a focal length of 0.500 metres, an object 0.750 metres from the lens forms a real image
+    1.50 metres behind it.

@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Frecuencia angular a partir de la frecuencia'
+description: >-
+  La frecuencia angular a partir de la frecuencia convierte el número de ciclos por segundo de una
+  oscilación o de una onda en el ritmo al que avanza su fase: la frecuencia angular es dos pi veces
+  la frecuencia, porque cada ciclo completo hace avanzar la fase una vuelta entera de dos pi
+  radianes. En ondas y oscilaciones, la forma angular es la que se usa en las ecuaciones del
+  movimiento armónico simple, de las ondas viajeras y de la corriente alterna.
+
+  Aquí $\mag{\omega}$ es la frecuencia angular en radianes por segundo, $\mag{f}$ la frecuencia en
+  hercios y $\const{\pi}$ el cociente entre la longitud de una circunferencia y su diámetro. Ambas
+  magnitudes son no negativas. El folleto del SI asigna el hercio a la frecuencia y el radián por
+  segundo a la frecuencia angular para mantenerlas separadas: sus valores numéricos difieren siempre
+  en el factor dos pi, y confundirlas produce un error de exactamente ese tamaño.
+
+  La fase de una oscilación es un ángulo que crece de manera uniforme con el tiempo y vuelve a su
+  valor inicial tras cada ciclo. Un proceso que completa cierto número de ciclos por segundo barre
+  por tanto otras tantas vueltas de dos pi radianes por segundo. Dividir dos pi entre el periodo en
+  lugar de multiplicar por la frecuencia da la misma frecuencia angular, ya que el periodo es el
+  inverso de la frecuencia.
+
+  La relación es exacta para cualquier proceso periódico estable y no implica ninguna aproximación.
+  La frecuencia angular describe el avance de una fase, no una rotación física, de modo que se
+  aplica a una cuerda que vibra o a una tensión alterna en la que nada gira; para un cuerpo que
+  rota, el mismo factor relaciona el ritmo de giro con la velocidad angular.
+
+  En una masa unida a un resorte, la frecuencia angular es la raíz cuadrada de la constante elástica
+  dividida entre la masa, y la relación da entonces la frecuencia en hercios. Un transductor de
+  ultrasonidos que trabaja a 2.50 megahercios tiene una frecuencia angular de unos
+  $1.57\times10^{7}\,\mathrm{rad/s}$.

@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Refractive index of a medium'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{n}=\frac{\const{c}}{\mag{v}}'
+terms:
+  n:
+    kind: 'magnitude'
+    ref: 'refractive-index'
+  c:
+    kind: 'constant'
+    ref: 'speed-of-light'
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+solutions:
+  n: 'c / v'
+  v: 'c / n'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'index of refraction formula'
+  - 'n = c/v'
+  - 'speed of light in a medium'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 1.1 The Propagation of Light (index of refraction, Table 1.1, zircon example)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/1-1-the-propagation-of-light'
+  - title: 'OpenStax, University Physics Volume 3, 1.3 Refraction'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/1-3-refraction'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Refraction of light and index of refraction'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/geoopt/refr.html'
+description:
+  en: >-
+    The refractive index of a transparent medium is the speed of light in vacuum divided by the
+    speed at which light travels through that medium. This definition of the index of refraction
+    turns a measured speed into a pure number that describes how much a material such as water,
+    glass or diamond slows light, and, read the other way, gives the speed of light inside a
+    material whose index is tabulated.
+
+    Here $\mag{n}$ is the refractive index, a pure number with no unit; $\const{c}$ is the speed of
+    light in vacuum, exactly 299 792 458 metres per second because the SI defines the metre through
+    it; and $\mag{v}$ is the speed of light in the medium, in metres per second. Both speeds are
+    positive, so the index is positive.
+
+    Light crossing into a denser medium keeps its frequency, which belongs to the source, while its
+    speed and its wavelength shrink in the same proportion. For ordinary transparent materials the
+    speed in the medium does not exceed the speed in vacuum, so the index is at least one, and a
+    larger index means slower light and a sharper change of direction at a boundary, as Snell's law
+    describes.
+
+    The index is not a single number for each material. It varies slightly with the wavelength of
+    the light, the dispersion that lets a prism spread white light into colours, and in gases it
+    depends on temperature and pressure. Tables therefore state the wavelength they refer to:
+    OpenStax lists values for light of 589 nanometres in vacuum, from 1.000293 for air and 1.333 for
+    fresh water to 1.52 for crown glass and 2.419 for diamond.
+
+    The formula is the first step in most refraction problems, from lens design to optical fibres.
+    With an index of 1.923, light in zircon travels at about $1.56\times10^{8}\,\mathrm{m/s}$.
