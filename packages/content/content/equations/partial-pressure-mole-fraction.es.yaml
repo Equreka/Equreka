@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Presión parcial a partir de la fracción molar'
+terms:
+  p_\mathrm{A}:
+    label: 'Presión parcial del gas A'
+  x_\mathrm{A}:
+    label: 'Fracción molar del gas A'
+  p_\mathrm{total}:
+    label: 'Presión total'
+description: >-
+  La presión parcial de un gas en una mezcla es igual a su fracción molar por la presión total de la
+  mezcla. Esta regla, consecuencia de la ley de las presiones parciales de Dalton, indica qué parte
+  de la presión del aire o de cualquier otra mezcla gaseosa se debe a un componente, conocidas solo
+  la composición y la presión total, y al revés da la composición a partir de una presión parcial
+  medida.
+
+  $\var{p_\mathrm{A}}$ es la presión parcial del gas A, la que produciría si ocupara él solo el
+  recipiente a la temperatura de la mezcla. $\var{x_\mathrm{A}}$ es su fracción molar: la cantidad
+  de gas A en moles dividida entre la cantidad total de todos los gases, una magnitud adimensional
+  entre 0 y 1 que se introduce como decimal y no como porcentaje. $\var{p_\mathrm{total}}$ es la
+  presión total absoluta. Ambas presiones comparten unidad, el pascal en el SI, y las tres
+  magnitudes son positivas.
+
+  A volumen y temperatura fijos, la presión que ejerce un gas ideal es proporcional a su cantidad de
+  sustancia. Por tanto, el gas A aporta la misma parte de la presión total que del número total de
+  moles, que es la fórmula. Las fracciones molares de todos los componentes suman 1, así que las
+  presiones parciales suman la total, lo que devuelve la ley de Dalton.
+
+  La regla vale para mezclas de gases ideales que no reaccionan entre sí. Las mezclas reales la
+  siguen de cerca a baja presión; a alta presión y baja temperatura, el tamaño y la atracción de las
+  moléculas hacen que cada gas aporte algo más o algo menos que su parte.
+
+  Es la forma de trabajo de la ley de Dalton para mezclas de composición conocida. Una mezcla de
+  2.83 moles de oxígeno y 8.41 moles de monóxido de dinitrógeno a 192 kilopascales tiene una
+  fracción molar de oxígeno de 0.252, así que el oxígeno aporta unos 48.4 kilopascales.

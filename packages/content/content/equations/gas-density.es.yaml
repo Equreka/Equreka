@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Densidad de un gas ideal'
+description: >-
+  La densidad de un gas ideal es igual a su presión por su masa molar, dividida entre la constante
+  molar de los gases por su temperatura absoluta. Esta fórmula de la densidad de los gases, una
+  reordenación de la ley de los gases ideales, da la masa por unidad de volumen de un gas a partir
+  de condiciones fáciles de medir y, leída al revés, halla la masa molar de un gas desconocido a
+  partir de una medida de densidad.
+
+  $\mag{\rho}$ es la densidad, en kilogramos por metro cúbico, que coincide numéricamente con gramos
+  por litro. $\mag{p}$ es la presión absoluta en pascales. $\mag{M}$ es la masa molar en kilogramos
+  por mol; 28.01 gramos por mol son 0.02801 kilogramos por mol. $\const{R}$ es la constante molar de
+  los gases, de unos 8.314 julios por mol y kelvin y exacta en el SI. $\mag{T}$ es la temperatura
+  termodinámica en kelvin, nunca en grados Celsius: como toda ley de los gases, la fórmula necesita
+  la temperatura absoluta. Todas las magnitudes son positivas.
+
+  La densidad es masa entre volumen. La ley de los gases ideales da el volumen de un mol como la
+  constante de los gases por la temperatura entre la presión, y un mol tiene una masa igual a la
+  masa molar; dividir la segunda entre el primero da la fórmula. Por eso un gas se vuelve más denso
+  al comprimirlo o enfriarlo, y a igual temperatura y presión una molécula más pesada forma un gas
+  más denso; de ahí que el aire caliente suba y que un globo de gas ligero flote.
+
+  La fórmula supone un comportamiento ideal, que se cumple bien a baja presión y muy por encima de
+  la temperatura a la que el gas se condensa; a alta presión, la densidad medida se aparta de la
+  prevista.
+
+  La hipótesis de Avogadro, de 1811, implicaba que dos gases en las mismas condiciones tienen
+  densidades en la proporción de sus masas moleculares. El nitrógeno, de 28.01 gramos por mol, a
+  1.00 atmósfera y 273 kelvin tiene una densidad de unos 1.25 kilogramos por metro cúbico.

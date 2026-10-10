@@ -1,0 +1,264 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.schema.json
+name:
+  en: 'Gas laws'
+level: 'intro'
+prerequisites:
+  - 'temperature-scales'
+estimatedMinutes: '60'
+categories:
+  - 'chemistry'
+  - 'physics'
+branches:
+  - 'gases'
+  - 'thermodynamics'
+aliases:
+  - 'ideal gases'
+  - 'gas law calculations'
+  - 'leyes de los gases'
+  - 'gases ideales'
+references:
+  - title: 'OpenStax, Chemistry 2e, 9.2 Relating Pressure, Volume, Amount, and Temperature: The Ideal Gas Law'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-2-relating-pressure-volume-amount-and-temperature-the-ideal-gas-law'
+  - title: 'OpenStax, Chemistry 2e, 9.3 Stoichiometry of Gaseous Substances, Mixtures, and Reactions'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-3-stoichiometry-of-gaseous-substances-mixtures-and-reactions'
+  - title: 'OpenStax, Chemistry 2e, 9.4 Effusion and Diffusion of Gases'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-4-effusion-and-diffusion-of-gases'
+  - title: 'NIST, CODATA 2022 value: molar volume of ideal gas (273.15 K, 100 kPa)'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mvol'
+description:
+  en: >-
+    How pressure, volume, temperature and amount of a gas depend on one another: the four classic
+    gas laws, the combined and ideal gas laws, molar volume and density, mixtures and partial
+    pressures, and effusion, with worked checks along the way.
+steps:
+  - id: 'intro'
+    kind: 'prose'
+    body:
+      en: >-
+        A sample of gas is described by four quantities: its pressure, its volume, its temperature
+        and its amount of substance in moles. Change one and at least one other responds. The
+        classic gas laws each hold two of the four fixed and relate the remaining pair; together
+        they build up to the ideal gas law. Every law here that involves pressure or temperature
+        needs absolute values: pressures measured from vacuum, not gauge readings, and temperatures
+        in kelvin.
+  - id: 'pressure'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'pressure'
+    note:
+      en: >-
+        Force per unit area, in pascals. In a gas it comes from molecules striking the walls of the
+        container, so anything that makes those impacts more frequent or harder raises it.
+  - id: 'thermodynamic-temperature'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'thermodynamic-temperature'
+    note:
+      en: >-
+        The gas laws use the absolute temperature, in kelvin. A Celsius reading is converted by
+        adding 273.15 before any ratio is taken; a ratio of Celsius values gives wrong answers.
+  - id: 'boyles-law'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'boyles-law'
+    note:
+      en: >-
+        Fixed temperature and amount: pressure and volume vary inversely, so their product stays the
+        same.
+  - id: 'check-boyle'
+    kind: 'check'
+    prompt:
+      en: >-
+        A syringe holds 2.00 litres of air at 100 kilopascals. At constant temperature, the air is
+        pushed into 0.500 litres. What is its new pressure?
+    answer:
+      en: >-
+        400 kilopascals: 100 times 2.00, divided by 0.500. A quarter of the volume gives four times
+        the pressure.
+  - id: 'charles-law'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'charles-law'
+    note:
+      en: >-
+        Fixed pressure and amount: volume is proportional to the kelvin temperature.
+  - id: 'check-charles'
+    kind: 'check'
+    prompt:
+      en: >-
+        A balloon holds 2.00 litres of gas at 27 degrees Celsius. At constant pressure it is warmed
+        to 127 degrees Celsius. What is its new volume?
+    answer:
+      en: >-
+        About 2.67 litres: 2.00 times 400.15, divided by 300.15. The ratio of the Celsius values,
+        127 over 27, would wrongly predict about 9.4 litres.
+  - id: 'gay-lussac-law'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'gay-lussac-law'
+    note:
+      en: >-
+        Fixed volume and amount: in a rigid container, pressure is proportional to the kelvin
+        temperature.
+  - id: 'check-gay-lussac'
+    kind: 'check'
+    prompt:
+      en: >-
+        A sealed steel cylinder holds gas at an absolute pressure of 300 kilopascals and 20 degrees
+        Celsius. What is the pressure at 40 degrees Celsius?
+    answer:
+      en: >-
+        About 320 kilopascals: 300 times 313.15, divided by 293.15.
+  - id: 'avogadros-law'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'avogadros-law'
+    note:
+      en: >-
+        Fixed temperature and pressure: volume is proportional to the amount of gas, whatever the
+        gas.
+  - id: 'check-avogadro'
+    kind: 'check'
+    prompt:
+      en: >-
+        A balloon holds 0.0400 moles of helium in 1.00 litre. At the same temperature and pressure,
+        0.0200 moles more are added. What is its new volume?
+    answer:
+      en: >-
+        1.50 litres: 1.00 times 0.0600, divided by 0.0400. Half as much gas again gives half as much
+        volume again.
+  - id: 'combined-gas-law'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'combined-gas-law'
+    note:
+      en: >-
+        Boyle's, Charles's and Gay-Lussac's laws in one relation, for a fixed amount of gas whose
+        pressure, volume and temperature all change.
+  - id: 'check-combined'
+    kind: 'check'
+    prompt:
+      en: >-
+        A gas occupies 0.250 litres at 27 degrees Celsius and 0.850 atmospheres. What volume does it
+        occupy at 0 degrees Celsius and 1.00 atmosphere?
+    answer:
+      en: >-
+        About 0.193 litres: 0.250 times 0.850 times 273.15, divided by the product of 300.15 and
+        1.00.
+  - id: 'ideal-gas-law'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'ideal-gas-law'
+    note:
+      en: >-
+        All four quantities in one equation, joined by the molar gas constant. Each classic law
+        above is this one with the other quantities held fixed.
+  - id: 'check-ideal-gas'
+    kind: 'check'
+    prompt:
+      en: >-
+        A rigid 10.0-litre flask holds gas at 100 kilopascals and 300 kelvin. How many moles of gas
+        does it contain?
+    answer:
+      en: >-
+        About 0.401 moles: 100 000 times 0.0100, divided by the product of 8.314 and 300. The volume
+        goes in cubic metres and the pressure in pascals.
+  - id: 'molar-volume-ideal-gas'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'molar-volume-ideal-gas'
+    note:
+      en: >-
+        The volume of one mole, the same for every ideal gas at given conditions. Always state the
+        temperature and pressure it refers to.
+  - id: 'check-molar-volume'
+    kind: 'check'
+    prompt:
+      en: >-
+        The molar volume of an ideal gas at 273.15 kelvin and 100 kilopascals is about 22.711 litres
+        per mole. What volume do 0.500 moles of any ideal gas occupy at those conditions?
+    answer:
+      en: >-
+        About 11.4 litres: 0.500 times 22.711. The identity of the gas does not matter.
+  - id: 'gas-density'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'gas-density'
+    note:
+      en: >-
+        Mass per volume of a gas from its pressure, molar mass and temperature. Heavier molecules,
+        higher pressure and lower temperature all make a denser gas.
+  - id: 'check-density'
+    kind: 'check'
+    prompt:
+      en: >-
+        Nitrogen has a molar mass of 28.01 grams per mole. What is its density at 100 kilopascals
+        and 25 degrees Celsius?
+    answer:
+      en: >-
+        About 1.13 kilograms per cubic metre: 100 000 times 0.02801, divided by the product of 8.314
+        and 298.15.
+  - id: 'daltons-law-partial-pressures'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'daltons-law-partial-pressures'
+    note:
+      en: >-
+        In a mixture of gases that do not react, each gas contributes its own partial pressure, and
+        the contributions add up to the total.
+  - id: 'partial-pressure-mole-fraction'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'partial-pressure-mole-fraction'
+    note:
+      en: >-
+        Each gas supplies the same share of the pressure as of the moles: its mole fraction times
+        the total pressure.
+  - id: 'check-partial-pressure'
+    kind: 'check'
+    prompt:
+      en: >-
+        A mixture of 0.20 moles of oxygen and 0.80 moles of nitrogen is at a total pressure of 101.3
+        kilopascals. What is the partial pressure of the oxygen?
+    answer:
+      en: >-
+        About 20.3 kilopascals: the oxygen mole fraction is 0.20 divided by 1.00, and 0.20 times
+        101.3 is 20.26. The nitrogen supplies the remaining 81.0 kilopascals.
+  - id: 'grahams-law'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'grahams-law'
+    note:
+      en: >-
+        Lighter gases escape through a tiny hole faster, in inverse proportion to the square root of
+        the molar mass.
+  - id: 'check-graham'
+    kind: 'check'
+    prompt:
+      en: >-
+        Neon has a molar mass of 20.2 grams per mole and xenon 131.3. At the same temperature and
+        pressure, how many times faster does neon effuse?
+    answer:
+      en: >-
+        About 2.55 times: the square root of 131.3 divided by 20.2.
+  - id: 'summary'
+    kind: 'prose'
+    body:
+      en: >-
+        Every relation in this path describes an ideal gas, a model that real gases follow closely
+        at low pressure and high temperature. Pick the law by asking which quantities stay fixed;
+        when none does, use the ideal gas law. Convert temperatures to kelvin and pressures to
+        absolute values first, and keep each pair of matching quantities in the same unit.

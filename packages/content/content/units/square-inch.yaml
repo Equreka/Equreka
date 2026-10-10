@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Square inch'
+symbol:
+  tex: 'in^{2}'
+  text: 'in²'
+unitOf:
+  - 'area'
+system: 'imperial'
+compose:
+  of:
+    - unit: 'inch'
+      exp: 2
+externalIds:
+  wikidata: 'Q1063786'
+  qudt: 'http://qudt.org/vocab/unit/IN2'
+categories:
+  - 'mathematics'
+  - 'physics'
+branches:
+  - 'geometry'
+  - 'mechanics'
+aliases:
+  - 'square inches'
+  - 'sq in'
+  - 'sqin'
+  - 'in2'
+  - 'in^2'
+  - 'pulgada cuadrada'
+references:
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: square inch; pound-force per square inch'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST Handbook 44 (2026), Appendix C, Units of Area'
+    url: 'https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf'
+  - title: 'R. Rowlett, How Many? A Dictionary of Units of Measurement, University of North Carolina at Chapel Hill, S: square inch, square centimeter'
+    url: 'https://www.ibiblio.org/units/dictS.html'
+  - title: 'QUDT, unit IN2'
+    url: 'https://qudt.org/vocab/unit/IN2'
+description:
+  en: >-
+    The square inch, symbol $\mathrm{in^{2}}$, is a unit of area of the British imperial and United
+    States customary systems, equal to the area of a square whose sides are one inch long. It lies
+    outside the SI and serves customary engineering for small areas such as cross-sections, piston
+    faces and contact surfaces.
+
+    Because the inch is exactly 2.54 centimetres, the square inch is exactly
+    $6.451\,6\times10^{-4}\,\mathrm{m^{2}}$, that is, 6.4516 square centimetres or 645.16 square
+    millimetres. NIST Special Publication 811 prints both of its factors for the unit in boldface as
+    exact, and QUDT stores the same multiplier.
+
+    NIST Handbook 44 puts 144 square inches in a square foot and 1296 in a square yard. Going the
+    other way, a square centimetre is about 0.155 square inch, so a postcard-sized area of a few
+    hundred square centimetres is a few tens of square inches.
+
+    The unit gives its name to the pound-force per square inch, psi, the customary unit of pressure
+    in the United States for tyres, hydraulic systems, compressed gases and the strength of
+    materials: a force of one pound-force spread over one square inch. NIST lists the conversion of
+    psi to the pascal next to that of the square inch itself.
+
+    The plural is square inches; sq in is a common abbreviation and in2 a plain-text form. Because
+    the symbol in coincides with an English word, writing in² with its exponent, or the name in
+    full, keeps the unit from being misread in running text.

@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Linear thermal expansion'
+kind: 'formula'
+level: 'intro'
+expression: '\var{\Delta L}=\mag{\alpha}\var{L_{0}}\var{\Delta T}'
+terms:
+  \Delta L:
+    kind: 'symbol'
+    label:
+      en: 'Change in length'
+    unit: 'metre'
+  \alpha:
+    kind: 'magnitude'
+    ref: 'linear-expansion-coefficient'
+  L_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial length'
+    unit: 'metre'
+  \Delta T:
+    kind: 'symbol'
+    label:
+      en: 'Temperature change'
+    unit: 'kelvin'
+    delta: true
+solutions:
+  \Delta L: 'alpha * L_0 * DeltaT'
+  \alpha: 'DeltaL / (L_0 * DeltaT)'
+  L_{0}: 'DeltaL / (alpha * DeltaT)'
+  \Delta T: 'DeltaL / (alpha * L_0)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'linear expansion'
+  - 'thermal expansion of a rod'
+  - 'ΔL = αLΔT'
+  - 'delta L = alpha L delta T'
+  - 'dilatación lineal'
+  - 'dilatación térmica lineal'
+  - 'expansión térmica lineal'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 1.3 Thermal Expansion (Equation 1.2, Table 1.2, Example 1.2)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-3-thermal-expansion'
+  - title: 'OpenStax, College Physics 2e, 13.2 Thermal Expansion of Solids and Liquids (Table 13.2)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/13-2-thermal-expansion-of-solids-and-liquids'
+  - title: 'R. Nave, HyperPhysics, Thermal Expansion'
+    url: 'https://hyperphysics.gsu.edu/hbase/thermo/thexp.html'
+description:
+  en: >-
+    Linear thermal expansion is the change in length of a solid when its temperature changes: the
+    change equals the linear expansion coefficient of the material times the original length times
+    the temperature change. Part of thermodynamics and of materials engineering, the relation
+    explains why rails, bridges, pipelines and overhead cables grow longer in summer and shorter in
+    winter.
+
+    $\var{\Delta L}$ is the change in length, in metres, positive for a lengthening and negative for
+    a shortening. $\mag{\alpha}$ is the linear expansion coefficient of the material, in reciprocal
+    kelvin; typical values are 12 millionths per kelvin for steel, 17 for copper and 25 for
+    aluminium. $\var{L_{0}}$ is the length before the temperature change, in metres. $\var{\Delta
+    T}$ is the final temperature minus the initial one. A temperature difference has the same value
+    in kelvin and in degrees Celsius, so a coefficient per degree Celsius carries the same number.
+
+    Heating raises the kinetic energy of the particles of a solid, and the average distance between
+    them grows. The change is proportional to the original length, so the fractional change, the
+    change divided by the original length, depends only on the material and on the warming. Every
+    dimension of the body grows by that same fraction, including the diameter of a hole drilled in a
+    plate, which widens as if the removed metal were still in place.
+
+    The relation is a linear approximation, accurate for small temperature changes because the
+    coefficient itself drifts slightly with temperature; an average coefficient extends it to larger
+    changes for most practical purposes. It assumes an isotropic solid that is free to expand. If
+    the body is held fixed, it develops thermal stress instead, which can crack concrete or buckle
+    tracks. Liquids have no length of their own, so for them only volume expansion is defined.
+
+    Expansion joints in bridges leave room for this change: a steel span 1275 metres long lengthens
+    by about 0.84 metres over a temperature change of 55 degrees Celsius.

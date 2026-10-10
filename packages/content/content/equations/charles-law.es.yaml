@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de Charles'
+terms:
+  V_{1}:
+    label: 'Volumen inicial'
+  T_{1}:
+    label: 'Temperatura inicial'
+  V_{2}:
+    label: 'Volumen final'
+  T_{2}:
+    label: 'Temperatura final'
+description: >-
+  La ley de Charles, la ley de los gases que relaciona volumen y temperatura, establece que una
+  cantidad fija de gas mantenida a presión constante ocupa un volumen directamente proporcional a su
+  temperatura absoluta. Escrita para dos estados de la misma muestra, el cociente entre volumen y
+  temperatura es el mismo antes y después de un cambio, de modo que un gas que se calienta a presión
+  constante se dilata y uno que se enfría se contrae.
+
+  $\var{V_{1}}$ y $\var{T_{1}}$ son el volumen y la temperatura del gas al principio, $\var{V_{2}}$
+  y $\var{T_{2}}$ al final. Los volúmenes pueden ir en cualquier unidad, metros cúbicos, litros o
+  mililitros, siempre que ambos usen la misma. Las temperaturas, en cambio, deben ser absolutas, en
+  kelvin: como todas las leyes de los gases, esta necesita la temperatura termodinámica, y a una
+  lectura en grados Celsius hay que sumarle antes 273.15. Las cuatro magnitudes son positivas.
+
+  Al calentar un gas, sus moléculas se mueven más deprisa; para que la presión no cambie, deben
+  repartirse en un volumen mayor, de modo que los choques con las paredes no se hagan más
+  frecuentes. La gráfica del volumen frente a la temperatura en kelvin es una recta que, prolongada
+  hacia abajo, llega a volumen cero en el cero absoluto. Duplicar la temperatura en grados Celsius
+  no duplica el volumen; duplicarla en kelvin, sí. La ley es la ley de los gases ideales con la
+  presión y la cantidad de sustancia fijas.
+
+  Se cumple para un gas ideal y describe bien los gases reales muy por encima de su temperatura de
+  condensación; cerca de la licuefacción, el volumen medido queda por debajo del previsto.
+
+  Joseph Louis Gay-Lussac mostró en 1801 y 1802 que todos los gases se dilatan lo mismo ante el
+  mismo aumento de temperatura. La ley lleva el nombre de Jacques Charles, pionero de los globos,
+  que había llegado a casi el mismo resultado unos quince años antes sin publicarlo nunca. Un globo
+  de 0.300 litros a 283 kelvin crece hasta unos 0.321 litros a 303 kelvin.

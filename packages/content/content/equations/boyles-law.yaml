@@ -1,0 +1,87 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Boyle''s law'
+kind: 'equation'
+level: 'intro'
+expression: '\var{p_{1}}\var{V_{1}}=\var{p_{2}}\var{V_{2}}'
+terms:
+  p_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Initial pressure'
+    unit: 'pascal'
+  V_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Initial volume'
+    unit: 'cubic-metre'
+  p_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Final pressure'
+    unit: 'pascal'
+  V_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Final volume'
+    unit: 'cubic-metre'
+solutions:
+  p_{1}: 'p_2 * V_2 / V_1'
+  V_{1}: 'p_2 * V_2 / p_1'
+  p_{2}: 'p_1 * V_1 / V_2'
+  V_{2}: 'p_1 * V_1 / p_2'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q175974'
+categories:
+  - 'chemistry'
+branches:
+  - 'gases'
+aliases:
+  - 'Boyle-Mariotte law'
+  - 'Mariotte''s law'
+  - 'Boyles law'
+  - 'pressure-volume law'
+  - 'PV = constant'
+  - 'ley de Boyle-Mariotte'
+  - 'ley de Mariotte'
+references:
+  - title: 'OpenStax, Chemistry 2e, 9.2 Relating Pressure, Volume, Amount, and Temperature: The Ideal Gas Law'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-2-relating-pressure-volume-amount-and-temperature-the-ideal-gas-law'
+  - title: 'Purdue University, General Chemistry Topic Review, The Gas Laws (Boyle''s law)'
+    url: 'https://chemed.chem.purdue.edu/genchem/topicreview/bp/ch4/gaslaws3.html'
+  - title: 'NASA Glenn Research Center, Beginner''s Guide to Aeronautics, Boyle''s Law'
+    url: 'https://www1.grc.nasa.gov/beginners-guide-to-aeronautics/boyles-law/'
+  - title: 'Science History Institute, Robert Boyle (scientific biography)'
+    url: 'https://www.sciencehistory.org/education/scientific-biographies/robert-boyle/'
+  - title: 'OpenStax, Chemistry 2e, 9.6 Non-Ideal Gas Behavior'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-6-non-ideal-gas-behavior'
+description:
+  en: >-
+    Boyle's law, also known as the Boyle-Mariotte law, is the gas law that links pressure and
+    volume: for a fixed amount of gas held at one temperature, the pressure is inversely
+    proportional to the volume, so their product does not change. Written for an initial and a final
+    state of the same sample, it says that squeezing a gas into half the space doubles its pressure.
+
+    $\var{p_{1}}$ and $\var{V_{1}}$ are the pressure and the volume of the gas before the change,
+    $\var{p_{2}}$ and $\var{V_{2}}$ after it. The SI units are the pascal and the cubic metre, but
+    litres, millilitres, kilopascals or atmospheres serve as well, because the law only compares two
+    states. Both pressures are absolute, not gauge readings, and all four quantities are positive.
+
+    Pushing the same molecules into a smaller space makes them strike each square metre of wall more
+    often, so the pressure climbs by the same factor by which the volume shrinks. Plotted against
+    volume, the pressure traces a hyperbola; plotted against the reciprocal of the volume, it gives
+    a straight line through the origin. The relation is the ideal gas law with the amount of
+    substance and the temperature both held fixed.
+
+    The law is exact only for an ideal gas. Real gases obey it well at low pressure and high
+    temperature, and depart from it under strong compression or near condensation, where the size of
+    the molecules and their mutual attraction start to count. The temperature must also stay the
+    same: a slow compression that lets heat escape fits the law, a sudden one warms the gas and does
+    not.
+
+    Robert Boyle published the quantitative relation in 1662, in the second edition of his book on
+    the spring of the air, after trapping air in the sealed end of a J-shaped tube and compressing
+    it with mercury. Syringes, bicycle pumps and scuba regulators all work by it: 15.0 millilitres
+    of air at 13.0 psi pressed into 7.5 millilitres reaches 26 psi.

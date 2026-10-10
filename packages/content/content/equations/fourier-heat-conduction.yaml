@@ -1,0 +1,88 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Fourier''s law of heat conduction'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{P}=\frac{\mag{k}\mag{A}\var{\Delta T}}{\var{d}}'
+terms:
+  P:
+    kind: 'magnitude'
+    ref: 'power'
+  k:
+    kind: 'magnitude'
+    ref: 'thermal-conductivity'
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  \Delta T:
+    kind: 'symbol'
+    label:
+      en: 'Temperature difference across the slab'
+    unit: 'kelvin'
+    delta: true
+  d:
+    kind: 'symbol'
+    label:
+      en: 'Thickness'
+    unit: 'metre'
+solutions:
+  P: 'k * A * DeltaT / d'
+  k: 'P * d / (A * DeltaT)'
+  A: 'P * d / (k * DeltaT)'
+  \Delta T: 'P * d / (k * A)'
+  d: 'k * A * DeltaT / P'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'Fourier''s law'
+  - 'law of heat conduction'
+  - 'heat conduction equation'
+  - 'rate of heat conduction'
+  - 'conductive heat transfer'
+  - 'heat flow through a wall'
+  - 'ley de Fourier'
+  - 'ley de la conducción del calor'
+  - 'conducción del calor'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 1.6 Mechanisms of Heat Transfer (Equation 1.9, Table 1.5, Example 1.10)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-6-mechanisms-of-heat-transfer'
+  - title: 'OpenStax, College Physics 2e, 14.5 Conduction (R factor)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/14-5-conduction'
+  - title: 'R. Nave, HyperPhysics, Heat Conduction'
+    url: 'https://hyperphysics.gsu.edu/hbase/thermo/thercond.html'
+  - title: 'MacTutor History of Mathematics, Jean Baptiste Joseph Fourier'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Fourier/'
+description:
+  en: >-
+    Fourier's law of heat conduction gives the rate at which heat flows through a slab of material:
+    the heat flow rate equals the thermal conductivity times the area times the temperature
+    difference between the two faces, divided by the thickness. In thermodynamics and building
+    physics it estimates the heat lost through walls, windows, pipes and cookware.
+
+    $\mag{P}$ is the heat flow rate, the heat conducted per unit time, in watts. $\mag{k}$ is the
+    thermal conductivity of the material, in watts per metre kelvin: about 390 for copper, 0.84 for
+    glass and 0.023 for still air. $\mag{A}$ is the area through which the heat passes, in square
+    metres, and $\var{d}$ is the thickness of the slab along the flow, in metres. $\var{\Delta T}$
+    is the temperature of the hot face minus that of the cold face, a positive difference with the
+    same value in kelvin and in degrees Celsius; the heat always travels from the hot face to the
+    cold one.
+
+    Conduction carries energy through a material without any bulk motion of the material itself, so
+    the flow grows with a steeper temperature drop, a larger area and a better conductor. Doubling
+    the thickness halves the flow, which is why insulation adds thickness of a poor conductor; the
+    thickness divided by the conductivity is the thermal resistance per unit area, the R factor
+    quoted for building materials.
+
+    The relation describes a flat slab of uniform material whose two faces have equal areas and are
+    held at constant temperatures. The general law states that the heat flux is proportional to the
+    temperature gradient and runs down it; curved or layered walls and temperatures that change over
+    time need that general form.
+
+    Joseph Fourier read his memoir on how heat spreads through solids to the Paris Institute in 1807
+    and published his Théorie analytique de la chaleur in 1822. Foam walls 2.50 centimetres thick
+    and 0.950 square metres in area, with a conductivity of 0.035 watts per metre kelvin, pass about
+    46.6 watts across a difference of 35.0 kelvin.

@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Dilatación térmica lineal'
+terms:
+  \Delta L:
+    label: 'Variación de longitud'
+  L_{0}:
+    label: 'Longitud inicial'
+  \Delta T:
+    label: 'Variación de temperatura'
+description: >-
+  La dilatación térmica lineal es el cambio de longitud de un sólido cuando cambia su temperatura:
+  la variación es igual al coeficiente de dilatación lineal del material por la longitud original
+  por la variación de temperatura. Forma parte de la termodinámica y de la ingeniería de materiales,
+  y explica por qué las vías férreas, los puentes, las tuberías y los cables aéreos se alargan en
+  verano y se acortan en invierno.
+
+  $\var{\Delta L}$ es la variación de longitud, en metros, positiva si el cuerpo se alarga y
+  negativa si se acorta. $\mag{\alpha}$ es el coeficiente de dilatación lineal del material, en
+  inversa del kelvin; valores típicos son 12 millonésimas por kelvin para el acero, 17 para el cobre
+  y 25 para el aluminio. $\var{L_{0}}$ es la longitud antes del cambio de temperatura, en metros.
+  $\var{\Delta T}$ es la temperatura final menos la inicial. Una diferencia de temperatura vale lo
+  mismo en kelvin que en grados Celsius, así que un coeficiente por grado Celsius tiene el mismo
+  número.
+
+  Al calentarse aumenta la energía cinética de las partículas de un sólido y crece la distancia
+  media entre ellas. El cambio es proporcional a la longitud original, de modo que la variación
+  relativa, el cambio dividido entre la longitud original, depende solo del material y del
+  calentamiento. Todas las dimensiones del cuerpo crecen en esa misma fracción, incluido el diámetro
+  de un agujero taladrado en una placa, que se ensancha como si el metal retirado siguiera en su
+  sitio.
+
+  La relación es una aproximación lineal, precisa para cambios de temperatura pequeños porque el
+  propio coeficiente varía algo con la temperatura; un coeficiente medio la extiende a cambios
+  mayores para la mayoría de los fines prácticos. Supone un sólido isótropo y libre de dilatarse. Si
+  el cuerpo está sujeto, aparece en cambio una tensión térmica capaz de agrietar el hormigón o
+  deformar las vías. Los líquidos no tienen longitud propia, así que en ellos solo se define la
+  dilatación volumétrica.
+
+  Las juntas de dilatación de los puentes dejan espacio para este cambio: un tramo de acero de 1275
+  metros se alarga unos 0.84 metros con una variación de temperatura de 55 grados Celsius.

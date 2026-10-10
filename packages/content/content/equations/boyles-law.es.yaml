@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de Boyle'
+terms:
+  p_{1}:
+    label: 'Presión inicial'
+  V_{1}:
+    label: 'Volumen inicial'
+  p_{2}:
+    label: 'Presión final'
+  V_{2}:
+    label: 'Volumen final'
+description: >-
+  La ley de Boyle, conocida también como ley de Boyle-Mariotte, es la ley de los gases que relaciona
+  presión y volumen: para una cantidad fija de gas mantenida a una misma temperatura, la presión es
+  inversamente proporcional al volumen, de modo que su producto no cambia. Escrita para un estado
+  inicial y otro final de la misma muestra, dice que comprimir un gas a la mitad del espacio duplica
+  su presión.
+
+  $\var{p_{1}}$ y $\var{V_{1}}$ son la presión y el volumen del gas antes del cambio, $\var{p_{2}}$
+  y $\var{V_{2}}$ después. Las unidades SI son el pascal y el metro cúbico, pero sirven igual
+  litros, mililitros, kilopascales o atmósferas, porque la ley solo compara dos estados. Ambas
+  presiones son absolutas, no lecturas manométricas, y las cuatro magnitudes son positivas.
+
+  Al empujar las mismas moléculas a un espacio menor, golpean cada metro cuadrado de pared con más
+  frecuencia, así que la presión sube en el mismo factor en que se reduce el volumen. Representada
+  frente al volumen, la presión dibuja una hipérbola; frente al inverso del volumen, da una recta
+  que pasa por el origen. La relación es la ley de los gases ideales con la cantidad de sustancia y
+  la temperatura fijas.
+
+  La ley solo es exacta para un gas ideal. Los gases reales la cumplen bien a baja presión y alta
+  temperatura, y se apartan de ella con una compresión fuerte o cerca de la condensación, cuando
+  empiezan a contar el tamaño de las moléculas y su atracción mutua. La temperatura también debe
+  mantenerse: una compresión lenta que deja escapar el calor se ajusta a la ley; una brusca calienta
+  el gas y no.
+
+  Robert Boyle publicó la relación cuantitativa en 1662, en la segunda edición de su libro sobre el
+  resorte del aire, tras encerrar aire en el extremo sellado de un tubo en forma de J y comprimirlo
+  con mercurio. Las jeringas, las bombas de bicicleta y los reguladores de buceo funcionan según
+  ella: 15.0 mililitros de aire a 13.0 psi comprimidos hasta 7.5 mililitros alcanzan 26 psi.

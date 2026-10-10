@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Rendimiento térmico'
+terms:
+  \eta:
+    label: 'Rendimiento térmico'
+  Q_\mathrm{h}:
+    label: 'Calor absorbido del reservorio caliente'
+description: >-
+  El rendimiento térmico valora una máquina térmica por la parte del calor tomado de una fuente
+  caliente que sale de ella como trabajo: el trabajo neto realizado en un ciclo dividido entre el
+  calor recibido durante ese ciclo. Es la medida de calidad de las máquinas en termodinámica, desde
+  los motores de automóvil y las turbinas de vapor hasta las centrales eléctricas, y un caso
+  particular del rendimiento en general.
+
+  $\var{\eta}$ es el rendimiento térmico, un cociente adimensional entre 0 y 1 que suele darse como
+  porcentaje. $\mag{W}$ es el trabajo neto que entrega la máquina en cada ciclo, en julios.
+  $\var{Q_\mathrm{h}}$ es el calor absorbido del reservorio caliente en el mismo ciclo, en julios.
+  Ambos se cuentan como cantidades positivas; el mismo cociente vale para ritmos, la potencia de
+  salida entre el ritmo de entrada de calor, cuando ambos se promedian sobre ciclos completos.
+
+  En un ciclo completo la sustancia de trabajo vuelve a su estado inicial, de modo que su energía
+  interna no cambia, y el primer principio hace que el trabajo sea igual al calor absorbido menos el
+  calor cedido al reservorio frío. Por eso el rendimiento también puede escribirse como uno menos el
+  calor cedido dividido entre el calor absorbido. Con la misma entrada de calor, una máquina que
+  cede menos calor realiza más trabajo y es más eficiente.
+
+  La fórmula se aplica a máquinas cíclicas. Toda máquina real cede algo de calor a su reservorio
+  frío, así que su rendimiento queda por debajo de 1, y el segundo principio lo limita al
+  rendimiento de Carnot, que depende solo de las temperaturas de los reservorios caliente y frío. En
+  los refrigeradores y las bombas de calor, que mueven el calor en sentido contrario, un coeficiente
+  de rendimiento cumple el papel equivalente.
+
+  Un motor de cortacésped con un rendimiento del 25.0 por ciento que entrega 180 kilojulios de
+  trabajo en un minuto absorbe en ese tiempo 720 kilojulios de calor y cede 540 kilojulios.

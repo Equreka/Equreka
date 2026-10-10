@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Sensible heat'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{Q}=\mag{m}\mag{c}\var{\Delta T}'
+terms:
+  Q:
+    kind: 'magnitude'
+    ref: 'heat'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  c:
+    kind: 'magnitude'
+    ref: 'specific-heat-capacity'
+  \Delta T:
+    kind: 'symbol'
+    label:
+      en: 'Temperature change'
+    unit: 'kelvin'
+    delta: true
+solutions:
+  Q: 'm * c * DeltaT'
+  m: 'Q / (c * DeltaT)'
+  c: 'Q / (m * DeltaT)'
+  \Delta T: 'Q / (m * c)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q1480581'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'Q = mcΔT'
+  - 'Q = m c delta T'
+  - 'heat and temperature change'
+  - 'heat equation of calorimetry'
+  - 'specific heat formula'
+  - 'calor sensible'
+  - 'ecuación fundamental de la calorimetría'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 1.4 Heat Transfer, Specific Heat, and Calorimetry (Equation 1.5, Example 1.5)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-4-heat-transfer-specific-heat-and-calorimetry'
+  - title: 'OpenStax, College Physics 2e, 14.2 Temperature Change and Heat Capacity (Table 14.1)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/14-2-temperature-change-and-heat-capacity'
+  - title: 'R. Nave, HyperPhysics, Specific Heat'
+    url: 'https://hyperphysics.gsu.edu/hbase/thermo/spht.html'
+  - title: 'University of Glasgow, School of Chemistry, Notable alumni: Joseph Black'
+    url: 'https://www.gla.ac.uk/schools/chemistry/abouttheschool/history/alumni/notablealumni/'
+description:
+  en: >-
+    Sensible heat is the heat that changes the temperature of a body without changing its phase. It
+    equals the mass of the body times the specific heat capacity of its material times the
+    temperature change, a relation at the heart of calorimetry and thermodynamics that tells how
+    much energy it takes to warm or cool water, metal, air or food.
+
+    $\mag{Q}$ is the heat exchanged, in joules: positive when the body takes heat in, negative when
+    it gives heat off. $\mag{m}$ is the mass, in kilograms. $\mag{c}$ is the specific heat capacity,
+    in joules per kilogram kelvin, which depends on the material and its phase: about 4186 for
+    liquid water and 900 for aluminium. $\var{\Delta T}$ is the final temperature minus the initial
+    one. A step of one kelvin is as large as a step of one degree Celsius, so the difference has the
+    same value on both scales, and a cooling makes it negative.
+
+    The heat grows in proportion to each factor: doubling the mass, or doubling the warming, doubles
+    the energy needed. A material with a large specific heat capacity absorbs a great deal of energy
+    for a modest rise in temperature, which is why seas and lakes soften the climate along their
+    shores. The product of mass and specific heat capacity is the heat capacity of the body.
+
+    The relation holds only while the substance stays in a single phase and no work is done on or by
+    it. During melting or boiling the heat drives the change of phase instead, and the latent heat
+    relation applies. It also treats the specific heat capacity as constant, which suits most solids
+    and liquids at ordinary temperatures; at very low temperatures, or for gases, the value changes
+    with the conditions.
+
+    Joseph Black's experiments on the freezing, melting and vaporization of water at the University
+    of Glasgow, where he taught from 1756 to 1766, led to the concepts of latent heat and heat
+    capacity. Warming 0.250 kilograms of water from 20.0 to 80.0 degrees Celsius takes about 62.8
+    kilojoules.

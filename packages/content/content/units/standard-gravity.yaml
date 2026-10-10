@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Standard gravity'
+symbol:
+  tex: 'g_{n}'
+  text: 'g_n'
+unitOf:
+  - 'acceleration'
+system: 'other'
+toBase:
+  factor: '9.80665'
+  exact: true
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+    ref: 'B.8: acceleration of free fall, standard (g_n), 9.806 65 E+00 m/s² (boldface, exact)'
+externalIds:
+  wikidata: 'Q13400897'
+  qudt: 'http://qudt.org/vocab/unit/G'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+  - 'gravitation'
+aliases:
+  - 'g-force'
+  - 'g force'
+  - 'gee'
+  - 'grav'
+  - 'standard gravities'
+  - '[g]'
+  - 'gravedad estándar'
+  - 'fuerza g'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1: 3rd CGPM (1901), declaration on the unit of mass and on the definition of weight; conventional value of gn'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: acceleration of free fall, standard; gal'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST SP 811, Chapter 5, Units outside the SI, Table 11: kilogram-force'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si'
+  - title: 'R. Rowlett, How Many? A Dictionary of Units of Measurement, University of North Carolina at Chapel Hill, G: g (standard gravity)'
+    url: 'https://www.ibiblio.org/units/dictG.html'
+  - title: 'QUDT, unit G (gravity)'
+    url: 'https://qudt.org/vocab/unit/G'
+description:
+  en: >-
+    Standard gravity, symbol $\mathrm{g_{n}}$ and often written g, is a unit of acceleration equal
+    to the standard acceleration of gravity, exactly $9.806\,65\,\mathrm{m/s^{2}}$. Accelerations
+    stated as multiples of it are what aviation, spaceflight and vehicle engineering call g-forces:
+    a reading of 3 g means three times this acceleration. It is not an SI unit.
+
+    The value goes back to the 3rd CGPM, which in 1901 fixed 980.665 centimetres per second squared
+    as the standard acceleration due to gravity, used to define standard weight. NIST Special
+    Publication 811 lists the factor 9.806 65 as exact. The number is a convention, not a
+    measurement at any one place: according to Rowlett's dictionary of units, the real acceleration
+    of free fall at sea level ranges from about 9.780 at the equator to 9.833 metres per second
+    squared at the poles.
+
+    In other units, $1\,\mathrm{g_{n}}=980.665\,\mathrm{Gal}$ exactly, about 32.174 feet per second
+    squared. The kilogram-force, which NIST gives as 9.806 65 newtons, and the pound-force are the
+    weights of one kilogram and one avoirdupois pound under this acceleration.
+
+    Rowlett records that the symbol g first served as a unit in aeronautical and space engineering,
+    where the accelerations a crew can tolerate set design limits; many other accelerations are now
+    quoted in g as well. The same number is the constant called the standard acceleration of
+    gravity, which equations use as a value; the unit uses it as a conversion factor.
+
+    The plain g clashes with the symbol of the gram, so NIST writes $\mathrm{g_{n}}$, QUDT uses G
+    and the UCUM code is [g]. Gee and grav are informal names.

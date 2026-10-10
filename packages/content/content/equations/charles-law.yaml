@@ -1,0 +1,87 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Charles''s law'
+kind: 'equation'
+level: 'intro'
+expression: '\frac{\var{V_{1}}}{\var{T_{1}}}=\frac{\var{V_{2}}}{\var{T_{2}}}'
+terms:
+  V_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Initial volume'
+    unit: 'cubic-metre'
+  T_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Initial temperature'
+    unit: 'kelvin'
+  V_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Final volume'
+    unit: 'cubic-metre'
+  T_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Final temperature'
+    unit: 'kelvin'
+solutions:
+  V_{1}: 'V_2 * T_1 / T_2'
+  T_{1}: 'V_1 * T_2 / V_2'
+  V_{2}: 'V_1 * T_2 / T_1'
+  T_{2}: 'V_2 * T_1 / V_1'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q193523'
+categories:
+  - 'chemistry'
+branches:
+  - 'gases'
+aliases:
+  - 'Charles'' law'
+  - 'Charles law'
+  - 'law of volumes'
+  - 'volume-temperature law'
+  - 'V/T = constant'
+  - 'ley de Charles y Gay-Lussac'
+  - 'primera ley de Gay-Lussac'
+references:
+  - title: 'OpenStax, Chemistry 2e, 9.2 Relating Pressure, Volume, Amount, and Temperature: The Ideal Gas Law'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-2-relating-pressure-volume-amount-and-temperature-the-ideal-gas-law'
+  - title: 'Purdue University, General Chemistry Topic Review, The Gas Laws (Charles'' law)'
+    url: 'https://chemed.chem.purdue.edu/genchem/topicreview/bp/ch4/gaslaws3.html'
+  - title: 'NASA Glenn Research Center, Beginner''s Guide to Aeronautics, Charles and Gay-Lussac''s Law'
+    url: 'https://www.grc.nasa.gov/www/k-12/airplane/glussac.html'
+  - title: 'Science History Institute, Joseph Louis Gay-Lussac (scientific biography)'
+    url: 'https://www.sciencehistory.org/education/scientific-biographies/joseph-louis-gay-lussac/'
+  - title: 'OpenStax, Chemistry 2e, 9.6 Non-Ideal Gas Behavior'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-6-non-ideal-gas-behavior'
+description:
+  en: >-
+    Charles's law, the volume-temperature gas law, states that a fixed amount of gas kept at
+    constant pressure occupies a volume directly proportional to its absolute temperature. Written
+    for two states of the same sample, the ratio of volume to temperature is the same before and
+    after a change, so a gas that is warmed at constant pressure expands and one that is cooled
+    contracts.
+
+    $\var{V_{1}}$ and $\var{T_{1}}$ are the volume and the temperature of the gas at the start,
+    $\var{V_{2}}$ and $\var{T_{2}}$ at the end. Volumes may be in any unit, cubic metres, litres or
+    millilitres, as long as both use the same one. The temperatures, however, must be absolute, in
+    kelvin: like every gas law, this one needs the thermodynamic temperature, and a reading in
+    degrees Celsius has to be raised by 273.15 first. All four quantities are positive.
+
+    Heating a gas makes its molecules move faster; for the pressure to stay the same, they must
+    spread through a larger volume, so the collisions with the walls do not become more frequent. A
+    graph of volume against kelvin temperature is a straight line that, extended downward, reaches
+    zero volume at absolute zero. Doubling the temperature in degrees Celsius does not double the
+    volume; doubling it in kelvin does. The law is the ideal gas law with pressure and amount of
+    substance fixed.
+
+    It holds for an ideal gas and fits real gases well far above their condensation temperature;
+    near liquefaction, the measured volume falls below the prediction.
+
+    Joseph Louis Gay-Lussac showed in 1801 and 1802 that all gases expand by equal amounts for the
+    same rise in temperature. The law bears the name of Jacques Charles, the balloon pioneer, who
+    had found nearly the same result about fifteen years earlier but never published it. A balloon
+    of 0.300 litres at 283 kelvin grows to about 0.321 litres at 303 kelvin.

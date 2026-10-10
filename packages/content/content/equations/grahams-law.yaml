@@ -1,0 +1,86 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Graham''s law'
+kind: 'equation'
+level: 'intro'
+expression: '\frac{\var{r_{1}}}{\var{r_{2}}}=\sqrt{\frac{\var{M_{2}}}{\var{M_{1}}}}'
+terms:
+  r_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Effusion rate of gas 1'
+    unit: 'cubic-metre-per-second'
+  r_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Effusion rate of gas 2'
+    unit: 'cubic-metre-per-second'
+  M_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Molar mass of gas 1'
+    unit: 'kilogram-per-mole'
+  M_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Molar mass of gas 2'
+    unit: 'kilogram-per-mole'
+solutions:
+  r_{1}: 'r_2 * sqrt(M_2 / M_1)'
+  r_{2}: 'r_1 * sqrt(M_1 / M_2)'
+  M_{1}: 'M_2 * (r_2 / r_1)^2'
+  M_{2}: 'M_1 * (r_1 / r_2)^2'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q1048513'
+categories:
+  - 'chemistry'
+branches:
+  - 'gases'
+aliases:
+  - 'Graham''s law of effusion'
+  - 'Graham''s law of diffusion'
+  - 'Grahams law'
+  - 'rate of effusion'
+  - 'effusion'
+  - 'ley de Graham de efusión'
+  - 'efusión'
+  - 'difusión de los gases'
+references:
+  - title: 'OpenStax, Chemistry 2e, 9.4 Effusion and Diffusion of Gases'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-4-effusion-and-diffusion-of-gases'
+  - title: 'Purdue University, General Chemistry, Thomas Graham (history)'
+    url: 'https://chemed.chem.purdue.edu/genchem/history/graham.html'
+  - title: 'R. Nave, HyperPhysics, Diffusion'
+    url: 'https://hyperphysics.gsu.edu/hbase/Kinetic/diffus.html'
+description:
+  en: >-
+    Graham's law of effusion states that, at the same temperature and pressure, how fast a gas
+    escapes through a tiny opening varies as one over the square root of its molar mass. Written for
+    two gases, the ratio of their effusion rates equals the square root of the inverse ratio of
+    their molar masses, so light gases leak out faster than heavy ones.
+
+    $\var{r_{1}}$ and $\var{r_{2}}$ are the effusion rates of gases 1 and 2, measured in the same
+    way as volumes per unit time, for instance millilitres per second; any volume-per-time unit
+    common to both works, because only their ratio enters. $\var{M_{1}}$ and $\var{M_{2}}$ are the
+    molar masses, in kilograms per mole or grams per mole for both. All four quantities are
+    positive. The same rule compares the times needed for equal amounts to escape, with the ratio
+    inverted.
+
+    Effusion is the escape of a gas through a pinhole into a vacuum; diffusion is the spreading of
+    one gas through another. At a given temperature the molecules of every gas have the same average
+    kinetic energy, so lighter molecules move faster, in inverse proportion to the square root of
+    their mass, and reach the opening more often. Diffusion rates follow the same ratio, although
+    their absolute values differ.
+
+    The law assumes ideal gases at the same temperature and pressure, escaping through a tiny
+    opening into a vacuum. Read the other way, it finds an unknown molar mass from a measured rate
+    ratio: a gas that effuses 1.66 times faster than carbon dioxide has a molar mass near 16 grams
+    per mole.
+
+    Thomas Graham first studied how fast gases diffuse in 1829, finding that the rates vary
+    inversely with the square root of the gas densities, and in 1832 he turned to effusion and
+    stated the law that bears his name. Gaseous diffusion of uranium hexafluoride through porous
+    barriers later enriched uranium in uranium-235; one barrier raises the share only slightly, so
+    plants linked many stages in a cascade.

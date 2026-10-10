@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Square centimetre'
+symbol:
+  tex: 'cm^{2}'
+  text: 'cm²'
+unitOf:
+  - 'area'
+system: 'cgs'
+compose:
+  of:
+    - unit: 'centimetre'
+      exp: 2
+externalIds:
+  wikidata: 'Q2489298'
+  qudt: 'http://qudt.org/vocab/unit/CentiM2'
+categories:
+  - 'mathematics'
+  - 'physics'
+branches:
+  - 'geometry'
+  - 'mechanics'
+aliases:
+  - 'square centimeter'
+  - 'square centimetres'
+  - 'square centimeters'
+  - 'cm2'
+  - 'cm^2'
+  - 'sq cm'
+  - 'centímetro cuadrado'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., section 3 (prefix symbols raised to a power) and section 5.2 (no abbreviations for unit symbols)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST Handbook 44 (2026), Appendix C, Units of Area (metric)'
+    url: 'https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: square inch; dyne per square centimeter'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'R. Rowlett, How Many? A Dictionary of Units of Measurement, University of North Carolina at Chapel Hill, S: square centimeter'
+    url: 'https://www.ibiblio.org/units/dictS.html'
+  - title: 'QUDT, unit CentiM2'
+    url: 'https://qudt.org/vocab/unit/CentiM2'
+description:
+  en: >-
+    The square centimetre, symbol $\mathrm{cm^{2}}$, is a unit of area equal to the area of a square
+    whose sides each measure one centimetre. It is a decimal submultiple of the square metre, the
+    coherent SI unit of area, and it was the unit of area of the centimetre-gram-second system.
+
+    The SI treats a prefix and the unit it is attached to as a single symbol, so an exponent acts on
+    both together: a square centimetre is the square of one hundredth of a metre, which gives
+    $1\,\mathrm{cm^{2}}=10^{-4}\,\mathrm{m^{2}}$ exactly. The SI Brochure illustrates the rule with
+    the cubic centimetre, and the square follows by the same reasoning.
+
+    Metric area units climb in steps of one hundred in the tables of NIST Handbook 44: one hundred
+    square millimetres make a square centimetre, and one hundred square centimetres make a square
+    decimetre, so a square metre contains ten thousand square centimetres. NIST Special Publication
+    811 gives the square inch as exactly 6.4516 square centimetres, so a square centimetre is a
+    little more than fifteen hundredths of a square inch.
+
+    The unit suits areas that fit in a hand or on a desk: a coin, a postage stamp, a page, the
+    cross-section of a rod in a school problem or the patch over which a force is spread when a
+    pressure is worked out. It also forms CGS units of other quantities, such as the dyne per square
+    centimetre for pressure, which NIST still lists among its conversion factors.
+
+    Only the symbol cm² is correct; the SI Brochure allows no abbreviations of unit symbols or
+    names, citing sq. mm as an example. American English spells the name square centimeter, and the
+    plural is square centimetres.

@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de los gases ideales'
+description: >-
+  La ley de los gases ideales, también llamada ecuación de estado del gas ideal, establece que la
+  presión de un gas por su volumen es igual a su cantidad de sustancia por la constante molar de los
+  gases por su temperatura absoluta. Es la relación central de las leyes de los gases en química y
+  termodinámica: enlaza las cuatro magnitudes que describen una muestra de gas, de modo que
+  cualquiera de ellas se obtiene de las otras tres.
+
+  $\mag{p}$ es la presión absoluta, en pascales, nunca la presión manométrica que marca un medidor
+  de neumáticos. $\mag{V}$ es el volumen del gas, en metros cúbicos. $\mag{n}$ es la cantidad de
+  sustancia, en moles. $\const{R}$ es la constante molar de los gases, de unos 8.314 julios por mol
+  y kelvin y exacta en el SI. $\mag{T}$ es la temperatura termodinámica en kelvin. Las leyes de los
+  gases exigen temperatura absoluta: una lectura en grados Celsius debe convertirse antes sumándole
+  273.15. Las cuatro magnitudes son positivas.
+
+  La ley reúne en un solo enunciado las leyes empíricas de los gases. Con cantidad y temperatura
+  fijas, la presión varía en razón inversa al volumen (ley de Boyle); a presión fija, el volumen es
+  proporcional a la temperatura absoluta (ley de Charles); a volumen fijo, la presión es
+  proporcional a la temperatura absoluta (ley de Gay-Lussac); y a presión y temperatura fijas, el
+  volumen es proporcional a la cantidad de gas (ley de Avogadro). Por eso un mol de cualquier gas
+  ideal ocupa el mismo volumen en las mismas condiciones, unos 22.4 litros a 0 grados Celsius y una
+  atmósfera.
+
+  Los gases reales cumplen la ley con bastante exactitud a baja densidad, es decir, a baja presión y
+  alta temperatura, lejos de las condiciones en que se condensan en líquidos. A presiones altas
+  importan el tamaño de las moléculas y la atracción entre ellas, y se recurre a ecuaciones de
+  estado corregidas, como la de van der Waals.
+
+  Robert Boyle (1627–1691) halló la ley de la presión y el volumen, Amontons estableció la ley de la
+  presión y la temperatura hacia 1700, y Avogadro propuso su hipótesis sobre volúmenes iguales de
+  gases en 1811. Según la ley, 655 gramos de metano a 25 grados Celsius y 745 torr ocupan unos 1020
+  litros.

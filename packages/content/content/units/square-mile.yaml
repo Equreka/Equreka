@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Square mile'
+symbol:
+  tex: 'mi^{2}'
+  text: 'mi²'
+unitOf:
+  - 'area'
+system: 'imperial'
+compose:
+  of:
+    - unit: 'mile'
+      exp: 2
+externalIds:
+  wikidata: 'Q232291'
+  qudt: 'http://qudt.org/vocab/unit/MI2'
+categories:
+  - 'mathematics'
+  - 'physics'
+branches:
+  - 'geometry'
+  - 'mechanics'
+aliases:
+  - 'square miles'
+  - 'sq mi'
+  - 'sqmi'
+  - 'mi2'
+  - 'mi^2'
+  - 'square international mile'
+  - 'milla cuadrada'
+references:
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: square mile; square mile (based on U.S. survey foot)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST Handbook 44 (2026), Appendix C, Units of Area'
+    url: 'https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf'
+  - title: 'NIST, Putting the Best Foot Forward: Ending the Era of the U.S. Survey Foot'
+    url: 'https://www.nist.gov/pml/us-surveyfoot'
+  - title: 'R. Rowlett, How Many? A Dictionary of Units of Measurement, University of North Carolina at Chapel Hill, S: section, square mile'
+    url: 'https://www.ibiblio.org/units/dictS.html'
+  - title: 'QUDT, unit MI2 (square international mile)'
+    url: 'https://qudt.org/vocab/unit/MI2'
+description:
+  en: >-
+    The square mile, symbol $\mathrm{mi^{2}}$, is a unit of area of the British imperial and United
+    States customary systems, equal to the area of a square one mile on each side. It is not an SI
+    unit, and it is used for large areas of land and water: counties, states, national parks, lakes
+    and the extent of floods or wildfires.
+
+    The international mile is exactly 1609.344 metres, so the square mile is exactly
+    $2\,589\,988.110\,336\,\mathrm{m^{2}}$, about 2.59 square kilometres. QUDT stores this exact
+    multiplier for the square international mile; NIST Special Publication 811 rounds the factor to
+    2.589 988 square kilometres.
+
+    In NIST Handbook 44 a square mile is 640 acres or 27 878 400 square feet, and it is also 3 097
+    600 square yards. A square kilometre is about 0.386 square mile, and a hectare is about 0.003 86
+    square mile.
+
+    The Public Land Survey System of the United States, which covers most of the country apart from
+    the original thirteen states, Alaska and Hawaii, divides land into sections of nominally one
+    square mile, and the Dominion Lands Survey of western Canada uses the same section. Because the
+    survey grid follows meridians and parallels on a curved Earth, real sections differ slightly
+    from the nominal size.
+
+    NIST Special Publication 811 also lists a square mile based on the U.S. survey foot, 2.589 998
+    square kilometres, a little larger than the international unit. NIST declared the survey foot
+    obsolete from 1 January 2023. The plural is square miles, and sq mi is a common abbreviation.

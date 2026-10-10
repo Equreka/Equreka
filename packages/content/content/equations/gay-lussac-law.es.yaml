@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de Gay-Lussac'
+terms:
+  p_{1}:
+    label: 'Presión inicial'
+  T_{1}:
+    label: 'Temperatura inicial'
+  p_{2}:
+    label: 'Presión final'
+  T_{2}:
+    label: 'Temperatura final'
+description: >-
+  La ley de Gay-Lussac, llamada también ley de Amontons, establece que la presión de una cantidad
+  fija de gas en un recipiente rígido es directamente proporcional a su temperatura absoluta.
+  Escrita para dos estados de la misma muestra a volumen constante, el cociente entre presión y
+  temperatura no cambia, de modo que calentar un gas encerrado eleva su presión y enfriarlo la
+  reduce.
+
+  $\var{p_{1}}$ y $\var{T_{1}}$ son la presión y la temperatura del gas al principio, $\var{p_{2}}$
+  y $\var{T_{2}}$ al final. Las presiones son absolutas y pueden ir en pascales, kilopascales o
+  cualquier otra unidad de presión, siempre que ambas coincidan. Las temperaturas deben ser
+  temperaturas termodinámicas en kelvin, como en toda ley de los gases: a una lectura en grados
+  Celsius se le suma antes 273.15. Las cuatro magnitudes son positivas.
+
+  En un recipiente cerrado y rígido las moléculas no pueden separarse más, así que cuando se
+  aceleran al calentarse golpean las paredes con más frecuencia y más fuerza, y la presión sube al
+  mismo ritmo que la temperatura en kelvin. En una gráfica de presión frente a temperatura los
+  puntos forman una recta; prolongada hasta presión cero, llega al cero absoluto, y así propuso
+  Joseph Lambert definir esa temperatura en 1779. La ley es la ley de los gases ideales con el
+  volumen y la cantidad de sustancia fijos.
+
+  Es exacta para un gas ideal y aproximada para los gases reales a baja presión y lejos de la
+  condensación. La fuerte atracción entre moléculas a baja temperatura hace que la presión medida
+  quede por debajo de la prevista.
+
+  Guillaume Amontons halló la relación de forma experimental hacia 1700, y Gay-Lussac la midió con
+  más precisión casi un siglo después. El nombre de ley de Gay-Lussac designa también su ley de los
+  volúmenes de combinación, de 1808, que es otra regla distinta. Un aerosol a 360 kilopascales y 297
+  kelvin, calentado hasta 323 kelvin, alcanza unos 392 kilopascales; por eso estos envases advierten
+  contra el calor.

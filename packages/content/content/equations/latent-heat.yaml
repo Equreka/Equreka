@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Latent heat'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{Q}=\mag{m}\mag{L}'
+terms:
+  Q:
+    kind: 'magnitude'
+    ref: 'heat'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  L:
+    kind: 'magnitude'
+    ref: 'specific-latent-heat'
+solutions:
+  Q: 'm * L'
+  m: 'Q / L'
+  L: 'Q / m'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q207721'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'Q = mL'
+  - 'heat of phase change'
+  - 'heat of fusion formula'
+  - 'heat of vaporization formula'
+  - 'heat of vaporisation formula'
+  - 'latent heat formula'
+  - 'calor de cambio de fase'
+  - 'fórmula del calor latente'
+  - 'fórmula del calor de fusión'
+  - 'fórmula del calor de vaporización'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 1.5 Phase Changes (Equations 1.7 and 1.8, Table 1.4, Example 1.9)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-5-phase-changes'
+  - title: 'OpenStax, College Physics 2e, 14.3 Phase Change and Latent Heat (Table 14.2)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/14-3-phase-change-and-latent-heat'
+  - title: 'R. Nave, HyperPhysics, Heat of Fusion and Heat of Vaporization'
+    url: 'https://hyperphysics.gsu.edu/hbase/thermo/phase2.html'
+  - title: 'University of Glasgow, School of Chemistry, Notable alumni: Joseph Black'
+    url: 'https://www.gla.ac.uk/schools/chemistry/abouttheschool/history/alumni/notablealumni/'
+description:
+  en: >-
+    Latent heat is the heat a substance absorbs or gives off while it changes phase at a constant
+    temperature. It equals the mass that changes phase times the specific latent heat of the
+    transition, and in thermodynamics and calorimetry it gives the energy needed to melt ice, boil
+    water or condense steam, covering the heats of fusion, vaporization and sublimation.
+
+    $\mag{Q}$ is the heat for the whole mass to change phase, in joules. $\mag{m}$ is the mass that
+    changes phase, in kilograms. $\mag{L}$ is the specific latent heat of the transition, in joules
+    per kilogram, never negative; for water at a pressure of one atmosphere it is 334 kilojoules per
+    kilogram for melting and 2256 kilojoules per kilogram for boiling. The formula gives the size of
+    the heat. Melting, vaporization and sublimation take that amount in, while freezing,
+    condensation and deposition return the same amount to the surroundings, so for those the heat of
+    the substance is negative.
+
+    While a substance melts or boils its temperature stays put until the change is complete, because
+    the energy supplied loosens or breaks the bonds between molecules rather than making them move
+    faster. A stirred mixture of ice and water therefore remains at 0 degrees Celsius as it is
+    heated. Vaporization needs far more energy than melting: the molecules must be pulled fully
+    apart, and the vapour must also push back the surrounding air as it expands.
+
+    Specific latent heats are measured values that depend on the pressure and on the temperature of
+    the transition: water evaporating at body temperature, 37 degrees Celsius, takes 2430 kilojoules
+    per kilogram rather than 2256. Heating cold ice all the way to steam needs this relation once
+    for each change of phase and the sensible heat relation for each warming stage in between.
+
+    Joseph Black's experiments on freezing and melting water at the University of Glasgow, where he
+    taught from 1756 to 1766, led to the concept of the latent heat of fusion. Melting 18 grams of
+    ice at 0 degrees Celsius takes about 6.0 kilojoules.

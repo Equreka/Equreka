@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley general de los gases'
+terms:
+  p_{1}:
+    label: 'Presión inicial'
+  V_{1}:
+    label: 'Volumen inicial'
+  T_{1}:
+    label: 'Temperatura inicial'
+  p_{2}:
+    label: 'Presión final'
+  V_{2}:
+    label: 'Volumen final'
+  T_{2}:
+    label: 'Temperatura final'
+description: >-
+  La ley general de los gases, o ley de los gases combinados, establece que, para una cantidad fija
+  de gas, el producto de la presión por el volumen dividido entre la temperatura absoluta conserva
+  su valor cuando el gas pasa de un estado a otro. Reúne la ley de Boyle, la ley de Charles y la ley
+  de Gay-Lussac en una sola relación, y permite seguir en un solo paso un cambio en el que las tres
+  varían a la vez.
+
+  $\var{p_{1}}$, $\var{V_{1}}$ y $\var{T_{1}}$ describen el estado inicial: presión absoluta,
+  volumen y temperatura. $\var{p_{2}}$, $\var{V_{2}}$ y $\var{T_{2}}$ describen el estado final. Las
+  presiones pueden ir en pascales, kilopascales o atmósferas y los volúmenes en metros cúbicos o
+  litros, siempre que cada par coincida, porque las unidades se cancelan entre los dos miembros. Las
+  temperaturas deben ir en kelvin, como en toda ley de los gases; a una temperatura Celsius se le
+  suma antes 273.15. Las seis magnitudes son positivas.
+
+  Fijar una de las tres variables devuelve las leyes más sencillas: a temperatura constante queda la
+  ley de Boyle; a presión constante, la de Charles; a volumen constante, la de Gay-Lussac. La
+  relación es la ley de los gases ideales aplicada dos veces a la misma cantidad de gas, en la que
+  la cantidad y la constante molar de los gases se cancelan; por eso no necesita ni el número de
+  moles ni la constante.
+
+  La cantidad de gas no debe cambiar: una fuga, una reacción o un aporte de gas la invalidan, y
+  entonces rige la ley de los gases ideales, que incluye la cantidad. Es exacta para un gas ideal y
+  una buena aproximación para los gases reales a presiones moderadas y lejos de la condensación.
+
+  Sirve para corregir volúmenes de gas a condiciones estándar y en los cálculos de buceo. Un
+  depósito de 13.2 litros a 153 atmósferas y 300 kelvin libera unos 667 litros de gas a 3.13
+  atmósferas y 310 kelvin, solo una estimación aproximada, porque la presión inicial es demasiado
+  alta para un comportamiento ideal.

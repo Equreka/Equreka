@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de Avogadro'
+terms:
+  V_{1}:
+    label: 'Volumen inicial'
+  n_{1}:
+    label: 'Cantidad de sustancia inicial'
+  V_{2}:
+    label: 'Volumen final'
+  n_{2}:
+    label: 'Cantidad de sustancia final'
+description: >-
+  La ley de Avogadro, conocida también como hipótesis o principio de Avogadro, establece que a
+  temperatura y presión fijas el volumen de un gas es directamente proporcional a la cantidad de
+  sustancia que contiene. Escrita para dos estados, el volumen por mol es el mismo antes y después
+  de añadir o retirar gas, y volúmenes iguales de gases cualesquiera en las mismas condiciones
+  contienen el mismo número de moléculas.
+
+  $\var{V_{1}}$ y $\var{n_{1}}$ son el volumen y la cantidad de gas en el primer estado,
+  $\var{V_{2}}$ y $\var{n_{2}}$ en el segundo. Los volúmenes van en metros cúbicos o en cualquier
+  otra unidad de volumen común a ambos; las cantidades, en moles. La temperatura y la presión no
+  aparecen, porque deben ser las mismas en los dos estados. Las cuatro magnitudes son positivas.
+
+  Cada molécula de un gas ideal se comporta igual sea cual sea su tamaño o su masa, así que a una
+  temperatura y una presión dadas el espacio que llena un gas depende solo de cuántas moléculas hay.
+  Duplicar el número de moles duplica el volumen, y por eso un globo crece al inflarlo. La ley es la
+  ley de los gases ideales con la temperatura y la presión fijas, y el cociente común entre volumen
+  y cantidad es el volumen molar: CODATA 2022 da unos 22.414 litros por mol a 273.15 kelvin y
+  101.325 kilopascales.
+
+  La ley se cumple para los gases ideales y para los gases reales a baja presión y muy por encima de
+  su temperatura de condensación; a alta presión o baja temperatura, los volúmenes molares de gases
+  distintos empiezan a diferir.
+
+  Amedeo Avogadro propuso la hipótesis en 1811, y quedó olvidada durante casi medio siglo antes de
+  que los químicos la aceptaran. Explica por qué los gases reaccionan en proporciones de volumen
+  sencillas: un volumen de nitrógeno se combina con tres de hidrógeno para dar dos de amoniaco, en
+  la misma proporción que los coeficientes de la ecuación química.

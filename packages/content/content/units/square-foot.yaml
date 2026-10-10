@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Square foot'
+symbol:
+  tex: 'ft^{2}'
+  text: 'ft²'
+unitOf:
+  - 'area'
+system: 'imperial'
+compose:
+  of:
+    - unit: 'foot'
+      exp: 2
+externalIds:
+  wikidata: 'Q857027'
+  qudt: 'http://qudt.org/vocab/unit/FT2'
+categories:
+  - 'mathematics'
+  - 'physics'
+branches:
+  - 'geometry'
+  - 'mechanics'
+aliases:
+  - 'square feet'
+  - 'sq ft'
+  - 'sqft'
+  - 'ft2'
+  - 'ft^2'
+  - 'pie cuadrado'
+references:
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: square foot; pound-force per square foot'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST Handbook 44 (2026), Appendix C, Units of Area and footnote 6 (sq ft)'
+    url: 'https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf'
+  - title: 'NIST, Putting the Best Foot Forward: Ending the Era of the U.S. Survey Foot'
+    url: 'https://www.nist.gov/pml/us-surveyfoot'
+  - title: 'R. Rowlett, How Many? A Dictionary of Units of Measurement, University of North Carolina at Chapel Hill, S: square foot'
+    url: 'https://www.ibiblio.org/units/dictS.html'
+  - title: 'QUDT, unit FT2'
+    url: 'https://qudt.org/vocab/unit/FT2'
+description:
+  en: >-
+    The square foot, symbol $\mathrm{ft^{2}}$, is a unit of area of the British imperial and United
+    States customary systems, equal to the area of a square with sides one foot long. It belongs
+    neither to the SI nor to the units accepted for use with it, but it remains the everyday area
+    unit for floor space in the United States.
+
+    The foot has been exactly 0.3048 metre since 1959, so the square foot is exactly
+    $0.092\,903\,04\,\mathrm{m^{2}}$. NIST Special Publication 811 prints this factor in boldface,
+    its mark for an exact conversion, and QUDT stores the same multiplier.
+
+    The customary area ladder in NIST Handbook 44 runs from the square inch upward: 144 square
+    inches make a square foot, nine square feet make a square yard, 43 560 square feet make an acre
+    and 27 878 400 square feet make a square mile. In metric terms a square foot is a little under
+    one tenth of a square metre, and a square metre is about 10.76 square feet.
+
+    Homes, offices, shops and warehouses in the United States are described and priced by their
+    floor area in square feet, and building codes state loads and pressures in customary units built
+    on it, such as the pound-force per square foot, which NIST also lists.
+
+    Handbook 44 notes that sq ft is an abbreviation, used in customary practice for squares of
+    customary units, while the symbol is ft². The plural is square feet. Until 2023 land surveys in
+    the United States could also use the slightly longer U.S. survey foot, which NIST has since
+    declared obsolete.

@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Dalton''s law of partial pressures'
+kind: 'equation'
+level: 'intro'
+expression: '\var{p_\mathrm{total}}=\var{p_\mathrm{A}}+\var{p_\mathrm{B}}'
+terms:
+  p_\mathrm{total}:
+    kind: 'symbol'
+    label:
+      en: 'Total pressure'
+    unit: 'pascal'
+  p_\mathrm{A}:
+    kind: 'symbol'
+    label:
+      en: 'Partial pressure of gas A'
+    unit: 'pascal'
+  p_\mathrm{B}:
+    kind: 'symbol'
+    label:
+      en: 'Partial pressure of gas B'
+    unit: 'pascal'
+solutions:
+  p_\mathrm{total}: 'p_A + p_B'
+  p_\mathrm{A}: 'p_total - p_B'
+  p_\mathrm{B}: 'p_total - p_A'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q220089'
+categories:
+  - 'chemistry'
+branches:
+  - 'gases'
+aliases:
+  - 'Dalton''s law'
+  - 'law of partial pressures'
+  - 'Daltons law'
+  - 'total pressure of a gas mixture'
+  - 'ley de Dalton'
+  - 'ley de las presiones parciales'
+  - 'ley de presiones parciales de Dalton'
+references:
+  - title: 'OpenStax, Chemistry 2e, 9.3 Stoichiometry of Gaseous Substances, Mixtures, and Reactions'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-3-stoichiometry-of-gaseous-substances-mixtures-and-reactions'
+  - title: 'Purdue University, General Chemistry Topic Review, The Gas Laws (Dalton''s law of partial pressures)'
+    url: 'https://chemed.chem.purdue.edu/genchem/topicreview/bp/ch4/gaslaws3.html'
+  - title: 'Science History Institute, John Dalton (scientific biography)'
+    url: 'https://www.sciencehistory.org/education/scientific-biographies/john-dalton/'
+  - title: 'OpenStax, Chemistry 2e, 9.6 Non-Ideal Gas Behavior'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-6-non-ideal-gas-behavior'
+description:
+  en: >-
+    Dalton's law of partial pressures says that when gases that do not react are mixed, the pressure
+    of the whole mixture equals the sum of the pressures each component would produce on its own,
+    its partial pressures. The partial pressure of a gas is the pressure it would exert if it filled
+    the whole container alone at the same temperature. Written here for a mixture of two gases, the
+    law extends term by term to any number of them.
+
+    $\var{p_\mathrm{total}}$ is the total pressure of the mixture, the value a pressure gauge reads
+    once corrected to absolute pressure. $\var{p_\mathrm{A}}$ and $\var{p_\mathrm{B}}$ are the
+    partial pressures of gases A and B. All three are in pascals or any common pressure unit, and
+    all are positive; each partial pressure is smaller than the total.
+
+    In an ideal gas the molecules are far apart and do not attract or repel one another, so each gas
+    strikes the walls as if the others were absent. At fixed volume and temperature the pressure a
+    gas exerts grows in step with its amount in moles, so the partial pressures add like the
+    amounts. It follows that the fraction of the total pressure due to one gas equals its mole
+    fraction in the mixture. For three or more gases, add their partial pressures, or apply the law
+    twice.
+
+    The law is exact for ideal gases and close for real mixtures at low pressure. At high pressure,
+    or when the molecules of different gases attract each other strongly, the total departs from the
+    sum; gases that react together are not covered at all.
+
+    John Dalton, working on the atmosphere, proposed that each gas in a mixture exerts its pressure
+    independently of the others. In the laboratory, a gas collected over water is mixed with water
+    vapour, so argon gathered at 750 torr and 26 degrees Celsius, where water contributes 25.2 torr,
+    has a partial pressure of about 725 torr.

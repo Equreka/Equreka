@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Foot per second'
+symbol:
+  tex: 'ft/s'
+unitOf:
+  - 'speed'
+  - 'velocity'
+system: 'imperial'
+compose:
+  of:
+    - unit: 'foot'
+      exp: 1
+    - unit: 'second'
+      exp: -1
+externalIds:
+  wikidata: 'Q748716'
+  qudt: 'http://qudt.org/vocab/unit/FT-PER-SEC'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'feet per second'
+  - 'ft/sec'
+  - 'fps'
+  - 'ft s-1'
+  - 'ft s^-1'
+  - 'pie por segundo'
+references:
+  - title: 'NIST SP 811, Appendix B.9, Factors for units listed by kind of quantity: velocity (includes speed)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: foot per second; foot'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'R. Rowlett, How Many? A Dictionary of Units of Measurement, University of North Carolina at Chapel Hill, F: foot per second'
+    url: 'https://www.ibiblio.org/units/dictF.html'
+  - title: 'NASA Glenn Research Center, Speed of Sound'
+    url: 'https://www.grc.nasa.gov/WWW/k-12/BGP/sound.html'
+  - title: 'BIPM, The International System of Units, 9th ed., section 5.2 (mps as a forbidden abbreviation)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, unit FT-PER-SEC'
+    url: 'https://qudt.org/vocab/unit/FT-PER-SEC'
+description:
+  en: >-
+    The foot per second, symbol ft/s, is a unit of speed and velocity of the British imperial and
+    United States customary systems: the speed of a body that travels one foot in each second. It
+    lies outside the SI, whose coherent unit for the same quantities is the metre per second.
+
+    Because the foot is exactly 0.3048 metre, the foot per second is exactly
+    $1\,\mathrm{ft/s}=0.304\,8\,\mathrm{m/s}$. NIST Special Publication 811 prints this factor in
+    boldface as exact in its table of velocities and speeds, and QUDT stores the same multiplier.
+
+    Other exact relations follow from the definitions of the foot, the mile and the hour: one foot
+    per second is 1.097 28 kilometres per hour and fifteen twenty-seconds of a mile per hour, so
+    sixty miles per hour is exactly eighty-eight feet per second. A metre per second is about 3.281
+    feet per second.
+
+    American engineering and science texts use the unit for the speeds of water in pipes and
+    channels, of air in ducts, of projectiles and of aircraft. NASA's educational pages on
+    aerodynamics, for instance, put the speed of sound at sea level on a standard day at about 1100
+    feet per second, alongside the same speed in miles per hour.
+
+    The plural is feet per second, and ft/sec is a common variant of the symbol. The abbreviation
+    fps also appears, but it is better avoided because it stands for frames per second as well; the
+    SI Brochure rejects the parallel abbreviation mps for the metre per second.

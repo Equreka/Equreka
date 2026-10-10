@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Gal'
+namePlural: 'gales'
+description: >-
+  El gal, de símbolo Gal, es la unidad de aceleración del sistema centímetro-gramo-segundo, igual a
+  un centímetro por segundo al cuadrado. Geodestas y geofísicos expresan en él la gravedad y sus
+  pequeñas variaciones de un lugar a otro, sobre todo a través de su submúltiplo, el miligal, mGal.
+
+  La definición da $1\,\mathrm{Gal}=1\,\mathrm{cm/s^{2}}=10^{-2}\,\mathrm{m/s^{2}}$ exactamente. El
+  folleto del SI incluye el gal en su tabla de unidades no SI, entre las unidades reconocidas
+  internacionalmente que no son múltiplos decimales de unidades SI, y señala su origen en el sistema
+  CGS. La publicación especial 811 del NIST lo cuenta entre las unidades CGS con nombre especial que
+  su guía no acepta para usar con el SI, y da el factor exacto 0.01 en su apéndice de conversiones.
+
+  La aceleración normal de la gravedad equivale exactamente a 980.665 gales, y la aceleración de
+  caída libre al nivel del mar abarca aproximadamente de 978 a 983 gales entre el ecuador y los
+  polos. Un miligal es $10^{-5}\,\mathrm{m/s^{2}}$, alrededor de una millonésima de la gravedad
+  normal, que es la escala de las anomalías que buscan las prospecciones gravimétricas.
+
+  La gravimetría cartografía diferencias locales mínimas en la atracción de la gravedad, expresadas
+  en miligales, y las interpreta como diferencias de densidad de las rocas del subsuelo, que revelan
+  la estructura geológica de una zona. Los geodestas usan la misma unidad cuando modelan el campo
+  gravitatorio de la Tierra.
+
+  El nombre honra al científico italiano Galileo Galilei, y la unidad se llama a veces galileo, la
+  etiqueta que usa QUDT. Su símbolo es Gal con G mayúscula, lo que lo distingue de gal, la
+  abreviatura habitual del galón.

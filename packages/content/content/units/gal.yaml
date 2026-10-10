@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Gal'
+namePlural:
+  en: 'gals'
+symbol:
+  tex: 'Gal'
+unitOf:
+  - 'acceleration'
+system: 'cgs'
+prefixes:
+  - 'milli'
+toBase:
+  factor: '0.01'
+  exact: true
+  source:
+    name: 'NIST SP 811'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+    ref: 'B.8: gal (Gal), 1.0 E-02 m/s² (boldface, exact)'
+externalIds:
+  wikidata: 'Q500515'
+  qudt: 'http://qudt.org/vocab/unit/GALILEO'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+  - 'gravitation'
+aliases:
+  - 'galileo'
+  - 'galileos'
+  - 'centimetre per second squared'
+  - 'centimeter per second squared'
+  - 'cm/s2'
+  - 'cm/s^2'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (gal) and note (g)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Chapter 5, Units outside the SI, 5.3.1 and Table 10 (CGS units with special names), note (d)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-5-units-outside-si'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: gal; acceleration of free fall, standard'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'R. Rowlett, How Many? A Dictionary of Units of Measurement, University of North Carolina at Chapel Hill, G: galileo; g'
+    url: 'https://www.ibiblio.org/units/dictG.html'
+  - title: 'QUDT, unit GALILEO'
+    url: 'https://qudt.org/vocab/unit/GALILEO'
+description:
+  en: >-
+    The gal, symbol Gal, is the unit of acceleration of the centimetre-gram-second system, equal to
+    one centimetre per second squared. Geodesists and geophysicists state gravity and its small
+    variations from place to place in it, mostly through its submultiple the milligal, mGal.
+
+    The definition gives $1\,\mathrm{Gal}=1\,\mathrm{cm/s^{2}}=10^{-2}\,\mathrm{m/s^{2}}$ exactly.
+    The SI Brochure lists the gal in its table of non-SI units among the internationally recognized
+    units that are not decimal multiples of SI units, noting its origin in the CGS system. NIST
+    Special Publication 811 counts it among the CGS units with special names that its guide does not
+    accept for use with the SI, and gives the exact factor 0.01 in its conversion appendix.
+
+    The standard acceleration of gravity equals 980.665 gals exactly, and the free-fall acceleration
+    at sea level spans roughly 978 to 983 gals between the equator and the poles. One milligal is
+    $10^{-5}\,\mathrm{m/s^{2}}$, about one millionth of standard gravity, which is the scale of the
+    anomalies that gravity surveys look for.
+
+    Gravimetry maps tiny local differences in the pull of gravity, reported in milligals, and reads
+    them as differences in the density of the rocks below, which reveal the geological structure of
+    an area. Geodesists use the same unit when they model the Earth's gravity field.
+
+    The name honours the Italian scientist Galileo Galilei, and the unit is sometimes called the
+    galileo, the label QUDT uses. Its symbol is Gal with a capital G, which keeps it apart from gal,
+    the usual abbreviation of the gallon.

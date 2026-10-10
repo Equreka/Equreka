@@ -1,0 +1,87 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Ideal gas law'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{p}\mag{V}=\mag{n}\const{R}\mag{T}'
+terms:
+  p:
+    kind: 'magnitude'
+    ref: 'pressure'
+  V:
+    kind: 'magnitude'
+    ref: 'volume'
+  n:
+    kind: 'magnitude'
+    ref: 'substance'
+  R:
+    kind: 'constant'
+    ref: 'molar-gas-constant'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+solutions:
+  p: 'n * R * T / V'
+  V: 'n * R * T / p'
+  n: 'p * V / (R * T)'
+  T: 'p * V / (n * R)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q191785'
+categories:
+  - 'physics'
+  - 'chemistry'
+branches:
+  - 'thermodynamics'
+  - 'gases'
+aliases:
+  - 'ideal gas equation'
+  - 'perfect gas law'
+  - 'equation of state of an ideal gas'
+  - 'general gas equation'
+  - 'PV = nRT'
+  - 'pV = nRT'
+  - 'ley de los gases ideales'
+  - 'ecuación de los gases ideales'
+  - 'ecuación de estado del gas ideal'
+  - 'ley de los gases perfectos'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 2.1 Molecular Model of an Ideal Gas (Equations 2.1 and 2.3)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/2-1-molecular-model-of-an-ideal-gas'
+  - title: 'OpenStax, Chemistry 2e, 9.2 Relating Pressure, Volume, Amount, and Temperature: The Ideal Gas Law (Example 9.9)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-2-relating-pressure-volume-amount-and-temperature-the-ideal-gas-law'
+  - title: 'NIST, CODATA 2022 value: molar gas constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?r'
+description:
+  en: >-
+    The ideal gas law, also called the ideal gas equation of state, states that the pressure of a
+    gas times its volume equals its amount of substance times the molar gas constant times its
+    absolute temperature. It is the central relation of the gas laws in chemistry and
+    thermodynamics: it ties together the four quantities that describe a sample of gas, so that any
+    one of them follows from the other three.
+
+    $\mag{p}$ is the absolute pressure, in pascals, never the gauge pressure a tyre gauge reads.
+    $\mag{V}$ is the volume of the gas, in cubic metres. $\mag{n}$ is the amount of substance, in
+    moles. $\const{R}$ is the molar gas constant, about 8.314 joules per mole kelvin and exact in
+    the SI. $\mag{T}$ is the thermodynamic temperature in kelvin. The gas laws need absolute
+    temperature: a Celsius reading must first be converted by adding 273.15. All four quantities are
+    positive.
+
+    The law gathers the empirical gas laws into one statement. At fixed amount and temperature the
+    pressure varies inversely with the volume (Boyle's law); at fixed pressure the volume is
+    proportional to the absolute temperature (Charles's law); at fixed volume the pressure is
+    proportional to the absolute temperature (Gay-Lussac's law); and at fixed pressure and
+    temperature the volume is proportional to the amount of gas (Avogadro's law). A mole of any
+    ideal gas thus fills the same volume under the same conditions, about 22.4 litres at 0 degrees
+    Celsius and one atmosphere.
+
+    Real gases obey the law closely at low density, that is at low pressure and high temperature,
+    far from the conditions under which they condense into liquids. At high pressure the size of the
+    molecules and the attraction between them matter, and corrected equations of state, such as that
+    of van der Waals, take over.
+
+    Robert Boyle (1627–1691) found the pressure–volume law, Amontons established the
+    pressure–temperature law around 1700, and Avogadro put forward his hypothesis on equal volumes
+    of gases in 1811. By the law, 655 grams of methane at 25 degrees Celsius and 745 torr occupy
+    about 1020 litres.

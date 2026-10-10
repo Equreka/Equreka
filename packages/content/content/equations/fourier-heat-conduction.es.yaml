@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de Fourier de la conducción del calor'
+terms:
+  \Delta T:
+    label: 'Diferencia de temperatura entre las caras'
+  d:
+    label: 'Espesor'
+description: >-
+  La ley de Fourier de la conducción del calor da el ritmo al que el calor atraviesa una placa: el
+  flujo de calor es igual a la conductividad térmica por el área por la diferencia de temperatura
+  entre las dos caras, dividido entre el espesor. En termodinámica y física de la edificación estima
+  el calor que se pierde por muros, ventanas, tuberías y utensilios de cocina.
+
+  $\mag{P}$ es el flujo de calor, el calor conducido por unidad de tiempo, en vatios. $\mag{k}$ es
+  la conductividad térmica del material, en vatios por metro y kelvin: unos 390 para el cobre, 0.84
+  para el vidrio y 0.023 para el aire en reposo. $\mag{A}$ es el área que atraviesa el calor, en
+  metros cuadrados, y $\var{d}$ es el espesor de la placa en la dirección del flujo, en metros.
+  $\var{\Delta T}$ es la temperatura de la cara caliente menos la de la fría, una diferencia
+  positiva que vale lo mismo en kelvin que en grados Celsius; el calor siempre va de la cara
+  caliente a la fría.
+
+  La conducción transporta energía a través de un material sin que este se desplace en conjunto, así
+  que el flujo crece con una caída de temperatura más pronunciada, un área mayor y un mejor
+  conductor. Duplicar el espesor reduce el flujo a la mitad, y por eso los aislantes añaden espesor
+  de un mal conductor; el espesor dividido entre la conductividad es la resistencia térmica por
+  unidad de área, el factor R de los materiales de construcción.
+
+  La relación describe una placa plana y uniforme cuyas dos caras tienen la misma área y se
+  mantienen a temperaturas constantes. La ley general afirma que la densidad de flujo de calor es
+  proporcional al gradiente de temperatura y apunta hacia donde la temperatura baja; las paredes
+  curvas o por capas y las temperaturas que cambian con el tiempo requieren esa forma general.
+
+  Joseph Fourier leyó su memoria sobre cómo se difunde el calor en los sólidos ante el Instituto de
+  París en 1807 y publicó su Théorie analytique de la chaleur en 1822. Unas paredes de espuma de
+  2.50 centímetros de espesor y 0.950 metros cuadrados, con una conductividad de 0.035 vatios por
+  metro y kelvin, dejan pasar unos 46.6 vatios con una diferencia de 35.0 kelvin.

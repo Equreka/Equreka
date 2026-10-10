@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Molar volume of an ideal gas'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{V_\mathrm{m}}=\frac{\const{R}\mag{T}}{\mag{p}}'
+terms:
+  V_\mathrm{m}:
+    kind: 'magnitude'
+    ref: 'molar-volume'
+  R:
+    kind: 'constant'
+    ref: 'molar-gas-constant'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+  p:
+    kind: 'magnitude'
+    ref: 'pressure'
+solutions:
+  V_\mathrm{m}: 'R * T / p'
+  T: 'V_m * p / R'
+  p: 'R * T / V_m'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'gases'
+aliases:
+  - 'molar volume formula'
+  - 'ideal gas molar volume'
+  - 'volume of one mole of gas'
+  - 'Vm = RT/p'
+  - 'volumen molar de los gases'
+  - 'volumen de un mol de gas'
+references:
+  - title: 'OpenStax, Chemistry 2e, 9.2 Relating Pressure, Volume, Amount, and Temperature: The Ideal Gas Law'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-2-relating-pressure-volume-amount-and-temperature-the-ideal-gas-law'
+  - title: 'R. Nave, HyperPhysics, Ideal Gas Law'
+    url: 'https://hyperphysics.gsu.edu/hbase/Kinetic/idegas.html'
+  - title: 'NIST, CODATA 2022 value: molar volume of ideal gas (273.15 K, 101.325 kPa)'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mvolstd'
+  - title: 'NIST, CODATA 2022 value: molar volume of ideal gas (273.15 K, 100 kPa)'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mvol'
+  - title: 'NIST, CODATA 2022 value: molar gas constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?r'
+  - title: 'OpenStax, Chemistry 2e, 9.6 Non-Ideal Gas Behavior'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-6-non-ideal-gas-behavior'
+description:
+  en: >-
+    The molar volume of an ideal gas, the volume that one mole of it occupies, equals the molar gas
+    constant times the absolute temperature divided by the pressure. The formula follows from the
+    ideal gas law and gives the same value for every ideal gas at the same conditions, which is why
+    chemists can convert between gas volumes and amounts of substance without knowing which gas is
+    involved.
+
+    $\mag{V_\mathrm{m}}$ is the molar volume, in cubic metres per mole; one cubic metre per mole is
+    1000 litres per mole. $\const{R}$ is the molar gas constant, about 8.314 joules per mole kelvin
+    and exact in the SI. $\mag{T}$ is the thermodynamic temperature in kelvin, an absolute
+    temperature as every gas law requires. $\mag{p}$ is the absolute pressure in pascals. All three
+    variables are positive.
+
+    Dividing both sides of the ideal gas law by the amount of substance leaves the volume per mole
+    on one side and the gas constant, temperature and pressure on the other. The molar volume grows
+    in proportion to the temperature and shrinks in inverse proportion to the pressure, the molar
+    form of Charles's and Boyle's laws, and it does not depend on the gas, as Avogadro's law states.
+
+    The result is exact only for an ideal gas. Real gases come close at low pressure and high
+    temperature; their molar volume is larger than the prediction at high pressure, where the
+    molecules themselves take up space, and smaller where attraction between them dominates.
+
+    The two conditions must always be stated. CODATA 2022 lists about 22.414 litres per mole at
+    273.15 kelvin and 101.325 kilopascals, the figure behind the textbook 22.4 litres, and about
+    22.711 litres per mole at 273.15 kelvin and 100 kilopascals. At 298.15 kelvin and 100
+    kilopascals the formula gives about 24.79 litres per mole.

@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Gravedad normal'
+description: >-
+  La gravedad normal, de símbolo $\mathrm{g_{n}}$ y escrita a menudo g, es una unidad de aceleración
+  igual a la aceleración normal de la gravedad, exactamente $9.806\,65\,\mathrm{m/s^{2}}$. Las
+  aceleraciones expresadas como múltiplos de ella son lo que la aviación, la astronáutica y la
+  ingeniería de vehículos llaman fuerzas g: una lectura de 3 g significa tres veces esta
+  aceleración. No es una unidad del SI.
+
+  El valor se remonta a la 3.ª CGPM, que en 1901 fijó 980.665 centímetros por segundo al cuadrado
+  como aceleración normal de la gravedad, empleada para definir el peso normal. La publicación
+  especial 811 del NIST recoge el factor 9.806 65 como exacto. El número es una convención y no una
+  medida en un lugar concreto: según el diccionario de unidades de Rowlett, la aceleración real de
+  caída libre al nivel del mar va de unos 9.780 en el ecuador a 9.833 metros por segundo al cuadrado
+  en los polos.
+
+  En otras unidades, $1\,\mathrm{g_{n}}=980.665\,\mathrm{Gal}$ exactamente, unos 32.174 pies por
+  segundo al cuadrado. El kilogramo fuerza, que el NIST da como 9.806 65 newtons, y la libra fuerza
+  son los pesos de un kilogramo y de una libra avoirdupois bajo esta aceleración.
+
+  Rowlett indica que el símbolo g se usó primero como unidad en la ingeniería aeronáutica y
+  espacial, donde las aceleraciones que puede tolerar una tripulación fijan límites de diseño; hoy
+  se expresan en g muchas otras aceleraciones. El mismo número es la constante llamada aceleración
+  normal de la gravedad, que las ecuaciones usan como valor; la unidad lo usa como factor de
+  conversión.
+
+  La g sola coincide con el símbolo del gramo, por lo que el NIST escribe $\mathrm{g_{n}}$, QUDT usa
+  G y el código UCUM es [g]. Gee y grav son nombres informales en inglés.

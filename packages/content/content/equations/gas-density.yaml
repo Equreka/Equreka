@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Density of an ideal gas'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{\rho}=\frac{\mag{p}\mag{M}}{\const{R}\mag{T}}'
+terms:
+  \rho:
+    kind: 'magnitude'
+    ref: 'density'
+  p:
+    kind: 'magnitude'
+    ref: 'pressure'
+  M:
+    kind: 'magnitude'
+    ref: 'molar-mass'
+  R:
+    kind: 'constant'
+    ref: 'molar-gas-constant'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+solutions:
+  \rho: 'p * M / (R * T)'
+  p: 'rho * R * T / M'
+  M: 'rho * R * T / p'
+  T: 'p * M / (rho * R)'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'gases'
+aliases:
+  - 'gas density'
+  - 'gas density formula'
+  - 'density of a gas'
+  - 'molar mass of a gas'
+  - 'rho = pM/RT'
+  - 'densidad de los gases'
+  - 'densidad de un gas'
+references:
+  - title: 'OpenStax, Chemistry 2e, 9.3 Stoichiometry of Gaseous Substances, Mixtures, and Reactions'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-3-stoichiometry-of-gaseous-substances-mixtures-and-reactions'
+  - title: 'OpenStax, Chemistry 2e, 9.2 Relating Pressure, Volume, Amount, and Temperature: The Ideal Gas Law'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-2-relating-pressure-volume-amount-and-temperature-the-ideal-gas-law'
+  - title: 'Science History Institute, Amedeo Avogadro (scientific biography)'
+    url: 'https://www.sciencehistory.org/education/scientific-biographies/amedeo-avogadro/'
+  - title: 'NIST, CODATA 2022 value: molar gas constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?r'
+  - title: 'OpenStax, Chemistry 2e, 9.6 Non-Ideal Gas Behavior'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-6-non-ideal-gas-behavior'
+description:
+  en: >-
+    The density of an ideal gas equals its pressure times its molar mass, divided by the molar gas
+    constant times its absolute temperature. This gas density formula, a rearrangement of the ideal
+    gas law, gives the mass per unit volume of a gas from conditions that are easy to measure, and,
+    read the other way, finds the molar mass of an unknown gas from a density measurement.
+
+    $\mag{\rho}$ is the density, in kilograms per cubic metre, which is numerically the same as
+    grams per litre. $\mag{p}$ is the absolute pressure in pascals. $\mag{M}$ is the molar mass in
+    kilograms per mole; a table value of 28.01 grams per mole is 0.02801 kilograms per mole.
+    $\const{R}$ is the molar gas constant, about 8.314 joules per mole kelvin and exact in the SI.
+    $\mag{T}$ is the thermodynamic temperature in kelvin, never in degrees Celsius: like every gas
+    law, the formula needs the absolute temperature. All quantities are positive.
+
+    Density is mass over volume. The ideal gas law gives the volume of one mole as the gas constant
+    times the temperature over the pressure, and one mole has a mass equal to the molar mass;
+    dividing the second by the first gives the formula. A gas therefore grows denser when it is
+    compressed or cooled, and at the same temperature and pressure a heavier molecule makes a denser
+    gas, which is why hot air rises and a balloon of a light gas floats.
+
+    The formula assumes ideal behaviour, which holds well at low pressure and well above the
+    temperature at which the gas condenses; at high pressure the measured density departs from the
+    prediction.
+
+    Avogadro's 1811 hypothesis implied that two gases under the same conditions have densities in
+    the ratio of their molecular masses. Nitrogen, 28.01 grams per mole, at 1.00 atmosphere and 273
+    kelvin has a density of about 1.25 kilograms per cubic metre.
