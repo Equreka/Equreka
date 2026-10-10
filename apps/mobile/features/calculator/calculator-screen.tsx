@@ -1,6 +1,7 @@
 import { texToFallbackText } from '@equreka/content/plain-symbol';
 import {
 	type CalculatorUnitSource,
+	isUnitOne,
 	solveInUnits,
 	type UseCalculatorUnits,
 	useCalculatorUnits,
@@ -37,8 +38,9 @@ export interface CalculatorScreenProps {
 }
 
 /**
- * One editable term: `unitTex` is the canonical TeX of the term's unit
- * (magnitude → baseUnit, variable → defaultUnit, symbol → its unit) so the
+ * One editable term: `unitTex` is the canonical TeX of the unit the term
+ * prints in by default (magnitude → its display unit, else baseUnit;
+ * variable → defaultUnit; symbol → its unit; '' for the unit one) so the
  * field decoration and the result line render the symbol from the atlas.
  * `symbolText` is the term key as plain text (`\theta` → θ), since a field
  * label is plain text and raw TeX would read as source. `solvable` is
@@ -69,11 +71,18 @@ interface CalculatorModel {
 	nonNegative: Set<string>;
 }
 
-function unitOf(slug: string | undefined): { tex: string; text: string } {
+const NO_UNIT = { tex: '', text: '' };
+
+/**
+ * A unit's symbol as the calculator prints it: none for the unit one, so
+ * a ratio reads "η = 0.8"; a display unit (dB), which the registry does
+ * not hold, prints as presented.
+ */
+function printedUnit(slug: string | undefined): { tex: string; text: string } {
 	const unit = slug === undefined ? undefined : getPresentation('units')[slug];
-	return unit === undefined
-		? { tex: '', text: '' }
-		: { tex: unit.symbolTex, text: unit.symbolText };
+	const compiled = slug === undefined ? undefined : getUnitRegistry().getUnit(slug);
+	if (unit === undefined || (compiled !== undefined && isUnitOne(compiled))) return NO_UNIT;
+	return { tex: unit.symbolTex, text: unit.symbolText };
 }
 
 function buildModel(slug: string, locale: Locale): CalculatorModel | undefined {
@@ -101,7 +110,7 @@ function buildModel(slug: string, locale: Locale): CalculatorModel | undefined {
 					name: localizedName(constant, locale),
 					symbolText: constant.symbolText,
 					value: constant.value,
-					unitText: unitOf(constant.unit).text,
+					unitText: printedUnit(constant.unit).text,
 				});
 				break;
 			}
@@ -112,7 +121,7 @@ function buildModel(slug: string, locale: Locale): CalculatorModel | undefined {
 					field(
 						key,
 						magnitude === undefined ? key : localizedName(magnitude, locale),
-						unitOf(magnitude?.baseUnit),
+						printedUnit(magnitude?.displayUnit?.slug ?? magnitude?.baseUnit),
 					),
 				);
 				break;
@@ -124,7 +133,7 @@ function buildModel(slug: string, locale: Locale): CalculatorModel | undefined {
 					field(
 						key,
 						variable === undefined ? key : localizedName(variable, locale),
-						unitOf(variable?.defaultUnit),
+						printedUnit(variable?.defaultUnit),
 					),
 				);
 				break;
@@ -134,7 +143,7 @@ function buildModel(slug: string, locale: Locale): CalculatorModel | undefined {
 					field(
 						key,
 						term.label === undefined ? key : pickLocalized(term.label, locale).value,
-						unitOf(term.unit),
+						printedUnit(term.unit),
 					),
 				);
 				break;
@@ -151,10 +160,11 @@ function UnitSymbol({ tex }: { tex: string }) {
 
 /**
  * A term's unit TeX: the selected unit's atlas symbol, or the build-time
- * base-unit symbol when the selection has none.
+ * symbol when the selection prints none (a display unit's term selects
+ * no unit at all).
  */
 function selectedUnitTex(unitState: UseCalculatorUnits, key: string, fallback: string): string {
-	const tex = unitOf(unitState.unitFor(key)).tex;
+	const tex = printedUnit(unitState.unitFor(key)).tex;
 	return tex === '' ? fallback : tex;
 }
 

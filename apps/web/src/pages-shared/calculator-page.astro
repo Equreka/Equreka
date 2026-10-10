@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { getCollection } from 'astro:content';
 import { collectionLabel, type Locale, localizedName, pickLocalized, t } from '@equreka/core/i18n';
+import type { CompiledUnit } from '@equreka/schema';
 import EntryActions from '../components/entry-actions.astro';
 import IconGlyph from '../components/icon-glyph.astro';
 import PageHeader from '../components/page-header.astro';
@@ -9,7 +10,13 @@ import CalculatorIsland, { type CalculatorConstant } from '../islands/calculator
 import FavoriteToggle from '../islands/favorite-toggle';
 import { LegacyAbbr } from '../islands/legacy-abbr';
 import BaseLayout from '../layouts/base-layout.astro';
-import { type CalculatorField, calculatorField } from '../lib/calculator-fields';
+import {
+	type CalculatorField,
+	calculatorField,
+	calculatorUnitSymbol,
+	convertibleFieldUnit,
+	displayFieldUnit,
+} from '../lib/calculator-fields';
 import type { CalculatorVariableUnits } from '../lib/calculator-units';
 import { asEquation, asVariable } from '../lib/collections';
 import { entryHref } from '../lib/entry-links';
@@ -24,7 +31,8 @@ interface Props {
 
 /**
  * One row of the legacy Variables / Magnitudes tables under the
- * calculator; the original listed no constants there.
+ * calculator; the original listed no constants there. `unit` is the unit
+ * the field takes: a magnitude's display unit when it has one.
  */
 interface TermRow {
 	key: string;
@@ -32,7 +40,7 @@ interface TermRow {
 	dataValue: string;
 	name: string;
 	href: string | undefined;
-	unitSlug: string | undefined;
+	unit: Pick<CompiledUnit, 'slug' | 'name' | 'symbolTex' | 'symbolText'> | undefined;
 }
 
 const { entry, locale = 'en' } = Astro.props;
@@ -47,6 +55,9 @@ if (meta === undefined || !meta.calculatorEnabled) {
 	throw new Error(`calculator page for ${slug} requires a calculator-enabled engine equation`);
 }
 
+const unitOf = (unitSlug: string | undefined): CompiledUnit | undefined =>
+	unitSlug === undefined ? undefined : engineSlice.units[unitSlug];
+
 const variables = new Map(
 	(await getCollection('variables')).map((item) => [item.id, asVariable(item.data)]),
 );
@@ -60,21 +71,15 @@ const magnitudeRows: TermRow[] = [];
 for (const [key, term] of Object.entries(meta.terms)) {
 	if (term.kind === 'symbol') {
 		const label = term.label === undefined ? key : pickLocalized(term.label, locale).value;
-		fields.push(
-			calculatorField(
-				meta,
-				key,
-				label,
-				term.unit === undefined ? '' : (engineSlice.units[term.unit]?.symbolText ?? ''),
-			),
-		);
+		const unit = unitOf(term.unit);
+		fields.push(calculatorField(meta, key, label, convertibleFieldUnit(unit)));
 		variableRows.push({
 			key,
 			kind: 'symbol',
 			dataValue: termDataValue(key, { kind: 'symbol', identifier: term.identifier }),
 			name: label,
 			href: undefined,
-			unitSlug: term.unit,
+			unit,
 		});
 		continue;
 	}
@@ -87,12 +92,13 @@ for (const [key, term] of Object.entries(meta.terms)) {
 		if (constant === undefined) {
 			throw new Error(`calculator page for ${slug}: unknown constant ${term.ref}`);
 		}
+		const constantUnit = unitOf(constant.unit);
 		constants.push({
 			key,
 			name: localizedName(constant, locale),
 			symbolText: constant.symbolText,
 			value: constant.value,
-			unitSymbol: engineSlice.units[constant.unit]?.symbolText ?? '',
+			unitSymbol: constantUnit === undefined ? '' : calculatorUnitSymbol(constantUnit),
 		});
 		continue;
 	}
@@ -102,12 +108,15 @@ for (const [key, term] of Object.entries(meta.terms)) {
 			throw new Error(`calculator page for ${slug}: unknown magnitude ${term.ref}`);
 		}
 		const magnitudeName = localizedName(magnitude, locale);
+		const baseUnit = unitOf(magnitude.baseUnit);
 		fields.push(
 			calculatorField(
 				meta,
 				key,
 				magnitudeName,
-				engineSlice.units[magnitude.baseUnit]?.symbolText ?? '',
+				magnitude.displayUnit === undefined
+					? convertibleFieldUnit(baseUnit)
+					: displayFieldUnit(magnitude.displayUnit),
 			),
 		);
 		if (magnitude.nonNegative) nonNegative.push(key);
@@ -117,7 +126,7 @@ for (const [key, term] of Object.entries(meta.terms)) {
 			dataValue,
 			name: magnitudeName,
 			href: entryHref('magnitudes', term.ref),
-			unitSlug: magnitude.baseUnit,
+			unit: magnitude.displayUnit ?? baseUnit,
 		});
 		continue;
 	}
@@ -126,23 +135,15 @@ for (const [key, term] of Object.entries(meta.terms)) {
 		variableUnits[term.ref] = { defaultUnit: variable.defaultUnit };
 	}
 	const variableName = variable === undefined ? key : localizedName(variable, locale);
-	fields.push(
-		calculatorField(
-			meta,
-			key,
-			variableName,
-			variable?.defaultUnit === undefined
-				? ''
-				: (engineSlice.units[variable.defaultUnit]?.symbolText ?? ''),
-		),
-	);
+	const defaultUnit = unitOf(variable?.defaultUnit);
+	fields.push(calculatorField(meta, key, variableName, convertibleFieldUnit(defaultUnit)));
 	variableRows.push({
 		key,
 		kind: 'variable',
 		dataValue,
 		name: variableName,
 		href: entryHref('variables', term.ref),
-		unitSlug: variable?.defaultUnit,
+		unit: defaultUnit,
 	});
 }
 
@@ -151,8 +152,6 @@ const termTables = [
 	{ id: 'calculator-magnitudes-heading', collection: 'magnitudes', rows: magnitudeRows },
 ].filter((table) => table.rows.length > 0);
 
-const unitOf = (unitSlug: string | undefined) =>
-	unitSlug === undefined ? undefined : engineSlice.units[unitSlug];
 const openEquationLabel = t(locale, 'design.interactive.openEquation');
 ---
 
@@ -221,7 +220,7 @@ const openEquationLabel = t(locale, 'design.interactive.openEquation');
 									</thead>
 									<tbody>
 										{table.rows.map((row) => {
-											const unit = unitOf(row.unitSlug);
+											const { unit } = row;
 											return (
 												<tr data-term={row.dataValue} class={`eq-term eq-${row.kind}`}>
 													<td class="eq-cell-symbol" set:html={renderSymbolHtml(row.key, row.key)} />

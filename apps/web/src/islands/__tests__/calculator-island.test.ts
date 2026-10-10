@@ -7,7 +7,7 @@ import type { CompiledEquationMeta, EngineSlice } from '@equreka/schema';
 import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { createElement } from 'react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { calculatorField } from '../../lib/calculator-fields';
+import { calculatorField, NO_FIELD_UNIT } from '../../lib/calculator-fields';
 import { kvLocalStorage } from '../../lib/kv-local-storage';
 import CalculatorIsland, { ResultView } from '../calculator-island';
 
@@ -17,8 +17,8 @@ const massEnergy = slice.equations['mass-energy-equivalence'] as CompiledEquatio
 const islandProps = {
 	meta: massEnergy,
 	fields: [
-		calculatorField(massEnergy, 'E', 'Energy', ''),
-		calculatorField(massEnergy, 'm', 'Mass', ''),
+		calculatorField(massEnergy, 'E', 'Energy', NO_FIELD_UNIT),
+		calculatorField(massEnergy, 'm', 'Mass', NO_FIELD_UNIT),
 	],
 	constants: [
 		{

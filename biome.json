@@ -7,7 +7,14 @@
 		"defaultBranch": "main"
 	},
 	"files": {
-		"includes": ["**", "!**/dist", "!**/.astro", "!**/.expo", "!tools/migrate-legacy/legacy"]
+		"includes": [
+			"**",
+			"!**/dist",
+			"!**/.astro",
+			"!**/.expo",
+			"!tools/migrate-legacy/legacy",
+			"!.claude/workflows"
+		]
 	},
 	"formatter": {
 		"enabled": true,

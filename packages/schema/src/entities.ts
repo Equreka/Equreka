@@ -66,17 +66,36 @@ export const dimensionVector = z
  * identical dimension vector and an acyclic chain. Convertibility in the
  * engine stays dimension equality; the hierarchy only scopes which units a
  * magnitude's converter and unit table offer by default.
+ * `displayUnit` names the nonConvertible unit a logarithmic level is
+ * stated in (sound intensity level → decibel): the value stays the plain
+ * number of the dimension-one baseUnit, and the calculator labels it with
+ * that unit and offers no conversion. The pipeline requires the unit to
+ * be nonConvertible and to list this magnitude in its unitOf.
  */
 export const magnitude = entityBase
 	.extend({
 		symbol,
 		symbolAlt: symbol.optional(),
 		baseUnit: ref('units'),
+		displayUnit: ref('units').optional(),
 		dimension: dimensionVector,
 		kindOf: ref('magnitudes').optional(),
 		nonNegative: strictBool.default(false),
 	})
-	.strict();
+	.strict()
+	.superRefine((value, ctx) => {
+		if (value.displayUnit === undefined) {
+			return;
+		}
+		if (Object.values(value.dimension).some((exponent) => (exponent ?? 0) !== 0)) {
+			ctx.addIssue({
+				code: 'custom',
+				path: ['displayUnit'],
+				message:
+					'a display unit names a pure number: the magnitude must have dimension one (every dimension exponent 0)',
+			});
+		}
+	});
 
 export const unitSystem = z.enum(['si', 'si-derived', 'imperial', 'uscs', 'cgs', 'other']);
 

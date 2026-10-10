@@ -162,6 +162,85 @@ describe('nonConvertible isolation', () => {
 	});
 });
 
+describe('display units', () => {
+	const level = {
+		name: { en: 'Level' },
+		symbol: { tex: 'L' },
+		baseUnit: 'unitless',
+		displayUnit: 'decibel',
+		dimension: {},
+	};
+	const decibel = {
+		name: { en: 'Decibel' },
+		symbol: { tex: 'dB' },
+		unitOf: ['level'],
+		nonConvertible: true,
+	};
+	const levelUnits = {
+		...UNITS,
+		unitless: { ...UNITS.unitless, unitOf: ['dimensionless', 'level'] },
+	};
+
+	it('accepts a level on the unit one stated in a nonConvertible unit that lists it', () => {
+		const corpus = corpusWith({
+			magnitudes: { ...MAGNITUDES, level },
+			units: { ...levelUnits, decibel },
+		});
+		expect(messages(corpus)).toEqual([]);
+	});
+
+	it('rejects an unknown display unit', () => {
+		const corpus = corpusWith({ magnitudes: { ...MAGNITUDES, level }, units: levelUnits });
+		expect(messages(corpus)).toEqual([
+			"magnitudes/level.yaml: displayUnit: unknown units ref 'decibel'",
+		]);
+	});
+
+	it('rejects a convertible display unit', () => {
+		const corpus = corpusWith({
+			magnitudes: { ...MAGNITUDES, level: { ...level, displayUnit: 'percent' } },
+			units: {
+				...levelUnits,
+				percent: {
+					name: { en: 'Percent' },
+					symbol: { tex: '\\%' },
+					unitOf: ['dimensionless', 'level'],
+					compose: { factor: '0.01', of: [{ unit: 'unitless', exp: 1 }] },
+				},
+			},
+		});
+		expect(messages(corpus)).toEqual([
+			expect.stringMatching(
+				/^magnitudes\/level\.yaml: displayUnit 'percent' is convertible; a display unit is a nonConvertible unit/,
+			),
+		]);
+	});
+
+	it('rejects a display unit that does not list the magnitude in its unitOf', () => {
+		const corpus = corpusWith({
+			magnitudes: { ...MAGNITUDES, level },
+			units: { ...levelUnits, decibel: { ...decibel, unitOf: ['dimensionless'] } },
+		});
+		expect(messages(corpus)).toEqual([
+			"magnitudes/level.yaml: displayUnit 'decibel' does not list 'level' in its unitOf",
+		]);
+	});
+
+	it('rejects a display unit over a baseUnit that is not dimension one', () => {
+		const corpus = corpusWith({
+			magnitudes: { ...MAGNITUDES, level: { ...level, baseUnit: 'metre' } },
+			units: {
+				...UNITS,
+				metre: { ...UNITS.metre, unitOf: ['length', 'level'] },
+				decibel,
+			},
+		});
+		expect(messages(corpus)).toContain(
+			"magnitudes/level.yaml: displayUnit needs a dimension-one baseUnit, so that the number shown is the value itself; baseUnit 'metre' has dimension [1, 0, 0, 0, 0, 0, 0, 0]",
+		);
+	});
+});
+
 describe('equation terms', () => {
 	const equationWith = (terms: Record<string, unknown>, expression: string): Corpus =>
 		corpusWith({

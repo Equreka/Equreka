@@ -99,13 +99,25 @@ Branches drive navigation only — no engine, conversion or calculator behaviour
 
 ### magnitudes
 
-`name`, `symbol { tex, text? }`, `symbolAlt?`, `baseUnit` (ref: units), `dimension` (partial vector over `L M T I Th N J A`, omitted keys are 0; `A` is the synthetic angle dimension), `kindOf?` (ref: magnitudes), `nonNegative?`, `categories`, `description?`.
+`name`, `symbol { tex, text? }`, `symbolAlt?`, `baseUnit` (ref: units), `displayUnit?` (ref: units, see below), `dimension` (partial vector over `L M T I Th N J A`, omitted keys are 0; `A` is the synthetic angle dimension), `kindOf?` (ref: magnitudes), `nonNegative?`, `categories`, `description?`.
 
 The `dimension` you type is **verified**: the baseUnit must resolve to factor 1, offset 0, and every compose-authored unit of the magnitude must sum to the same vector. A typo in a vector fails the build.
 
 Author a magnitude only for a real quantity kind (ISO/IEC 80000; luminous efficacy is ISO 80000-7), never to give a compound unit somewhere to live — use a magnitude-less compound unit instead (see *units*). The build emits one **orphan-magnitudes warning** listing every magnitude that only its own baseUnit lists, that no constant or equation term uses, and that has no `externalIds`. Clear an entry either by authoring its `externalIds` (a real quantity that simply has one unit so far) or by deleting it and giving the hosted unit an empty `unitOf`.
 
 **Quantity kinds (`kindOf`, ADR 0006).** When a magnitude is a specialization of another quantity kind with the same dimension, name the broader kind: `work.kindOf: 'energy'`, `weight.kindOf: 'force'`. The target must exist, must have an identical dimension vector, and the chain must be acyclic — each is a build error. Check the relation against QUDT's `skos:broader` before authoring it; two kinds that merely share a dimension (pressure and stress are QUDT siblings under force-per-area; torque and energy are unrelated) get **no** `kindOf`. The effect is presentational: a magnitude's converter and unit table default to units whose `unitOf` lists the magnitude, one of its ancestors, or one of its descendants; sibling and unrelated same-dimension units stay reachable behind the converter's *show all with this dimension* toggle. `kindOf` never changes a conversion factor.
+
+**Display units (`displayUnit`, ADR 0014).** A logarithmic level is a quantity of dimension one: it anchors on `unitless`, and its unit (the decibel, the neper) is `nonConvertible`, because a level does not convert into anything by a factor. Name that unit as the magnitude's `displayUnit` so the calculator labels and prints the value in it — `Sound intensity level (dB)`, `L_I = 80 dB` — and offers the term no unit picker; the value is the number of decibels as typed and enters the solutions unchanged.
+
+```yaml
+baseUnit: 'unitless'           # list the magnitude in units/unitless unitOf
+displayUnit: 'decibel'         # nonConvertible; list the magnitude in its unitOf too
+dimension: {}
+```
+
+- **Errors.** A `displayUnit` on a magnitude whose `dimension` is not all zero (`validate`); an unknown unit, a convertible unit (`percent` is a conversion, offered by the picker), a unit whose `unitOf` does not list the magnitude, or a `baseUnit` that is not dimension one (`integrity`).
+- **Only with a source.** Author it only where a fetched authoritative source states the level in that unit (the neper, bel and decibel rows of SI Brochure Table 8 or NIST SP 811 Table 6, IUPAC Green Book section 3.10.3). A quantity whose unit is the number one carries none: pH is defined with unit 1 (IUPAC Green Book table 2.13), so `ph` has no display unit and "pH units" is not a unit.
+- **Unit one in the calculator.** A term on `unitless` without a display unit prints no symbol in the calculator: the field reads `Efficiency (η)`, not `(1)`, and the result `η = 0.8`, with no trailing 1. The unit picker, the converter, unit pages and reference tables keep the symbol 1.
 
 ### units
 
@@ -170,7 +182,7 @@ Each generated unit has slug `<prefix><base>` (`kilometre`), name prefix + base 
 - **Overrides.** A hand file `units/<prefix><base>.yaml` authored as `prefixOf` the same pair overrides the generated unit: every field it writes wins, localized fields merge per locale (a hand `name.en` keeps the generated `name.es`, a hand `description.en` keeps the generated Spanish description), and `aliases` are unioned. Write an override only for knowledge the generator cannot derive — `micrometre` (the micron), `microgram` (mcg in medicine), `centimetre` (the CGS base unit). The `locale` stage judges an override on what it authors, not on the merged result: a hand `description.en` needs a hand Spanish description in `<slug>.es.yaml`, because the generated one does not translate the hand text.
 - **Errors.** Prefixes on an affine unit, on a prefixed unit, or on a nonConvertible unit; an unknown or non-power-of-ten prefix; a repeated prefix; `prefixes` without `namePlural`; a hand file with a generated slug that is not its `prefixOf` override; a `prefixOf` file for a pair its base does not declare, or under a slug other than `<prefix><base>`.
 
-**`nonConvertible: true`** marks wiki-only units with no linear or affine mapping (levels such as the decibel). They resolve no factor, are excluded from the engine slice (no converter, no conversion table), may not anchor a magnitude, and may not appear in any `compose.of` or `prefixOf.base`. They keep their presentation entry and page.
+**`nonConvertible: true`** marks wiki-only units with no linear or affine mapping (levels such as the decibel). They resolve no factor, are excluded from the engine slice (no converter, no conversion table), may not anchor a magnitude, and may not appear in any `compose.of` or `prefixOf.base`. They keep their presentation entry and page. A dimension-one magnitude may name one as its `displayUnit` (see *magnitudes*).
 
 ### prefixes
 

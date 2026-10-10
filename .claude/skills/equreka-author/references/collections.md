@@ -24,7 +24,7 @@ Field shapes are defined in `docs/guides/authoring-content.md`; this file is the
 
 ## magnitudes
 
-`symbol { tex, text? }` (add `text` when the TeX is not plain ASCII: `\theta` → `θ`), `baseUnit` (SI-coherent), `dimension`, `kindOf?` (QUDT `skos:broader` only), `nonNegative?`, `externalIds` (QID and `http://qudt.org/vocab/quantitykind/<Kind>`). The base unit must already exist or be created by your slice or an earlier wave. If the base unit's `unitOf` must list your magnitude and the unit is not yours, that is a `sharedEdit` unless the roadmap `edits` gives it to you.
+`symbol { tex, text? }` (add `text` when the TeX is not plain ASCII: `\theta` → `θ`), `baseUnit` (SI-coherent), `displayUnit?` (a logarithmic level only: `baseUnit: 'unitless'`, `dimension: {}`, and the `nonConvertible` unit it is stated in, which lists the magnitude in its `unitOf`; ADR 0014), `dimension`, `kindOf?` (QUDT `skos:broader` only), `nonNegative?`, `externalIds` (QID and `http://qudt.org/vocab/quantitykind/<Kind>`). The base unit must already exist or be created by your slice or an earlier wave. If the base unit's `unitOf` must list your magnitude and the unit is not yours, that is a `sharedEdit` unless the roadmap `edits` gives it to you.
 
 ## units
 

@@ -1,20 +1,56 @@
 import { texToFallbackText } from '@equreka/content/plain-symbol';
-import type { CompiledEquationMeta } from '@equreka/schema';
+import { isUnitOne } from '@equreka/core/hooks/use-calculator-units';
+import type { CompiledDisplayUnit, CompiledEquationMeta, CompiledUnit } from '@equreka/schema';
+
+/**
+ * How a field's unit reads. `symbol` is what the label and the result
+ * print in the term's default unit: '' for no unit or the unit one, the
+ * display unit's symbol for a level (dB), else the base unit's symbol.
+ * `convertible` is true when the term solves in a registry unit, so the
+ * island loads the unit payload and prints the picked unit instead; a
+ * term with no unit or a display unit converts nothing.
+ */
+export interface CalculatorFieldUnit {
+	symbol: string;
+	convertible: boolean;
+}
+
+export const NO_FIELD_UNIT: CalculatorFieldUnit = { symbol: '', convertible: false };
+
+export function calculatorUnitSymbol(unit: CompiledUnit): string {
+	return isUnitOne(unit) ? '' : unit.symbolText;
+}
+
+/**
+ * `unit` is the term's anchor; undefined (a slug outside the engine
+ * slice) leaves nothing to convert.
+ */
+export function convertibleFieldUnit(unit: CompiledUnit | undefined): CalculatorFieldUnit {
+	return unit === undefined
+		? NO_FIELD_UNIT
+		: { symbol: calculatorUnitSymbol(unit), convertible: true };
+}
+
+export function displayFieldUnit(unit: CompiledDisplayUnit): CalculatorFieldUnit {
+	return { symbol: unit.symbolText, convertible: false };
+}
 
 /**
  * One user-facing input, resolved at build from the equation's terms map:
- * constant-kind terms are excluded (they inject automatically) and
- * `unitSymbol` comes from the term's magnitude baseUnit or variable
- * defaultUnit ('' when the term has no unit). `symbolText` is the term key
- * as plain text (`\theta` → θ, `v_{0}` → v₀), never raw TeX, because it
- * labels the field and starts the copied result. `solvable` is false for a
- * term the calculator never leaves unknown, which the reader must fill.
+ * constant-kind terms are excluded (they inject automatically) and the
+ * unit comes from the term's magnitude (its display unit, else its
+ * baseUnit), variable defaultUnit or symbol unit. `symbolText` is the term
+ * key as plain text (`\theta` → θ, `v_{0}` → v₀), never raw TeX, because
+ * it labels the field and starts the copied result. `solvable` is false
+ * for a term the calculator never leaves unknown, which the reader must
+ * fill.
  */
 export interface CalculatorField {
 	key: string;
 	label: string;
 	symbolText: string;
 	unitSymbol: string;
+	convertible: boolean;
 	solvable: boolean;
 }
 
@@ -22,13 +58,14 @@ export function calculatorField(
 	meta: CompiledEquationMeta,
 	key: string,
 	label: string,
-	unitSymbol: string,
+	unit: CalculatorFieldUnit,
 ): CalculatorField {
 	return {
 		key,
 		label,
 		symbolText: texToFallbackText(key),
-		unitSymbol,
+		unitSymbol: unit.symbol,
+		convertible: unit.convertible,
 		solvable: meta.solvable.includes(key),
 	};
 }

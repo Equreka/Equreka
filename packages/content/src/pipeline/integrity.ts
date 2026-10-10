@@ -1,5 +1,11 @@
 import type { CollectionName, Equation } from '@equreka/schema';
-import { dimensionsEqual, formatDimension, magnitudeDimension } from './dimension.js';
+import {
+	dimensionsEqual,
+	formatDimension,
+	isDimensionless,
+	magnitudeDimension,
+	unitDimension,
+} from './dimension.js';
 import { proseFields } from './prose-fields.js';
 import { ratFromExact, ratIsZero } from './rational.js';
 import {
@@ -63,8 +69,9 @@ interface TaxonomyFields {
  * Stage 3: cross-entity referential integrity plus the structural rules a
  * per-file schema cannot see (branch ⊂ category membership, baseUnit linkage, the quantity-kind
  * hierarchy, the affine ban, the derivation whitelist, nonConvertible
- * isolation, equation term/macro agreement, term identity, solution
- * coverage). Numeric anchor rules land in stage 4 resolution.
+ * isolation, display units (nonConvertible, listing the magnitude, over a
+ * dimension-one baseUnit), equation term/macro agreement, term identity,
+ * solution coverage). Numeric anchor rules land in stage 4 resolution.
  */
 export function checkIntegrity(corpus: Corpus): Issue[] {
 	const issues: Issue[] = [];
@@ -145,6 +152,49 @@ export function checkIntegrity(corpus: Corpus): Issue[] {
 					'integrity',
 					file,
 					`baseUnit '${magnitude.baseUnit}' is nonConvertible; a magnitude anchors on a convertible unit`,
+				),
+			);
+		}
+	}
+
+	for (const [slug, magnitude] of corpus.magnitudes) {
+		const file = fileOf('magnitudes', slug);
+		if (
+			magnitude.displayUnit === undefined ||
+			!ref(file, 'displayUnit', 'units', magnitude.displayUnit)
+		) {
+			continue;
+		}
+		const displayUnit = corpus.units.get(magnitude.displayUnit);
+		if (displayUnit?.nonConvertible !== true) {
+			issues.push(
+				issue(
+					'error',
+					'integrity',
+					file,
+					`displayUnit '${magnitude.displayUnit}' is convertible; a display unit is a nonConvertible unit (a level such as the decibel), while a convertible unit is offered as a conversion instead`,
+				),
+			);
+		}
+		if (displayUnit !== undefined && !displayUnit.unitOf.includes(slug)) {
+			issues.push(
+				issue(
+					'error',
+					'integrity',
+					file,
+					`displayUnit '${magnitude.displayUnit}' does not list '${slug}' in its unitOf`,
+				),
+			);
+		}
+		const baseUnit = corpus.units.get(magnitude.baseUnit);
+		const baseDimension = baseUnit === undefined ? undefined : unitDimension(baseUnit, corpus);
+		if (baseDimension !== undefined && !isDimensionless(baseDimension)) {
+			issues.push(
+				issue(
+					'error',
+					'integrity',
+					file,
+					`displayUnit needs a dimension-one baseUnit, so that the number shown is the value itself; baseUnit '${magnitude.baseUnit}' has dimension ${formatDimension(baseDimension)}`,
 				),
 			);
 		}
