@@ -82,12 +82,14 @@ export const ARTIFACT_BUDGETS: Readonly<Record<string, ArtifactBudget>> = {
 	'search/<locale>.json': {
 		maxBytes: MIB,
 		mobileBundled: false,
-		protects: 'web transfer on search focus and the 6 MiB PWA precache',
+		protects:
+			'web transfer on search focus and the 6 MiB offline install (the active locale data cache, ADR 0013)',
 	},
 	'search/catalog-lite.<locale>.json': {
 		maxBytes: 512 * KIB,
 		mobileBundled: true,
-		protects: 'web transfer and PWA precache (search, favorites, offline reader); mobile bundle',
+		protects:
+			'web transfer and the active locale offline data cache (search, favorites, offline reader); mobile bundle',
 	},
 	'schemas/<collection>.schema.json': {
 		maxBytes: null,

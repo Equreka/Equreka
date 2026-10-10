@@ -3,6 +3,7 @@ import { type CatalogLiteEntry, foldSearchTerm } from '@equreka/content/search-o
 import { collectionLabel, type Locale, type MessageKey, t } from '@equreka/core/i18n';
 import { type ReactNode, useEffect, useMemo, useState } from 'react';
 import type { ReaderPayload } from '../integrations/equreka-assets';
+import { localePayloadUrl } from '../lib/locale-payloads';
 import { collectionAccent } from './collection-accent';
 
 type ReaderState =
@@ -73,11 +74,11 @@ export default function OfflineReader({ locale = 'en' }: OfflineReaderProps) {
 	useEffect(() => {
 		let cancelled = false;
 		Promise.all([
-			fetch(`/search/catalog-lite.${locale}.json`).then((response) => {
+			fetch(localePayloadUrl('catalog-lite', locale)).then((response) => {
 				if (!response.ok) throw new Error(`HTTP ${response.status}`);
 				return response.json() as Promise<CatalogLiteEntry[]>;
 			}),
-			fetch(`/data/reader.${locale}.json`).then((response) => {
+			fetch(localePayloadUrl('reader', locale)).then((response) => {
 				if (!response.ok) throw new Error(`HTTP ${response.status}`);
 				return response.json() as Promise<ReaderPayload>;
 			}),

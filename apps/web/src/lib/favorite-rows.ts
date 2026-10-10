@@ -101,7 +101,7 @@ function shapeRow(entry: FavoriteEntry, options: FavoriteShapeOptions): Favorite
 /**
  * Favorites grouped per collection in the original's order, each
  * group keeping the order the entries were saved in. Names come from the
- * precached catalog when it has loaded, the slug otherwise.
+ * offline-cached catalog when it has loaded, the slug otherwise.
  */
 export function shapeFavoriteGroups(
 	favorites: readonly FavoriteEntry[],

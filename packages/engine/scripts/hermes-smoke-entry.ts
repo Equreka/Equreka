@@ -1,8 +1,10 @@
 import type { CompiledEquationMeta, EngineSlice } from '@equreka/schema';
 import {
 	createUnitRegistry,
+	formatResult,
 	formatSigFigs,
 	getConstant,
+	resultText,
 	type SolutionsModule,
 	solveEquation,
 } from '../src/index.js';
@@ -118,6 +120,12 @@ assert(!incompatible.ok, 'metre → celsius is rejected');
 
 assert(formatSigFigs(0.1 + 0.2) === '0.3', 'formatSigFigs kills float noise');
 assert(formatSigFigs(1e-7) === '1e-7', 'formatSigFigs scientific edge');
+assert(resultText(formatResult(8.98755e13, 'readable')) === '8.98755 × 10¹³', 'readable result');
+assert(resultText(formatResult(720, 'readable')) === '720', 'readable plain integer');
+assert(
+	resultText(formatResult(2.9966313365235766e1, 'scientific')) === '2.9966313365235766 × 10¹',
+	'scientific result keeps round-trip digits',
+);
 
 const constant = getConstant(slice, 'speed-of-light-vacuum');
 assert(constant.ok && constant.value.display === '299792458', 'constant display passthrough');

@@ -1,3 +1,4 @@
+import { SETTINGS_KEY } from '@equreka/core';
 import { describe, expect, it, jest } from '@jest/globals';
 import { fireEvent, screen } from '@testing-library/react-native';
 import { Linking } from 'react-native';
@@ -7,6 +8,7 @@ import { EntryScreen } from '../features/entry/entry-screen';
 import { HomeScreen } from '../features/home/home-screen';
 import { SettingsScreen } from '../features/settings/settings-screen';
 import { getPresentation } from '../shared/content/artifact';
+import { createMemoryStorage } from './helpers/memory-storage';
 import { renderWithProvider } from './helpers/render';
 
 const mockPush = jest.fn();
@@ -53,6 +55,22 @@ describe('SettingsScreen', () => {
 		expect(screen.getByText('Ajustes')).toBeTruthy();
 		await fireEvent.press(screen.getByText('English'));
 		expect(screen.getByText('Settings')).toBeTruthy();
+	});
+
+	it('switches the result format through the shared settings hook', async () => {
+		const storage = createMemoryStorage();
+		await renderWithProvider(<SettingsScreen />, storage);
+		const selected = (label: string) =>
+			screen.getByLabelText(label).props.accessibilityState?.selected === true;
+		expect(screen.getByText('Result format')).toBeTruthy();
+		expect(selected('Readable')).toBe(true);
+
+		await fireEvent.press(screen.getByText('Scientific (full precision)'));
+		expect(selected('Scientific (full precision)')).toBe(true);
+		expect(selected('Readable')).toBe(false);
+		expect(JSON.parse(storage.get(SETTINGS_KEY) ?? '{}')).toMatchObject({
+			numberFormat: 'scientific',
+		});
 	});
 
 	it('shows the license card and opens its links in the system browser', async () => {

@@ -1,5 +1,13 @@
 import { describe, expect, it } from 'vitest';
-import { formatExponential, formatSigFigs } from '../index.js';
+import {
+	DEFAULT_NUMBER_FORMAT,
+	formatExponential,
+	formatResult,
+	formatSigFigs,
+	READABLE_SIG_FIGS,
+	resultText,
+	toSuperscript,
+} from '../index.js';
 
 describe('formatSigFigs — 6 significant figures by default', () => {
 	it('kills float64 noise: 0.1 + 0.2 → "0.3"', () => {
@@ -86,5 +94,123 @@ describe('formatExponential', () => {
 		expect(formatExponential(0)).toBe('0');
 		expect(formatExponential(-31415.9265, 3)).toBe('-3.14e+4');
 		expect(formatExponential(Number.NaN)).toBe('NaN');
+	});
+});
+
+describe('formatResult — readable', () => {
+	const readable = (value: number) => resultText(formatResult(value, 'readable'));
+
+	it('is the default format', () => {
+		expect(DEFAULT_NUMBER_FORMAT).toBe('readable');
+		expect(formatResult(85)).toEqual(formatResult(85, 'readable'));
+	});
+
+	it('prints integers in the plain range exactly', () => {
+		expect(formatResult(85, 'readable')).toEqual({ mantissa: '85', exponent: null });
+		expect(readable(720)).toBe('720');
+		expect(readable(10)).toBe('10');
+	});
+
+	it('stays plain from 1e-3 up to, not including, 1e6', () => {
+		expect(formatResult(0.001, 'readable')).toEqual({ mantissa: '0.001', exponent: null });
+		expect(formatResult(999999.5, 'readable')).toEqual({ mantissa: '999999.5', exponent: null });
+		expect(readable(-0.25)).toBe('-0.25');
+	});
+
+	it('goes scientific below 1e-3 and from 1e6 up', () => {
+		expect(formatResult(0.000999, 'readable')).toEqual({
+			mantissa: '9.99',
+			exponent: { sign: '-', digits: '4' },
+		});
+		expect(formatResult(1e6, 'readable')).toEqual({
+			mantissa: '1',
+			exponent: { sign: '+', digits: '6' },
+		});
+		expect(readable(8.98755e13)).toBe('8.98755 × 10¹³');
+	});
+
+	it('picks the notation from the rounded value', () => {
+		expect(readable(999999.99999999)).toBe('1 × 10⁶');
+		expect(readable(0.00099999999999)).toBe('0.001');
+	});
+
+	it('rounds to 10 significant figures and trims trailing zeros', () => {
+		expect(READABLE_SIG_FIGS).toBe(10);
+		expect(readable(2.9966313365235766e1)).toBe('29.96631337');
+		expect(readable(2 / 299_792_458 ** 2)).toBe('2.225300112 × 10⁻¹⁷');
+		expect(readable(-1234567.891)).toBe('-1.234567891 × 10⁶');
+	});
+
+	it('prints zero as "0" and passes non-finite values through', () => {
+		expect(formatResult(0, 'readable')).toEqual({ mantissa: '0', exponent: null });
+		expect(readable(-0)).toBe('0');
+		expect(readable(Number.NaN)).toBe('NaN');
+		expect(readable(Number.POSITIVE_INFINITY)).toBe('Infinity');
+		expect(readable(Number.NEGATIVE_INFINITY)).toBe('-Infinity');
+	});
+});
+
+describe('formatResult — scientific, the original app’s output', () => {
+	const scientific = (value: number) => formatResult(value, 'scientific');
+
+	it('prints every shortest round-trip digit in scientific notation', () => {
+		expect(scientific(2.9966313365235766e1)).toEqual({
+			mantissa: '2.9966313365235766',
+			exponent: { sign: '+', digits: '1' },
+		});
+		expect(scientific(2 / 299_792_458 ** 2)).toEqual({
+			mantissa: '2.225300112107237',
+			exponent: { sign: '-', digits: '17' },
+		});
+		expect(scientific(8.98755e13)).toEqual({
+			mantissa: '8.98755',
+			exponent: { sign: '+', digits: '13' },
+		});
+	});
+
+	it('goes scientific even inside the readable plain range', () => {
+		expect(scientific(85)).toEqual({ mantissa: '8.5', exponent: { sign: '+', digits: '1' } });
+		expect(scientific(720)).toEqual({ mantissa: '7.2', exponent: { sign: '+', digits: '2' } });
+		expect(scientific(0.001)).toEqual({ mantissa: '1', exponent: { sign: '-', digits: '3' } });
+		expect(scientific(0.000999)).toEqual({
+			mantissa: '9.99',
+			exponent: { sign: '-', digits: '4' },
+		});
+		expect(scientific(999999.5)).toEqual({
+			mantissa: '9.999995',
+			exponent: { sign: '+', digits: '5' },
+		});
+		expect(scientific(1e6)).toEqual({ mantissa: '1', exponent: { sign: '+', digits: '6' } });
+		expect(scientific(-0.25)).toEqual({ mantissa: '-2.5', exponent: { sign: '-', digits: '1' } });
+	});
+
+	it('falls back to plain digits when the exponent is 0', () => {
+		expect(scientific(2.5)).toEqual({ mantissa: '2.5', exponent: null });
+		expect(scientific(-7)).toEqual({ mantissa: '-7', exponent: null });
+		expect(scientific(0)).toEqual({ mantissa: '0', exponent: null });
+	});
+
+	it('passes non-finite values through', () => {
+		expect(scientific(Number.NaN)).toEqual({ mantissa: 'NaN', exponent: null });
+		expect(scientific(Number.POSITIVE_INFINITY)).toEqual({
+			mantissa: 'Infinity',
+			exponent: null,
+		});
+	});
+});
+
+describe('resultText', () => {
+	it('writes the power of ten in superscript digits, dropping a "+" sign', () => {
+		expect(resultText({ mantissa: '8.98755', exponent: { sign: '+', digits: '13' } })).toBe(
+			'8.98755 × 10¹³',
+		);
+		expect(resultText({ mantissa: '2.2253', exponent: { sign: '-', digits: '17' } })).toBe(
+			'2.2253 × 10⁻¹⁷',
+		);
+		expect(resultText({ mantissa: '720', exponent: null })).toBe('720');
+	});
+
+	it('has a superscript for every digit and the minus sign', () => {
+		expect(toSuperscript(-1234567890)).toBe('⁻¹²³⁴⁵⁶⁷⁸⁹⁰');
 	});
 });

@@ -376,6 +376,9 @@ importers:
       '@playwright/test':
         specifier: 'catalog:'
         version: 1.62.1
+      '@testing-library/react':
+        specifier: 'catalog:'
+        version: 16.3.2(@testing-library/dom@10.4.1)(@types/react-dom@19.2.4(@types/react@19.2.18))(@types/react@19.2.18)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       '@types/node':
         specifier: 'catalog:'
         version: 22.20.1
@@ -388,6 +391,12 @@ importers:
       bootstrap-icons:
         specifier: 'catalog:'
         version: 1.9.1
+      esbuild:
+        specifier: 'catalog:'
+        version: 0.28.2
+      jsdom:
+        specifier: 'catalog:'
+        version: 30.0.1
       typescript:
         specifier: 'catalog:'
         version: 6.0.3

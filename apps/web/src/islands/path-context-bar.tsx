@@ -7,6 +7,7 @@ import { entryHref, pathStepAnchor, withPathContext } from '../lib/entry-links';
 import { arrowRightIcon, check2Icon, chevronLeftIcon, chevronRightIcon } from '../lib/icons';
 import { kvLocalStorage } from '../lib/kv-local-storage';
 import { localePath } from '../lib/locale-paths';
+import { localePayloadUrl } from '../lib/locale-payloads';
 
 export interface PathContextBarProps {
 	locale?: Locale;
@@ -46,7 +47,7 @@ function stepHref(locale: Locale, pathSlug: string, step: PathStepRef): string {
 
 /**
  * Dormant learning-path bar mounted on every entry page. Renders nothing
- * unless the URL carries `?path=&step=`; then it fetches the precached
+ * unless the URL carries `?path=&step=`; then it fetches the offline-cached
  * paths payload and shows the path name, the step position, a mark-done
  * toggle and previous/next links, so a learner can walk a path without
  * returning to its page after every entry.
@@ -62,7 +63,7 @@ export default function PathContextBar({ locale = 'en' }: PathContextBarProps) {
 	useEffect(() => {
 		if (context === null) return;
 		let cancelled = false;
-		fetch(`/data/paths.${locale}.json`)
+		fetch(localePayloadUrl('paths', locale))
 			.then((response) => {
 				if (!response.ok) throw new Error(`HTTP ${response.status}`);
 				return response.json() as Promise<PathsPayload>;

@@ -57,9 +57,9 @@ description:
 
     In the formula, $\var{n}$ is the number of trials and $\var{k}$ the number of successes, both
     non-negative whole numbers with $\var{k}$ no greater than $\var{n}$. $\var{p}$ is the
-    probability of success on a single trial, and $\var{P(X=k)}$ is the probability that the count
-    of successes X equals k. Both probabilities are pure numbers from 0 to 1. The exclamation mark
-    denotes the factorial.
+    probability that any one trial ends in success, and $\var{P(X=k)}$ is the probability that the
+    count of successes X equals k. Both probabilities are pure numbers from 0 to 1. The exclamation
+    mark denotes the factorial.
 
     Each specific ordering of k successes and n − k failures has probability p raised to the k times
     1 − p raised to the n − k, by the multiplication rule for independent events. The fraction of

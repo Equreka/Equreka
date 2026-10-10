@@ -1,6 +1,6 @@
 import type { CompiledEquationMeta } from '@equreka/schema';
 import { describe, expect, it } from 'vitest';
-import { calculatorField } from '../calculator-fields';
+import { calculatorField, termIdFragment } from '../calculator-fields';
 
 const PROJECTILE: CompiledEquationMeta = {
 	slug: 'projectile-range',
@@ -32,5 +32,23 @@ describe('calculatorField', () => {
 	it('marks a term outside the solvable set as one the reader must fill', () => {
 		expect(calculatorField(PROJECTILE, 'v_{0}', 'Speed', 'm/s').solvable).toBe(false);
 		expect(calculatorField(PROJECTILE, 'R', 'Range', 'm').solvable).toBe(true);
+	});
+});
+
+describe('termIdFragment', () => {
+	it('takes the compiled identifier of a TeX term key', () => {
+		expect(termIdFragment(PROJECTILE, '\\theta')).toBe('theta');
+		expect(termIdFragment(PROJECTILE, 'v_{0}')).toBe('v_0');
+		expect(termIdFragment(PROJECTILE, 'R')).toBe('R');
+	});
+
+	it('escapes a key without a compiled term injectively, apart from every identifier', () => {
+		const keys = ['\\theta', 'v_{0}', 'v_0', 'v0', 'F_\\mathrm{N}', '[\\mathrm{H}^{+}]', '_5c_'];
+		const fragments = keys.map((key) => termIdFragment({ ...PROJECTILE, terms: {} }, key));
+		expect(fragments[0]).toBe('__5c_theta');
+		for (const fragment of fragments) expect(fragment).toMatch(/^_[A-Za-z0-9_]+$/);
+		expect(new Set(fragments).size).toBe(keys.length);
+		const identifiers = Object.values(PROJECTILE.terms).map((term) => term.identifier);
+		expect(fragments.filter((fragment) => identifiers.includes(fragment))).toEqual([]);
 	});
 });

@@ -43,7 +43,7 @@ catalog:
   lefthook: ^2.1.10
   tsx: ^4.23.12
   dotenv-cli: ^11.0.0
-  esbuild: ^0.28.0 # engine's optional test:hermes smoke bundle; binary already opted into allowBuilds via tsx
+  esbuild: ^0.28.0 # engine's optional test:hermes smoke bundle and the web service worker's data-cache script (ADR 0013); binary already opted into allowBuilds via tsx
   '@types/node': ^22.0.0 # matches the Node 22 floor in engines
   decimal.js: ^10.6.0 # BUILD-TIME ONLY (factor composition); runtime is float64 (ADR 0002)
   fast-check: ^4.9.0
@@ -55,8 +55,8 @@ catalog:
   pngjs: ^7.0.0 # design-parity PNG decode/encode for diffs and contact sheets
   '@types/pngjs': ^6.0.5 # pngjs ships no types; latest DefinitelyTyped line
   '@astrojs/sitemap': ^3.7.3 # web SEO: sitemap-index with per-locale hreflang alternates
-  '@testing-library/react': ^16.3.0 # @equreka/core hook tests (renderHook); needs react-dom at test time only
-  jsdom: ^30.0.0 # vitest DOM environment for @equreka/core hook tests
+  '@testing-library/react': ^16.3.0 # @equreka/core hook tests (renderHook) and web island tests; needs react-dom at test time only
+  jsdom: ^30.0.0 # vitest DOM environment for @equreka/core hook tests and web island tests
   # --- mobile: pinned by Expo SDK 57 bundledNativeModules (expo@57.0.21); `expo install --check` validates against these ranges ---
   expo: ~57.0.21 # pinned by Expo SDK 57 bundledNativeModules
   react-native: 0.86.3 # pinned by Expo SDK 57 bundledNativeModules

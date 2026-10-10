@@ -53,18 +53,21 @@ export function shinglesOf(words, size = SHINGLE_SIZE) {
 }
 
 /**
- * Length in words of the longest run present in both word lists: the
- * longest common substring over words, by dynamic programming on two rows.
+ * The longest run present in both word lists, as its length in words and
+ * its first index in `left`: the longest common substring over words, by
+ * dynamic programming on two rows.
  */
-export function longestSharedRun(left, right) {
-	let best = 0;
+export function longestCommonRun(left, right) {
+	let best = { length: 0, start: 0 };
 	let previous = new Uint32Array(right.length + 1);
 	for (let i = 1; i <= left.length; i += 1) {
 		const current = new Uint32Array(right.length + 1);
 		for (let j = 1; j <= right.length; j += 1) {
 			if (left[i - 1] === right[j - 1]) {
 				current[j] = previous[j - 1] + 1;
-				best = Math.max(best, current[j]);
+				if (current[j] > best.length) {
+					best = { length: current[j], start: i - current[j] };
+				}
 			}
 		}
 		previous = current;
@@ -72,10 +75,15 @@ export function longestSharedRun(left, right) {
 	return best;
 }
 
+export function longestSharedRun(left, right) {
+	return longestCommonRun(left, right).length;
+}
+
 /**
  * Overlap of `candidate` (the description) against `source` (the article):
  * `overlap` is the share of the candidate's shingles found in the source,
- * 0 when the candidate is shorter than one shingle.
+ * 0 when the candidate is shorter than one shingle; `run` is the longest
+ * shared run in normalized words, so a report can name the copied passage.
  */
 export function compareTexts(candidate, source, size = SHINGLE_SIZE) {
 	const candidateWords = wordsOf(candidate);
@@ -85,11 +93,13 @@ export function compareTexts(candidate, source, size = SHINGLE_SIZE) {
 	const sharedShingles = [...candidateShingles].filter((shingle) =>
 		sourceShingles.has(shingle),
 	).length;
+	const run = longestCommonRun(candidateWords, sourceWords);
 	return {
 		words: candidateWords.length,
 		shingles: candidateShingles.size,
 		sharedShingles,
-		longestRun: longestSharedRun(candidateWords, sourceWords),
+		longestRun: run.length,
+		run: candidateWords.slice(run.start, run.start + run.length).join(' '),
 		overlap: candidateShingles.size === 0 ? 0 : sharedShingles / candidateShingles.size,
 	};
 }

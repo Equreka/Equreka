@@ -1,5 +1,6 @@
 import { type ThemeSetting, useSettings } from '@equreka/core';
-import { LOCALES, type Locale, t } from '@equreka/core/i18n';
+import { LOCALES, type Locale, type MessageKey, t } from '@equreka/core/i18n';
+import { NUMBER_FORMATS, type NumberFormat } from '@equreka/engine/format';
 import { type MouseEvent, useId } from 'react';
 import { kvLocalStorage } from '../lib/kv-local-storage';
 import { localePath } from '../lib/locale-paths';
@@ -27,6 +28,11 @@ const THEME_GLYPHS: Record<ThemeSetting, LegacyGlyphName> = {
 	system: 'gear-wide',
 	light: 'sun',
 	dark: 'moon',
+};
+
+const NUMBER_FORMAT_LABEL_KEYS: Record<NumberFormat, MessageKey> = {
+	readable: 'settings.numberFormat.readable',
+	scientific: 'settings.numberFormat.scientific',
 };
 
 /**
@@ -61,10 +67,12 @@ function closeMenu(event: MouseEvent<HTMLElement>): void {
  * The legacy settings card: title with the version beside it, then the
  * language and theme dropdown buttons and the stacked favorites
  * export/import buttons. Language options are navigation links (a
- * disclosure); theme options are actions (a menu).
+ * disclosure); theme options are actions (a menu). The result-format
+ * menu is a v2 addition in the theme menu's pattern; its toggle names the
+ * current choice.
  */
 export default function SettingsPanel({ locale = 'en', version }: SettingsPanelProps) {
-	const { settings, setTheme, setLocale } = useSettings(kvLocalStorage);
+	const { settings, setTheme, setLocale, setNumberFormat } = useSettings(kvLocalStorage);
 	const groupId = useId();
 
 	return (
@@ -142,6 +150,38 @@ export default function SettingsPanel({ locale = 'en', version }: SettingsPanelP
 									}}
 								>
 									<LegacyGlyph name={THEME_GLYPHS[option]} /> {t(locale, THEME_LABEL_KEYS[option])}
+								</button>
+							))}
+						</div>
+					</details>
+				</section>
+				<section className="eq-settings-format" aria-labelledby={`${groupId}-format`}>
+					<h2 id={`${groupId}-format`} className="eq-settings-label">
+						{t(locale, 'settings.numberFormat')}
+					</h2>
+					<details className="eq-dropdown">
+						<summary className="eq-btn eq-btn-primary eq-dropdown-toggle" aria-haspopup="menu">
+							<LegacyGlyph name="calculator" />
+							{t(locale, NUMBER_FORMAT_LABEL_KEYS[settings.numberFormat])}
+						</summary>
+						<div
+							className="eq-dropdown-menu"
+							role="menu"
+							aria-label={t(locale, 'settings.numberFormat')}
+						>
+							{NUMBER_FORMATS.map((option) => (
+								<button
+									key={option}
+									type="button"
+									role="menuitem"
+									className="eq-dropdown-item"
+									aria-current={settings.numberFormat === option ? 'true' : undefined}
+									onClick={(event) => {
+										setNumberFormat(option);
+										closeMenu(event);
+									}}
+								>
+									{t(locale, NUMBER_FORMAT_LABEL_KEYS[option])}
 								</button>
 							))}
 						</div>
