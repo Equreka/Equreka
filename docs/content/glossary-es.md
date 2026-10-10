@@ -108,6 +108,8 @@ Conventions for every `<slug>.es.yaml` sidecar. Companion to the [style guide](s
 | dioptre | dioptría (dioptrías); EU-permitted, not SI-accepted | [Directive 80/181/EEC, Spanish consolidated text, Annex, Chapter I, 4](https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:01980L0181-20200613); Wikidata [Q193933](https://www.wikidata.org/wiki/Q193933) `es` label |
 | degree Fahrenheit, Rankine, Réaumur, Rømer, Delisle, Newton | grado Fahrenheit, grado Rankine, grado Réaumur, grado Rømer, grado Delisle, grado Newton | usage |
 | reciprocal second | segundo inverso (segundos inversos; *segundo recíproco* in `aliases`) | Wikidata [Q6137407](https://www.wikidata.org/wiki/Q6137407) `es` label |
+| part per million | parte por millón (partes por millón) | Wikidata [Q21006887](https://www.wikidata.org/wiki/Q21006887) `es` label; [OpenStax *Química 2ed*, 3.4](https://openstax.org/books/qu%C3%ADmica-2ed/pages/3-4-otras-unidades-para-las-concentraciones-de-las-soluciones) |
+| part per billion | parte por mil millones (partes por mil millones); never *parte por billón* in prose, because *billón* is 10^12 in Spanish (it stays in `aliases` for search, as the Wikidata `es` label) | [RAE, DPD, *billón*](https://www.rae.es/dpd/bill%C3%B3n); [OpenStax *Química 2ed*, 3.4](https://openstax.org/books/qu%C3%ADmica-2ed/pages/3-4-otras-unidades-para-las-concentraciones-de-las-soluciones) (*partes por mil millones*); Wikidata [Q2055118](https://www.wikidata.org/wiki/Q2055118) |
 
 Prefix names: *mili* per RAE; *atto* per the DLE entry *atto-* and, with *zetta* and *yotta*, per the CEM translation of the SI Brochure (9th ed., Table 7); the rest unchanged. Prefixed unit names follow the same spelling (*attosegundo*, *zettajulio*, *yottagramo*).
 
@@ -333,6 +335,11 @@ Prefix names: *mili* per RAE; *atto* per the DLE entry *atto-* and, with *zetta*
 | half-life | semivida (*periodo de semidesintegración* is the accepted synonym: name it once in prose and add it to `aliases`) | usage |
 | decay constant, activity | constante de desintegración, actividad | CEM (actividad) |
 | binding energy, mass defect | energía de enlace, defecto de masa | usage |
+| nuclide, radionuclide | nucleido, radionucleido (never *núclido*, *radionúclido*) | [RAE, DLE, *nucleido* and *radionucleido*](http://web.archive.org/web/20211128232739/https://dle.rae.es/radionucleido); [CEM, *El Sistema Internacional de Unidades*, 9th ed., Table 4](https://www.cem.es/sites/default/files/documentos/2022-08/30362_elsistemainternacionaldeunidades_web_0.pdf) (*actividad referida a un radionucleido*) |
+| radioactive decay law | ley de la desintegración radiactiva (*decaimiento* only in `aliases`, per the conventions above) | usage |
+| half-life versus mean lifetime | *vida media* is the DLE synonym of *semivida* (an accepted alias), but physics texts also use it for the mean lifetime, so prose names the mean lifetime *tiempo de vida medio* | [RAE, DLE, *semivida*](http://web.archive.org/web/20210226045658/https://dle.rae.es/semivida) and [*vida media*](http://web.archive.org/web/2021/https://dle.rae.es/vida) |
+| daughter nucleus, decay products | núcleo hijo, productos hijos, productos de desintegración | usage |
+| radiocarbon dating, radiocarbon age | datación por radiocarbono, edad radiocarbónica (*datación por carbono-14*, *edad por carbono-14* in `aliases`; the isotope keeps the hyphen, *carbono-14*) | [UNLP, LATYR, 40 años del Laboratorio de Radiocarbono](https://sedici.unlp.edu.ar/bitstream/handle/10915/64283/Documento_completo.pdf?sequence=1) (*edades radiocarbónicas*, *datación radiocarbónica*) |
 | absorbed dose, equivalent dose | dosis absorbida, dosis equivalente | CEM |
 | photoelectron, photocurrent, maximum kinetic energy | fotoelectrón, fotocorriente, energía cinética máxima | [OpenStax *Física universitaria* vol. 3, 6.2](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-3/pages/6-2-efecto-fotoelectrico) |
 | cut-off frequency, cut-off wavelength | frecuencia de corte (synonym of *frecuencia umbral*), longitud de onda de corte | [OpenStax *Física universitaria* vol. 3, 6.2](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-3/pages/6-2-efecto-fotoelectrico) |
@@ -359,9 +366,18 @@ Prefix names: *mili* per RAE; *atto* per the DLE entry *atto-* and, with *zetta*
 | mass concentration | concentración másica | CEM |
 | molality, mole fraction | molalidad, fracción molar | usage |
 | mass percent | porcentaje en masa | usage |
+| mass fraction | fracción másica (*fracción de masa*, the Wikidata `es` label, in `aliases`; never *fracción en masa*) | [RAE, DLE, *másico*](http://web.archive.org/web/20250124172855/https://dle.rae.es/m%C3%A1sico) (relative to mass as a physical quantity); Wikidata [Q899138](https://www.wikidata.org/wiki/Q899138); shipped sidecars (`units/percent`, `magnitudes/mass-concentration`) |
+| stock solution, volumetric flask, to make up to the mark | disolución madre (OpenStax writes *solución madre*; *disolución* per the solution row), matraz aforado, enrasar | [OpenStax *Química 2ed*, 3.3](https://openstax.org/books/qu%C3%ADmica-2ed/pages/3-3-molaridad) (*solución madre*); usage |
 | solution, solute, solvent | disolución, soluto, disolvente | usage |
 | solutions (branch) | Disoluciones y concentración | usage |
 | dilution, percent yield | dilución, rendimiento porcentual | usage |
+| actual yield, theoretical yield | rendimiento real, rendimiento teórico (the OpenStax *porcentaje de rendimiento* goes in `aliases`) | [OpenStax *Química 2ed*, 4.4](https://openstax.org/books/qu%C3%ADmica-2ed/pages/4-4-rendimiento-de-la-reaccion) |
+| atom economy | economía atómica | [OpenStax *Química 2ed*, 4.4](https://openstax.org/books/qu%C3%ADmica-2ed/pages/4-4-rendimiento-de-la-reaccion); Wikidata [Q903758](https://www.wikidata.org/wiki/Q903758) `es` label |
+| percent composition | composición porcentual (*composición centesimal* in `aliases`) | [OpenStax *Química 2ed*, 3.2](https://openstax.org/books/qu%C3%ADmica-2ed/pages/3-2-determinacion-de-formulas-empiricas-y-moleculares) |
+| stoichiometric coefficient, stoichiometric factor | coeficiente estequiométrico, factor estequiométrico | Wikidata [Q118455387](https://www.wikidata.org/wiki/Q118455387) `es` label; [OpenStax *Química 2ed*, 4.3](https://openstax.org/books/qu%C3%ADmica-2ed/pages/4-3-estequiometria-de-la-reaccion) (*factor estequiométrico*) |
+| number of entities, Avogadro number, formula unit | número de entidades, número de Avogadro, unidad fórmula (OpenStax writes *unidad de fórmula*) | Wikidata [Q614112](https://www.wikidata.org/wiki/Q614112) `es` label; [OpenStax *Química 2ed*, 3.1](https://openstax.org/books/qu%C3%ADmica-2ed/pages/3-1-la-formula-de-masa-y-el-concepto-de-mol) |
+| mass number, atomic number, neutron number | número másico (*número de masa*, the OpenStax form, in `aliases`), número atómico, número de neutrones | Wikidata [Q101395](https://www.wikidata.org/wiki/Q101395) `es` label and alias; [OpenStax *Química 2ed*, 2.3](https://openstax.org/books/qu%C3%ADmica-2ed/pages/2-3-estructura-atomica-y-simbolismo) |
+| average atomic mass, isotopic abundance | masa atómica media (*masa atómica promedio*, the OpenStax form, in `aliases`; *media* as in *potencia media*), abundancia (*abundancia isotópica*, *abundancia natural* in `aliases`) | [OpenStax *Química 2ed*, 2.3](https://openstax.org/books/qu%C3%ADmica-2ed/pages/2-3-estructura-atomica-y-simbolismo); `branches/atomic-structure` sidecar |
 | limiting reagent | reactivo limitante | usage |
 | partial pressure | presión parcial | usage |
 | Boyle's law | ley de Boyle (*ley de Boyle-Mariotte*, *ley de Mariotte* in `aliases`) | [OpenStax *Química 2ed*, 9.2](https://openstax.org/books/qu%C3%ADmica-2ed/pages/9-2-relaciones-entre-presion-volumen-cantidad-y-temperatura-la-ley-de-los-gases-ideales); Wikidata [Q175974](https://www.wikidata.org/wiki/Q175974) `es` label and aliases |

@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Molarity from mass percent'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{c}=\frac{\mag{\rho}\var{w}}{\mag{M}}'
+terms:
+  c:
+    kind: 'magnitude'
+    ref: 'amount-concentration'
+  \rho:
+    kind: 'magnitude'
+    ref: 'density'
+  w:
+    kind: 'symbol'
+    label:
+      en: 'Mass fraction of the solute'
+    unit: 'unitless'
+  M:
+    kind: 'magnitude'
+    ref: 'molar-mass'
+solutions:
+  c: 'rho * w / M'
+  \rho: 'c * M / w'
+  w: 'c * M / rho'
+  M: 'rho * w / c'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'mass percent to molarity'
+  - 'percent to molarity'
+  - 'molarity from density'
+  - 'molarity of concentrated acid'
+  - 'amount concentration from mass fraction'
+  - 'c = rho w / M'
+  - 'molaridad a partir del porcentaje en masa'
+  - 'molaridad de un ácido concentrado'
+references:
+  - title: 'Eames, General Chemistry Supplement, Chemistry Calculations: Molarity (LibreTexts)'
+    url: 'https://chem.libretexts.org/Bookshelves/General_Chemistry/General_Chemistry_Supplement_(Eames)/Chemistry_Calculations/Molarity'
+  - title: 'ChemBuddy, Concentration conversion: percentage to molarity'
+    url: 'https://www.chembuddy.com/concentration-percentage-to-molarity'
+  - title: 'OpenStax, Chemistry 2e, 3.4 Other Units for Solution Concentrations'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-4-other-units-for-solution-concentrations'
+description:
+  en: >-
+    The molar concentration of a solution can be found from its mass percent: multiply the density
+    of the solution by the mass fraction of the solute and divide by the molar mass of the solute.
+    This conversion turns the label of a concentrated acid or base, which gives a percentage by mass
+    and a density, into the molarity needed to plan a dilution.
+
+    $\mag{c}$ is the amount concentration of the solute, in moles per cubic metre in SI.
+    $\mag{\rho}$ is the density of the whole solution, not of the pure solvent, in kilograms per
+    cubic metre. $\var{w}$ is the mass fraction of the solute, a number from 0 to 1 that the
+    calculator can also show in percent, and $\mag{M}$ is the molar mass of the solute in kilograms
+    per mole. All four are positive.
+
+    Any volume of the solution has a mass equal to its density times that volume. The mass fraction
+    picks out the part of that mass that is solute, and dividing by the molar mass turns it into
+    moles; dividing by the same volume then leaves the formula, in which the volume has cancelled.
+    Textbooks often quote a shortcut for laboratory units: molarity in moles per litre equals ten
+    times the density in grams per millilitre times the percentage, divided by the molar mass in
+    grams per mole. The factor ten only absorbs those particular units, so the SI form above works
+    with any consistent set.
+
+    The fraction must be a mass fraction; a volume percent or a mass-volume percent needs a different
+    conversion. The density has to be that of the same solution at the temperature of use, because
+    both density and molarity change as the liquid expands.
+
+    Hydrochloric acid labelled 32 % by mass, with a density of 1.1593 g/mL, is about 10.2 mol/L in
+    hydrogen chloride (molar mass 36.46 g/mol).

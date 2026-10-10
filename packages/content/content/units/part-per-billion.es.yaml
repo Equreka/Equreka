@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Parte por mil millones'
+description: >-
+  La parte por mil millones, de símbolo ppb, expresa la razón entre dos magnitudes de la misma
+  naturaleza como un número de milmillonésimas. Igual que la parte por millón, es el nombre de un
+  número puro y no una unidad del SI, y se usa para fracciones másicas muy pequeñas de contaminantes
+  en el agua y para gases traza en el aire.
+
+  Su valor se basa en el billion de escala corta del inglés estadounidense y del británico actual, de
+  modo que $1\,\mathrm{ppb}=10^{-9}$ exactamente. La publicación especial 811 del NIST advierte que
+  en muchos países un billion se entiende como un millón de millones. El español es uno de ellos: un
+  billón vale un millón de millones, y por eso ppb se lee partes por mil millones y no partes por
+  billón, que en español designaría $10^{-12}$.
+
+  Una parte por mil millones es la milésima parte de una parte por millón. Una fracción másica de
+  1 ppb equivale a un microgramo de sustancia por cada kilogramo de muestra y, en disoluciones
+  diluidas en agua, a alrededor de un microgramo por litro.
+
+  La unidad conviene a las concentraciones más bajas que se miden en los análisis. OpenStax señala
+  que la Agencia de Protección Ambiental de Estados Unidos exige medidas correctoras cuando el plomo
+  del agua del grifo alcanza 15 ppb, es decir, 0.015 ppm.
+
+  El símbolo arrastra dos ambigüedades distintas. Una es el significado de billion, que llevó al
+  folleto del SI a desaconsejar ppb y ppt. La otra es el tipo de fracción, ya que las ppb pueden
+  referirse a masa, a cantidad de sustancia o a volumen, este último a veces marcado como ppbV. El
+  NIST no acepta las ppb para valores expresados con el SI y recomienda un cociente explícito de
+  unidades o una potencia de diez.

@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de la desintegración radiactiva'
+terms:
+  N:
+    label: 'Número de núcleos sin desintegrar'
+  N_{0}:
+    label: 'Número inicial de núcleos'
+  \lambda:
+    label: 'Constante de desintegración'
+description: >-
+  La ley de la desintegración radiactiva establece que el número de núcleos inestables que quedan
+  en una muestra de un radionucleido disminuye de forma exponencial con el tiempo. Llamada también
+  ley de desintegración exponencial, es la relación básica de la radiactividad en física nuclear:
+  cada intervalo de la misma duración elimina la misma fracción de los núcleos presentes, sea cual
+  sea su número.
+
+  En la ley, $\var{N}$ es el número de núcleos que aún no se han desintegrado en el instante
+  $\mag{t}$, y $\var{N_{0}}$ es el número presente cuando empieza a contarse el tiempo,
+  $\mag{t}=0$. Ambos son recuentos sin unidad, nunca
+  negativos y tan grandes que se tratan como magnitudes continuas y no como números enteros. La constante
+  de desintegración $\var{\lambda}$, en segundos inversos, es la probabilidad por unidad de tiempo
+  de que un núcleo cualquiera se desintegre; es fija para cada radionucleido y siempre positiva. El
+  tiempo transcurrido $\mag{t}$ se mide en segundos y avanza desde el inicio.
+
+  La ley se deduce de una sola hipótesis: cada núcleo se desintegra al azar y con independencia de
+  los demás, de modo que el número de desintegraciones en un intervalo corto es proporcional al
+  número de núcleos restantes. Una pérdida proporcional a la cantidad que queda produce una curva
+  exponencial que se acerca a cero sin alcanzarlo. La ley vale también para cualquier cantidad
+  proporcional al número de núcleos, como la masa del radionucleido o su actividad.
+
+  La ley es estadística. Predice el comportamiento medio de una población grande y no dice nada
+  sobre cuándo se desintegrará un núcleo concreto; con unos pocos núcleos, el recuento real se
+  dispersa alrededor de la curva. Con muy buena aproximación, la constante de desintegración no
+  depende de la temperatura, la presión, el estado físico ni el compuesto químico. La ley describe un único radionucleido padre y
+  no tiene en cuenta los núcleos hijos que sean a su vez radiactivos.
+
+  Ernest Rutherford y Frederick Soddy propusieron en 1902 que los elementos radiactivos se
+  transforman en otros elementos, la idea en que se basa la ley. Sustenta la datación radiométrica,
+  el almacenamiento de residuos nucleares y la dosificación de radioisótopos médicos.

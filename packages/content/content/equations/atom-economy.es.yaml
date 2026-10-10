@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Economía atómica'
+terms:
+  \mathrm{AE}:
+    label: 'Economía atómica'
+  m_\mathrm{P}:
+    label: 'Masa del producto deseado en la ecuación química'
+  m_\mathrm{R}:
+    label: 'Masa total de los reactivos en la ecuación química'
+description: >-
+  La economía atómica mide qué parte de la materia que entra en una reacción química acaba en el
+  producto que se busca: la masa del producto deseado dividida entre la masa total de todos los
+  reactivos, ambas tomadas de la ecuación química, y suele expresarse como porcentaje. Es el segundo
+  de los principios de la química sostenible y sirve para comparar rutas hacia un mismo compuesto.
+
+  $\var{\mathrm{AE}}$ es la economía atómica, un cociente entre 0 y 1 que la calculadora muestra
+  también como porcentaje. $\var{m_\mathrm{P}}$ es la masa de producto deseado y $\var{m_\mathrm{R}}$
+  la masa conjunta de todos los reactivos, ambas para las cantidades de la ecuación química tomadas
+  en moles, de modo que cada una es la suma de los coeficientes por las masas molares; se
+  introducen en kilogramos o en cualquier unidad de masa común, ya que solo interviene el cociente.
+
+  La masa se conserva, de modo que los reactivos pesan lo mismo que el conjunto de los productos, y
+  lo que el producto deseado no contiene sale como subproductos. Una reacción que une sus piezas en
+  un solo producto, con cualquier otro reactivo necesario solo como catalizador, alcanza una economía
+  atómica de 1; cada subproducto la reduce.
+
+  La economía atómica es un valor teórico fijado por la ecuación. A diferencia del rendimiento
+  porcentual, no depende de cómo salga el experimento, y deja fuera los disolventes y los agentes de
+  separación que consume un proceso, así que una ruta puede tener una economía atómica alta y
+  desperdiciar materia en la práctica.
+
+  Barry Trost propuso el concepto en 1991 como objetivo de una síntesis eficiente. El ibuprofeno es
+  el caso de manual: la ruta de tres etapas desarrollada en la década de 1990 alcanza una economía
+  atómica de cerca del 80 por ciento, el doble del 40 por ciento de la ruta de seis etapas a la que
+  sustituyó, que necesitaba 514 gramos de reactivos por cada 206 gramos de ibuprofeno.

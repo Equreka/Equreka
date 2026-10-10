@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Concentración másica de una disolución'
+description: >-
+  La concentración másica de una disolución es la masa de una sustancia disuelta dividida entre el
+  volumen de la disolución. Indica cuántos gramos de soluto contiene cada litro, la forma que se usa
+  en las etiquetas médicas y alimentarias y en los gramos por litro de una receta de laboratorio, y
+  es el equivalente en masa de la concentración molar.
+
+  $\mag{\gamma}$ es la concentración másica del soluto, en kilogramos por metro cúbico en el SI; el
+  gramo por litro tiene el mismo tamaño, así que un valor en una unidad pasa sin cambios a la otra.
+  $\mag{m}$ es la masa del soluto solo y $\mag{V}$ el volumen de toda la disolución. Las tres
+  magnitudes son positivas. El NIST también escribe la magnitud con el símbolo rho y un subíndice que
+  nombra la sustancia.
+
+  La unidad es la de la densidad, pero el significado es otro: la densidad divide la masa de toda la
+  disolución entre su volumen, mientras que la concentración másica cuenta solo el soluto. Al dividir
+  una concentración másica entre la masa molar del soluto se obtiene su concentración de cantidad de
+  sustancia, de modo que ambas medidas dan la misma información una vez conocida la sustancia.
+
+  Igual que la concentración molar, la concentración másica depende de la temperatura, porque el
+  volumen de una disolución cambia al calentarse mientras que la masa de soluto no. Los resultados
+  clínicos usan a menudo otros volúmenes, como los miligramos por decilitro de la glucosa en sangre,
+  y el porcentaje masa volumen de una etiqueta es una concentración másica en gramos por cada 100
+  mililitros.
+
+  El suero fisiológico, con 0.9 g de cloruro de sodio en cada 100 mL, tiene una concentración másica
+  de 9 g/L.

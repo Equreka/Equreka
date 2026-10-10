@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de la desintegración radiactiva en función de la semivida'
+terms:
+  N:
+    label: 'Número de núcleos sin desintegrar'
+  N_{0}:
+    label: 'Número inicial de núcleos'
+  t_{1/2}:
+    label: 'Semivida'
+description: >-
+  La forma de la ley de la desintegración radiactiva basada en la semivida da el número de núcleos
+  sin desintegrar de un radionucleido como el número inicial multiplicado por un medio elevado al
+  número de semividas transcurridas. Es la misma ley de desintegración exponencial de la física
+  nuclear, escrita con la semivida en lugar de la constante de desintegración, la forma que emplean
+  la mayoría de los textos escolares y de las tablas de isótopos.
+
+  Aquí $\var{N}$ es el número de núcleos aún sin desintegrar en el instante $\mag{t}$, y
+  $\var{N_{0}}$ el número al inicio, ambos recuentos sin unidad, nunca negativos y lo
+  bastante grandes para tratarse como magnitudes continuas.
+  $\var{t_{1/2}}$ es la semivida del radionucleido, el tiempo en que se desintegra la mitad de
+  cualquier muestra grande, en segundos y siempre positiva. El tiempo transcurrido $\mag{t}$ se mide
+  en segundos y avanza desde el inicio; como solo interviene el cociente de los dos tiempos, sirve
+  cualquier unidad de tiempo si ambos la usan.
+
+  El exponente cuenta semividas. Tras una semivida queda la mitad de los núcleos, tras dos la
+  cuarta parte, tras tres la octava, y el recuento vuelve a reducirse a la mitad con cada nueva
+  semivida sin llegar nunca a cero. Si se sustituye un medio elevado al cociente por la exponencial
+  de menos el logaritmo natural de dos por el cociente, se recupera la forma con la constante de
+  desintegración, porque esta equivale a ese logaritmo dividido entre la semivida. El logaritmo en
+  base dos del cociente entre los números inicial y final da el número de semividas y, con él, el
+  tiempo transcurrido.
+
+  La ley describe el comportamiento medio de muchos núcleos de un mismo radionucleido que se
+  desintegran al azar. No tiene en cuenta los productos hijos, y con muy pocos núcleos el recuento
+  real se aparta de la predicción. La misma expresión se aplica a la masa del radionucleido y a la
+  actividad de la muestra, porque ambas son proporcionales al número de núcleos.
+
+  Esta forma se presta al cálculo mental y a las estimaciones rápidas en protección radiológica,
+  medicina nuclear y datación. Una muestra de estroncio-90, cuya semivida es de 28.8 años, conserva
+  la cuarta parte de sus núcleos al cabo de 57.6 años.

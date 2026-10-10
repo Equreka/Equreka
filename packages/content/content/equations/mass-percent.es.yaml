@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Porcentaje en masa'
+terms:
+  w:
+    label: 'Fracción másica del soluto'
+  m_\mathrm{solute}:
+    label: 'Masa del soluto'
+  m_\mathrm{solution}:
+    label: 'Masa de la disolución'
+description: >-
+  El porcentaje en masa, también llamado tanto por ciento en masa, expresa la composición de una
+  disolución o de una mezcla como la masa de uno de sus componentes dividida entre la masa total,
+  dada en porcentaje. La magnitud que hay detrás es la fracción másica de ese componente, un cociente
+  de dos masas que no tiene unidad.
+
+  $\var{w}$ es la fracción másica del soluto, un número entre 0 y 1 que la calculadora puede mostrar
+  también en porcentaje. $\var{m_\mathrm{solute}}$ es la masa del soluto y
+  $\var{m_\mathrm{solution}}$ la masa de toda la disolución, soluto y disolvente juntos; ambas son
+  positivas y deben expresarse en la misma unidad, el kilogramo en el SI. Una fracción másica de 0.10
+  es un porcentaje en masa del 10 %.
+
+  Como el signo de porcentaje representa el número 0.01, multiplicar la fracción por 100 da el
+  porcentaje habitual. Por eso el NIST pide decir, por ejemplo, una fracción másica del 10 % en lugar
+  de expresiones como porcentaje en peso, que intentan cargar el signo con una información que no
+  puede llevar. Las masas no cambian con la temperatura, así que el resultado tampoco, y las
+  fracciones másicas de todos los componentes de una mezcla suman 1.
+
+  La fórmula usa solo masas. El porcentaje en volumen divide dos volúmenes y el porcentaje masa
+  volumen divide una masa entre un volumen, y ninguno puede sustituir al porcentaje en masa sin una
+  densidad. Para los componentes en trazas el mismo cociente se escala a partes por millón en lugar
+  de porcentaje, y la densidad de la disolución convierte una fracción másica en una concentración
+  molar.
+
+  Una muestra de 5.0 g de líquido cefalorraquídeo con 3.75 mg de glucosa tiene una fracción másica de
+  glucosa del 0.075 %.

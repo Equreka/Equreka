@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Cantidad de sustancia a partir de la masa'
+description: >-
+  La cantidad de sustancia de una muestra de una sustancia pura es igual a la masa de la muestra
+  dividida entre la masa molar de la sustancia. Este paso de gramos a moles abre casi todos los
+  cálculos estequiométricos de la química, porque la balanza mide masas mientras que las ecuaciones
+  químicas cuentan partículas en moles.
+
+  $\mag{n}$ es la cantidad de sustancia, en moles. $\mag{m}$ es la masa de la muestra, en
+  kilogramos en el SI, aunque en química se suele pesar en gramos. $\mag{M}$ es la masa molar, la
+  masa de un mol de la sustancia, en kilogramos por mol; las tablas la dan en gramos por mol, y un
+  gramo por mol es la milésima parte de un kilogramo por mol. Las tres magnitudes son positivas, y
+  la masa y la masa molar deben expresarse con la misma unidad de masa.
+
+  La masa molar de un compuesto es la suma de las masas molares de los átomos de su fórmula, y su
+  valor en gramos por mol coincide numéricamente con la masa de una unidad fórmula en daltons. Una
+  masa molar grande significa, por tanto, pocos moles en una masa dada: diez gramos de un compuesto
+  pesado contienen menos moléculas que diez gramos de agua.
+
+  La fórmula vale para cualquier sustancia pura, sólida, líquida o gaseosa, de fórmula conocida; hay
+  que indicar la entidad que se cuenta (átomos, moléculas, unidades fórmula, iones), pues un mol de
+  moléculas de oxígeno contiene dos moles de átomos de oxígeno. Una mezcla exige conocer antes su
+  composición.
+
+  La 14.ª CGPM convirtió el mol en unidad básica del SI en 1971 y lo definió a partir de 0.012
+  kilogramos de carbono-12; la revisión de 2018 fijó en su lugar la constante de Avogadro, con
+  efecto desde el 20 de mayo de 2019. Por ejemplo, 4.7 gramos de potasio, a 39.10 gramos por mol,
+  son 0.12 moles.

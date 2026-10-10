@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Molalidad de una disolución'
+terms:
+  m_\mathrm{solvent}:
+    label: 'Masa del disolvente'
+description: >-
+  La molalidad de una disolución es la cantidad de soluto en moles dividida entre la masa del
+  disolvente en el que está disuelto. También llamada concentración molal, es la medida de
+  concentración que se usa para las propiedades coligativas, como el descenso del punto de
+  congelación y el aumento del punto de ebullición, porque no cambia con la temperatura.
+
+  $\mag{b}$ es la molalidad del soluto, en moles por kilogramo, la unidad SI coherente. $\mag{n}$ es
+  la cantidad de soluto en moles, y $\var{m_\mathrm{solvent}}$ la masa del disolvente solo, en
+  kilogramos, sin la masa del soluto. Las tres son positivas. El NIST llama a la magnitud molalidad
+  del soluto B y considera obsoletos el antiguo nombre molal y el símbolo m para mol/kg; los libros
+  de texto aún imprimen la m minúscula, que se confunde con facilidad con la masa.
+
+  La molalidad cuenta las partículas de soluto frente a una masa y no frente a un volumen. Las masas y
+  las cantidades de sustancia no cambian al calentar o enfriar una disolución, mientras que los
+  volúmenes sí, de modo que la molalidad de una disolución queda fijada al prepararla. Se obtiene
+  pesando el disolvente y el soluto, sin necesidad de un matraz aforado.
+
+  La fórmula vale para cualquier soluto y disolvente, pero solo cuenta la entidad disuelta que se
+  indica. Una sal que se separa en iones da a cada ion su propia molalidad, y los efectos coligativos
+  dependen del número total de partículas. La molalidad y la concentración molar son números
+  distintos para una misma disolución, y pasar de una a otra exige conocer la densidad de la
+  disolución y la masa molar del soluto.
+
+  Un anticongelante preparado con 35.8 mol de etilenglicol en 2.00 kg de agua tiene una molalidad de
+  17.9 mol/kg.

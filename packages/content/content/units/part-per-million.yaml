@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Part per million'
+symbol:
+  tex: 'ppm'
+unitOf:
+  - 'dimensionless'
+system: 'other'
+toBase:
+  factor: '0.000001'
+  exact: true
+  source:
+    name: 'BIPM SI Brochure 9th ed.'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+    ref: '5.4.7 Quantities with the unit one: parts per million (ppm), a relative value of 10^-6'
+externalIds:
+  wikidata: 'Q21006887'
+  qudt: 'http://qudt.org/vocab/unit/PPM'
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'parts per million'
+  - 'ppmv'
+  - 'partes por millón'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 5.4.7 Quantities with the unit one'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, Guide to the SI (SP 811), Chapter 7, 7.10.3 ppm, ppb, and ppt'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-7-rules-and-style-conventions-expressing-values'
+  - title: 'OpenStax, Chemistry 2e, 3.4 Other Units for Solution Concentrations'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-4-other-units-for-solution-concentrations'
+  - title: 'NOAA Global Monitoring Laboratory, How we measure background CO2 levels on Mauna Loa'
+    url: 'https://gml.noaa.gov/ccgg/about/co2_measurements.html'
+  - title: 'University of Texas at Austin, GPAIR, Glossary of terms (ppmV, ppbV)'
+    url: 'https://gpair.ceer.utexas.edu/glossary-of-terms.php'
+  - title: 'QUDT, unit PPM'
+    url: 'https://qudt.org/vocab/unit/PPM'
+description:
+  en: >-
+    The part per million, symbol ppm, states a ratio of two quantities of the same kind as a number
+    of millionths. It is not an SI unit but a name for a pure number, used for quantities of
+    dimension one such as the mass fraction of a trace contaminant in water or the amount fraction
+    of a gas in air.
+
+    The SI Brochure describes ppm as a relative value of one millionth, by analogy with the percent
+    read as parts per hundred, so that $1\,\mathrm{ppm}=10^{-6}$ exactly. No measurement fixes the
+    factor: it is a convention of notation.
+
+    One part per million is ten thousand times smaller than one percent and a thousand times larger
+    than one part per billion. A mass fraction of 1 ppm is one milligram of substance in each
+    kilogram of sample. For dilute solutions in water, whose density is close to one gram per
+    millilitre, the same figure corresponds to about one milligram per litre.
+
+    Water chemistry, food analysis and atmospheric science use it widely. OpenStax cites the United
+    States Environmental Protection Agency limit of 4 ppm of fluoride ion in tap water, and NOAA
+    reports carbon dioxide in ppm as a count of molecules per million molecules of dry air.
+
+    The symbol does not say which ratio it expresses. Mass fractions, amount fractions and volume
+    fractions are all written in ppm, and air-quality work adds the variant ppmV to signal a basis
+    in volume. NIST Special Publication 811 does not accept ppm for stating values with the SI and
+    asks for an explicit ratio of units or a power of ten instead, as in its example of a
+    sensitivity of 2 ng/kg. The SI Brochure records the term as in use and warns only against ppb and ppt.

@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Nuclear binding energy'
+kind: 'formula'
+level: 'intro'
+expression: '\var{E_\mathrm{b}}=\var{\Delta m}\const{c}^{2}'
+terms:
+  E_\mathrm{b}:
+    kind: 'symbol'
+    label:
+      en: 'Binding energy'
+    unit: 'joule'
+  \Delta m:
+    kind: 'symbol'
+    label:
+      en: 'Mass defect'
+    unit: 'kilogram'
+  c:
+    kind: 'constant'
+    ref: 'speed-of-light'
+solutions:
+  E_\mathrm{b}: 'Deltam * c^2'
+  \Delta m: 'E_b / c^2'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'binding energy formula'
+  - 'binding energy of a nucleus'
+  - 'mass defect formula'
+  - 'mass defect and binding energy'
+  - 'E = delta m c^2'
+  - 'energía de enlace del núcleo'
+  - 'defecto de masa'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 10.2 Nuclear Binding Energy (mass defect, binding energy, binding energy per nucleon)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/10-2-nuclear-binding-energy'
+  - title: 'NIST, CODATA 2022 value: atomic mass constant energy equivalent in MeV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?muc2mev'
+  - title: 'NIST, CODATA 2022 value: proton mass energy equivalent in MeV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mpc2mev'
+  - title: 'NIST, CODATA 2022 value: neutron mass energy equivalent in MeV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mnc2mev'
+  - title: 'NIST, CODATA 2022 value: deuteron mass energy equivalent in MeV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mdc2mev'
+  - title: 'NIST, CODATA 2022 value: speed of light in vacuum'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?c'
+description:
+  en: >-
+    The nuclear binding energy of a nucleus equals its mass defect multiplied by the square of the
+    speed of light. The binding energy is the energy needed to pull a nucleus fully apart into its
+    separate protons and neutrons, equal to the energy released when those nucleons come together;
+    the mass defect is the mass that the nucleus lacks compared with its free nucleons.
+
+    Here $\var{E_\mathrm{b}}$ is the binding energy, in joules, though nuclear physics usually
+    quotes it in megaelectronvolts, which are also accepted. $\var{\Delta m}$ is the mass defect, in
+    kilograms, or in daltons for atomic-scale masses: the number of protons times the proton mass,
+    plus the number of neutrons times the neutron mass, minus the mass of the nucleus. The constant
+    $\const{c}$ is the speed of light in vacuum. For every nucleus of more than one nucleon both
+    variables are positive.
+
+    The formula applies mass-energy equivalence to the nucleus. Building a nucleus from free
+    nucleons releases energy, and the departing energy carries mass away with
+    it, so the bound nucleus weighs less than its parts. One dalton of mass defect corresponds to
+    931.494 103 72 megaelectronvolts, the CODATA 2022 value, which is why mass defects measured in
+    daltons convert readily to energies in megaelectronvolts.
+
+    Dividing the binding energy by the number of nucleons gives the binding energy per nucleon,
+    typically between 6 and 10 megaelectronvolts with an average near 8, and largest close to iron
+    with mass number 56. Fusing light nuclei or splitting heavy ones moves towards that maximum and
+    releases energy. Because the mass defect is a small difference between nearly equal masses,
+    those masses must be known to many significant figures for the result to be meaningful.
+
+    The deuteron, one proton bound to one neutron, has a binding energy of about 2.22
+    megaelectronvolts, the CODATA 2022 proton and neutron mass energies minus the deuteron mass
+    energy, so breaking it apart needs over two million electronvolts.

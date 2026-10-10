@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Mass percent'
+kind: 'formula'
+level: 'intro'
+expression: '\var{w}=\frac{\var{m_\mathrm{solute}}}{\var{m_\mathrm{solution}}}'
+terms:
+  w:
+    kind: 'symbol'
+    label:
+      en: 'Mass fraction of the solute'
+    unit: 'unitless'
+  m_\mathrm{solute}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of the solute'
+    unit: 'kilogram'
+  m_\mathrm{solution}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of the solution'
+    unit: 'kilogram'
+solutions:
+  w: 'm_solute / m_solution'
+  m_\mathrm{solute}: 'w * m_solution'
+  m_\mathrm{solution}: 'm_solute / w'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'mass percentage'
+  - 'percent by mass'
+  - 'weight percent'
+  - 'mass fraction'
+  - 'mass fraction formula'
+  - '% w/w'
+  - '%m/m'
+  - 'w = m_B / m'
+  - 'porcentaje de masa'
+  - 'tanto por ciento en masa'
+  - 'fracción másica'
+  - 'fracción de masa'
+references:
+  - title: 'OpenStax, Chemistry 2e, 3.4 Other Units for Solution Concentrations'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-4-other-units-for-solution-concentrations'
+  - title: 'NIST, Guide to the SI (SP 811), Chapter 8, 8.6.10 Mass fraction of B'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-8'
+  - title: 'NIST, Guide to the SI (SP 811), Chapter 7, 7.10.2 %, percentage by, fraction'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-7-rules-and-style-conventions-expressing-values'
+  - title: 'Portland Community College, CH105 Allied Health Chemistry II, 3.2 Units of Concentration (LibreTexts)'
+    url: 'https://chem.libretexts.org/Courses/Portland_Community_College/CH105%3A_Allied_Health_Chemistry_II/03%3A_Solutions/3.02%3A_Units_of_Concentration'
+description:
+  en: >-
+    Mass percent, also called mass percentage, percent by mass or weight percent, states the
+    composition of a solution or mixture as the mass of one component divided by the total mass,
+    expressed in percent. The quantity behind it is the mass fraction of that component, a ratio of
+    two masses that has no unit.
+
+    $\var{w}$ is the mass fraction of the solute, a number from 0 to 1 that the calculator can also
+    show in percent. $\var{m_\mathrm{solute}}$ is the mass of the solute and
+    $\var{m_\mathrm{solution}}$ the mass of the whole solution, solute and solvent together; both are
+    positive and must be stated in the same unit, the kilogram in SI. A mass fraction of 0.10 is a
+    mass percent of 10 %.
+
+    Since the percent sign stands for the number 0.01, multiplying the fraction by 100 gives the
+    familiar percentage. NIST therefore asks for wording such as a mass fraction of 10 % rather than
+    phrases like percentage by weight, which try to load the sign with information it cannot carry.
+    The masses do not change with temperature, so neither does the result, and the mass fractions of
+    all the components of a mixture add up to 1.
+
+    The formula uses masses only. Volume percent divides two volumes and mass-volume percent divides
+    a mass by a volume, and neither can be swapped for mass percent without a density. For trace
+    components the same ratio is scaled to parts per million instead of percent, and the density of
+    the solution turns a mass fraction into a molar concentration.
+
+    A sample of 5.0 g of spinal fluid containing 3.75 mg of glucose has a glucose mass fraction of
+    0.075 %.

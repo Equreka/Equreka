@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Activity of a radioactive sample'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{A}=\var{\lambda}\var{N}'
+terms:
+  A:
+    kind: 'magnitude'
+    ref: 'activity'
+  \lambda:
+    kind: 'symbol'
+    label:
+      en: 'Decay constant'
+    unit: 'reciprocal-second'
+  N:
+    kind: 'symbol'
+    label:
+      en: 'Number of undecayed nuclei'
+solutions:
+  A: 'lambda * N'
+  \lambda: 'A / N'
+  N: 'A / lambda'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'activity formula'
+  - 'activity equation'
+  - 'decay rate formula'
+  - 'A = lambda N'
+  - 'activity from number of nuclei'
+  - 'fórmula de la actividad'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 10.3 Radioactive Decay (activity, equation 10.17, Example 10.4)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/10-3-radioactive-decay'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 4, note (d): becquerel for activity; Appendix 1, 12th CGPM (1964) Resolution 7: curie retained outside the SI'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: curie'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+description:
+  en: >-
+    The activity of a sample of one radionuclide equals its decay constant multiplied by the number
+    of radioactive nuclei it contains. Activity is the decay rate, the number of nuclei that
+    disintegrate per unit time, and the formula ties this measurable rate, counted in becquerels,
+    to the quantity of radioactive material present.
+
+    Here $\mag{A}$ is the activity, in becquerels, one becquerel being one decay per second (the
+    curie, a unit outside the SI kept for activity, is also accepted, one curie being exactly
+    $3.7\times10^{10}$ becquerels). The
+    decay constant $\var{\lambda}$ is the probability per unit time that one nucleus decays, in
+    reciprocal seconds, a fixed property of the radionuclide. $\var{N}$ is the number of nuclei
+    not yet decayed, a count with no unit. The decay constant is positive; the activity and the
+    number of nuclei are never negative.
+
+    Each nucleus has the same chance $\var{\lambda}$ of decaying in each second, so a sample of
+    $\var{N}$ nuclei loses on average that chance times their number every second. The formula
+    therefore explains why short-lived isotopes are intensely radioactive for their mass while very
+    long-lived ones are only weakly so. The number of nuclei in a weighed sample follows from its
+    mass divided by the molar mass of the isotope and multiplied by the Avogadro constant.
+
+    The formula is an average over many nuclei and holds at every instant, but the activity
+    changes as the sample decays, falling with the number of remaining nuclei. It gives the decays
+    of one radionuclide only; a sample that also contains radioactive daughter products has a
+    total activity that is the sum of each one's own decay constant times its own count. The
+    activity counts decays, not the radiation absorbed by anything nearby, which dose quantities
+    describe.
+
+    One gram of strontium-90, about $6.70\times10^{21}$ nuclei, has an activity of about
+    $5.1\times10^{12}$ becquerels, close to 140 curies.

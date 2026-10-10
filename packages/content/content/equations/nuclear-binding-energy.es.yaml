@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Energía de enlace nuclear'
+terms:
+  E_\mathrm{b}:
+    label: 'Energía de enlace'
+  \Delta m:
+    label: 'Defecto de masa'
+description: >-
+  La energía de enlace nuclear de un núcleo es igual a su defecto de masa multiplicado por el
+  cuadrado de la velocidad de la luz. La energía de enlace es la energía necesaria para separar por
+  completo un núcleo en sus protones y neutrones libres, igual a la que se libera cuando esos
+  nucleones se unen; el defecto de masa es la masa que le falta al núcleo en comparación con sus
+  nucleones libres.
+
+  Aquí $\var{E_\mathrm{b}}$ es la energía de enlace, en julios, aunque en física nuclear suele
+  darse en megaelectronvoltios, que también se admiten. $\var{\Delta m}$ es el defecto de masa, en
+  kilogramos, o en daltons para masas de escala atómica: el número de protones por la masa del
+  protón, más el número de neutrones por la masa del neutrón, menos la masa del núcleo. La constante
+  $\const{c}$ es la velocidad de la luz en el vacío. En todo núcleo de más de un nucleón ambas
+  variables son positivas.
+
+  La fórmula aplica la equivalencia entre masa y energía al núcleo. Al formarse un núcleo a partir
+  de nucleones libres se libera energía, que se lleva consigo masa, de modo que
+  el núcleo ligado pesa menos que sus partes. Un dalton de defecto de masa corresponde a
+  931.494 103 72 megaelectronvoltios, valor de CODATA 2022, por lo que los defectos de masa medidos
+  en daltons se convierten con facilidad en energías en megaelectronvoltios.
+
+  Al dividir la energía de enlace entre el número de nucleones se obtiene la energía de enlace por
+  nucleón, que suele estar entre 6 y 10 megaelectronvoltios, con una media cercana a 8, y es máxima
+  cerca del hierro de número másico 56. Fusionar núcleos ligeros o dividir núcleos pesados acerca
+  los productos a ese máximo y libera energía. Como el defecto de masa es una diferencia pequeña
+  entre masas casi iguales, esas masas deben conocerse con muchas cifras significativas para que el
+  resultado sirva.
+
+  El deuterón, un protón unido a un neutrón, tiene una energía de enlace de unos 2.22
+  megaelectronvoltios, las energías de masa del protón y del neutrón de CODATA 2022 menos la del
+  deuterón, de modo que separarlo exige más de dos millones de electronvoltios.

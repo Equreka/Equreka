@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Atom economy'
+kind: 'formula'
+level: 'intro'
+expression: '\var{\mathrm{AE}}=\frac{\var{m_\mathrm{P}}}{\var{m_\mathrm{R}}}'
+terms:
+  \mathrm{AE}:
+    kind: 'symbol'
+    label:
+      en: 'Atom economy'
+    unit: 'unitless'
+  m_\mathrm{P}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of desired product in the balanced equation'
+    unit: 'kilogram'
+  m_\mathrm{R}:
+    kind: 'symbol'
+    label:
+      en: 'Total mass of reactants in the balanced equation'
+    unit: 'kilogram'
+solutions:
+  \mathrm{AE}: 'm_P / m_R'
+  m_\mathrm{P}: 'AE * m_R'
+  m_\mathrm{R}: 'm_P / AE'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'amount-of-substance'
+aliases:
+  - 'atom efficiency'
+  - 'percentage atom economy'
+  - 'percent atom economy'
+  - 'atom utilization'
+  - 'green chemistry metric'
+  - 'eficiencia atómica'
+  - 'porcentaje de economía atómica'
+references:
+  - title: 'B. M. Trost, The Atom Economy: A Search for Synthetic Efficiency, Science 254 (1991) 1471-1477'
+    url: 'https://doi.org/10.1126/science.1962206'
+  - title: 'OpenStax, Chemistry 2e, 4.4 Reaction Yields (Chemistry in Everyday Life: Green Chemistry and Atom Economy)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/4-4-reaction-yields'
+  - title: 'SK pharmteco, The Principles of Green Chemistry: Second Principle, Atom Economy'
+    url: 'https://www.skpharmteco.com/?p=1052'
+externalIds:
+  wikidata: 'Q903758'
+description:
+  en: >-
+    Atom economy measures how much of the matter fed into a chemical reaction ends up in the
+    product that is wanted: the mass of the desired product divided by the total mass of all the
+    reactants, both taken from the balanced equation, and usually quoted as a percentage. It is the
+    second of the principles of green chemistry and serves to compare routes to the same compound.
+
+    $\var{\mathrm{AE}}$ is the atom economy, a ratio from 0 to 1 that the calculator also shows as
+    a percentage. $\var{m_\mathrm{P}}$ is the mass of desired product and $\var{m_\mathrm{R}}$ the
+    combined mass of all reactants, both for the amounts of the balanced equation taken in moles,
+    so that each is the sum of the coefficients times the molar masses; they are entered in
+    kilograms or any common mass unit, since only the ratio enters.
+
+    Mass is conserved, so the reactants weigh as much as all the products together, and whatever
+    the desired product does not contain leaves as by-products. A reaction that combines its
+    building blocks into one product, with any other reagent needed only as a catalyst, reaches an
+    atom economy of 1; every by-product lowers it.
+
+    Atom economy is a theoretical value fixed by the equation. Unlike percent yield, it does not
+    depend on how well the experiment goes, and it leaves out the solvents and separating agents a
+    process consumes, so a route can have a high atom economy and still waste material in
+    practice.
+
+    Barry Trost proposed the concept in 1991 as a goal for efficient synthesis. Ibuprofen is the
+    textbook case: the three-step route developed in the 1990s reaches an atom economy of about 80
+    percent, double the 40 percent of the six-step route it replaced, which needed 514 grams of
+    reactants for every 206 grams of ibuprofen.

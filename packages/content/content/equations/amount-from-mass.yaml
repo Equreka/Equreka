@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Amount of substance from mass'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{n}=\frac{\mag{m}}{\mag{M}}'
+terms:
+  n:
+    kind: 'magnitude'
+    ref: 'substance'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  M:
+    kind: 'magnitude'
+    ref: 'molar-mass'
+solutions:
+  n: 'm / M'
+  m: 'n * M'
+  M: 'm / n'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'amount-of-substance'
+aliases:
+  - 'number of moles formula'
+  - 'moles from mass'
+  - 'mass to moles'
+  - 'grams to moles'
+  - 'mole formula'
+  - 'n = m/M'
+  - 'número de moles'
+  - 'moles a partir de la masa'
+  - 'gramos a moles'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.1 (the mole) and Appendix 4 (amount of substance)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, Chemistry 2e, 3.1 Formula Mass and the Mole Concept (Example 3.3)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-1-formula-mass-and-the-mole-concept'
+  - title: 'OpenStax, Chemistry 2e, 4.3 Reaction Stoichiometry'
+    url: 'https://openstax.org/books/chemistry-2e/pages/4-3-reaction-stoichiometry'
+description:
+  en: >-
+    The amount of substance in a sample of a pure substance equals the mass of the sample divided
+    by the molar mass of the substance. This conversion from grams to moles is the first step of
+    almost every stoichiometry calculation in chemistry, because a balance measures mass while
+    chemical equations count particles in moles.
+
+    $\mag{n}$ is the amount of substance, in moles. $\mag{m}$ is the mass of the sample, in
+    kilograms in the SI, though chemists usually weigh in grams. $\mag{M}$ is the molar mass, the
+    mass of one mole of the substance, in kilograms per mole; tables list it in grams per mole, and
+    one gram per mole is one thousandth of a kilogram per mole. All three quantities are positive,
+    and mass and molar mass must be stated with the same mass unit.
+
+    The molar mass of a compound is the sum of the molar masses of the atoms in its formula, and its
+    value in grams per mole is numerically the same as the mass of one formula unit in daltons. A
+    large molar mass therefore means few moles in a given mass: ten grams of a heavy compound
+    contain fewer molecules than ten grams of water.
+
+    The formula holds for any pure substance, solid, liquid or gas, whose formula is known; the
+    entity counted (atoms, molecules, formula units, ions) must be stated, since one mole of oxygen
+    molecules contains two moles of oxygen atoms. A mixture needs its composition first.
+
+    The 14th CGPM made the mole an SI base unit in 1971, defining it through 0.012 kilogram of
+    carbon-12; the 2018 revision instead fixed the Avogadro constant, effective 20 May 2019. As an
+    example, 4.7 grams of potassium, at 39.10 grams per mole, is 0.12 mole.

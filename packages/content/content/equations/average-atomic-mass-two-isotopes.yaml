@@ -1,0 +1,82 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Average atomic mass of an element with two isotopes'
+kind: 'formula'
+level: 'intro'
+expression: '\var{\bar{m}}=\var{x_{1}}\var{m_{1}}+\left(1-\var{x_{1}}\right)\var{m_{2}}'
+terms:
+  \bar{m}:
+    kind: 'symbol'
+    label:
+      en: 'Average atomic mass'
+    unit: 'kilogram'
+    identifier: 'm_avg'
+  x_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Abundance of isotope 1'
+    unit: 'unitless'
+  m_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of isotope 1'
+    unit: 'kilogram'
+  m_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of isotope 2'
+    unit: 'kilogram'
+solutions:
+  \bar{m}: 'x_1 * m_1 + (1 - x_1) * m_2'
+  x_{1}: '(m_avg - m_2) / (m_1 - m_2)'
+  m_{1}: '(m_avg - (1 - x_1) * m_2) / x_1'
+  m_{2}: '(m_avg - x_1 * m_1) / (1 - x_1)'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'atomic-structure'
+aliases:
+  - 'average atomic mass'
+  - 'weighted average atomic mass'
+  - 'atomic weight from isotopes'
+  - 'isotopic abundance'
+  - 'relative atomic mass from isotopes'
+  - 'masa atómica promedio'
+  - 'peso atómico'
+  - 'abundancia isotópica'
+references:
+  - title: 'OpenStax, Chemistry 2e, 2.3 Atomic Structure and Symbolism (boron isotopes and Example 2.5)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/2-3-atomic-structure-and-symbolism'
+  - title: 'OpenStax, University Physics Volume 3, 10.1 Properties of Nuclei (atomic mass of copper)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/10-1-properties-of-nuclei'
+  - title: 'CIAAW, Atomic weight of boron'
+    url: 'https://www.ciaaw.org/boron.htm'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (dalton)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+description:
+  en: >-
+    The average atomic mass of an element made of two isotopes is the weighted mean of their masses,
+    each weighted by its abundance, the fraction of the element's atoms that belong to that isotope.
+    It explains why the atomic mass printed on a periodic table, such as about 10.81 for boron or
+    35.453 for chlorine, is not a whole number.
+
+    $\var{\bar{m}}$ is the average atomic mass and $\var{m_{1}}$, $\var{m_{2}}$ the masses of the
+    two isotopes, in kilograms in the SI and usually in daltons, which the calculator offers.
+    $\var{x_{1}}$ is the abundance of isotope 1, a fraction from 0 to 1 that the calculator also
+    shows as a percentage; the abundance of isotope 2 is one minus it, since the two together make
+    up all the atoms. Abundances are amount fractions, counts of atoms, not mass fractions.
+
+    The average lies between the two isotope masses and closer to the more abundant one. Read in
+    reverse, the formula gives the abundance of one isotope from the known average and the two
+    isotopic masses, which is how the shares of chlorine-35 and chlorine-37 follow from the atomic
+    mass of chlorine. An element with three or more isotopes needs one term per isotope, the
+    abundances adding up to 1.
+
+    Abundances differ slightly between natural sources, so the standard atomic weights published by
+    CIAAW for some elements are intervals rather than single values, from 10.806 to 10.821 for
+    boron since 2009. The formula needs the abundances of the sample in hand.
+
+    Boron is 19.9 percent boron-10, of mass 10.0129 daltons, and 80.1 percent boron-11, of mass
+    11.0093 daltons, for an average of about 10.81 daltons.

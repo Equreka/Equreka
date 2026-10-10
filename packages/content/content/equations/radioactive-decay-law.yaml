@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Radioactive decay law'
+kind: 'equation'
+level: 'intro'
+expression: '\var{N}=\var{N_{0}}e^{-\var{\lambda}\mag{t}}'
+terms:
+  N:
+    kind: 'symbol'
+    label:
+      en: 'Number of undecayed nuclei'
+  N_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial number of nuclei'
+  \lambda:
+    kind: 'symbol'
+    label:
+      en: 'Decay constant'
+    unit: 'reciprocal-second'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  N: 'N_0 * exp(-lambda * t)'
+  N_{0}: 'N * exp(lambda * t)'
+  \lambda: 'ln(N_0 / N) / t'
+  t: 'ln(N_0 / N) / lambda'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q191622'
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'law of radioactive decay'
+  - 'exponential decay law'
+  - 'radioactive decay equation'
+  - 'decay equation'
+  - 'N = N0 e^(-lambda t)'
+  - 'ley del decaimiento radiactivo'
+  - 'ecuación de la desintegración radiactiva'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 10.3 Radioactive Decay (equation 10.11 and the decay rate)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/10-3-radioactive-decay'
+  - title: 'HyperPhysics, Georgia State University, Radioactive half-life, nuclear decay probability and the decay expression'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/Nuclear/halfli2.html'
+  - title: 'Nobel Prize Outreach, Ernest Rutherford: facts (Nobel Prize in Chemistry 1908)'
+    url: 'https://www.nobelprize.org/prizes/chemistry/1908/rutherford/facts/'
+description:
+  en: >-
+    The radioactive decay law states that the number of unstable nuclei left in a sample of one
+    radionuclide falls exponentially with time. Also called the exponential decay law, it is the
+    basic relation of radioactivity in nuclear physics: every interval of the same length removes
+    the same fraction of the nuclei still present, whatever their number.
+
+    In the law, $\var{N}$ is the number of nuclei that have not yet decayed at time $\mag{t}$, and
+    $\var{N_{0}}$ is the number present when the clock starts, $\mag{t}=0$. Both are counts with
+    no unit, never negative and so large that they are treated as continuous quantities rather
+    than whole numbers. The decay constant $\var{\lambda}$, in reciprocal seconds,
+    is the probability per unit time that any one nucleus decays; it is fixed for each radionuclide
+    and always positive. The elapsed time $\mag{t}$ is in seconds and counts forward from the start.
+
+    The law follows from a single assumption: each nucleus decays at random and independently of
+    the others, so the number of decays in a short interval is proportional to the number of nuclei
+    remaining. A rate of loss proportional to the amount left gives an exponential curve that
+    approaches zero without reaching it. The law also holds for any quantity proportional to the number
+    of nuclei, such as the mass of the radionuclide or its activity.
+
+    The law is statistical. It predicts the average behaviour of a large population and says
+    nothing about when one particular nucleus will decay; for a handful of nuclei the actual count
+    scatters around the curve. To a very good approximation the decay constant does not depend on
+    temperature, pressure, physical state or chemical compound. The law describes one parent radionuclide and ignores any daughter
+    nuclei that are themselves radioactive.
+
+    Ernest Rutherford and Frederick Soddy proposed in 1902 that radioactive elements transform into
+    other elements, the idea behind the law. It underlies radiometric dating, the storage of nuclear
+    waste and the dosing of medical radioisotopes.

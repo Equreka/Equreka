@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Percent yield'
+kind: 'formula'
+level: 'intro'
+expression: '\var{Y}=\frac{\var{m_\mathrm{act}}}{\var{m_\mathrm{th}}}'
+terms:
+  Y:
+    kind: 'symbol'
+    label:
+      en: 'Percent yield'
+    unit: 'unitless'
+  m_\mathrm{act}:
+    kind: 'symbol'
+    label:
+      en: 'Actual yield'
+    unit: 'kilogram'
+  m_\mathrm{th}:
+    kind: 'symbol'
+    label:
+      en: 'Theoretical yield'
+    unit: 'kilogram'
+solutions:
+  Y: 'm_act / m_th'
+  m_\mathrm{act}: 'Y * m_th'
+  m_\mathrm{th}: 'm_act / Y'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'amount-of-substance'
+aliases:
+  - 'percentage yield'
+  - 'reaction yield'
+  - 'chemical yield'
+  - 'actual yield over theoretical yield'
+  - 'yield formula'
+  - 'porcentaje de rendimiento'
+  - 'rendimiento de una reacción'
+  - 'rendimiento químico'
+references:
+  - title: 'OpenStax, Chemistry 2e, 4.4 Reaction Yields (Example 4.13)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/4-4-reaction-yields'
+  - title: 'LibreTexts Chemistry, Theoretical and Actual Yields'
+    url: 'https://chem.libretexts.org/Bookshelves/Inorganic_Chemistry/Supplemental_Modules_and_Websites_(Inorganic_Chemistry)/Chemical_Reactions/Stoichiometry/Theoretical_and_Actual_Yields'
+  - title: 'LibreTexts Chemistry, Valley City State University Chem 115, 4.8 Theoretical Yield and Percent Yield'
+    url: 'https://chem.libretexts.org/Courses/Valley_City_State_University/Chem_115/Chapter_4%3A_Mass_Relationships_in_Chemical_Reactions/4.8%3A_Theoretical_Yield_and_Percent_Yield'
+  - title: 'OpenStax, Chemistry 2e, 4.3 Reaction Stoichiometry'
+    url: 'https://openstax.org/books/chemistry-2e/pages/4-3-reaction-stoichiometry'
+description:
+  en: >-
+    The percent yield of a chemical reaction compares the amount of product actually obtained with
+    the largest amount the balanced equation allows: the actual yield divided by the theoretical
+    yield, usually multiplied by 100 and reported as a percentage. It rates how well a preparation
+    or an industrial process performs.
+
+    $\var{Y}$ is the percent yield, a ratio from 0 to 1 that the calculator also shows as a
+    percentage. $\var{m_\mathrm{act}}$ is the actual yield, the mass of product recovered and
+    weighed, and $\var{m_\mathrm{th}}$ the theoretical yield, the mass predicted by stoichiometry
+    from the limiting reactant, both in kilograms or any common mass unit. The ratio is the same
+    for amounts in moles of the same product, though the calculator takes masses.
+
+    The theoretical yield assumes that the limiting reactant, the one used up first, turns entirely
+    into the desired product. Real reactions fall short: some stop at an equilibrium before the
+    limiting reactant is consumed, side reactions make other products, and some product is lost
+    while it is separated, washed and dried. The actual yield is therefore normally below the
+    theoretical one.
+
+    A value above 1, more than 100 percent, does not mean extra product: it signals an error,
+    usually impurities that add their own mass to the weighed product. In a synthesis of several
+    steps the overall yield is the product of the yields of the steps, so ten steps at 0.90 each
+    end near 0.35.
+
+    Percent yield measures the outcome in practice; the atom economy of the same reaction measures
+    in theory how much of the reactant mass the desired product can contain. Copper recovered at
+    0.392 grams against a theoretical 0.5072 grams is a yield of 77.3 percent.

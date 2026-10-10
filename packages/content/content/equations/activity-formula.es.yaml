@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Actividad de una muestra radiactiva'
+terms:
+  \lambda:
+    label: 'Constante de desintegración'
+  N:
+    label: 'Número de núcleos sin desintegrar'
+description: >-
+  La actividad de una muestra de un radionucleido es igual a su constante de desintegración
+  multiplicada por el número de núcleos radiactivos que contiene. La actividad es la velocidad de
+  desintegración, el número de núcleos que se desintegran por unidad de tiempo, y la fórmula
+  relaciona esa velocidad medible, que se cuenta en becquerels, con la cantidad de material
+  radiactivo presente.
+
+  Aquí $\mag{A}$ es la actividad, en becquerels, donde un becquerel equivale a una desintegración
+  por segundo (también se admite el curie, unidad ajena al SI conservada para la actividad, que vale
+  exactamente $3.7\times10^{10}$ becquerels). La
+  constante de desintegración $\var{\lambda}$ es la probabilidad por unidad de tiempo de que un
+  núcleo se desintegre, en segundos inversos, una propiedad fija del radionucleido. $\var{N}$ es el
+  número de núcleos aún sin desintegrar, un recuento sin unidad. La constante de
+  desintegración es positiva; la actividad y el número de núcleos nunca son negativos.
+
+  Cada núcleo tiene la misma probabilidad $\var{\lambda}$ de desintegrarse en cada segundo, así
+  que una muestra de $\var{N}$ núcleos pierde de media esa probabilidad por su número cada segundo.
+  La fórmula explica por qué los isótopos de vida corta son muy radiactivos para su masa, mientras
+  que los de vida muy larga lo son poco. El número de núcleos de una muestra pesada se obtiene
+  dividiendo su masa entre la masa molar del isótopo y multiplicando por la constante de Avogadro.
+
+  La fórmula es un promedio sobre muchos núcleos y se cumple en cada instante, pero la actividad
+  cambia a medida que la muestra se desintegra y disminuye con el número de núcleos restantes. Da
+  las desintegraciones de un único radionucleido; si la muestra contiene además productos hijos
+  radiactivos, su actividad total es la suma, para cada uno, de su propia constante de
+  desintegración por su propio recuento. La actividad cuenta desintegraciones, no la radiación que
+  absorbe lo que hay alrededor, que describen las magnitudes de dosis.
+
+  Un gramo de estroncio-90, unos $6.70\times10^{21}$ núcleos, tiene una actividad de unos
+  $5.1\times10^{12}$ becquerels, cerca de 140 curies.

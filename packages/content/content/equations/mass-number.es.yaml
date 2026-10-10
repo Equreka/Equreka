@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Número másico'
+terms:
+  A:
+    label: 'Número másico'
+  Z:
+    label: 'Número atómico'
+  N:
+    label: 'Número de neutrones'
+description: >-
+  El número másico de un átomo es el recuento total de protones y neutrones de su núcleo: el número
+  atómico más el número de neutrones. Llamado también número de nucleones, identifica un isótopo
+  junto con el elemento y es el número que se escribe tras el nombre del elemento en carbono-12 o
+  uranio-235.
+
+  $\var{A}$ es el número másico, $\var{Z}$ el número atómico, que cuenta los protones, y
+  $\var{N}$ el número de neutrones. Los tres son recuentos, números enteros sin unidad y nunca
+  negativos. Protones y neutrones reciben juntos el nombre de nucleones, de modo que el número
+  másico es el número de nucleones; los electrones no se cuentan.
+
+  El número atómico determina el elemento, porque todos los átomos de un elemento tienen el mismo
+  número de protones, y en un átomo neutro coincide además con el número de electrones. Los isótopos
+  de un elemento comparten el número atómico y difieren en el número de neutrones y, por tanto, en el
+  número másico: el magnesio-24, el magnesio-25 y el magnesio-26 tienen 12 protones y 12, 13 y 14
+  neutrones. Leída al revés, la relación da los neutrones de un nucleido como su número másico menos
+  su número atómico.
+
+  En la notación de nucleidos, el número másico va como superíndice y el número atómico como
+  subíndice, ambos a la izquierda del símbolo del elemento, como en $^{12}_{6}\mathrm{C}$. El número
+  másico no es la masa del átomo: es un entero, mientras que la masa atómica en daltons se le acerca
+  sin coincidir, porque un protón o un neutrón libres pesan algo más de un dalton y la unión del
+  núcleo resta parte de la masa.
+
+  Un ion conserva su número másico: ganar o perder electrones cambia la carga, no el núcleo. El
+  yodo-127, con 53 protones, tiene 74 neutrones.

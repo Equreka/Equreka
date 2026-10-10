@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Decay of activity with time'
+kind: 'equation'
+level: 'intro'
+expression: '\var{A}=\var{A_{0}}e^{-\var{\lambda}\mag{t}}'
+terms:
+  A:
+    kind: 'symbol'
+    label:
+      en: 'Activity after the elapsed time'
+    unit: 'becquerel'
+  A_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial activity'
+    unit: 'becquerel'
+  \lambda:
+    kind: 'symbol'
+    label:
+      en: 'Decay constant'
+    unit: 'reciprocal-second'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  A: 'A_0 * exp(-lambda * t)'
+  A_{0}: 'A * exp(lambda * t)'
+  \lambda: 'ln(A_0 / A) / t'
+  t: 'ln(A_0 / A) / lambda'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'activity decay'
+  - 'activity decay law'
+  - 'radioactive activity versus time'
+  - 'exponential decrease of activity'
+  - 'A = A0 e^(-lambda t)'
+  - 'ley de la actividad radiactiva'
+  - 'decaimiento de la actividad'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 10.3 Radioactive Decay (activity, equations 10.17 and 10.18)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/10-3-radioactive-decay'
+  - title: 'HyperPhysics, Georgia State University, Nuclear decay probability (decay rate follows the same relationship)'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/Nuclear/halfli2.html'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: curie'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+description:
+  en: >-
+    The activity of a radioactive sample decreases exponentially with time: after any elapsed time
+    it equals the initial activity multiplied by the exponential of minus the decay constant times
+    that time. The relation is the radioactive decay law written for the decay rate, the number of
+    disintegrations per second, which is what a detector actually counts in nuclear physics.
+
+    Here $\var{A}$ is the activity after the elapsed time $\mag{t}$ and $\var{A_{0}}$ the activity
+    at the start, both in becquerels, one decay per second, with the curie, a unit outside the SI kept
+    for activity, also accepted (one curie is exactly $3.7\times10^{10}\,\mathrm{Bq}$). Activities are never negative. The decay constant
+    $\var{\lambda}$, in reciprocal seconds, is the fixed probability per unit time that a single
+    nucleus decays and is always positive. The elapsed time $\mag{t}$ is in seconds and counts
+    forward from the moment the initial activity was measured.
+
+    The activity of a pure sample is its decay constant times its number of undecayed nuclei, and
+    the decay constant does not change. The activity is therefore proportional to the number of
+    nuclei at every instant and falls in the same exponential way, halving once per half-life.
+    Two measurements of the activity a known time apart therefore give the decay constant, and
+    with it the half-life, through the logarithm of their ratio.
+
+    The relation holds for a single radionuclide whose decay products are stable or are counted
+    separately. When a radioactive daughter builds up, as in a decay chain, the total activity no
+    longer follows one exponential. Because decay is random, a measured count fluctuates around the
+    prediction, the more so the fewer decays are recorded, so weak sources need long counting times.
+
+    The relation sets how long medical and industrial sources stay useful and how long waste must
+    be stored. A strontium-90 source, half-life 28.8 years, keeps about 79 percent of its activity
+    after ten years.

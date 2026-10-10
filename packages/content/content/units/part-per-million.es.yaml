@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Parte por millón'
+description: >-
+  La parte por millón, de símbolo ppm, expresa la razón entre dos magnitudes de la misma naturaleza
+  como un número de millonésimas. No es una unidad del SI sino el nombre de un número puro, que se
+  usa con magnitudes de dimensión uno como la fracción másica de un contaminante en el agua o la
+  fracción molar de un gas en el aire.
+
+  El folleto del SI describe las ppm como un valor relativo de una millonésima, por analogía con el
+  por ciento entendido como partes por cien, de modo que $1\,\mathrm{ppm}=10^{-6}$ exactamente.
+  Ninguna medición fija el factor: es un convenio de notación.
+
+  Una parte por millón es diez mil veces menor que el uno por ciento y mil veces mayor que una parte
+  por mil millones. Una fracción másica de 1 ppm equivale a un miligramo de sustancia por cada
+  kilogramo de muestra. En las disoluciones diluidas en agua, cuya densidad es cercana a un gramo por
+  mililitro, la misma cifra corresponde a alrededor de un miligramo por litro.
+
+  La química del agua, el análisis de alimentos y las ciencias de la atmósfera la usan mucho.
+  OpenStax cita el límite de 4 ppm de ion fluoruro en el agua del grifo fijado por la Agencia de
+  Protección Ambiental de Estados Unidos, y la NOAA da el dióxido de carbono en ppm como el número de
+  moléculas por cada millón de moléculas de aire seco.
+
+  El símbolo no indica qué razón expresa. Las fracciones másicas, molares y volumétricas se escriben
+  todas en ppm, y en los estudios de calidad del aire se añade la variante ppmV para señalar una base
+  en volumen. La publicación especial 811 del NIST no acepta las ppm para dar valores con el SI y pide
+  en su lugar un cociente explícito de unidades o una potencia de diez, como en su ejemplo de una
+  sensibilidad de 2 ng/kg. El folleto del SI recoge el término como de uso corriente y solo desaconseja ppb y ppt.

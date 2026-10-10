@@ -1,0 +1,83 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Radiocarbon age'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{t}=\frac{\var{t_{1/2}}}{\ln 2}\ln\frac{1}{\var{f}}'
+terms:
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+  t_{1/2}:
+    kind: 'symbol'
+    label:
+      en: 'Half-life of carbon-14'
+    unit: 'second'
+  f:
+    kind: 'symbol'
+    label:
+      en: 'Fraction of carbon-14 remaining'
+    unit: 'unitless'
+solutions:
+  t: 't_12 * ln(1 / f) / ln(2)'
+  t_{1/2}: 't * ln(2) / ln(1 / f)'
+  f: '2^(-t / t_12)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'radiocarbon dating'
+  - 'carbon-14 dating'
+  - 'carbon dating formula'
+  - 'radiocarbon dating equation'
+  - 'C-14 age'
+  - 'datación por radiocarbono'
+  - 'edad radiocarbónica'
+  - 'edad por radiocarbono'
+  - 'datación por carbono 14'
+  - 'edad por carbono-14'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 10.3 Radioactive Decay (carbon-14 dating, Example 10.6)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/10-3-radioactive-decay'
+  - title: 'R. Stuckenrath Jr., University of Pennsylvania Radiocarbon Dates VI, Radiocarbon 5 (1963) 82-103 (Libby value 5568 ± 30 yr; best estimate 5730 ± 40 yr, Godwin 1962)'
+    url: 'https://www.cambridge.org/core/journals/radiocarbon/article/university-of-pennsylvania-radiocarbon-dates-vi/4870559BA5EE6C4F719F8735CB6FC6E8'
+  - title: 'H. Godwin, Half-life of Radiocarbon, Nature 195 (1962) 984'
+    url: 'https://doi.org/10.1038/195984a0'
+  - title: 'NNDC, Brookhaven National Laboratory, NuDat 3: decay radiation of carbon-14 (half-life 5700 ± 30 y)'
+    url: 'https://www.nndc.bnl.gov/nudat3/decaysearchdirect.jsp?nuc=14C&unc=NDS'
+  - title: 'University of Alaska Fairbanks, Alaska Radiocarbon Laboratory, conventional radiocarbon age, BP and calibration'
+    url: 'https://radiocarbon.alaska.edu/?p=718'
+  - title: 'Nobel Prize Outreach, Willard F. Libby: facts (Nobel Prize in Chemistry 1960)'
+    url: 'https://www.nobelprize.org/prizes/chemistry/1960/libby/facts/'
+description:
+  en: >-
+    The radiocarbon age formula gives the time since an organism died from the fraction of its
+    original carbon-14 that is still present. It is the basis of radiocarbon dating, also called
+    carbon-14 dating, the method of nuclear physics and archaeology that dates wood, bone, charcoal,
+    shell and other once-living material.
+
+    Here $\mag{t}$ is the age, the time elapsed since death, in seconds, though usually given in
+    years. $\var{t_{1/2}}$ is the half-life of carbon-14, in seconds; school texts use the 1962
+    Cambridge value of 5730 years, the evaluated value is now 5700 ± 30 years, and either is entered
+    as an input rather than built into the formula. $\var{f}$ is the fraction of carbon-14
+    remaining, the ratio of the carbon-14 content of the sample to that of living material, a number
+    from 0 to 1 (a percentage is also accepted). A fraction below one gives a positive age.
+
+    Living organisms keep exchanging carbon with the atmosphere, where cosmic rays produce
+    carbon-14 from nitrogen, so their carbon-14 share stays near that of the air. At death the
+    exchange stops and the carbon-14 decays without being replaced. Solving the half-life form of
+    the decay law for the time gives the formula: the logarithm counts how many half-lives have
+    passed. Each halving of the fraction adds one half-life to the age.
+
+    The formula assumes that the carbon-14 level of the atmosphere has always been the same, which
+    is only approximately true, so laboratories calibrate raw ages against tree-ring and other
+    records. By convention they report a conventional radiocarbon age computed with the Libby
+    half-life of 5568 years and counted before 1950, then convert it to a calendar age. The
+    method reaches back about 50 000 years, beyond which too little carbon-14 remains to measure.
+
+    Willard Libby developed the method in 1949 and received the 1960 Nobel Prize in Chemistry for
+    it. With the 5730-year half-life, wood that keeps 80 percent of its carbon-14 is about 1840
+    years old.

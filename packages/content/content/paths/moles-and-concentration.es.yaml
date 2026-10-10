@@ -1,0 +1,116 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.locale.schema.json
+name: 'Moles y concentración'
+description: >-
+  Del mol a la concentración de una disolución: pasar de masas a moles y de moles a partículas, y
+  después concentración molar, dilución, concentración másica, porcentaje en masa, molalidad,
+  fracción molar y partes por millón, con comprobaciones resueltas en cada etapa.
+steps:
+  intro:
+    body: >-
+      En química las sustancias se pesan en una balanza, pero se razona sobre ellas contando
+      partículas. El mol une las dos cosas: fija un número de entidades, de modo que una masa se
+      convierte en cantidad de sustancia mediante la masa molar. Una disolución reparte después esa
+      cantidad en un volumen o en una masa de disolvente, y cada medida de la concentración la divide
+      entre algo distinto. Fíjate en qué se divide entre qué; la mayoría de los errores vienen de
+      confundir el soluto, el disolvente y la disolución completa.
+  substance:
+    note: >-
+      La cantidad de sustancia, en moles, es un recuento de entidades expresado en una unidad
+      cómoda. Un mol de cualquier sustancia contiene el mismo número de partículas.
+  amount-from-mass:
+    note: >-
+      Divide una masa entre la masa molar para obtener moles. Usa gramos con gramos por mol, o
+      kilogramos con kilogramos por mol; las unidades deben coincidir.
+  check-moles:
+    prompt: >-
+      ¿Cuántos moles de cloruro de sodio hay en 29.2 gramos? Su masa molar es 58.44 gramos por mol.
+    answer: >-
+      Alrededor de 0.500 mol: 29.2 dividido entre 58.44 da 0.4997.
+  number-of-entities:
+    note: >-
+      Multiplica una cantidad de sustancia por la constante de Avogadro para contar las partículas.
+      La constante es exacta, así que el recuento es tan preciso como la cantidad.
+  check-entities:
+    prompt: >-
+      ¿Cuántas unidades fórmula de cloruro de sodio hay en 0.500 mol?
+    answer: >-
+      Alrededor de $3.01\times10^{23}$: 0.500 por $6.022\,140\,76\times10^{23}$ por mol.
+  concentration:
+    body: >-
+      Disuelve la sal en agua y aparece una pregunta nueva: ¿cuánta hay en una porción dada de la
+      disolución? La concentración la responde. Las medidas que siguen solo difieren en el
+      denominador: el volumen de la disolución, la masa de la disolución, la masa del disolvente o la
+      cantidad total de todos los componentes.
+  molarity:
+    note: >-
+      Moles de soluto por volumen de disolución, expresados por lo general en moles por litro. El
+      volumen es el de la disolución terminada, no el del agua vertida.
+  check-molarity:
+    prompt: >-
+      Los 0.500 mol de cloruro de sodio se disuelven y se enrasan hasta 250 mL de disolución. ¿Cuál es
+      su concentración molar?
+    answer: >-
+      2.00 mol/L: 0.500 mol dividido entre 0.250 L.
+  dilution-equation:
+    note: >-
+      Al añadir disolvente se conservan los moles de soluto, así que la concentración por el volumen
+      no cambia. Expresa los dos volúmenes en una unidad y las dos concentraciones en otra.
+  check-dilution:
+    prompt: >-
+      Se diluyen 25.0 mL de la disolución de 2.00 mol/L hasta 500 mL. ¿Cuál es la nueva
+      concentración?
+    answer: >-
+      0.100 mol/L: 2.00 por 25.0 dividido entre 500. El volumen creció veinte veces, así que la
+      concentración bajó veinte veces.
+  mass-concentration-formula:
+    note: >-
+      La misma idea contada en gramos: masa de soluto por volumen de disolución. Al dividirla entre
+      la masa molar se obtiene la concentración molar.
+  mass-percent:
+    note: >-
+      Masa de soluto entre masa de disolución, un cociente sin unidad. Los frascos de reactivo
+      indican así su contenido, con una densidad al lado.
+  molarity-from-mass-percent:
+    note: >-
+      La densidad por la fracción másica da la masa de soluto por volumen; al dividir entre la masa
+      molar se convierte en moles por volumen.
+  check-stock:
+    prompt: >-
+      El ácido clorhídrico al 32 % en masa tiene una concentración de alrededor de 10.2 mol/L. ¿Qué
+      volumen de él da 1.00 L de ácido de 2.5 mol/L tras la dilución?
+    answer: >-
+      Alrededor de 245 mL: 2.5 mol/L por 1.00 L, dividido entre 10.2 mol/L, da 0.245 L. Añádelo a
+      agua en un matraz de 1 L y enrasa hasta la marca.
+  molality-formula:
+    note: >-
+      Moles de soluto por kilogramo de disolvente solo. Las masas no cambian con la temperatura, así
+      que la molalidad tampoco.
+  mole-fraction:
+    note: >-
+      Moles de un componente entre los moles de todos ellos, un cociente entre 0 y 1. Cuenta todos
+      los componentes, el disolvente incluido.
+  check-molality:
+    prompt: >-
+      Se disuelven 0.500 mol de cloruro de sodio en 1.00 kg de agua, que son alrededor de 55 mol de
+      agua. ¿Cuáles son la molalidad y la fracción molar de la sal?
+    answer: >-
+      La molalidad es 0.500 mol/kg: 0.500 mol dividido entre 1.00 kg. La fracción molar es alrededor
+      de 0.0090: 0.500 dividido entre 55.5, la cantidad total.
+  part-per-million:
+    note: >-
+      Una millonésima, escrita ppm. Indica qué fracción es, en masa, molar o en volumen, porque el
+      símbolo no lo dice.
+  part-per-billion:
+    note: >-
+      Una milmillonésima, escrita ppb, para trazas aún menores. El billion inglés de escala corta son
+      mil millones, por eso conviene evitar el símbolo en textos internacionales.
+  parts-per-million:
+    note: >-
+      La fracción másica de una sustancia en trazas, mostrada en partes por millón en lugar de en
+      porcentaje.
+  check-ppm:
+    prompt: >-
+      Según el límite de Estados Unidos, el agua potable puede contener como máximo 4 ppm en masa de
+      ion fluoruro. ¿Cuántos miligramos de fluoruro pueden contener 2.0 kg de esa agua?
+    answer: >-
+      8 mg: una fracción másica de $4\times10^{-6}$ por 2.0 kg da $8\times10^{-6}$ kg.

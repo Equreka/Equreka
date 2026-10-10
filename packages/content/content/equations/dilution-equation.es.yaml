@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ecuación de dilución'
+terms:
+  c_{1}:
+    label: 'Concentración antes de la dilución'
+  V_{1}:
+    label: 'Volumen antes de la dilución'
+  c_{2}:
+    label: 'Concentración después de la dilución'
+  V_{2}:
+    label: 'Volumen después de la dilución'
+description: >-
+  La ecuación de dilución establece que diluir una disolución con más disolvente no cambia su
+  cantidad de soluto, de modo que la concentración por el volumen es la misma antes y después. Es la
+  herramienta habitual para preparar una disolución más débil a partir de una disolución madre
+  concentrada en química y en los laboratorios clínicos y de biología.
+
+  $\var{c_{1}}$ y $\var{V_{1}}$ son la concentración y el volumen de la disolución antes de diluirla,
+  por lo general la porción de disolución madre que se toma; $\var{c_{2}}$ y $\var{V_{2}}$ son la
+  concentración y el volumen total después de la dilución. Las concentraciones se expresan en moles
+  por metro cúbico en el SI y los volúmenes en metros cúbicos, pero sirve cualquier par de unidades
+  siempre que las dos concentraciones compartan una unidad y los dos volúmenes otra. Las cuatro
+  magnitudes son positivas, y la dilución hace que $\var{c_{2}}$ sea menor que $\var{c_{1}}$.
+
+  Cada miembro es la cantidad de soluto en moles, la concentración multiplicada por el volumen. Al
+  añadir disolvente cambia el volumen pero no los moles, así que los dos productos son iguales.
+  Despejando el volumen final, la ecuación indica hasta dónde llenar un matraz; despejando el volumen
+  inicial, cuánta disolución madre hay que medir.
+
+  La ecuación supone que solo se añade disolvente y que el soluto ni reacciona ni sale de la
+  disolución. El volumen final es el de la disolución terminada, que no siempre coincide con la suma
+  del volumen de disolución madre y el del agua añadida, por lo que la disolución diluida se enrasa
+  hasta un volumen marcado. Las concentraciones másicas y las demás medidas referidas al volumen
+  siguen la misma regla.
+
+  Diluir 0.850 L de una disolución de nitrato de cobre(II) de 5.00 mol/L hasta 1.80 L da 2.36 mol/L.

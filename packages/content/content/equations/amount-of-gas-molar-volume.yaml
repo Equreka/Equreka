@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Amount of gas from molar volume'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{n}=\frac{\mag{V}}{\mag{V_\mathrm{m}}}'
+terms:
+  n:
+    kind: 'magnitude'
+    ref: 'substance'
+  V:
+    kind: 'magnitude'
+    ref: 'volume'
+  V_\mathrm{m}:
+    kind: 'magnitude'
+    ref: 'molar-volume'
+solutions:
+  n: 'V / V_m'
+  V: 'n * V_m'
+  V_\mathrm{m}: 'V / n'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'amount-of-substance'
+aliases:
+  - 'moles of gas from volume'
+  - 'gas volume to moles'
+  - 'litres to moles'
+  - 'liters to moles'
+  - '22.4 litres per mole'
+  - 'n = V/Vm'
+  - 'moles de gas a partir del volumen'
+  - 'litros a moles'
+references:
+  - title: 'OpenStax, Chemistry 2e, 9.2 Relating Pressure, Volume, Amount, and Temperature: The Ideal Gas Law (standard molar volume)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-2-relating-pressure-volume-amount-and-temperature-the-ideal-gas-law'
+  - title: 'NIST, CODATA 2022 value: molar volume of ideal gas (273.15 K, 101.325 kPa)'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mvolstd'
+  - title: 'NIST, CODATA 2022 value: molar volume of ideal gas (273.15 K, 100 kPa)'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mvol'
+  - title: 'OpenStax, Chemistry 2e, 9.3 Stoichiometry of Gaseous Substances, Mixtures, and Reactions'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-3-stoichiometry-of-gaseous-substances-mixtures-and-reactions'
+  - title: 'OpenStax, Chemistry 2e, 9.6 Non-Ideal Gas Behavior'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-6-non-ideal-gas-behavior'
+description:
+  en: >-
+    The amount of substance in a sample of gas equals its volume divided by the molar volume of the
+    gas at the same temperature and pressure. Chemists use it to convert a measured gas volume into
+    moles, and moles of gas into litres, when the conditions are fixed, for instance at standard
+    temperature and pressure (STP).
+
+    $\mag{n}$ is the amount of substance, in moles. $\mag{V}$ is the volume the gas occupies, in
+    cubic metres; one litre is a thousandth of a cubic metre. $\mag{V_\mathrm{m}}$ is the molar
+    volume, the volume of one mole, in cubic metres per mole, which the calculator also accepts in
+    litres per mole. All three quantities are positive, and both volumes refer to the same
+    temperature and pressure.
+
+    By Avogadro's law, equal volumes of ideal gases at one temperature and pressure contain equal
+    numbers of molecules, so every such gas has the same molar volume and the volume of a sample
+    measures how many moles it contains, whatever the gas. A mixture of gases is counted as a whole:
+    the result is the total amount of all its components.
+
+    The relation is exact only for an ideal gas. Real gases come close at low pressure and high
+    temperature, where their molecules are far apart, and depart from it at high pressure and low
+    temperature, where the size of the molecules and their mutual attraction matter. The molar
+    volume must match the actual conditions, since it rises with temperature and falls with
+    pressure.
+
+    CODATA 2022 gives about 22.414 litres per mole at 273.15 kelvin and 101.325 kilopascals, the
+    textbook 22.4 litres, and about 22.711 litres per mole at 100 kilopascals, the standard
+    pressure IUPAC adopted in 1982. Thus 11.2 litres of a gas at 273.15 kelvin and 101.325
+    kilopascals is about 0.500 mole.

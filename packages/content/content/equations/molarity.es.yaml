@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Concentración molar'
+description: >-
+  La concentración molar, también llamada concentración de cantidad de sustancia, es la cantidad de
+  un soluto en moles dividida entre el volumen de la disolución que lo contiene. Es la medida de
+  concentración que más se usa en un laboratorio de química, donde da el número de moles de una
+  sustancia disuelta en cada litro de disolución.
+
+  $\mag{c}$ es la concentración de cantidad de sustancia del soluto, $\mag{n}$ su cantidad de
+  sustancia y $\mag{V}$ el volumen de toda la disolución, disolvente y soluto juntos. La unidad SI
+  coherente de $\mag{c}$ es el mol por metro cúbico, pero los laboratorios la expresan en
+  $\mathrm{mol/L}$, mil veces mayor. Las tres magnitudes son positivas. El NIST considera obsoletos
+  el nombre molaridad y el símbolo M para mol/L.
+
+  Como un mol siempre contiene el mismo número de entidades, dos disoluciones con la misma
+  concentración molar llevan el mismo número de partículas de soluto por litro, sea cual sea el
+  soluto. Al multiplicar la concentración por un volumen se cuentan los moles que aporta ese volumen,
+  el paso en que se basan la dilución y la valoración. En una sal disuelta, la concentración de cada
+  ion se deduce de la fórmula: un mol por litro de cloruro de calcio da dos moles por litro de iones
+  cloruro.
+
+  El volumen es el de la disolución terminada, y por eso se prepara llenando un matraz aforado hasta
+  la marca en lugar de añadir un volumen medido de disolvente. Una disolución se dilata al
+  calentarse mientras su cantidad de soluto no cambia, así que su concentración molar baja
+  ligeramente con la temperatura; la molalidad, que usa la masa del disolvente, no varía.
+
+  Un refresco de 355 mL con 0.133 mol de sacarosa tiene una concentración de sacarosa de 0.375 mol/L.

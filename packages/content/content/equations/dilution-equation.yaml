@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Dilution equation'
+kind: 'equation'
+level: 'intro'
+expression: '\var{c_{1}}\var{V_{1}}=\var{c_{2}}\var{V_{2}}'
+terms:
+  c_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Concentration before dilution'
+    unit: 'mole-per-cubic-metre'
+  V_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Volume before dilution'
+    unit: 'cubic-metre'
+  c_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Concentration after dilution'
+    unit: 'mole-per-cubic-metre'
+  V_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Volume after dilution'
+    unit: 'cubic-metre'
+solutions:
+  c_{1}: 'c_2 * V_2 / V_1'
+  V_{1}: 'c_2 * V_2 / c_1'
+  c_{2}: 'c_1 * V_1 / V_2'
+  V_{2}: 'c_1 * V_1 / c_2'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'dilution formula'
+  - 'dilution law'
+  - 'C1V1 = C2V2'
+  - 'M1V1 = M2V2'
+  - 'stock solution dilution'
+  - 'fórmula de dilución'
+  - 'dilución'
+references:
+  - title: 'OpenStax, Chemistry 2e, 3.3 Molarity (Dilution of Solutions)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-3-molarity'
+  - title: 'Eames, General Chemistry Supplement, Chemistry Calculations: Molarity (LibreTexts)'
+    url: 'https://chem.libretexts.org/Bookshelves/General_Chemistry/General_Chemistry_Supplement_(Eames)/Chemistry_Calculations/Molarity'
+description:
+  en: >-
+    The dilution equation states that diluting a solution with more solvent leaves its amount of
+    solute unchanged, so the concentration times the volume is the same before and after. It is the
+    standard tool for preparing a weaker solution from a concentrated stock solution in chemistry
+    and in clinical and biology laboratories.
+
+    $\var{c_{1}}$ and $\var{V_{1}}$ are the concentration and volume of the solution before dilution,
+    usually the portion of stock solution taken; $\var{c_{2}}$ and $\var{V_{2}}$ are the
+    concentration and the total volume after dilution. Concentrations are stated in moles per cubic
+    metre in SI and volumes in cubic metres, but any pair of units works as long as both
+    concentrations share one unit and both volumes another. All four are positive, and dilution
+    makes $\var{c_{2}}$ smaller than $\var{c_{1}}$.
+
+    Each side is the amount of solute in moles, concentration multiplied by volume. Adding solvent
+    changes the volume but not the moles, so the two products are equal. Solved for the final
+    volume, the equation tells how far to fill a flask; solved for the initial volume, how much
+    stock to measure out.
+
+    The equation assumes that only solvent is added and that the solute neither reacts nor leaves
+    the solution. The final volume is that of the finished solution, which is not always the sum of
+    the stock volume and the volume of water added, so the diluted solution is made up to a marked
+    volume. Mass concentrations and other volume-based measures obey the same rule.
+
+    Diluting 0.850 L of a 5.00 mol/L copper(II) nitrate solution to 1.80 L gives 2.36 mol/L.

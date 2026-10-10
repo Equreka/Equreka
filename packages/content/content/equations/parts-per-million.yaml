@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Mass fraction in parts per million'
+kind: 'formula'
+level: 'intro'
+expression: '\var{w_\mathrm{B}}=\frac{\var{m_\mathrm{B}}}{\var{m_\mathrm{sample}}}'
+terms:
+  w_\mathrm{B}:
+    kind: 'symbol'
+    label:
+      en: 'Mass fraction of the trace substance'
+    unit: 'unitless'
+  m_\mathrm{B}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of the trace substance'
+    unit: 'kilogram'
+  m_\mathrm{sample}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of the sample'
+    unit: 'kilogram'
+solutions:
+  w_\mathrm{B}: 'm_B / m_sample'
+  m_\mathrm{B}: 'w_B * m_sample'
+  m_\mathrm{sample}: 'm_B / w_B'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'parts per million formula'
+  - 'ppm formula'
+  - 'ppm concentration'
+  - 'parts per billion formula'
+  - 'ppb formula'
+  - 'fórmula de partes por millón'
+  - 'fórmula de partes por mil millones'
+references:
+  - title: 'OpenStax, Chemistry 2e, 3.4 Other Units for Solution Concentrations'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-4-other-units-for-solution-concentrations'
+  - title: 'Portland Community College, CH105 Allied Health Chemistry II, 3.2 Units of Concentration (LibreTexts)'
+    url: 'https://chem.libretexts.org/Courses/Portland_Community_College/CH105%3A_Allied_Health_Chemistry_II/03%3A_Solutions/3.02%3A_Units_of_Concentration'
+  - title: 'NIST, Guide to the SI (SP 811), Chapter 7, 7.10.3 ppm, ppb, and ppt'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-7-rules-and-style-conventions-expressing-values'
+  - title: 'NOAA Global Monitoring Laboratory, How we measure background CO2 levels on Mauna Loa'
+    url: 'https://gml.noaa.gov/ccgg/about/co2_measurements.html'
+  - title: 'University of Texas at Austin, GPAIR, Glossary of terms (ppmV, ppbV)'
+    url: 'https://gpair.ceer.utexas.edu/glossary-of-terms.php'
+description:
+  en: >-
+    A concentration in parts per million, ppm, is the mass fraction of a trace substance, its mass
+    divided by the mass of the sample that contains it, stated as a number of millionths. It is the
+    usual way of stating small amounts of a contaminant in drinking water and other samples, where a
+    percentage would need many leading zeros; parts per billion, ppb, state the same ratio in
+    thousand-millionths.
+
+    $\var{w_\mathrm{B}}$ is the mass fraction of the trace substance B, a pure number that the
+    calculator can show in parts per million, parts per billion or percent. $\var{m_\mathrm{B}}$ is
+    the mass of the substance and $\var{m_\mathrm{sample}}$ the mass of the whole sample or solution;
+    both are positive and share one unit, the kilogram in SI. A fraction of one millionth is 1 ppm.
+
+    The ratio is the same as in the mass percent formula, shown on a finer scale: one percent is
+    ten thousand parts per million. A fraction of 1 ppm means one milligram of substance per kilogram
+    of sample, and for dilute solutions in water, whose density is close to one gram per millilitre,
+    about one milligram per litre.
+
+    The notation is ambiguous. For gases, ppm usually counts molecules, so the carbon dioxide in air
+    is an amount fraction, and some fields use volumes. NIST Special Publication 811 does not accept
+    ppm and ppb for values stated with the SI and recommends naming the quantity and writing an
+    explicit ratio of units instead, as in its example of a sensitivity of 2 ng/kg; billion also
+    means a million million in many countries.
+
+    A wastewater sample of 50.0 g containing 0.48 mg of mercury holds 9.6 ppm of mercury.

@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Mass concentration of a solution'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{\gamma}=\frac{\mag{m}}{\mag{V}}'
+terms:
+  \gamma:
+    kind: 'magnitude'
+    ref: 'mass-concentration'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  V:
+    kind: 'magnitude'
+    ref: 'volume'
+solutions:
+  \gamma: 'm / V'
+  m: 'gamma * V'
+  V: 'm / gamma'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'mass concentration formula'
+  - 'grams per litre'
+  - 'grams per liter'
+  - 'mass per volume concentration'
+  - 'mass-volume percent'
+  - '% m/v'
+  - 'gamma = m/V'
+  - 'concentración en masa'
+  - 'gramos por litro'
+references:
+  - title: 'NIST, Guide to the SI (SP 811), Chapter 8, 8.6.5 Amount-of-substance concentration of B, note 1 (mass concentration of B)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-chapter-8'
+  - title: 'OpenStax, Chemistry 2e, 3.4 Other Units for Solution Concentrations'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-4-other-units-for-solution-concentrations'
+  - title: 'OpenStax, Chemistry 2e, 3.3 Molarity'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-3-molarity'
+description:
+  en: >-
+    The mass concentration of a solution is the mass of a dissolved substance divided by the volume
+    of the solution. It states how many grams of solute each litre holds, the form used on medical
+    and food labels and for the grams per litre of a laboratory recipe, and it is the mass
+    counterpart of the molar concentration.
+
+    $\mag{\gamma}$ is the mass concentration of the solute, in kilograms per cubic metre in SI; the
+    gram per litre is the same size, so a value in one unit carries over unchanged to the other.
+    $\mag{m}$ is the mass of the solute alone and $\mag{V}$ the volume of the whole solution. All
+    three are positive. NIST also writes the quantity with the symbol rho and a subscript naming the
+    substance.
+
+    The unit is that of density, but the meaning differs: density divides the mass of the entire
+    solution by its volume, while mass concentration counts only the solute. Dividing a mass
+    concentration by the molar mass of the solute gives its amount concentration, so the two
+    measures carry the same information once the substance is known.
+
+    Like molarity, mass concentration depends on temperature, because the volume of a solution
+    changes as it warms while the mass of solute does not. Clinical results often use other volumes,
+    such as milligrams per decilitre for blood glucose, and the mass-volume percent of a label is a
+    mass concentration in grams per 100 millilitres.
+
+    Physiological saline, with 0.9 g of sodium chloride in each 100 mL, has a mass concentration of
+    9 g/L.

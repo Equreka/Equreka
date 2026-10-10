@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Percent composition'
+kind: 'formula'
+level: 'intro'
+expression: '\var{w_\mathrm{E}}=\frac{\var{N_\mathrm{E}}\var{M_\mathrm{E}}}{\var{M}}'
+terms:
+  w_\mathrm{E}:
+    kind: 'symbol'
+    label:
+      en: 'Mass fraction of the element'
+    unit: 'unitless'
+  N_\mathrm{E}:
+    kind: 'symbol'
+    label:
+      en: 'Number of atoms of the element in the formula'
+    integer: true
+  M_\mathrm{E}:
+    kind: 'symbol'
+    label:
+      en: 'Molar mass of the element'
+    unit: 'kilogram-per-mole'
+  M:
+    kind: 'symbol'
+    label:
+      en: 'Molar mass of the compound'
+    unit: 'kilogram-per-mole'
+solutions:
+  w_\mathrm{E}: 'N_E * M_E / M'
+  N_\mathrm{E}: 'w_E * M / M_E'
+  M_\mathrm{E}: 'w_E * M / N_E'
+  M: 'N_E * M_E / w_E'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'amount-of-substance'
+aliases:
+  - 'percentage composition'
+  - 'percent by mass of an element'
+  - 'mass percent of an element in a compound'
+  - 'elemental composition'
+  - 'composición centesimal'
+  - 'porcentaje en masa de un elemento'
+references:
+  - title: 'OpenStax, Chemistry 2e, 3.2 Determining Empirical and Molecular Formulas (percent composition of ammonia and aspirin)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-2-determining-empirical-and-molecular-formulas'
+  - title: 'OpenStax, Chemistry 2e, 3.1 Formula Mass and the Mole Concept'
+    url: 'https://openstax.org/books/chemistry-2e/pages/3-1-formula-mass-and-the-mole-concept'
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.1 (the mole: M(X) = Ar(X) Mu)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+description:
+  en: >-
+    The percent composition of a compound gives the share of its mass contributed by each element.
+    For one element it equals the number of atoms of that element in the chemical formula, times
+    the molar mass of the element, divided by the molar mass of the whole compound; multiplied by
+    100, this mass fraction becomes the percentage by mass of the element.
+
+    $\var{w_\mathrm{E}}$ is the mass fraction of the element, a ratio from 0 to 1 that the
+    calculator also shows as a percentage. $\var{N_\mathrm{E}}$ is the number of atoms of the
+    element in one formula unit, a whole number read from the subscripts of the formula.
+    $\var{M_\mathrm{E}}$ is the molar mass of the element and $\var{M}$ the molar mass of the
+    compound, both in kilograms per mole, or both in grams per mole, since only their ratio counts.
+
+    The molar mass of a compound is the sum, over its elements, of the number of atoms times the
+    molar mass of each, so the fractions of all the elements add up to 1, or 100 percent. The same
+    result follows from an analysis: the mass of an element found in a sample divided by the mass of
+    the sample. Applied to one mole of the compound, that ratio reduces to the formula.
+
+    The composition depends only on the formula, not on the size of the sample, and holds for a
+    pure compound; impurities in a real sample shift the measured percentages. Molar
+    masses of elements are averages over their natural isotopes, so a computed percentage is only as
+    precise as the tabulated molar masses it uses.
+
+    Running the calculation in reverse, from measured mass percentages to the ratio of atoms, gives
+    the empirical formula of an unknown compound, the aim of elemental analysis. In ammonia, one
+    nitrogen atom of 14.01 grams per mole in 17.03 grams per mole of compound makes 82.27 percent
+    nitrogen by mass.

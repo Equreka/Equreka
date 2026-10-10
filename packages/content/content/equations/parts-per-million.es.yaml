@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Fracción másica en partes por millón'
+terms:
+  w_\mathrm{B}:
+    label: 'Fracción másica de la sustancia en trazas'
+  m_\mathrm{B}:
+    label: 'Masa de la sustancia en trazas'
+  m_\mathrm{sample}:
+    label: 'Masa de la muestra'
+description: >-
+  Una concentración en partes por millón, ppm, es la fracción másica de una sustancia presente en
+  trazas, su masa dividida entre la masa de la muestra que la contiene, expresada como número de
+  millonésimas. Es la forma habitual de indicar pequeñas cantidades de un contaminante en el agua
+  potable y en otras muestras, donde un porcentaje necesitaría muchos ceros iniciales; las partes por
+  mil millones, ppb, expresan el mismo cociente en milmillonésimas.
+
+  $\var{w_\mathrm{B}}$ es la fracción másica de la sustancia B, un número puro que la calculadora
+  puede mostrar en partes por millón, en partes por mil millones o en porcentaje.
+  $\var{m_\mathrm{B}}$ es la masa de la sustancia y $\var{m_\mathrm{sample}}$ la masa de toda la
+  muestra o disolución; ambas son positivas y comparten unidad, el kilogramo en el SI. Una fracción
+  de una millonésima es 1 ppm.
+
+  El cociente es el mismo que en la fórmula del porcentaje en masa, mostrado a una escala más fina:
+  un uno por ciento son diez mil partes por millón. Una fracción de 1 ppm significa un miligramo de
+  sustancia por kilogramo de muestra y, en las disoluciones diluidas en agua, cuya densidad es
+  cercana a un gramo por mililitro, alrededor de un miligramo por litro.
+
+  La notación es ambigua. En los gases, las ppm suelen contar moléculas, de modo que el dióxido de
+  carbono del aire es una fracción molar, y algunos campos usan volúmenes. La publicación especial
+  811 del NIST no acepta las ppm ni las ppb para valores expresados con el SI y recomienda nombrar la
+  magnitud y escribir en su lugar un cociente explícito de unidades, como en su ejemplo de una
+  sensibilidad de 2 ng/kg; además, billion equivale a un millón de millones en muchos países.
+
+  Una muestra de 50.0 g de aguas residuales con 0.48 mg de mercurio contiene 9.6 ppm de mercurio.

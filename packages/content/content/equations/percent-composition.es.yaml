@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Composición porcentual'
+terms:
+  w_\mathrm{E}:
+    label: 'Fracción másica del elemento'
+  N_\mathrm{E}:
+    label: 'Número de átomos del elemento en la fórmula'
+  M_\mathrm{E}:
+    label: 'Masa molar del elemento'
+  M:
+    label: 'Masa molar del compuesto'
+description: >-
+  La composición porcentual de un compuesto indica qué parte de su masa aporta cada elemento. Para un
+  elemento es igual al número de átomos de ese elemento en la fórmula química, por la masa molar del
+  elemento, dividido entre la masa molar del compuesto completo; multiplicada por 100, esta fracción
+  másica se convierte en el porcentaje en masa del elemento.
+
+  $\var{w_\mathrm{E}}$ es la fracción másica del elemento, un cociente entre 0 y 1 que la
+  calculadora muestra también como porcentaje. $\var{N_\mathrm{E}}$ es el número de átomos del
+  elemento en una unidad fórmula, un número entero que se lee en los subíndices de la fórmula.
+  $\var{M_\mathrm{E}}$ es la masa molar del elemento y $\var{M}$ la masa molar del compuesto, ambas
+  en kilogramos por mol, o ambas en gramos por mol, ya que solo cuenta su cociente.
+
+  La masa molar de un compuesto es la suma, sobre sus elementos, del número de átomos por la masa
+  molar de cada uno, de modo que las fracciones de todos los elementos suman 1, o el 100 por ciento.
+  El mismo resultado se obtiene de un análisis: la masa de un elemento hallada en una muestra
+  dividida entre la masa de la muestra. Aplicado a un mol del compuesto, ese cociente se reduce a la
+  fórmula.
+
+  La composición depende solo de la fórmula, no del tamaño de la muestra, y vale para un compuesto
+  puro; las impurezas de una muestra real alteran los porcentajes medidos. Las masas molares de los
+  elementos son promedios sobre sus isótopos naturales, así que un porcentaje calculado solo es tan
+  preciso como las masas molares tabuladas que emplea.
+
+  El cálculo inverso, de los porcentajes en masa medidos a la proporción de átomos, da la fórmula
+  empírica de un compuesto desconocido, el objetivo del análisis elemental. En el amoníaco, un átomo
+  de nitrógeno de 14.01 gramos por mol en 17.03 gramos por mol de compuesto supone un 82.27 por
+  ciento de nitrógeno en masa.
