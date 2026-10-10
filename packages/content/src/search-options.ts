@@ -37,6 +37,14 @@ export interface CatalogLiteEntry {
 }
 
 /**
+ * One locale's `search/leads.<locale>.json`: SearchDocument id → its
+ * `description`, entries without a lead omitted. With catalog-lite it holds
+ * every field of the locale's SearchDocuments, so the mobile index builds
+ * without reading a presentation slice (ADR 0015).
+ */
+export type SearchLeads = Record<string, string>;
+
+/**
  * Lowercase + NFD + strip combining marks, applied at index AND query time —
  * diacritic folding is mandatory in both locales (ADR 0002: 'metrico' must
  * find 'métrico').

@@ -1,8 +1,7 @@
 import { readFileSync } from 'node:fs';
-import equationsPresentation from '@equreka/content/artifact/presentation/equations.json';
-import unitsPresentation from '@equreka/content/artifact/presentation/units.json';
 import { splitRichText } from '@equreka/content/rich-text';
 import { describe, expect, it } from 'vitest';
+import { readPresentation } from '../../integrations/equreka-assets';
 import {
 	renderExpressionHtml,
 	renderRichTextHtml,
@@ -16,9 +15,9 @@ interface DescribedEntity {
 	terms?: Record<string, TermAnnotation>;
 }
 
-const units = unitsPresentation as unknown as Record<string, DescribedEntity>;
+const units = readPresentation<DescribedEntity>('units');
 
-const equations = equationsPresentation as unknown as Record<string, DescribedEntity>;
+const equations = readPresentation<DescribedEntity>('equations');
 
 function entity(slice: Record<string, DescribedEntity>, slug: string): DescribedEntity {
 	const found = slice[slug];

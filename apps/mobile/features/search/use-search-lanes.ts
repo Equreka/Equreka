@@ -2,14 +2,12 @@ import {
 	type CatalogLiteEntry,
 	foldSearchTerm,
 	type SearchDocument,
-	searchLeadOf,
 	searchOptions,
 } from '@equreka/content/search-options';
 import type { Locale } from '@equreka/core/i18n';
 import MiniSearch from 'minisearch';
 import { useEffect, useState } from 'react';
-import { isEntryCollection } from '../../entities/content/routes';
-import { getCatalogLite, getPresentation } from '../../shared/content/artifact';
+import { getCatalogLite, getSearchLeads } from '../../shared/content/artifact';
 
 interface FoldedCatalogEntry extends CatalogLiteEntry {
 	foldedName: string;
@@ -35,24 +33,15 @@ const PINNED_LIMIT = 8;
 const TOTAL_LIMIT = 20;
 
 /**
- * The indexed lead of an entry's localized description, resolved exactly as
- * the pipeline resolves it for the web index (locale, else English).
- */
-function leadOf(entry: CatalogLiteEntry, locale: Locale): string {
-	if (!isEntryCollection(entry.collection)) return '';
-	const description = getPresentation(entry.collection)[entry.slug]?.description;
-	const text = description?.[locale] ?? description?.en;
-	return text === undefined ? '' : searchLeadOf(text);
-}
-
-/**
- * Builds both lanes on-device from the bundled catalog-lite plus each
- * entity's description lead (ADR 0002: no serialized index ships to
- * mobile). Documents, `searchLeadOf` and the MiniSearch options are the
- * web's, so the ranking matches the web for the same corpus.
+ * Builds both lanes on-device from the bundled catalog-lite plus the
+ * locale's description leads (ADR 0002: no serialized index ships to
+ * mobile), reading no presentation slice or shard (ADR 0015). Documents,
+ * leads and the MiniSearch options are the web's, so the ranking matches
+ * the web for the same corpus.
  */
 export function buildSearchLanes(locale: Locale): SearchLanes {
 	const raw = getCatalogLite(locale);
+	const leads = getSearchLeads(locale);
 	const catalog = raw.map((entry) => ({
 		...entry,
 		foldedName: foldSearchTerm(entry.name),
@@ -64,7 +53,7 @@ export function buildSearchLanes(locale: Locale): SearchLanes {
 		collection: entry.collection,
 		slug: entry.slug,
 		name: entry.name,
-		description: leadOf(entry, locale),
+		description: leads[`${entry.collection}:${entry.slug}`] ?? '',
 		aliases: entry.aliases,
 		symbolText: entry.symbolText,
 		branches: entry.branches,
@@ -133,7 +122,7 @@ const cache = new Map<Locale, SearchLanes>();
 
 /**
  * Lanes for the locale, built once per process after the first frame so
- * the tab paints before the ~150-document index is tokenized; cached across
+ * the tab paints before the index is tokenized; cached across
  * remounts because tab switches unmount the screen.
  */
 export function useSearchLanes(locale: Locale): LanesState {

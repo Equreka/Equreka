@@ -1,10 +1,11 @@
 import type { CompiledEquationMeta } from '@equreka/schema';
 import { describe, expect, it, jest } from '@jest/globals';
 import { fireEvent, screen } from '@testing-library/react-native';
+import { getEntity } from '../entities/content/lookup';
 import { CalculatorScreen } from '../features/calculator/calculator-screen';
 import { buildSolvedForm } from '../features/calculator/solved-form';
 import { SolvedFormView } from '../features/calculator/solved-form-view';
-import { getEngineSlice, getPresentation } from '../shared/content/artifact';
+import { getEngineSlice } from '../shared/content/artifact';
 import { createRuntimeMath, type RuntimeMath } from '../shared/math/runtime-mathjax';
 import { createRuntimeMathCore } from '../shared/math/runtime-mathjax-core';
 import { renderWithProvider } from './helpers/render';
@@ -28,7 +29,7 @@ const rejectingRenderer: RuntimeMath = {
 
 function equation(slug: string) {
 	const meta = getEngineSlice().equations[slug];
-	const presentation = getPresentation('equations')[slug];
+	const presentation = getEntity('equations', slug);
 	if (meta === undefined || presentation === undefined) throw new Error(`missing ${slug}`);
 	return { meta, solutions: presentation.solutions };
 }

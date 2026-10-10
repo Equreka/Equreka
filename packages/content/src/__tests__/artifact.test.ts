@@ -3,18 +3,33 @@ import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync } 
 import { tmpdir } from 'node:os';
 import { join, relative, sep } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { COLLECTIONS, engineSlice, SCHEMA_VERSION } from '@equreka/schema';
+import { COLLECTIONS, type CollectionName, engineSlice, SCHEMA_VERSION } from '@equreka/schema';
 import MiniSearch from 'minisearch';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import {
 	ARTIFACT_BUDGETS,
 	artifactBudgetPatterns,
 	BUDGET_WARN_RATIO,
-	MOBILE_BUNDLE_BUDGET_BYTES,
+	MOBILE_STORAGE_CEILING_BYTES,
+	MOBILE_TRANSFER_BUDGET_BYTES,
 } from '../artifact-budgets.js';
 import { type CompileReport, compileContent } from '../pipeline/compile.js';
-import { budgetIssue, mobileBundledBytes } from '../pipeline/emit.js';
+import {
+	budgetIssue,
+	buildPresentationSlices,
+	mobileBundledBytes,
+	mobileTransferSize,
+} from '../pipeline/emit.js';
 import { buildMathArtifact } from '../pipeline/math-artifact.js';
+import { stableStringify } from '../pipeline/stable-json.js';
+import {
+	PRESENTATION_SHARDS,
+	type PresentationRecord,
+	presentationShardOf,
+	presentationShardPath,
+	readPresentationSlice,
+	SHARDED_COLLECTIONS,
+} from '../presentation-shards.js';
 import {
 	canonicalTex,
 	hydrateMathBody,
@@ -29,7 +44,14 @@ import {
 	mathShardOf,
 	splitRichText,
 } from '../rich-text.js';
-import { type SearchDocument, searchOptions } from '../search-options.js';
+import {
+	type CatalogLiteEntry,
+	SEARCH_LOCALES,
+	type SearchDocument,
+	type SearchLeads,
+	searchOptions,
+} from '../search-options.js';
+import { shardName } from '../shard-hash.js';
 import prefixedBaseline from './fixtures/prefixed-units-baseline.json';
 
 /**
@@ -115,6 +137,17 @@ function readJson<T>(...segments: string[]): T {
 	return JSON.parse(readFileSync(join(outDir, ...segments), 'utf8')) as T;
 }
 
+/**
+ * A collection's full presentation slice as readers see it: the index and
+ * every shard merged for a sharded collection, the file itself otherwise.
+ */
+function readSlice<T>(collection: CollectionName): Record<string, T> {
+	return readPresentationSlice(collection, (relPath) => readJson(...relPath.split('/'))) as Record<
+		string,
+		T
+	>;
+}
+
 function walk(dir: string): string[] {
 	const files: string[] = [];
 	for (const name of readdirSync(dir)) {
@@ -193,16 +226,11 @@ describe('build over the real corpus', () => {
 	});
 
 	it('carries editorial status and toBase provenance in the units presentation slice', () => {
-		const units = readJson<
-			Record<
-				string,
-				{
-					status: string;
-					system: string;
-					toBase?: { source?: { name: string; ref?: string; url?: string } };
-				}
-			>
-		>('presentation', 'units.json');
+		const units = readSlice<{
+			status: string;
+			system: string;
+			toBase?: { source?: { name: string; ref?: string; url?: string } };
+		}>('units');
 		expect(units.stone).toMatchObject({
 			status: 'reviewed',
 			toBase: {
@@ -232,10 +260,7 @@ describe('build over the real corpus', () => {
 			expect(unit?.toBase?.source?.name, slug).toBeTruthy();
 			expect(unit?.status, slug).toBe('reviewed');
 		}
-		const magnitudes = readJson<Record<string, { status: string; externalIds?: unknown }>>(
-			'presentation',
-			'magnitudes.json',
-		);
+		const magnitudes = readSlice<{ status: string; externalIds?: unknown }>('magnitudes');
 		expect(magnitudes.length?.status).toBe('draft');
 		expect(magnitudes.length?.externalIds).toEqual({
 			wikidata: 'Q36253',
@@ -261,9 +286,9 @@ describe('build over the real corpus', () => {
 
 	it('carries textSources on every presentation record, crediting only described entries', () => {
 		for (const collection of COLLECTIONS) {
-			const records = readJson<
-				Record<string, { textSources?: { url: string }[]; description?: unknown }>
-			>('presentation', `${collection}.json`);
+			const records = readSlice<{ textSources?: { url: string }[]; description?: unknown }>(
+				collection,
+			);
 			for (const [slug, record] of Object.entries(records)) {
 				expect(Array.isArray(record.textSources), `${collection}/${slug}`).toBe(true);
 				if ((record.textSources ?? []).length > 0) {
@@ -276,12 +301,12 @@ describe('build over the real corpus', () => {
 	});
 
 	it('derives related units and canonical expression TeX into the equations presentation slice', () => {
-		const equations = readJson<
-			Record<
-				string,
-				{ relatedUnits: string[]; expression: string; expressionTex: string; units?: unknown }
-			>
-		>('presentation', 'equations.json');
+		const equations = readSlice<{
+			relatedUnits: string[];
+			expression: string;
+			expressionTex: string;
+			units?: unknown;
+		}>('equations');
 		expect(equations['area-circle']?.relatedUnits).toEqual(['square-metre', 'unitless', 'metre']);
 		expect(equations['area-square']?.relatedUnits).toEqual(['square-metre', 'metre']);
 		expect(equations['mass-energy-equivalence']?.relatedUnits).toEqual([
@@ -352,19 +377,22 @@ describe('build over the real corpus', () => {
 
 	it('ships prose raw, hard line breaks intact, with no pre-split segments', () => {
 		for (const collection of COLLECTIONS) {
-			const shipped = readJson<Record<string, { description?: { en: string } }>>(
-				'presentation',
-				`${collection}.json`,
-			);
+			const shipped = readSlice<{ description?: { en: string } }>(collection);
 			const authored: ReadonlyMap<string, { description?: { en: string } | undefined }> =
 				report.corpus[collection];
 			for (const [slug, entry] of authored) {
 				expect(shipped[slug]?.description?.en, `${collection}/${slug}`).toBe(entry.description?.en);
 			}
 		}
-		for (const collection of COLLECTIONS) {
-			const text = readFileSync(join(outDir, 'presentation', `${collection}.json`), 'utf8');
-			expect(text, collection).not.toMatch(/"(description|note|body|prompt|answer)Segments"/);
+		const presentationFiles = report.artifacts.filter(
+			(artifact) =>
+				artifact.relPath.startsWith('presentation/') &&
+				!artifact.relPath.startsWith('presentation/math/'),
+		);
+		expect(presentationFiles.length).toBeGreaterThan(COLLECTIONS.length);
+		for (const { relPath } of presentationFiles) {
+			const text = readFileSync(join(outDir, relPath), 'utf8');
+			expect(text, relPath).not.toMatch(/"(description|note|body|prompt|answer)Segments"/);
 		}
 	});
 
@@ -401,10 +429,7 @@ describe('build over the real corpus', () => {
 	it('files every physics, mathematics and chemistry entry under at least one branch', () => {
 		const branchless: string[] = [];
 		for (const collection of COLLECTIONS) {
-			const slice = readJson<Record<string, { categories?: string[]; branches?: string[] }>>(
-				'presentation',
-				`${collection}.json`,
-			);
+			const slice = readSlice<{ categories?: string[]; branches?: string[] }>(collection);
 			for (const [slug, entity] of Object.entries(slice)) {
 				const disciplined = (entity.categories ?? []).some((category) =>
 					BRANCHED_CATEGORIES.includes(category),
@@ -430,7 +455,7 @@ describe('build over the real corpus', () => {
 			.sort(([, a], [, b]) => a.order - b.order)
 			.map(([slug]) => slug);
 		expect(physicsOrder[0]).toBe('mechanics');
-		const units = readJson<Record<string, { branches: string[] }>>('presentation', 'units.json');
+		const units = readSlice<{ branches: string[] }>('units');
 		expect(units['joule-per-kelvin']?.branches).toEqual(['thermodynamics']);
 		const catalog = readJson<{ collection: string; slug: string; branches: string[] }[]>(
 			'search',
@@ -513,7 +538,21 @@ describe('build over the real corpus', () => {
 				expect(artifact.bytes, artifact.relPath).toBeLessThanOrEqual(maxBytes);
 			}
 		}
-		expect(mobileBundledBytes(report.artifacts)).toBeLessThanOrEqual(MOBILE_BUNDLE_BUDGET_BYTES);
+		expect(mobileBundledBytes(report.artifacts)).toBeLessThanOrEqual(MOBILE_STORAGE_CEILING_BYTES);
+		expect(report.mobileTransferBytes).toBeLessThanOrEqual(MOBILE_TRANSFER_BUDGET_BYTES);
+	});
+
+	it('measures mobile transfer as the bundled files on disk gzipped as one stream', () => {
+		const mobileFiles = report.artifacts
+			.filter((artifact) => artifact.budget?.mobileBundled === true)
+			.map(({ relPath }) => ({ relPath, text: readFileSync(join(outDir, relPath), 'utf8') }));
+		expect(report.mobileTransferBytes).toBe(mobileTransferSize(mobileFiles));
+		expect(mobileTransferSize([...mobileFiles].reverse())).toBe(report.mobileTransferBytes);
+		const perFileGzip = report.artifacts
+			.filter((artifact) => artifact.budget?.mobileBundled === true)
+			.reduce((sum, artifact) => sum + artifact.gzipBytes, 0);
+		expect(report.mobileTransferBytes).toBeLessThan(perFileGzip);
+		expect(report.mobileTransferBytes).toBeLessThan(mobileBundledBytes(report.artifacts));
 	});
 
 	it('emits shipped JSON compact and editor schemas indented', () => {
@@ -624,10 +663,7 @@ describe('build over the real corpus', () => {
 	});
 
 	it('carries level, algebraic and truncated into the presentation slices only', () => {
-		const equations = readJson<Record<string, { level?: string; algebraic?: boolean }>>(
-			'presentation',
-			'equations.json',
-		);
+		const equations = readSlice<{ level?: string; algebraic?: boolean }>('equations');
 		for (const [slug, equation] of report.corpus.equations) {
 			expect(equations[slug], slug).toMatchObject({
 				level: equation.level,
@@ -655,6 +691,111 @@ describe('build over the real corpus', () => {
 	});
 });
 
+describe('presentation shards (ADR 0015)', () => {
+	it('emits exactly the configured shards, every indexed slug in the one shard its slug hashes to', () => {
+		for (const collection of SHARDED_COLLECTIONS) {
+			const { count } = PRESENTATION_SHARDS[collection];
+			expect(readdirSync(join(outDir, 'presentation', collection)).sort(), collection).toEqual(
+				Array.from({ length: count }, (_, shard) => `${shardName(shard)}.json`),
+			);
+			const index = readJson<PresentationRecord>('presentation', `${collection}.json`);
+			const placed = new Map<string, number[]>();
+			for (let shard = 0; shard < count; shard += 1) {
+				const rows = readJson<PresentationRecord>(
+					...presentationShardPath(collection, shard).split('/'),
+				);
+				for (const slug of Object.keys(rows)) {
+					expect(presentationShardOf(collection, slug), `${collection}/${slug}`).toBe(shard);
+					placed.set(slug, [...(placed.get(slug) ?? []), shard]);
+				}
+			}
+			expect([...placed.keys()].sort(), collection).toEqual(Object.keys(index).sort());
+			expect([...report.corpus[collection].keys()].sort(), collection).toEqual(
+				Object.keys(index).sort(),
+			);
+			for (const [slug, shards] of placed) {
+				expect(shards, `${collection}/${slug}`).toHaveLength(1);
+			}
+		}
+	});
+
+	it('keeps exactly the index fields in the index and every other field in the shards', () => {
+		for (const collection of SHARDED_COLLECTIONS) {
+			const indexFields: readonly string[] = PRESENTATION_SHARDS[collection].indexFields;
+			const index = readJson<PresentationRecord>('presentation', `${collection}.json`);
+			const full = readSlice<Record<string, unknown>>(collection);
+			for (const field of indexFields) {
+				expect(
+					Object.values(index).some((entry) => Object.hasOwn(entry, field)),
+					`${collection} index field '${field}' is carried by some entry`,
+				).toBe(true);
+			}
+			for (const [slug, entry] of Object.entries(index)) {
+				expect(Object.keys(entry).sort(), `${collection}/${slug}`).toEqual(
+					Object.keys(full[slug] ?? {})
+						.filter((field) => indexFields.includes(field))
+						.sort(),
+				);
+				const detail = readJson<PresentationRecord>(
+					...presentationShardPath(collection, presentationShardOf(collection, slug)).split('/'),
+				)[slug];
+				expect(
+					Object.keys(detail ?? {}).filter((field) => indexFields.includes(field)),
+					`${collection}/${slug}`,
+				).toEqual([]);
+			}
+		}
+	});
+
+	it('reassembles every collection into the whole slice the emitter derives, byte for byte', () => {
+		const whole = buildPresentationSlices({
+			corpus: report.corpus,
+			generatedUnits: report.generatedUnits,
+		});
+		for (const collection of COLLECTIONS) {
+			const reassembled = readSlice<Record<string, unknown>>(collection);
+			expect(Object.keys(reassembled).length, collection).toBe(report.corpus[collection].size);
+			expect(stableStringify(reassembled, { compact: true }), collection).toBe(
+				stableStringify(whole[collection], { compact: true }),
+			);
+		}
+	});
+
+	it('ships every search lead, so catalog-lite and the leads rebuild the web index exactly', () => {
+		for (const locale of SEARCH_LOCALES) {
+			const catalog = readJson<CatalogLiteEntry[]>('search', `catalog-lite.${locale}.json`);
+			const leads = readJson<SearchLeads>('search', `leads.${locale}.json`);
+			const documents: SearchDocument[] = catalog.map((entry) => {
+				const id = `${entry.collection}:${entry.slug}`;
+				return {
+					id,
+					collection: entry.collection,
+					slug: entry.slug,
+					name: entry.name,
+					description: leads[id] ?? '',
+					aliases: entry.aliases,
+					symbolText: entry.symbolText,
+					branches: entry.branches,
+				};
+			});
+			const ids = new Set(documents.map((document) => document.id));
+			expect(
+				Object.keys(leads).every((id) => ids.has(id)),
+				locale,
+			).toBe(true);
+			expect(
+				Object.values(leads).every((lead) => lead !== ''),
+				locale,
+			).toBe(true);
+			const index = new MiniSearch<SearchDocument>(searchOptions);
+			index.addAll(documents);
+			expect(JSON.parse(JSON.stringify(index)), locale).toEqual(
+				readJson('search', `${locale}.json`),
+			);
+		}
+	});
+});
+
 describe('generated prefixed units (ADR 0007)', () => {
 	it('resolve the 13 formerly hand-authored prefixed slugs to their pre-expansion factors', () => {
 		const units = engineSlice.parse(readJson('engine.json')).units;
@@ -666,10 +807,7 @@ describe('generated prefixed units (ADR 0007)', () => {
 	it('emit every generated unit in the engine slice, presentation, search and catalog', () => {
 		expect(report.generatedUnits.size).toBeGreaterThan(100);
 		const units = engineSlice.parse(readJson('engine.json')).units;
-		const presentation = readJson<Record<string, { generated?: boolean }>>(
-			'presentation',
-			'units.json',
-		);
+		const presentation = readSlice<{ generated?: boolean }>('units');
 		const catalog = readJson<{ collection: string; slug: string }[]>(
 			'search',
 			'catalog-lite.en.json',
@@ -697,9 +835,9 @@ describe('generated prefixed units (ADR 0007)', () => {
 			expect(prefixOf, slug).toBeDefined();
 			expect(`${prefixOf?.prefix}${prefixOf?.base}`, slug).toBe(slug);
 		}
-		const presentation = readJson<
-			Record<string, { name: { en: string; es?: string }; aliases: string[] }>
-		>('presentation', 'units.json');
+		const presentation = readSlice<{ name: { en: string; es?: string }; aliases: string[] }>(
+			'units',
+		);
 		expect(presentation.micrometre?.name).toEqual({ en: 'Micrometre', es: 'Micrómetro' });
 		expect(presentation.micrometre?.aliases).toEqual(
 			expect.arrayContaining(['micrometer', 'um', 'micron']),
@@ -806,21 +944,14 @@ describe('math artifact', () => {
 		let checked = 0;
 		let stepMath = 0;
 		for (const collection of COLLECTIONS) {
-			const slice = readJson<
-				Record<
-					string,
-					{
-						symbolTex?: string;
-						symbolAltTex?: string;
-						expressionTex?: string;
-						terms?: Record<string, unknown>;
-						description?: Record<string, string>;
-						steps?: Partial<
-							Record<'note' | 'body' | 'prompt' | 'answer', Record<string, string>>
-						>[];
-					}
-				>
-			>('presentation', `${collection}.json`);
+			const slice = readSlice<{
+				symbolTex?: string;
+				symbolAltTex?: string;
+				expressionTex?: string;
+				terms?: Record<string, unknown>;
+				description?: Record<string, string>;
+				steps?: Partial<Record<'note' | 'body' | 'prompt' | 'answer', Record<string, string>>>[];
+			}>(collection);
 			for (const [slug, entity] of Object.entries(slice)) {
 				const keys = [entity.symbolTex, entity.symbolAltTex, entity.expressionTex].filter(
 					(key): key is string => key !== undefined,
@@ -847,10 +978,7 @@ describe('math artifact', () => {
 	});
 
 	it('keeps annotation macros in raw so equation prose can cross-highlight', () => {
-		const equations = readJson<Record<string, { description?: { en: string } }>>(
-			'presentation',
-			'equations.json',
-		);
+		const equations = readSlice<{ description?: { en: string } }>('equations');
 		const annotated = Object.values(equations)
 			.flatMap((equation) => splitRichText(equation.description?.en ?? ''))
 			.flatMap((segment) => (segment.t === 'math' && segment.raw !== segment.tex ? [segment] : []));
@@ -862,10 +990,7 @@ describe('math artifact', () => {
 	});
 
 	it('renders display bodies for equation expressions and inline for symbols', () => {
-		const equations = readJson<Record<string, { expressionTex: string }>>(
-			'presentation',
-			'equations.json',
-		);
+		const equations = readSlice<{ expressionTex: string }>('equations');
 		const units = readJson<Record<string, { symbolTex: string }>>('presentation', 'units.json');
 		const expression = bodies[equations['mass-energy-equivalence']?.expressionTex ?? ''];
 		const symbol = bodies[units['joule-per-kelvin']?.symbolTex ?? ''];
@@ -880,8 +1005,15 @@ describe('math artifact', () => {
 describe('artifact budget table', () => {
 	it('classifies each emitted path shape under exactly one pattern', () => {
 		expect(artifactBudgetPatterns('presentation/units.json')).toEqual([
-			'presentation/<collection>.json',
+			'presentation/<sharded>.json',
 		]);
+		expect(artifactBudgetPatterns('presentation/paths.json')).toEqual([
+			'presentation/<whole>.json',
+		]);
+		for (const path of ['presentation/equations/3f.json', 'presentation/units/00.json']) {
+			expect(artifactBudgetPatterns(path), path).toEqual(['presentation/<sharded>/<shard>.json']);
+		}
+		expect(artifactBudgetPatterns('search/leads.en.json')).toEqual(['search/leads.<locale>.json']);
 		expect(artifactBudgetPatterns('presentation/math/bodies/0f.json')).toEqual([
 			'presentation/math/bodies/<shard>.json',
 		]);
@@ -899,6 +1031,9 @@ describe('artifact budget table', () => {
 		]);
 		for (const path of [
 			'presentation/widgets.json',
+			'presentation/paths/00.json',
+			'presentation/math/00.json',
+			'search/leads.fr.json',
 			'search/fr.json',
 			'engine.json.bak',
 			'presentation/math/bodies.json',
@@ -936,6 +1071,10 @@ describe('determinism', () => {
 		expect(files).toEqual(coldFiles);
 		expect(files).toContain(join('presentation', 'math', 'atlas.json'));
 		expect(files).toContain(join('presentation', 'math', 'bodies', '00.json'));
+		for (const collection of SHARDED_COLLECTIONS) {
+			expect(files).toContain(join(...presentationShardPath(collection, 0).split('/')));
+		}
+		expect(files).toContain(join('search', 'leads.es.json'));
 		expect(files).toContain(join('solutions', 'index.js'));
 		for (const file of files) {
 			expect(digest(join(outDir, file)), file).toBe(digest(join(coldOutDir, file)));

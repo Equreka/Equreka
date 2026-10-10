@@ -19,13 +19,21 @@ import {
 	type ArtifactBudget,
 	artifactBudgetPatterns,
 	BUDGET_WARN_RATIO,
-	MOBILE_BUNDLE_BUDGET_BYTES,
+	MOBILE_STORAGE_CEILING_BYTES,
+	MOBILE_TRANSFER_BUDGET_BYTES,
 } from '../artifact-budgets.js';
+import {
+	isShardedCollection,
+	type PresentationRecord,
+	presentationShardPath,
+	splitPresentationSlice,
+} from '../presentation-shards.js';
 import { canonicalTex, mathShardName, termIdentifier } from '../rich-text.js';
 import {
 	type CatalogLiteEntry,
 	SEARCH_LOCALES,
 	type SearchDocument,
+	type SearchLeads,
 	type SearchLocale,
 	searchLeadOf,
 	searchOptions,
@@ -63,15 +71,33 @@ export interface EmittedArtifact {
 	budget: ArtifactBudget | undefined;
 }
 
+/**
+ * `mobileTransferBytes` is `mobileTransferSize` of the `mobileBundled`
+ * files, 0 when emission stopped before writing them.
+ */
 export interface EmitResult {
 	issues: Issue[];
 	artifacts: EmittedArtifact[];
+	mobileTransferBytes: number;
 }
 
 export function mobileBundledBytes(artifacts: readonly EmittedArtifact[]): number {
 	return artifacts
 		.filter((artifact) => artifact.budget?.mobileBundled === true)
 		.reduce((sum, artifact) => sum + artifact.bytes, 0);
+}
+
+/**
+ * The gzip size of the files concatenated in `relPath` order, the measure
+ * MOBILE_TRANSFER_BUDGET_BYTES caps: one stream, as the bundle that carries
+ * them is downloaded, so a file split into shards costs about what it cost
+ * whole.
+ */
+export function mobileTransferSize(files: readonly { relPath: string; text: string }[]): number {
+	const ordered = [...files].sort((a, b) =>
+		a.relPath < b.relPath ? -1 : a.relPath > b.relPath ? 1 : 0,
+	);
+	return gzipSync(Buffer.concat(ordered.map((file) => Buffer.from(file.text, 'utf8')))).length;
 }
 
 /**
@@ -132,10 +158,14 @@ export interface EmitInput {
 export function emitArtifacts(input: EmitInput): EmitResult {
 	const issues: Issue[] = [];
 	const artifacts: EmittedArtifact[] = [];
+	const mobileFiles: { relPath: string; text: string }[] = [];
 	const { corpus, outDir } = input;
 
 	rmSync(outDir, { recursive: true, force: true });
 	mkdirSync(join(outDir, 'presentation', 'math', 'bodies'), { recursive: true });
+	for (const collection of COLLECTIONS.filter(isShardedCollection)) {
+		mkdirSync(join(outDir, 'presentation', collection), { recursive: true });
+	}
 	mkdirSync(join(outDir, 'solutions'), { recursive: true });
 	mkdirSync(join(outDir, 'search'), { recursive: true });
 	mkdirSync(join(outDir, 'schemas'), { recursive: true });
@@ -147,6 +177,9 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 		const pattern = patterns.length === 1 ? patterns[0] : undefined;
 		const budget = pattern === undefined ? undefined : ARTIFACT_BUDGETS[pattern];
 		artifacts.push({ relPath, bytes, gzipBytes: gzipSync(text).length, pattern, budget });
+		if (budget?.mobileBundled === true) {
+			mobileFiles.push({ relPath, text });
+		}
 		if (patterns.length !== 1) {
 			const reason =
 				patterns.length === 0
@@ -179,7 +212,7 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 				issue('error', 'emit', '', `engine slice: ${zodIssue.path.join('.')}: ${zodIssue.message}`),
 			);
 		}
-		return { issues, artifacts };
+		return { issues, artifacts, mobileTransferBytes: 0 };
 	}
 	write('engine.json', compactJson(slice));
 
@@ -209,34 +242,18 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 	write(`solutions/${SOLUTIONS_LOADER_NAME}.js`, loader.js);
 	write(`solutions/${SOLUTIONS_LOADER_NAME}.d.ts`, loader.dts);
 
+	const presentation = buildPresentationSlices(input);
 	for (const collection of COLLECTIONS) {
-		const record: Record<string, unknown> = {};
-		for (const [slug, entity] of corpus[collection] as Map<string, Record<string, unknown>>) {
-			record[slug] = presentationOf(entity);
+		const slice = presentation[collection];
+		if (isShardedCollection(collection)) {
+			const split = splitPresentationSlice(collection, slice);
+			write(`presentation/${collection}.json`, compactJson(split.index));
+			split.shards.forEach((shard, index) => {
+				write(presentationShardPath(collection, index), compactJson(shard));
+			});
+		} else {
+			write(`presentation/${collection}.json`, compactJson(slice));
 		}
-		if (collection === 'units') {
-			for (const slug of input.generatedUnits) {
-				record[slug] = { ...(record[slug] as Record<string, unknown>), generated: true };
-			}
-		}
-		if (collection === 'equations') {
-			for (const [slug, equation] of corpus.equations) {
-				record[slug] = {
-					...(record[slug] as Record<string, unknown>),
-					expressionTex: canonicalTex(equation.expression),
-					relatedUnits: deriveRelatedUnits(equation.terms, corpus),
-				};
-			}
-		}
-		if (collection === 'paths') {
-			for (const [slug, path] of corpus.paths) {
-				record[slug] = {
-					...(record[slug] as Record<string, unknown>),
-					steps: presentationSteps(path, corpus),
-				};
-			}
-		}
-		write(`presentation/${collection}.json`, compactJson(record));
 		write(`schemas/${collection}.schema.json`, prettyJson(authoringSchema(collection)));
 		write(
 			`schemas/${collection}.locale.schema.json`,
@@ -266,6 +283,12 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 			categories: catalogCategoriesOf(corpus, document.collection, document.slug),
 		}));
 		write(`search/catalog-lite.${locale}.json`, compactJson(catalogLite));
+		const leads: SearchLeads = Object.fromEntries(
+			documents
+				.filter((document) => document.description !== '')
+				.map((document) => [document.id, document.description]),
+		);
+		write(`search/leads.${locale}.json`, compactJson(leads));
 	}
 
 	const counts: Record<string, number> = {};
@@ -282,17 +305,65 @@ export function emitArtifacts(input: EmitInput): EmitResult {
 		}),
 	);
 
-	const mobileFinding = budgetIssue(
-		'the mobile-bundled artifact total',
-		mobileBundledBytes(artifacts),
-		MOBILE_BUNDLE_BUDGET_BYTES,
-		'mobile bundle and OTA size',
-	);
-	if (mobileFinding !== undefined) {
-		issues.push(mobileFinding);
-	}
+	const mobileTransferBytes = mobileTransferSize(mobileFiles);
+	const mobileFindings = [
+		budgetIssue(
+			'the mobile-bundled set, gzipped as one stream,',
+			mobileTransferBytes,
+			MOBILE_TRANSFER_BUDGET_BYTES,
+			'OTA update and store download size',
+		),
+		budgetIssue(
+			'the mobile-bundled raw total',
+			mobileBundledBytes(artifacts),
+			MOBILE_STORAGE_CEILING_BYTES,
+			'installed bundle storage',
+		),
+	];
+	issues.push(...mobileFindings.filter((finding) => finding !== undefined));
 
-	return { issues, artifacts };
+	return { issues, artifacts, mobileTransferBytes };
+}
+
+/**
+ * Every collection's full presentation slice before any sharding, which is
+ * what a reader gets back from `readPresentationSlice`.
+ */
+export function buildPresentationSlices(
+	input: Pick<EmitInput, 'corpus' | 'generatedUnits'>,
+): Record<CollectionName, PresentationRecord> {
+	const { corpus } = input;
+	const slices = {} as Record<CollectionName, PresentationRecord>;
+	for (const collection of COLLECTIONS) {
+		const record: PresentationRecord = {};
+		for (const [slug, entity] of corpus[collection] as Map<string, Record<string, unknown>>) {
+			record[slug] = presentationOf(entity);
+		}
+		if (collection === 'units') {
+			for (const slug of input.generatedUnits) {
+				record[slug] = { ...record[slug], generated: true };
+			}
+		}
+		if (collection === 'equations') {
+			for (const [slug, equation] of corpus.equations) {
+				record[slug] = {
+					...record[slug],
+					expressionTex: canonicalTex(equation.expression),
+					relatedUnits: deriveRelatedUnits(equation.terms, corpus),
+				};
+			}
+		}
+		if (collection === 'paths') {
+			for (const [slug, path] of corpus.paths) {
+				record[slug] = {
+					...record[slug],
+					steps: presentationSteps(path, corpus),
+				};
+			}
+		}
+		slices[collection] = record;
+	}
+	return slices;
 }
 
 export function buildEngineSlice(

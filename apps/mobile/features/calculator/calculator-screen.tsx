@@ -17,6 +17,7 @@ import { formatResult, formatSigFigs, READABLE_SIG_FIGS, resultText } from '@equ
 import type { CompiledEquationMeta } from '@equreka/schema';
 import { useRouter } from 'expo-router';
 import { Fragment, useMemo, useState } from 'react';
+import { getEntity } from '../../entities/content/lookup';
 import { entryHref } from '../../entities/content/routes';
 import { getEngineSlice, getPresentation, getSolutions } from '../../shared/content/artifact';
 import { getUnitRegistry } from '../../shared/content/engine';
@@ -240,7 +241,7 @@ function CalculatorForm({ slug, model, renderer }: CalculatorFormProps) {
 	);
 	const solved =
 		result?.ok === true ? fields.find((field) => field.key === result.value.symbol) : undefined;
-	const presentation = getPresentation('equations')[slug];
+	const presentation = getEntity('equations', slug);
 	const expressionTex = presentation?.expressionTex;
 	const solvedForm =
 		result?.ok === true

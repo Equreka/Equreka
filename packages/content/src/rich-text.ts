@@ -1,3 +1,5 @@
+import { shardName, shardOf } from './shard-hash.js';
+
 /**
  * The single definition of an annotation macro (`\mag{}`/`\const{}`/`\var{}`):
  * group 1 is the macro name, group 2 the term key. The key may hold one
@@ -119,53 +121,13 @@ export type MathBodies = Record<string, MathBody>;
  */
 export const MATH_SHARD_COUNT = 16;
 
-const FNV_OFFSET_BASIS = 0x811c9dc5;
-
-const FNV_PRIME = 0x01000193;
-
-const REPLACEMENT_CHARACTER = 0xfffd;
-
-function utf8Bytes(text: string): number[] {
-	return Array.from(text, (char): number[] => {
-		const point = char.codePointAt(0) ?? REPLACEMENT_CHARACTER;
-		const code = point >= 0xd800 && point <= 0xdfff ? REPLACEMENT_CHARACTER : point;
-		if (code < 0x80) {
-			return [code];
-		}
-		if (code < 0x800) {
-			return [0xc0 | (code >> 6), 0x80 | (code & 0x3f)];
-		}
-		if (code < 0x10000) {
-			return [0xe0 | (code >> 12), 0x80 | ((code >> 6) & 0x3f), 0x80 | (code & 0x3f)];
-		}
-		return [
-			0xf0 | (code >> 18),
-			0x80 | ((code >> 12) & 0x3f),
-			0x80 | ((code >> 6) & 0x3f),
-			0x80 | (code & 0x3f),
-		];
-	}).flat();
-}
-
-/**
- * Standard 32-bit FNV-1a over the UTF-8 bytes of `text`, unsigned, so any
- * other implementation of the published algorithm agrees with it. A lone
- * surrogate hashes as U+FFFD, the byte sequence TextEncoder produces for it.
- */
-export function fnv1a32(text: string): number {
-	return (
-		utf8Bytes(text).reduce((hash, byte) => Math.imul(hash ^ byte, FNV_PRIME), FNV_OFFSET_BASIS) >>>
-		0
-	);
-}
-
 /**
  * The shard a canonical TeX string's body ships in. Callers hold only the
  * TeX, often math another collection owns (a path step quoting a unit), so
  * the shard is a pure function of it and no manifest is needed (ADR 0010).
  */
 export function mathShardOf(tex: string): number {
-	return fnv1a32(tex) & (MATH_SHARD_COUNT - 1);
+	return shardOf(tex, MATH_SHARD_COUNT);
 }
 
 /**
@@ -173,7 +135,7 @@ export function mathShardOf(tex: string): number {
  * digits.
  */
 export function mathShardName(shard: number): string {
-	return shard.toString(16).padStart(2, '0');
+	return shardName(shard);
 }
 
 /**

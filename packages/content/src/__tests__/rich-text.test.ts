@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import {
 	canonicalTex,
-	fnv1a32,
 	hydrateMathBody,
 	isLeanMathBody,
 	leanMathBody,
@@ -18,6 +17,7 @@ import {
 	termIdentifier,
 	termMacroPattern,
 } from '../rich-text.js';
+import { fnv1a32 } from '../shard-hash.js';
 
 describe('splitRichText', () => {
 	it('interleaves text and inline math, keeping text byte-for-byte', () => {
@@ -279,23 +279,6 @@ describe('lean math bodies', () => {
 });
 
 describe('math shards', () => {
-	it('hashes with standard FNV-1a 32 over UTF-8, matching published vectors', () => {
-		expect(fnv1a32('')).toBe(0x811c9dc5);
-		expect(fnv1a32('a')).toBe(0xe40c292c);
-		expect(fnv1a32('foobar')).toBe(0xbf9cf968);
-	});
-
-	it('encodes non-ASCII TeX exactly as TextEncoder, astral characters and lone surrogates included', () => {
-		const reference = (text: string): number =>
-			Array.from(new TextEncoder().encode(text)).reduce(
-				(hash, byte) => Math.imul(hash ^ byte, 0x01000193),
-				0x811c9dc5,
-			) >>> 0;
-		for (const text of ['°F', 'ℓ', 'Å', 'α_{0}', '\\mathcal{E}', '𝔼', '\ud800', 'x\udc00y']) {
-			expect(fnv1a32(text), JSON.stringify(text)).toBe(reference(text));
-		}
-	});
-
 	it('pins the shard of known TeX, so a hash or count change cannot pass unnoticed', () => {
 		expect(MATH_SHARD_COUNT).toBe(16);
 		const golden: [string, number, number][] = [
