@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Entalpía estándar de reacción a partir de las entalpías de formación'
+terms:
+  \Delta_\mathrm{r} H^{\circ}:
+    label: 'Entalpía estándar de reacción'
+  \nu:
+    label: 'Coeficiente estequiométrico de cada especie'
+  \Delta_\mathrm{f} H^{\circ}:
+    label: 'Entalpía estándar de formación de cada especie'
+description: >-
+  La entalpía estándar de reacción es la suma de las entalpías estándar de formación de los productos
+  menos la suma de las de los reactivos, cada una multiplicada por su coeficiente estequiométrico.
+  Esta regla de productos menos reactivos de la termoquímica da el calor de una reacción en
+  condiciones estándar a partir de datos tabulados, sin medir esa reacción.
+
+  $\var{\Delta_\mathrm{r} H^{\circ}}$ es la entalpía estándar de reacción, en julios por mol de
+  reacción tal como está escrita, que suele darse en kilojulios por mol; es negativa en una reacción
+  exotérmica. $\var{\Delta_\mathrm{f} H^{\circ}}$ es la entalpía estándar de formación de una
+  especie, la variación de entalpía cuando se forma un mol de ella a partir de sus elementos en sus
+  estados estándar, y $\var{\nu}$ es el coeficiente entero y positivo de esa especie. Cada suma
+  recorre las especies de un lado de la ecuación química.
+
+  La regla es la ley de Hess aplicada a un camino cómodo: descomponer los reactivos en sus
+  elementos, lo que invierte su formación, y luego formar los productos a partir de esos elementos.
+  La entalpía de formación de un elemento en su forma más estable es cero por definición, así que el
+  oxígeno gaseoso, el grafito y los demás elementos desaparecen de las sumas. La IUPAC escribe el
+  mismo resultado como una sola suma en la que los coeficientes de los reactivos llevan signo menos.
+
+  Los valores estándar se refieren a una presión de 1 bar, a solutos a un mol por litro y, en la mayoría de
+  las tablas, a 298.15 kelvin; el estado físico de cada especie importa, porque el agua líquida y el
+  agua gaseosa tienen entalpías de formación distintas. A otra temperatura el resultado es una
+  aproximación.
+
+  Con los valores de CODATA del NIST Chemistry WebBook, −110.53 kilojulios por mol para el monóxido
+  de carbono y −393.51 para el dióxido de carbono, la combustión de dos moles de monóxido de carbono
+  en oxígeno tiene una entalpía estándar de reacción de 2(−393.51) − 2(−110.53) = −565.96 kilojulios
+  por mol.

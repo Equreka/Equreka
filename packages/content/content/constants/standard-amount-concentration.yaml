@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Standard amount concentration'
+symbol:
+  tex: 'c^{\circ}'
+  text: 'c°'
+symbolAlt:
+  tex: 'c^{\ominus}'
+  text: 'c⦵'
+value: '1000'
+unit: 'mole-per-cubic-metre'
+exact: true
+source:
+  name: 'convention'
+  url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  ref: 'IUPAC Green Book, 3rd ed., section 2.11.1 (v), p. 62: standard concentration, 1 mol dm-3'
+externalIds:
+  wikidata: 'Q88871689'
+categories:
+  - 'chemistry'
+branches:
+  - 'acids-and-bases'
+  - 'solutions'
+aliases:
+  - 'standard concentration'
+  - 'standard molar concentration'
+  - 'standard amount-of-substance concentration'
+  - 'c°'
+  - 'concentración estándar'
+references:
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11.1 (v) Standard pressures, molality, and concentration, and section 2.11 note 19'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.13 note 19: normalized concentrations in the Nernst equation'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8: litre'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+description:
+  en: >-
+    The standard amount concentration, symbol $c^{\circ}$, is exactly one mole per cubic decimetre,
+    which is one mole per litre or 1000 moles per cubic metre. It is a reference value fixed by
+    convention in physical chemistry, not a measured constant, so it has no uncertainty. It is also
+    called the standard concentration, and its symbol is also written $c^{\ominus}$.
+
+    The value sets the reference for a dissolved substance when concentration is the chosen
+    variable. The standard state of a solute is not a real solution at this concentration but a
+    hypothetical one in which the solute, at one mole per cubic decimetre, still behaves as it would
+    at infinite dilution. Dividing an amount concentration by $c^{\circ}$ gives a pure number, and
+    because the litre is exactly a cubic decimetre, that number equals the concentration written in
+    moles per litre. A solution holding 0.25 mol of solute in every litre therefore has a ratio of
+    0.25 to the standard.
+
+    The ratio is needed wherever a concentration enters a logarithm or an equilibrium constant,
+    since both require a quantity of dimension one. In the concentration form taught in school
+    chemistry, an approximation to the IUPAC definition through activities, the pH and the pOH are
+    minus the base-ten logarithms of the hydrogen and hydroxide ion concentrations over
+    $c^{\circ}$, and the ion product of water divides the product of those two concentrations by its
+    square. IUPAC also divides each concentration in the argument of the logarithm of the Nernst
+    equation by it, and relates the equilibrium constant of a dilute solution to the dimensionless
+    standard constant through powers of it.
+
+    Nothing in nature singles out one reference concentration: the number is a convention, and any
+    value would serve as long as it were stated next to the data that depend on it. One mole per
+    cubic decimetre for concentration, like one mole per kilogram for molality, is the value in
+    universal use. Reference values of this kind can move, as the standard pressure shows: IUPAC has
+    recommended 100 kilopascals since 1982, whereas one atmosphere was the usual figure before.

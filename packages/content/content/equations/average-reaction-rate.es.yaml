@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Velocidad media de reacción'
+terms:
+  v:
+    label: 'Velocidad media de reacción'
+  \nu_\mathrm{A}:
+    label: 'Número estequiométrico de A, negativo para un reactivo'
+  \Delta c_\mathrm{A}:
+    label: 'Variación de la concentración de A'
+description: >-
+  La velocidad media de reacción en un intervalo de tiempo es la variación de la concentración de un
+  reactivo o de un producto dividida entre el tiempo transcurrido y entre el coeficiente
+  estequiométrico de esa especie. Es la primera medida de rapidez de la cinética química, y el
+  coeficiente hace que la velocidad sea la misma sea cual sea la especie que se sigue.
+
+  $\var{v}$ es la velocidad media de reacción, en moles por metro cúbico y segundo; la calculadora
+  acepta también moles por litro y segundo, mil veces mayores. $\var{\Delta c_\mathrm{A}}$ es la
+  concentración de cantidad de sustancia final de la especie A menos la inicial, negativa para un
+  reactivo que se consume y positiva para un producto que se forma. $\var{\nu_\mathrm{A}}$ es el
+  número estequiométrico de A, su coeficiente entero en la ecuación química tomado negativo para un reactivo y positivo para un
+  producto, de modo que la velocidad resulta positiva. $\mag{\Delta t}$ es el tiempo transcurrido en
+  segundos.
+
+  Los textos de introducción escriben la misma regla con un signo menos delante de cada término de
+  reactivo y coeficientes positivos; la IUPAC escribe el coeficiente con su signo, al que llama número estequiométrico. En cualquiera de
+  las dos formas, en una reacción en la que desaparecen dos moléculas de un reactivo por cada
+  molécula de producto que se forma, el reactivo disminuye el doble de rápido de lo que aumenta el
+  producto, y al dividir entre el coeficiente ambos dan la misma velocidad.
+
+  El valor es un promedio sobre el intervalo: la velocidad suele disminuir a medida que se consumen
+  los reactivos, así que los intervalos más cortos se acercan a la velocidad instantánea, la
+  pendiente de la curva de concentración en un instante. La fórmula supone un recipiente cerrado de
+  volumen constante, una sola reacción de estequiometría fija y una mezcla uniforme.
+
+  En la descomposición del peróxido de hidrógeno en agua y oxígeno, su concentración baja de 1.000 a
+  0.500 moles por litro en las primeras 6.00 horas; con un coeficiente de −2, la velocidad media de
+  reacción es de unos 0.0417 moles por litro y hora. El propio peróxido desaparece a 0.0833 moles
+  por litro y hora, el doble de esa velocidad, porque reaccionan dos de sus moléculas cada vez.

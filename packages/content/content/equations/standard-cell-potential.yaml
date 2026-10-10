@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Standard cell potential'
+kind: 'formula'
+level: 'intro'
+expression: '\var{E^{\circ}_\mathrm{cell}}=\var{E^{\circ}_\mathrm{cathode}}-\var{E^{\circ}_\mathrm{anode}}'
+terms:
+  E^{\circ}_\mathrm{cell}:
+    kind: 'symbol'
+    label:
+      en: 'Standard cell potential'
+    unit: 'volt'
+    identifier: 'E_cell'
+  E^{\circ}_\mathrm{cathode}:
+    kind: 'symbol'
+    label:
+      en: 'Standard reduction potential of the cathode'
+    unit: 'volt'
+    identifier: 'E_cathode'
+  E^{\circ}_\mathrm{anode}:
+    kind: 'symbol'
+    label:
+      en: 'Standard reduction potential of the anode'
+    unit: 'volt'
+    identifier: 'E_anode'
+solutions:
+  E^{\circ}_\mathrm{cell}: 'E_cathode - E_anode'
+  E^{\circ}_\mathrm{cathode}: 'E_cell + E_anode'
+  E^{\circ}_\mathrm{anode}: 'E_cathode - E_cell'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'electrochemistry'
+aliases:
+  - 'standard cell potential formula'
+  - 'cell potential'
+  - 'standard emf of a cell'
+  - 'E°cell = E°cathode - E°anode'
+  - 'E cell = E cathode - E anode'
+  - 'potencial estándar de la celda'
+  - 'potencial estándar de la pila'
+references:
+  - title: 'OpenStax, Chemistry 2e, 17.3 Electrode and Cell Potentials (Examples 17.4 and 17.5)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/17-3-electrode-and-cell-potentials'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.13, notes 14, 16 and 17'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'P. Ellgen, Thermodynamics and Chemical Equilibrium (Chemistry LibreTexts), 17.13 Predicting the Direction of Spontaneous Change: potentials are not scaled by stoichiometric coefficients'
+    url: 'https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Thermodynamics_and_Chemical_Equilibrium_(Ellgen)/17%3A_Electrochemistry/17.13%3A_Predicting_the_Direction_of_Spontaneous_Change'
+description:
+  en: >-
+    The standard cell potential of an electrochemical cell is the standard reduction potential of
+    its cathode minus the standard reduction potential of its anode. In electrochemistry this
+    difference, the voltage of a galvanic cell under standard conditions, follows from a table of
+    standard electrode potentials and tells whether the cell reaction runs on its own.
+
+    $\var{E^{\circ}_\mathrm{cell}}$ is the standard cell potential, in volts. $\var{E^{\circ}_\mathrm{cathode}}$
+    is the standard reduction potential of the half-cell where reduction takes place, the cathode,
+    and $\var{E^{\circ}_\mathrm{anode}}$ that of the half-cell where oxidation takes place, the
+    anode, both read from the same table of reduction potentials and both in volts. Every value is
+    measured against the standard hydrogen electrode, whose potential is zero by definition.
+
+    A positive cell potential marks a reaction that is spontaneous under standard conditions; a
+    negative one marks a reaction that needs an outside source of energy, as in electrolysis, and
+    reversing the reaction reverses the sign. Both reduction potentials enter exactly as tabulated:
+    the anode's is subtracted rather than having its sign changed first, and neither is multiplied
+    by the coefficients of the balanced equation, because a potential does not depend on how much
+    substance reacts.
+
+    Standard conditions mean solutes at one mole per litre, gases at 1 bar and, in the usual tables,
+    $25\,^{\circ}\mathrm{C}$. Other concentrations shift the cell potential, a correction given by
+    the Nernst equation. A positive value says the reaction can run, not how fast; the standard
+    Gibbs energy change equals minus the number of electrons transferred times the Faraday constant
+    times the standard cell potential.
+
+    In a cell of copper and silver, silver ions are reduced at 0.7996 volts and copper is oxidized
+    against 0.34 volts, so the standard cell potential is about +0.46 volts.

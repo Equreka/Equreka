@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Definición del pOH'
+terms:
+  \mathrm{pOH}:
+    label: 'pOH'
+  '[\mathrm{OH}^{-}]':
+    label: 'Concentración de iones hidróxido'
+description: >-
+  La definición del pOH expresa lo básica que es una disolución acuosa como menos el logaritmo
+  decimal de su concentración de iones hidróxido dividida entre la concentración estándar de un mol
+  por litro. Es el equivalente del pH para el ion hidróxido en la química de ácidos y bases, y sirve
+  para pasar de la concentración de una base fuerte a un valor de pOH y de un pOH a una
+  concentración.
+
+  $\var{\mathrm{pOH}}$ es el pOH, un número de dimensión uno que se escribe sin unidad; cuanto más
+  hidróxido contiene una disolución, menor es, y puede ser negativo en bases muy concentradas.
+  $\var{[\mathrm{OH}^{-}]}$ es la concentración de cantidad de sustancia de los iones hidróxido,
+  positiva y expresada por lo general en moles por litro. $\const{c^{\circ}}$ es la concentración
+  molar estándar, exactamente un mol por decímetro cúbico, que convierte el argumento del logaritmo
+  en un número puro igual a la concentración en moles por litro.
+
+  La IUPAC interpreta la letra p como un operador que significa menos el logaritmo decimal, y señala
+  el pH como la única excepción a esa lectura. Con la misma lectura del operador, el pOH lo aplica a
+  la concentración relativa de iones hidróxido. Multiplicar por diez el hidróxido reduce el pOH en una
+  unidad. Despejando la concentración, la fórmula da la concentración estándar por diez elevado a
+  menos el pOH. Como las disoluciones básicas suelen describirse por su pH, el pOH es a menudo un
+  paso intermedio: se obtiene de la concentración de hidróxido y luego se resta de pKw, 14.00 a
+  $25\,^{\circ}\mathrm{C}$, para obtener el pH.
+
+  Igual que la forma escolar del pH, esta fórmula usa concentraciones donde el tratamiento riguroso
+  usa actividades, así que solo es fiable en disoluciones diluidas. Se supone que una base fuerte como
+  el hidróxido de potasio se disocia por completo, de modo que su concentración de hidróxido es la
+  concentración de la base. Una disolución de hidróxido de potasio de 0.0125 moles por litro tiene un
+  pOH de 1.903 y, a $25\,^{\circ}\mathrm{C}$, un pH de 12.10.

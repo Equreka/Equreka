@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Variación de energía de Gibbs'
+terms:
+  \Delta G:
+    label: 'Variación de energía de Gibbs de la reacción'
+  \Delta H:
+    label: 'Variación de entalpía de la reacción'
+description: >-
+  La variación de energía de Gibbs de una reacción es igual a su variación de entalpía menos la
+  temperatura absoluta por su variación de entropía. A temperatura y presión constantes, el signo de
+  esta magnitud, también llamada variación de energía libre, decide en química y termoquímica si una
+  reacción ocurre por sí sola.
+
+  $\var{\Delta G}$ es la variación de energía de Gibbs y $\var{\Delta H}$ la variación de entalpía,
+  ambas por mol de reacción tal como está escrita, en julios por mol; las tablas las dan en
+  kilojulios por mol. Una $\var{\Delta H}$ negativa indica una reacción exotérmica. $\mag{T}$ es la
+  temperatura termodinámica en kelvin, que debe ser absoluta: a una lectura en grados Celsius hay que
+  sumarle 273.15. $\mag{\Delta S}$, una entropía molar, es la variación de entropía por mol de
+  reacción, en julios por mol y kelvin, positiva cuando la entropía de los productos supera la de los reactivos.
+
+  Una $\var{\Delta G}$ negativa indica una reacción espontánea, una positiva una reacción que no
+  avanza sin ayuda, y un valor nulo un sistema en equilibrio. Cuando las variaciones de entalpía y de
+  entropía tienen el mismo signo, la temperatura decide el resultado, y la reacción cambia de
+  comportamiento donde $\var{\Delta G}$ se anula, a la temperatura igual a la variación de entalpía
+  dividida entre la variación de entropía. Como la entropía suele tabularse en julios y la entalpía en
+  kilojulios, una de las dos debe convertirse antes de combinarlas.
+
+  La relación se deduce de definir la energía de Gibbs como la entalpía menos la temperatura por la
+  entropía, y es válida a temperatura y presión constantes. Con valores estándar da la variación de
+  energía de Gibbs estándar; usar valores de 298.15 kelvin a otras temperaturas supone que las
+  variaciones de entalpía y de entropía apenas cambian con la temperatura. Un valor negativo dice que
+  una reacción puede avanzar, no con qué rapidez.
+
+  La función lleva el nombre de Josiah Willard Gibbs, que publicó su estudio del equilibrio de las
+  sustancias heterogéneas en dos partes, en 1876 y 1878. Vaporizar agua a 298 kelvin, con una
+  variación de entalpía de 44.01 kilojulios por mol y una variación de entropía de 118.8 julios por
+  mol y kelvin, da unos +8.6 kilojulios por mol, así que el agua no hierve a temperatura ambiente.

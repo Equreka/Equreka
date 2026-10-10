@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.locale.schema.json
+name: 'Concentración molar estándar'
+description: >-
+  La concentración molar estándar, de símbolo $c^{\circ}$, vale exactamente un mol por decímetro
+  cúbico, es decir, un mol por litro o 1000 moles por metro cúbico. Es un valor de referencia fijado
+  por convenio en la química física, no una constante medida, de modo que no tiene incertidumbre.
+  También se llama concentración estándar, y su símbolo se escribe además $c^{\ominus}$.
+
+  El valor fija la referencia de una sustancia disuelta cuando la variable elegida es la
+  concentración. El estado estándar de un soluto no es una disolución real a esta concentración,
+  sino una hipotética en la que el soluto, a un mol por decímetro cúbico, sigue comportándose como lo
+  haría a dilución infinita. Al dividir una concentración de cantidad de sustancia entre
+  $c^{\circ}$ se obtiene un número puro y, como el litro es exactamente un decímetro cúbico, ese
+  número coincide con la concentración expresada en moles por litro. Una disolución con 0.25 mol de
+  soluto en cada litro tiene, por tanto, un cociente de 0.25 respecto a la referencia.
+
+  El cociente hace falta siempre que una concentración entra en un logaritmo o en una constante de
+  equilibrio, porque ambos exigen una magnitud de dimensión uno. En la forma con concentraciones que
+  se enseña en la química escolar, una aproximación a la definición de la IUPAC mediante
+  actividades, el pH y el pOH son menos los logaritmos decimales de las concentraciones de iones
+  hidrógeno e hidróxido divididas entre $c^{\circ}$, y el producto iónico del agua divide el
+  producto de esas dos concentraciones entre su cuadrado. La IUPAC también divide entre ella cada
+  concentración del argumento del logaritmo de la ecuación de Nernst, y relaciona la constante de
+  equilibrio de una disolución diluida con la constante estándar adimensional mediante potencias de
+  ella.
+
+  Nada en la naturaleza distingue una concentración de referencia: el número es un convenio, y
+  cualquier valor serviría con tal de indicarlo junto a los datos que dependen de él. Un mol por
+  decímetro cúbico para la concentración, como un mol por kilogramo para la molalidad, es el valor de
+  uso universal. Los valores de referencia de este tipo pueden cambiar, como muestra la presión
+  estándar: la IUPAC recomienda 100 kilopascales desde 1982, mientras que antes la cifra habitual era
+  una atmósfera.

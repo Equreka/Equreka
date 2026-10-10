@@ -1,0 +1,89 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Faraday''s law of electrolysis'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{m}=\frac{\mag{Q}\mag{M}}{\var{z}\const{F}}'
+terms:
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  Q:
+    kind: 'magnitude'
+    ref: 'electric-charge'
+  M:
+    kind: 'magnitude'
+    ref: 'molar-mass'
+  z:
+    kind: 'symbol'
+    label:
+      en: 'Electrons transferred per ion'
+    integer: true
+  F:
+    kind: 'constant'
+    ref: 'faraday-constant'
+solutions:
+  m: 'Q * M / (z * F)'
+  Q: 'm * z * F / M'
+  M: 'm * z * F / Q'
+  z: 'Q * M / (m * F)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q220609'
+categories:
+  - 'chemistry'
+branches:
+  - 'electrochemistry'
+aliases:
+  - 'Faraday''s laws of electrolysis'
+  - 'Faraday law of electrolysis'
+  - 'mass deposited in electrolysis'
+  - 'electroplating formula'
+  - 'm = QM/(zF)'
+  - 'm = ItM/(zF)'
+  - 'ley de Faraday de la electrólisis'
+  - 'leyes de Faraday de la electrólisis'
+  - 'ley de Faraday de la electrolisis'
+references:
+  - title: 'OpenStax, Chemistry 2e, 17.7 Electrolysis (Example 17.9)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/17-7-electrolysis'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.13'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'NIST, CODATA 2022 value: Faraday constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?f'
+  - title: 'CIAAW, Atomic weight of silver'
+    url: 'https://www.ciaaw.org/silver.htm'
+  - title: 'C. Giunta, Le Moyne College, Classic Chemistry: note on Faraday''s Experimental Researches in Electricity, Seventh Series'
+    url: 'https://web.lemoyne.edu/giunta/classicalcs/faradaynote.html'
+description:
+  en: >-
+    Faraday's law of electrolysis states that the mass of a substance deposited or released at an
+    electrode is proportional to the electric charge passed through the cell and to the molar mass
+    of the substance, and inversely proportional to the number of electrons each ion exchanges. It
+    is the quantitative rule of electrochemistry behind electroplating, the refining of metals and
+    the production of gases by electrolysis.
+
+    $\mag{m}$ is the mass deposited or released, in kilograms. $\mag{Q}$ is the charge that flows,
+    in coulombs; for a steady current it is the current times the time. $\mag{M}$ is the molar mass
+    of the substance, in kilograms per mole, or in grams per mole when the mass is wanted in grams.
+    $\var{z}$ is the number of electrons transferred per ion in the electrode half-reaction, a
+    positive whole number: one for silver ions, two for copper(II) ions. $\const{F}$ is the Faraday
+    constant, the charge of one mole of electrons, exact in the SI and about 96 485 coulombs per
+    mole.
+
+    Dividing the charge by the Faraday constant counts the moles of electrons that passed. The
+    half-reaction says how many electrons each ion needs, so dividing again by that number gives
+    the moles of substance, and multiplying by the molar mass converts them into a mass. The mass
+    therefore grows in proportion to the charge, and for a given charge it is proportional to the
+    molar mass divided by the number of electrons per ion.
+
+    The law assumes that every electron passed goes into the half-reaction considered and that the
+    current is steady, or that the charge is measured directly. Any competing electrode reaction
+    takes part of the charge, so the mass actually collected is then smaller than the law predicts.
+
+    Michael Faraday introduced the notion of electrochemical equivalence, together with the words
+    electrode, anode, cathode and electrolysis, in the Seventh Series of his Experimental Researches
+    in Electricity, published in 1834. A current of 10.23 amperes for one hour through a
+    silver-plating cell, with a molar mass of 107.87 grams per mole for silver, deposits about 41.17
+    grams of silver.

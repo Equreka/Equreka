@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Hess''s law'
+kind: 'equation'
+level: 'intro'
+algebraic: false
+expression: '\var{\Delta H}=\sum_{i}\var{\Delta H_{i}}'
+terms:
+  \Delta H:
+    kind: 'symbol'
+    label:
+      en: 'Enthalpy change of the overall reaction'
+    unit: 'joule-per-mole'
+  \Delta H_{i}:
+    kind: 'symbol'
+    label:
+      en: 'Enthalpy change of step i'
+    unit: 'joule-per-mole'
+externalIds:
+  wikidata: 'Q220060'
+categories:
+  - 'chemistry'
+branches:
+  - 'thermochemistry'
+aliases:
+  - 'Hess law'
+  - 'law of constant heat summation'
+  - 'Hess''s law of constant heat summation'
+  - 'heat summation'
+  - 'ley de Hess'
+references:
+  - title: 'OpenStax, Chemistry 2e, 5.3 Enthalpy (Hess''s Law)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/5-3-enthalpy'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11, notes 14 to 16'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'EBSCO Research Starters, Hess''s law'
+    url: 'https://www.ebsco.com/research-starters/law/hesss-law'
+description:
+  en: >-
+    Hess's law states that the enthalpy change of a chemical reaction is the same whatever route
+    leads from the reactants to the products: when the reaction is written as a series of steps,
+    the steps' enthalpy changes add up to that of the whole reaction. Also called the law
+    of constant heat summation, it is a working tool of thermochemistry for reactions whose heat is
+    hard to measure directly.
+
+    $\var{\Delta H}$ is the enthalpy change of the overall reaction and $\var{\Delta H_{i}}$ that of
+    step $i$, each in joules per mole of reaction as written, and usually quoted in kilojoules per mole. A
+    negative value marks an exothermic step or reaction, which releases heat, and a positive value
+    an endothermic one. The sum runs over every step, and the steps must add up, species by species,
+    to the overall equation.
+
+    The law holds because enthalpy is a state function: its change depends only on the initial and
+    final states, not on the path between them. Two rules follow for combining steps. Reversing a
+    step reverses the sign of its enthalpy change, and multiplying a step by a factor multiplies its
+    enthalpy change by the same factor. Species that appear on both sides of the added steps cancel
+    out.
+
+    Every step must be taken at the same temperature and pressure, and each species must be in the
+    same physical state wherever it appears, since melting or vaporizing a substance has its own
+    enthalpy change. The law is a consequence of conservation of energy and needs no assumption
+    about the mechanism.
+
+    Germain Henri Hess published the law in 1840. Burning carbon to carbon monoxide releases 111
+    kilojoules per mole of carbon, and burning that carbon monoxide to carbon dioxide releases 283
+    kilojoules per mole more, so the direct burning of carbon to carbon dioxide has an enthalpy
+    change of −111 + (−283) = −394 kilojoules per mole of reaction.

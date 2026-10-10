@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de Faraday de la electrólisis'
+terms:
+  z:
+    label: 'Electrones transferidos por ion'
+description: >-
+  La ley de Faraday de la electrólisis establece que la masa de una sustancia depositada o liberada
+  en un electrodo es proporcional a la carga eléctrica que atraviesa la celda y a la masa molar de
+  la sustancia, e inversamente proporcional al número de electrones que intercambia cada ion. Es la
+  regla cuantitativa de la electroquímica en la que se basan la galvanoplastia, el refinado de
+  metales y la producción de gases por electrólisis.
+
+  $\mag{m}$ es la masa depositada o liberada, en kilogramos. $\mag{Q}$ es la carga que circula, en
+  culombios; con una corriente constante es la corriente por el tiempo. $\mag{M}$ es la masa molar de
+  lo que se deposita, en kilogramos por mol, o en gramos por mol cuando la masa se quiere en gramos.
+  $\var{z}$ es el número de electrones transferidos por ion en la semirreacción del electrodo, un
+  número entero positivo: uno para los iones plata, dos para los iones cobre(II). $\const{F}$ es la
+  constante de Faraday, la carga de un mol de electrones, exacta en el SI y de unos 96 485 culombios
+  por mol.
+
+  Dividir la carga entre la constante de Faraday cuenta los moles de electrones que han pasado. La
+  semirreacción indica cuántos electrones necesita cada ion, así que dividir de nuevo entre ese
+  número da los moles de sustancia, y multiplicar por la masa molar los convierte en una masa. Por
+  tanto, la masa crece en proporción a la carga y, para una carga dada, es proporcional a la masa
+  molar dividida entre el número de electrones por ion.
+
+  La ley supone que cada electrón que pasa se emplea en la semirreacción considerada y que la
+  corriente es constante, o bien que la carga se mide directamente. Cualquier reacción de electrodo
+  que compita se lleva parte de la carga, y entonces la masa que se recoge es menor que la que
+  predice la ley.
+
+  Michael Faraday introdujo la noción de equivalencia electroquímica, junto con las palabras
+  electrodo, ánodo, cátodo y electrólisis, en la séptima serie de sus Experimental Researches in
+  Electricity, publicada en 1834. Una corriente de 10.23 amperios durante una hora en una celda de
+  plateado, con una masa molar de 107.87 gramos por mol para la plata, deposita unos 41.17 gramos de
+  plata.

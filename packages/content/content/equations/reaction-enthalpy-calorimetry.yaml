@@ -1,0 +1,94 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Enthalpy of reaction from calorimetry'
+kind: 'formula'
+level: 'intro'
+expression: '\var{\Delta H}=-\frac{\var{m}\mag{c}\var{\Delta T}}{\var{n}}'
+terms:
+  \Delta H:
+    kind: 'symbol'
+    label:
+      en: 'Enthalpy change of the reaction'
+    unit: 'joule-per-mole'
+  m:
+    kind: 'symbol'
+    label:
+      en: 'Mass of the solution'
+    unit: 'kilogram'
+  c:
+    kind: 'magnitude'
+    ref: 'specific-heat-capacity'
+  \Delta T:
+    kind: 'symbol'
+    label:
+      en: 'Temperature change'
+    unit: 'kelvin'
+    delta: true
+  n:
+    kind: 'symbol'
+    label:
+      en: 'Amount of the limiting reactant'
+    unit: 'mole'
+solutions:
+  \Delta H: '-(m * c * DeltaT) / n'
+  m: '-(DeltaH * n) / (c * DeltaT)'
+  c: '-(DeltaH * n) / (m * DeltaT)'
+  \Delta T: '-(DeltaH * n) / (m * c)'
+  n: '-(m * c * DeltaT) / DeltaH'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'thermochemistry'
+aliases:
+  - 'coffee-cup calorimetry'
+  - 'heat of reaction from calorimetry'
+  - 'enthalpy of neutralization'
+  - 'reaction enthalpy calorimetry'
+  - 'ΔH = -mcΔT/n'
+  - 'calorimetría a presión constante'
+  - 'calorímetro de taza de café'
+  - 'calorímetro de vaso de café'
+  - 'entalpía de neutralización'
+references:
+  - title: 'OpenStax, Chemistry 2e, 5.2 Calorimetry (Example 5.5)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/5-2-calorimetry'
+  - title: 'J. Cronk, Gonzaga University, General Chemistry Topics: Calorimetry'
+    url: 'https://web02.gonzaga.edu/faculty/cronk/CHEM101pub/calorimetry.html'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: calorie_th per gram degree Celsius'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'OpenStax, College Physics 2e, 14.2 Temperature Change and Heat Capacity, Table 14.1'
+    url: 'https://openstax.org/books/college-physics-2e/pages/14-2-temperature-change-and-heat-capacity'
+description:
+  en: >-
+    The enthalpy of reaction from calorimetry turns a temperature change measured in a calorimeter
+    into a molar enthalpy of reaction. In a coffee-cup calorimeter, an insulated cup open to the
+    air, the heat a reaction releases is taken up by the solution around it, so the molar enthalpy
+    of reaction equals minus the heat gained by the solution divided by the amount that reacted.
+
+    $\var{\Delta H}$ is the enthalpy change of the reaction per mole, in joules per mole: negative for an
+    exothermic reaction, which warms the solution, and positive for an endothermic one, which cools
+    it. $\var{m}$ is the mass of the solution in kilograms and $\mag{c}$ its specific heat capacity,
+    entered in joules per kilogram kelvin or in calories per gram degree Celsius. $\var{\Delta T}$ is
+    the final minus the initial temperature, the same number in kelvins and in degrees Celsius.
+    $\var{n}$ is the amount, in moles, of the limiting reactant.
+
+    The product of mass, specific heat capacity and temperature change is the heat absorbed by the
+    solution. Energy is conserved inside the insulated cup, so the reaction gives off exactly that
+    heat and its own heat carries the opposite sign, which is the origin of the minus sign. At
+    constant pressure this heat is the enthalpy change, and dividing by the amount that reacted
+    makes it a molar quantity.
+
+    The method treats the cup as isolated and neglects the heat absorbed by the cup and the
+    thermometer, which suits rough work. Dilute aqueous solutions are usually given the density and
+    the specific heat capacity of water, 4.184 joules per gram degree Celsius, the figure chemistry
+    texts take from the thermochemical calorie; physics tables give 4186 joules per kilogram kelvin
+    for water at 15 degrees Celsius, which differs only in the fourth digit. Dividing by the amount
+    of the limiting reactant gives the enthalpy per mole of reaction only when that reactant has a
+    coefficient of one in the chemical equation.
+
+    Mixing 25.00 millilitres of sodium hydroxide at 1.120 moles per litre with 25.00 millilitres of
+    hydrochloric acid at 1.050 moles per litre warms 50.00 grams of solution by 7.00 degrees
+    Celsius; with 0.026 25 moles of hydrogen ions reacting, the enthalpy of neutralization is about
+    −55.8 kilojoules per mole.

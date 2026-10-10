@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Relation between pH and pOH'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{\mathrm{pH}}+\var{\mathrm{pOH}}=\var{\mathrm{p}K_\mathrm{w}}'
+terms:
+  \mathrm{pH}:
+    kind: 'magnitude'
+    ref: 'ph'
+  \mathrm{pOH}:
+    kind: 'symbol'
+    label:
+      en: 'pOH'
+  \mathrm{p}K_\mathrm{w}:
+    kind: 'symbol'
+    label:
+      en: 'pKw of water'
+solutions:
+  \mathrm{pH}: 'pK_w - pOH'
+  \mathrm{pOH}: 'pK_w - pH'
+  \mathrm{p}K_\mathrm{w}: 'pH + pOH'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'acids-and-bases'
+aliases:
+  - 'pH + pOH = 14'
+  - 'pH plus pOH'
+  - 'pH pOH relationship'
+  - 'pKw'
+  - 'pH y pOH'
+  - 'pH + pOH = pKw'
+references:
+  - title: 'OpenStax, Chemistry 2e, 14.2 pH and pOH'
+    url: 'https://openstax.org/books/chemistry-2e/pages/14-2-ph-and-poh'
+  - title: 'OpenStax, Chemistry 2e, 14.1 Brønsted-Lowry Acids and Bases'
+    url: 'https://openstax.org/books/chemistry-2e/pages/14-1-bronsted-lowry-acids-and-bases'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.13.1 (viii): the operator p'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+description:
+  en: >-
+    The relation between pH and pOH states that, in any dilute aqueous solution, the pH and the pOH
+    add up to pKw, minus the base-ten logarithm of the ion product of water. At 25 degrees Celsius
+    pKw is 14.00, which gives the familiar school rule pH + pOH = 14 for converting between the
+    acidity and the basicity of a solution.
+
+    $\mag{\mathrm{pH}}$ is the pH, set by the hydrogen ion concentration, and $\var{\mathrm{pOH}}$
+    is the pOH, set by the hydroxide ion concentration; both are numbers of dimension one with no
+    unit and both can be negative. $\var{\mathrm{p}K_\mathrm{w}}$ is minus the base-ten logarithm of
+    the ion product of water, a positive pure number that depends only on the temperature. The
+    calculator takes it as an input, so the value for the temperature of the solution must be
+    entered.
+
+    The relation follows from the ion product. Taking minus the base-ten logarithm of both sides of
+    that equation turns the product of the two relative concentrations into a sum, and each term of
+    the sum is by definition the pH or the pOH. A solution is neutral when the two are equal, each
+    half of pKw, acidic when the pH is the smaller and basic when the pOH is.
+
+    The value 14.00 holds only at 25 degrees Celsius, where the ion product is
+    $1.0\times10^{-14}$. Self-ionization grows with temperature, so pKw falls: at 80 degrees Celsius
+    the neutral point is a pH of 6.31, which is neutral and not acidic. Like the definitions of pH
+    and pOH it rests on, the relation uses concentrations in place of activities and is reliable in
+    dilute solutions.
+
+    The relation lets a pH meter reading stand for both ions at once. A solution of pOH 1.903 has a
+    pH of 12.10 at 25 degrees Celsius.

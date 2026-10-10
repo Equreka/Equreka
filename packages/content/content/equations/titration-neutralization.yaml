@@ -1,0 +1,96 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Acid-base titration equation'
+kind: 'equation'
+level: 'intro'
+expression: '\var{c_\mathrm{a}}\var{V_\mathrm{a}}\var{\nu_\mathrm{b}}=\var{c_\mathrm{b}}\var{V_\mathrm{b}}\var{\nu_\mathrm{a}}'
+terms:
+  c_\mathrm{a}:
+    kind: 'symbol'
+    label:
+      en: 'Concentration of the acid'
+    unit: 'mole-per-cubic-metre'
+  V_\mathrm{a}:
+    kind: 'symbol'
+    label:
+      en: 'Volume of the acid solution'
+    unit: 'cubic-metre'
+  \nu_\mathrm{b}:
+    kind: 'symbol'
+    label:
+      en: 'Stoichiometric coefficient of the base'
+    integer: true
+  c_\mathrm{b}:
+    kind: 'symbol'
+    label:
+      en: 'Concentration of the base'
+    unit: 'mole-per-cubic-metre'
+  V_\mathrm{b}:
+    kind: 'symbol'
+    label:
+      en: 'Volume of the base solution'
+    unit: 'cubic-metre'
+  \nu_\mathrm{a}:
+    kind: 'symbol'
+    label:
+      en: 'Stoichiometric coefficient of the acid'
+    integer: true
+solutions:
+  c_\mathrm{a}: 'c_b * V_b * nu_a / (V_a * nu_b)'
+  V_\mathrm{a}: 'c_b * V_b * nu_a / (c_a * nu_b)'
+  \nu_\mathrm{b}: 'c_b * V_b * nu_a / (c_a * V_a)'
+  c_\mathrm{b}: 'c_a * V_a * nu_b / (V_b * nu_a)'
+  V_\mathrm{b}: 'c_a * V_a * nu_b / (c_b * nu_a)'
+  \nu_\mathrm{a}: 'c_a * V_a * nu_b / (c_b * V_b)'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'acids-and-bases'
+aliases:
+  - 'titration formula'
+  - 'titration calculation'
+  - 'neutralization equation'
+  - 'neutralisation equation'
+  - 'equivalence point equation'
+  - 'MaVa = MbVb'
+  - 'caVa = cbVb'
+  - 'fórmula de valoración'
+  - 'titulación ácido-base'
+  - 'ecuación de neutralización'
+references:
+  - title: 'OpenStax, Chemistry 2e, 4.5 Quantitative Chemical Analysis, Titration and Example 4.14'
+    url: 'https://openstax.org/books/chemistry-2e/pages/4-5-quantitative-chemical-analysis'
+  - title: 'CK-12, Introductory Chemistry, 21.18 Titration Calculations (LibreTexts), Example 1'
+    url: 'https://chem.libretexts.org/Bookshelves/Introductory_Chemistry/Book:_Introductory_Chemistry_(CK-12)/21:_Acids_and_Bases/21.18:_Titration_Calculations'
+  - title: 'ChemTeam, Titration calculations: the general form with the coefficients of the balanced equation'
+    url: 'https://web.chemteam.info/AcidBase/Titration-Calc-volume.html'
+description:
+  en: >-
+    The acid-base titration equation relates the concentrations and volumes of an acid and a base
+    that have exactly neutralized each other at the equivalence point. Weighted by the coefficients
+    of the balanced neutralization reaction, it is the working rule of volumetric analysis for
+    finding an unknown concentration from the volume of a standard solution added from a burette.
+
+    $\var{c_\mathrm{a}}$ and $\var{V_\mathrm{a}}$ are the amount concentration and the volume of the
+    acid solution, and $\var{c_\mathrm{b}}$ and $\var{V_\mathrm{b}}$ those of the base solution;
+    concentrations are stored in moles per cubic metre and volumes in cubic metres, though moles per
+    litre with millilitres serve as long as both sides use the same units. $\var{\nu_\mathrm{a}}$
+    and $\var{\nu_\mathrm{b}}$ are the whole-number coefficients of the acid and the base in the
+    reaction. All six are positive.
+
+    Each concentration times its volume is an amount in moles. At the equivalence point the amounts
+    that have reacted stand in the ratio of the coefficients, so the amount of acid divided by its
+    coefficient equals the amount of base divided by its own, and clearing the fractions gives the
+    equation. When both coefficients are one, as for hydrochloric acid with sodium hydroxide, it
+    reduces to the short form in which concentration times volume is equal on both sides. That short
+    form fails for other ratios: sulfuric acid needs two moles of sodium hydroxide per mole.
+
+    The equation assumes a single reaction that goes to completion with known coefficients, and an
+    indicator whose colour change, the end point, falls close enough to the equivalence point.
+    Introductory textbooks teach the general stoichiometric route and treat the one-to-one form as a
+    special case of it.
+
+    When 26.60 millilitres of sulfuric acid are neutralized by 32.20 millilitres of sodium hydroxide
+    at 0.250 moles per litre, the acid concentration is 0.151 moles per litre.

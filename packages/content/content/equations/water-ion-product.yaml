@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Ion product of water'
+kind: 'equation'
+level: 'intro'
+expression: '\var{K_\mathrm{w}}=\frac{\var{[\mathrm{H}^{+}]}\var{[\mathrm{OH}^{-}]}}{\const{c^{\circ}}^{2}}'
+terms:
+  K_\mathrm{w}:
+    kind: 'symbol'
+    label:
+      en: 'Ion product of water'
+  '[\mathrm{H}^{+}]':
+    kind: 'symbol'
+    label:
+      en: 'Hydrogen ion concentration'
+    unit: 'mole-per-cubic-metre'
+    identifier: 'cH'
+  '[\mathrm{OH}^{-}]':
+    kind: 'symbol'
+    label:
+      en: 'Hydroxide ion concentration'
+    unit: 'mole-per-cubic-metre'
+    identifier: 'cOH'
+  c^{\circ}:
+    kind: 'constant'
+    ref: 'standard-amount-concentration'
+    identifier: 'c_std'
+solutions:
+  K_\mathrm{w}: 'cH * cOH / c_std^2'
+  '[\mathrm{H}^{+}]': 'K_w * c_std^2 / cOH'
+  '[\mathrm{OH}^{-}]': 'K_w * c_std^2 / cH'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'acids-and-bases'
+aliases:
+  - 'ion-product constant for water'
+  - 'water ion product'
+  - 'ionic product of water'
+  - 'water dissociation constant'
+  - 'autoionization constant of water'
+  - 'Kw'
+  - 'Kw = [H+][OH-]'
+  - 'constante del producto iónico del agua'
+  - 'constante de autoionización del agua'
+references:
+  - title: 'OpenStax, Chemistry 2e, 14.1 Brønsted-Lowry Acids and Bases, Examples 14.1 and 14.2'
+    url: 'https://openstax.org/books/chemistry-2e/pages/14-1-bronsted-lowry-acids-and-bases'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11 notes 18 and 19: standard equilibrium constant, Kw'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+description:
+  en: >-
+    The ion product of water is the equilibrium constant for the self-ionization of water, in which
+    two water molecules exchange a proton to form a hydronium ion and a hydroxide ion. It equals the
+    hydrogen ion concentration times the hydroxide ion concentration, each taken relative to the
+    standard concentration, and at a fixed temperature it is the same in pure water and in every
+    dilute aqueous solution.
+
+    $\var{K_\mathrm{w}}$ is the ion product of water, a positive pure number. $\var{[\mathrm{H}^{+}]}$
+    and $\var{[\mathrm{OH}^{-}]}$ are the amount concentrations of hydrogen ions, present as
+    hydronium, and of hydroxide ions, both positive and usually entered in moles per litre.
+    $\const{c^{\circ}}$ is the standard amount concentration, exactly one mole per cubic decimetre;
+    dividing by its square makes the constant dimensionless, as IUPAC requires of a standard
+    equilibrium constant, while keeping the numbers that textbooks quote in moles per litre.
+
+    Because the product is fixed, the two concentrations move in opposite directions: adding acid
+    raises the hydrogen ions and forces the hydroxide ions down by the same factor. In pure water the
+    two are equal, each the square root of the constant times the standard concentration, which
+    defines a neutral solution. Knowing either concentration gives the other.
+
+    The constant depends strongly on temperature. At $25\,^{\circ}\mathrm{C}$ it is
+    $1.0\times10^{-14}$, so neutral water then holds $1.0\times10^{-7}$ moles of each ion per litre;
+    self-ionization absorbs heat, and at $80\,^{\circ}\mathrm{C}$ the constant is about 24 times larger.
+    Concentrations stand in for activities, which holds only in dilute solutions.
+
+    At $25\,^{\circ}\mathrm{C}$, an acid solution with 0.010 moles of hydronium per litre holds
+    $1.0\times10^{-12}$ moles of hydroxide per litre.

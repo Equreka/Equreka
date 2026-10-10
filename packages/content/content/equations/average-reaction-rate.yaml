@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Average rate of reaction'
+kind: 'formula'
+level: 'intro'
+expression: '\var{v}=\frac{1}{\var{\nu_\mathrm{A}}}\frac{\var{\Delta c_\mathrm{A}}}{\mag{\Delta t}}'
+terms:
+  v:
+    kind: 'symbol'
+    label:
+      en: 'Average rate of reaction'
+    unit: 'mole-per-cubic-metre-second'
+  \nu_\mathrm{A}:
+    kind: 'symbol'
+    label:
+      en: 'Stoichiometric number of A, negative for a reactant'
+    integer: true
+  \Delta c_\mathrm{A}:
+    kind: 'symbol'
+    label:
+      en: 'Change in the concentration of A'
+    unit: 'mole-per-cubic-metre'
+  \Delta t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  v: 'Deltac_A / (nu_A * Deltat)'
+  \nu_\mathrm{A}: 'Deltac_A / (v * Deltat)'
+  \Delta c_\mathrm{A}: 'v * nu_A * Deltat'
+  \Delta t: 'Deltac_A / (v * nu_A)'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'chemical-kinetics'
+aliases:
+  - 'average reaction rate'
+  - 'rate of reaction'
+  - 'reaction rate formula'
+  - 'rate = -(1/a) Δ[A]/Δt'
+  - 'rate of disappearance'
+  - 'rate of appearance'
+  - 'velocidad media de reacción'
+  - 'velocidad de reacción'
+references:
+  - title: 'OpenStax, Chemistry 2e, 12.1 Chemical Reaction Rates'
+    url: 'https://openstax.org/books/chemistry-2e/pages/12-1-chemical-reaction-rates'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.10 note 19 and section 2.12'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+description:
+  en: >-
+    The average rate of reaction over a time interval is the change in the concentration of one
+    reactant or product divided by the elapsed time and by that species' stoichiometric
+    coefficient. It is the first measure of speed in chemical kinetics, and the coefficient makes
+    the rate the same whichever species is followed.
+
+    $\var{v}$ is the average rate of reaction, in moles per cubic metre second; the calculator also
+    takes moles per litre second, a thousand times larger. $\var{\Delta c_\mathrm{A}}$ is the final
+    minus the initial amount concentration of species A, negative for a reactant that is used up and
+    positive for a product that forms. $\var{\nu_\mathrm{A}}$ is the stoichiometric number of A, its
+    whole-number coefficient in the chemical equation taken negative for a reactant and positive for a product, so the rate
+    comes out positive. $\mag{\Delta t}$ is the elapsed time in seconds.
+
+    Introductory texts write the same rule with a minus sign in front of each reactant term and
+    positive coefficients; IUPAC writes the coefficient with its sign, which it calls the
+    stoichiometric number. In either form, a reaction in which two molecules of one reactant
+    disappear for each molecule of product formed shows the reactant falling twice as fast as the
+    product rises, and dividing by the coefficient gives both the same rate.
+
+    The value is an average over the interval: the rate usually slows as reactants are consumed, so
+    shorter intervals approach the instantaneous rate, the slope of the concentration curve at a
+    moment. The formula assumes a closed vessel of constant volume, one reaction of fixed
+    stoichiometry and a uniform mixture.
+
+    In the decomposition of hydrogen peroxide into water and oxygen, its concentration falls from
+    1.000 to 0.500 moles per litre in the first 6.00 hours; with a coefficient of −2, the average
+    rate of reaction is about 0.0417 moles per litre hour. The peroxide itself disappears at
+    0.0833 moles per litre hour, twice that rate, because two of its molecules react each time.
