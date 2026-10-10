@@ -1,11 +1,11 @@
 import { splitRichText } from '@equreka/content/rich-text';
 import { describe, expect, it } from '@jest/globals';
+import { getEntity } from '../entities/content/lookup';
 import { pickRichText } from '../entities/content/text';
-import { getPresentation } from '../shared/content/artifact';
 
 describe('pickRichText', () => {
 	it('splits bundled prose once and returns the same object on every later call', () => {
-		const description = getPresentation('equations')['mass-energy-equivalence']?.description;
+		const description = getEntity('equations', 'mass-energy-equivalence')?.description;
 		expect(description).toBeDefined();
 		const first = pickRichText(description, 'en');
 		expect(first).toEqual({ segments: splitRichText(description?.en ?? ''), untranslated: false });

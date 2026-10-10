@@ -43,6 +43,7 @@ export interface CompileReport {
 	verifications: Map<string, EquationVerification>;
 	math: MathStats;
 	artifacts: EmittedArtifact[];
+	mobileTransferBytes: number;
 }
 
 function defaultPackageRoot(): string {
@@ -106,6 +107,7 @@ export async function compileContent(
 	issues.push(...math.issues);
 
 	let artifacts: EmittedArtifact[] = [];
+	let mobileTransferBytes = 0;
 	if (mode === 'build' && !hasErrors(issues)) {
 		const emitted = emitArtifacts({
 			corpus,
@@ -118,6 +120,7 @@ export async function compileContent(
 		});
 		issues.push(...emitted.issues);
 		artifacts = emitted.artifacts;
+		mobileTransferBytes = emitted.mobileTransferBytes;
 	}
 
 	const counts: Record<string, number> = {};
@@ -139,6 +142,7 @@ export async function compileContent(
 		verifications: verification.equations,
 		math: math.artifact.stats,
 		artifacts,
+		mobileTransferBytes,
 	};
 }
 

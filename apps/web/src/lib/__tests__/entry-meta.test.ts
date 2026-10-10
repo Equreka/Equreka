@@ -1,7 +1,7 @@
 import engineArtifact from '@equreka/content/artifact/engine.json';
-import unitsPresentation from '@equreka/content/artifact/presentation/units.json';
 import type { EngineSlice, TextSource } from '@equreka/schema';
 import { describe, expect, it } from 'vitest';
+import { readPresentation } from '../../integrations/equreka-assets';
 import {
 	converterMagnitudeOf,
 	definedTermJsonLd,
@@ -12,7 +12,9 @@ import {
 
 const slice = engineArtifact as unknown as EngineSlice;
 
-const units = unitsPresentation as unknown as Record<string, { status: 'draft' | 'reviewed' }>;
+const units = readPresentation<{ status: 'draft' | 'reviewed'; textSources: TextSource[] }>(
+	'units',
+);
 
 describe('isDraft', () => {
 	it('shows the draft badge for draft and unstated status, hides it for reviewed', () => {
@@ -83,8 +85,7 @@ describe('definedTermJsonLd', () => {
 	});
 
 	it('follows the textSources the pipeline emits (metre credits its Wikipedia article)', () => {
-		const metre = (unitsPresentation as unknown as Record<string, { textSources: TextSource[] }>)
-			.metre;
+		const metre = units.metre;
 		expect(metre?.textSources.map((source) => source.url)).toContain(
 			'https://en.wikipedia.org/wiki/Metre',
 		);

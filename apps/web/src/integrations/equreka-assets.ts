@@ -3,10 +3,11 @@ import { createRequire } from 'node:module';
 import { dirname, join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { BUDGET_WARN_RATIO } from '@equreka/content/artifact-budgets';
+import { readPresentationSlice } from '@equreka/content/presentation-shards';
 import { stripMacrosToText } from '@equreka/content/rich-text';
 import { COLLECTION_ORDER } from '@equreka/core/collections';
 import { LOCALES, type Locale } from '@equreka/core/i18n';
-import type { EngineSlice } from '@equreka/schema';
+import type { CollectionName, EngineSlice } from '@equreka/schema';
 import type { AstroIntegration } from 'astro';
 import { localePayloadUrl } from '../lib/locale-payloads';
 
@@ -180,13 +181,20 @@ interface PresentationEntry {
 	steps?: PresentationPathStep[];
 }
 
-function readPresentation(collection: string): Record<string, PresentationEntry> {
-	return JSON.parse(
-		readFileSync(
-			requireFromHere.resolve(`@equreka/content/artifact/presentation/${collection}.json`),
-			'utf8',
+/**
+ * One collection's full presentation slice from the built artifact, a
+ * sharded slice reassembled from its index and every shard (ADR 0015): the
+ * build reads every entry, so it never needs the per-entry laziness the
+ * shards give mobile.
+ */
+export function readPresentation<Entry = PresentationEntry>(
+	collection: CollectionName,
+): Record<string, Entry> {
+	return readPresentationSlice(collection, (relPath) =>
+		JSON.parse(
+			readFileSync(requireFromHere.resolve(`@equreka/content/artifact/${relPath}`), 'utf8'),
 		),
-	) as Record<string, PresentationEntry>;
+	) as Record<string, Entry>;
 }
 
 function outlineTitle(step: PresentationPathStep, locale: Locale): string {
@@ -202,7 +210,7 @@ function outlineTitle(step: PresentationPathStep, locale: Locale): string {
 	}
 }
 
-function buildReaderPayload(locale: Locale): string {
+export function buildReaderPayload(locale: Locale): string {
 	const payload: ReaderPayload = {};
 	for (const collection of COLLECTION_ORDER) {
 		const slice: Record<string, ReaderEntry> = {};

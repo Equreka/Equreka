@@ -1,7 +1,21 @@
 import { ARTIFACT_BUDGETS, artifactBudgetPatterns } from '@equreka/content/artifact-budgets';
+import {
+	PRESENTATION_SHARDS,
+	presentationShardPath,
+	readPresentationSlice,
+	SHARDED_COLLECTIONS,
+} from '@equreka/content/presentation-shards';
 import { MATH_SHARD_COUNT, mathShardName } from '@equreka/content/rich-text';
 import { describe, expect, it, jest } from '@jest/globals';
-import { getAllMathBodies, getMathBody, getMathBodyShard } from '../shared/content/artifact';
+import { getEntity } from '../entities/content/lookup';
+import {
+	getAllMathBodies,
+	getMathBody,
+	getMathBodyShard,
+	getPresentation,
+	getPresentationShard,
+	getSearchLeads,
+} from '../shared/content/artifact';
 
 declare const __dirname: string;
 
@@ -27,6 +41,10 @@ const ARTIFACT_SPECIFIER_RE =
 function importedArtifacts(): string[] {
 	const source = fs.readFileSync(ARTIFACT_SOURCE, 'utf8');
 	return Array.from(source.matchAll(ARTIFACT_SPECIFIER_RE), (match) => match[1] ?? '');
+}
+
+function readDist(relPath: string): unknown {
+	return JSON.parse(fs.readFileSync(`${DIST}/${relPath}`, 'utf8'));
 }
 
 function distFiles(): string[] {
@@ -69,6 +87,44 @@ describe('bundled content artifact', () => {
 			);
 		});
 		expect(getMathBodyShard(MATH_SHARD_COUNT)).toBeUndefined();
+	});
+
+	it('requires every presentation shard, loader i reading <collection>/<shardName(i)>.json', () => {
+		for (const collection of SHARDED_COLLECTIONS) {
+			const { count } = PRESENTATION_SHARDS[collection];
+			const shardPaths = Array.from({ length: count }, (_, shard) =>
+				presentationShardPath(collection, shard),
+			);
+			expect(
+				importedArtifacts().filter((path) => path.startsWith(`presentation/${collection}/`)),
+			).toEqual(shardPaths);
+			shardPaths.forEach((path, shard) => {
+				expect(getPresentationShard(collection, shard)).toEqual(readDist(path));
+			});
+			expect(getPresentationShard(collection, count)).toBeUndefined();
+		}
+	});
+
+	it('rebuilds every entry of a sharded collection from its index row and its shard row', () => {
+		for (const collection of SHARDED_COLLECTIONS) {
+			const whole = readPresentationSlice(collection, readDist);
+			const slugs = Object.keys(getPresentation(collection));
+			expect(slugs.sort()).toEqual(Object.keys(whole).sort());
+			for (const slug of slugs) {
+				expect([collection, slug, getEntity(collection, slug)]).toEqual([
+					collection,
+					slug,
+					whole[slug],
+				]);
+			}
+			expect(getEntity(collection, 'no-such-entry')).toBeUndefined();
+			expect(getEntity(collection, 'constructor')).toBeUndefined();
+		}
+	});
+
+	it('reads the search leads of each locale from its own file', () => {
+		expect(getSearchLeads('en')).toEqual(readDist('search/leads.en.json'));
+		expect(getSearchLeads('es')).toEqual(readDist('search/leads.es.json'));
 	});
 
 	it('finds every body through the shard its TeX hashes to', () => {
