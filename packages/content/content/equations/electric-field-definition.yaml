@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Definition of the electric field'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{E}=\frac{\mag{F}}{\mag{q}}'
+terms:
+  E:
+    kind: 'magnitude'
+    ref: 'electric-field-strength'
+  F:
+    kind: 'magnitude'
+    ref: 'force'
+  q:
+    kind: 'magnitude'
+    ref: 'electric-charge'
+solutions:
+  E: 'F / q'
+  F: 'E * q'
+  q: 'F / E'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'electric field definition'
+  - 'electric field as force per unit charge'
+  - 'force on a charge in an electric field'
+  - 'E = F / q'
+  - 'F = q E'
+  - 'definición de campo eléctrico'
+  - 'campo eléctrico como fuerza por unidad de carga'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 5.4 Electric Field'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/5-4-electric-field'
+  - title: 'OpenStax, College Physics 2e, 18.4 Electric Field: Concept of a Field Revisited'
+    url: 'https://openstax.org/books/college-physics-2e/pages/18-4-electric-field-concept-of-a-field-revisited'
+  - title: 'OpenStax, College Physics 2e, 19.2 Electric Potential in a Uniform Electric Field'
+    url: 'https://openstax.org/books/college-physics-2e/pages/19-2-electric-potential-in-a-uniform-electric-field'
+description:
+  en: >-
+    The definition of the electric field states that the field at a point equals the electric force
+    on a small test charge placed there divided by that charge, that is, force per unit charge. The
+    quantity it defines, electric field strength, tells how hard the charges around a point push or
+    pull on any charge brought to it, and it is the central idea of electrostatics and of
+    electromagnetism as a whole.
+
+    $\mag{E}$ is the electric field strength in volts per metre, a unit equal to the newton per
+    coulomb. $\mag{F}$ is the electric force on the test charge in newtons, and $\mag{q}$ is the test
+    charge in coulombs, entered with its sign. Field and force are vectors; along a chosen axis, a
+    positive value points in the positive direction. The field points the way a positive charge
+    would be pushed, so a negative test charge feels a force opposite to the field.
+
+    Turned around, the relation gives the force on any charge once the field is known: the charge
+    times the field. Since the force on a test charge grows in proportion to the charge, the ratio
+    does not depend on which test charge is used; it describes the place itself, as shaped by the
+    surrounding source charges. That splits an electrostatics problem in two steps: first find the
+    field the sources produce, then the force on whatever charge sits in it. The fields of several
+    sources add as vectors.
+
+    The test charge has to be small enough not to disturb the source charges; a large one would
+    shift them and alter the very field it is meant to probe. The definition applies point by point
+    to any field, uniform or not. The force it uses is the electric one only: a moving charge can
+    also feel a magnetic force, which is a separate effect.
+
+    An electron gun accelerates its electrons with a field of this kind between two plates. In a
+    uniform field of $6.25\times10^{5}\,\mathrm{V/m}$, a charge of half a microcoulomb feels a
+    force of about 0.313 newtons, the same anywhere between the plates.

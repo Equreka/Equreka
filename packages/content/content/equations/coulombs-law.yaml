@@ -1,0 +1,90 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Coulomb''s law'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{F}=\const{k_\mathrm{e}}\frac{\var{q_{1}}\var{q_{2}}}{\var{r}^{2}}'
+terms:
+  F:
+    kind: 'magnitude'
+    ref: 'force'
+  k_\mathrm{e}:
+    kind: 'constant'
+    ref: 'coulomb-constant'
+  q_{1}:
+    kind: 'symbol'
+    label:
+      en: 'First charge'
+    unit: 'coulomb'
+  q_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Second charge'
+    unit: 'coulomb'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Distance between the charges'
+    unit: 'metre'
+solutions:
+  F: 'k_e * q_1 * q_2 / r^2'
+  q_{1}: 'F * r^2 / (k_e * q_2)'
+  q_{2}: 'F * r^2 / (k_e * q_1)'
+  r: 'sqrt(k_e * q_1 * q_2 / F)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q83152'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'Coulomb law'
+  - 'law of electrostatic force'
+  - 'inverse square law of electrostatics'
+  - 'electrostatic force between two charges'
+  - 'F = k q1 q2 / r^2'
+  - 'ley de Coulomb'
+  - 'fuerza electrostática entre dos cargas'
+  - 'interacción electrostática'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 5.3 Coulomb''s Law'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/5-3-coulombs-law'
+  - title: 'OpenStax, College Physics 2e, 18.3 Coulomb''s Law'
+    url: 'https://openstax.org/books/college-physics-2e/pages/18-3-coulombs-law'
+  - title: 'APS News, This Month in Physics History: June 1785, Coulomb Measures the Electric Force'
+    url: 'https://www.aps.org/apsnews/2016/06/coulomb-measures-electric-force'
+  - title: 'National MagLab, Magnet Academy, Torsion Balance (1785)'
+    url: 'https://nationalmaglab.org/magnet-academy/history-of-electricity-magnetism/museum/torsion-balance-1785/'
+description:
+  en: >-
+    Coulomb's law gives the electrostatic force between two point charges at rest: the push or pull
+    grows with the product of the two charges and weakens with the square of their separation. It is
+    the founding law of electrostatics, the part of electromagnetism that deals with charges that do
+    not move, and the electric counterpart of the inverse-square law of gravitation.
+
+    $\mag{F}$ is the force in newtons that each charge exerts on the other, acting along the line
+    that joins them. $\var{q_{1}}$ and $\var{q_{2}}$ are the two charges in coulombs, each entered
+    with its sign, and $\var{r}$ is the distance between the charges in metres. $\const{k_\mathrm{e}}$
+    is the Coulomb constant, about $8.99\times10^{9}\,\mathrm{N\,m^{2}/C^{2}}$, equal to one over
+    four pi times the vacuum electric permittivity. The sign of the result carries the direction: a
+    positive force means charges of the same sign that repel, a negative force means opposite charges
+    that attract.
+
+    Doubling either charge doubles the force, while doubling the distance cuts it to a quarter. The
+    forces on the two charges have the same size and opposite directions, as Newton's third law
+    demands. With three or more charges, the force on any one of them is the vector sum of the
+    separate pairwise forces, a rule known as superposition. Electric forces dwarf gravity at atomic
+    scale: in hydrogen, the attraction between proton and electron exceeds their gravitational pull
+    by about 39 orders of magnitude.
+
+    The law describes point charges, or spherical charge distributions with the distance taken
+    between their centres, held still in vacuum. Charges in motion also exert magnetic forces on
+    each other, which the law leaves out. Experiments have confirmed the inverse-square dependence
+    to about one part in ten thousand million million.
+
+    Charles-Augustin de Coulomb reported the inverse-square behaviour in 1785, after measuring the
+    repulsion between small charged balls with a torsion balance, in which the twist of a thin fibre
+    reveals a tiny force. In a hydrogen atom, the proton and electron, about
+    $5.29\times10^{-11}\,\mathrm{m}$ apart, attract with roughly $8.2\times10^{-8}$ newtons.

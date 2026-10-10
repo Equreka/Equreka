@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Electric potential of a point charge'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{V}=\const{k_\mathrm{e}}\frac{\mag{q}}{\var{r}}'
+terms:
+  V:
+    kind: 'magnitude'
+    ref: 'electric-potential'
+  k_\mathrm{e}:
+    kind: 'constant'
+    ref: 'coulomb-constant'
+  q:
+    kind: 'magnitude'
+    ref: 'electric-charge'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Distance from the charge'
+    unit: 'metre'
+solutions:
+  V: 'k_e * q / r'
+  q: 'V * r / k_e'
+  r: 'k_e * q / V'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'point charge potential'
+  - 'Coulomb potential'
+  - 'potential of a point charge'
+  - 'V = k q / r'
+  - 'potencial eléctrico de una carga puntual'
+  - 'potencial de Coulomb'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 7.3 Calculations of Electric Potential'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/7-3-calculations-of-electric-potential'
+  - title: 'OpenStax, College Physics 2e, 19.3 Electrical Potential Due to a Point Charge'
+    url: 'https://openstax.org/books/college-physics-2e/pages/19-3-electrical-potential-due-to-a-point-charge'
+  - title: 'OpenStax, University Physics Volume 2, 7.2 Electric Potential and Potential Difference'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/7-2-electric-potential-and-potential-difference'
+description:
+  en: >-
+    The electric potential of a point charge, the potential energy per unit charge that a single
+    charge sets up around itself, equals the Coulomb constant times the charge divided by the
+    distance from it, with the zero of potential placed infinitely far away. It is the basic result for
+    voltage in electrostatics, and the potentials of several charges add to give the potential of
+    any distribution.
+
+    $\mag{V}$ is the electric potential in volts, that is, joules per coulomb. $\mag{q}$ is the
+    source charge in coulombs, with its sign, and $\var{r}$ is the distance from the charge to the
+    point considered, in metres. $\const{k_\mathrm{e}}$ is the Coulomb constant, about
+    $8.99\times10^{9}\,\mathrm{N\,m^{2}/C^{2}}$, equal to one over four pi times the vacuum
+    electric permittivity. A positive charge raises the potential around it and a negative charge
+    lowers it below zero; a positive test charge drifts towards lower potential.
+
+    The potential is the work per unit charge needed to bring a small positive test charge in from
+    infinity to the point, against the field of the source. Unlike the field, which falls as the
+    inverse square of the distance and has a direction, the potential falls as the inverse of the
+    distance and is a scalar. Several charges therefore combine by plain addition of their
+    potentials, signs included. All points at the same distance share one potential, so a sphere
+    around the charge is an equipotential surface.
+
+    The formula holds for a charge at rest that is small or spherically symmetric; outside a
+    charged sphere it applies with the distance measured from the centre, and at the surface it
+    gives the potential of the sphere itself. Only differences of potential are physical: the zero
+    at infinity is a convention, and practical circuits often take the ground as zero instead.
+
+    The formula tells how much charge brings the sphere of a Van de Graaff generator to a given
+    voltage. A metal sphere carrying
+    $-3.00$ nanocoulombs is at a potential of about $-539\,\mathrm{V}$ at 5.00 centimetres from
+    its centre.

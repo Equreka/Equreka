@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Potential difference in a uniform electric field'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{V}=\mag{E}\var{d}'
+terms:
+  V:
+    kind: 'magnitude'
+    ref: 'electric-potential-difference'
+  E:
+    kind: 'magnitude'
+    ref: 'electric-field-strength'
+  d:
+    kind: 'symbol'
+    label:
+      en: 'Distance along the field'
+    unit: 'metre'
+solutions:
+  V: 'E * d'
+  E: 'V / d'
+  d: 'V / E'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'voltage in a uniform field'
+  - 'potential difference between parallel plates'
+  - 'electric field from voltage'
+  - 'V = E d'
+  - 'E = V / d'
+  - 'diferencia de potencial en un campo uniforme'
+  - 'tensión entre placas paralelas'
+references:
+  - title: 'OpenStax, College Physics 2e, 19.2 Electric Potential in a Uniform Electric Field'
+    url: 'https://openstax.org/books/college-physics-2e/pages/19-2-electric-potential-in-a-uniform-electric-field'
+  - title: 'OpenStax, University Physics Volume 2, 7.2 Electric Potential and Potential Difference'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/7-2-electric-potential-and-potential-difference'
+  - title: 'OpenStax, College Physics 2e, 19.5 Capacitors and Dielectrics'
+    url: 'https://openstax.org/books/college-physics-2e/pages/19-5-capacitors-and-dielectrics'
+description:
+  en: >-
+    The potential difference in a uniform electric field is the field strength times the distance
+    covered along the field: the voltage between two points grows in proportion to how far apart
+    they lie in the direction of the field lines. It is the standard relation for the space between
+    two charged parallel plates, and it links voltage and field strength in electrostatics.
+
+    $\mag{V}$ is the electric potential difference in volts, the potential of the starting point
+    minus that of the end point. $\mag{E}$ is the electric field strength in volts per metre, and
+    $\var{d}$ is the distance in metres from the start to the end, counted along the direction of
+    the field. Potential falls in the direction the field points, so $\mag{V}$ is positive when
+    $\var{d}$ runs with the field, as from the positive plate to the negative one, and negative
+    when it runs against it. Motion across the field lines does not count. This start-minus-end
+    drop has the opposite sign to the end-minus-start difference used for the work of moving a
+    charge.
+
+    The relation comes from the work done by the field. Carrying a positive charge from the start
+    to the end, the constant force of the field times the distance gives the work, and dividing
+    by the charge gives the potential drop. Read the other way, the field equals the voltage per
+    unit length, which is why the volt per metre and the newton per coulomb are the same unit.
+
+    The formula needs a uniform field, a good model between large, closely spaced parallel plates
+    away from their edges. Where the field changes from point to point, the potential difference
+    has to be built up from small steps along the path. A material breaks down and conducts once
+    the field exceeds its dielectric strength.
+
+    The relation sets the highest voltage a gap can hold. Dry air breaks down at about
+    $3.0\times10^{6}\,\mathrm{V/m}$, so a gap of 2.5 centimetres sparks over at roughly 75
+    kilovolts.

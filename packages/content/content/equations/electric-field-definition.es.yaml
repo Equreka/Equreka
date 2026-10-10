@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Definición del campo eléctrico'
+description: >-
+  La definición del campo eléctrico establece que el campo en un punto es la fuerza eléctrica sobre
+  una pequeña carga de prueba situada allí dividida entre esa carga, es decir, fuerza por unidad de
+  carga. La magnitud que define, la intensidad de campo eléctrico, indica con cuánta fuerza las
+  cargas del entorno empujan o atraen a cualquier carga que se lleve a ese punto, y es la idea
+  central de la electrostática y del electromagnetismo en su conjunto.
+
+  $\mag{E}$ es la intensidad de campo eléctrico en voltios por metro, unidad igual al newton por
+  culombio. $\mag{F}$ es la fuerza eléctrica sobre la carga de prueba en newtons, y $\mag{q}$ es la
+  carga de prueba en culombios, con su signo. Campo y fuerza son vectores; a lo largo de un eje
+  elegido, un valor positivo apunta en el sentido positivo. El campo apunta hacia donde sería
+  empujada una carga positiva, de modo que una carga de prueba negativa sufre una fuerza opuesta al
+  campo.
+
+  Leída al revés, la relación da la fuerza sobre cualquier carga una vez conocido el campo: la carga
+  por el campo. Como la fuerza sobre una carga de prueba crece en proporción a la carga, el cociente
+  no depende de la carga de prueba elegida; describe el lugar mismo, tal como lo configuran las
+  cargas fuente del entorno. Así, un problema de electrostática se divide en dos pasos: hallar
+  primero el campo que crean las fuentes y después la fuerza sobre la carga que se encuentre en él.
+  Los campos de varias fuentes se suman como vectores.
+
+  La carga de prueba debe ser lo bastante pequeña para no perturbar las cargas fuente; una grande
+  las desplazaría y alteraría el mismo campo que pretende medir. La definición se aplica punto a
+  punto a cualquier campo, uniforme o no. La fuerza que emplea es solo la eléctrica: una carga en
+  movimiento puede sentir además una fuerza magnética, que es un efecto aparte.
+
+  Un cañón de electrones acelera sus electrones con un campo de este tipo entre dos placas. En un campo uniforme de $6.25\times10^{5}\,\mathrm{V/m}$, una carga de medio
+  microculombio sufre una fuerza de unos 0.313 newtons, igual en cualquier punto entre las placas.

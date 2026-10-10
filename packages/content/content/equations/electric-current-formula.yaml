@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Electric current as charge per unit time'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{I}=\frac{\mag{q}}{\mag{t}}'
+terms:
+  I:
+    kind: 'magnitude'
+    ref: 'electric-current'
+  q:
+    kind: 'magnitude'
+    ref: 'electric-charge'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  I: 'q / t'
+  q: 'I * t'
+  t: 'q / I'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'I = Q/t'
+  - 'I = q/t'
+  - 'Q = It'
+  - 'average current'
+  - 'current formula'
+  - 'charge per second'
+  - 'corriente media'
+  - 'intensidad de corriente'
+  - 'carga por unidad de tiempo'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 9.1 Electrical Current (Example 9.1)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-1-electrical-current'
+  - title: 'R. Nave, HyperPhysics, Electric Current'
+    url: 'https://hyperphysics.gsu.edu/hbase/electric/elecur.html'
+description:
+  en: >-
+    Electric current is the amount of electric charge that passes through a cross-section of a
+    conductor per unit time. Dividing the charge that crosses a wire, an electrolyte or a particle
+    beam by the time it takes gives the average current over that interval, and the same relation
+    turns a current and a duration into the charge moved, as in the ampere-hour ratings of
+    batteries.
+
+    $\mag{I}$ is the current, in amperes. $\mag{q}$ is the net charge carried across the section in
+    the chosen reference direction, in coulombs, and $\mag{t}$ is the time interval, in seconds; one
+    ampere is one coulomb per second. The current is conventional current, positive in the direction
+    positive charge would move and therefore opposite to the drift of electrons in a metal wire.
+    Negative charge moving one way counts as positive current the other way, and a negative value
+    means a flow against the reference direction.
+
+    The relation defines current rather than stating a law. It counts the charge that crosses the
+    section whatever carries it: electrons in a metal, ions of both signs in a salt solution or
+    protons in an accelerator. Solved for the charge, it gives current times time, which is how a
+    battery capacity in ampere hours is turned into coulombs.
+
+    The quotient is an average. When the current changes during the interval, as while a capacitor
+    charges, the instantaneous current is the limit of the quotient for an ever shorter interval,
+    the derivative of the charge with respect to time. For a steady direct current the average and
+    the instantaneous value coincide.
+
+    The habit of drawing current from the positive terminal towards the negative one comes from
+    Benjamin Franklin's eighteenth-century picture of an electrical fluid, formed long before
+    electrons were known. A starter motor that moves 720 coulombs in 4.00 seconds draws 180 amperes.

@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Resistores en serie'
+terms:
+  R_{1}:
+    label: 'Resistencia del primer resistor'
+  R_{2}:
+    label: 'Resistencia del segundo resistor'
+description: >-
+  Los resistores en serie, conectados uno tras otro de modo que una sola corriente los recorre por
+  turno, se comportan como un único resistor cuya resistencia es la suma de las suyas. La regla,
+  escrita aquí para dos resistores, da la resistencia equivalente de una cadena en serie en los
+  circuitos de corriente continua, desde las guirnaldas de luces hasta las redes de resistores de
+  los aparatos electrónicos.
+
+  $\mag{R}$ es la resistencia equivalente del par, en ohmios. $\var{R_{1}}$ y $\var{R_{2}}$ son las
+  resistencias del primer y del segundo resistor, también en ohmios. Ninguna es negativa, y la
+  resistencia equivalente nunca es menor que la mayor de las dos. La relación está escrita para dos
+  resistores; un tercero o cualquier otro suma su propia resistencia del mismo modo, así que una
+  cadena más larga se resuelve término a término.
+
+  Por todos los resistores de una cadena en serie pasa la misma corriente, porque la carga no tiene
+  otro camino. Cada resistor toma una parte de la tensión de la fuente igual a esa corriente por su
+  propia resistencia, y las partes suman la tensión total, como exige la regla de las tensiones de
+  Kirchhoff. Al dividir la tensión total entre la corriente común queda la suma de las resistencias.
+
+  La regla supone cables de conexión de resistencia despreciable y corrientes estables. Como la
+  corriente es compartida, un solo elemento roto interrumpe toda la cadena, y añadir un resistor en
+  serie siempre reduce la corriente que impulsa una fuente dada. En una conexión en paralelo, en
+  cambio, lo que se suma son las inversas de las resistencias.
+
+  Un resistor de 100 ohmios y otro de 220 ohmios en serie equivalen a uno solo de 320 ohmios, por el
+  que una fuente de 3.20 voltios hace circular una corriente de 0.0100 amperios.

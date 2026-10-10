@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Energía eléctrica a potencia constante'
+description: >-
+  La energía eléctrica que convierte un dispositivo a potencia constante es igual a esa potencia
+  multiplicada por el tiempo que funciona. La relación es la base de la medida del consumo
+  eléctrico: las compañías facturan energía, no potencia, y la expresan en kilovatios hora, la
+  energía de un kilovatio mantenido durante una hora.
+
+  $\mag{E}$ es la energía convertida o entregada, en julios. $\mag{P}$ es la potencia, en vatios, y
+  $\mag{t}$ el tiempo de funcionamiento, en segundos; un vatio es un julio por segundo, así que
+  vatios por segundos dan julios. El kilovatio hora es un múltiplo práctico: una hora dura 3600
+  segundos, de modo que un kilovatio hora son exactamente 3.6 megajulios, el factor que recoge la
+  publicación especial 811 del NIST. La energía lleva el signo de la potencia, positivo en un
+  dispositivo que toma energía del circuito y negativo en uno que la aporta, como una batería que se
+  descarga.
+
+  La relación es la definición de potencia, energía por unidad de tiempo, leída al revés, la misma
+  que la de la potencia mecánica, trabajo dividido entre tiempo. Junto con
+  la potencia eléctrica como tensión por corriente, muestra que la energía es tensión por corriente
+  por tiempo, o tensión por la carga transportada, lo que relaciona la capacidad de carga de una
+  batería con la energía que almacena.
+
+  Supone que la potencia se mantiene constante durante el intervalo. Si la potencia varía, la
+  energía es el área bajo la gráfica de la potencia frente al tiempo, la integral de la potencia en
+  el tiempo, o en la práctica la potencia media por el tiempo. El resultado cuenta toda la energía
+  convertida, útil o no; la parte que acaba en luz, movimiento o sonido depende del rendimiento del
+  dispositivo.
+
+  Una bombilla incandescente de 100 vatios encendida tres horas al día durante un año gasta 109.5
+  kilovatios hora, mientras que una bombilla LED de 20 vatios que da la misma luz gasta 21.9.

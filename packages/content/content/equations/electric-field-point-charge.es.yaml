@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Campo eléctrico de una carga puntual'
+terms:
+  r:
+    label: 'Distancia a la carga'
+description: >-
+  El campo eléctrico de una carga puntual es la intensidad de campo que una sola carga crea a su
+  alrededor: la constante de Coulomb por la carga, dividida entre el cuadrado de la distancia a
+  ella. La fórmula se deduce de la ley de Coulomb y de la definición del campo como fuerza por
+  unidad de carga, y es la pieza con la que la electrostática construye el campo de cualquier
+  distribución de cargas.
+
+  $\mag{E}$ es la intensidad de campo eléctrico en voltios por metro, equivalentes a newtons por
+  culombio. $\mag{q}$ es la carga fuente en culombios, con su signo, y $\var{r}$ es la distancia
+  desde la carga hasta el punto donde se busca el campo, en metros. $\const{k_\mathrm{e}}$ es la
+  constante de Coulomb, de unos $8.99\times10^{9}\,\mathrm{N\,m^{2}/C^{2}}$, igual a uno entre
+  cuatro pi por la permitividad eléctrica del vacío. El campo es radial, y su signo da el sentido a
+  lo largo de la recta que parte de la carga: positivo significa que se aleja de una fuente
+  positiva, negativo que apunta hacia una fuente negativa.
+
+  Si se coloca una carga de prueba a la distancia $\var{r}$ y se divide la fuerza de Coulomb sobre
+  ella entre su carga, la carga de prueba se cancela y queda esta expresión, de modo que el campo
+  pertenece solo a la fuente. Disminuye con el inverso del cuadrado de la distancia: al doble de
+  distancia, la cuarta parte del campo. Todos los puntos de una esfera centrada en la carga tienen
+  la misma intensidad de campo. Con varias fuentes, los campos de cada una se suman como vectores
+  en el punto de interés.
+
+  La fórmula supone una carga en reposo, pequeña frente a la distancia o con simetría esférica.
+  Fuera de una esfera conductora cargada, el campo es el de la misma carga concentrada en el
+  centro, con la distancia medida desde el centro. Dentro de la materia o cerca de un cuerpo
+  extenso, la forma sencilla deja de valer.
+
+  La fórmula permite estimar los campos en los átomos y alrededor de objetos cargados. Una carga de
+  2.00 nanoculombios produce un campo de unos $7.19\times10^{5}\,\mathrm{V/m}$ a 5.00 milímetros.

@@ -1,0 +1,289 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.schema.json
+name:
+  en: 'Direct-current circuits'
+level: 'intro'
+prerequisites:
+  - 'si-base-units'
+estimatedMinutes: '60'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'DC circuits'
+  - 'electric circuits'
+  - 'circuit calculations'
+  - 'circuitos de corriente continua'
+  - 'circuitos eléctricos'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 9.4 Ohm''s Law'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-4-ohms-law'
+  - title: 'OpenStax, University Physics Volume 2, 9.5 Electrical Energy and Power'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-5-electrical-energy-and-power'
+  - title: 'OpenStax, University Physics Volume 2, 10.1 Electromotive Force'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/10-1-electromotive-force'
+  - title: 'OpenStax, University Physics Volume 2, 10.2 Resistors in Series and Parallel'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel'
+  - title: 'OpenStax, University Physics Volume 2, 9.3 Resistivity and Resistance (Table 9.1)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-3-resistivity-and-resistance'
+description:
+  en: >-
+    Current, voltage and resistance in direct-current circuits: Ohm's law, how resistance depends on
+    material, shape and temperature, series and parallel combinations, voltage dividers, real
+    sources with internal resistance, and electric power and energy, with worked checks.
+steps:
+  - id: 'intro'
+    kind: 'prose'
+    body:
+      en: >-
+        A direct-current circuit is a closed loop in which a source such as a battery drives charge
+        steadily in one direction through wires and components. Three quantities describe it: the
+        current through each element, the potential difference across it and its resistance.
+        Throughout this path the current is conventional current, counted positive in the direction
+        positive charge would move, from the positive terminal of the source through the external
+        circuit and back.
+  - id: 'electric-current'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'electric-current'
+    note:
+      en: >-
+        The rate at which charge crosses a section of a conductor, in amperes. One ampere is one
+        coulomb per second.
+  - id: 'electric-current-formula'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'electric-current-formula'
+    note:
+      en: >-
+        Charge divided by time gives the average current; current times time gives the charge moved.
+  - id: 'check-charge'
+    kind: 'check'
+    prompt:
+      en: >-
+        A charger delivers a steady 1.5 amperes to a phone for 2.0 hours. How much charge does it
+        move?
+    answer:
+      en: >-
+        10 800 coulombs: 1.5 times 7200, after converting 2.0 hours to 7200 seconds.
+  - id: 'electric-potential-difference'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'electric-potential-difference'
+    note:
+      en: >-
+        The energy each coulomb of charge gains or loses between two points, in volts. A source
+        raises the potential of the charge; components lower it.
+  - id: 'ohms-law'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'ohms-law'
+    note:
+      en: >-
+        In an ohmic conductor the voltage across it is the current times its resistance. Every later
+        step builds on this relation.
+  - id: 'check-ohm'
+    kind: 'check'
+    prompt:
+      en: >-
+        A resistor carries 0.250 amperes when 6.00 volts are applied across it. What is its
+        resistance?
+    answer:
+      en: >-
+        24.0 ohms: 6.00 divided by 0.250.
+  - id: 'resistance-resistivity'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'resistance-resistivity'
+    note:
+      en: >-
+        Resistance grows with the length of a conductor and falls with its cross-sectional area; the
+        material enters through its resistivity.
+  - id: 'check-resistivity'
+    kind: 'check'
+    prompt:
+      en: >-
+        Copper has a resistivity of 1.68 times ten to the minus eight ohm metres. What is the
+        resistance of a copper wire 10.0 metres long with a cross-section of 1.00 square millimetre?
+    answer:
+      en: >-
+        0.168 ohms: 1.68 times ten to the minus eight, times 10.0, divided by 1.00 times ten to the
+        minus six square metres.
+  - id: 'resistance-temperature'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'resistance-temperature'
+    note:
+      en: >-
+        The resistance of a metal rises almost linearly with temperature; semiconductors and carbon
+        show the opposite trend.
+  - id: 'check-temperature'
+    kind: 'check'
+    prompt:
+      en: >-
+        A copper coil measures 100 ohms at 20 degrees Celsius. Taking 0.0039 per kelvin as the
+        temperature coefficient, what is its resistance at 50 degrees Celsius?
+    answer:
+      en: >-
+        About 111.7 ohms: 100 times the sum of 1 and 0.0039 times 30. The temperature change is 30
+        kelvin, the same as 30 degrees Celsius.
+  - id: 'conductance'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'conductance'
+    note:
+      en: >-
+        Conductance, in siemens, is the reciprocal of resistance. It turns the parallel rule below
+        into a direct sum of conductances.
+  - id: 'resistors-in-series'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'resistors-in-series'
+    note:
+      en: >-
+        One current passes through every resistor in a chain, and the resistances add.
+  - id: 'check-series'
+    kind: 'check'
+    prompt:
+      en: >-
+        Resistors of 100, 220 and 330 ohms are connected in series to a 13.0-volt source. What
+        current flows?
+    answer:
+      en: >-
+        0.0200 amperes: the equivalent resistance is 650 ohms, and 13.0 divided by 650 is 0.0200.
+  - id: 'resistors-in-parallel'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'resistors-in-parallel'
+    note:
+      en: >-
+        Branches across the same two points share one voltage, and their reciprocal resistances add.
+        For two branches, divide the product by the sum.
+  - id: 'resistors-in-parallel-three'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'resistors-in-parallel-three'
+    note:
+      en: >-
+        The same rule with a third branch. The equivalent resistance is always smaller than the
+        smallest branch resistance.
+  - id: 'check-parallel'
+    kind: 'check'
+    prompt:
+      en: >-
+        Three 30.0-ohm lamps are connected in parallel to a 12.0-volt battery. What is the
+        equivalent resistance, and what current does the battery supply?
+    answer:
+      en: >-
+        10.0 ohms and 1.20 amperes: the reciprocals add to three thirtieths, one tenth, and 12.0
+        divided by 10.0 is 1.20. Each lamp carries 0.400 amperes.
+  - id: 'voltage-divider'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'voltage-divider'
+    note:
+      en: >-
+        Two resistors in series split a voltage in proportion to their resistances, as long as the
+        output feeds almost no current.
+  - id: 'check-divider'
+    kind: 'check'
+    prompt:
+      en: >-
+        A 9.0-volt supply feeds a 2000-ohm resistor followed by a 1000-ohm resistor. What voltage
+        appears across the 1000-ohm resistor with nothing connected to the output?
+    answer:
+      en: >-
+        3.0 volts: 9.0 times 1000, divided by 3000. The smaller resistor takes a third of the input.
+  - id: 'emf-internal-resistance'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'emf-internal-resistance'
+    note:
+      en: >-
+        A real source loses part of its electromotive force across its own internal resistance, so
+        its terminal voltage falls as the current rises.
+  - id: 'check-emf'
+    kind: 'check'
+    prompt:
+      en: >-
+        A cell with an electromotive force of 1.50 volts and an internal resistance of 0.500 ohms
+        drives a 2.50-ohm load. What current flows, and what is the terminal voltage?
+    answer:
+      en: >-
+        0.500 amperes and 1.25 volts: 1.50 divided by the total resistance of 3.00 ohms gives the
+        current, and 1.50 minus 0.500 times 0.500 gives the terminal voltage.
+  - id: 'electric-power'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'electric-power'
+    note:
+      en: >-
+        Voltage times current is the power any element takes in or delivers, ohmic or not.
+  - id: 'power-current-resistance'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'power-current-resistance'
+    note:
+      en: >-
+        For a resistor, Ohm's law turns the power into the current squared times the resistance: the
+        heat produced by a current.
+  - id: 'power-voltage-resistance'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'power-voltage-resistance'
+    note:
+      en: >-
+        The same power written with the voltage, convenient for devices on a fixed supply.
+  - id: 'check-power'
+    kind: 'check'
+    prompt:
+      en: >-
+        A kettle is rated 1200 watts on a 230-volt supply. What current does it draw, and what is
+        the resistance of its element?
+    answer:
+      en: >-
+        About 5.22 amperes and 44.1 ohms: 1200 divided by 230 gives the current, and 230 squared
+        divided by 1200 gives the resistance. The current squared times that resistance returns 1200
+        watts.
+  - id: 'electrical-energy'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'electrical-energy'
+    note:
+      en: >-
+        Power times running time gives the energy, billed in kilowatt hours of 3.6 megajoules each.
+  - id: 'check-energy'
+    kind: 'check'
+    prompt:
+      en: >-
+        The same 1200-watt kettle runs for 5.0 minutes. How much energy does it use, in kilowatt
+        hours and in joules?
+    answer:
+      en: >-
+        0.10 kilowatt hours, or 360 000 joules: 1.2 kilowatts times one twelfth of an hour, or 1200
+        watts times 300 seconds.
+  - id: 'summary'
+    kind: 'prose'
+    body:
+      en: >-
+        Most direct-current problems combine three steps: reduce the network of resistors to one
+        equivalent resistance, use Ohm's law to find the current the source drives, then work back
+        through each element to its voltage, current and power. Check the result with energy: the
+        power the source delivers equals the sum of the powers the resistors dissipate. Keep every
+        quantity in volts, amperes, ohms and watts before combining them.

@@ -1,0 +1,84 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Voltage divider'
+kind: 'formula'
+level: 'intro'
+expression: '\var{V_\mathrm{out}}=\var{V_\mathrm{in}}\frac{\var{R_{2}}}{\var{R_{1}}+\var{R_{2}}}'
+terms:
+  V_\mathrm{out}:
+    kind: 'symbol'
+    label:
+      en: 'Output voltage across the second resistor'
+    unit: 'volt'
+  V_\mathrm{in}:
+    kind: 'symbol'
+    label:
+      en: 'Input voltage'
+    unit: 'volt'
+  R_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Resistance of the first resistor (input side)'
+    unit: 'ohm'
+  R_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Resistance of the second resistor (output side)'
+    unit: 'ohm'
+solutions:
+  V_\mathrm{out}: 'V_in * R_2 / (R_1 + R_2)'
+  V_\mathrm{in}: 'V_out * (R_1 + R_2) / R_2'
+  R_{1}: 'R_2 * (V_in - V_out) / V_out'
+  R_{2}: 'R_1 * V_out / (V_in - V_out)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q466758'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'potential divider'
+  - 'voltage divider rule'
+  - 'Vout = Vin R2 / (R1 + R2)'
+  - 'resistive divider'
+  - 'divisor de tensión'
+  - 'divisor de voltaje'
+  - 'divisor de potencial'
+references:
+  - title: 'D. H. Johnson, Electrical Engineering (Rice University), LibreTexts, 3.6 Series and Parallel Circuits'
+    url: 'https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Introductory_Electrical_Engineering/Electrical_Engineering_(Johnson)/03%3A_Analog_Signal_Processing/3.06%3A_Series_and_Parallel_Circuits'
+  - title: 'W. McAllister, Spinning Numbers, Voltage divider'
+    url: 'https://spinningnumbers.org/a/voltage-divider.html'
+  - title: 'R. Nave, HyperPhysics, Voltage Divider'
+    url: 'https://hyperphysics.gsu.edu/hbase/electric/voldiv.html'
+  - title: 'OpenStax, University Physics Volume 2, 10.2 Resistors in Series and Parallel'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel'
+description:
+  en: >-
+    A voltage divider, or potential divider, is a pair of resistors in series across a source; the
+    voltage across the second resistor equals the input voltage times that resistor's share of the
+    total resistance. The circuit is the usual way to obtain a fixed fraction of a supply voltage in
+    electronics, from sensor readings taken by microcontrollers to the potentiometer of a volume
+    control.
+
+    $\var{V_\mathrm{out}}$ is the output voltage, taken across the second resistor, in volts.
+    $\var{V_\mathrm{in}}$ is the input voltage applied across both resistors, in volts.
+    $\var{R_{1}}$ is the resistance of the first resistor, between the input and the output point,
+    and $\var{R_{2}}$ that of the second, between the output point and the common return, both in
+    ohms. Both voltages are measured from the common return with the same polarity, so the output
+    has the sign of the input and a smaller absolute value.
+
+    With no current drawn at the output, the two resistors carry the same current, the input voltage
+    divided by their sum, as Ohm's law gives for a series pair. The output is that current times the
+    second resistance. Only the ratio of the resistances matters: equal resistors halve the input,
+    and a larger second resistor yields a larger output.
+
+    The relation holds only while whatever is connected to the output draws negligible current. A
+    load resistance sits in parallel with the second resistor and pulls the output down; keeping the
+    second resistance below a tenth of the load keeps the change under about ten percent. Current
+    flows through the divider all the time, so it dissipates power even with nothing attached.
+
+    With 12 volts applied, a 1000-ohm resistor on the input side and a 3000-ohm resistor on the
+    output side give an output of 9 volts.

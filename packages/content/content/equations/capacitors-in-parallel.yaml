@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Capacitors in parallel'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{C}=\var{C_{1}}+\var{C_{2}}'
+terms:
+  C:
+    kind: 'magnitude'
+    ref: 'capacitance'
+  C_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Capacitance of the first capacitor'
+    unit: 'farad'
+  C_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Capacitance of the second capacitor'
+    unit: 'farad'
+solutions:
+  C: 'C_1 + C_2'
+  C_{1}: 'C - C_2'
+  C_{2}: 'C - C_1'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'parallel capacitors'
+  - 'equivalent capacitance in parallel'
+  - 'parallel capacitance'
+  - 'C = C1 + C2'
+  - 'condensadores en paralelo'
+  - 'capacidad equivalente en paralelo'
+  - 'capacitancia equivalente en paralelo'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 8.2 Capacitors in Series and in Parallel'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-2-capacitors-in-series-and-in-parallel'
+  - title: 'OpenStax, College Physics 2e, 19.6 Capacitors in Series and Parallel'
+    url: 'https://openstax.org/books/college-physics-2e/pages/19-6-capacitors-in-series-and-parallel'
+  - title: 'OpenStax, University Physics Volume 2, 8.1 Capacitors and Capacitance'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance'
+description:
+  en: >-
+    For capacitors in parallel, connected side by side across the same two points so that each has
+    the same voltage, the equivalent capacitance is the sum of the separate capacitances. The rule
+    replaces a group of side-by-side capacitors with one capacitor that holds the same total charge
+    at the same voltage, one of the first tools for analysing circuits in electromagnetism.
+
+    $\mag{C}$ is the equivalent capacitance in farads, and $\var{C_{1}}$ and $\var{C_{2}}$ are the
+    capacitances of the first and the second capacitor, also in farads. The relation as written
+    covers two capacitors; each further capacitor connected across the same points adds its own
+    capacitance to the sum. All capacitances are positive, so the equivalent is larger than any
+    single capacitor in the group.
+
+    Every capacitor in a parallel group connects directly to the same pair of points, so all of
+    them share one voltage, while each stores its own charge in proportion to its capacitance. The
+    total charge drawn from the source is the sum of these charges. Writing each charge as its
+    capacitance times the shared voltage and dividing by that voltage gives the rule. Seen another
+    way, joining capacitors side by side enlarges the effective plate area, and capacitance grows
+    with plate area.
+
+    The rule assumes ideal capacitors and connecting wires whose own capacitance can be ignored.
+    The whole group can take no more voltage than the capacitor with the lowest breakdown voltage,
+    since each one sees the full voltage.
+
+    Banks of capacitors in parallel store more charge, and more energy, at a given voltage than any
+    single unit. A $1.000\,\mu\mathrm{F}$ capacitor in
+    parallel with a $5.000\,\mu\mathrm{F}$ one gives $6.000\,\mu\mathrm{F}$.

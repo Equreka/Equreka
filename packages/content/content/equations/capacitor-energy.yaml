@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Energy stored in a capacitor'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{E_\mathrm{p}}=\frac{1}{2}\mag{C}\mag{V}^{2}'
+terms:
+  E_\mathrm{p}:
+    kind: 'magnitude'
+    ref: 'potential-energy'
+  C:
+    kind: 'magnitude'
+    ref: 'capacitance'
+  V:
+    kind: 'magnitude'
+    ref: 'electric-potential-difference'
+solutions:
+  E_\mathrm{p}: 'C * V^2 / 2'
+  C: '2 * E_p / V^2'
+  V: 'sqrt(2 * E_p / C)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'capacitor energy'
+  - 'energy of a charged capacitor'
+  - 'electrostatic energy of a capacitor'
+  - 'E = C V^2 / 2'
+  - 'U = 1/2 C V^2'
+  - 'energía almacenada en un condensador'
+  - 'energía de un condensador'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 8.3 Energy Stored in a Capacitor'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-3-energy-stored-in-a-capacitor'
+  - title: 'OpenStax, College Physics 2e, 19.7 Energy Stored in Capacitors'
+    url: 'https://openstax.org/books/college-physics-2e/pages/19-7-energy-stored-in-capacitors'
+description:
+  en: >-
+    The energy stored in a capacitor is one half of its capacitance times the square of the voltage
+    across it. A charged capacitor holds this energy in the electric field between its plates and
+    can release it quickly, which makes the relation the basis for energy storage with capacitors in
+    electrostatics and electronics.
+
+    $\mag{E_\mathrm{p}}$ is the stored electric potential energy in joules, $\mag{C}$ is the
+    capacitance in farads, and $\mag{V}$ is the electric potential difference between the positive
+    and the negative plate in volts. The energy is never negative, and reversing the polarity of
+    the voltage leaves it unchanged, because the voltage enters squared. Using the definition of
+    capacitance, charge over voltage, the same energy can be written as the charge squared over
+    twice the capacitance, or as half the charge times the voltage.
+
+    The factor of one half comes from the charging process. An empty capacitor has no voltage
+    across it, so the first charge moved onto it costs almost no work; the voltage climbs in step
+    with the charge, and the last charge is pushed against the full voltage. On average each bit
+    of charge crosses half the final voltage, so the total work, and hence the stored energy, is
+    half the charge times the voltage rather than the full product.
+
+    The relation holds for any capacitor whose capacitance stays fixed while it charges, whatever
+    its shape, up to the voltage at which the insulator between the plates breaks down. The energy
+    resides in the field itself, spread through the space between the plates, so the same result
+    follows from the energy density of the field multiplied by the volume it fills.
+
+    Defibrillators, camera flashes and backup supplies for memory all draw on stored capacitor
+    energy. A defibrillator capacitor of $8.00\,\mu\mathrm{F}$ charged to 10.0 kilovolts stores
+    $4.00\times10^{2}\,\mathrm{J}$.

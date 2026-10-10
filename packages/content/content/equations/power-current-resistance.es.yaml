@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Potencia disipada en un resistor a partir de la corriente'
+description: >-
+  La potencia disipada en un resistor es igual al cuadrado de la corriente que lo atraviesa
+  multiplicado por su resistencia. Conocida como primera ley de Joule, la relación da el ritmo al
+  que una resistencia convierte energía eléctrica en calor: el efecto Joule que aprovechan
+  tostadoras, estufas eléctricas y fusibles y que desperdician las líneas y el cableado.
+
+  $\mag{P}$ es la potencia disipada, en vatios. $\mag{I}$ es la corriente que atraviesa el resistor,
+  en amperios, y $\mag{R}$ su resistencia, en ohmios. Como la corriente aparece al cuadrado, la
+  potencia nunca es negativa: invertir la corriente convencional no la cambia, y un resistor siempre
+  toma energía del circuito. Al despejar la corriente se obtienen dos valores de igual valor
+  absoluto y signo opuesto; el positivo es la corriente en el sentido de referencia elegido.
+
+  El resultado se deduce de la potencia eléctrica general, tensión por corriente, cuando la ley de
+  Ohm sustituye la tensión por el producto de corriente y resistencia. A escala microscópica, el
+  campo eléctrico acelera a los portadores de carga, que ceden esa energía a los átomos del
+  conductor en los choques, y así acaba como agitación térmica.
+
+  La relación supone una resistencia que no cambia con la corriente, por lo que es exacta en
+  resistores óhmicos; para el filamento de una lámpara, cuya resistencia sube al calentarse, hace
+  falta el valor en caliente. Sirve en corriente continua, y en alterna si la corriente es el valor
+  eficaz. Como la pérdida crece con el cuadrado de la corriente, las redes eléctricas transportan la
+  energía a alta tensión y baja corriente.
+
+  James Prescott Joule publicó en 1841 medidas del calor que producen las corrientes en hilos
+  metálicos. Un devanado de motor de 1.67 ohmios recorrido por 20.0 amperios convierte unos 668
+  vatios en calor.

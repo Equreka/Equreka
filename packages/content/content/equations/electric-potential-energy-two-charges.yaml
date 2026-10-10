@@ -1,0 +1,84 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Electric potential energy of two point charges'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{E_\mathrm{p}}=\const{k_\mathrm{e}}\frac{\var{q_{1}}\var{q_{2}}}{\var{r}}'
+terms:
+  E_\mathrm{p}:
+    kind: 'magnitude'
+    ref: 'potential-energy'
+  k_\mathrm{e}:
+    kind: 'constant'
+    ref: 'coulomb-constant'
+  q_{1}:
+    kind: 'symbol'
+    label:
+      en: 'First charge'
+    unit: 'coulomb'
+  q_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Second charge'
+    unit: 'coulomb'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Distance between the charges'
+    unit: 'metre'
+solutions:
+  E_\mathrm{p}: 'k_e * q_1 * q_2 / r'
+  q_{1}: 'E_p * r / (k_e * q_2)'
+  q_{2}: 'E_p * r / (k_e * q_1)'
+  r: 'k_e * q_1 * q_2 / E_p'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'electrostatic potential energy of two charges'
+  - 'Coulomb potential energy'
+  - 'potential energy of a pair of charges'
+  - 'U = k q1 q2 / r'
+  - 'energía potencial eléctrica de dos cargas'
+  - 'energía potencial electrostática de dos cargas'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 7.1 Electric Potential Energy'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/7-1-electric-potential-energy'
+  - title: 'OpenStax, University Physics Volume 2, 7.3 Calculations of Electric Potential'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/7-3-calculations-of-electric-potential'
+  - title: 'OpenStax, University Physics Volume 2, 5.3 Coulomb''s Law'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/5-3-coulombs-law'
+  - title: 'R. Nave, HyperPhysics, Electric Potential Energy'
+    url: 'https://hyperphysics.gsu.edu/hbase/electric/elepe.html'
+description:
+  en: >-
+    The electric potential energy of two point charges is the energy stored in their separation:
+    the Coulomb constant times the product of the charges, divided by the distance between them,
+    with the zero of energy taken when the charges are infinitely far apart. It is the electrostatic
+    counterpart of the gravitational potential energy of two masses, and the energy behind the
+    Coulomb force.
+
+    $\mag{E_\mathrm{p}}$ is the potential energy of the pair in joules. $\var{q_{1}}$ and
+    $\var{q_{2}}$ are the two charges in coulombs, each with its sign, and $\var{r}$ is the
+    distance between them in metres. $\const{k_\mathrm{e}}$ is the Coulomb constant, about
+    $8.99\times10^{9}\,\mathrm{N\,m^{2}/C^{2}}$, equal to one over four pi times the vacuum
+    electric permittivity. The energy is positive for charges of the same sign, which repel, and
+    negative for opposite charges, which attract.
+
+    The value equals the work an outside agent must do to bring the two charges slowly together
+    from infinity to the distance $\var{r}$. Pushing like charges closer takes positive work and
+    raises the energy; letting unlike charges approach releases energy and makes it more negative,
+    which is why bound pairs such as an electron and a nucleus have negative energy. The Coulomb
+    force is conservative, so the work done by the field between two separations equals minus the
+    change in this energy, whatever the path. The expression also equals one charge times the
+    potential the other creates at its position.
+
+    The formula treats the charges as points, or as spherical distributions with the distance
+    between centres, and the zero at infinity is a convention: only changes in potential energy
+    are physical. For three or more charges, the total is the sum over every pair.
+
+    For a proton and an electron $5.29\times10^{-11}\,\mathrm{m}$ apart, as in hydrogen, the
+    formula gives about $-4.36\times10^{-18}\,\mathrm{J}$.

@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Corriente eléctrica como carga por unidad de tiempo'
+description: >-
+  La corriente eléctrica es la cantidad de carga eléctrica que atraviesa una sección de un conductor
+  por unidad de tiempo. Al dividir la carga que cruza un cable, un electrolito o un haz de
+  partículas entre el tiempo que tarda se obtiene la corriente media en ese intervalo, y la misma
+  relación convierte una corriente y una duración en la carga transportada, como en la carga nominal
+  en amperios hora de las baterías.
+
+  $\mag{I}$ es la corriente, en amperios. $\mag{q}$ es la carga neta que cruza la sección en el
+  sentido de referencia elegido, en culombios, y $\mag{t}$ es el intervalo de tiempo, en segundos;
+  un amperio es un culombio por segundo. La corriente es la corriente convencional, positiva en el
+  sentido en que se moverían las cargas positivas y, por tanto, opuesta a la deriva de los
+  electrones en un cable metálico. Una carga negativa que avanza en un sentido cuenta como corriente
+  positiva en el contrario, y un valor negativo indica un flujo opuesto al sentido de referencia.
+
+  La relación define la corriente, no enuncia una ley. Cuenta la carga que cruza la sección sea cual
+  sea su portador: electrones en un metal, iones de ambos signos en una disolución salina o protones
+  en un acelerador. Despejada la carga, da corriente por tiempo, y así se pasa a culombios la
+  carga nominal de una batería en amperios hora.
+
+  El cociente es un promedio. Cuando la corriente cambia durante el intervalo, como al cargarse un
+  condensador, la corriente instantánea es el límite del cociente para intervalos cada vez más
+  cortos, la derivada de la carga respecto al tiempo. En una corriente continua estable, el valor
+  medio y el instantáneo coinciden.
+
+  La costumbre de dibujar la corriente del terminal positivo al negativo procede de la idea de un
+  fluido eléctrico que Benjamin Franklin propuso en el siglo XVIII, mucho antes de conocerse los
+  electrones. Un motor de arranque que mueve 720 culombios en 4.00 segundos toma 180 amperios.

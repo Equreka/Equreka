@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Potencia eléctrica'
+description: >-
+  La potencia eléctrica es el ritmo al que un elemento de un circuito recibe o entrega energía
+  eléctrica, y es igual a la diferencia de potencial entre sus terminales multiplicada por la
+  corriente que lo atraviesa. La relación vale para cualquier dispositivo de un circuito de
+  corriente continua, sea un resistor, un motor, una lámpara o una batería, y en ella se basan las
+  potencias nominales impresas en los electrodomésticos.
+
+  $\mag{P}$ es la potencia, en vatios. $\mag{V}$ es la diferencia de potencial entre los terminales
+  del dispositivo, en voltios, y $\mag{I}$ la corriente que lo atraviesa, en amperios. Un voltio por
+  un amperio es un vatio, porque un voltio es un julio por culombio y un amperio, un culombio por
+  segundo. Si $\mag{V}$ se toma como la caída de potencial en el sentido de la corriente
+  convencional, el de las cargas positivas, una potencia positiva es energía entregada al
+  dispositivo, y una negativa indica un dispositivo que aporta energía al circuito, como una batería
+  que impulsa la corriente.
+
+  Una carga que recorre una diferencia de potencial intercambia con el campo eléctrico una energía
+  igual a la carga por esa diferencia. Al dividir entre el tiempo que tarda se obtiene la energía
+  por unidad de tiempo, y como la carga por unidad de tiempo es la corriente, la potencia es la
+  tensión por la corriente. En un resistor esa energía se convierte en calor; en una lámpara, en
+  calor y luz.
+
+  El producto vale para cualquier elemento, óhmico o no, pues solo se apoya en las definiciones de
+  tensión y corriente. Junto con la ley de Ohm da las dos formas para resistores, una con corriente
+  y resistencia y otra con tensión y resistencia, que exigen una resistencia constante. En corriente
+  alterna el producto es la potencia instantánea; la media usa valores eficaces y, si tensión y
+  corriente están desfasadas, un factor de potencia.
+
+  El motor de un cabrestante que toma 20.0 amperios a 115 voltios consume 2300 vatios; una parte
+  eleva la carga y el resto calienta los devanados.

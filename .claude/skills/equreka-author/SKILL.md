@@ -27,6 +27,7 @@ The slice object from the wave args (`items[]` with `collection`, `slug`, `actio
 - No git state changes: no commit, branch, stash, checkout, reset or push. The main session commits.
 - Never set `status: 'reviewed'`. New entries carry no `status` (it defaults to `draft`). A rewrite keeps the entry's existing `status`.
 - Never run Expo or Metro commands (`expo`, `pnpm --filter mobile dev|start|export`): Expo CLI rewrites `apps/mobile/tsconfig.json` and deletes `expo-env.d.ts`, which breaks the wave's lint and typecheck gates.
+- Write only the files you own. A page you download to compare text (curl, a saved source) goes to the OS temp directory, never into the repository: a stray `.html` at the root fails the lint gate (W9).
 - Do not edit `packages/content/locale-debt.json` or its ceiling test. When your rewrite completes a legacy entity's Spanish, the check reports "stale locale debt" for it: ignore that issue; the wave's fixer reconciles the debt list centrally (ADR 0012).
 - **Never type a value, QID, IRI, date, name or history claim from memory.** Every one comes from a page you fetched in this session, and its URL goes in your output.
 

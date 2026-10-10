@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Tres resistores en paralelo'
+terms:
+  R_{1}:
+    label: 'Resistencia del primer resistor'
+  R_{2}:
+    label: 'Resistencia del segundo resistor'
+  R_{3}:
+    label: 'Resistencia del tercer resistor'
+description: >-
+  Tres resistores en paralelo, conectados todos entre el mismo par de puntos, actúan como un único
+  resistor cuya inversa de la resistencia es la suma de las tres inversas. La regla da la resistencia
+  equivalente de tres ramas que comparten una misma tensión en un circuito de corriente continua,
+  como varios electrodomésticos en un mismo circuito doméstico o tres lámparas alimentadas por la
+  misma batería.
+
+  $\mag{R}$ es la resistencia equivalente del grupo, en ohmios. $\var{R_{1}}$, $\var{R_{2}}$ y
+  $\var{R_{3}}$ son las resistencias del primer, segundo y tercer resistor, también en ohmios. Las
+  cuatro son positivas. La resistencia equivalente es menor que la menor de las tres, y tres
+  resistores iguales dan un tercio de la resistencia de uno. La relación está escrita para tres
+  resistores; el caso de dos tiene su propia entrada, con la forma de producto entre suma, y cada
+  rama adicional añade una inversa más.
+
+  Cada rama tiene entre sus terminales toda la tensión de la fuente y lleva la corriente que esa
+  tensión impulsa a través de su propia resistencia. Las tres corrientes se suman en el nodo, como
+  establece la regla de los nodos de Kirchhoff, así que la corriente total es la tensión por la suma
+  de las inversas. Cada inversa es una conductancia, medida en siemens, y las conductancias de las
+  ramas en paralelo se suman. Combinar primero dos resistores con la regla del producto entre la
+  suma, y después el resultado con el tercero, da la misma respuesta.
+
+  La regla supone cables de conexión de resistencia despreciable y corrientes estables. Una rama que
+  se convierte en un cortocircuito lleva la resistencia equivalente a cero y se lleva casi toda la
+  corriente. La corriente total que suministra la fuente siempre es mayor que la de cualquier rama
+  por separado.
+
+  Resistores de 1.00, 2.00 y 2.00 ohmios conectados a una fuente de 3.00 voltios dan una resistencia
+  equivalente de 0.50 ohmios y una corriente total de 6.00 amperios.

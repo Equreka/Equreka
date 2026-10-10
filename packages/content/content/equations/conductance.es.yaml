@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Conductancia como inversa de la resistencia'
+description: >-
+  La conductancia eléctrica es la inversa de la resistencia eléctrica: cuanto mayor es la
+  resistencia de un componente, menor es su conductancia. La relación describe un elemento de un
+  circuito por la facilidad con que conduce y no por la fuerza con que se opone a la corriente, lo
+  que resulta cómodo para ramas en paralelo, sensores y celdas electroquímicas en el
+  electromagnetismo.
+
+  $\mag{G}$ es la conductancia, en siemens, y $\mag{R}$ la resistencia, en ohmios; un siemens es la
+  inversa de un ohmio, o un amperio por voltio. Los textos antiguos llaman a la unidad mho, que el
+  NIST da como igual al siemens. En resistores, cables y demás componentes pasivos, ambas magnitudes
+  son positivas. Un aislante perfecto tiene conductancia nula, y un conductor ideal, resistencia
+  nula; en ambos casos la otra magnitud sería infinita.
+
+  Junto con la ley de Ohm, la conductancia es la corriente que atraviesa un componente dividida
+  entre la tensión entre sus terminales, y la corriente es igual a la conductancia por la tensión.
+  Escrita así, la regla de las ramas en paralelo se convierte en una suma: la conductancia de una
+  combinación en paralelo es la suma de las conductancias de las ramas, la contrapartida de las
+  resistencias que se suman en serie.
+
+  La relación inversa vale en corriente continua y para cualquier elemento descrito por una sola
+  resistencia. En corriente alterna, QUDT define la conductancia como la parte real de la
+  admitancia, la inversa de la impedancia, que solo coincide con la inversa de la resistencia si el
+  elemento no tiene reactancia. La conductancia es propia de un objeto; la propiedad correspondiente
+  de un material es la conductividad, en siemens por metro, la inversa de la resistividad.
+
+  Un resistor de 50 ohmios tiene una conductancia de 0.02 siemens, o 20 milisiemens.

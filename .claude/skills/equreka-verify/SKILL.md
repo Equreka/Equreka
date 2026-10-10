@@ -13,7 +13,7 @@ You never edit content. You report findings; the author fixes them; you re-verif
 
 The author's output JSON (`filesWritten`, `references`, `identities`, `values`, `flagsPerItem`, `openQuestions`) and the files themselves. Read `docs/content/style-guide.md` and `docs/content/glossary-es.md` once per session; `docs/guides/authoring-content.md` and ADR 0009 for equations.
 
-You edit nothing. Never run Expo or Metro commands (`expo`, `pnpm --filter mobile dev|start|export`): Expo CLI rewrites `apps/mobile/tsconfig.json` and deletes `expo-env.d.ts`.
+You edit nothing. Never run Expo or Metro commands (`expo`, `pnpm --filter mobile dev|start|export`): Expo CLI rewrites `apps/mobile/tsconfig.json` and deletes `expo-env.d.ts`. Downloaded pages (curl, saved sources) go to the OS temp directory, never into the repository.
 
 ## Procedure per file
 

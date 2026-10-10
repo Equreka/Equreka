@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Resistores en paralelo'
+terms:
+  R_{1}:
+    label: 'Resistencia del primer resistor'
+  R_{2}:
+    label: 'Resistencia del segundo resistor'
+description: >-
+  Los resistores en paralelo, conectados entre los mismos dos puntos de modo que la corriente se
+  reparte entre ellos, se comportan como un único resistor cuya inversa de la resistencia es la
+  suma de las inversas de las suyas. Para dos resistores, el resultado es el producto de las resistencias
+  dividido entre su suma, la regla que se aplica a las ramas de la instalación doméstica, de los
+  circuitos de un coche y de las redes electrónicas.
+
+  $\mag{R}$ es la resistencia equivalente del par, en ohmios. $\var{R_{1}}$ y $\var{R_{2}}$ son las
+  resistencias del primer y del segundo resistor, también en ohmios. Las tres son positivas. La
+  resistencia equivalente siempre es menor que la menor de las dos, y dos resistores iguales en
+  paralelo dan la mitad de la resistencia de uno. La relación está escrita para dos resistores; tres
+  tienen su propia entrada, y cada rama adicional añade otra inversa.
+
+  Cada resistor en paralelo tiene entre sus terminales toda la tensión de la fuente, así que lleva
+  una corriente igual a esa tensión dividida entre su propia resistencia. Las corrientes de las
+  ramas se juntan de nuevo en el nodo, y por la regla de los nodos de Kirchhoff la corriente total
+  es su suma. Al dividir la tensión entre la corriente total se obtiene la resistencia equivalente,
+  cuya inversa es la suma de las inversas. En términos de conductancia, la inversa de la
+  resistencia, las conductancias de las ramas en paralelo se suman directamente.
+
+  La regla supone cables de conexión de resistencia despreciable y corrientes estables. Las ramas
+  son independientes, y por eso los electrodomésticos se conectan en paralelo: cada
+  uno recibe toda la tensión de la red, y apagar uno no afecta a los demás. Cada rama añadida reduce
+  la resistencia equivalente y aumenta la corriente que debe suministrar la fuente.
+
+  Un resistor de 6.00 ohmios y otro de 13.0 ohmios en paralelo equivalen a uno de unos 4.11
+  ohmios.

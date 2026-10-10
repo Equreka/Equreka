@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Conductance as the reciprocal of resistance'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{G}=\frac{1}{\mag{R}}'
+terms:
+  G:
+    kind: 'magnitude'
+    ref: 'electrical-conductance'
+  R:
+    kind: 'magnitude'
+    ref: 'electrical-resistance'
+solutions:
+  G: '1 / R'
+  R: '1 / G'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'G = 1/R'
+  - 'conductance formula'
+  - 'reciprocal of resistance'
+  - 'conductance and resistance'
+  - 'mho'
+  - 'conductancia'
+  - 'inversa de la resistencia'
+references:
+  - title: 'QUDT, quantity kind Conductance (G = 1/R; G = Re Y)'
+    url: 'https://qudt.org/vocab/quantitykind/Conductance'
+  - title: 'D. H. Johnson, Electrical Engineering (Rice University), LibreTexts, 3.6 Series and Parallel Circuits'
+    url: 'https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Introductory_Electrical_Engineering/Electrical_Engineering_(Johnson)/03%3A_Analog_Signal_Processing/3.06%3A_Series_and_Parallel_Circuits'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: mho'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'OpenStax, University Physics Volume 2, 9.3 Resistivity and Resistance'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-3-resistivity-and-resistance'
+description:
+  en: >-
+    Electrical conductance is the reciprocal of electrical resistance: the larger the resistance of
+    a component, the smaller its conductance. The relation describes a circuit element by how
+    readily it conducts rather than by how strongly it opposes current, which is convenient for
+    parallel branches, sensors and electrochemical cells in electromagnetism.
+
+    $\mag{G}$ is the conductance, in siemens, and $\mag{R}$ the resistance, in ohms; one siemens is
+    one reciprocal ohm, or one ampere per volt. Older texts call the unit the mho, which NIST lists
+    as equal to the siemens. For resistors, wires and other passive components both quantities are
+    positive. A perfect insulator has zero conductance and an ideal conductor zero resistance; in
+    either case the other quantity would be infinite.
+
+    Combined with Ohm's law, the conductance is the current through a component divided by the
+    voltage across it, and the current equals the conductance times the voltage. Written this way,
+    the rule for parallel branches becomes a sum: the conductance of a parallel combination is the
+    sum of the branch conductances, the counterpart of resistances adding in series.
+
+    The reciprocal relation holds for direct current and for any element described by a single
+    resistance. For alternating current QUDT defines conductance as the real part of the admittance,
+    the reciprocal of the impedance, which equals the reciprocal of the resistance only when the
+    element has no reactance. Conductance belongs to an object; the matching property of a material
+    is the conductivity, in siemens per metre, the reciprocal of the resistivity.
+
+    A 50-ohm resistor has a conductance of 0.02 siemens, or 20 millisiemens.

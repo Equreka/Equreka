@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Electric field of a point charge'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{E}=\const{k_\mathrm{e}}\frac{\mag{q}}{\var{r}^{2}}'
+terms:
+  E:
+    kind: 'magnitude'
+    ref: 'electric-field-strength'
+  k_\mathrm{e}:
+    kind: 'constant'
+    ref: 'coulomb-constant'
+  q:
+    kind: 'magnitude'
+    ref: 'electric-charge'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Distance from the charge'
+    unit: 'metre'
+solutions:
+  E: 'k_e * q / r^2'
+  q: 'E * r^2 / k_e'
+  r: 'sqrt(k_e * q / E)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'point charge electric field'
+  - 'Coulomb field'
+  - 'field of a point charge'
+  - 'E = k q / r^2'
+  - 'campo eléctrico de una carga puntual'
+  - 'campo de una carga puntual'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 5.4 Electric Field'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/5-4-electric-field'
+  - title: 'OpenStax, College Physics 2e, 18.4 Electric Field: Concept of a Field Revisited'
+    url: 'https://openstax.org/books/college-physics-2e/pages/18-4-electric-field-concept-of-a-field-revisited'
+  - title: 'OpenStax, College Physics 2e, 19.3 Electrical Potential Due to a Point Charge'
+    url: 'https://openstax.org/books/college-physics-2e/pages/19-3-electrical-potential-due-to-a-point-charge'
+description:
+  en: >-
+    The electric field of a point charge, the field strength a single charge creates around
+    itself, equals the Coulomb constant times the charge divided by the square of the distance
+    from it.
+    The formula follows from Coulomb's law and the definition of the field as force per unit
+    charge, and it is the building block from which electrostatics assembles the field of any
+    arrangement of charges.
+
+    $\mag{E}$ is the electric field strength in volts per metre, equivalent to newtons per coulomb.
+    $\mag{q}$ is the source charge in coulombs, with its sign, and $\var{r}$ is the distance from
+    the charge to the point where the field is wanted, in metres. $\const{k_\mathrm{e}}$ is the
+    Coulomb constant, about $8.99\times10^{9}\,\mathrm{N\,m^{2}/C^{2}}$, equal to one over four pi
+    times the vacuum electric permittivity. The field is radial, and its sign gives the direction
+    along the line from the charge: positive means pointing away from a positive source, negative
+    means pointing towards a negative one.
+
+    Placing a test charge at distance $\var{r}$ and dividing the Coulomb force on it by the test
+    charge cancels the test charge and leaves this expression, so the field belongs to the source
+    alone. It falls with the inverse square of the distance: twice as far, a quarter of the field.
+    Every point on a sphere centred on the charge sees the same field strength. With several
+    sources, the fields of each one add as vectors at the point of interest.
+
+    The formula assumes a charge that is small compared with the distance or spherically
+    symmetric, at rest. Outside a charged conducting sphere, the field equals that of the same
+    charge concentrated at the centre, with the distance measured from the centre. Inside matter
+    or close to an extended body, the simple form no longer applies.
+
+    The formula estimates the fields in atoms and around charged objects. A charge of 2.00
+    nanocoulombs produces a field of about $7.19\times10^{5}\,\mathrm{V/m}$ at 5.00 millimetres.

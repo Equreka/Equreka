@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Energía almacenada en un condensador'
+description: >-
+  La energía almacenada en un condensador es la mitad de su capacidad por el cuadrado de la tensión
+  entre sus placas. Un condensador cargado guarda esta energía en el campo eléctrico entre las
+  placas y puede liberarla con rapidez, por lo que la relación es la base del almacenamiento de
+  energía con condensadores en la electrostática y la electrónica.
+
+  $\mag{E_\mathrm{p}}$ es la energía potencial eléctrica almacenada en julios, $\mag{C}$ es la
+  capacidad en faradios y $\mag{V}$ es la diferencia de potencial eléctrico entre la placa positiva
+  y la negativa en voltios. La energía nunca es negativa, e invertir la polaridad de la tensión no
+  la cambia, porque la tensión aparece al cuadrado. Con la definición de capacidad, carga entre
+  tensión, la misma energía puede escribirse como el cuadrado de la carga entre el doble de la
+  capacidad, o como la mitad de la carga por la tensión.
+
+  El factor un medio procede del proceso de carga. Un condensador vacío no tiene tensión entre sus
+  placas, así que la primera carga que se lleva a él casi no cuesta trabajo; la tensión sube a la
+  par que la carga, y la última carga se empuja contra la tensión completa. En promedio cada
+  porción de carga atraviesa la mitad de la tensión final, de modo que el trabajo total, y con él
+  la energía almacenada, es la mitad de la carga por la tensión y no el producto completo.
+
+  La relación vale para cualquier condensador cuya capacidad no cambie durante la carga, sea cual
+  sea su forma, hasta la tensión a la que el aislante entre las placas sufre ruptura. La energía
+  reside en el propio campo, repartida por el espacio entre las placas, de modo que el mismo
+  resultado se obtiene de la densidad de energía del campo multiplicada por el volumen que ocupa.
+
+  Los desfibriladores, los flashes de cámara y las fuentes de respaldo de memorias aprovechan la
+  energía almacenada en condensadores. Un condensador de desfibrilador de $8.00\,\mu\mathrm{F}$
+  cargado a 10.0 kilovoltios almacena $4.00\times10^{2}\,\mathrm{J}$.
