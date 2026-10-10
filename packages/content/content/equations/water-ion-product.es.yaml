@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Producto iónico del agua'
+terms:
+  K_\mathrm{w}:
+    label: 'Producto iónico del agua'
+  '[\mathrm{H}^{+}]':
+    label: 'Concentración de iones hidrógeno'
+  '[\mathrm{OH}^{-}]':
+    label: 'Concentración de iones hidróxido'
+description: >-
+  El producto iónico del agua es la constante de equilibrio de la autoionización del agua, en la que
+  dos moléculas de agua intercambian un protón y forman un ion hidronio y un ion hidróxido. Es igual
+  a la concentración de iones hidrógeno por la concentración de iones hidróxido, cada una tomada
+  respecto de la concentración estándar, y a una temperatura dada es la misma en el agua pura y en
+  cualquier disolución acuosa diluida.
+
+  $\var{K_\mathrm{w}}$ es el producto iónico del agua, un número puro positivo.
+  $\var{[\mathrm{H}^{+}]}$ y $\var{[\mathrm{OH}^{-}]}$ son las concentraciones de cantidad de
+  sustancia de los iones hidrógeno, presentes como hidronio, y de los iones hidróxido, ambas
+  positivas y expresadas por lo general en moles por litro. $\const{c^{\circ}}$ es la concentración
+  molar estándar, exactamente un mol por decímetro cúbico; dividir entre su cuadrado hace la
+  constante adimensional, como exige la IUPAC para una constante de equilibrio estándar, y conserva
+  los números que los libros de texto dan en moles por litro.
+
+  Como el producto es fijo, las dos concentraciones varían en sentidos opuestos: añadir ácido aumenta
+  los iones hidrógeno y obliga a los iones hidróxido a bajar en el mismo factor. En el agua pura
+  ambas son iguales, cada una la raíz cuadrada de la constante por la concentración estándar, lo que
+  define una disolución neutra. Conocida una de las dos concentraciones, se obtiene la otra.
+
+  La constante depende mucho de la temperatura. A $25\,^{\circ}\mathrm{C}$ vale
+  $1.0\times10^{-14}$, de modo que el agua neutra contiene entonces $1.0\times10^{-7}$ moles de cada
+  ion por litro; la autoionización absorbe calor, y a $80\,^{\circ}\mathrm{C}$ la constante es unas 24 veces
+  mayor. Las concentraciones sustituyen a las actividades, lo que solo vale en disoluciones diluidas.
+
+  A $25\,^{\circ}\mathrm{C}$, una disolución ácida con 0.010 moles de hidronio por litro contiene
+  $1.0\times10^{-12}$ moles de hidróxido por litro.

@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de Hess'
+terms:
+  \Delta H:
+    label: 'Variación de entalpía de la reacción global'
+  \Delta H_{i}:
+    label: 'Variación de entalpía de la etapa i'
+description: >-
+  La ley de Hess establece que la variación de entalpía de una reacción química es la misma sea cual
+  sea el camino que lleva de los reactivos a los productos: cuando la reacción se escribe como una
+  serie de etapas, su variación de entalpía es igual a la suma de las variaciones de entalpía de
+  esas etapas. En inglés también recibe el nombre de law of constant heat summation, y es una
+  herramienta de trabajo de la termoquímica para reacciones cuyo calor es difícil de medir
+  directamente.
+
+  $\var{\Delta H}$ es la variación de entalpía de la reacción global y $\var{\Delta H_{i}}$ la de la
+  etapa $i$, cada una en julios por mol de reacción tal como está escrita, y se dan normalmente en
+  kilojulios por mol. Un valor negativo indica una etapa o reacción exotérmica, que libera calor, y uno
+  positivo una endotérmica. La suma recorre todas las etapas, y estas deben sumar, especie por
+  especie, la ecuación global.
+
+  La ley se cumple porque la entalpía es una función de estado: su variación depende solo de los
+  estados inicial y final, no del camino entre ellos. De ahí salen dos reglas para combinar etapas.
+  Invertir una etapa invierte el signo de su variación de entalpía, y multiplicar una etapa por un
+  factor multiplica su variación de entalpía por ese mismo factor. Las especies que aparecen en ambos
+  lados de las etapas sumadas se cancelan.
+
+  Todas las etapas deben tomarse a la misma temperatura y presión, y cada especie debe estar en el
+  mismo estado físico allí donde aparezca, ya que fundir o vaporizar una sustancia tiene su propia
+  variación de entalpía. La ley es una consecuencia de la conservación de la energía y no necesita
+  ninguna suposición sobre el mecanismo.
+
+  Germain Henri Hess publicó la ley en 1840. Quemar carbono hasta monóxido de carbono libera 111
+  kilojulios por mol de carbono, y quemar ese monóxido de carbono hasta dióxido de carbono libera 283
+  kilojulios por mol más, así que la combustión directa del carbono hasta dióxido de carbono tiene
+  una variación de entalpía de −111 + (−283) = −394 kilojulios por mol de reacción.

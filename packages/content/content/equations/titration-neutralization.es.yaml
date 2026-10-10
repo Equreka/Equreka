@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ecuación de la valoración ácido-base'
+terms:
+  c_\mathrm{a}:
+    label: 'Concentración del ácido'
+  V_\mathrm{a}:
+    label: 'Volumen de la disolución del ácido'
+  \nu_\mathrm{b}:
+    label: 'Coeficiente estequiométrico de la base'
+  c_\mathrm{b}:
+    label: 'Concentración de la base'
+  V_\mathrm{b}:
+    label: 'Volumen de la disolución de la base'
+  \nu_\mathrm{a}:
+    label: 'Coeficiente estequiométrico del ácido'
+description: >-
+  La ecuación de la valoración ácido-base relaciona las concentraciones y los volúmenes de un ácido y
+  una base que se han neutralizado exactamente en el punto de equivalencia. Ponderada por los
+  coeficientes de la reacción de neutralización, es la regla de trabajo del análisis volumétrico
+  para hallar una concentración desconocida a partir del volumen de una disolución patrón añadido
+  con una bureta.
+
+  $\var{c_\mathrm{a}}$ y $\var{V_\mathrm{a}}$ son la concentración de cantidad de sustancia y el
+  volumen de la disolución del ácido, y $\var{c_\mathrm{b}}$ y $\var{V_\mathrm{b}}$, los de la
+  disolución de la base; las concentraciones se guardan en moles por metro cúbico y los volúmenes en
+  metros cúbicos, aunque sirven los moles por litro con mililitros siempre que los dos miembros usen
+  las mismas unidades. $\var{\nu_\mathrm{a}}$ y $\var{\nu_\mathrm{b}}$ son los coeficientes enteros
+  del ácido y de la base en la reacción. Las seis magnitudes son positivas.
+
+  Cada concentración por su volumen es una cantidad en moles. En el punto de equivalencia, las
+  cantidades que han reaccionado guardan la proporción de los coeficientes, así que la cantidad de
+  ácido dividida entre su coeficiente es igual a la cantidad de base dividida entre el suyo, y al
+  quitar denominadores se obtiene la ecuación. Cuando ambos coeficientes valen uno, como en el ácido
+  clorhídrico con hidróxido de sodio, se reduce a la forma corta en la que la concentración por el
+  volumen es igual en los dos miembros. Esa forma corta falla con otras proporciones: el ácido
+  sulfúrico necesita dos moles de hidróxido de sodio por mol.
+
+  La ecuación supone una sola reacción completa con coeficientes conocidos y un indicador cuyo cambio
+  de color, el punto final, quede lo bastante cerca del punto de equivalencia. Los libros de texto
+  introductorios enseñan el camino estequiométrico general y tratan la forma uno a uno como un caso
+  particular suyo.
+
+  Cuando 26.60 mililitros de ácido sulfúrico se neutralizan con 32.20 mililitros de hidróxido de
+  sodio a 0.250 moles por litro, la concentración del ácido es 0.151 moles por litro.

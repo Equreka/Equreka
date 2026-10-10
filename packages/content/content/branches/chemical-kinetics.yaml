@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/branches.schema.json
+name:
+  en: 'Chemical kinetics'
+category: 'chemistry'
+order: 5
+externalIds:
+  wikidata: 'Q209082'
+aliases:
+  - 'reaction kinetics'
+  - 'reaction rates'
+  - 'rates of reaction'
+  - 'cinética de reacción'
+description:
+  en: >-
+    Chemical kinetics is the branch of chemistry that studies how fast chemical reactions proceed
+    and the steps by which reactants turn into products. Where thermochemistry asks whether a
+    reaction can happen and how much energy it exchanges, kinetics asks how long it takes, and the
+    two answers are independent: a reaction with a large negative Gibbs energy change may still be
+    too slow to notice.
+
+    Its central quantity is the rate of reaction, the change in the concentration of a reactant or
+    product per unit time divided by its stoichiometric coefficient. The average rate over an
+    interval is taken from two measured concentrations; the instantaneous rate is the slope of the
+    concentration curve at one moment, and the initial rate is that slope at the start. Rates are
+    stated in moles per cubic metre second or, more often, in moles per litre second. A rate law ties the
+    rate to concentrations through a rate constant and the orders of reaction, the activation
+    energy measures how strongly the rate grows with temperature, and a catalyst speeds a reaction
+    by offering a path of lower activation energy.
+
+    It draws on amount of substance and expresses composition as the concentrations of solutions
+    and the pressures of gases. It meets equilibrium wherever forward and reverse rates
+    become equal, and its first-order rate law has the same exponential form as radioactive decay.

@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Definition of pH'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{\mathrm{pH}}=-\log_{10}\left(\frac{\var{[\mathrm{H}^{+}]}}{\const{c^{\circ}}}\right)'
+terms:
+  \mathrm{pH}:
+    kind: 'magnitude'
+    ref: 'ph'
+  '[\mathrm{H}^{+}]':
+    kind: 'symbol'
+    label:
+      en: 'Hydrogen ion concentration'
+    unit: 'mole-per-cubic-metre'
+    identifier: 'cH'
+  c^{\circ}:
+    kind: 'constant'
+    ref: 'standard-amount-concentration'
+    identifier: 'c_std'
+solutions:
+  \mathrm{pH}: '-log10(cH / c_std)'
+  '[\mathrm{H}^{+}]': 'c_std * 10^(-pH)'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'acids-and-bases'
+aliases:
+  - 'pH formula'
+  - 'pH equation'
+  - 'pH = -log[H+]'
+  - 'pH = -log[H3O+]'
+  - 'hydrogen ion concentration from pH'
+  - 'fórmula del pH'
+  - 'cálculo del pH'
+references:
+  - title: 'OpenStax, Chemistry 2e, 14.2 pH and pOH, Examples 14.4 and 14.5'
+    url: 'https://openstax.org/books/chemistry-2e/pages/14-2-ph-and-poh'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.13.1 (viii) Definition of pH and section 2.11.1 (v)'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'Science History Institute, Scientific biographies: S. P. L. Sørensen'
+    url: 'https://sciencehistory.org/education/scientific-biographies/soren-sorensen/'
+  - title: 'Carlsberg Group, Scientific discoveries: pH scale'
+    url: 'https://www.carlsberggroup.com/pursuit-of-better/scientific-discoveries/ph-scale/'
+description:
+  en: >-
+    The definition of pH gives the acidity of an aqueous solution as minus the base-ten logarithm of
+    its hydrogen ion concentration divided by the standard concentration of one mole per litre. In
+    school chemistry this pH formula turns a concentration of hydrogen ions, or hydronium ions, into
+    a pH value, and turns a measured pH back into a concentration.
+
+    $\mag{\mathrm{pH}}$ is the pH, a quantity of dimension one whose unit is one; it decreases as a
+    solution becomes more acidic and can drop below zero for very concentrated acids.
+    $\var{[\mathrm{H}^{+}]}$ is the amount concentration of hydrogen ions, which in water are
+    bonded to water molecules as hydronium ions; it is positive and is usually entered in moles per
+    litre. $\const{c^{\circ}}$ is the standard amount concentration, exactly one mole per cubic
+    decimetre, so the ratio inside the logarithm is a pure number equal to the concentration in
+    moles per litre.
+
+    A logarithm can only act on a pure number, which is why the concentration is first divided by
+    the standard value. One unit of pH stands for a factor of ten in concentration, and the minus
+    sign makes the pH larger as the hydrogen ions become scarcer. Read backwards, the concentration
+    equals the standard concentration multiplied by ten raised to minus the pH. A concentration
+    known to two significant figures gives a pH with two decimal places.
+
+    IUPAC defines pH through the activity of the hydrogen ion, an effective concentration on a
+    molality basis, and calls even that definition notional because the activity of a single ion
+    cannot be measured. Using the concentration instead is an approximation that suits dilute
+    solutions and worsens as ions crowd together in concentrated or salty ones. Values quoted
+    without a temperature refer to $25\,^{\circ}\mathrm{C}$, where pure water has a pH of 7.
+
+    S. P. L. Sørensen introduced the pH scale in 1909, while heading the chemistry department of the
+    Carlsberg Laboratory. A hydrogen ion concentration of 0.0010 moles per litre gives a pH of 3.00.

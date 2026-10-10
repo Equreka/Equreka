@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Definición del pH'
+terms:
+  '[\mathrm{H}^{+}]':
+    label: 'Concentración de iones hidrógeno'
+description: >-
+  La definición del pH expresa la acidez de una disolución acuosa como menos el logaritmo decimal de
+  su concentración de iones hidrógeno dividida entre la concentración estándar de un mol por litro.
+  En la química escolar, esta fórmula del pH convierte una concentración de iones hidrógeno, o de
+  iones hidronio, en un valor de pH, y convierte un pH medido de nuevo en una concentración.
+
+  $\mag{\mathrm{pH}}$ es el pH, una magnitud de dimensión uno cuya unidad es el uno; disminuye a
+  medida que una disolución se vuelve más ácida y puede bajar de cero en ácidos muy concentrados.
+  $\var{[\mathrm{H}^{+}]}$ es la concentración de cantidad de sustancia de los iones hidrógeno, que
+  en el agua están unidos a moléculas de agua como iones hidronio; es positiva y suele introducirse
+  en moles por litro. $\const{c^{\circ}}$ es la concentración molar estándar, exactamente un mol por
+  decímetro cúbico, de modo que el cociente dentro del logaritmo es un número puro igual a la
+  concentración en moles por litro.
+
+  Un logaritmo solo puede actuar sobre un número puro, y por eso la concentración se divide primero
+  entre el valor estándar. Una unidad de pH representa un factor de diez en la concentración, y el
+  signo menos hace que el pH aumente cuando los iones hidrógeno escasean. Leída al revés, la
+  concentración es igual a la concentración estándar multiplicada por diez elevado a menos el pH.
+  Una concentración conocida con dos cifras significativas da un pH con dos decimales.
+
+  La IUPAC define el pH mediante la actividad del ion hidrógeno, una concentración efectiva referida
+  a la molalidad, y califica incluso esa definición de nocional porque la actividad de un solo ion no
+  puede medirse. Usar la concentración en su lugar es una aproximación adecuada para disoluciones
+  diluidas que empeora cuando los iones se apiñan en disoluciones concentradas o salinas. Los valores
+  dados sin temperatura se refieren a $25\,^{\circ}\mathrm{C}$, donde el agua pura tiene un pH de 7.
+
+  S. P. L. Sørensen introdujo la escala de pH en 1909, cuando dirigía el departamento de química del
+  Laboratorio Carlsberg. Una concentración de iones hidrógeno de 0.0010 moles por litro da un pH de
+  3.00.

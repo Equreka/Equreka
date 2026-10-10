@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Definition of pOH'
+kind: 'formula'
+level: 'intro'
+expression: '\var{\mathrm{pOH}}=-\log_{10}\left(\frac{\var{[\mathrm{OH}^{-}]}}{\const{c^{\circ}}}\right)'
+terms:
+  \mathrm{pOH}:
+    kind: 'symbol'
+    label:
+      en: 'pOH'
+  '[\mathrm{OH}^{-}]':
+    kind: 'symbol'
+    label:
+      en: 'Hydroxide ion concentration'
+    unit: 'mole-per-cubic-metre'
+    identifier: 'cOH'
+  c^{\circ}:
+    kind: 'constant'
+    ref: 'standard-amount-concentration'
+    identifier: 'c_std'
+solutions:
+  \mathrm{pOH}: '-log10(cOH / c_std)'
+  '[\mathrm{OH}^{-}]': 'c_std * 10^(-pOH)'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'acids-and-bases'
+aliases:
+  - 'pOH formula'
+  - 'pOH equation'
+  - 'pOH = -log[OH-]'
+  - 'hydroxide ion concentration from pOH'
+  - 'fórmula del pOH'
+  - 'cálculo del pOH'
+references:
+  - title: 'OpenStax, Chemistry 2e, 14.2 pH and pOH, Example 14.6'
+    url: 'https://openstax.org/books/chemistry-2e/pages/14-2-ph-and-poh'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.13.1 (viii): the operator p, px = -lg x'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+description:
+  en: >-
+    The definition of pOH expresses how basic an aqueous solution is as minus the base-ten logarithm
+    of its hydroxide ion concentration divided by the standard concentration of one mole per litre.
+    It is the hydroxide counterpart of pH in acid-base chemistry, used to go from the concentration
+    of a strong base to a pOH value and from a pOH back to a concentration.
+
+    $\var{\mathrm{pOH}}$ is the pOH, a number of dimension one written without a unit; the more
+    hydroxide a solution holds, the smaller it becomes, and it can be negative in very concentrated
+    bases. $\var{[\mathrm{OH}^{-}]}$ is the amount concentration of hydroxide ions, positive and
+    usually entered in moles per litre. $\const{c^{\circ}}$ is the standard amount concentration,
+    exactly one mole per cubic decimetre, which makes the argument of the logarithm a pure number
+    equal to the concentration in moles per litre.
+
+    IUPAC reads the letter p as an operator meaning minus the base-ten logarithm, and names pH as
+    the one exception to that reading. By the same operator reading, pOH applies the operator to the
+    relative hydroxide ion concentration. A tenfold rise in hydroxide lowers the pOH by one. Solved
+    for the concentration, the formula gives the standard concentration times ten raised to minus
+    the pOH. Since basic solutions are usually described by their pH, the pOH is often an
+    intermediate step: it is found from the hydroxide concentration and then subtracted from pKw,
+    14.00 at $25\,^{\circ}\mathrm{C}$, to give the pH.
+
+    Like the school form of pH, this formula puts concentrations where the rigorous treatment uses
+    activities, so it is reliable for dilute solutions only. A strong base such as potassium
+    hydroxide is taken to dissociate completely, so its hydroxide concentration equals the
+    concentration of the base. A 0.0125 mole per litre solution of potassium hydroxide has a pOH of
+    1.903, and at $25\,^{\circ}\mathrm{C}$ a pH of 12.10.

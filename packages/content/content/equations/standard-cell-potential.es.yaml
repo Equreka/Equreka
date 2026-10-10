@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Potencial estándar de la celda'
+terms:
+  E^{\circ}_\mathrm{cell}:
+    label: 'Potencial estándar de la celda'
+  E^{\circ}_\mathrm{cathode}:
+    label: 'Potencial estándar de reducción del cátodo'
+  E^{\circ}_\mathrm{anode}:
+    label: 'Potencial estándar de reducción del ánodo'
+description: >-
+  El potencial estándar de la celda de una celda electroquímica es el potencial estándar de reducción
+  de su cátodo menos el potencial estándar de reducción de su ánodo. En electroquímica esta
+  diferencia, la tensión de una celda galvánica en condiciones estándar, se obtiene de una tabla de
+  potenciales estándar de electrodo e indica si la reacción de la celda ocurre por sí sola.
+
+  $\var{E^{\circ}_\mathrm{cell}}$ es el potencial estándar de la celda, en voltios.
+  $\var{E^{\circ}_\mathrm{cathode}}$ es el potencial estándar de reducción de la semicelda donde
+  ocurre la reducción, el cátodo, y $\var{E^{\circ}_\mathrm{anode}}$ el de la semicelda donde ocurre
+  la oxidación, el ánodo, ambos leídos de la misma tabla de potenciales de reducción y ambos en
+  voltios. Todos los valores se miden frente al electrodo estándar de hidrógeno, cuyo potencial es
+  cero por definición.
+
+  Un potencial de la celda positivo indica una reacción espontánea en condiciones estándar; uno
+  negativo indica una reacción que necesita una fuente externa de energía, como en la electrólisis,
+  e invertir la reacción invierte el signo. Los dos potenciales de reducción entran tal como están
+  tabulados: el del ánodo se resta en lugar de cambiarle antes el signo, y ninguno se multiplica por
+  los coeficientes de la ecuación química, porque un potencial no depende de cuánta sustancia
+  reacciona.
+
+  Las condiciones estándar son solutos a un mol por litro, gases a 1 bar y, en las tablas habituales,
+  $25\,^{\circ}\mathrm{C}$. Otras concentraciones desplazan el potencial de la celda, una corrección
+  que da la ecuación de Nernst. Un valor positivo dice que la reacción puede avanzar, no con qué
+  rapidez; la variación de energía de Gibbs estándar es igual a menos el número de electrones
+  transferidos por la constante de Faraday por el potencial estándar de la celda.
+
+  En una celda de cobre y plata, los iones plata se reducen a 0.7996 voltios y el cobre se oxida
+  frente a 0.34 voltios, así que el potencial estándar de la celda es de unos +0.46 voltios.

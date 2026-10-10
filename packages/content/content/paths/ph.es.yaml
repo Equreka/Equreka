@@ -1,0 +1,90 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.locale.schema.json
+name: 'pH y valoración ácido-base'
+description: >-
+  De la concentración de iones hidrógeno al pH y de vuelta: la concentración estándar, el producto
+  iónico del agua, el pOH y su regla con el pH, y la ecuación de la valoración que mide un ácido o
+  una base desconocidos, con comprobaciones en cada paso.
+steps:
+  intro:
+    body: >-
+      La acidez depende de cuántos iones hidrógeno contiene una disolución, y ese número abarca más de
+      una docena de potencias de diez entre un ácido fuerte y una base fuerte. Una escala logarítmica
+      comprime ese intervalo en unos pocos números cómodos. Ten presente en todo momento que cada
+      fórmula de este recorrido usa concentraciones en lugar de actividades, una buena aproximación
+      solo en disoluciones diluidas; las concentraciones se introducen en moles por litro.
+  ph:
+    note: >-
+      La magnitud en sí: un número sin unidad, más bajo en los ácidos y más alto en las bases. Un paso
+      en la escala es un factor de diez en los iones hidrógeno.
+  standard-amount-concentration:
+    note: >-
+      Un logaritmo necesita un número puro, así que cada concentración se divide primero entre un mol
+      por litro. El cociente es la concentración en moles por litro sin la unidad.
+  ph-definition:
+    note: >-
+      Toma menos el logaritmo decimal de la concentración relativa de iones hidrógeno. Inviértelo con
+      una potencia de diez para recuperar la concentración a partir de un pH.
+  check-ph:
+    prompt: >-
+      Una disolución contiene 0.00035 moles de iones hidrógeno por litro. ¿Cuál es su pH?
+    answer: >-
+      3.46: el logaritmo decimal de 0.00035 es menos 3.456, y el signo menos de la definición lo
+      vuelve positivo. Dos cifras significativas dan dos decimales.
+  check-concentration:
+    prompt: >-
+      Una muestra de agua de lluvia tiene un pH de 4.50. ¿Cuál es su concentración de iones
+      hidrógeno?
+    answer: >-
+      Alrededor de $3.2\times10^{-5}$ mol/L: diez elevado a menos 4.50 es 0.0000316, multiplicado por
+      la concentración estándar de 1 mol/L.
+  water-ion-product:
+    note: >-
+      La propia agua forma unos pocos iones hidrógeno e hidróxido, y sus concentraciones relativas
+      multiplicadas dan una constante que solo depende de la temperatura. A 25 grados Celsius vale
+      $1.0\times10^{-14}$.
+  check-kw:
+    prompt: >-
+      A 25 grados Celsius, una disolución tiene 0.0025 moles de iones hidrógeno por litro. ¿Cuál es su
+      concentración de iones hidróxido?
+    answer: >-
+      $4.0\times10^{-12}$ mol/L: divide $1.0\times10^{-14}$ entre 0.0025 y multiplica por 1 mol/L.
+      Cuanto más ácido, menos hidróxido.
+  poh-definition:
+    note: >-
+      El mismo operador aplicado a los iones hidróxido. Es el primer paso natural para una disolución
+      de una base fuerte.
+  ph-poh-relation:
+    note: >-
+      Al tomar el logaritmo del producto iónico, pH y pOH suman pKw, que vale 14.00 a 25 grados
+      Celsius. A otras temperaturas, introduce el pKw correspondiente.
+  check-poh:
+    prompt: >-
+      Una disolución de hidróxido de sodio de 0.020 mol/L se disocia por completo. ¿Cuáles son su pOH
+      y su pH a 25 grados Celsius?
+    answer: >-
+      El pOH es 1.70, menos el logaritmo decimal de 0.020. El pH es 14.00 menos 1.70, es decir,
+      12.30.
+  neutralization:
+    body: >-
+      Al mezclar un ácido con una base, los iones hidrógeno e hidróxido desaparecen juntos formando
+      agua. Una valoración añade desde una bureta una base de concentración conocida a un volumen
+      medido de ácido, o al revés, hasta que un indicador cambia de color en el punto en que ambos han
+      reaccionado exactamente. El volumen gastado revela entonces la concentración desconocida.
+  titration-neutralization:
+    note: >-
+      Las cantidades de ácido y de base reaccionan en la proporción de sus coeficientes en la
+      reacción. Escribe primero la reacción y lee en ella los coeficientes.
+  check-titration-hcl:
+    prompt: >-
+      25.00 mL de ácido clorhídrico se neutralizan con 18.40 mL de hidróxido de sodio de 0.100 mol/L.
+      ¿Cuál es la concentración del ácido?
+    answer: >-
+      0.0736 mol/L: los dos coeficientes valen uno, así que la concentración del ácido es 0.100 por
+      18.40 dividido entre 25.00.
+  check-titration-sulfuric:
+    prompt: >-
+      20.00 mL de ácido sulfúrico se neutralizan con 30.00 mL de hidróxido de sodio de 0.200 mol/L.
+      ¿Cuál es la concentración del ácido?
+    answer: >-
+      0.150 mol/L: un mol de ácido sulfúrico reacciona con dos moles de hidróxido de sodio, así que la
+      concentración del ácido es 0.200 por 30.00 por 1, dividido entre 20.00 por 2.

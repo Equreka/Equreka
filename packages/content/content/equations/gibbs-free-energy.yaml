@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Gibbs free energy change'
+kind: 'formula'
+level: 'intro'
+expression: '\var{\Delta G}=\var{\Delta H}-\mag{T}\mag{\Delta S}'
+terms:
+  \Delta G:
+    kind: 'symbol'
+    label:
+      en: 'Gibbs energy change of the reaction'
+    unit: 'joule-per-mole'
+  \Delta H:
+    kind: 'symbol'
+    label:
+      en: 'Enthalpy change of the reaction'
+    unit: 'joule-per-mole'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+  \Delta S:
+    kind: 'magnitude'
+    ref: 'molar-entropy'
+solutions:
+  \Delta G: 'DeltaH - T * DeltaS'
+  \Delta H: 'DeltaG + T * DeltaS'
+  T: '(DeltaH - DeltaG) / DeltaS'
+  \Delta S: '(DeltaH - DeltaG) / T'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'thermochemistry'
+aliases:
+  - 'Gibbs free energy equation'
+  - 'Gibbs energy change'
+  - 'free energy change'
+  - 'ΔG = ΔH - TΔS'
+  - 'delta G = delta H - T delta S'
+  - 'energía libre de Gibbs'
+  - 'variación de energía libre'
+references:
+  - title: 'OpenStax, Chemistry 2e, 16.4 Free Energy (Examples 16.7 and 16.11)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/16-4-free-energy'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11, notes 14 and 16'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'MacTutor History of Mathematics, Josiah Willard Gibbs'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Gibbs/'
+description:
+  en: >-
+    The Gibbs free energy change of a reaction equals its enthalpy change minus the absolute
+    temperature times its entropy change. At constant temperature and pressure the sign of this
+    quantity, also called the Gibbs energy change or free energy change, decides in chemistry and
+    thermochemistry whether a reaction proceeds on its own.
+
+    $\var{\Delta G}$ is the Gibbs energy change and $\var{\Delta H}$ the enthalpy change, both per
+    mole of reaction as written, in joules per mole; tables quote them in kilojoules per mole. A
+    negative $\var{\Delta H}$ marks an exothermic reaction. $\mag{T}$ is the thermodynamic
+    temperature in kelvins, which must be absolute: a Celsius reading needs 273.15 added.
+    $\mag{\Delta S}$, a molar entropy, is the entropy change per mole of reaction, in joules per mole
+    kelvin, positive
+    when the entropy of the products exceeds that of the reactants.
+
+    A negative $\var{\Delta G}$ marks a spontaneous reaction, a positive one a reaction that does
+    not proceed unaided, and zero a system at equilibrium. When the enthalpy and entropy changes
+    share a sign, the temperature decides the outcome, and the reaction changes behaviour where
+    $\var{\Delta G}$ is zero, at a temperature equal to the enthalpy change divided by the entropy
+    change. Because entropy is usually tabulated in joules and enthalpy in kilojoules, one of them
+    must be converted before they are combined.
+
+    The relation follows from defining Gibbs energy as enthalpy minus temperature times entropy and
+    holds at constant temperature and pressure. With standard values it gives the standard Gibbs
+    energy change; using values from 298.15 kelvin at other temperatures assumes that the enthalpy
+    and entropy changes barely vary with temperature. A negative value says a reaction can run, not
+    how fast.
+
+    The function is named after Josiah Willard Gibbs, who published his study of the equilibrium of
+    heterogeneous substances in two parts in 1876 and 1878. Vaporizing water at 298 kelvin, with an
+    enthalpy change of 44.01 kilojoules per mole and an entropy change of 118.8 joules per mole
+    kelvin, gives about +8.6 kilojoules per mole, so water does not boil at room temperature.

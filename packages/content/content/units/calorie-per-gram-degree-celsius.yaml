@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Calorie per gram degree Celsius'
+symbol:
+  tex: 'cal/(g\,^{\circ}C)'
+  text: 'cal/(g·°C)'
+unitOf:
+  - 'specific-heat-capacity'
+system: 'other'
+compose:
+  of:
+    - unit: 'calorie'
+      exp: 1
+    - unit: 'gram'
+      exp: -1
+    - unit: 'kelvin'
+      exp: -1
+externalIds:
+  qudt: 'http://qudt.org/vocab/unit/CAL_TH-PER-GM-DEG_C'
+categories:
+  - 'chemistry'
+  - 'physics'
+branches:
+  - 'thermochemistry'
+  - 'thermodynamics'
+aliases:
+  - 'calorie per gram per degree Celsius'
+  - 'calorie per gram kelvin'
+  - 'thermochemical calorie per gram degree Celsius'
+  - 'cal/(g °C)'
+  - 'cal/g°C'
+  - 'cal/(g K)'
+  - 'cal g-1 K-1'
+  - 'caloría por gramo y grado Celsius'
+  - 'caloría por gramo y kelvin'
+references:
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: calorie_th per gram degree Celsius; calorie_th per gram kelvin'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.1 (degree Celsius) and Table 6'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11, note 16'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'OpenStax, Chemistry 2e, 5.2 Calorimetry'
+    url: 'https://openstax.org/books/chemistry-2e/pages/5-2-calorimetry'
+  - title: 'QUDT, unit CAL_TH-PER-GM-DEG_C'
+    url: 'https://qudt.org/vocab/unit/CAL_TH-PER-GM-DEG_C'
+description:
+  en: >-
+    The calorie per gram degree Celsius, symbol $\mathrm{cal/(g\,^{\circ}C)}$, is a unit of specific
+    heat capacity outside the International System of Units: the heat, in calories, that one gram of
+    a material takes in for each degree Celsius its temperature rises. Chemistry texts and older
+    data tables state specific heat capacities in it, because one gram of liquid water needs very nearly one
+    calorie per degree.
+
+    The unit is the calorie divided by the gram and by the degree Celsius. The calorie meant here is
+    the thermochemical calorie, defined as exactly 4.184 joules, the form chemistry uses. The SI
+    Brochure makes the degree Celsius equal in size to the kelvin, so a temperature difference has
+    the same number in both units and the unit is identical to the calorie per gram kelvin. NIST
+    Special Publication 811 lists both rows with the same exact factor: one calorie per gram degree
+    Celsius equals 4184 joules per kilogram kelvin, the coherent SI unit.
+
+    That factor makes conversion easy: liquid water, at about 4.18 joules per gram degree Celsius,
+    has a specific heat capacity of very nearly 1 in this unit. A value in joules per gram degree Celsius,
+    the form OpenStax prints, is divided by 4.184 to give calories per gram degree Celsius. An
+    International Table calorie, 4.1868 joules, gives a slightly larger unit, which NIST lists
+    separately, so a table in calories should name its calorie.
+
+    The unit survives in chemistry teaching, in calorimetry problems and in data tables older
+    than the SI. IUPAC notes that several calories exist and gives the
+    thermochemical one as 4.184 kilojoules per kilocalorie. The symbol is also written
+    cal/(g K) or with negative exponents, and the plural is calories per gram degree Celsius.

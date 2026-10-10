@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Entalpía de reacción por calorimetría'
+terms:
+  \Delta H:
+    label: 'Variación de entalpía de la reacción'
+  m:
+    label: 'Masa de la disolución'
+  \Delta T:
+    label: 'Variación de temperatura'
+  n:
+    label: 'Cantidad del reactivo limitante'
+description: >-
+  La entalpía de reacción por calorimetría convierte el cambio de temperatura medido en un
+  calorímetro en una entalpía molar de reacción. En un calorímetro de taza de café, un recipiente
+  aislado abierto al aire, la disolución que rodea a la reacción absorbe el calor que esta libera, de modo
+  que la entalpía molar de reacción es igual a menos el calor ganado por la disolución dividido
+  entre la cantidad que reaccionó.
+
+  $\var{\Delta H}$ es la variación de entalpía de la reacción por mol, en julios por mol: negativa en una reacción
+  exotérmica, que calienta la disolución, y positiva en una endotérmica, que la enfría. $\var{m}$ es
+  la masa de la disolución en kilogramos y $\mag{c}$ su capacidad calorífica específica, introducida
+  en julios por kilogramo y kelvin o en calorías por gramo y grado Celsius. $\var{\Delta T}$ es la
+  temperatura final menos la inicial, el mismo número en kelvin que en grados Celsius. $\var{n}$ es
+  la cantidad, en moles, del reactivo limitante.
+
+  El producto de la masa, la capacidad calorífica específica y la variación de temperatura es el
+  calor que absorbe la disolución. La energía se conserva dentro del vaso aislado, así que la
+  reacción cede exactamente ese calor y el suyo lleva el signo contrario, de donde procede el signo
+  menos. A presión constante ese calor es la variación de entalpía, y al dividirlo entre la cantidad
+  que reaccionó se convierte en una magnitud molar.
+
+  El método trata el vaso como aislado y desprecia el calor que absorben el vaso y el termómetro, lo
+  que basta para un trabajo aproximado. A las disoluciones acuosas diluidas se les suele asignar la
+  densidad y la capacidad calorífica específica del agua, 4.184 julios por gramo y grado Celsius, la cifra que los textos de química toman de
+  la caloría termoquímica; las tablas de física dan 4186 julios por kilogramo y kelvin para el agua a
+  15 grados Celsius, que solo difiere en la cuarta cifra. Al
+  dividir entre la cantidad del reactivo limitante se obtiene la entalpía por mol de reacción solo
+  cuando ese reactivo tiene coeficiente uno en la ecuación química.
+
+  Mezclar 25.00 mililitros de hidróxido de sodio a 1.120 moles por litro con 25.00 mililitros de
+  ácido clorhídrico a 1.050 moles por litro calienta 50.00 gramos de disolución en 7.00 grados
+  Celsius; con 0.026 25 moles de iones hidrógeno que reaccionan, la entalpía de neutralización es de
+  unos −55.8 kilojulios por mol.

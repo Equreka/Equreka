@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Mole per cubic metre second'
+symbol:
+  tex: 'mol/(m^{3}\,s)'
+  text: 'mol/(m³·s)'
+unitOf: []
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'mole'
+      exp: 1
+    - unit: 'metre'
+      exp: -3
+    - unit: 'second'
+      exp: -1
+externalIds:
+  wikidata: 'Q139623232'
+  qudt: 'http://qudt.org/vocab/unit/MOL-PER-M3-SEC'
+categories:
+  - 'chemistry'
+branches:
+  - 'chemical-kinetics'
+aliases:
+  - 'mole per cubic meter second'
+  - 'mole per cubic metre per second'
+  - 'mol/(m3 s)'
+  - 'mol/(m^3 s)'
+  - 'mol m-3 s-1'
+  - 'mol/m3/s'
+  - 'mol por metro cúbico y segundo'
+references:
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.12'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Tables 5, 6 and 8'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, Chemistry 2e, 12.1 Chemical Reaction Rates'
+    url: 'https://openstax.org/books/chemistry-2e/pages/12-1-chemical-reaction-rates'
+  - title: 'QUDT, unit MOL-PER-M3-SEC'
+    url: 'https://qudt.org/vocab/unit/MOL-PER-M3-SEC'
+description:
+  en: >-
+    The mole per cubic metre second, symbol $\mathrm{mol/(m^{3}\,s)}$, is the coherent SI unit of a
+    rate of change of amount concentration, and so of the rate of a chemical reaction: one mole per
+    cubic metre of change in concentration in each second. It belongs to chemical kinetics and has
+    no special name.
+
+    The unit is the mole divided by the cube of the metre and by the second, all three SI base
+    units, so its definition follows from theirs. IUPAC lists it as the SI unit of the rate of
+    concentration change and of the rate of reaction based on amount concentration, the change of a
+    concentration with time divided by the stoichiometric number of the species. The SI Brochure
+    gives the same base-unit expression for the katal per cubic metre, the coherent unit of
+    catalytic activity concentration, and QUDT files the unit under that quantity alone.
+
+    The litre is a thousandth of a cubic metre, so one mole per litre second equals exactly 1000 of
+    these units, and one millimole per litre second equals exactly one. Rates measured over minutes
+    or hours convert by the number of seconds in each.
+
+    Textbooks seldom quote reaction rates in this unit, preferring moles per litre second or per
+    hour, but it is the unit in which rate equations balance without numerical factors when every
+    quantity is taken in coherent SI units. The name is spelled mole per cubic meter second in
+    American English, the symbol may be written mol m⁻³ s⁻¹, and the plural is moles per cubic
+    metre second.

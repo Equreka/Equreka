@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Relación entre pH y pOH'
+terms:
+  \mathrm{pOH}:
+    label: 'pOH'
+  \mathrm{p}K_\mathrm{w}:
+    label: 'pKw del agua'
+description: >-
+  La relación entre pH y pOH establece que, en cualquier disolución acuosa diluida, el pH y el pOH
+  suman pKw, menos el logaritmo decimal del producto iónico del agua. A 25 grados Celsius pKw vale
+  14.00, lo que da la conocida regla escolar pH + pOH = 14 para pasar de la acidez a la basicidad de
+  una disolución.
+
+  $\mag{\mathrm{pH}}$ es el pH, fijado por la concentración de iones hidrógeno, y
+  $\var{\mathrm{pOH}}$ es el pOH, fijado por la concentración de iones hidróxido; ambos son números
+  de dimensión uno sin unidad y ambos pueden ser negativos. $\var{\mathrm{p}K_\mathrm{w}}$ es menos
+  el logaritmo decimal del producto iónico del agua, un número puro positivo que solo depende de la
+  temperatura. La calculadora lo toma como dato, así que hay que introducir el valor
+  correspondiente a la temperatura de la disolución.
+
+  La relación se deduce del producto iónico. Tomar menos el logaritmo decimal de los dos miembros de
+  esa ecuación convierte el producto de las dos concentraciones relativas en una suma, y cada
+  término de la suma es, por definición, el pH o el pOH. Una disolución es neutra cuando ambos son
+  iguales, cada uno la mitad de pKw, ácida cuando el pH es el menor y básica cuando lo es el pOH.
+
+  El valor 14.00 solo vale a 25 grados Celsius, donde el producto iónico es $1.0\times10^{-14}$. La
+  autoionización aumenta con la temperatura, de modo que pKw disminuye: a 80 grados Celsius el punto
+  neutro es un pH de 6.31, que es neutro y no ácido. Como las definiciones de pH y pOH en las que se
+  apoya, la relación usa concentraciones en lugar de actividades y es fiable en disoluciones
+  diluidas.
+
+  La relación permite que una lectura del pHmetro informe de los dos iones a la vez. Una disolución
+  de pOH 1.903 tiene un pH de 12.10 a 25 grados Celsius.

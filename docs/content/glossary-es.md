@@ -102,6 +102,9 @@ Conventions for every `<slug>.es.yaml` sidecar. Companion to the [style guide](s
 | revolution, revolution per minute | vuelta, revolución por minuto | usage |
 | percent | por ciento (the quantity is *porcentaje*) | usage |
 | mole per litre | mol por litro (*molar* in `aliases`) | usage |
+| mole per litre second, mole per cubic metre second | mol por litro y segundo, mol por metro cúbico y segundo (moles por litro y segundo, moles por metro cúbico y segundo; *y* joins the denominators, as CEM's *julio por kilogramo y kelvin*) | usage |
+| calorie per gram degree Celsius | caloría por gramo y grado Celsius (calorías por gramo y grado Celsius) | usage, as the row above |
+| International Table calorie | caloría de la tabla internacional (lowercase *tabla*) | Wikidata [Q93814649](https://www.wikidata.org/wiki/Q93814649) `es` label *caloría (tabla internacional)* |
 | cubic metre per second | metro cúbico por segundo (metros cúbicos por segundo) | Wikidata [Q794261](https://www.wikidata.org/wiki/Q794261) `es` label |
 | litre per second, litre per minute | litro por segundo, litro por minuto (litros por segundo, litros por minuto; plural on the first noun, as *julios por kilogramo*) | Wikidata [Q61996348](https://www.wikidata.org/wiki/Q61996348), [Q107313814](https://www.wikidata.org/wiki/Q107313814) `es` labels; [OpenStax *Física universitaria* vol. 1, 14.5](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/14-5-dinamicas-de-fluidos) (*litros por minuto*) |
 | week, month, year, decade, century | semana, mes, año, década, siglo | usage |
@@ -390,15 +393,29 @@ Prefix names: *mili* per RAE; *atto* per the DLE entry *atto-* and, with *zetta*
 | balanced equation | avoid the adjective (*ajustada* in Spain, *balanceada* in Latin America): *los coeficientes de la ecuación química* | usage |
 | acid dissociation constant | constante de acidez | usage |
 | ion product of water | producto iónico del agua | usage |
-| titration | valoración | usage |
+| titration | valoración (*titulación*, the OpenStax form, in `aliases`) | usage; [OpenStax *Química 2ed*, 4.5](https://openstax.org/books/qu%C3%ADmica-2ed/pages/4-5-analisis-quimico-cuantitativo) (*titulación*) |
+| equivalence point, end point, burette, indicator, titrant | punto de equivalencia, punto final, bureta, indicador, titulante | [OpenStax *Química 2ed*, 4.5](https://openstax.org/books/qu%C3%ADmica-2ed/pages/4-5-analisis-quimico-cuantitativo) |
+| standard solution (titrant of known concentration) | disolución patrón | usage |
+| standard amount concentration | concentración molar estándar (*concentración estándar* after the first mention and in `aliases`) | Wikidata [Q88871689](https://www.wikidata.org/wiki/Q88871689) `es` label |
+| hydrogen ion, hydronium ion, hydroxide ion | ion hidrógeno, ion hidronio, ion hidróxido (OpenStax writes *ion de hidronio*, *ion de hidróxido*) | [OpenStax *Química 2ed*, 14.1](https://openstax.org/books/qu%C3%ADmica-2ed/pages/14-1-acidos-y-bases-de-bronsted-lowry); [OpenStax *Química 2ed*, 14.2](https://openstax.org/books/qu%C3%ADmica-2ed/pages/14-2-ph-y-poh) |
+| self-ionization of water, pOH, pKw | autoionización del agua (*constante de autoionización* for K_w, in `aliases`), pOH, pKw | Wikidata [Q1638091](https://www.wikidata.org/wiki/Q1638091) `es` label; [OpenStax *Química 2ed*, 14.2](https://openstax.org/books/qu%C3%ADmica-2ed/pages/14-2-ph-y-poh) |
 | buffer solution | disolución amortiguadora | usage |
 | enthalpy, Gibbs energy | entalpía, energía de Gibbs | usage |
+| calorimetry, calorimeter, coffee-cup calorimeter, exothermic, endothermic | calorimetría, calorímetro, calorímetro de taza de café (*vaso de café* in `aliases`; OpenStax also says *vasos de poliestireno*), exotérmico, endotérmico | [OpenStax *Química 2ed*, 5.2](https://openstax.org/books/qu%C3%ADmica-2ed/pages/5-2-calorimetria) |
+| Hess's law | ley de Hess (*law of constant heat summation* has no sourced Spanish calque; name it in English if needed) | Wikidata [Q220060](https://www.wikidata.org/wiki/Q220060) `es` label; [OpenStax *Química 2ed*, 5.3](https://openstax.org/books/qu%C3%ADmica-2ed/pages/5-3-entalpia) |
+| standard enthalpy of reaction, standard enthalpy of formation, enthalpy change | entalpía estándar de reacción, entalpía estándar de formación, variación de entalpía (*cambio de entalpía*, the OpenStax form, equally correct in prose) | Wikidata [Q911664](https://www.wikidata.org/wiki/Q911664) `es` label; [OpenStax *Química 2ed*, 5.3](https://openstax.org/books/qu%C3%ADmica-2ed/pages/5-3-entalpia) |
 | temperature at which the Gibbs energy change is zero | temperatura a la que la variación de energía de Gibbs se anula (never *temperatura de inversión*, which names the Joule-Thomson inversion temperature) | [OpenStax *Química 2ed*, 16.4](https://openstax.org/books/qu%C3%ADmica-2ed/pages/16-4-energia-libre) |
 | molar gas constant | constante molar de los gases | usage |
-| reaction rate, rate constant, rate law | velocidad de reacción, constante de velocidad, ley de velocidad | usage |
+| reaction rate, rate constant, rate law | velocidad de reacción, constante de velocidad, ley de velocidad | usage; [OpenStax *Química 2ed*, 12.1](https://openstax.org/books/qu%C3%ADmica-2ed/pages/12-1-tasas-de-reacciones-quimicas) (*velocidad de reacción*, also *tasa de reacción*) |
+| chemical kinetics (branch) | Cinética química (*cinética de reacción* in `aliases`) | Wikidata [Q209082](https://www.wikidata.org/wiki/Q209082) `es` label and alias |
+| average rate, instantaneous rate, initial rate | velocidad media, velocidad instantánea, velocidad inicial (OpenStax *tasa media*, *tasa instantánea*, *tasa inicial* in `aliases`) | usage, after the reaction rate row; [OpenStax *Química 2ed*, 12.1](https://openstax.org/books/qu%C3%ADmica-2ed/pages/12-1-tasas-de-reacciones-quimicas) |
+| stoichiometric number (signed, negative for reactants) | número estequiométrico; the unsigned coefficient stays *coeficiente estequiométrico* | Wikidata [Q17326453](https://www.wikidata.org/wiki/Q17326453) `es` label |
 | activation energy | energía de activación | usage |
 | equilibrium constant, solubility product | constante de equilibrio, producto de solubilidad | usage |
 | cell potential, standard electrode potential | potencial de la celda, potencial estándar de electrodo | usage |
+| standard reduction potential | potencial estándar de reducción (*potencial de reducción estándar* is the OpenStax word order; *potencial normal de electrodo*, the Wikidata label of the standard electrode potential, goes only in `aliases`) | usage; [OpenStax *Química 2ed*, 17.3](https://openstax.org/books/qu%C3%ADmica-2ed/pages/17-3-potenciales-del-electrodo-y-de-la-celda); Wikidata [Q368639](https://www.wikidata.org/wiki/Q368639) |
+| half-cell, cathode, anode, standard hydrogen electrode | semicelda, cátodo, ánodo, electrodo estándar de hidrógeno | [OpenStax *Química 2ed*, 17.3](https://openstax.org/books/qu%C3%ADmica-2ed/pages/17-3-potenciales-del-electrodo-y-de-la-celda) |
+| Faraday's law of electrolysis, Faraday constant, electroplating, half-reaction | ley de Faraday de la electrólisis, constante de Faraday, galvanoplastia, semirreacción | Wikidata [Q220609](https://www.wikidata.org/wiki/Q220609) `es` label; [OpenStax *Química 2ed*, 17.7](https://openstax.org/books/qu%C3%ADmica-2ed/pages/17-7-electrolisis) |
 | galvanic cell, electrolytic cell, fuel cell | celda galvánica, celda electrolítica, celda de combustible (*pila* in `aliases`) | usage |
 | electrolysis | electrólisis | usage |
 

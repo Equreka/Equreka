@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Standard enthalpy of reaction from enthalpies of formation'
+kind: 'formula'
+level: 'intro'
+algebraic: false
+expression: '\var{\Delta_\mathrm{r} H^{\circ}}=\sum_{\mathrm{products}}\var{\nu}\,\var{\Delta_\mathrm{f} H^{\circ}}-\sum_{\mathrm{reactants}}\var{\nu}\,\var{\Delta_\mathrm{f} H^{\circ}}'
+terms:
+  \Delta_\mathrm{r} H^{\circ}:
+    kind: 'symbol'
+    label:
+      en: 'Standard enthalpy of reaction'
+    unit: 'joule-per-mole'
+    identifier: 'DeltaH_r'
+  \nu:
+    kind: 'symbol'
+    label:
+      en: 'Stoichiometric coefficient of each species'
+    integer: true
+  \Delta_\mathrm{f} H^{\circ}:
+    kind: 'symbol'
+    label:
+      en: 'Standard enthalpy of formation of each species'
+    unit: 'joule-per-mole'
+    identifier: 'DeltaH_f'
+categories:
+  - 'chemistry'
+branches:
+  - 'thermochemistry'
+aliases:
+  - 'standard enthalpy of reaction'
+  - 'standard reaction enthalpy'
+  - 'enthalpy of reaction from heats of formation'
+  - 'products minus reactants'
+  - 'ΔH°rxn = ΣnΔH°f(products) - ΣnΔH°f(reactants)'
+  - 'entalpía estándar de reacción'
+  - 'entalpía de reacción a partir de entalpías de formación'
+references:
+  - title: 'OpenStax, Chemistry 2e, 5.3 Enthalpy (Standard Enthalpy of Formation)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/5-3-enthalpy'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11, notes 14 to 16'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'NIST Chemistry WebBook, SRD 69, Carbon monoxide: gas phase thermochemistry data'
+    url: 'https://webbook.nist.gov/cgi/cbook.cgi?ID=C630080&Mask=1'
+  - title: 'NIST Chemistry WebBook, SRD 69, Carbon dioxide: gas phase thermochemistry data'
+    url: 'https://webbook.nist.gov/cgi/cbook.cgi?ID=C124389&Mask=1'
+description:
+  en: >-
+    The standard enthalpy of reaction is found by adding the standard enthalpies of formation of
+    the products, each times its stoichiometric coefficient, and subtracting the same weighted sum
+    for the reactants.
+    This products-minus-reactants rule of thermochemistry gives the heat of a reaction under
+    standard conditions from tabulated data, without measuring that reaction at all.
+
+    $\var{\Delta_\mathrm{r} H^{\circ}}$ is the standard enthalpy of reaction, in joules per mole of
+    reaction as written, usually quoted in kilojoules per mole; it is negative for an exothermic
+    reaction. $\var{\Delta_\mathrm{f} H^{\circ}}$ is the standard enthalpy of formation of one
+    species, the enthalpy change when one mole of it forms from its elements in their standard
+    states, and $\var{\nu}$ is that species' positive whole-number coefficient. Each sum runs over
+    the species on one side of the chemical equation.
+
+    The rule is Hess's law applied to a convenient route: take the reactants apart into their
+    elements, which reverses their formation, and then assemble the products from those elements.
+    An element in its most stable form has, by definition, a zero enthalpy of formation, so
+    oxygen gas, graphite and other elements drop out of the sums. IUPAC writes the same result as a
+    single sum in which the coefficients of the reactants carry a minus sign.
+
+    Standard values refer to a pressure of 1 bar, solutes at one mole per litre and, in most tables, 298.15
+    kelvin; the physical state of each species matters, since liquid and gaseous water have different
+    enthalpies of formation. At another temperature the result is an approximation.
+
+    With the CODATA values in the NIST Chemistry WebBook, −110.53 kilojoules per mole for carbon
+    monoxide and −393.51 for carbon dioxide, burning two moles of carbon monoxide in oxygen has a
+    standard enthalpy of reaction of 2(−393.51) − 2(−110.53) = −565.96 kilojoules per mole.

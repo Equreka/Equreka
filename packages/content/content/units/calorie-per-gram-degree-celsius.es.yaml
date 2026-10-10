@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Caloría por gramo y grado Celsius'
+description: >-
+  La caloría por gramo y grado Celsius, de símbolo $\mathrm{cal/(g\,^{\circ}C)}$, es una unidad de
+  capacidad calorífica específica ajena al Sistema Internacional de Unidades: el calor, en calorías,
+  que absorbe un gramo de un material por cada grado Celsius que sube su temperatura. Los textos de
+  química y las tablas de datos antiguas dan las capacidades caloríficas específicas en ella, porque un gramo de agua
+  líquida necesita casi exactamente una caloría por grado.
+
+  La unidad es la caloría dividida entre el gramo y entre el grado Celsius. La caloría de esta
+  entrada es la caloría termoquímica, definida como exactamente 4.184 julios, la que usa la química.
+  El folleto del SI hace el grado Celsius igual en tamaño al kelvin, de modo que una diferencia de
+  temperatura tiene el mismo número en ambas unidades y la unidad es idéntica a la caloría por gramo
+  y kelvin. La publicación especial 811 del NIST recoge las dos filas con el mismo factor exacto: una
+  caloría por gramo y grado Celsius equivale a 4184 julios por kilogramo y kelvin, la unidad SI
+  coherente.
+
+  Ese factor facilita la conversión: el agua líquida, con unos 4.18 julios por gramo y grado Celsius,
+  tiene una capacidad calorífica específica casi igual a 1 en esta unidad. Un valor en julios por gramo y grado
+  Celsius, la forma que imprime OpenStax, se divide entre 4.184 para pasarlo a calorías por gramo y
+  grado Celsius. Una caloría de la tabla internacional, de 4.1868 julios, da una unidad algo mayor,
+  que el NIST lista aparte, así que una tabla en calorías debe indicar qué caloría usa.
+
+  La unidad sigue presente en la enseñanza de la química, en los problemas de calorimetría y en
+  tablas de datos anteriores al SI. La IUPAC advierte que existen varias calorías y
+  da la termoquímica como 4.184 kilojulios por kilocaloría. El símbolo también se escribe cal/(g K) o
+  con exponentes negativos, y el plural es calorías por gramo y grado Celsius.

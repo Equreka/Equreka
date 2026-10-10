@@ -1,0 +1,170 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.schema.json
+name:
+  en: 'pH and acid-base titration'
+level: 'intro'
+prerequisites:
+  - 'moles-and-concentration'
+estimatedMinutes: '45'
+categories:
+  - 'chemistry'
+branches:
+  - 'acids-and-bases'
+aliases:
+  - 'pH and pOH'
+  - 'pH, pOH and titration'
+references:
+  - title: 'OpenStax, Chemistry 2e, 14.1 Brønsted-Lowry Acids and Bases'
+    url: 'https://openstax.org/books/chemistry-2e/pages/14-1-bronsted-lowry-acids-and-bases'
+  - title: 'OpenStax, Chemistry 2e, 14.2 pH and pOH'
+    url: 'https://openstax.org/books/chemistry-2e/pages/14-2-ph-and-poh'
+  - title: 'OpenStax, Chemistry 2e, 4.5 Quantitative Chemical Analysis'
+    url: 'https://openstax.org/books/chemistry-2e/pages/4-5-quantitative-chemical-analysis'
+  - title: 'CK-12, Introductory Chemistry, 21.18 Titration Calculations (LibreTexts)'
+    url: 'https://chem.libretexts.org/Bookshelves/Introductory_Chemistry/Book:_Introductory_Chemistry_(CK-12)/21:_Acids_and_Bases/21.18:_Titration_Calculations'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), sections 2.11.1 (v) and 2.13.1 (viii)'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+description:
+  en: >-
+    From hydrogen ion concentration to pH and back: the standard concentration, the ion product of
+    water, pOH and the rule that links it to pH, and the titration equation that measures an
+    unknown acid or base, with worked checks at each step.
+steps:
+  - id: 'intro'
+    kind: 'prose'
+    body:
+      en: >-
+        Acidity depends on how many hydrogen ions a solution holds, and that number ranges over more
+        than a dozen powers of ten between strong acid and strong base. A logarithmic scale squeezes
+        that range into a few convenient numbers. Keep in mind throughout that every formula here
+        uses concentrations in place of activities, a good approximation only for dilute solutions;
+        the concentrations themselves are entered in moles per litre.
+  - id: 'ph'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'ph'
+    note:
+      en: >-
+        The quantity itself: a number with no unit, lower for acids and higher for bases. One step
+        on the scale is a factor of ten in hydrogen ions.
+  - id: 'standard-amount-concentration'
+    kind: 'entry'
+    ref:
+      collection: 'constants'
+      slug: 'standard-amount-concentration'
+    note:
+      en: >-
+        A logarithm needs a pure number, so each concentration is first divided by one mole per
+        litre. The quotient is the concentration in moles per litre with the unit removed.
+  - id: 'ph-definition'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'ph-definition'
+    note:
+      en: >-
+        Take minus the base-ten logarithm of the relative hydrogen ion concentration. Reverse it
+        with a power of ten to recover the concentration from a pH.
+  - id: 'check-ph'
+    kind: 'check'
+    prompt:
+      en: >-
+        A solution holds 0.00035 moles of hydrogen ions per litre. What is its pH?
+    answer:
+      en: >-
+        3.46: the base-ten logarithm of 0.00035 is minus 3.456, and the minus sign of the
+        definition makes it positive. Two significant figures give two decimal places.
+  - id: 'check-concentration'
+    kind: 'check'
+    prompt:
+      en: >-
+        A rainwater sample has a pH of 4.50. What is its hydrogen ion concentration?
+    answer:
+      en: >-
+        About $3.2\times10^{-5}$ mol/L: ten raised to minus 4.50 is 0.0000316, multiplied by the
+        standard concentration of 1 mol/L.
+  - id: 'water-ion-product'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'water-ion-product'
+    note:
+      en: >-
+        Water itself makes a few hydrogen and hydroxide ions, and their relative concentrations
+        multiply to a constant that depends only on temperature. At 25 degrees Celsius it is
+        $1.0\times10^{-14}$.
+  - id: 'check-kw'
+    kind: 'check'
+    prompt:
+      en: >-
+        At 25 degrees Celsius a solution has 0.0025 moles of hydrogen ions per litre. What is its
+        hydroxide ion concentration?
+    answer:
+      en: >-
+        $4.0\times10^{-12}$ mol/L: divide $1.0\times10^{-14}$ by 0.0025 and multiply by 1 mol/L. The
+        more acid, the less hydroxide.
+  - id: 'poh-definition'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'poh-definition'
+    note:
+      en: >-
+        The same operator applied to hydroxide ions. It is the natural first step for a solution
+        of a strong base.
+  - id: 'ph-poh-relation'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'ph-poh-relation'
+    note:
+      en: >-
+        Taking the logarithm of the ion product shows that pH and pOH add up to pKw, which is 14.00 at 25
+        degrees Celsius. At other temperatures enter the matching pKw.
+  - id: 'check-poh'
+    kind: 'check'
+    prompt:
+      en: >-
+        A sodium hydroxide solution of 0.020 mol/L dissociates completely. What are its pOH and its
+        pH at 25 degrees Celsius?
+    answer:
+      en: >-
+        The pOH is 1.70, minus the base-ten logarithm of 0.020. The pH is 14.00 minus 1.70, which is
+        12.30.
+  - id: 'neutralization'
+    kind: 'prose'
+    body:
+      en: >-
+        Mixing an acid with a base removes hydrogen and hydroxide ions together as water. A
+        titration adds a base of known concentration from a burette to a measured volume of acid,
+        or the other way round, until an indicator changes colour at the point where the two have
+        exactly reacted. The volume used then reveals the unknown concentration.
+  - id: 'titration-neutralization'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'titration-neutralization'
+    note:
+      en: >-
+        Amounts of acid and base react in the ratio of their coefficients in the balanced
+        reaction. Write the reaction first and read the coefficients from it.
+  - id: 'check-titration-hcl'
+    kind: 'check'
+    prompt:
+      en: >-
+        25.00 mL of hydrochloric acid is neutralized by 18.40 mL of 0.100 mol/L sodium hydroxide.
+        What is the concentration of the acid?
+    answer:
+      en: >-
+        0.0736 mol/L: both coefficients are one, so the acid concentration is 0.100 times 18.40
+        divided by 25.00.
+  - id: 'check-titration-sulfuric'
+    kind: 'check'
+    prompt:
+      en: >-
+        20.00 mL of sulfuric acid is neutralized by 30.00 mL of 0.200 mol/L sodium hydroxide. What
+        is the concentration of the acid?
+    answer:
+      en: >-
+        0.150 mol/L: one mole of sulfuric acid reacts with two moles of sodium hydroxide, so the
+        acid concentration is 0.200 times 30.00 times 1, divided by 20.00 times 2.
