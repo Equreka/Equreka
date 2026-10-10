@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ecuación de la red de difracción'
+terms:
+  d:
+    label: 'Separación entre rendijas de la red'
+  m:
+    label: 'Orden del máximo'
+description: >-
+  La ecuación de la red de difracción da las direcciones en que una red, una superficie con muchas
+  rendijas o líneas paralelas igualmente espaciadas, envía la luz de una longitud de onda dada: la
+  separación entre líneas por el seno del ángulo de difracción es igual a un número entero de
+  longitudes de onda. Cada número entero marca un máximo brillante, de modo que la red reparte la luz
+  en líneas nítidas y sirve en espectroscopia como un prisma de alta resolución.
+
+  La separación $\var{d}$ es la distancia entre rendijas vecinas en metros, el inverso del número de
+  líneas por metro. El ángulo $\mag{\theta}$ se mide desde la dirección del haz incidente que sigue
+  recto, en radianes. El orden $\var{m}$ es un número entero: cero para el máximo central y uno, dos,
+  etcétera, para los máximos a cada lado, con valores negativos para el lado opuesto al de los
+  positivos. La longitud de onda $\mag{\lambda}$ es la de la luz, en metros.
+
+  La luz de rendijas contiguas llega a un punto lejano por caminos que difieren en la separación de
+  la red por el seno del ángulo. Cuando esa diferencia es un número entero de longitudes de onda, las
+  ondas de todas las rendijas llegan en fase y se suman en un máximo brillante; con miles de
+  rendijas, cualquier pequeño alejamiento de esa condición hace que las ondas se anulen, así que los
+  máximos son mucho más estrechos y brillantes que los de una doble rendija. Las longitudes de onda
+  mayores salen con ángulos mayores, lo que separa los colores.
+
+  La ecuación supone luz que incide perpendicularmente sobre la red y una pantalla o un detector
+  lejanos. El seno no puede superar uno, así que una red solo muestra los órdenes cuyo producto por
+  la longitud de onda no supera la separación. Despejar el orden da un número entero solo donde hay
+  un máximo; para un ángulo recto, la parte entera del resultado es el orden más alto que la red
+  puede mostrar.
+
+  Son comunes las redes de 10 000 líneas por centímetro, con una separación de un micrómetro:
+  OpenStax calcula 22.33 grados para la luz violeta de 380 nanómetros en el primer orden.

@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Wave speed from the period'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{v}=\frac{\mag{\lambda}}{\mag{T}}'
+terms:
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  \lambda:
+    kind: 'magnitude'
+    ref: 'wavelength'
+  T:
+    kind: 'magnitude'
+    ref: 'period'
+solutions:
+  v: 'lambda / T'
+  \lambda: 'v * T'
+  T: 'lambda / v'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'v = lambda / T'
+  - 'v = λ/T'
+  - 'wave speed and period'
+  - 'wavelength over period'
+  - 'rapidez de una onda y periodo'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 16.1 Traveling Waves'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/16-1-traveling-waves'
+  - title: 'OpenStax, University Physics Volume 1, 16.2 Mathematics of Waves'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/16-2-mathematics-of-waves'
+  - title: 'HyperPhysics (Georgia State University), Traveling wave relationships'
+    url: 'https://hyperphysics.gsu.edu/hbase/Waves/wavsol.html'
+description:
+  en: >-
+    Wave speed from the period expresses the speed of a periodic wave as its wavelength divided by
+    its period: in the time one full cycle takes at a fixed point, the wave pattern moves forward by
+    exactly one wavelength. In waves and oscillations it is the form used when the duration of a
+    cycle, rather than the frequency, has been measured.
+
+    Here $\mag{v}$ is the wave speed in metres per second, the rate at which a crest travels through
+    the medium; $\mag{\lambda}$ is the wavelength in metres, the distance between neighbouring
+    crests; and $\mag{T}$ is the period in seconds, the time a point of the medium takes to complete
+    one oscillation. All three quantities are non-negative, and the direction in which the wave
+    travels has to be stated separately.
+
+    The relation is speed as distance over time applied to one cycle: a crest that leaves a point is
+    replaced by the next crest one period later, and by then it has moved one wavelength. Because
+    the period is the reciprocal of the frequency, the relation is equivalent to the wave speed
+    written as frequency times wavelength.
+
+    It assumes a steady periodic wave, with every cycle of the same length and duration, travelling
+    in a uniform medium. The medium fixes the speed and the source fixes the period; a wave crossing
+    into another medium keeps its period, so its wavelength changes in proportion to its new speed.
+    In a dispersive medium the result is the phase speed of the crest pattern.
+
+    The relation is also a way to measure a wave speed: the wavelength is read from the pattern and
+    the period is timed with a stopwatch or an oscilloscope. A string wave with a wavelength of 2.50
+    metres and a period of 0.50 seconds travels at 5.00 metres per second.

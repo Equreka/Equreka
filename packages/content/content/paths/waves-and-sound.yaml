@@ -1,0 +1,240 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.schema.json
+name:
+  en: 'Waves and sound'
+level: 'intro'
+prerequisites:
+  - 'kinematics'
+estimatedMinutes: '60'
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'sound waves'
+  - 'acoustics'
+  - 'ondas y sonido'
+  - 'ondas sonoras'
+  - 'acústica'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 17.2 Speed of Sound'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/17-2-speed-of-sound'
+  - title: 'OpenStax, University Physics Volume 1, 17.3 Sound Intensity'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/17-3-sound-intensity'
+  - title: 'OpenStax, University Physics Volume 1, 17.7 The Doppler Effect'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/17-7-the-doppler-effect'
+  - title: 'OpenStax, College Physics 2e, 17.3 Sound Intensity and Sound Level'
+    url: 'https://openstax.org/books/college-physics-2e/pages/17-3-sound-intensity-and-sound-level'
+  - title: 'ISO 1683:2015, Acoustics, Preferred reference values for acoustical and vibratory levels, Table 1 (preview)'
+    url: 'https://cdn.standards.iteh.ai/samples/64648/c189c8c51eec455985692ae5b2672cad/ISO-1683-2015.pdf'
+description:
+  en: >-
+    Frequency, wavelength and wave speed, then sound: its speed in air, harmonics, beats, intensity,
+    the decibel scale, the inverse-square law and the Doppler effect, each with a worked check.
+steps:
+  - id: 'intro'
+    kind: 'prose'
+    body:
+      en: >-
+        A wave carries energy from place to place without carrying the medium along. Sound is a wave
+        of compressions and rarefactions travelling through air, water or a solid. Start with the
+        quantities every wave shares, frequency, period, wavelength and speed, then apply them to
+        sound: how fast it travels, which notes a pipe or string can hold, how strong a sound is and
+        how its pitch changes when the source moves.
+  - id: 'frequency'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'frequency'
+    note:
+      en: >-
+        The number of cycles each second, in hertz. For sound it sets the pitch: a higher frequency
+        is a higher note.
+  - id: 'period-frequency'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'period-frequency'
+    note:
+      en: >-
+        The period is the time for one cycle, the reciprocal of the frequency. A 440-hertz tone
+        repeats every 1/440 of a second.
+  - id: 'wavelength'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'wavelength'
+    note:
+      en: >-
+        The distance between two neighbouring crests, or two neighbouring compressions of a sound
+        wave, in metres.
+  - id: 'wave-speed'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'wave-speed'
+    note:
+      en: >-
+        In one period the wave moves forward by one wavelength, so its speed is the frequency times
+        the wavelength. The medium sets the speed; the source sets the frequency.
+  - id: 'check-wavelength'
+    kind: 'check'
+    prompt:
+      en: >-
+        A tuning fork vibrates at 440 hertz in air where sound travels at 343 metres per second.
+        What is the wavelength of the sound it produces?
+    answer:
+      en: >-
+        About 0.780 metres: 343 divided by 440.
+  - id: 'speed-of-sound-air'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'speed-of-sound-air'
+    note:
+      en: >-
+        In a gas the speed depends on the temperature in kelvin and on the molar mass, not on the
+        pressure. Convert Celsius to kelvin before using it.
+  - id: 'check-speed'
+    kind: 'check'
+    prompt:
+      en: >-
+        Dry air has an adiabatic index of 1.40 and a molar mass of 0.02897 kilograms per mole. With
+        the molar gas constant, how fast does sound travel in it at 20 degrees Celsius?
+    answer:
+      en: >-
+        About 343 metres per second: the square root of 1.40 times 8.314 times 293.15, divided by
+        0.02897. At 0 degrees Celsius the same calculation gives about 331.
+  - id: 'closed-pipe-harmonics'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'closed-pipe-harmonics'
+    note:
+      en: >-
+        A pipe closed at one end holds only odd harmonics, n equal to 1, 3, 5 and so on. Enter only
+        odd values of n.
+  - id: 'check-pipe'
+    kind: 'check'
+    prompt:
+      en: >-
+        A pipe 0.25 metres long is closed at one end, and sound travels at 343 metres per second.
+        What are its two lowest resonant frequencies?
+    answer:
+      en: >-
+        343 hertz for n equal to 1, since 343 divided by the product of 4 and 0.25 is 343. The next
+        allowed harmonic is n equal to 3, at 1029 hertz.
+  - id: 'beat-frequency'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'beat-frequency'
+    note:
+      en: >-
+        Two tones of nearly equal frequency rise and fall in loudness together. The number of beats
+        each second is the difference of the two frequencies.
+  - id: 'check-beats'
+    kind: 'check'
+    prompt:
+      en: >-
+        A tuning fork at 440 hertz and a guitar string sound together, and 4 beats are heard each
+        second. What frequencies could the string have?
+    answer:
+      en: >-
+        Either 444 or 436 hertz, 4 hertz above or below the fork. The beats alone cannot tell which
+        of the two it is.
+  - id: 'sound-intensity'
+    kind: 'entry'
+    ref:
+      collection: 'magnitudes'
+      slug: 'sound-intensity'
+    note:
+      en: >-
+        Power per area, in watts per square metre. Audible sounds span about fourteen powers of ten,
+        from the threshold of hearing to a jet airliner 30 metres away.
+  - id: 'sound-intensity-formula'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'sound-intensity-formula'
+    note:
+      en: >-
+        Divide the power crossing a surface by its area, taken at right angles to the direction the
+        sound travels.
+  - id: 'inverse-square-law'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'inverse-square-law'
+    note:
+      en: >-
+        From a small source the power spreads over ever larger spheres, so twice the distance means
+        a quarter of the intensity.
+  - id: 'check-distance'
+    kind: 'check'
+    prompt:
+      en: >-
+        At 3.0 metres from a small source the sound intensity is 0.0036 watts per square metre. What
+        is it at 9.0 metres, in open air?
+    answer:
+      en: >-
+        0.00040 watts per square metre. The distance is three times larger, so the intensity is nine
+        times smaller: 0.0036 divided by 9.
+  - id: 'threshold-of-hearing-intensity'
+    kind: 'entry'
+    ref:
+      collection: 'constants'
+      slug: 'threshold-of-hearing-intensity'
+    note:
+      en: >-
+        One picowatt per square metre, fixed by agreement near the faintest sound heard at 1000
+        hertz. It is the zero of the decibel scale for intensity.
+  - id: 'sound-intensity-level-formula'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'sound-intensity-level-formula'
+    note:
+      en: >-
+        Ten times the base-ten logarithm of the intensity over the reference. Each factor of ten in
+        intensity adds 10 decibels.
+  - id: 'decibel'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'decibel'
+    note:
+      en: >-
+        A tenth of a bel. It names how a level was formed, not a linear unit, so the calculator
+        treats a level in decibels as a plain number.
+  - id: 'check-level'
+    kind: 'check'
+    prompt:
+      en: >-
+        Find the sound intensity levels at 3.0 and 9.0 metres from the source of the previous check.
+        By how many decibels does the level drop?
+    answer:
+      en: >-
+        About 95.6 decibels at 3.0 metres and 86.0 at 9.0 metres, ten times the base-ten logarithm
+        of each intensity divided by one picowatt per square metre. The drop is about 9.5 decibels,
+        ten times the logarithm of 9.
+  - id: 'doppler-effect'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'doppler-effect'
+    note:
+      en: >-
+        Count each velocity as positive when that body moves towards the other and negative when it
+        moves away. Approach raises the pitch heard; separation lowers it.
+  - id: 'check-doppler'
+    kind: 'check'
+    prompt:
+      en: >-
+        An ambulance siren emits 800 hertz and moves at 25.0 metres per second past a person
+        standing still. Sound travels at 343 metres per second. What frequencies does the person
+        hear as it approaches and as it moves away?
+    answer:
+      en: >-
+        About 863 hertz approaching: 800 times 343 divided by the difference 343 minus 25.0. About
+        746 hertz moving away, where the source velocity is negative: 800 times 343 divided by the
+        sum 343 plus 25.0.

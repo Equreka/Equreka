@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de Snell'
+terms:
+  n_{1}:
+    label: 'Índice de refracción del primer medio'
+  \theta_{1}:
+    label: 'Ángulo de incidencia'
+  n_{2}:
+    label: 'Índice de refracción del segundo medio'
+  \theta_{2}:
+    label: 'Ángulo de refracción'
+description: >-
+  La ley de Snell, llamada también ley de la refracción, relaciona las direcciones de un rayo de luz
+  a los dos lados de la frontera entre medios transparentes: el índice de refracción de cada medio
+  multiplicado por el seno del ángulo que forma el rayo con la normal tiene el mismo valor a ambos
+  lados. Fija cuánto se desvía la luz al pasar del aire al agua o al vidrio, o al salir de nuevo.
+
+  El rayo llega por el primer medio, de índice de refracción $\var{n_{1}}$, con el ángulo de
+  incidencia $\var{\theta_{1}}$, y sale por el segundo medio, de índice $\var{n_{2}}$, con el ángulo
+  de refracción $\var{\theta_{2}}$. Los índices son números puros, al menos iguales a uno en los
+  materiales ordinarios. Los dos ángulos se miden desde la normal, la recta perpendicular a la
+  frontera, y están entre cero y un ángulo recto; se introducen en radianes o en grados. El rayo
+  incidente, la normal y el rayo refractado están en un mismo plano.
+
+  Un rayo que entra en un medio de índice mayor se acerca a la normal, y uno que entra en un medio
+  de índice menor se aleja de ella; un rayo que sigue la normal no se desvía. La ley se deduce de la
+  imagen ondulatoria: la frecuencia es la misma a ambos lados, así que la longitud de onda varía con
+  la rapidez, y los frentes de onda que siguen unidos a lo largo de la frontera deben inclinarse
+  según la razón de las rapideces. También se obtiene del principio de Fermat del tiempo mínimo.
+
+  La ley supone una frontera lisa entre medios uniformes e isótropos y luz de una sola longitud de
+  onda, porque los índices cambian con el color. Cuando la luz pasa a un medio de índice menor, el
+  seno calculado del ángulo de refracción puede superar uno; entonces no existe rayo refractado, la
+  luz se refleja por completo y el ángulo de refracción no tiene solución real.
+
+  OpenStax atribuye la ley a Ibn Sahl en 984 y señala que lleva el nombre de Willebrord Snell, que
+  la redescubrió en 1621. Un rayo que llega al diamante a 30.0 grados de la normal continúa a unos
+  11.9 grados.

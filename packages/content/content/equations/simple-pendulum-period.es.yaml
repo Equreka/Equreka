@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Periodo del péndulo simple'
+terms:
+  L:
+    label: 'Longitud del péndulo'
+  g:
+    label: 'Aceleración de la gravedad'
+description: >-
+  El periodo del péndulo simple es el tiempo que tarda una pequeña lenteja colgada de un hilo ligero
+  en ir y volver una vez: dos pi veces la raíz cuadrada de la longitud dividida entre la aceleración
+  de la gravedad. En ondas y oscilaciones es el ejemplo clásico de movimiento armónico simple
+  producido por la gravedad, y la fórmula en la que se basan los relojes de péndulo y las medidas
+  escolares de g.
+
+  Aquí $\mag{T}$ es el periodo en segundos, el tiempo de una oscilación completa de ida y vuelta;
+  $\var{L}$ es la longitud del péndulo en metros, medida desde el punto de suspensión hasta el
+  centro de la lenteja, y $\var{g}$ es la aceleración de la gravedad en metros por segundo al
+  cuadrado, un dato positivo cuyo valor normal es 9.80665 metros por segundo al cuadrado pero que
+  varía con el lugar y con el cuerpo celeste en el que está el péndulo. Las tres magnitudes son
+  positivas.
+
+  Cuando la lenteja se aparta, la componente de su peso a lo largo del arco la hace volver. En
+  oscilaciones pequeñas el seno del ángulo es casi igual al propio ángulo en radianes, así que la
+  fuerza recuperadora es proporcional al desplazamiento y el movimiento es armónico simple, con una
+  frecuencia angular igual a la raíz cuadrada de g entre L. El periodo depende entonces solo de la
+  longitud y de g, no de la masa de la lenteja ni de la amplitud de la oscilación.
+
+  La fórmula se apoya en esta aproximación de ángulo pequeño y funciona bien para oscilaciones de
+  menos de unos 15 grados, o 0.26 radianes; las oscilaciones más amplias tardan algo más. Supone
+  además una lenteja puntual, un hilo de masa despreciable que no se estira, un punto de suspensión
+  fijo y ausencia de rozamiento y de resistencia del aire.
+
+  Christiaan Huygens patentó el primer reloj de péndulo en 1656 y expuso la teoría del movimiento
+  pendular en su Horologium Oscillatorium de 1673. Leída al revés, la fórmula da g a partir de una
+  oscilación cronometrada: un péndulo de 75.000 centímetros con un periodo de 1.7357 segundos
+  implica 9.8281 metros por segundo al cuadrado.

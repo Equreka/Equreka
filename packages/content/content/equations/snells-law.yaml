@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Snell''s law'
+kind: 'equation'
+level: 'intro'
+expression: '\var{n_{1}}\sin\var{\theta_{1}}=\var{n_{2}}\sin\var{\theta_{2}}'
+terms:
+  n_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Refractive index of the first medium'
+  \theta_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Angle of incidence'
+    unit: 'radian'
+  n_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Refractive index of the second medium'
+  \theta_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Angle of refraction'
+    unit: 'radian'
+solutions:
+  n_{1}: 'n_2 * sin(theta_2) / sin(theta_1)'
+  \theta_{1}: 'asin(n_2 * sin(theta_2) / n_1)'
+  n_{2}: 'n_1 * sin(theta_1) / sin(theta_2)'
+  \theta_{2}: 'asin(n_1 * sin(theta_1) / n_2)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q208391'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'law of refraction'
+  - 'Snell-Descartes law'
+  - 'Snells law'
+  - 'Descartes law'
+  - 'ley de la refracción'
+  - 'ley de Snell-Descartes'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 1.3 Refraction (Snell''s law, Examples 1.2 and 1.3)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/1-3-refraction'
+  - title: 'OpenStax, University Physics Volume 3, 1.4 Total Internal Reflection'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/1-4-total-internal-reflection'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Refraction of light and Snell''s law'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/geoopt/refr.html'
+description:
+  en: >-
+    Snell's law, also called the law of refraction, relates the directions of a ray of light on the
+    two sides of a boundary between transparent media: the refractive index of each medium times the
+    sine of the angle the ray makes with the normal has the same value on both sides. It fixes how
+    much light bends when it passes from air into water or glass, or back out again.
+
+    The ray arrives in the first medium, of refractive index $\var{n_{1}}$, at the angle of
+    incidence $\var{\theta_{1}}$, and leaves in the second medium, of index $\var{n_{2}}$, at the
+    angle of refraction $\var{\theta_{2}}$. The indices are pure numbers, at least one for ordinary
+    materials. Both angles are measured from the normal, the line perpendicular to the boundary, and
+    lie between zero and a right angle; they are entered in radians or degrees. The incident ray,
+    the normal and the refracted ray lie in one plane.
+
+    A ray entering a medium of higher index bends towards the normal, and one entering a medium of
+    lower index bends away from it; a ray along the normal does not bend. The law follows from the
+    wave picture: the frequency is the same on both sides, so the wavelength scales with the speed,
+    and wavefronts that stay joined along the boundary must tilt by the ratio of the speeds. It can
+    also be derived from Fermat's principle of least time.
+
+    The law assumes a smooth boundary between uniform, isotropic media and light of one wavelength,
+    since the indices change with colour. When light passes into a medium of lower index, the
+    computed sine of the refraction angle can exceed one; no refracted ray then exists, the light is
+    totally reflected, and the angle of refraction has no real solution.
+
+    OpenStax credits Ibn Sahl with the law in 984 and notes that it carries the name of Willebrord
+    Snell, who rediscovered it in 1621. A ray meeting diamond at 30.0 degrees from the normal
+    continues at about 11.9 degrees.

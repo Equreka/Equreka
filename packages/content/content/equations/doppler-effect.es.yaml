@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Efecto Doppler en el sonido'
+terms:
+  f_\mathrm{o}:
+    label: 'Frecuencia que percibe el observador'
+  f_\mathrm{s}:
+    label: 'Frecuencia que emite la fuente'
+  v:
+    label: 'Rapidez del sonido en el medio'
+  v_\mathrm{o}:
+    label: 'Velocidad del observador hacia la fuente'
+  v_\mathrm{s}:
+    label: 'Velocidad de la fuente hacia el observador'
+description: >-
+  El efecto Doppler en el sonido es el cambio de la frecuencia que se percibe cuando la fuente de un
+  sonido, el oyente o ambos se mueven a través del aire: mientras se acercan, el tono percibido es
+  más agudo que el emitido, y mientras se alejan, más grave. La relación da la frecuencia observada
+  a partir de la frecuencia emitida, la rapidez del sonido y las velocidades del observador y de la
+  fuente.
+
+  Aquí $\var{f_\mathrm{o}}$ es la frecuencia que percibe el observador y $\var{f_\mathrm{s}}$ la
+  que emite la fuente, ambas en hercios. $\var{v}$ es la rapidez del sonido en el medio, en metros
+  por segundo, un número positivo. $\var{v_\mathrm{o}}$ y $\var{v_\mathrm{s}}$ son las velocidades
+  del observador y de la fuente respecto del aire, en metros por segundo, con un mismo convenio de
+  signos para ambas: cada una es positiva cuando ese cuerpo se mueve hacia el otro, negativa cuando
+  se aleja y nula para un cuerpo en reposo.
+
+  Una fuente en movimiento apiña las crestas de sus ondas por delante y las separa por detrás, de
+  modo que la longitud de onda delante es más corta; un observador en movimiento encuentra las
+  crestas con más o menos frecuencia que uno en reposo. La relación recoge ambos cambios. Cuando una
+  fuente y un observador viajan juntos, como la bocina de un tren y su maquinista, las dos
+  correcciones se compensan y el maquinista oye la frecuencia emitida.
+
+  La relación supone aire en calma, sin viento, y velocidades menores que la del sonido. Cuando la
+  velocidad de la fuente se aproxima a la del sonido el denominador tiende a cero, y más allá las
+  ondas se acumulan en una onda de choque, el estampido sónico, que esta relación no describe.
+
+  Christian Doppler presentó el principio ante la Real Sociedad Bohemia de las Ciencias el 25 de mayo
+  de 1842, en un artículo sobre la luz coloreada de las estrellas dobles, y ya en 1845 se hicieron
+  experimentos con músicos en trenes para comprobarlo con el sonido. Una bocina de 150 hercios en un
+  tren que avanza a 35 metros por segundo, con el sonido a 340, se oye a unos 167 hercios al
+  acercarse y a 136 al alejarse.

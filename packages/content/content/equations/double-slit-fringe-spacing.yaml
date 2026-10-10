@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Fringe spacing in Young''s double-slit experiment'
+kind: 'formula'
+level: 'intro'
+expression: '\var{\Delta y}=\frac{\mag{\lambda}\var{D}}{\var{d}}'
+terms:
+  \Delta y:
+    kind: 'symbol'
+    label:
+      en: 'Fringe spacing'
+    unit: 'metre'
+  \lambda:
+    kind: 'magnitude'
+    ref: 'wavelength'
+  D:
+    kind: 'symbol'
+    label:
+      en: 'Distance from the slits to the screen'
+    unit: 'metre'
+  d:
+    kind: 'symbol'
+    label:
+      en: 'Slit separation'
+    unit: 'metre'
+solutions:
+  \Delta y: 'lambda * D / d'
+  \lambda: 'Deltay * d / D'
+  D: 'Deltay * d / lambda'
+  d: 'lambda * D / Deltay'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'double slit fringe spacing'
+  - 'double-slit interference'
+  - 'Young''s experiment'
+  - 'fringe width'
+  - 'interfranja'
+  - 'experimento de la doble rendija'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 3.1 Young''s Double-Slit Interference'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/3-1-youngs-double-slit-interference'
+  - title: 'OpenStax, University Physics Volume 3, 3.2 Mathematics of Interference (Equations 3.3 to 3.6)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/3-2-mathematics-of-interference'
+  - title: 'OpenStax, College Physics 2e, 27.3 Young''s Double Slit Experiment'
+    url: 'https://openstax.org/books/college-physics-2e/pages/27-3-youngs-double-slit-experiment'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Double slit interference'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/phyopt/slits.html'
+description:
+  en: >-
+    In Young's double-slit experiment, light of one wavelength passing through two narrow, closely
+    spaced slits produces a row of equally spaced bright and dark interference fringes on a distant
+    screen. The fringe spacing, the distance between neighbouring bright fringes, equals the
+    wavelength times the distance to the screen divided by the separation of the slits.
+
+    The fringe spacing $\var{\Delta y}$ is a length in metres measured on the screen, across the
+    fringes. The wavelength $\mag{\lambda}$ is that of the light, $\var{D}$ is the distance from the
+    slits to the screen and $\var{d}$ the distance between the centres of the two slits, all in
+    metres and all positive.
+
+    Light from the two slits reaches a point on the screen by paths that differ by the slit
+    separation times the sine of the angle from the central direction. Where that difference is a
+    whole number of wavelengths the waves arrive crest to crest and a bright fringe appears; halfway
+    between, crest meets trough and the screen stays dark. For small angles the sine is close to the
+    position on the screen divided by the screen distance, so successive bright fringes sit at
+    equal steps whose size is the fringe spacing.
+
+    The relation assumes a screen much farther away than the slit separation and fringes near the
+    centre, where the angles are small; far out the fringes spread unevenly. It also needs light of
+    a single wavelength reaching both slits in step, as a laser provides; white light gives coloured
+    fringes, since each wavelength has its own spacing. The finite width of each slit modulates the
+    brightness of the fringes but not their spacing.
+
+    Thomas Young performed the experiment in 1801, and it supported the wave theory of light. Red
+    laser light of 633 nanometres, slits 0.100 millimetres apart and a screen 1.00 metre away give
+    fringes about 6.33 millimetres apart.

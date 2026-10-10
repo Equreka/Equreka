@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Potencia óptica'
+description: >-
+  La potencia óptica, llamada también potencia dióptrica o potencia de refracción, de símbolo $P$,
+  es el inverso de la distancia focal de una lente, de un espejo curvo o de un sistema óptico
+  completo. Mide con qué fuerza el elemento desvía un haz de rayos paralelos hacia un foco o lo
+  aparta de él: cuanto más corta es la distancia focal, mayor es la potencia.
+
+  Su unidad SI coherente es el metro recíproco, y su dimensión es la inversa de una longitud. La
+  óptica y el cuidado de la vista la expresan en dioptrías, nombre que el derecho de la Unión
+  Europea admite para la potencia de los sistemas ópticos, con una dioptría igual a un metro
+  recíproco. Una lente de medio metro de distancia focal tiene, por tanto, una potencia de dos
+  dioptrías.
+
+  La potencia óptica es un escalar con signo. Con el convenio de signos de real positivo que se usa
+  en la óptica escolar, una lente convergente o un espejo cóncavo tienen potencia positiva, y una
+  lente divergente o un espejo convexo, negativa; una lámina plana o un espejo plano tienen
+  potencia nula.
+
+  La potencia de una lente se obtiene midiendo su distancia focal, por ejemplo enfocando un objeto
+  lejano sobre una pantalla, y tomando el inverso en metros. OpenStax da de 1.0 a 3.5 dioptrías para
+  las gafas de lectura comunes, 12.5 dioptrías para una lupa de 8.00 cm de distancia focal, y entre
+  50.0 y 54.0 dioptrías para el ojo humano completo, del que la córnea aporta unos dos tercios.
+
+  La potencia óptica no es una potencia en el sentido de energía por unidad de tiempo, medida en
+  vatios, aunque en los láseres y la fibra óptica se suelen usar las mismas palabras para la
+  potencia radiante de un haz. Tampoco es el número de ondas, que comparte la dimensión y el metro
+  recíproco pero cuenta las longitudes de onda de una onda por unidad de longitud. QUDT clasifica la
+  dioptría bajo la curvatura y no bajo una clase de magnitud propia.

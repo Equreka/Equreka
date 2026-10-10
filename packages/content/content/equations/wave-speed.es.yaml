@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Rapidez de propagación de una onda'
+description: >-
+  La relación de la rapidez de propagación establece que una onda periódica avanza con una rapidez
+  igual a su frecuencia multiplicada por su longitud de onda. Es la relación central de la
+  cinemática de ondas en ondas y oscilaciones, y vale para las ondas en cuerdas, las olas, el sonido
+  y la luz: conocidas dos de las tres magnitudes, la tercera queda fijada.
+
+  Aquí $\mag{v}$ es la rapidez de la onda, el ritmo al que una cresta avanza por el medio, en metros
+  por segundo; $\mag{f}$ es la frecuencia, el número de crestas que pasan cada segundo por un punto
+  fijo, en hercios, y $\mag{\lambda}$ es la longitud de onda, la distancia entre crestas vecinas, en
+  metros. Las tres son no negativas; el sentido de propagación no forma parte de la relación y debe
+  indicarse aparte.
+
+  Durante un periodo cada cresta avanza hasta ocupar el lugar de la cresta que la precede, de modo
+  que la onda recorre una longitud de onda por periodo. Al dividir esa distancia entre el periodo,
+  el inverso de la frecuencia, la rapidez resulta ser la longitud de onda por la frecuencia; la
+  forma equivalente con el periodo es la rapidez de propagación a partir del periodo.
+
+  La fuente fija la frecuencia, mientras que el medio fija la rapidez: la tensión y la masa de una
+  cuerda, la temperatura del aire o el índice de refracción del vidrio. Cuando una onda pasa a un
+  medio más lento, su frecuencia se mantiene y su longitud de onda se acorta en la misma proporción.
+  En un medio dispersivo, donde ondas de distinta frecuencia viajan con distinta rapidez, la
+  relación da la rapidez de un patrón de crestas, la rapidez de fase, y no la rapidez con que un
+  pulso transporta energía.
+
+  Una onda enviada por una cuerda a 2.00 hercios que avanza a 5.00 metros por segundo tiene una
+  longitud de onda de 2.50 metros. La misma relación convierte la frecuencia de una emisora de radio
+  en la longitud de sus ondas, y el tono de una nota en el tamaño del tubo o de la cuerda que la
+  produce.

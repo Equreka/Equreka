@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Periodo de una masa unida a un resorte'
+terms:
+  k:
+    label: 'Constante elástica'
+description: >-
+  El periodo de una masa unida a un resorte es el tiempo que tarda un cuerpo sujeto a un resorte
+  ideal en completar una oscilación: dos pi veces la raíz cuadrada de la masa dividida entre la
+  constante elástica. Es el sistema modelo del movimiento armónico simple en ondas y oscilaciones, y
+  describe cualquier cuerpo sometido a una fuerza recuperadora lineal, desde un vehículo sobre su
+  suspensión hasta una pesa que oscila colgada de un resorte.
+
+  Aquí $\mag{T}$ es el periodo en segundos, el tiempo de una oscilación completa; $\mag{m}$ es la
+  masa del cuerpo que oscila en kilogramos, y $\var{k}$ es la constante elástica en newtons por
+  metro, la fuerza necesaria por cada metro de estiramiento, positiva y mayor para un resorte más
+  rígido. Las tres magnitudes son positivas.
+
+  La ley de Hooke da una fuerza recuperadora proporcional al desplazamiento desde el equilibrio y
+  opuesta a él, de modo que la aceleración es proporcional al desplazamiento y de sentido contrario,
+  que es la propiedad que define el movimiento armónico simple. Al resolver ese movimiento se
+  obtiene una frecuencia angular igual a la raíz cuadrada de k entre m, y al dividir dos pi entre
+  ella resulta el periodo. Un cuerpo más pesado responde con más lentitud y alarga el periodo; un
+  resorte más rígido lo acorta.
+
+  El periodo no depende de la amplitud, siempre que el resorte cumpla la ley de Hooke en todo su
+  estiramiento. La fórmula trata el resorte como si no tuviera masa y desprecia el amortiguamiento
+  por rozamiento o por resistencia del aire; un resorte cuya masa no es pequeña frente a la carga, o
+  un movimiento que se extingue con rapidez, requiere un modelo corregido.
+
+  Leída al revés, la fórmula da la constante elástica a partir de una oscilación cronometrada, o una
+  masa desconocida a partir de un resorte calibrado. Un bloque de 2.00 kilogramos unido a un resorte
+  de constante 32.00 newtons por metro oscila con un periodo de unos 1.57 segundos.

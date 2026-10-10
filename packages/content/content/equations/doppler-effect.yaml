@@ -1,0 +1,90 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Doppler effect for sound'
+kind: 'equation'
+level: 'intro'
+expression: '\var{f_\mathrm{o}}=\var{f_\mathrm{s}}\frac{\var{v}+\var{v_\mathrm{o}}}{\var{v}-\var{v_\mathrm{s}}}'
+terms:
+  f_\mathrm{o}:
+    kind: 'symbol'
+    label:
+      en: 'Frequency heard by the observer'
+    unit: 'hertz'
+  f_\mathrm{s}:
+    kind: 'symbol'
+    label:
+      en: 'Frequency emitted by the source'
+    unit: 'hertz'
+  v:
+    kind: 'symbol'
+    label:
+      en: 'Speed of sound in the medium'
+    unit: 'metre-per-second'
+  v_\mathrm{o}:
+    kind: 'symbol'
+    label:
+      en: 'Velocity of the observer towards the source'
+    unit: 'metre-per-second'
+  v_\mathrm{s}:
+    kind: 'symbol'
+    label:
+      en: 'Velocity of the source towards the observer'
+    unit: 'metre-per-second'
+solutions:
+  f_\mathrm{o}: 'f_s * (v + v_o) / (v - v_s)'
+  f_\mathrm{s}: 'f_o * (v - v_s) / (v + v_o)'
+  v: '(f_o * v_s + f_s * v_o) / (f_o - f_s)'
+  v_\mathrm{o}: 'f_o * (v - v_s) / f_s - v'
+  v_\mathrm{s}: 'v - f_s * (v + v_o) / f_o'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q76436'
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'Doppler effect'
+  - 'Doppler shift'
+  - 'Doppler''s principle'
+  - 'Doppler formula'
+  - 'efecto Doppler'
+  - 'corrimiento Doppler'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 17.7 The Doppler Effect'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/17-7-the-doppler-effect'
+  - title: 'OpenStax, College Physics 2e, 17.4 Doppler Effect and Sonic Booms, Example 17.4'
+    url: 'https://openstax.org/books/college-physics-2e/pages/17-4-doppler-effect-and-sonic-booms'
+  - title: 'MacTutor History of Mathematics, Christian Doppler (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Doppler/'
+description:
+  en: >-
+    The Doppler effect for sound is the change in the frequency heard when the source of a sound,
+    the listener, or both move through the air: while they approach each other the pitch heard is
+    higher than the pitch emitted, and while they separate it is lower. The relation gives the
+    observed frequency from the emitted frequency, the speed of sound and the velocities of the
+    observer and the source.
+
+    Here $\var{f_\mathrm{o}}$ is the frequency the observer hears and $\var{f_\mathrm{s}}$ the
+    frequency the source emits, both in hertz. $\var{v}$ is the speed of sound in the medium, in
+    metres per second, a positive number. $\var{v_\mathrm{o}}$ and $\var{v_\mathrm{s}}$ are the
+    velocities of the observer and the source relative to the air, in metres per second, with one
+    sign convention for both: each is positive when that body moves towards the other and negative
+    when it moves away, and zero for a body at rest.
+
+    A moving source crowds its wave crests together ahead of it and spreads them out behind, so the
+    wavelength in front is shorter; a moving observer meets the crests more or less often than a
+    stationary one. Both changes appear in the relation. When a source and an observer travel
+    together, as a train horn and its driver do, the two corrections cancel and the driver hears
+    the emitted frequency.
+
+    The relation assumes still air with no wind and speeds below the speed of sound. As the
+    velocity of the source approaches the speed of sound the denominator tends to zero, and beyond
+    it the waves pile up into a shock wave, the sonic boom, which this relation does not describe.
+
+    Christian Doppler presented the principle to the Royal Bohemian Society of Sciences on 25 May
+    1842, in a paper on the coloured light of double stars, and experiments with musicians on
+    railway trains tested it for sound as early as 1845. A 150-hertz horn on a train moving at 35
+    metres per second, with sound at 340, is heard at about 167 hertz as it approaches and 136 as
+    it recedes.

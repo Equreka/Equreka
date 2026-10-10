@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Sound intensity'
+symbol:
+  tex: 'I'
+baseUnit: 'watt-per-square-metre'
+dimension:
+  M: 1
+  T: -3
+nonNegative: true
+externalIds:
+  wikidata: 'Q1140289'
+  qudt: 'http://qudt.org/vocab/quantitykind/SoundIntensity'
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'acoustic intensity'
+  - 'intensity of sound'
+  - 'sound energy flux density'
+  - 'sound power density'
+  - 'intensidad sonora'
+  - 'intensidad acústica'
+  - 'intensidad de sonido'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 17.3 Sound Intensity'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/17-3-sound-intensity'
+  - title: 'OpenStax, College Physics 2e, 17.3 Sound Intensity and Sound Level, Table 17.2'
+    url: 'https://openstax.org/books/college-physics-2e/pages/17-3-sound-intensity-and-sound-level'
+  - title: 'QUDT, quantity kind SoundIntensity (skos:broader PowerPerArea)'
+    url: 'https://qudt.org/vocab/quantitykind/SoundIntensity'
+  - title: 'QUDT, quantity kind Irradiance (skos:broader PowerPerArea)'
+    url: 'https://qudt.org/vocab/quantitykind/Irradiance'
+description:
+  en: >-
+    Sound intensity, symbol $I$, is the power that a sound wave carries through a surface divided by
+    the area of that surface, taken at right angles to the direction in which the wave travels. In
+    acoustics it is the energy delivered each second across each square metre at a given place, and
+    it is the physical quantity behind how loud a sound is there.
+
+    Its SI unit is the watt per square metre, $\mathrm{W/m^{2}}$, the same unit as irradiance. In
+    base units that is the kilogram per second cubed, so the dimension of sound intensity is mass
+    divided by time cubed. QUDT files sound intensity and irradiance side by side under power per
+    area, neither one a kind of the other: one describes energy carried by the vibration of a
+    medium, the other energy carried by electromagnetic radiation.
+
+    In introductory physics sound intensity is the average over time of the power per area, a
+    non-negative scalar. QUDT states the general definition as a vector, the sound pressure times
+    the particle velocity; the scalar used here is the size of that product averaged over time. For
+    a sound wave of one frequency it grows with the square of the pressure amplitude, the largest
+    swing of the pressure above and below its undisturbed value, and falls as the density of the
+    medium and the speed of sound rise. Twice the pressure amplitude therefore means four times the
+    intensity.
+
+    The ear responds over an enormous range. At 1000 hertz the faintest sound that normal hearing
+    detects has an intensity of $10^{-12}\,\mathrm{W/m^{2}}$; ordinary conversation reaches about a
+    millionth of a watt per square metre, a loud rock concert about one watt per square metre, and a
+    jet airliner 30 metres away about a hundred. Because that span covers fourteen powers of ten,
+    intensities are usually reported as a sound intensity level in decibels.
+
+    Sound intensity is not the same as that level, which is a logarithm of the ratio to a reference
+    value, nor the same as loudness, which is a perception. It also differs from the sound power of
+    the source, in watts: spread over a sphere around a small source, the same power gives a quarter
+    of the intensity at twice the distance.

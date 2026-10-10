@@ -1,0 +1,122 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.locale.schema.json
+name: 'Ondas y sonido'
+description: >-
+  Frecuencia, longitud de onda y rapidez de propagación; después, el sonido: rapidez en el aire,
+  armónicos, batimientos, intensidad, decibelios, ley de la inversa del cuadrado y efecto Doppler,
+  con comprobaciones resueltas.
+steps:
+  intro:
+    body: >-
+      Una onda transporta energía de un lugar a otro sin arrastrar consigo el medio. El sonido es
+      una onda de compresiones y rarefacciones que avanza por el aire, el agua o un sólido. Empieza
+      por las magnitudes que comparten todas las ondas, frecuencia, periodo, longitud de onda y
+      rapidez, y aplícalas después al sonido: con qué rapidez viaja, qué notas admite un tubo o una
+      cuerda, cuán intenso es un sonido y cómo cambia su tono cuando la fuente se mueve.
+  frequency:
+    note: >-
+      El número de ciclos por segundo, en hercios. En el sonido fija el tono: una frecuencia más
+      alta es una nota más aguda.
+  period-frequency:
+    note: >-
+      El periodo es el tiempo de un ciclo, el inverso de la frecuencia. Un tono de 440 hercios se
+      repite cada 1/440 de segundo.
+  wavelength:
+    note: >-
+      La distancia entre dos crestas vecinas, o entre dos compresiones vecinas de una onda sonora,
+      en metros.
+  wave-speed:
+    note: >-
+      En un periodo la onda avanza una longitud de onda, así que su rapidez es la frecuencia por la
+      longitud de onda. El medio fija la rapidez; la fuente fija la frecuencia.
+  check-wavelength:
+    prompt: >-
+      Un diapasón vibra a 440 hercios en aire donde el sonido viaja a 343 metros por segundo. ¿Cuál
+      es la longitud de onda del sonido que produce?
+    answer: >-
+      Unos 0.780 metros: 343 entre 440.
+  speed-of-sound-air:
+    note: >-
+      En un gas la rapidez depende de la temperatura en kelvin y de la masa molar, no de la presión.
+      Convierte los grados Celsius a kelvin antes de usarla.
+  check-speed:
+    prompt: >-
+      El aire seco tiene un índice adiabático de 1.40 y una masa molar de 0.02897 kilogramos por
+      mol. Con la constante molar de los gases, ¿con qué rapidez viaja el sonido en él a 20 grados
+      Celsius?
+    answer: >-
+      Unos 343 metros por segundo: la raíz cuadrada de 1.40 por 8.314 por 293.15, dividido entre
+      0.02897. A 0 grados Celsius el mismo cálculo da unos 331.
+  closed-pipe-harmonics:
+    note: >-
+      Un tubo cerrado por un extremo solo admite armónicos impares, n igual a 1, 3, 5, etcétera.
+      Introduce solo valores impares de n.
+  check-pipe:
+    prompt: >-
+      Un tubo de 0.25 metros de largo está cerrado por un extremo, y el sonido viaja a 343 metros
+      por segundo. ¿Cuáles son sus dos frecuencias de resonancia más bajas?
+    answer: >-
+      343 hercios para n igual a 1, ya que 343 entre el producto de 4 por 0.25 da 343. El siguiente
+      armónico permitido es n igual a 3, a 1029 hercios.
+  beat-frequency:
+    note: >-
+      Dos tonos de frecuencias casi iguales suben y bajan de volumen a la vez. El número de
+      batimientos por segundo es la diferencia entre las dos frecuencias.
+  check-beats:
+    prompt: >-
+      Un diapasón de 440 hercios y una cuerda de guitarra suenan juntos, y se oyen 4 batimientos por
+      segundo. ¿Qué frecuencias puede tener la cuerda?
+    answer: >-
+      444 o 436 hercios, 4 hercios por encima o por debajo del diapasón. Los batimientos por sí
+      solos no indican cuál de las dos es.
+  sound-intensity:
+    note: >-
+      Potencia por unidad de área, en vatios por metro cuadrado. Los sonidos audibles abarcan unas
+      catorce potencias de diez, desde el umbral de audición hasta un avión a reacción a 30 metros.
+  sound-intensity-formula:
+    note: >-
+      Divide la potencia que atraviesa una superficie entre su área, tomada perpendicular a la
+      dirección en que avanza el sonido.
+  inverse-square-law:
+    note: >-
+      Desde una fuente pequeña la potencia se reparte sobre esferas cada vez mayores, así que el
+      doble de distancia supone la cuarta parte de intensidad.
+  check-distance:
+    prompt: >-
+      A 3.0 metros de una fuente pequeña la intensidad del sonido es de 0.0036 vatios por metro
+      cuadrado. ¿Cuánto vale a 9.0 metros, al aire libre?
+    answer: >-
+      0.00040 vatios por metro cuadrado. La distancia es tres veces mayor, así que la intensidad es
+      nueve veces menor: 0.0036 entre 9.
+  threshold-of-hearing-intensity:
+    note: >-
+      Un picovatio por metro cuadrado, fijado por acuerdo cerca del sonido más débil que se oye a
+      1000 hercios. Es el cero de la escala de decibelios para la intensidad.
+  sound-intensity-level-formula:
+    note: >-
+      Diez veces el logaritmo decimal de la intensidad entre la de referencia. Cada factor de diez
+      en la intensidad suma 10 decibelios.
+  decibel:
+    note: >-
+      La décima parte de un belio. Indica cómo se formó un nivel, no es una unidad lineal, así que
+      la calculadora trata un nivel en decibelios como un número sin unidad.
+  check-level:
+    prompt: >-
+      Halla los niveles de intensidad del sonido a 3.0 y a 9.0 metros de la fuente de la
+      comprobación anterior. ¿Cuántos decibelios baja el nivel?
+    answer: >-
+      Unos 95.6 decibelios a 3.0 metros y 86.0 a 9.0 metros, diez veces el logaritmo decimal de cada
+      intensidad dividida entre un picovatio por metro cuadrado. La bajada es de unos 9.5
+      decibelios, diez veces el logaritmo de 9.
+  doppler-effect:
+    note: >-
+      Cuenta cada velocidad como positiva cuando ese cuerpo se mueve hacia el otro y negativa cuando
+      se aleja. Al acercarse sube el tono percibido; al alejarse, baja.
+  check-doppler:
+    prompt: >-
+      La sirena de una ambulancia emite 800 hercios y pasa a 25.0 metros por segundo junto a una
+      persona quieta. El sonido viaja a 343 metros por segundo. ¿Qué frecuencias oye la persona
+      mientras se acerca y mientras se aleja?
+    answer: >-
+      Unos 863 hercios al acercarse: 800 por 343 entre la diferencia de 343 menos 25.0. Unos 746
+      hercios al alejarse, cuando la velocidad de la fuente es negativa: 800 por 343 entre la suma
+      de 343 más 25.0.

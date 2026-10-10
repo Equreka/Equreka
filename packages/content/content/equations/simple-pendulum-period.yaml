@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Period of a simple pendulum'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{T}=2\const{\pi}\sqrt{\frac{\var{L}}{\var{g}}}'
+terms:
+  T:
+    kind: 'magnitude'
+    ref: 'period'
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+  L:
+    kind: 'symbol'
+    label:
+      en: 'Length of the pendulum'
+    unit: 'metre'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+solutions:
+  T: '2 * pi * sqrt(L / g)'
+  L: 'g * (T / (2 * pi))^2'
+  g: 'L * (2 * pi / T)^2'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'T = 2 pi sqrt(L/g)'
+  - 'pendulum period'
+  - 'pendulum formula'
+  - 'period of a pendulum'
+  - 'mathematical pendulum'
+  - 'periodo de un péndulo'
+  - 'péndulo matemático'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 15.4 Pendulums'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/15-4-pendulums'
+  - title: 'HyperPhysics (Georgia State University), Simple pendulum'
+    url: 'https://hyperphysics.gsu.edu/hbase/pend.html'
+  - title: 'MacTutor History of Mathematics, Christiaan Huygens (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Huygens/'
+  - title: 'NIST, CODATA 2022 value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+description:
+  en: >-
+    The period of a simple pendulum is the time a small bob hanging from a light string takes to
+    swing out and back once: two pi times the square root of the length divided by the gravitational
+    acceleration. In waves and oscillations it is the standard example of simple harmonic motion
+    driven by gravity, and the formula behind pendulum clocks and classroom measurements of g.
+
+    Here $\mag{T}$ is the period in seconds, the time of one complete swing there and back;
+    $\var{L}$ is the length of the pendulum in metres, measured from the pivot to the centre of the
+    bob; and $\var{g}$ is the gravitational acceleration in metres per second squared, a positive
+    input whose standard value is 9.80665 metres per second squared but which varies with place and
+    with the body the pendulum stands on. All three quantities are positive.
+
+    When the bob is pulled aside, the component of its weight along the arc pulls it back. For small
+    swings the sine of the angle is close to the angle itself in radians, so the restoring force is
+    proportional to the displacement and the motion is simple harmonic, with an angular frequency
+    equal to the square root of g over L. The period then depends only on the length and on g, not
+    on the mass of the bob and not on the size of the swing.
+
+    The formula rests on this small-angle approximation and holds well for swings below about 15
+    degrees, or 0.26 radians; wider swings take measurably longer. It also assumes a point-like bob
+    on a string of negligible mass that does not stretch, a fixed pivot, and no air resistance or
+    friction.
+
+    Christiaan Huygens patented the first pendulum clock in 1656 and set out the theory of pendulum
+    motion in his Horologium Oscillatorium of 1673. Read backwards, the formula gives g from a timed
+    swing: a pendulum 75.000 centimetres long with a period of 1.7357 seconds implies 9.8281 metres
+    per second squared.

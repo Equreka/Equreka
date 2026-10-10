@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ángulo límite de la reflexión interna total'
+terms:
+  n_{2}:
+    label: 'Índice de refracción del segundo medio'
+  n_{1}:
+    label: 'Índice de refracción del primer medio'
+description: >-
+  El ángulo límite, o ángulo crítico, es el ángulo de incidencia con el que la luz que viaja dentro
+  de un medio hacia la frontera con otro medio de índice de refracción menor se refracta justo a lo
+  largo de la frontera. Su seno es igual al cociente de los dos índices. Con cualquier ángulo mayor
+  no pasa nada de luz: toda se refleja de vuelta, el efecto llamado reflexión interna total.
+
+  La luz viaja por el primer medio, de índice de refracción $\var{n_{1}}$, hacia el segundo medio,
+  de índice $\var{n_{2}}$, que debe ser menor. Los dos índices son números puros. El ángulo límite
+  $\mag{\theta_\mathrm{c}}$ se mide desde la normal a la frontera y está entre cero y un ángulo
+  recto; se calcula en radianes y se muestra sin dificultad en grados.
+
+  La relación es la ley de Snell con el ángulo de refracción igual a un ángulo recto, cuyo seno vale
+  uno. Por debajo del ángulo límite, parte de la luz sale refractada y parte se refleja; en el
+  ángulo límite el rayo refractado roza la superficie; por encima, el segundo medio no recibe rayo
+  refractado. Cuanto mayor es la razón entre los índices, menor es el ángulo límite.
+
+  Solo existe ángulo límite cuando la luz pasa de un índice mayor a uno menor. Si el segundo medio
+  tiene el índice mayor, el cociente supera uno, el seno no puede alcanzarlo y la ecuación no tiene
+  ángulo real: la reflexión interna total no puede darse. Como los índices dependen de la longitud
+  de onda, también el ángulo límite, aunque poco.
+
+  La reflexión interna total guía la luz por las fibras ópticas de las telecomunicaciones y de los
+  endoscopios médicos, desvía la luz en los prismas de prismáticos y periscopios y hace brillar los
+  diamantes tallados. OpenStax da 48.6 grados del agua al aire y solo 24.4 grados del diamante al
+  aire.

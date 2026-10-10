@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Índice de refracción de un medio'
+description: >-
+  El índice de refracción de un medio transparente es la velocidad de la luz en el vacío dividida
+  entre la rapidez con que la luz recorre ese medio. Esta definición del índice de refracción
+  convierte una rapidez medida en un número puro que describe cuánto frena la luz un material como
+  el agua, el vidrio o el diamante y, leída al revés, da la rapidez de la luz dentro de un material
+  cuyo índice está tabulado.
+
+  Aquí $\mag{n}$ es el índice de refracción, un número puro sin unidad; $\const{c}$ es la velocidad
+  de la luz en el vacío, exactamente 299 792 458 metros por segundo porque el SI define el metro a
+  partir de ella; y $\mag{v}$ es la rapidez de la luz en el medio, en metros por segundo. Las dos
+  rapideces son positivas, de modo que el índice es positivo.
+
+  La luz que pasa a un medio más denso conserva su frecuencia, que pertenece a la fuente, mientras
+  su rapidez y su longitud de onda se reducen en la misma proporción. En los materiales
+  transparentes ordinarios la rapidez en el medio no supera la del vacío, así que el índice vale al
+  menos uno, y un índice mayor significa una luz más lenta y un cambio de dirección más acusado en
+  una frontera, como describe la ley de Snell.
+
+  El índice no es un único número para cada material. Varía ligeramente con la longitud de onda de
+  la luz, la dispersión que permite a un prisma separar la luz blanca en colores, y en los gases
+  depende de la temperatura y la presión. Por eso las tablas indican su longitud de onda: OpenStax da valores para luz de 589 nanómetros en el vacío, desde 1.000293 para el aire
+  y 1.333 para el agua dulce hasta 1.52 para el vidrio crown y 2.419 para el diamante.
+
+  Es el primer paso de muchos problemas de refracción, del diseño de lentes a las fibras
+  ópticas. Con un índice de 1.923, la luz recorre el circón a unos
+  $1.56\times10^{8}\,\mathrm{m/s}$.

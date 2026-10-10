@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Luminous efficacy of a light source'
+kind: 'formula'
+level: 'intro'
+expression: '\var{\eta_\mathrm{v}}=\frac{\mag{\Phi_\mathrm{v}}}{\mag{P}}'
+terms:
+  \eta_\mathrm{v}:
+    kind: 'symbol'
+    label:
+      en: 'Luminous efficacy of the source'
+    unit: 'lumen-per-watt'
+  \Phi_\mathrm{v}:
+    kind: 'magnitude'
+    ref: 'luminous-flux'
+  P:
+    kind: 'magnitude'
+    ref: 'power'
+solutions:
+  \eta_\mathrm{v}: 'Phi_v / P'
+  \Phi_\mathrm{v}: 'eta_v * P'
+  P: 'Phi_v / eta_v'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q3425218'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'luminous efficacy of a source'
+  - 'lamp efficacy'
+  - 'source efficacy'
+  - 'eficacia luminosa de una fuente'
+  - 'rendimiento luminoso'
+references:
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-089 luminous efficacy of a light source'
+    url: 'https://cie.co.at/eilvterm/17-21-089'
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-090 luminous efficacy of radiation'
+    url: 'https://cie.co.at/eilvterm/17-21-090'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Luminous flux and the lumen'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/vision/lumpow.html'
+  - title: 'BIPM, The International System of Units, 9th ed., 2.2.1 (luminous efficacy Kcd of 540 THz radiation)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'Wikidata, luminous efficacy of a source (Q3425218)'
+    url: 'https://www.wikidata.org/wiki/Q3425218'
+description:
+  en: >-
+    A light source's luminous efficacy is the luminous flux it emits divided by the electrical
+    power it consumes. Quoted in lumens per watt, it measures how much useful light, as judged by
+    the human eye, a lamp delivers for each watt drawn from the supply, and it is the figure used to
+    compare incandescent, fluorescent and LED lamps.
+
+    The luminous efficacy of the source $\var{\eta_\mathrm{v}}$ is in lumens per watt; the luminous
+    flux $\mag{\Phi_\mathrm{v}}$, the total light output of the lamp, is in lumens; and the power
+    $\mag{P}$ is the electrical power consumed, in watts. All three are positive.
+
+    A lamp turns electrical power into radiation, and only part of that radiation is visible; the
+    luminous flux then weights the visible part by the sensitivity of the eye, which peaks in the
+    green. Heat, infrared and ultraviolet output add to the power consumed but not to the luminous
+    flux, which is why a hot filament scores poorly.
+
+    The CIE asks that the power include or exclude auxiliary equipment, such as ballasts and
+    drivers, explicitly, since the two choices give different figures. This quantity is distinct
+    from the luminous efficacy of radiation, which divides the luminous flux by the radiant power of
+    the light itself; a lamp cannot radiate more power than it consumes, so its efficacy never
+    exceeds that of its radiation, and no source exceeds 683 lumens per watt, the value for green
+    monochromatic light of 540 terahertz. Efficacy also differs from efficiency, which is a pure
+    number.
+
+    HyperPhysics gives about 1700 lumens for a typical 100 watt incandescent bulb, an efficacy of
+    about 17 lumens per watt.

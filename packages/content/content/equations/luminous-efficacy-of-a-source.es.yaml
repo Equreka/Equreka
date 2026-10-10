@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Eficacia luminosa de una fuente de luz'
+terms:
+  \eta_\mathrm{v}:
+    label: 'Eficacia luminosa de la fuente'
+description: >-
+  La eficacia luminosa de una fuente de luz es el flujo luminoso que emite dividido entre la
+  potencia eléctrica que consume. Expresada en lúmenes por vatio, mide cuánta luz útil, según la
+  juzga el ojo humano, entrega una lámpara por cada vatio que toma de la red, y es la cifra con la
+  que se comparan las lámparas incandescentes, fluorescentes y LED.
+
+  La eficacia luminosa de la fuente $\var{\eta_\mathrm{v}}$ se expresa en lúmenes por vatio; el
+  flujo luminoso $\mag{\Phi_\mathrm{v}}$, la emisión total de luz de la lámpara, en lúmenes; y la
+  potencia $\mag{P}$ es la potencia eléctrica consumida, en vatios. Las tres son positivas.
+
+  Una lámpara convierte la potencia eléctrica en radiación, y solo parte de esa radiación es
+  visible; el flujo luminoso pondera luego la parte visible con la sensibilidad del ojo, que es
+  máxima en el verde. El calor y la emisión infrarroja y ultravioleta se suman a la potencia
+  consumida, pero no al flujo luminoso, y por eso un filamento caliente rinde mal.
+
+  La CIE pide indicar de forma explícita si la potencia incluye o excluye los equipos auxiliares,
+  como balastos y controladores, porque las dos opciones dan cifras distintas. Esta magnitud es
+  distinta de la eficacia luminosa de la radiación, que divide el flujo luminoso entre la potencia
+  radiante de la propia luz; una lámpara no puede radiar más potencia de la que consume, así que su
+  eficacia nunca supera la de su radiación, y ninguna fuente supera 683 lúmenes por vatio, el valor
+  de la luz verde monocromática de 540 terahercios. La eficacia también difiere del rendimiento, que
+  es un número puro.
+
+  HyperPhysics da unos 1700 lúmenes para una bombilla incandescente típica de 100 vatios, una
+  eficacia de unos 17 lúmenes por vatio.

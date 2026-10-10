@@ -99,6 +99,7 @@ Conventions for every `<slug>.es.yaml` sidecar. Companion to the [style guide](s
 | cubic metre per second | metro cúbico por segundo (metros cúbicos por segundo) | Wikidata [Q794261](https://www.wikidata.org/wiki/Q794261) `es` label |
 | litre per second, litre per minute | litro por segundo, litro por minuto (litros por segundo, litros por minuto; plural on the first noun, as *julios por kilogramo*) | Wikidata [Q61996348](https://www.wikidata.org/wiki/Q61996348), [Q107313814](https://www.wikidata.org/wiki/Q107313814) `es` labels; [OpenStax *Física universitaria* vol. 1, 14.5](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/14-5-dinamicas-de-fluidos) (*litros por minuto*) |
 | week, month, year, decade, century | semana, mes, año, década, siglo | usage |
+| dioptre | dioptría (dioptrías); EU-permitted, not SI-accepted | [Directive 80/181/EEC, Spanish consolidated text, Annex, Chapter I, 4](https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:01980L0181-20200613); Wikidata [Q193933](https://www.wikidata.org/wiki/Q193933) `es` label |
 | degree Fahrenheit, Rankine, Réaumur, Rømer, Delisle, Newton | grado Fahrenheit, grado Rankine, grado Réaumur, grado Rømer, grado Delisle, grado Newton | usage |
 
 Prefix names: *mili* per RAE; *atto* per the DLE entry *atto-* and, with *zetta* and *yotta*, per the CEM translation of the SI Brochure (9th ed., Table 7); the rest unchanged. Prefixed unit names follow the same spelling (*attosegundo*, *zettajulio*, *yottagramo*).
@@ -194,19 +195,39 @@ Prefix names: *mili* per RAE; *atto* per the DLE entry *atto-* and, with *zetta*
 | specific gravity | densidad relativa (*gravedad específica* in `aliases`; never *peso específico*, which is weight per unit volume) | Wikidata [Q10972285](https://www.wikidata.org/wiki/Q10972285) `es` label and alias |
 | period, frequency | periodo, frecuencia | CEM (frecuencia) |
 | wave speed | rapidez de propagación (scalar: *rapidez*, per the speed row) | usage |
-| wavelength, wavenumber | longitud de onda, número de ondas | CEM (número de ondas) |
-| amplitude, harmonic, beat | amplitud, armónico, pulsación (also the QUDT Spanish label of angular frequency, so *pulsación* is an alias of `magnitudes/angular-frequency` too) | usage |
+| wavelength, wavenumber | longitud de onda, número de ondas (*número de onda* in `aliases`) | CEM (número de ondas); *número de onda*: Wikidata [Q192510](https://www.wikidata.org/wiki/Q192510) `es` label |
+| angular wavenumber | número de ondas angular (named in prose only; *número de onda circular* is the Wikidata [Q30338487](https://www.wikidata.org/wiki/Q30338487) `es` label) | usage |
+| amplitude, harmonic | amplitud, armónico | usage |
+| harmonic number | número de armónico (*número de armónico (impar)* for a pipe closed at one end) | usage |
+| beat, beat frequency | batimiento, frecuencia de batimiento (*pulsación* and *frecuencia de pulsación* are synonyms, named once and kept in `aliases`; *pulsación* also names angular frequency and is an alias of `magnitudes/angular-frequency`, so never use it as the main term) | [OpenStax *Física universitaria* vol. 1, 17.6](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/17-6-batimientos); Wikidata [Q106371934](https://www.wikidata.org/wiki/Q106371934) `es` label |
+| tuning fork | diapasón | [OpenStax *Física universitaria* vol. 1, 17.6](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/17-6-batimientos) |
+| simple pendulum | péndulo simple | [OpenStax *Física universitaria* vol. 1, 15.4](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/15-4-pendulos) |
+| standing wave, node, antinode, fundamental frequency, overtone, normal modes | onda estacionaria, nodo, antinodo, frecuencia fundamental, sobretono, modos normales | [OpenStax *Física universitaria* vol. 1, 16.6](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/16-6-ondas-estacionarias-y-resonancia) |
+| pipe closed at one end, pipe open at both ends, end correction | tubo cerrado en un extremo, tubo abierto en ambos extremos, corrección en el extremo | [OpenStax *Física universitaria* vol. 1, 17.5](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/17-5-fuentes-de-sonido-musical) |
+| compression, rarefaction (of a sound wave) | compresión, rarefacción (never *enrarecimiento*) | [OpenStax *Física universitaria* vol. 1, 17.1](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/17-1-ondas-sonoras) |
+| speed of sound | rapidez del sonido, also in entry names (per the speed row; the English names say *speed*); *velocidad del sonido*, the OpenStax title form, only in `aliases` | usage; OpenStax form: [OpenStax *Física universitaria* vol. 1, 17.2](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/17-2-velocidad-del-sonido) |
+| adiabatic index | índice adiabático | [OpenStax *Física universitaria* vol. 1, 17.2](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/17-2-velocidad-del-sonido) |
+| Doppler effect, observer, source | efecto Doppler, observador, fuente | [OpenStax *Física universitaria* vol. 1, 17.7](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/17-7-el-efecto-doppler); Wikidata [Q76436](https://www.wikidata.org/wiki/Q76436) `es` label |
+| inverse-square law | ley de la inversa del cuadrado (*ley del inverso del cuadrado*, *ley cuadrática inversa* in `aliases`); each entry qualifies the bare name in its `aliases` (*... del sonido*, *... de la luz*) | Wikidata [Q333094](https://www.wikidata.org/wiki/Q333094) `es` label and aliases |
+| sound intensity | intensidad del sonido (*intensidad sonora*, *intensidad acústica*, *intensidad de sonido* in `aliases`) | [OpenStax *Física universitaria* vol. 1, 17.3](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/17-3-intensidad-del-sonido); *intensidad de sonido*: Wikidata [Q1140289](https://www.wikidata.org/wiki/Q1140289) `es` label |
+| reference sound intensity, threshold of hearing | intensidad de referencia del sonido, umbral de audición (*intensidad umbral*, the OpenStax form, in `aliases`) | [OpenStax *Física universitaria* vol. 1, 17.3](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/17-3-intensidad-del-sonido) |
 | simple harmonic motion | movimiento armónico simple | usage |
-| sound intensity level | nivel de intensidad sonora | usage |
+| sound intensity level | nivel de intensidad del sonido, matching *intensidad del sonido* (*nivel de intensidad sonora* in `aliases`) | [OpenStax *Física universitaria* vol. 1, 17.3](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-1/pages/17-3-intensidad-del-sonido) |
 | refractive index | índice de refracción | usage |
-| focal length, magnification | distancia focal, aumento | usage |
+| focal length, magnification | distancia focal, aumento (*aumento óptico* in `aliases`) | usage; *aumento óptico*: Wikidata [Q675287](https://www.wikidata.org/wiki/Q675287) `es` label |
+| thin lens equation, mirror equation | ecuación de las lentes delgadas, ecuación de los espejos (*ecuación de lentes* and *ecuación del espejo*, the OpenStax forms, in `aliases`) | usage; OpenStax forms: [OpenStax *Física universitaria* vol. 3, 2.4](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-3/pages/2-4-lentes-delgadas), [OpenStax *Física universitaria* vol. 3, 2.2](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-3/pages/2-2-espejos-esfericos) |
+| object distance, image distance, radius of curvature | distancia del objeto, distancia de la imagen, radio de curvatura | [OpenStax *Física universitaria* vol. 3, 2.2](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-3/pages/2-2-espejos-esfericos), [OpenStax *Física universitaria* vol. 3, 2.4](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-3/pages/2-4-lentes-delgadas) |
+| converging lens, diverging lens, concave mirror, convex mirror | lente convergente, lente divergente, espejo cóncavo, espejo convexo | same pages |
+| angle of incidence, angle of refraction, total internal reflection, Snell's law | ángulo de incidencia, ángulo de refracción, reflexión interna total, ley de Snell | [OpenStax *Física universitaria* vol. 3, 1.3](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-3/pages/1-3-refraccion), [OpenStax *Física universitaria* vol. 3, 1.4](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-3/pages/1-4-reflexion-interna-total) |
+| double slit, slit separation, fringe spacing | doble rendija, distancia entre las rendijas, separación entre franjas (*interfranja* in `aliases`) | [OpenStax *Física universitaria* vol. 3, 3.2](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-3/pages/3-2-matematicas-de-la-interferencia) (doble rendija, distancia entre las rendijas); fringe spacing: usage |
 | lens, mirror | lente (f.), espejo | usage |
-| critical angle | ángulo límite | usage |
+| critical angle | ángulo límite (*ángulo crítico*, the OpenStax form, in `aliases`) | usage; OpenStax form: [OpenStax *Física universitaria* vol. 3, 1.4](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-3/pages/1-4-reflexion-interna-total) |
 | diffraction grating | red de difracción | usage |
 | luminous flux, luminous intensity | flujo luminoso, intensidad luminosa | CEM |
 | illuminance, luminance | iluminancia, luminancia | CEM (luminancia) |
 | irradiance | irradiancia | CEM |
-| optical power | potencia óptica | usage |
+| optical power | potencia óptica | Wikidata [Q559265](https://www.wikidata.org/wiki/Q559265) `es` label |
+| luminous efficacy of a source | eficacia luminosa de una fuente (*rendimiento luminoso* in `aliases`) | Wikidata [Q3425218](https://www.wikidata.org/wiki/Q3425218) `es` label and alias |
 
 ### Thermodynamics
 

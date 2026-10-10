@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Intensidad del sonido como potencia por unidad de área'
+description: >-
+  La intensidad del sonido como potencia por unidad de área establece que la intensidad de una onda
+  sonora es igual a la potencia acústica que atraviesa una superficie dividida entre el área de esa
+  superficie. En acústica es la definición práctica de la intensidad del sonido, la magnitud a
+  partir de la cual se construyen los niveles de intensidad del sonido en decibelios, y el primer
+  paso hacia la ley de la inversa del cuadrado para el sonido.
+
+  Aquí $\mag{I}$ es la intensidad del sonido, en vatios por metro cuadrado; $\mag{P}$ es la potencia
+  que la onda transporta a través de la superficie, en vatios; y $\mag{A}$ es el área de la
+  superficie, en metros cuadrados, tomada perpendicular a la dirección en que avanza el sonido. Las
+  tres son no negativas, y el área nunca es nula.
+
+  La fórmula reparte la potencia por igual sobre el área que atraviesa, de modo que la misma
+  potencia a través de la mitad del área da el doble de intensidad. Para una fuente pequeña que
+  emite sonido por igual en todas las direcciones, la superficie es una esfera centrada en la
+  fuente, cuya área crece con el cuadrado del radio, y entonces la intensidad disminuye con el
+  cuadrado de la distancia.
+
+  La relación da un promedio: trata la potencia como repartida uniformemente sobre la superficie y
+  promediada a lo largo de muchos ciclos de la onda. Donde el sonido es más intenso en unas
+  direcciones que en otras, o donde las reflexiones y la absorción lo cambian de un punto a otro, da
+  la intensidad media sobre el área y no el valor en cada punto. Para una onda sonora de una sola
+  frecuencia la intensidad se obtiene también de la amplitud de presión, la densidad del medio y la
+  rapidez del sonido.
+
+  Un altavoz que envía 0.0010 vatios de sonido a través de una abertura de 0.50 metros cuadrados
+  produce allí una intensidad de 0.0020 vatios por metro cuadrado, un nivel de unos 93 decibelios.

@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Rapidez de propagación a partir del periodo'
+description: >-
+  La rapidez de propagación a partir del periodo expresa la rapidez de una onda periódica como su
+  longitud de onda dividida entre su periodo: en el tiempo que dura un ciclo completo en un punto
+  fijo, el patrón de la onda avanza exactamente una longitud de onda. En ondas y oscilaciones es la
+  forma que se usa cuando se ha medido la duración de un ciclo y no la frecuencia.
+
+  Aquí $\mag{v}$ es la rapidez de la onda en metros por segundo, el ritmo al que una cresta recorre
+  el medio; $\mag{\lambda}$ es la longitud de onda en metros, la distancia entre crestas vecinas, y
+  $\mag{T}$ es el periodo en segundos, el tiempo que tarda un punto del medio en completar una
+  oscilación. Las tres magnitudes son no negativas, y el sentido en que viaja la onda debe indicarse
+  aparte.
+
+  La relación es la rapidez como distancia entre tiempo aplicada a un ciclo: la cresta que deja un
+  punto es sustituida por la siguiente un periodo después, y para entonces ha avanzado una longitud
+  de onda. Como el periodo es el inverso de la frecuencia, la relación equivale a la rapidez de
+  propagación escrita como frecuencia por longitud de onda.
+
+  Supone una onda periódica estable, con todos los ciclos de igual longitud y duración, que viaja
+  por un medio uniforme. El medio fija la rapidez y la fuente fija el periodo; una onda que pasa a
+  otro medio conserva su periodo, así que su longitud de onda cambia en proporción a su nueva
+  rapidez. En un medio dispersivo el resultado es la rapidez de fase del patrón de crestas.
+
+  La relación sirve también para medir la rapidez de una onda: la longitud de onda se lee en el
+  patrón y el periodo se cronometra con un cronómetro o un osciloscopio. Una onda en una cuerda de
+  2.50 metros de longitud de onda y 0.50 segundos de periodo avanza a 5.00 metros por segundo.

@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Illuminance of an evenly lit surface'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{E_\mathrm{v}}=\frac{\mag{\Phi_\mathrm{v}}}{\mag{A}}'
+terms:
+  E_\mathrm{v}:
+    kind: 'magnitude'
+    ref: 'illuminance'
+  \Phi_\mathrm{v}:
+    kind: 'magnitude'
+    ref: 'luminous-flux'
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+solutions:
+  E_\mathrm{v}: 'Phi_v / A'
+  \Phi_\mathrm{v}: 'E_v * A'
+  A: 'Phi_v / E_v'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'illuminance formula'
+  - 'lux equals lumens per square metre'
+  - 'luminous flux per area'
+  - 'lumens to lux'
+  - 'lux a partir de lúmenes'
+references:
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-060 illuminance'
+    url: 'https://cie.co.at/eilvterm/17-21-060'
+  - title: 'Cornell University, DEA 3500, Lighting lecture 1 notes (luminous flux and illuminance)'
+    url: 'https://ergo.human.cornell.edu/studentdownloads/DEA3500notes/Lighting/lightingnotes1.html'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Luminous flux and the lumen'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/vision/lumpow.html'
+description:
+  en: >-
+    The illuminance of a surface is the luminous flux falling on it divided by its area. When the
+    light is spread evenly, this quotient gives the illuminance at every point; when it is not, it
+    gives the average over the surface. The formula connects the lumens a lamp emits with the lux
+    a light meter reads on a desk, a floor or a wall.
+
+    The illuminance $\mag{E_\mathrm{v}}$ is in lux, the luminous flux $\mag{\Phi_\mathrm{v}}$
+    reaching the surface is in lumens, and the area $\mag{A}$ is in square metres; one lux is one
+    lumen per square metre. All three are positive, and the flux counted is only the part that
+    actually arrives on the surface, not the total output of the source.
+
+    Luminous flux is radiant power weighted by the sensitivity of the human eye, so the illuminance
+    describes how brightly a surface is lit for human vision. The CIE defines illuminance at a
+    point as the incident luminous flux per unit area, taken as the limit of that quotient over a
+    vanishingly small patch around the point.
+
+    The formula gives a true point value only for even lighting. Under a single lamp the light is
+    usually stronger below it than at the edges of a room, and the quotient is then an average.
+    It also counts only light falling on the surface: the light the surface reflects or emits is
+    described by other quantities, such as luminance. The radiometric counterpart, irradiance, uses
+    unweighted power in watts per square metre.
+
+    Lighting designers use the formula in reverse to estimate how many lumens a room needs. A lamp
+    whose 1700 lumens fall evenly on 4 square metres gives 425 lux.

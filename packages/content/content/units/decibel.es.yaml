@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Decibelio'
+description: >-
+  El decibelio, de símbolo $\mathrm{dB}$, es una unidad para magnitudes de cociente logarítmico:
+  expresa cuántas décimas de potencia de diez separan una magnitud de tipo potencia de un valor de
+  referencia indicado. En acústica es la unidad en que se dan el nivel de intensidad del sonido y
+  otros niveles sonoros. No es una unidad SI; el folleto del SI la incluye, junto con el belio y el
+  neper, entre las unidades empleadas en campos técnicos especializados.
+
+  El folleto del SI define su uso mediante una regla y no mediante un factor. Un nivel de m
+  decibelios significa que m es diez veces el logaritmo decimal del cociente entre la magnitud y su
+  referencia, y tanto el folleto como el NIST exigen que el resultado vaya acompañado de la magnitud
+  y del valor de referencia. La norma ISO 1683 fija las referencias empleadas en acústica, entre
+  ellas un picovatio por metro cuadrado para la intensidad del sonido y 20 micropascales para la
+  presión sonora en el aire.
+
+  Un decibelio es la décima parte de un belio. Como un nivel es un logaritmo, los decibelios no se
+  convierten mediante un factor constante en ninguna unidad lineal: 10 decibelios por encima de una
+  referencia equivalen a diez veces la intensidad de referencia, 20 decibelios a cien veces y 30 a
+  mil veces. Los niveles en decibelios se suman solo en el sentido de que los cocientes
+  correspondientes se multiplican.
+
+  QUDT asocia el decibelio al nivel de potencia sonora, al nivel de presión sonora, al nivel de
+  exposición sonora y al índice de reducción sonora, así como a los cocientes logarítmicos decimales
+  en general, cada uno con su propia referencia.
+
+  El belio debe su nombre a Alexander Graham Bell, el inventor del teléfono, y el decibelio es la
+  décima parte que se usa en la práctica. El símbolo es dB, con d minúscula del prefijo deci y B
+  mayúscula del belio; el plural es decibelios.

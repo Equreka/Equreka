@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Potencia de una lente'
+terms:
+  f:
+    label: 'Distancia focal'
+description: >-
+  La potencia de una lente es el inverso de su distancia focal. Esta potencia óptica, o potencia
+  dióptrica, mide con qué fuerza la lente hace converger o diverger la luz y, con la distancia focal
+  en metros, resulta en dioptrías, la unidad de las graduaciones de gafas, lentes de contacto y
+  lupas.
+
+  Aquí $\mag{P}$ es la potencia óptica, en dioptrías, no una potencia en vatios; donde una dioptría
+  es un metro recíproco, y $\var{f}$ es la distancia focal, en metros. Las dos llevan el signo del
+  convenio de real positivo que se usa en la ecuación de las lentes delgadas: una lente convergente
+  tiene distancia focal y potencia positivas, y una divergente, negativas.
+
+  Una distancia focal corta significa que los rayos se desvían mucho y se enfocan cerca de la lente,
+  así que la potencia es grande; una lente débil tiene una distancia focal larga y una potencia
+  cercana a cero. Escribir la ecuación de las lentes delgadas en términos de potencia convierte el
+  inverso de la distancia focal en un solo número que los especialistas de la vista pueden sumar y
+  restar: dos lentes delgadas en contacto tienen muy aproximadamente la suma de sus potencias.
+
+  La fórmula vale para una lente delgada, con la distancia focal medida desde su centro; para una
+  lente gruesa o un sistema de lentes separadas, la potencia es el inverso de una distancia focal
+  equivalente. La misma definición se aplica a los espejos curvos, en los que un espejo cóncavo
+  tiene potencia positiva.
+
+  El oftalmólogo francés Ferdinand Monoyer propuso la dioptría como unidad de potencia de las lentes
+  en 1872. OpenStax da para el ojo humano una potencia de 50.0 a 54.0 dioptrías, y una lupa de 8.00
+  centímetros de distancia focal tiene una potencia de 12.5 dioptrías.

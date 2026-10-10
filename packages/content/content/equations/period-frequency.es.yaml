@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Relación entre periodo y frecuencia'
+description: >-
+  La relación entre periodo y frecuencia establece que el periodo de un proceso que se repite es el
+  inverso de su frecuencia: cuantos más ciclos caben en un segundo, menos dura cada uno. Se aplica
+  por igual a oscilaciones, rotaciones y ondas, y es el primer paso habitual en ondas y oscilaciones
+  para pasar de una frecuencia leída en un indicador a una duración medida con un reloj.
+
+  Aquí $\mag{T}$ es el periodo, la duración de un ciclo completo, en segundos, y $\mag{f}$ es la
+  frecuencia, el número de ciclos completados por unidad de tiempo, en hercios; un hercio es un
+  ciclo por segundo. Ambas magnitudes son no negativas, de modo que la relación no lleva convenio de
+  signos: el sentido en que algo se mueve, gira o se propaga no interviene.
+
+  Si un proceso se repite cierto número de veces cada segundo, ese segundo se reparte entre el mismo
+  número de ciclos idénticos, así que cada ciclo dura el inverso de ese número. El razonamiento
+  funciona igual a la inversa; por eso cualquiera de las dos magnitudes fija la otra y su producto
+  vale siempre exactamente uno.
+
+  La relación supone un proceso estrictamente periódico, cuyos ciclos duran todos lo mismo. Para un
+  movimiento cuyo ritmo cambia, como un columpio que pierde energía poco a poco por rozamiento, da
+  solo la media de los ciclos cronometrados. En una onda, ambas magnitudes describen la oscilación
+  observada en un punto fijo; la frecuencia la fija la fuente y no cambia cuando la onda pasa a otro
+  medio.
+
+  Cronometrar muchos ciclos y dividir entre su número da un periodo preciso, y su inverso da después
+  la frecuencia. La misma relación traduce la especificación de un oscilador: un transductor médico
+  de ultrasonidos cuyo periodo de oscilación es de 0.400 microsegundos trabaja a una frecuencia de
+  2.50 megahercios.

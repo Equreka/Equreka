@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Armónicos de una cuerda fija por los dos extremos'
+terms:
+  n:
+    label: 'Número de armónico'
+  L:
+    label: 'Longitud de la cuerda'
+description: >-
+  Los armónicos de una cuerda fija por los dos extremos son las frecuencias a las que la cuerda
+  puede vibrar formando una onda estacionaria: cada uno es un múltiplo entero del más bajo, la
+  frecuencia fundamental, que es igual a la rapidez de las ondas en la cuerda dividida entre el
+  doble de su longitud. En ondas y oscilaciones esta regla explica el tono de guitarras, violines y
+  pianos y la serie de sobretonos que da color a su sonido.
+
+  Aquí $\mag{f_{n}}$ es la frecuencia del armónico n-ésimo en hercios; $\var{n}$ es el número de
+  armónico, un número entero positivo, uno para la fundamental, dos para el segundo armónico o
+  primer sobretono, y así sucesivamente; $\mag{v}$ es la rapidez de las ondas transversales a lo
+  largo de la cuerda en metros por segundo, y $\var{L}$ es la longitud de la cuerda entre sus
+  extremos fijos en metros. Todas las magnitudes son positivas.
+
+  Los dos extremos están inmóviles, así que cada uno debe ser un nodo de la onda estacionaria, y
+  entre ellos tiene que caber un número entero de medias longitudes de onda. Las longitudes de onda
+  permitidas son por tanto el doble de la longitud dividido entre n, y la relación de la rapidez de
+  propagación convierte cada una en una frecuencia. La propia rapidez es una propiedad de la cuerda:
+  la raíz cuadrada de su tensión dividida entre su masa por unidad de longitud.
+
+  La regla supone una cuerda ideal, perfectamente flexible, con extremos fijos rígidos y una masa
+  por unidad de longitud uniforme. Las cuerdas reales tienen cierta rigidez, y sus modos superiores
+  se apartan progresivamente hacia arriba de los múltiplos enteros exactos. La tensión y la longitud
+  deben mantenerse constantes mientras la cuerda suena.
+
+  Marin Mersenne fue el primero en publicar las leyes de la cuerda vibrante, que relacionan su
+  frecuencia con su longitud, su tensión y su grosor. Una cuerda de 2.00 metros por la que las ondas
+  viajan a 57.15 metros por segundo tiene una fundamental de 14.29 hercios y armónicos siguientes de
+  28.58 y 42.86 hercios.

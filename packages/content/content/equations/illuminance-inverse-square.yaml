@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Inverse-square law for illuminance'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{E_\mathrm{v}}=\frac{\mag{I_\mathrm{v}}}{\var{r}^{2}}'
+terms:
+  E_\mathrm{v}:
+    kind: 'magnitude'
+    ref: 'illuminance'
+  I_\mathrm{v}:
+    kind: 'magnitude'
+    ref: 'luminous-intensity'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Distance from the source'
+    unit: 'metre'
+solutions:
+  E_\mathrm{v}: 'I_v / r^2'
+  I_\mathrm{v}: 'E_v * r^2'
+  r: 'sqrt(I_v / E_v)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'inverse square law of light'
+  - 'photometric inverse-square law'
+  - 'illuminance from a point source'
+  - 'lux candela distance'
+  - 'ley de la inversa del cuadrado de la luz'
+  - 'ley inversa del cuadrado de la distancia'
+references:
+  - title: 'Cornell University, DEA 3500, Lighting lecture 1 notes (inverse square law and cosine law)'
+    url: 'https://ergo.human.cornell.edu/studentdownloads/DEA3500notes/Lighting/lightingnotes1.html'
+  - title: 'CCS Inc., Theory of light and color, 8. Illuminance properties: distance dependence and incident angle dependence'
+    url: 'https://www.ccs-grp.com/guide/theory-light-color/08_illuminance-properties.html'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Inverse square law for light'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/vision/isql.html'
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017), 17-21-060 illuminance'
+    url: 'https://cie.co.at/eilvterm/17-21-060'
+description:
+  en: >-
+    The inverse-square law for illuminance states that a small light source lights a surface facing
+    it with an illuminance equal to the luminous intensity of the source towards the surface divided
+    by the square of the distance between them. Doubling the distance spreads the same light over
+    four times the area and cuts the illuminance to a quarter.
+
+    The illuminance $\mag{E_\mathrm{v}}$ is the luminous flux arriving per unit area, in lux; the
+    luminous intensity $\mag{I_\mathrm{v}}$ is the luminous flux the source sends per unit solid
+    angle in the direction of the surface, in candelas; and $\var{r}$ is the distance from the
+    source to the lit point, in metres. All three are positive.
+
+    One candela is one lumen per steradian. A small patch of area facing the source at a distance
+    subtends a solid angle equal to its area divided by the distance squared, so it receives the
+    intensity times that solid angle as luminous flux. Dividing by the area of the patch leaves the
+    intensity over the distance squared, which is why one candela at one metre gives one lux.
+
+    The law treats the source as a point. In practice it is a close estimate once the distance is
+    about ten times the size of the source or more; nearer, an extended source such as a long
+    fluorescent tube does not follow it. The surface must face the source: when the light arrives at
+    an angle to the normal of the surface, the illuminance is reduced by the cosine of that angle,
+    the cosine law. Absorption and scattering in the air are neglected. Sound spreading from a small
+    source obeys the same geometry, in the inverse-square law for sound intensity.
+
+    Light meters and lighting design rely on the law to predict the light on a desk or a work
+    surface below a lamp. A lamp of 100 candelas gives 25 lux on a surface 2 metres away.

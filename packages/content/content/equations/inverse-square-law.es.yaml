@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de la inversa del cuadrado para la intensidad del sonido'
+terms:
+  I_{1}:
+    label: 'Intensidad a la primera distancia'
+  I_{2}:
+    label: 'Intensidad a la segunda distancia'
+  r_{1}:
+    label: 'Primera distancia a la fuente'
+  r_{2}:
+    label: 'Segunda distancia a la fuente'
+description: >-
+  La ley de la inversa del cuadrado, aplicada al sonido, establece que la intensidad del sonido de
+  una fuente pequeña que emite por igual en todas las direcciones disminuye con el cuadrado de la
+  distancia a ella. En acústica compara las intensidades a dos distancias: la intensidad a la
+  segunda es igual a la intensidad a la primera por el cuadrado del cociente entre la primera
+  distancia y la segunda.
+
+  Aquí $\var{I_{1}}$ e $\var{I_{2}}$ son las intensidades del sonido en los dos lugares, en vatios
+  por metro cuadrado, y $\var{r_{1}}$ y $\var{r_{2}}$ son las distancias de esos lugares a la
+  fuente, en metros. Las cuatro son positivas; cualquiera de los dos lugares puede ser el más
+  cercano.
+
+  La potencia sonora que sale de la fuente se reparte sobre esferas centradas en ella. El área de
+  una esfera crece con el cuadrado de su radio, así que la misma potencia se reparte sobre un área
+  cuatro veces mayor al doble de distancia, y allí la intensidad es la cuarta parte. En la escala de
+  decibelios, cada vez que se duplica la distancia el nivel de intensidad del sonido baja unos 6
+  decibelios, y cada vez que la distancia se multiplica por diez baja 20.
+
+  La ley supone una fuente pequeña comparada con las distancias en juego, que emite la misma
+  potencia por igual en todas las direcciones, al aire libre, sin paredes ni suelo que reflejen el
+  sonido y sin absorción por el camino. Cerca de una fuente grande, dentro de una sala o a grandes
+  distancias, donde el aire absorbe parte de la energía, las intensidades medidas se apartan de
+  ella. La luz de una lámpara pequeña sigue la misma geometría: la iluminancia también decrece con
+  el cuadrado de la distancia.
+
+  Un sonido de $1.0\times10^{-4}$ vatios por metro cuadrado a 2.0 metros de un altavoz pequeño baja
+  a $2.5\times10^{-5}$ a 4.0 metros, de 80 a unos 74 decibelios.

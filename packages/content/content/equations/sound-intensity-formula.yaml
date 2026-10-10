@@ -1,0 +1,65 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Sound intensity as power per area'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{I}=\frac{\mag{P}}{\mag{A}}'
+terms:
+  I:
+    kind: 'magnitude'
+    ref: 'sound-intensity'
+  P:
+    kind: 'magnitude'
+    ref: 'power'
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+solutions:
+  I: 'P / A'
+  P: 'I * A'
+  A: 'P / I'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'intensity of a sound wave'
+  - 'sound intensity formula'
+  - 'acoustic intensity formula'
+  - 'I = P/A'
+  - 'fórmula de la intensidad del sonido'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 17.3 Sound Intensity'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/17-3-sound-intensity'
+  - title: 'OpenStax, College Physics 2e, 17.3 Sound Intensity and Sound Level'
+    url: 'https://openstax.org/books/college-physics-2e/pages/17-3-sound-intensity-and-sound-level'
+  - title: 'QUDT, quantity kind SoundIntensity'
+    url: 'https://qudt.org/vocab/quantitykind/SoundIntensity'
+description:
+  en: >-
+    Sound intensity as power per area states that the intensity of a sound wave equals the
+    acoustic power passing through a surface divided by the area of that surface. In acoustics it
+    is the working definition of sound intensity, the quantity that sound intensity levels in
+    decibels are built from, and the first step towards the inverse-square law for sound.
+
+    Here $\mag{I}$ is the sound intensity, in watts per square metre; $\mag{P}$ is the power the
+    wave carries through the surface, in watts; and $\mag{A}$ is the area of the surface, in square
+    metres, taken at right angles to the direction in which the sound travels. All three are
+    non-negative, and the area is never zero.
+
+    The formula spreads the power evenly over the area it crosses, so the same power through half
+    the area gives twice the intensity. For a small source sending sound equally in all directions, the
+    surface is a sphere centred on the source, whose area grows with the square of the radius, and
+    the intensity then falls with the square of the distance.
+
+    The relation gives an average: it treats the power as spread uniformly over the surface and
+    averaged over many cycles of the wave. Where the sound is stronger in some directions than in
+    others, or where reflections and absorption change it from point to point, it yields the mean
+    intensity over the area rather than the value at each point. For a sound wave of one frequency
+    the intensity also follows from the pressure amplitude, the density of the medium and the
+    speed of sound.
+
+    A loudspeaker sending 0.0010 watts of sound through an opening of 0.50 square metres produces
+    an intensity of 0.0020 watts per square metre there, a level of about 93 decibels.

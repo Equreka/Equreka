@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Critical angle for total internal reflection'
+kind: 'equation'
+level: 'intro'
+expression: '\sin\mag{\theta_\mathrm{c}}=\frac{\var{n_{2}}}{\var{n_{1}}}'
+terms:
+  \theta_\mathrm{c}:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  n_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Refractive index of the second medium'
+  n_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Refractive index of the first medium'
+solutions:
+  \theta_\mathrm{c}: 'asin(n_2 / n_1)'
+  n_{2}: 'n_1 * sin(theta_c)'
+  n_{1}: 'n_2 / sin(theta_c)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q1973955'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'critical angle'
+  - 'total internal reflection'
+  - 'limiting angle'
+  - 'ángulo crítico'
+  - 'reflexión interna total'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 1.4 Total Internal Reflection (critical angle and applications)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/1-4-total-internal-reflection'
+  - title: 'OpenStax, University Physics Volume 3, 1.3 Refraction'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/1-3-refraction'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Refraction of light and Snell''s law'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/geoopt/refr.html'
+description:
+  en: >-
+    When light inside a medium meets a boundary with a medium of lower refractive index, the
+    critical angle is the incidence angle that sends the refracted ray exactly along the boundary. Its
+    sine equals the ratio of the two indices. At any larger angle no light passes through: all of it
+    is reflected back, the effect called total internal reflection.
+
+    The light travels in the first medium, of refractive index $\var{n_{1}}$, towards the second
+    medium, of index $\var{n_{2}}$, which must be smaller. Both indices are pure numbers. The
+    critical angle $\mag{\theta_\mathrm{c}}$ is measured from the normal to the boundary and lies
+    between zero and a right angle; it is computed in radians and readily shown in degrees.
+
+    The relation is Snell's law with the angle of refraction set to a right angle, whose sine is
+    one. Below the critical angle part of the light is refracted out and part reflected; at the
+    critical angle the refracted ray grazes the surface; beyond it the second medium receives no
+    refracted ray. The larger the ratio between the indices, the smaller the critical angle.
+
+    A critical angle exists only when the light goes from a higher to a lower index. When the
+    second medium has the higher index the ratio exceeds one, the sine cannot reach it, and the
+    equation has no real angle: total internal reflection cannot occur. Since the indices depend on
+    wavelength, so does the critical angle, slightly.
+
+    Total internal reflection guides light along optical fibres for telecommunications and medical
+    endoscopes, turns light in the prisms of binoculars and periscopes, and makes cut diamonds
+    sparkle. OpenStax gives 48.6 degrees from water into air and only 24.4 degrees from diamond
+    into air.

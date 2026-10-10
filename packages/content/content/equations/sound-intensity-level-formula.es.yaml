@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Nivel de intensidad del sonido en decibelios'
+description: >-
+  El nivel de intensidad del sonido en decibelios es diez veces el logaritmo decimal de una
+  intensidad del sonido dividida entre la intensidad de referencia de un picovatio por metro
+  cuadrado. En acústica esta fórmula del decibelio convierte una intensidad en vatios por metro
+  cuadrado en el nivel que citan las tablas de sonidos cotidianos, y es también la regla para
+  convertir un nivel de nuevo en intensidad.
+
+  Aquí $\mag{L_{I}}$ es el nivel de intensidad del sonido, un número de decibelios; puede ser
+  negativo y, como el decibelio no es una unidad lineal, se introduce y se devuelve como un número
+  sin unidad. $\mag{I}$ es la intensidad del sonido, en vatios por metro cuadrado, que debe ser
+  mayor que cero. $\const{I_{0}}$ es la intensidad de referencia del sonido, exactamente
+  $10^{-12}\,\mathrm{W/m^{2}}$, fijada en ese valor por la norma ISO 1683; queda cerca del sonido
+  más débil que percibe una audición normal a 1000 hercios.
+
+  El logaritmo convierte cocientes de intensidad en diferencias de nivel. Multiplicar la intensidad
+  por diez suma 10 decibelios, por cien suma 20, y duplicarla suma unos 3. Una intensidad igual a la
+  de referencia da 0 decibelios, y una un billón de veces mayor, un vatio por metro cuadrado, da
+  120. Leída al revés, la intensidad es la de referencia por diez elevado a la décima parte del
+  nivel.
+
+  El valor solo tiene sentido con su referencia, que el folleto del SI exige indicar con cada nivel;
+  el nivel de presión sonora, construido a partir de la presión sonora con una referencia de 20
+  micropascales, es otra magnitud. La fórmula es una definición y vale para cualquier intensidad
+  positiva; una intensidad nula no tiene nivel.
+
+  El belio, del que el decibelio es la décima parte, debe su nombre a Alexander Graham Bell. Un
+  sonido de $5.04\times10^{-4}$ vatios por metro cuadrado tiene un nivel de unos 87 decibelios.

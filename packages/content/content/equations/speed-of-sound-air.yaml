@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Speed of sound in an ideal gas'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{v}=\sqrt{\frac{\var{\gamma}\const{R}\mag{T}}{\mag{M}}}'
+terms:
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  \gamma:
+    kind: 'symbol'
+    label:
+      en: 'Adiabatic index'
+  R:
+    kind: 'constant'
+    ref: 'molar-gas-constant'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+  M:
+    kind: 'magnitude'
+    ref: 'molar-mass'
+solutions:
+  v: 'sqrt(gamma * R * T / M)'
+  \gamma: 'v^2 * M / (R * T)'
+  T: 'v^2 * M / (gamma * R)'
+  M: 'gamma * R * T / v^2'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'speed of sound in air'
+  - 'speed of sound in a gas'
+  - 'velocity of sound'
+  - 'sound speed'
+  - 'velocidad del sonido en el aire'
+  - 'velocidad del sonido en un gas ideal'
+  - 'rapidez del sonido'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 17.2 Speed of Sound'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/17-2-speed-of-sound'
+  - title: 'HyperPhysics (Georgia State University), Speed of Sound in Ideal Gas'
+    url: 'https://hyperphysics.gsu.edu/hbase/Sound/souspe3.html'
+  - title: 'NIST, CODATA 2022 value: molar gas constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?r'
+description:
+  en: >-
+    In an ideal gas, sound travels at the square root of the adiabatic index times the molar gas
+    constant times the absolute temperature, divided by the molar mass of the gas. In acoustics
+    and thermodynamics it predicts how fast sound travels through air and other gases from their
+    temperature and composition, giving about 331 metres per second in dry air at 0 degrees
+    Celsius.
+
+    Here $\mag{v}$ is the speed of sound, in metres per second, never negative. $\var{\gamma}$ is
+    the adiabatic index of the gas, a pure number equal to 1.40 for air. $\const{R}$ is the molar
+    gas constant, about 8.314 joules per mole kelvin. $\mag{T}$ is the thermodynamic temperature in
+    kelvin; a Celsius reading must be converted first, by adding 273.15. $\mag{M}$ is the molar
+    mass of the gas, in kilograms per mole, about 0.02897 for dry air.
+
+    A sound wave is a travelling pattern of compressions and rarefactions, and its speed balances
+    how strongly the gas resists being squeezed against how much mass must be set moving. For an
+    ideal gas that balance depends only on the temperature and the molar mass, so the pressure does
+    not appear: at a fixed temperature, sound in air is as fast on a mountain as at sea level. The
+    speed grows as the square root of the absolute temperature, rising from 331 metres per second at
+    0 degrees Celsius to 343 at 20 degrees, and a light gas carries sound faster than a heavy one.
+
+    The relation treats the gas as ideal and the compressions as adiabatic: they come and go so
+    quickly that no heat flows into or out of each small volume of gas. The relation does not apply
+    to liquids or solids, where sound is much faster, about 1480 metres per second in fresh water
+    and 5960 in steel.
+
+    In air at 30 degrees Celsius the relation gives about 349 metres per second, so a 20-hertz tone
+    has a wavelength of roughly 17 metres.

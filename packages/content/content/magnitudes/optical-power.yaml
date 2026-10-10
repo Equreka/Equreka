@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Optical power'
+symbol:
+  tex: 'P'
+baseUnit: 'dioptre'
+dimension:
+  L: -1
+externalIds:
+  wikidata: 'Q559265'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'dioptric power'
+  - 'refractive power'
+  - 'focusing power'
+  - 'lens power'
+  - 'potencia de refracción'
+  - 'poder refractivo'
+references:
+  - title: 'OpenStax, College Physics 2e, 25.6 Image Formation by Lenses (power of a lens, Example 25.5)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/25-6-image-formation-by-lenses'
+  - title: 'OpenStax, College Physics 2e, 26.1 Physics of the Eye'
+    url: 'https://openstax.org/books/college-physics-2e/pages/26-1-physics-of-the-eye'
+  - title: 'Council Directive 80/181/EEC on units of measurement, consolidated text of 13 June 2020, Annex, Chapter I, 4 (dioptre)'
+    url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/HTML/?uri=CELEX:01980L0181-20200613'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 5 (wavenumber, m-1)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, unit DIOPTER (quantity kind Curvature)'
+    url: 'https://qudt.org/vocab/unit/DIOPTER'
+  - title: 'Wikidata, dioptric power (Q559265)'
+    url: 'https://www.wikidata.org/wiki/Q559265'
+description:
+  en: >-
+    Optical power, also called dioptric power or refractive power, symbol $P$, is one over the focal
+    length of a lens, a curved mirror or a complete optical system. It measures how strongly the
+    element bends a beam of parallel rays towards a focus or away from one: the shorter the focal
+    length, the greater the power.
+
+    Its coherent SI unit is the reciprocal metre, and its dimension is inverse length. Optics and
+    eye care express it in dioptres, a name that European Union law permits for the vergence of
+    optical systems with one dioptre equal to one reciprocal metre. A lens with a focal length of
+    half a metre therefore has a power of two dioptres.
+
+    Optical power is a signed scalar. Under the real-is-positive sign convention used in school
+    optics, a converging lens or a concave mirror has a positive power and a diverging lens or a
+    convex mirror a negative one; a flat window or a plane mirror has zero power.
+
+    The power of a lens is found by measuring its focal length, for instance by focusing a distant
+    object onto a screen, and taking the reciprocal in metres. OpenStax gives 1.0 to 3.5 dioptres
+    for common reading glasses, 12.5 dioptres for a magnifier with an 8.00 cm focal length, and
+    between 50.0 and 54.0 dioptres for the whole human eye, of which the cornea supplies about two
+    thirds.
+
+    Optical power is not power in the sense of energy per unit time, measured in watts, although
+    laser and fibre work often uses the same words for the radiant power of a beam. It also differs
+    from wavenumber, which shares the dimension and the reciprocal metre but counts the wavelengths
+    of a wave per unit length. QUDT files the dioptre under curvature rather than under a separate
+    quantity kind.
