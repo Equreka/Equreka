@@ -1,11 +1,23 @@
 # yaml-language-server: $schema=../../dist/schemas/units.schema.json
 name:
   en: 'Siemens'
+namePlural:
+  en: 'siemens'
 symbol:
   tex: 'S'
 unitOf:
   - 'electrical-conductance'
 system: 'si-derived'
+prefixes:
+  - 'femto'
+  - 'pico'
+  - 'nano'
+  - 'micro'
+  - 'milli'
+  - 'kilo'
+  - 'mega'
+  - 'giga'
+  - 'tera'
 compose:
   of:
     - unit: 'ohm'
