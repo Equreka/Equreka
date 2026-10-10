@@ -51,8 +51,8 @@ description:
 
     Luminous flux is radiant power weighted by the sensitivity of the human eye, so the illuminance
     describes how brightly a surface is lit for human vision. The CIE defines illuminance at a
-    point as the density of incident luminous flux with respect to area, the limit of this quotient
-    for a very small patch around the point.
+    point as the incident luminous flux per unit area, taken as the limit of that quotient over a
+    vanishingly small patch around the point.
 
     The formula gives a true point value only for even lighting. Under a single lamp the light is
     usually stronger below it than at the edges of a room, and the quotient is then an average.
