@@ -1,0 +1,90 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Energy levels of a particle in a box'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{E_{n}}=\frac{\var{n}^{2}\const{h}^{2}}{8\mag{m}\var{L}^{2}}'
+terms:
+  E_{n}:
+    kind: 'symbol'
+    label:
+      en: 'Energy of level n'
+    unit: 'joule'
+  n:
+    kind: 'symbol'
+    label:
+      en: 'Quantum number'
+    integer: true
+  h:
+    kind: 'constant'
+    ref: 'planck-constant'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  L:
+    kind: 'symbol'
+    label:
+      en: 'Width of the box'
+    unit: 'metre'
+solutions:
+  E_{n}: 'n^2 * h^2 / (8 * m * L^2)'
+  n: '2 * L * sqrt(2 * m * E_n) / h'
+  m: 'n^2 * h^2 / (8 * E_n * L^2)'
+  L: 'n * h / (2 * sqrt(2 * m * E_n))'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q909221'
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+aliases:
+  - 'particle in a box'
+  - 'infinite square well'
+  - 'infinite potential well'
+  - 'quantum particle in a box'
+  - 'E_n = n^2 h^2 / (8 m L^2)'
+  - 'partícula en una caja'
+  - 'pozo de potencial infinito'
+  - 'pozo cuadrado infinito'
+  - 'pozo potencial infinito'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 7.4 The Quantum Particle in a Box (Equations 7.31, 7.34, 7.41, Example 7.8)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/7-4-the-quantum-particle-in-a-box'
+  - title: 'LibreTexts, Physical Chemistry (McQuarrie and Simon), 3.5 The Energy of a Particle in a Box is Quantized (Equation 3.5.11)'
+    url: 'https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Map:_Physical_Chemistry_(McQuarrie_and_Simon)/03._The_Schrodinger_Equation_and_a_Particle_In_a_Box/3.5:_The_Energy_of_a_Particle_in_a_Box_is_Quantized'
+  - title: 'HyperPhysics (Georgia State University), Particle in a box'
+    url: 'https://hyperphysics.gsu.edu/hbase/quantum/pbox.html'
+  - title: 'NIST, CODATA 2022 value: Planck constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?h'
+  - title: 'NIST, CODATA 2022 value: proton mass'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mp'
+description:
+  en: >-
+    The energy levels of a particle in a box are the allowed energies of a quantum particle trapped
+    in a one-dimensional infinite square well: the square of a whole number times the square of the
+    Planck constant, divided by eight times the mass of the particle times the square of the width
+    of the box. The model of quantum mechanics shows how confinement alone quantizes energy.
+
+    Here $\var{E_{n}}$ is the energy of level $\var{n}$, in joules, though atomic and nuclear
+    examples usually state it in electronvolts, which are also accepted. $\var{n}$ is the quantum
+    number, a whole number from one upwards; the calculator accepts only whole numbers for it, and
+    the level it solves from an energy is whole only for an allowed energy. $\mag{m}$ is the mass of
+    the particle, in kilograms, $\var{L}$ the width of the box, in metres, and $\const{h}$ the
+    Planck constant. The energy counts from the flat floor of the well, so every level is positive.
+
+    Inside the box the potential energy is zero and the walls are infinitely high, so the wave
+    function must vanish at both walls. Only standing waves that fit a whole number of half
+    wavelengths between the walls survive, and each such wavelength fixes a momentum and hence a
+    kinetic energy. A zero quantum number would give a wave function that is zero everywhere, so the
+    lowest energy, the zero-point energy, is above zero; the levels spread apart as the square of
+    the quantum number.
+
+    The formula holds for one non-relativistic particle in one dimension between perfectly rigid
+    walls. A well of finite depth lets the wave function leak into the walls and lowers every level,
+    and at large quantum numbers the spacing becomes small compared with the energy, as the
+    correspondence principle requires.
+
+    A proton confined to a box 10 femtometres wide, about the size of a nucleus, has a ground-state
+    energy near 2.05 MeV and a first excited level near 8.19 MeV.

@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Reactance'
+symbol:
+  tex: 'X'
+baseUnit: 'ohm'
+dimension:
+  L: 2
+  M: 1
+  T: -3
+  I: -2
+externalIds:
+  wikidata: 'Q193972'
+  qudt: 'http://qudt.org/vocab/quantitykind/Reactance'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'electrical reactance'
+  - 'electric reactance'
+  - 'reactancia eléctrica'
+references:
+  - title: 'QUDT, quantity kind Reactance (X = Im Z)'
+    url: 'https://qudt.org/vocab/quantitykind/Reactance'
+  - title: 'J. B. Tatum, Electricity and Magnetism, LibreTexts, 13.6 Admittance'
+    url: 'https://phys.libretexts.org/Bookshelves/Electricity_and_Magnetism/Electricity_and_Magnetism_(Tatum)/13:_Alternating_Current/13.06:_Admittance'
+  - title: 'OpenStax, University Physics Volume 2, 15.3 RLC Series Circuits with AC'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/15-3-rlc-series-circuits-with-ac'
+  - title: 'OpenStax, College Physics 2e, 23.11 Reactance, Inductive and Capacitive (Examples 23.10 and 23.11)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/23-11-reactance-inductive-and-capacitive'
+  - title: 'OpenStax, University Physics Volume 2, 15.5 Resonance in an AC Circuit'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/15-5-resonance-in-an-ac-circuit'
+description:
+  en: >-
+    Reactance is the imaginary part of the complex impedance of a circuit element or network
+    carrying a sinusoidal current, the real part being the resistance. It expresses the opposition
+    to an alternating current that arises from inductance and capacitance, which store energy in a
+    magnetic or an electric field and hand it back during each cycle, instead of converting
+    electric energy into heat.
+
+    The coherent SI unit is the ohm, as for resistance and impedance, so the dimension is length
+    squared times mass divided by time cubed and by electric current squared. The usual symbol is
+    $X$, with subscripts L and C for the inductive and the capacitive contribution.
+
+    Reactance is a signed scalar. Writing the impedance as the resistance plus the imaginary unit
+    times the reactance, an ideal inductor has a positive reactance, the angular frequency times its
+    inductance, and an ideal capacitor a negative one, minus the reciprocal of the angular frequency
+    times its capacitance. A network with positive reactance is called inductive, and one with
+    negative reactance capacitive. Many introductory texts quote both contributions as positive
+    sizes and subtract the capacitive one instead, as the two reactance formulas do; the signed
+    value enters the impedance. In either form the value changes with the frequency of the current.
+
+    It is obtained from the ratio of the voltage amplitude to the current amplitude across a purely
+    reactive element, or by splitting a measured impedance into its real and imaginary parts.
+    Values span many orders of magnitude: a coil of 3.00 mH offers about 1.13 ohms at 60 Hz and
+    188 ohms at 10 kHz, while a capacitor of 5.00 microfarads offers about 531 ohms at 60 Hz and
+    3.18 ohms at 10 kHz.
+
+    Reactance is easily confused with resistance and with impedance. Resistance converts electric
+    energy into heat, while an ideal reactance takes in energy and returns it. Impedance combines
+    the two: in a series circuit its modulus is the square root of the resistance squared plus the
+    net reactance squared, and at resonance the inductive and capacitive parts cancel, leaving the
+    resistance alone.

@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Energía cinética relativista'
+description: >-
+  La energía cinética relativista es la energía de movimiento de un cuerpo en la relatividad
+  especial: su energía en reposo, la masa por el cuadrado de la velocidad de la luz, multiplicada
+  por el factor de Lorentz menos uno. Es la energía total menos la energía en reposo, y sustituye a
+  la mitad newtoniana de la masa por la rapidez al cuadrado cuando la rapidez es una fracción
+  apreciable de la velocidad de la luz.
+
+  Aquí $\mag{E_\mathrm{k}}$ es la energía cinética, en julios, aunque la física de partículas y la
+  nuclear suelen darla en megaelectronvoltios, que también se admiten. $\mag{m}$ es la masa del
+  cuerpo, en kilogramos, siempre su masa en reposo, y $\mag{v}$ es su rapidez respecto del
+  observador, en metros por segundo, que debe quedar por debajo de la velocidad de la luz en el
+  vacío, $\const{c}$. Las tres magnitudes son no negativas, y la energía cinética solo es nula para
+  un cuerpo en reposo.
+
+  La fórmula sale del teorema de trabajo-energía aplicado con la cantidad de movimiento
+  relativista: el trabajo necesario para llevar un cuerpo desde el reposo hasta una rapidez dada es
+  igual al aumento de su energía total. A rapideces muy inferiores a la de la luz el factor de
+  Lorentz supera a uno en cerca de la mitad del cuadrado del cociente de rapideces, y la fórmula se
+  reduce a la expresión newtoniana. La calculadora evalúa una forma algebraicamente igual que evita
+  restar dos números casi iguales, de modo que las rapideces bajas también dan resultados exactos.
+
+  La fórmula vale para un cuerpo con masa en un sistema inercial y crece sin límite al acercarse la
+  rapidez a la de la luz, así que haría falta un trabajo infinito para alcanzarla. Se escribe con
+  la rapidez y no con el factor de Lorentz, lo que mantiene coherentes los datos.
+
+  Albert Einstein dedujo esta expresión para la energía cinética de un electrón en su artículo de
+  1905 sobre la electrodinámica de los cuerpos en movimiento. Un electrón a 0.990 veces la
+  velocidad de la luz lleva unos 3.11 MeV, unas doce veces los 0.250 MeV de la fórmula newtoniana.

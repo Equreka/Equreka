@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Nuclear radius'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{R}=\var{r_{0}}\var{A}^{1/3}'
+terms:
+  R:
+    kind: 'symbol'
+    label:
+      en: 'Nuclear radius'
+    unit: 'metre'
+  r_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Radius parameter'
+    unit: 'metre'
+  A:
+    kind: 'symbol'
+    label:
+      en: 'Mass number'
+    integer: true
+solutions:
+  R: 'r_0 * cbrt(A)'
+  r_{0}: 'R / cbrt(A)'
+  A: '(R / r_0)^3'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q3535676'
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'radius of a nucleus'
+  - 'nuclear size'
+  - 'Fermi model of nuclear size'
+  - 'R = r0 A^(1/3)'
+  - 'radio del núcleo'
+  - 'tamaño nuclear'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 10.1 Properties of Nuclei (Equation 10.3, Example 10.1)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/10-1-properties-of-nuclei'
+  - title: 'HyperPhysics (Georgia State University), Some nuclear units; nuclear size and density'
+    url: 'https://hyperphysics.gsu.edu/hbase/Nuclear/nucuni.html'
+  - title: 'NIST, CODATA 2022 value: proton rms charge radius'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?rp'
+description:
+  en: >-
+    The nuclear radius formula estimates the radius of an atomic nucleus as a fixed length, the
+    radius parameter, times the cube root of the mass number. Known in nuclear physics as the Fermi
+    model of nuclear size, it summarizes scattering experiments showing that nuclei are roughly
+    spherical and all have about the same density.
+
+    Here $\var{R}$ is the nuclear radius and $\var{r_{0}}$ the radius parameter, both in metres,
+    though both are usually quoted in femtometres, which are also accepted and in nuclear work are
+    often called fermis. The parameter is about 1.2 femtometres, a value fitted to experiment rather
+    than a fundamental constant. $\var{A}$ is the mass number, the count of protons and neutrons, a
+    whole number from one upwards. The parameter is solved with a cube root, and a mass number
+    solved from a radius should come out close to a whole number.
+
+    If every nucleon takes up the same space, the volume of a nucleus grows in
+    proportion to the number of nucleons, and the radius of a sphere grows as the cube root of its
+    volume. The same assumption makes the mass per unit volume nearly the same for every nucleus,
+    about $2.3\times10^{17}\,\mathrm{kg/m^{3}}$, so a cubic metre of nuclear matter would weigh as
+    much as a block of water tens of kilometres on a side.
+
+    The formula is an approximation for roughly spherical nuclei and gives sizes only to the
+    precision of the radius parameter, about two significant figures. It is fitted to nuclei of a
+    few nucleons and more: for a single proton it returns 1.2 femtometres, against a measured proton
+    charge radius of about 0.84 femtometres. Every nucleus is tens of thousands of times smaller
+    than its atom.
+
+    An iron-56 nucleus has a radius of about 4.6 femtometres, while uranium-238, more than four
+    times heavier, has a radius of only about 7.4 femtometres.

@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Energy stored in an inductor'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{E}=\frac{1}{2}\mag{L}\mag{I}^{2}'
+terms:
+  E:
+    kind: 'magnitude'
+    ref: 'energy'
+  L:
+    kind: 'magnitude'
+    ref: 'inductance'
+  I:
+    kind: 'magnitude'
+    ref: 'electric-current'
+solutions:
+  E: 'L * I^2 / 2'
+  L: '2 * E / I^2'
+  I: 'sqrt(2 * E / L)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'inductor energy'
+  - 'magnetic energy of an inductor'
+  - 'energy stored in a coil'
+  - 'E = L I^2 / 2'
+  - 'U = 1/2 L I^2'
+  - 'energía almacenada en un inductor'
+  - 'energía de una bobina'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 14.3 Energy in a Magnetic Field'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/14-3-energy-in-a-magnetic-field'
+  - title: 'OpenStax, College Physics 2e, 23.9 Inductance (Example 23.8)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/23-9-inductance'
+description:
+  en: >-
+    The energy stored in an inductor is one half of its inductance times the square of the current
+    through it. A coil carrying a current holds this energy in its magnetic field and gives it back
+    when the current falls, so the relation is the magnetic counterpart of the energy stored in a
+    capacitor, one half of the capacitance times the square of the voltage.
+
+    $\mag{E}$ is the stored energy in joules, $\mag{L}$ the inductance in henries and $\mag{I}$ the
+    current in amperes, entered as a positive size. Because the current enters squared, the energy
+    is never negative and does not depend on the direction of the current, and solving for the
+    current gives a single non-negative root.
+
+    While the current grows, the inductor produces an electromotive force, or emf, equal to the
+    inductance times the rate of change of the current, opposing the growth. The source does work
+    against that emf at a rate equal to the emf times the current, and adding up this work as the
+    current climbs from zero to its final value gives one half of the inductance times the square of
+    the current. When the current later falls, the coil returns the same energy to the circuit.
+
+    The relation holds for any inductor with a fixed inductance, not only for solenoids. The energy
+    resides in the field itself: for a long solenoid, the magnetic energy density, the square of
+    the flux density divided by twice the vacuum permeability, multiplied by the volume inside the
+    coil gives the same total.
+
+    Opening a circuit that contains a large inductance can turn the stored energy into a spark
+    across the switch. A coil of 0.632 mH carrying 30.0 A stores about 0.284 J.

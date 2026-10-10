@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Defecto de masa'
+terms:
+  \Delta m:
+    label: 'Defecto de masa'
+  Z:
+    label: 'Número atómico'
+  A:
+    label: 'Número másico'
+  m_\mathrm{nuc}:
+    label: 'Masa del núcleo'
+description: >-
+  El defecto de masa de un núcleo es la cantidad en que su masa queda por debajo de la masa total de
+  sus nucleones por separado: el número de protones por la masa del protón, más el número de
+  neutrones por la masa del neutrón, menos la masa del núcleo. En física nuclear mide la firmeza con
+  que están unidos protones y neutrones.
+
+  Aquí $\var{\Delta m}$ es el defecto de masa y $\var{m_\mathrm{nuc}}$ la masa del núcleo, ambos en
+  kilogramos, o en daltons, adecuados para masas de escala atómica y que también se admiten.
+  $\var{Z}$ es el número atómico, el número de protones, y $\var{A}$ el número másico, el número de
+  nucleones, así que su diferencia es el número de neutrones. Ambos son enteros que se leen del
+  nucleido: son solo datos de entrada, porque un número atómico despejado de las masas dependería de
+  la diminuta diferencia entre las masas del protón y del neutrón, y la calculadora despeja el
+  defecto de masa o la masa nuclear, nunca ninguno de los dos números. Las constantes
+  $\const{m_\mathrm{p}}$ y $\const{m_\mathrm{n}}$ son las masas del protón y del neutrón. El defecto
+  es positivo en todo núcleo de más de un nucleón.
+
+  Al multiplicar el defecto de masa por el cuadrado de la velocidad de la luz se obtiene la energía
+  de enlace nuclear, la energía necesaria para separar el núcleo en nucleones libres. Un dalton de
+  defecto corresponde a unos 931.494 MeV de energía de enlace.
+
+  Las tablas de masas dan masas atómicas, que incluyen los electrones, así que una forma de trabajo
+  habitual usa la masa de un átomo de hidrógeno-1 en lugar de la masa del protón y la masa atómica
+  del nucleido en lugar de la masa nuclear; las masas de los electrones se cancelan. Mezclar una
+  masa atómica con la masa del protón deja un error de una masa de electrón por protón. Como el
+  defecto es una diferencia pequeña entre masas casi iguales, esas masas deben conocerse con muchas
+  cifras significativas.
+
+  Para el núcleo de helio-4, la partícula alfa, las masas de CODATA 2022 dan un defecto de masa de
+  unos 0.030 38 Da, o $5.044\times10^{-29}\,\mathrm{kg}$, que corresponde a una energía de enlace
+  cercana a 28.3 MeV.

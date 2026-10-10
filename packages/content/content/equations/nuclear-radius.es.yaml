@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Radio nuclear'
+terms:
+  R:
+    label: 'Radio nuclear'
+  r_{0}:
+    label: 'Parámetro de radio'
+  A:
+    label: 'Número másico'
+description: >-
+  La fórmula del radio nuclear estima el radio de un núcleo atómico como una longitud fija, el
+  parámetro de radio, por la raíz cúbica del número másico. Conocida en física nuclear como modelo
+  de Fermi del tamaño nuclear, resume experimentos de dispersión que muestran que los núcleos son
+  aproximadamente esféricos y tienen todos más o menos la misma densidad.
+
+  Aquí $\var{R}$ es el radio nuclear y $\var{r_{0}}$ el parámetro de radio, ambos en metros, aunque
+  los dos suelen darse en femtómetros, que también se admiten y que en física nuclear se llaman a
+  menudo fermis. El parámetro vale unos 1.2 femtómetros, un valor ajustado al experimento y no una
+  constante fundamental. $\var{A}$ es el número másico, el número de protones y neutrones, un
+  entero desde uno en adelante. El parámetro se despeja con una raíz cúbica, y un número másico
+  despejado de un radio debe salir cercano a un entero.
+
+  Si cada nucleón ocupa el mismo espacio, el volumen de un núcleo crece en
+  proporción al número de nucleones, y el radio de una esfera crece como la raíz cúbica de su
+  volumen. La misma hipótesis hace que la masa por unidad de volumen sea casi igual en todos los
+  núcleos, de unos $2.3\times10^{17}\,\mathrm{kg/m^{3}}$, de modo que un metro cúbico de materia
+  nuclear pesaría tanto como un bloque de agua de decenas de kilómetros de lado.
+
+  La fórmula es una aproximación para núcleos aproximadamente esféricos y da tamaños solo con la
+  precisión del parámetro de radio, unas dos cifras significativas. Está ajustada a núcleos de unos
+  pocos nucleones o más: para un solo protón da 1.2 femtómetros, frente a un radio de carga del
+  protón medido de unos 0.84 femtómetros. Todo núcleo es decenas de miles de veces más pequeño que
+  su átomo.
+
+  Un núcleo de hierro-56 tiene un radio de unos 4.6 femtómetros, mientras que el uranio-238, más de
+  cuatro veces más pesado, tiene un radio de solo unos 7.4 femtómetros.

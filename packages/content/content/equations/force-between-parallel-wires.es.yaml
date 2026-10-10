@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Fuerza entre dos hilos paralelos'
+terms:
+  I_{1}:
+    label: 'Corriente en el primer hilo'
+  I_{2}:
+    label: 'Corriente en el segundo hilo'
+  l:
+    label: 'Longitud de hilo considerada'
+  r:
+    label: 'Distancia entre los hilos'
+description: >-
+  La fuerza entre dos hilos paralelos es la fuerza magnética que cada uno de dos conductores
+  largos, rectos y paralelos, recorridos por corrientes estacionarias, ejerce sobre un tramo del
+  otro. Su módulo crece en proporción al producto de las dos corrientes y a la longitud
+  considerada, y disminuye en proporción inversa a la distancia entre los hilos. Las corrientes en
+  el mismo sentido se atraen, y las de sentidos opuestos se repelen.
+
+  $\mag{F}$ es el módulo de la fuerza en newtons sobre una longitud $\var{l}$ de cualquiera de los
+  hilos, en metros. $\var{I_{1}}$ e $\var{I_{2}}$ son las corrientes en amperios, introducidas como
+  valores positivos, y $\var{r}$ es la distancia entre los ejes de los hilos en metros.
+  $\const{\mu_{0}}$ es la permeabilidad magnética del vacío, de unos
+  $1.257\times10^{-6}\,\mathrm{N/A^{2}}$. Para hilos mucho más largos que su separación, el
+  resultado suele darse por unidad de longitud, como $F/l$.
+
+  Cada corriente crea a su alrededor un campo magnético circular cuyo módulo en el otro hilo es la
+  permeabilidad por esa corriente entre dos pi por la distancia. El segundo hilo lleva su propia
+  corriente perpendicular a ese campo, así que sufre una fuerza igual a su corriente por la
+  longitud por el campo, dirigida hacia el primer hilo o en sentido contrario. Por la tercera ley
+  de Newton, el primer hilo recibe una fuerza igual y opuesta.
+
+  La relación supone hilos rectos, delgados e infinitamente largos y corrientes estacionarias, así
+  que en conductores reales se cumple en un tramo alejado de sus extremos. Da solo el módulo; que
+  los hilos se atraigan o se repelan depende del sentido relativo de las dos corrientes.
+
+  El CIPM propuso en 1946, y la 9.ª CGPM ratificó en 1948, una definición del amperio como la
+  corriente que, en dos hilos así separados un metro en el vacío, produce una fuerza de
+  $2\times10^{-7}$ newtons por metro de longitud; la 26.ª CGPM la sustituyó en 2018. Dos hilos a
+  5.0 cm, cada uno con 5.0 mA, se atraen o se repelen con $1.0\times10^{-10}\,\mathrm{N}$ por
+  metro.

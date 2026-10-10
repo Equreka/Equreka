@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Binding energy per nucleon'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{\mathrm{BEN}}=\frac{\var{E_\mathrm{b}}}{\var{A}}'
+terms:
+  \mathrm{BEN}:
+    kind: 'symbol'
+    label:
+      en: 'Binding energy per nucleon'
+    unit: 'joule'
+  E_\mathrm{b}:
+    kind: 'symbol'
+    label:
+      en: 'Binding energy'
+    unit: 'joule'
+  A:
+    kind: 'symbol'
+    label:
+      en: 'Mass number'
+    integer: true
+solutions:
+  \mathrm{BEN}: 'E_b / A'
+  E_\mathrm{b}: 'BEN * A'
+  A: 'E_b / BEN'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'BEN'
+  - 'average binding energy per nucleon'
+  - 'binding energy per nucleon curve'
+  - 'B/A'
+  - 'BEN = E_b / A'
+  - 'energía de enlace media por nucleón'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 10.2 Nuclear Binding Energy (Equation 10.6, Example 10.3)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/10-2-nuclear-binding-energy'
+  - title: 'OpenStax, College Physics 2e, 31.6 Binding Energy (BE/A curve, Example 31.7)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/31-6-binding-energy'
+  - title: 'NIST, CODATA 2022 value: proton mass energy equivalent in MeV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mpc2mev'
+  - title: 'NIST, CODATA 2022 value: neutron mass energy equivalent in MeV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mnc2mev'
+  - title: 'NIST, CODATA 2022 value: alpha particle mass energy equivalent in MeV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?malc2mev'
+description:
+  en: >-
+    The binding energy per nucleon of a nucleus is its total binding energy divided by its mass
+    number. Written BEN in many textbooks, it is the average energy that holds each proton or
+    neutron in the nucleus, and in nuclear physics it compares the stability of nuclei of different
+    sizes far better than the total binding energy does.
+
+    Here $\var{\mathrm{BEN}}$ is the binding energy per nucleon and $\var{E_\mathrm{b}}$ the binding
+    energy of the whole nucleus, both in joules, though both are usually quoted in
+    megaelectronvolts, which are also accepted. $\var{A}$ is the mass number, the count of protons
+    and neutrons, a whole number from one upwards. A mass number solved from the two energies should
+    come out close to a whole number; a value far from any whole number signals inconsistent inputs.
+    For every nucleus of more than one nucleon both energies are positive.
+
+    The binding energy comes from the mass defect times the square of the speed of light, and the
+    division spreads it evenly over the nucleons. Plotted against mass number, the result is low
+    for the lightest nuclei, peaks near iron with mass numbers around 56 to 60, and is lower again
+    for the heaviest nuclei. Most nuclei lie between 6 and 10 MeV, with an average near 8.
+
+    The curve explains where nuclear energy comes from: fusing light nuclei or splitting heavy ones
+    moves the products towards the peak, raising the binding energy per nucleon and releasing the
+    difference. Sharp spikes on the curve mark especially tightly bound nuclei such as helium-4,
+    which is why that nucleus is so stable and appears as the alpha particle of radioactive decay.
+
+    For the alpha particle, the CODATA 2022 mass energies give a binding energy of about 28.30 MeV,
+    so each of its four nucleons is bound by about 7.07 MeV.

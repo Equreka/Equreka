@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Discharging of a capacitor in an RC circuit'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{V_\mathrm{C}}=\var{V_{0}}e^{-\frac{\mag{t}}{\mag{R}\mag{C}}}'
+terms:
+  V_\mathrm{C}:
+    kind: 'symbol'
+    label:
+      en: 'Voltage across the capacitor'
+    unit: 'volt'
+  V_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial voltage across the capacitor'
+    unit: 'volt'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+  R:
+    kind: 'magnitude'
+    ref: 'electrical-resistance'
+  C:
+    kind: 'magnitude'
+    ref: 'capacitance'
+solutions:
+  V_\mathrm{C}: 'V_0 * exp(-t / (R * C))'
+  V_{0}: 'V_C * exp(t / (R * C))'
+  t: 'R * C * ln(V_0 / V_C)'
+  R: 't / (C * ln(V_0 / V_C))'
+  C: 't / (R * ln(V_0 / V_C))'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'RC discharging'
+  - 'capacitor discharge'
+  - 'discharging a capacitor through a resistor'
+  - 'V = V0 e^(-t/RC)'
+  - 'descarga de un condensador'
+  - 'descarga de un condensador a través de un resistor'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 10.5 RC Circuits'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/10-5-rc-circuits'
+  - title: 'OpenStax, College Physics 2e, 21.6 DC Circuits Containing Resistors and Capacitors (Example 21.7)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/21-6-dc-circuits-containing-resistors-and-capacitors'
+description:
+  en: >-
+    The discharge equation of an RC circuit gives the voltage across a charged capacitor at any
+    moment after it starts to discharge through a resistor, with no source in the circuit. The
+    voltage falls exponentially from its initial value towards zero, and the same curve, scaled,
+    describes the charge left on the plates and the current through the resistor.
+
+    $\var{V_\mathrm{C}}$ is the voltage across the capacitor in volts at the time $\mag{t}$, in
+    seconds, counted from the start of the discharge, and $\var{V_{0}}$ is the voltage at that
+    start; both carry the same sign, the polarity of the charged capacitor. $\mag{R}$ is the
+    resistance of the discharge path in ohms and $\mag{C}$ the capacitance in farads, and their
+    product is the time constant $\tau$, in seconds.
+
+    The current through the resistor at each moment is the capacitor voltage divided by the
+    resistance, and that current drains charge from the plates at a rate proportional to the charge
+    still there. A loss in proportion to what remains is exponential decay: in each interval of one
+    time constant the voltage drops to about 37 % of its value at the start of that interval,
+    whatever the value. After five time constants less than one percent of the initial voltage is
+    left.
+
+    The model assumes an ideal capacitor without leakage, a fixed resistance and a discharge path
+    whose inductance is negligible. Solving for the time, the resistance or the capacitance needs a
+    voltage that has fallen below the initial value but not to zero. Real circuits such as
+    defibrillators are more complex than this single loop, though it captures their time scale.
+
+    A camera flash empties its capacitor quickly through the low resistance of an ionized gas, and a
+    defibrillator delivers its pulse through the patient's body. With 8.00 microfarads, 1.00 kiloohm
+    and an initial 10.0 kV, the voltage falls to about 3.68 kV after 8.00 ms.

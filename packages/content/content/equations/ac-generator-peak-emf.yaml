@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Peak emf of an AC generator'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{\mathcal{E}_{0}}=\var{N}\mag{B}\mag{A}\mag{\omega}'
+terms:
+  \mathcal{E}_{0}:
+    kind: 'magnitude'
+    ref: 'electromotive-force'
+    identifier: 'emf_0'
+  N:
+    kind: 'symbol'
+    label:
+      en: 'Number of turns'
+    integer: true
+  B:
+    kind: 'magnitude'
+    ref: 'magnetic-flux-density'
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  \omega:
+    kind: 'magnitude'
+    ref: 'angular-frequency'
+solutions:
+  \mathcal{E}_{0}: 'N * B * A * omega'
+  N: 'emf_0 / (B * A * omega)'
+  B: 'emf_0 / (N * A * omega)'
+  A: 'emf_0 / (N * B * omega)'
+  \omega: 'emf_0 / (N * B * A)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'generator peak emf'
+  - 'peak emf of a rotating coil'
+  - 'maximum emf of a generator'
+  - 'emf0 = NBA omega'
+  - 'fem máxima de un generador'
+  - 'pico de emf de un generador'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 13.6 Electric Generators and Back Emf'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/13-6-electric-generators-and-back-emf'
+  - title: 'OpenStax, College Physics 2e, 23.5 Electric Generators (Examples 23.3 and 23.4)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/23-5-electric-generators'
+description:
+  en: >-
+    The peak electromotive force, or peak emf, of an AC generator is the largest value it induces in
+    a coil that turns at a steady rate in a uniform magnetic field. It equals the number of turns
+    times the magnetic flux density, the area of the coil and the angular frequency of the rotation.
+    The induced emf swings sinusoidally between this value and its negative, which is how rotating
+    generators produce alternating current.
+
+    $\mag{\mathcal{E}_{0}}$ is the peak emf in volts. $\var{N}$ is the number of turns of the coil,
+    a whole number, $\mag{B}$ the magnetic flux density in teslas (the gauss is also accepted),
+    $\mag{A}$ the area enclosed by one turn in square metres, and $\mag{\omega}$ the angular
+    frequency of the rotation in radians per second, two pi times the revolutions per second. All
+    are taken positive; it is the instantaneous emf whose sign alternates as the coil turns.
+
+    As the coil rotates, the flux through each turn follows the cosine of the angle between the
+    field and the normal to the coil. Faraday's law makes the emf the number of turns times the
+    rate of change of that flux, so the emf follows the sine of the angle and peaks when the plane
+    of the coil lies along the field, where the flux changes fastest. The same result follows from
+    the motional emf of the two sides of the coil that cut across the field lines.
+
+    The relation assumes a uniform field, a constant rate of rotation and a flat coil whose turns
+    all enclose the same area. It gives the emf, not the voltage at the terminals, which is lower
+    when a current flows through the resistance of the windings. The frequency of the alternating
+    emf in hertz is the angular frequency divided by two pi. In a motor, the same induced emf
+    opposes the supply and is called the back emf.
+
+    Hydroelectric, steam and wind power stations all turn such coils. A coil of 200 turns of radius
+    5.00 cm spinning at 1000 revolutions per minute in a 1.25 T field reaches about 206 V.

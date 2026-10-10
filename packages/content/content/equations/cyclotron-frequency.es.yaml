@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Frecuencia de ciclotrón'
+description: >-
+  La frecuencia de ciclotrón es el número de vueltas por segundo que da una partícula cargada al
+  girar en un campo magnético uniforme. Es igual al valor absoluto de la carga de la partícula por
+  la densidad de flujo magnético, dividido entre dos pi por su masa, y no depende ni de la rapidez
+  de la partícula ni del radio de su trayectoria. Rige los aceleradores de partículas, los
+  espectrómetros de masas y el giro de las cargas en los plasmas.
+
+  $\mag{f}$ es la frecuencia en hercios. $\mag{q}$ es la carga de la partícula en culombios; la
+  fórmula toma su valor absoluto, así que al despejar la carga se obtienen una raíz positiva y otra
+  negativa, y el sentido de giro las distingue. $\mag{B}$ es la densidad de flujo magnético en
+  teslas (también se acepta el gauss), y $\mag{m}$ es la masa de la partícula en kilogramos.
+
+  La fuerza magnética, siempre perpendicular a la velocidad, aporta la fuerza centrípeta de una
+  circunferencia cuyo radio es la masa por la rapidez entre el valor absoluto de la carga por el
+  campo. Una vuelta dura la longitud de la circunferencia dividida entre la rapidez, y la rapidez
+  se cancela, de modo que queda dos pi por la masa entre la carga por el campo. La frecuencia es el
+  inverso de ese periodo; multiplicada por dos pi da la frecuencia angular, el valor absoluto de la
+  carga por el campo entre la masa.
+
+  El resultado no es relativista: vale mientras la rapidez se mantiene muy por debajo de la
+  velocidad de la luz, y a rapideces mayores los efectos relativistas cambian el periodo, por lo
+  que los aceleradores deben ajustar su campo magnético para seguir el ritmo. Una componente de la
+  velocidad a lo largo del campo no cambia la frecuencia y solo estira la circunferencia en una
+  hélice.
+
+  Un ciclotrón invierte un campo eléctrico a través de una rendija a esta frecuencia, de modo que
+  sus partículas ganan energía en cada cruce mientras describen una espiral hacia fuera. Un protón
+  en un campo de 1.00 T gira a unos 15.2 MHz.

@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Inductance of a long solenoid'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{L}=\frac{\const{\mu_{0}}\var{N}^{2}\mag{A}}{\var{l}}'
+terms:
+  L:
+    kind: 'magnitude'
+    ref: 'inductance'
+  \mu_{0}:
+    kind: 'constant'
+    ref: 'vacuum-magnetic-permeability'
+  N:
+    kind: 'symbol'
+    label:
+      en: 'Number of turns'
+    integer: true
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  l:
+    kind: 'symbol'
+    label:
+      en: 'Length of the solenoid'
+    unit: 'metre'
+solutions:
+  L: 'mu_0 * N^2 * A / l'
+  N: 'sqrt(L * l / (mu_0 * A))'
+  A: 'L * l / (mu_0 * N^2)'
+  l: 'mu_0 * N^2 * A / L'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'solenoid inductance'
+  - 'self-inductance of a solenoid'
+  - 'inductance of a coil'
+  - 'L = mu0 N^2 A / l'
+  - 'inductancia de un solenoide'
+  - 'autoinductancia de un solenoide'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 14.2 Self-Inductance and Inductors'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/14-2-self-inductance-and-inductors'
+  - title: 'OpenStax, College Physics 2e, 23.9 Inductance (Example 23.7)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/23-9-inductance'
+  - title: 'NIST, CODATA 2022 value: vacuum magnetic permeability'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mu0'
+description:
+  en: >-
+    The inductance of a long solenoid is the vacuum magnetic permeability times the square of the
+    number of turns times the cross-sectional area, divided by the length of the coil. It is the
+    standard estimate of self-inductance for a straight, evenly wound coil with an air core, and it
+    shows how the geometry of an inductor alone fixes its inductance.
+
+    $\mag{L}$ is the inductance in henries. $\var{N}$ is the number of turns, a whole number,
+    $\mag{A}$ the cross-sectional area of the coil in square metres, and $\var{l}$ its length in
+    metres. $\const{\mu_{0}}$ is the vacuum magnetic permeability, about
+    $1.257\times10^{-6}\,\mathrm{N/A^{2}}$. In terms of the turns per unit length, the same
+    inductance is the permeability times that number squared times the volume of the coil.
+
+    Inside a long solenoid the field is nearly uniform and equals the permeability times the turns
+    per unit length times the current. Each turn therefore links a flux equal to that field times
+    the area, and the inductance, the flux through all the turns divided by the current, contains
+    the number of turns twice: once in the field that the turns create, and once in the count of
+    turns that the field passes through.
+
+    The formula assumes a solenoid much longer than its diameter, so that the weaker field near the
+    ends can be neglected, and a core of vacuum or air. A core of magnetic material raises the
+    inductance, which is why coils that need a large inductance are wound on iron. The current does
+    not appear in the result: the inductance depends only on the shape and the number of turns.
+
+    A solenoid 10.0 cm long and 4.00 cm in diameter with 200 turns has an inductance of about
+    0.632 mH.

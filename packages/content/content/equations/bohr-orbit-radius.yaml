@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Bohr orbit radius of hydrogen'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{r_{n}}=\var{n}^{2}\const{a_{0}}'
+terms:
+  r_{n}:
+    kind: 'symbol'
+    label:
+      en: 'Radius of orbit n'
+    unit: 'metre'
+  n:
+    kind: 'symbol'
+    label:
+      en: 'Principal quantum number'
+    integer: true
+  a_{0}:
+    kind: 'constant'
+    ref: 'bohr-radius'
+solutions:
+  r_{n}: 'n^2 * a_0'
+  n: 'sqrt(r_n / a_0)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+aliases:
+  - 'Bohr orbit radius'
+  - 'radius of the nth Bohr orbit'
+  - 'Bohr model orbit radius'
+  - 'hydrogen orbit radii'
+  - 'r_n = n^2 a_0'
+  - 'radio de la órbita de Bohr'
+  - 'radio de la enésima órbita'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 6.4 Bohr''s Model of the Hydrogen Atom (Equations 6.38 to 6.40, 6.51, Example 6.10)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-4-bohrs-model-of-the-hydrogen-atom'
+  - title: 'NIST, CODATA 2022 value: Bohr radius'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?bohrrada0'
+  - title: 'NIST, CODATA 2022 value: proton-electron mass ratio'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mpsme'
+  - title: 'P. Chaudhuri, IIT Delhi, Lectures on the hydrogen atom (reduced-mass Bohr radius)'
+    url: 'https://web.iitd.ac.in/~pramitc/Lectures_Hydrogen%20atom.pdf'
+  - title: 'Universität Bielefeld, Quantenmechanik, Übungsblatt 12, Aufgaben 36 und 37 (Bohr radius with the reduced mass)'
+    url: 'https://www.physik.uni-bielefeld.de/~yorks/qm12/ueb12.pdf'
+  - title: 'N. Bohr, On the constitution of atoms and molecules, Philosophical Magazine 26 (1913) 1-25'
+    url: 'https://doi.org/10.1080/14786441308634955'
+description:
+  en: >-
+    The Bohr orbit radius of hydrogen is the radius of the circular path of the electron in the
+    Bohr model of the hydrogen atom: the square of a whole number times the Bohr radius. It shows
+    that the allowed orbits of atomic physics come in a discrete set whose sizes grow as the square
+    of the principal quantum number.
+
+    Here $\var{r_{n}}$ is the radius of orbit $\var{n}$, in metres, and $\var{n}$ is the principal
+    quantum number, a whole number from one upwards. The calculator accepts only whole numbers for
+    it, and the level it solves from a radius is a whole number only when that radius is an allowed
+    orbit. The constant $\const{a_{0}}$ is the Bohr radius, the CODATA 2022 value of which is about
+    0.0529 nanometres, the radius of the smallest orbit.
+
+    Bohr required the angular momentum of the electron to be a whole multiple of the reduced Planck
+    constant and let the Coulomb attraction of the proton supply the centripetal force. Solving the
+    two conditions together gives a radius proportional to the square of the quantum number, so the
+    second orbit is four times and the third nine times the size of the first. The same model gives
+    the Bohr energy levels of hydrogen, which fall in magnitude as the orbits grow.
+
+    The formula assumes one electron and a nucleus of infinite mass. For a hydrogen-like ion of
+    nuclear charge Z, every radius is divided by Z. Allowing the proton to move replaces the
+    electron mass by the reduced mass and enlarges each radius by about 0.05 percent, the
+    electron-to-proton mass ratio. Quantum mechanics replaces the orbits by probability
+    distributions, yet the ground-state electron is still most likely found at about one Bohr radius
+    from the proton.
+
+    Niels Bohr published the model in 1913 in the Philosophical Magazine. The second orbit has a
+    radius of about $2.12\times10^{-10}\,\mathrm{m}$, and an atom excited to the sixth level is
+    36 times larger than in its ground state.

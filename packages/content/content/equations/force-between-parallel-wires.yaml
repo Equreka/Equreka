@@ -1,0 +1,88 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Force between two parallel wires'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{F}=\frac{\const{\mu_{0}}\var{I_{1}}\var{I_{2}}\var{l}}{2\pi\var{r}}'
+terms:
+  F:
+    kind: 'magnitude'
+    ref: 'force'
+  \mu_{0}:
+    kind: 'constant'
+    ref: 'vacuum-magnetic-permeability'
+  I_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Current in the first wire'
+    unit: 'ampere'
+  I_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Current in the second wire'
+    unit: 'ampere'
+  l:
+    kind: 'symbol'
+    label:
+      en: 'Length of wire considered'
+    unit: 'metre'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Distance between the wires'
+    unit: 'metre'
+solutions:
+  F: 'mu_0 * I_1 * I_2 * l / (2 * pi * r)'
+  I_{1}: '2 * pi * r * F / (mu_0 * I_2 * l)'
+  I_{2}: '2 * pi * r * F / (mu_0 * I_1 * l)'
+  l: '2 * pi * r * F / (mu_0 * I_1 * I_2)'
+  r: 'mu_0 * I_1 * I_2 * l / (2 * pi * F)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'force between parallel currents'
+  - 'magnetic force between two wires'
+  - 'force per unit length between parallel wires'
+  - 'F/l = mu0 I1 I2 / (2 pi r)'
+  - 'fuerza entre dos conductores paralelos'
+  - 'fuerza entre corrientes paralelas'
+  - 'fuerza entre dos cables paralelos'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 12.3 Magnetic Force between Two Parallel Currents (Example 12.4)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/12-3-magnetic-force-between-two-parallel-currents'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 1 (CIPM 1946, Resolution 2; 9th CGPM 1948; 26th CGPM 2018, Resolution 1)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST, CODATA 2022 value: vacuum magnetic permeability'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mu0'
+description:
+  en: >-
+    The force between two parallel wires is the magnetic force that each of two long, straight,
+    parallel conductors carrying steady currents exerts on a length of the other. Its size grows in
+    proportion to the product of the two currents and to the length considered, and falls in
+    inverse proportion to the distance between the wires. Currents in the same direction attract
+    each other, and currents in opposite directions repel.
+
+    $\mag{F}$ is the size of the force in newtons on a length $\var{l}$ of either wire, in metres.
+    $\var{I_{1}}$ and $\var{I_{2}}$ are the currents in amperes, entered as positive sizes, and
+    $\var{r}$ is the distance between the axes of the wires in metres. $\const{\mu_{0}}$ is the
+    vacuum magnetic permeability, about $1.257\times10^{-6}\,\mathrm{N/A^{2}}$. For wires much
+    longer than their separation the result is usually quoted per unit length, as $F/l$.
+
+    Each current surrounds itself with a circular magnetic field whose strength at the other wire is
+    the permeability times that current over two pi times the distance. The second wire carries its
+    own current at right angles to this field, so it feels a force equal to its current times the
+    length times the field, directed towards the first wire or away from it. By Newton's third law
+    the first wire receives an equal and opposite force.
+
+    The relation assumes infinitely long, thin, straight wires and steady currents, so for real
+    conductors it holds along a stretch far from their ends. It gives the size alone; whether the
+    wires attract or repel follows from the relative sense of the two currents.
+
+    The CIPM proposed in 1946, and the 9th CGPM ratified in 1948, a definition of the ampere as the
+    current that, in two such wires one metre apart in vacuum, gives a force of $2\times10^{-7}$
+    newton per metre of length; the 26th CGPM replaced it in 2018. Two wires 5.0 cm apart, each with
+    5.0 mA, push or pull with $1.0\times10^{-10}\,\mathrm{N}$ per metre.

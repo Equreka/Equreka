@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Cantidad de movimiento relativista'
+description: >-
+  La cantidad de movimiento relativista es la cantidad de movimiento de un cuerpo en la relatividad
+  especial: su masa por su rapidez, dividida entre la raíz cuadrada de uno menos el cuadrado del
+  cociente entre esa rapidez y la velocidad de la luz. Sustituye al producto newtoniano de masa y
+  velocidad a grandes rapideces y es la magnitud que se conserva en los choques vistos desde
+  cualquier sistema inercial.
+
+  Aquí $\mag{p}$ es el módulo de la cantidad de movimiento, en kilogramo metro por segundo, tomado
+  no negativo porque $\mag{v}$ es una rapidez, en metros por segundo; la dirección es la del
+  movimiento. $\mag{m}$ es la masa del cuerpo, en kilogramos: su masa en reposo, la única masa que
+  usa esta relación. La constante $\const{c}$ es la velocidad de la luz en el vacío, y la rapidez
+  debe quedar por debajo de ella.
+
+  El denominador es el inverso del factor de Lorentz, de modo que la cantidad de movimiento es el
+  valor newtoniano multiplicado por ese factor. A las rapideces cotidianas el factor está tan cerca
+  de uno que ambas formas coinciden; al acercarse la rapidez a la de la luz, la cantidad de
+  movimiento crece sin límite, lo que muestra que ninguna fuerza que actúe durante un tiempo finito
+  lleva un cuerpo con masa a la velocidad de la luz. Textos antiguos leían el factor como una masa
+  relativista que crece con la rapidez, una imagen que los tratamientos modernos dejan de lado: la
+  masa no cambia y solo cambia la cantidad de movimiento.
+
+  La relación se aplica a cualquier cuerpo con masa que se mueve con rapidez constante en un
+  sistema inercial. Quedan excluidas las partículas sin masa, como los fotones, cuya cantidad de
+  movimiento es su energía dividida entre la velocidad de la luz. La calculadora toma la rapidez y
+  no el factor de Lorentz, así que sus datos nunca se contradicen.
+
+  Un electrón que se mueve a 0.985 veces la velocidad de la luz tiene una cantidad de movimiento de
+  unos $1.56\times10^{-21}\,\mathrm{kg\,m/s}$, casi seis veces el valor newtoniano.

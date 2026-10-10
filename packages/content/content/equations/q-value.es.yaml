@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Valor Q de una reacción nuclear'
+terms:
+  Q:
+    label: 'Valor Q de la reacción'
+  m_\mathrm{i}:
+    label: 'Masa total antes de la reacción'
+  m_\mathrm{f}:
+    label: 'Masa total después de la reacción'
+description: >-
+  El valor Q de una reacción nuclear es la energía que libera la reacción: la masa total de todo lo
+  presente antes de ella menos la masa total de todo lo presente después, multiplicada por el
+  cuadrado de la velocidad de la luz. También llamado energía de reacción, se aplica en física
+  nuclear por igual a la desintegración radiactiva, la fisión, la fusión y las reacciones provocadas
+  por partículas que bombardean un blanco.
+
+  Aquí $\var{Q}$ es el valor Q, en julios, aunque casi siempre se da en megaelectronvoltios, que
+  también se admiten. $\var{m_\mathrm{i}}$ es la masa total antes de la reacción y
+  $\var{m_\mathrm{f}}$ la masa total después, ambas en kilogramos, o en daltons, que también se
+  admiten, cada una sumada sobre todos los núcleos y partículas que intervienen. La constante
+  $\const{c}$ es la velocidad de la luz en el vacío. Las dos masas son los datos: la calculadora
+  solo devuelve el valor Q, porque una masa recuperada a partir de él diferiría de la otra en menos
+  que el redondeo de la aritmética.
+
+  Como la energía total, energía en reposo más energía cinética, se conserva, la energía en reposo
+  que desaparece reaparece como energía cinética adicional de los productos, y ese exceso es el
+  valor Q. Un valor positivo indica productos más ligeros y una reacción que libera energía,
+  exotérmica o exoérgica; un valor negativo indica productos más pesados, y la energía que falta
+  debe venir de la energía cinética de las partículas incidentes, en una reacción endotérmica. Una
+  desintegración convierte parte de la masa en reposo del núcleo padre en energía cinética de los
+  productos.
+
+  Las tablas de masas dan masas de átomos neutros, que pueden usarse directamente cuando los
+  electrones se compensan en ambos lados, como en la desintegración alfa y la beta menos; en la beta
+  más hay que restar dos masas de electrón de la diferencia. Las masas deben conocerse con muchas
+  cifras, porque el valor Q es una diferencia pequeña entre números grandes.
+
+  En la fusión de un núcleo de deuterio con uno de tritio que da una partícula alfa y un neutrón,
+  las energías de masa de CODATA 2022 dan un valor Q de unos 17.59 MeV, la cifra que suele
+  redondearse a 17.6 MeV.

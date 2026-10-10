@@ -1,0 +1,88 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Q value of a nuclear reaction'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{Q}=\left(\var{m_\mathrm{i}}-\var{m_\mathrm{f}}\right)\const{c}^{2}'
+terms:
+  Q:
+    kind: 'symbol'
+    label:
+      en: 'Q value of the reaction'
+    unit: 'joule'
+  m_\mathrm{i}:
+    kind: 'symbol'
+    label:
+      en: 'Total mass before the reaction'
+    unit: 'kilogram'
+  m_\mathrm{f}:
+    kind: 'symbol'
+    label:
+      en: 'Total mass after the reaction'
+    unit: 'kilogram'
+  c:
+    kind: 'constant'
+    ref: 'speed-of-light'
+solutions:
+  Q: '(m_i - m_f) * c^2'
+calculator:
+  enabled: true
+  solveFor: ['Q']
+externalIds:
+  wikidata: 'Q7265671'
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'Q value'
+  - 'Q-value'
+  - 'reaction energy'
+  - 'nuclear reaction energy'
+  - 'energy released in a nuclear reaction'
+  - 'valor Q'
+  - 'energía de reacción'
+references:
+  - title: 'J. A. Shapiro, Rutgers University, Physics 228 Lecture 20: Decay Q values, fission (sections 1 to 3)'
+    url: 'https://www.physics.rutgers.edu/~coleman/228/lects/lect20.pdf'
+  - title: 'OpenStax, College Physics 2e, 31.4 Nuclear Decay and Conservation Laws (Equation 31.16, Examples 31.2 and 31.3)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/31-4-nuclear-decay-and-conservation-laws'
+  - title: 'OpenStax, University Physics Volume 3, 10.6 Nuclear Fusion (Q value of fusion reactions)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/10-6-nuclear-fusion'
+  - title: 'NIST, CODATA 2022 value: deuteron mass energy equivalent in MeV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mdc2mev'
+  - title: 'NIST, CODATA 2022 value: triton mass energy equivalent in MeV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mtc2mev'
+  - title: 'NIST, CODATA 2022 value: alpha particle mass energy equivalent in MeV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?malc2mev'
+  - title: 'NIST, CODATA 2022 value: neutron mass energy equivalent in MeV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mnc2mev'
+description:
+  en: >-
+    The Q value of a nuclear reaction is the energy the reaction releases: the total mass of
+    everything present before it minus the total mass of everything present after it, multiplied by
+    the square of the speed of light. Also called the reaction energy, it applies in nuclear physics
+    to radioactive decay, fission, fusion and reactions induced by bombarding particles alike.
+
+    Here $\var{Q}$ is the Q value, in joules, though it is almost always quoted in
+    megaelectronvolts, which are also accepted. $\var{m_\mathrm{i}}$ is the total mass before the
+    reaction and $\var{m_\mathrm{f}}$ the total mass after it, both in kilograms, or in daltons,
+    which are also accepted, each summed over every nucleus and particle involved. The constant
+    $\const{c}$ is the speed of light in vacuum. The two masses are the inputs: the calculator
+    returns only the Q value, because a mass recovered from it would differ from the other mass by
+    less than the rounding of the arithmetic.
+
+    Because total energy, rest energy plus kinetic energy, is conserved, whatever rest energy
+    disappears reappears as extra kinetic energy of the products, and that excess is the Q value. A
+    positive value means the products are lighter and the reaction releases energy, an exothermic or
+    exoergic reaction; a negative value means the products are heavier, and the missing energy must
+    come from the kinetic energy of the incoming particles, an endothermic reaction. A decay
+    converts part of the rest mass of the parent nucleus into kinetic energy of the products.
+
+    Mass tables list neutral-atom masses, which may be used directly when the electrons balance on
+    both sides, as in alpha and beta-minus decay; in beta-plus decay two electron masses must be
+    subtracted from the difference. The masses must be known to many digits, since the Q value is a
+    small difference between large numbers.
+
+    For the fusion of a deuteron with a triton into an alpha particle and a neutron, the CODATA 2022
+    mass energies give a Q value of about 17.59 MeV, the figure usually rounded to 17.6 MeV.

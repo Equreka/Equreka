@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Fem de pico de un generador de corriente alterna'
+terms:
+  N:
+    label: 'Número de vueltas'
+description: >-
+  La fuerza electromotriz de pico, o fem de pico, de un generador de corriente alterna es el mayor
+  valor que induce en una bobina que gira a ritmo constante en un campo magnético uniforme. Es igual
+  al número de vueltas por la densidad de flujo magnético, el área de la bobina y la frecuencia
+  angular del giro. La fem inducida oscila de forma sinusoidal entre este valor y su opuesto, y así
+  producen corriente alterna los generadores rotativos.
+
+  $\mag{\mathcal{E}_{0}}$ es la fem de pico en voltios. $\var{N}$ es el número de vueltas de la
+  bobina, un número entero, $\mag{B}$ la densidad de flujo magnético en teslas (también se acepta
+  el gauss), $\mag{A}$ el área que encierra una vuelta en metros cuadrados y $\mag{\omega}$ la
+  frecuencia angular del giro en radianes por segundo, dos pi por las revoluciones por segundo.
+  Todas se toman positivas; es la fem instantánea la que alterna su signo al girar la bobina.
+
+  Al girar la bobina, el flujo a través de cada vuelta sigue el coseno del ángulo entre el campo y
+  la normal a la bobina. La ley de Faraday hace la fem igual al número de vueltas por el ritmo de
+  cambio de ese flujo, así que la fem sigue el seno del ángulo y alcanza su pico cuando el plano de
+  la bobina está alineado con el campo, donde el flujo cambia más deprisa. El mismo resultado se
+  obtiene de la fem de movimiento de los dos lados de la bobina que cortan las líneas de campo.
+
+  La relación supone un campo uniforme, un ritmo de giro constante y una bobina plana cuyas vueltas
+  encierran todas la misma área. Da la fem, no la tensión en los terminales, que es menor cuando
+  pasa corriente por la resistencia del bobinado. La frecuencia de la fem alterna en hercios es la
+  frecuencia angular dividida entre dos pi. En un motor, la misma fem inducida se opone a la
+  alimentación y se llama fuerza contraelectromotriz.
+
+  Las centrales hidroeléctricas, térmicas de vapor y eólicas hacen girar bobinas así. Una bobina de
+  200 vueltas de 5.00 cm de radio que gira a 1000 revoluciones por minuto en un campo de 1.25 T
+  alcanza unos 206 V.

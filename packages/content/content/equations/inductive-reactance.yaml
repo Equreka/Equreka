@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Inductive reactance'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{X_\mathrm{L}}=\mag{\omega}\mag{L}'
+terms:
+  X_\mathrm{L}:
+    kind: 'magnitude'
+    ref: 'reactance'
+  \omega:
+    kind: 'magnitude'
+    ref: 'angular-frequency'
+  L:
+    kind: 'magnitude'
+    ref: 'inductance'
+solutions:
+  X_\mathrm{L}: 'omega * L'
+  \omega: 'X_L / L'
+  L: 'X_L / omega'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q10357862'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'reactance of an inductor'
+  - 'reactance of a coil'
+  - 'X_L = omega L'
+  - 'X_L = 2 pi f L'
+  - 'reactancia de una bobina'
+  - 'reactancia de un inductor'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 15.2 Simple AC Circuits'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/15-2-simple-ac-circuits'
+  - title: 'OpenStax, College Physics 2e, 23.11 Reactance, Inductive and Capacitive (Example 23.10)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/23-11-reactance-inductive-and-capacitive'
+  - title: 'J. B. Tatum, Electricity and Magnetism, LibreTexts, 13.6 Admittance'
+    url: 'https://phys.libretexts.org/Bookshelves/Electricity_and_Magnetism/Electricity_and_Magnetism_(Tatum)/13:_Alternating_Current/13.06:_Admittance'
+description:
+  en: >-
+    Inductive reactance is the opposition that an inductor presents to an alternating current,
+    equal to the angular frequency of the current times the inductance. Like a resistance it
+    relates the amplitude of the voltage across the element to the amplitude of the current through
+    it and is measured in ohms, but it grows in proportion to the frequency, and in an ideal coil it
+    dissipates no energy.
+
+    $\mag{X_\mathrm{L}}$ is the inductive reactance in ohms, $\mag{\omega}$ the angular frequency in
+    radians per second, two pi times the frequency in hertz, and $\mag{L}$ the inductance in
+    henries. All three are positive. In the complex impedance of the coil the reactance is a
+    positive imaginary part, the convention in which a capacitor's reactance is negative.
+
+    An inductor opposes changes in its current with an induced electromotive force equal to the
+    inductance times the rate of change of the current. For a sinusoidal current that rate is
+    largest as the current passes through zero, so the voltage across the coil leads the current by
+    a quarter of a cycle, and the ratio of their amplitudes is the angular frequency times the
+    inductance. The faster the current alternates, the larger the voltage needed for the same
+    current amplitude.
+
+    The relation describes an ideal inductor in a circuit driven at one frequency in steady state;
+    the resistance of the winding adds separately to the impedance. At zero frequency, a steady
+    current, the reactance vanishes and an ideal coil behaves like a plain wire. Because the
+    reactance rises with frequency, an inductor in series with a load holds back high frequencies
+    while letting low ones through.
+
+    A 3.00 mH inductor has a reactance of about 1.13 ohms at 60 Hz but about 188 ohms at 10 kHz.

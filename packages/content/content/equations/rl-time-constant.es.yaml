@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Constante de tiempo RL'
+terms:
+  \tau:
+    label: 'Constante de tiempo'
+description: >-
+  La constante de tiempo RL es la inductancia de un circuito dividida entre su resistencia. Fija la
+  escala de tiempo en la que la corriente de un circuito con una bobina y un resistor se asienta en
+  un nuevo valor estacionario tras conectar o retirar una fuente, y cumple la misma función que la
+  constante de tiempo RC en los circuitos con condensadores.
+
+  $\var{\tau}$ es la constante de tiempo en segundos, $\mag{L}$ la inductancia en henrios y
+  $\mag{R}$ la resistencia total del circuito en ohmios, incluida la del propio devanado de la
+  bobina; las tres son positivas. Un henrio dividido entre un ohmio es un segundo, porque un henrio
+  equivale a un ohmio segundo.
+
+  Al conectar una fuerza electromotriz, o fem, constante, la fem inducida en la bobina se opone al
+  aumento de la corriente, que crece de forma exponencial hacia la fem dividida entre la resistencia
+  y alcanza cerca del 63 % de ese valor final tras una constante de tiempo. Al retirar la fuente y
+  dejar la bobina en un circuito cerrado con el resistor, la corriente disminuye de forma
+  exponencial y cae a cerca del 37 % de su valor en cada constante de tiempo. Una inductancia grande
+  hace más lentos estos cambios, y una resistencia grande los acelera.
+
+  La relación supone una inductancia y una resistencia fijas. Tras unas cinco constantes de tiempo,
+  la corriente está a menos del uno por ciento de su valor final. Como la corriente en una bobina no
+  puede saltar, la corriente va a la zaga de cualquier salto brusco de la tensión aplicada, y abrir
+  un circuito inductivo puede liberar su energía almacenada en forma de chispa.
+
+  Una bobina de 7.50 mH con una resistencia de 3.00 ohmios tiene una constante de tiempo de 2.50 ms,
+  de modo que una corriente de 10.0 A se reduce a unos 3.68 A en ese tiempo.

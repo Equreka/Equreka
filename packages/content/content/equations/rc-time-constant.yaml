@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'RC time constant'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{\tau}=\mag{R}\mag{C}'
+terms:
+  \tau:
+    kind: 'symbol'
+    label:
+      en: 'Time constant'
+    unit: 'second'
+  R:
+    kind: 'magnitude'
+    ref: 'electrical-resistance'
+  C:
+    kind: 'magnitude'
+    ref: 'capacitance'
+solutions:
+  \tau: 'R * C'
+  R: 'tau / C'
+  C: 'tau / R'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q3695436'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'time constant of an RC circuit'
+  - 'tau = RC'
+  - 'resistor-capacitor time constant'
+  - 'constante de tiempo de un circuito RC'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 10.5 RC Circuits'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/10-5-rc-circuits'
+  - title: 'OpenStax, College Physics 2e, 21.6 DC Circuits Containing Resistors and Capacitors (Example 21.7)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/21-6-dc-circuits-containing-resistors-and-capacitors'
+description:
+  en: >-
+    The RC time constant is the product of the resistance and the capacitance of a circuit in which
+    a capacitor charges or discharges through a resistor. It sets the time scale of every
+    exponential change of voltage, charge and current in such a circuit, and it is the first
+    quantity worked out when a resistor and a capacitor serve as a timer or a filter.
+
+    $\var{\tau}$ is the time constant in seconds, $\mag{R}$ the resistance in ohms through which the
+    capacitor charges or discharges, and $\mag{C}$ the capacitance in farads; all three are
+    positive. An ohm times a farad is a second, because a farad is a coulomb per volt, an ohm is a
+    volt per ampere, and an ampere is a coulomb per second.
+
+    While charging, the capacitor voltage covers about 63 % of the remaining gap to its final value
+    in each interval of $\var{\tau}$; while discharging, it falls to about 37 % of its value in each
+    interval. After five time constants less than one percent of the change is left, which in
+    practice counts as complete. A larger resistance limits the current that carries charge to the
+    plates, and a larger capacitance needs more charge for the same voltage, so either one slows the
+    process down.
+
+    The relation applies to one resistor and one capacitor, and every resistance in series with the
+    capacitor adds to the total, including the internal resistance of the source. In a camera flash
+    the internal resistance of the battery makes charging slow, while the low resistance of the gas
+    in the flash tube lets the stored charge leave in a very short time.
+
+    Resistor and capacitor timers run intermittent windscreen wipers, pacemakers and strobe lights,
+    and the same pairs filter unwanted frequencies out of signals. A defibrillator model with a
+    resistance of 1.00 kiloohm and a capacitance of 8.00 microfarads has a time constant of 8.00 ms.

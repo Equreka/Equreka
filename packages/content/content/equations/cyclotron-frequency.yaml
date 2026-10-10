@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Cyclotron frequency'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{f}=\frac{\left|\mag{q}\right|\mag{B}}{2\pi\mag{m}}'
+terms:
+  f:
+    kind: 'magnitude'
+    ref: 'frequency'
+  q:
+    kind: 'magnitude'
+    ref: 'electric-charge'
+  B:
+    kind: 'magnitude'
+    ref: 'magnetic-flux-density'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+solutions:
+  f: 'abs(q) * B / (2 * pi * m)'
+  q:
+    - '2 * pi * m * f / B'
+    - '-(2 * pi * m * f / B)'
+  B: '2 * pi * m * f / abs(q)'
+  m: 'abs(q) * B / (2 * pi * f)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q3090440'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'gyrofrequency'
+  - 'gyro-frequency'
+  - 'f = qB / (2 pi m)'
+  - 'frequency of a charged particle in a magnetic field'
+  - 'frecuencia del ciclotrón'
+  - 'girofrecuencia'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 11.3 Motion of a Charged Particle in a Magnetic Field'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/11-3-motion-of-a-charged-particle-in-a-magnetic-field'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Cyclotron'
+    url: 'https://hyperphysics.gsu.edu/hbase/magnetic/cyclot.html'
+  - title: 'NIST, CODATA 2022 value: proton charge to mass quotient'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?esmp'
+description:
+  en: >-
+    The cyclotron frequency is the number of turns per second that a charged particle makes as it
+    circles in a uniform magnetic field. It equals the size of the particle's charge times the
+    magnetic flux density, divided by two pi times its mass, and it depends neither on the speed of
+    the particle nor on the radius of its path. It governs particle accelerators, mass
+    spectrometers and the gyration of charges in plasmas.
+
+    $\mag{f}$ is the frequency in hertz. $\mag{q}$ is the charge of the particle in coulombs; the
+    formula takes its absolute value, so solving for the charge returns a positive and a negative
+    root, and the sense of rotation tells them apart. $\mag{B}$ is the magnetic flux density in
+    teslas (the gauss is also accepted), and $\mag{m}$ is the mass of the particle in kilograms.
+
+    The magnetic force, always perpendicular to the velocity, supplies the centripetal force of a
+    circle whose radius is the mass times the speed over the size of the charge times the field.
+    One turn takes the circumference divided by the speed, and the speed cancels, leaving two pi
+    times the mass over the charge times the field. The frequency is the reciprocal of that period;
+    multiplied by two pi it gives the angular frequency, the size of the charge times the field
+    over the mass.
+
+    The result is non-relativistic: it holds while the speed stays well below the speed of light,
+    and at higher speeds relativistic effects change the period, so accelerators must adjust their
+    magnetic field to keep step. A velocity component along the field leaves the frequency
+    unchanged and only stretches the circle into a helix.
+
+    A cyclotron reverses an electric field across a gap at this frequency, so its particles gain
+    energy at each crossing while they spiral outwards. A proton in a field of 1.00 T circles at
+    about 15.2 MHz.

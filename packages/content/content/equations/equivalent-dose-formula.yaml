@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Equivalent dose from absorbed dose'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{H}=\var{w_\mathrm{R}}\mag{D}'
+terms:
+  H:
+    kind: 'magnitude'
+    ref: 'equivalent-dose'
+  w_\mathrm{R}:
+    kind: 'symbol'
+    label:
+      en: 'Radiation weighting factor'
+  D:
+    kind: 'magnitude'
+    ref: 'absorbed-dose'
+solutions:
+  H: 'w_R * D'
+  w_\mathrm{R}: 'H / D'
+  D: 'H / w_R'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'equivalent dose formula'
+  - 'H = w_R D'
+  - 'radiation weighting factor'
+  - 'dosis equivalente'
+  - 'factor de ponderación de la radiación'
+references:
+  - title: 'ICRP, The 2007 Recommendations of the International Commission on Radiological Protection, ICRP Publication 103, Ann. ICRP 37 (2-4)'
+    url: 'https://www.icrp.org/publication.asp?id=ICRP%20Publication%20103'
+  - title: 'Justice Laws Website (Canada), Radiation Protection Regulations SOR/2000-203, Schedule 2: Radiation weighting factors (ICRP Publication 103)'
+    url: 'https://laws-lois.justice.gc.ca/eng/regulations/SOR-2000-203/page-4.html'
+  - title: 'BOE, Real Decreto 1029/2022, Reglamento sobre protección de la salud contra los riesgos derivados de la exposición a las radiaciones ionizantes, artículo 4 and anexo I, tabla de factores de ponderación de la radiación'
+    url: 'https://www.boe.es/buscar/act.php?id=BOE-A-2022-21682'
+  - title: 'European Nuclear Society, Glossary: radiation weighting factors (Euratom 1996 and ICRP 103 values)'
+    url: 'https://www.euronuclear.org/glossary/radiation-weighting-factors/'
+  - title: 'Ministry of the Environment of Japan, Booklet on health effects of radiation, 2.3 Units of radiation dose'
+    url: 'https://www.env.go.jp/en/chemi/rhm/basic-info/1st/02-03-04.html'
+  - title: 'US EPA, Radiation terms and units (effective dose)'
+    url: 'https://www.epa.gov/radiation/radiation-terms-and-units'
+description:
+  en: >-
+    The equivalent dose is the absorbed dose in a tissue or organ multiplied by a radiation
+    weighting factor that expresses how much biological harm the type of radiation does. It is a
+    quantity of radiological protection, measured in sieverts, that lets doses from alpha particles,
+    neutrons, protons and gamma rays be compared on one scale of risk.
+
+    Here $\mag{H}$ is the equivalent dose, in sieverts, with the millisievert and microsievert also
+    accepted. $\var{w_\mathrm{R}}$ is the radiation weighting factor, a pure number with no unit,
+    and $\mag{D}$ is the absorbed dose averaged over the tissue or organ, in grays. All three
+    quantities are non-negative, and a factor of one makes the number of sieverts equal to the
+    number of grays.
+
+    The factors in use today were set by the International Commission on Radiological Protection
+    in its Publication 103 of 2007: 1 for photons of all energies and for electrons and muons, 2 for
+    protons and charged pions, and 20 for alpha particles, fission fragments and heavy ions. For
+    neutrons the factor is a continuous function of their energy, read from the curve or equation
+    the publication gives. The earlier European table, from 1996, gave protons above 2 MeV a
+    factor of 5.
+
+    The formula is written for a single type of radiation; in a mixed field the products for each
+    type are added. Multiplying the equivalent dose of each organ by a tissue weighting factor, with
+    factors that sum to one, and adding the results gives the effective dose for the whole body,
+    also in sieverts. These are calculated protection quantities, not direct measurements,
+    and they cannot predict the health effects in one particular person.
+
+    An absorbed dose of 2.00 milligrays from alpha particles is an equivalent dose of 40.0
+    millisieverts, while the same absorbed dose of gamma rays is only 2.00 millisieverts.

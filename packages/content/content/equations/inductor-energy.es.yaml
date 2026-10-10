@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Energía almacenada en una bobina'
+description: >-
+  La energía almacenada en una bobina es la mitad de su inductancia por el cuadrado de la corriente
+  que la recorre. Una bobina con corriente guarda esta energía en su campo magnético y la devuelve
+  cuando la corriente disminuye, así que la relación es el análogo magnético de la energía
+  almacenada en un condensador, la mitad de la capacidad por el cuadrado de la tensión.
+
+  $\mag{E}$ es la energía almacenada en julios, $\mag{L}$ la inductancia en henrios e $\mag{I}$ la
+  corriente en amperios, introducida como valor positivo. Como la corriente aparece al cuadrado,
+  la energía nunca es negativa y no depende del sentido de la corriente, y al despejar la
+  corriente se obtiene una única raíz no negativa.
+
+  Mientras la corriente crece, la bobina produce una fuerza electromotriz, o fem, igual a la
+  inductancia por el ritmo de cambio de la corriente, que se opone al aumento. La fuente realiza
+  trabajo contra esa fem a un ritmo igual a la fem por la corriente, y sumar ese trabajo mientras la
+  corriente sube desde cero hasta su valor final da la mitad de la inductancia por el cuadrado de la
+  corriente. Cuando la corriente baja después, la bobina devuelve la misma energía al circuito.
+
+  La relación vale para cualquier bobina de inductancia fija, no solo para los solenoides. La
+  energía reside en el propio campo: en un solenoide largo, la densidad de energía magnética, el
+  cuadrado de la densidad de flujo dividido entre el doble de la permeabilidad del vacío,
+  multiplicada por el volumen interior de la bobina da el mismo total.
+
+  Abrir un circuito con una inductancia grande puede convertir la energía almacenada en una chispa
+  en el interruptor. Una bobina de 0.632 mH con 30.0 A almacena unos 0.284 J.

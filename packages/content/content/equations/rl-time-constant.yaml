@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'RL time constant'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{\tau}=\frac{\mag{L}}{\mag{R}}'
+terms:
+  \tau:
+    kind: 'symbol'
+    label:
+      en: 'Time constant'
+    unit: 'second'
+  L:
+    kind: 'magnitude'
+    ref: 'inductance'
+  R:
+    kind: 'magnitude'
+    ref: 'electrical-resistance'
+solutions:
+  \tau: 'L / R'
+  L: 'tau * R'
+  R: 'L / tau'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'time constant of an RL circuit'
+  - 'inductive time constant'
+  - 'tau = L / R'
+  - 'constante de tiempo de un circuito RL'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 14.4 RL Circuits'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/14-4-rl-circuits'
+  - title: 'OpenStax, College Physics 2e, 23.10 RL Circuits (Example 23.9)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/23-10-rl-circuits'
+  - title: 'OpenStax, College Physics 2e, 23.9 Inductance'
+    url: 'https://openstax.org/books/college-physics-2e/pages/23-9-inductance'
+description:
+  en: >-
+    The RL time constant is the inductance of a circuit divided by its resistance. It sets the time
+    scale over which the current in a circuit with an inductor and a resistor settles to a new
+    steady value after a source is switched on or removed, and it plays the same part as the RC
+    time constant in circuits with capacitors.
+
+    $\var{\tau}$ is the time constant in seconds, $\mag{L}$ the inductance in henries and $\mag{R}$
+    the total resistance of the circuit in ohms, including the resistance of the coil's own
+    winding; all three are positive. A henry divided by an ohm is a second, since one henry equals
+    one ohm second.
+
+    When a source of constant electromotive force, or emf, is connected, the emf induced in the
+    inductor opposes the rise of the current, which grows exponentially towards the emf divided by
+    the resistance and reaches about 63 % of that final value after one time constant. When the
+    source is removed and the coil is left in a loop with the resistor, the current decays
+    exponentially and falls to about 37 % of its value in each time constant. A large inductance
+    slows these changes, while a large resistance speeds them up.
+
+    The relation assumes a fixed inductance and resistance. After about five time constants the
+    current is within one percent of its final value. Because the current through an inductor
+    cannot jump, the current trails behind any sudden step in the applied voltage, and breaking an
+    inductive circuit can release its stored energy as a spark.
+
+    A coil of 7.50 mH with a resistance of 3.00 ohms has a time constant of 2.50 ms, so a current of
+    10.0 A dies away to about 3.68 A in that time.
