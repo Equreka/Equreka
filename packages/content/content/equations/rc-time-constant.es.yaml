@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Constante de tiempo RC'
+terms:
+  \tau:
+    label: 'Constante de tiempo'
+description: >-
+  La constante de tiempo RC es el producto de la resistencia y la capacidad de un circuito en el
+  que un condensador se carga o se descarga a través de un resistor. Fija la escala de tiempo de
+  todo cambio exponencial de tensión, carga y corriente en ese circuito, y es la primera magnitud
+  que se calcula cuando un resistor y un condensador sirven de temporizador o de filtro.
+
+  $\var{\tau}$ es la constante de tiempo en segundos, $\mag{R}$ la resistencia en ohmios a través
+  de la cual el condensador se carga o se descarga y $\mag{C}$ la capacidad en faradios; las tres
+  son positivas. Un ohmio por un faradio es un segundo, porque un faradio es un culombio por
+  voltio, un ohmio es un voltio por amperio y un amperio es un culombio por segundo.
+
+  Durante la carga, la tensión del condensador recorre cerca del 63 % de lo que le falta para su
+  valor final en cada intervalo de $\var{\tau}$; durante la descarga, cae a cerca del 37 % de su
+  valor en cada intervalo. Tras cinco constantes de tiempo queda menos del uno por ciento del
+  cambio, lo que en la práctica se considera completo. Una resistencia mayor limita la corriente
+  que lleva carga a las placas, y una capacidad mayor necesita más carga para la misma tensión, así
+  que cualquiera de las dos hace el proceso más lento.
+
+  La relación se aplica a un resistor y un condensador, y toda resistencia en serie con el
+  condensador se suma al total, incluida la resistencia interna de la fuente. En el flash de una
+  cámara, la resistencia interna de la batería hace lenta la carga, mientras que la baja
+  resistencia del gas del tubo de destello deja salir la carga almacenada en muy poco tiempo.
+
+  Los temporizadores de resistor y condensador hacen funcionar los limpiaparabrisas
+  intermitentes, los marcapasos y las luces estroboscópicas, y las mismas parejas filtran
+  frecuencias no deseadas de las señales. Un modelo de desfibrilador con una resistencia de 1.00
+  kiloohmio y una capacidad de 8.00 microfaradios tiene una constante de tiempo de 8.00 ms.

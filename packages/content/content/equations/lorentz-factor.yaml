@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Lorentz factor'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{\gamma}=\frac{1}{\sqrt{1-\frac{\mag{v}^{2}}{\const{c}^{2}}}}'
+terms:
+  \gamma:
+    kind: 'symbol'
+    label:
+      en: 'Lorentz factor'
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  c:
+    kind: 'constant'
+    ref: 'speed-of-light'
+solutions:
+  \gamma: '1 / sqrt(1 - v^2 / c^2)'
+  v: 'c * sqrt((gamma - 1) * (gamma + 1)) / gamma'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q599404'
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+aliases:
+  - 'gamma factor'
+  - 'relativistic factor'
+  - 'relativistic gamma'
+  - 'Lorentz term'
+  - 'gamma = 1/sqrt(1 - v^2/c^2)'
+  - 'factor gamma'
+  - 'factor relativista'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 5.8 Relativistic Momentum (Equation 5.7)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/5-8-relativistic-momentum'
+  - title: 'OpenStax, University Physics Volume 3, 5.9 Relativistic Energy (low-speed expansion of gamma)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/5-9-relativistic-energy'
+  - title: 'OpenStax, College Physics 2e, 28.2 Simultaneity and Time Dilation (Example 28.1)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/28-2-simultaneity-and-time-dilation'
+  - title: 'A. Einstein, Zur Elektrodynamik bewegter Körper, Annalen der Physik 322 (1905) 891-921, section 3'
+    url: 'https://doi.org/10.1002/andp.19053221004'
+  - title: 'A. Einstein, Zur Elektrodynamik bewegter Körper (1905), transcription, Wikisource (German)'
+    url: 'https://de.wikisource.org/wiki/Zur_Elektrodynamik_bewegter_K%C3%B6rper'
+  - title: 'NIST, CODATA 2022 value: speed of light in vacuum'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?c'
+description:
+  en: >-
+    The Lorentz factor of special relativity is one divided by the square root of one minus the
+    squared ratio of a speed to the speed of light. Also called the gamma factor or relativistic
+    factor, it measures how far the time, length, momentum and energy of a moving body depart from
+    their Newtonian values.
+
+    Here $\var{\gamma}$ is the Lorentz factor, a pure number with no unit. $\mag{v}$ is the speed of
+    the moving body or reference frame relative to the observer, in metres per second, and
+    $\const{c}$ is the speed of light in vacuum. The speed must stay below the speed of light, so
+    the factor is never less than one: it equals one for a body at rest and grows without bound as
+    the speed approaches that of light. The calculator returns the non-negative speed for a given
+    factor.
+
+    The factor multiplies the proper time of a moving clock to give the dilated interval, divides a
+    proper length to give the contracted one, and multiplies the Newtonian momentum and the rest
+    energy to give their relativistic forms. At speeds far below that of light it exceeds one by
+    about half the squared speed ratio, which is why relativistic corrections pass unnoticed in
+    daily life.
+
+    The relation holds for a constant speed measured in an inertial frame. A speed equal to or above
+    that of light would leave a zero or negative number under the root, so no body with mass
+    reaches it; massless particles such as photons always move at that speed and have no finite
+    factor.
+
+    Albert Einstein wrote the factor in his 1905 paper on the electrodynamics of moving bodies,
+    using the letter beta and a capital V for the speed of light. At 0.950 times the speed of light
+    the factor is about 3.20, and at 0.990 times it is about 7.09.

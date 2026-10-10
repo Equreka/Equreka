@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Factor de Lorentz'
+terms:
+  \gamma:
+    label: 'Factor de Lorentz'
+description: >-
+  El factor de Lorentz de la relatividad especial es uno dividido entre la raíz cuadrada de uno
+  menos el cuadrado del cociente entre una rapidez y la velocidad de la luz. También llamado factor
+  gamma o factor relativista, mide cuánto se apartan de sus valores newtonianos el tiempo, la
+  longitud, la cantidad de movimiento y la energía de un cuerpo en movimiento.
+
+  Aquí $\var{\gamma}$ es el factor de Lorentz, un número puro sin unidad. $\mag{v}$ es la rapidez
+  del cuerpo o del sistema de referencia en movimiento respecto del observador, en metros por
+  segundo, y $\const{c}$ es la velocidad de la luz en el vacío. La rapidez debe quedar por debajo de
+  la velocidad de la luz, así que el factor nunca es menor que uno: vale uno para un cuerpo en
+  reposo y crece sin límite al acercarse la rapidez a la de la luz. La calculadora devuelve la
+  rapidez no negativa para un factor dado.
+
+  El factor multiplica el tiempo propio de un reloj en movimiento para dar el intervalo dilatado,
+  divide una longitud propia para dar la contraída y multiplica la cantidad de movimiento
+  newtoniana y la energía en reposo para dar sus formas relativistas. A rapideces muy inferiores a
+  la de la luz supera a uno en cerca de la mitad del cuadrado del cociente de rapideces, por lo que
+  las correcciones relativistas pasan inadvertidas en la vida diaria.
+
+  La relación vale para una rapidez constante medida en un sistema inercial. Una rapidez igual o
+  superior a la de la luz dejaría bajo la raíz un número nulo o negativo, de modo que ningún cuerpo
+  con masa la alcanza; las partículas sin masa, como los fotones, se mueven siempre a esa velocidad
+  y no tienen un factor finito.
+
+  Albert Einstein escribió el factor en su artículo de 1905 sobre la electrodinámica de los cuerpos
+  en movimiento, con la letra beta y una V mayúscula para la velocidad de la luz. A 0.950 veces la
+  velocidad de la luz el factor vale unos 3.20, y a 0.990 veces, unos 7.09.

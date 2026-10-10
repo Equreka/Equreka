@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Dosis absorbida a partir de la energía depositada'
+terms:
+  E:
+    label: 'Energía depositada'
+description: >-
+  La dosis absorbida es la energía que la radiación ionizante deposita en una porción de materia
+  dividida entre la masa de esa materia. La fórmula es el punto de partida de la dosimetría: da la
+  dosis absorbida media en una muestra, un tejido o un órgano, sea cual sea el tipo de radiación y
+  el material.
+
+  Aquí $\mag{D}$ es la dosis absorbida, en grais, donde un gray es un julio por kilogramo; también
+  se admite el miligray, y el antiguo rad, una centésima de gray, sobrevive en algunos textos.
+  $\var{E}$ es la energía depositada por la radiación, en julios, y $\mag{m}$ es la masa de la
+  materia que absorbe, en kilogramos. Las tres magnitudes son no negativas.
+
+  La definición estricta toma la energía media impartida a un volumen muy pequeño de materia
+  dividida entre su masa; dividir una energía total entre una masa total, como aquí, da la media en
+  toda la región, que coincide con la dosis local solo si la energía se reparte de manera uniforme.
+  La dosis absorbida cuenta solo energía y no dice nada de su nocividad: el mismo número de grais de
+  partículas alfa daña el tejido vivo mucho más que el de rayos gamma. Por eso la protección
+  radiológica la multiplica por un factor de ponderación de la radiación para obtener la dosis
+  equivalente, en sieverts, y pondera los órganos para obtener la dosis efectiva.
+
+  La fórmula vale para cualquier radiación ionizante, fotones o partículas, y cualquier material
+  absorbente, del aire al hueso. El gray se reserva para la dosis absorbida y el sievert para las
+  dosis ponderadas, así que una dosis se da siempre con el nombre de su unidad para indicar de qué
+  magnitud se trata.
+
+  Si una persona de 50.0 kg absorbe 1.00 J de energía de radiación repartida por todo el cuerpo, la
+  dosis absorbida es $0.0200\,\mathrm{Gy}$, es decir, 20.0 miligrais o 2.00 rad.

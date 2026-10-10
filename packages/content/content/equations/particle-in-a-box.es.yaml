@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Niveles de energía de una partícula en una caja'
+terms:
+  E_{n}:
+    label: 'Energía del nivel n'
+  n:
+    label: 'Número cuántico'
+  L:
+    label: 'Anchura de la caja'
+description: >-
+  Los niveles de energía de una partícula en una caja son las energías permitidas de una partícula
+  cuántica atrapada en un pozo de potencial infinito unidimensional: el cuadrado de un número entero
+  por el cuadrado de la constante de Planck, dividido entre ocho veces la masa de la partícula por
+  el cuadrado de la anchura de la caja. Este modelo de la mecánica cuántica muestra cómo el
+  confinamiento basta para cuantizar la energía.
+
+  Aquí $\var{E_{n}}$ es la energía del nivel $\var{n}$, en julios, aunque los ejemplos atómicos y
+  nucleares suelen darla en electronvoltios, que también se admiten. $\var{n}$ es el número
+  cuántico, un entero desde uno en adelante; la calculadora solo acepta enteros para él, y el nivel
+  que despeja a partir de una energía solo es entero para una energía permitida. $\mag{m}$ es la
+  masa de la partícula, en kilogramos, $\var{L}$ la anchura de la caja, en metros, y $\const{h}$ la
+  constante de Planck. La energía se cuenta desde el fondo plano del pozo, así que todos los niveles
+  son positivos.
+
+  Dentro de la caja la energía potencial es nula y las paredes son infinitamente altas, de modo que
+  la función de onda debe anularse en ambas paredes. Solo sobreviven las ondas estacionarias que
+  encajan un número entero de semilongitudes de onda entre las paredes, y cada longitud de onda fija
+  una cantidad de movimiento y, con ella, una energía cinética. Un número cuántico nulo daría una
+  función de onda nula en todas partes, así que la energía mínima, la energía del punto cero, es
+  mayor que cero; los niveles se separan con el cuadrado del número cuántico.
+
+  La fórmula vale para una partícula no relativista en una dimensión entre paredes perfectamente
+  rígidas. Un pozo de profundidad finita deja que la función de onda penetre en las paredes y baja
+  todos los niveles, y para números cuánticos grandes la separación se vuelve pequeña frente a la
+  energía, como exige el principio de correspondencia.
+
+  Un protón confinado en una caja de 10 femtómetros de anchura, del tamaño aproximado de un núcleo,
+  tiene una energía del estado fundamental cercana a 2.05 MeV y un primer nivel excitado cercano a
+  8.19 MeV.

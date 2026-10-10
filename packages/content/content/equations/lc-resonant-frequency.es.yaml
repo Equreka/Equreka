@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Frecuencia de resonancia de un circuito LC'
+description: >-
+  La frecuencia de resonancia de un circuito LC es la frecuencia con la que una bobina y un
+  condensador conectados entre sí se intercambian energía, y la frecuencia a la que un circuito en
+  serie de resistor, bobina y condensador, alimentado por una fuente alterna, lleva la mayor
+  corriente. Es igual a uno entre dos pi por la raíz cuadrada de la inductancia por la capacidad.
+
+  $\mag{f_{0}}$ es la frecuencia de resonancia en hercios, $\mag{L}$ la inductancia en henrios y
+  $\mag{C}$ la capacidad en faradios, todas positivas. La frecuencia angular correspondiente es
+  $\omega_{0} = 1/\sqrt{LC}$, en radianes por segundo, que es dos pi por la frecuencia en hercios.
+
+  Un condensador cargado conectado a una bobina impulsa una corriente que crea un campo magnético;
+  cuando el condensador queda vacío la corriente es máxima, y la bobina vuelve entonces a cargar el
+  condensador con la polaridad opuesta. La carga oscila como una masa unida a un resorte: la
+  inductancia hace de masa y el inverso de la capacidad, de constante elástica. En un circuito
+  alimentado, la resonancia es la frecuencia a la que las dos reactancias son iguales,
+  $X_\mathrm{L} = X_\mathrm{C}$, de modo que se anulan y la impedancia se reduce a la resistencia.
+
+  La oscilación libre descrita aquí desprecia la resistencia, que convierte la energía en calor y
+  hace que la oscilación se extinga. En un circuito en serie alimentado, la resistencia no desplaza
+  la frecuencia de resonancia, pero fija lo agudo que es el pico: cuanto menor es la resistencia,
+  más alto y estrecho es el pico y mejor selecciona el circuito una frecuencia.
+
+  Los receptores de radio se sintonizan con una emisora ajustando un condensador variable hasta que
+  la frecuencia de resonancia coincide con la de la emisión. Una inductancia de 3.00 mH con una
+  capacidad de 5.00 microfaradios resuena a unos 1.30 kHz.

@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Dosis equivalente a partir de la dosis absorbida'
+terms:
+  w_\mathrm{R}:
+    label: 'Factor de ponderación de la radiación'
+description: >-
+  La dosis equivalente es la dosis absorbida en un tejido u órgano multiplicada por un factor de
+  ponderación de la radiación que expresa cuánto daño biológico causa el tipo de radiación. Es una
+  magnitud de protección radiológica, medida en sieverts, que permite comparar en una sola escala de
+  riesgo las dosis de partículas alfa, neutrones, protones y rayos gamma.
+
+  Aquí $\mag{H}$ es la dosis equivalente, en sieverts, y también se admiten el milisievert y el
+  microsievert. $\var{w_\mathrm{R}}$ es un número puro sin unidad, el factor de ponderación propio
+  de cada radiación, y $\mag{D}$ es la dosis absorbida, en grais, como media en todo el tejido u
+  órgano. Las tres magnitudes son no negativas, y con un factor de uno el número de sieverts
+  coincide con el de grais.
+
+  Los factores vigentes los fijó la Comisión Internacional de Protección Radiológica en su
+  Publicación 103 de 2007: 1 para los fotones de todas las energías y para electrones y
+  muones, 2 para protones y piones cargados, y 20 para partículas alfa, iones pesados y fragmentos
+  de fisión. Para los neutrones el factor es una función continua de su energía, que se lee de la
+  curva o la ecuación de la publicación. La tabla europea anterior, de 1996, daba a los protones de
+  más de 2 MeV un factor de 5.
+
+  La fórmula está escrita para un solo tipo de radiación; en un campo mixto se suman los productos
+  de cada tipo. Al multiplicar la dosis equivalente de cada órgano por un factor de ponderación
+  tisular, con factores que suman uno, y sumar los resultados se obtiene la dosis efectiva de todo
+  el cuerpo, también en sieverts. Son magnitudes de protección calculadas, no medidas
+  directas, y no pueden predecir los efectos sobre la salud de una persona concreta.
+
+  Una dosis absorbida de 2.00 miligrais de partículas alfa es una dosis equivalente de 40.0
+  milisieverts, mientras que la misma dosis absorbida de rayos gamma es solo de 2.00 milisieverts.

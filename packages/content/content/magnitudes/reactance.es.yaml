@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Reactancia'
+description: >-
+  La reactancia es la parte imaginaria de la impedancia compleja de un elemento o de una red de
+  circuito recorridos por una corriente sinusoidal; la parte real es la resistencia. Expresa la
+  oposición a una corriente alterna que procede de la inductancia y de la capacidad eléctrica, que
+  almacenan energía en un campo magnético o eléctrico y la devuelven en cada ciclo, en lugar de
+  convertir la energía eléctrica en calor.
+
+  Su unidad SI coherente es el ohmio, como la de la resistencia y la impedancia, de modo que su
+  dimensión es longitud al cuadrado por masa dividida entre tiempo al cubo y corriente eléctrica
+  al cuadrado. Su símbolo habitual es $X$, con los subíndices L y C para la contribución inductiva
+  y la capacitiva.
+
+  La reactancia es un escalar con signo. Si la impedancia se escribe como la resistencia más la
+  unidad imaginaria por la reactancia, una bobina ideal tiene una reactancia positiva, la
+  frecuencia angular por su inductancia, y un condensador ideal una negativa, menos el inverso de
+  la frecuencia angular por su capacidad. Una red con reactancia positiva se llama inductiva, y una
+  con reactancia negativa, capacitiva. Muchos textos introductorios dan ambas contribuciones como
+  valores positivos y restan la capacitiva, como hacen las dos fórmulas de reactancia; el valor con
+  signo entra en la impedancia. En cualquiera de las dos formas, el valor cambia con la
+  frecuencia de la corriente.
+
+  Se obtiene del cociente entre la amplitud de la tensión y la amplitud de la corriente en un
+  elemento puramente reactivo, o separando una impedancia medida en sus partes real e imaginaria.
+  Los valores abarcan muchos órdenes de magnitud: una bobina de 3.00 mH presenta unos 1.13 ohmios a
+  60 Hz y 188 ohmios a 10 kHz, mientras que un condensador de 5.00 microfaradios presenta unos 531
+  ohmios a 60 Hz y 3.18 ohmios a 10 kHz.
+
+  La reactancia se confunde con facilidad con la resistencia y con la impedancia. La resistencia
+  convierte energía eléctrica en calor, mientras que una reactancia ideal toma energía y la
+  devuelve. La impedancia combina ambas: en un circuito en serie su módulo es la raíz cuadrada de
+  la resistencia al cuadrado más la reactancia neta al cuadrado, y en la resonancia las partes
+  inductiva y capacitiva se anulan y queda solo la resistencia.

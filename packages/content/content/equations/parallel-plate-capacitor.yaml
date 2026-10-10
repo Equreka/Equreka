@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Capacitance of a parallel-plate capacitor'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{C}=\frac{\const{\varepsilon_{0}}\mag{A}}{\var{d}}'
+terms:
+  C:
+    kind: 'magnitude'
+    ref: 'capacitance'
+  \varepsilon_{0}:
+    kind: 'constant'
+    ref: 'vacuum-electric-permittivity'
+    identifier: 'epsilon_0'
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  d:
+    kind: 'symbol'
+    label:
+      en: 'Separation between the plates'
+    unit: 'metre'
+solutions:
+  C: 'epsilon_0 * A / d'
+  A: 'C * d / epsilon_0'
+  d: 'epsilon_0 * A / C'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'parallel-plate capacitor'
+  - 'parallel plate capacitor'
+  - 'capacitance of two parallel plates'
+  - 'C = epsilon0 A / d'
+  - 'condensador de placas paralelas'
+  - 'capacitancia de un condensador de placas paralelas'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 8.1 Capacitors and Capacitance (Examples 8.1 and 8.2)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Parallel plate capacitor'
+    url: 'https://hyperphysics.gsu.edu/hbase/electric/pplate.html'
+  - title: 'NIST, CODATA 2022 value: vacuum electric permittivity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?ep0'
+description:
+  en: >-
+    The capacitance of a parallel-plate capacitor in vacuum equals the vacuum electric permittivity
+    times the area of one plate, divided by the gap between the plates. Two flat conducting plates
+    facing each other across a narrow gap form the simplest capacitor to analyse, so this result is
+    the standard first model of a capacitor in electrostatics and circuit design.
+
+    $\mag{C}$ is the capacitance in farads, $\mag{A}$ the area of each plate in square metres, and
+    $\var{d}$ the separation between the plates in metres; all three are positive.
+    $\const{\varepsilon_{0}}$ is the vacuum electric permittivity, a measured constant whose
+    CODATA 2022 value is about $8.854\times10^{-12}\,\mathrm{F/m}$. The capacitance depends only on
+    this geometry, not on the charge stored or on the voltage applied.
+
+    Equal and opposite charges spread over the inner faces of the plates and set up a nearly
+    uniform field between them, equal to the charge per unit area divided by the permittivity. The
+    voltage across the gap is that field times the separation, so the charge divided by the voltage
+    leaves the permittivity times the area over the gap. Wider plates hold more charge at a given
+    voltage, and bringing the plates closer lets the same voltage hold more charge as well.
+
+    The formula assumes a gap that is small compared with the size of the plates, so that the
+    weaker, bulging field near the edges can be neglected. Filling the gap with an insulator
+    multiplies the capacitance by its dielectric constant $\kappa$, which is one for vacuum, close
+    to one for air and greater than one for every material medium.
+
+    Two plates of 1.00 square metre each, 1.00 mm apart in vacuum, have a capacitance of about
+    8.85 nF, so a capacitance of one farad at that spacing would need square plates roughly ten
+    kilometres on a side.

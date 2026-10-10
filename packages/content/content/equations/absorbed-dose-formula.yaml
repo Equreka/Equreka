@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Absorbed dose from energy deposited'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{D}=\frac{\var{E}}{\mag{m}}'
+terms:
+  D:
+    kind: 'magnitude'
+    ref: 'absorbed-dose'
+  E:
+    kind: 'symbol'
+    label:
+      en: 'Energy deposited'
+    unit: 'joule'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+solutions:
+  D: 'E / m'
+  E: 'D * m'
+  m: 'E / D'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'absorbed dose formula'
+  - 'radiation dose formula'
+  - 'D = E / m'
+  - 'energy imparted per unit mass'
+  - 'dosis absorbida'
+  - 'fórmula de la dosis absorbida'
+references:
+  - title: 'US EPA, Radiation terms and units (absorbed dose, gray, rad)'
+    url: 'https://www.epa.gov/radiation/radiation-terms-and-units'
+  - title: 'BOE, Real Decreto 1029/2022, Reglamento sobre protección de la salud contra los riesgos derivados de la exposición a las radiaciones ionizantes, artículo 4.17 (dosis absorbida: mean energy imparted to a volume element, averaged over a tissue or organ), artículo 4.20 and anexo I'
+    url: 'https://www.boe.es/buscar/act.php?id=BOE-A-2022-21682'
+  - title: 'OpenStax, University Physics Volume 3, 10.7 Medical Applications and Biological Effects of Nuclear Radiation (rad, dose example)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/10-7-medical-applications-and-biological-effects-of-nuclear-radiation'
+  - title: 'Ministry of the Environment of Japan, Booklet on health effects of radiation, 2.3 Units of radiation dose'
+    url: 'https://www.env.go.jp/en/chemi/rhm/basic-info/1st/02-03-04.html'
+description:
+  en: >-
+    The absorbed dose is the energy that ionizing radiation deposits in a piece of matter divided by
+    the mass of that matter. The formula is the starting point of radiation dosimetry: it gives the
+    mean absorbed dose in a sample, a tissue or an organ, whatever the kind of radiation and
+    whatever the material.
+
+    Here $\mag{D}$ is the absorbed dose, in grays, where one gray is one joule per kilogram; the
+    milligray is also accepted, and the older rad, a hundredth of a gray, survives in some texts.
+    $\var{E}$ is the energy deposited by the radiation, in joules, and $\mag{m}$ is the mass of the
+    absorbing matter, in kilograms. All three quantities are non-negative.
+
+    The strict definition takes the mean energy imparted to a very small volume of matter divided
+    by its mass; dividing a total energy by a total mass, as here, gives the average over the whole
+    region, which equals the local dose only when the energy is spread evenly. The absorbed dose
+    counts energy alone and says nothing about how harmful it is: the same number of grays from
+    alpha particles damages living tissue far more than from gamma rays. Radiation protection
+    therefore multiplies it by a radiation weighting factor to obtain the equivalent dose, in
+    sieverts, and weights the organs to obtain the effective dose.
+
+    The formula holds for any ionizing radiation, photons or particles, and any absorber, from air
+    to bone. The gray is reserved for absorbed dose and the sievert for the weighted doses,
+    so a dose is always stated with its unit name to show which quantity is meant.
+
+    If a 50.0 kg person absorbs 1.00 J of radiation energy spread over the whole body, the absorbed
+    dose is $0.0200\,\mathrm{Gy}$, that is, 20.0 milligrays or 2.00 rad.

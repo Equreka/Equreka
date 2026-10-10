@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Energía de enlace por nucleón'
+terms:
+  \mathrm{BEN}:
+    label: 'Energía de enlace por nucleón'
+  E_\mathrm{b}:
+    label: 'Energía de enlace'
+  A:
+    label: 'Número másico'
+description: >-
+  La energía de enlace por nucleón de un núcleo es su energía de enlace total dividida entre su
+  número másico. Escrita BEN en muchos libros de texto, es la energía media que retiene a cada
+  protón o neutrón en el núcleo, y en física nuclear compara la estabilidad de núcleos de distinto
+  tamaño mucho mejor que la energía de enlace total.
+
+  Aquí $\var{\mathrm{BEN}}$ es la energía de enlace por nucleón y $\var{E_\mathrm{b}}$ la energía de
+  enlace del núcleo completo, ambas en julios, aunque las dos suelen darse en megaelectronvoltios,
+  que también se admiten. $\var{A}$ es el número másico, el número de protones y neutrones, un
+  entero desde uno en adelante. Un número másico despejado de las dos energías debe salir cercano a
+  un entero; un valor alejado de todo entero indica datos incoherentes. En todo núcleo de más de un
+  nucleón ambas energías son positivas.
+
+  La energía de enlace se obtiene del defecto de masa por el cuadrado de la velocidad de la luz, y
+  la división la reparte por igual entre los nucleones. Representada frente al número másico, es
+  baja en los núcleos más ligeros, alcanza un máximo cerca del hierro, con números másicos de 56 a
+  60, y vuelve a bajar en los más pesados. La mayoría de los núcleos queda entre 6 y 10 MeV, con
+  una media cercana a 8.
+
+  La curva explica de dónde sale la energía nuclear: fusionar núcleos ligeros o dividir núcleos
+  pesados acerca los productos al máximo, eleva la energía de enlace por nucleón y libera la
+  diferencia. Los picos agudos de la curva señalan núcleos especialmente ligados, como el helio-4,
+  y por eso ese núcleo es tan estable y aparece como la partícula alfa de la desintegración
+  radiactiva.
+
+  Para la partícula alfa, las energías de masa de CODATA 2022 dan una energía de enlace de unos
+  28.30 MeV, así que cada uno de sus cuatro nucleones está ligado con unos 7.07 MeV.

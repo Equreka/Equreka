@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Relativistic momentum'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{p}=\frac{\mag{m}\mag{v}}{\sqrt{1-\frac{\mag{v}^{2}}{\const{c}^{2}}}}'
+terms:
+  p:
+    kind: 'magnitude'
+    ref: 'momentum'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  c:
+    kind: 'constant'
+    ref: 'speed-of-light'
+solutions:
+  p: 'm * v / sqrt(1 - v^2 / c^2)'
+  m: 'p * sqrt(1 - v^2 / c^2) / v'
+  v: 'p / sqrt(m^2 + p^2 / c^2)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+aliases:
+  - 'relativistic linear momentum'
+  - 'momentum in special relativity'
+  - 'p = gamma m v'
+  - 'relativistic momentum formula'
+  - 'momento relativista'
+  - 'momento lineal relativista'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 5.8 Relativistic Momentum (Equations 5.6 and 5.7)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/5-8-relativistic-momentum'
+  - title: 'OpenStax, College Physics 2e, 28.5 Relativistic Momentum (Check Your Understanding, electron at 0.985c)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/28-5-relativistic-momentum'
+  - title: 'OpenStax, University Physics Volume 3, 5.9 Relativistic Energy (energy-momentum relation)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/5-9-relativistic-energy'
+  - title: 'NIST, CODATA 2022 value: electron mass'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?me'
+  - title: 'NIST, CODATA 2022 value: speed of light in vacuum'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?c'
+description:
+  en: >-
+    Relativistic momentum is the momentum of a body in special relativity: its mass times its speed,
+    divided by the square root of one minus the squared ratio of that speed to the speed of light.
+    It replaces the Newtonian product of mass and velocity at high speeds and is the quantity that
+    stays conserved in collisions viewed from any inertial frame.
+
+    Here $\mag{p}$ is the size of the momentum, in kilogram metres per second, taken non-negative
+    because $\mag{v}$ is a speed, in metres per second; the direction is that of the motion.
+    $\mag{m}$ is the mass of the body, in kilograms: its rest mass, the only mass this relation
+    uses. The constant $\const{c}$ is the speed of light in vacuum, and the speed must stay below
+    it.
+
+    The denominator is the reciprocal of the Lorentz factor, so the momentum equals the Newtonian
+    value multiplied by that factor. At everyday speeds the factor is so close to one that the
+    two forms agree; as the speed approaches that of light the momentum grows without limit, which
+    is one way to see that no force acting for a finite time can push a massive body to the speed
+    of light. Older texts read the factor as a relativistic mass that grows with speed, a picture
+    modern treatments set aside: the mass stays fixed and only the momentum changes.
+
+    The relation applies to any body with mass moving at constant speed in an inertial frame.
+    Massless particles such as photons are excluded, since their momentum follows from their energy
+    divided by the speed of light. The calculator takes the speed rather than the Lorentz factor,
+    so its inputs can never contradict each other.
+
+    An electron moving at 0.985 times the speed of light has a momentum of about
+    $1.56\times10^{-21}\,\mathrm{kg\,m/s}$, nearly six times the Newtonian value.

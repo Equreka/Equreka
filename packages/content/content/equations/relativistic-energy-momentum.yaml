@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Relativistic energy-momentum relation'
+kind: 'equation'
+level: 'intermediate'
+expression: '\mag{E}^{2}=\left(\mag{p}\const{c}\right)^{2}+\left(\mag{m}\const{c}^{2}\right)^{2}'
+terms:
+  E:
+    kind: 'magnitude'
+    ref: 'energy'
+  p:
+    kind: 'magnitude'
+    ref: 'momentum'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  c:
+    kind: 'constant'
+    ref: 'speed-of-light'
+solutions:
+  E: 'sqrt((p * c)^2 + (m * c^2)^2)'
+  p: 'sqrt((E - m * c^2) * (E + m * c^2)) / c'
+  m: 'sqrt((E - p * c) * (E + p * c)) / c^2'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q3502299'
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+aliases:
+  - 'energy-momentum relation'
+  - 'energy–momentum relation'
+  - 'relativistic dispersion relation'
+  - 'E^2 = (pc)^2 + (mc^2)^2'
+  - 'mass-shell relation'
+  - 'relación de energía-momento'
+  - 'relación energía-momento'
+  - 'relación entre energía y momento'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 5.9 Relativistic Energy (Equations 5.9 to 5.11, Example 5.12)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/5-9-relativistic-energy'
+  - title: 'OpenStax, College Physics 2e, 28.6 Relativistic Energy (total energy, energy-momentum relation)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/28-6-relativistic-energy'
+  - title: 'HyperPhysics (Georgia State University), Some nuclear units (rest mass energy quoted as mass)'
+    url: 'https://hyperphysics.gsu.edu/hbase/Nuclear/nucuni.html'
+  - title: 'NIST, CODATA 2022 value: electron mass energy equivalent in MeV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mec2mev'
+  - title: 'NIST, CODATA 2022 value: speed of light in vacuum'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?c'
+description:
+  en: >-
+    The relativistic energy-momentum relation states that the square of the total energy of a
+    particle equals the square of its momentum times the speed of light plus the square of its rest
+    energy. Central to special relativity and particle physics, it links energy, momentum and mass
+    without any reference to speed, and it holds for massive and massless particles alike.
+
+    Here $\mag{E}$ is the total energy, in joules: the rest energy plus the kinetic energy.
+    Particle physics usually states it in megaelectronvolts, which are also accepted. $\mag{p}$ is
+    the size of the momentum, in kilogram metres per second, and $\mag{m}$ is the mass, in
+    kilograms, always the rest mass. The constant $\const{c}$ is the speed of light in vacuum. All
+    three quantities are non-negative, so the solved momentum is real only when the energy is at
+    least the rest energy, and the solved mass only when the energy is at least the momentum times
+    the speed of light.
+
+    The relation follows from the total energy, the Lorentz factor times the rest energy, and the
+    relativistic momentum: squaring both and subtracting removes the speed and leaves the squared
+    rest energy. That leftover is the same for every inertial observer, which is why the mass found
+    from a measured energy and momentum is called the invariant mass. At rest the momentum vanishes
+    and the energy reduces to the rest energy; for a massless particle such as the photon the energy
+    is the momentum times the speed of light.
+
+    The relation describes a free particle in special relativity, with no potential energy counted,
+    and the speed of a massive particle must stay below the speed of light, so its energy always
+    exceeds its momentum times the speed of light. Because it fixes the mass from
+    energy and momentum, nuclear and particle physics often quote a mass as its rest energy in
+    megaelectronvolts.
+
+    An electron at 0.990 times the speed of light has a total energy of about 3.62 MeV, of which
+    3.59 MeV is the momentum term and 0.511 MeV the rest energy.

@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Radio de las órbitas de Bohr del hidrógeno'
+terms:
+  r_{n}:
+    label: 'Radio de la órbita n'
+  n:
+    label: 'Número cuántico principal'
+description: >-
+  El radio de las órbitas de Bohr del hidrógeno es el radio de la trayectoria circular del electrón
+  en el modelo de Bohr del átomo de hidrógeno: el cuadrado de un número entero por el radio de
+  Bohr. Muestra que las órbitas permitidas de la física atómica forman un conjunto discreto cuyos
+  tamaños crecen con el cuadrado del número cuántico principal.
+
+  Aquí $\var{r_{n}}$ es el radio de la órbita $\var{n}$, en metros, y $\var{n}$ es el número
+  cuántico principal, un entero desde uno en adelante. La calculadora solo acepta números enteros
+  para él, y el nivel que despeja a partir de un radio solo es entero cuando ese radio corresponde a
+  una órbita permitida. La constante $\const{a_{0}}$ es el radio de Bohr, cuyo valor de CODATA 2022
+  es de unos 0.0529 nanómetros, el radio de la órbita más pequeña.
+
+  Bohr exigió que el momento angular del electrón fuera un múltiplo entero de la constante de
+  Planck reducida e hizo que la atracción de Coulomb del protón aportara la fuerza centrípeta. Al
+  resolver juntas ambas condiciones se obtiene un radio proporcional al cuadrado del número
+  cuántico, de modo que la segunda órbita es cuatro veces y la tercera nueve veces mayor que la
+  primera. El mismo modelo da los niveles de energía de Bohr del hidrógeno, cuyo valor absoluto
+  disminuye al crecer las órbitas.
+
+  La fórmula supone un solo electrón y un núcleo de masa infinita. En un ion hidrogenoide de carga
+  nuclear Z, cada radio se divide entre Z. Si se deja moverse al protón, la masa del electrón se
+  sustituye por la masa reducida y cada radio aumenta en un 0.05 por ciento, el cociente entre las
+  masas del electrón y del protón. La mecánica cuántica sustituye las órbitas por distribuciones de
+  probabilidad, pero el electrón del estado fundamental sigue encontrándose con mayor probabilidad a
+  un radio de Bohr del protón.
+
+  Niels Bohr publicó el modelo en 1913 en el Philosophical Magazine. La segunda órbita tiene un
+  radio de unos $2.12\times10^{-10}\,\mathrm{m}$, y un átomo excitado al sexto nivel es 36 veces
+  mayor que en su estado fundamental.

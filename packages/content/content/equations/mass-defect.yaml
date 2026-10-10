@@ -1,0 +1,96 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Mass defect'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{\Delta m}=\var{Z}\const{m_\mathrm{p}}+\left(\var{A}-\var{Z}\right)\const{m_\mathrm{n}}-\var{m_\mathrm{nuc}}'
+terms:
+  \Delta m:
+    kind: 'symbol'
+    label:
+      en: 'Mass defect'
+    unit: 'kilogram'
+  Z:
+    kind: 'symbol'
+    label:
+      en: 'Atomic number'
+    integer: true
+  A:
+    kind: 'symbol'
+    label:
+      en: 'Mass number'
+    integer: true
+  m_\mathrm{p}:
+    kind: 'constant'
+    ref: 'proton-mass'
+  m_\mathrm{n}:
+    kind: 'constant'
+    ref: 'neutron-mass'
+  m_\mathrm{nuc}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of the nucleus'
+    unit: 'kilogram'
+solutions:
+  \Delta m: 'Z * m_p + (A - Z) * m_n - m_nuc'
+  m_\mathrm{nuc}: 'Z * m_p + (A - Z) * m_n - Deltam'
+calculator:
+  enabled: true
+  solveFor: ['\Delta m', 'm_\mathrm{nuc}']
+externalIds:
+  wikidata: 'Q26897126'
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'nuclear mass defect'
+  - 'mass deficit of a nucleus'
+  - 'delta m = Z m_p + N m_n - m_nuc'
+  - 'defecto de masa nuclear'
+  - 'diferencia de masa'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 10.2 Nuclear Binding Energy (Equations 10.4 and 10.5, Example 10.3)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/10-2-nuclear-binding-energy'
+  - title: 'OpenStax, College Physics 2e, 31.6 Binding Energy (atomic-mass form, Example 31.7)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/31-6-binding-energy'
+  - title: 'NIST, CODATA 2022 value: proton mass'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mp'
+  - title: 'NIST, CODATA 2022 value: neutron mass'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mn'
+  - title: 'NIST, CODATA 2022 value: alpha particle mass'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mal'
+  - title: 'NIST, CODATA 2022 value: atomic mass constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?u'
+  - title: 'NIST, CODATA 2022 value: atomic mass constant energy equivalent in MeV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?muc2mev'
+description:
+  en: >-
+    The mass defect of a nucleus is the amount by which its mass falls short of the total mass of
+    its separate nucleons: the number of protons times the proton mass, plus the number of neutrons
+    times the neutron mass, minus the mass of the nucleus. In nuclear physics it measures how
+    tightly the protons and neutrons are bound together.
+
+    Here $\var{\Delta m}$ is the mass defect and $\var{m_\mathrm{nuc}}$ the mass of the nucleus,
+    both in kilograms, or in daltons, which suit atomic-scale masses and are also accepted.
+    $\var{Z}$ is the atomic number, the count of protons, and $\var{A}$ the mass number, the count
+    of nucleons, so the difference between them is the neutron number. Both are whole numbers read
+    off the nuclide: they are inputs only, since an atomic number solved from the masses would hinge
+    on the tiny difference between the proton and neutron masses, and the calculator solves for the
+    mass defect or the nuclear mass but never for either count. The constants $\const{m_\mathrm{p}}$
+    and $\const{m_\mathrm{n}}$ are the proton and neutron masses. The defect is positive for every
+    nucleus of more than one nucleon.
+
+    Multiplying the mass defect by the square of the speed of light gives the nuclear binding
+    energy, the energy needed to pull the nucleus apart into free nucleons. One dalton of defect
+    corresponds to about 931.494 MeV of binding energy.
+
+    Mass tables list atomic masses, which include the electrons, so a common working form uses the
+    mass of a hydrogen-1 atom in place of the proton mass and the atomic mass of the nuclide in
+    place of the nuclear mass; the electron masses then cancel. Mixing an atomic mass with the
+    proton mass leaves an error of one electron mass per proton. Because the defect is a small
+    difference between nearly equal masses, those masses must be known to many significant figures.
+
+    For the helium-4 nucleus, the alpha particle, the CODATA 2022 masses give a mass defect of about
+    0.030 38 Da, or $5.044\times10^{-29}\,\mathrm{kg}$, which corresponds to a binding energy near
+    28.3 MeV.

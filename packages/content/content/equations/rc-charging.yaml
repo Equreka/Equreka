@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Charging of a capacitor in an RC circuit'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{V_\mathrm{C}}=\mag{\mathcal{E}}\left(1-e^{-\frac{\mag{t}}{\mag{R}\mag{C}}}\right)'
+terms:
+  V_\mathrm{C}:
+    kind: 'symbol'
+    label:
+      en: 'Voltage across the capacitor'
+    unit: 'volt'
+  \mathcal{E}:
+    kind: 'magnitude'
+    ref: 'electromotive-force'
+    identifier: 'emf'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+  R:
+    kind: 'magnitude'
+    ref: 'electrical-resistance'
+  C:
+    kind: 'magnitude'
+    ref: 'capacitance'
+solutions:
+  V_\mathrm{C}: 'emf * (1 - exp(-t / (R * C)))'
+  \mathcal{E}: 'V_C / (1 - exp(-t / (R * C)))'
+  t: 'R * C * ln(emf / (emf - V_C))'
+  R: 't / (C * ln(emf / (emf - V_C)))'
+  C: 't / (R * ln(emf / (emf - V_C)))'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'RC charging'
+  - 'capacitor charging'
+  - 'charging a capacitor through a resistor'
+  - 'V = emf (1 - e^(-t/RC))'
+  - 'carga de un condensador'
+  - 'carga de un condensador a través de un resistor'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 10.5 RC Circuits (Example 10.8)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/10-5-rc-circuits'
+  - title: 'OpenStax, College Physics 2e, 21.6 DC Circuits Containing Resistors and Capacitors'
+    url: 'https://openstax.org/books/college-physics-2e/pages/21-6-dc-circuits-containing-resistors-and-capacitors'
+description:
+  en: >-
+    The charging equation of an RC circuit gives the voltage across an initially uncharged capacitor
+    at any moment after it is connected, through a resistor, to a source of constant electromotive
+    force, or emf. The voltage starts at zero and rises along an exponential curve that approaches
+    the emf of the source, the behaviour behind most timing circuits in electronics.
+
+    $\var{V_\mathrm{C}}$ is the voltage across the capacitor in volts, positive on the plate joined
+    to the positive terminal of the source. $\mag{\mathcal{E}}$ is the emf of the source in volts,
+    $\mag{t}$ the time in seconds since the circuit was closed, $\mag{R}$ the total resistance in
+    series with the capacitor in ohms, and $\mag{C}$ the capacitance in farads. The product of the
+    resistance and the capacitance is the time constant $\tau$, in seconds.
+
+    When the switch closes, the empty capacitor offers no opposing voltage, so the current starts
+    at the emf divided by the resistance. As charge builds up, the capacitor voltage rises, the
+    share of the emf left across the resistor shrinks and the current falls, so each further stage
+    of charging is slower than the one before. After one time constant the capacitor has reached
+    about 63 % of the emf, and after five it is within one percent of it.
+
+    The equation assumes an ideal capacitor without leakage, a constant emf and fixed values of
+    resistance and capacitance, with the internal resistance of the source counted in the total.
+    The capacitor must start empty; one that already holds a voltage approaches the emf from that
+    value instead. Solving for the time, the resistance or the capacitance requires a voltage below
+    the emf, which the capacitor approaches but in theory never reaches.
+
+    In a relaxation oscillator, a neon lamp flashes each time its capacitor reaches a set voltage,
+    which empties the capacitor and starts the cycle again. With an emf of 100 V and a time constant
+    of 5.05 s, the capacitor reaches 80 V after about 8.13 s.

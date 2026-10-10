@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Descarga de un condensador en un circuito RC'
+terms:
+  V_\mathrm{C}:
+    label: 'Tensión en el condensador'
+  V_{0}:
+    label: 'Tensión inicial en el condensador'
+description: >-
+  La ecuación de descarga de un circuito RC da la tensión en un condensador cargado en cualquier
+  instante después de que empiece a descargarse a través de un resistor, sin ninguna fuente en el
+  circuito. La tensión cae de forma exponencial desde su valor inicial hacia cero, y la misma
+  curva, a otra escala, describe la carga que queda en las placas y la corriente en el resistor.
+
+  $\var{V_\mathrm{C}}$ es la tensión en el condensador en voltios en el instante $\mag{t}$, en
+  segundos, contado desde el comienzo de la descarga, y $\var{V_{0}}$ es la tensión en ese
+  comienzo; ambas tienen el mismo signo, la polaridad del condensador cargado. $\mag{R}$ es la
+  resistencia del camino de descarga en ohmios y $\mag{C}$ la capacidad en faradios, y su producto
+  es la constante de tiempo $\tau$, en segundos.
+
+  La corriente en el resistor en cada instante es la tensión del condensador dividida entre la
+  resistencia, y esa corriente vacía las placas a un ritmo proporcional a la carga que aún queda.
+  Una pérdida proporcional a lo que queda es una disminución exponencial: en cada intervalo de una
+  constante de tiempo la tensión baja a cerca del 37 % del valor que tenía al empezar ese
+  intervalo, sea cual sea. Tras cinco constantes de tiempo queda menos del uno por ciento de la
+  tensión inicial.
+
+  El modelo supone un condensador ideal sin fugas, una resistencia fija y un camino de descarga con
+  inductancia despreciable. Despejar el tiempo, la resistencia o la capacidad requiere una tensión
+  que haya bajado del valor inicial sin llegar a cero. Los circuitos reales, como los de los
+  desfibriladores, son más complejos que este circuito simple, aunque este reproduce su escala de
+  tiempo.
+
+  El flash de una cámara vacía su condensador con rapidez a través de la baja resistencia de un gas
+  ionizado, y un desfibrilador aplica su pulso a través del cuerpo del paciente. Con 8.00
+  microfaradios, 1.00 kiloohmio y una tensión inicial de 10.0 kV, la tensión baja a unos 3.68 kV
+  tras 8.00 ms.

@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Relación relativista entre energía y cantidad de movimiento'
+description: >-
+  La relación relativista entre energía y cantidad de movimiento establece que el cuadrado de la
+  energía total de una partícula es igual al cuadrado de su cantidad de movimiento por la velocidad
+  de la luz más el cuadrado de su energía en reposo. Central en la relatividad especial y en la
+  física de partículas, enlaza energía, cantidad de movimiento y masa sin mencionar la rapidez, y
+  vale con masa o sin ella.
+
+  Aquí $\mag{E}$ es la energía total, en julios: la energía en reposo más la cinética. La física
+  de partículas suele darla en megaelectronvoltios, que también se admiten. $\mag{p}$ es el módulo
+  de la cantidad de movimiento, en kilogramo metro por segundo, y $\mag{m}$ es la masa, en
+  kilogramos, siempre la masa en reposo. La constante $\const{c}$ es la velocidad de la luz en el
+  vacío. Las tres magnitudes son no negativas, así que la cantidad de movimiento despejada solo es
+  real si la energía alcanza la energía en reposo, y la masa despejada solo si la energía alcanza
+  el producto de la cantidad de movimiento por la velocidad de la luz.
+
+  La relación sale de la energía total, el factor de Lorentz por la energía en reposo, y de la
+  cantidad de movimiento relativista: al elevar ambas al cuadrado y restarlas desaparece la rapidez
+  y queda la energía en reposo al cuadrado. Ese resto es igual para todo observador inercial, por
+  lo que la masa obtenida de una energía y una cantidad de movimiento medidas se llama masa
+  invariante. En reposo la cantidad de movimiento se anula y la energía es la energía en reposo;
+  para una partícula sin masa, como el fotón, la energía es la cantidad de movimiento por la
+  velocidad de la luz.
+
+  La relación describe una partícula libre en la relatividad especial, sin energía potencial, y una
+  partícula con masa debe ir siempre por debajo de la velocidad de la luz, así que su energía
+  siempre supera el producto de su cantidad de movimiento por la velocidad de la luz. Como fija así
+  la masa, la física nuclear y la de partículas suelen dar una masa como su energía en reposo en
+  megaelectronvoltios.
+
+  Un electrón a 0.990 veces la velocidad de la luz tiene unos 3.62 MeV de energía total: 3.59 MeV
+  del término de movimiento y 0.511 MeV de energía en reposo.

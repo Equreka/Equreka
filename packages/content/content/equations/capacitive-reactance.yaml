@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Capacitive reactance'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{X_\mathrm{C}}=\frac{1}{\mag{\omega}\mag{C}}'
+terms:
+  X_\mathrm{C}:
+    kind: 'magnitude'
+    ref: 'reactance'
+  \omega:
+    kind: 'magnitude'
+    ref: 'angular-frequency'
+  C:
+    kind: 'magnitude'
+    ref: 'capacitance'
+solutions:
+  X_\mathrm{C}: '1 / (omega * C)'
+  \omega: '1 / (X_C * C)'
+  C: '1 / (X_C * omega)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q10357861'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'reactance of a capacitor'
+  - 'X_C = 1 / (omega C)'
+  - 'X_C = 1 / (2 pi f C)'
+  - 'reactancia de un condensador'
+  - 'reactancia de un capacitor'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 15.2 Simple AC Circuits'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/15-2-simple-ac-circuits'
+  - title: 'OpenStax, College Physics 2e, 23.11 Reactance, Inductive and Capacitive (Example 23.11)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/23-11-reactance-inductive-and-capacitive'
+  - title: 'J. B. Tatum, Electricity and Magnetism, LibreTexts, 13.6 Admittance'
+    url: 'https://phys.libretexts.org/Bookshelves/Electricity_and_Magnetism/Electricity_and_Magnetism_(Tatum)/13:_Alternating_Current/13.06:_Admittance'
+description:
+  en: >-
+    Capacitive reactance is the opposition that a capacitor presents to an alternating current,
+    equal to one over the product of the angular frequency and the capacitance. It is measured in
+    ohms and relates the amplitude of the voltage across the capacitor to the amplitude of the
+    current in the circuit, but it falls as the frequency rises, and an ideal capacitor dissipates
+    no energy.
+
+    $\mag{X_\mathrm{C}}$ is the capacitive reactance in ohms, $\mag{\omega}$ the angular frequency
+    in radians per second, two pi times the frequency in hertz, and $\mag{C}$ the capacitance in
+    farads. The formula gives a positive size. In the complex impedance, whose imaginary part is the
+    reactance, a capacitor contributes the negative of this size, which is why introductory texts
+    subtract it from the inductive reactance of a series circuit.
+
+    The current into a capacitor equals the capacitance times the rate of change of the voltage
+    across it. For a sinusoidal voltage that rate is largest as the voltage passes through zero, so
+    the current leads the voltage by a quarter of a cycle, and the ratio of the voltage amplitude to
+    the current amplitude is one over the angular frequency times the capacitance. At a higher
+    frequency the plates charge and discharge more often, so more current flows for the same
+    voltage.
+
+    The relation describes an ideal capacitor in a circuit driven at one frequency in steady state.
+    As the frequency approaches zero the reactance grows without limit, so a charged capacitor
+    blocks a steady current; at very high frequency the reactance approaches zero and the capacitor
+    acts like a plain wire. A capacitor in series with a sound system therefore removes a low hum
+    while passing higher frequencies.
+
+    A 5.00 microfarad capacitor has a reactance of about 531 ohms at 60 Hz and about 3.18 ohms at
+    10 kHz.

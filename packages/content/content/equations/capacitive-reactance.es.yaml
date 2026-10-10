@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Reactancia capacitiva'
+description: >-
+  La reactancia capacitiva es la oposición que presenta un condensador a una corriente alterna,
+  igual a uno entre el producto de la frecuencia angular y la capacidad. Se mide en ohmios y
+  relaciona la amplitud de la tensión en el condensador con la amplitud de la corriente del
+  circuito, pero disminuye al aumentar la frecuencia, y un condensador ideal no disipa energía.
+
+  $\mag{X_\mathrm{C}}$ es la reactancia capacitiva en ohmios, $\mag{\omega}$ la frecuencia angular
+  en radianes por segundo, dos pi por la frecuencia en hercios, y $\mag{C}$ la capacidad en
+  faradios. La fórmula da un valor positivo. En la impedancia compleja, cuya parte imaginaria es la
+  reactancia, un condensador aporta el opuesto de este valor, y por eso los textos introductorios
+  lo restan de la reactancia inductiva de un circuito en serie.
+
+  La corriente que entra en un condensador es igual a la capacidad por el ritmo de cambio de la
+  tensión entre sus placas. Con una tensión sinusoidal ese ritmo es máximo cuando la tensión pasa
+  por cero, así que la corriente va adelantada un cuarto de ciclo respecto a la tensión, y el
+  cociente entre la amplitud de la tensión y la de la corriente es uno entre la frecuencia angular
+  por la capacidad. A mayor frecuencia, las placas se cargan y descargan más a menudo, de modo que
+  pasa más corriente con la misma tensión.
+
+  La relación describe un condensador ideal en un circuito alimentado a una sola frecuencia en
+  régimen estacionario. Cuando la frecuencia tiende a cero, la reactancia crece sin límite, de modo
+  que un condensador cargado bloquea una corriente continua; a frecuencias muy altas la reactancia
+  tiende a cero y el condensador actúa como un simple hilo. Por eso un condensador en serie con un
+  equipo de sonido elimina un zumbido grave y deja pasar las frecuencias más altas.
+
+  Un condensador de 5.00 microfaradios tiene una reactancia de unos 531 ohmios a 60 Hz y de unos
+  3.18 ohmios a 10 kHz.

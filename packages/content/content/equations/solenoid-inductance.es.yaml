@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Inductancia de un solenoide largo'
+terms:
+  N:
+    label: 'Número de vueltas'
+  l:
+    label: 'Longitud del solenoide'
+description: >-
+  La inductancia de un solenoide largo es la permeabilidad magnética del vacío por el cuadrado del
+  número de vueltas por el área de la sección transversal, dividida entre la longitud de la bobina.
+  Es la estimación habitual de la autoinductancia de una bobina recta, de devanado uniforme y con
+  núcleo de aire, y muestra cómo la geometría de una bobina basta para fijar su inductancia.
+
+  $\mag{L}$ es la inductancia en henrios. $\var{N}$ es el número de vueltas, un número entero,
+  $\mag{A}$ el área de la sección transversal de la bobina en metros cuadrados y $\var{l}$ su
+  longitud en metros. $\const{\mu_{0}}$ es la permeabilidad magnética del vacío, de unos
+  $1.257\times10^{-6}\,\mathrm{N/A^{2}}$. En función del número de vueltas por unidad de longitud,
+  la misma inductancia es la permeabilidad por ese número al cuadrado por el volumen de la bobina.
+
+  Dentro de un solenoide largo el campo es casi uniforme e igual a la permeabilidad por el número
+  de vueltas por unidad de longitud por la corriente. Cada vuelta concatena por tanto un flujo
+  igual a ese campo por el área, y la inductancia, el flujo a través de todas las vueltas dividido
+  entre la corriente, contiene dos veces el número de vueltas: una en el campo que crean las
+  vueltas y otra en el recuento de las vueltas que atraviesa el campo.
+
+  La fórmula supone un solenoide mucho más largo que su diámetro, de modo que puede despreciarse el
+  campo más débil cerca de los extremos, y un núcleo de vacío o de aire. Un núcleo de material
+  magnético aumenta la inductancia, y por eso las bobinas que necesitan una inductancia grande se
+  arrollan sobre hierro. La corriente no aparece en el resultado: la inductancia depende solo de la
+  forma y del número de vueltas.
+
+  Un solenoide de 10.0 cm de longitud y 4.00 cm de diámetro con 200 vueltas tiene una inductancia de
+  unos 0.632 mH.

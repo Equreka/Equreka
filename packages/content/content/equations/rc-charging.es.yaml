@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Carga de un condensador en un circuito RC'
+terms:
+  V_\mathrm{C}:
+    label: 'Tensión en el condensador'
+description: >-
+  La ecuación de carga de un circuito RC da la tensión en un condensador inicialmente descargado en
+  cualquier instante después de conectarlo, a través de un resistor, a una fuente de fuerza
+  electromotriz, o fem, constante. La tensión parte de cero y sube siguiendo una curva exponencial
+  que se acerca a la fem de la fuente, el comportamiento en que se basan casi todos los circuitos de
+  temporización en electrónica.
+
+  $\var{V_\mathrm{C}}$ es la tensión en el condensador en voltios, positiva en la placa unida al
+  terminal positivo de la fuente. $\mag{\mathcal{E}}$ es la fem de la fuente en voltios, $\mag{t}$
+  el tiempo en segundos desde que se cerró el circuito, $\mag{R}$ la resistencia total en serie
+  con el condensador en ohmios y $\mag{C}$ la capacidad en faradios. El producto de la resistencia
+  y la capacidad es la constante de tiempo $\tau$, en segundos.
+
+  Al cerrar el interruptor, el condensador vacío no opone ninguna tensión, así que la corriente
+  empieza valiendo la fem dividida entre la resistencia. A medida que se acumula carga, la tensión
+  del condensador sube, la parte de la fem que queda en el resistor disminuye y la corriente cae,
+  de modo que cada etapa de la carga es más lenta que la anterior. Tras una constante de tiempo, el
+  condensador ha alcanzado cerca del 63 % de la fem, y tras cinco está a menos del uno por ciento
+  de ella.
+
+  La ecuación supone un condensador ideal sin fugas, una fem constante y valores fijos de
+  resistencia y capacidad, con la resistencia interna de la fuente incluida en el total. El
+  condensador debe partir vacío; uno que ya tiene una tensión se acerca a la fem desde ese valor.
+  Despejar el tiempo, la resistencia o la capacidad exige una tensión menor que la fem, a la que el
+  condensador se acerca pero que en teoría nunca alcanza.
+
+  En un oscilador de relajación, una lámpara de neón destella cada vez que su condensador alcanza
+  una tensión fijada, lo que vacía el condensador y reinicia el ciclo. Con una fem de 100 V y una
+  constante de tiempo de 5.05 s, el condensador llega a 80 V al cabo de unos 8.13 s.

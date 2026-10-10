@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Reactancia inductiva'
+description: >-
+  La reactancia inductiva es la oposición que presenta una bobina a una corriente alterna, igual a
+  la frecuencia angular de la corriente por la inductancia. Como una resistencia, relaciona la
+  amplitud de la tensión en el elemento con la amplitud de la corriente que lo recorre y se mide en
+  ohmios, pero crece en proporción a la frecuencia y en una bobina ideal no disipa energía.
+
+  $\mag{X_\mathrm{L}}$ es la reactancia inductiva en ohmios, $\mag{\omega}$ la frecuencia angular
+  en radianes por segundo, dos pi por la frecuencia en hercios, y $\mag{L}$ la inductancia en
+  henrios. Las tres son positivas. En la impedancia compleja de la bobina, la reactancia es una
+  parte imaginaria positiva, el convenio en el que la reactancia de un condensador es negativa.
+
+  Una bobina se opone a los cambios de su corriente con una fuerza electromotriz inducida igual a
+  la inductancia por el ritmo de cambio de la corriente. Con una corriente sinusoidal ese ritmo es
+  máximo cuando la corriente pasa por cero, así que la tensión en la bobina va adelantada un cuarto
+  de ciclo respecto a la corriente, y el cociente de sus amplitudes es la frecuencia angular por la
+  inductancia. Cuanto más deprisa alterna la corriente, mayor es la tensión necesaria para la misma
+  amplitud de corriente.
+
+  La relación describe una bobina ideal en un circuito alimentado a una sola frecuencia en régimen
+  estacionario; la resistencia del devanado se suma aparte a la impedancia. A frecuencia cero, una
+  corriente continua, la reactancia se anula y una bobina ideal se comporta como un simple hilo.
+  Como la reactancia aumenta con la frecuencia, una bobina en serie con una carga frena las
+  frecuencias altas y deja pasar las bajas.
+
+  Una bobina de 3.00 mH tiene una reactancia de unos 1.13 ohmios a 60 Hz, pero de unos 188 ohmios
+  a 10 kHz.

@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Magnetic field at the centre of a circular loop'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{B}=\frac{\const{\mu_{0}}\mag{I}}{2\var{R}}'
+terms:
+  B:
+    kind: 'magnitude'
+    ref: 'magnetic-flux-density'
+  \mu_{0}:
+    kind: 'constant'
+    ref: 'vacuum-magnetic-permeability'
+  I:
+    kind: 'magnitude'
+    ref: 'electric-current'
+  R:
+    kind: 'symbol'
+    label:
+      en: 'Radius of the loop'
+    unit: 'metre'
+solutions:
+  B: 'mu_0 * I / (2 * R)'
+  I: '2 * R * B / mu_0'
+  R: 'mu_0 * I / (2 * B)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'magnetic field of a current loop'
+  - 'field at the center of a current loop'
+  - 'magnetic field of a circular coil'
+  - 'B = mu0 I / (2R)'
+  - 'campo magnético de una espira circular'
+  - 'campo magnético de un bucle de corriente'
+  - 'campo en el centro de una espira'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 12.4 Magnetic Field of a Current Loop (Biot-Savart result for the field on the axis and at the centre)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/12-4-magnetic-field-of-a-current-loop'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Magnetic field of current loop'
+    url: 'https://hyperphysics.gsu.edu/hbase/magnetic/curloo.html'
+  - title: 'Universidad Complutense de Madrid, Laboratorio de Física General, práctica 20: Campo magnético creado por conductores'
+    url: 'https://fisicas.ucm.es/file/20-campo-magnetico'
+  - title: 'NIST, CODATA 2022 value: vacuum magnetic permeability'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mu0'
+description:
+  en: >-
+    The magnetic field at the centre of a circular loop is the field produced at the middle of a
+    single ring of wire that carries a steady current. It equals the vacuum magnetic permeability
+    times the current, divided by twice the radius of the loop, and it points along the axis of
+    the ring. The result is a standard case of magnetostatics and the starting point for the field
+    of flat coils.
+
+    $\mag{B}$ is the magnetic flux density at the centre in teslas (the gauss is also accepted).
+    $\mag{I}$ is the current in amperes, entered as a positive size, and $\var{R}$ the radius of the
+    loop in metres. $\const{\mu_{0}}$ is the vacuum magnetic permeability, about
+    $1.257\times10^{-6}\,\mathrm{N/A^{2}}$ in CODATA 2022. The direction follows a right-hand rule:
+    with the fingers curled along the current, the thumb points along the field through the centre.
+
+    The Biot-Savart law gives the contribution of each short piece of the ring. At the centre every
+    piece lies at the same distance, the radius, and runs at right angles to the line joining it to
+    the centre, so all the contributions point the same way along the axis and add without
+    cancelling. Summing them over the whole circumference, two pi times the radius, leaves the
+    permeability times the current over twice the radius.
+
+    The formula applies to a thin circular loop and a steady current, at the centre only. Along
+    the axis the field weakens with distance, and far from the ring it falls with the cube of the
+    distance, like the field of a magnetic dipole. A flat coil of several tightly wound turns acts
+    as one loop carrying the current multiplied by the number of turns, so its central field is
+    larger by that factor. The leads that carry the current in and out are assumed to cancel.
+
+    A loop of radius 0.50 m carrying 10 mA has a field of about $1.3\times10^{-8}\,\mathrm{T}$ at
+    its centre, some four thousand times weaker than Earth's field of about 0.5 gauss.

@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Campo magnético en el centro de una espira circular'
+terms:
+  R:
+    label: 'Radio de la espira'
+description: >-
+  El campo magnético en el centro de una espira circular es el campo que se produce en el punto
+  medio de un único anillo de hilo por el que circula una corriente estacionaria. Es igual a la
+  permeabilidad magnética del vacío por la corriente, dividida entre el doble del radio de la
+  espira, y apunta a lo largo del eje del anillo. El resultado es un caso clásico de la
+  magnetostática y el punto de partida para el campo de las bobinas planas.
+
+  $\mag{B}$ es la densidad de flujo magnético en el centro en teslas (también se acepta el gauss).
+  $\mag{I}$ es la corriente en amperios, introducida como valor positivo, y $\var{R}$ el radio de
+  la espira en metros. $\const{\mu_{0}}$ es la permeabilidad magnética del vacío, de unos
+  $1.257\times10^{-6}\,\mathrm{N/A^{2}}$ según CODATA 2022. La dirección sigue una regla de la mano
+  derecha: con los dedos curvados en el sentido de la corriente, el pulgar señala el sentido del
+  campo en el centro.
+
+  La ley de Biot-Savart da la contribución de cada tramo corto del anillo. En el centro, todos los
+  tramos están a la misma distancia, el radio, y son perpendiculares a la recta que los une con el
+  centro, de modo que todas las contribuciones apuntan en el mismo sentido a lo largo del eje y se
+  suman sin anularse. Sumarlas sobre toda la circunferencia, dos pi por el radio, deja la
+  permeabilidad por la corriente entre el doble del radio.
+
+  La fórmula se aplica a una espira circular delgada y a una corriente estacionaria, y solo en el
+  centro. A lo largo del eje el campo se debilita con la distancia y, lejos del anillo, disminuye
+  con el cubo de la distancia, como el campo de un dipolo magnético. Una bobina plana de varias
+  vueltas muy juntas actúa como una sola espira con la corriente multiplicada por el número de
+  vueltas, así que su campo central es mayor en ese factor. Se supone que los hilos que llevan la
+  corriente de ida y de vuelta se compensan.
+
+  Una espira de 0.50 m de radio con 10 mA tiene un campo de unos $1.3\times10^{-8}\,\mathrm{T}$ en
+  su centro, unas cuatro mil veces más débil que el campo terrestre, de unos 0.5 gauss.

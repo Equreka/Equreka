@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Resonant frequency of an LC circuit'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{f_{0}}=\frac{1}{2\pi\sqrt{\mag{L}\mag{C}}}'
+terms:
+  f_{0}:
+    kind: 'magnitude'
+    ref: 'frequency'
+  L:
+    kind: 'magnitude'
+    ref: 'inductance'
+  C:
+    kind: 'magnitude'
+    ref: 'capacitance'
+solutions:
+  f_{0}: '1 / (2 * pi * sqrt(L * C))'
+  L: '1 / (4 * pi^2 * f_0^2 * C)'
+  C: '1 / (4 * pi^2 * f_0^2 * L)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q4491930'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'LC resonant frequency'
+  - 'natural frequency of an LC circuit'
+  - 'resonant frequency of an RLC circuit'
+  - 'Thomson''s formula'
+  - 'f0 = 1 / (2 pi sqrt(LC))'
+  - 'frecuencia de resonancia de un circuito RLC'
+  - 'frecuencia propia de un circuito LC'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 14.5 Oscillations in an LC Circuit'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/14-5-oscillations-in-an-lc-circuit'
+  - title: 'OpenStax, University Physics Volume 2, 15.5 Resonance in an AC Circuit'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/15-5-resonance-in-an-ac-circuit'
+  - title: 'OpenStax, College Physics 2e, 23.12 RLC Series AC Circuits'
+    url: 'https://openstax.org/books/college-physics-2e/pages/23-12-rlc-series-ac-circuits'
+description:
+  en: >-
+    The resonant frequency of an LC circuit is the frequency at which an inductor and a capacitor
+    joined together pass energy back and forth, and the frequency at which a series circuit of a
+    resistor, an inductor and a capacitor, driven by an alternating source, carries the largest
+    current. It equals one over two pi times the square root of the inductance times the
+    capacitance.
+
+    $\mag{f_{0}}$ is the resonant frequency in hertz, $\mag{L}$ the inductance in henries and
+    $\mag{C}$ the capacitance in farads, all positive. The matching angular frequency is
+    $\omega_{0} = 1/\sqrt{LC}$, in radians per second, which is two pi times the frequency in hertz.
+
+    A charged capacitor connected to an inductor drives a current that builds up a magnetic field;
+    when the capacitor is empty the current is at its largest, and the inductor then recharges the
+    capacitor with the opposite polarity. The charge oscillates like a mass on a spring, the
+    inductance acting as the mass and the reciprocal of the capacitance as the spring constant. In a
+    driven circuit, resonance is the frequency at which the two reactances are equal,
+    $X_\mathrm{L} = X_\mathrm{C}$, so they cancel and the impedance falls to the resistance alone.
+
+    The free oscillation described here neglects resistance, which turns the energy into heat and
+    makes the oscillation die away. In a driven series circuit the resistance does not move the
+    resonant frequency but sets how sharp the peak is: the smaller the resistance, the taller and
+    narrower the peak, and the better the circuit selects one frequency.
+
+    Radio receivers tune to a station by adjusting a variable capacitor until the resonant frequency
+    matches the broadcast. An inductance of 3.00 mH with a capacitance of 5.00 microfarads
+    resonates at about 1.30 kHz.

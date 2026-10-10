@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Capacidad de un condensador de placas paralelas'
+terms:
+  d:
+    label: 'Separación entre las placas'
+description: >-
+  La capacidad de un condensador de placas paralelas en el vacío es igual a la permitividad
+  eléctrica del vacío por el área de una placa, dividida entre la separación entre las placas. Dos
+  placas conductoras planas enfrentadas a través de un hueco estrecho forman el condensador más
+  sencillo de analizar, por lo que este resultado es el primer modelo de condensador en la
+  electrostática y en el diseño de circuitos.
+
+  $\mag{C}$ es la capacidad en faradios, $\mag{A}$ el área de cada placa en metros cuadrados y
+  $\var{d}$ la separación entre las placas en metros; las tres son positivas.
+  $\const{\varepsilon_{0}}$ es la permitividad eléctrica del vacío, una constante medida cuyo valor
+  CODATA 2022 es de unos $8.854\times10^{-12}\,\mathrm{F/m}$. La capacidad depende solo de esta
+  geometría, no de la carga almacenada ni de la tensión aplicada.
+
+  Cargas iguales y opuestas se reparten por las caras interiores de las placas y crean entre ellas
+  un campo casi uniforme, igual a la carga por unidad de área dividida entre la permitividad. La
+  tensión entre las placas es ese campo por la separación, así que la carga dividida entre la
+  tensión deja la permitividad por el área entre la separación. Unas placas más grandes guardan más
+  carga con una tensión dada, y acercarlas permite que la misma tensión guarde también más carga.
+
+  La fórmula supone una separación pequeña frente al tamaño de las placas, de modo que puede
+  despreciarse el campo más débil y curvado cerca de los bordes. Llenar el hueco con un aislante
+  multiplica la capacidad por su constante dieléctrica $\kappa$, que vale uno en el vacío, casi
+  uno en el aire y más de uno en cualquier medio material.
+
+  Dos placas de 1.00 metro cuadrado cada una, separadas 1.00 mm en el vacío, tienen una capacidad
+  de unos 8.85 nF, de modo que una capacidad de un faradio con esa separación exigiría placas
+  cuadradas de unos diez kilómetros de lado.
