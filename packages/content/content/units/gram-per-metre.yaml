@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Gram per metre'
+symbol:
+  tex: 'g/m'
+unitOf:
+  - 'linear-density'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'gram'
+      exp: 1
+    - unit: 'metre'
+      exp: -1
+externalIds:
+  wikidata: 'Q107460866'
+  qudt: 'http://qudt.org/vocab/unit/GM-PER-M'
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+  - 'mechanics'
+aliases:
+  - 'gram per meter'
+  - 'grams per metre'
+  - 'g/m'
+  - 'g m-1'
+  - 'gm/m'
+  - 'gramo por metro'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.4 Derived units and chapter 3 (prefixes and coherence)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, unit GM-PER-M'
+    url: 'https://qudt.org/vocab/unit/GM-PER-M'
+  - title: 'QUDT, quantity kind LinearDensity and unit TEX'
+    url: 'https://qudt.org/vocab/quantitykind/LinearDensity'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Vibrating string (wave velocity calculator in gm/m)'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/Waves/string.html'
+  - title: 'OpenStax, University Physics Volume 1, 16.3 Wave Speed on a Stretched String (Example 16.5)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/16-3-wave-speed-on-a-stretched-string'
+description:
+  en: >-
+    The gram per metre, symbol $\mathrm{g/m}$, is a unit of linear mass density: one gram of
+    material in each metre of a string, wire or thread. It is a decimal submultiple of the coherent
+    SI unit, the kilogram per metre, and suits the light strings of musical instruments and
+    laboratory wave experiments, whose masses per metre are fractions of a gram to a few grams.
+
+    The unit is the gram divided by the metre. Because the gram is a thousandth of the kilogram,
+    one gram per metre equals exactly 0.001 kilograms per metre. That factor of one thousandth
+    means that the gram per metre, although an SI unit, is not coherent in the sense of the SI
+    Brochure, so values are converted to kilograms per metre before they enter a formula written in
+    coherent units.
+
+    One gram per metre is also one kilogram per kilometre and one milligram per millimetre. In the
+    tex system used for yarns, which counts grams per kilometre, it equals 1000 tex. QUDT files the
+    unit under mass per length and lineic mass, and among the units applicable to linear density.
+
+    The HyperPhysics calculator for a vibrating string asks for the mass per length in grams per
+    metre, a convenient scale for strings of this kind. In grams per metre the guitar
+    strings of an OpenStax example read 0.309 for the high E string and 5.78 for the low E string;
+    under a tension of 56.40 newtons the lighter one carries waves at about 427 metres per second.
+
+    The symbol may also be written $\mathrm{g\,m^{-1}}$; some texts, HyperPhysics among them, write
+    gm/m, a form the SI does not use. In American English the name is gram per meter, and the plural is grams per metre.

@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de Stefan-Boltzmann'
+terms:
+  \varepsilon:
+    label: 'Emisividad'
+description: >-
+  La ley de Stefan-Boltzmann da la potencia total que la superficie de un cuerpo emite como
+  radiación térmica: crece con el área de la superficie, con su emisividad y con la cuarta potencia
+  de su temperatura absoluta. También llamada ley de Stefan, es la regla básica de la transferencia
+  de calor por radiación en termodinámica y de la radiación de cuerpo negro en astrofísica.
+
+  $\mag{P}$ es la potencia radiada en vatios, sumada sobre todas las longitudes de onda y
+  direcciones. $\var{\varepsilon}$ es la emisividad, un cociente sin unidad entre 0 y 1: vale 1
+  para un cuerpo negro ideal, el mejor emisor y absorbente posible, y se acerca a 0 para un
+  reflector perfecto. $\const{\sigma}$ es la constante de Stefan-Boltzmann, de unos
+  $5.67\times10^{-8}\,\mathrm{W/(m^{2}\,K^{4})}$ y exacta en el SI. $\mag{A}$ es el área emisora
+  en metros cuadrados y $\mag{T}$ la temperatura termodinámica de la superficie en kelvin. La ley
+  exige temperatura absoluta, así que una lectura en grados Celsius se convierte antes sumándole
+  273.15. Todas las magnitudes son no negativas.
+
+  La cuarta potencia hace que la ley sea muy empinada: duplicar la temperatura absoluta multiplica
+  por dieciséis la potencia emitida. Un cuerpo también absorbe la radiación de lo que lo rodea, de
+  modo que su pérdida neta hacia un entorno más frío sigue el mismo producto con la diferencia entre
+  las dos cuartas potencias de la temperatura en lugar de $\mag{T}^{4}$, y el flujo se invierte
+  cuando el entorno es el lado más caliente.
+
+  La ley trata el cuerpo como un emisor gris, cuya emisividad es la misma en todas las longitudes de
+  onda, con una superficie a una única temperatura uniforme. Los materiales reales tienen
+  emisividades que cambian con la longitud de onda y la temperatura, así que un valor tabulado es
+  un promedio: unos 0.97 para la piel humana en el infrarrojo y unos 0.5 para el filamento de
+  tungsteno de una lámpara.
+
+  Josef Stefan halló empíricamente la dependencia con la cuarta potencia en 1879, y Ludwig
+  Boltzmann la dedujo teóricamente en 1884. Una piel a 306 kelvin con un área de 1.50 metros
+  cuadrados radia unos 720 vatios, en su mayor parte compensados por lo que devuelve una habitación
+  a 295 kelvin.

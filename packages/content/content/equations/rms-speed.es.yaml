@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Rapidez cuadrática media de las moléculas de un gas'
+terms:
+  m:
+    label: 'Masa de una molécula'
+description: >-
+  La rapidez cuadrática media de las moléculas de un gas es la raíz cuadrada de tres veces la
+  constante de Boltzmann por la temperatura absoluta, dividida entre la masa de una molécula.
+  Conocida como rapidez rms, o velocidad rms en muchos textos, es la rapidez típica del movimiento molecular en la teoría cinética
+  de los gases, que se obtiene elevando al cuadrado cada rapidez molecular, promediando los
+  cuadrados y extrayendo la raíz cuadrada.
+
+  $\mag{v_\mathrm{rms}}$ es la rapidez rms en metros por segundo, nunca negativa.
+  $\const{k_\mathrm{B}}$ es la constante de Boltzmann, $1.380\,649\times10^{-23}\,\mathrm{J/K}$,
+  exacta en el SI. $\mag{T}$ es la temperatura termodinámica en kelvin; la fórmula exige
+  temperatura absoluta, así que una lectura en grados Celsius se convierte sumándole 273.15.
+  $\var{m}$ es la masa de una molécula en kilogramos, la masa molar dividida entre la constante de
+  Avogadro; la calculadora acepta también daltons.
+
+  La energía cinética media de traslación de una molécula es la mitad de su masa por la media de
+  los cuadrados de la rapidez, y la teoría cinética la iguala a tres medios de la constante de
+  Boltzmann por la temperatura; despejar la raíz cuadrada de esa media da la fórmula. Multiplicar
+  numerador y denominador por la constante de Avogadro da la forma molar equivalente, con la
+  constante molar de los gases sobre la masa molar. A una temperatura dada, las moléculas más
+  ligeras se mueven más deprisa, en razón inversa a la raíz cuadrada de su masa.
+
+  El resultado vale para un gas ideal en equilibrio térmico descrito por la mecánica clásica. Las
+  moléculas individuales se reparten en un amplio intervalo de rapideces, la distribución de
+  Maxwell-Boltzmann, y la rapidez rms supera tanto la rapidez media como su rapidez más probable,
+  así que las tres cifras no deben confundirse.
+
+  Para el nitrógeno a 293 kelvin, con una masa molecular de $4.65\times10^{-26}$ kilogramos, la
+  fórmula da unos 511 metros por segundo, algo más de medio kilómetro por segundo.

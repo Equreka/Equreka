@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Lensmaker''s equation'
+kind: 'formula'
+level: 'intermediate'
+expression: '\frac{1}{\var{f}}=\left(\mag{n}-1\right)\left(\frac{1}{\var{R_{1}}}-\frac{1}{\var{R_{2}}}\right)'
+terms:
+  f:
+    kind: 'symbol'
+    label:
+      en: 'Focal length'
+    unit: 'metre'
+  n:
+    kind: 'magnitude'
+    ref: 'refractive-index'
+  R_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Radius of curvature of the first surface'
+    unit: 'metre'
+  R_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Radius of curvature of the second surface'
+    unit: 'metre'
+solutions:
+  f: 'R_1 * R_2 / ((n - 1) * (R_2 - R_1))'
+  n: '1 + R_1 * R_2 / (f * (R_2 - R_1))'
+  R_{1}: 'f * (n - 1) * R_2 / (R_2 + f * (n - 1))'
+  R_{2}: 'f * (n - 1) * R_1 / (f * (n - 1) - R_1)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q18192568'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'lens maker''s equation'
+  - 'lens-maker''s formula'
+  - 'lensmaker formula'
+  - '1/f = (n - 1)(1/R1 - 1/R2)'
+  - 'ecuación del fabricante de lentes'
+  - 'fórmula del constructor de lentes'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 2.4 Thin Lenses (Equations 2.20 and 2.21, sign conventions, Example 2.3)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/2-4-thin-lenses'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Lens-maker''s formula and thin lenses'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/geoopt/lenmak.html'
+description:
+  en: >-
+    The lensmaker's equation gives the focal length of a thin lens from what the lens is made of
+    and how its two faces are ground: the reciprocal of the focal length equals the refractive
+    index minus one, times the difference between the reciprocals of the two radii of curvature.
+    Lens designers use it to choose curvatures and glass.
+
+    Here $\var{f}$ is the focal length in metres, positive when the lens converges light and
+    negative when it spreads it. $\mag{n}$ is the refractive index of the glass or plastic, a pure
+    number, for a lens in air. $\var{R_{1}}$ and $\var{R_{2}}$ are the radii of curvature in metres
+    of the surface the light meets first and of the second surface. Following OpenStax, a radius is
+    positive when its surface is convex towards the object and negative when it is concave towards
+    it, so a biconvex lens has a positive first radius and a negative second one; these are the
+    signs of the real-is-positive convention of the thin lens equation, and they give a converging
+    lens a positive focal length. A flat face has an infinite radius whose reciprocal is zero; the
+    calculator cannot take one, so a plano lens is worked by hand with that reciprocal set to zero.
+
+    Each curved face refracts light as a single spherical boundary; treating the image formed by
+    the first face as the object for the second and letting the thickness shrink to zero combines
+    the two into one focal length. For a lens immersed in a medium, the ratio of the lens index to the medium index replaces the index, which is why a
+    lens weakens in water.
+
+    The equation holds for thin lenses and rays close to the axis; a thick lens needs a term in its
+    thickness, and because the index varies with wavelength, blue and red light focus at slightly
+    different distances.
+
+    In an OpenStax example, a symmetric biconcave lens of glass with an index of 1.55 and a focal
+    length of minus 20 centimetres in air needs radii of 22 centimetres, the first negative and the
+    second positive.

@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Número de ondas a partir de la longitud de onda'
+description: >-
+  El número de ondas a partir de la longitud de onda es la relación que define el número de ondas:
+  uno dividido entre la longitud de onda, que cuenta cuántas longitudes de onda caben en un
+  metro. La física, la óptica y la espectroscopia lo usan para expresar lo fina que es la
+  división espacial de una onda, y los espectros infrarrojos y Raman se representan frente a él,
+  casi siempre en centímetros inversos.
+
+  Aquí $\mag{\sigma}$ es el número de ondas en metros inversos y $\mag{\lambda}$ la longitud de
+  onda en metros, la distancia entre dos crestas vecinas. Ambos son positivos. La norma ISO 80000-3
+  lo escribe con sigma y admite nu con tilde; el Libro Verde de la IUPAC reserva nu con tilde para
+  el número de ondas en el vacío, el que usa la espectroscopia, y sigma para el número de ondas en
+  un medio. El folleto del SI da el metro inverso como unidad coherente; un centímetro inverso equivale
+  a 100 metros inversos.
+
+  Longitud de onda y número de ondas guardan la misma información en forma recíproca: si una se
+  reduce a la mitad, el otro se duplica. Para la luz en el vacío, el número de ondas es también la
+  frecuencia dividida entre la velocidad de la luz y crece en proporción a la energía del fotón;
+  por eso las líneas espectrales se identifican tan a menudo por él.
+
+  La relación es una definición y vale para cualquier onda periódica, con dos precauciones. Muchos
+  libros de física, OpenStax entre ellos, llaman número de onda y escriben k al número de ondas
+  angular, dos pi dividido entre la longitud de onda, en radianes por metro; esa magnitud es mayor
+  en un factor dos pi y es la que acompaña a la frecuencia angular en la función de una onda
+  viajera. Además, la luz acorta su longitud de onda dentro de un medio, así que el número de ondas
+  de una línea espectral se refiere normalmente a la longitud de onda en el vacío, como indica el
+  Libro Verde.
+
+  Una longitud de onda de 10 micrómetros, en el infrarrojo térmico, corresponde a 100 000 metros
+  inversos, o 1000 centímetros inversos; una onda sonora de 2 metros tiene un número de
+  ondas de 0.5 metros inversos.

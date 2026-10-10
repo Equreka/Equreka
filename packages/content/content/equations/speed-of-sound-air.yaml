@@ -40,6 +40,7 @@ aliases:
   - 'velocidad del sonido en el aire'
   - 'velocidad del sonido en un gas ideal'
   - 'rapidez del sonido'
+  - 'molar form of the speed of sound'
 references:
   - title: 'OpenStax, University Physics Volume 1, 17.2 Speed of Sound'
     url: 'https://openstax.org/books/university-physics-volume-1/pages/17-2-speed-of-sound'
@@ -47,6 +48,8 @@ references:
     url: 'https://hyperphysics.gsu.edu/hbase/Sound/souspe3.html'
   - title: 'NIST, CODATA 2022 value: molar gas constant'
     url: 'https://physics.nist.gov/cgi-bin/cuu/Value?r'
+  - title: 'OpenStax, University Physics Volume 2, 2.1 Molecular Model of an Ideal Gas (R = N_A k_B)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/2-1-molecular-model-of-an-ideal-gas'
 description:
   en: >-
     In an ideal gas, sound travels at the square root of the adiabatic index times the molar gas
@@ -58,7 +61,7 @@ description:
     Here $\mag{v}$ is the speed of sound, in metres per second, never negative. $\var{\gamma}$ is
     the adiabatic index of the gas, a pure number equal to 1.40 for air. $\const{R}$ is the molar
     gas constant, about 8.314 joules per mole kelvin. $\mag{T}$ is the thermodynamic temperature in
-    kelvin; a Celsius reading must be converted first, by adding 273.15. $\mag{M}$ is the molar
+    kelvin; a Celsius reading is converted by adding 273.15. $\mag{M}$ is the molar
     mass of the gas, in kilograms per mole, about 0.02897 for dry air.
 
     A sound wave is a travelling pattern of compressions and rarefactions, and its speed balances
@@ -71,7 +74,8 @@ description:
     The relation treats the gas as ideal and the compressions as adiabatic: they come and go so
     quickly that no heat flows into or out of each small volume of gas. The relation does not apply
     to liquids or solids, where sound is much faster, about 1480 metres per second in fresh water
-    and 5960 in steel.
+    and 5960 in steel. Its molecular form, with the Boltzmann constant and the mass of one
+    molecule, divides the top and bottom of the fraction by the Avogadro constant.
 
     In air at 30 degrees Celsius the relation gives about 349 metres per second, so a 20-hertz tone
     has a wavelength of roughly 17 metres.

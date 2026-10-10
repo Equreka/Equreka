@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Maximum speed in simple harmonic motion'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{v_{\max}}=\var{A}\mag{\omega}'
+terms:
+  v_{\max}:
+    kind: 'magnitude'
+    ref: 'speed'
+  A:
+    kind: 'symbol'
+    label:
+      en: 'Amplitude'
+    unit: 'metre'
+  \omega:
+    kind: 'magnitude'
+    ref: 'angular-frequency'
+solutions:
+  v_{\max}: 'A * omega'
+  A: 'v_max / omega'
+  \omega: 'v_max / A'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'v max = A omega'
+  - 'vmax = Aω'
+  - 'maximum velocity in SHM'
+  - 'peak speed of an oscillator'
+  - 'velocidad máxima en el MAS'
+  - 'velocidad máxima del oscilador armónico'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 15.1 Simple Harmonic Motion (Equations 15.4 and 15.7)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/15-1-simple-harmonic-motion'
+  - title: 'OpenStax, University Physics Volume 1, 15.2 Energy in Simple Harmonic Motion'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/15-2-energy-in-simple-harmonic-motion'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Simple harmonic motion'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/shm.html'
+description:
+  en: >-
+    The maximum speed in simple harmonic motion is the greatest speed a harmonic oscillator reaches
+    during its cycle: the amplitude multiplied by the angular frequency. A block on a spring, a
+    vibrating string element or a pendulum at small angles reaches this peak speed every time it
+    crosses its equilibrium position, where the restoring force vanishes.
+
+    Here $\mag{v_{\max}}$ is the maximum speed in metres per second, never negative; $\var{A}$ is
+    the amplitude, the largest displacement from equilibrium, in metres; and $\mag{\omega}$ is the
+    angular frequency in radians per second. Because the radian counts as one in the SI, a length
+    times a rate in radians per second comes out in metres per second. The result is a speed, not a
+    velocity: the body passes the equilibrium point once in each direction per cycle, with the same
+    speed both times.
+
+    Differentiating the displacement, the amplitude times the cosine of the phase, gives a velocity
+    equal to minus the amplitude times the angular frequency times the sine of the phase. The sine
+    swings between minus one and plus one, so the size of the velocity peaks at the product of
+    amplitude and angular frequency, when the displacement is zero. Energy gives the same answer: at
+    equilibrium all of the oscillator's energy is kinetic, and equating half the mass times the
+    speed squared with half the spring constant times the amplitude squared reproduces the relation
+    for a mass on a spring.
+
+    The relation holds for undamped simple harmonic motion with a linear restoring force. With
+    friction the amplitude, and with it the peak speed, shrinks from cycle to cycle; for a pendulum
+    the amplitude is the arc length of the swing and the result is valid only for small angles. A
+    larger amplitude at the same angular frequency raises the peak speed in proportion.
+
+    In an OpenStax example a block oscillating with an amplitude of 0.02 metres and an angular
+    frequency of 4.00 reciprocal seconds reaches a maximum speed of 0.08 metres per second.

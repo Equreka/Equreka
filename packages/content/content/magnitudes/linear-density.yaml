@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Linear mass density'
+symbol:
+  tex: '\rho_\mathrm{l}'
+  text: 'ρl'
+symbolAlt:
+  tex: '\mu'
+  text: 'μ'
+baseUnit: 'kilogram-per-metre'
+dimension:
+  L: -1
+  M: 1
+nonNegative: true
+externalIds:
+  wikidata: 'Q56298294'
+  qudt: 'http://qudt.org/vocab/quantitykind/LinearDensity'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+  - 'waves-and-oscillations'
+aliases:
+  - 'linear density'
+  - 'lineic mass'
+  - 'mass per unit length'
+  - 'mass per length'
+  - 'densidad lineal'
+  - 'masa por unidad de longitud'
+references:
+  - title: 'QUDT, quantity kind LinearDensity (definition, symbol and applicable units)'
+    url: 'https://qudt.org/vocab/quantitykind/LinearDensity'
+  - title: 'Wikidata, linear mass density (Q56298294): defining formula and symbol'
+    url: 'https://www.wikidata.org/wiki/Q56298294'
+  - title: 'OpenStax, University Physics Volume 1, 16.3 Wave Speed on a Stretched String (Equation 16.7, Example 16.5)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/16-3-wave-speed-on-a-stretched-string'
+description:
+  en: >-
+    Linear mass density, often shortened to linear density, is the mass of a long, thin body per
+    unit of its length: the mass of a short piece divided by the length of that piece, in the limit
+    of a very short piece. It describes strings, wires, cables, chains, fibres and yarns, bodies
+    whose cross-section matters only through how much mass each length of them carries.
+
+    Its coherent SI unit is the kilogram per metre, and its dimension is mass divided by length.
+    For a uniform body the value is the total mass over the total length: a string 2.00 metres long
+    with a mass of 0.06 kilograms, an example in OpenStax, has 0.03 kilograms per metre. The strings
+    of musical instruments are often quoted in grams per metre, a unit a thousand times smaller.
+
+    Linear density is a scalar and is never negative. A body that is not uniform, such as a tapered
+    rod, has a linear density that changes along its length, and its mass is then the integral of
+    the linear density over that length.
+
+    It is measured by weighing a known length. In physics its main use is the speed of transverse
+    waves on a stretched string, which grows as the square root of tension over linear density. In
+    the same OpenStax chapter the high E string of a guitar has 0.000 309 kilograms per metre and
+    the low E string 0.005 78, close to twenty times as much. The textile trade grades yarn by its
+    own units of linear density, the tex and the denier, both listed by QUDT for this quantity.
+
+    Linear density is not the ordinary density, mass per volume in kilograms per cubic metre, nor
+    the surface density of a sheet, in kilograms per square metre: two wires of one metal share a
+    density but differ in linear density when their thicknesses differ. QUDT and Wikidata give it
+    the symbol rho with a subscript l, while wave texts, OpenStax among them, write mu.

@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Single-slit diffraction minima'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{a}\sin\mag{\theta}=\var{m}\mag{\lambda}'
+terms:
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Slit width'
+    unit: 'metre'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  m:
+    kind: 'symbol'
+    label:
+      en: 'Order of the dark fringe'
+    integer: true
+  \lambda:
+    kind: 'magnitude'
+    ref: 'wavelength'
+solutions:
+  a: 'm * lambda / sin(theta)'
+  \theta: 'asin(m * lambda / a)'
+  m: 'a * sin(theta) / lambda'
+  \lambda: 'a * sin(theta) / m'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'a sin theta = m lambda'
+  - 'a sin θ = mλ'
+  - 'single slit diffraction'
+  - 'single-slit dark fringes'
+  - 'Fraunhofer single slit'
+  - 'mínimos de difracción de una rendija'
+  - 'difracción por una rendija'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 4.1 Single-Slit Diffraction (Equation 4.1, Example 4.1)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/4-1-single-slit-diffraction'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Fraunhofer single slit diffraction'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/phyopt/sinslit.html'
+description:
+  en: >-
+    The single-slit diffraction minima condition gives the directions of the dark fringes when
+    light passes through one narrow slit: the slit width times the sine of the angle equals a whole
+    number of wavelengths, zero excluded. Between those dark directions lie a broad, bright central
+    maximum and much fainter side maxima, the pattern that limits how sharply any opening can
+    focus or resolve light.
+
+    Here $\var{a}$ is the width of the slit in metres. $\mag{\theta}$ is the angle measured from the
+    straight-through direction of the incident light, in radians. $\var{m}$ is the order of the
+    dark fringe, a whole number other than zero, positive on one side of the centre and negative on
+    the other; $\var{m}$ equal to zero is the centre of the bright central maximum, not a minimum, so zero is
+    not a valid order here. $\mag{\lambda}$ is the wavelength in metres.
+
+    Every point across the slit acts as a source of wavelets. Dividing the slit into an upper and a
+    lower half pairs each wavelet in one half with a partner in the other that travels half a
+    wavelength farther, and the pairs cancel; this first dark fringe appears when the
+    full width times the sine of the angle is one wavelength. Dividing into four, six or more strips gives
+    the higher orders. A narrower slit or a longer wavelength widens the pattern.
+
+    The condition describes Fraunhofer diffraction, with the screen far from the slit or at the
+    focus of a lens, and light of a single wavelength. It gives the minima only: the side maxima
+    lie roughly midway between them and are far weaker than the central one. Because the sine
+    cannot exceed one, a slit narrower than a wavelength shows no dark fringe at all.
+
+    In an OpenStax example, light of 550 nanometres has its second minimum at 45.0 degrees, so the
+    slit is 1.56 micrometres wide and the first minimum falls at 20.7 degrees.

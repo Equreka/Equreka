@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Malus''s law'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{I}=\var{I_{0}}\cos^{2}\mag{\theta}'
+terms:
+  I:
+    kind: 'symbol'
+    label:
+      en: 'Transmitted intensity'
+    unit: 'watt-per-square-metre'
+  I_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Intensity of the polarized light reaching the polarizer'
+    unit: 'watt-per-square-metre'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+solutions:
+  I: 'I_0 * cos(theta)^2'
+  I_{0}: 'I / cos(theta)^2'
+  \theta: 'acos(sqrt(I / I_0))'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q2120971'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'law of Malus'
+  - 'Malus'' law'
+  - 'I = I0 cos^2 theta'
+  - 'I = I₀cos²θ'
+  - 'polarizer intensity law'
+  - 'ley de Malus'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 1.7 Polarization (Equation 1.6, Example 1.7)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/1-7-polarization'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Crossed polarizers and the law of Malus'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/phyopt/polcross.html'
+  - title: 'MacTutor History of Mathematics, Étienne Louis Malus (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Malus/'
+description:
+  en: >-
+    Malus's law gives the intensity of linearly polarized light after it passes through a
+    polarizing filter: the incoming intensity times the square of the cosine of the angle that
+    separates the polarization direction from the transmission axis of the filter. It explains why
+    rotating one polarizing sheet behind another dims the light smoothly until it vanishes at a
+    right angle.
+
+    Here $\var{I}$ is the intensity transmitted by the filter and $\var{I_{0}}$ the intensity of the
+    polarized light reaching it, both in watts per square metre and both non-negative; any common
+    unit works because only their ratio matters. $\mag{\theta}$ is the angle between the
+    polarization direction and the filter axis, in radians. Because two axes are lines rather than
+    arrows, the angle is taken from 0 to 90 degrees, and solving for it returns a value in that
+    range.
+
+    A polarizing filter passes only the component of the electric field along its axis, which is
+    the field amplitude times the cosine of the angle. Intensity is proportional to the square of
+    the amplitude, so the transmitted fraction is the cosine squared: all of the light at 0
+    degrees, half at 45 degrees and none at 90 degrees.
+
+    The law applies to light that is already linearly polarized and to an ideal polarizer. An ideal
+    filter cuts unpolarized light to half its intensity, whatever its orientation, so a first sheet
+    supplies the polarized beam for the second. Real sheets transmit a little light even when
+    crossed, so for them the law holds only approximately. Applying it
+    twice explains why a third sheet at 45 degrees between two crossed ones lets light through
+    again.
+
+    The law bears the name of Étienne Louis Malus (1775–1812), a French mathematician and army
+    engineer who worked almost entirely on light; his discovery of polarization by reflection was
+    published in 1809. OpenStax finds that cutting the intensity of polarized light to 10.0 percent
+    needs an angle of 71.6 degrees.

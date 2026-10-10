@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Gramo por metro'
+description: >-
+  El gramo por metro, de símbolo $\mathrm{g/m}$, es una unidad de densidad lineal de masa: un gramo
+  de material en cada metro de una cuerda, un alambre o un hilo. Es un submúltiplo decimal de la
+  unidad SI coherente, el kilogramo por metro, y resulta cómodo para las cuerdas ligeras de los
+  instrumentos musicales y de los experimentos de ondas, cuya masa por metro va de fracciones de
+  gramo a unos pocos gramos.
+
+  La unidad es el gramo dividido entre el metro. Como el gramo es la milésima parte del kilogramo,
+  un gramo por metro equivale exactamente a 0.001 kilogramos por metro. Ese factor de una milésima
+  hace que el gramo por metro, aunque es una unidad SI, no sea coherente en el sentido del folleto
+  del SI, de modo que los valores se pasan a kilogramos por metro antes de entrar en una fórmula
+  escrita en unidades coherentes.
+
+  Un gramo por metro es también un kilogramo por kilómetro y un miligramo por milímetro. En el
+  sistema tex de los hilos, que cuenta gramos por kilómetro, equivale a 1000 tex. QUDT clasifica la
+  unidad bajo masa por unidad de longitud y masa lineica, y entre las unidades aplicables a la
+  densidad lineal.
+
+  La calculadora de HyperPhysics para una cuerda vibrante pide la masa por unidad de longitud en
+  gramos por metro, una escala cómoda para este tipo de cuerdas. En gramos por metro, las cuerdas
+  de guitarra de un ejemplo de OpenStax miden 0.309 la mi aguda y 5.78 la mi grave; con una
+  tensión de 56.40 newtons, la más ligera transmite ondas a unos 427 metros por segundo.
+
+  El símbolo también puede escribirse $\mathrm{g\,m^{-1}}$; algunos textos, entre ellos
+  HyperPhysics, escriben gm/m, una forma que el SI no usa. En inglés estadounidense el nombre es
+  gram per meter, y el plural es gramos por metro.

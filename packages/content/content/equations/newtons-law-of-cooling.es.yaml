@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de enfriamiento de Newton'
+terms:
+  T:
+    label: 'Temperatura del cuerpo en el instante t'
+  T_\mathrm{env}:
+    label: 'Temperatura ambiente'
+  T_{0}:
+    label: 'Temperatura inicial del cuerpo'
+  k:
+    label: 'Constante de enfriamiento'
+description: >-
+  La ley de enfriamiento de Newton establece que un cuerpo situado en un entorno a temperatura
+  constante se acerca a esa temperatura de forma exponencial: la diferencia entre ambas se reduce en
+  el mismo factor en cada intervalo de tiempo igual. Es un modelo sencillo de transferencia de calor
+  en termodinámica, que se usa para una taza de café que se enfría, una bebida que se templa al
+  salir del refrigerador o el tiempo transcurrido desde que se dejó un objeto caliente.
+
+  $\var{T}$ es la temperatura del cuerpo en el instante $\mag{t}$, $\var{T_{0}}$ su temperatura al
+  comienzo y $\var{T_\mathrm{env}}$ la temperatura ambiente constante, todas en kelvin; una lectura
+  en grados Celsius se convierte sumándole 273.15, y como solo intervienen diferencias respecto al
+  valor ambiente, el resultado es el mismo que trabajando siempre en grados Celsius. $\var{k}$ es la
+  constante de enfriamiento en segundos inversos, positiva, fijada por el cuerpo y su entorno
+  y obtenida a partir de una temperatura medida. $\mag{t}$ es el tiempo transcurrido desde el
+  comienzo, en segundos. Un cuerpo más frío que su entorno se calienta según la misma regla.
+
+  La ley supone que la rapidez de cambio de la temperatura del cuerpo es proporcional a su diferencia
+  con la temperatura ambiente. Esa diferencia cumple entonces la ecuación del decrecimiento
+  exponencial, y su solución es la expresión mostrada. El cuerpo nunca llega del todo a la
+  temperatura ambiente; la diferencia se reduce a la mitad en cada intervalo igual al logaritmo
+  natural de 2 dividido entre la constante de enfriamiento.
+
+  El modelo exige un entorno lo bastante grande para no calentarse, un cuerpo a temperatura casi
+  uniforme y una pérdida de calor por convección proporcional al exceso de temperatura, lo que se
+  cumple para diferencias moderadas. Las diferencias grandes, en las que la radiación crece con la
+  cuarta potencia de la temperatura, rompen la proporcionalidad.
+
+  Isaac Newton expuso la ley en un artículo sobre una escala de temperaturas, Scala graduum caloris, en las
+  Philosophical Transactions de 1701. Un café servido a 200 grados Fahrenheit que se enfría hasta
+  180 en dos minutos en una habitación a 70 tiene una constante de enfriamiento de unos 0.0835 por
+  minuto.

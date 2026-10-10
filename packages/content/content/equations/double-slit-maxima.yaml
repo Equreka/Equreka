@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Double-slit interference maxima'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{d}\sin\mag{\theta}=\var{m}\mag{\lambda}'
+terms:
+  d:
+    kind: 'symbol'
+    label:
+      en: 'Slit separation'
+    unit: 'metre'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  m:
+    kind: 'symbol'
+    label:
+      en: 'Order of the bright fringe'
+    integer: true
+  \lambda:
+    kind: 'magnitude'
+    ref: 'wavelength'
+solutions:
+  d: 'm * lambda / sin(theta)'
+  \theta: 'asin(m * lambda / d)'
+  m: 'd * sin(theta) / lambda'
+  \lambda: 'd * sin(theta) / m'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'd sin theta = m lambda'
+  - 'd sin θ = mλ'
+  - 'double-slit constructive interference'
+  - 'bright fringes double slit'
+  - 'Young''s double-slit maxima'
+  - 'máximos de la doble rendija'
+  - 'franjas brillantes de Young'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 3.2 Mathematics of Interference (Equations 3.3 to 3.5, Example 3.1)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/3-2-mathematics-of-interference'
+  - title: 'OpenStax, University Physics Volume 3, 3.1 Young''s Double-Slit Interference'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/3-1-youngs-double-slit-interference'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Double slit interference'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/phyopt/slits.html'
+description:
+  en: >-
+    The double-slit interference maxima condition gives the directions of the bright fringes in
+    Young's double-slit experiment: the slit separation times the sine of the angle equals a whole
+    number of wavelengths. Where it holds, the waves from the two slits arrive in step and
+    reinforce each other, producing the evenly spaced bright bands that first showed light to be a
+    wave.
+
+    Here $\var{d}$ is the distance between the centres of the two slits in metres. $\mag{\theta}$
+    is the angle of a bright fringe measured from the straight-through direction of the incoming
+    beam, in radians. $\var{m}$ is the order of the bright fringe, a whole number: zero for the
+    central fringe, positive on one side and negative on the other. $\mag{\lambda}$ is the
+    wavelength of the light in metres.
+
+    Rays from the two slits to a distant point on the screen are almost parallel, and the one from
+    the farther slit travels an extra distance equal to the slit separation times the sine of the
+    angle. When that path difference is a whole number of wavelengths, crests meet crests and the
+    interference is constructive; when it is a whole number plus one half, crests meet troughs and
+    the screen is dark. Closer slits or longer wavelengths spread the fringes wider.
+
+    The condition assumes coherent light of a single wavelength, slits much narrower than their
+    separation and a screen far away compared with that separation. The sine cannot exceed one, so
+    only orders up to the separation divided by the wavelength appear; the brightness of the
+    fringes is also shaped by diffraction at each slit. For small angles the bright fringes are
+    equally spaced on a screen, as the entry on fringe spacing describes.
+
+    Thomas Young demonstrated this interference in 1801. In an OpenStax example, slits 0.0100
+    millimetres apart put the third bright fringe at 10.95 degrees, which gives a wavelength of
+    633 nanometres.

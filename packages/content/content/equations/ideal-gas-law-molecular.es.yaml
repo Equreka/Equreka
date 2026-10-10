@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Forma molecular de la ley de los gases ideales'
+terms:
+  N:
+    label: 'Número de moléculas'
+description: >-
+  La forma molecular de la ley de los gases ideales establece que la presión de un gas por su
+  volumen es igual al número de sus moléculas por la constante de Boltzmann por su temperatura
+  absoluta. Es la ecuación de estado del gas ideal escrita para la teoría cinética y la física
+  estadística: cuenta las partículas una a una en lugar de en moles, y así enlaza directamente las
+  propiedades globales de un gas con sus moléculas.
+
+  $\mag{p}$ es la presión absoluta en pascales, nunca la lectura manométrica de un medidor de
+  neumáticos. $\mag{V}$ es el volumen del gas en metros cúbicos. $\var{N}$ es el número de
+  moléculas, o de átomos en un gas monoatómico, un recuento sin unidad tan grande que se trata como
+  una magnitud continua. $\const{k_\mathrm{B}}$ es la constante de Boltzmann,
+  $1.380\,649\times10^{-23}\,\mathrm{J/K}$, exacta en el SI. $\mag{T}$ es la temperatura
+  termodinámica en kelvin; una lectura en grados Celsius se convierte sumándole 273.15. Las cuatro
+  magnitudes son positivas.
+
+  Escribir el número de moléculas como la cantidad de sustancia por la constante de Avogadro
+  convierte esta forma en la molar, más conocida, porque la constante de Avogadro por la constante
+  de Boltzmann es la constante molar de los gases. Al dividir ambos miembros entre el volumen se ve
+  que el número de moléculas por unidad de volumen depende solo de la presión y la temperatura,
+  sea cual sea el gas: volúmenes iguales a igual presión y temperatura contienen el mismo número de
+  moléculas.
+
+  La ley describe un gas ideal, cuyas moléculas ocupan una fracción despreciable del volumen e
+  interactúan solo mediante choques elásticos breves. Los gases reales se le acercan a baja
+  densidad y a temperaturas muy por encima de su punto de ebullición; a presión alta, el tamaño de
+  las moléculas y la atracción entre ellas la hacen fallar.
+
+  La constante de la ley rinde homenaje a Ludwig Boltzmann (1844–1906). Según la ley, una
+  respiración de 500 mililitros a 0 grados Celsius y una atmósfera estándar contiene unas
+  $1.34\times10^{22}$ moléculas.

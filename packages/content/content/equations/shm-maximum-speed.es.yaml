@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Rapidez máxima en el movimiento armónico simple'
+terms:
+  A:
+    label: 'Amplitud'
+description: >-
+  La rapidez máxima en el movimiento armónico simple es la mayor rapidez que alcanza un oscilador
+  armónico durante su ciclo: la amplitud multiplicada por la frecuencia angular. Un bloque unido a
+  un resorte, un tramo de cuerda que vibra o un péndulo con ángulos pequeños alcanzan esta rapidez
+  cada vez que cruzan la posición de equilibrio, donde la fuerza recuperadora se anula.
+
+  Aquí $\mag{v_{\max}}$ es la rapidez máxima en metros por segundo, nunca negativa; $\var{A}$ es la
+  amplitud, el mayor desplazamiento desde el equilibrio, en metros, y $\mag{\omega}$ es la
+  frecuencia angular en radianes por segundo. Como el radián vale uno en el SI, una longitud por un
+  ritmo en radianes por segundo da metros por segundo. El resultado es una rapidez, no una
+  velocidad: el cuerpo pasa por el equilibrio una vez en cada sentido por ciclo, con la misma
+  rapidez las dos veces.
+
+  Al derivar el desplazamiento, la amplitud por el coseno de la fase, se obtiene una velocidad igual
+  a menos la amplitud por la frecuencia angular por el seno de la fase. El seno oscila entre menos
+  uno y más uno, así que el valor absoluto de la velocidad es máximo, igual al producto de amplitud
+  y frecuencia angular, cuando el desplazamiento es nulo. La energía da la misma respuesta: en el
+  equilibrio toda la energía del oscilador es cinética, e igualar la mitad de la masa por la
+  rapidez al cuadrado con la mitad de la constante elástica por la amplitud al cuadrado reproduce
+  la relación para una masa unida a un resorte.
+
+  La relación vale para el movimiento armónico simple sin amortiguamiento con fuerza recuperadora
+  lineal. Con rozamiento, la amplitud, y con ella la rapidez máxima, disminuye de un ciclo a otro;
+  en un péndulo, la amplitud es la longitud del arco de la oscilación y el resultado solo vale para
+  ángulos pequeños. Una amplitud mayor con la misma frecuencia angular aumenta la rapidez máxima en
+  la misma proporción.
+
+  En un ejemplo de OpenStax, un bloque que oscila con una amplitud de 0.02 metros y una frecuencia
+  angular de 4.00 segundos inversos alcanza una rapidez máxima de 0.08 metros por segundo.

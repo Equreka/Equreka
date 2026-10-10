@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Energía total en el movimiento armónico simple'
+terms:
+  E:
+    label: 'Energía mecánica total del oscilador'
+  k:
+    label: 'Constante elástica'
+  A:
+    label: 'Amplitud'
+description: >-
+  La energía total en el movimiento armónico simple es la energía mecánica constante de un
+  oscilador sin amortiguamiento: la mitad de la constante elástica por el cuadrado de la amplitud.
+  Para una masa unida a un resorte es la suma de la energía cinética del cuerpo y la energía
+  potencial elástica almacenada en el resorte, una suma que no cambia mientras las dos partes
+  intercambian energía dos veces por ciclo.
+
+  Aquí $\var{E}$ es la energía mecánica total en julios, nunca negativa; $\var{k}$ es la constante
+  elástica en newtons por metro, la fuerza necesaria por metro de estiramiento, y $\var{A}$ es la
+  amplitud en metros, el mayor desplazamiento desde la posición de equilibrio. Al despejar la
+  amplitud se toma la raíz cuadrada no negativa, porque una amplitud es una longitud.
+
+  En cada extremo el cuerpo se detiene un instante, de modo que toda la energía está en el resorte
+  como energía potencial elástica, la mitad de la constante elástica por la amplitud al cuadrado.
+  En la posición de equilibrio el resorte está relajado y toda la energía es cinética, la mitad de
+  la masa por la rapidez máxima al cuadrado. Al sustituir el desplazamiento y la velocidad del
+  movimiento armónico simple en la suma de ambas energías, y usar que el cuadrado de la frecuencia
+  angular es la constante elástica entre la masa, los términos con coseno al cuadrado y seno al
+  cuadrado suman uno, así que el total es el mismo en todo instante. Así, la relación conecta
+  la energía potencial elástica de un resorte con la rapidez máxima.
+
+  La energía solo se conserva sin rozamiento ni resistencia del aire; un oscilador amortiguado
+  pierde energía y su amplitud decrece. El resultado exige una fuerza recuperadora lineal, por lo
+  que falla en resortes estirados más allá del rango de la ley de Hooke. Como la energía crece con
+  el cuadrado de la amplitud, duplicar la amplitud almacena el cuádruple de energía.
+
+  Un resorte de 32.0 newtons por metro puesto a oscilar con una amplitud de 0.100 metros almacena
+  una energía total de 0.160 julios.

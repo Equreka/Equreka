@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de Malus'
+terms:
+  I:
+    label: 'Intensidad transmitida'
+  I_{0}:
+    label: 'Intensidad de la luz polarizada que llega al polarizador'
+description: >-
+  La ley de Malus da la intensidad de la luz linealmente polarizada después de atravesar un filtro
+  polarizador: la intensidad incidente por el cuadrado del coseno del ángulo entre la dirección de
+  polarización y el eje de transmisión del filtro. Explica por qué, al girar una lámina
+  polarizadora detrás de otra, la luz se atenúa de forma gradual hasta desaparecer en ángulo recto.
+
+  Aquí $\var{I}$ es la intensidad que transmite el filtro y $\var{I_{0}}$ la intensidad de la luz
+  polarizada que le llega, ambas en vatios por metro cuadrado y no negativas; sirve cualquier unidad
+  común porque solo importa su cociente. $\mag{\theta}$ es el ángulo entre la dirección de
+  polarización y el eje del filtro, en radianes. Como dos ejes son rectas y no flechas, el ángulo se
+  toma entre 0 y 90 grados, y al despejarlo se obtiene un valor en ese intervalo.
+
+  Un filtro polarizador deja pasar solo la componente del campo eléctrico paralela a su eje, que es
+  la amplitud del campo por el coseno del ángulo. La intensidad es proporcional al cuadrado de la
+  amplitud, así que la fracción transmitida es el coseno al cuadrado: toda la luz a 0 grados, la
+  mitad a 45 grados y nada a 90 grados.
+
+  La ley se aplica a luz ya polarizada linealmente y a un polarizador ideal. Un filtro ideal reduce
+  la luz no polarizada a la mitad de su intensidad, sea cual sea su orientación, de modo que una
+  primera lámina proporciona el haz polarizado para la segunda. Las láminas reales dejan pasar algo
+  de luz incluso cruzadas, así que para ellas la ley solo se cumple de forma aproximada. Aplicarla
+  dos veces explica por qué una tercera lámina a 45 grados entre dos cruzadas vuelve a dejar pasar
+  luz.
+
+  La ley lleva el nombre de Étienne Louis Malus (1775–1812), matemático e ingeniero militar francés
+  que se dedicó casi por completo al estudio de la luz; su descubrimiento de la polarización por
+  reflexión se publicó en 1809. OpenStax calcula que reducir la intensidad de la luz polarizada al
+  10.0 por ciento exige un ángulo de 71.6 grados.

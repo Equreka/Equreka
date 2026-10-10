@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Rapidez de una onda en una cuerda tensa'
+terms:
+  F_\mathrm{T}:
+    label: 'Tensión de la cuerda'
+description: >-
+  La rapidez de una onda en una cuerda tensa es la raíz cuadrada de la tensión de la cuerda
+  dividida entre su densidad lineal de masa. Indica a qué rapidez viaja un pulso o una onda
+  transversal por una cuerda, un alambre o un cordel tensos y, junto con la longitud de la cuerda,
+  fija la altura del sonido de guitarras, violines y pianos.
+
+  Aquí $\mag{v}$ es la rapidez de la onda en metros por segundo, nunca negativa.
+  $\var{F_\mathrm{T}}$ es la tensión, la fuerza que tira a lo largo de la cuerda, en newtons; lleva
+  subíndice porque una T sola designa el periodo. $\mag{\mu}$ es la densidad lineal de masa, la
+  masa de la cuerda por unidad de longitud, en kilogramos por metro; las cuerdas suelen darse en
+  gramos por metro, y la calculadora los convierte. Ambos datos son positivos.
+
+  Un trozo corto de cuerda desplazada siente la tensión en sus dos extremos tirando en direcciones
+  algo distintas, y la diferencia es una fuerza transversal neta proporcional a lo curvada que está
+  la cuerda. La segunda ley de Newton para ese trozo, cuya masa es la densidad lineal por su
+  longitud, se convierte en la ecuación de onda, y el cuadrado de la rapidez es la tensión entre la
+  densidad lineal. El patrón es general: una propiedad elástica, recuperadora, sobre una inercial,
+  como en la rapidez del sonido en un fluido. Tensar más la cuerda aumenta la rapidez, y una cuerda
+  más pesada la reduce.
+
+  El resultado supone una cuerda perfectamente flexible y de densidad uniforme, desplazamientos lo
+  bastante pequeños para que la pendiente sea pequeña y una tensión que la onda no altera. Las
+  cuerdas reales tienen cierta rigidez, así que sus armónicos altos se separan por encima de los
+  múltiplos enteros exactos de la fundamental, y las cuerdas entorchadas de los bajos añaden masa
+  sin mucha rigidez adicional. La rapidez es la de la cuerda, no la del sonido que emite al aire.
+
+  En un ejemplo de OpenStax, la cuerda mi aguda de una guitarra, con una densidad lineal de
+  0.000 309 kilogramos por metro y una tensión de 56.40 newtons, transmite ondas a unos 427 metros
+  por segundo.

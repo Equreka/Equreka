@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Speed of sound in an ideal gas from the molecular mass'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{v}=\sqrt{\frac{\var{\gamma}\const{k_\mathrm{B}}\mag{T}}{\var{m}}}'
+terms:
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  \gamma:
+    kind: 'symbol'
+    label:
+      en: 'Adiabatic index'
+  k_\mathrm{B}:
+    kind: 'constant'
+    ref: 'boltzmann-constant'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+  m:
+    kind: 'symbol'
+    label:
+      en: 'Mass of one molecule'
+    unit: 'kilogram'
+solutions:
+  v: 'sqrt(gamma * k_B * T / m)'
+  \gamma: 'v^2 * m / (k_B * T)'
+  T: 'v^2 * m / (gamma * k_B)'
+  m: 'gamma * k_B * T / v^2'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'v = sqrt(gamma k T / m)'
+  - 'v = √(γkT/m)'
+  - 'speed of sound kinetic theory'
+  - 'molecular form of the speed of sound'
+  - 'speed of sound per molecule'
+  - 'velocidad del sonido a partir de la masa molecular'
+  - 'velocidad del sonido y masa molecular'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 17.2 Speed of Sound (Equations 17.4 and 17.6, derivation, rms speed)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/17-2-speed-of-sound'
+  - title: 'OpenStax, University Physics Volume 2, 2.1 Molecular Model of an Ideal Gas (Boltzmann constant, R = N_A k_B)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/2-1-molecular-model-of-an-ideal-gas'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Speed of sound in gases'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/Sound/souspe3.html'
+  - title: 'Wolfram Formula Repository, Speed of Sound in an Ideal Gas by Temperature and Mass of Molecule'
+    url: 'https://resources.wolframcloud.com/FormulaRepository/resources/9dd4005f-a7a5-49d8-a4aa-0d3f2af9072c'
+  - title: 'NIST, CODATA 2022 value: Boltzmann constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?k'
+description:
+  en: >-
+    For an ideal gas, the speed of sound computed from the molecular mass is the square root of the adiabatic
+    index times the Boltzmann constant times the absolute temperature, divided by the mass of one
+    molecule. It is the kinetic-theory version of the molar relation for the same speed,
+    suited to a gas described by the mass of its molecules.
+
+    Here $\mag{v}$ is the speed of sound in metres per second, never negative. $\var{\gamma}$ is
+    the adiabatic index, a pure number, 1.40 for air. $\const{k_\mathrm{B}}$ is the Boltzmann
+    constant, $1.380\,649\times10^{-23}\,\mathrm{J/K}$, exact in the SI.
+    $\mag{T}$ is the absolute temperature in kelvin, never a temperature difference; a Celsius
+    reading is converted by adding 273.15. $\var{m}$ is the mass of one molecule in kilograms, the
+    molar mass divided by the Avogadro constant, or the mean molecular mass of a mixture; the
+    calculator also accepts daltons.
+
+    Sound in a fluid travels at the square root of a stiffness over a density. The pressure swings
+    of a sound wave are too fast for heat to flow, so the stiffness of the gas is its adiabatic
+    bulk modulus, the adiabatic index times the pressure. For an ideal gas the pressure is the
+    number of molecules per unit volume times the Boltzmann constant times the temperature, while
+    the density is that number times the molecular mass; the number cancels and leaves the
+    relation. Multiplying top and bottom by the Avogadro constant, with the molar gas constant
+    equal to the Avogadro constant times the Boltzmann constant, recovers the molar form.
+
+    The relation assumes an ideal gas, adiabatic compressions of small amplitude and an adiabatic
+    index that does not change with temperature. The molecules themselves move faster than the sound they carry: their root-mean-square speed
+    uses three in place of the adiabatic index.
+
+    For dry air, whose mean molecular mass is about $4.81\times10^{-26}$ kilograms, the
+    relation gives about 343 metres per second at 20 degrees Celsius; HyperPhysics compares this
+    with a root-mean-square molecular speed of 502 metres per second.

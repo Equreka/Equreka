@@ -1,0 +1,91 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Newton''s law of cooling'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{T}=\var{T_\mathrm{env}}+\left(\var{T_{0}}-\var{T_\mathrm{env}}\right)e^{-\var{k}\mag{t}}'
+terms:
+  T:
+    kind: 'symbol'
+    label:
+      en: 'Temperature of the body at time t'
+    unit: 'kelvin'
+  T_\mathrm{env}:
+    kind: 'symbol'
+    label:
+      en: 'Ambient temperature'
+    unit: 'kelvin'
+  T_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial temperature of the body'
+    unit: 'kelvin'
+  k:
+    kind: 'symbol'
+    label:
+      en: 'Cooling constant'
+    unit: 'reciprocal-second'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  T: 'T_env + (T_0 - T_env) * exp(-k * t)'
+  T_\mathrm{env}: '(T - T_0 * exp(-k * t)) / (1 - exp(-k * t))'
+  T_{0}: 'T_env + (T - T_env) * exp(k * t)'
+  k: 'ln((T_0 - T_env) / (T - T_env)) / t'
+  t: 'ln((T_0 - T_env) / (T - T_env)) / k'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q2902868'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'Newton cooling law'
+  - 'law of cooling'
+  - 'exponential cooling'
+  - 'T = Ta + (T0 - Ta) e^(-kt)'
+  - 'ley de enfriamiento de Newton'
+  - 'ley del enfriamiento de Newton'
+  - 'enfriamiento newtoniano'
+references:
+  - title: 'OpenStax, Calculus Volume 1, 6.8 Exponential Growth and Decay (Newton''s law of cooling, Example 6.45)'
+    url: 'https://openstax.org/books/calculus-volume-1/pages/6-8-exponential-growth-and-decay'
+  - title: 'OpenStax, Calculus Volume 2, 4.3 Separable Equations (Equations 4.6 and 4.7)'
+    url: 'https://openstax.org/books/calculus-volume-2/pages/4-3-separable-equations'
+  - title: '[I. Newton], Scala graduum caloris, Philosophical Transactions of the Royal Society of London 22 (1701) 824–829'
+    url: 'https://doi.org/10.1098/rstl.1700.0082'
+  - title: 'U. Grigull, Das Newtonsche Abkühlungsgesetz, Sitzungsberichte der Bayerischen Akademie der Wissenschaften 1979'
+    url: 'https://tll-open.badw.de/en/013305751/013305751.pdf'
+description:
+  en: >-
+    Newton's law of cooling states that a body left in surroundings at a constant temperature
+    approaches that temperature exponentially: the difference between the two shrinks by the same
+    factor in every equal interval of time. It is a simple model of heat transfer in
+    thermodynamics, used for a cooling cup of coffee, a warming drink from the refrigerator, or the
+    time since a hot object was set aside.
+
+    $\var{T}$ is the temperature of the body at time $\mag{t}$, $\var{T_{0}}$ its temperature at
+    the start and $\var{T_\mathrm{env}}$ the constant ambient temperature, all in kelvin; a Celsius
+    reading is converted by adding 273.15, and because only differences from the ambient value
+    enter, the result is the same as working throughout in Celsius. $\var{k}$ is the cooling
+    constant in reciprocal seconds, positive, set by the body and its setting and found from one
+    measured temperature. $\mag{t}$ is the time elapsed since the start, in seconds. A body colder
+    than its surroundings warms by the same rule.
+
+    The law assumes that the rate of change of the temperature of the body is proportional to its
+    difference from the ambient temperature. That difference therefore obeys the equation of
+    exponential decay, and its solution is the expression shown. The body never quite reaches the
+    ambient temperature; the difference halves every interval equal to the natural logarithm of 2
+    divided by the cooling constant.
+
+    The model needs surroundings large enough not to warm, a body at a nearly uniform temperature
+    and heat lost by convection at a rate proportional to the temperature excess, which holds for
+    moderate differences. Large differences, where radiation grows with the fourth power of
+    temperature, break the proportionality.
+
+    Isaac Newton set out the law in a paper on a scale of temperatures, Scala graduum caloris, in the
+    Philosophical Transactions of 1701. Coffee poured at 200 degrees Fahrenheit that cools to 180
+    in two minutes in a room at 70 has a cooling constant of about 0.0835 per minute.

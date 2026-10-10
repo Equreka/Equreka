@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Máximos de interferencia de la doble rendija'
+terms:
+  d:
+    label: 'Distancia entre las rendijas'
+  m:
+    label: 'Orden de la franja brillante'
+description: >-
+  La condición de máximos de interferencia de la doble rendija da las direcciones de las franjas
+  brillantes en el experimento de la doble rendija de Young: la distancia entre las rendijas por el
+  seno del ángulo es igual a un número entero de longitudes de onda. Donde se cumple, las ondas de
+  ambas rendijas llegan en fase y se refuerzan, y producen las bandas brillantes regularmente
+  espaciadas que mostraron por primera vez que la luz es una onda.
+
+  Aquí $\var{d}$ es la distancia entre los centros de las dos rendijas, en metros. $\mag{\theta}$
+  es el ángulo de una franja brillante medido desde la dirección del haz incidente que sigue recto,
+  en radianes. $\var{m}$ es el orden de la franja brillante, un número entero: cero para la franja
+  central, positivo a un lado y negativo al otro. $\mag{\lambda}$ es la longitud de onda de la luz,
+  en metros.
+
+  Los rayos de las dos rendijas hacia un punto lejano de la pantalla son casi paralelos, y el de la
+  rendija más alejada recorre una distancia extra igual a la distancia entre las rendijas por el
+  seno del ángulo. Si esa diferencia de camino es un número entero de longitudes de onda, las
+  crestas coinciden con crestas y la interferencia es constructiva; si es un entero más un medio,
+  las crestas coinciden con valles y la pantalla queda oscura. Rendijas más próximas o longitudes
+  de onda mayores separan más las franjas.
+
+  La condición supone luz coherente de una sola longitud de onda, rendijas mucho más estrechas que
+  su separación y una pantalla lejana en comparación con esa separación. El seno no puede superar
+  uno, así que solo aparecen órdenes hasta la separación dividida entre la longitud de onda; la
+  difracción en cada rendija modula además el brillo de las franjas. Para ángulos pequeños, las
+  franjas brillantes quedan igualmente espaciadas en la pantalla, como describe la entrada sobre
+  la separación entre franjas.
+
+  Thomas Young demostró esta interferencia en 1801. En un ejemplo de OpenStax, unas rendijas
+  separadas 0.0100 milímetros sitúan la tercera franja brillante a 10.95 grados, lo que da una
+  longitud de onda de 633 nanómetros.

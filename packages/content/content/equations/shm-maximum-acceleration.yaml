@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Maximum acceleration in simple harmonic motion'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{a_{\max}}=\var{A}\mag{\omega}^{2}'
+terms:
+  a_{\max}:
+    kind: 'magnitude'
+    ref: 'acceleration'
+  A:
+    kind: 'symbol'
+    label:
+      en: 'Amplitude'
+    unit: 'metre'
+  \omega:
+    kind: 'magnitude'
+    ref: 'angular-frequency'
+solutions:
+  a_{\max}: 'A * omega^2'
+  A: 'a_max / omega^2'
+  \omega: 'sqrt(a_max / A)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'a max = A omega^2'
+  - 'amax = Aω²'
+  - 'peak acceleration of an oscillator'
+  - 'maximum acceleration in SHM'
+  - 'aceleración máxima en el MAS'
+  - 'aceleración máxima del oscilador armónico'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 15.1 Simple Harmonic Motion (Equations 15.5 and 15.8)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/15-1-simple-harmonic-motion'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Simple harmonic motion'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/shm.html'
+description:
+  en: >-
+    The maximum acceleration in simple harmonic motion is the largest acceleration a harmonic
+    oscillator undergoes: the amplitude multiplied by the square of the angular frequency. It
+    occurs at the two turning points of the cycle, where the body stops for an instant and the
+    restoring force is strongest, and it measures how violently an oscillating part is shaken.
+
+    Here $\mag{a_{\max}}$ is the maximum acceleration in metres per second squared, stated as a
+    non-negative size; $\var{A}$ is the amplitude in metres; and $\mag{\omega}$ is the angular
+    frequency in radians per second, which enters squared. At the positive extreme the acceleration
+    points towards negative displacement and at the negative extreme towards positive
+    displacement, so the signed value swings between minus and plus this size.
+
+    Differentiating the displacement twice gives an acceleration equal to minus the square of the
+    angular frequency times the displacement itself, the defining property of simple harmonic
+    motion: the acceleration is proportional to the displacement and opposite to it. Its size is
+    therefore greatest where the displacement is greatest, at plus or minus the amplitude. For a
+    mass on a spring the same peak follows from Newton's second law, since the largest spring
+    force, the spring constant times the amplitude, divided by the mass equals the amplitude times
+    the square of the angular frequency.
+
+    The relation assumes undamped motion with a linear restoring force. Because the angular
+    frequency is squared, doubling the frequency at a fixed amplitude quadruples the peak
+    acceleration, which is why fast vibrations of small amplitude can still produce large forces.
+    Solving for the angular frequency takes the non-negative square root of the peak acceleration
+    divided by the amplitude.
+
+    In an OpenStax example a block oscillating with an amplitude of 0.02 metres and an angular
+    frequency of 4.00 reciprocal seconds has a maximum acceleration of 0.32 metres per second
+    squared.

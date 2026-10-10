@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Mean translational kinetic energy of a gas molecule'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{\bar{K}}=\frac{3}{2}\const{k_\mathrm{B}}\mag{T}'
+terms:
+  \bar{K}:
+    kind: 'symbol'
+    identifier: 'K_avg'
+    label:
+      en: 'Mean translational kinetic energy of a molecule'
+    unit: 'joule'
+  k_\mathrm{B}:
+    kind: 'constant'
+    ref: 'boltzmann-constant'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+solutions:
+  \bar{K}: '3 * k_B * T / 2'
+  T: '2 * K_avg / (3 * k_B)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+  - 'chemistry'
+branches:
+  - 'thermodynamics'
+  - 'gases'
+aliases:
+  - 'average kinetic energy of a gas molecule'
+  - 'mean kinetic energy of a molecule'
+  - 'average translational kinetic energy'
+  - 'kinetic interpretation of temperature'
+  - 'KE = 3/2 kT'
+  - 'energía cinética media de una molécula de gas'
+  - 'energía cinética promedio por molécula'
+  - 'energía cinética media de traslación'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 2.2 Pressure, Temperature, and RMS Speed (Equation 2.6, Example 2.4)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/2-2-pressure-temperature-and-rms-speed'
+  - title: 'OpenStax, College Physics 2e, 13.4 Kinetic Theory: Atomic and Molecular Explanation of Pressure and Temperature (Equation 13.55, Example 13.10)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/13-4-kinetic-theory-atomic-and-molecular-explanation-of-pressure-and-temperature'
+  - title: 'HyperPhysics, Georgia State University, Equipartition of Energy'
+    url: 'https://hyperphysics.gsu.edu/hbase/Kinetic/eqpar.html'
+description:
+  en: >-
+    The mean translational kinetic energy of a gas molecule is three halves of the Boltzmann
+    constant times the absolute temperature of the gas. This result of the kinetic theory of gases
+    gives temperature its microscopic meaning in thermodynamics: the absolute temperature of an
+    ideal gas is a measure of the average energy of the random motion of its molecules.
+
+    $\var{\bar{K}}$ is the kinetic energy of translation of one molecule averaged over all the
+    molecules of the gas, in joules: the mean of one half the molecular mass times the squared
+    speed. It is never negative. $\const{k_\mathrm{B}}$ is the Boltzmann constant,
+    $1.380\,649\times10^{-23}\,\mathrm{J/K}$, exact in the SI. $\mag{T}$ is the thermodynamic
+    temperature in kelvin; the relation needs absolute temperature, so a Celsius reading is
+    converted by adding 273.15.
+
+    Kinetic theory traces the pressure of a gas to molecules rebounding from the walls and finds
+    that pressure times volume equals two thirds of the number of molecules times their mean
+    kinetic energy. Setting that product equal to the molecular form of the ideal gas law gives the
+    formula. The factor three halves splits into one half of the Boltzmann constant times the
+    temperature for each of the three directions of motion, as the equipartition theorem states.
+
+    The molecular mass does not appear: at the same temperature a light helium atom and a heavy
+    xenon atom carry the same mean energy, the lighter one moving faster. The result assumes an
+    ideal gas obeying classical mechanics in thermal equilibrium, and it counts translation only:
+    the rotation and vibration of polyatomic molecules store energy on top of it.
+
+    The kinetic theory behind the result goes back to Daniel Bernoulli (1700–1782). At 293 kelvin,
+    room temperature, the mean translational kinetic energy of any gas molecule is about
+    $6.07\times10^{-21}$ joules.

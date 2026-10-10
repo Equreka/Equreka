@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Mínimos de difracción de una rendija'
+terms:
+  a:
+    label: 'Ancho de la rendija'
+  m:
+    label: 'Orden de la franja oscura'
+description: >-
+  La condición de mínimos de difracción de una rendija da las direcciones de las franjas oscuras
+  cuando la luz atraviesa una sola rendija estrecha: el ancho de la rendija por el seno del ángulo
+  es igual a un número entero de longitudes de onda, excluido el cero. Entre esas direcciones
+  oscuras quedan un máximo central ancho y brillante y máximos laterales mucho más débiles, el
+  patrón que limita la nitidez con que cualquier abertura enfoca o resuelve la luz.
+
+  Aquí $\var{a}$ es el ancho de la rendija en metros. $\mag{\theta}$ es el ángulo medido desde la
+  dirección de la luz incidente que sigue recto, en radianes. $\var{m}$ es el orden de la franja
+  oscura, un número entero distinto de cero, positivo a un lado del centro y negativo al otro;
+  $\var{m}$ igual a cero es el centro del máximo central brillante, no un mínimo, así que el cero no es un
+  orden válido aquí. $\mag{\lambda}$ es la longitud de onda en metros.
+
+  Cada punto de la rendija actúa como fuente de ondas secundarias. Al dividir la rendija en una
+  mitad superior y otra inferior, cada onda de una mitad forma pareja con otra de la segunda mitad
+  que recorre media longitud de onda más, y las parejas se anulan; esta primera franja oscura
+  aparece cuando el ancho total por el seno del ángulo es una longitud de onda. Dividirla en cuatro,
+  seis o más partes da los órdenes superiores. Una rendija más estrecha o una longitud de onda
+  mayor ensanchan el patrón.
+
+  La condición describe la difracción de Fraunhofer, con la pantalla lejos de la rendija o en el
+  foco de una lente, y luz de una sola longitud de onda. Solo da los mínimos: los máximos laterales
+  quedan aproximadamente a medio camino entre ellos y son mucho más débiles que el central. Como el
+  seno no puede superar uno, una rendija más estrecha que una longitud de onda no muestra ninguna
+  franja oscura.
+
+  En un ejemplo de OpenStax, la luz de 550 nanómetros tiene su segundo mínimo a 45.0 grados, de modo
+  que la rendija mide 1.56 micrómetros de ancho y el primer mínimo cae a 20.7 grados.

@@ -12,7 +12,7 @@ description: >-
   Aquí $\mag{v}$ es la rapidez del sonido, en metros por segundo, nunca negativa. $\var{\gamma}$ es
   el índice adiabático del gas, un número puro que vale 1.40 para el aire. $\const{R}$ es la
   constante molar de los gases, de unos 8.314 julios por mol y kelvin. $\mag{T}$ es la temperatura
-  termodinámica en kelvin; una lectura en grados Celsius debe convertirse antes sumándole 273.15.
+  termodinámica en kelvin; una lectura en grados Celsius se convierte sumándole 273.15.
   $\mag{M}$ es la masa molar del gas, en kilogramos por mol, de unos 0.02897 para el aire seco.
 
   Una onda sonora es una sucesión de compresiones y rarefacciones que avanza, y su rapidez equilibra
@@ -26,7 +26,8 @@ description: >-
   La relación trata el gas como ideal y las compresiones como adiabáticas: se producen y desaparecen
   tan deprisa que no entra ni sale calor de cada pequeño volumen de gas. No se aplica a líquidos ni
   a sólidos, donde el sonido es mucho más rápido, unos 1480 metros por segundo en agua dulce y 5960
-  en el acero.
+  en el acero. Su forma molecular, con la constante de Boltzmann y la masa de una
+  molécula, divide numerador y denominador de la fracción entre la constante de Avogadro.
 
   En aire a 30 grados Celsius la relación da unos 349 metros por segundo, de modo que un tono de 20
   hercios tiene una longitud de onda de unos 17 metros.

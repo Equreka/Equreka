@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Energía cinética media de traslación de una molécula de gas'
+terms:
+  \bar{K}:
+    label: 'Energía cinética media de traslación de una molécula'
+description: >-
+  La energía cinética media de traslación de una molécula de gas es tres medios de la constante de
+  Boltzmann por la temperatura absoluta del gas. Este resultado de la teoría cinética de los gases
+  da a la temperatura su significado microscópico en termodinámica: la temperatura absoluta de un
+  gas ideal mide la energía media del movimiento desordenado de sus moléculas.
+
+  $\var{\bar{K}}$ es la energía cinética de traslación de una molécula promediada sobre todas las
+  moléculas del gas, en julios: la media de la mitad de la masa molecular por el cuadrado de la
+  rapidez. Nunca es negativa. $\const{k_\mathrm{B}}$ es la constante de Boltzmann,
+  $1.380\,649\times10^{-23}\,\mathrm{J/K}$, exacta en el SI. $\mag{T}$ es la temperatura
+  termodinámica en kelvin; la relación exige temperatura absoluta, así que una lectura en grados
+  Celsius se convierte sumándole 273.15.
+
+  La teoría cinética atribuye la presión de un gas a las moléculas que rebotan en las paredes y
+  halla que la presión por el volumen es igual a dos tercios del número de moléculas por su energía
+  cinética media. Igualar ese producto a la forma molecular de la ley de los gases ideales da la
+  fórmula. El factor tres medios se reparte en la mitad de la constante de Boltzmann por la
+  temperatura para cada una de las tres direcciones del movimiento, como afirma el teorema de
+  equipartición.
+
+  La masa molecular no aparece: a la misma temperatura, un átomo ligero de helio y uno pesado de
+  xenón tienen la misma energía media, y el más ligero se mueve más deprisa. El resultado supone un
+  gas ideal que obedece la mecánica clásica en equilibrio térmico, y solo cuenta la traslación: la
+  rotación y la vibración de las moléculas poliatómicas almacenan energía además de ella.
+
+  La teoría cinética en que se apoya el resultado se remonta a Daniel Bernoulli (1700–1782). A 293
+  kelvin, la temperatura ambiente, la energía cinética media de traslación de cualquier molécula de
+  gas es de unos $6.07\times10^{-21}$ julios.

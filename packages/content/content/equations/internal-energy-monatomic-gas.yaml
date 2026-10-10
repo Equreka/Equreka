@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Internal energy of a monatomic ideal gas'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{U}=\frac{3}{2}\mag{n}\const{R}\mag{T}'
+terms:
+  U:
+    kind: 'magnitude'
+    ref: 'internal-energy'
+  n:
+    kind: 'magnitude'
+    ref: 'substance'
+  R:
+    kind: 'constant'
+    ref: 'molar-gas-constant'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+solutions:
+  U: '3 * n * R * T / 2'
+  n: '2 * U / (3 * R * T)'
+  T: '2 * U / (3 * n * R)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+  - 'chemistry'
+branches:
+  - 'thermodynamics'
+  - 'gases'
+aliases:
+  - 'internal energy of an ideal monatomic gas'
+  - 'thermal energy of a monatomic gas'
+  - 'U = 3/2 nRT'
+  - 'E_int = 3/2 nRT'
+  - 'energía interna de un gas ideal monoatómico'
+  - 'energía interna de un gas monoatómico'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 2.3 Heat Capacity and Equipartition of Energy (Example 2.8)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/2-3-heat-capacity-and-equipartition-of-energy'
+  - title: 'OpenStax, University Physics Volume 2, 2.2 Pressure, Temperature, and RMS Speed (Equation 2.6)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/2-2-pressure-temperature-and-rms-speed'
+  - title: 'HyperPhysics, Georgia State University, Equipartition of Energy'
+    url: 'https://hyperphysics.gsu.edu/hbase/Kinetic/eqpar.html'
+description:
+  en: >-
+    For a monatomic ideal gas, the internal energy equals three halves of the amount of substance
+    times the molar gas constant times the absolute temperature. In thermodynamics the formula makes the
+    internal energy of such a gas a function of its temperature alone, and it fixes the molar heat
+    capacity of a monatomic gas held at fixed volume at three halves of the molar gas constant.
+
+    $\mag{U}$ is the internal energy in joules, the total kinetic energy of the random motion of
+    the atoms, which in this model vanishes only at absolute zero. $\mag{n}$ is the amount of
+    substance in moles. $\const{R}$ is the molar gas constant, about 8.314 joules per mole kelvin
+    and exact in the SI. $\mag{T}$ is the thermodynamic temperature in kelvin; the formula needs
+    absolute temperature, so a Celsius reading is converted by adding 273.15. All the quantities are
+    positive.
+
+    The atoms of a monatomic gas such as helium, neon or argon carry only kinetic energy of
+    translation, on average three halves of the Boltzmann constant times the temperature each.
+    Multiplying by the number of atoms, the amount of substance times the Avogadro constant, gives
+    the formula, because the Avogadro constant times the Boltzmann constant is the molar gas
+    constant. The internal energy therefore changes only when the temperature does, never with
+    pressure or volume alone; at constant volume the heat a gas absorbs all goes into it.
+
+    The formula assumes an ideal gas, whose atoms exert no forces on one another and so hold no
+    potential energy. Diatomic and polyatomic molecules also store energy in rotation and
+    vibration, which raises the coefficient: air, mostly diatomic, is commonly modelled with five
+    halves instead of three halves.
+
+    Applied to a change of state, the formula shows that heating 0.952 moles of xenon by 15.2
+    kelvin at constant volume raises its internal energy by about 180 joules.
