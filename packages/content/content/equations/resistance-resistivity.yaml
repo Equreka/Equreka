@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Resistance of a uniform conductor'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{R}=\frac{\mag{\rho}\var{L}}{\mag{A}}'
+terms:
+  R:
+    kind: 'magnitude'
+    ref: 'electrical-resistance'
+  \rho:
+    kind: 'magnitude'
+    ref: 'electrical-resistivity'
+  L:
+    kind: 'symbol'
+    label:
+      en: 'Length of the conductor'
+    unit: 'metre'
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+solutions:
+  R: 'rho * L / A'
+  \rho: 'R * A / L'
+  L: 'R * A / rho'
+  A: 'rho * L / R'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'R = rho L / A'
+  - 'R = ρL/A'
+  - 'resistance and resistivity'
+  - 'resistance of a wire'
+  - 'wire resistance formula'
+  - 'resistencia de un cable'
+  - 'resistencia y resistividad'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 9.3 Resistivity and Resistance (Table 9.1, Example 9.5)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-3-resistivity-and-resistance'
+  - title: 'R. Nave, HyperPhysics, Resistance and Resistivity'
+    url: 'https://hyperphysics.gsu.edu/hbase/electric/resis.html'
+description:
+  en: >-
+    The resistance of a conductor with a uniform cross-section equals the resistivity of its
+    material multiplied by its length and divided by its cross-sectional area. The relation
+    separates what a wire is made of from its shape, and it is how wire gauges, heating elements and
+    resistors are sized in electromagnetism and electrical engineering.
+
+    $\mag{R}$ is the resistance between the two ends, in ohms. $\mag{\rho}$ is the electrical
+    resistivity of the material, in ohm metres, a property of the substance at a given temperature.
+    $\var{L}$ is the length of the conductor along the current, in metres, and $\mag{A}$ the area of
+    its cross-section at right angles to the current, in square metres. All four quantities are
+    positive.
+
+    A longer wire puts more material in the path of the charges, so its resistance grows in
+    proportion to the length; a thicker wire offers more side-by-side paths, so its resistance falls
+    in inverse proportion to the area. Resistivity covers an enormous range: copper has
+    $1.68\times10^{-8}\,\Omega\,\mathrm{m}$, nichrome, the alloy of heating elements, about sixty
+    times more, and pure silicon some 2300 ohm metres.
+
+    The relation assumes a uniform cross-section with the current spread evenly across it, which
+    holds for direct current; at high frequencies the skin effect crowds alternating current towards
+    the surface and raises the effective resistance. Because resistivity depends on temperature, the
+    result applies at the temperature for which the resistivity is quoted, usually 20 degrees
+    Celsius. A conductor of varying shape, such as the insulation of a coaxial cable, has to be
+    divided into thin slices whose contributions are added.
+
+    A copper wire 5.00 metres long and 2.053 millimetres in diameter, the 12-gauge size, has a resistance of about 0.025 ohms.

@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Electrical energy at constant power'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{E}=\mag{P}\mag{t}'
+terms:
+  E:
+    kind: 'magnitude'
+    ref: 'energy'
+  P:
+    kind: 'magnitude'
+    ref: 'power'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  E: 'P * t'
+  P: 'E / t'
+  t: 'E / P'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'E = Pt'
+  - 'energy equals power times time'
+  - 'electricity consumption'
+  - 'energy used by an appliance'
+  - 'kilowatt hour calculation'
+  - 'consumo eléctrico'
+  - 'energía consumida'
+  - 'energía eléctrica'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 9.5 Electrical Energy and Power (Example 9.10)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-5-electrical-energy-and-power'
+  - title: 'OpenStax, College Physics 2e, 20.4 Electric Power and Energy'
+    url: 'https://openstax.org/books/college-physics-2e/pages/20-4-electric-power-and-energy'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: kilowatt hour (kW·h)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+description:
+  en: >-
+    The electrical energy that a device converts at constant power equals that power multiplied by
+    the time it runs. The relation is the basis of electricity metering: utilities bill energy, not
+    power, and state it in kilowatt hours, the energy of one kilowatt sustained for one hour.
+
+    $\mag{E}$ is the energy converted or delivered, in joules. $\mag{P}$ is the power, in watts, and
+    $\mag{t}$ the running time, in seconds; a watt is a joule per second, so watts times seconds
+    give joules. The kilowatt hour is a practical multiple: an hour lasts 3600 seconds, so one
+    kilowatt hour is exactly 3.6 megajoules, the factor NIST Special Publication 811 lists. The
+    energy carries the sign of the power, positive for a device that takes energy from the circuit
+    and negative for one that supplies it, such as a discharging battery.
+
+    The relation is the definition of power, energy per unit time, read the other way round, the
+    same definition as mechanical power, work divided by time.
+    Combined with electric power as voltage times current, it shows that the energy is voltage times
+    current times time, or voltage times the charge moved, which connects the charge capacity of a
+    battery to the energy it stores.
+
+    It assumes that the power stays constant over the interval. When the power varies, the energy is
+    the area under the graph of power against time, the integral of power over time, or in practice
+    the average power multiplied by the time. The result counts all the energy converted, useful or
+    not; the share that ends up as light, motion or sound depends on the efficiency of the device.
+
+    A 100-watt incandescent bulb lit three hours a day for a year uses 109.5 kilowatt hours, while a
+    20-watt LED bulb giving the same light uses 21.9.

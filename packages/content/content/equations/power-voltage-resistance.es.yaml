@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Potencia disipada en un resistor a partir de la tensión'
+description: >-
+  La potencia disipada en un resistor es igual al cuadrado de la diferencia de potencial entre sus
+  terminales dividido entre su resistencia. Esta forma de la potencia eléctrica conviene para
+  dispositivos conectados a una tensión de alimentación fija, como los electrodomésticos y las
+  lámparas, en los que la tensión se conoce y la resistencia decide cuánta potencia consumen.
+
+  $\mag{P}$ es la potencia disipada, en vatios. $\mag{V}$ es la diferencia de potencial entre los
+  terminales del resistor, en voltios, y $\mag{R}$ su resistencia, en ohmios. La tensión aparece al
+  cuadrado, así que la potencia es positiva sea cual sea el terminal de mayor potencial: un resistor
+  siempre toma energía del circuito. Al despejar la tensión se obtienen dos valores de signo
+  opuesto; el positivo es la caída de potencial medida en el sentido de la corriente convencional,
+  el de las cargas positivas.
+
+  La forma se deduce de la potencia general, tensión por corriente, al escribir la corriente como la
+  tensión dividida entre la resistencia, según la ley de Ohm. A tensión fija, una resistencia menor
+  deja pasar más corriente y disipa más potencia. Por eso una bombilla de 60 vatios tiene menos
+  resistencia que una de 25 vatios hecha para la misma red, y un cortocircuito, casi sin
+  resistencia, puede sobrecalentar el cableado.
+
+  Como la forma con la corriente, exige una resistencia óhmica que se mantenga constante. La
+  resistencia de un filamento crece al calentarse, así que el valor en frío exagera la potencia con la
+  lámpara ya encendida, mientras que en el instante del encendido vale el valor en frío y la
+  potencia es varias veces mayor. Con alimentación alterna, la tensión es el valor eficaz. Duplicar la tensión en una
+  resistencia fija multiplica la potencia por cuatro: una lámpara de 25 vatios hecha para 120
+  voltios se funde a 240 voltios, donde disiparía unos 100 vatios.
+
+  Estufas, hervidores y lámparas incandescentes se especifican por la potencia que disipan a una
+  tensión de alimentación dada, y la resistencia del elemento se deduce de esas dos cifras.

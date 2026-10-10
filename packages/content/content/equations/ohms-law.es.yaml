@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de Ohm'
+description: >-
+  La ley de Ohm establece que la corriente eléctrica que atraviesa un conductor es proporcional a la
+  diferencia de potencial entre sus extremos: la tensión es igual a la corriente multiplicada por la
+  resistencia. Es la base del análisis de circuitos de corriente continua en el electromagnetismo y
+  permite hallar la tensión, la corriente o la resistencia desde una instalación doméstica hasta un
+  solo componente electrónico.
+
+  $\mag{V}$ es la diferencia de potencial entre los extremos del conductor, en voltios. $\mag{I}$ es
+  la corriente que lo atraviesa, en amperios. $\mag{R}$ es su resistencia eléctrica, en ohmios; un
+  ohmio es un voltio por amperio. La corriente es la corriente convencional, positiva en el sentido
+  en que se moverían las cargas positivas, y $\mag{V}$ es la caída de potencial medida en ese mismo
+  sentido. Al invertir la fuente cambian de signo ambas, y su cociente, la resistencia, sigue siendo
+  positivo.
+
+  Con una resistencia fija, duplicar la tensión duplica la corriente, y la gráfica de tensión frente
+  a corriente es una recta por el origen cuya pendiente es la resistencia. Leída al revés, el
+  producto de la corriente por la resistencia da la caída de potencial en un resistor, llamada a
+  menudo caída IR. En un circuito con una sola fuente y un solo resistor, esa caída es igual a la
+  tensión de la fuente.
+
+  La ley es una regla empírica, no una ley de la naturaleza. Se cumple en los materiales óhmicos,
+  como los metales y los resistores de los circuitos, cuya resistencia no depende de la tensión
+  aplicada. El diodo es la excepción habitual: conduce en un solo sentido y, una vez que conduce, su
+  tensión se queda cerca de 0.7 voltios mientras la corriente crece. La resistencia también cambia
+  con la temperatura, así que un conductor que se calienta al pasar la corriente, como el filamento
+  de una lámpara, se aparta de la recta.
+
+  Georg Simon Ohm comprobó la proporcionalidad con experimentos en hilos metálicos y la dio a
+  conocer en una publicación de 1827. El faro de un coche que toma 2.50 amperios de una fuente de
+  12.0 voltios tiene una resistencia de 4.80 ohmios.

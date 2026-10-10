@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Condensadores en serie'
+terms:
+  C_{1}:
+    label: 'Capacidad del primer condensador'
+  C_{2}:
+    label: 'Capacidad del segundo condensador'
+description: >-
+  En los condensadores en serie, conectados uno tras otro de modo que todos llevan la misma carga,
+  el inverso de la capacidad equivalente es la suma de los inversos de las capacidades
+  individuales. La regla sustituye una cadena de condensadores por un único condensador que
+  almacena la misma carga con la misma tensión total, un paso habitual al analizar circuitos en el
+  electromagnetismo.
+
+  $\mag{C}$ es la capacidad equivalente en faradios, y $\var{C_{1}}$ y $\var{C_{2}}$ son las
+  capacidades del primer y del segundo condensador, también en faradios. La relación tal como está
+  escrita abarca dos condensadores; cada condensador adicional de la cadena añade su propio
+  inverso al segundo miembro. Todas las capacidades son positivas, y la equivalente siempre
+  resulta menor que la menor de la cadena. Para exactamente dos, la regla es el producto de las
+  dos capacidades dividido entre su suma.
+
+  En una cadena en serie solo las dos placas exteriores tocan la fuente. La carga llega a ellas, y
+  cada par de placas interiores, un conductor inicialmente neutro, se separa en cargas iguales y
+  opuestas, de modo que cada condensador acaba con la misma carga. Las tensiones de los
+  condensadores suman la tensión total. Al escribir cada tensión como la carga común entre su
+  capacidad y cancelar la carga se obtiene la regla.
+
+  La deducción supone condensadores ideales que parten descargados y nada conectado a los puntos
+  intermedios. Como cada tensión es la carga común entre su propia capacidad, el condensador más
+  pequeño recibe la mayor parte de la tensión y, con la misma tensión máxima admisible, es el
+  primero en alcanzar su límite de ruptura.
+
+  Conectar condensadores en serie reduce la capacidad pero reparte la tensión entre varias capas
+  aislantes. Un condensador de $1.000\,\mu\mathrm{F}$ en serie con otro de
+  $5.000\,\mu\mathrm{F}$ da unos $0.833\,\mu\mathrm{F}$.

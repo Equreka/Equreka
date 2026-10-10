@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Divisor de tensión'
+terms:
+  V_\mathrm{out}:
+    label: 'Tensión de salida en el segundo resistor'
+  V_\mathrm{in}:
+    label: 'Tensión de entrada'
+  R_{1}:
+    label: 'Resistencia del primer resistor (lado de entrada)'
+  R_{2}:
+    label: 'Resistencia del segundo resistor (lado de salida)'
+description: >-
+  Un divisor de tensión, o divisor de potencial, es un par de resistores en serie conectados a una
+  fuente; la tensión en el segundo resistor es igual a la tensión de entrada por la fracción de la
+  resistencia total que le corresponde. Es la forma habitual de obtener una fracción fija de una
+  tensión de alimentación en electrónica, desde la lectura de sensores con microcontroladores hasta
+  el potenciómetro de un control de volumen.
+
+  $\var{V_\mathrm{out}}$ es la tensión de salida, tomada en el segundo resistor, en voltios.
+  $\var{V_\mathrm{in}}$ es la tensión de entrada aplicada a los dos resistores, en voltios.
+  $\var{R_{1}}$ es la resistencia del primer resistor, entre la entrada y el punto de salida, y
+  $\var{R_{2}}$ la del segundo, entre el punto de salida y el retorno común, ambas en ohmios. Las
+  dos tensiones se miden desde el retorno común con la misma polaridad, así que la salida tiene el
+  signo de la entrada y un valor absoluto menor.
+
+  Si no se toma corriente en la salida, los dos resistores llevan la misma corriente, la tensión de
+  entrada dividida entre su suma, como da la ley de Ohm para un par en serie. La salida es esa
+  corriente por la segunda resistencia. Solo importa el cociente de las resistencias: dos resistores
+  iguales reducen la entrada a la mitad, y un segundo resistor mayor da una salida mayor.
+
+  La relación solo vale mientras lo que se conecte a la salida tome una corriente despreciable. Una
+  resistencia de carga queda en paralelo con el segundo resistor y hace bajar la salida; mantener la
+  segunda resistencia por debajo de una décima parte de la carga deja el cambio por debajo de un
+  diez por ciento aproximadamente. Por el divisor circula corriente todo el tiempo, así que disipa
+  potencia aunque no haya nada conectado.
+
+  Con 12 voltios aplicados, un resistor de 1000 ohmios en el lado de entrada y otro de 3000 ohmios
+  en el lado de salida dan una salida de 9 voltios.

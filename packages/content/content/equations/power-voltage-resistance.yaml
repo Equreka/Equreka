@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Power dissipated in a resistor from the voltage'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{P}=\frac{\mag{V}^{2}}{\mag{R}}'
+terms:
+  P:
+    kind: 'magnitude'
+    ref: 'power'
+  V:
+    kind: 'magnitude'
+    ref: 'electric-potential-difference'
+  R:
+    kind: 'magnitude'
+    ref: 'electrical-resistance'
+solutions:
+  P: 'V^2 / R'
+  V:
+    - 'sqrt(P * R)'
+    - '-sqrt(P * R)'
+  R: 'V^2 / P'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'P = V^2/R'
+  - 'P = V²/R'
+  - 'power from voltage and resistance'
+  - 'resistor power rating'
+  - 'potencia en una resistencia'
+  - 'potencia a partir de la tensión y la resistencia'
+references:
+  - title: 'OpenStax, College Physics 2e, 20.4 Electric Power and Energy'
+    url: 'https://openstax.org/books/college-physics-2e/pages/20-4-electric-power-and-energy'
+  - title: 'OpenStax, University Physics Volume 2, 9.5 Electrical Energy and Power'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-5-electrical-energy-and-power'
+  - title: 'R. Nave, HyperPhysics, DC Electric Power'
+    url: 'https://hyperphysics.gsu.edu/hbase/electric/elepow.html'
+description:
+  en: >-
+    The power dissipated in a resistor equals the square of the potential difference across it
+    divided by its resistance. This form of the electric power relation suits devices connected to a
+    fixed supply voltage, such as household appliances and lamps, where the voltage is known and the
+    resistance decides how much power the device draws.
+
+    $\mag{P}$ is the dissipated power, in watts. $\mag{V}$ is the potential difference across the
+    resistor, in volts, and $\mag{R}$ its resistance, in ohms. The voltage enters squared, so the
+    power is positive whichever terminal sits at the higher potential: a resistor always takes
+    energy from the circuit. Solved for the voltage, the relation gives two values of opposite sign;
+    the positive one is the fall in potential measured along the conventional current, the direction
+    positive charge would move.
+
+    The form follows from the general power, voltage times current, once the current is written as
+    the voltage divided by the resistance, as Ohm's law allows. At a fixed voltage a smaller
+    resistance lets more current through and dissipates more power. That is why a 60-watt bulb has a
+    lower resistance than a 25-watt bulb made for the same supply, and why a short circuit, with
+    almost no resistance, can overheat the wiring.
+
+    Like the current form, it requires an ohmic resistance that stays constant. A filament's
+    resistance grows as it heats, so the cold value overstates the power once the lamp is lit, while at
+    the instant of switch-on the cold value applies and the power is several times larger. For an
+    alternating supply the voltage is the RMS value. Doubling the voltage across a fixed resistance
+    multiplies the power by four: a 25-watt lamp made for 120 volts burns out on 240 volts, where it
+    would dissipate about 100 watts.
+
+    Heaters, kettles and incandescent lamps are rated by the power they dissipate at a stated supply
+    voltage, and the resistance of the element follows from those two figures.

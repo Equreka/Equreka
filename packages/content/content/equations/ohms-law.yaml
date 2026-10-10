@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Ohm''s law'
+kind: 'equation'
+level: 'intro'
+expression: '\mag{V}=\mag{I}\mag{R}'
+terms:
+  V:
+    kind: 'magnitude'
+    ref: 'electric-potential-difference'
+  I:
+    kind: 'magnitude'
+    ref: 'electric-current'
+  R:
+    kind: 'magnitude'
+    ref: 'electrical-resistance'
+solutions:
+  V: 'I * R'
+  I: 'V / R'
+  R: 'V / I'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q41591'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'V = IR'
+  - 'I = V/R'
+  - 'R = V/I'
+  - 'U = RI'
+  - 'voltage equals current times resistance'
+  - 'IR drop'
+  - 'ley de ohm'
+  - 'caída de tensión'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 9.4 Ohm''s Law (Equation 9.11, Example 9.8)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-4-ohms-law'
+  - title: 'OpenStax, College Physics 2e, 20.2 Ohm''s Law: Resistance and Simple Circuits'
+    url: 'https://openstax.org/books/college-physics-2e/pages/20-2-ohms-law-resistance-and-simple-circuits'
+  - title: 'R. Nave, HyperPhysics, Ohm''s Law'
+    url: 'https://hyperphysics.gsu.edu/hbase/electric/ohmlaw.html'
+description:
+  en: >-
+    Ohm's law states that the electric current through a conductor is proportional to the potential
+    difference across it: the voltage equals the current multiplied by the resistance. It is the
+    starting point of direct-current circuit analysis in electromagnetism, used to find the voltage,
+    current or resistance in anything from household wiring to a single electronic component.
+
+    $\mag{V}$ is the potential difference across the conductor, in volts. $\mag{I}$ is the current
+    through it, in amperes. $\mag{R}$ is its electrical resistance, in ohms; one ohm is one volt per
+    ampere. The current is conventional current, positive in the direction positive charge would
+    move, and $\mag{V}$ is the fall in potential measured along that same direction. Reversing the
+    source reverses both signs, so their ratio, the resistance, stays positive.
+
+    For a fixed resistance, doubling the voltage doubles the current, and a graph of voltage against
+    current is a straight line through the origin whose slope is the resistance. Read the other way,
+    the product of current and resistance gives the drop in potential across a resistor, often
+    called the IR drop. In a loop with one source and one resistor, that drop equals the source
+    voltage.
+
+    The law is an empirical rule, not a law of nature. It holds for ohmic materials, such as metals
+    and the resistors made for circuits, whose resistance does not depend on the applied voltage. A
+    diode is the usual exception: it conducts in one direction only, and once it conducts its
+    voltage stays near 0.7 volts while the current grows. Resistance also changes with temperature,
+    so a conductor that heats up as current flows, such as a lamp filament, departs from the
+    straight line.
+
+    Georg Simon Ohm established the proportionality by experiments on metal wires and reported them
+    in an 1827 publication. A car headlight drawing 2.50 amperes from a 12.0-volt supply has a
+    resistance of 4.80 ohms.

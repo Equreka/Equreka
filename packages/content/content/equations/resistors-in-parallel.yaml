@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Resistors in parallel'
+kind: 'formula'
+level: 'intro'
+expression: '\frac{1}{\mag{R}}=\frac{1}{\var{R_{1}}}+\frac{1}{\var{R_{2}}}'
+terms:
+  R:
+    kind: 'magnitude'
+    ref: 'electrical-resistance'
+  R_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Resistance of the first resistor'
+    unit: 'ohm'
+  R_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Resistance of the second resistor'
+    unit: 'ohm'
+solutions:
+  R: 'R_1 * R_2 / (R_1 + R_2)'
+  R_{1}: 'R * R_2 / (R_2 - R)'
+  R_{2}: 'R * R_1 / (R_1 - R)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'parallel resistance'
+  - 'equivalent resistance in parallel'
+  - 'two resistors in parallel'
+  - 'product over sum'
+  - 'R = R1 R2 / (R1 + R2)'
+  - 'parallel circuit'
+  - 'resistencias en paralelo'
+  - 'resistencia equivalente en paralelo'
+  - 'circuito en paralelo'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 10.2 Resistors in Series and Parallel'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel'
+  - title: 'OpenStax, College Physics 2e, 21.1 Resistors in Series and Parallel'
+    url: 'https://openstax.org/books/college-physics-2e/pages/21-1-resistors-in-series-and-parallel'
+  - title: 'D. H. Johnson, Electrical Engineering (Rice University), LibreTexts, 3.6 Series and Parallel Circuits'
+    url: 'https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Introductory_Electrical_Engineering/Electrical_Engineering_(Johnson)/03%3A_Analog_Signal_Processing/3.06%3A_Series_and_Parallel_Circuits'
+description:
+  en: >-
+    Resistors in parallel, connected across the same two points so that the current divides among
+    them, behave as one resistor whose reciprocal resistance is the sum of their reciprocals. For
+    two resistors the result is the product of the resistances divided by their sum, the rule used
+    for the branches of household wiring, car circuits and electronic networks.
+
+    $\mag{R}$ is the equivalent resistance of the pair, in ohms. $\var{R_{1}}$ and $\var{R_{2}}$ are
+    the resistances of the first and second resistors, also in ohms. All three are positive. The
+    equivalent resistance is always smaller than the smaller of the two, and two equal resistors in
+    parallel give half the resistance of one. The relation is written for two resistors; three
+    resistors have their own entry, and every further branch adds one more reciprocal.
+
+    Each resistor in parallel has the full source voltage across it, so it carries a current equal
+    to that voltage divided by its own resistance. The branch currents meet again at the junction,
+    and by Kirchhoff's junction rule the total current is their sum. Dividing the voltage by the
+    total current gives the equivalent resistance, whose reciprocal is the sum of the reciprocals.
+    In terms of conductance, the reciprocal of resistance, the conductances of parallel branches add
+    directly.
+
+    The rule assumes connecting wires of negligible resistance and steady currents. The branches
+    work independently, which is why household appliances are wired in parallel: each runs at the
+    full supply voltage, and switching one off leaves the others untouched. Every branch added
+    lowers the equivalent resistance and raises the current the source has to supply.
+
+    A 6.00-ohm and a 13.0-ohm resistor in parallel are equivalent to a single resistor of about 4.11
+    ohms.

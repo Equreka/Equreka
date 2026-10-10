@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Work to move a charge through a potential difference'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{W}=\mag{q}\mag{\Delta V}'
+terms:
+  W:
+    kind: 'magnitude'
+    ref: 'work'
+  q:
+    kind: 'magnitude'
+    ref: 'electric-charge'
+  \Delta V:
+    kind: 'magnitude'
+    ref: 'electric-potential-difference'
+solutions:
+  W: 'q * DeltaV'
+  q: 'W / DeltaV'
+  \Delta V: 'W / q'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'work done moving a charge'
+  - 'electrical work on a charge'
+  - 'energy transferred by a charge through a voltage'
+  - 'W = q V'
+  - 'W = Q V'
+  - 'trabajo para mover una carga'
+  - 'trabajo eléctrico sobre una carga'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 7.2 Electric Potential and Potential Difference'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/7-2-electric-potential-and-potential-difference'
+  - title: 'OpenStax, College Physics 2e, 19.1 Electric Potential Energy: Potential Difference'
+    url: 'https://openstax.org/books/college-physics-2e/pages/19-1-electric-potential-energy-potential-difference'
+  - title: 'OpenStax, University Physics Volume 2, 7.1 Electric Potential Energy'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/7-1-electric-potential-energy'
+description:
+  en: >-
+    The work to move a charge through a potential difference is the charge times the voltage it
+    crosses: the energy an outside agent, such as a battery, must supply to carry the charge from
+    one point to another against the electric field. The relation turns voltage, which is energy
+    per unit charge, into an energy, and underlies the energy accounting of electrostatics and
+    electric circuits.
+
+    $\mag{W}$ is the work done by the outside agent in joules, $\mag{q}$ is the charge moved in
+    coulombs, with its sign, and $\mag{\Delta V}$ is the potential difference in volts, the
+    potential of the end point minus that of the starting point. Positive work means the agent
+    raises the potential energy of the charge, as when a positive charge is pushed to higher
+    potential; negative work means the field does the pushing and the agent holds the charge back.
+    The field itself does the opposite amount of work, minus the charge times the potential
+    difference. This end-minus-start sign is opposite to that of the potential drop in the
+    uniform-field and circuit relations.
+
+    When the charge ends with the same speed it started with, the work done by the agent equals
+    the change in electric potential energy of the charge. Because the electrostatic force is
+    conservative, the result depends only on the potentials of the two end points and not on the
+    route between them. Applied to one elementary charge crossing one volt, the relation defines
+    the electronvolt, about $1.60\times10^{-19}\,\mathrm{J}$.
+
+    The formula assumes a static field and a charge small enough not to disturb the charges that
+    set up the potential. If the agent does not balance the field, the difference shows up as a
+    change in the kinetic energy of the charge.
+
+    The unit of voltage, the volt, equal to one joule per coulomb, is named after Alessandro Volta.
+    A 12.0 volt battery that drives 5000 coulombs through a motorcycle circuit transfers
+    $6.00\times10^{4}\,\mathrm{J}$.

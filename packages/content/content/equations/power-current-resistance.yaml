@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Power dissipated in a resistor from the current'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{P}=\mag{I}^{2}\mag{R}'
+terms:
+  P:
+    kind: 'magnitude'
+    ref: 'power'
+  I:
+    kind: 'magnitude'
+    ref: 'electric-current'
+  R:
+    kind: 'magnitude'
+    ref: 'electrical-resistance'
+solutions:
+  P: 'I^2 * R'
+  I:
+    - 'sqrt(P / R)'
+    - '-sqrt(P / R)'
+  R: 'P / I^2'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q210009'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'P = I^2 R'
+  - 'P = I²R'
+  - 'Joule''s first law'
+  - 'Joule''s law'
+  - 'Joule heating'
+  - 'resistive heating'
+  - 'I squared R loss'
+  - 'ley de Joule'
+  - 'efecto Joule'
+  - 'potencia disipada en una resistencia'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 9.5 Electrical Energy and Power (Example 9.9)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-5-electrical-energy-and-power'
+  - title: 'OpenStax, College Physics 2e, 20.4 Electric Power and Energy'
+    url: 'https://openstax.org/books/college-physics-2e/pages/20-4-electric-power-and-energy'
+  - title: 'R. Nave, HyperPhysics, DC Electric Power'
+    url: 'https://hyperphysics.gsu.edu/hbase/electric/elepow.html'
+  - title: 'Wolfram Formula Repository, Joule''s Law Using Electric Current'
+    url: 'https://resources.wolframcloud.com/FormulaRepository/resources/Joules-Law-Using-Electric-Current'
+  - title: 'J. P. Joule, On the heat evolved by metallic conductors of electricity, and in the cells of a battery during electrolysis, The London, Edinburgh, and Dublin Philosophical Magazine and Journal of Science 19 (124), 260–277 (1841)'
+    url: 'https://doi.org/10.1080/14786444108650416'
+description:
+  en: >-
+    The power dissipated in a resistor equals the square of the current through it multiplied by its
+    resistance. Known as Joule's first law, the relation gives the rate at which a resistance turns
+    electrical energy into heat: the Joule heating that toasters, electric heaters and fuses rely on
+    and that power lines and wiring waste.
+
+    $\mag{P}$ is the dissipated power, in watts. $\mag{I}$ is the current through the resistor, in
+    amperes, and $\mag{R}$ its resistance, in ohms. Because the current enters squared, the power is
+    never negative: reversing the conventional current leaves it unchanged, and a resistor always
+    takes energy from the circuit. Solved for the current, the relation gives two values of equal
+    size and opposite sign; the positive one is the current in the chosen reference direction.
+
+    The result follows from the general electric power, voltage times current, once Ohm's law
+    replaces the voltage with current times resistance. On the microscopic scale, the electric field
+    accelerates the charge carriers, which hand that energy to the atoms of the conductor in
+    collisions, so it ends up as thermal motion.
+
+    The relation assumes a resistance that does not change with the current, which makes it exact
+    for ohmic resistors; for a lamp filament, whose resistance rises as it heats, the hot value is
+    needed. It covers direct current, and alternating current when the current is the RMS value.
+    Since the loss grows with the square of the current, electricity grids transmit power at high
+    voltage and low current.
+
+    James Prescott Joule published measurements of the heat that currents produce in metal wires in
+    1841. A motor winding of 1.67 ohms carrying 20.0 amperes turns about 668 watts into heat.

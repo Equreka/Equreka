@@ -1,0 +1,152 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.locale.schema.json
+name: 'Circuitos de corriente continua'
+description: >-
+  Corriente, tensión y resistencia en corriente continua: ley de Ohm, resistencia según material,
+  forma y temperatura, montajes en serie y paralelo, divisores de tensión, fuentes con resistencia
+  interna, y potencia y energía eléctricas, con comprobaciones resueltas.
+steps:
+  intro:
+    body: >-
+      Un circuito de corriente continua es un lazo cerrado en el que una fuente, como una batería,
+      impulsa la carga de forma estable en un solo sentido a través de cables y componentes. Tres
+      magnitudes lo describen: la corriente que atraviesa cada elemento, la diferencia de potencial
+      entre sus terminales y su resistencia. En toda la ruta la corriente es la corriente
+      convencional, positiva en el sentido en que se moverían las cargas positivas, desde el
+      terminal positivo de la fuente por el circuito externo y de vuelta.
+  electric-current:
+    note: >-
+      El ritmo al que la carga cruza una sección de un conductor, en amperios. Un amperio es un
+      culombio por segundo.
+  electric-current-formula:
+    note: >-
+      La carga dividida entre el tiempo da la corriente media; la corriente por el tiempo da la
+      carga transportada.
+  check-charge:
+    prompt: >-
+      Un cargador entrega 1.5 amperios constantes a un teléfono durante 2.0 horas. ¿Cuánta carga
+      transporta?
+    answer: >-
+      10 800 culombios: 1.5 por 7200, tras pasar las 2.0 horas a 7200 segundos.
+  electric-potential-difference:
+    note: >-
+      La energía que gana o pierde cada culombio de carga entre dos puntos, en voltios. Una fuente
+      eleva el potencial de la carga; los componentes lo reducen.
+  ohms-law:
+    note: >-
+      En un conductor óhmico, la tensión entre sus extremos es la corriente por su resistencia.
+      Todos los pasos siguientes se apoyan en esta relación.
+  check-ohm:
+    prompt: >-
+      Un resistor lleva 0.250 amperios cuando se le aplican 6.00 voltios. ¿Cuál es su resistencia?
+    answer: >-
+      24.0 ohmios: 6.00 dividido entre 0.250.
+  resistance-resistivity:
+    note: >-
+      La resistencia crece con la longitud del conductor y disminuye con el área de su sección; el
+      material interviene a través de su resistividad.
+  check-resistivity:
+    prompt: >-
+      El cobre tiene una resistividad de 1.68 por diez a la menos ocho ohmio metro. ¿Cuál es la
+      resistencia de un cable de cobre de 10.0 metros de largo y 1.00 milímetro cuadrado de sección?
+    answer: >-
+      0.168 ohmios: 1.68 por diez a la menos ocho, por 10.0, dividido entre 1.00 por diez a la menos
+      seis metros cuadrados.
+  resistance-temperature:
+    note: >-
+      La resistencia de un metal sube de forma casi lineal con la temperatura; los semiconductores y
+      el carbono muestran la tendencia contraria.
+  check-temperature:
+    prompt: >-
+      Una bobina de cobre mide 100 ohmios a 20 grados Celsius. Con un coeficiente de temperatura de
+      0.0039 por kelvin, ¿cuál es su resistencia a 50 grados Celsius?
+    answer: >-
+      Unos 111.7 ohmios: 100 por la suma de 1 y 0.0039 por 30. La variación de temperatura es de 30
+      kelvin, igual que 30 grados Celsius.
+  conductance:
+    note: >-
+      La conductancia, en siemens, es la inversa de la resistencia. Convierte la regla del paralelo
+      que sigue en una suma directa de conductancias.
+  resistors-in-series:
+    note: >-
+      Una sola corriente recorre todos los resistores de una cadena, y las resistencias se suman.
+  check-series:
+    prompt: >-
+      Resistores de 100, 220 y 330 ohmios se conectan en serie a una fuente de 13.0 voltios. ¿Qué
+      corriente circula?
+    answer: >-
+      0.0200 amperios: la resistencia equivalente es de 650 ohmios, y 13.0 entre 650 da 0.0200.
+  resistors-in-parallel:
+    note: >-
+      Las ramas conectadas entre los mismos dos puntos comparten una tensión, y las inversas de sus
+      resistencias se suman. Con dos ramas, divide el producto entre la suma.
+  resistors-in-parallel-three:
+    note: >-
+      La misma regla con una tercera rama. La resistencia equivalente siempre es menor que la de la
+      rama de menor resistencia.
+  check-parallel:
+    prompt: >-
+      Tres lámparas de 30.0 ohmios se conectan en paralelo a una batería de 12.0 voltios. ¿Cuál es
+      la resistencia equivalente y qué corriente suministra la batería?
+    answer: >-
+      10.0 ohmios y 1.20 amperios: las inversas suman tres treintavos, un décimo, y 12.0 entre 10.0
+      da 1.20. Cada lámpara lleva 0.400 amperios.
+  voltage-divider:
+    note: >-
+      Dos resistores en serie reparten una tensión en proporción a sus resistencias, siempre que la
+      salida apenas tome corriente.
+  check-divider:
+    prompt: >-
+      Una fuente de 9.0 voltios alimenta un resistor de 2000 ohmios seguido de otro de 1000 ohmios.
+      ¿Qué tensión aparece en el de 1000 ohmios sin nada conectado a la salida?
+    answer: >-
+      3.0 voltios: 9.0 por 1000, dividido entre 3000. El resistor menor se queda con un tercio de la
+      entrada.
+  emf-internal-resistance:
+    note: >-
+      Una fuente real pierde parte de su fuerza electromotriz en su propia resistencia interna, así
+      que la tensión en sus terminales baja al aumentar la corriente.
+  check-emf:
+    prompt: >-
+      Una pila con una fuerza electromotriz de 1.50 voltios y una resistencia interna de 0.500
+      ohmios alimenta una carga de 2.50 ohmios. ¿Qué corriente circula y cuál es la tensión en los
+      terminales?
+    answer: >-
+      0.500 amperios y 1.25 voltios: 1.50 entre la resistencia total de 3.00 ohmios da la corriente,
+      y 1.50 menos 0.500 por 0.500 da la tensión en los terminales.
+  electric-power:
+    note: >-
+      La tensión por la corriente es la potencia que cualquier elemento recibe o entrega, sea óhmico
+      o no.
+  power-current-resistance:
+    note: >-
+      En un resistor, la ley de Ohm convierte la potencia en la corriente al cuadrado por la
+      resistencia: el calor que produce una corriente.
+  power-voltage-resistance:
+    note: >-
+      La misma potencia escrita con la tensión, cómoda para aparatos conectados a una red fija.
+  check-power:
+    prompt: >-
+      Un hervidor tiene una potencia nominal de 1200 vatios a 230 voltios. ¿Qué corriente toma y
+      cuál es la resistencia de su elemento?
+    answer: >-
+      Unos 5.22 amperios y 44.1 ohmios: 1200 entre 230 da la corriente, y 230 al cuadrado entre 1200
+      da la resistencia. La corriente al cuadrado por esa resistencia devuelve 1200 vatios.
+  electrical-energy:
+    note: >-
+      La potencia por el tiempo de funcionamiento da la energía, que se factura en kilovatios hora
+      de 3.6 megajulios cada uno.
+  check-energy:
+    prompt: >-
+      El mismo hervidor de 1200 vatios funciona 5.0 minutos. ¿Cuánta energía gasta, en kilovatios
+      hora y en julios?
+    answer: >-
+      0.10 kilovatios hora, o 360 000 julios: 1.2 kilovatios por un doceavo de hora, o 1200 vatios
+      por 300 segundos.
+  summary:
+    body: >-
+      La mayoría de los problemas de corriente continua combinan tres pasos: reducir la red de
+      resistores a una resistencia equivalente, usar la ley de Ohm para hallar la corriente que
+      impulsa la fuente y volver después elemento por elemento a su tensión, su corriente y su
+      potencia. Comprueba el resultado con la energía: la potencia que entrega la fuente es igual a
+      la suma de las potencias que disipan los resistores. Expresa todas las magnitudes en voltios,
+      amperios, ohmios y vatios antes de combinarlas.

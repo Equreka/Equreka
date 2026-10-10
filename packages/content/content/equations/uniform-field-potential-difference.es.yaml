@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Diferencia de potencial en un campo eléctrico uniforme'
+terms:
+  d:
+    label: 'Distancia a lo largo del campo'
+description: >-
+  La diferencia de potencial en un campo eléctrico uniforme es la intensidad del campo por la
+  distancia recorrida a lo largo del campo: la tensión entre dos puntos crece en proporción a lo
+  que distan en la dirección de las líneas de campo. Es la relación habitual para el espacio entre
+  dos placas paralelas cargadas, y enlaza la tensión con la intensidad de campo en la
+  electrostática.
+
+  $\mag{V}$ es la diferencia de potencial eléctrico en voltios, el potencial del punto de partida
+  menos el del punto final. $\mag{E}$ es la intensidad de campo eléctrico en voltios por metro, y
+  $\var{d}$ es la distancia en metros del inicio al final, contada en la dirección del campo. El
+  potencial disminuye en el sentido en que apunta el campo, así que $\mag{V}$ es positiva cuando
+  $\var{d}$ avanza con el campo, como de la placa positiva a la negativa, y negativa cuando avanza
+  en contra. El desplazamiento perpendicular a las líneas de campo no cuenta. Esta caída, inicio
+  menos final, tiene el signo opuesto a la diferencia final menos inicio que se usa para el trabajo
+  de mover una carga.
+
+  La relación procede del trabajo que realiza el campo. Al llevar una carga positiva del inicio al
+  final, la fuerza constante del campo por la distancia da el trabajo, y al dividir entre la carga
+  se obtiene la caída de potencial. Leída al revés, el campo es la tensión por unidad de longitud,
+  y por eso el voltio por metro y el newton por culombio son la misma unidad.
+
+  La fórmula requiere un campo uniforme, buen modelo entre placas paralelas grandes y próximas,
+  lejos de sus bordes. Donde el campo cambia de un punto a otro, la diferencia de potencial debe
+  construirse sumando pequeños tramos a lo largo del camino. Un material sufre ruptura dieléctrica
+  y conduce cuando el campo supera su rigidez dieléctrica.
+
+  La relación fija la tensión máxima que soporta un hueco. El aire seco sufre ruptura a unos
+  $3.0\times10^{6}\,\mathrm{V/m}$, de modo que un hueco de 2.5 centímetros salta en chispa a unos 75
+  kilovoltios.

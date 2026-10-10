@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Resistencia de un conductor uniforme'
+terms:
+  L:
+    label: 'Longitud del conductor'
+description: >-
+  La resistencia de un conductor de sección uniforme es igual a la resistividad de su material
+  multiplicada por su longitud y dividida entre el área de su sección transversal. La relación
+  separa de qué está hecho un cable de su forma, y con ella se dimensionan los calibres de cable,
+  los elementos calefactores y los resistores en el electromagnetismo y la ingeniería eléctrica.
+
+  $\mag{R}$ es la resistencia entre los dos extremos, en ohmios. $\mag{\rho}$ es la resistividad
+  eléctrica del material, que se expresa en ohmio metro y es una propiedad de la sustancia a una
+  temperatura dada. $\var{L}$ es la longitud del conductor en la dirección de la corriente, en
+  metros, y $\mag{A}$ el área de su sección perpendicular a la corriente, en metros cuadrados. Las
+  cuatro magnitudes son positivas.
+
+  Un cable más largo pone más material en el camino de las cargas, así que su resistencia crece en
+  proporción a la longitud; uno más grueso ofrece más caminos en paralelo, y su resistencia
+  disminuye en proporción inversa al área. La resistividad abarca un intervalo enorme: el cobre
+  tiene $1.68\times10^{-8}\,\Omega\,\mathrm{m}$, el nicromo, la aleación de los elementos
+  calefactores, unas sesenta veces más, y el silicio puro, unos 2300 en esa misma unidad.
+
+  La relación supone una sección uniforme con la corriente repartida por igual, lo que se cumple en
+  corriente continua; a altas frecuencias, el efecto pelicular concentra la corriente alterna cerca
+  de la superficie y aumenta la resistencia efectiva. Como la resistividad depende de la
+  temperatura, el resultado vale a la temperatura a la que se da la resistividad, normalmente 20
+  grados Celsius. Un conductor de forma variable, como el aislante de un cable coaxial, debe
+  dividirse en capas finas cuyas contribuciones se suman.
+
+  Un cable de cobre de 5.00 metros de largo y 2.053 milímetros de diámetro, el calibre 12, tiene una resistencia de unos 0.025 ohmios.

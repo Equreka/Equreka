@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Definition of capacitance'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{C}=\frac{\mag{Q}}{\mag{V}}'
+terms:
+  C:
+    kind: 'magnitude'
+    ref: 'capacitance'
+  Q:
+    kind: 'magnitude'
+    ref: 'electric-charge'
+  V:
+    kind: 'magnitude'
+    ref: 'electric-potential-difference'
+solutions:
+  C: 'Q / V'
+  Q: 'C * V'
+  V: 'Q / C'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'capacitance equation'
+  - 'capacitor charge equation'
+  - 'charge stored on a capacitor'
+  - 'C = Q / V'
+  - 'Q = C V'
+  - 'definición de capacidad eléctrica'
+  - 'fórmula de la capacitancia'
+  - 'carga de un condensador'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 8.1 Capacitors and Capacitance'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-1-capacitors-and-capacitance'
+  - title: 'OpenStax, College Physics 2e, 19.5 Capacitors and Dielectrics'
+    url: 'https://openstax.org/books/college-physics-2e/pages/19-5-capacitors-and-dielectrics'
+  - title: 'National MagLab, Magnet Academy, Leyden Jars (1745)'
+    url: 'https://nationalmaglab.org/magnet-academy/history-of-electricity-magnetism/museum/leyden-jars-1745/'
+description:
+  en: >-
+    The definition of capacitance states that the capacitance of a capacitor is the charge it
+    holds divided by the voltage between its two conductors: the charge stored per volt. Every
+    capacitor, from the tiny ones on a circuit board to large energy-storage banks, is rated by
+    this ratio, and it is the starting point for capacitors in electrostatics and circuits.
+
+    $\mag{C}$ is the capacitance in farads, where one farad is one coulomb per volt. $\mag{Q}$ is
+    the charge in coulombs on the positive conductor, or plate; the other plate carries the same
+    amount with the opposite sign, so the capacitor as a whole stays neutral. $\mag{V}$ is the
+    electric potential difference in volts between the positive and the negative plate. With these
+    choices all three quantities are positive.
+
+    Charge and voltage rise together: doubling the voltage across a given capacitor doubles the
+    charge it stores, and the ratio stays fixed. The capacitance depends only on the shape and size
+    of the conductors and on the insulating material between them, not on how much charge is
+    present. For two parallel plates it equals the vacuum permittivity times the plate area divided
+    by their separation, and filling the gap with an insulator raises it by the dielectric
+    constant of that material.
+
+    The ratio stays constant up to the voltage at which the insulator breaks down and conducts.
+    Real capacitors span picofarads to millifarads; a whole farad is a very large capacitance.
+
+    The Leyden jar, developed independently by E. Georg von Kleist and Pieter van Musschenbroek
+    around 1745, was the first capacitor: glass between two metal foils. The farad is named after
+    Michael Faraday. Two plates of one square metre, one millimetre apart, have a capacitance of
+    about $8.85\,\mathrm{nF}$ and hold some 26.6 microcoulombs at 3000 volts.

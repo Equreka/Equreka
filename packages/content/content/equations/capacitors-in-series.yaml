@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Capacitors in series'
+kind: 'formula'
+level: 'intro'
+expression: '\frac{1}{\mag{C}}=\frac{1}{\var{C_{1}}}+\frac{1}{\var{C_{2}}}'
+terms:
+  C:
+    kind: 'magnitude'
+    ref: 'capacitance'
+  C_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Capacitance of the first capacitor'
+    unit: 'farad'
+  C_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Capacitance of the second capacitor'
+    unit: 'farad'
+solutions:
+  C: 'C_1 * C_2 / (C_1 + C_2)'
+  C_{1}: 'C * C_2 / (C_2 - C)'
+  C_{2}: 'C * C_1 / (C_1 - C)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'series capacitors'
+  - 'equivalent capacitance in series'
+  - 'series capacitance'
+  - '1/C = 1/C1 + 1/C2'
+  - 'C = C1 C2 / (C1 + C2)'
+  - 'condensadores en serie'
+  - 'capacidad equivalente en serie'
+  - 'capacitancia equivalente en serie'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 8.2 Capacitors in Series and in Parallel'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-2-capacitors-in-series-and-in-parallel'
+  - title: 'OpenStax, College Physics 2e, 19.6 Capacitors in Series and Parallel'
+    url: 'https://openstax.org/books/college-physics-2e/pages/19-6-capacitors-in-series-and-parallel'
+description:
+  en: >-
+    For capacitors in series, joined one after another so that each carries the same charge, the
+    equivalent capacitance has a reciprocal equal to the sum of the reciprocals of the separate
+    capacitances. The rule replaces a chain of capacitors with one capacitor that stores the same
+    charge at the same total voltage, a routine step in analysing circuits in electromagnetism.
+
+    $\mag{C}$ is the equivalent capacitance in farads, and $\var{C_{1}}$ and $\var{C_{2}}$ are the
+    capacitances of the first and the second capacitor, also in farads. The relation as written
+    covers two capacitors; each further capacitor in the chain adds its own reciprocal to the
+    right-hand side. All capacitances are positive, and the equivalent always comes out smaller
+    than the smallest one in the chain. For exactly two, the rule is the product of the two
+    capacitances divided by their sum.
+
+    In a series chain only the two outer plates touch the source. Charge moves onto them, and each
+    inner pair of plates, an initially neutral conductor, splits into equal and opposite charges,
+    so every capacitor ends up with the same charge. The voltages across the capacitors add up to
+    the total voltage. Writing each voltage as the shared charge over its capacitance and
+    cancelling the charge gives the rule.
+
+    The derivation assumes ideal capacitors that start uncharged and nothing connected to the
+    points between them. Since each voltage is the common charge over its own capacitance, the
+    smallest capacitor takes the largest share of the voltage, so with equal voltage ratings it is
+    the first to reach its breakdown limit.
+
+    Putting capacitors in series lowers the capacitance but spreads the voltage across several
+    insulating layers. A $1.000\,\mu\mathrm{F}$ capacitor in series with a
+    $5.000\,\mu\mathrm{F}$ one gives about $0.833\,\mu\mathrm{F}$.

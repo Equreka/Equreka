@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Trabajo para mover una carga a través de una diferencia de potencial'
+description: >-
+  El trabajo para mover una carga a través de una diferencia de potencial es la carga por la tensión
+  que atraviesa: la energía que un agente externo, como una batería, debe aportar para llevar la
+  carga de un punto a otro venciendo el campo eléctrico. La relación convierte la tensión, que es
+  energía por unidad de carga, en una energía, y sustenta el balance energético de la
+  electrostática y de los circuitos eléctricos.
+
+  $\mag{W}$ es el trabajo del agente externo en julios, $\mag{q}$ es la carga desplazada en
+  culombios, con su signo, y $\mag{\Delta V}$ es la diferencia de potencial en voltios, el potencial
+  del punto final menos el del punto de partida. Un trabajo positivo significa que el agente eleva
+  la energía potencial de la carga, como al empujar una carga positiva hacia un potencial más alto;
+  uno negativo significa que el campo empuja y el agente frena la carga. El propio campo realiza el
+  trabajo opuesto, menos la carga por la diferencia de potencial. Este signo, final menos inicio, es
+  el opuesto al de la caída de potencial en las relaciones del campo uniforme y de los circuitos.
+
+  Cuando la carga termina con la misma rapidez con que empezó, el trabajo del agente es igual a la
+  variación de energía potencial eléctrica de la carga. Como la fuerza electrostática es
+  conservativa, el resultado depende solo de los potenciales de los dos extremos y no del camino
+  entre ellos. Aplicada a una carga elemental que atraviesa un voltio, la relación define el
+  electronvoltio, unos $1.60\times10^{-19}\,\mathrm{J}$.
+
+  La fórmula supone un campo estático y una carga lo bastante pequeña para no perturbar las cargas
+  que crean el potencial. Si el agente no equilibra el campo, la diferencia aparece como una
+  variación de la energía cinética de la carga.
+
+  La unidad de tensión, el voltio, igual a un julio por culombio, debe su nombre a Alessandro Volta.
+  Una batería de 12.0 voltios que impulsa 5000 culombios por el circuito de una motocicleta
+  transfiere $6.00\times10^{4}\,\mathrm{J}$.

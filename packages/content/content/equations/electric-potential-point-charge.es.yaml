@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Potencial eléctrico de una carga puntual'
+terms:
+  r:
+    label: 'Distancia a la carga'
+description: >-
+  El potencial eléctrico de una carga puntual es la energía potencial por unidad de carga que una
+  sola carga establece a su alrededor: la constante de Coulomb por la carga, dividida entre la
+  distancia a ella, con el cero de potencial situado infinitamente lejos. Es el resultado básico
+  sobre la tensión en la electrostática, y los potenciales de varias cargas se suman para dar el
+  potencial de cualquier distribución.
+
+  $\mag{V}$ es el potencial eléctrico en voltios, es decir, julios por culombio. $\mag{q}$ es la
+  carga fuente en culombios, con su signo, y $\var{r}$ es la distancia desde la carga hasta el
+  punto considerado, en metros. $\const{k_\mathrm{e}}$ es la constante de Coulomb, de unos
+  $8.99\times10^{9}\,\mathrm{N\,m^{2}/C^{2}}$, igual a uno entre cuatro pi por la permitividad
+  eléctrica del vacío. Una carga positiva eleva el potencial a su alrededor y una negativa lo baja
+  por debajo de cero; una carga de prueba positiva se desplaza hacia el potencial más bajo.
+
+  El potencial es el trabajo por unidad de carga necesario para traer una pequeña carga de prueba
+  positiva desde el infinito hasta el punto, venciendo el campo de la fuente. A diferencia del
+  campo, que disminuye con el inverso del cuadrado de la distancia y tiene dirección, el potencial
+  disminuye con el inverso de la distancia y es un escalar. Por eso varias cargas se combinan
+  sumando sus potenciales, con su signo. Todos los puntos a la misma distancia comparten un
+  potencial, así que una esfera alrededor de la carga es una superficie equipotencial.
+
+  La fórmula vale para una carga en reposo pequeña o con simetría esférica; fuera de una esfera
+  cargada se aplica con la distancia medida desde el centro, y en su superficie da el potencial de
+  la propia esfera. Solo las diferencias de potencial tienen significado físico: el cero en el
+  infinito es un convenio, y en los circuitos se suele tomar la tierra como cero.
+
+  La fórmula indica cuánta carga lleva la esfera de un generador de Van de Graaff a una tensión
+  dada. Una esfera metálica con
+  $-3.00$ nanoculombios está a un potencial de unos $-539\,\mathrm{V}$ a 5.00 centímetros de su
+  centro.

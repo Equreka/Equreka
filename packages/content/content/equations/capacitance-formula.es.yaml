@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Definición de capacidad eléctrica'
+description: >-
+  La definición de capacidad eléctrica establece que la capacidad de un condensador es la carga que
+  almacena dividida entre la tensión entre sus dos conductores: la carga almacenada por voltio.
+  Todo condensador, desde los diminutos de una placa de circuito hasta los grandes bancos de
+  almacenamiento de energía, se caracteriza por este cociente, punto de partida para estudiar los
+  condensadores en la electrostática y en los circuitos.
+
+  $\mag{C}$ es la capacidad en faradios, donde un faradio es un culombio por voltio. $\mag{Q}$ es
+  la carga en culombios del conductor, o placa, positivo; la otra placa lleva la misma cantidad con
+  signo opuesto, de modo que el condensador en conjunto es neutro. $\mag{V}$ es la diferencia de
+  potencial eléctrico en voltios entre la placa positiva y la negativa. Con estas elecciones las
+  tres magnitudes son positivas.
+
+  Carga y tensión aumentan juntas: duplicar la tensión aplicada a un condensador duplica la carga
+  que almacena, y el cociente no cambia. La capacidad depende solo de la forma y el tamaño de los
+  conductores y del material aislante entre ellos, no de la carga presente. Para dos placas
+  paralelas es la permitividad del vacío por el área de las placas dividida entre su separación, y
+  llenar el hueco con un aislante la aumenta en un factor igual a la constante dieléctrica del
+  material.
+
+  El cociente se mantiene constante hasta la tensión a la que el aislante sufre ruptura y conduce.
+  Los condensadores reales van de picofaradios a milifaradios; un faradio entero es una capacidad
+  muy grande.
+
+  La botella de Leyden, desarrollada de forma independiente por E. Georg von Kleist y Pieter van
+  Musschenbroek hacia 1745, fue el primer condensador: vidrio entre dos láminas metálicas. El
+  faradio debe su nombre a Michael Faraday. Dos placas de un metro cuadrado, separadas un
+  milímetro, tienen una capacidad de unos $8.85\,\mathrm{nF}$ y almacenan unos 26.6
+  microculombios a 3000 voltios.

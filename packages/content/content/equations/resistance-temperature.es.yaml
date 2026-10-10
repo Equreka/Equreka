@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Variación de la resistencia con la temperatura'
+terms:
+  R:
+    label: 'Resistencia a la temperatura final'
+  R_{0}:
+    label: 'Resistencia a la temperatura de referencia'
+  \alpha:
+    label: 'Coeficiente de temperatura de la resistencia'
+  \Delta T:
+    label: 'Variación de temperatura'
+description: >-
+  La resistencia de un conductor cambia con la temperatura, y en intervalos moderados el cambio es
+  casi lineal: la resistencia a una nueva temperatura es igual a la resistencia a una temperatura de
+  referencia por uno más el coeficiente de temperatura de la resistencia por la variación de
+  temperatura. En la relación se basan los termómetros de resistencia y los termistores, y explica
+  el pico de corriente que toma una lámpara al encenderse.
+
+  $\var{R}$ es la resistencia a la temperatura final y $\var{R_{0}}$ la resistencia a la temperatura
+  de referencia, normalmente 20 grados Celsius, ambas en ohmios. $\var{\alpha}$ es el coeficiente de
+  temperatura de la resistencia del material, en inversa del kelvin. $\var{\Delta T}$ es la
+  temperatura final menos la de referencia; una diferencia de temperatura vale lo mismo en kelvin
+  que en grados Celsius, así que un coeficiente por grado Celsius tiene el mismo número. Los metales
+  tienen coeficientes positivos, unos 0.0039 por kelvin el cobre y el aluminio, mientras que el
+  carbono, el silicio y el germanio los tienen negativos, de modo que conducen mejor al calentarse.
+
+  En un metal, el calor hace vibrar con más fuerza a los átomos, que dispersan con más frecuencia a
+  los electrones de conducción y elevan la resistencia. En un semiconductor, el calor libera más
+  portadores de carga, un efecto que supera a la dispersión adicional. La variación relativa, el
+  cambio de resistencia dividido entre el valor de referencia, es igual al coeficiente por la
+  variación de temperatura.
+
+  La forma lineal es una aproximación. En muchos materiales sirve para cambios de hasta unos 100
+  grados Celsius, por encima de los cuales el propio coeficiente varía; el tungsteno es una
+  excepción que la sigue bastante bien en intervalos muy amplios. A temperaturas muy bajas, las
+  impurezas y los defectos fijan un mínimo a la resistencia de un metal, y algunos materiales se
+  vuelven superconductores, sin resistencia alguna.
+
+  Un filamento de tungsteno de 0.350 ohmios a 20 grados Celsius llega a unos 4.8 ohmios al
+  calentarse hasta 2850 grados Celsius, más de diez veces su valor en frío.

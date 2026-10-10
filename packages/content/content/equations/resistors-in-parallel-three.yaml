@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Three resistors in parallel'
+kind: 'formula'
+level: 'intro'
+expression: '\frac{1}{\mag{R}}=\frac{1}{\var{R_{1}}}+\frac{1}{\var{R_{2}}}+\frac{1}{\var{R_{3}}}'
+terms:
+  R:
+    kind: 'magnitude'
+    ref: 'electrical-resistance'
+  R_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Resistance of the first resistor'
+    unit: 'ohm'
+  R_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Resistance of the second resistor'
+    unit: 'ohm'
+  R_{3}:
+    kind: 'symbol'
+    label:
+      en: 'Resistance of the third resistor'
+    unit: 'ohm'
+solutions:
+  R: '1 / (1 / R_1 + 1 / R_2 + 1 / R_3)'
+  R_{1}: '1 / (1 / R - 1 / R_2 - 1 / R_3)'
+  R_{2}: '1 / (1 / R - 1 / R_1 - 1 / R_3)'
+  R_{3}: '1 / (1 / R - 1 / R_1 - 1 / R_2)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'three parallel resistors'
+  - 'parallel resistance of three resistors'
+  - '1/R = 1/R1 + 1/R2 + 1/R3'
+  - 'equivalent resistance of three branches'
+  - 'tres resistencias en paralelo'
+  - 'resistencia equivalente de tres ramas'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 10.2 Resistors in Series and Parallel (Example 10.3)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel'
+  - title: 'OpenStax, College Physics 2e, 21.1 Resistors in Series and Parallel'
+    url: 'https://openstax.org/books/college-physics-2e/pages/21-1-resistors-in-series-and-parallel'
+  - title: 'D. H. Johnson, Electrical Engineering (Rice University), LibreTexts, 3.6 Series and Parallel Circuits'
+    url: 'https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Introductory_Electrical_Engineering/Electrical_Engineering_(Johnson)/03%3A_Analog_Signal_Processing/3.06%3A_Series_and_Parallel_Circuits'
+description:
+  en: >-
+    Three resistors in parallel, each connected across the same pair of points, act as one resistor
+    whose reciprocal resistance is the sum of the three reciprocals. The rule finds the equivalent
+    resistance of three branches that share one voltage in a direct-current circuit, such as several
+    appliances on one household circuit or three lamps fed by the same battery.
+
+    $\mag{R}$ is the equivalent resistance of the group, in ohms. $\var{R_{1}}$, $\var{R_{2}}$ and
+    $\var{R_{3}}$ are the resistances of the first, second and third resistors, also in ohms. All
+    four are positive. The equivalent resistance is smaller than the smallest of the three, and
+    three equal resistors give a third of the resistance of one. The relation is written for three
+    resistors; the two-resistor case has its own entry, with the product-over-sum form, and every
+    further branch adds one more reciprocal.
+
+    Every branch has the full source voltage across it and carries the current that this voltage
+    drives through its own resistance. The three currents add at the junction, as Kirchhoff's
+    junction rule states, so the total current is the voltage times the sum of the reciprocals. Each
+    reciprocal is a conductance, measured in siemens, and the conductances of parallel branches add.
+    Combining two resistors first with the product-over-sum rule, and then the result with the
+    third, gives the same answer.
+
+    The rule assumes connecting wires of negligible resistance and steady currents. A branch that
+    becomes a short circuit drives the equivalent resistance to zero and takes nearly all of the
+    current. The total current drawn from the source is always larger than the current in any single
+    branch.
+
+    Resistors of 1.00, 2.00 and 2.00 ohms across a 3.00-volt source give an equivalent resistance of
+    0.50 ohms and a total current of 6.00 amperes.

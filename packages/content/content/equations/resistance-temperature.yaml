@@ -1,0 +1,82 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Temperature dependence of resistance'
+kind: 'formula'
+level: 'intro'
+expression: '\var{R}=\var{R_{0}}\left(1+\var{\alpha}\var{\Delta T}\right)'
+terms:
+  R:
+    kind: 'symbol'
+    label:
+      en: 'Resistance at the final temperature'
+    unit: 'ohm'
+  R_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Resistance at the reference temperature'
+    unit: 'ohm'
+  \alpha:
+    kind: 'symbol'
+    label:
+      en: 'Temperature coefficient of resistance'
+    unit: 'reciprocal-kelvin'
+  \Delta T:
+    kind: 'symbol'
+    label:
+      en: 'Temperature change'
+    unit: 'kelvin'
+    delta: true
+solutions:
+  R: 'R_0 * (1 + alpha * DeltaT)'
+  R_{0}: 'R / (1 + alpha * DeltaT)'
+  \alpha: '(R - R_0) / (R_0 * DeltaT)'
+  \Delta T: '(R - R_0) / (R_0 * alpha)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'R = R0(1 + alpha delta T)'
+  - 'R = R₀(1 + αΔT)'
+  - 'temperature coefficient of resistance'
+  - 'resistance and temperature'
+  - 'TCR'
+  - 'variación de la resistencia con la temperatura'
+  - 'coeficiente de temperatura de la resistencia'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 9.3 Resistivity and Resistance (Table 9.1, Example 9.6)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-3-resistivity-and-resistance'
+  - title: 'R. Nave, HyperPhysics, Temperature Coefficient of Resistance'
+    url: 'https://hyperphysics.gsu.edu/hbase/electric/restmp.html'
+description:
+  en: >-
+    The resistance of a conductor changes with temperature, and over moderate ranges the change is
+    close to linear: the resistance at a new temperature equals the resistance at a reference
+    temperature times one plus the temperature coefficient of resistance times the temperature
+    change. The relation lies behind resistance thermometers and thermistors, and it explains the
+    surge of current a lamp draws at switch-on.
+
+    $\var{R}$ is the resistance at the final temperature and $\var{R_{0}}$ the resistance at the
+    reference temperature, usually 20 degrees Celsius, both in ohms. $\var{\alpha}$ is the
+    temperature coefficient of resistance of the material, in reciprocal kelvin. $\var{\Delta T}$ is
+    the final temperature minus the reference one; a temperature difference has the same value in
+    kelvin and in degrees Celsius, so a coefficient per degree Celsius carries the same number.
+    Metals have positive coefficients, about 0.0039 per kelvin for copper and aluminium, whereas
+    carbon, silicon and germanium have negative ones, so they conduct better as they warm.
+
+    In a metal, heating makes the atoms vibrate more strongly, and they scatter the conduction
+    electrons more often, which raises the resistance. In a semiconductor, heating frees additional
+    charge carriers, an effect that outweighs the extra scattering. The fractional change, the
+    change in resistance divided by the reference value, equals the coefficient times the
+    temperature change.
+
+    The linear form is an approximation. For many materials it serves for changes up to about 100
+    degrees Celsius, beyond which the coefficient itself drifts; tungsten is an exception that
+    follows it fairly well over very wide ranges. At very low temperatures, impurities and defects
+    set a floor to the resistance of a metal, and some materials turn superconducting, with no
+    resistance at all.
+
+    A tungsten filament of 0.350 ohms at 20 degrees Celsius reaches about 4.8 ohms when heated to
+    2850 degrees Celsius, more than ten times its cold value.

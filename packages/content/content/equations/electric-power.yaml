@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Electric power'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{P}=\mag{V}\mag{I}'
+terms:
+  P:
+    kind: 'magnitude'
+    ref: 'power'
+  V:
+    kind: 'magnitude'
+    ref: 'electric-potential-difference'
+  I:
+    kind: 'magnitude'
+    ref: 'electric-current'
+solutions:
+  P: 'V * I'
+  V: 'P / I'
+  I: 'P / V'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'P = VI'
+  - 'P = IV'
+  - 'power equals voltage times current'
+  - 'watts = volts x amps'
+  - 'electrical power formula'
+  - 'potencia eléctrica'
+  - 'potencia igual a tensión por corriente'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 9.5 Electrical Energy and Power (Example 9.9)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/9-5-electrical-energy-and-power'
+  - title: 'OpenStax, College Physics 2e, 20.4 Electric Power and Energy'
+    url: 'https://openstax.org/books/college-physics-2e/pages/20-4-electric-power-and-energy'
+  - title: 'R. Nave, HyperPhysics, DC Electric Power'
+    url: 'https://hyperphysics.gsu.edu/hbase/electric/elepow.html'
+description:
+  en: >-
+    Electric power is the rate at which a circuit element takes in or delivers electrical energy,
+    and it equals the potential difference across the element multiplied by the current through it.
+    The relation applies to any device in a direct-current circuit, whether a resistor, a motor, a
+    lamp or a battery, and it lies behind the power ratings printed on appliances.
+
+    $\mag{P}$ is the power, in watts. $\mag{V}$ is the potential difference across the device, in
+    volts, and $\mag{I}$ the current through it, in amperes. A volt times an ampere is a watt,
+    because a volt is a joule per coulomb and an ampere a coulomb per second. Take $\mag{V}$ as the
+    fall in potential along the direction of conventional current, the way positive charge would
+    move: a positive power is then energy delivered to the device, and a negative power marks a
+    device that feeds energy into the circuit, such as a battery driving the current.
+
+    A charge that moves through a potential difference exchanges with the electric field an energy
+    equal to the charge times that difference. Dividing by the time the charge takes gives the
+    energy per unit time, and because charge per unit time is current, the power is voltage times
+    current. In a resistor this energy becomes heat; in a lamp, heat and light.
+
+    The product holds for every element, ohmic or not, since it rests only on the definitions of
+    voltage and current. Combined with Ohm's law it yields the two resistor forms, one with current
+    and resistance and one with voltage and resistance, which need a constant resistance. With
+    alternating current the product is the instantaneous power; the average uses RMS values and,
+    when voltage and current are out of phase, a power factor.
+
+    A winch motor that draws 20.0 amperes at 115 volts consumes 2300 watts, part of which lifts the
+    load while the rest heats the windings.

@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Terminal voltage of a source with internal resistance'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{V}=\mag{\mathcal{E}}-\mag{I}\var{r}'
+terms:
+  V:
+    kind: 'magnitude'
+    ref: 'electric-potential-difference'
+  \mathcal{E}:
+    kind: 'magnitude'
+    ref: 'electromotive-force'
+    identifier: 'emf'
+  I:
+    kind: 'magnitude'
+    ref: 'electric-current'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Internal resistance'
+    unit: 'ohm'
+solutions:
+  V: 'emf - I * r'
+  \mathcal{E}: 'V + I * r'
+  I: '(emf - V) / r'
+  r: '(emf - V) / I'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'terminal voltage'
+  - 'emf and internal resistance'
+  - 'V = E - Ir'
+  - 'V = emf - Ir'
+  - 'internal resistance of a battery'
+  - 'voltaje de los terminales'
+  - 'tensión en bornes'
+  - 'fuerza electromotriz y resistencia interna'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 10.1 Electromotive Force'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/10-1-electromotive-force'
+  - title: 'OpenStax, College Physics 2e, 21.2 Electromotive Force: Terminal Voltage'
+    url: 'https://openstax.org/books/college-physics-2e/pages/21-2-electromotive-force-terminal-voltage'
+description:
+  en: >-
+    The terminal voltage of a battery or other source of electromotive force equals its emf minus
+    the voltage lost across its internal resistance, which is the current times that resistance. The
+    relation explains why a real battery delivers less than its rated voltage once current flows,
+    and why the voltage sags when a heavy load is connected.
+
+    $\mag{V}$ is the potential difference between the terminals, in volts. $\mag{\mathcal{E}}$ is
+    the electromotive force, also in volts: the work done on each coulomb by the process inside the
+    source. $\mag{I}$ is the current through the source, in amperes,
+    positive when conventional current leaves the positive terminal, as when the source discharges
+    into a circuit. $\var{r}$ is the internal resistance, in ohms. While a charger forces current
+    backwards through the source, the current is negative and the terminal voltage exceeds the emf.
+    With this source sign, the product of terminal voltage and current is the power the source
+    delivers, the opposite of the load sign used for electric power.
+
+    A real source behaves like an ideal emf in series with a small resistor. With no current there
+    is no drop across that resistor, so a voltmeter drawing negligible current reads the emf itself.
+    As the current grows, the internal drop grows in proportion and the terminal voltage falls. With
+    an external load resistance attached, the current is the emf divided by the sum of the load and
+    internal resistances.
+
+    The model treats the internal resistance as constant, but in practice it depends on the state of
+    charge, the temperature, the current and the history of the battery. A nearly flat battery can
+    still show its full emf on a voltmeter yet fail under load, because its internal resistance has
+    grown. A larger battery of the same emf, such as a truck battery, has a lower internal
+    resistance and can supply more current.
+
+    The name electromotive force, coined by Alessandro Volta, is historical: the emf is a potential
+    difference, not a force. A 12.0-volt battery with an internal resistance of 0.100 ohms that
+    delivers 20.0 amperes has a terminal voltage of 10.0 volts.

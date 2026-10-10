@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Condensadores en paralelo'
+terms:
+  C_{1}:
+    label: 'Capacidad del primer condensador'
+  C_{2}:
+    label: 'Capacidad del segundo condensador'
+description: >-
+  En los condensadores en paralelo, conectados lado a lado entre los mismos dos puntos de modo que
+  todos tienen la misma tensión, la capacidad equivalente es la suma de las capacidades
+  individuales. La regla sustituye un grupo de condensadores en paralelo por un único condensador
+  que guarda la misma carga total con la misma tensión, una de las primeras herramientas para
+  analizar circuitos en el electromagnetismo.
+
+  $\mag{C}$ es la capacidad equivalente en faradios, y $\var{C_{1}}$ y $\var{C_{2}}$ son las
+  capacidades del primer y del segundo condensador, también en faradios. La relación tal como está
+  escrita abarca dos condensadores; cada condensador adicional conectado entre los mismos puntos
+  añade su capacidad a la suma. Todas las capacidades son positivas, así que la equivalente es
+  mayor que la de cualquier condensador del grupo.
+
+  Cada condensador de un grupo en paralelo se conecta directamente al mismo par de puntos, de modo
+  que todos comparten una tensión, mientras que cada uno almacena su propia carga en proporción a
+  su capacidad. La carga total que entrega la fuente es la suma de esas cargas. Al escribir cada
+  carga como su capacidad por la tensión común y dividir entre esa tensión se obtiene la regla.
+  Visto de otro modo, unir condensadores lado a lado equivale a placas más grandes, y la capacidad
+  crece con la superficie de las placas.
+
+  La regla supone condensadores ideales y cables de conexión cuya propia capacidad es
+  despreciable. El grupo entero no admite más tensión que el condensador con la menor tensión de
+  ruptura, ya que cada uno soporta la tensión completa.
+
+  Los bancos de condensadores en paralelo almacenan más carga, y más energía, a una tensión dada
+  que cualquier unidad sola. Un
+  condensador de $1.000\,\mu\mathrm{F}$ en paralelo con otro de $5.000\,\mu\mathrm{F}$ da
+  $6.000\,\mu\mathrm{F}$.

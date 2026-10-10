@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de Coulomb'
+terms:
+  q_{1}:
+    label: 'Primera carga'
+  q_{2}:
+    label: 'Segunda carga'
+  r:
+    label: 'Distancia entre las cargas'
+description: >-
+  La ley de Coulomb da la fuerza electrostática entre dos cargas puntuales en reposo: el empuje o la
+  atracción crece con el producto de ambas cargas y se debilita con el cuadrado de su separación. Es
+  la ley fundacional de la electrostática, la parte del electromagnetismo que estudia las cargas que
+  no se mueven, y la contrapartida eléctrica de la ley del inverso del cuadrado de la gravitación.
+
+  $\mag{F}$ es la fuerza en newtons que cada carga ejerce sobre la otra, dirigida a lo largo de la
+  recta que las une. $\var{q_{1}}$ y $\var{q_{2}}$ son las dos cargas en culombios, cada una con su
+  signo, y $\var{r}$ es la distancia entre las cargas en metros. $\const{k_\mathrm{e}}$ es la
+  constante de Coulomb, de unos $8.99\times10^{9}\,\mathrm{N\,m^{2}/C^{2}}$, igual a uno entre
+  cuatro pi por la permitividad eléctrica del vacío. El signo del resultado indica el sentido: una
+  fuerza positiva corresponde a cargas del mismo signo que se repelen, y una negativa a cargas
+  opuestas que se atraen.
+
+  Duplicar cualquiera de las cargas duplica la fuerza, mientras que duplicar la distancia la reduce
+  a la cuarta parte. Las fuerzas sobre las dos cargas tienen el mismo módulo y sentidos opuestos,
+  como exige la tercera ley de Newton. Con tres o más cargas, la fuerza sobre una de ellas es la suma
+  vectorial de las fuerzas que ejerce cada una de las demás (principio de superposición). En el
+  átomo, la fuerza eléctrica eclipsa a la gravedad: en el hidrógeno, la atracción entre el protón y
+  el electrón supera la gravitatoria en unos 39 órdenes de magnitud.
+
+  La ley describe cargas puntuales, o distribuciones de carga esféricas con la distancia medida
+  entre sus centros, inmóviles en el vacío. Las cargas en movimiento ejercen además fuerzas
+  magnéticas, que la ley no incluye. Los experimentos han confirmado la dependencia del inverso del
+  cuadrado con una precisión de una parte en diez mil billones.
+
+  Charles-Augustin de Coulomb dio a conocer el comportamiento del inverso del cuadrado en 1785, tras
+  medir la repulsión entre pequeñas esferas cargadas con una balanza de torsión, en la que la
+  torsión de una fibra delgada revela una fuerza diminuta. En un átomo de hidrógeno, el protón y el
+  electrón, separados unos $5.29\times10^{-11}\,\mathrm{m}$, se atraen con unos $8.2\times10^{-8}$
+  newtons.

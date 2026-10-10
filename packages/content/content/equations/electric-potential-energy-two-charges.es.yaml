@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Energía potencial eléctrica de dos cargas puntuales'
+terms:
+  q_{1}:
+    label: 'Primera carga'
+  q_{2}:
+    label: 'Segunda carga'
+  r:
+    label: 'Distancia entre las cargas'
+description: >-
+  La energía potencial eléctrica de dos cargas puntuales es la energía almacenada en su separación:
+  la constante de Coulomb por el producto de las cargas, dividido entre la distancia que las separa,
+  con el cero de energía tomado cuando las cargas están infinitamente alejadas. Es la contrapartida
+  electrostática de la energía potencial gravitatoria de dos masas, y la energía asociada a la
+  fuerza de Coulomb.
+
+  $\mag{E_\mathrm{p}}$ es la energía potencial del par en julios. $\var{q_{1}}$ y $\var{q_{2}}$ son
+  las dos cargas en culombios, cada una con su signo, y $\var{r}$ es la distancia entre ellas en
+  metros. $\const{k_\mathrm{e}}$ es la constante de Coulomb, de unos
+  $8.99\times10^{9}\,\mathrm{N\,m^{2}/C^{2}}$, igual a uno entre cuatro pi por la permitividad
+  eléctrica del vacío. La energía es positiva para cargas del mismo signo, que se repelen, y
+  negativa para cargas opuestas, que se atraen.
+
+  Su valor es igual al trabajo que un agente externo debe realizar para acercar lentamente las dos
+  cargas desde el infinito hasta la distancia $\var{r}$. Acercar cargas del mismo signo exige un
+  trabajo positivo y eleva la energía; dejar que se aproximen cargas opuestas libera energía y la
+  vuelve más negativa, por lo que los pares ligados, como un electrón y un núcleo, tienen energía
+  negativa. La fuerza de Coulomb es conservativa, así que el trabajo del campo entre dos
+  separaciones es igual a menos la variación de esta energía, sea cual sea la trayectoria. La
+  expresión también es igual a una de las cargas por el potencial que la otra crea en su posición.
+
+  La fórmula trata las cargas como puntos, o como distribuciones esféricas con la distancia entre
+  centros, y el cero en el infinito es un convenio: solo las variaciones de energía potencial
+  tienen significado físico. Para tres o más cargas, el total es la suma sobre cada par.
+
+  Para un protón y un electrón separados $5.29\times10^{-11}\,\mathrm{m}$, como en el hidrógeno, la
+  fórmula da unos $-4.36\times10^{-18}\,\mathrm{J}$.

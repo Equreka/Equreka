@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Resistors in series'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{R}=\var{R_{1}}+\var{R_{2}}'
+terms:
+  R:
+    kind: 'magnitude'
+    ref: 'electrical-resistance'
+  R_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Resistance of the first resistor'
+    unit: 'ohm'
+  R_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Resistance of the second resistor'
+    unit: 'ohm'
+solutions:
+  R: 'R_1 + R_2'
+  R_{1}: 'R - R_2'
+  R_{2}: 'R - R_1'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'series resistance'
+  - 'equivalent resistance in series'
+  - 'two resistors in series'
+  - 'series circuit'
+  - 'R = R1 + R2'
+  - 'resistencias en serie'
+  - 'resistencia equivalente en serie'
+  - 'circuito en serie'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 10.2 Resistors in Series and Parallel'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/10-2-resistors-in-series-and-parallel'
+  - title: 'OpenStax, College Physics 2e, 21.1 Resistors in Series and Parallel'
+    url: 'https://openstax.org/books/college-physics-2e/pages/21-1-resistors-in-series-and-parallel'
+  - title: 'D. H. Johnson, Electrical Engineering (Rice University), LibreTexts, 3.6 Series and Parallel Circuits'
+    url: 'https://eng.libretexts.org/Bookshelves/Electrical_Engineering/Introductory_Electrical_Engineering/Electrical_Engineering_(Johnson)/03%3A_Analog_Signal_Processing/3.06%3A_Series_and_Parallel_Circuits'
+description:
+  en: >-
+    Resistors in series, connected end to end so that a single current passes through each in turn,
+    behave as one resistor whose resistance is the sum of theirs. The rule, written here for two
+    resistors, gives the equivalent resistance of a series chain in direct-current circuits, from
+    strings of lamps to the resistor networks inside electronic devices.
+
+    $\mag{R}$ is the equivalent resistance of the pair, in ohms. $\var{R_{1}}$ and $\var{R_{2}}$ are
+    the resistances of the first and second resistors, also in ohms. None is negative, and the
+    equivalent resistance is never smaller than the larger of the two. The relation is written for
+    two resistors; a third or any further resistor adds its own resistance to the sum in the same
+    way, so a longer chain is handled one term at a time.
+
+    The same current flows through every resistor of a series chain, because the charge has no other
+    path. Each resistor takes a share of the source voltage equal to that current times its own
+    resistance, and the shares add up to the total voltage, as Kirchhoff's loop rule requires.
+    Dividing the total voltage by the common current leaves the sum of the resistances.
+
+    The rule assumes connecting wires of negligible resistance and steady currents. Because the
+    current is shared, a single broken element interrupts the whole chain, and adding a resistor in
+    series always lowers the current a given source drives. In a parallel connection, by contrast,
+    it is the reciprocals of the resistances that add.
+
+    A 100-ohm and a 220-ohm resistor in series behave as a single 320-ohm resistor, through which a
+    3.20-volt source drives a current of 0.0100 amperes.

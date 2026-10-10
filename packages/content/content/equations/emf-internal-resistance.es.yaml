@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Tensión en los terminales de una fuente con resistencia interna'
+terms:
+  r:
+    label: 'Resistencia interna'
+description: >-
+  La tensión entre los terminales de una batería u otra fuente de fuerza electromotriz es igual a su
+  fuerza electromotriz menos la tensión que se pierde en su resistencia interna, que es la corriente
+  por esa resistencia. La relación explica por qué una batería real entrega menos que su tensión
+  nominal en cuanto circula corriente y por qué la tensión cae al conectar una carga grande.
+
+  $\mag{V}$ es la diferencia de potencial entre los terminales, en voltios. $\mag{\mathcal{E}}$ es
+  la fuerza electromotriz, también en voltios: el trabajo que el proceso interno de la fuente
+  realiza sobre cada culombio. $\mag{I}$ es la corriente que atraviesa
+  la fuente, en amperios, positiva cuando la corriente convencional sale por el terminal positivo,
+  como cuando la fuente se descarga en un circuito. $\var{r}$ es la resistencia interna, en ohmios.
+  Mientras un cargador obliga a la corriente a atravesar la fuente en sentido contrario, la
+  corriente es negativa y la tensión en los terminales supera a la fuerza electromotriz. Con este
+  signo de fuente, el producto de la tensión en los terminales por la corriente es la potencia que
+  entrega la fuente, el opuesto del signo de carga que usa la potencia eléctrica.
+
+  Una fuente real se comporta como una fuerza electromotriz ideal en serie con un pequeño resistor.
+  Sin corriente no hay caída en ese resistor, así que un voltímetro que apenas toma corriente mide
+  la propia fuerza electromotriz. Al crecer la corriente, la caída interna crece en proporción y la
+  tensión en los terminales baja. Con una resistencia de carga externa, la corriente es la fuerza
+  electromotriz dividida entre la suma de las resistencias de carga e interna.
+
+  El modelo trata la resistencia interna como constante, pero en la práctica depende del estado de
+  carga, la temperatura, la corriente y la historia de la batería. Una batería casi agotada puede
+  marcar toda su fuerza electromotriz en un voltímetro y fallar con carga, porque su resistencia
+  interna ha crecido. Una batería mayor con la misma fuerza electromotriz, como la de un camión,
+  tiene menos resistencia interna y puede dar más corriente.
+
+  El nombre fuerza electromotriz, acuñado por Alessandro Volta, es histórico: no es una fuerza, sino
+  una diferencia de potencial. Una batería de 12.0 voltios con una resistencia interna de 0.100
+  ohmios que entrega 20.0 amperios tiene una tensión en los terminales de 10.0 voltios.
