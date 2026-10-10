@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Energía del fotón a partir de la longitud de onda'
+description: >-
+  La fórmula de la energía del fotón a partir de la longitud de onda da la energía de un fotón como
+  la constante de Planck por la velocidad de la luz en el vacío, dividida entre la longitud de onda.
+  Es la forma en longitud de onda de la relación de Planck-Einstein y la más usada en óptica,
+  espectroscopia y física atómica, donde la luz se identifica por su longitud de onda y no por su
+  frecuencia.
+
+  Aquí $\mag{E}$ es la energía de un fotón, en julios, y $\mag{\lambda}$ es la longitud de onda de
+  la luz en el vacío, en metros; ambas son positivas. La constante $\const{h}$ es la constante de
+  Planck, exactamente $6.626\,070\,15\times10^{-34}\,\mathrm{J\,s}$, y $\const{c}$ es la velocidad
+  de la luz en el vacío, exactamente 299 792 458 metros por segundo. Con energías en electronvoltios
+  y longitudes de onda en nanómetros, el producto de ambas constantes vale unos
+  $1240\,\mathrm{eV\,nm}$, un atajo habitual en los libros de texto.
+
+  En el vacío, la frecuencia es la velocidad de la luz entre la longitud de onda; al llevarla a la
+  relación entre energía y frecuencia se obtiene esta fórmula. La energía es inversamente
+  proporcional a la longitud de onda: reducirla a la mitad duplica la energía de cada fotón, así que
+  un fotón violeta lleva más energía que uno rojo, y uno de rayos X mucho más que ambos.
+
+  La longitud de onda debe ser la del vacío. En el vidrio o el agua la longitud de onda se acorta,
+  pero la frecuencia y la energía del fotón no cambian, así que la longitud de onda en el medio
+  exageraría la energía. Como la forma con la frecuencia, la fórmula describe un fotón de un solo
+  color; un haz de colores mezclados reúne muchas energías.
+
+  Leída al revés, la misma expresión convierte un umbral de energía en una longitud de onda de
+  corte, como en el efecto fotoeléctrico. La luz violeta de 430 nanómetros lleva fotones de unos 2.88
+  electronvoltios.

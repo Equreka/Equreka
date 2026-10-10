@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Radio de ciclotrón'
+terms:
+  r:
+    label: 'Radio de la trayectoria circular'
+description: >-
+  El radio de ciclotrón, llamado también girorradio o radio de Larmor, es el radio de la
+  circunferencia que recorre una partícula cargada cuando se mueve perpendicular a un campo
+  magnético uniforme. Es igual a la masa de la partícula por su rapidez, dividida entre el valor
+  absoluto de su carga por la densidad de flujo magnético. En el electromagnetismo describe cómo
+  los campos magnéticos curvan los haces de partículas en los aceleradores, en los espectrómetros
+  de masas y en el espacio que rodea la Tierra.
+
+  $\var{r}$ es el radio de la trayectoria en metros. $\mag{m}$ es la masa de la partícula en
+  kilogramos y $\mag{v}$ su rapidez en metros por segundo, medida perpendicular al campo. $\mag{q}$
+  es la carga en culombios; la fórmula toma su valor absoluto, así que un protón y un electrón con
+  igual cantidad de movimiento describen circunferencias del mismo tamaño, girando en sentidos
+  opuestos. Por eso, al despejar la carga se obtienen los dos signos, y el sentido de giro elige
+  uno. $\mag{B}$ es la densidad de flujo magnético en teslas (también se acepta el gauss).
+
+  La fuerza magnética sobre la partícula es siempre perpendicular a su velocidad, de modo que solo
+  cambia la dirección del movimiento y aporta la fuerza centrípeta de una circunferencia. Igualar
+  el valor absoluto de la carga por la rapidez por el campo con la masa por la rapidez al cuadrado
+  entre el radio, y despejar, da la fórmula. Una vuelta dura dos pi por la masa
+  entre la carga por el campo, un tiempo que no depende de la rapidez.
+
+  La fórmula supone un campo estacionario y uniforme, sin campo eléctrico. Si la velocidad tiene
+  una parte a lo largo del campo, esa parte no cambia, la trayectoria se convierte en una hélice y
+  en la fórmula entra solo la rapidez perpendicular al campo. Además trata la partícula de forma
+  clásica, así que cerca de la velocidad de la luz hacen falta correcciones relativistas.
+
+  Como el tiempo de cada vuelta no cambia mientras el radio crece con la rapidez, un campo eléctrico
+  que se invierte a ese mismo ritmo constante puede empujar la partícula a través de una rendija en
+  cada cruce mientras describe una espiral hacia fuera. Así funciona el ciclotrón, y a altas
+  energías su campo magnético debe ajustarse para compensar la relatividad. Un electrón a
+  $6.00\times10^{7}\,\mathrm{m/s}$ en un campo de 0.500 T describe una circunferencia de unos
+  0.68 mm de radio.

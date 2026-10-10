@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Contracción de la longitud'
+terms:
+  L:
+    label: 'Longitud contraída'
+  L_{0}:
+    label: 'Longitud propia'
+description: >-
+  La contracción de la longitud es el efecto de la relatividad especial por el que un objeto en
+  movimiento respecto de un observador resulta más corto, según la medida de este, en la dirección
+  del movimiento. La ecuación da la longitud medida como la longitud propia multiplicada por la raíz
+  cuadrada de uno menos el cuadrado de la rapidez entre el cuadrado de la velocidad de la luz: cuanto
+  más rápido va el objeto, más corto resulta.
+
+  Aquí $\var{L_{0}}$ es la longitud propia, en metros: la que mide un observador en reposo respecto
+  del objeto, o la distancia entre dos puntos en reposo respecto de ese observador. $\var{L}$ es la
+  longitud contraída, en metros, medida por un observador para quien el objeto o los dos puntos se
+  mueven. La rapidez $\mag{v}$ de ese movimiento relativo va en metros por segundo y debe ser menor
+  que la velocidad de la luz en el vacío, $\const{c}$. Todos los términos son no negativos, y la
+  rapidez despejada es la raíz no negativa.
+
+  La raíz cuadrada es el inverso del factor de Lorentz gamma, así que la longitud contraída es la
+  longitud propia dividida entre gamma. El resultado se deduce de la dilatación del tiempo: dos
+  observadores coinciden en su rapidez relativa pero no en el tiempo transcurrido, de modo que
+  discrepan en la distancia recorrida. La longitud propia es siempre la mayor de las medidas.
+
+  Solo se contraen las longitudes paralelas al movimiento; anchos y altos transversales son iguales
+  para todos los observadores. La ecuación vale entre sistemas inerciales con velocidad relativa
+  constante, y a las velocidades cotidianas la contracción es demasiado pequeña para notarla.
+
+  Albert Einstein dedujo el efecto en 1905 a partir de los postulados de la relatividad especial.
+  Los muones creados en lo alto de la atmósfera que se mueven a 0.950 veces la velocidad de la luz
+  recorren 2.01 kilómetros en el sistema de la Tierra, mientras que en su propio sistema ese tramo de
+  aire mide solo unos 0.627 kilómetros; el mismo efecto, visto desde tierra, es la dilatación del
+  tiempo.

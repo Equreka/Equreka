@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Motional emf'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{\mathcal{E}}=\mag{B}\var{L}\mag{v}'
+terms:
+  \mathcal{E}:
+    kind: 'magnitude'
+    ref: 'electromotive-force'
+    identifier: 'emf'
+  B:
+    kind: 'magnitude'
+    ref: 'magnetic-flux-density'
+  L:
+    kind: 'symbol'
+    label:
+      en: 'Length of the rod'
+    unit: 'metre'
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+solutions:
+  \mathcal{E}: 'B * L * v'
+  B: 'emf / (L * v)'
+  L: 'emf / (B * v)'
+  v: 'emf / (B * L)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'motional electromotive force'
+  - 'emf = BLv'
+  - 'emf of a moving rod'
+  - 'emf of a moving conductor'
+  - 'fem de movimiento'
+  - 'emf de movimiento'
+  - 'fuerza electromotriz de movimiento'
+  - 'fem inducida en una varilla'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 13.3 Motional Emf (Equation 13.5, Example 13.4)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/13-3-motional-emf'
+  - title: 'OpenStax, College Physics 2e, 23.3 Motional Emf'
+    url: 'https://openstax.org/books/college-physics-2e/pages/23-3-motional-emf'
+description:
+  en: >-
+    Motional emf is the electromotive force that appears across a conductor moving through a
+    magnetic field. For a straight rod sliding at right angles to a uniform field, it equals the
+    magnetic flux density times the length of the rod times its speed. It is a special case of
+    Faraday's law of induction in electromagnetism and the principle of the simplest generators.
+
+    $\mag{\mathcal{E}}$ is the size of the induced emf, in volts. $\mag{B}$ is the magnetic flux
+    density in teslas (the gauss is also accepted), $\var{L}$ is the length of the rod in metres,
+    and $\mag{v}$ is its speed in metres per second. The field, the rod and the velocity are all at
+    right angles to one another. The polarity follows Lenz's law: the end towards which the magnetic
+    force drives positive charges becomes the positive terminal. Faraday's law of induction gives
+    the same emf with a sign tied to the normal chosen for the flux; this form gives only its size.
+
+    When the rod closes a circuit by sliding along two parallel rails, each second it sweeps out an
+    area equal to its length times its speed, so the flux through the circuit grows at the
+    rate field times length times speed, and Faraday's law turns that rate into the emf. The same
+    result follows from the magnetic force on the free charges inside the rod, which pushes them
+    towards one end until the charge that piles up there balances the push.
+
+    The formula holds for a straight rod in a uniform field with all three directions mutually
+    perpendicular. When the motion is tilted, only the part of the velocity across the field counts,
+    and a rod moving along the field lines has no emf at all. Once current flows, the field pushes
+    back on the rod against its motion, so keeping it moving takes work, which reappears as
+    electrical energy in the circuit.
+
+    In an orbiting tether experiment, a conductor 20.0 km long moving at 7.80 km/s across Earth's
+    field of about $5\times10^{-5}\,\mathrm{T}$ was predicted to develop 7.80 kilovolts; the
+    measured value was smaller because the motion was not perpendicular to the field.

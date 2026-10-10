@@ -1,0 +1,84 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Magnetic force on a current-carrying wire'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{F}=\mag{I}\var{L}\mag{B}\sin\mag{\theta}'
+terms:
+  F:
+    kind: 'magnitude'
+    ref: 'force'
+  I:
+    kind: 'magnitude'
+    ref: 'electric-current'
+  L:
+    kind: 'symbol'
+    label:
+      en: 'Length of wire in the field'
+    unit: 'metre'
+  B:
+    kind: 'magnitude'
+    ref: 'magnetic-flux-density'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+solutions:
+  F: 'I * L * B * sin(theta)'
+  I: 'F / (L * B * sin(theta))'
+  L: 'F / (I * B * sin(theta))'
+  B: 'F / (I * L * sin(theta))'
+  \theta:
+    - 'asin(F / (I * L * B))'
+    - 'pi - asin(F / (I * L * B))'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'F = ILB sin theta'
+  - 'force on a current in a magnetic field'
+  - 'force on a conductor in a magnetic field'
+  - 'motor effect'
+  - 'fuerza magnética sobre un conductor'
+  - 'fuerza magnética sobre un cable'
+  - 'fuerza sobre una corriente en un campo magnético'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 11.4 Magnetic Force on a Current-Carrying Conductor (Examples 11.4 to 11.6)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/11-4-magnetic-force-on-a-current-carrying-conductor'
+  - title: 'OpenStax, College Physics 2e, 22.7 Magnetic Force on a Current-Carrying Conductor (Example 22.4)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/22-7-magnetic-force-on-a-current-carrying-conductor'
+  - title: 'OpenStax, College Physics 2e, 22.9 Magnetic Fields Produced by Currents: Ampere''s Law'
+    url: 'https://openstax.org/books/college-physics-2e/pages/22-9-magnetic-fields-produced-by-currents-amperes-law'
+description:
+  en: >-
+    The magnetic force on a wire carrying a current is the sideways push a uniform magnetic field
+    exerts on a straight conductor: the current, the length of wire inside the field, the magnetic
+    flux density and the sine of the angle between wire and field, multiplied together. It is the
+    electromagnetic force that drives electric motors and pumps conducting liquids.
+
+    $\mag{F}$ is the force in newtons, counted along the right-hand-rule direction described below.
+    $\mag{I}$ is the current in amperes, entered as a positive number because the angle already
+    fixes its direction, so the force is never negative here; the moving-charge form instead keeps
+    the sign of the charge. $\var{L}$ is the length of straight wire
+    that lies in the field, in metres, and $\mag{B}$ is the magnetic flux density in teslas (the
+    gauss is also accepted). $\mag{\theta}$ is the angle between the direction of conventional
+    current and the field, from 0 to 180 degrees. The force is perpendicular to both the wire and
+    the field: with the right thumb along the current and the fingers along the field, the force
+    leaves the palm.
+
+    A current is a stream of moving charges, and each of them feels the magnetic force on a moving
+    charge. Summed over every carrier in the segment, those pushes give the force on the wire, so
+    charge times velocity in that relation becomes current times length here. A wire laid along the field lines feels nothing, and a wire at
+    right angles to them feels the most.
+
+    The formula assumes a straight wire and a field of the same size and direction along all of
+    it. For a bent wire or a field that varies, the wire is cut into short straight pieces whose
+    forces are added as vectors. Only the part inside the field counts. A closed loop of current in
+    a uniform field feels no net force, because the pushes on opposite sides cancel.
+
+    In 1820 Hans Christian Oersted saw a current deflect a compass needle, showing that electric
+    currents produce magnetic fields. Besides motors, the force drives magnetohydrodynamic
+    pumps with no moving parts. A 5.00 cm length of wire carrying 20.0 amperes at right angles to a
+    1.50 T field feels a force of 1.50 newtons.

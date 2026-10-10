@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Threshold frequency'
+kind: 'formula'
+level: 'intro'
+expression: '\var{f_{0}}=\frac{\var{\phi}}{\const{h}}'
+terms:
+  f_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Threshold frequency'
+    unit: 'hertz'
+  \phi:
+    kind: 'symbol'
+    label:
+      en: 'Work function'
+    unit: 'joule'
+  h:
+    kind: 'constant'
+    ref: 'planck-constant'
+solutions:
+  f_{0}: 'phi / h'
+  \phi: 'h * f_0'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+aliases:
+  - 'cut-off frequency'
+  - 'cutoff frequency'
+  - 'photoelectric threshold'
+  - 'threshold frequency photoelectric effect'
+  - 'f0 = phi/h'
+  - 'frecuencia de corte'
+  - 'umbral fotoeléctrico'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 6.2 Photoelectric Effect (Equations 6.15 and 6.16, Table 6.1, Examples 6.5 and 6.6)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-2-photoelectric-effect'
+  - title: 'NIST, CODATA 2022 value: Planck constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?h'
+  - title: 'NIST, CODATA 2022 value: Planck constant in eV/Hz'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?hev'
+description:
+  en: >-
+    The threshold frequency is the lowest frequency of light that can eject electrons from a given
+    surface in the photoelectric effect; it equals the work function of the surface divided by the
+    Planck constant. Also called the cut-off frequency, it is a property of each material and marks
+    the boundary below which no photoelectrons appear, however bright the light.
+
+    Here $\var{f_{0}}$ is the threshold frequency, in hertz, and $\var{\phi}$ is the work function,
+    the least energy needed to release one electron from the surface, in joules. The constant
+    $\const{h}$ is the Planck constant, exactly $6.626\,070\,15\times10^{-34}\,\mathrm{J\,s}$, or
+    about $4.136\times10^{-15}$ electronvolt seconds when the work function is given in
+    electronvolts. Both variables are positive and proportional to each other.
+
+    The formula follows from Einstein's photoelectric equation: at the threshold, a photon carries
+    exactly enough energy to free an electron, so the maximum kinetic energy of the photoelectrons is
+    zero. Light above the threshold frequency ejects electrons with some kinetic energy; light below
+    it ejects none, since a single photon never has enough energy and photons do not pool their
+    energy on one electron. Dividing the speed of light by the threshold frequency gives the
+    matching cut-off wavelength: longer wavelengths produce no emission.
+
+    The formula treats the surface as having one work function and the light as having one
+    frequency. The threshold does not depend on intensity: brighter or dimmer light changes the
+    number of photons, not the energy of each, and below the threshold no exposure time, however
+    long, builds up enough energy for emission.
+
+    The threshold sets which light works on which metal: silver, with a work function of 4.73
+    electronvolts, emits no electrons under light of 300 nanometres, because its cut-off wavelength
+    is near 262 nanometres.

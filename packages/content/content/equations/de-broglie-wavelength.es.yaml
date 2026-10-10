@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Longitud de onda de De Broglie'
+description: >-
+  Se llama longitud de onda de De Broglie a la longitud de la onda asociada a una partícula en
+  movimiento: la constante de Planck dividida entre el producto de su masa por su rapidez. La
+  relación, llamada también ecuación de De Broglie, afirma que los electrones, los neutrones, los
+  átomos y toda la materia se comportan como ondas, y es una idea fundacional de la física cuántica y
+  moderna.
+
+  Aquí $\mag{\lambda}$ es la longitud de onda de De Broglie, en metros; $\mag{m}$ es la masa de la
+  partícula, en kilogramos, y $\mag{v}$ es su rapidez, en metros por segundo. La constante
+  $\const{h}$ es la constante de Planck, exactamente $6.626\,070\,15\times10^{-34}\,\mathrm{J\,s}$.
+  Las tres variables son positivas: una partícula en reposo no tiene longitud de onda de De Broglie
+  definida.
+
+  La regla general es que la longitud de onda es la constante de Planck entre la cantidad de
+  movimiento, el mismo vínculo que vale para el fotón. Para una partícula lenta, la cantidad de
+  movimiento es la masa por la rapidez, lo que da la forma usada aquí. Como la constante de Planck es
+  tan pequeña, solo las partículas ligeras y lentas tienen longitudes de onda comparables a la
+  separación entre átomos; para los objetos cotidianos es demasiado corta para detectarla.
+
+  Escribir la cantidad de movimiento como masa por rapidez supone una rapidez mucho menor que la de
+  la luz. Para partículas rápidas, como electrones acelerados hasta una fracción apreciable de la
+  velocidad de la luz, la cantidad de movimiento debe incluir el factor relativista, y la longitud de
+  onda es entonces la constante de Planck entre esa cantidad de movimiento relativista.
+
+  Louis de Broglie propuso la hipótesis de las ondas de materia en 1924, en un trabajo publicado en
+  Annales de Physique en 1925. En 1927, Davisson y Germer observaron electrones difractados por un
+  cristal de níquel en los ángulos que predecía la hipótesis, y De Broglie recibió el Premio Nobel
+  de 1929 por descubrir la naturaleza ondulatoria de los electrones. Un balón de baloncesto de 0.65
+  kilogramos lanzado a 10 metros por segundo tiene una longitud de onda de solo unos
+  $1.02\times10^{-34}\,\mathrm{m}$.

@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Relación de Planck-Einstein'
+description: >-
+  La relación de Planck-Einstein establece que la energía de un solo fotón es la constante de Planck
+  multiplicada por la frecuencia de la luz. Llamada también relación de Planck o ecuación de la
+  energía del fotón, es el punto de partida de la física cuántica y moderna: la luz de
+  una frecuencia dada intercambia energía con la materia solo en paquetes enteros de ese tamaño.
+
+  En la relación, $\mag{E}$ es la energía de un fotón, en julios; en física atómica y en óptica se
+  da a menudo en electronvoltios, y un electronvoltio equivale exactamente a
+  $1.602\,176\,634\times10^{-19}\,\mathrm{J}$. La frecuencia $\mag{f}$ de la radiación se expresa
+  en hercios. La constante $\const{h}$ es la constante de Planck, exactamente
+  $6.626\,070\,15\times10^{-34}\,\mathrm{J\,s}$ desde la revisión del SI de 2019. La energía y la
+  frecuencia son no negativas, y la energía crece en proporción directa a la frecuencia.
+
+  La relación separa el color de la luz de su brillo. Una frecuencia mayor significa fotones más
+  energéticos, así que los fotones ultravioleta llevan más energía que los rojos; un haz más
+  brillante de la misma frecuencia lleva más fotones, cada uno con la misma energía. La energía total
+  de un haz monocromático es el número de fotones por la energía de cada uno. Combinada con la
+  relación de las ondas entre frecuencia, longitud de onda y velocidad de la luz, da la energía del
+  fotón en función de la longitud de onda.
+
+  La relación vale para todo fotón, en el vacío o en un material, porque un fotón conserva su
+  frecuencia al entrar en un medio. Describe cuantos individuales: una fuente de luz de colores
+  mezclados emite fotones de muchas energías, y la relación se aplica a cada uno por separado.
+
+  Max Planck introdujo en 1900 elementos discretos de energía de ese tamaño para explicar el espectro
+  de la radiación del cuerpo negro, y publicó el resultado en Annalen der Physik. En 1905 Albert
+  Einstein propuso que la propia luz viaja en forma de tales cuantos, lo que explicó el efecto
+  fotoeléctrico y se citó en su Premio Nobel de 1921. Un fotón de frecuencia
+  $10^{15}\,\mathrm{Hz}$ lleva unos $6.63\times10^{-19}\,\mathrm{J}$, es decir, 4.14 electronvoltios.

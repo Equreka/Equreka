@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Valor eficaz de una corriente sinusoidal'
+terms:
+  I_\mathrm{rms}:
+    label: 'Corriente eficaz'
+  I_{0}:
+    label: 'Corriente de pico'
+description: >-
+  Para una corriente alterna sinusoidal, la corriente eficaz, o valor cuadrático medio (rms), es
+  igual a la corriente de pico dividida entre la raíz cuadrada de dos, aproximadamente 0.707 veces
+  el pico. Es el valor efectivo de una corriente alterna en el electromagnetismo y la
+  electrotecnia: la corriente continua constante que calentaría el mismo resistor al mismo ritmo
+  medio. Los interruptores automáticos, por ejemplo, se especifican en amperios eficaces.
+
+  $\var{I_\mathrm{rms}}$ es la corriente eficaz, en amperios. $\var{I_{0}}$ es la corriente de
+  pico, o amplitud, en amperios: el mayor valor que alcanza la corriente en un ciclo, un número no
+  negativo. En cada ciclo la corriente circula en un sentido, cae a cero y se invierte, y alcanza
+  el opuesto del pico medio periodo después. La raíz cuadrada de dos es un número puro, así que el
+  cociente vale a cualquier frecuencia.
+
+  El calentamiento de un resistor depende del cuadrado de la corriente, que nunca es negativo
+  aunque la corriente se invierta. Al promediar el cuadrado de una sinusoide durante un ciclo
+  completo se obtiene la mitad del cuadrado de su pico, y la raíz cuadrada de esa media es el pico
+  dividido entre la raíz cuadrada de dos. Con valores eficaces, las reglas conocidas de la corriente
+  continua se trasladan a un resistor: la corriente eficaz es la tensión eficaz entre la
+  resistencia, y la potencia media es la corriente eficaz al cuadrado por la resistencia.
+
+  El factor es exacto solo para una onda sinusoidal pura. Una corriente con cualquier otra forma de
+  onda, como una onda cuadrada o distorsionada, tiene su propio cociente entre el valor de pico y el
+  eficaz, que se obtiene promediando el cuadrado de su forma real. El promedio ordinario de una
+  corriente sinusoidal durante un ciclo es cero y no dice nada de su efecto térmico.
+
+  Un interruptor automático de 10 A se dispara cuando la corriente eficaz se mantiene por encima de
+  10 A, lo que para una onda sinusoidal supone un pico cercano a 14 A.

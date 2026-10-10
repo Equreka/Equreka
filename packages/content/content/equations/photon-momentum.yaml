@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Photon momentum'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{p}=\frac{\const{h}}{\mag{\lambda}}'
+terms:
+  p:
+    kind: 'magnitude'
+    ref: 'momentum'
+  h:
+    kind: 'constant'
+    ref: 'planck-constant'
+  \lambda:
+    kind: 'magnitude'
+    ref: 'wavelength'
+solutions:
+  p: 'h / lambda'
+  \lambda: 'h / p'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+  - 'optics-and-photometry'
+aliases:
+  - 'p = h/lambda'
+  - 'p = h/λ'
+  - 'momentum of a photon'
+  - 'momentum of light'
+  - 'photon linear momentum'
+  - 'momento lineal del fotón'
+  - 'momento del fotón'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 6.3 The Compton Effect (Equations 6.17 to 6.21)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-3-the-compton-effect'
+  - title: 'OpenStax, University Physics Volume 2, 16.4 Momentum and Radiation Pressure'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/16-4-momentum-and-radiation-pressure'
+  - title: 'NIST, CODATA 2022 value: Planck constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?h'
+  - title: 'A. H. Compton, A Quantum Theory of the Scattering of X-rays by Light Elements, Physical Review 21 (1923) 483-502'
+    url: 'https://doi.org/10.1103/PhysRev.21.483'
+description:
+  en: >-
+    The photon momentum formula states that a photon carries a linear momentum equal to the Planck
+    constant divided by its wavelength. Although a photon has no mass, it pushes on whatever absorbs
+    or reflects it, and this formula, a result of modern physics and special relativity, gives the
+    size of that push for a single quantum of light.
+
+    Here $\mag{p}$ is the magnitude of the momentum of the photon, in kilogram metres per second,
+    and $\mag{\lambda}$ is its wavelength in vacuum, in metres. The constant $\const{h}$ is the
+    Planck constant, exactly $6.626\,070\,15\times10^{-34}\,\mathrm{J\,s}$. The formula gives a
+    non-negative size only: the momentum points along the direction in which the photon travels,
+    and that direction has to be stated separately.
+
+    Special relativity links the energy, momentum and rest mass of any particle. Setting the rest
+    mass to zero leaves a momentum equal to the energy divided by the speed of light, and the photon
+    energy, Planck constant times speed of light over wavelength, then reduces to this formula.
+    Shorter wavelengths therefore mean larger momenta, the same trend as the photon energy.
+
+    The relation holds for every photon in vacuum. A single photon of visible light carries only
+    about $10^{-27}\,\mathrm{kg\,m/s}$, so the pressure of ordinary light goes unnoticed in daily
+    life, but it becomes measurable for intense beams and over long times, and it helps shape the
+    tails of comets. The same expression, read as wavelength equals Planck constant over momentum,
+    is the de Broglie relation for particles with mass.
+
+    Arthur Compton explained in 1923 why X-rays scattered by graphite come out with longer
+    wavelengths, treating each scattering as a collision in which the photon hands energy and
+    momentum to an electron; the match with the measured shifts persuaded physicists that light can
+    act as a stream of particles carrying momentum. A photon
+    of wavelength 500 nanometres has a momentum of $1.33\times10^{-27}\,\mathrm{kg\,m/s}$.

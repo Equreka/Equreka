@@ -107,6 +107,7 @@ Conventions for every `<slug>.es.yaml` sidecar. Companion to the [style guide](s
 | week, month, year, decade, century | semana, mes, año, década, siglo | usage |
 | dioptre | dioptría (dioptrías); EU-permitted, not SI-accepted | [Directive 80/181/EEC, Spanish consolidated text, Annex, Chapter I, 4](https://eur-lex.europa.eu/legal-content/ES/TXT/HTML/?uri=CELEX:01980L0181-20200613); Wikidata [Q193933](https://www.wikidata.org/wiki/Q193933) `es` label |
 | degree Fahrenheit, Rankine, Réaumur, Rømer, Delisle, Newton | grado Fahrenheit, grado Rankine, grado Réaumur, grado Rømer, grado Delisle, grado Newton | usage |
+| reciprocal second | segundo inverso (segundos inversos; *segundo recíproco* in `aliases`) | Wikidata [Q6137407](https://www.wikidata.org/wiki/Q6137407) `es` label |
 
 Prefix names: *mili* per RAE; *atto* per the DLE entry *atto-* and, with *zetta* and *yotta*, per the CEM translation of the SI Brochure (9th ed., Table 7); the rest unchanged. Prefixed unit names follow the same spelling (*attosegundo*, *zettajulio*, *yottagramo*).
 
@@ -310,6 +311,14 @@ Prefix names: *mili* per RAE; *atto* per the DLE entry *atto-* and, with *zetta*
 | power dissipated, rated power, winch | potencia disipada, potencia nominal, cabrestante | [OpenStax *Física universitaria* vol. 2, 9.5](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-2/pages/9-5-energia-electrica-y-potencia) |
 | Joule heating, Joule's first law | efecto Joule, primera ley de Joule (*ley de Joule*, the Wikidata Q210009 `es` label, in `aliases`) | Wikidata [Q21014200](https://www.wikidata.org/wiki/Q21014200) `es` label (*efecto Joule*); usage (*primera ley de Joule*) |
 | skin effect | efecto pelicular | Wikidata [Q664150](https://www.wikidata.org/wiki/Q664150) `es` label |
+| turn (of a coil), turns per unit length | vuelta (*espira* is the synonym, named once in prose: *vueltas, o espiras*), número de vueltas por unidad de longitud | [OpenStax *Física universitaria* vol. 2, 12.6](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-2/pages/12-6-solenoides-y-toroides) (*número de vueltas por unidad de longitud*); [15.6](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-2/pages/15-6-transformadores) (*vueltas*) |
+| wire (current-carrying), solenoid | hilo (*cable* and *alambre*, the OpenStax forms, in `aliases`), solenoide | `magnitudes/magnetic-flux-density` sidecar (*hilo que transporta corriente*); [OpenStax *Física universitaria* vol. 2, 12.6](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-2/pages/12-6-solenoides-y-toroides) (*solenoide*) |
+| primary/secondary coil (winding), step-up/step-down transformer | bobina primaria, bobina secundaria, per the inductor row (*bobinado*, the OpenStax form, and *devanado* are synonyms kept in `aliases`); transformador elevador, transformador reductor | [OpenStax *Física universitaria* vol. 2, 15.6](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-2/pages/15-6-transformadores) (*dos bobinas separadas, o bobinados*; *transformador elevador*, *transformador reductor*) |
+| peak value, peak voltage, peak current | valor de pico, tensión de pico, corriente de pico (*valor máximo* and *amplitud* as synonyms) | [OpenStax *Física universitaria* vol. 2, 15.1](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-2/pages/15-1-fuentes-de-ac) (*valores máximos o pico*, *voltaje pico*) |
+| motional emf, conducting rod | fem de movimiento (*emf de movimiento*, the OpenStax form, in `aliases`), varilla | [OpenStax *Física universitaria* vol. 2, 13.3](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-2/pages/13-3-fuerza-electromotriz-emf-de-movimiento) (*emf de movimiento*, *varilla conductora*) |
+| cyclotron radius (gyroradius) | radio de ciclotrón (*girorradio*, the Wikidata label, and *radio de Larmor* in `aliases`) | usage; Wikidata [Q1194458](https://www.wikidata.org/wiki/Q1194458) `es` label *girorradio*, alias *radio de Larmor* |
+| magnetic force, right-hand rule, cyclotron, mass spectrometer | fuerza magnética, regla de la mano derecha (never numbered in prose), ciclotrón, espectrómetro de masas | [OpenStax *Física universitaria* vol. 2, 11, Términos clave](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-2/pages/11-terminos-clave) |
+| Lenz's law | ley de Lenz | usage |
 
 ### Modern and nuclear physics
 
@@ -325,6 +334,19 @@ Prefix names: *mili* per RAE; *atto* per the DLE entry *atto-* and, with *zetta*
 | decay constant, activity | constante de desintegración, actividad | CEM (actividad) |
 | binding energy, mass defect | energía de enlace, defecto de masa | usage |
 | absorbed dose, equivalent dose | dosis absorbida, dosis equivalente | CEM |
+| photoelectron, photocurrent, maximum kinetic energy | fotoelectrón, fotocorriente, energía cinética máxima | [OpenStax *Física universitaria* vol. 3, 6.2](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-3/pages/6-2-efecto-fotoelectrico) |
+| cut-off frequency, cut-off wavelength | frecuencia de corte (synonym of *frecuencia umbral*), longitud de onda de corte | [OpenStax *Física universitaria* vol. 3, 6.2](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-3/pages/6-2-efecto-fotoelectrico) |
+| Planck–Einstein relation | relación de Planck-Einstein | Wikidata [Q12757333](https://www.wikidata.org/wiki/Q12757333) `es` label |
+| Einstein's photoelectric equation | ecuación fotoeléctrica de Einstein | usage |
+| photon momentum | cantidad de movimiento del fotón, per the momentum row (*momento lineal del fotón* in `aliases`) | usage |
+| de Broglie wavelength, de Broglie equation | longitud de onda de De Broglie, ecuación de De Broglie | Wikidata [Q100981463](https://www.wikidata.org/wiki/Q100981463) `es` alias, [Q18653343](https://www.wikidata.org/wiki/Q18653343) `es` label |
+| proper time interval, proper length | intervalo de tiempo propio, longitud propia | [OpenStax *Física universitaria* vol. 3, 5.3](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-3/pages/5-3-dilatacion-del-tiempo) (*intervalo de tiempo propio*); Wikidata [Q1056595](https://www.wikidata.org/wiki/Q1056595), [Q3153623](https://www.wikidata.org/wiki/Q3153623) `es` labels |
+| muon | muón (muones) | [OpenStax *Física universitaria* vol. 3, 5.3](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-3/pages/5-3-dilatacion-del-tiempo) (*un muón*, *muones*) |
+| energy level, ground state, excited state, ionization energy | nivel de energía, estado fundamental, estado excitado, energía de ionización | [OpenStax *Física universitaria* vol. 3, 6.4](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-3/pages/6-4-modelo-de-bohr-del-atomo-de-hidrogeno) |
+| principal quantum number | número cuántico principal (OpenStax writes *número cuántico de energía*) | Wikidata [Q867448](https://www.wikidata.org/wiki/Q867448) `es` label |
+| Rydberg formula, Rydberg constant | fórmula de Rydberg, constante de Rydberg | [OpenStax *Física universitaria* vol. 3, 6.4](https://openstax.org/books/f%C3%ADsica-universitaria-volumen-3/pages/6-4-modelo-de-bohr-del-atomo-de-hidrogeno); Wikidata [Q661248](https://www.wikidata.org/wiki/Q661248), [Q658065](https://www.wikidata.org/wiki/Q658065) `es` labels |
+| reduced mass | masa reducida | Wikidata [Q550046](https://www.wikidata.org/wiki/Q550046) `es` label |
+| photon emission rate, photon flux, count rate | tasa de emisión de fotones, flujo fotónico (*flujo de fotones* in `aliases`), tasa de recuento; never *ritmo* for these rates | Wikidata [Q83699542](https://www.wikidata.org/wiki/Q83699542) `es` label (*flujo fotónico*) |
 
 ### Chemistry
 

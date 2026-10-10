@@ -1,0 +1,84 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Einstein''s photoelectric equation'
+kind: 'equation'
+level: 'intro'
+expression: '\var{K_{\max}}=\const{h}\mag{f}-\var{\phi}'
+terms:
+  K_{\max}:
+    kind: 'symbol'
+    label:
+      en: 'Maximum kinetic energy of the photoelectrons'
+    unit: 'joule'
+  h:
+    kind: 'constant'
+    ref: 'planck-constant'
+  f:
+    kind: 'magnitude'
+    ref: 'frequency'
+  \phi:
+    kind: 'symbol'
+    label:
+      en: 'Work function'
+    unit: 'joule'
+solutions:
+  K_{\max}: 'h * f - phi'
+  f: '(K_max + phi) / h'
+  \phi: 'h * f - K_max'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+aliases:
+  - 'photoelectric equation'
+  - 'Einstein photoelectric equation'
+  - 'photoelectric effect equation'
+  - 'K = hf - phi'
+  - 'Kmax = hf - φ'
+  - 'work function equation'
+  - 'efecto fotoeléctrico'
+  - 'ecuación de Einstein del efecto fotoeléctrico'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 6.2 Photoelectric Effect (Equation 6.14, Table 6.1 and Example 6.7)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-2-photoelectric-effect'
+  - title: 'NIST, CODATA 2022 value: Planck constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?h'
+  - title: 'A. Einstein, Über einen die Erzeugung und Verwandlung des Lichtes betreffenden heuristischen Gesichtspunkt, Annalen der Physik 322 (1905) 132-148'
+    url: 'https://doi.org/10.1002/andp.19053220607'
+  - title: 'R. A. Millikan, A Direct Photoelectric Determination of Planck''s h, Physical Review 7 (1916) 355-388'
+    url: 'https://doi.org/10.1103/PhysRev.7.355'
+  - title: 'The Nobel Prize in Physics 1921, Albert Einstein, facts'
+    url: 'https://www.nobelprize.org/prizes/physics/1921/einstein/facts/'
+  - title: 'The Nobel Prize in Physics 1923, Robert A. Millikan, facts'
+    url: 'https://www.nobelprize.org/prizes/physics/1923/millikan/facts/'
+description:
+  en: >-
+    Einstein's photoelectric equation gives the largest kinetic energy an electron can have when
+    light ejects it from a metal surface: the energy of one photon, Planck constant times
+    frequency, minus the work function of the metal. It is the energy balance behind the
+    photoelectric effect, one of the first results of quantum and modern physics.
+
+    Here $\var{K_{\max}}$ is the maximum kinetic energy of the photoelectrons as they leave the
+    surface, in joules; $\mag{f}$ is the frequency of the incident light, in hertz; and
+    $\var{\phi}$ is the work function, the least energy needed to free an electron from that
+    surface, also in joules. The constant $\const{h}$ is the Planck constant. Energies in this
+    field are usually quoted in electronvolts: the work function is 2.46 electronvolts for sodium
+    and 4.73 for silver. A negative result means that each photon carries less energy than the work
+    function, and no electron is emitted at all.
+
+    Each photon gives all of its energy to a single electron. Part of it pays the work function and
+    the rest leaves as kinetic energy; electrons bound more tightly than the least-bound ones keep
+    less, which is why the equation gives a maximum. The maximum kinetic energy rises in a straight line
+    with frequency, with slope equal to the Planck constant, and does not depend on how bright the
+    light is: brighter light only frees more electrons.
+
+    The equation assumes that one photon acts on one electron and that the light has a single
+    frequency. Experiments keep the electrodes in an evacuated tube, so that the electrons lose no
+    energy in collisions with air molecules before their energy is measured.
+
+    Albert Einstein proposed the equation in 1905, and his 1921 Nobel Prize named the law of the
+    photoelectric effect. Robert Millikan tested its straight-line prediction and in 1916 measured
+    the Planck constant from it. Violet light of 430 nanometres on calcium, with a work function of
+    2.71 electronvolts, ejects electrons of at most about 0.17 electronvolts.

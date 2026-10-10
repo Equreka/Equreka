@@ -1,0 +1,293 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.schema.json
+name:
+  en: 'Light and quanta'
+level: 'intro'
+prerequisites:
+  - 'waves-and-sound'
+estimatedMinutes: '60'
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+  - 'optics-and-photometry'
+aliases:
+  - 'photons'
+  - 'introduction to modern physics'
+  - 'quantum physics basics'
+  - 'photoelectric effect'
+  - 'special relativity basics'
+  - 'luz y cuantos'
+  - 'fotones'
+  - 'introducción a la física moderna'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 6.2 Photoelectric Effect'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-2-photoelectric-effect'
+  - title: 'OpenStax, University Physics Volume 3, 6.4 Bohr''s Model of the Hydrogen Atom'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-4-bohrs-model-of-the-hydrogen-atom'
+  - title: 'OpenStax, University Physics Volume 3, 6.5 De Broglie''s Matter Waves'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-5-de-broglies-matter-waves'
+  - title: 'OpenStax, University Physics Volume 3, 5.3 Time Dilation'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/5-3-time-dilation'
+  - title: 'OpenStax, University Physics Volume 3, 5.4 Length Contraction'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/5-4-length-contraction'
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017:2020), 17-21-040 photon flux'
+    url: 'https://cie.co.at/eilvterm/17-21-040'
+description:
+  en: >-
+    Light as a stream of photons: photon energy and momentum, photon counts, the photoelectric
+    effect, matter waves, the energy levels and spectrum of hydrogen, and the time dilation and
+    length contraction of special relativity, with worked checks.
+steps:
+  - id: 'intro'
+    kind: 'prose'
+    body:
+      en: >-
+        Classical physics describes light as a wave, with a frequency and a wavelength. The
+        experiments in this path show that light also arrives in separate packets of energy,
+        photons, and that matter has wave properties of its own. Two constants run through every
+        step: the Planck constant, which sets the size of the packets, and the speed of light in
+        vacuum, which links frequency to wavelength.
+  - id: 'planck-constant'
+    kind: 'entry'
+    ref:
+      collection: 'constants'
+      slug: 'planck-constant'
+    note:
+      en: >-
+        The scale of quantum effects, exactly 6.626 070 15 times ten to the minus 34 joule seconds.
+        Its smallness is why quanta go unnoticed in daily life.
+  - id: 'photon-energy-frequency'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'photon-energy-frequency'
+    note:
+      en: >-
+        One photon carries the Planck constant times the frequency. Higher frequency means more
+        energy per photon.
+  - id: 'photon-energy-wavelength'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'photon-energy-wavelength'
+    note:
+      en: >-
+        The same energy written with the vacuum wavelength: shorter wavelength, more energy.
+  - id: 'electronvolt'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'electronvolt'
+    note:
+      en: >-
+        Photon and electron energies are tiny in joules, so atomic physics quotes them in
+        electronvolts.
+  - id: 'check-photon-energy'
+    kind: 'check'
+    prompt:
+      en: >-
+        What is the energy of one photon of green light of wavelength 500 nanometres, in joules and
+        in electronvolts?
+    answer:
+      en: >-
+        About 3.97 times ten to the minus 19 joules, or 2.48 electronvolts: the Planck constant
+        times the speed of light, divided by 500 times ten to the minus 9 metres.
+  - id: 'photon-emission-rate'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'photon-emission-rate'
+    note:
+      en: >-
+        Dividing the power of a beam by the energy of one photon counts the photons it carries each
+        second.
+  - id: 'reciprocal-second'
+    kind: 'entry'
+    ref:
+      collection: 'units'
+      slug: 'reciprocal-second'
+    note:
+      en: >-
+        A count per second is expressed in reciprocal seconds, not in hertz, which the SI keeps for
+        periodic phenomena.
+  - id: 'check-laser'
+    kind: 'check'
+    prompt:
+      en: >-
+        A laser pointer emits 1.00 milliwatt of light at 633 nanometres. How many photons does it
+        emit each second?
+    answer:
+      en: >-
+        About 3.19 times ten to the 15 per second: 1.00 times ten to the minus 3 watts times 633
+        times ten to the minus 9 metres, divided by the Planck constant times the speed of light.
+  - id: 'photon-momentum'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'photon-momentum'
+    note:
+      en: >-
+        A photon has no mass but carries momentum, the Planck constant over the wavelength.
+  - id: 'photoelectric'
+    kind: 'prose'
+    body:
+      en: >-
+        When light falls on a clean metal surface in a vacuum, it can knock electrons out. The
+        energy of these photoelectrons depends on the frequency of the light, not on its
+        brightness, and below a certain frequency no electrons come out at all, however bright the
+        light. Only the photon picture explains both facts: each electron absorbs a single photon.
+  - id: 'photoelectric-equation'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'photoelectric-equation'
+    note:
+      en: >-
+        The photon energy minus the work function of the metal is the most kinetic energy an ejected
+        electron can have.
+  - id: 'threshold-frequency'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'threshold-frequency'
+    note:
+      en: >-
+        Setting that kinetic energy to zero gives the lowest frequency that ejects electrons.
+  - id: 'stopping-potential'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'stopping-potential'
+    note:
+      en: >-
+        The reverse voltage that stops the fastest electrons measures their maximum kinetic energy:
+        one volt for each electronvolt.
+  - id: 'check-photoelectric'
+    kind: 'check'
+    prompt:
+      en: >-
+        Violet light of 430 nanometres falls on calcium, whose work function is 2.71 electronvolts.
+        What is the maximum kinetic energy of the photoelectrons, and what stopping potential
+        halts them?
+    answer:
+      en: >-
+        Each photon carries about 2.88 electronvolts, so the maximum kinetic energy is about 0.17
+        electronvolts, 2.88 minus 2.71, and the stopping potential is about 0.17 volts.
+  - id: 'check-threshold'
+    kind: 'check'
+    prompt:
+      en: >-
+        The work function of sodium is 2.46 electronvolts. What is its threshold frequency, and
+        what is the matching cut-off wavelength?
+    answer:
+      en: >-
+        About 5.95 times ten to the 14 hertz: 2.46 times 1.602 times ten to the minus 19 joules,
+        divided by the Planck constant. The speed of light divided by that frequency gives about
+        504 nanometres.
+  - id: 'de-broglie-wavelength'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'de-broglie-wavelength'
+    note:
+      en: >-
+        The same link between momentum and wavelength holds for matter: every moving particle has a
+        wavelength, the Planck constant over its mass times its speed.
+  - id: 'check-de-broglie'
+    kind: 'check'
+    prompt:
+      en: >-
+        What is the de Broglie wavelength of a basketball of mass 0.65 kilograms thrown at 10
+        metres per second?
+    answer:
+      en: >-
+        About 1.02 times ten to the minus 34 metres: the Planck constant divided by 6.5 kilogram
+        metres per second, far too short to observe.
+  - id: 'atoms'
+    kind: 'prose'
+    body:
+      en: >-
+        Hydrogen gas excited by an electric discharge glows only at a few sharp wavelengths. Photons explain why: the
+        electron in the atom can hold only certain energies, and each spectral line is a photon
+        carrying the difference between two of them.
+  - id: 'bohr-energy-levels'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'bohr-energy-levels'
+    note:
+      en: >-
+        The allowed energies of hydrogen: about minus 13.6 electronvolts divided by the square of
+        the principal quantum number.
+  - id: 'rydberg-formula'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'rydberg-formula'
+    note:
+      en: >-
+        The difference between two levels, divided by the Planck constant and the speed of light,
+        gives the reciprocal wavelength of each spectral line.
+  - id: 'check-hydrogen'
+    kind: 'check'
+    prompt:
+      en: >-
+        A hydrogen atom drops from level three to level two. What energy does the emitted photon
+        carry, and what is its wavelength?
+    answer:
+      en: >-
+        About 1.89 electronvolts, 13.6 times one quarter minus one ninth, which is a wavelength of
+        about 656 nanometres, the red line of the Balmer series.
+  - id: 'relativity'
+    kind: 'prose'
+    body:
+      en: >-
+        The speed of light in vacuum is the same for every observer in uniform motion. Taking that
+        seriously, as special relativity does, means that observers moving relative to each other
+        disagree about time intervals and lengths. The effects are tiny at everyday speeds and
+        large close to the speed of light.
+  - id: 'speed-of-light'
+    kind: 'entry'
+    ref:
+      collection: 'constants'
+      slug: 'speed-of-light'
+    note:
+      en: >-
+        Exactly 299 792 458 metres per second, and the upper limit for the speed of any object.
+  - id: 'time-dilation'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'time-dilation'
+    note:
+      en: >-
+        A moving clock is measured to run slow; the proper time, read by a clock present at both
+        events, is the shortest interval.
+  - id: 'length-contraction'
+    kind: 'entry'
+    ref:
+      collection: 'equations'
+      slug: 'length-contraction'
+    note:
+      en: >-
+        A moving object is measured to be shorter along its motion; the proper length, measured at
+        rest, is the longest.
+  - id: 'check-muon'
+    kind: 'check'
+    prompt:
+      en: >-
+        A muon lives 2.20 microseconds in its own frame and moves at 0.950 times the speed of
+        light. How long does it live as measured from the ground?
+    answer:
+      en: >-
+        About 7.05 microseconds: 2.20 divided by the square root of one minus 0.950 squared, a
+        factor of about 3.20.
+  - id: 'check-spaceship'
+    kind: 'check'
+    prompt:
+      en: >-
+        A spaceship 100 metres long at rest flies past at 0.600 times the speed of light. How long
+        is it as measured by an observer it passes?
+    answer:
+      en: >-
+        80.0 metres: 100 times the square root of one minus 0.600 squared, which is 0.800.

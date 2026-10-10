@@ -1,0 +1,75 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Magnetic flux through a flat surface'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{\Phi}=\mag{B}\mag{A}\cos\mag{\theta}'
+terms:
+  \Phi:
+    kind: 'magnitude'
+    ref: 'magnetic-flux'
+  B:
+    kind: 'magnitude'
+    ref: 'magnetic-flux-density'
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+solutions:
+  \Phi: 'B * A * cos(theta)'
+  B: 'Phi / (A * cos(theta))'
+  A: 'Phi / (B * cos(theta))'
+  \theta: 'acos(Phi / (B * A))'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'Phi = BA cos theta'
+  - 'magnetic flux formula'
+  - 'flux through a loop'
+  - 'flux through a coil'
+  - 'flujo magnético a través de una superficie'
+  - 'flujo magnético a través de una espira'
+references:
+  - title: 'OpenStax, College Physics 2e, 23.1 Induced Emf and Magnetic Flux (Equation 23.1)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/23-1-induced-emf-and-magnetic-flux'
+  - title: 'OpenStax, University Physics Volume 2, 13.1 Faraday''s Law'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/13-1-faradays-law'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Magnetic flux'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/magnetic/fluxmg.html'
+  - title: 'NIST, Taking Measure: What''s in a Name? The Magnetic Weber'
+    url: 'https://www.nist.gov/blogs/taking-measure/whats-name-magnetic-weber'
+description:
+  en: >-
+    The magnetic flux through a flat surface in a uniform magnetic field equals the magnetic flux
+    density times the area times the cosine of the angle between the field and the normal to the
+    surface. It measures how much magnetic field threads a loop or a coil, and in electromagnetism
+    its change over time is what Faraday's law of induction turns into an induced emf.
+
+    $\mag{\Phi}$ is the magnetic flux in webers, one weber being one tesla times one square metre.
+    $\mag{B}$ is the magnetic flux density in teslas (the gauss is also accepted), $\mag{A}$ is the
+    area of the surface in square metres, and $\mag{\theta}$ is the angle between the field and the
+    normal, the line perpendicular to the surface, from 0 to 180 degrees. The flux is positive when
+    the field crosses the surface along the chosen normal, zero when the field lies in the plane of
+    the surface and negative when it crosses against the normal; choosing the opposite normal
+    reverses every sign.
+
+    Only the part of the field perpendicular to the surface passes through it, and that part is the
+    field times the cosine of the angle. Put another way, the flux is the full field times the area
+    of the surface's shadow on a plane at right angles to the field. A coil turning in a steady
+    field, as in a generator, sees its flux swing from a maximum through zero to the negative of
+    that maximum as the angle changes.
+
+    The formula assumes a flat surface and a field that is the same over all of it. For a curved
+    surface or a field that varies, the surface is split into small patches whose fluxes are added,
+    which turns the product into an integral. Over any closed surface the total flux is zero,
+    because magnetic field lines have no ends.
+
+    The weber honours the German physicist Wilhelm Weber, who worked with Carl Friedrich Gauss on
+    one of the earliest electric telegraphs. A loop of 0.0113 square metres facing a 0.250 T field
+    head-on holds a flux of about 0.00283 webers.

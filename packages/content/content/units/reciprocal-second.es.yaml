@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Segundo inverso'
+description: >-
+  El segundo inverso, de símbolo $\mathrm{s^{-1}}$, que se lee también por segundo o segundo
+  recíproco, es la unidad SI coherente de la tasa con que ocurren sucesos contables: los fotones que
+  salen de una lámpara, los impulsos de un detector de partículas o las moléculas que atraviesan una
+  superficie. Es el segundo elevado a menos uno, una unidad derivada del Sistema Internacional sin
+  nombre especial propio.
+
+  El folleto del SI trata un número de entidades, como un número de fotones o de desintegraciones,
+  como una magnitud de unidad uno. Al dividir ese recuento entre un intervalo de tiempo queda, por
+  tanto, el segundo inverso. El Vocabulario Internacional de Iluminación de la CIE, por ejemplo,
+  define el flujo fotónico como el número de fotones emitidos, transmitidos o recibidos por unidad
+  de tiempo e indica que se expresa en esta unidad.
+
+  Dos nombres especiales comparten la misma dimensión y no deben sustituirla. El folleto del SI
+  reserva el hercio para los fenómenos periódicos, como la frecuencia de una onda, y el becquerel
+  para la actividad de un radionucleido, un proceso de desintegración aleatorio; recomienda expresar
+  las frecuencias en hercios y las frecuencias angulares en radianes por segundo, y no en
+  $\mathrm{s^{-1}}$ a secas, para no confundirlas. Una tasa de recuento no es una frecuencia ni una
+  actividad, así que su unidad es el segundo inverso. Numéricamente las tres coinciden: un hercio,
+  un becquerel y un segundo inverso equivalen cada uno a uno por segundo.
+
+  La unidad aparece en el recuento de fotones, donde un puntero láser rojo de un milivatio emite
+  aproximadamente $3\times10^{15}$ fotones por segundo, y en las constantes de desintegración de los
+  núcleos radiactivos, la probabilidad de desintegración por unidad de tiempo; la ontología QUDT la
+  clasifica a la vez bajo frecuencia y constante de desintegración. El símbolo no toma plural y puede
+  escribirse también 1/s.

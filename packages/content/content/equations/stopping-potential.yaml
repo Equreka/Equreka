@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Stopping potential'
+kind: 'formula'
+level: 'intro'
+expression: '\const{e}\mag{V_\mathrm{stop}}=\var{K_{\max}}'
+terms:
+  e:
+    kind: 'constant'
+    ref: 'elementary-charge'
+  V_\mathrm{stop}:
+    kind: 'magnitude'
+    ref: 'electric-potential-difference'
+  K_{\max}:
+    kind: 'symbol'
+    label:
+      en: 'Maximum kinetic energy of the photoelectrons'
+    unit: 'joule'
+solutions:
+  V_\mathrm{stop}: 'K_max / e'
+  K_{\max}: 'e * V_stop'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+aliases:
+  - 'stopping voltage'
+  - 'cut-off voltage'
+  - 'stopping potential photoelectric effect'
+  - 'eVs = Kmax'
+  - 'retarding potential'
+  - 'potencial de frenado'
+  - 'potencial de detención'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 6.2 Photoelectric Effect (Equation 6.12, Figure 6.9 and Example 6.6)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-2-photoelectric-effect'
+  - title: 'NIST, CODATA 2022 value: elementary charge'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?e'
+  - title: 'R. A. Millikan, A Direct Photoelectric Determination of Planck''s h, Physical Review 7 (1916) 355-388'
+    url: 'https://doi.org/10.1103/PhysRev.7.355'
+  - title: 'The Nobel Prize in Physics 1923, Robert A. Millikan, facts'
+    url: 'https://www.nobelprize.org/prizes/physics/1923/millikan/facts/'
+description:
+  en: >-
+    The stopping potential is the reverse voltage that halts the fastest electrons ejected from
+    a surface in the photoelectric effect. Multiplied by the elementary charge, it equals the
+    maximum kinetic energy of those photoelectrons, so a voltmeter reading becomes an energy
+    measurement; the relation is the standard way the photoelectric effect is studied in the
+    laboratory.
+
+    Here $\mag{V_\mathrm{stop}}$ is the stopping potential, in volts, taken as the positive size of the
+    reverse potential difference, with the collector at a lower electric potential than the emitter; the
+    photocurrent falls to zero when the reverse voltage reaches it. $\var{K_{\max}}$ is the maximum
+    kinetic energy of the photoelectrons at the surface, in joules. The constant $\const{e}$ is the
+    elementary charge, exactly $1.602\,176\,634\times10^{-19}\,\mathrm{C}$, so a stopping potential
+    of one volt corresponds to a maximum kinetic energy of one electronvolt.
+
+    Crossing the reverse potential difference, each electron loses kinetic energy equal to its
+    charge times the voltage, by the work-energy theorem. The fastest electrons reach the collector
+    only while that loss is smaller than their kinetic energy; at the stopping potential even they
+    turn back, and the current stops. Because the maximum kinetic energy grows with the frequency of
+    the light and not with its intensity, the stopping potential is the same for bright and dim
+    light of one colour.
+
+    The relation assumes that electric forces alone act on the electrons between the electrodes,
+    which are kept in an evacuated tube so that no energy is lost to air molecules.
+
+    Combined with Einstein's photoelectric equation, the stopping potential rises in a straight line
+    with frequency with slope equal to the Planck constant over the elementary charge; Robert
+    Millikan used such measurements in 1916 to determine the Planck constant. Light of
+    180 nanometres stopped by 0.80 volts means photoelectrons of 0.80 electronvolts at most.

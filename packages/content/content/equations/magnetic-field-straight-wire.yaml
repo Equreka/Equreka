@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Magnetic field of a long straight wire'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{B}=\frac{\const{\mu_{0}}\mag{I}}{2\pi\var{r}}'
+terms:
+  B:
+    kind: 'magnitude'
+    ref: 'magnetic-flux-density'
+  \mu_{0}:
+    kind: 'constant'
+    ref: 'vacuum-magnetic-permeability'
+  I:
+    kind: 'magnitude'
+    ref: 'electric-current'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Distance from the wire'
+    unit: 'metre'
+solutions:
+  B: 'mu_0 * I / (2 * pi * r)'
+  I: '2 * pi * r * B / mu_0'
+  r: 'mu_0 * I / (2 * pi * B)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'B = mu0 I / (2 pi r)'
+  - 'field around a straight current'
+  - 'magnetic field of a straight conductor'
+  - 'magnetic field of an infinite wire'
+  - 'campo magnético de un hilo recto'
+  - 'campo magnético de un cable recto'
+  - 'campo magnético de un conductor rectilíneo'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 12.2 Magnetic Field Due to a Thin Straight Wire'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/12-2-magnetic-field-due-to-a-thin-straight-wire'
+  - title: 'OpenStax, College Physics 2e, 22.9 Magnetic Fields Produced by Currents: Ampere''s Law (Example 22.6)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/22-9-magnetic-fields-produced-by-currents-amperes-law'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Magnetic field of current'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/magnetic/magcur.html'
+  - title: 'NIST, CODATA 2022 recommended values: vacuum magnetic permeability'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mu0'
+description:
+  en: >-
+    The field of a long straight wire carrying a steady current gives the magnetic flux density at some distance
+    from the thin conductor: it grows in proportion to the current
+    and falls in inverse proportion to the distance. Its field lines are circles centred on the
+    wire. It is one of the first results of magnetostatics, the part of electromagnetism that deals
+    with fields made by steady currents.
+
+    $\mag{B}$ is the magnitude of the magnetic flux density in teslas (the gauss is also accepted).
+    $\mag{I}$ is the current in amperes, and $\var{r}$ is the perpendicular distance from the axis
+    of the wire to the point, in metres. $\const{\mu_{0}}$ is the vacuum magnetic permeability, a
+    measured constant whose CODATA 2022 value is about $1.257\times10^{-6}\,\mathrm{N/A^{2}}$,
+    agreeing closely with the figure $4\pi\times10^{-7}$ that textbooks often quote. The direction
+    follows a right-hand rule: with the thumb along the current, the curled fingers show
+    the sense in which the field circles the wire.
+
+    The result comes from Ampère's law applied to a circle centred on the wire. By symmetry the
+    field has the same size all round that circle and points along it, so the field times the
+    circumference, two pi times the distance, equals the permeability times the current passing
+    through. Adding the contributions of every short piece of wire with the Biot-Savart law gives
+    the same answer. Doubling the distance halves the field.
+
+    The formula is exact only for an infinitely long, thin, straight wire, and it is a good
+    approximation for a real wire when the point is much closer to the wire than to either of its
+    ends. Fields from other currents,
+    from magnetic materials and from Earth, about 0.5 gauss, add to it as vectors.
+
+    In 1820 Hans Christian Oersted found that a current in a wire turns a nearby compass needle,
+    the observation that established that electric currents produce magnetic fields. A current of 25 A gives
+    $1.0\times10^{-4}\,\mathrm{T}$, about twice Earth's field, at 5.0 cm from the wire.

@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Flujo magnético a través de una superficie plana'
+description: >-
+  El flujo magnético a través de una superficie plana en un campo magnético uniforme es igual a la
+  densidad de flujo magnético por el área por el coseno del ángulo entre el campo y la normal a la
+  superficie. Mide cuánto campo magnético atraviesa una espira o una bobina, y en el
+  electromagnetismo su variación en el tiempo es lo que la ley de inducción de Faraday convierte en
+  una fuerza electromotriz inducida.
+
+  $\mag{\Phi}$ es el flujo magnético, que se mide en weber, igual a un tesla por un metro cuadrado.
+  $\mag{B}$ es la densidad de flujo magnético en teslas (también se acepta el gauss), $\mag{A}$ es
+  el área de la superficie en metros cuadrados y $\mag{\theta}$ es el ángulo entre el campo y la
+  normal, la recta perpendicular a la superficie, de 0 a 180 grados. El flujo es positivo cuando el
+  campo atraviesa la superficie en el sentido de la normal elegida, nulo cuando el campo está en el
+  plano de la superficie y negativo cuando la atraviesa en contra de la normal; elegir la normal
+  opuesta invierte todos los signos.
+
+  Solo atraviesa la superficie la parte del campo perpendicular a ella, que es el campo por el
+  coseno del ángulo. Dicho de otro modo, el flujo es el campo completo por el área de la sombra de
+  la superficie sobre un plano perpendicular al campo. Una bobina que gira en un campo constante,
+  como en un generador, ve oscilar su flujo desde un máximo, pasando por cero, hasta el opuesto de
+  ese máximo a medida que cambia el ángulo.
+
+  La fórmula supone una superficie plana y un campo igual en toda ella. Para una superficie curva o
+  un campo que varía, la superficie se divide en pequeños trozos cuyos flujos se suman, lo que
+  convierte el producto en una integral. A través de cualquier superficie cerrada el flujo total es
+  nulo, porque las líneas de campo magnético no tienen extremos.
+
+  El weber honra al físico alemán Wilhelm Weber, que trabajó con Carl Friedrich Gauss en uno de los
+  primeros telégrafos eléctricos. Una espira de 0.0113 metros cuadrados situada de frente a un
+  campo de 0.250 T encierra un flujo de unos 0.00283 weber.

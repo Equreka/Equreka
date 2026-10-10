@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Reciprocal second'
+symbol:
+  tex: 's^{-1}'
+  text: 's⁻¹'
+unitOf: []
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'second'
+      exp: -1
+externalIds:
+  wikidata: 'Q6137407'
+  qudt: 'http://qudt.org/vocab/unit/PER-SEC'
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+  - 'nuclear-physics'
+  - 'optics-and-photometry'
+aliases:
+  - 'inverse second'
+  - 'per second'
+  - 'reciprocal seconds'
+  - '1/s'
+  - '/s'
+  - 's-1'
+  - 'counts per second'
+  - 'segundo recíproco'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.3 (numbers of entities such as photons or decays have the unit one), section 2.3.4 and Table 4, note (d) (hertz only for periodic phenomena, becquerel only for activity)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'CIE, International Lighting Vocabulary (CIE S 017:2020), 17-21-040 photon flux (Note 4: expressed in s-1)'
+    url: 'https://cie.co.at/eilvterm/17-21-040'
+  - title: 'QUDT, unit PER-SEC'
+    url: 'https://qudt.org/vocab/unit/PER-SEC'
+  - title: 'Wikidata, reciprocal second (Q6137407)'
+    url: 'https://www.wikidata.org/wiki/Q6137407'
+description:
+  en: >-
+    The reciprocal second, symbol $\mathrm{s^{-1}}$, also read as per second or inverse second, is
+    the coherent SI unit of a rate at which countable events happen: photons leaving a lamp, clicks
+    of a particle detector, molecules crossing a surface. It is the second raised to the power minus
+    one, a derived unit of the International System with no special name of its own.
+
+    The SI Brochure treats a number of entities, such as a number of photons or of decays, as a
+    quantity with the unit one. Dividing such a count by a time interval therefore leaves the
+    reciprocal second. The International Lighting Vocabulary of the CIE, for example, defines the
+    photon flux as the number of photons emitted, transmitted or received per unit time and states
+    that it is expressed in this unit.
+
+    Two special names share the same dimension and must not replace it. The SI Brochure reserves the
+    hertz for periodic phenomena, such as the frequency of a wave, and the becquerel for the
+    activity of a radionuclide, a random decay process; it recommends writing frequencies in hertz
+    and angular frequencies in radians per second rather than in bare $\mathrm{s^{-1}}$, so that
+    the two are not confused. A count rate is neither a frequency nor an activity, so its unit is
+    the reciprocal second. Numerically all three are equal: one hertz, one becquerel and one
+    reciprocal second each amount to one per second.
+
+    The unit appears in photon counting, where a red laser pointer of one milliwatt emits roughly
+    $3\times10^{15}$ photons per second, and in the decay constants of radioactive nuclei, the
+    probability of decay per unit time; the ontology QUDT files it under both frequency and decay
+    constant. The symbol takes no plural ending and can also be written 1/s.

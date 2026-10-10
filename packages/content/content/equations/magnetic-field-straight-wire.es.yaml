@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Campo magnético de un hilo recto y largo'
+terms:
+  r:
+    label: 'Distancia al hilo'
+description: >-
+  El campo magnético de un hilo recto y largo da la densidad de flujo magnético a cierta distancia
+  de un conductor recto y delgado por el que circula una corriente estacionaria: crece en
+  proporción a la corriente y disminuye en proporción inversa a la distancia. Sus líneas de campo
+  son circunferencias centradas en el hilo. Es uno de los primeros resultados de la
+  magnetostática, la parte del electromagnetismo que estudia los campos de corrientes
+  estacionarias.
+
+  $\mag{B}$ es el módulo de la densidad de flujo magnético en teslas (también se acepta el gauss).
+  $\mag{I}$ es la corriente en amperios, y $\var{r}$ es la distancia perpendicular desde el eje del
+  hilo hasta el punto, en metros. $\const{\mu_{0}}$ es la permeabilidad magnética del vacío, una
+  constante medida cuyo valor CODATA 2022 es de unos $1.257\times10^{-6}\,\mathrm{N/A^{2}}$, muy
+  próximo a la cifra $4\pi\times10^{-7}$ que suelen citar los libros de texto. La dirección sigue
+  una regla de la mano derecha: con el pulgar en el sentido de la corriente, los dedos
+  curvados muestran el sentido en que el campo rodea el hilo.
+
+  El resultado se obtiene de la ley de Ampère aplicada a una circunferencia centrada en el hilo.
+  Por simetría, el campo tiene el mismo módulo en toda esa circunferencia y apunta a lo largo de
+  ella, así que el campo por la longitud de la circunferencia, dos pi por la distancia, es igual a
+  la permeabilidad por la corriente que la atraviesa. Sumar las contribuciones de cada tramo corto
+  de hilo con la ley de Biot-Savart da la misma respuesta. Duplicar la distancia reduce el campo a
+  la mitad.
+
+  La fórmula es exacta solo para un hilo recto, delgado e infinitamente largo, y es una buena
+  aproximación para un hilo real cuando el punto está mucho más cerca del hilo que de sus extremos. Los campos de otras corrientes,
+  de los materiales magnéticos y de la Tierra, de unos 0.5 gauss, se le suman como vectores.
+
+  En 1820, Hans Christian Oersted descubrió que la corriente de un hilo hace girar una brújula
+  cercana, la observación que estableció que las corrientes eléctricas producen campos magnéticos.
+  Una corriente de 25 A crea $1.0\times10^{-4}\,\mathrm{T}$, unas dos veces el campo terrestre, a
+  5.0 cm del hilo.

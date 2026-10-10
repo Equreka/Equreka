@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de inducción de Faraday'
+terms:
+  N:
+    label: 'Número de vueltas'
+  \Delta\Phi:
+    label: 'Variación del flujo magnético a través de una vuelta'
+description: >-
+  La ley de inducción de Faraday establece que un flujo magnético variable a través de una bobina
+  induce en ella una fuerza electromotriz igual a menos el número de vueltas por la variación del
+  flujo dividida entre el tiempo que tarda en producirse. Es la ley fundacional de la inducción
+  electromagnética, el efecto en que se basan los generadores eléctricos y los transformadores.
+
+  $\mag{\mathcal{E}}$ es la fem inducida media durante el intervalo, en voltios. $\var{N}$ es el
+  número de vueltas, o espiras, de la bobina, un número entero, y cada vuelta encierra el mismo
+  flujo. $\var{\Delta\Phi}$ es la variación del flujo magnético a través de una vuelta, final menos
+  inicial, en weber, y $\mag{\Delta t}$ es el tiempo en que ocurre, en segundos. El signo menos
+  expresa la ley de Lenz: la fem impulsa una corriente cuyo propio campo magnético se opone a la
+  variación del flujo. La fem se cuenta positiva en el sentido que la regla de la mano derecha
+  asocia a la normal usada para el flujo, así que un flujo creciente da una fem negativa. La fem de
+  movimiento, un caso particular, suele darse como un módulo, con la polaridad que fija la ley de
+  Lenz.
+
+  Un flujo grande pero constante no induce nada, mientras que un flujo
+  pequeño que cambia deprisa puede inducir una fem grande. El flujo puede variar porque el campo se
+  intensifica o se debilita, porque cambia el área de la bobina o porque la bobina gira dentro del
+  campo. Cada vuelta aporta su propia fem y las vueltas están en serie, así que el total crece en
+  proporción a su número.
+
+  En esta forma, la ley da la fem media en un intervalo finito; al reducir el intervalo, el
+  cociente pasa a ser la rapidez de variación del flujo y la fem pasa a ser instantánea. Supone que
+  todas las vueltas abarcan el mismo flujo, lo que se cumple en una bobina muy apretada.
+
+  Michael Faraday realizó en 1831 los primeros experimentos fructíferos de inducción, y comprobó
+  que un imán en movimiento o una corriente variable cercana inducen una fem solo mientras el campo
+  cambia. La regla que fija el sentido de la corriente inducida lleva el nombre de Heinrich
+  Lenz, a quien se atribuye su descubrimiento. Una
+  sola espira de 0.0113 metros cuadrados cuyo campo aumenta 0.200 T en 0.100 s tiene una fem media
+  de 22.6 milivoltios.

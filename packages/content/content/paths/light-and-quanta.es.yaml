@@ -1,0 +1,151 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.locale.schema.json
+name: 'Luz y cuantos'
+description: >-
+  La luz como corriente de fotones: energía y cantidad de movimiento del fotón, recuento de fotones,
+  efecto fotoeléctrico, ondas de materia, niveles y espectro del hidrógeno, y dilatación del tiempo y
+  contracción de la longitud relativistas, con comprobaciones resueltas.
+steps:
+  intro:
+    body: >-
+      La física clásica describe la luz como una onda, con una frecuencia y una longitud de onda. Los
+      experimentos de esta ruta muestran que la luz llega también en paquetes separados de energía,
+      los fotones, y que la materia tiene propiedades de onda propias. Dos constantes recorren todos
+      los pasos: la constante de Planck, que fija el tamaño de los paquetes, y la velocidad de la luz
+      en el vacío, que relaciona la frecuencia con la longitud de onda.
+  planck-constant:
+    note: >-
+      La escala de los efectos cuánticos, exactamente 6.626 070 15 por diez a la menos 34 julios
+      segundo. Su pequeñez explica que los cuantos pasen inadvertidos en la vida diaria.
+  photon-energy-frequency:
+    note: >-
+      Un fotón lleva la constante de Planck por la frecuencia. Más frecuencia significa más energía
+      por fotón.
+  photon-energy-wavelength:
+    note: >-
+      La misma energía escrita con la longitud de onda en el vacío: menor longitud de onda, más
+      energía.
+  electronvolt:
+    note: >-
+      Las energías de fotones y electrones son diminutas en julios, así que la física atómica las da
+      en electronvoltios.
+  check-photon-energy:
+    prompt: >-
+      ¿Cuál es la energía de un fotón de luz verde de 500 nanómetros de longitud de onda, en julios y
+      en electronvoltios?
+    answer: >-
+      Unos 3.97 por diez a la menos 19 julios, es decir, 2.48 electronvoltios: la constante de Planck
+      por la velocidad de la luz, dividida entre 500 por diez a la menos 9 metros.
+  photon-emission-rate:
+    note: >-
+      Al dividir la potencia de un haz entre la energía de un fotón se cuentan los fotones que lleva
+      cada segundo.
+  reciprocal-second:
+    note: >-
+      Un recuento por segundo se expresa en segundos inversos, no en hercios, que el SI reserva
+      para los fenómenos periódicos.
+  check-laser:
+    prompt: >-
+      Un puntero láser emite 1.00 milivatio de luz a 633 nanómetros. ¿Cuántos fotones emite cada
+      segundo?
+    answer: >-
+      Unos 3.19 por diez a la 15 por segundo: 1.00 por diez a la menos 3 vatios por 633 por diez a la
+      menos 9 metros, dividido entre la constante de Planck por la velocidad de la luz.
+  photon-momentum:
+    note: >-
+      Un fotón no tiene masa, pero lleva cantidad de movimiento: la constante de Planck entre la
+      longitud de onda.
+  photoelectric:
+    body: >-
+      Cuando la luz incide sobre una superficie metálica limpia en el vacío, puede arrancarle
+      electrones. La energía de estos fotoelectrones depende de la frecuencia de la luz y no de su
+      brillo, y por debajo de cierta frecuencia no sale ningún electrón, por brillante que sea la
+      luz. Solo la imagen de los fotones explica ambos hechos: cada electrón absorbe un solo fotón.
+  photoelectric-equation:
+    note: >-
+      La energía del fotón menos la función de trabajo del metal es la mayor energía cinética que
+      puede tener un electrón arrancado.
+  threshold-frequency:
+    note: >-
+      Si esa energía cinética se anula se obtiene la menor frecuencia que arranca electrones.
+  stopping-potential:
+    note: >-
+      La tensión inversa que detiene a los electrones más rápidos mide su energía cinética máxima:
+      un voltio por cada electronvoltio.
+  check-photoelectric:
+    prompt: >-
+      Luz violeta de 430 nanómetros incide sobre calcio, cuya función de trabajo es 2.71
+      electronvoltios. ¿Cuál es la energía cinética máxima de los fotoelectrones y qué potencial de
+      frenado los detiene?
+    answer: >-
+      Cada fotón lleva unos 2.88 electronvoltios, así que la energía cinética máxima es de unos 0.17
+      electronvoltios, 2.88 menos 2.71, y el potencial de frenado es de unos 0.17 voltios.
+  check-threshold:
+    prompt: >-
+      La función de trabajo del sodio es 2.46 electronvoltios. ¿Cuál es su frecuencia umbral y cuál
+      la longitud de onda de corte correspondiente?
+    answer: >-
+      Unos 5.95 por diez a la 14 hercios: 2.46 por 1.602 por diez a la menos 19 julios, dividido entre
+      la constante de Planck. La velocidad de la luz entre esa frecuencia da unos 504 nanómetros.
+  de-broglie-wavelength:
+    note: >-
+      El mismo vínculo entre cantidad de movimiento y longitud de onda vale para la materia: toda
+      partícula en movimiento tiene una longitud de onda, la constante de Planck entre su masa por
+      su rapidez.
+  check-de-broglie:
+    prompt: >-
+      ¿Cuál es la longitud de onda de De Broglie de un balón de baloncesto de 0.65 kilogramos lanzado
+      a 10 metros por segundo?
+    answer: >-
+      Unos 1.02 por diez a la menos 34 metros: la constante de Planck dividida entre 6.5 kilogramo
+      metro por segundo, demasiado corta para observarla.
+  atoms:
+    body: >-
+      El hidrógeno excitado por una descarga eléctrica brilla solo en unas pocas longitudes de onda
+      nítidas. Los fotones explican por qué: el electrón del átomo solo puede tener ciertas
+      energías, y cada línea espectral es un fotón que lleva la diferencia entre dos de ellas.
+  bohr-energy-levels:
+    note: >-
+      Las energías permitidas del hidrógeno: unos menos 13.6 electronvoltios divididos entre el
+      cuadrado del número cuántico principal.
+  rydberg-formula:
+    note: >-
+      La diferencia entre dos niveles, dividida entre la constante de Planck y la velocidad de la
+      luz, da el inverso de la longitud de onda de cada línea espectral.
+  check-hydrogen:
+    prompt: >-
+      Un átomo de hidrógeno baja del nivel tres al nivel dos. ¿Qué energía lleva el fotón emitido y
+      cuál es su longitud de onda?
+    answer: >-
+      Unos 1.89 electronvoltios, 13.6 por un cuarto menos un noveno, lo que corresponde a una
+      longitud de onda de unos 656 nanómetros, la línea roja de la serie de Balmer.
+  relativity:
+    body: >-
+      La velocidad de la luz en el vacío es la misma para todo observador en movimiento uniforme.
+      Tomarlo en serio, como hace la relatividad especial, implica que observadores en movimiento
+      relativo discrepan sobre intervalos de tiempo y longitudes. Los efectos son ínfimos a las
+      velocidades cotidianas y grandes cerca de la velocidad de la luz.
+  speed-of-light:
+    note: >-
+      Exactamente 299 792 458 metros por segundo, y el límite superior de la rapidez de cualquier
+      objeto.
+  time-dilation:
+    note: >-
+      Un reloj en movimiento marcha más despacio según la medida del observador; el tiempo propio,
+      leído por un reloj presente en ambos sucesos, es el intervalo más corto.
+  length-contraction:
+    note: >-
+      Un objeto en movimiento resulta más corto en la dirección de su movimiento; la longitud propia,
+      medida en reposo, es la mayor.
+  check-muon:
+    prompt: >-
+      Unos muones viven 2.20 microsegundos en su propio sistema y se mueven a 0.950 veces la
+      velocidad de la luz. ¿Cuánto viven medidos desde tierra?
+    answer: >-
+      Unos 7.05 microsegundos: 2.20 dividido entre la raíz cuadrada de uno menos 0.950 al cuadrado,
+      un factor de unos 3.20.
+  check-spaceship:
+    prompt: >-
+      Una nave espacial de 100 metros de longitud en reposo pasa a 0.600 veces la velocidad de la
+      luz. ¿Cuánto mide para un observador junto al que pasa?
+    answer: >-
+      80.0 metros: 100 por la raíz cuadrada de uno menos 0.600 al cuadrado, que vale 0.800.
