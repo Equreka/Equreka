@@ -258,6 +258,72 @@ describe('verifyEquation — scale-free tolerance', () => {
 	});
 });
 
+describe('verifyEquation — side precision', () => {
+	const kineticEnergy = (solution: string): EquationSolutionInput => ({
+		slug: 'relativistic-kinetic-energy',
+		expression:
+			'\\mag{K}=\\mag{m}\\const{c}^{2}\\left(\\frac{1}{\\sqrt{1-\\frac{\\mag{v}^{2}}{\\const{c}^{2}}}}-1\\right)',
+		terms: {
+			K: { kind: 'magnitude' },
+			m: { kind: 'magnitude' },
+			v: { kind: 'magnitude' },
+			c: { kind: 'constant' },
+		},
+		solutions: { K: solution },
+		constantValues: { c: 299792458 },
+	});
+
+	it('balances a side whose difference is near 1e-16 at sampled speeds', () => {
+		const result = verifyEquation(
+			kineticEnergy('m * v^2 / (sqrt(1 - v^2 / c^2) * (1 + sqrt(1 - v^2 / c^2)))'),
+		);
+		expect(result.messages).toEqual([]);
+		expect(result.samples.K).toEqual([20]);
+	});
+
+	it('rejects a root that cancels catastrophically in float64', () => {
+		expect(
+			verifyEquation(kineticEnergy('m * c^2 * (1 / sqrt(1 - v^2 / c^2) - 1)')).messages,
+		).toEqual([expect.stringContaining('disagrees')]);
+	});
+});
+
+describe('verifyEquation — wide sampling box', () => {
+	const energyMomentum = (
+		solutions: EquationSolutionInput['solutions'],
+	): EquationSolutionInput => ({
+		slug: 'relativistic-energy-momentum',
+		expression:
+			'\\mag{E}^{2}=\\left(\\mag{p}\\const{c}\\right)^{2}+\\left(\\mag{m}\\const{c}^{2}\\right)^{2}',
+		terms: {
+			E: { kind: 'magnitude' },
+			p: { kind: 'magnitude' },
+			m: { kind: 'magnitude' },
+			c: { kind: 'constant' },
+		},
+		solutions,
+		constantValues: { c: 299792458 },
+	});
+
+	it('verifies roots real only where E exceeds m c², which the unit box never reaches', () => {
+		const result = verifyEquation(
+			energyMomentum({
+				E: 'sqrt((p * c)^2 + (m * c^2)^2)',
+				p: 'sqrt(E^2 - (m * c^2)^2) / c',
+				m: 'sqrt(E^2 - (p * c)^2) / c^2',
+			}),
+		);
+		expect(result.messages).toEqual([]);
+		expect(result.samples).toEqual({ E: [20], p: [20], m: [20] });
+	});
+
+	it('still rejects a wrong root it can only sample in the wide box', () => {
+		expect(
+			verifyEquation(energyMomentum({ p: 'sqrt(E^2 - (m * c^2)^2) / (2 * c)' })).messages,
+		).toEqual([expect.stringContaining("solution for 'p' disagrees")]);
+	});
+});
+
 describe('verifyEquation — complex samples', () => {
 	it('skips a sample whose side is complex instead of comparing its real part', () => {
 		const result = verifyEquation({
@@ -350,7 +416,7 @@ describe('verifyEquation — multi-root solutions', () => {
 			constantValues: {},
 		});
 		expect(result.messages).toEqual([
-			"solution for 'x' root 2 of 2 produced only 0/20 valid samples in 400 attempts",
+			"solution for 'x' root 2 of 2 produced only 0/20 valid samples in 400 attempts per sampling box ([0.1, 10), then log-uniform over 1e-30 to 1e30)",
 		]);
 	});
 
