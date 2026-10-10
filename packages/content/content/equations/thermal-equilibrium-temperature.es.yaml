@@ -1,0 +1,48 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Temperatura de equilibrio térmico'
+terms:
+  T_\mathrm{f}:
+    label: 'Temperatura de equilibrio'
+  m_{1}:
+    label: 'Masa del cuerpo 1'
+  c_{1}:
+    label: 'Capacidad calorífica específica del cuerpo 1'
+  T_{1}:
+    label: 'Temperatura inicial del cuerpo 1'
+  m_{2}:
+    label: 'Masa del cuerpo 2'
+  c_{2}:
+    label: 'Capacidad calorífica específica del cuerpo 2'
+  T_{2}:
+    label: 'Temperatura inicial del cuerpo 2'
+description: >-
+  La temperatura de equilibrio térmico es la temperatura común que alcanzan dos cuerpos cuando se
+  ponen en contacto dentro de un recipiente aislado e intercambian calor solo entre sí. En
+  calorimetría es una media ponderada de sus temperaturas iniciales, cada una ponderada por la
+  capacidad calorífica de su cuerpo, la masa por la capacidad calorífica específica. Predice la
+  temperatura final de agua mezclada, de un metal caliente sumergido en agua o de una bebida y su
+  vaso.
+
+  $\var{T_\mathrm{f}}$ es la temperatura final, de equilibrio, y $\var{T_{1}}$ y $\var{T_{2}}$ son
+  las temperaturas iniciales de los dos cuerpos, todas temperaturas absolutas en kelvin; una lectura
+  en grados Celsius se convierte antes sumándole 273.15. Como la fórmula es una media ponderada, ese
+  desplazamiento se cancela: el resultado, convertido de nuevo, coincide con un cálculo hecho por
+  completo en grados Celsius. $\var{m_{1}}$ y $\var{m_{2}}$ son las masas, en kilogramos, y
+  $\var{c_{1}}$ y $\var{c_{2}}$ las capacidades caloríficas específicas, en julios por kilogramo y
+  kelvin, todas positivas. El resultado siempre queda entre las dos temperaturas iniciales, más
+  cerca de la del cuerpo con mayor capacidad calorífica.
+
+  La fórmula expresa la conservación de la energía. Cuando no se pierde calor, el calor que gana el
+  cuerpo más frío y el que gana el más caliente, que es negativo, suman cero. Si cada calor se
+  escribe como masa por capacidad calorífica específica por la variación entre la temperatura
+  inicial y la final, y se despeja la temperatura final de esa suma, se obtiene la media ponderada.
+
+  Supone un aislamiento perfecto, ningún cambio de fase en los cuerpos, ninguna reacción química y
+  capacidades caloríficas específicas constantes en el intervalo. Si uno de los cuerpos se funde o
+  hierve por el camino, su calor latente debe entrar en el balance de energía y la media simple deja
+  de valer. Un calorímetro real también absorbe calor, que puede contarse como un tercer cuerpo en
+  la misma suma.
+
+  Al verter 0.250 kilogramos de agua a 20.0 grados Celsius en una sartén de aluminio de 0.500
+  kilogramos a 150 grados Celsius se llega a una temperatura de equilibrio de unos 59.1 grados
+  Celsius.

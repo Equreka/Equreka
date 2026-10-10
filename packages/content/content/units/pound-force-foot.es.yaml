@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Libra fuerza pie'
+description: >-
+  La libra fuerza pie, de símbolo lbf·ft, es una unidad de momento de una fuerza del sistema
+  imperial británico y del sistema consuetudinario estadounidense: el efecto de giro de una libra
+  fuerza aplicada con un brazo de palanca de un pie, medido perpendicularmente a la línea de la
+  fuerza. Su equivalente en el SI es el newton metro.
+
+  Es el producto de dos unidades exactas. El NIST da la libra fuerza como exactamente 4.448 221 615
+  260 5 newtons, calculada con la aceleración normal de la gravedad, y el pie mide exactamente
+  0.3048 metros, de modo que $1\,\mathrm{lbf\,ft}=1.355\,817\,948\,331\,400\,4\,\mathrm{N\,m}$
+  exactamente. La publicación especial 811 del NIST recoge la unidad bajo el momento de una fuerza
+  con el factor redondeado 1.355 818 respecto del newton metro, y QUDT guarda el multiplicador
+  completo.
+
+  Una libra fuerza pie es doce veces la libra fuerza pulgada, unidad menor que también recoge el
+  NIST, y el newton metro es unas 0.7376 veces la libra fuerza pie. El kilogramo fuerza metro, de
+  factor exacto 9.806 65, figura en la misma tabla.
+
+  Como unidad tradicional anglosajona de momento de una fuerza, mide una fuerza en libras que actúa
+  a una distancia en pies del centro de giro, y suele escribirse lbf ft o lb ft.
+
+  El momento de una fuerza y la energía comparten dimensión, y la unidad de energía con el mismo
+  factor es el pie libra. El folleto del SI nunca expresa el momento en julios, y el NIST separa
+  ambas unidades por el orden de las palabras: libra fuerza pie para el momento, pie libra fuerza
+  para el trabajo. El diccionario de Rowlett describe la misma costumbre, aunque señala que en la
+  práctica pie libra también se usa para el momento.

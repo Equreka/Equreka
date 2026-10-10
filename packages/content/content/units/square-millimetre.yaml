@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Square millimetre'
+symbol:
+  tex: 'mm^{2}'
+  text: 'mm²'
+unitOf:
+  - 'area'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'millimetre'
+      exp: 2
+externalIds:
+  wikidata: 'Q2737347'
+  qudt: 'http://qudt.org/vocab/unit/MilliM2'
+categories:
+  - 'mathematics'
+  - 'physics'
+branches:
+  - 'geometry'
+  - 'mechanics'
+aliases:
+  - 'square millimeter'
+  - 'square millimetres'
+  - 'square millimeters'
+  - 'mm2'
+  - 'mm^2'
+  - 'sq mm'
+  - 'milímetro cuadrado'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., section 3 (prefix symbols raised to a power) and section 5.2 (sq. mm as a forbidden abbreviation)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST Handbook 44 (2026), Appendix C, Units of Area (metric)'
+    url: 'https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: inch; circular mil'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'R. Rowlett, How Many? A Dictionary of Units of Measurement, University of North Carolina at Chapel Hill, C: circular mil'
+    url: 'https://www.ibiblio.org/units/dictC.html'
+  - title: 'EVS, EN IEC 60228:2024 Conductors of insulated cables (IEC 60228:2023), scope'
+    url: 'https://www.evs.ee/en/evs-en-iec-60228-2024'
+  - title: 'QUDT, unit MilliM2'
+    url: 'https://qudt.org/vocab/unit/MilliM2'
+description:
+  en: >-
+    The square millimetre, symbol $\mathrm{mm^{2}}$, is a unit of area equal to the area of a square
+    with sides one millimetre long. It is a decimal submultiple of the square metre, the coherent SI
+    unit of area, and it is the usual unit for small cross-sections: the conductors of electrical
+    cables, wires, thin tubes and the sections of test pieces in materials testing.
+
+    In the SI a prefix and its unit form one inseparable symbol, so the exponent squares the whole
+    millimetre: a square millimetre is the square of one thousandth of a metre,
+    $1\,\mathrm{mm^{2}}=10^{-6}\,\mathrm{m^{2}}$ exactly, one millionth of a square metre.
+
+    The metric area units of NIST Handbook 44 advance by factors of one hundred, so one hundred
+    square millimetres make a square centimetre and a square metre holds a million square
+    millimetres. The inch is exactly 25.4 millimetres according to NIST Special Publication 811,
+    which makes a square inch exactly 645.16 square millimetres. A stress of one newton per square
+    millimetre is exactly one megapascal, which is why engineers quote the strength of steel and
+    concrete in either form.
+
+    Cable standards specify conductors by this unit. The international standard IEC 60228, adopted
+    in Europe as EN IEC 60228:2024, sets nominal cross-sectional areas from 0.5 to 3500 square
+    millimetres for the conductors of power cables and cords. The circular mil, the area of a circle
+    one thousandth of an inch across, is a customary unit that NIST converts to about 0.000 506 7
+    square millimetre.
+
+    The SI Brochure cites sq. mm as an example of an abbreviation that may not stand for the symbol
+    mm² or for the unit name. American English writes square millimeter, and the plural is square
+    millimetres.

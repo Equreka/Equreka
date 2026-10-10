@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Capacidad calorífica de un cuerpo'
+terms:
+  \Delta T:
+    label: 'Variación de temperatura'
+description: >-
+  La capacidad calorífica de un cuerpo es el calor que absorbe dividido entre la subida de
+  temperatura que ese calor produce. Esta definición, usada en toda la termodinámica y la
+  calorimetría, mide cuánta energía necesita un objeto completo, como una cacerola, un calorímetro o
+  un depósito de agua, por cada kelvin de calentamiento, de modo que un solo valor medido da el
+  calor para cualquier variación de temperatura.
+
+  $\mag{C}$ es la capacidad calorífica, en julios por kelvin. $\mag{Q}$ es el calor transferido al
+  cuerpo, en julios, positivo cuando el cuerpo absorbe calor y negativo cuando lo cede. $\var{\Delta
+  T}$ es la temperatura final menos la inicial, en kelvin. Un kelvin y un grado Celsius son pasos
+  del mismo tamaño, así que una capacidad calorífica por grado Celsius tiene el mismo valor. En la
+  materia ordinaria el calor y la variación de temperatura tienen el mismo signo, y la capacidad
+  calorífica resulta positiva.
+
+  La capacidad calorífica es una propiedad extensiva: crece con la cantidad de material, de modo que
+  una sartén grande de hierro tiene varias veces la capacidad calorífica de una pequeña del mismo
+  metal. Al dividirla entre la masa se obtiene la capacidad calorífica específica, una propiedad del
+  material solo, y en un cuerpo de un único material la capacidad calorífica es igual a su masa por
+  esa capacidad calorífica específica. Una vez medida la capacidad calorífica de un calorímetro, su
+  propia parte del calor puede tenerse en cuenta en experimentos posteriores.
+
+  El cociente trata la capacidad calorífica como constante en el intervalo de temperatura; cuando
+  varía con la temperatura, la fórmula da un promedio sobre el intervalo. No puede haber cambio de
+  fase, porque el calor absorbido durante la fusión o la ebullición no produce ninguna variación de
+  temperatura y el cociente perdería su sentido. En los gases el valor depende además de las
+  condiciones en que se calienta el gas.
+
+  Una sartén de hierro de 808 gramos que absorbe 18.14 kilojulios al calentarse 50.0 grados Celsius
+  tiene una capacidad calorífica de unos 363 julios por kelvin.

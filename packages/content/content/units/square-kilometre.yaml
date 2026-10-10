@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Square kilometre'
+symbol:
+  tex: 'km^{2}'
+  text: 'km²'
+unitOf:
+  - 'area'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'kilometre'
+      exp: 2
+externalIds:
+  wikidata: 'Q712226'
+  qudt: 'http://qudt.org/vocab/unit/KiloM2'
+categories:
+  - 'mathematics'
+  - 'physics'
+branches:
+  - 'geometry'
+  - 'mechanics'
+aliases:
+  - 'square kilometer'
+  - 'square kilometres'
+  - 'square kilometers'
+  - 'km2'
+  - 'km^2'
+  - 'sq km'
+  - 'kilómetro cuadrado'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., section 3 (prefix symbols raised to a power) and Table 8 with note (b) (are and hectare, CIPM 1879)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST Handbook 44 (2026), Appendix C, Units of Area (metric)'
+    url: 'https://www.nist.gov/system/files/documents/2025/12/30/appc-26-HB44-20251222.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: square mile'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'R. Rowlett, How Many? A Dictionary of Units of Measurement, University of North Carolina at Chapel Hill, S: square kilometer'
+    url: 'https://www.ibiblio.org/units/dictS.html'
+  - title: 'QUDT, unit KiloM2'
+    url: 'https://qudt.org/vocab/unit/KiloM2'
+description:
+  en: >-
+    The square kilometre, symbol $\mathrm{km^{2}}$, is a unit of area equal to the area of a square
+    whose sides are one kilometre long. It is a decimal multiple of the square metre, the coherent
+    SI unit of area, and it is the metric unit in which the areas of countries, provinces, cities,
+    lakes, forests and protected regions are normally stated.
+
+    The SI rule that a prefix and its unit form one inseparable symbol means that the square acts on
+    the whole kilometre: $1\,\mathrm{km^{2}}=10^{6}\,\mathrm{m^{2}}$ exactly. A square kilometre is
+    therefore a million square metres, not a thousand, a slip that the symbol km² makes easy to
+    avoid.
+
+    The hectare, which the SI Brochure lists among its non-SI units as one square hectometre, fits
+    one hundred times into a square kilometre; NIST Handbook 44 shows the same step of one hundred
+    from the square hectometre to the square kilometre. NIST Special Publication 811 converts the
+    square mile into about 2.589 988 square kilometres, so a square kilometre is about 0.386 square
+    mile, or roughly 247 acres.
+
+    Geographers and statistical offices use the unit for land and water areas and for population
+    density, written in inhabitants per square kilometre. Larger areas, such as those of oceans or
+    continents, are often given in millions of square kilometres rather than with a bigger prefix.
+
+    The are and the hectare received special names from the CIPM in 1879 for land measurement; the
+    square kilometre needs no special name because it is formed with a prefix. American English
+    writes square kilometer, and the plural is square kilometres.

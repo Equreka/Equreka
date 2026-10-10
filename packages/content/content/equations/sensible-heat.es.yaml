@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Calor sensible'
+terms:
+  \Delta T:
+    label: 'Variación de temperatura'
+description: >-
+  El calor sensible es el calor que cambia la temperatura de un cuerpo sin cambiar su fase. Es igual
+  a la masa del cuerpo por la capacidad calorífica específica de su material por la variación de
+  temperatura, una relación central en la calorimetría y la termodinámica que indica cuánta energía
+  hace falta para calentar o enfriar agua, metal, aire o alimentos.
+
+  $\mag{Q}$ es el calor intercambiado, en julios: positivo cuando el cuerpo absorbe calor y negativo
+  cuando lo cede. $\mag{m}$ es la masa, en kilogramos. $\mag{c}$ es la capacidad calorífica
+  específica, en julios por kilogramo y kelvin, que depende del material y de su fase: unos 4186
+  para el agua líquida y 900 para el aluminio. $\var{\Delta T}$ es la temperatura final menos la
+  inicial. Un paso de un kelvin es tan grande como un paso de un grado Celsius, así que la
+  diferencia vale lo mismo en ambas escalas, y un enfriamiento la hace negativa.
+
+  El calor crece en proporción a cada factor: duplicar la masa, o duplicar el calentamiento, duplica
+  la energía necesaria. Un material con una capacidad calorífica específica grande absorbe mucha
+  energía con una subida de temperatura moderada, y por eso los mares y los lagos suavizan el clima
+  de sus orillas. El producto de la masa por la capacidad calorífica específica es la capacidad
+  calorífica del cuerpo.
+
+  La relación solo es válida mientras la sustancia permanece en una sola fase y no se realiza
+  trabajo sobre ella ni por ella. Durante la fusión o la ebullición el calor impulsa el cambio de
+  fase, y se aplica la relación del calor latente. También trata la capacidad calorífica específica
+  como constante, lo que conviene a la mayoría de los sólidos y líquidos a temperaturas ordinarias;
+  a temperaturas muy bajas, o en los gases, el valor cambia con las condiciones.
+
+  Los experimentos de Joseph Black sobre la congelación, la fusión y la vaporización del agua en la
+  Universidad de Glasgow, donde enseñó de 1756 a 1766, llevaron a los conceptos de calor latente y
+  capacidad calorífica. Calentar 0.250 kilogramos de agua de 20.0 a 80.0 grados Celsius requiere
+  unos 62.8 kilojulios.

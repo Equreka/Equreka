@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Dilatación térmica volumétrica'
+terms:
+  \Delta V:
+    label: 'Variación de volumen'
+  \beta:
+    label: 'Coeficiente de dilatación volumétrica'
+  V_{0}:
+    label: 'Volumen inicial'
+  \Delta T:
+    label: 'Variación de temperatura'
+description: >-
+  La dilatación térmica volumétrica es el cambio de volumen de un sólido, un líquido o un gas cuando
+  cambia su temperatura: la variación es igual al coeficiente de dilatación volumétrica por el
+  volumen original por la variación de temperatura. En termodinámica es la forma de dilatación
+  térmica que se aplica a los líquidos, y sirve para dimensionar depósitos de combustible, explicar
+  los termómetros de líquido en vidrio y prever cuándo rebosará un recipiente lleno.
+
+  $\var{\Delta V}$ es la variación de volumen, en metros cúbicos, positiva cuando el cuerpo se
+  dilata. $\var{\beta}$ es el coeficiente de dilatación volumétrica, en inversa del kelvin; las
+  tablas a 20 grados Celsius dan unas 35 millonésimas por kelvin para el acero, 180 para el
+  mercurio, 210 para el agua y 950 para la gasolina. $\var{V_{0}}$ es el volumen antes del cambio,
+  en metros cúbicos. $\var{\Delta T}$ es la temperatura final menos la inicial, una diferencia que
+  vale lo mismo en kelvin que en grados Celsius.
+
+  En un sólido isótropo cada una de las tres dimensiones crece en la misma pequeña fracción, de modo
+  que el coeficiente volumétrico es casi el triple del coeficiente de dilatación lineal. Un líquido
+  toma la forma de su recipiente y no tiene longitud propia, así que solo se define su coeficiente
+  volumétrico, que suele superar al del recipiente: un depósito de acero lleno hasta el borde de
+  gasolina fría derrama combustible cuando ambos se calientan.
+
+  La relación es precisa para cambios de temperatura pequeños, en los que el coeficiente se mantiene
+  casi constante. El agua es la excepción notable: entre 0 y 4 grados Celsius se contrae al
+  calentarse, así que su coeficiente es negativo en ese intervalo y su densidad es máxima a 4 grados
+  Celsius, y por eso los estanques se congelan desde arriba. Para el aire y la mayoría de los gases
+  a presión atmosférica el coeficiente es de unas 3400 millonésimas por kelvin y depende mucho de
+  las condiciones, así que la ley de los gases ideales la describe mejor.
+
+  Un depósito de acero de 60.0 litros lleno de gasolina a 15.0 grados Celsius derrama unos 1.10
+  litros cuando depósito y combustible se calientan hasta 35.0 grados Celsius.

@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de las presiones parciales de Dalton'
+terms:
+  p_\mathrm{total}:
+    label: 'Presión total'
+  p_\mathrm{A}:
+    label: 'Presión parcial del gas A'
+  p_\mathrm{B}:
+    label: 'Presión parcial del gas B'
+description: >-
+  La ley de Dalton, o ley de las presiones parciales, dice que, al mezclar gases que no reaccionan
+  entre sí, la presión de toda la mezcla resulta de sumar las presiones que produciría cada
+  componente por sí solo, sus presiones parciales. La presión parcial de un gas es la que ejercería
+  si ocupara él solo todo el recipiente a la misma temperatura. Escrita aquí para una mezcla de dos
+  gases, la ley se amplía término a término a cualquier número de ellos.
+
+  $\var{p_\mathrm{total}}$ es la presión total de la mezcla, el valor que marca un manómetro una vez
+  corregido a presión absoluta. $\var{p_\mathrm{A}}$ y $\var{p_\mathrm{B}}$ son las presiones
+  parciales de los gases A y B. Las tres van en pascales o en cualquier unidad de presión habitual,
+  y todas son positivas; cada presión parcial es menor que la total.
+
+  En un gas ideal las moléculas están muy separadas y no se atraen ni se repelen, así que cada gas
+  golpea las paredes como si los demás no estuvieran. A volumen y temperatura fijos, la presión de
+  un gas es proporcional a su cantidad en moles, de modo que las presiones parciales se suman igual
+  que las cantidades. De ahí se sigue que la fracción de la presión total debida a un gas es igual a
+  su fracción molar en la mezcla. Para tres gases o más, se suman todas sus presiones parciales o se
+  aplica la ley dos veces.
+
+  La ley es exacta para gases ideales y aproximada para mezclas reales a baja presión. A alta
+  presión, o cuando las moléculas de gases distintos se atraen con fuerza, el total se aparta de la
+  suma; los gases que reaccionan entre sí quedan fuera de la ley.
+
+  John Dalton, al estudiar la atmósfera, propuso que cada gas de una mezcla ejerce su presión con
+  independencia de los demás. En el laboratorio, un gas recogido sobre agua está mezclado con vapor
+  de agua, así que el argón recogido a 750 torr y 26 grados Celsius, donde el agua aporta 25.2 torr,
+  tiene una presión parcial de unos 725 torr.

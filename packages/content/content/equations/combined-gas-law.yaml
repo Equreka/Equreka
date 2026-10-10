@@ -1,0 +1,92 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Combined gas law'
+kind: 'equation'
+level: 'intro'
+expression: '\frac{\var{p_{1}}\var{V_{1}}}{\var{T_{1}}}=\frac{\var{p_{2}}\var{V_{2}}}{\var{T_{2}}}'
+terms:
+  p_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Initial pressure'
+    unit: 'pascal'
+  V_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Initial volume'
+    unit: 'cubic-metre'
+  T_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Initial temperature'
+    unit: 'kelvin'
+  p_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Final pressure'
+    unit: 'pascal'
+  V_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Final volume'
+    unit: 'cubic-metre'
+  T_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Final temperature'
+    unit: 'kelvin'
+solutions:
+  p_{1}: 'p_2 * V_2 * T_1 / (V_1 * T_2)'
+  V_{1}: 'p_2 * V_2 * T_1 / (p_1 * T_2)'
+  T_{1}: 'p_1 * V_1 * T_2 / (p_2 * V_2)'
+  p_{2}: 'p_1 * V_1 * T_2 / (V_2 * T_1)'
+  V_{2}: 'p_1 * V_1 * T_2 / (p_2 * T_1)'
+  T_{2}: 'p_2 * V_2 * T_1 / (p_1 * V_1)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q1077153'
+categories:
+  - 'chemistry'
+branches:
+  - 'gases'
+aliases:
+  - 'combined gas equation'
+  - 'pV/T = constant'
+  - 'ley combinada de los gases'
+  - 'ley de los gases combinados'
+references:
+  - title: 'OpenStax, Chemistry 2e, 9.2 Relating Pressure, Volume, Amount, and Temperature: The Ideal Gas Law'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-2-relating-pressure-volume-amount-and-temperature-the-ideal-gas-law'
+  - title: 'Purdue University, General Chemistry Topic Review, The Gas Laws (ideal gas equation)'
+    url: 'https://chemed.chem.purdue.edu/genchem/topicreview/bp/ch4/gaslaws3.html'
+  - title: 'OpenStax, Chemistry 2e, 9.6 Non-Ideal Gas Behavior'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-6-non-ideal-gas-behavior'
+description:
+  en: >-
+    The combined gas law states that, for a fixed amount of gas, the product of pressure and volume
+    divided by the absolute temperature keeps the same value when the gas passes from one state to
+    another. It joins Boyle's law, Charles's law and Gay-Lussac's law in one relation, so a change
+    in which pressure, volume and temperature all vary at once can be followed in a single step.
+
+    $\var{p_{1}}$, $\var{V_{1}}$ and $\var{T_{1}}$ describe the initial state: absolute pressure,
+    volume and temperature. $\var{p_{2}}$, $\var{V_{2}}$ and $\var{T_{2}}$ describe the final state.
+    Pressures may be in pascals, kilopascals or atmospheres and volumes in cubic metres or litres,
+    as long as each pair matches, because the units cancel between the two sides. The temperatures
+    must be in kelvin, as for every gas law; a Celsius temperature is first raised by 273.15. All
+    six quantities are positive.
+
+    Holding one of the three variables fixed recovers the simpler laws: constant temperature leaves
+    Boyle's law, constant pressure Charles's law, constant volume Gay-Lussac's law. The relation is
+    the ideal gas law applied twice to the same amount of gas, with the amount and the molar gas
+    constant cancelling, which is why it needs neither the number of moles nor the constant.
+
+    The amount of gas must not change between the two states: a leak, a reaction or added gas breaks
+    it, and then the ideal gas law, which includes the amount, applies instead. It is exact for an
+    ideal gas and a good approximation for real gases at modest pressures and well above
+    condensation.
+
+    It is used to correct gas volumes to standard conditions and in diving calculations. A
+    13.2-litre tank at 153 atmospheres and 300 kelvin releases about 667 litres of gas at 3.13
+    atmospheres and 310 kelvin, only a rough estimate because the starting pressure is far too high
+    for ideal behaviour.

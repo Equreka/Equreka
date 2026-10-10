@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Partial pressure from mole fraction'
+kind: 'formula'
+level: 'intro'
+expression: '\var{p_\mathrm{A}}=\var{x_\mathrm{A}}\var{p_\mathrm{total}}'
+terms:
+  p_\mathrm{A}:
+    kind: 'symbol'
+    label:
+      en: 'Partial pressure of gas A'
+    unit: 'pascal'
+  x_\mathrm{A}:
+    kind: 'symbol'
+    label:
+      en: 'Mole fraction of gas A'
+  p_\mathrm{total}:
+    kind: 'symbol'
+    label:
+      en: 'Total pressure'
+    unit: 'pascal'
+solutions:
+  p_\mathrm{A}: 'x_A * p_total'
+  x_\mathrm{A}: 'p_A / p_total'
+  p_\mathrm{total}: 'p_A / x_A'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'gases'
+aliases:
+  - 'partial pressure'
+  - 'partial pressure formula'
+  - 'mole fraction and partial pressure'
+  - 'p_A = x_A p'
+  - 'presión parcial'
+  - 'presión parcial y fracción molar'
+references:
+  - title: 'OpenStax, Chemistry 2e, 9.3 Stoichiometry of Gaseous Substances, Mixtures, and Reactions'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-3-stoichiometry-of-gaseous-substances-mixtures-and-reactions'
+  - title: 'Purdue University, General Chemistry Topic Review, The Gas Laws (Dalton''s law of partial pressures)'
+    url: 'https://chemed.chem.purdue.edu/genchem/topicreview/bp/ch4/gaslaws3.html'
+  - title: 'OpenStax, Chemistry 2e, 9.6 Non-Ideal Gas Behavior'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-6-non-ideal-gas-behavior'
+description:
+  en: >-
+    The partial pressure of one gas in a mixture equals its mole fraction times the total pressure
+    of the mixture. This rule, a consequence of Dalton's law of partial pressures, finds how much of
+    the pressure of air or any other gas mixture comes from one component, given only the
+    composition and the total pressure, and conversely gives the composition from a measured partial
+    pressure.
+
+    $\var{p_\mathrm{A}}$ is the partial pressure of gas A, the pressure it would produce if it
+    occupied the container by itself at the temperature of the mixture. $\var{x_\mathrm{A}}$ is its
+    mole fraction: the amount of gas A in moles divided by the total amount of all the gases, a
+    dimensionless quantity between 0 and 1, entered as a decimal rather than a percentage.
+    $\var{p_\mathrm{total}}$ is the absolute total pressure. Both pressures share one unit, the
+    pascal in SI, and all three quantities are positive.
+
+    At a fixed volume and temperature, the pressure an ideal gas exerts is proportional to its
+    amount of substance. Gas A therefore supplies the same share of the total pressure as it does of
+    the total number of moles, which is the formula. The mole fractions of all the components add up
+    to 1, so the partial pressures add up to the total, recovering Dalton's law.
+
+    The rule holds for mixtures of ideal gases that do not react with one another. Real mixtures
+    follow it closely at low pressure; at high pressure and low temperature, molecular size and
+    attraction make each gas contribute slightly more or less than its share.
+
+    It is the working form of Dalton's law for mixtures of known composition. A mixture of 2.83
+    moles of oxygen and 8.41 moles of dinitrogen monoxide at 192 kilopascals has an oxygen mole
+    fraction of 0.252, so oxygen supplies about 48.4 kilopascals.

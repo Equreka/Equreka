@@ -1,0 +1,88 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Gay-Lussac''s law'
+kind: 'equation'
+level: 'intro'
+expression: '\frac{\var{p_{1}}}{\var{T_{1}}}=\frac{\var{p_{2}}}{\var{T_{2}}}'
+terms:
+  p_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Initial pressure'
+    unit: 'pascal'
+  T_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Initial temperature'
+    unit: 'kelvin'
+  p_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Final pressure'
+    unit: 'pascal'
+  T_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Final temperature'
+    unit: 'kelvin'
+solutions:
+  p_{1}: 'p_2 * T_1 / T_2'
+  T_{1}: 'p_1 * T_2 / p_2'
+  p_{2}: 'p_1 * T_2 / T_1'
+  T_{2}: 'p_2 * T_1 / p_1'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q202151'
+categories:
+  - 'chemistry'
+branches:
+  - 'gases'
+aliases:
+  - 'Amontons''s law'
+  - 'Amontons'' law'
+  - 'Gay-Lussac''s second law'
+  - 'Gay Lussac law'
+  - 'pressure law'
+  - 'pressure-temperature law'
+  - 'p/T = constant'
+  - 'ley de Amontons'
+  - 'segunda ley de Gay-Lussac'
+references:
+  - title: 'OpenStax, Chemistry 2e, 9.2 Relating Pressure, Volume, Amount, and Temperature: The Ideal Gas Law'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-2-relating-pressure-volume-amount-and-temperature-the-ideal-gas-law'
+  - title: 'Purdue University, General Chemistry Topic Review, The Gas Laws (Amontons'' law)'
+    url: 'https://chemed.chem.purdue.edu/genchem/topicreview/bp/ch4/gaslaws3.html'
+  - title: 'Science History Institute, Joseph Louis Gay-Lussac (scientific biography)'
+    url: 'https://www.sciencehistory.org/education/scientific-biographies/joseph-louis-gay-lussac/'
+  - title: 'OpenStax, Chemistry 2e, 9.6 Non-Ideal Gas Behavior'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-6-non-ideal-gas-behavior'
+description:
+  en: >-
+    Gay-Lussac's law, also called Amontons's law or the pressure law, states that the pressure of a
+    fixed amount of gas in a rigid container is directly proportional to its absolute temperature.
+    Written for two states of the same sample at constant volume, the ratio of pressure to
+    temperature does not change, so heating a sealed gas raises its pressure and cooling it lowers
+    the pressure.
+
+    $\var{p_{1}}$ and $\var{T_{1}}$ are the pressure and the temperature of the gas at the start,
+    $\var{p_{2}}$ and $\var{T_{2}}$ at the end. The pressures are absolute and may be in pascals,
+    kilopascals or any other pressure unit, provided both match. The temperatures must be
+    thermodynamic temperatures in kelvin, as in every gas law: a Celsius reading is first raised by
+    273.15. All four quantities are positive.
+
+    In a closed, rigid vessel the molecules cannot spread out, so when they speed up on heating they
+    strike the walls more often and harder, and the pressure rises in step with the kelvin
+    temperature. On a graph of pressure against temperature the points fall on a straight line;
+    extrapolated to zero pressure, it reaches absolute zero, which is how Joseph Lambert proposed to
+    define that temperature in 1779. The law is the ideal gas law with volume and amount of
+    substance fixed.
+
+    It is exact for an ideal gas and close for real gases at low pressure and well above
+    condensation. Strong attraction between molecules at low temperature makes the measured pressure
+    fall short of the prediction.
+
+    Guillaume Amontons found the relation by experiment around 1700, and Gay-Lussac measured it more
+    precisely about a century later. The name Gay-Lussac's law is also given to his 1808 law of
+    combining volumes, a different rule. An aerosol can at 360 kilopascals and 297 kelvin, warmed to
+    323 kelvin, reaches about 392 kilopascals, which is why such cans warn against heat.

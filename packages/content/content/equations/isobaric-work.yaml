@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Work in an isobaric process'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{W}=\mag{p}\var{\Delta V}'
+terms:
+  W:
+    kind: 'magnitude'
+    ref: 'work'
+  p:
+    kind: 'magnitude'
+    ref: 'pressure'
+  \Delta V:
+    kind: 'symbol'
+    label:
+      en: 'Change in volume'
+    unit: 'cubic-metre'
+solutions:
+  W: 'p * DeltaV'
+  p: 'W / DeltaV'
+  \Delta V: 'W / p'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+  - 'chemistry'
+branches:
+  - 'thermodynamics'
+  - 'gases'
+aliases:
+  - 'isobaric work'
+  - 'work at constant pressure'
+  - 'pressure-volume work'
+  - 'expansion work'
+  - 'W = pΔV'
+  - 'W = p delta V'
+  - 'trabajo isobárico'
+  - 'trabajo a presión constante'
+  - 'trabajo de expansión'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 3.2 Work, Heat, and Internal Energy (Equations 3.3 and 3.4)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/3-2-work-heat-and-internal-energy'
+  - title: 'OpenStax, University Physics Volume 2, 3.3 First Law of Thermodynamics (Example 3.6)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/3-3-first-law-of-thermodynamics'
+  - title: 'OpenStax, Chemistry 2e, 5.3 Enthalpy (expansion work and its sign)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/5-3-enthalpy'
+  - title: 'OpenStax, University Physics Volume 2, 2.1 Molecular Model of an Ideal Gas (absolute pressure)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/2-1-molecular-model-of-an-ideal-gas'
+description:
+  en: >-
+    The work done by a gas in an isobaric process, one that takes place at constant pressure, equals
+    the pressure times the change in volume. In thermodynamics and chemistry this pressure–volume
+    work is the expansion work of a gas pushing a piston or the surrounding air, and on a
+    pressure–volume diagram it is the area of the rectangle under the horizontal line that traces
+    the process.
+
+    $\mag{W}$ is the work done by the gas on its surroundings, in joules. $\mag{p}$ is the constant
+    pressure, in pascals, an absolute pressure rather than a gauge reading. $\var{\Delta V}$ is the
+    final volume minus the initial one, in cubic metres. The sign follows the physics form of the
+    first law, in which work done by the system counts as positive: an expanding gas does positive
+    work, while a gas being compressed has negative work, meaning its surroundings work on it.
+    Chemistry texts count the work done on the system instead, which reverses the sign.
+
+    The formula follows from the force a gas exerts on a piston. That force is the pressure times
+    the piston area, and moving the piston a short distance sweeps out a volume equal to the area
+    times the distance, so each small step of work is the pressure times the volume swept. At
+    constant pressure those steps add up to the pressure times the total change in volume. One
+    pascal times one cubic metre is exactly one joule, so no conversion factor is needed.
+
+    The process must be quasi-static, slow enough for the gas to keep one well-defined pressure in
+    equilibrium throughout. If the pressure changes during the process, the work is the area under
+    the curve on the pressure–volume diagram and this product no longer applies. Nothing in the
+    derivation requires an ideal gas: the relation holds for any substance whose pressure stays
+    fixed.
+
+    When 1.00 gram of water boils at one atmosphere, its volume grows by about 1.67 litres, and the
+    steam does about 169 joules of work pushing back the air.

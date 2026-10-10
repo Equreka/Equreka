@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'First law of thermodynamics'
+kind: 'equation'
+level: 'intro'
+expression: '\var{\Delta U}=\mag{Q}-\mag{W}'
+terms:
+  \Delta U:
+    kind: 'symbol'
+    label:
+      en: 'Change in internal energy'
+    unit: 'joule'
+  Q:
+    kind: 'magnitude'
+    ref: 'heat'
+  W:
+    kind: 'magnitude'
+    ref: 'work'
+solutions:
+  \Delta U: 'Q - W'
+  Q: 'DeltaU + W'
+  W: 'Q - DeltaU'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q179380'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'first law'
+  - 'energy conservation in thermodynamics'
+  - 'ΔU = Q - W'
+  - 'delta U = Q - W'
+  - 'ΔU = Q + W'
+  - 'primer principio de la termodinámica'
+  - 'primera ley de la termodinámica'
+  - 'primer principio'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 3.3 First Law of Thermodynamics (Equation 3.7, Table 3.1, Example 3.2)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/3-3-first-law-of-thermodynamics'
+  - title: 'OpenStax, Chemistry 2e, 5.3 Enthalpy (the first law as ΔU = q + w, work done on the system positive)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/5-3-enthalpy'
+  - title: 'OpenStax, University Physics Volume 2, 1.4 Heat Transfer, Specific Heat, and Calorimetry (Joule''s experiment)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-4-heat-transfer-specific-heat-and-calorimetry'
+  - title: 'OpenStax, University Physics Volume 2, 4.2 Heat Engines (Equation 4.1)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/4-2-heat-engines'
+description:
+  en: >-
+    The first law of thermodynamics states that a system's internal energy changes by the heat added
+    to it minus the work it does on its surroundings. It is the principle of conservation of energy
+    applied to thermodynamic systems: energy can cross the boundary of a system as heat or as work,
+    but it is neither created nor destroyed.
+
+    $\var{\Delta U}$ is the change in internal energy, the final value minus the initial one, in
+    joules. $\mag{Q}$ is the heat exchanged, in joules, positive when heat flows into the system and
+    negative when it flows out. $\mag{W}$ is the work done by the system, in joules: positive when
+    the system acts on its surroundings, as an expanding gas does, and negative when the
+    surroundings act on it, as when a gas is compressed. Chemistry texts count the work done on the
+    system as positive and write the law as $\Delta U = Q + W$, with that work in place of the work
+    done by the system; the two forms describe the same physics with the sign of the work reversed.
+
+    Internal energy is a state function: its change is fixed by the starting and ending states
+    alone, while the heat and the work taken separately depend on the path between them. Over a
+    complete cycle, as in a heat engine, the internal energy returns to its starting value, so the
+    net work done equals the net heat absorbed.
+
+    The law holds for any process between equilibrium states of a closed system, reversible or not.
+    It sets no direction for processes: how much of the heat an engine takes in can become work is a
+    question for the second law. When matter crosses the boundary, the energy it carries must be
+    added to the balance.
+
+    James Prescott Joule's experiments, in which falling weights turned a paddle wheel in water and
+    raised its temperature, showed that work and heat are interchangeable forms of energy. A system
+    that absorbs 400 joules of heat while doing 100 joules of work gains 300 joules of internal
+    energy.

@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Calor latente'
+description: >-
+  El calor latente es el calor que una sustancia absorbe o cede mientras cambia de fase a
+  temperatura constante. Es igual a la masa que cambia de fase por el calor latente específico de la
+  transición, y en termodinámica y calorimetría da la energía necesaria para fundir hielo, hervir
+  agua o condensar vapor; abarca los calores de fusión, de vaporización y de sublimación.
+
+  $\mag{Q}$ es el calor necesario para que toda la masa cambie de fase, en julios. $\mag{m}$ es la
+  masa que cambia de fase, en kilogramos. $\mag{L}$ es el calor latente específico de la transición,
+  en julios por kilogramo, nunca negativo; para el agua a una presión de una atmósfera vale 334
+  kilojulios por kilogramo en la fusión y 2256 kilojulios por kilogramo en la ebullición. La fórmula
+  da el tamaño del calor. La fusión, la vaporización y la sublimación absorben esa cantidad,
+  mientras que la solidificación, la condensación y la deposición devuelven la misma cantidad al
+  entorno, de modo que en ellas el calor de la sustancia es negativo.
+
+  Mientras una sustancia se funde o hierve, su temperatura no varía hasta que el cambio termina,
+  porque la energía aportada afloja o rompe los enlaces entre las moléculas en lugar de hacer que se
+  muevan más deprisa. Por eso una mezcla agitada de hielo y agua se mantiene a 0 grados Celsius
+  mientras se calienta. La vaporización exige mucha más energía que la fusión: hay que separar las
+  moléculas por completo, y además el vapor debe empujar el aire circundante al expandirse.
+
+  Los calores latentes específicos son valores medidos que dependen de la presión y de la
+  temperatura de la transición: el agua que se evapora a la temperatura corporal, 37 grados Celsius,
+  requiere 2430 kilojulios por kilogramo en lugar de 2256. Llevar hielo frío hasta vapor exige esta
+  relación una vez por cada cambio de fase y la relación del calor sensible para cada etapa de
+  calentamiento intermedia.
+
+  Los experimentos de Joseph Black sobre la congelación y la fusión del agua en la Universidad de
+  Glasgow, donde enseñó de 1756 a 1766, llevaron al concepto de calor latente de fusión. Fundir 18
+  gramos de hielo a 0 grados Celsius requiere unos 6.0 kilojulios.

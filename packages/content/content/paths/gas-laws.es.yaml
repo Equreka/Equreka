@@ -1,0 +1,141 @@
+# yaml-language-server: $schema=../../dist/schemas/paths.locale.schema.json
+name: 'Leyes de los gases'
+description: >-
+  Cómo dependen entre sí presión, volumen, temperatura y cantidad de un gas: las cuatro leyes
+  clásicas, la ley general y la de los gases ideales, volumen molar y densidad, mezclas y presiones
+  parciales, y efusión, con comprobaciones resueltas.
+steps:
+  intro:
+    body: >-
+      Una muestra de gas se describe con cuatro magnitudes: su presión, su volumen, su temperatura y
+      su cantidad de sustancia en moles. Si cambia una, responde al menos otra. Cada ley clásica de
+      los gases fija dos de las cuatro y relaciona el par restante; juntas conducen a la ley de los
+      gases ideales. Todas las leyes de esta ruta en las que intervienen la presión o la temperatura
+      necesitan valores absolutos: presiones medidas desde el vacío, no lecturas manométricas, y
+      temperaturas en kelvin.
+  pressure:
+    note: >-
+      Fuerza por unidad de superficie, en pascales. En un gas procede de las moléculas que golpean
+      las paredes del recipiente, así que todo lo que hace esos choques más frecuentes o más fuertes
+      la eleva.
+  thermodynamic-temperature:
+    note: >-
+      Las leyes de los gases usan la temperatura absoluta, en kelvin. A una lectura en grados
+      Celsius se le suma 273.15 antes de calcular cualquier cociente; un cociente de valores Celsius
+      da resultados erróneos.
+  boyles-law:
+    note: >-
+      Temperatura y cantidad fijas: presión y volumen varían de forma inversa, así que su producto
+      se mantiene.
+  check-boyle:
+    prompt: >-
+      Una jeringa contiene 2.00 litros de aire a 100 kilopascales. A temperatura constante, el aire
+      se comprime hasta 0.500 litros. ¿Cuál es su nueva presión?
+    answer: >-
+      400 kilopascales: 100 por 2.00, dividido entre 0.500. Un cuarto del volumen da el cuádruple de
+      presión.
+  charles-law:
+    note: >-
+      Presión y cantidad fijas: el volumen es proporcional a la temperatura en kelvin.
+  check-charles:
+    prompt: >-
+      Un globo contiene 2.00 litros de gas a 27 grados Celsius. A presión constante se calienta
+      hasta 127 grados Celsius. ¿Cuál es su nuevo volumen?
+    answer: >-
+      Unos 2.67 litros: 2.00 por 400.15, dividido entre 300.15. El cociente de los valores Celsius,
+      127 entre 27, predeciría por error unos 9.4 litros.
+  gay-lussac-law:
+    note: >-
+      Volumen y cantidad fijos: en un recipiente rígido, la presión es proporcional a la temperatura
+      en kelvin.
+  check-gay-lussac:
+    prompt: >-
+      Un cilindro de acero cerrado contiene gas a una presión absoluta de 300 kilopascales y 20
+      grados Celsius. ¿Cuál es la presión a 40 grados Celsius?
+    answer: >-
+      Unos 320 kilopascales: 300 por 313.15, dividido entre 293.15.
+  avogadros-law:
+    note: >-
+      Temperatura y presión fijas: el volumen es proporcional a la cantidad de gas, sea cual sea el
+      gas.
+  check-avogadro:
+    prompt: >-
+      Un globo contiene 0.0400 moles de helio en 1.00 litro. A la misma temperatura y presión se
+      añaden 0.0200 moles más. ¿Cuál es su nuevo volumen?
+    answer: >-
+      1.50 litros: 1.00 por 0.0600, dividido entre 0.0400. La mitad más de gas da la mitad más de
+      volumen.
+  combined-gas-law:
+    note: >-
+      Las leyes de Boyle, de Charles y de Gay-Lussac en una sola relación, para una cantidad fija de
+      gas cuya presión, volumen y temperatura cambian a la vez.
+  check-combined:
+    prompt: >-
+      Un gas ocupa 0.250 litros a 27 grados Celsius y 0.850 atmósferas. ¿Qué volumen ocupa a 0
+      grados Celsius y 1.00 atmósfera?
+    answer: >-
+      Unos 0.193 litros: 0.250 por 0.850 por 273.15, dividido entre el producto de 300.15 y 1.00.
+  ideal-gas-law:
+    note: >-
+      Las cuatro magnitudes en una sola ecuación, unidas por la constante molar de los gases. Cada
+      ley clásica anterior es esta con las demás magnitudes fijas.
+  check-ideal-gas:
+    prompt: >-
+      Un matraz rígido de 10.0 litros contiene gas a 100 kilopascales y 300 kelvin. ¿Cuántos moles
+      de gas contiene?
+    answer: >-
+      Unos 0.401 moles: 100 000 por 0.0100, dividido entre el producto de 8.314 y 300. El volumen va
+      en metros cúbicos y la presión en pascales.
+  molar-volume-ideal-gas:
+    note: >-
+      El volumen de un mol, el mismo para todo gas ideal en unas condiciones dadas. Indica siempre
+      la temperatura y la presión a las que se refiere.
+  check-molar-volume:
+    prompt: >-
+      El volumen molar de un gas ideal a 273.15 kelvin y 100 kilopascales es de unos 22.711 litros
+      por mol. ¿Qué volumen ocupan 0.500 moles de cualquier gas ideal en esas condiciones?
+    answer: >-
+      Unos 11.4 litros: 0.500 por 22.711. La identidad del gas no importa.
+  gas-density:
+    note: >-
+      Masa por volumen de un gas a partir de su presión, su masa molar y su temperatura. Moléculas
+      más pesadas, más presión y menos temperatura dan un gas más denso.
+  check-density:
+    prompt: >-
+      El nitrógeno tiene una masa molar de 28.01 gramos por mol. ¿Cuál es su densidad a 100
+      kilopascales y 25 grados Celsius?
+    answer: >-
+      Unos 1.13 kilogramos por metro cúbico: 100 000 por 0.02801, dividido entre el producto de
+      8.314 y 298.15.
+  daltons-law-partial-pressures:
+    note: >-
+      En una mezcla de gases que no reaccionan, cada gas aporta su propia presión parcial, y las
+      aportaciones suman la presión total.
+  partial-pressure-mole-fraction:
+    note: >-
+      Cada gas aporta la misma parte de la presión que de los moles: su fracción molar por la
+      presión total.
+  check-partial-pressure:
+    prompt: >-
+      Una mezcla de 0.20 moles de oxígeno y 0.80 moles de nitrógeno está a una presión total de
+      101.3 kilopascales. ¿Cuál es la presión parcial del oxígeno?
+    answer: >-
+      Unos 20.3 kilopascales: la fracción molar del oxígeno es 0.20 entre 1.00, y 0.20 por 101.3 son
+      20.26. El nitrógeno aporta los 81.0 kilopascales restantes.
+  grahams-law:
+    note: >-
+      Los gases más ligeros escapan antes por un orificio diminuto, en proporción inversa a la raíz
+      cuadrada de la masa molar.
+  check-graham:
+    prompt: >-
+      El neón tiene una masa molar de 20.2 gramos por mol y el xenón, de 131.3. A la misma
+      temperatura y presión, ¿cuántas veces más deprisa se efusiona el neón?
+    answer: >-
+      Unas 2.55 veces: la raíz cuadrada de 131.3 entre 20.2.
+  summary:
+    body: >-
+      Todas las relaciones de esta ruta describen un gas ideal, un modelo que los gases reales
+      siguen de cerca a baja presión y alta temperatura. Elige la ley preguntándote qué magnitudes
+      quedan fijas; si ninguna lo está, usa la ley de los gases ideales. Convierte antes las
+      temperaturas a kelvin y las presiones a valores absolutos, y mantén cada par de magnitudes
+      equivalentes en la misma unidad.

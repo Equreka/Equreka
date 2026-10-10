@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Carnot efficiency'
+kind: 'formula'
+level: 'intro'
+expression: '\var{\eta}=1-\frac{\var{T_\mathrm{c}}}{\var{T_\mathrm{h}}}'
+terms:
+  \eta:
+    kind: 'symbol'
+    label:
+      en: 'Carnot efficiency'
+    unit: 'unitless'
+  T_\mathrm{c}:
+    kind: 'symbol'
+    label:
+      en: 'Temperature of the cold reservoir'
+    unit: 'kelvin'
+  T_\mathrm{h}:
+    kind: 'symbol'
+    label:
+      en: 'Temperature of the hot reservoir'
+    unit: 'kelvin'
+solutions:
+  \eta: '1 - T_c / T_h'
+  T_\mathrm{c}: 'T_h * (1 - eta)'
+  T_\mathrm{h}: 'T_c / (1 - eta)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q93949862'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'Carnot limit'
+  - 'maximum efficiency of a heat engine'
+  - 'maximum thermal efficiency'
+  - 'Carnot cycle efficiency'
+  - 'eta = 1 - Tc / Th'
+  - 'rendimiento de Carnot'
+  - 'eficiencia de Carnot'
+  - 'rendimiento máximo de una máquina térmica'
+  - 'rendimiento entre foco caliente y foco frío'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 4.5 The Carnot Cycle (Equation 4.5, Example 4.2)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/4-5-the-carnot-cycle'
+  - title: 'OpenStax, University Physics Volume 2, 4.2 Heat Engines (Equation 4.2)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/4-2-heat-engines'
+  - title: 'MacTutor History of Mathematics, Nicolas Léonard Sadi Carnot'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Carnot_Sadi/'
+description:
+  en: >-
+    The Carnot efficiency is the highest efficiency that any heat engine can reach while working
+    between a hot and a cold reservoir: one minus the ratio of the absolute temperature of the cold
+    reservoir to that of the hot one. In thermodynamics it is the upper limit for steam turbines,
+    car engines and power stations, and it shows that the two temperatures alone, not the working
+    substance, set that limit.
+
+    $\var{\eta}$ is the Carnot efficiency, a dimensionless ratio between 0 and 1, often quoted as a
+    percentage. $\var{T_\mathrm{h}}$ is the temperature of the hot reservoir and
+    $\var{T_\mathrm{c}}$ that of the cold reservoir, both thermodynamic temperatures in kelvin, the
+    hot one the higher. Like the gas laws, the formula needs absolute temperatures; temperatures in
+    degrees Celsius give a wrong result, so 20 degrees Celsius enters as 293.15 kelvin.
+
+    A Carnot engine runs a reversible cycle of two isothermal and two adiabatic steps. For this
+    cycle the heat rejected divided by the heat absorbed equals the cold temperature divided by the
+    hot one, which gives the formula. No engine working between the same two reservoirs can beat a
+    reversible one, so the result is a ceiling for every engine. The efficiency rises as the hot
+    reservoir gets hotter or the cold one colder, and it would reach 1 only with a cold reservoir at
+    absolute zero.
+
+    Real engines fall well short of the limit because of friction, heat leaking across finite
+    temperature differences and other irreversible steps. The formula is a bound, not a prediction:
+    a claimed engine that beats it would violate the second law of thermodynamics. Run in reverse,
+    the same reservoir temperatures bound the performance of refrigerators and heat pumps.
+
+    Sadi Carnot described the ideal cycle in 1824 in Réflexions sur la puissance motrice du feu, the
+    only work he published in his lifetime. An engine with a cold reservoir at 300 kelvin needs a
+    hot reservoir at 750 kelvin to reach a Carnot efficiency of 0.60.

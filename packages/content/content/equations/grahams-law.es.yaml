@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de Graham'
+terms:
+  r_{1}:
+    label: 'Velocidad de efusión del gas 1'
+  r_{2}:
+    label: 'Velocidad de efusión del gas 2'
+  M_{1}:
+    label: 'Masa molar del gas 1'
+  M_{2}:
+    label: 'Masa molar del gas 2'
+description: >-
+  La ley de Graham de efusión establece que, a la misma temperatura y presión, la velocidad con que
+  un gas escapa por una abertura diminuta varía como el inverso de la raíz cuadrada de su masa
+  molar. Escrita para dos gases, el cociente de sus velocidades de efusión es igual a la raíz
+  cuadrada del cociente inverso de sus masas molares, de modo que los gases ligeros se escapan antes
+  que los pesados.
+
+  $\var{r_{1}}$ y $\var{r_{2}}$ son las velocidades de efusión de los gases 1 y 2, medidas del mismo
+  modo, como volumen por unidad de tiempo, por ejemplo mililitros por segundo; sirve cualquier
+  unidad de volumen por tiempo común a ambas, porque solo entra su cociente. $\var{M_{1}}$ y
+  $\var{M_{2}}$ son las masas molares, en kilogramos por mol o en gramos por mol para las dos. Las
+  cuatro magnitudes son positivas. La misma regla compara los tiempos que tardan en escapar
+  cantidades iguales, con el cociente invertido.
+
+  La efusión es la salida de un gas por un orificio diminuto hacia el vacío; la difusión es la
+  dispersión de un gas en otro. A una temperatura dada, las moléculas de todos los gases tienen la
+  misma energía cinética media, así que las más ligeras se mueven más deprisa, en proporción inversa
+  a la raíz cuadrada de su masa, y alcanzan la abertura con más frecuencia. Las velocidades de
+  difusión siguen el mismo cociente, aunque sus valores absolutos son otros.
+
+  La ley supone gases ideales a la misma temperatura y presión que escapan por una abertura diminuta
+  hacia el vacío. Leída al revés, halla una masa molar desconocida a partir de un cociente de
+  velocidades medido: un gas que se efusiona 1.66 veces más deprisa que el dióxido de carbono tiene
+  una masa molar cercana a 16 gramos por mol.
+
+  Thomas Graham estudió por primera vez en 1829 la rapidez con que se difunden los gases y halló que
+  varía en razón inversa a la raíz cuadrada de la densidad del gas. En 1832 pasó a la efusión y
+  enunció la ley que lleva su nombre. Más tarde, la difusión gaseosa del hexafluoruro de uranio a
+  través de barreras porosas enriqueció el uranio en uranio-235; cada barrera eleva la proporción
+  solo un poco, así que las plantas encadenaban muchas etapas en cascada.

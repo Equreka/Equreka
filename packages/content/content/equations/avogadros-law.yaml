@@ -1,0 +1,89 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Avogadro''s law'
+kind: 'equation'
+level: 'intro'
+expression: '\frac{\var{V_{1}}}{\var{n_{1}}}=\frac{\var{V_{2}}}{\var{n_{2}}}'
+terms:
+  V_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Initial volume'
+    unit: 'cubic-metre'
+  n_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Initial amount of substance'
+    unit: 'mole'
+  V_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Final volume'
+    unit: 'cubic-metre'
+  n_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Final amount of substance'
+    unit: 'mole'
+solutions:
+  V_{1}: 'V_2 * n_1 / n_2'
+  n_{1}: 'V_1 * n_2 / V_2'
+  V_{2}: 'V_1 * n_2 / n_1'
+  n_{2}: 'V_2 * n_1 / V_1'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q170431'
+categories:
+  - 'chemistry'
+branches:
+  - 'gases'
+aliases:
+  - 'Avogadro''s hypothesis'
+  - 'Avogadro''s principle'
+  - 'Avogadros law'
+  - 'volume-amount law'
+  - 'V/n = constant'
+  - 'hipótesis de Avogadro'
+  - 'principio de Avogadro'
+references:
+  - title: 'OpenStax, Chemistry 2e, 9.2 Relating Pressure, Volume, Amount, and Temperature: The Ideal Gas Law'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-2-relating-pressure-volume-amount-and-temperature-the-ideal-gas-law'
+  - title: 'OpenStax, Chemistry 2e, 9.3 Stoichiometry of Gaseous Substances, Mixtures, and Reactions'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-3-stoichiometry-of-gaseous-substances-mixtures-and-reactions'
+  - title: 'Purdue University, General Chemistry Topic Review, The Gas Laws (Avogadro''s hypothesis)'
+    url: 'https://chemed.chem.purdue.edu/genchem/topicreview/bp/ch4/gaslaws3.html'
+  - title: 'Science History Institute, Amedeo Avogadro (scientific biography)'
+    url: 'https://www.sciencehistory.org/education/scientific-biographies/amedeo-avogadro/'
+  - title: 'NIST, CODATA 2022 value: molar volume of ideal gas (273.15 K, 101.325 kPa)'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?mvolstd'
+  - title: 'OpenStax, Chemistry 2e, 9.6 Non-Ideal Gas Behavior'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-6-non-ideal-gas-behavior'
+description:
+  en: >-
+    Avogadro's law, also known as Avogadro's hypothesis or principle, states that at a fixed
+    temperature and pressure a gas takes up a volume that grows in direct proportion to the amount
+    of substance it contains. Written for two states, the volume per mole is the same before and
+    after gas is added or removed, and equal volumes of any gases under the same conditions hold
+    equal numbers of molecules.
+
+    $\var{V_{1}}$ and $\var{n_{1}}$ are the volume and the amount of gas in the first state,
+    $\var{V_{2}}$ and $\var{n_{2}}$ in the second. Volumes are in cubic metres or any other volume
+    unit used for both; amounts are in moles. Temperature and pressure do not appear, because they
+    must be the same in both states. All four quantities are positive.
+
+    Each molecule of an ideal gas behaves the same way whatever its size or mass, so at a given
+    temperature and pressure the space a gas fills depends only on how many molecules there are.
+    Doubling the number of moles doubles the volume, which is why a balloon grows as it is inflated.
+    The law is the ideal gas law with temperature and pressure fixed, and the common ratio of volume
+    to amount is the molar volume: CODATA 2022 gives about 22.414 litres per mole at 273.15 kelvin
+    and 101.325 kilopascals.
+
+    The law holds for ideal gases and for real gases at low pressure and well above their
+    condensation temperature; at high pressure or low temperature the molar volumes of different
+    gases begin to differ.
+
+    Amedeo Avogadro proposed the hypothesis in 1811, and it was neglected for about half a century
+    before chemists accepted it. It explains why gases react in simple volume ratios: one volume of
+    nitrogen combines with three volumes of hydrogen to give two volumes of ammonia, the same ratios
+    as the coefficients of the balanced equation.

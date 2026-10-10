@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Trabajo en un proceso isobárico'
+terms:
+  \Delta V:
+    label: 'Variación de volumen'
+description: >-
+  El trabajo que realiza un gas en un proceso isobárico, es decir, a presión constante, es igual a
+  la presión por la variación de volumen. En termodinámica y química, este trabajo de presión y
+  volumen es el trabajo de expansión de un gas que empuja un pistón o el aire circundante, y en un
+  diagrama presión-volumen es el área del rectángulo bajo la línea horizontal que representa el
+  proceso.
+
+  $\mag{W}$ es el trabajo que el gas realiza sobre su entorno, en julios. $\mag{p}$ es la presión
+  constante, en pascales, una presión absoluta y no una lectura manométrica. $\var{\Delta V}$ es el
+  volumen final menos el inicial, en metros cúbicos. El signo sigue la forma física del primer
+  principio, en la que el trabajo realizado por el sistema cuenta como positivo: un gas que se
+  expande realiza un trabajo positivo, y uno que se comprime tiene un trabajo negativo, lo que
+  significa que el entorno trabaja sobre él. Los textos de química cuentan el trabajo realizado
+  sobre el sistema, lo que invierte el signo.
+
+  La fórmula se deduce de la fuerza que un gas ejerce sobre un pistón. Esa fuerza es la presión por
+  el área del pistón, y al desplazar el pistón una distancia corta se barre un volumen igual al área
+  por la distancia, así que cada pequeño paso de trabajo es la presión por el volumen barrido. A
+  presión constante esos pasos suman la presión por la variación total de volumen. Un pascal por un
+  metro cúbico es exactamente un julio, así que no hace falta ningún factor de conversión.
+
+  El proceso debe ser cuasiestático, lo bastante lento para que el gas mantenga en equilibrio una
+  única presión bien definida. Si la presión cambia durante el proceso, el trabajo es el área bajo
+  la curva del diagrama presión-volumen y este producto deja de valer. Nada en la deducción exige un
+  gas ideal: la relación vale para cualquier sustancia cuya presión se mantenga fija.
+
+  Cuando 1.00 gramo de agua hierve a una atmósfera, su volumen aumenta unos 1.67 litros, y el vapor
+  realiza unos 169 julios de trabajo al empujar el aire.

@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Volumen molar de un gas ideal'
+description: >-
+  El volumen molar de un gas ideal, el volumen que ocupa un mol de él, es igual a la constante molar
+  de los gases por la temperatura absoluta dividida entre la presión. La fórmula se deduce de la ley
+  de los gases ideales y da el mismo valor para cualquier gas ideal en las mismas condiciones; por
+  eso los químicos pueden pasar de volúmenes de gas a cantidades de sustancia sin saber de qué gas
+  se trata.
+
+  $\mag{V_\mathrm{m}}$ es el volumen molar, en metros cúbicos por mol; un metro cúbico por mol son
+  1000 litros por mol. $\const{R}$ es la constante molar de los gases, de unos 8.314 julios por mol
+  y kelvin y exacta en el SI. $\mag{T}$ es la temperatura termodinámica en kelvin, una temperatura
+  absoluta como exige toda ley de los gases. $\mag{p}$ es la presión absoluta en pascales. Las tres
+  variables son positivas.
+
+  Al dividir los dos miembros de la ley de los gases ideales entre la cantidad de sustancia, queda
+  el volumen por mol en un lado y la constante de los gases, la temperatura y la presión en el otro.
+  El volumen molar crece en proporción a la temperatura y disminuye en proporción inversa a la
+  presión, la forma molar de las leyes de Charles y de Boyle, y no depende del gas, como afirma la
+  ley de Avogadro.
+
+  El resultado solo es exacto para un gas ideal. Los gases reales se acercan a baja presión y alta
+  temperatura; su volumen molar supera la predicción a alta presión, donde las propias moléculas
+  ocupan espacio, y queda por debajo cuando domina la atracción entre ellas.
+
+  Las dos condiciones deben indicarse siempre. CODATA 2022 da unos 22.414 litros por mol a 273.15
+  kelvin y 101.325 kilopascales, la cifra que está detrás de los 22.4 litros de los libros de texto,
+  y unos 22.711 litros por mol a 273.15 kelvin y 100 kilopascales. A 298.15 kelvin y 100
+  kilopascales la fórmula da unos 24.79 litros por mol.

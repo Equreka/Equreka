@@ -1,0 +1,101 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Thermal equilibrium temperature'
+kind: 'formula'
+level: 'intro'
+expression: '\var{T_\mathrm{f}}=\frac{\var{m_{1}}\var{c_{1}}\var{T_{1}}+\var{m_{2}}\var{c_{2}}\var{T_{2}}}{\var{m_{1}}\var{c_{1}}+\var{m_{2}}\var{c_{2}}}'
+terms:
+  T_\mathrm{f}:
+    kind: 'symbol'
+    label:
+      en: 'Equilibrium temperature'
+    unit: 'kelvin'
+  m_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of body 1'
+    unit: 'kilogram'
+  c_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Specific heat capacity of body 1'
+    unit: 'joule-per-kilogram-kelvin'
+  T_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Initial temperature of body 1'
+    unit: 'kelvin'
+  m_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Mass of body 2'
+    unit: 'kilogram'
+  c_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Specific heat capacity of body 2'
+    unit: 'joule-per-kilogram-kelvin'
+  T_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Initial temperature of body 2'
+    unit: 'kelvin'
+solutions:
+  T_\mathrm{f}: '(m_1 * c_1 * T_1 + m_2 * c_2 * T_2) / (m_1 * c_1 + m_2 * c_2)'
+  m_{1}: 'm_2 * c_2 * (T_2 - T_f) / (c_1 * (T_f - T_1))'
+  c_{1}: 'm_2 * c_2 * (T_2 - T_f) / (m_1 * (T_f - T_1))'
+  T_{1}: '(T_f * (m_1 * c_1 + m_2 * c_2) - m_2 * c_2 * T_2) / (m_1 * c_1)'
+  m_{2}: 'm_1 * c_1 * (T_1 - T_f) / (c_2 * (T_f - T_2))'
+  c_{2}: 'm_1 * c_1 * (T_1 - T_f) / (m_2 * (T_f - T_2))'
+  T_{2}: '(T_f * (m_1 * c_1 + m_2 * c_2) - m_1 * c_1 * T_1) / (m_2 * c_2)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'equilibrium temperature'
+  - 'final temperature of a mixture'
+  - 'mixing temperature'
+  - 'method of mixtures'
+  - 'calorimetry final temperature'
+  - 'temperatura de equilibrio'
+  - 'temperatura final de una mezcla'
+  - 'temperatura de mezcla'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 1.4 Heat Transfer, Specific Heat, and Calorimetry (Equation 1.6, Example 1.7)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-4-heat-transfer-specific-heat-and-calorimetry'
+  - title: 'OpenStax, College Physics 2e, 14.2 Temperature Change and Heat Capacity (Example 14.3)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/14-2-temperature-change-and-heat-capacity'
+  - title: 'OpenStax, University Physics Volume 2, 1.1 Temperature and Thermal Equilibrium'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-1-temperature-and-thermal-equilibrium'
+description:
+  en: >-
+    The thermal equilibrium temperature is the common temperature that two bodies reach when they
+    are put in contact inside an insulated container and exchange heat only with each other. In
+    calorimetry it is a weighted average of their initial temperatures, each weighted by the heat
+    capacity of its body, the mass times the specific heat capacity. It predicts the final
+    temperature of mixed water, of hot metal dropped into a water bath, or of a drink and its glass.
+
+    $\var{T_\mathrm{f}}$ is the final, equilibrium temperature, and $\var{T_{1}}$ and $\var{T_{2}}$
+    are the initial temperatures of the two bodies, all absolute temperatures in kelvin; a Celsius
+    reading is first converted by adding 273.15. Because the formula is a weighted average, that
+    shift cancels: the result, converted back, matches a calculation done entirely in degrees
+    Celsius. $\var{m_{1}}$ and $\var{m_{2}}$ are the masses, in kilograms, and $\var{c_{1}}$ and
+    $\var{c_{2}}$ the specific heat capacities, in joules per kilogram kelvin, all positive. The
+    result always lies between the two initial temperatures, nearer to that of the body with the
+    larger heat capacity.
+
+    The formula expresses conservation of energy. When no heat escapes, the heat gained by the
+    cooler body and the heat gained by the warmer one, which is negative, add up to zero. Writing
+    each heat as mass times specific heat capacity times the change from the initial to the final
+    temperature and solving that sum for the final temperature gives the weighted average.
+
+    It assumes perfect insulation, no change of phase in either body, no chemical reaction and
+    specific heat capacities that stay constant over the range. If one body melts or boils on the
+    way, its latent heat must enter the energy balance and the simple average fails. A real
+    calorimeter also absorbs heat, which can be counted as a third body in the same sum.
+
+    Pouring 0.250 kilograms of water at 20.0 degrees Celsius into a 0.500-kilogram aluminium pan at
+    150 degrees Celsius gives an equilibrium temperature of about 59.1 degrees Celsius.

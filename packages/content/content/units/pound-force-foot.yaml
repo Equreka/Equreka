@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Pound-force foot'
+symbol:
+  tex: 'lbf\,ft'
+  text: 'lbf·ft'
+unitOf:
+  - 'torque'
+system: 'imperial'
+compose:
+  of:
+    - unit: 'pound-force'
+      exp: 1
+    - unit: 'foot'
+      exp: 1
+externalIds:
+  wikidata: 'Q16859309'
+  qudt: 'http://qudt.org/vocab/unit/FT-LB_F_Torque'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'pound-foot'
+  - 'pound foot'
+  - 'pound-feet'
+  - 'pound feet'
+  - 'pound-force feet'
+  - 'lbf ft'
+  - 'lbf-ft'
+  - 'lb-ft'
+  - 'lb ft'
+  - 'lb·ft'
+  - 'libra-pie'
+references:
+  - title: 'NIST SP 811, Appendix B.9, Factors for units listed by kind of quantity: moment of force or torque'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: pound-force foot; pound-force inch; foot pound-force'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST SP 811, Appendix B footnotes: exact factor of the pound-force'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-footnotes'
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.4, Table 6 (moment of force, torque) and its note on the joule'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'R. Rowlett, How Many? A Dictionary of Units of Measurement, University of North Carolina at Chapel Hill, P: pound foot'
+    url: 'https://www.ibiblio.org/units/dictP.html'
+  - title: 'QUDT, unit FT-LB_F_Torque (foot pound force, torque)'
+    url: 'https://qudt.org/vocab/unit/FT-LB_F_Torque'
+description:
+  en: >-
+    The pound-force foot, symbol lbf·ft, is a unit of torque, or moment of force, of the British
+    imperial and United States customary systems: the turning effect of one pound-force applied with
+    a lever arm of one foot, the arm measured perpendicular to the line of the force. Its SI
+    counterpart is the newton metre.
+
+    It is the product of two exactly defined units. NIST gives the pound-force as exactly 4.448 221
+    615 260 5 newtons, computed with the standard acceleration of gravity, and the foot is exactly
+    0.3048 metre, so $1\,\mathrm{lbf\,ft}=1.355\,817\,948\,331\,400\,4\,\mathrm{N\,m}$ exactly. NIST
+    Special Publication 811 lists the unit under moment of force or torque, rounded to 1.355 818
+    newton metres, and QUDT stores the full multiplier.
+
+    One pound-force foot equals twelve pound-force inches, a smaller torque unit that NIST also
+    lists, and a newton metre is about 0.7376 pound-force foot. The metric kilogram-force metre,
+    exactly 9.806 65 newton metres, appears beside it in the same NIST table.
+
+    As a traditional customary unit of torque, it measures a force in pounds acting at a distance in
+    feet from the centre of rotation, and it is commonly written lbf ft or lb ft.
+
+    Torque and energy share a dimension, and the energy unit with the same factor is the foot-pound,
+    in full the foot pound-force. The SI Brochure never expresses torque in joules, and NIST keeps
+    the two apart by word order: pound-force foot for torque, foot pound-force for work. Rowlett's
+    dictionary describes the same custom while noting that foot-pound is also used for torque in
+    practice.

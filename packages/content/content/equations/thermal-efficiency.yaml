@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Thermal efficiency'
+kind: 'formula'
+level: 'intro'
+expression: '\var{\eta}=\frac{\mag{W}}{\var{Q_\mathrm{h}}}'
+terms:
+  \eta:
+    kind: 'symbol'
+    label:
+      en: 'Thermal efficiency'
+    unit: 'unitless'
+  W:
+    kind: 'magnitude'
+    ref: 'work'
+  Q_\mathrm{h}:
+    kind: 'symbol'
+    label:
+      en: 'Heat absorbed from the hot reservoir'
+    unit: 'joule'
+solutions:
+  \eta: 'W / Q_h'
+  W: 'eta * Q_h'
+  Q_\mathrm{h}: 'W / eta'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q1452104'
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'heat engine efficiency'
+  - 'efficiency of a heat engine'
+  - 'thermodynamic efficiency'
+  - 'eta = W / Qh'
+  - 'rendimiento térmico'
+  - 'rendimiento de una máquina térmica'
+  - 'eficiencia térmica'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 4.2 Heat Engines (Equations 4.1 and 4.2, lawn mower example)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/4-2-heat-engines'
+  - title: 'OpenStax, University Physics Volume 2, 4.5 The Carnot Cycle (Carnot''s principle, coefficients of performance)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/4-5-the-carnot-cycle'
+  - title: 'OpenStax, University Physics Volume 2, 3.3 First Law of Thermodynamics'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/3-3-first-law-of-thermodynamics'
+description:
+  en: >-
+    Thermal efficiency rates a heat engine by the share of the heat drawn from a hot source that
+    leaves it as work: the net work done in one cycle divided by the heat taken in during that
+    cycle. It is the figure of merit for engines in thermodynamics, from car engines and steam
+    turbines to power stations, and a special case of efficiency in general.
+
+    $\var{\eta}$ is the thermal efficiency, a dimensionless ratio between 0 and 1, often given as a
+    percentage. $\mag{W}$ is the net work the engine delivers per cycle, in joules.
+    $\var{Q_\mathrm{h}}$ is the heat absorbed from the hot reservoir in the same cycle, in joules.
+    Both are counted as positive amounts; the same ratio holds for rates, the output power over the
+    rate of heat intake, when both are averaged over whole cycles.
+
+    Over a full cycle the working substance returns to its initial state, so its internal energy is
+    unchanged, and the first law makes the work equal to the heat absorbed minus the heat rejected
+    to the cold reservoir. The efficiency can therefore also be written as one minus the heat
+    rejected divided by the heat absorbed. For the same intake, an engine that rejects less heat
+    does more work and is more efficient.
+
+    The formula applies to cyclic engines. Every real engine rejects some heat to its cold
+    reservoir, so its efficiency stays below 1, and the second law caps it at the Carnot efficiency,
+    which depends only on the temperatures of the hot and cold reservoirs. For refrigerators and
+    heat pumps, which move heat the other way, a coefficient of performance plays the matching role.
+
+    A lawn mower engine with an efficiency of 25.0 percent that delivers 180 kilojoules of work in a
+    minute absorbs 720 kilojoules of heat in that time and rejects 540 kilojoules.

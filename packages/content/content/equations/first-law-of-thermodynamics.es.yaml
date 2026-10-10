@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Primer principio de la termodinámica'
+terms:
+  \Delta U:
+    label: 'Variación de la energía interna'
+description: >-
+  El primer principio de la termodinámica establece que la energía interna de un sistema varía en el
+  calor que se le aporta menos el trabajo que realiza sobre su entorno. Es el principio de
+  conservación de la energía aplicado a los sistemas termodinámicos: la energía puede cruzar la
+  frontera de un sistema como calor o como trabajo, pero no se crea ni se destruye.
+
+  $\var{\Delta U}$ es la variación de la energía interna, el valor final menos el inicial, en
+  julios. $\mag{Q}$ es el calor intercambiado, en julios, positivo cuando entra en el sistema y
+  negativo cuando sale. $\mag{W}$ es el trabajo realizado por el sistema, en julios: positivo cuando
+  el sistema actúa sobre su entorno, como hace un gas que se expande, y negativo cuando el entorno
+  actúa sobre él, como al comprimir un gas. Los textos de química cuentan como positivo el trabajo
+  realizado sobre el sistema y escriben la ley como $\Delta U = Q + W$, con ese trabajo en lugar del
+  realizado por el sistema; ambas formas describen la misma física con el signo del trabajo
+  invertido.
+
+  La energía interna es una función de estado: su variación queda fijada solo por los estados de
+  partida y de llegada, mientras que el calor y el trabajo por separado dependen del camino entre
+  ellos. En un ciclo completo, como el de una máquina térmica, la energía interna vuelve a su valor
+  inicial, así que el trabajo neto realizado es igual al calor neto absorbido.
+
+  La ley vale para cualquier proceso entre estados de equilibrio de un sistema cerrado, sea
+  reversible o no. No fija ningún sentido para los procesos: cuánto del calor que recibe una máquina
+  puede convertirse en trabajo es una cuestión del segundo principio. Cuando la materia cruza la
+  frontera, la energía que transporta debe sumarse al balance.
+
+  Los experimentos de James Prescott Joule, en los que unas pesas al caer hacían girar una rueda de
+  paletas en agua y elevaban su temperatura, mostraron que el trabajo y el calor son formas
+  intercambiables de energía. Un sistema que absorbe 400 julios de calor mientras realiza 100 julios
+  de trabajo gana 300 julios de energía interna.

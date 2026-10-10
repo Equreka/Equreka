@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Rendimiento de Carnot'
+terms:
+  \eta:
+    label: 'Rendimiento de Carnot'
+  T_\mathrm{c}:
+    label: 'Temperatura del reservorio frío'
+  T_\mathrm{h}:
+    label: 'Temperatura del reservorio caliente'
+description: >-
+  El rendimiento de Carnot es el mayor rendimiento que puede alcanzar cualquier máquina térmica que
+  funcione entre un reservorio caliente y uno frío: uno menos el cociente entre la temperatura
+  absoluta del reservorio frío y la del caliente. En termodinámica es el límite superior para
+  turbinas de vapor, motores de automóvil y centrales eléctricas, y muestra que ese límite lo fijan
+  solo las dos temperaturas, no la sustancia de trabajo.
+
+  $\var{\eta}$ es el rendimiento de Carnot, un cociente adimensional entre 0 y 1 que suele
+  expresarse como porcentaje. $\var{T_\mathrm{h}}$ es la temperatura del reservorio caliente y
+  $\var{T_\mathrm{c}}$ la del reservorio frío, ambas temperaturas termodinámicas en kelvin, la del
+  caliente la mayor. Como las leyes de los gases, la fórmula exige temperaturas absolutas; las
+  temperaturas en grados Celsius dan un resultado erróneo, así que 20 grados Celsius entran como
+  293.15 kelvin.
+
+  Una máquina de Carnot recorre un ciclo reversible de dos etapas isotermas y dos adiabáticas. En
+  este ciclo el calor cedido dividido entre el calor absorbido es igual a la temperatura fría
+  dividida entre la caliente, de donde sale la fórmula. Ninguna máquina que funcione entre los
+  mismos dos reservorios puede superar a una reversible, así que el resultado es un techo para todas
+  las máquinas. El rendimiento aumenta si el reservorio caliente está más caliente o el frío más
+  frío, y solo llegaría a 1 con un reservorio frío en el cero absoluto.
+
+  Las máquinas reales quedan muy por debajo del límite por el rozamiento, las fugas de calor a
+  través de diferencias de temperatura finitas y otras etapas irreversibles. La fórmula es una cota,
+  no una predicción: una máquina que la superase violaría el segundo principio de la termodinámica.
+  Funcionando al revés, las mismas temperaturas de los reservorios acotan el comportamiento de
+  refrigeradores y bombas de calor.
+
+  Sadi Carnot describió el ciclo ideal en 1824 en Réflexions sur la puissance motrice du feu, la
+  única obra que publicó en vida. Una máquina con un reservorio frío a 300 kelvin necesita un
+  reservorio caliente a 750 kelvin para alcanzar un rendimiento de Carnot de 0.60.

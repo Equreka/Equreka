@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Foot per second squared'
+symbol:
+  tex: 'ft/s^{2}'
+  text: 'ft/s²'
+unitOf:
+  - 'acceleration'
+system: 'imperial'
+compose:
+  of:
+    - unit: 'foot'
+      exp: 1
+    - unit: 'second'
+      exp: -2
+externalIds:
+  wikidata: 'Q3867152'
+  qudt: 'http://qudt.org/vocab/unit/FT-PER-SEC2'
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'feet per second squared'
+  - 'foot per square second'
+  - 'foot per second per second'
+  - 'feet per second per second'
+  - 'ft/s2'
+  - 'ft/s^2'
+  - 'ft/sec2'
+  - 'ft s^-2'
+  - 'pie por segundo cuadrado'
+references:
+  - title: 'NIST SP 811, Appendix B.9, Factors for units listed by kind of quantity: acceleration'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b9'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: foot per second squared; acceleration of free fall, standard; slug'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'NIST SP 811, Appendix B footnotes: exact factor of the pound-force'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-footnotes'
+  - title: 'R. Rowlett, How Many? A Dictionary of Units of Measurement, University of North Carolina at Chapel Hill, G: g (standard gravity)'
+    url: 'https://www.ibiblio.org/units/dictG.html'
+  - title: 'QUDT, unit FT-PER-SEC2 (foot per square second)'
+    url: 'https://qudt.org/vocab/unit/FT-PER-SEC2'
+description:
+  en: >-
+    The foot per second squared, symbol ft/s², is a unit of acceleration of the British imperial and
+    United States customary systems: the acceleration of a body whose velocity changes by one foot
+    per second during each second. It is not an SI unit; the coherent SI unit of acceleration is the
+    metre per second squared.
+
+    The exact foot fixes the unit exactly as well,
+    $1\,\mathrm{ft/s^{2}}=0.304\,8\,\mathrm{m/s^{2}}$, the factor that NIST Special Publication 811
+    prints in boldface under acceleration. QUDT names the same unit the foot per square second and
+    stores the same multiplier.
+
+    The standard acceleration of gravity, exactly 9.806 65 metres per second squared, comes to about
+    32.174 feet per second squared, a figure that customary problems on falling bodies and
+    projectiles use in place of 9.81. NIST lists the inch per second squared beside it, and one foot
+    per second squared equals twelve of those.
+
+    In customary engineering mechanics the unit links force and mass. The slug, which NIST converts
+    to about 14.593 9 kilograms, is the mass that a force of one pound-force accelerates at exactly
+    one foot per second squared, as the exact factors for the pound-force and the foot confirm.
+    Engineers in the United States use the unit for vehicle and aircraft performance and for the
+    design of structures and machines.
+
+    The plural is feet per second squared, and the unit is also read as feet per second per second.
+    Variant symbols include ft/sec² and the plain-text forms ft/s2 and ft s^-2.

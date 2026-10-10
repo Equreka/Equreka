@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Heat capacity of a body'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{C}=\frac{\mag{Q}}{\var{\Delta T}}'
+terms:
+  C:
+    kind: 'magnitude'
+    ref: 'heat-capacity'
+  Q:
+    kind: 'magnitude'
+    ref: 'heat'
+  \Delta T:
+    kind: 'symbol'
+    label:
+      en: 'Temperature change'
+    unit: 'kelvin'
+    delta: true
+solutions:
+  C: 'Q / DeltaT'
+  Q: 'C * DeltaT'
+  \Delta T: 'Q / C'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'heat capacity formula'
+  - 'C = Q / ΔT'
+  - 'C = Q/deltaT'
+  - 'thermal capacity of an object'
+  - 'capacidad calorífica de un cuerpo'
+  - 'capacidad térmica de un cuerpo'
+  - 'fórmula de la capacidad calorífica'
+references:
+  - title: 'OpenStax, Chemistry 2e, 5.1 Energy Basics (heat capacity and specific heat, iron pan example)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/5-1-energy-basics'
+  - title: 'OpenStax, University Physics Volume 2, 1.4 Heat Transfer, Specific Heat, and Calorimetry'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/1-4-heat-transfer-specific-heat-and-calorimetry'
+  - title: 'University of Calgary, Energy Education, Heat capacity'
+    url: 'https://energyeducation.ca/encyclopedia/Heat_capacity'
+description:
+  en: >-
+    The heat capacity of a body is the heat it absorbs divided by the rise in temperature that the
+    heat produces. This definition, used throughout thermodynamics and calorimetry, measures how
+    much energy a whole object, such as a saucepan, a calorimeter or a tank of water, needs for each
+    kelvin of warming, so that one measured value gives the heat for any temperature change.
+
+    $\mag{C}$ is the heat capacity, in joules per kelvin. $\mag{Q}$ is the heat transferred to the
+    body, in joules, positive when the body takes heat in and negative when it gives heat off.
+    $\var{\Delta T}$ is the final temperature minus the initial one, in kelvin. A kelvin and a
+    degree Celsius are steps of the same size, so a heat capacity per degree Celsius has the same
+    value. For ordinary matter the heat and the temperature change share their sign, and the heat
+    capacity comes out positive.
+
+    Heat capacity is an extensive property: it grows with the amount of material, so a large iron
+    pan has several times the heat capacity of a small one made of the same metal. Dividing it by
+    the mass gives the specific heat capacity, a property of the material alone, and for a body made
+    of one material the heat capacity equals its mass times that specific heat capacity. Once the
+    heat capacity of a calorimeter has been measured, its own share of the heat can be accounted for
+    in later experiments.
+
+    The ratio treats the heat capacity as constant over the temperature interval; when it varies
+    with temperature, the formula yields an average over the interval. No change of phase may occur,
+    since heat absorbed during melting or boiling produces no temperature change at all and the
+    ratio would lose its meaning. For gases the value also depends on the conditions under which the
+    gas is heated.
+
+    An iron pan of 808 grams that absorbs 18.14 kilojoules while warming by 50.0 degrees Celsius has
+    a heat capacity of about 363 joules per kelvin.
