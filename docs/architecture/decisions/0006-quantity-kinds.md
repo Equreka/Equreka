@@ -1,6 +1,6 @@
 # 0006 — Quantity kinds: `kindOf` hierarchy and kind-scoped unit lists
 
-Date: 2026-09-28 · Status: accepted
+Date: 2026-09-28 · Status: accepted · Amended 2026-10-17 (calculator terms anchored on a magnitude-less unit)
 
 ## Context
 
@@ -77,3 +77,14 @@ A probe over the built slice shows that for **every** magnitude the kind scope e
 - New dimension-collision content is scoped by authoring a `kindOf` edge (or deliberately none). No engine or UI change is needed.
 - The converter never offers a pair `convert()` would reject, because the kind scope is a subset of the dimension scope.
 - Content authors check QUDT `skos:broader` before authoring `kindOf` (`docs/guides/authoring-content.md`).
+
+## Calculator terms anchored on a magnitude-less unit — amendment (2026-10-17)
+
+The calculator scopes a unit-anchored term (a symbol or a variable) by the kind families of its anchor unit's magnitudes. Under the rule above, an anchor with `unitOf: []` offered only itself.
+
+Chemistry has such anchors on purpose. The units mol/(m³ s), mol/(L s), m³/(mol s) and L/(mol s) are kindless because QUDT has no kind for a reaction rate, and the corpus has no magnitude for a second-order rate constant. So `average-reaction-rate`, `rate-law` and `second-order-integrated-rate-law` showed only the SI anchor. The unit textbooks use sat behind the dimension toggle, whose copy calls such units physically different.
+
+- **Rule.** A magnitude-less anchor's scope is the magnitude-less units of its dimension (`createCalculatorUnits` in `@equreka/core`). A unit that carries a kind stays behind the toggle, as before. Hertz and the becquerel, for example, stay hidden beside the reciprocal second.
+- **Probe of the built slice.** Grouping the kindless units by dimension gives exactly two groups of more than one unit: mol/(m³ s) with mol/(L s), and m³/(mol s) with L/(mol s). Every other kindless unit is alone in its dimension, so no existing scope changed except those two.
+- **Out of scope.** The converter, magnitude scopes and the rule that kindless units never join a magnitude's kind scope are unchanged.
+- **Risk.** A future kindless unit that shares a dimension with a different kindless quantity would join its scope. The fix then is to author the magnitude (and its kind) that separates them, as with any other dimension collision.

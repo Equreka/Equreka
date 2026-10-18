@@ -75,9 +75,12 @@ function byScale(a: CompiledUnit, b: CompiledUnit): number {
 /**
  * The kind scope of a term: a magnitude term's own kind family; a unit-
  * anchored term (symbol, variable) takes the union of the kind families
- * of the anchor unit's magnitudes, so a magnitude-less compound anchor
- * offers only itself until widened. The base unit is always kept so the
- * default selection is always offered.
+ * of the anchor unit's magnitudes. A magnitude-less anchor takes the other
+ * magnitude-less units of its dimension: such units lack a kind only
+ * because QUDT has none for their quantity, so mol/(L s) sits beside
+ * mol/(m³ s), while every unit that does carry a kind (hertz beside the
+ * reciprocal second) stays behind the dimension toggle. The base unit is
+ * always kept so the default selection is always offered.
  */
 export function createCalculatorUnits(
 	meta: CompiledEquationMeta,
@@ -112,6 +115,11 @@ export function createCalculatorUnits(
 		const slugs = new Set<string>([base]);
 		for (const magnitude of anchors) {
 			for (const unit of registry.unitsForMagnitude(magnitude, 'kind')) slugs.add(unit.slug);
+		}
+		if (anchors.length === 0) {
+			for (const unit of registry.compatibleUnits(base)) {
+				if (unit.magnitudes.length === 0) slugs.add(unit.slug);
+			}
 		}
 		return slugs;
 	}
