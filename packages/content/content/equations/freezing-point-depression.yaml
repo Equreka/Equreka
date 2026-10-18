@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Freezing point depression'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{\Delta T_\mathrm{f}}=\var{i}\var{K_\mathrm{f}}\mag{b}'
+terms:
+  \Delta T_\mathrm{f}:
+    kind: 'symbol'
+    label:
+      en: 'Freezing point depression'
+    unit: 'kelvin'
+    delta: true
+  i:
+    kind: 'symbol'
+    label:
+      en: 'van ''t Hoff factor'
+  K_\mathrm{f}:
+    kind: 'symbol'
+    label:
+      en: 'Cryoscopic constant'
+    unit: 'kelvin-kilogram-per-mole'
+  b:
+    kind: 'magnitude'
+    ref: 'molality'
+solutions:
+  \Delta T_\mathrm{f}: 'i * K_f * b'
+  i: 'DeltaT_f / (K_f * b)'
+  K_\mathrm{f}: 'DeltaT_f / (i * b)'
+  b: 'DeltaT_f / (i * K_f)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q465149'
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'freezing-point depression'
+  - 'melting-point depression'
+  - 'cryoscopy'
+  - 'cryoscopic constant'
+  - 'Delta Tf = i Kf m'
+  - 'Delta Tf = Kf m'
+  - 'descenso crioscópico'
+  - 'crioscopia'
+references:
+  - title: 'OpenStax, Chemistry 2e, 11.4 Colligative Properties (freezing point depression, Table 11.2, Example 11.9, ionic solutions)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties'
+  - title: 'L. I. Kuslan, Raoult, François Marie, Complete Dictionary of Scientific Biography (Encyclopedia.com)'
+    url: 'https://www.encyclopedia.com/people/science-and-technology/chemistry-biographies/francois-marie-raoult'
+  - title: 'UNCuyo, Facultad de Odontología, Propiedades coligativas, clase teórica (2016)'
+    url: 'https://www.fodonto.uncuyo.edu.ar/upload/archivo-12-clase-terica-propiedades-coligativas-2016.pdf'
+description:
+  en: >-
+    Freezing point depression is the drop in the freezing point of a solvent when a solute is
+    dissolved in it. For dilute solutions the drop is proportional to the molality of dissolved
+    particles, with the solvent's cryoscopic constant as the factor. Like boiling point elevation it
+    is a colligative property, set by the number of solute particles rather than by their identity.
+
+    $\var{\Delta T_\mathrm{f}}$ is the depression, the freezing point of the pure solvent minus that
+    of the solution, counted positive as the size of the drop, in kelvin or, with the same value,
+    degrees Celsius. $\var{i}$ is the van 't Hoff factor, the number of particles per dissolved
+    formula unit, and $\var{K_\mathrm{f}}$ the cryoscopic constant of the solvent in kelvin
+    kilograms per mole. $\mag{b}$ is the molality of the solute, in moles per kilogram of solvent.
+
+    When the solid that forms is the pure solvent, the dissolved particles lower the escaping
+    tendency of the liquid, so the liquid and the solid can only coexist at a lower temperature. The
+    same effect lets road salt melt ice and lets antifreeze protect engine coolant.
+
+    The relation assumes a dilute solution whose solute stays in the liquid when the solvent
+    freezes. Ions attract one another, so the measured factor is smaller than the ideal count:
+    a solution of 1.0 mole of sodium chloride per kilogram of water is expected to freeze 3.7 kelvin
+    low but freezes only 3.4 kelvin low. For water the cryoscopic constant is 1.86 kelvin kilograms
+    per mole, and a depression measured for a known mass of solute gives its molar mass.
+
+    François-Marie Raoult, who taught chemistry at the science faculty of Grenoble, measured in 1878
+    how eighteen salts lower the freezing point of water, and between 1882 and 1884 he turned the
+    lowering into a method for finding the molecular mass of organic compounds.

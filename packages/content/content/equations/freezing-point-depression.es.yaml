@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Descenso del punto de congelación'
+terms:
+  \Delta T_\mathrm{f}:
+    label: 'Descenso del punto de congelación'
+  i:
+    label: 'Factor de van ''t Hoff'
+  K_\mathrm{f}:
+    label: 'Constante crioscópica'
+description: >-
+  El descenso del punto de congelación es la disminución que sufre la temperatura de congelación
+  de un disolvente cuando se disuelve en él un soluto. En disoluciones diluidas la bajada es proporcional
+  a la molalidad de las partículas disueltas, con la constante crioscópica del disolvente como
+  factor. Igual que el aumento del punto de ebullición, es una propiedad coligativa, fijada por el
+  número de partículas de soluto y no por su identidad.
+
+  $\var{\Delta T_\mathrm{f}}$ es el descenso, el punto de congelación del disolvente puro menos el
+  de la disolución, contado como positivo porque mide el tamaño de la bajada, en kelvin o, con el
+  mismo valor, en grados Celsius. $\var{i}$ es el factor de van 't Hoff, el número de partículas por
+  unidad fórmula disuelta, y $\var{K_\mathrm{f}}$ la constante crioscópica del disolvente en kelvin
+  kilogramo por mol. $\mag{b}$ es la molalidad del soluto, en moles por kilogramo de disolvente.
+
+  Cuando el sólido que se forma es el disolvente puro, las partículas disueltas reducen la tendencia
+  del líquido a escapar, de modo que el líquido y el sólido solo pueden coexistir a una temperatura
+  más baja. El mismo efecto permite que la sal funda el hielo de las carreteras y que el
+  anticongelante proteja el líquido refrigerante de los motores.
+
+  La relación supone una disolución diluida cuyo soluto queda en el líquido cuando el disolvente se
+  congela. Los iones se atraen entre sí, así que el factor medido es menor que el recuento ideal:
+  una disolución de 1.0 mol de cloruro de sodio por kilogramo de agua debería congelarse 3.7 kelvin
+  más abajo, pero solo lo hace 3.4 kelvin más abajo. Para el agua la constante crioscópica vale
+  1.86 kelvin kilogramo por mol, y un descenso medido para una masa conocida de soluto da su masa
+  molar.
+
+  François-Marie Raoult, profesor de química en la facultad de ciencias de Grenoble, midió en 1878
+  cuánto rebajan dieciocho sales el punto de congelación del agua, y entre 1882 y 1884 convirtió ese
+  descenso en un método para hallar la masa molecular de compuestos orgánicos.

@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de dilución de Ostwald'
+terms:
+  K_\mathrm{a}:
+    label: 'Constante de acidez'
+  \alpha:
+    label: 'Fracción ionizada'
+  c_\mathrm{a}:
+    label: 'Concentración analítica del ácido'
+description: >-
+  La ley de dilución de Ostwald relaciona la constante de acidez de un ácido débil con la fracción
+  del ácido que está ionizada y con su concentración analítica. Aplica la ley de acción de masas a
+  un electrolito débil que se separa en dos iones, y muestra que la fracción ionizada crece al diluir
+  la disolución.
+
+  $\var{K_\mathrm{a}}$ es la constante de acidez, un número puro. $\var{\alpha}$ es la fracción
+  ionizada, o grado de disociación, de 0 a 1; el porcentaje de ionización es 100 veces ese valor.
+  $\var{c_\mathrm{a}}$ es la concentración analítica, todo el ácido introducido en la disolución por
+  unidad de volumen, esté ionizado o no, en moles por metro cúbico, y la calculadora acepta moles por
+  litro; $\const{c^{\circ}}$ es la concentración molar estándar, un mol por litro.
+
+  Cuando el ácido HA se ioniza, el ion hidrógeno y la base conjugada alcanzan cada uno
+  $\var{\alpha}$ veces la concentración analítica, y el ácido sin disociar conserva el resto. Al
+  llevar estas tres concentraciones a la constante de acidez se obtiene la ley. Si la fracción es
+  pequeña, el denominador se acerca a uno y la fracción es aproximadamente la raíz cuadrada de la
+  constante dividida entre el cociente de concentración, de modo que diluir cien veces un ácido
+  débil hace que se ionice una proporción unas diez veces mayor. La calculadora resuelve la ecuación
+  de segundo grado para la fracción con su raíz positiva.
+
+  La ley sirve para electrolitos débiles en disolución diluida, donde las concentraciones sustituyen
+  a las actividades. Como trata los iones como si se ignoraran entre sí, falla con los electrolitos
+  fuertes, que están casi totalmente ionizados, y se desvía cuando la disolución se concentra y las
+  fuerzas entre iones se hacen grandes; ambos fallos alimentaron las primeras objeciones a la teoría
+  de la disociación.
+
+  Ostwald dedujo la ley en 1888 tratando las disoluciones diluidas como gases y midiendo la
+  disociación mediante la conductividad eléctrica, y la puso a prueba con muchos ácidos orgánicos.
+  Con una constante de $1.8\times10^{-5}$, el ácido acético a 0.100 moles por litro está ionizado en
+  torno al 1.3 por ciento, la cifra que OpenStax obtiene a partir del pH medido.

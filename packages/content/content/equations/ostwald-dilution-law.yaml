@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Ostwald''s dilution law'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{K_\mathrm{a}}=\frac{\var{\alpha}^{2}\var{c_\mathrm{a}}}{\left(1-\var{\alpha}\right)\const{c^{\circ}}}'
+terms:
+  K_\mathrm{a}:
+    kind: 'symbol'
+    label:
+      en: 'Acid dissociation constant'
+  \alpha:
+    kind: 'symbol'
+    label:
+      en: 'Fraction ionized'
+    unit: 'unitless'
+  c_\mathrm{a}:
+    kind: 'symbol'
+    label:
+      en: 'Analytical concentration of the acid'
+    unit: 'mole-per-cubic-metre'
+  c^{\circ}:
+    kind: 'constant'
+    ref: 'standard-amount-concentration'
+    identifier: 'c_std'
+solutions:
+  K_\mathrm{a}: 'alpha^2 * c_a / ((1 - alpha) * c_std)'
+  \alpha: '2 * K_a / (K_a + sqrt(K_a^2 + 4 * K_a * c_a / c_std))'
+  c_\mathrm{a}: 'K_a * (1 - alpha) * c_std / alpha^2'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q574236'
+categories:
+  - 'chemistry'
+branches:
+  - 'chemical-equilibrium'
+  - 'acids-and-bases'
+aliases:
+  - 'Ostwald dilution law'
+  - 'Ostwald''s law of dilution'
+  - 'Ka = α²c/(1 - α)'
+  - 'ley de dilución de Ostwald'
+references:
+  - title: 'W. Ostwald, Zeitschrift für physikalische Chemie 2, 36-37 (1888), English translation at ChemTeam'
+    url: 'https://web.chemteam.info/Chem-History/Ostwald-1888.html'
+  - title: 'J. Schummer, Friedrich Wilhelm Ostwald, Chemistry Explained (Gale Group), chemistry encyclopedia'
+    url: 'https://www.chemistryexplained.com/Ny-Pi/Ostwald-Friedrich-Wilhelm.html'
+  - title: 'OpenStax, Chemistry 2e, 14.3 Relative Strengths of Acids and Bases (percent ionization; Example 14.7, Check Your Learning)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/14-3-relative-strengths-of-acids-and-bases'
+description:
+  en: >-
+    Ostwald's dilution law relates the acid dissociation constant of a weak acid to the fraction of
+    the acid that is ionized and to its analytical concentration. It applies the law of mass action
+    to a weak electrolyte that splits into two ions, and it shows that the ionized fraction grows
+    as the solution is diluted.
+
+    $\var{K_\mathrm{a}}$ is the acid dissociation constant, a pure number. $\var{\alpha}$ is the
+    fraction ionized, or degree of dissociation, from 0 to 1; the percent ionization is 100 times
+    it. $\var{c_\mathrm{a}}$ is the analytical concentration, all the acid put into the solution per
+    unit volume whether ionized or not, in moles per cubic metre with moles per litre offered, and
+    $\const{c^{\circ}}$ is the standard amount concentration, one mole per litre.
+
+    When the acid HA ionizes, the hydrogen ion and the conjugate base each reach $\var{\alpha}$ times
+    the analytical concentration and the undissociated acid keeps the rest. Putting these three
+    concentrations into the dissociation constant gives the law. For a small fraction the
+    denominator is close to one, and the fraction becomes roughly the square root of the constant
+    over the concentration ratio, so diluting a weak acid a hundredfold makes about ten times as
+    much of it ionize. The calculator solves the quadratic for the fraction with its positive root.
+
+    The law suits weak electrolytes in dilute solution, where concentrations stand in for
+    activities. Because it treats the ions as if they ignored one another, it breaks down for strong
+    electrolytes, which are almost fully ionized, and drifts as the solution grows concentrated and
+    the forces between ions become large; both failures fed the early objections to the
+    dissociation theory.
+
+    Ostwald derived the law in 1888 by treating dilute solutions like gases and measuring
+    dissociation through electrical conductivity, and he tested it on many organic acids. With a
+    constant of $1.8\times10^{-5}$, acetic acid at 0.100 moles per litre is about 1.3 percent
+    ionized, the figure OpenStax obtains from the measured pH.

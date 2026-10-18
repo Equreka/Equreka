@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'pH de una disolución de ácido débil'
+terms:
+  \mathrm{p}K_\mathrm{a}:
+    label: 'pKa del ácido'
+  c_\mathrm{a}:
+    label: 'Concentración analítica del ácido'
+description: >-
+  El pH de una disolución de ácido débil se obtiene, con buena aproximación, del pKa del ácido y de
+  su concentración: es la mitad del pKa menos el logaritmo decimal de la concentración en moles por
+  litro. Este atajo de la química ácido-base es la forma logarítmica de la regla según la cual la
+  concentración de iones hidrógeno es la raíz cuadrada de la constante de acidez por la
+  concentración del ácido.
+
+  $\mag{\mathrm{pH}}$ es el pH de la disolución y $\var{\mathrm{p}K_\mathrm{a}}$ el pKa del ácido,
+  ambos números puros. $\var{c_\mathrm{a}}$ es la concentración analítica del ácido, la cantidad de
+  ácido añadida a la disolución por unidad de volumen, se haya ionizado o no, que suele introducirse
+  en moles por litro. $\const{c^{\circ}}$ es la concentración molar estándar, exactamente un mol por
+  litro, que convierte en número puro el argumento del logaritmo.
+
+  Cada molécula de ácido que se ioniza da un ion hidronio y un ion de la base conjugada, así que las
+  dos concentraciones son iguales. Cuando solo se ioniza una parte pequeña, el ácido que queda
+  intacto es casi toda la concentración analítica, y la constante de acidez se reduce al cuadrado de
+  la concentración de hidronio dividido entre esa concentración. Tomar menos el logaritmo de la raíz
+  cuadrada da la fórmula: diluir diez veces un ácido débil sube su pH solo media unidad.
+
+  La aproximación vale mientras la fracción ionizada no pase de un 5 por ciento de la concentración
+  analítica, que es la comprobación habitual; por encima hay que resolver la ecuación de segundo
+  grado completa. También falla con ácidos muy débiles o muy diluidos, en los que el hidronio del
+  propio agua deja de ser despreciable, y supone que las concentraciones sustituyen a las
+  actividades.
+
+  Una disolución de ácido fórmico de 0.534 mol/L, cuya constante de acidez es
+  $1.8\times10^{-4}$, tiene un pH de 2.01.

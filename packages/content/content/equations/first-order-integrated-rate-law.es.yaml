@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de velocidad integrada de primer orden'
+terms:
+  c_\mathrm{A}:
+    label: 'Concentración de A en el instante t'
+  c_\mathrm{A,0}:
+    label: 'Concentración inicial de A'
+  k:
+    label: 'Constante de velocidad'
+description: >-
+  En una reacción de primer orden, la concentración del reactivo disminuye de forma exponencial: la
+  ley de velocidad integrada da la concentración en el instante t como la concentración inicial
+  multiplicada por e elevado a menos la constante de velocidad por el tiempo. Es la ley integrada más
+  frecuente de la cinética química y tiene la misma forma que la ley de la desintegración
+  radiactiva.
+
+  $\var{c_\mathrm{A}}$ es la concentración del reactivo A en el instante $\mag{t}$ y
+  $\var{c_\mathrm{A,0}}$ su concentración inicial, ambas en moles por metro cúbico, y la calculadora
+  acepta moles por litro; como solo interviene su cociente, cualquier unidad común da el mismo
+  tiempo. $\var{k}$ es la constante de velocidad de primer orden, en segundos inversos, y $\mag{t}$
+  el tiempo transcurrido desde el comienzo, en segundos.
+
+  La ley de velocidad de primer orden hace la velocidad proporcional a la concentración que aún
+  queda, de modo que en cada intervalo igual desaparece la misma fracción de A. Al integrar se
+  obtiene la exponencial; al tomar logaritmos se convierte en una recta, el logaritmo natural de la
+  concentración frente al tiempo, con pendiente menos la constante y ordenada en el origen el
+  logaritmo de la concentración inicial. Esa recta es la prueba habitual de la cinética de primer
+  orden. La semivida, el logaritmo natural de dos dividido entre la constante, no depende de la
+  concentración de partida.
+
+  La ley exige una velocidad que dependa solo de A y a la primera potencia, a temperatura y volumen
+  constantes. Su equivalente nuclear es la ley de la desintegración radiactiva, la misma exponencial
+  con la constante de desintegración en lugar de la constante de velocidad y números de núcleos en
+  lugar de concentraciones. La constante describe aquí la rapidez con que desaparece el propio A, como la escriben los libros.
+
+  El ciclobutano se descompone a $500\,^{\circ}\mathrm{C}$ con una constante de
+  $9.2\times10^{-3}\,\mathrm{s^{-1}}$. El tiempo para que reaccione el 80.0 por ciento de una muestra es el
+  logaritmo natural de cinco dividido entre esa constante, unos 170 segundos, como muestra OpenStax.

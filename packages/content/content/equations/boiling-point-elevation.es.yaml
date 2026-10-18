@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Aumento del punto de ebullición'
+terms:
+  \Delta T_\mathrm{b}:
+    label: 'Aumento del punto de ebullición'
+  i:
+    label: 'Factor de van ''t Hoff'
+  K_\mathrm{b}:
+    label: 'Constante ebulloscópica'
+description: >-
+  El aumento del punto de ebullición es la subida de la temperatura de ebullición de un disolvente
+  cuando se disuelve en él un soluto no volátil. En disoluciones diluidas la subida es proporcional
+  a la molalidad de las partículas disueltas, con la constante ebulloscópica del disolvente como
+  factor. Es una de las propiedades coligativas de las disoluciones, que dependen de cuántas
+  partículas de soluto hay y no de cuáles son.
+
+  $\var{\Delta T_\mathrm{b}}$ es el aumento, el punto de ebullición de la disolución menos el del
+  disolvente puro, una diferencia de temperatura positiva en kelvin que vale lo mismo en grados
+  Celsius. $\var{i}$ es el factor de van 't Hoff, el número de partículas que produce cada unidad
+  fórmula disuelta: uno para un no electrolito como la sacarosa, cerca de dos para el cloruro de
+  sodio. $\var{K_\mathrm{b}}$ es la constante ebulloscópica, una propiedad exclusiva del disolvente
+  en kelvin kilogramo por mol, y $\mag{b}$ es la molalidad del soluto en moles por kilogramo de
+  disolvente.
+
+  El soluto reduce la presión de vapor del disolvente, así que la disolución debe calentarse más
+  antes de que su presión de vapor alcance la presión exterior y hierva. Se usa la molalidad y no
+  la concentración molar porque no cambia cuando la disolución se calienta y se dilata.
+
+  La relación vale para disoluciones diluidas de solutos que no se evaporan. Los factores de
+  van 't Hoff medidos quedan por debajo del número entero de iones, porque los iones se atraen y
+  algunos forman pares: a 0.050 moles por kilogramo, el sulfato de magnesio se comporta como 1.3
+  partículas en lugar de 2. Para el agua la constante ebulloscópica vale 0.512 kelvin kilogramo por
+  mol.
+
+  Una disolución de 0.33 moles de un no electrolito por kilogramo de benceno, cuya constante es
+  2.53, hierve 0.83 kelvin por encima del disolvente puro.

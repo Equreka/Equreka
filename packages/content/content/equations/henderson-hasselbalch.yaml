@@ -1,0 +1,84 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Henderson-Hasselbalch equation'
+kind: 'equation'
+level: 'intermediate'
+expression: '\mag{\mathrm{pH}}=\var{\mathrm{p}K_\mathrm{a}}+\log_{10}\left(\frac{\var{[\mathrm{A}^{-}]}}{\var{[\mathrm{HA}]}}\right)'
+terms:
+  \mathrm{pH}:
+    kind: 'magnitude'
+    ref: 'ph'
+  \mathrm{p}K_\mathrm{a}:
+    kind: 'symbol'
+    label:
+      en: 'pKa of the acid'
+    identifier: 'pK_a'
+  '[\mathrm{A}^{-}]':
+    kind: 'symbol'
+    label:
+      en: 'Conjugate base concentration'
+    unit: 'mole-per-cubic-metre'
+    identifier: 'cA'
+  '[\mathrm{HA}]':
+    kind: 'symbol'
+    label:
+      en: 'Undissociated acid concentration'
+    unit: 'mole-per-cubic-metre'
+    identifier: 'cHA'
+solutions:
+  \mathrm{pH}: 'pK_a + log10(cA / cHA)'
+  \mathrm{p}K_\mathrm{a}: 'pH - log10(cA / cHA)'
+  '[\mathrm{A}^{-}]': 'cHA * 10^(pH - pK_a)'
+  '[\mathrm{HA}]': 'cA * 10^(pK_a - pH)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q601818'
+categories:
+  - 'chemistry'
+branches:
+  - 'acids-and-bases'
+aliases:
+  - 'Henderson–Hasselbalch equation'
+  - 'Henderson Hasselbalch'
+  - 'buffer equation'
+  - 'buffer pH'
+  - 'pH = pKa + log([A-]/[HA])'
+  - 'ecuación de Henderson-Hasselbalch'
+  - 'pH de una disolución amortiguadora'
+  - 'pH de un tampón'
+references:
+  - title: 'OpenStax, Chemistry 2e, 14.6 Buffers (Henderson-Hasselbalch equation, Example 14.20, portrait notes on Henderson and Hasselbalch)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/14-6-buffers'
+  - title: 'OpenStax, Chemistry 2e, 14.3 Relative Strengths of Acids and Bases (acid ionization constant)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/14-3-relative-strengths-of-acids-and-bases'
+  - title: 'S. Lower, Chem1 General Chemistry (LibreTexts), 13.3 Finding the pH of weak Acids, Bases, and Salts'
+    url: 'https://chem.libretexts.org/Bookshelves/General_Chemistry/Chem1_(Lower)/13:_Acid-Base_Equilibria/13.03:_Finding_the_pH_of_weak_Acids_Bases_and_Salts'
+description:
+  en: >-
+    The Henderson-Hasselbalch equation gives the pH of a buffer solution of a weak acid and its
+    conjugate base: the pKa of the acid plus the base-ten logarithm of the ratio of the conjugate
+    base concentration to the acid concentration. It is the working equation of acid-base chemistry,
+    biochemistry and physiology for buffers that hold the pH of a solution, or of blood, nearly
+    constant.
+
+    $\mag{\mathrm{pH}}$ is the pH of the solution and $\var{\mathrm{p}K_\mathrm{a}}$ the pKa of the
+    weak acid, both pure numbers. $\var{[\mathrm{A}^{-}]}$ is the equilibrium concentration of the
+    conjugate base, often supplied as a salt such as sodium acetate, and $\var{[\mathrm{HA}]}$ that
+    of the undissociated acid; both are entered in the same unit, usually moles per litre, because
+    only their ratio counts, so the standard amount concentration cancels.
+
+    The equation is the acid dissociation constant rearranged for the hydronium concentration, with
+    minus the logarithm taken of both sides. Equal amounts of acid and base give a pH equal to the
+    pKa; a tenfold excess of base raises the pH by one unit, a tenfold excess of acid lowers it by
+    one. Because added acid or base changes the ratio only a little, the pH of a buffer barely moves.
+
+    It assumes that the ionization of the acid and the hydrolysis of the base hardly change the
+    amounts put in, so the concentrations prepared can be used as equilibrium values; this fails
+    for very dilute buffers and when one component falls below about a tenth of the other, where a
+    buffer also stops resisting pH changes. Concentrations stand in for activities, as in every
+    dilute solution.
+
+    Lawrence Henderson wrote the relation for the carbonic acid buffer of blood in 1908, and Karl
+    Hasselbalch recast it in logarithmic form in 1916. A buffer with 0.10 mol/L each of acetic acid
+    and sodium acetate has a pH of 4.74.

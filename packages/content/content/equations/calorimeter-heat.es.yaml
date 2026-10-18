@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Calor absorbido por un calorímetro'
+terms:
+  \Delta T:
+    label: 'Variación de temperatura'
+description: >-
+  El calor absorbido por un calorímetro es igual a la capacidad calorífica del calorímetro por la
+  variación de temperatura que registra. En calorimetría y termoquímica esta fórmula convierte una
+  subida o bajada de temperatura medida en una cantidad de calor y, a partir de ella, en el calor
+  liberado o absorbido por una combustión, una neutralización o una disolución realizada dentro del
+  instrumento.
+
+  $\mag{Q}$ es el calor absorbido por el calorímetro, en julios. $\mag{C_\mathrm{cal}}$ es la
+  capacidad calorífica del calorímetro, en julios por kelvin: el calor que calienta un kelvin todo
+  el instrumento, recipiente, agua y termómetro juntos, a menudo llamada constante del calorímetro.
+  $\var{\Delta T}$ es la temperatura final menos la inicial. Un paso de un kelvin es tan grande
+  como uno de un grado Celsius, así que la diferencia vale lo mismo en ambas escalas.
+
+  La reacción y el calorímetro solo intercambian calor entre sí, de modo que el calor de la reacción
+  es el opuesto del calor absorbido, $q_\mathrm{rxn}=-\mag{Q}$. Una reacción exotérmica calienta el
+  instrumento y da un calor absorbido positivo; una endotérmica lo enfría. La capacidad calorífica
+  se determina antes por calibración, quemando una pastilla pesada de ácido benzoico, cuyo calor de
+  combustión se conoce, y registrando la variación de temperatura. Cuando la capacidad calorífica
+  es la masa por la capacidad calorífica específica de una sola sustancia, la fórmula se convierte
+  en la relación del calor sensible.
+
+  La fórmula supone que no escapa calor al entorno y que la capacidad calorífica se mantiene
+  constante en el pequeño intervalo de temperatura. Un calorímetro de bomba trabaja a volumen
+  constante, así que mide la variación de energía interna de la reacción; la variación de entalpía
+  se obtiene tras una corrección por el gas producido o consumido. Un calorímetro de taza de café
+  trabaja abierto a la atmósfera, y en los cálculos elementales el calor que absorbe el propio vaso
+  se considera despreciable.
+
+  Quemar 1.150 gramos de sacarosa en un calorímetro con una capacidad calorífica de 4.90 kilojulios
+  por kelvin eleva su temperatura 4.22 kelvin, así que el calorímetro absorbe unos 20.7 kilojulios,
+  el calor liberado por la combustión.

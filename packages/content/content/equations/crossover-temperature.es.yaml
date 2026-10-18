@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Temperatura a la que la variación de energía de Gibbs se anula'
+terms:
+  \Delta H:
+    label: 'Variación de entalpía de la reacción'
+description: >-
+  La temperatura a la que la variación de energía de Gibbs de una reacción se anula se obtiene
+  dividiendo la variación de entalpía entre la variación de entropía. En termoquímica marca dónde
+  una reacción cuyas variaciones de entalpía y de entropía tienen el mismo signo pasa de espontánea
+  a no espontánea, y para un cambio de fase estima la temperatura de transición, como un punto de
+  ebullición.
+
+  $\mag{T}$ es la temperatura termodinámica, en kelvin, siempre absoluta; restarle 273.15 la
+  convierte en grados Celsius. $\var{\Delta H}$ es la variación de entalpía por mol de reacción tal
+  como está escrita, en julios por mol, negativa en una reacción exotérmica. $\mag{\Delta S}$, una
+  entropía molar, es la variación de entropía por mol de reacción, en julios por mol y kelvin. Las
+  tablas suelen dar las entalpías en kilojulios y las entropías en julios, así que una debe
+  convertirse antes de dividir.
+
+  La fórmula resulta de igualar a cero la variación de energía de Gibbs, la variación de entalpía
+  menos la temperatura por la variación de entropía. Cuando ambas variaciones son positivas, el
+  término de entropía domina a temperatura alta, y la reacción es espontánea por encima de esta
+  temperatura; cuando ambas son negativas, solo es espontánea por debajo. Si las dos tienen signos
+  opuestos, el cociente es negativo, no existe una temperatura física de cambio y la reacción se
+  comporta igual a cualquier temperatura.
+
+  La fórmula trata como constantes las variaciones de entalpía y de entropía. Los valores medidos a
+  298.15 kelvin y aplicados lejos de esa temperatura dan solo una estimación, que mejora con datos
+  más próximos a la temperatura buscada. A esa temperatura, los reactivos y los productos en sus
+  estados estándar están en equilibrio; para un cambio de fase es la temperatura de transición a la
+  presión estándar.
+
+  Para la vaporización del agua, una variación de entalpía de 44.01 kilojulios por mol y una
+  variación de entropía de 118.8 julios por mol y kelvin dan unos 370.5 kelvin, frente a un punto de
+  ebullición observado de 373.2 kelvin; la diferencia se debe a usar datos de 298 kelvin.

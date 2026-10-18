@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de Raoult'
+terms:
+  p_\mathrm{A}:
+    label: 'Presión parcial de vapor de A'
+  x_\mathrm{A}:
+    label: 'Fracción molar de A en el líquido'
+  p^{*}_\mathrm{A}:
+    label: 'Presión de vapor de A puro'
+description: >-
+  La ley de Raoult establece que la presión parcial de vapor de un componente de una disolución
+  líquida ideal es igual a su fracción molar en el líquido por la presión de vapor del componente
+  puro a la misma temperatura. Es la ley básica de la química de las disoluciones para el descenso
+  de la presión de vapor, la primera de las propiedades coligativas, y define qué es una disolución
+  ideal.
+
+  $\var{p_\mathrm{A}}$ es la presión parcial del vapor del componente A sobre la disolución y
+  $\var{p^{*}_\mathrm{A}}$ la presión de vapor de A puro a la misma temperatura, ambas en pascales y
+  positivas. $\var{x_\mathrm{A}}$ es la fracción molar de A en el líquido, su cantidad de sustancia
+  dividida entre la cantidad total de todos los componentes, una razón entre 0 y 1 que puede
+  introducirse como decimal o como porcentaje.
+
+  Al diluir A con otras moléculas quedan menos moléculas de A en la superficie para escapar, así que
+  su presión de vapor baja en proporción a su parte del líquido. Para un disolvente con un soluto no
+  volátil, la presión de vapor de la disolución es la del disolvente solo, reducida por el factor
+  $\var{x_\mathrm{A}}$; ese descenso es el origen del aumento del punto de ebullición y del descenso
+  del punto de congelación. Con dos líquidos volátiles, cada componente cumple la ley por separado y
+  la presión de vapor total es la suma de las dos presiones parciales, como las suma la ley de Dalton.
+
+  La ley solo es exacta para disoluciones ideales, cuyos componentes se atraen entre sí con la misma
+  fuerza que a los de su propia clase; las mezclas reales se desvían, y la IUPAC mide la desviación
+  con un coeficiente de actividad referido a la ley de Raoult. Sigue siendo una buena guía para el
+  disolvente de una disolución diluida, cuya fracción molar se acerca a 1.
+
+  La ley lleva el nombre de François-Marie Raoult, de la facultad de ciencias de Grenoble, que en 1886
+  expresó el descenso relativo de la presión de vapor de las disoluciones en éter y en 1887 extendió
+  las medidas a muchos otros disolventes volátiles. Un líquido con un 80.0 por ciento
+  de etanol en cantidad de sustancia, con glicerina como soluto no volátil, tiene a 40 grados Celsius
+  una presión de vapor de 0.142 atmósferas, frente a 0.178 del etanol puro.

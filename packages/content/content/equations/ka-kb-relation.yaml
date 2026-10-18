@@ -1,0 +1,72 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Relation between Ka and Kb'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{K_\mathrm{a}}\var{K_\mathrm{b}}=\var{K_\mathrm{w}}'
+terms:
+  K_\mathrm{a}:
+    kind: 'symbol'
+    label:
+      en: 'Acid dissociation constant'
+  K_\mathrm{b}:
+    kind: 'symbol'
+    label:
+      en: 'Base dissociation constant of the conjugate base'
+  K_\mathrm{w}:
+    kind: 'symbol'
+    label:
+      en: 'Ion product of water'
+solutions:
+  K_\mathrm{a}: 'K_w / K_b'
+  K_\mathrm{b}: 'K_w / K_a'
+  K_\mathrm{w}: 'K_a * K_b'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'acids-and-bases'
+aliases:
+  - 'Ka Kb = Kw'
+  - 'Ka x Kb = Kw'
+  - 'Kb from Ka'
+  - 'conjugate acid-base pair constants'
+  - 'pKa + pKb = pKw'
+  - 'relación entre Ka y Kb'
+  - 'Ka por Kb igual a Kw'
+  - 'constante de basicidad'
+  - 'constante de ionización básica'
+references:
+  - title: 'OpenStax, Chemistry 2e, 14.3 Relative Strengths of Acids and Bases (relation of Ka and Kb, Example 14.8)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/14-3-relative-strengths-of-acids-and-bases'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11, notes 18 and 19 (Ka, Kb, Kw)'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'OpenStax, Chemistry 2e, 14.1 Brønsted-Lowry Acids and Bases (ion product of water)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/14-1-bronsted-lowry-acids-and-bases'
+description:
+  en: >-
+    The relation between Ka and Kb states that, for any conjugate acid-base pair in water, the acid
+    dissociation constant of the acid times the base dissociation constant of its conjugate base
+    equals the ion product of water. In acid-base chemistry it lets one constant be found from the
+    other, so tables need list only one of them, and it shows that a stronger acid has a weaker
+    conjugate base.
+
+    $\var{K_\mathrm{a}}$ is the acid dissociation constant of the acid HA and $\var{K_\mathrm{b}}$
+    the base dissociation constant of its conjugate base A−, the equilibrium constant for A−
+    taking a proton from water to give HA and a hydroxide ion. $\var{K_\mathrm{w}}$ is the ion
+    product of water. All three are positive pure numbers, each defined with concentrations taken
+    relative to one mole per litre.
+
+    Adding the ionization of the acid to the reaction of its conjugate base with water cancels HA
+    and A− and leaves the self-ionization of water. When two reactions are added, their equilibrium
+    constants multiply, so the product of the two constants is the ion product. Taking minus the
+    logarithm gives the equivalent form: the pKa and the pKb of a pair add up to the pKw.
+
+    The ion product depends on temperature, so the relation must be used with constants measured at
+    one temperature; at $25\,^{\circ}\mathrm{C}$ the ion product is $1.0\times10^{-14}$. As with
+    each constant separately, concentrations stand in for activities, which holds in dilute
+    solutions. The relation applies only to a true conjugate pair, which differ by one proton.
+
+    Acetic acid has an acid dissociation constant of $1.8\times10^{-5}$ at that temperature, so the
+    acetate ion has a base dissociation constant of $5.6\times10^{-10}$.

@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Crossover temperature'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{T}=\frac{\var{\Delta H}}{\mag{\Delta S}}'
+terms:
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+  \Delta H:
+    kind: 'symbol'
+    label:
+      en: 'Enthalpy change of the reaction'
+    unit: 'joule-per-mole'
+  \Delta S:
+    kind: 'magnitude'
+    ref: 'molar-entropy'
+solutions:
+  T: 'DeltaH / DeltaS'
+  \Delta H: 'T * DeltaS'
+  \Delta S: 'DeltaH / T'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'thermochemistry'
+aliases:
+  - 'temperature at which ΔG = 0'
+  - 'temperature at which the Gibbs energy change is zero'
+  - 'spontaneity threshold temperature'
+  - 'T = ΔH/ΔS'
+  - 'T = delta H / delta S'
+  - 'temperatura de cruce'
+  - 'temperatura a la que ΔG = 0'
+references:
+  - title: 'OpenStax, Chemistry 2e, 16.4 Free Energy (Example 16.11)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/16-4-free-energy'
+  - title: 'University of Calgary, Chemistry Open Textbook, Temperature Dependence of Spontaneity'
+    url: 'https://chem-textbook.ucalgary.ca/?p=11465'
+description:
+  en: >-
+    The crossover temperature of a reaction is the temperature at which its Gibbs energy change is
+    zero, obtained by dividing the enthalpy change by the entropy change. In thermochemistry it
+    marks where a reaction whose enthalpy and entropy changes share a sign switches between
+    spontaneous and non-spontaneous, and for a change of phase it estimates the transition
+    temperature, such as a boiling point.
+
+    $\mag{T}$ is the thermodynamic temperature, in kelvin, always absolute; subtracting 273.15
+    converts it to degrees Celsius. $\var{\Delta H}$ is the enthalpy change per mole of reaction as
+    written, in joules per mole, negative for an exothermic reaction. $\mag{\Delta S}$, a molar
+    entropy, is the entropy change per mole of reaction, in joules per mole kelvin. Tables usually
+    list enthalpies in kilojoules and entropies in joules, so one must be converted before dividing.
+
+    The formula comes from setting the Gibbs energy change, the enthalpy change minus temperature
+    times entropy change, equal to zero. When both changes are positive the entropy term wins at high
+    temperature, so the reaction is spontaneous above the crossover temperature; when both are
+    negative it is spontaneous only below it. When the two changes have opposite signs the quotient
+    is negative, no physical crossover exists, and the reaction keeps the same behaviour at every
+    temperature.
+
+    The formula treats the enthalpy and entropy changes as constant. Values measured at 298.15
+    kelvin and applied far from that temperature therefore give only an estimate, which improves
+    when data closer to the crossover are used. At the crossover temperature, reactants and products
+    in their standard states are in equilibrium; for a change of phase this is the transition
+    temperature at the standard pressure.
+
+    For the vaporization of water, an enthalpy change of 44.01 kilojoules per mole and an entropy
+    change of 118.8 joules per mole kelvin give about 370.5 kelvin, against an observed boiling point
+    of 373.2 kelvin; the gap comes from using data for 298 kelvin.

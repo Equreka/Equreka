@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Porcentaje de ionización'
+terms:
+  \alpha:
+    label: 'Fracción ionizada'
+  '[\mathrm{H}^{+}]':
+    label: 'Concentración de iones hidrógeno'
+  c_\mathrm{a}:
+    label: 'Concentración analítica del ácido'
+description: >-
+  El porcentaje de ionización mide qué parte de un ácido débil ha cedido sus protones en el
+  equilibrio: la concentración de iones hidrógeno dividida entre la concentración analítica del
+  ácido, una fracción que se multiplica por 100 para leerla como porcentaje. En la química
+  ácido-base esa misma fracción se llama grado de ionización o grado de disociación, y completa a la
+  constante de acidez como descripción de la fuerza de un ácido.
+
+  $\var{\alpha}$ es la fracción ionizada, una razón entre 0 y 1 que puede introducirse como decimal o
+  como porcentaje; el porcentaje de ionización es 100 veces ella. $\var{[\mathrm{H}^{+}]}$ es la
+  concentración en el equilibrio de iones hidrógeno, presentes como hidronio, y $\var{c_\mathrm{a}}$
+  la concentración analítica del ácido, la cantidad añadida a la disolución por unidad de volumen
+  antes de cualquier ionización, ambas expresadas por lo general en moles por litro.
+
+  Cada molécula que se ioniza libera un ion hidronio y un ion de la base conjugada, así que la
+  concentración de hidronio es también la de la base conjugada, y la fracción indica qué parte de
+  las moléculas de ácido existe como iones. A diferencia de la constante de acidez, no es fija para
+  un ácido dado: diluir un ácido débil aumenta su porcentaje de ionización, que crece
+  aproximadamente como la inversa de la raíz cuadrada de la concentración mientras la ionización
+  sigue siendo pequeña.
+
+  La fórmula cuenta solo el hidronio que procede del ácido, lo que vale salvo que el ácido sea muy
+  débil o esté muy diluido, cuando la autoionización del agua aporta una cantidad comparable. Un
+  porcentaje de ionización inferior a un 5 por ciento es la señal habitual de que la estimación
+  sencilla del pH mediante la raíz cuadrada es válida.
+
+  Una disolución de ácido nitroso de 0.125 mol/L con un pH de 2.09 contiene 0.0081 mol/L de
+  hidronio, un porcentaje de ionización del 6.5 por ciento.

@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'First-order integrated rate law'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{c_\mathrm{A}}=\var{c_\mathrm{A,0}}e^{-\var{k}\mag{t}}'
+terms:
+  c_\mathrm{A}:
+    kind: 'symbol'
+    label:
+      en: 'Concentration of A at time t'
+    unit: 'mole-per-cubic-metre'
+  c_\mathrm{A,0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial concentration of A'
+    unit: 'mole-per-cubic-metre'
+    identifier: 'c_A0'
+  k:
+    kind: 'symbol'
+    label:
+      en: 'Rate constant'
+    unit: 'reciprocal-second'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  c_\mathrm{A}: 'c_A0 * exp(-k * t)'
+  c_\mathrm{A,0}: 'c_A * exp(k * t)'
+  k: 'ln(c_A0 / c_A) / t'
+  t: 'ln(c_A0 / c_A) / k'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'chemical-kinetics'
+aliases:
+  - 'first order integrated rate law'
+  - 'integrated rate law for a first-order reaction'
+  - '[A] = [A]0 e^(-kt)'
+  - 'ln[A] = ln[A]0 - kt'
+  - 'first-order kinetics'
+  - 'first-order reaction'
+  - 'ley de tasa integrada de primer orden'
+  - 'cinética de primer orden'
+references:
+  - title: 'OpenStax, Chemistry 2e, 12.4 Integrated Rate Laws, First-Order Reactions, Examples 12.6 and 12.7'
+    url: 'https://openstax.org/books/chemistry-2e/pages/12-4-integrated-rate-laws'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.12, pp. 63-64'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+description:
+  en: >-
+    In a first-order reaction the concentration of the reactant decays exponentially: the
+    integrated rate law gives the concentration at time t as the initial concentration multiplied by
+    e raised to minus the rate constant times the time. It is the most common integrated law of
+    chemical kinetics and has the same form as the law of radioactive decay.
+
+    $\var{c_\mathrm{A}}$ is the concentration of reactant A at time $\mag{t}$ and
+    $\var{c_\mathrm{A,0}}$ its initial concentration, both in moles per cubic metre, with moles per
+    litre offered; since only their ratio enters, any common unit gives the same time.
+    $\var{k}$ is the first-order rate constant in reciprocal seconds, and $\mag{t}$ the time elapsed
+    since the start, in seconds.
+
+    The rate law of first order makes the rate proportional to the concentration still present, so
+    the same fraction of A disappears in every equal interval. Integrating gives the exponential;
+    taking logarithms turns it into a straight line, the natural logarithm of the concentration
+    against time, with slope minus the constant and intercept the logarithm of the initial
+    concentration. That line is the usual test of first-order kinetics. The half-life, the natural
+    logarithm of two over the constant, does not depend on the starting concentration.
+
+    The law requires a rate that depends on A alone and to the first power, at constant temperature
+    and volume. Its nuclear counterpart is the radioactive decay law, the same exponential with the
+    decay constant in place of the rate constant and numbers of nuclei in place of concentrations.
+    The constant here describes the rate at which A itself disappears, as textbooks write it.
+
+    Cyclobutane decomposes at $500\,^{\circ}\mathrm{C}$ with a constant of
+    $9.2\times10^{-3}\,\mathrm{s^{-1}}$. The time for 80.0 percent of a sample to react is the natural
+    logarithm of five over that constant, about 170 seconds, as OpenStax shows.

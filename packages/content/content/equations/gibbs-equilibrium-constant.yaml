@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Standard Gibbs energy change and equilibrium constant'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{\Delta_\mathrm{r} G^{\circ}}=-\const{R}\mag{T}\ln\var{K}'
+terms:
+  \Delta_\mathrm{r} G^{\circ}:
+    kind: 'symbol'
+    label:
+      en: 'Standard Gibbs energy change of the reaction'
+    unit: 'joule-per-mole'
+    identifier: 'DeltaG_r'
+  R:
+    kind: 'constant'
+    ref: 'molar-gas-constant'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+  K:
+    kind: 'symbol'
+    label:
+      en: 'Equilibrium constant'
+solutions:
+  \Delta_\mathrm{r} G^{\circ}: '-R * T * ln(K)'
+  T: '-DeltaG_r / (R * ln(K))'
+  K: 'exp(-DeltaG_r / (R * T))'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'thermochemistry'
+  - 'chemical-equilibrium'
+aliases:
+  - 'Gibbs energy and equilibrium constant'
+  - 'free energy and equilibrium constant'
+  - 'standard free energy change and K'
+  - 'ΔG° = -RT ln K'
+  - 'delta G standard = -RT ln K'
+  - 'K = exp(-ΔG°/RT)'
+  - 'energía de Gibbs y constante de equilibrio'
+  - 'energía libre estándar y constante de equilibrio'
+references:
+  - title: 'OpenStax, Chemistry 2e, 16.4 Free Energy (Example 16.13)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/16-4-free-energy'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11, note 12 and section 2.11.1 (v)'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'NIST, CODATA 2022 value: molar gas constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?r'
+description:
+  en: >-
+    The standard Gibbs energy change of a reaction equals minus the molar gas constant times the
+    absolute temperature times the natural logarithm of the equilibrium constant. This relation of
+    chemical thermodynamics ties tabulated Gibbs energies to the position of chemical equilibrium,
+    so an equilibrium constant can be predicted from thermochemical data alone, without measuring a
+    single concentration.
+
+    $\var{\Delta_\mathrm{r} G^{\circ}}$ is the standard Gibbs energy change of the reaction, in
+    joules per mole of reaction as written; tables give it in kilojoules per mole. $\const{R}$ is
+    the molar gas constant, about 8.314 joules per mole kelvin, exact in the SI. $\mag{T}$ is the
+    thermodynamic temperature in kelvin and must be absolute: a Celsius reading needs 273.15 added.
+    $\var{K}$ is the standard equilibrium constant, a quantity of dimension one with no unit: every
+    concentration inside it is divided by the standard amount concentration of one mole per litre and every
+    gas pressure by the standard pressure of 1 bar.
+
+    A negative standard Gibbs energy change gives a constant above one, so products prevail at
+    equilibrium; a positive one gives a constant below one, and zero gives exactly one. The
+    dependence is logarithmic: at 298.15 kelvin every 5.708 kilojoules per mole changes the
+    constant tenfold. The relation follows from the Gibbs energy change under any composition, the
+    standard value plus RT times the logarithm of the reaction quotient, which is zero at
+    equilibrium, where the quotient equals the constant.
+
+    The constant is defined through activities. Concentrations and partial pressures stand in for
+    activities and fugacities only in dilute solutions and ideal gases, so for concentrated
+    solutions or compressed gases the result is approximate. The Gibbs energy change must belong to
+    the same temperature as the constant. A large constant says how far a reaction goes, not how
+    fast.
+
+    For silver chloride dissolving in water, a standard Gibbs energy change of 55.7 kilojoules per
+    mole at 298.15 kelvin gives a solubility product of about $1.74\times10^{-10}$.

@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ecuación de Nernst'
+terms:
+  E_\mathrm{cell}:
+    label: 'Potencial de la celda'
+  E^{\circ}_\mathrm{cell}:
+    label: 'Potencial estándar de la celda'
+  z:
+    label: 'Electrones transferidos en la reacción de la celda'
+  Q:
+    label: 'Cociente de reacción'
+description: >-
+  La ecuación de Nernst da el potencial de una celda electroquímica para cualquier composición: el
+  potencial estándar de la celda menos RT entre zF por el logaritmo natural del cociente de
+  reacción. Es la regla práctica de la electroquímica para celdas fuera de las condiciones estándar,
+  base de las celdas de concentración, de la tensión de una celda que gasta sus reactivos y de la respuesta de los electrodos de pH.
+
+  $\var{E_\mathrm{cell}}$ es el potencial de la celda, en voltios, medido sin paso de corriente.
+  $\var{E^{\circ}_\mathrm{cell}}$ es el potencial estándar de la celda, el potencial de reducción
+  tabulado del cátodo menos el del ánodo. $\const{R}$ es la constante molar de los gases y
+  $\const{F}$ la constante de Faraday, ambas exactas en el SI. $\mag{T}$ es la temperatura
+  termodinámica, absoluta, en kelvin. $\var{z}$ es el número de electrones de la reacción de la celda
+  tal como está escrita, un entero positivo. $\var{Q}$ es el cociente de reacción, sin unidad: el
+  producto de las actividades de los productos entre el de los reactivos, cada una elevada a su
+  coeficiente, con las concentraciones divididas entre la concentración molar estándar de un mol por
+  litro y las presiones de gas entre la presión estándar de 1 bar.
+
+  Con todas las especies en estado estándar el cociente vale uno, su logaritmo se anula y el
+  potencial de la celda es igual al estándar. Al descargarse la celda, el cociente crece y el
+  potencial baja hasta anularse en el equilibrio, donde el cociente es igual a la constante de
+  equilibrio. Dividir entre menos zF la relación de la energía de Gibbs para cualquier composición da la ecuación. A 298.15 kelvin, RT/F vale unos 0.02569 voltios y, con logaritmos
+  decimales, la pendiente pasa a 0.05916 voltios entre z por cada factor diez del cociente.
+
+  Las concentraciones y las presiones sustituyen a las actividades y fugacidades solo en
+  disoluciones diluidas y gases ideales. La ecuación describe el potencial de equilibrio y desprecia
+  los potenciales de unión; una celda que entrega corriente muestra menos.
+
+  Walther Nernst expuso su teoría de las celdas galvánicas en 1889. Cuando el cobalto metálico reduce
+  el hierro(II) a hierro, con un potencial estándar de −0.17 voltios y dos electrones, el cociente es
+  la concentración de cobalto(II) entre la de hierro(II); con 0.15 y 1.94 moles por litro la celda da
+  unos −0.14 voltios.

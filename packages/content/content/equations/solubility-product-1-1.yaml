@@ -1,0 +1,71 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Solubility product of a 1:1 salt'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{K_\mathrm{sp}}=\left(\frac{\var{s}}{\const{c^{\circ}}}\right)^{2}'
+terms:
+  K_\mathrm{sp}:
+    kind: 'symbol'
+    label:
+      en: 'Solubility product'
+  s:
+    kind: 'symbol'
+    label:
+      en: 'Molar solubility'
+    unit: 'mole-per-cubic-metre'
+  c^{\circ}:
+    kind: 'constant'
+    ref: 'standard-amount-concentration'
+    identifier: 'c_std'
+solutions:
+  K_\mathrm{sp}: '(s / c_std)^2'
+  s: 'c_std * sqrt(K_sp)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q11229788'
+categories:
+  - 'chemistry'
+branches:
+  - 'chemical-equilibrium'
+aliases:
+  - 'solubility product 1 1'
+  - 'solubility product constant'
+  - 'Ksp'
+  - 'Ksp = s^2'
+  - 'molar solubility from Ksp'
+  - 'solubility constant'
+  - 'constante del producto de solubilidad'
+  - 'solubilidad molar'
+references:
+  - title: 'OpenStax, Chemistry 2e, 15.1 Precipitation and Dissolution, Solubility Products, Example 15.3 and Common Ion Effect'
+    url: 'https://openstax.org/books/chemistry-2e/pages/15-1-precipitation-and-dissolution'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11, p. 59, note 19 (continued): solubility product'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+description:
+  en: >-
+    For a sparingly soluble salt that dissolves into one cation and one anion, such as silver
+    chloride or copper(I) bromide, the solubility product equals the square of the molar solubility
+    taken relative to the standard amount concentration. It is the equilibrium constant for dissolution in
+    chemical equilibrium, written for the simplest formula type.
+
+    $\var{K_\mathrm{sp}}$ is the solubility product, a pure number. $\var{s}$ is the molar
+    solubility, the amount of salt that dissolves per unit volume of saturated solution, in moles per
+    cubic metre with moles per litre offered. $\const{c^{\circ}}$ is the standard concentration,
+    exactly one mole per litre, so that a solubility in moles per litre enters as its plain number.
+
+    In a saturated solution the solid is in equilibrium with its ions. Each formula unit that
+    dissolves releases one cation and one anion, so both ion concentrations equal the molar
+    solubility, and their product over the square of the standard concentration is the constant;
+    the solid itself does not appear in the expression. Reading it the other way, the molar
+    solubility is the standard concentration times the square root of the constant. Salts of other
+    formula types follow other powers: one with two anions per cation gives four times the cube of
+    the solubility ratio.
+
+    The formula assumes the salt dissolves in pure water: an ion already present that the salt also releases lowers the solubility, the common ion effect. The solution must be dilute enough for concentrations to stand in for activities, and the constant depends on temperature. IUPAC calls this equilibrium
+    constant of dissolution the solubility product, with the symbols Ksol or Ks, and Ksp is the
+    textbook form.
+
+    Copper(I) bromide has a solubility product of $6.3\times10^{-9}$, so its molar solubility is
+    about $7.9\times10^{-5}$ moles per litre, as OpenStax shows.

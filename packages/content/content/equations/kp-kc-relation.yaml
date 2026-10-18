@@ -1,0 +1,91 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Relation between Kp and Kc'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{K_{p}}=\var{K_{c}}\left(\frac{\const{c^{\circ}}\const{R}\mag{T}}{\const{p^{\circ}}}\right)^{\var{\Delta n}}'
+terms:
+  K_{p}:
+    kind: 'symbol'
+    label:
+      en: 'Equilibrium constant in terms of partial pressures'
+  K_{c}:
+    kind: 'symbol'
+    label:
+      en: 'Equilibrium constant in terms of concentrations'
+  c^{\circ}:
+    kind: 'constant'
+    ref: 'standard-amount-concentration'
+    identifier: 'c_std'
+  R:
+    kind: 'constant'
+    ref: 'molar-gas-constant'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+  p^{\circ}:
+    kind: 'constant'
+    ref: 'standard-pressure'
+    identifier: 'p_std'
+  \Delta n:
+    kind: 'symbol'
+    label:
+      en: 'Change in amount of gas, products minus reactants'
+solutions:
+  K_{p}: 'K_c * (c_std * R * T / p_std)^Deltan'
+  K_{c}: 'K_p / (c_std * R * T / p_std)^Deltan'
+  T: 'p_std / (c_std * R) * (K_p / K_c)^(1 / Deltan)'
+  \Delta n: 'ln(K_p / K_c) / ln(c_std * R * T / p_std)'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'chemical-equilibrium'
+aliases:
+  - 'Kp-Kc relation'
+  - 'Kp = Kc (RT)^Δn'
+  - 'Kp = Kc(RT)^delta n'
+  - 'Kp and Kc'
+  - 'pressure and concentration equilibrium constants'
+  - 'relación Kp-Kc'
+references:
+  - title: 'OpenStax, Chemistry 2e, 13.2 Equilibrium Constants, Homogeneous Equilibria and Example 13.4'
+    url: 'https://openstax.org/books/chemistry-2e/pages/13-2-equilibrium-constants'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11, p. 58, note 19, and section 2.11.1 (v), p. 62'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'NIST, CODATA 2022 value: molar gas constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?r'
+description:
+  en: >-
+    For a reaction between ideal gases, the equilibrium constant written with partial pressures
+    equals the one written with concentrations multiplied by the standard amount concentration times the
+    molar gas constant times the temperature over the standard pressure, raised to the change in
+    the amount of gas. The relation converts between the two forms of a gas-phase equilibrium
+    constant in chemical equilibrium.
+
+    $\var{K_{p}}$ uses each partial pressure divided by the standard pressure $\const{p^{\circ}}$,
+    exactly 100 kilopascals, and $\var{K_{c}}$ each concentration divided by the standard
+    concentration $\const{c^{\circ}}$, one mole per litre, so both are pure numbers;
+    $\var{K_{c}}$ is the same quantity as the constant of the equilibrium constant expression.
+    $\const{R}$ is the molar gas constant and $\mag{T}$ the absolute temperature in kelvin.
+    $\var{\Delta n}$ is the sum of the coefficients of the gaseous products minus that of the
+    gaseous reactants; solids and liquids do not count. The factor $\const{c^{\circ}}\const{R}/\const{p^{\circ}}$
+    is about 0.08314 per kelvin.
+
+    The ideal gas law gives each partial pressure as the concentration times the gas constant times
+    the temperature. Dividing by the standard pressure turns each pressure ratio into the
+    concentration ratio times the same factor, and each species carries that factor to the power of
+    its coefficient, which leaves the factor raised to the change in the amount of gas. When the
+    number of gas molecules does not change, the two constants are equal.
+
+    The relation assumes ideal gases, in which pressures and concentrations stand in for the
+    fugacities and activities of the thermodynamic constant. Many textbooks, OpenStax among them,
+    still take one atmosphere as the standard pressure, so their factor is the gas constant in litre
+    atmospheres per mole kelvin, about 0.0821 per kelvin, and their pressure constant equals the
+    bar-based one multiplied by 1.01325 raised to minus the change in the amount of gas.
+
+    Carbon disulfide and hydrogen form methane and hydrogen sulfide with a concentration constant of
+    0.28 at $900\,^{\circ}\mathrm{C}$, where two moles of gas are lost. The pressure constant is about
+    $2.9\times10^{-5}$ on the one-bar basis, about 3 percent below the value OpenStax finds with one
+    atmosphere.

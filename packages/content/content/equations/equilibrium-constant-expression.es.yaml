@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Expresión de la constante de equilibrio'
+terms:
+  K:
+    label: 'Constante de equilibrio'
+  c_\mathrm{A}:
+    label: 'Concentración de A en el equilibrio'
+  c_\mathrm{B}:
+    label: 'Concentración de B en el equilibrio'
+  c_\mathrm{C}:
+    label: 'Concentración de C en el equilibrio'
+  c_\mathrm{D}:
+    label: 'Concentración de D en el equilibrio'
+  \nu_\mathrm{A}:
+    label: 'Coeficiente estequiométrico de A'
+  \nu_\mathrm{B}:
+    label: 'Coeficiente estequiométrico de B'
+  \nu_\mathrm{C}:
+    label: 'Coeficiente estequiométrico de C'
+  \nu_\mathrm{D}:
+    label: 'Coeficiente estequiométrico de D'
+description: >-
+  En una reacción en la que a moles de A y b de B forman c de C y d de D, la constante de equilibrio
+  es igual al producto de las concentraciones de equilibrio de los productos, cada una dividida entre
+  la concentración molar estándar y elevada a su coeficiente estequiométrico, sobre el mismo producto para
+  los reactivos. Es la ley de acción de masas del equilibrio químico.
+
+  $\var{K}$ es la constante de equilibrio, un número puro. $\var{c_\mathrm{A}}$ a
+  $\var{c_\mathrm{D}}$ son las concentraciones de cantidad de sustancia de las cuatro especies una
+  vez alcanzado el equilibrio, en moles por metro cúbico, y la calculadora acepta moles por litro;
+  $\var{\nu_\mathrm{A}}$ a $\var{\nu_\mathrm{D}}$ son sus coeficientes enteros en la ecuación
+  química. $\const{c^{\circ}}$ es la concentración estándar, exactamente un mol por litro. La
+  calculadora despeja la constante o cualquiera de las concentraciones; los coeficientes se leen en
+  la ecuación y se introducen.
+
+  A una temperatura dada, la constante tiene el mismo valor sea cual sea la mezcla de partida.
+  Evaluada con concentraciones que no son las de equilibrio, la misma expresión es el cociente de
+  reacción, y comparar ambos indica si la reacción avanzará en sentido directo o inverso. Una
+  constante grande significa que en el equilibrio predominan los productos. Los sólidos puros, los
+  líquidos puros y el disolvente no aparecen, porque su actividad relativa es uno, y una reacción con
+  menos especies se trata poniendo a cero los coeficientes que sobran.
+
+  Las concentraciones sustituyen a las actividades, lo que vale en disoluciones diluidas y, para los
+  gases, en el límite ideal; la IUPAC llama constante de equilibrio estándar a la constante
+  adimensional construida con actividades. La constante cambia con la temperatura y se refiere a la
+  ecuación tal como está escrita: invertir la ecuación invierte la constante, y duplicar todos los
+  coeficientes la eleva al cuadrado. Escrita con concentraciones es la Kc de la relación
+  entre Kp y Kc, que la convierte a la forma con presiones parciales propia de las reacciones entre
+  gases.
+
+  Al introducir 0.10 moles de dióxido de nitrógeno en un matraz de un litro a
+  $25\,^{\circ}\mathrm{C}$, la mezcla en equilibrio contiene 0.016 moles por litro de él y 0.042 de
+  tetróxido de dinitrógeno, de modo que la constante de la dimerización vale unos
+  $1.6\times10^{2}$, como muestra OpenStax.

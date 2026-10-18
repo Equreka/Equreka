@@ -1,0 +1,90 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Acid dissociation constant'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{K_\mathrm{a}}=\frac{\var{[\mathrm{H}^{+}]}\var{[\mathrm{A}^{-}]}}{\var{[\mathrm{HA}]}\const{c^{\circ}}}'
+terms:
+  K_\mathrm{a}:
+    kind: 'symbol'
+    label:
+      en: 'Acid dissociation constant'
+  '[\mathrm{H}^{+}]':
+    kind: 'symbol'
+    label:
+      en: 'Hydrogen ion concentration'
+    unit: 'mole-per-cubic-metre'
+    identifier: 'cH'
+  '[\mathrm{A}^{-}]':
+    kind: 'symbol'
+    label:
+      en: 'Conjugate base concentration'
+    unit: 'mole-per-cubic-metre'
+    identifier: 'cA'
+  '[\mathrm{HA}]':
+    kind: 'symbol'
+    label:
+      en: 'Undissociated acid concentration'
+    unit: 'mole-per-cubic-metre'
+    identifier: 'cHA'
+  c^{\circ}:
+    kind: 'constant'
+    ref: 'standard-amount-concentration'
+    identifier: 'c_std'
+solutions:
+  K_\mathrm{a}: 'cH * cA / (cHA * c_std)'
+  '[\mathrm{H}^{+}]': 'K_a * cHA * c_std / cA'
+  '[\mathrm{A}^{-}]': 'K_a * cHA * c_std / cH'
+  '[\mathrm{HA}]': 'cH * cA / (K_a * c_std)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q325519'
+categories:
+  - 'chemistry'
+branches:
+  - 'acids-and-bases'
+  - 'chemical-equilibrium'
+aliases:
+  - 'Ka'
+  - 'acidity constant'
+  - 'acid ionization constant'
+  - 'Ka = [H+][A-]/[HA]'
+  - 'Ka = [H3O+][A-]/[HA]'
+  - 'constante de acidez'
+  - 'constante de disociación ácida'
+  - 'constante de ionización ácida'
+references:
+  - title: 'OpenStax, Chemistry 2e, 14.3 Relative Strengths of Acids and Bases (acid ionization constant, Example 14.9)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/14-3-relative-strengths-of-acids-and-bases'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11, notes 18 and 19 (standard equilibrium constant, Ka) and section 2.11.1 (v) (standard concentration)'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'S. Lower, Chem1 General Chemistry (LibreTexts), 13.3 Finding the pH of weak Acids, Bases, and Salts'
+    url: 'https://chem.libretexts.org/Bookshelves/General_Chemistry/Chem1_(Lower)/13:_Acid-Base_Equilibria/13.03:_Finding_the_pH_of_weak_Acids_Bases_and_Salts'
+description:
+  en: >-
+    The acid dissociation constant, or acidity constant, is the equilibrium constant for the transfer
+    of a proton from a weak acid HA to water, giving hydronium ions and the conjugate base A−. It
+    equals the hydrogen ion concentration times the conjugate base concentration over the
+    concentration of acid left intact, all at equilibrium, and measures the strength of an acid in
+    acid-base chemistry.
+
+    $\var{K_\mathrm{a}}$ is the acid dissociation constant, a positive pure number.
+    $\var{[\mathrm{H}^{+}]}$ is the concentration of hydrogen ions, present as hydronium,
+    $\var{[\mathrm{A}^{-}]}$ that of the conjugate base and $\var{[\mathrm{HA}]}$ that of the
+    undissociated acid, all equilibrium amount concentrations, usually entered in moles per litre.
+    $\const{c^{\circ}}$ is the standard amount concentration, exactly one mole per litre; dividing
+    by it makes the constant dimensionless while keeping the values that tables list.
+
+    A larger constant means a stronger acid, one that gives up more of its protons at equilibrium.
+    Weak acids have constants well below one, and the constant is fixed at a given temperature, so
+    diluting the acid shifts the equilibrium towards the ions without changing it. Because the
+    values span many powers of ten, chemists usually quote the negative base-ten logarithm, the pKa.
+
+    The concentrations stand in for activities, which holds in dilute solutions; at higher ionic
+    strength the true thermodynamic constant differs from the concentration ratio. Water, the solvent,
+    does not appear in the expression, and the hydronium from the self-ionization of water is
+    neglected unless the acid is extremely weak or highly diluted.
+
+    In a solution of acetic acid at equilibrium with 0.0787 moles of acid and 0.00118 moles each of
+    hydronium and acetate per litre, the constant is $1.77\times10^{-5}$.

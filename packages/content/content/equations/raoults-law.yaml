@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Raoult''s law'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{p_\mathrm{A}}=\var{x_\mathrm{A}}\var{p^{*}_\mathrm{A}}'
+terms:
+  p_\mathrm{A}:
+    kind: 'symbol'
+    label:
+      en: 'Partial vapour pressure of A'
+    unit: 'pascal'
+  x_\mathrm{A}:
+    kind: 'symbol'
+    label:
+      en: 'Mole fraction of A in the liquid'
+    unit: 'unitless'
+  p^{*}_\mathrm{A}:
+    kind: 'symbol'
+    label:
+      en: 'Vapour pressure of pure A'
+    unit: 'pascal'
+    identifier: 'p_A_pure'
+solutions:
+  p_\mathrm{A}: 'x_A * p_A_pure'
+  x_\mathrm{A}: 'p_A / p_A_pure'
+  p^{*}_\mathrm{A}: 'p_A / x_A'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q241687'
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'Raoult law'
+  - 'Raoults law'
+  - 'vapor pressure lowering'
+  - 'vapour pressure of a solution'
+  - 'ideal solution law'
+  - 'pA = xA pA*'
+  - 'ley de Raoult'
+  - 'descenso de la presión de vapor'
+references:
+  - title: 'OpenStax, Chemistry 2e, 11.4 Colligative Properties (vapor pressure lowering, Raoult''s law, Example 11.6)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11 (p. 59), activity coefficient referenced to Raoult''s law'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'L. I. Kuslan, Raoult, François Marie, Complete Dictionary of Scientific Biography (Encyclopedia.com)'
+    url: 'https://www.encyclopedia.com/people/science-and-technology/chemistry-biographies/francois-marie-raoult'
+description:
+  en: >-
+    Raoult's law states that the partial vapour pressure of a component of an ideal liquid solution
+    equals its mole fraction in the liquid times the vapour pressure of the pure component at the
+    same temperature. It is the basic law of solution chemistry for vapour pressure lowering, the
+    first of the colligative properties, and it defines what an ideal solution is.
+
+    $\var{p_\mathrm{A}}$ is the partial pressure of the vapour of component A above the solution and
+    $\var{p^{*}_\mathrm{A}}$ the vapour pressure of pure A at the same temperature, both in pascals
+    and positive. $\var{x_\mathrm{A}}$ expresses the share of A in the liquid as a mole fraction, its amount divided by
+    the total amount of all components, a ratio between 0 and 1 that can be entered as a decimal or
+    a percentage.
+
+    Diluting A with other molecules leaves fewer A molecules at the surface to escape, so its vapour
+    pressure falls in proportion to its share of the liquid. For a solvent with a non-volatile solute
+    the vapour pressure of the solution is that of the solvent alone, lowered by the factor
+    $\var{x_\mathrm{A}}$; this lowering is the origin of boiling point elevation and freezing point
+    depression. For two volatile liquids, each component obeys the law separately and the total
+    vapour pressure is the sum of the two partial pressures, as Dalton's law adds them.
+
+    The law is exact only for ideal solutions, whose components attract each other as strongly as
+    they attract their own kind; real mixtures deviate, and IUPAC measures the departure with an
+    activity coefficient referred to Raoult's law. It remains a good guide for the solvent of a dilute
+    solution, whose mole fraction is close to 1.
+
+    The law carries the name of François-Marie Raoult of the Grenoble science faculty, who in 1886
+    expressed the relative lowering of vapour pressure for solutions in ether and in 1887 extended the
+    measurements to many other volatile solvents. A liquid that is 80.0 percent ethanol by amount, with
+    glycerin as a non-volatile solute, has a vapour pressure of 0.142 atmospheres at 40 degrees
+    Celsius, against 0.178 for pure ethanol.

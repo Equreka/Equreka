@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ecuación de Henderson-Hasselbalch'
+terms:
+  \mathrm{p}K_\mathrm{a}:
+    label: 'pKa del ácido'
+  '[\mathrm{A}^{-}]':
+    label: 'Concentración de la base conjugada'
+  '[\mathrm{HA}]':
+    label: 'Concentración del ácido sin disociar'
+description: >-
+  La ecuación de Henderson-Hasselbalch da el pH de una disolución amortiguadora de un ácido débil y
+  su base conjugada: el pKa del ácido más el logaritmo decimal del cociente entre la concentración
+  de la base conjugada y la del ácido. Es la ecuación de trabajo de la química ácido-base, la
+  bioquímica y la fisiología para las disoluciones amortiguadoras que mantienen casi constante el pH
+  de una disolución o de la sangre.
+
+  $\mag{\mathrm{pH}}$ es el pH de la disolución y $\var{\mathrm{p}K_\mathrm{a}}$ el pKa del ácido
+  débil, ambos números puros. $\var{[\mathrm{A}^{-}]}$ es la concentración en el equilibrio de la
+  base conjugada, que a menudo se aporta como una sal, por ejemplo acetato de sodio, y
+  $\var{[\mathrm{HA}]}$ la del ácido sin disociar; ambas se introducen en la misma unidad,
+  normalmente moles por litro, porque solo cuenta su cociente, de modo que la concentración molar estándar
+  se cancela.
+
+  La ecuación es la constante de acidez despejada para la concentración de hidronio, tomando menos
+  el logaritmo en ambos miembros. Cantidades iguales de ácido y de base dan un pH igual al pKa; un
+  exceso de base de diez veces sube el pH una unidad, y un exceso de ácido de diez veces lo baja una
+  unidad. Como el ácido o la base añadidos cambian poco el cociente, el pH de una disolución
+  amortiguadora apenas se mueve.
+
+  Supone que la ionización del ácido y la hidrólisis de la base apenas alteran las cantidades
+  añadidas, de modo que las concentraciones preparadas sirven como valores de equilibrio; falla con
+  disoluciones amortiguadoras muy diluidas y cuando uno de los componentes baja de una décima parte
+  del otro, donde la disolución deja también de amortiguar los cambios de pH. Las concentraciones
+  sustituyen a las actividades, como en toda disolución diluida.
+
+  Lawrence Henderson escribió la relación para el amortiguador de ácido carbónico de la sangre en
+  1908, y Karl Hasselbalch la expresó en forma logarítmica en 1916. Una disolución amortiguadora con
+  0.10 mol/L de ácido acético y otro tanto de acetato de sodio tiene un pH de 4.74.

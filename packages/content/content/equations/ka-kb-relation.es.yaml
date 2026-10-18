@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Relación entre Ka y Kb'
+terms:
+  K_\mathrm{a}:
+    label: 'Constante de acidez'
+  K_\mathrm{b}:
+    label: 'Constante de basicidad de la base conjugada'
+  K_\mathrm{w}:
+    label: 'Producto iónico del agua'
+description: >-
+  La relación entre Ka y Kb establece que, para cualquier par ácido-base conjugado en agua, la
+  constante de acidez del ácido por la constante de basicidad de su base conjugada es igual
+  al producto iónico del agua. En la química ácido-base permite hallar una constante a partir de la
+  otra, de modo que las tablas solo necesitan dar una de las dos, y muestra que un ácido más fuerte
+  tiene una base conjugada más débil.
+
+  $\var{K_\mathrm{a}}$ es la constante de acidez del ácido HA y $\var{K_\mathrm{b}}$ la constante de
+  basicidad de su base conjugada A−, la constante de equilibrio de la reacción en la que A−
+  toma un protón del agua y da HA y un ion hidróxido. $\var{K_\mathrm{w}}$ es el producto iónico del
+  agua. Las tres son números puros positivos, cada una definida con las concentraciones tomadas
+  respecto de un mol por litro.
+
+  Al sumar la ionización del ácido y la reacción de su base conjugada con el agua se cancelan HA y
+  A− y queda la autoionización del agua. Cuando se suman dos reacciones, sus constantes de equilibrio
+  se multiplican, así que el producto de las dos constantes es el producto iónico. Tomando menos el
+  logaritmo se obtiene la forma equivalente: el pKa y el pKb de un par suman el pKw.
+
+  El producto iónico depende de la temperatura, por lo que la relación debe usarse con constantes
+  medidas a una misma temperatura; a $25\,^{\circ}\mathrm{C}$ el producto iónico vale
+  $1.0\times10^{-14}$. Como en cada constante por separado, las concentraciones sustituyen a las
+  actividades, lo que vale en disoluciones diluidas. La relación solo se aplica a un verdadero par
+  conjugado, cuyos miembros difieren en un protón.
+
+  El ácido acético tiene a esa temperatura una constante de acidez de $1.8\times10^{-5}$, así que el
+  ion acetato tiene una constante de basicidad de $5.6\times10^{-10}$.

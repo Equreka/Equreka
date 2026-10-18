@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Variación de energía de Gibbs estándar y potencial de la celda'
+terms:
+  \Delta_\mathrm{r} G^{\circ}:
+    label: 'Variación de energía de Gibbs estándar de la reacción'
+  z:
+    label: 'Electrones transferidos en la reacción de la celda'
+  E^{\circ}_\mathrm{cell}:
+    label: 'Potencial estándar de la celda'
+description: >-
+  La variación de energía de Gibbs estándar de una reacción redox es igual a menos el número de
+  electrones transferidos por la constante de Faraday por el potencial estándar de la celda. Esta
+  relación de la electroquímica convierte una tensión obtenida de una tabla de potenciales de
+  reducción en una energía de Gibbs, la medida termodinámica de si una reacción ocurre por sí sola,
+  y una energía de Gibbs en la tensión que puede dar una celda galvánica.
+
+  $\var{\Delta_\mathrm{r} G^{\circ}}$ es la variación de energía de Gibbs estándar de la reacción,
+  en julios por mol de reacción tal como está escrita; las tablas la dan en kilojulios por mol.
+  $\var{z}$ es el número de electrones de la reacción de la celda tal como está escrita, un entero
+  positivo. $\const{F}$ es la constante de Faraday, la carga de un mol de electrones, de unos
+  96 485 culombios por mol y exacta en el SI. $\var{E^{\circ}_\mathrm{cell}}$ es el potencial
+  estándar de la celda, en voltios, el potencial de reducción del cátodo menos el del ánodo. Un
+  culombio por un voltio es un julio, y las unidades concuerdan.
+
+  El producto de la constante de Faraday por el número de electrones es la carga que recorre el
+  circuito por mol de reacción, y el potencial es la energía por unidad de carga, así que su
+  producto es la energía eléctrica que entrega la reacción por mol cuando la celda funciona reversiblemente. El signo menos hace que un potencial positivo corresponda a una variación de energía
+  de Gibbs negativa, una reacción espontánea. Duplicar todos los coeficientes duplica el número de
+  electrones y la variación de energía de Gibbs, mientras que el potencial, que no depende de la
+  cantidad que reacciona, no cambia.
+
+  Los valores estándar corresponden a solutos a un mol por litro y gases a 1 bar. La misma forma sin
+  las marcas de estado estándar relaciona la variación de energía de Gibbs y el potencial de la
+  celda para cualquier composición, siempre que no circule corriente y los potenciales de unión
+  sean despreciables.
+
+  Para iones plata que oxidan hierro a hierro(II), con dos electrones y un potencial estándar de
+  +1.247 voltios, la relación da unos −240.6 kilojulios por mol.

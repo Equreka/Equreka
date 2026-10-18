@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de velocidad integrada de orden cero'
+terms:
+  c_\mathrm{A}:
+    label: 'Concentración de A en el instante t'
+  c_\mathrm{A,0}:
+    label: 'Concentración inicial de A'
+  k:
+    label: 'Constante de velocidad'
+description: >-
+  En una reacción de orden cero, la concentración del reactivo disminuye en línea recta con el
+  tiempo: la ley de velocidad integrada da la concentración en cualquier instante como la
+  concentración inicial menos la constante de velocidad multiplicada por el tiempo transcurrido. En
+  la cinética química se deduce de una ley de velocidad en la que la velocidad no depende de la
+  concentración del reactivo.
+
+  $\var{c_\mathrm{A}}$ es la concentración del reactivo A en el instante $\mag{t}$ y
+  $\var{c_\mathrm{A,0}}$ su concentración inicial, ambas en moles por metro cúbico, y la calculadora
+  acepta moles por litro. $\var{k}$ es la constante de velocidad, positiva y en moles por metro
+  cúbico y segundo; en este orden es la propia velocidad. $\mag{t}$ es el tiempo transcurrido desde
+  el comienzo, en segundos.
+
+  La ley de velocidad de orden cero iguala la velocidad a la constante, así que A se consume en la
+  misma cantidad cada segundo, escrita aquí para una reacción en la que reacciona una partícula de A
+  cada vez. Al sumar esas pérdidas iguales se obtiene la fórmula, y la gráfica de la concentración
+  frente al tiempo es una recta cuya pendiente es menos la constante de velocidad y cuya ordenada en
+  el origen es la concentración inicial. La semivida, la concentración inicial dividida entre el
+  doble de la constante, crece con la cantidad de partida.
+
+  El comportamiento de orden cero solo aparece en condiciones particulares: el amoníaco se descompone con cinética de orden cero sobre una superficie de tungsteno caliente, pero con cinética de primer orden sobre cuarzo, de modo que la misma reacción puede cambiar de orden con sus condiciones, y también se usa el nombre prudente de pseudoorden cero. La ley no
+  puede cumplirse hasta el final: predice concentraciones negativas pasado el cociente entre la
+  concentración inicial y la constante, mientras que la velocidad real disminuye cuando queda poco
+  reactivo. La temperatura y el volumen se toman constantes.
+
+  Para el amoníaco sobre tungsteno, OpenStax estima una
+  constante de $1.3\times10^{-6}$ moles por litro y segundo a partir de 0.0028 moles por litro
+  iniciales, que llegan a 0.0001 moles por litro al cabo de unos 35 minutos.

@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Kelvin kilogram per mole'
+symbol:
+  tex: 'K\,kg/mol'
+  text: 'K·kg/mol'
+unitOf: []
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'kelvin'
+      exp: 1
+    - unit: 'kilogram'
+      exp: 1
+    - unit: 'mole'
+      exp: -1
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'K kg/mol'
+  - 'K kg mol-1'
+  - 'K kg mol^-1'
+  - 'degC kg/mol'
+  - 'kelvin per molal'
+  - 'kelvin kilogramo por mol'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., section 2.3.4 Derived units, section 2.3.1 (the degree Celsius and temperature differences) and section 5.2 Unit symbols'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, Chemistry 2e, 11.4 Colligative Properties, Table 11.2 Boiling Point Elevation and Freezing Point Depression Constants'
+    url: 'https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.10, note 14 (molal solution)'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+description:
+  en: >-
+    The kelvin kilogram per mole, symbol $\mathrm{K\,kg/mol}$, is the coherent SI unit of the
+    ebullioscopic and cryoscopic constants of a solvent, the factors that turn the molality of a
+    solution into the rise of its boiling point or the drop of its freezing point. It is a compound
+    unit of solution chemistry with no special name.
+
+    The unit is the product of the kelvin and the kilogram divided by the mole, three SI base units,
+    so it is a coherent derived unit in the sense of the SI Brochure and needs no definition of its
+    own. Read as a kelvin divided by a mole per kilogram, it says how many kelvin of temperature
+    change one mole of dissolved particles per kilogram of solvent produces.
+
+    Because a temperature difference has the same numerical value in kelvin and in degrees Celsius,
+    one kelvin kilogram per mole equals exactly one degree Celsius kilogram per mole. A thousand
+    grams make a kilogram, so the unit also equals exactly 1000 kelvin grams per mole.
+
+    Chemistry textbooks print the same constants in degrees Celsius per molal, writing m for one mole
+    per kilogram, a shorthand IUPAC tolerates only on its own and never inside a compound unit
+    symbol. The numbers do not change: for water the ebullioscopic constant is 0.512 and the
+    cryoscopic constant 1.86 in either unit, while benzene, at 5.12 for its freezing point, gives
+    larger shifts for the same molality.
+
+    The symbol may also be written K kg mol⁻¹, with a space between the factors and a negative
+    exponent in place of the solidus, as section 5.2 of the SI Brochure allows; a unit symbol never
+    takes a plural ending.

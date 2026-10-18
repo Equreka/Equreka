@@ -1,0 +1,82 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Energy levels of a hydrogen-like ion'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{E_{n}}=-\frac{\var{Z}^{2}\const{h}\const{c}\const{R_{\infty}}}{\var{n}^{2}}'
+terms:
+  E_{n}:
+    kind: 'symbol'
+    label:
+      en: 'Energy of level n'
+    unit: 'joule'
+  Z:
+    kind: 'symbol'
+    label:
+      en: 'Atomic number'
+    integer: true
+  h:
+    kind: 'constant'
+    ref: 'planck-constant'
+  c:
+    kind: 'constant'
+    ref: 'speed-of-light'
+  R_{\infty}:
+    kind: 'constant'
+    ref: 'rydberg-constant'
+  n:
+    kind: 'symbol'
+    label:
+      en: 'Principal quantum number'
+    integer: true
+solutions:
+  E_{n}: '-Z^2 * h * c * R_infty / n^2'
+calculator:
+  enabled: true
+  solveFor: ['E_{n}']
+categories:
+  - 'chemistry'
+branches:
+  - 'atomic-structure'
+aliases:
+  - 'hydrogen-like atom energy levels'
+  - 'hydrogenic ion energy levels'
+  - 'one-electron ion energy levels'
+  - 'En = -13.6 eV Z^2 / n^2'
+  - 'Bohr energy levels with Z'
+  - 'niveles de energía hidrogenoides'
+  - 'átomo hidrogenoide'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 6.4 Bohr''s Model of the Hydrogen Atom (hydrogen-like ions, Equation 6.52)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-4-bohrs-model-of-the-hydrogen-atom'
+  - title: 'J. Tatum, Stellar Atmospheres (LibreTexts), 7.4 The Bohr Model of Hydrogen-like Atoms'
+    url: 'https://phys.libretexts.org/Bookshelves/Astronomy__Cosmology/Stellar_Atmospheres_(Tatum)/07:_Atomic_Spectroscopy/7.04:_The_Bohr_Model_of_Hydrogen-like_Atoms'
+  - title: 'NIST, CODATA 2022 value: Rydberg constant times hc in eV'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?rydhcev'
+  - title: 'NIST, CODATA 2022 value: Rydberg constant times hc in J'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?rydhcj'
+description:
+  en: >-
+    The energy levels of a hydrogen-like ion are the allowed energies of the single electron of an
+    atom stripped of all but one electron, such as He+ or Li2+. In the Bohr model of atomic structure
+    each level is the matching hydrogen level scaled by the square of the nuclear charge: minus Z
+    squared times the Rydberg energy, divided by n squared.
+
+    $\var{E_{n}}$ is the energy of level $\var{n}$, in joules, negative for a bound electron and zero
+    for an electron at rest far from the nucleus. $\var{Z}$ is the atomic number and $\var{n}$ the
+    principal quantum number, a whole number from one upwards; both are inputs only, and the
+    calculator returns the energy. The constants are the Planck constant $\const{h}$, the speed of
+    light $\const{c}$ and the Rydberg constant $\const{R_{\infty}}$, whose product, the Rydberg
+    energy, is $13.605\,693\,122\,990\,\mathrm{eV}$ in CODATA 2022.
+
+    A nucleus of charge Z pulls the electron Z times harder at a given distance, and the orbits
+    shrink by the same factor, so the binding energy grows with the square of Z. The spacing between
+    levels, and with it the energy of every emitted photon, grows in the same proportion, which moves
+    the spectra of these ions towards the ultraviolet.
+
+    The formula treats the nucleus as infinitely heavy. A real ion needs the reduced mass of electron
+    and nucleus in place of the electron mass, a correction near 0.05 percent for hydrogen that
+    shrinks for heavier nuclei. Finer splittings of the levels lie beyond the model, which also fails for any atom with two or more electrons, where shielding changes the effective charge.
+
+    The ground state of He+ lies about 54.4 electronvolts below the ionization limit, four times
+    deeper than that of hydrogen.

@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Half-life of a first-order reaction'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{t_{1/2}}=\frac{\ln 2}{\var{k}}'
+terms:
+  t_{1/2}:
+    kind: 'symbol'
+    label:
+      en: 'Half-life'
+    unit: 'second'
+  k:
+    kind: 'symbol'
+    label:
+      en: 'Rate constant'
+    unit: 'reciprocal-second'
+solutions:
+  t_{1/2}: 'ln(2) / k'
+  k: 'ln(2) / t_12'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'chemical-kinetics'
+aliases:
+  - 'first order half life'
+  - 'first-order half-life'
+  - 'half-life of a reaction'
+  - 't1/2 = 0.693/k'
+  - 't1/2 = ln 2 / k'
+  - 'semivida de primer orden'
+  - 'vida media de una reacción'
+references:
+  - title: 'OpenStax, Chemistry 2e, 12.4 Integrated Rate Laws, The Half-Life of a Reaction, Example 12.11 and Table 12.2'
+    url: 'https://openstax.org/books/chemistry-2e/pages/12-4-integrated-rate-laws'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.12, p. 64, half life and note 8'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+description:
+  en: >-
+    For a reaction of first order, the half-life, the time in which half of the reactant present is consumed, equals the natural logarithm of two divided by the rate constant. In chemical kinetics
+    it is the one half-life that does not depend on how much reactant there is at the start.
+
+    $\var{t_{1/2}}$ is the half-life, in seconds, and $\var{k}$ the first-order rate constant, in
+    reciprocal seconds; both are positive. The natural logarithm of two is about 0.693, so textbooks
+    often write the half-life as 0.693 over the constant. Minutes, hours or days serve equally well if the
+    constant is stated per minute, hour or day.
+
+    The formula follows from the first-order integrated rate law: setting the concentration at the
+    half-life equal to half the initial concentration cancels the initial value and leaves one half
+    equal to the exponential of minus the constant times the half-life. Every further half-life
+    halves what remains, so after three of them an eighth of the reactant is left. Doubling the
+    constant halves the half-life.
+
+    The result holds only for first-order kinetics at constant temperature. For zero order the
+    half-life is the initial concentration over twice the constant and for second order one over
+    the constant times the initial concentration, so a half-life that stays the same as the reaction
+    runs is a sign of first order. IUPAC distinguishes it from the relaxation time, in which a
+    concentration perturbation falls to 1/e of its starting value. Its nuclear twin is the
+    half-life and decay constant relation, the same formula written with the decay constant of a
+    radionuclide.
+
+    Hydrogen peroxide decomposes in water at $40\,^{\circ}\mathrm{C}$ with a half-life of
+    21 600 seconds, so its rate constant is about $3.21\times10^{-5}\,\mathrm{s^{-1}}$,
+    as OpenStax shows.

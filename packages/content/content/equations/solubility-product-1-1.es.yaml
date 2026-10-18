@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Producto de solubilidad de una sal 1:1'
+terms:
+  K_\mathrm{sp}:
+    label: 'Producto de solubilidad'
+  s:
+    label: 'Solubilidad molar'
+description: >-
+  Para una sal poco soluble que se disuelve en un catión y un anión, como el cloruro de plata o el
+  bromuro de cobre(I), el producto de solubilidad es igual al cuadrado de la solubilidad molar
+  tomada respecto de la concentración molar estándar. Es la constante de equilibrio de la disolución en el
+  equilibrio químico, escrita para el tipo de fórmula más sencillo.
+
+  $\var{K_\mathrm{sp}}$ es el producto de solubilidad, un número puro. $\var{s}$ es la solubilidad
+  molar, la cantidad de sal que se disuelve por unidad de volumen de disolución saturada, en moles
+  por metro cúbico, y la calculadora acepta moles por litro. $\const{c^{\circ}}$ es la concentración
+  estándar, exactamente un mol por litro, de modo que una solubilidad en moles por litro entra como
+  su número sin más.
+
+  En una disolución saturada, el sólido está en equilibrio con sus iones. Cada unidad de fórmula
+  que se disuelve libera un catión y un anión, así que las dos concentraciones iónicas son iguales a
+  la solubilidad molar, y su producto dividido entre el cuadrado de la concentración estándar es la
+  constante; el propio sólido no aparece en la expresión. Leída al revés, la solubilidad molar es la
+  concentración estándar por la raíz cuadrada de la constante. Las sales de otros tipos de fórmula
+  siguen otras potencias: una con dos aniones por catión da cuatro veces el cubo del cociente de
+  solubilidad.
+
+  La fórmula supone que la sal se disuelve en agua pura: un ion ya presente que la sal también libera reduce la solubilidad, el efecto del ion común. La disolución debe ser lo bastante diluida para que las concentraciones sustituyan a las actividades, y la constante depende de la temperatura. La IUPAC
+  llama producto de solubilidad a esta constante de equilibrio de disolución, con los símbolos Ksol
+  o Ks, y Ksp es la forma de los libros de texto.
+
+  El bromuro de cobre(I) tiene un producto de solubilidad de $6.3\times10^{-9}$, así que su
+  solubilidad molar es de unos $7.9\times10^{-5}$ moles por litro, como muestra OpenStax.

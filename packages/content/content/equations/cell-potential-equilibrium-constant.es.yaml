@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Potencial estándar de la celda y constante de equilibrio'
+terms:
+  E^{\circ}_\mathrm{cell}:
+    label: 'Potencial estándar de la celda'
+  z:
+    label: 'Electrones transferidos en la reacción de la celda'
+  K:
+    label: 'Constante de equilibrio'
+description: >-
+  El potencial estándar de la celda de una reacción redox es igual a RT entre zF por el logaritmo
+  natural de su constante de equilibrio. Al unir las relaciones de la energía de Gibbs de la
+  electroquímica y de la termodinámica química, convierte una tensión medida en una celda galvánica,
+  u obtenida de potenciales de reducción tabulados, en una constante de equilibrio, a menudo
+  demasiado grande o pequeña para obtenerla de concentraciones medidas.
+
+  $\var{E^{\circ}_\mathrm{cell}}$ es el potencial estándar de la celda, en voltios, el potencial de
+  reducción del cátodo menos el del ánodo. $\const{R}$ es la constante molar de los gases y
+  $\const{F}$ la constante de Faraday, ambas exactas en el SI. $\mag{T}$ es la temperatura
+  termodinámica, absoluta, en kelvin. $\var{z}$ es el número de electrones de la reacción de la celda
+  tal como está escrita, un entero positivo. $\var{K}$ es la constante de equilibrio estándar de esa
+  reacción, sin unidad: sus concentraciones se dividen entre la concentración molar estándar de un
+  mol por litro y sus presiones de gas entre la presión estándar de 1 bar.
+
+  La variación de energía de Gibbs estándar es igual a menos zF por el potencial estándar y también a
+  menos RT por el logaritmo de la constante; igualar ambas expresiones da la relación. La ecuación
+  de Nernst lleva al mismo resultado, ya que en el equilibrio el potencial de la celda es cero y el
+  cociente de reacción es igual a la constante. Un potencial positivo implica una constante mayor que
+  uno, y uno negativo, menor que uno. La dependencia es exponencial: a 298.15 kelvin, cada 0.05916
+  voltios entre z multiplican la constante por diez.
+
+  Las concentraciones y las presiones sustituyen a las actividades y fugacidades solo en
+  disoluciones diluidas y gases ideales. El potencial y la constante deben referirse a la misma
+  temperatura y a la reacción escrita con los mismos coeficientes, porque duplicarlos eleva la
+  constante al cuadrado sin cambiar el potencial.
+
+  Para iones plata que oxidan hierro a hierro(II), dos electrones y un potencial estándar de +1.247
+  voltios dan una constante del orden de $10^{42}$, así que la reacción es prácticamente completa.

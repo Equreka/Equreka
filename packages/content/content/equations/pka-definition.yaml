@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Definition of pKa'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{\mathrm{p}K_\mathrm{a}}=-\log_{10}\var{K_\mathrm{a}}'
+terms:
+  \mathrm{p}K_\mathrm{a}:
+    kind: 'symbol'
+    label:
+      en: 'pKa of the acid'
+    identifier: 'pK_a'
+  K_\mathrm{a}:
+    kind: 'symbol'
+    label:
+      en: 'Acid dissociation constant'
+solutions:
+  \mathrm{p}K_\mathrm{a}: '-log10(K_a)'
+  K_\mathrm{a}: '10^(-pK_a)'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'acids-and-bases'
+aliases:
+  - 'pKa'
+  - 'pKa formula'
+  - 'pKa = -log Ka'
+  - 'Ka from pKa'
+  - 'acid strength scale'
+  - 'definición de pKa'
+  - 'cálculo del pKa'
+references:
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 4.1, rule 5 (the operator p, pK = -lg K)'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'OpenStax, Chemistry 2e, 14.6 Buffers (pKa, Example 14.20)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/14-6-buffers'
+  - title: 'OpenStax, Chemistry 2e, 14.3 Relative Strengths of Acids and Bases'
+    url: 'https://openstax.org/books/chemistry-2e/pages/14-3-relative-strengths-of-acids-and-bases'
+description:
+  en: >-
+    The definition of pKa expresses the strength of an acid on a logarithmic scale: the pKa is minus
+    the base-ten logarithm of the acid dissociation constant. Chemists use it in acid-base chemistry,
+    biochemistry and analytical chemistry because the constants of common acids span many powers of
+    ten, while their pKa values fit in a short range of ordinary numbers.
+
+    $\var{\mathrm{p}K_\mathrm{a}}$ is the pKa of the acid, a pure number, and
+    $\var{K_\mathrm{a}}$ the acid dissociation constant, a positive pure number defined with every
+    concentration taken relative to one mole per litre. The letter p is an operator meaning minus
+    the base-ten logarithm, the same one that turns the hydrogen ion concentration into the pH, and
+    IUPAC prints it upright.
+
+    The minus sign reverses the order: a smaller pKa means a larger constant and a stronger acid,
+    and each unit of pKa is a factor of ten in the constant. The pKa is also the pH at which the acid and
+    its conjugate base are present in equal amounts, which is why it sets the working range of a
+    buffer.
+
+    Like the constant itself, the pKa depends on temperature and on the solvent, and tabulated
+    values refer to dilute aqueous solutions, where concentrations stand in for activities. The
+    same operator gives the pKb of a base and the pKw of water.
+
+    Acetic acid, with an acid dissociation constant of $1.8\times10^{-5}$, has a pKa of 4.74.
