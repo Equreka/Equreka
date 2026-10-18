@@ -1,6 +1,6 @@
 # 0009 — Solution contract v2: term identity and scale-free verification
 
-Date: 2026-10-06 · Status: accepted · Amended 2026-10-06 (grammar v2 and multi-root solutions; coverage and calculator rules) · Amended 2026-10-10 (side precision and the wide sampling box)
+Date: 2026-10-06 · Status: accepted · Amended 2026-10-06 (grammar v2 and multi-root solutions; coverage and calculator rules) · Amended 2026-10-10 (side precision, the wide sampling box and ill-conditioned samples)
 
 ## Context
 
@@ -155,9 +155,17 @@ Compute-engine evaluates the sides at 50 significant digits. A side is then exac
 
 A root short of 20 valid samples after its 400 unit-box attempts gets a second pass of 400 attempts, with each free real term log-uniform over 1e-30 to 1e30 and integer terms unchanged (0–10). The pass has its own seed (`slug:key#index:wide`). The unit-box seed and samples never move, so every root that passed before passes on the same samples. Wide-box samples face the same balance check, so a wrong root still fails (`p = sqrt(E^2 - (m c^2)^2) / (2 c)` disagrees). A root still short after both passes fails as before, with the message naming both boxes.
 
+### Ill-conditioned samples
+
+Added the same day, from the W16 preflight. The Nernst root `Q = exp(z F (E_cell - E_cell_cond) / (R T))` overflows across most of the unit box, where T runs from 0.1 K to 10 K, and so moves to the wide box. There it met a sample with T near 1e24 K, where Q is 1 + 2e-13. Float64 keeps only three digits of that quotient's logarithm, so the rounding of Q alone breaks the balance, whatever the root.
+
+The verifier now measures that before it fails a sample. It nudges the target by a relative 1e-8, scales the residual's shift down to the 64 units in the last place a stable float64 root may carry, and skips the sample as ill-conditioned when that alone exceeds the tolerance. A nudge that leaves the real domain also counts as ill-conditioned.
+
+The test runs only on a sample that fails, so passing verdicts never change. A wrong root still disagrees at the first well-conditioned sample (`exp(2 z F ...)` does). An unstable root at a well-conditioned sample also still fails: the relativistic kinetic energy at walking speed shifts its residual by the nudge alone, far inside the tolerance.
+
 ### Version
 
-`CONTENT_PIPELINE_VERSION` goes from 5 to 6: verdicts and messages changed, so every cached verification is invalid.
+`CONTENT_PIPELINE_VERSION` goes from 5 to 6: verdicts and messages changed, so every cached verification is invalid. The ill-conditioning test takes it to 7.
 
 ## Consequences
 

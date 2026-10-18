@@ -371,6 +371,9 @@ function sampleRoot(
 				continue;
 			}
 			if (!balance.balanced) {
+				if (illConditioned(context, targetKey, values, balance)) {
+					continue;
+				}
 				return {
 					points,
 					message:
@@ -387,6 +390,49 @@ function sampleRoot(
 				message: `${label} produced only ${points.length}/${SAMPLE_TARGET} valid samples in ${SAMPLE_ATTEMPT_LIMIT} attempts per sampling box (${SAMPLING_BOXES.map((box) => box.label).join(', then ')})`,
 			}
 		: { points };
+}
+
+/**
+ * Relative nudge applied to the target to measure how strongly the balance
+ * depends on it: small enough to stay linear, far above float64 noise.
+ */
+const CONDITIONING_STEP = 1e-8;
+
+/**
+ * Relative error a float64 root may carry from a stable evaluation: 64 units
+ * in the last place.
+ */
+const ROOT_ROUNDING = 32 * Number.EPSILON;
+
+/**
+ * Whether the equation, at this sample, is too sensitive to its target for
+ * any float64 root to balance it. Nudging the target by CONDITIONING_STEP
+ * shifts the residual; scaled down to ROOT_ROUNDING, that shift is what the
+ * target's own rounding costs, and when it alone exceeds the tolerance the
+ * sample cannot judge a root (Nernst's `Q` at T = 1e24 K is 1 + 2e-13, whose
+ * logarithm float64 keeps to three digits). Only a failing sample is tested,
+ * so every passing verdict stands, and a wrong root at a well-conditioned
+ * sample still disagrees. A nudge that leaves the real domain marks the
+ * sample as ill-conditioned too.
+ */
+function illConditioned(
+	context: SamplingContext,
+	targetKey: string,
+	values: ReadonlyMap<string, number>,
+	balance: Balance,
+): boolean {
+	const target = values.get(targetKey);
+	if (target === undefined || target === 0) {
+		return false;
+	}
+	const nudged = new Map(values);
+	nudged.set(targetKey, target * (1 + CONDITIONING_STEP));
+	const shifted = sideBalance(context.sides, placeholderEnv(context.termKeys, nudged));
+	if (shifted === undefined) {
+		return true;
+	}
+	const shift = Math.abs(shifted.lhs - shifted.rhs - (balance.lhs - balance.rhs));
+	return shift * (ROOT_ROUNDING / CONDITIONING_STEP) > RELATIVE_TOLERANCE * balance.scale;
 }
 
 /**
@@ -525,6 +571,7 @@ interface Balance {
 	lhs: number;
 	rhs: number;
 	balanced: boolean;
+	scale: number;
 }
 
 /**
@@ -549,7 +596,7 @@ function sideBalance(sides: ParsedSides, env: Record<string, number>): Balance |
 	const scale = Math.max(...[...lhsValues, ...rhsValues].map((value) => Math.abs(value)));
 	const residual = Math.abs(lhs - rhs);
 	const balanced = scale === 0 ? residual === 0 : residual <= RELATIVE_TOLERANCE * scale;
-	return { lhs, rhs, balanced };
+	return { lhs, rhs, balanced, scale };
 }
 
 function signedValues(

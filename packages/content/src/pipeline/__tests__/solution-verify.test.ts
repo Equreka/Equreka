@@ -324,6 +324,37 @@ describe('verifyEquation — wide sampling box', () => {
 	});
 });
 
+describe('verifyEquation — ill-conditioned samples', () => {
+	const nernst = (quotient: string): EquationSolutionInput => ({
+		slug: 'nernst-equation',
+		expression:
+			'\\var{E_\\mathrm{cell}}=\\var{E^{\\circ}_\\mathrm{cell}}-\\frac{\\const{R}\\mag{T}}{\\var{z}\\const{F}}\\ln\\var{Q}',
+		terms: {
+			'E_\\mathrm{cell}': { kind: 'symbol', identifier: 'E_cell_cond' },
+			'E^{\\circ}_\\mathrm{cell}': { kind: 'symbol', identifier: 'E_cell' },
+			R: { kind: 'constant' },
+			T: { kind: 'magnitude' },
+			z: { kind: 'symbol', integer: true },
+			F: { kind: 'constant' },
+			Q: { kind: 'symbol' },
+		},
+		solutions: { Q: quotient },
+		constantValues: { R: 8.31446261815324, F: 96485.33212 },
+	});
+
+	it('skips samples where the target rounding alone breaks the balance', () => {
+		const result = verifyEquation(nernst('exp(z * F * (E_cell - E_cell_cond) / (R * T))'));
+		expect(result.messages).toEqual([]);
+		expect(result.samples.Q).toEqual([20]);
+	});
+
+	it('still rejects a wrong root at a well-conditioned sample', () => {
+		expect(
+			verifyEquation(nernst('exp(2 * z * F * (E_cell - E_cell_cond) / (R * T))')).messages,
+		).toEqual([expect.stringContaining("solution for 'Q' disagrees")]);
+	});
+});
+
 describe('verifyEquation — complex samples', () => {
 	it('skips a sample whose side is complex instead of comparing its real part', () => {
 		const result = verifyEquation({
