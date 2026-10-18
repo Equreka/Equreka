@@ -88,6 +88,47 @@ describe('math renderer', () => {
 		expect(unbroken.svg.match(/<svg\b/g)?.length).toBe(1);
 	}, 30_000);
 
+	it('accepts a tall stretchy delimiter, moving its nested viewport offset into a translate', async () => {
+		const tall = '\\left(\\frac{1}{\\sqrt{1-\\frac{v^{2}}{c^{2}}}}-1\\right)';
+		const raw = await global.renderRaw(tall, true);
+		expect(raw.match(/<svg\b/g)?.length ?? 0).toBeGreaterThan(1);
+		expect(raw).toMatch(/<svg width="[^"]*" height="[^"]*" y="-\d/);
+		const body = await global.render(tall, true);
+		const nested = body.svg.match(/<svg\b[^>]*>/g)?.slice(1) ?? [];
+		expect(nested.length).toBeGreaterThan(0);
+		for (const tag of nested) {
+			expect(tag).not.toMatch(/\s[xy]="/);
+			expect(tag).toMatch(/\sviewBox="/);
+		}
+		expect(body.svg).toMatch(/<g transform="translate\(0,-\d+(?:\.\d+)?\)"><svg width=/);
+		expect(body.svg.match(/<svg\b/g)?.length).toBe(body.svg.match(/<\/svg>/g)?.length);
+		const atlas = atlasOf(global);
+		const encoded = encodeMathBody(body, atlas);
+		expect(isLeanMathBody(encoded)).toBe(true);
+		expect(hydrateMathBody(encoded, atlas)).toBe(hydrateMathBody(body, atlas));
+	});
+
+	it('counts roots, not nested viewports, and drops a zero offset without wrapping', () => {
+		const root = (inner: string) =>
+			`<svg style="vertical-align: 0;" width="1ex" height="1ex" viewBox="0 0 1 1">${inner}</svg>`;
+		const unmoved = normalizeMathBody(
+			root('<g><svg width="1" height="1" x="0" y="0" viewBox="0 0 1 1"></svg></g>'),
+		);
+		expect(unmoved.svg).toContain('<g><svg width="1" height="1" viewBox="0 0 1 1"></svg></g>');
+		const moved = normalizeMathBody(
+			root('<svg width="1" height="1" x="2" y="-3" viewBox="0 0 1 1"></svg>'),
+		);
+		expect(moved.svg).toContain(
+			'<g transform="translate(2,-3)"><svg width="1" height="1" viewBox="0 0 1 1"></svg></g></svg>',
+		);
+		expect(() => normalizeMathBody(`${root('')}${root('')}`)).toThrow(
+			/exactly one <svg> root, got 2/,
+		);
+		expect(() => normalizeMathBody(`${root('')}<mjx-break></mjx-break>`)).toThrow(
+			/exactly one <svg> root/,
+		);
+	});
+
 	it('turns inline TeX errors and undefined control sequences into build errors', async () => {
 		await expect(global.render('\\frac{', false)).rejects.toThrow(/TeX error: Missing close brace/);
 		await expect(global.render('\\nosuchmacro x', false)).rejects.toThrow(

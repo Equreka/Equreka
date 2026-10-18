@@ -265,6 +265,67 @@ export function mathBodyGlyphs(svg: string): string[] {
 	return [...new Set(Array.from(svg.matchAll(GLYPH_HREF_RE), (match) => match[1] ?? ''))];
 }
 
+const SVG_TAG_RE = /<svg\b[^>]*>|<\/svg>/g;
+
+const POSITION_ATTRIBUTE_RE = /\s[xy]="[^"]*"/g;
+
+const NESTED_X_RE = /\sx="([^"]*)"/;
+
+const NESTED_Y_RE = /\sy="([^"]*)"/;
+
+/**
+ * Top-level `<svg>` elements in raw MathJax output, and whether markup sits
+ * outside them. A nested `<svg>` (the clipped extender of a tall stretchy
+ * delimiter) is part of its root, not a root of its own.
+ */
+export function mathSvgRoots(raw: string): { roots: number; stray: boolean } {
+	let depth = 0;
+	let roots = 0;
+	let covered = 0;
+	let rootStart = 0;
+	for (const match of raw.matchAll(SVG_TAG_RE)) {
+		if (match[0] === '</svg>') {
+			depth -= 1;
+			if (depth === 0) {
+				covered += match.index + match[0].length - rootStart;
+			}
+		} else {
+			if (depth === 0) {
+				roots += 1;
+				rootStart = match.index;
+			}
+			depth += 1;
+		}
+	}
+	return { roots, stray: depth !== 0 || covered !== raw.length };
+}
+
+/**
+ * Moves the `x`/`y` of every nested `<svg>` into a wrapping translate.
+ * react-native-svg's native SvgView takes no position, so it draws a nested
+ * viewport at its parent's origin, while MathJax offsets the extender of a
+ * tall stretchy delimiter with `y`; every renderer honours the translate,
+ * and the nested viewport still clips the stretched glyph to its band.
+ */
+export function positionNestedViewports(svg: string): string {
+	const wrapped: boolean[] = [];
+	return svg.replace(SVG_TAG_RE, (tag, offset: number) => {
+		if (tag === '</svg>') {
+			return wrapped.pop() === true ? '</svg></g>' : tag;
+		}
+		if (offset === 0) {
+			wrapped.push(false);
+			return tag;
+		}
+		const x = NESTED_X_RE.exec(tag)?.[1] ?? '0';
+		const y = NESTED_Y_RE.exec(tag)?.[1] ?? '0';
+		const bare = tag.replace(POSITION_ATTRIBUTE_RE, '');
+		const moved = x !== '0' || y !== '0';
+		wrapped.push(moved);
+		return moved ? `<g transform="translate(${x},${y})">${bare}` : bare;
+	});
+}
+
 /**
  * Rebuilds a self-contained SVG document from one body and the atlas by
  * prepending a `<defs>` block with the body's glyph paths — `<use href>`

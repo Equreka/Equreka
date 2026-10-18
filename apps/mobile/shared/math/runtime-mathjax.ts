@@ -1,3 +1,4 @@
+import { mathSvgRoots, positionNestedViewports } from '@equreka/content/rich-text';
 import { EX_PER_FONT_PX, type HydratedMath } from './hydrate';
 import { createRuntimeMathCore, type RuntimeMathCore } from './runtime-mathjax-core';
 
@@ -86,8 +87,8 @@ const MERROR_RE = /data-mml-node="merror"[^>]*data-mjx-error="([^"]*)"/;
  * before the `style` attribute that carries `vertical-align` is stripped.
  */
 export function normalizeRuntimeMath(raw: string): RuntimeMathBody {
-	const roots = raw.match(/<svg\b/g)?.length ?? 0;
-	if (roots !== 1 || !raw.startsWith('<svg') || !raw.endsWith('</svg>')) {
+	const { roots, stray } = mathSvgRoots(raw);
+	if (roots !== 1 || stray) {
 		throw new RuntimeMathError(`expected exactly one <svg> root, got ${roots}`);
 	}
 	const merror = MERROR_RE.exec(raw);
@@ -96,7 +97,7 @@ export function normalizeRuntimeMath(raw: string): RuntimeMathBody {
 	}
 	const rootTag = raw.slice(0, raw.indexOf('>') + 1);
 	return {
-		svg: raw.replace(STRIP_ATTRIBUTES_RE, ''),
+		svg: positionNestedViewports(raw.replace(STRIP_ATTRIBUTES_RE, '')),
 		wEx: exMetric(rootTag, /\swidth="(-?\d+(?:\.\d+)?)([a-z%]*)"/, 'width'),
 		hEx: exMetric(rootTag, /\sheight="(-?\d+(?:\.\d+)?)([a-z%]*)"/, 'height'),
 		dyEx: exMetric(
