@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Kinetic energy of a rolling body'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{E_\mathrm{k}}=\frac{1}{2}\mag{m}\mag{v}^{2}+\frac{1}{2}\mag{I}\left(\frac{\mag{v}}{\var{r}}\right)^{2}'
+terms:
+  E_\mathrm{k}:
+    kind: 'magnitude'
+    ref: 'kinetic-energy'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  I:
+    kind: 'magnitude'
+    ref: 'moment-of-inertia'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Radius of the rolling body'
+    unit: 'metre'
+solutions:
+  E_\mathrm{k}: 'm * v^2 / 2 + I * (v / r)^2 / 2'
+  m: '(2 * E_k - I * v^2 / r^2) / v^2'
+  v: 'sqrt(2 * E_k / (m + I / r^2))'
+  I: 'r^2 * (2 * E_k - m * v^2) / v^2'
+  r: 'v * sqrt(I / (2 * E_k - m * v^2))'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'rolling kinetic energy'
+  - 'kinetic energy of rolling motion'
+  - 'rolling without slipping energy'
+  - 'translational plus rotational kinetic energy'
+  - 'energía cinética de rodadura'
+  - 'rodadura sin deslizamiento'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 11.1 Rolling Motion (Example 11.3)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/11-1-rolling-motion'
+  - title: 'R. Nave, HyperPhysics, Rolling Without Slipping (kinetic energy about the centre of mass)'
+    url: 'https://hyperphysics.gsu.edu/hbase/rotwe.html'
+description:
+  en: >-
+    The kinetic energy of a body rolling without slipping is the sum of two parts: the energy of its
+    centre of mass moving in a straight line and the energy of its spin about that centre. Because
+    the contact point does not slide, the spin rate is the forward speed divided by the radius, so in
+    rigid-body mechanics the whole energy of a rolling wheel, ball or cylinder follows from its speed
+    alone.
+
+    In the formula, $\mag{E_\mathrm{k}}$ is the total kinetic energy in joules, $\mag{m}$ the mass in
+    kilograms and $\mag{v}$ the speed of the centre of mass in metres per second. $\mag{I}$ is the
+    moment of inertia about the axis through the centre of mass, in kilogram square metres, and
+    $\var{r}$ is the radius of the rolling body in metres, the distance from that axis to the
+    contact point. Every quantity is non-negative.
+
+    The first term is the translational kinetic energy and the second the rotational one, with the
+    angular speed written as $\mag{v}$ over $\var{r}$. For shapes whose moment of inertia is a fraction
+    of the mass times the radius squared, the share of energy in rotation depends only on that
+    fraction: a hoop or thin-walled cylinder carries half its energy in spin, a solid cylinder a
+    third. Rolling down the same slope, a body that stores less energy in rotation therefore gains
+    speed faster.
+
+    The formula requires rolling without slipping on a surface at rest. Static friction at the
+    contact point then does no work, so the total mechanical energy is conserved; once the body
+    skids, the speed and the spin no longer match and kinetic friction dissipates energy. The moment
+    of inertia must be taken about the centre of mass, using the parallel axis theorem when it is
+    known about another axis.
+
+    A rover wheel of 5 kilograms, modelled as a hoop of radius 0.25 metres and rolling at 9.63
+    metres per second, carries about 464 joules, half of it rotational.

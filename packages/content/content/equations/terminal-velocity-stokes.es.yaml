@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Velocidad límite de Stokes'
+terms:
+  v_\mathrm{t}:
+    label: 'Velocidad límite'
+  r:
+    label: 'Radio de la esfera'
+  \rho_\mathrm{o}:
+    label: 'Densidad de la esfera'
+  \rho_\mathrm{f}:
+    label: 'Densidad del fluido'
+  g:
+    label: 'Aceleración de la gravedad'
+description: >-
+  La velocidad límite de Stokes es la velocidad constante con la que una esfera pequeña se hunde o
+  asciende en un fluido viscoso una vez que su peso, el empuje y el arrastre viscoso se equilibran.
+  Crece con el cuadrado del radio y con la diferencia entre las densidades de la esfera y del
+  fluido, y disminuye con la viscosidad, así que en mecánica de fluidos fija el ritmo de
+  sedimentación del limo, las gotitas de niebla y las bolas de los
+  viscosímetros de caída de bola.
+
+  Aquí $\var{v_\mathrm{t}}$ es la velocidad límite en metros por segundo, positiva hacia abajo; un
+  valor negativo indica que la esfera es menos densa que el fluido y asciende, como una gota de aceite en agua. Ese signo la distingue de la rapidez límite general, que se introduce como módulo. $\var{r}$ es el radio de la esfera en metros, $\var{\rho_\mathrm{o}}$ la densidad
+  de la esfera y $\var{\rho_\mathrm{f}}$ la del fluido, ambas en kilogramos por metro cúbico, y
+  $\mag{\eta}$ la viscosidad dinámica del fluido, que se expresa en pascal segundo. $\var{g}$ es el módulo de la aceleración de la gravedad, introducido como positivo; su valor normal es 9.80665 metros por segundo al cuadrado, y el valor local varía con el lugar y es distinto en otro planeta o satélite.
+
+  El peso menos el empuje es el volumen de la esfera por la diferencia de densidades por $\var{g}$.
+  Igualarlo al arrastre de Stokes, seis pi por la viscosidad por el radio por la velocidad, y despejar la velocidad da la fórmula. Por eso un grano de la mitad de anchura sedimenta cuatro veces más
+  despacio.
+
+  El resultado solo vale mientras el número de Reynolds formado con la densidad del fluido, la
+  rapidez y el diámetro, divididos entre la viscosidad, se mantenga por debajo de aproximadamente
+  uno. Las esferas más rápidas o más grandes dejan una estela, y pasa a dominar el arrastre cuadrático de la velocidad límite general. La fórmula supone
+  además una esfera rígida lejos de paredes y de otras partículas, en un fluido por lo demás en
+  reposo.
+
+  George Gabriel Stokes publicó en 1851 el arrastre de un flujo muy lento sobre una esfera. Una bola
+  de acero de 1 milímetro de diámetro que se hunde en glicerina a 20 grados Celsius sedimenta a unos
+  2.4 milímetros por segundo, con un número de Reynolds cercano a 0.002.

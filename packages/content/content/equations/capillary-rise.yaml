@@ -1,0 +1,91 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Capillary rise'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{h}=\frac{2\mag{\gamma}\cos\mag{\theta}}{\mag{\rho}\var{g}\var{r}}'
+terms:
+  h:
+    kind: 'symbol'
+    label:
+      en: 'Capillary rise'
+    unit: 'metre'
+  \gamma:
+    kind: 'magnitude'
+    ref: 'surface-tension'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  \rho:
+    kind: 'magnitude'
+    ref: 'density'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Radius of the tube'
+    unit: 'metre'
+solutions:
+  h: '2 * gamma * cos(theta) / (rho * g * r)'
+  \gamma: 'h * rho * g * r / (2 * cos(theta))'
+  \theta: 'acos(h * rho * g * r / (2 * gamma))'
+  \rho: '2 * gamma * cos(theta) / (h * g * r)'
+  g: '2 * gamma * cos(theta) / (rho * h * r)'
+  r: '2 * gamma * cos(theta) / (rho * g * h)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q3258330'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'Jurin''s law'
+  - 'Jurin law'
+  - 'capillary action'
+  - 'capillary height'
+  - 'capillary depression'
+  - 'height of a liquid in a capillary tube'
+  - 'ley de Jurin'
+  - 'capilaridad'
+  - 'descenso capilar'
+references:
+  - title: 'OpenStax, College Physics 2e, 11.8 Cohesion and Adhesion in Liquids: Surface Tension and Capillary Action (Tables 11.3 and 11.4, Example 11.12)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/11-8-cohesion-and-adhesion-in-liquids-surface-tension-and-capillary-action'
+  - title: 'M. J. Hernández Lucas, Universitat de València, Demostraciones de Física, Demo 37: Capilaridad, ley de Jurin'
+    url: 'https://www.uv.es/piefisic/w3demos/castellano/catalogo/demos/demo37/demo37'
+  - title: 'Encyclopaedia Britannica, 11th ed. (1911), Capillary Action (Wikisource)'
+    url: 'https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Capillary_Action'
+  - title: 'NIST, CODATA Value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+description:
+  en: >-
+    Capillary rise is the height to which a liquid climbs, or is pushed down, inside a narrow tube
+    dipped into it, measured from the liquid level outside. Known as Jurin's law, the
+    formula makes that height twice the surface tension times the cosine of the contact angle,
+    divided by the density, the gravitational acceleration and the radius of the tube. In fluid
+    mechanics it describes capillary action in wicks, soils and paper.
+
+    Here $\var{h}$ is the capillary rise in metres, positive when the liquid climbs and negative for
+    a depression. $\mag{\gamma}$ is the surface tension of the liquid in newtons per metre,
+    $\mag{\rho}$ its density in kilograms per cubic metre and $\var{r}$ the inner radius of the tube
+    in metres. $\mag{\theta}$ is the contact angle between the liquid surface and the wall, from 0 to
+    180 degrees, with the radian as coherent unit: about 0 degrees for water on clean glass, 140 for
+    mercury on glass. $\var{g}$ is the size of the gravitational acceleration, entered positive; its standard value is 9.80665 metres per second squared, and the local value varies with place and differs on another planet or moon.
+
+    Along the circle where the liquid meets the wall, surface tension pulls with a vertical
+    component equal to the circumference times the surface tension times the cosine of the contact
+    angle. The column stops rising when that pull equals the weight of the raised liquid, the
+    cross-sectional area times the height times the density times $\var{g}$, and solving the balance
+    gives the formula. Above 90 degrees the cosine turns negative and the liquid sinks.
+
+    The formula assumes a narrow tube, about a millimetre across or less, with a clean wall and a
+    curved surface close to part of a sphere; it ignores the small volume of the meniscus.
+
+    James Jurin reported in the Philosophical Transactions of 1718 and 1719 that the rise varies
+    inversely with the radius of the bore. Water at 20 degrees Celsius climbs about 15 centimetres in a clean glass tube 0.1 millimetres in radius, while mercury sinks about 5.3.

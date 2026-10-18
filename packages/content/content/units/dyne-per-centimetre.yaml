@@ -1,0 +1,60 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Dyne per centimetre'
+symbol:
+  tex: 'dyn/cm'
+unitOf:
+  - 'surface-tension'
+system: 'cgs'
+compose:
+  of:
+    - unit: 'dyne'
+      exp: 1
+    - unit: 'centimetre'
+      exp: -1
+externalIds:
+  wikidata: 'Q106455582'
+  qudt: 'http://qudt.org/vocab/unit/DYN-PER-CentiM'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'dyne per centimeter'
+  - 'dynes per centimetre'
+  - 'dynes per centimeter'
+  - 'dyn/cm'
+  - 'dyne/cm'
+  - 'dynes/cm'
+  - 'dyn cm-1'
+  - 'dina por centímetro'
+references:
+  - title: 'QUDT, unit DYN-PER-CentiM (conversion multiplier 0.001)'
+    url: 'https://qudt.org/vocab/unit/DYN-PER-CentiM'
+  - title: 'NIST, Guide to the SI (SP 811), Appendix B.8: dyne (dyn)'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'R. Nave, HyperPhysics, Surface Tension (values in dynes per centimetre)'
+    url: 'https://hyperphysics.gsu.edu/hbase/surten.html'
+  - title: 'BIPM, The International System of Units, 9th ed., Appendix 4 (the CGS system, 1874)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+description:
+  en: >-
+    The dyne per centimetre, symbol $\mathrm{dyn/cm}$, is the unit of force per unit length of the
+    centimetre-gram-second (CGS) system. It is the unit in which surface tensions of liquids have
+    long been tabulated, and it lies outside the SI.
+
+    It is one dyne acting along one centimetre. A dyne is exactly one hundred-thousandth of a newton,
+    as NIST Special Publication 811 states, and a centimetre is one hundredth of a metre, so the unit
+    equals exactly one thousandth of a newton per metre; QUDT records the same multiplier.
+
+    Because the factor is a thousandth, a surface tension in dynes per centimetre has the same number
+    as in millinewtons per metre, and tables convert by renaming the unit. The erg per square
+    centimetre, a CGS unit of surface energy, is numerically identical, since an erg is a dyne
+    centimetre.
+
+    Data books and laboratory tensiometers still quote the unit. Water has about 72.8 dynes per
+    centimetre at 20 degrees Celsius and about 72 at 25 degrees, ethyl alcohol about 22.3 and
+    mercury about 465, so most everyday liquids fall between 20 and 80.
+
+    Its parent system rests on three mechanical units, the centimetre, the gram and the second, and dates from 1874, when the British Association for the Advancement of Science introduced it. The plural is dynes per centimetre, and the symbol
+    is also written with the centimetre raised to the power minus one.

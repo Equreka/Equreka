@@ -1,0 +1,30 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Flujo eléctrico a través de una superficie plana'
+description: >-
+  El flujo de un campo eléctrico uniforme que atraviesa una superficie plana es igual a la
+  intensidad de campo eléctrico por el área por el coseno del ángulo entre el campo y la normal a
+  la superficie. Mide cuánto campo eléctrico atraviesa una superficie, y en el electromagnetismo es
+  la magnitud cuyo total sobre una superficie cerrada la ley de Gauss vincula con la carga
+  encerrada.
+
+  $\mag{\Phi_\mathrm{E}}$ es el flujo eléctrico, que se mide en voltio metro, unidad igual al
+  newton metro cuadrado por culombio.
+  $\mag{E}$ es la intensidad de campo eléctrico en voltios por metro, $\mag{A}$ el área de la
+  superficie en metros cuadrados y $\mag{\theta}$ el ángulo entre el campo y la normal, la recta
+  perpendicular a la superficie, de 0 a 180 grados. El flujo es positivo cuando el campo cruza en
+  el sentido de la normal elegida, nulo cuando el campo está en la superficie y negativo cuando
+  cruza en contra de la normal; invertir la normal invierte todos los signos.
+
+  Solo la componente del campo perpendicular a la superficie lleva flujo a través de ella, y esa
+  componente es el campo por el coseno del ángulo. Dicho de otro modo, el flujo es el campo por el
+  área de la proyección de la superficie sobre un plano perpendicular al campo. La misma relación
+  con la densidad de flujo magnético da el flujo magnético.
+
+  La fórmula necesita una superficie plana y un campo que no varíe sobre ella. Si no, la
+  superficie se divide en pequeños trozos cuyos flujos se suman, lo que se convierte en una
+  integral de superficie. En una superficie cerrada la normal apunta hacia fuera, y en un campo
+  uniforme el flujo que entra y el que sale se anulan, de modo que el flujo neto a través de una
+  caja cerrada sin carga en su interior es nulo.
+
+  Un campo de 10 voltios por metro que cruza una superficie de 6.0 metros cuadrados a 30 grados de
+  la normal da un flujo de unos 52 voltio metro.

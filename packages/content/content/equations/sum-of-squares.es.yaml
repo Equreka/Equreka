@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Suma de los cuadrados de los n primeros enteros positivos'
+terms:
+  S:
+    label: 'Suma de los n primeros cuadrados'
+  n:
+    label: 'Número de cuadrados'
+description: >-
+  La suma de los cuadrados de los n primeros enteros positivos, 1 más 4 más 9 y así hasta n al
+  cuadrado, es igual a n por n más uno por el doble de n más uno, dividido entre seis. Sus valores
+  1, 5, 14, 30, 55, 91 y siguientes son los números piramidales cuadrados del álgebra y la teoría de
+  números: el número de bolas apiladas en una pirámide de base cuadrada con n bolas en cada arista
+  de la capa inferior.
+
+  Aquí $\var{S}$ es la suma y $\var{n}$ el número de cuadrados sumados, un entero no negativo; sin
+  términos la suma vale cero. Ambos son números puros. Entre $\var{n}$, $\var{n}$ más uno y el doble
+  de $\var{n}$ más uno, siempre hay un factor par y uno múltiplo de tres, de modo que la división
+  entre seis siempre da un número entero.
+
+  Una demostración breve suma la identidad según la cual el cubo de k más uno menos el cubo de k es
+  igual a tres k al cuadrado más tres k más uno, para cada k de 1 a n. El lado izquierdo se reduce
+  telescópicamente al cubo de n más uno menos uno, y la suma de los enteros ya se conoce, así que la
+  suma de los cuadrados queda como única incógnita. El resultado crece como un tercio del cubo de
+  $\var{n}$, razón por la cual reaparece en el cálculo cuando el área bajo una parábola se aproxima
+  con rectángulos estrechos.
+
+  La fórmula vale para todo $\var{n}$ entero, y también puede comprobarse por inducción matemática.
+  Despejar $\var{n}$ exige resolver una ecuación cúbica, por lo que la calculadora solo calcula la
+  suma y pide $\var{n}$ como dato. Las sumas de cuadrados en otros intervalos se obtienen por resta.
+
+  El matemático Lucas conjeturó en 1875 que una pirámide cuadrada de 24 capas, con 4900 bolas, es la
+  única pila, aparte de una sola bola, cuyas bolas también llenan un cuadrado, aquí de 70 por 70;
+  Watson dio la primera demostración completa en 1918. Para n igual a 200, la suma vale 2686700.

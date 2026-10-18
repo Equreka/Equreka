@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Densidad de probabilidad de la distribución normal'
+terms:
+  f:
+    label: 'Densidad de probabilidad'
+  x:
+    label: 'Valor'
+  \mu:
+    label: 'Media'
+  \sigma:
+    label: 'Desviación típica'
+description: >-
+  La densidad de probabilidad de la distribución normal, también llamada distribución de Gauss o
+  campana de Gauss, indica con qué densidad se agrupan los valores de una variable aleatoria con
+  distribución normal en torno a un valor x, para una media y una desviación típica dadas. Es la
+  distribución continua más usada en estadística y probabilidad, el modelo de los errores de
+  medida, las calificaciones de exámenes y muchas variaciones naturales.
+
+  En la fórmula, $\var{x}$ es el valor, $\var{\mu}$ la media y $\var{\sigma}$ la desviación típica,
+  que debe ser positiva; $\var{\mu}$ fija la posición de la curva y es también su mediana y su moda,
+  mientras que $\var{\sigma}$ fija su anchura. $\var{f}$ es la densidad de probabilidad. El valor,
+  la media y la desviación típica comparten la unidad de los datos, y la densidad lleva su
+  inversa; la calculadora trata las cuatro como números puros, así que deben introducirse en una
+  misma unidad.
+
+  La curva alcanza su máximo en la media, donde vale uno entre $\var{\sigma}$ por la raíz cuadrada
+  de dos pi, y desciende simétricamente a ambos lados. Una densidad no es una probabilidad: la
+  probabilidad de que la variable caiga entre dos valores es el área bajo la curva entre ellos, y
+  el área total vale uno. Dos valores a la misma distancia de la media tienen la misma densidad, así
+  que al despejar $\var{x}$ se obtiene primero el valor por debajo de la media y después el que
+  queda por encima, y al despejar $\var{\mu}$ sus dos raíces siguen el mismo orden. La desviación
+  típica aparece fuera y dentro de la exponencial, por lo que no tiene forma cerrada y solo es un
+  dato.
+
+  Los datos reales son, como mucho, aproximadamente normales, y muchas pruebas estadísticas suponen
+  una normalidad que debe comprobarse antes. El teorema central del límite explica su amplio uso:
+  la media de una muestra grande sigue casi una distribución normal sea cual sea la distribución de
+  la variable original.
+
+  Abraham de Moivre publicó por primera vez la aproximación normal de la distribución binomial para
+  muchos ensayos en un folleto en latín fechado el 13 de noviembre de 1733. En la curva normal
+  estándar, la densidad vale unos 0.3989 en la media y 0.2420 a una desviación típica de ella.

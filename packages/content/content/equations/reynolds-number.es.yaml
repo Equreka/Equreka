@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Número de Reynolds'
+terms:
+  \mathrm{Re}:
+    label: 'Número de Reynolds'
+  L:
+    label: 'Longitud característica'
+description: >-
+  El número de Reynolds es la razón adimensional que compara la inercia de un fluido en movimiento
+  con su rozamiento viscoso: la densidad por la rapidez por una longitud característica, dividida
+  entre la viscosidad dinámica. Es el criterio principal de la mecánica de fluidos para predecir si
+  un flujo será suave y laminar o caótico y turbulento, en tuberías, alrededor de vehículos y en los
+  vasos sanguíneos.
+
+  En la fórmula, $\var{\mathrm{Re}}$ es el número de Reynolds, una magnitud de dimensión uno;
+  $\mag{\rho}$ es la densidad del fluido en kilogramos por metro cúbico; $\mag{v}$ su rapidez
+  respecto al cuerpo o a la tubería, en metros por segundo; $\mag{\eta}$ su viscosidad dinámica, que
+  se expresa en pascal segundo, y $\var{L}$ una longitud característica en metros, elegida por
+  convenio para cada geometría: el diámetro interior de una tubería, el diámetro de una esfera, la
+  cuerda de un ala. Las cinco son no negativas. Al dividir la viscosidad entre la densidad se obtiene
+  la viscosidad cinemática, y el número es entonces la rapidez por la longitud entre ese cociente.
+
+  Un número de Reynolds pequeño significa que la viscosidad amortigua cualquier perturbación y el
+  fluido se desliza en capas ordenadas; uno grande, que la inercia arrastra los remolinos antes de
+  que el rozamiento los suavice. Dos flujos de la misma forma con números de Reynolds iguales se
+  comportan igual, por lo que una maqueta en un túnel de viento puede sustituir a un avión de tamaño
+  real.
+
+  Los umbrales dependen de la geometría y del cuidado con que se evitan las perturbaciones, así que
+  son orientaciones y no límites nítidos. En una tubería circular con el diámetro como longitud, un
+  libro de texto da flujo laminar por debajo de unos 2000 y turbulencia por encima de unos 3000,
+  mientras que las tablas de ingeniería suelen tomar 2300 y 4000; el arrastre sobre una esfera solo
+  sigue la ley de Stokes por debajo de aproximadamente 1.
+
+  El número aparece en un artículo de 1883 de Osborne Reynolds sobre las condiciones que deciden
+  cómo se mueve el agua en canales paralelos. El aire a 20 grados Celsius que circula a 0.15 metros por segundo por un conducto de
+  0.18 metros de ancho tiene un número de Reynolds de unos 1835, así que el flujo es laminar.

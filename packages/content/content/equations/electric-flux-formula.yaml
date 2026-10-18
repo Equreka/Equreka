@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Electric flux through a flat surface'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{\Phi_\mathrm{E}}=\mag{E}\mag{A}\cos\mag{\theta}'
+terms:
+  \Phi_\mathrm{E}:
+    kind: 'magnitude'
+    ref: 'electric-flux'
+  E:
+    kind: 'magnitude'
+    ref: 'electric-field-strength'
+  A:
+    kind: 'magnitude'
+    ref: 'area'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+solutions:
+  \Phi_\mathrm{E}: 'E * A * cos(theta)'
+  E: 'Phi_E / (A * cos(theta))'
+  A: 'Phi_E / (E * cos(theta))'
+  \theta: 'acos(Phi_E / (E * A))'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'Phi_E = EA cos theta'
+  - 'electric flux formula'
+  - 'flux of a uniform electric field'
+  - 'flujo eléctrico a través de una superficie'
+  - 'flujo de un campo eléctrico uniforme'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 6.1 Electric Flux (Equation 6.1, Examples 6.1 to 6.3)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/6-1-electric-flux'
+  - title: 'OpenStax, University Physics Volume 2, 6.2 Explaining Gauss''s Law'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/6-2-explaining-gausss-law'
+  - title: 'QUDT, quantity kind ElectricFlux (field times projected area)'
+    url: 'https://qudt.org/vocab/quantitykind/ElectricFlux'
+description:
+  en: >-
+    The electric flux through a flat surface in a uniform electric field equals the electric field
+    strength times the area times the cosine of the angle between the field and the normal to the
+    surface. It measures how much electric field passes through a surface, and in electromagnetism
+    it is the quantity whose total over a closed surface Gauss's law ties to the enclosed charge.
+
+    $\mag{\Phi_\mathrm{E}}$ is the electric flux in volt metres, the same unit as newton square
+    metres per coulomb. $\mag{E}$ is the electric field strength in volts per metre, $\mag{A}$ the
+    area of the surface in square metres and $\mag{\theta}$ the angle between the field and the
+    normal, the line perpendicular to the surface, from 0 to 180 degrees. The flux is positive when
+    the field crosses along the chosen normal, zero when the field lies in the surface and negative
+    when it crosses against the normal; reversing the normal reverses every sign.
+
+    Only the component of the field perpendicular to the surface carries flux through it, and that
+    component is the field times the cosine of the angle. Equivalently, the flux is the field times
+    the area of the surface projected onto a plane at right angles to the field. The same relation
+    with the magnetic flux density gives the magnetic flux.
+
+    The formula needs a flat surface and a field that does not vary across it. Otherwise the surface
+    is divided into small patches whose fluxes are summed, which becomes a surface integral. For a
+    closed surface the normal points outward, and in a uniform field the flux in and out cancels,
+    so the net flux through a closed box with no charge inside is zero.
+
+    A field of 10 volts per metre crossing a surface of 6.0 square metres at 30 degrees from the
+    normal gives a flux of about 52 volt metres.

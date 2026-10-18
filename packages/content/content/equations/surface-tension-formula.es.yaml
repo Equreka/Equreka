@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Tensión superficial como fuerza por unidad de longitud'
+terms:
+  L:
+    label: 'Longitud del borde sobre el que tira la película'
+description: >-
+  La tensión superficial, como fórmula, es la fuerza que ejerce una superficie líquida tensa a lo
+  largo de un borde dividida entre la longitud de ese borde. Convierte el tirón que nota un alambre,
+  un marco o un anillo que se saca de un líquido en una propiedad del propio líquido, y en mecánica
+  de fluidos es la definición operativa en la que se basan la mayoría de las medidas de la cohesión
+  de una superficie líquida.
+
+  En la fórmula, $\mag{\gamma}$ es la tensión superficial en newtons por metro, $\mag{F}$ la fuerza
+  que ejerce la superficie en newtons, en el plano de la superficie y perpendicular al borde, y
+  $\var{L}$ la longitud del borde sobre el que tira la película, en metros. Las tres son no
+  negativas.
+
+  En el dispositivo clásico, una película de jabón llena un marco de alambre cerrado por un lado con
+  un alambre deslizante, y la película tira del alambre hacia dentro con una fuerza que no depende
+  de cuánto se estire. Una película tiene dos superficies, la anterior y la posterior, así que la
+  fuerza sobre un alambre de longitud l es el doble de la tensión superficial por l, y la longitud de
+  borde que se introduce aquí es entonces el doble de la longitud del alambre. Al desplazar el
+  alambre una distancia pequeña aumenta el área de superficie líquida, y el trabajo realizado es la
+  tensión superficial por el área nueva, la lectura energética de la misma magnitud.
+
+  La relación supone una superficie limpia en equilibrio a temperatura fija, porque el calor y los
+  jabones u otros tensioactivos disueltos reducen la tensión superficial. Da la tensión de una sola
+  superficie; a través de una superficie curva la tensión produce además una diferencia de presión,
+  que dentro de una pompa de jabón llega a cuatro veces la tensión superficial entre el radio.
+
+  Thomas Young basó su explicación de la capilaridad en la idea de una tensión en la superficie del
+  líquido. Una película de agua jabonosa típica, de 0.037 newtons por metro, tira de un alambre
+  deslizante de 5 centímetros con unos 0.0037 newtons.

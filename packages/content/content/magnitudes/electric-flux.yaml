@@ -1,0 +1,62 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Electric flux'
+symbol:
+  tex: '\Phi_\mathrm{E}'
+  text: 'ΦE'
+baseUnit: 'volt-metre'
+dimension:
+  L: 3
+  M: 1
+  T: -3
+  I: -1
+externalIds:
+  wikidata: 'Q83947659'
+  qudt: 'http://qudt.org/vocab/quantitykind/ElectricFlux'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'flux of the electric field'
+  - 'electric field flux'
+  - 'Phi_E'
+  - 'flujo del campo eléctrico'
+references:
+  - title: 'QUDT, quantity kind ElectricFlux (definition, dimension and applicable unit V-M)'
+    url: 'https://qudt.org/vocab/quantitykind/ElectricFlux'
+  - title: 'Wikidata, electric flux (Q83947659): surface integral of the electric field strength, measured in volt metre'
+    url: 'https://www.wikidata.org/wiki/Q83947659'
+  - title: 'Wikidata, electric flux (Q501267): surface integral of the electric flux density, measured in coulombs'
+    url: 'https://www.wikidata.org/wiki/Q501267'
+  - title: 'OpenStax, University Physics Volume 2, 6.1 Electric Flux (Equations 6.1 to 6.5, Example 6.3)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/6-1-electric-flux'
+  - title: 'OpenStax, University Physics Volume 2, 6.2 Explaining Gauss''s Law (Example 6.5)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/6-2-explaining-gausss-law'
+description:
+  en: >-
+    Electric flux is the surface integral of the electric field strength over a surface: each small
+    patch of the surface contributes the component of the field along the patch's normal times the
+    patch's area, and the contributions are summed. It counts how much electric field passes
+    through the surface, and it is the quantity that Gauss's law relates to the charge enclosed.
+
+    Its coherent SI unit is the volt metre, the same unit as the newton square metre per coulomb,
+    and its dimension is length cubed times mass divided by time cubed and by electric current. For
+    a flat surface in a uniform field it reduces to the field strength times the area times the
+    cosine of the angle between the field and the normal.
+
+    Electric flux is a signed scalar. Its sign depends on the normal chosen: a field crossing along
+    the normal gives a positive flux and one crossing against it a negative flux. For a closed
+    surface the normal points outward, so field lines leaving the surface count positive and those
+    entering count negative.
+
+    The flux is seldom measured directly; it is computed from a known or measured field, or from
+    the enclosed charge divided by the vacuum electric permittivity. A field of 10 volts per metre
+    through 6.0 square metres at 30 degrees from the normal gives about 52 volt metres, while a
+    closed surface around a charge of 2.0 microcoulombs carries about $2.3\times10^{5}\,\mathrm{V\,m}$
+    whatever its shape or size.
+
+    Electric flux is not the magnetic flux, measured in webers, nor the flux of the electric
+    displacement, the quantity often written $\Psi$ and measured in coulombs. QUDT and
+    Wikidata keep the two electric fluxes as separate kinds; OpenStax writes the field flux as plain $\Phi$, and in a vacuum it equals the displacement
+    flux divided by the vacuum electric permittivity.

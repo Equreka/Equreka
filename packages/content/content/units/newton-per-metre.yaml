@@ -3,7 +3,8 @@ name:
   en: 'Newton per metre'
 symbol:
   tex: 'N/m'
-unitOf: []
+unitOf:
+  - 'surface-tension'
 system: 'si-derived'
 compose:
   of:
@@ -12,12 +13,13 @@ compose:
     - unit: 'metre'
       exp: -1
 externalIds:
-  wikidata: 'Q26156113'
+  wikidata: 'Q12371104'
   qudt: 'http://qudt.org/vocab/unit/N-PER-M'
 categories:
   - 'physics'
 branches:
   - 'mechanics'
+  - 'fluid-mechanics'
 aliases:
   - 'newton per meter'
   - 'N m-1'

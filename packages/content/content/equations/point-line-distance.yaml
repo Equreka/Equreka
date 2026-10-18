@@ -1,0 +1,87 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Distance from a point to a line'
+kind: 'formula'
+level: 'intro'
+expression: '\var{d}=\frac{\left|\var{a}\var{x_{0}}+\var{b}\var{y_{0}}+\var{c}\right|}{\sqrt{\var{a}^{2}+\var{b}^{2}}}'
+terms:
+  d:
+    kind: 'symbol'
+    label:
+      en: 'Distance'
+    unit: 'metre'
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Coefficient of x'
+  b:
+    kind: 'symbol'
+    label:
+      en: 'Coefficient of y'
+  c:
+    kind: 'symbol'
+    label:
+      en: 'Constant term'
+    unit: 'metre'
+  x_{0}:
+    kind: 'symbol'
+    label:
+      en: 'x-coordinate of the point'
+    unit: 'metre'
+  y_{0}:
+    kind: 'symbol'
+    label:
+      en: 'y-coordinate of the point'
+    unit: 'metre'
+solutions:
+  d: 'abs(a * x_0 + b * y_0 + c) / sqrt(a^2 + b^2)'
+calculator:
+  enabled: true
+  solveFor: ['d']
+externalIds:
+  wikidata: 'Q2485106'
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'point-line distance'
+  - 'point to line distance'
+  - 'perpendicular distance from a point to a line'
+  - 'distance between a point and a line'
+  - 'distancia de un punto a una recta'
+  - 'distancia punto recta'
+references:
+  - title: 'E. W. Weisstein, 2-Dimensional Point-Line Distance, MathWorld'
+    url: 'https://mathworld.wolfram.com/2-DimensionalPoint-LineDistance.html'
+  - title: 'University of Denver, Comp 2673 lecture notes, 20 May 2002 (distance from a point to a line)'
+    url: 'https://www.cs.du.edu/~ftl/courses/2673s02/lect24.html'
+  - title: 'OpenStax, Calculus Volume 3, 2.5 Equations of Lines and Planes in Space (Theorems 2.12 and 2.14)'
+    url: 'https://openstax.org/books/calculus-volume-3/pages/2-5-equations-of-lines-and-planes-in-space'
+description:
+  en: >-
+    The distance between a point and a straight line in the plane is the length of the perpendicular segment that
+    joins them, the shortest of all segments from the point to the line. In analytic geometry it is
+    found by substituting the coordinates of the point into the general equation of the line, taking
+    the absolute value and dividing by the square root of the sum of the squares of the two
+    coefficients.
+
+    The line is written in general form, a times x plus b times y plus c equals zero. In the formula,
+    $\var{a}$ and $\var{b}$ are the coefficients of x and y, pure numbers that are not both zero;
+    $\var{c}$ is the constant term; $\var{x_{0}}$ and $\var{y_{0}}$ are the coordinates of the point;
+    and $\var{d}$ is the distance. Here both axes measure length, so the constant term, the
+    coordinates and the distance are in metres, or in any one length unit used throughout. The
+    distance is never negative and is zero exactly when the point lies on the line.
+
+    The pair of coefficients forms a vector perpendicular to the line. Projecting onto that vector
+    the segment from any point of the line to the given point leaves only the perpendicular part,
+    and its length is the distance. Multiplying the whole equation of the line by any non-zero
+    number changes nothing, because the numerator and the denominator scale together.
+
+    The formula covers straight lines in a plane only. In space, the same pattern with a third
+    coordinate gives the distance from a point to a plane, while in three dimensions the distance
+    to a line needs a cross product. Each coefficient and coordinate can be solved for, but has two solutions or none, so the calculator computes only the distance.
+
+    Point-line distances measure how far a fitted line lies from a data point, how much clearance a
+    position keeps from a straight edge and when a moving object reaches a boundary. The origin lies
+    at a distance of 2 from the line 3x + 4y − 10 = 0.

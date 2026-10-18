@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Period of a physical pendulum'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{T}=2\const{\pi}\sqrt{\frac{\mag{I}}{\mag{m}\var{g}\var{d}}}'
+terms:
+  T:
+    kind: 'magnitude'
+    ref: 'period'
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+  I:
+    kind: 'magnitude'
+    ref: 'moment-of-inertia'
+  m:
+    kind: 'magnitude'
+    ref: 'mass'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+  d:
+    kind: 'symbol'
+    label:
+      en: 'Distance from the pivot to the centre of mass'
+    unit: 'metre'
+solutions:
+  T: '2 * pi * sqrt(I / (m * g * d))'
+  I: 'm * g * d * (T / (2 * pi))^2'
+  m: 'I * (2 * pi / T)^2 / (g * d)'
+  g: 'I * (2 * pi / T)^2 / (m * d)'
+  d: 'I * (2 * pi / T)^2 / (m * g)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'waves-and-oscillations'
+aliases:
+  - 'compound pendulum'
+  - 'compound pendulum period'
+  - 'physical pendulum'
+  - 'T = 2 pi sqrt(I/(mgd))'
+  - 'rigid pendulum'
+  - 'péndulo físico'
+  - 'péndulo compuesto'
+  - 'periodo de un péndulo físico'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 15.4 Pendulums (physical pendulum, Example 15.4)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/15-4-pendulums'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Physical pendulum'
+    url: 'https://hyperphysics.gsu.edu/hbase/pendp.html'
+  - title: 'MacTutor History of Mathematics, Christiaan Huygens (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Huygens/'
+  - title: 'NIST, CODATA 2022 value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+description:
+  en: >-
+    The period of a physical pendulum, also called a compound pendulum, is the time a rigid body
+    hanging from a fixed horizontal axis takes to complete one small swing: two pi times the square
+    root of its moment of inertia about the axis divided by the product of its mass, the
+    gravitational acceleration and the distance from the axis to its centre of mass. In waves and
+    oscillations it extends the simple pendulum to swinging rods, rulers and doors.
+
+    $\mag{T}$ is the period in seconds. $\mag{I}$ is the moment of inertia in kilogram square metres,
+    taken about the pivot axis, not about the centre of mass. $\mag{m}$ is the mass in
+    kilograms. $\var{g}$ is the size of the gravitational acceleration, entered positive; its standard value is 9.80665 metres per second squared, and the local value varies with place and differs on another planet or moon. $\var{d}$ is the distance in metres from the pivot to the
+    centre of mass. Every term is positive.
+
+    The weight acts at the centre of mass, so a body turned through a small angle feels a torque
+    that pulls it back, the weight times the distance times the sine of the angle. Setting that
+    torque equal to the product of the moment of inertia and the angular acceleration, with the
+    sine replaced by the angle in radians, gives simple harmonic motion with an angular frequency equal to the square
+    root of the mass times g times the distance over the moment of inertia. A point mass on a light
+    cord has a moment of inertia equal to its mass times the distance squared, and the formula then
+    reduces to the simple pendulum.
+
+    The result holds well for swings below about 15 degrees, or 0.26 radians; wider swings take measurably longer. It also assumes a rigid body, a fixed pivot
+    without friction and negligible air drag.
+
+    Christiaan Huygens solved the compound pendulum in his Horologium Oscillatorium of 1673. A
+    uniform rod 1.49 metres long, pivoted at one end, swings with a period of about 2.0 seconds.

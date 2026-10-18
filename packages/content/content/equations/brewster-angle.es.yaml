@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de Brewster'
+terms:
+  n_{2}:
+    label: 'Índice de refracción del segundo medio'
+  n_{1}:
+    label: 'Índice de refracción del primer medio'
+description: >-
+  La ley de Brewster da el ángulo de incidencia con el que la luz reflejada en la frontera entre dos
+  medios transparentes queda completamente polarizada: la tangente de ese ángulo, el ángulo de
+  Brewster o ángulo de polarización, es igual al índice de refracción del segundo medio dividido
+  entre el del primero. En óptica explica por qué el reflejo del agua y del vidrio está polarizado y
+  cómo lo eliminan los filtros polarizadores.
+
+  $\mag{\theta_\mathrm{B}}$ es el ángulo de Brewster en radianes, medido desde la normal a la
+  superficie, entre 0 y 90 grados. $\var{n_{1}}$ es el índice de refracción del medio por el que
+  llega la luz, y $\var{n_{2}}$ el del medio que la refleja; ambos son números puros, al menos 1
+  en los materiales corrientes. El ángulo supera los 45 grados cuando la luz se refleja en un medio
+  de índice mayor y queda por debajo cuando la luz que viaja dentro del vidrio o del agua encuentra el
+  aire.
+
+  Con este ángulo, los rayos reflejado y refractado forman un ángulo recto entre sí. La componente
+  de la luz cuyo campo eléctrico está en el plano de incidencia no se refleja en absoluto, de modo
+  que el haz reflejado conserva solo la componente paralela a la superficie. La ley de Snell,
+  combinada con ese ángulo recto, convierte el seno del ángulo de refracción en el coseno del ángulo
+  de incidencia, lo que da la forma con tangente.
+
+  La relación describe medios transparentes que se encuentran en una frontera lisa. Con cualquier
+  otro ángulo la reflexión solo está polarizada en parte, y la luz transmitida nunca queda del todo
+  polarizada, porque solo se refleja una pequeña parte de la luz.
+
+  El ángulo lleva el nombre del físico escocés David Brewster, que lo descubrió en el siglo XIX.
+  Para la luz que viaja por el aire y llega al agua, de índice 1.333, el ángulo de Brewster es de
+  unos 53.1 grados.

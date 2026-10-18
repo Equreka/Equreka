@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Thin-film interference'
+kind: 'equation'
+level: 'intermediate'
+expression: '2\mag{n}\var{t}=\left(\var{m}+\frac{1}{2}\right)\mag{\lambda}'
+terms:
+  n:
+    kind: 'magnitude'
+    ref: 'refractive-index'
+  t:
+    kind: 'symbol'
+    label:
+      en: 'Film thickness'
+    unit: 'metre'
+  m:
+    kind: 'symbol'
+    label:
+      en: 'Order'
+    integer: true
+  \lambda:
+    kind: 'magnitude'
+    ref: 'wavelength'
+solutions:
+  n: '(2 * m + 1) * lambda / (4 * t)'
+  t: '(2 * m + 1) * lambda / (4 * n)'
+  m: '2 * n * t / lambda - 0.5'
+  \lambda: '4 * n * t / (2 * m + 1)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q221764'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'thin film interference'
+  - 'soap film interference'
+  - 'interference in thin films'
+  - 'thin-film condition'
+  - '2nt = (m + 1/2) lambda'
+  - 'interferencia de película delgada'
+  - 'interferencia en láminas delgadas'
+  - 'interferencia en capas delgadas'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 3.4 Interference in Thin Films (Examples 3.3 and 3.4)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/3-4-interference-in-thin-films'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Soap film interference'
+    url: 'https://hyperphysics.gsu.edu/hbase/phyopt/soapfilm.html'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Thin film interference'
+    url: 'https://hyperphysics.gsu.edu/hbase/phyopt/thinfilm.html'
+description:
+  en: >-
+    Thin-film interference is the reinforcement or cancellation of light reflected from the two
+    faces of a transparent film a few wavelengths thick or less. For a film surrounded by a medium
+    of lower refractive index, such as a soap film in air, light falling straight on it is reflected
+    most strongly when twice the film's thickness times its refractive index equals a half-integer
+    number of wavelengths. The effect colours soap bubbles and oil slicks and underlies optical
+    coatings.
+
+    $\mag{n}$ is the refractive index of the film, a pure number. $\var{t}$ is the thickness of the
+    film in metres. $\var{m}$ is the order, a whole number from 0 upwards. $\mag{\lambda}$ is the
+    wavelength of the light in vacuum, in metres; inside the film the wavelength shrinks to
+    $\mag{\lambda}$ divided by $\mag{n}$.
+
+    One beam reflects at the front face and another at the back face after crossing the film twice,
+    so the second beam lags by twice the thickness, a distance worth that many wavelengths in the
+    film. Reflection off a medium of higher index reverses the phase of the wave, a shift of half a
+    wavelength, while reflection off a lower index does not. In a soap film only the front
+    reflection is reversed, so the two beams reinforce when the lag plus that half wavelength is a
+    whole number of wavelengths.
+
+    The form holds for normal incidence and exactly one phase reversal; at an angle the path
+    changes. With one reversal, whole numbers of wavelengths in the lag give darkness instead, so a
+    film much thinner than the wavelength looks black. When both reflections reverse or neither
+    does, as for a coating whose index lies between those of air and glass, the two conditions swap:
+    a quarter-wave layer then cancels reflection.
+
+    Katharine Blodgett patented non-reflective glass in 1938. A soap film with an index of 1.333
+    reflects 650 nm red light most strongly at a thickness of about 122 nm.

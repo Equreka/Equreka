@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Culombio por metro'
+description: >-
+  El culombio por metro, de símbolo $\mathrm{C/m}$, es la unidad SI derivada coherente de densidad
+  de carga lineal, la carga eléctrica que lleva cada unidad de longitud de un hilo, una varilla u
+  otro cuerpo delgado. Es el culombio, la unidad SI de carga eléctrica, dividido entre el metro, y
+  en unidades básicas del SI es el amperio segundo por metro. No tiene nombre especial.
+
+  Un cuerpo delgado en el que cada metro de longitud tiene un culombio presenta una densidad de
+  carga lineal de un culombio por metro. El culombio es la carga que transporta en un segundo una
+  corriente de un amperio, de modo que la unidad hereda su definición del amperio y del metro.
+
+  Un culombio en cada metro de un hilo es una carga enorme: el campo que produciría a un metro de
+  una línea larga y recta es de unos $1.8\times10^{10}\,\mathrm{V/m}$, miles de veces el campo
+  con el que se perfora el aire, unos 3.0 megavoltios por metro. Los valores prácticos son microculombios o nanoculombios por metro. Al
+  dividir una densidad de carga lineal en culombios por metro entre la permitividad eléctrica del
+  vacío, en faradios por metro, quedan voltios, y por eso el campo de una línea resulta en voltios
+  por metro una vez que se divide entre la distancia.
+
+  La unidad se usa sobre todo en electrostática, para la carga de hilos y líneas de transmisión y
+  en el campo y el potencial de cilindros largos, y en ocasiones para haces de partículas cargadas.
+  QUDT la asigna a la densidad de carga lineal bajo varios nombres de magnitud.
+
+  El símbolo también puede escribirse $\mathrm{C\,m^{-1}}$. El plural es culombios por metro.

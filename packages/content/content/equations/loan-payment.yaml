@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Loan payment'
+kind: 'formula'
+level: 'intro'
+expression: '\var{M}=\frac{\var{P}\var{r}\left(1+\var{r}\right)^{\var{n}}}{\left(1+\var{r}\right)^{\var{n}}-1}'
+terms:
+  M:
+    kind: 'symbol'
+    label:
+      en: 'Payment per period'
+  P:
+    kind: 'symbol'
+    label:
+      en: 'Principal'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Interest rate per period'
+    unit: 'unitless'
+  n:
+    kind: 'symbol'
+    integer: true
+    label:
+      en: 'Number of payments'
+solutions:
+  M: 'P * r * (1 + r)^n / ((1 + r)^n - 1)'
+  P: 'M * ((1 + r)^n - 1) / (r * (1 + r)^n)'
+  n: 'ln(M / (M - P * r)) / ln(1 + r)'
+calculator:
+  enabled: true
+  solveFor: ['M', 'P', 'n']
+categories:
+  - 'mathematics'
+branches:
+  - 'arithmetic'
+aliases:
+  - 'loan payment formula'
+  - 'amortization formula'
+  - 'amortized loan payment'
+  - 'installment payment'
+  - 'mortgage payment formula'
+  - 'level payment'
+  - 'PMT'
+  - 'EMI'
+  - 'cuota de un préstamo'
+  - 'cuota de amortización'
+  - 'sistema francés de amortización'
+references:
+  - title: 'OpenStax, Contemporary Mathematics, 6.8 The Basics of Loans (payment formula, amortization, Example 6.78)'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/6-8-the-basics-of-loans'
+  - title: 'D. Lippman, Math in Society, 9.6 Loans (LibreTexts)'
+    url: 'https://math.libretexts.org/Bookshelves/Applied_Mathematics/Math_in_Society_(Lippman)/09%3A_Finance/9.06%3A_Loans'
+description:
+  en: >-
+    The loan payment formula gives the fixed amount a borrower pays at the end of every period so
+    that a loan, interest included, is repaid in a set number of equal instalments. Known as the
+    amortization formula or the level-payment formula of financial mathematics, it sets the monthly
+    payment of car loans, student loans and fixed-rate mortgages.
+
+    In the formula, $\var{M}$ is the payment per period and $\var{P}$ the principal, the amount
+    borrowed; both are sums of money in the same currency, entered as plain numbers. $\var{r}$ is
+    the interest rate per period, written as a decimal fraction (0.005 for half a percent): the
+    annual rate divided by the number of payments per year. $\var{n}$ is the total number of
+    payments, a whole number, so a five-year loan paid monthly has 60. All four are positive.
+
+    The principal must equal the present value of all the payments, each discounted back by one
+    plus the rate for every period it waits. That sum is a geometric series, and its closed form,
+    solved for the payment, gives the formula. Each payment first covers the interest on the balance
+    still owed and puts the rest towards the principal, so the interest share falls and the
+    principal share grows over the life of the loan. Logarithms give the number of payments needed
+    at a chosen payment. The rate cannot be isolated with elementary functions, so the calculator
+    takes it as an input.
+
+    The formula assumes a rate fixed for the whole term, payments of equal size at the end of each
+    period, and interest compounded once per payment. Fees, insurance and add-on loans that charge
+    all interest up front fall outside it, and lenders round the payment up to the next cent.
+
+    A car loan of 28500 at 3.99 percent a year, repaid monthly over five years, costs about
+    524.74 a month, which the lender rounds up to 524.75.

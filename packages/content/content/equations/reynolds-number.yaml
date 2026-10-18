@@ -1,0 +1,82 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Reynolds number'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{\mathrm{Re}}=\frac{\mag{\rho}\mag{v}\var{L}}{\mag{\eta}}'
+terms:
+  \mathrm{Re}:
+    kind: 'symbol'
+    label:
+      en: 'Reynolds number'
+  \rho:
+    kind: 'magnitude'
+    ref: 'density'
+  v:
+    kind: 'magnitude'
+    ref: 'speed'
+  L:
+    kind: 'symbol'
+    label:
+      en: 'Characteristic length'
+    unit: 'metre'
+  \eta:
+    kind: 'magnitude'
+    ref: 'dynamic-viscosity'
+solutions:
+  \mathrm{Re}: 'rho * v * L / eta'
+  \rho: 'Re * eta / (v * L)'
+  v: 'Re * eta / (rho * L)'
+  L: 'Re * eta / (rho * v)'
+  \eta: 'rho * v * L / Re'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q178932'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'Reynolds number formula'
+  - 'N_R'
+  - 'laminar or turbulent flow criterion'
+  - 'número de Reynolds'
+  - 'coeficiente de Reynolds'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 14.7 Viscosity and Turbulence (Reynolds number, Example 14.9)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-7-viscosity-and-turbulence'
+  - title: 'The Engineering ToolBox, Laminar, Transitional or Turbulent Flow'
+    url: 'https://www.engineeringtoolbox.com/laminar-transitional-turbulent-flow-d_577.html'
+  - title: 'J. Southard, Introduction to Fluid Motions and Sediment Transport (MIT, Geosciences LibreTexts), 3.2 Flow Past a Sphere at Low Reynolds Numbers'
+    url: 'https://geo.libretexts.org/Bookshelves/Sedimentology/Introduction_to_Fluid_Motions_and_Sediment_Transport_(Southard)/03%3A_Flow_Past_a_Sphere_II_-_Stokes''_Law_The_Bernoulli_Equation_Turbulence_Boundary_Layers_Flow_Separation/3.02%3A_Flow_Past_a_Sphere_at_Low_Reynolds_Numbers'
+  - title: 'MacTutor History of Mathematics, Osborne Reynolds (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Reynolds/'
+description:
+  en: >-
+    The Reynolds number is the dimensionless ratio that compares the inertia of a moving fluid with
+    its viscous friction: density times speed times a characteristic length, divided by the dynamic
+    viscosity. It is the main criterion of fluid mechanics for predicting whether a flow will be
+    smooth and laminar or chaotic and turbulent, in pipes, around vehicles and in blood vessels.
+
+    In the formula, $\var{\mathrm{Re}}$ is the Reynolds number, a quantity of dimension one;
+    $\mag{\rho}$ is the density of the fluid in kilograms per cubic metre; $\mag{v}$ its speed
+    relative to the body or pipe, in metres per second; $\mag{\eta}$ its dynamic viscosity in pascal
+    seconds; and $\var{L}$ a characteristic length in metres, chosen by convention for each
+    geometry: the inner diameter of a pipe, the diameter of a sphere, the chord of a wing. All five
+    are non-negative. Dividing the viscosity by the density gives the kinematic viscosity, and the
+    number is then speed times length over that ratio.
+
+    A small Reynolds number means viscosity damps every disturbance and the fluid slides in orderly
+    layers; a large one means inertia carries eddies along before friction can smooth them out. Two
+    flows of the same shape with equal Reynolds numbers behave alike, which is why a scale model in
+    a wind tunnel can stand in for a full-size aircraft.
+
+    The thresholds depend on the geometry and on how carefully the flow is kept undisturbed, so
+    they are guides rather than sharp limits. For a circular pipe with the diameter as length, one
+    textbook gives laminar flow below about 2000 and turbulence above about 3000, while engineering
+    tables commonly take 2300 and 4000; drag on a sphere follows Stokes' law only below about 1.
+
+    The number appears in a paper of 1883 by Osborne Reynolds on the conditions that decide how
+    water moves in parallel channels. Air at 20 degrees Celsius moving at 0.15 metres per second in a duct 0.18 metres wide
+    has a Reynolds number of about 1835, so the flow is laminar.

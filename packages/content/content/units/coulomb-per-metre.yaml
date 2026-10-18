@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Coulomb per metre'
+symbol:
+  tex: 'C/m'
+unitOf:
+  - 'linear-charge-density'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'coulomb'
+      exp: 1
+    - unit: 'metre'
+      exp: -1
+externalIds:
+  wikidata: 'Q80117150'
+  qudt: 'http://qudt.org/vocab/unit/C-PER-M'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'coulomb per meter'
+  - 'coulombs per metre'
+  - 'C m-1'
+  - 'C·m⁻¹'
+  - 'culombio por metro'
+references:
+  - title: 'QUDT, unit C-PER-M (Coulomb per Metre): conversion multiplier 1, quantity kind LinearElectricChargeDensity'
+    url: 'https://qudt.org/vocab/unit/C-PER-M'
+  - title: 'Wikidata, coulomb per metre (Q80117150): SI unit of linear electric charge density'
+    url: 'https://www.wikidata.org/wiki/Q80117150'
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.4 Derived units, Table 4 and 5.2 Unit symbols'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 5.5 Calculating Electric Fields of Charge Distributions'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/5-5-calculating-electric-fields-of-charge-distributions'
+  - title: 'OpenStax, University Physics Volume 2, 8.5 Molecular Model of a Dielectric (dielectric strength of air)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-5-molecular-model-of-a-dielectric'
+  - title: 'NIST, CODATA 2022 value: vacuum electric permittivity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?ep0'
+description:
+  en: >-
+    The coulomb per metre, symbol $\mathrm{C/m}$, is the coherent SI derived unit of linear charge
+    density, the electric charge carried by each unit length of a wire, rod or other thin body. It
+    is the coulomb, the SI unit of electric charge, divided by the metre, and in SI base units it
+    is the ampere second per metre. It has no special name.
+
+    A thin body on which every metre of length holds one coulomb has a linear charge density of one
+    coulomb per metre. The coulomb itself is the charge carried in one second by a current of one
+    ampere, so the unit inherits its definition from the ampere and the metre.
+
+    One coulomb on each metre of a wire is an enormous charge: the field it would produce at one
+    metre from a long straight line is about $1.8\times10^{10}\,\mathrm{V/m}$, thousands of times
+    the field at which air breaks down, about 3.0 megavolts per metre. Practical values are microcoulombs or nanocoulombs per metre. Dividing a
+    linear charge density in coulombs per metre by the vacuum electric permittivity, in farads per
+    metre, leaves volts, which is why the field of a line comes out in volts per metre once the
+    distance is divided in.
+
+    The unit is used mostly in electrostatics, for the charge on wires and transmission lines and
+    in the field and potential of long cylinders, and occasionally for charged particle beams. QUDT
+    lists it for linear electric charge density under several names, among them lineic charge.
+
+    The symbol may also be written $\mathrm{C\,m^{-1}}$. The plural is coulombs per metre.

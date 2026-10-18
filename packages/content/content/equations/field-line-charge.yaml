@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Electric field of an infinite line charge'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{E}=\frac{\mag{\lambda}}{2\const{\pi}\const{\varepsilon_{0}}\var{r}}'
+terms:
+  E:
+    kind: 'magnitude'
+    ref: 'electric-field-strength'
+  \lambda:
+    kind: 'magnitude'
+    ref: 'linear-charge-density'
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+  \varepsilon_{0}:
+    kind: 'constant'
+    ref: 'vacuum-electric-permittivity'
+    identifier: 'epsilon_0'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Distance from the line'
+    unit: 'metre'
+solutions:
+  E: 'lambda / (2 * pi * epsilon_0 * r)'
+  \lambda: '2 * pi * epsilon_0 * r * E'
+  r: 'lambda / (2 * pi * epsilon_0 * E)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'field of a line of charge'
+  - 'field of an infinite charged wire'
+  - 'infinite line charge'
+  - 'E = lambda / (2 pi epsilon0 r)'
+  - 'campo de una línea de carga infinita'
+  - 'campo de un hilo cargado'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 6.3 Applying Gauss''s Law (cylindrical symmetry)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/6-3-applying-gausss-law'
+  - title: 'OpenStax, University Physics Volume 2, 5.5 Calculating Electric Fields of Charge Distributions (Examples 5.5 and 5.6)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/5-5-calculating-electric-fields-of-charge-distributions'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Electric field of a line charge (Gauss''s law)'
+    url: 'https://hyperphysics.gsu.edu/hbase/electric/elecyl.html'
+  - title: 'NIST, CODATA 2022 value: vacuum electric permittivity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?ep0'
+description:
+  en: >-
+    The electric field of an infinitely long, uniformly charged straight line equals the linear
+    charge density divided by two pi times the vacuum electric permittivity times the distance from
+    the line. It falls off as the inverse of the distance rather than its square, and in
+    electrostatics it models charged wires, thin rods and the outside of long charged cylinders.
+
+    $\mag{E}$ is the electric field strength in volts per metre, directed radially, perpendicular to
+    the line, and counted positive away from it. $\mag{\lambda}$ is the linear charge density in
+    coulombs per metre; the field carries its sign, so a negative line gives a field pointing
+    towards it. $\const{\varepsilon_{0}}$ is the vacuum electric permittivity, about
+    $8.854\times10^{-12}\,\mathrm{F/m}$, and $\var{r}$ is the perpendicular distance from the line
+    in metres, always positive.
+
+    Symmetry forces the field of an infinite line to point straight out from it and to have the
+    same strength at every point at one distance. A closed cylinder of radius r and length L around
+    the line then carries flux only through its curved side, the field times the side area two pi r
+    L, while the end caps contribute none. Setting that flux equal to the enclosed charge, the
+    density times L, over the permittivity cancels the length and leaves the formula.
+
+    The result assumes a line much longer than the field point's distance from it, and thin by
+    comparison. Near the middle of a finite rod it is a good approximation; far
+    from the rod, at distances much larger than its length, the field returns to that of a point
+    charge. Outside a uniformly charged cylinder the same formula applies with the charge per unit
+    length of the cylinder.
+
+    A line carrying one microcoulomb per metre produces about $1.8\times10^{5}\,\mathrm{V/m}$ at a
+    distance of 10 centimetres.

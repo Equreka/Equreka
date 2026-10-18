@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Dina por centímetro'
+description: >-
+  La dina por centímetro, de símbolo $\mathrm{dyn/cm}$, es la unidad de fuerza por unidad de
+  longitud del sistema centímetro-gramo-segundo (CGS). Es la unidad en la que se tabulan desde
+  hace mucho las tensiones superficiales de los líquidos, y no pertenece al SI.
+
+  Es una dina que actúa a lo largo de un centímetro. Una dina es exactamente una cienmilésima de
+  newton, como indica la publicación especial 811 del NIST, y un centímetro es una centésima de
+  metro, así que la unidad equivale exactamente a una milésima de newton por metro; QUDT recoge el
+  mismo multiplicador.
+
+  Como el factor es una milésima, una tensión superficial en dinas por centímetro tiene el mismo
+  número que en milinewtons por metro, y para convertir las tablas basta cambiar el nombre de la
+  unidad. El ergio por centímetro cuadrado, una unidad CGS de energía superficial, es numéricamente
+  idéntico, porque un ergio es el trabajo de una dina a lo largo de un centímetro.
+
+  Los manuales de datos y los tensiómetros de laboratorio aún la usan. El agua tiene
+  unas 72.8 dinas por centímetro a 20 grados Celsius y unas 72 a 25 grados, el alcohol etílico
+  unas 22.3 y el mercurio unas 465, así que casi todos los líquidos cotidianos quedan entre
+  20 y 80.
+
+  El sistema del que procede se apoya en tres unidades mecánicas, el centímetro, el gramo y el segundo, y data de 1874, cuando lo introdujo la Asociación Británica para el Avance de la Ciencia. El plural es dinas por centímetro, y el símbolo se escribe
+  también con el centímetro elevado a la potencia menos uno.

@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Poisson probability'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{P(X=k)}=\frac{\var{\lambda}^{\var{k}}e^{-\var{\lambda}}}{\var{k}!}'
+terms:
+  P(X=k):
+    kind: 'symbol'
+    identifier: 'P_k'
+    label:
+      en: 'Probability of exactly k events'
+  \lambda:
+    kind: 'symbol'
+    label:
+      en: 'Mean number of events'
+  k:
+    kind: 'symbol'
+    integer: true
+    label:
+      en: 'Number of events'
+solutions:
+  P(X=k): 'lambda^k * exp(-lambda) / factorial(k)'
+calculator:
+  enabled: true
+  solveFor: ['P(X=k)']
+categories:
+  - 'mathematics'
+branches:
+  - 'statistics-and-probability'
+aliases:
+  - 'Poisson distribution'
+  - 'Poisson probability formula'
+  - 'Poisson probability mass function'
+  - 'Poisson pmf'
+  - 'law of small numbers'
+  - 'distribución de Poisson'
+  - 'función de probabilidad de Poisson'
+references:
+  - title: 'OpenStax, Introductory Statistics 2e, 4.6 Poisson Distribution (Examples 4.31 and 4.32)'
+    url: 'https://openstax.org/books/introductory-statistics-2e/pages/4-6-poisson-distribution'
+  - title: 'NIST/SEMATECH e-Handbook of Statistical Methods, 1.3.6.6.19 Poisson Distribution'
+    url: 'https://www.itl.nist.gov/div898/handbook/eda/section3/eda366j.htm'
+  - title: 'MacTutor History of Mathematics, Siméon Denis Poisson (biography)'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Poisson/'
+description:
+  en: >-
+    The Poisson probability formula gives the chance that exactly k events happen within a set
+    stretch of time or region of space when the events occur independently of one another at a known average
+    rate. It is the probability mass function of the Poisson distribution, the standard model in
+    statistics for counts such as calls to a help desk per hour, typing errors per page or
+    radioactive decays per second.
+
+    In the formula, $\var{k}$ is the number of events, a non-negative whole number, and
+    $\var{\lambda}$ is the mean number of events expected in the interval, a positive pure number
+    equal to the average rate times the length of the interval. $\var{P(X=k)}$ is the probability
+    that the count X equals k, a pure number from 0 to 1. The exclamation mark denotes the factorial
+    and e is Euler's number.
+
+    The distribution has a single parameter: its mean and its variance both equal $\var{\lambda}$,
+    so the standard deviation is the square root of the mean. Summed over every k from zero upwards,
+    the probabilities add up to one, because the powers of $\var{\lambda}$ divided by the factorials
+    rebuild the exponential series. The formula is also the limit of the binomial probability when
+    the number of trials grows large and the probability of success shrinks, with their product held
+    at $\var{\lambda}$. The mean appears both as a base and in an exponent, so neither it nor the
+    count can be isolated, and the calculator solves only for the probability.
+
+    The model requires a constant average rate across the interval, independent events and no two
+    events at exactly the same instant. As an approximation to a binomial, one textbook rule of thumb
+    asks for more than 20 trials and a success probability below 0.05.
+
+    Siméon Denis Poisson introduced the distribution in his treatise of 1837 on the probability of
+    judgements in criminal and civil matters. With 41.5 text messages a day, about 1.7292 an hour, the
+    chance of exactly two in a given hour is about 0.2653.

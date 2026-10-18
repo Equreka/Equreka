@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Surface tension as force per unit length'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{\gamma}=\frac{\mag{F}}{\var{L}}'
+terms:
+  \gamma:
+    kind: 'magnitude'
+    ref: 'surface-tension'
+  F:
+    kind: 'magnitude'
+    ref: 'force'
+  L:
+    kind: 'symbol'
+    label:
+      en: 'Length of the edge the film pulls on'
+    unit: 'metre'
+solutions:
+  \gamma: 'F / L'
+  F: 'gamma * L'
+  L: 'F / gamma'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'surface tension formula'
+  - 'surface tension equation'
+  - 'gamma = F / L'
+  - 'force per unit length of a liquid surface'
+  - 'fórmula de la tensión superficial'
+references:
+  - title: 'OpenStax, College Physics 2e, 11.8 Cohesion and Adhesion in Liquids: Surface Tension and Capillary Action (sliding-wire device, Table 11.3, Example 11.11)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/11-8-cohesion-and-adhesion-in-liquids-surface-tension-and-capillary-action'
+  - title: 'R. Nave, HyperPhysics, Surface Tension'
+    url: 'https://hyperphysics.gsu.edu/hbase/surten.html'
+  - title: 'Encyclopaedia Britannica, 11th ed. (1911), Capillary Action (Wikisource)'
+    url: 'https://en.wikisource.org/wiki/1911_Encyclop%C3%A6dia_Britannica/Capillary_Action'
+description:
+  en: >-
+    Surface tension, as a formula, is the force that a stretched liquid surface exerts along an edge
+    divided by the length of that edge. It turns the pull felt by a wire, a frame or a ring lifted
+    from a liquid into a property of the liquid itself, and in fluid mechanics it is the working
+    definition behind most measurements of how strongly a liquid surface holds together.
+
+    In the formula, $\mag{\gamma}$ is the surface tension in newtons per metre, $\mag{F}$ the force
+    the surface exerts in newtons, acting in the plane of the surface and at right angles to the
+    edge, and $\var{L}$ the length of the edge the film pulls on, in metres. All three are
+    non-negative.
+
+    In the classic device, a soap film fills a wire frame closed on one side by a sliding wire, and
+    the film pulls the wire inwards with a force that does not depend on how far it is stretched.
+    A film has two surfaces, front and back, so the force on a wire of length l is twice the surface
+    tension times l, and the edge length entered here is then twice the length of the wire.
+    Pulling the wire out by a small distance enlarges the area of liquid surface, and the work done
+    equals the surface tension times the new area, the energy reading of the same quantity.
+
+    The relation assumes a clean surface in equilibrium at a fixed temperature, because heating and
+    dissolved soaps or other surfactants lower the surface tension. It gives the tension of one
+    surface only; across a curved surface the tension also produces a pressure difference, which
+    reaches four times the surface tension over the radius inside a soap bubble.
+
+    Thomas Young built his account of capillarity on the idea of a tension in the liquid surface. A
+    soap film of typical soapy water, 0.037 newtons per metre, pulls on a sliding wire 5 centimetres
+    long with about 0.0037 newtons.

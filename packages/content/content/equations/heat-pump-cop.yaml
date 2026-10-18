@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Coefficient of performance of a heat pump'
+kind: 'formula'
+level: 'intro'
+expression: '\var{K_\mathrm{HP}}=\frac{\var{Q_\mathrm{h}}}{\mag{W}}'
+terms:
+  K_\mathrm{HP}:
+    kind: 'symbol'
+    label:
+      en: 'Coefficient of performance of the heat pump'
+  Q_\mathrm{h}:
+    kind: 'symbol'
+    label:
+      en: 'Heat delivered to the hot reservoir'
+    unit: 'joule'
+  W:
+    kind: 'magnitude'
+    ref: 'work'
+solutions:
+  K_\mathrm{HP}: 'Q_h / W'
+  Q_\mathrm{h}: 'K_HP * W'
+  W: 'Q_h / K_HP'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'heat pump COP'
+  - 'COP of a heat pump'
+  - 'coefficient of performance for heating'
+  - 'heating COP'
+  - 'K = Qh / W'
+  - 'coeficiente de rendimiento de una bomba de calor'
+  - 'COP de una bomba de calor'
+  - 'COP de calefacción'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 4.3 Refrigerators and Heat Pumps (Equation 4.4)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/4-3-refrigerators-and-heat-pumps'
+  - title: 'OpenStax, College Physics 2e, 15.5 Applications of Thermodynamics: Heat Pumps and Refrigerators (Equations 15.37 and 15.44, Example 15.5)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/15-5-applications-of-thermodynamics-heat-pumps-and-refrigerators'
+description:
+  en: >-
+    For a heat pump, the coefficient of performance is the heat the machine delivers to the warm
+    space divided by the work needed to run it. Abbreviated COP, it is the figure of merit of heat pumps used for
+    heating buildings and water in thermodynamics, the same machine as a refrigerator judged by the
+    heat it gives off on the hot side instead of the heat it takes from the cold side.
+
+    $\var{K_\mathrm{HP}}$ is the coefficient of performance, a pure number that compares two
+    energies and is always greater than 1. $\var{Q_\mathrm{h}}$ is the heat delivered to the hot
+    reservoir and $\mag{W}$ the work done on the machine, both in joules over the same cycle or the
+    same time interval and both counted as positive; power in watts gives the same ratio. The work
+    is done on the machine, the opposite sense to the first-law form, where the work is done by the
+    system.
+
+    A heat pump draws heat from a cold reservoir, such as the outdoor air, and the work
+    adds to it, so the heat delivered equals the heat extracted plus the work. Dividing by the work
+    shows that the coefficient of the heat pump is the coefficient of the same machine run as a
+    refrigerator plus one, which is why it exceeds 1 without breaking the conservation of energy.
+
+    The second law caps the value at that of a reversible Carnot cycle, the hot absolute temperature
+    divided by the difference between the hot and cold temperatures, so the advantage shrinks as
+    the outdoor air gets colder. Real heat pumps stay well below that bound, with values typically
+    between 2 and 4.
+
+    Compared with an electric heater, which turns each joule of electrical work into one joule of
+    heat, a heat pump supplies several. A Carnot heat pump moving heat from air at -15.0 degrees
+    Celsius into a space at 45.0 degrees Celsius would reach about 5.30.

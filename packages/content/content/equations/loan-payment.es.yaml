@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Pago de un préstamo'
+terms:
+  M:
+    label: 'Pago por periodo'
+  P:
+    label: 'Capital prestado'
+  r:
+    label: 'Tasa de interés por periodo'
+  n:
+    label: 'Número de pagos'
+description: >-
+  La fórmula del pago de un préstamo da la cantidad fija que paga el prestatario al final de cada
+  periodo para que un préstamo, intereses incluidos, quede devuelto en un número dado de cuotas
+  iguales. Conocida como fórmula de amortización o de cuota constante en la matemática financiera,
+  fija el pago mensual de los préstamos para automóviles, los préstamos de estudios y las
+  hipotecas a tasa fija.
+
+  En la fórmula, $\var{M}$ es el pago por periodo y $\var{P}$ el capital, la cantidad prestada;
+  ambos son sumas de dinero en la misma moneda, introducidas como números sin unidad. $\var{r}$ es
+  la tasa de interés por periodo, escrita como fracción decimal (0.005 para medio por ciento): la
+  tasa anual dividida entre el número de pagos por año. $\var{n}$ es el número total de pagos, un
+  número entero, de modo que un préstamo a cinco años pagado cada mes tiene 60. Las cuatro son
+  positivas.
+
+  El capital debe igualar el valor presente de todos los pagos, cada uno descontado por uno más la
+  tasa en cada periodo que espera. Esa suma es una serie geométrica, y su forma cerrada, despejada
+  para el pago, da la fórmula. Cada pago cubre primero los intereses del saldo pendiente y destina
+  el resto al capital, así que la parte de intereses baja y la de capital sube a lo largo del
+  préstamo. Los logaritmos dan el número de pagos necesario con un pago elegido. La tasa no se
+  puede despejar con funciones elementales, por lo que la calculadora la pide como dato.
+
+  La fórmula supone una tasa fija durante todo el plazo, pagos iguales al final de cada periodo e
+  intereses capitalizados una vez por pago. Las comisiones, los seguros y los préstamos que cobran
+  todos los intereses por adelantado quedan fuera de ella, y los prestamistas redondean el pago al centavo superior.
+
+  Un préstamo para un automóvil de 28500 al 3.99 por ciento anual, devuelto mensualmente en cinco
+  años, cuesta unos 524.74 al mes, que el prestamista redondea a 524.75.

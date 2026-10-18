@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Coulomb per square metre'
+symbol:
+  tex: 'C/m^{2}'
+unitOf:
+  - 'surface-charge-density'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'coulomb'
+      exp: 1
+    - unit: 'metre'
+      exp: -2
+externalIds:
+  wikidata: 'Q68343206'
+  qudt: 'http://qudt.org/vocab/unit/C-PER-M2'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'coulomb per square meter'
+  - 'coulombs per square metre'
+  - 'coulomb per metre squared'
+  - 'C/m2'
+  - 'C m-2'
+  - 'C·m⁻²'
+  - 'culombio por metro cuadrado'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.4 Derived units, Table 6'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, unit C-PER-M2 (Coulomb per Square Metre): conversion multiplier 1'
+    url: 'https://qudt.org/vocab/unit/C-PER-M2'
+  - title: 'Wikidata, coulomb per square metre (Q68343206)'
+    url: 'https://www.wikidata.org/wiki/Q68343206'
+  - title: 'OpenStax, University Physics Volume 2, 6.4 Conductors in Electrostatic Equilibrium (Example 6.10)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/6-4-conductors-in-electrostatic-equilibrium'
+  - title: 'NIST, CODATA 2022 value: vacuum electric permittivity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?ep0'
+  - title: 'OpenStax, University Physics Volume 2, 5.5 Calculating Electric Fields of Charge Distributions'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/5-5-calculating-electric-fields-of-charge-distributions'
+description:
+  en: >-
+    The coulomb per square metre, symbol $\mathrm{C/m^{2}}$, is the coherent SI derived unit of
+    surface charge density, the electric charge held by each unit area of a surface. It is the
+    coulomb, the SI unit of electric charge, divided by the square metre, and in SI base units it
+    is the ampere second per square metre. It has no special name.
+
+    The SI Brochure lists it in its table of coherent derived units for two quantities: surface
+    charge density, and electric flux density, also called electric displacement. A surface on
+    which every square metre carries one coulomb has a surface charge density of one coulomb per
+    square metre.
+
+    The unit is large for everyday electrostatics. Divided by the vacuum electric permittivity,
+    about $8.854\times10^{-12}\,\mathrm{F/m}$, a surface charge in coulombs per square metre gives
+    the field immediately outside a conductor in volts per metre, so one microcoulomb per square metre
+    corresponds to about 113 kilovolts per metre. Laboratory values are therefore usually written
+    with the prefixes micro or nano, in microcoulombs or nanocoulombs per square metre.
+
+    The unit appears wherever charge lies on surfaces: capacitor plates, charged sheets and the
+    surfaces of conductors, as well as the polarization of dielectrics, which QUDT also measures in
+    it. Capacitor plates charged to $6.81\times10^{-7}\,\mathrm{C/m^{2}}$, an OpenStax example,
+    set up a field of about 77 kilovolts per metre between them.
+
+    The symbol may also be written C m⁻², with a negative exponent. The plural is coulombs per square metre.

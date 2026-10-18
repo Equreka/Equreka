@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Culombio por metro cuadrado'
+description: >-
+  El culombio por metro cuadrado, de símbolo $\mathrm{C/m^{2}}$, es la unidad SI derivada
+  coherente de densidad de carga superficial, la carga eléctrica que tiene cada unidad de área de
+  una superficie. Es el culombio, la unidad SI de carga eléctrica, dividido entre el metro
+  cuadrado, y en unidades básicas del SI es el amperio segundo por metro cuadrado. No tiene nombre
+  especial.
+
+  El folleto del SI la incluye en su tabla de unidades derivadas coherentes para dos magnitudes: la
+  densidad de carga superficial y la densidad de flujo eléctrico, también llamada desplazamiento
+  eléctrico. Una superficie en la que cada metro cuadrado lleva un culombio tiene una densidad de
+  carga superficial de un culombio por metro cuadrado.
+
+  La unidad es grande para la electrostática cotidiana. Dividida entre la permitividad eléctrica
+  del vacío, de unos $8.854\times10^{-12}\,\mathrm{F/m}$, una carga superficial en culombios por
+  metro cuadrado da el campo justo fuera de un conductor en voltios por metro, de modo que un
+  microculombio por metro cuadrado corresponde a unos 113 kilovoltios por metro. Por eso los
+  valores de laboratorio se escriben con los prefijos micro o nano, en microculombios o
+  nanoculombios por metro cuadrado.
+
+  La unidad aparece donde hay carga sobre superficies: placas de condensadores, láminas cargadas y
+  superficies de conductores, así como en la polarización de los dieléctricos, que QUDT también
+  mide en ella. Unas placas de condensador cargadas con $6.81\times10^{-7}\,\mathrm{C/m^{2}}$, un
+  ejemplo de OpenStax, crean entre ellas un campo de unos 77 kilovoltios por metro.
+
+  El símbolo también puede escribirse C m⁻², con exponente negativo. El plural es culombios por metro
+  cuadrado.

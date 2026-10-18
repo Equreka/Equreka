@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Entropy change of an ideal gas at constant temperature'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{\Delta S}=\mag{n}\const{R}\ln\left(\frac{\var{V_{2}}}{\var{V_{1}}}\right)'
+terms:
+  \Delta S:
+    kind: 'magnitude'
+    ref: 'entropy'
+  n:
+    kind: 'magnitude'
+    ref: 'substance'
+  R:
+    kind: 'constant'
+    ref: 'molar-gas-constant'
+  V_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Final volume'
+    unit: 'cubic-metre'
+  V_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Initial volume'
+    unit: 'cubic-metre'
+solutions:
+  \Delta S: 'n * R * ln(V_2 / V_1)'
+  n: 'DeltaS / (R * ln(V_2 / V_1))'
+  V_{2}: 'V_1 * exp(DeltaS / (n * R))'
+  V_{1}: 'V_2 * exp(-DeltaS / (n * R))'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'thermodynamics'
+aliases:
+  - 'isothermal entropy change'
+  - 'entropy change in isothermal expansion'
+  - 'entropy of free expansion'
+  - 'Delta S = nR ln(V2/V1)'
+  - 'variación de entropía en una expansión isotérmica'
+  - 'cambio de entropía de un gas ideal'
+  - 'entropía de la expansión libre'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 4.7 Entropy on a Microscopic Scale (Example 4.8)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/4-7-entropy-on-a-microscopic-scale'
+  - title: 'OpenStax, University Physics Volume 2, 4.6 Entropy (Equation 4.8, Example 4.6)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/4-6-entropy'
+  - title: 'NIST, CODATA 2022 value: molar gas constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?r'
+description:
+  en: >-
+    The entropy change of an ideal gas at constant temperature equals the amount of gas times the
+    molar gas constant times the natural logarithm of the ratio of its final volume to its initial
+    volume. In thermodynamics it gives the entropy gained in an isothermal expansion, or lost in an
+    isothermal compression, and it is the textbook example of the second law at work in a free
+    expansion.
+
+    $\mag{\Delta S}$ is the entropy change of the gas in joules per kelvin, positive when the gas
+    expands and negative when it is compressed. $\mag{n}$ is the amount of gas in moles.
+    $\const{R}$ is the molar gas constant, about 8.314 joules per mole kelvin, exact in the SI.
+    $\var{V_{1}}$ and $\var{V_{2}}$ are the initial and final volumes in cubic metres; only their
+    ratio matters, so both may be given in any one volume unit.
+
+    Along a reversible path at fixed temperature the internal energy of an ideal gas stays the same,
+    so the heat taken in equals the work the gas does, the amount times R times the temperature
+    times the logarithm of the volume ratio. Dividing that heat by the temperature, as the
+    definition of entropy change requires, cancels the temperature and leaves the formula.
+
+    Because entropy depends only on the state, the result holds for any process that starts and
+    ends at the same temperature with these volumes, including an irreversible free expansion into
+    a vacuum, where no heat flows yet the entropy still rises. It assumes an ideal gas, so it
+    loses accuracy at high pressures, and with Boyle's law the volume ratio may be replaced by the
+    initial pressure over the final pressure.
+
+    A mole of gas that doubles its volume at constant temperature gains $\const{R}\ln 2$, about 5.76
+    joules per kelvin, whatever the temperature.

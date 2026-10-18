@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Campo eléctrico de una línea de carga infinita'
+terms:
+  r:
+    label: 'Distancia a la línea'
+description: >-
+  El campo eléctrico de una línea recta infinitamente larga con carga uniforme es igual a la
+  densidad de carga lineal dividida entre dos pi por la permitividad eléctrica del vacío por la
+  distancia a la línea. Disminuye como el inverso de la distancia y no como su cuadrado, y en
+  electrostática sirve de modelo para hilos cargados, varillas finas y el exterior de cilindros
+  largos cargados.
+
+  $\mag{E}$ es la intensidad de campo eléctrico en voltios por metro, dirigida radialmente,
+  perpendicular a la línea, y contada como positiva hacia fuera de ella. $\mag{\lambda}$ es la
+  densidad de carga lineal en culombios por metro; el campo lleva su signo, de modo que una línea
+  negativa da un campo que apunta hacia ella. $\const{\varepsilon_{0}}$ es la permitividad eléctrica
+  del vacío, de unos $8.854\times10^{-12}\,\mathrm{F/m}$, y $\var{r}$ es la distancia perpendicular
+  a la línea en metros, siempre positiva.
+
+  La simetría obliga al campo de una línea infinita a apuntar perpendicularmente hacia fuera de
+  ella y a tener la misma intensidad en todos los puntos situados a una misma distancia. Un
+  cilindro cerrado de radio r y longitud L alrededor de la línea recibe entonces flujo solo por su
+  cara lateral, el campo por el área lateral dos pi r L, mientras que las tapas no aportan nada. Al
+  igualar ese flujo a la carga encerrada, la densidad por L, entre la permitividad, la longitud se
+  cancela y queda la fórmula.
+
+  El resultado supone una línea mucho más larga que la distancia a la que se toma el campo y
+  delgada frente a esa distancia. Cerca del centro de una varilla finita es una buena
+  aproximación; lejos de ella, a distancias mucho mayores que su longitud, el campo vuelve a ser el
+  de una carga puntual. Fuera de un cilindro con carga uniforme se aplica la misma fórmula con la
+  carga por unidad de longitud del cilindro.
+
+  Una línea con un microculombio por metro crea unos $1.8\times10^{5}\,\mathrm{V/m}$ a una
+  distancia de 10 centímetros.

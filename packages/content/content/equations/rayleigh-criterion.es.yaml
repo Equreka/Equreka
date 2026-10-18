@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Criterio de Rayleigh'
+terms:
+  D:
+    label: 'Diámetro de la abertura'
+description: >-
+  El criterio de Rayleigh da el menor ángulo entre dos fuentes puntuales que una abertura circular,
+  como el espejo de un telescopio, el objetivo de una cámara o la pupila del ojo, todavía puede
+  mostrar separadas: 1.22 veces la longitud de onda dividida entre el diámetro de la abertura. Fija
+  el límite de difracción de la resolución angular en óptica, el detalle más fino que puede dar
+  cualquier lente o espejo de un tamaño dado.
+
+  $\mag{\theta}$ es el ángulo mínimo resoluble en radianes, un ángulo pequeño y positivo medido en
+  el instrumento entre las direcciones de las dos fuentes. $\mag{\lambda}$ es la longitud de onda
+  luminosa, en metros. $\var{D}$ es el diámetro de la abertura en metros. El factor 1.22 es un
+  número puro, un redondeo de 1.21967, que resulta de dividir entre pi la primera raíz de la función
+  de Bessel J1.
+
+  La luz que atraviesa una abertura circular no forma un punto nítido, sino un disco central
+  brillante rodeado de anillos más débiles, y el primer anillo oscuro está en el ángulo que da la
+  fórmula. Dos imágenes se consideran apenas resueltas cuando el centro de un patrón cae sobre el
+  primer anillo oscuro del otro; las fuentes más próximas se funden en una sola mancha. Por eso una
+  abertura más ancha o una longitud de onda más corta resuelven detalles más finos.
+
+  La fórmula es la forma de ángulo pequeño de una relación con seno y supone una abertura mucho más
+  ancha que la longitud de onda y un instrumento sin otros defectos. Las aberraciones de las
+  lentes y los espejos no del todo uniformes hacen que los instrumentos reales resuelvan algo menos
+  que este límite.
+
+  Lord Rayleigh propuso el criterio en el siglo XIX. El telescopio espacial Hubble, con un espejo
+  de 2.40 metros de diámetro, resuelve unos $2.80\times10^{-7}$ radianes a 550 nanómetros.

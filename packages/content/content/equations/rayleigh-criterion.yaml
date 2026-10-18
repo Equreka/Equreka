@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Rayleigh criterion'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{\theta}=1.22\frac{\mag{\lambda}}{\var{D}}'
+terms:
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  \lambda:
+    kind: 'magnitude'
+    ref: 'wavelength'
+  D:
+    kind: 'symbol'
+    label:
+      en: 'Aperture diameter'
+    unit: 'metre'
+solutions:
+  \theta: '1.22 * lambda / D'
+  \lambda: 'theta * D / 1.22'
+  D: '1.22 * lambda / theta'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q740898'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'Rayleigh limit'
+  - 'diffraction limit'
+  - 'diffraction-limited resolution'
+  - 'angular resolution'
+  - 'theta = 1.22 lambda / D'
+  - 'criterio de Rayleigh'
+  - 'límite de difracción'
+  - 'resolución angular'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 4.5 Circular Apertures and Resolution (Equation 4.5, Example 4.6)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/4-5-circular-apertures-and-resolution'
+  - title: 'OpenStax, College Physics 2e, 27.6 Limits of Resolution: The Rayleigh Criterion (Equation 27.25, Example 27.5)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/27-6-limits-of-resolution-the-rayleigh-criterion'
+  - title: 'OEIS, A245461: Decimal expansion of constant in the Rayleigh criterion (first zero of J_1 divided by pi)'
+    url: 'https://oeis.org/A245461'
+  - title: 'Wikidata, angular resolution (Q740898): defining formula sin theta = 1.22 lambda / D'
+    url: 'https://www.wikidata.org/wiki/Q740898'
+description:
+  en: >-
+    The Rayleigh criterion gives the smallest angle between two point sources that a circular
+    aperture, such as a telescope mirror, a camera lens or the pupil of the eye, can still show as
+    separate: 1.22 times the wavelength divided by the diameter of the aperture. It sets the
+    diffraction limit of angular resolution in optics, the sharpest detail any lens or mirror of a
+    given size can deliver.
+
+    $\mag{\theta}$ is the minimum resolvable angle in radians, a small positive angle measured at
+    the instrument between the directions to the two sources. $\mag{\lambda}$ is the wavelength of
+    the light in metres. $\var{D}$ is the diameter of the aperture in metres. The factor 1.22 is a
+    pure number, a rounding of 1.21967, the first zero of the Bessel function of order one divided
+    by pi.
+
+    Light passing a circular opening does not form a sharp point but a bright central disc ringed
+    by fainter bands, and the first dark ring lies at the angle given by the formula. Two images
+    count as barely resolved when the centre of one pattern falls on the first dark ring of the other;
+    closer sources blur into a single spot. A wider aperture or a shorter wavelength therefore
+    resolves finer detail.
+
+    The formula is the small-angle form of a sine relation and assumes an aperture much wider than
+    the wavelength and an instrument free of other defects. Lens aberrations and mirrors that are not
+    perfectly uniform make real instruments resolve somewhat less than this limit.
+
+    Lord Rayleigh introduced the criterion in the nineteenth century. The Hubble Space Telescope,
+    with a mirror 2.40 metres across, resolves about $2.80\times10^{-7}$ radians at 550 nanometres.

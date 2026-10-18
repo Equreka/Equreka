@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Volumen del tronco de cono'
+terms:
+  h:
+    label: 'Altura'
+  R:
+    label: 'Radio de la base inferior'
+  r:
+    label: 'Radio de la base superior'
+description: >-
+  El volumen del tronco de cono, el sólido que queda cuando un cono se corta con un plano paralelo a
+  su base y se retira la parte superior, es igual a un tercio de pi por la altura por la suma del
+  cuadrado de un radio, el producto de los dos radios y el cuadrado del otro radio. Esta regla de la
+  geometría del espacio da la capacidad de cubos, macetas, pantallas de lámpara y muchos vasos, que
+  son conos truncados.
+
+  En la fórmula, $\mag{V}$ es el volumen en metros cúbicos; $\var{h}$ es la altura, la distancia
+  perpendicular entre las dos caras circulares; $\var{R}$ es el radio de la base inferior y
+  $\var{r}$ el de la base superior, los tres en metros. La constante $\const{\pi}$ es un número puro
+  cercano a 3.14159. Ninguna de las magnitudes es negativa, y la fórmula es simétrica en los dos
+  radios, así que da igual qué cara se llame base inferior.
+
+  El tronco es un cono grande menos el cono pequeño cortado de su vértice, y la diferencia de sus
+  volúmenes, simplificada con los triángulos semejantes que relacionan las dos alturas, da los tres
+  términos del paréntesis. Si el radio superior es cero, la fórmula se convierte en el volumen de un
+  cono, y si los dos radios son iguales, en el de un cilindro. Despejar un radio exige resolver una
+  ecuación de segundo grado; solo su raíz positiva es una longitud.
+
+  La fórmula vale para un tronco de cono recto y también para uno oblicuo con la misma altura,
+  porque el volumen solo depende de las secciones a cada nivel. Las caras deben ser paralelas; un
+  corte inclinado produce otro sólido. Un tronco de pirámide cuadrada sigue el mismo esquema, con los lados de los dos cuadrados en lugar de los radios y sin el factor pi.
+
+  El problema 14 del papiro de Moscú, un texto del antiguo Egipto, calcula el volumen de una
+  pirámide cuadrada truncada con una base de 4 codos de lado, una cara superior de 2 y una altura de
+  6, y obtiene 56.

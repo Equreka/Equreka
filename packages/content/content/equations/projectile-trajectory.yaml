@@ -1,0 +1,88 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Trajectory of a projectile'
+kind: 'equation'
+level: 'intro'
+expression: '\var{y}=\var{x}\tan\mag{\theta}-\frac{\var{g}\var{x}^{2}}{2\var{v_{0}}^{2}\cos^{2}\mag{\theta}}'
+terms:
+  y:
+    kind: 'symbol'
+    label:
+      en: 'Height above the launch point'
+    unit: 'metre'
+  x:
+    kind: 'symbol'
+    label:
+      en: 'Horizontal distance from the launch point'
+    unit: 'metre'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+  v_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Launch speed'
+    unit: 'metre-per-second'
+solutions:
+  y: 'x * tan(theta) - g * x^2 / (2 * v_0^2 * cos(theta)^2)'
+  x:
+    - 'v_0 * cos(theta) * (v_0 * sin(theta) + sqrt(v_0^2 * sin(theta)^2 - 2 * g * y)) / g'
+    - 'v_0 * cos(theta) * (v_0 * sin(theta) - sqrt(v_0^2 * sin(theta)^2 - 2 * g * y)) / g'
+  \theta:
+    - 'atan((v_0^2 - sqrt(v_0^4 - g * (g * x^2 + 2 * y * v_0^2))) / (g * x))'
+    - 'atan((v_0^2 + sqrt(v_0^4 - g * (g * x^2 + 2 * y * v_0^2))) / (g * x))'
+  g: '2 * v_0^2 * cos(theta)^2 * (x * tan(theta) - y) / x^2'
+  v_{0}: 'sqrt(g * x^2 / (2 * cos(theta)^2 * (x * tan(theta) - y)))'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'mechanics'
+aliases:
+  - 'trajectory equation'
+  - 'equation of the trajectory'
+  - 'projectile path'
+  - 'parabolic trajectory'
+  - 'ballistic trajectory'
+  - 'ecuación de la trayectoria'
+  - 'trayectoria parabólica'
+  - 'tiro parabólico'
+references:
+  - title: 'OpenStax, University Physics Volume 1, 4.3 Projectile Motion (Equation 4.25, Example 4.9)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/4-3-projectile-motion'
+  - title: 'R. Nave, HyperPhysics, Trajectories (height in terms of horizontal distance)'
+    url: 'https://hyperphysics.gsu.edu/hbase/traj.html'
+  - title: 'NIST, CODATA Value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+description:
+  en: >-
+    The trajectory equation of a projectile gives the height of a launched body as a function of the
+    horizontal distance it has covered: the distance times the tangent of the launch angle, minus a
+    term that grows with the square of the distance. In kinematics it shows that, without air
+    resistance, the path of a thrown ball, a jet of water or a cannon shot is a parabola.
+
+    Here $\var{y}$ is the height above the launch point and $\var{x}$ the horizontal distance from
+    it, both in metres, with $\var{y}$ negative below the launch level. $\var{v_{0}}$ is the launch
+    speed in metres per second, entered as a non-negative size, and $\mag{\theta}$ the launch angle
+    above the horizontal, whose coherent unit is the radian; the angle carries the direction.
+    $\var{g}$ is the size of the gravitational acceleration, entered positive; its standard value is 9.80665 metres per second squared, and the local value varies with place and differs on another planet or moon.
+
+    The horizontal motion is uniform, so the time to reach a distance is that distance divided by
+    the horizontal component of the launch velocity. Substituting this time into the vertical
+    position under constant downward acceleration removes time and leaves the parabola. A point
+    within reach can be hit at two launch angles: solving for $\mag{\theta}$ gives the lower angle
+    first and the higher one second. The same height is passed twice, so solving for $\var{x}$ gives
+    the farther crossing, on the way down, first and the nearer one second.
+
+    The equation assumes a launch from the origin of the axes, negligible air resistance and a
+    uniform gravitational field, so it fails for fast or light objects and over very long ranges.
+    Launch and landing may be at different heights.
+
+    In a golf drive launched at 30 degrees and 31.9 metres per second, the ball is about 13.0 metres
+    up after 45 metres of horizontal travel, the top of its arc, and lands about 90 metres away.

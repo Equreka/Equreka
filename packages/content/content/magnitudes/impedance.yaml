@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Impedance'
+symbol:
+  tex: 'Z'
+baseUnit: 'ohm'
+dimension:
+  L: 2
+  M: 1
+  T: -3
+  I: -2
+nonNegative: true
+externalIds:
+  wikidata: 'Q179043'
+  qudt: 'http://qudt.org/vocab/quantitykind/Impedance'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'electrical impedance'
+  - 'electric impedance'
+  - 'modulus of impedance'
+  - 'apparent impedance'
+  - 'AC resistance'
+  - 'impedancia eléctrica'
+  - 'módulo de la impedancia'
+references:
+  - title: 'QUDT, quantity kind Impedance'
+    url: 'https://qudt.org/vocab/quantitykind/Impedance'
+  - title: 'QUDT, quantity kind ModulusOfImpedance (Z = |Z|)'
+    url: 'https://qudt.org/vocab/quantitykind/ModulusOfImpedance'
+  - title: 'Wikidata, impedance (Q179043): quotient of the voltage phasor and the current phasor'
+    url: 'https://www.wikidata.org/wiki/Q179043'
+  - title: 'OpenStax, University Physics Volume 2, 15.3 RLC Series Circuits with AC (Equation 15.11, Example 15.2)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/15-3-rlc-series-circuits-with-ac'
+  - title: 'OpenStax, College Physics 2e, 23.12 RLC Series AC Circuits (Examples 23.12 and 23.13)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/23-12-rlc-series-ac-circuits'
+  - title: 'NIST, CODATA 2022 value: characteristic impedance of vacuum'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?z0'
+  - title: 'C. Süsskind, Heaviside, Oliver, Complete Dictionary of Scientific Biography (Encyclopedia.com)'
+    url: 'https://www.encyclopedia.com/people/science-and-technology/physics-biographies/oliver-heaviside'
+description:
+  en: >-
+    Impedance is the opposition that a circuit element or network offers to a sinusoidal
+    alternating current. In the full form it is a complex quantity, the voltage phasor divided by
+    the current phasor, whose real part is the resistance and whose imaginary part is the
+    reactance; its modulus, the value usually quoted in ohms, equals the voltage amplitude divided
+    by the current amplitude.
+
+    The coherent SI unit is the ohm, shared with resistance and reactance, so the dimension is
+    length squared times mass divided by time cubed and by electric current squared. The usual
+    symbol is $Z$.
+
+    The modulus is a scalar that is never negative. The direction information lives in the
+    argument of the complex impedance, the phase angle by which the voltage leads the current:
+    positive when the inductive reactance dominates, negative when the capacitive one does, and
+    zero for a pure resistance. For a series circuit the modulus is the square root of the
+    resistance squared plus the net reactance squared.
+
+    Impedance is measured by dividing the voltage amplitude, or the rms voltage, across a component
+    by the corresponding current at a stated frequency, since the value changes with frequency. A
+    series circuit of 40.0 ohms, 3.00 mH and 5.00 microfarads shows about 531 ohms at 60 Hz, 190
+    ohms at 10 kHz and its bare resistance at resonance, near 1.30 kHz. Free space itself has a
+    characteristic impedance of about 376.73 ohms, a CODATA value.
+
+    Impedance generalizes resistance: for direct current, or for a component with no reactance,
+    the two coincide. QUDT files impedance and reactance as narrower kinds of resistance, although
+    in the complex form resistance and reactance are the two parts of an impedance. Oliver Heaviside coined the word impedance, along with
+    inductance and capacitance.

@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Impedancia de un circuito RLC en serie'
+terms:
+  X_\mathrm{L}:
+    label: 'Reactancia inductiva'
+  X_\mathrm{C}:
+    label: 'Reactancia capacitiva'
+description: >-
+  La impedancia de un circuito RLC en serie, un resistor, una bobina y un condensador en serie con
+  una fuente alterna, es la raíz cuadrada de la resistencia al cuadrado más el cuadrado de la
+  reactancia inductiva menos la capacitiva. Hace el papel de la resistencia en una forma de la ley
+  de Ohm para corriente alterna: la amplitud de la corriente es la amplitud de la tensión dividida
+  entre la impedancia.
+
+  $\mag{Z}$ es la impedancia en ohmios, nunca negativa. $\mag{R}$ es la resistencia en ohmios.
+  $\var{X_\mathrm{L}}$ y $\var{X_\mathrm{C}}$ son la reactancia inductiva y la capacitiva en
+  ohmios, introducidas como valores positivos tal como las dan las dos fórmulas de reactancia: la
+  frecuencia angular por la inductancia, y el inverso de la frecuencia angular por la capacidad. Su
+  diferencia es la reactancia neta, positiva cuando el circuito se comporta de forma inductiva y
+  negativa cuando se comporta de forma capacitiva.
+
+  Por los tres elementos circula la misma corriente. La tensión en el resistor está en fase con
+  ella, la tensión en la bobina se adelanta un cuarto de ciclo y la del condensador se retrasa un
+  cuarto de ciclo, de modo que las tensiones de la bobina y del condensador se oponen y su
+  diferencia queda en ángulo recto con la tensión del resistor. Al sumarlas en ángulo recto se
+  obtiene la fórmula. El ángulo de fase con el que la tensión de la fuente se adelanta a la
+  corriente tiene una tangente igual a la reactancia neta entre la resistencia.
+
+  La relación supone componentes ideales en serie y una corriente sinusoidal estacionaria. Al
+  despejar una reactancia se obtienen dos raíces, una para un circuito inductivo y otra para uno
+  capacitivo; la primera raíz de la lista siempre es positiva. Cuando las dos reactancias son
+  iguales, el circuito está en resonancia, la impedancia se reduce a la resistencia y la corriente
+  alcanza su máximo.
+
+  Con 4.00 ohmios, 3.00 mH y 0.800 mF a 200 Hz, las reactancias son 3.77 y 0.995 ohmios y la
+  impedancia es de unos 4.87 ohmios.

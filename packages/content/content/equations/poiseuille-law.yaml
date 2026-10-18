@@ -1,0 +1,86 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Poiseuille''s law'
+kind: 'equation'
+level: 'intermediate'
+expression: '\mag{Q}=\frac{\pi\var{r}^{4}\var{\Delta p}}{8\mag{\eta}\var{L}}'
+terms:
+  Q:
+    kind: 'magnitude'
+    ref: 'volumetric-flow-rate'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Radius of the tube'
+    unit: 'metre'
+  \Delta p:
+    kind: 'symbol'
+    label:
+      en: 'Pressure difference between the ends'
+    unit: 'pascal'
+  \eta:
+    kind: 'magnitude'
+    ref: 'dynamic-viscosity'
+  L:
+    kind: 'symbol'
+    label:
+      en: 'Length of the tube'
+    unit: 'metre'
+solutions:
+  Q: 'pi * r^4 * Deltap / (8 * eta * L)'
+  r: 'sqrt(sqrt(8 * eta * L * Q / (pi * Deltap)))'
+  \Delta p: '8 * eta * L * Q / (pi * r^4)'
+  \eta: 'pi * r^4 * Deltap / (8 * Q * L)'
+  L: 'pi * r^4 * Deltap / (8 * eta * Q)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q869854'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'Poiseuille law'
+  - 'Poiseuille equation'
+  - 'Hagen-Poiseuille equation'
+  - 'Hagen–Poiseuille law'
+  - 'Poiseuille flow'
+  - 'laminar pipe flow'
+  - 'ley de Poiseuille'
+  - 'ley de Hagen-Poiseuille'
+  - 'ecuación de Hagen-Poiseuille'
+references:
+  - title: 'OpenStax, College Physics 2e, 12.4 Viscosity and Laminar Flow; Poiseuille''s Law (Example 12.8)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/12-4-viscosity-and-laminar-flow-poiseuilles-law'
+  - title: 'OpenStax, University Physics Volume 1, 14.7 Viscosity and Turbulence'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/14-7-viscosity-and-turbulence'
+  - title: 'R. Nave, HyperPhysics, Poiseuille''s Law'
+    url: 'https://hyperphysics.gsu.edu/hbase/ppois.html'
+description:
+  en: >-
+    Poiseuille's law, also called the Hagen–Poiseuille equation, gives the volume of a viscous
+    fluid that flows each second through a straight cylindrical tube in steady laminar flow. The
+    flow rate is proportional to the pressure difference between the ends and to the fourth power
+    of the radius, and inversely proportional to the viscosity and the length, which makes it the
+    basic law of fluid mechanics for pipes, needles, capillaries and blood vessels.
+
+    In the equation, $\mag{Q}$ is the volumetric flow rate in cubic metres per second; $\var{r}$ the
+    inner radius of the tube and $\var{L}$ its length, both in metres; $\mag{\eta}$ the dynamic
+    viscosity of the fluid in pascal seconds; and $\var{\Delta p}$ the pressure difference between
+    the ends in pascals, the inlet minus the outlet. The flow runs from high to low pressure, so with
+    this sign convention a positive pressure difference gives a positive flow rate.
+
+    Viscosity holds the layer touching the wall at rest, and the speed rises to a maximum on the
+    axis along a parabolic profile; adding up the flow through every thin ring of that profile gives
+    the law. The quotient of the pressure difference and the flow rate is a resistance to flow,
+    eight times the viscosity times the length over pi times the radius to the fourth, which plays
+    the role of electrical resistance in Ohm's law. The fourth power dominates: narrowing a tube by
+    5 percent cuts the flow to about 0.81 of its value at the same pressure difference.
+
+    The law holds for steady laminar flow of a uniform, incompressible fluid whose viscosity does
+    not depend on the flow, a Newtonian fluid, in a rigid tube of constant radius. Turbulence, which
+    sets in at high Reynolds numbers, makes the real flow smaller than predicted.
+
+    The law bears the name of J. L. Poiseuille, a French scientist who studied how blood moves through the body. A flow of 0.120 cubic centimetres per second of a water-like solution at 20 degrees Celsius through a needle 2.50 centimetres long and 0.150 millimetres in radius needs about 15.1
+    kilopascals across it.

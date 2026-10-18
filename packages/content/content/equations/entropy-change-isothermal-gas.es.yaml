@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Variación de entropía de un gas ideal a temperatura constante'
+terms:
+  V_{2}:
+    label: 'Volumen final'
+  V_{1}:
+    label: 'Volumen inicial'
+description: >-
+  La variación de entropía de un gas ideal a temperatura constante es igual a la cantidad de gas
+  por la constante molar de los gases por el logaritmo natural del cociente entre su volumen final
+  y su volumen inicial. En termodinámica da la entropía que se gana en una expansión isotérmica, o
+  que se pierde en una compresión isotérmica, y es el ejemplo clásico del segundo principio en una
+  expansión libre.
+
+  $\mag{\Delta S}$ es la variación de entropía del gas en julios por kelvin, positiva cuando el gas
+  se expande y negativa cuando se comprime. $\mag{n}$ es la cantidad de gas en moles.
+  $\const{R}$ es la constante molar de los gases, de unos 8.314 julios por mol y kelvin, exacta en
+  el SI. $\var{V_{1}}$ y $\var{V_{2}}$ son los volúmenes inicial y final en metros cúbicos; solo
+  importa su cociente, así que ambos pueden darse en una misma unidad de volumen cualquiera.
+
+  En un camino reversible a temperatura fija, la energía interna de un gas ideal no cambia, de modo
+  que el calor absorbido es igual al trabajo que realiza el gas, la cantidad por R por la
+  temperatura por el logaritmo del cociente de volúmenes. Al dividir ese calor entre la
+  temperatura, como exige la definición de variación de entropía, la temperatura se cancela y queda
+  la fórmula.
+
+  Como la entropía depende solo del estado, el resultado vale para cualquier proceso que empiece y
+  termine a la misma temperatura con estos volúmenes, incluida una expansión libre irreversible
+  hacia el vacío, en la que no fluye calor y aun así la entropía aumenta. Supone un gas ideal, por
+  lo que pierde precisión a presiones altas, y con la ley de Boyle el cociente de volúmenes puede
+  sustituirse por la presión inicial entre la presión final.
+
+  Un mol de gas que duplica su volumen a temperatura constante gana $\const{R}\ln 2$, unos 5.76
+  julios por kelvin, sea cual sea la temperatura.

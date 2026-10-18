@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Tensión superficial'
+description: >-
+  La tensión superficial es la fuerza por unidad de longitud con la que la superficie libre de un
+  líquido tira a lo largo de cualquier línea trazada sobre ella, en el plano de la superficie y
+  perpendicular a la línea. Equivale al trabajo necesario para aumentar esa
+  superficie en una unidad de área a temperatura constante. En mecánica de fluidos explica por qué
+  las gotas y las burbujas se redondean, por qué una aguja puede quedarse sobre el agua y por qué
+  los líquidos suben por tubos estrechos.
+
+  La unidad SI es el newton por metro, que el folleto del SI indica para esta magnitud y que
+  equivale al kilogramo por segundo al cuadrado en unidades básicas, de modo que su dimensión es
+  masa dividida entre tiempo al cuadrado. Como un newton por metro es también un julio por metro
+  cuadrado, el mismo número da la energía superficial del líquido. La unidad CGS, la dina por
+  centímetro, equivale a un milinewton por metro.
+
+  Es un escalar positivo para todo líquido en contacto con su vapor o
+  con el aire. Su símbolo es $\gamma$. Las moléculas de la superficie tienen menos vecinas que las
+  del interior, así que las fuerzas de cohesión tensan la capa superficial como una membrana
+  estirada; al calentar el líquido la cohesión se debilita, y el jabón disuelto reduce mucho el
+  valor.
+
+  Se mide sacando de un líquido un marco de alambre fino cubierto por una película y registrando la
+  fuerza, o a partir de la altura que sube un líquido por un tubo de vidrio estrecho. El agua tiene
+  unos 0.0756 newtons por metro a 0 grados Celsius, 0.0728 a 20 grados y 0.0589 a 100 grados; el
+  agua jabonosa típica, unos 0.037; el alcohol etílico, 0.0223, y el mercurio, 0.465. El helio
+  líquido cerca de −269 grados Celsius solo tiene 0.00012, mientras que el oro fundido a 1070 grados
+  alcanza alrededor de 1.000.
+
+  No es la tensión de una cuerda o un cable, que es una fuerza en newtons, ni
+  una presión; el salto de presión a través de una superficie curva se deriva de ella, pero crece al
+  disminuir el radio de curvatura. QUDT la clasifica como un tipo de energía por unidad de área.
