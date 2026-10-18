@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Periodo del péndulo físico'
+terms:
+  g:
+    label: 'Aceleración de la gravedad'
+  d:
+    label: 'Distancia del eje de giro al centro de masas'
+description: >-
+  El periodo de un péndulo físico, también llamado péndulo compuesto, es el tiempo que tarda un
+  sólido rígido colgado de un eje horizontal fijo en completar una oscilación pequeña: dos pi por
+  la raíz cuadrada de su momento de inercia respecto al eje dividido entre el producto de su masa,
+  la aceleración de la gravedad y la distancia del eje a su centro de masas. En ondas y
+  oscilaciones extiende el péndulo simple a varillas, reglas y puertas que
+  oscilan.
+
+  $\mag{T}$ es el periodo en segundos. $\mag{I}$ es el momento de inercia en kilogramo metro
+  cuadrado, tomado respecto al eje de giro y no respecto al centro de masas. $\mag{m}$ es la masa
+  en kilogramos. $\var{g}$ es el módulo de la aceleración de la gravedad, introducido como positivo; su valor normal es 9.80665 metros por segundo al cuadrado, y el valor local varía con el lugar y es distinto en otro planeta o satélite. $\var{d}$ es la distancia en metros del eje de
+  giro al centro de masas. Todos los términos son positivos.
+
+  El peso actúa en el centro de masas, de modo que un cuerpo girado un ángulo pequeño sufre un
+  momento de una fuerza que lo devuelve, el peso por la distancia por el seno del ángulo. Al igualar ese momento de fuerza al producto del momento de inercia por la aceleración angular y sustituir el seno por el
+  ángulo en radianes se obtiene un movimiento armónico simple con una frecuencia angular igual a la
+  raíz cuadrada de la masa por g por la distancia entre el momento de inercia. Una masa puntual en
+  un hilo ligero tiene un momento de inercia igual a su masa por la distancia al cuadrado, y la
+  fórmula se reduce entonces a la del péndulo simple.
+
+  El resultado vale bien para oscilaciones de menos de unos 15 grados, o 0.26 radianes; las oscilaciones más amplias tardan algo más. Supone además
+  un sólido rígido, un eje fijo sin rozamiento y un arrastre del aire despreciable.
+
+  Christiaan Huygens resolvió el péndulo compuesto en su Horologium Oscillatorium de 1673. Una
+  varilla uniforme de 1.49 metros, suspendida por un extremo, oscila con un periodo de unos 2.0
+  segundos.

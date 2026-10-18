@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Energía cinética de un cuerpo que rueda'
+terms:
+  r:
+    label: 'Radio del cuerpo que rueda'
+description: >-
+  La energía cinética de un cuerpo que rueda sin deslizar es la suma de dos partes: la energía de su
+  centro de masas que avanza en línea recta y la energía de su giro en torno a ese centro. Como el
+  punto de contacto no resbala, la rapidez de giro es la rapidez de avance dividida entre el radio,
+  así que en la mecánica del sólido rígido toda la energía de una rueda, una bola o un cilindro que
+  rueda se deduce solo de su rapidez.
+
+  En la fórmula, $\mag{E_\mathrm{k}}$ es la energía cinética total en julios, $\mag{m}$ la masa en
+  kilogramos y $\mag{v}$ la rapidez del centro de masas en metros por segundo. $\mag{I}$ es el
+  momento de inercia respecto al eje que pasa por el centro de masas, que se expresa en kilogramo metro cuadrado,
+  y $\var{r}$ es el radio del cuerpo que rueda en metros, la distancia de ese eje al punto de
+  contacto. Todas las magnitudes son no negativas.
+
+  El primer término es la energía cinética de traslación y el segundo la de rotación, con la
+  rapidez angular escrita como $\mag{v}$ entre $\var{r}$. En las formas cuyo momento de inercia es
+  una fracción de la masa por el radio al cuadrado, la parte de energía que corresponde al giro
+  depende solo de esa fracción: un aro o un cilindro hueco de pared delgada lleva la mitad de su
+  energía en el giro, y un cilindro macizo, un tercio. Al rodar por la misma pendiente, un cuerpo
+  que guarda menos energía en la rotación gana rapidez antes.
+
+  La fórmula exige rodadura sin deslizamiento sobre una superficie en reposo. El rozamiento estático
+  en el punto de contacto no realiza trabajo, así que la energía mecánica total se conserva; si el
+  cuerpo patina, la rapidez y el giro dejan de corresponderse y el rozamiento cinético disipa
+  energía. El momento de inercia debe tomarse respecto al centro de masas, con el teorema del eje
+  paralelo cuando se conoce respecto a otro eje.
+
+  Una rueda de un vehículo explorador de 5 kilogramos, modelada como un aro de 0.25 metros de radio
+  que rueda a 9.63 metros por segundo, lleva unos 464 julios, la mitad en la rotación.

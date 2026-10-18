@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Campo eléctrico de un plano infinito cargado'
+description: >-
+  El campo eléctrico de un plano infinito con carga uniforme es igual a la densidad de carga
+  superficial dividida entre el doble de la permitividad eléctrica del vacío. El campo apunta
+  perpendicularmente hacia fuera de la lámina por ambos lados y tiene la misma intensidad a
+  cualquier distancia, un resultado de la ley de Gauss en electrostática y el modelo del campo
+  uniforme entre placas cargadas.
+
+  $\mag{E}$ es la intensidad de campo eléctrico en voltios por metro, contada según la normal que
+  se aleja de la lámina en el lado en que se toma el campo. $\mag{\sigma}$ es la densidad de carga
+  superficial en culombios por metro cuadrado, positiva o negativa, y el campo lleva su signo: una
+  lámina negativa da un campo que apunta hacia ella. $\const{\varepsilon_{0}}$ es la permitividad
+  eléctrica del vacío, de unos $8.854\times10^{-12}\,\mathrm{F/m}$.
+
+  Por simetría, el campo de una lámina infinita solo puede ser perpendicular a ella e igual a ambos
+  lados. Una caja cerrada que atraviesa la lámina, con dos caras de área A paralelas a ella, recoge
+  entonces un flujo igual al doble del campo por A, y la ley de Gauss iguala ese flujo a la carga
+  encerrada, la densidad por A, entre la permitividad. El área se cancela, y con ella cualquier
+  dependencia de la distancia: la lámina se ve igual desde cualquier altura.
+
+  Ninguna lámina real es infinita, pero la fórmula se cumple bien cerca del centro de una lámina
+  plana a distancias pequeñas frente a su tamaño. Justo fuera de un conductor el campo es el doble,
+  la densidad entre la permitividad, porque dentro del metal no hay campo y todo el flujo sale por
+  una sola cara; dos placas paralelas con cargas opuestas dan ese mismo valor entre ellas y casi
+  nada fuera.
+
+  Una lámina con $6.81\times10^{-7}\,\mathrm{C/m^{2}}$ crea unos $3.85\times10^{4}$ voltios por
+  metro a cada lado.

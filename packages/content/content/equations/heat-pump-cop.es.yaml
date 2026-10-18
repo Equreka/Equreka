@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Coeficiente de rendimiento de una bomba de calor'
+terms:
+  K_\mathrm{HP}:
+    label: 'Coeficiente de rendimiento de la bomba de calor'
+  Q_\mathrm{h}:
+    label: 'Calor cedido al reservorio caliente'
+description: >-
+  El coeficiente de rendimiento de una bomba de calor es el calor que entrega al espacio cálido
+  dividido entre el trabajo necesario para hacerla funcionar. Abreviado COP, es la medida de
+  calidad de las bombas de calor que se usan para calentar edificios y agua en termodinámica, la
+  misma máquina que un refrigerador juzgada por el calor que cede en el lado caliente y no por el
+  calor que toma del lado frío.
+
+  $\var{K_\mathrm{HP}}$ es el coeficiente de rendimiento, un número puro que compara dos energías y
+  siempre es mayor que 1. $\var{Q_\mathrm{h}}$ es el calor cedido al reservorio caliente y
+  $\mag{W}$ el trabajo realizado sobre la máquina, ambos en julios durante el mismo ciclo o el mismo
+  intervalo de tiempo y ambos contados como positivos; la potencia en vatios da el mismo cociente.
+  El trabajo se realiza sobre la máquina, en sentido opuesto al de la forma del primer principio,
+  donde el trabajo lo realiza el sistema.
+
+  Una bomba de calor toma calor de un reservorio frío, como el aire exterior, y el
+  trabajo se suma a él, de modo que el calor entregado es igual al calor extraído más el trabajo.
+  Al dividir entre el trabajo se ve que el coeficiente de la bomba de calor es el de la misma
+  máquina usada como refrigerador más uno, y por eso supera 1 sin violar la conservación de la
+  energía.
+
+  El segundo principio limita el valor al de un ciclo de Carnot reversible, la temperatura absoluta
+  caliente dividida entre la diferencia entre las temperaturas caliente y fría, de modo que la
+  ventaja disminuye cuanto más frío está el aire exterior. Las bombas de calor reales quedan muy
+  por debajo de ese límite, con valores que suelen estar entre 2 y 4.
+
+  Frente a un calefactor eléctrico, que convierte cada julio de trabajo eléctrico en un julio de
+  calor, una bomba de calor aporta varios. Una bomba de calor de Carnot que lleva calor desde aire a
+  -15.0 grados Celsius hasta un espacio a 45.0 grados Celsius alcanzaría unos 5.30.

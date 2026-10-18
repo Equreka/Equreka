@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Densidad de carga lineal'
+description: >-
+  La densidad de carga lineal es la carga eléctrica que lleva cada unidad de longitud de un cuerpo
+  delgado: la carga de un trozo corto dividida entre la longitud de ese trozo, en el límite de un
+  trozo que se reduce a cero. Describe la carga repartida a lo largo de hilos, filamentos, varillas
+  finas y haces de partículas, cuerpos cuyo grosor es despreciable frente a las distancias a las
+  que se estudia su campo.
+
+  Su unidad SI coherente es el culombio por metro, y su dimensión es tiempo por corriente eléctrica
+  dividido entre longitud. Para un cuerpo cargado de manera uniforme, el valor es la carga total
+  dividida entre la longitud total.
+
+  Es un escalar con signo, el de la carga, negativo para un hilo con exceso de electrones. A lo
+  largo de un cuerpo no uniforme cambia de un punto a otro, y la carga total es la integral de la
+  densidad de carga lineal a lo largo de la longitud.
+
+  Rara vez se mide directamente; se calcula a partir de una carga y una longitud conocidas, o se
+  deduce del campo alrededor de un conductor largo y recto, que disminuye como el inverso de la
+  distancia y es proporcional a la densidad de carga lineal. Una línea con un microculombio por
+  metro crea un campo de unos $1.8\times10^{5}\,\mathrm{V/m}$ a 10 centímetros, con la
+  permitividad eléctrica del vacío de unos $8.854\times10^{-12}\,\mathrm{F/m}$.
+
+  La densidad de carga lineal no es la densidad lineal de masa de una cuerda, en kilogramos por
+  metro, ni la densidad de carga superficial o volumétrica, en culombios por metro cuadrado o
+  cúbico. Su símbolo aquí es $\lambda$, como en OpenStax y en la fórmula del campo de una línea infinita; QUDT y Wikidata la escriben rho con subíndice l y citan también tau.

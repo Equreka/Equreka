@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Probabilidad de Poisson'
+terms:
+  P(X=k):
+    label: 'Probabilidad de exactamente k sucesos'
+  \lambda:
+    label: 'Número medio de sucesos'
+  k:
+    label: 'Número de sucesos'
+description: >-
+  La fórmula de la probabilidad de Poisson da la probabilidad de que ocurran exactamente k sucesos
+  en un intervalo fijo de tiempo o de espacio cuando los sucesos se producen de forma independiente
+  entre sí con una tasa media conocida. Es la función de probabilidad de la distribución de
+  Poisson, el modelo habitual en estadística para recuentos como las llamadas a un servicio de
+  atención por hora, las erratas por página o las desintegraciones radiactivas por segundo.
+
+  En la fórmula, $\var{k}$ es el número de sucesos, un entero no negativo, y $\var{\lambda}$ es el
+  número medio de sucesos esperado en el intervalo, un número puro positivo igual a la tasa media por
+  la longitud del intervalo. $\var{P(X=k)}$ es la probabilidad de que el recuento X valga k, un
+  número puro entre 0 y 1. El signo de exclamación indica el factorial, y e es el número de Euler.
+
+  La distribución tiene un único parámetro: su media y su varianza valen ambas $\var{\lambda}$, de
+  modo que la desviación típica es la raíz cuadrada de la media. Sumadas para todos los k desde
+  cero, las probabilidades valen uno, porque las potencias de $\var{\lambda}$ divididas entre los
+  factoriales reconstruyen la serie de la exponencial. La fórmula es también el límite de la
+  probabilidad binomial cuando el número de ensayos crece mucho y la probabilidad de éxito se hace
+  pequeña, con su producto fijo en $\var{\lambda}$. La media aparece como base y en un exponente, así
+  que ni ella ni el recuento pueden despejarse, y la calculadora solo despeja la probabilidad.
+
+  El modelo exige una tasa media constante a lo largo del intervalo, sucesos independientes y que no
+  coincidan dos sucesos en el mismo instante. Como aproximación de una binomial, una regla práctica
+  de un libro de texto pide más de 20 ensayos y una probabilidad de éxito menor que 0.05.
+
+  Siméon Denis Poisson introdujo la distribución en su tratado de 1837 sobre la probabilidad de los
+  juicios en materia penal y civil. Con 41.5 mensajes de texto al día, unos 1.7292 por hora, la
+  probabilidad de recibir exactamente dos en una hora dada es de unos 0.2653.

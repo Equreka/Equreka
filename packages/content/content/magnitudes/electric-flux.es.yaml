@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Flujo eléctrico'
+description: >-
+  El flujo eléctrico es la integral de superficie de la intensidad de campo eléctrico sobre una
+  superficie: cada pequeño trozo de la superficie aporta la componente del campo según la normal
+  del trozo por su área, y las aportaciones se suman. Cuenta cuánto campo eléctrico atraviesa la
+  superficie, y es la magnitud que la ley de Gauss relaciona con la carga encerrada.
+
+  Su unidad SI coherente es el voltio metro, la misma unidad que el newton metro cuadrado por
+  culombio, y su dimensión es longitud al cubo por masa dividida entre tiempo al cubo y corriente
+  eléctrica. Para una superficie plana en un campo uniforme se reduce a la intensidad del campo por
+  el área por el coseno del ángulo entre el campo y la normal.
+
+  El flujo eléctrico es un escalar con signo. Su signo depende de la normal elegida: un campo que
+  cruza en el sentido de la normal da un flujo positivo, y uno que cruza en contra, un flujo
+  negativo. En una superficie cerrada la normal apunta hacia fuera, de modo que las líneas de campo
+  que salen de la superficie cuentan como positivas y las que entran, como negativas.
+
+  Rara vez se mide directamente; se calcula a partir de un campo conocido o medido, o de la carga
+  encerrada dividida entre la permitividad eléctrica del vacío. Un campo de 10 voltios por metro
+  que atraviesa 6.0 metros cuadrados a 30 grados de la normal da unos 52 voltio metro, mientras
+  que una superficie cerrada alrededor de una carga de 2.0 microculombios recoge unos
+  $2.3\times10^{5}\,\mathrm{V\,m}$, sea cual sea su forma o su tamaño.
+
+  El flujo eléctrico no es el flujo magnético, que se mide en weber, ni el flujo del desplazamiento
+  eléctrico, la magnitud que suele escribirse $\Psi$ y se mide en culombios. QUDT y
+  Wikidata tratan los dos flujos eléctricos como clases distintas; OpenStax escribe el flujo del campo solo como $\Phi$, y en el vacío
+  equivale al flujo del desplazamiento dividido entre la permitividad eléctrica del vacío.

@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Surface charge density'
+symbol:
+  tex: '\sigma'
+  text: 'σ'
+symbolAlt:
+  tex: '\rho_\mathrm{A}'
+  text: 'ρA'
+baseUnit: 'coulomb-per-square-metre'
+dimension:
+  L: -2
+  T: 1
+  I: 1
+externalIds:
+  wikidata: 'Q12799324'
+  qudt: 'http://qudt.org/vocab/quantitykind/ElectricChargeSurfaceDensity'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'surface density of electric charge'
+  - 'areic charge'
+  - 'areic electric charge'
+  - 'charge per unit area'
+  - 'densidad superficial de carga'
+  - 'carga por unidad de área'
+references:
+  - title: 'QUDT, quantity kind ElectricChargeSurfaceDensity (definition and symbol)'
+    url: 'https://qudt.org/vocab/quantitykind/ElectricChargeSurfaceDensity'
+  - title: 'Wikidata, surface density of electric charge (Q12799324): defining formula and symbols'
+    url: 'https://www.wikidata.org/wiki/Q12799324'
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.4 Derived units, Table 6'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 5.5 Calculating Electric Fields of Charge Distributions'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/5-5-calculating-electric-fields-of-charge-distributions'
+  - title: 'OpenStax, University Physics Volume 2, 6.4 Conductors in Electrostatic Equilibrium (Equation 6.14, Example 6.10)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/6-4-conductors-in-electrostatic-equilibrium'
+  - title: 'OpenStax, University Physics Volume 2, 8.5 Molecular Model of a Dielectric (dielectric strength of air)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/8-5-molecular-model-of-a-dielectric'
+description:
+  en: >-
+    Surface charge density is the electric charge carried per unit area of a surface: the charge
+    on a small patch divided by the area of that patch, in the limit of a vanishing patch. It
+    describes charge spread in a layer much thinner than the distances of interest, such as the
+    excess charge on the surface of a conductor, a charged plastic sheet or the plates of a
+    capacitor.
+
+    Its coherent SI unit is the coulomb per square metre, which the SI Brochure lists by name for
+    this quantity, and its dimension is time times electric current divided by length squared.
+
+    It is a signed scalar that carries the sign of the charge: positive where the surface holds an
+    excess of positive charge and negative where electrons are in excess. One surface can be
+    positive in one region and negative in another, as on a neutral conductor placed in an external
+    field.
+
+    It is usually found from the field it produces. Immediately outside a conductor the field equals the
+    surface charge density divided by the vacuum electric permittivity, so a measured field gives
+    the charge per area. Plates carrying $6.81\times10^{-7}\,\mathrm{C/m^{2}}$, an OpenStax example,
+    produce about 77 kilovolts per metre between them. Air breaks down at about 3.0 megavolts per
+    metre, which limits a conductor surrounded by air to roughly
+    $2.7\times10^{-5}\,\mathrm{C/m^{2}}$.
+
+    Surface charge density is distinct from the volume charge density, in coulombs per cubic metre,
+    and the linear charge density of a thin wire, in coulombs per metre. It shares its unit with
+    the electric displacement, also called electric flux density, a vector field rather than a
+    property of a surface; at the face of a conductor the two are equal in size. Textbooks write it
+    $\sigma$, while QUDT and Wikidata also give the symbol rho with a subscript A.

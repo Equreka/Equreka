@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Brewster''s law'
+kind: 'equation'
+level: 'intermediate'
+expression: '\tan\mag{\theta_\mathrm{B}}=\frac{\var{n_{2}}}{\var{n_{1}}}'
+terms:
+  \theta_\mathrm{B}:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+  n_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Refractive index of the second medium'
+  n_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Refractive index of the first medium'
+solutions:
+  \theta_\mathrm{B}: 'atan(n_2 / n_1)'
+  n_{2}: 'n_1 * tan(theta_B)'
+  n_{1}: 'n_2 / tan(theta_B)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q662790'
+categories:
+  - 'physics'
+branches:
+  - 'optics-and-photometry'
+aliases:
+  - 'Brewster angle'
+  - 'Brewster''s angle'
+  - 'polarizing angle'
+  - 'polarization angle'
+  - 'polarization by reflection'
+  - 'tan theta_B = n2 / n1'
+  - 'ángulo de Brewster'
+  - 'ángulo de polarización'
+  - 'polarización por reflexión'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 1.7 Polarization (Equation 1.7, Example 1.8)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/1-7-polarization'
+  - title: 'C. R. Nave, HyperPhysics, Georgia State University: Polarization by reflection (Brewster angle derivation)'
+    url: 'https://hyperphysics.gsu.edu/hbase/phyopt/polref.html'
+  - title: 'Wikidata, Brewster''s angle (Q662790), named after David Brewster (Q168468)'
+    url: 'https://www.wikidata.org/wiki/Q662790'
+description:
+  en: >-
+    Brewster's law gives the angle of incidence at which light reflected from the boundary between
+    two transparent media is completely polarized: the tangent of that angle, Brewster's angle or
+    the polarizing angle, equals the refractive index of the second medium divided by that of the
+    first. In optics it explains why glare from water and glass is polarized and how polarizing
+    filters remove it.
+
+    $\mag{\theta_\mathrm{B}}$ is Brewster's angle in radians, measured from the normal to the
+    surface, between 0 and 90 degrees. $\var{n_{1}}$ is the refractive index of the medium the light
+    arrives through, and $\var{n_{2}}$ that of the medium that reflects it; both are pure numbers,
+    at least 1 for ordinary materials. The angle exceeds 45 degrees when light reflects off a
+    medium of higher index and falls below it when light inside glass or water meets air.
+
+    At this angle the reflected and the refracted rays are at right angles to each other. The
+    component of the light whose electric field lies in the plane of incidence is then not
+    reflected at all, so the reflected beam keeps only the component parallel to the surface. Snell's
+    law combined with that right angle turns the sine of the refraction angle into the cosine of the
+    incidence angle, which gives the tangent form.
+
+    The relation describes transparent media meeting at a smooth boundary. At any other angle
+    the reflection is only partly polarized, and the transmitted light is never fully polarized,
+    because only a small share of the light is reflected.
+
+    Its name honours David Brewster, the Scottish physicist who found it in the nineteenth
+    century. For light in air striking water, with an index of 1.333, Brewster's angle is about 53.1
+    degrees.

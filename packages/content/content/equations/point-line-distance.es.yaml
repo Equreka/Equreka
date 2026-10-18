@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Distancia de un punto a una recta'
+terms:
+  d:
+    label: 'Distancia'
+  a:
+    label: 'Coeficiente de x'
+  b:
+    label: 'Coeficiente de y'
+  c:
+    label: 'Término independiente'
+  x_{0}:
+    label: 'Coordenada x del punto'
+  y_{0}:
+    label: 'Coordenada y del punto'
+description: >-
+  La distancia de un punto a una recta del plano es la longitud del segmento perpendicular que los
+  une, el más corto de todos los segmentos que van del punto a la recta. En geometría analítica se
+  obtiene sustituyendo las coordenadas del punto en la ecuación general de la recta, tomando el
+  valor absoluto y dividiendo entre la raíz cuadrada de la suma de los cuadrados de los dos
+  coeficientes.
+
+  La recta se escribe en forma general, a por x más b por y más c igual a cero. En la fórmula,
+  $\var{a}$ y $\var{b}$ son los coeficientes de x y de y, números puros que no son ambos nulos;
+  $\var{c}$ es el término independiente; $\var{x_{0}}$ e $\var{y_{0}}$ son las coordenadas del
+  punto, y $\var{d}$ es la distancia. Aquí los dos ejes miden longitudes, así que el término
+  independiente, las coordenadas y la distancia van en metros, o en una misma unidad de longitud en
+  todo el cálculo. La distancia nunca es negativa y vale cero justo cuando el punto está en la recta.
+
+  El par de coeficientes forma un vector perpendicular a la recta. Proyectar sobre ese vector el
+  segmento que va de cualquier punto de la recta al punto dado deja solo la parte perpendicular, y
+  su longitud es la distancia. Multiplicar toda la ecuación de la recta por un número distinto de
+  cero no cambia nada, porque el numerador y el denominador se escalan a la vez.
+
+  La fórmula solo abarca rectas en un plano. En el espacio, el mismo esquema con una tercera
+  coordenada da la distancia de un punto a un plano, mientras que la distancia de un punto a una
+  recta en el espacio requiere un producto vectorial. Cada coeficiente y cada coordenada pueden despejarse, pero tienen dos soluciones o ninguna, así que la calculadora solo calcula la distancia.
+
+  Las distancias de un punto a una recta miden cuánto se aleja una recta ajustada de un dato, qué
+  holgura mantiene una posición respecto a un borde recto y cuándo un objeto en movimiento alcanza
+  un límite. El origen está a una distancia de 2 de la recta 3x + 4y − 10 = 0.

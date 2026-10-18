@@ -1,0 +1,69 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Electric field of an infinite charged plane'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{E}=\frac{\mag{\sigma}}{2\const{\varepsilon_{0}}}'
+terms:
+  E:
+    kind: 'magnitude'
+    ref: 'electric-field-strength'
+  \sigma:
+    kind: 'magnitude'
+    ref: 'surface-charge-density'
+  \varepsilon_{0}:
+    kind: 'constant'
+    ref: 'vacuum-electric-permittivity'
+    identifier: 'epsilon_0'
+solutions:
+  E: 'sigma / (2 * epsilon_0)'
+  \sigma: '2 * epsilon_0 * E'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'field of an infinite sheet of charge'
+  - 'infinite plane of charge'
+  - 'charged sheet field'
+  - 'E = sigma / (2 epsilon0)'
+  - 'campo de un plano infinito'
+  - 'campo de una lámina cargada'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 6.3 Applying Gauss''s Law (planar symmetry)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/6-3-applying-gausss-law'
+  - title: 'OpenStax, University Physics Volume 2, 5.5 Calculating Electric Fields of Charge Distributions (Equation 5.15, Example 5.9)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/5-5-calculating-electric-fields-of-charge-distributions'
+  - title: 'OpenStax, University Physics Volume 2, 6.4 Conductors in Electrostatic Equilibrium (Equation 6.14, Example 6.10)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/6-4-conductors-in-electrostatic-equilibrium'
+  - title: 'NIST, CODATA 2022 value: vacuum electric permittivity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?ep0'
+description:
+  en: >-
+    The electric field of an infinite, uniformly charged plane equals the surface charge density
+    divided by twice the vacuum electric permittivity. The field points straight away from the sheet
+    on both sides and has the same strength at every distance, a result of Gauss's law in
+    electrostatics and the model behind the uniform field between charged plates.
+
+    $\mag{E}$ is the electric field strength in volts per metre, counted along the normal pointing
+    away from the sheet on whichever side the field is taken. $\mag{\sigma}$ is the surface charge
+    density in coulombs per square metre, positive or negative, and the field carries its sign: a
+    negative sheet gives a field pointing towards it. $\const{\varepsilon_{0}}$ is the vacuum
+    electric permittivity, about $8.854\times10^{-12}\,\mathrm{F/m}$.
+
+    By symmetry the field of an infinite sheet can only be perpendicular to it and equal on both
+    sides. A closed box that straddles the sheet, with two faces of area A parallel to it, then
+    collects a flux of twice the field times A, and Gauss's law sets that flux equal to the
+    enclosed charge, the density times A, over the permittivity. The area cancels, and so does any
+    dependence on distance: the sheet looks the same from any height.
+
+    No real sheet is infinite, but the formula holds well near the middle of a flat sheet at
+    distances small compared with its size. Immediately outside a conductor the field is twice as large,
+    the density over the permittivity, because no field exists inside the metal and all the flux
+    leaves through one face; two parallel plates with opposite charges give the same value between
+    them and almost none outside.
+
+    A sheet carrying $6.81\times10^{-7}\,\mathrm{C/m^{2}}$ produces about $3.85\times10^{4}$ volts
+    per metre on each side.

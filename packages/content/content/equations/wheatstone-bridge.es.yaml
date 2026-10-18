@@ -1,0 +1,33 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Puente de Wheatstone'
+terms:
+  R_\mathrm{x}:
+    label: 'Resistencia desconocida'
+  R_{2}:
+    label: 'Resistencia fija de la otra rama, contigua a la desconocida'
+  R_{3}:
+    label: 'Resistencia ajustable de la rama de la desconocida'
+  R_{1}:
+    label: 'Resistencia fija del brazo opuesto a la desconocida'
+description: >-
+  El puente de Wheatstone determina una resistencia desconocida a partir de tres conocidas: cuando
+  el puente está equilibrado, la resistencia desconocida es igual al producto de las dos resistencias contiguas a ella dividido entre la resistencia opuesta. Es una medida de
+  cero de la resistencia en circuitos eléctricos: el resultado se obtiene llevando una corriente a
+  cero, no leyendo una escala.
+
+  El puente tiene cuatro brazos unidos en forma de rombo, con una fuente entre dos vértices opuestos
+  y un galvanómetro entre los otros dos. $\var{R_\mathrm{x}}$ es la resistencia desconocida y
+  $\var{R_{3}}$ la resistencia ajustable de la misma rama del circuito; $\var{R_{1}}$ y $\var{R_{2}}$ son las
+  resistencias fijas de la otra rama, $\var{R_{1}}$ en el brazo opuesto a la desconocida y
+  $\var{R_{2}}$ en el brazo contiguo. Las cuatro se expresan en ohmios y son positivas.
+
+  Cada rama es un divisor de tensión conectado a la misma fuente, y el galvanómetro une sus dos puntos intermedios. Marca cero solo cuando los dos divisores reparten la tensión de la fuente en la misma proporción, así que el brazo ajustable se modifica hasta lograrlo. Proporciones iguales significan que la primera resistencia fija es a la segunda como la resistencia ajustable es a la desconocida, que es la condición de equilibrio; dicho de otro modo, los productos de los brazos opuestos son iguales.
+
+  La fórmula solo vale en el equilibrio. Su exactitud, a menudo de cuatro cifras significativas,
+  está limitada por lo cerca de cero que puede llevarse la corriente del galvanómetro, por las
+  incertidumbres de las tres resistencias conocidas y por la resistencia de los cables y los
+  contactos, que además cambia con la temperatura.
+
+  Samuel Hunter Christie describió el circuito en 1833, y Charles Wheatstone lo dio a conocer en
+  una conferencia de 1843 en la que le reconocía el mérito. El puente se usó en telegrafía y sigue
+  empleándose mucho para medir resistencias.

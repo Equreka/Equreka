@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de Poiseuille'
+terms:
+  r:
+    label: 'Radio del tubo'
+  \Delta p:
+    label: 'Diferencia de presión entre los extremos'
+  L:
+    label: 'Longitud del tubo'
+description: >-
+  La ley de Poiseuille, también llamada ecuación de Hagen-Poiseuille, da el volumen de un fluido
+  viscoso que atraviesa cada segundo un tubo cilíndrico recto en flujo laminar estacionario. El
+  caudal es proporcional a la diferencia de presión entre los extremos y a la cuarta potencia del
+  radio, e inversamente proporcional a la viscosidad y a la longitud, lo que la convierte en la ley
+  básica de la mecánica de fluidos para tuberías, agujas, capilares y vasos sanguíneos.
+
+  En la ecuación, $\mag{Q}$ es el caudal en metros cúbicos por segundo; $\var{r}$ el radio interior
+  del tubo y $\var{L}$ su longitud, ambos en metros; $\mag{\eta}$ la viscosidad dinámica del fluido,
+  que se expresa en pascal segundo, y $\var{\Delta p}$ la diferencia de presión entre los extremos
+  en pascales, la de entrada menos la de salida. El flujo va de la presión alta a la baja, así que
+  con este convenio de signos una diferencia de presión positiva da un caudal positivo.
+
+  La viscosidad mantiene en reposo la capa en contacto con la pared, y la rapidez crece hasta un
+  máximo en el eje siguiendo un perfil parabólico; sumar el flujo a través de cada anillo delgado de
+  ese perfil da la ley. El cociente entre la diferencia de presión y el caudal es una resistencia al
+  flujo, ocho veces la viscosidad por la longitud entre pi por el radio a la cuarta, que desempeña
+  el papel de la resistencia eléctrica en la ley de Ohm. La cuarta potencia domina: estrechar un
+  tubo un 5 por ciento reduce el caudal a unos 0.81 de su valor con la misma diferencia de presión.
+
+  La ley vale para el flujo laminar estacionario de un fluido uniforme e incompresible cuya
+  viscosidad no depende del flujo, un fluido newtoniano, en un tubo rígido de radio constante. La
+  turbulencia, que aparece con números de Reynolds altos, hace que el caudal real sea menor que el
+  previsto.
+
+  La ley lleva el nombre del científico francés J. L. Poiseuille, que buscaba entender el flujo de
+  la sangre por el cuerpo. Un caudal de 0.120 centímetros cúbicos por segundo de una disolución semejante al agua, a 20 grados Celsius, a través de una aguja de 2.50 centímetros de largo y 0.150 milímetros de radio
+  necesita unos 15.1 kilopascales entre sus extremos.

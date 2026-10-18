@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Densidad de carga superficial'
+description: >-
+  La densidad de carga superficial es la carga eléctrica que lleva cada unidad de área de una
+  superficie: la carga de un pequeño trozo dividida entre el área de ese trozo, en el límite de un
+  trozo que se reduce a cero. Describe la carga repartida en una capa mucho más delgada que las
+  distancias que interesan, como la carga en exceso en la superficie de un conductor, una lámina
+  de plástico cargada o las placas de un condensador.
+
+  Su unidad SI coherente es el culombio por metro cuadrado, que el folleto del SI cita por su
+  nombre para esta magnitud, y su dimensión es tiempo por corriente eléctrica dividido entre
+  longitud al cuadrado.
+
+  Es un escalar con signo que lleva el signo de la carga: positivo donde la superficie tiene un
+  exceso de carga positiva y negativo donde sobran electrones. Una misma superficie puede ser
+  positiva en una zona y negativa en otra, como ocurre en un conductor neutro situado en un campo
+  externo.
+
+  Suele obtenerse a partir del campo que produce. Justo fuera de un conductor el campo es igual a
+  la densidad de carga superficial dividida entre la permitividad eléctrica del vacío, de modo que
+  un campo medido da la carga por unidad de área. Unas placas con
+  $6.81\times10^{-7}\,\mathrm{C/m^{2}}$, un ejemplo de OpenStax, crean entre ellas unos 77
+  kilovoltios por metro. El aire se perfora a unos 3.0 megavoltios por metro, lo que limita un
+  conductor rodeado de aire a aproximadamente $2.7\times10^{-5}\,\mathrm{C/m^{2}}$.
+
+  La densidad de carga superficial es distinta de la densidad de carga volumétrica, en culombios
+  por metro cúbico, y de la densidad de carga lineal de un hilo delgado, en culombios por metro.
+  Comparte unidad con el desplazamiento eléctrico, también llamado densidad de flujo eléctrico, que
+  es un campo vectorial y no una propiedad de una superficie; en la cara de un conductor ambos
+  tienen el mismo valor. Los libros de texto la escriben $\sigma$, y QUDT y Wikidata dan también
+  el símbolo rho con subíndice A.

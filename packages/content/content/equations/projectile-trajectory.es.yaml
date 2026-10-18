@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Trayectoria de un proyectil'
+terms:
+  y:
+    label: 'Altura sobre el punto de lanzamiento'
+  x:
+    label: 'Distancia horizontal desde el punto de lanzamiento'
+  g:
+    label: 'Aceleración de la gravedad'
+  v_{0}:
+    label: 'Rapidez de lanzamiento'
+description: >-
+  La ecuación de la trayectoria de un proyectil da la altura de un cuerpo lanzado en función de la
+  distancia horizontal que ha recorrido: la distancia por la tangente del ángulo de lanzamiento,
+  menos un término que crece con el cuadrado de la distancia. En cinemática muestra que, sin
+  resistencia del aire, el camino de una pelota lanzada, un chorro de agua o un disparo de cañón es
+  una parábola.
+
+  Aquí $\var{y}$ es la altura sobre el punto de lanzamiento y $\var{x}$ la distancia horizontal
+  desde él, ambas en metros, con $\var{y}$ negativa por debajo del nivel de lanzamiento.
+  $\var{v_{0}}$ es la rapidez de lanzamiento en metros por segundo, introducida como módulo no
+  negativo, y $\mag{\theta}$ el ángulo de lanzamiento sobre la horizontal, cuya unidad coherente es
+  el radián; el ángulo da la dirección. $\var{g}$ es el módulo de la aceleración de la gravedad, introducido como positivo; su valor normal es 9.80665 metros por segundo al cuadrado, y el valor local varía con el lugar y es distinto en otro planeta o satélite.
+
+  El movimiento horizontal es uniforme, así que el tiempo para alcanzar una distancia es esa
+  distancia dividida entre la componente horizontal de la velocidad de lanzamiento. Sustituir ese
+  tiempo en la posición vertical con aceleración constante hacia abajo elimina el tiempo y deja la
+  parábola. Un punto alcanzable puede acertarse con dos ángulos de lanzamiento: al despejar
+  $\mag{\theta}$ se obtiene primero el ángulo más bajo y después el más alto. Cada altura se cruza
+  dos veces, así que al despejar $\var{x}$ se obtiene primero el cruce más lejano, al bajar, y
+  después el más cercano.
+
+  La ecuación supone un lanzamiento desde el origen de los ejes, resistencia del aire despreciable y
+  un campo gravitatorio uniforme, por lo que falla para objetos rápidos o ligeros y en alcances muy
+  largos. El lanzamiento y la caída pueden estar a alturas distintas.
+
+  En un golpe de golf lanzado a 30 grados y 31.9 metros por segundo, la pelota está unos 13.0
+  metros arriba tras 45 metros de recorrido horizontal, el punto más alto de su arco, y cae a unos
+  90 metros.

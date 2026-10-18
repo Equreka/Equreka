@@ -1,0 +1,73 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Wheatstone bridge'
+kind: 'formula'
+level: 'intro'
+expression: '\var{R_\mathrm{x}}=\frac{\var{R_{2}}\var{R_{3}}}{\var{R_{1}}}'
+terms:
+  R_\mathrm{x}:
+    kind: 'symbol'
+    label:
+      en: 'Unknown resistance'
+    unit: 'ohm'
+  R_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Fixed resistance in the other branch, next to the unknown'
+    unit: 'ohm'
+  R_{3}:
+    kind: 'symbol'
+    label:
+      en: 'Adjustable resistance in the branch of the unknown'
+    unit: 'ohm'
+  R_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Fixed resistance in the arm opposite the unknown'
+    unit: 'ohm'
+solutions:
+  R_\mathrm{x}: 'R_2 * R_3 / R_1'
+  R_{2}: 'R_x * R_1 / R_3'
+  R_{3}: 'R_x * R_1 / R_2'
+  R_{1}: 'R_2 * R_3 / R_x'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q245133'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'Wheatstone bridge balance'
+  - 'balanced bridge'
+  - 'bridge circuit'
+  - 'Rx = R2 R3 / R1'
+  - 'puente de Wheatstone'
+  - 'puente de Wheatstone equilibrado'
+references:
+  - title: 'OpenStax, College Physics 2e, 21.5 Null Measurements (Wheatstone bridge, Equations 21.73 to 21.76)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/21-5-null-measurements'
+  - title: 'National High Magnetic Field Laboratory, Magnet Academy: Wheatstone Bridge, 1843'
+    url: 'https://nationalmaglab.org/magnet-academy/history-of-electricity-magnetism/museum/wheatstone-bridge-1843/'
+description:
+  en: >-
+    The Wheatstone bridge finds an unknown resistance from three known ones: when the bridge is
+    balanced, the unknown resistance equals the product of the two resistances next to it divided by the resistance opposite it. It is a null measurement of resistance in
+    electric circuits: the result comes from bringing a current to zero, not from reading a scale.
+
+    The bridge has four arms joined in a diamond, with a source across one diagonal and a
+    galvanometer across the other. $\var{R_\mathrm{x}}$ is the unknown resistance and
+    $\var{R_{3}}$ the adjustable resistance in the same branch; $\var{R_{1}}$ and $\var{R_{2}}$ are
+    the fixed resistances of the other branch, $\var{R_{1}}$ in the arm opposite the unknown and
+    $\var{R_{2}}$ in the arm beside it. All four are in ohms and positive.
+
+    Each branch is a voltage divider across the same source, and the galvanometer joins the two midpoints. It reads zero only when both dividers split the source voltage in the same proportion, so the adjustable arm is changed until that happens. Equal proportions mean that the first fixed resistance is to the second as the adjustable resistance is to the unknown, which is the balance condition; equivalently, the products of opposite arms are equal.
+
+    The formula holds only at balance. Its accuracy, often four significant digits, is limited by how
+    close to zero the galvanometer current can be brought, by the uncertainties of the three known
+    resistances and by the resistance of wires and contacts, which also changes with temperature.
+
+    Samuel Hunter Christie described the circuit in 1833, and Charles Wheatstone made it widely known
+    in an 1843 lecture that credited him. The bridge served telegraphy and is still widely used to
+    measure resistance.

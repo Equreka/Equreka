@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Valor futuro de una anualidad'
+terms:
+  \mathrm{FV}:
+    label: 'Valor futuro'
+  P:
+    label: 'Pago por periodo'
+  r:
+    label: 'Tasa de interés por periodo'
+  n:
+    label: 'Número de pagos'
+description: >-
+  El valor futuro de una anualidad o renta es el saldo que alcanza una serie de depósitos iguales,
+  hechos al final de cada periodo y dejados a interés compuesto, en el momento en que se paga el
+  último depósito. La fórmula de la anualidad ordinaria, también llamada fórmula de la anualidad de
+  ahorro, es la matemática financiera de los planes de jubilación, los fondos para estudios y
+  cualquier plan de ahorro periódico.
+
+  En la fórmula, $\var{\mathrm{FV}}$ es el valor futuro y $\var{P}$ el pago de cada periodo; ambos
+  son sumas de dinero en la misma moneda, introducidas como números sin unidad. $\var{r}$ es la
+  tasa de interés por periodo como fracción decimal (0.01 para el 1 por ciento): la tasa anual
+  dividida entre el número de pagos por año. $\var{n}$ es el número de pagos, un número entero.
+  Las cuatro son positivas, y la cuenta empieza vacía.
+
+  El último depósito no gana nada, el anterior gana un periodo de intereses y el primero gana
+  intereses durante todos los periodos restantes. Sumar esos depósitos acrecentados da una serie
+  geométrica de razón uno más la tasa, y su suma cerrada es la fórmula. Por eso el valor futuro
+  supera lo aportado, $\var{n}$ por $\var{P}$, en los intereses ganados. Los logaritmos dan el
+  número de pagos necesario para llegar a una meta, mientras que la tasa no tiene forma cerrada
+  elemental y es un dato de la calculadora.
+
+  La fórmula supone una tasa constante, depósitos iguales al final de cada periodo y una
+  capitalización tan frecuente como los depósitos. Una tasa que cambia, un depósito omitido o una
+  retirada la invalidan, y deja fuera impuestos y comisiones. El valor presente de la misma serie
+  de pagos es el capital de la fórmula del pago de un préstamo.
+
+  Ahorrar 250 al final de cada mes durante ocho años al 3.75 por ciento anual, con capitalización
+  mensual, reúne un saldo de unos 27938.20.

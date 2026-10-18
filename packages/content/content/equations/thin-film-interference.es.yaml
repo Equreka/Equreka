@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Interferencia de película delgada'
+terms:
+  t:
+    label: 'Espesor de la película'
+  m:
+    label: 'Orden'
+description: >-
+  La interferencia de película delgada es el refuerzo o la anulación de la luz reflejada en las dos
+  caras de una película transparente de pocas longitudes de onda de espesor. Para una
+  película rodeada de un medio de índice menor, como una película de jabón en el
+  aire, la luz que incide de frente se refleja con más intensidad cuando el doble del espesor por
+  el índice de la película es un número semientero de longitudes de onda. El efecto colorea las
+  pompas de jabón y las manchas de aceite y sustenta los recubrimientos ópticos.
+
+  $\mag{n}$ es el índice de refracción de la película, un número puro. $\var{t}$ es el espesor de
+  la película en metros. $\var{m}$ es el orden, un número entero desde 0. $\mag{\lambda}$ es la
+  longitud de onda de la luz en el vacío, en metros; dentro de la película la longitud de onda se
+  reduce a $\mag{\lambda}$ dividida entre $\mag{n}$.
+
+  Un haz se refleja en la cara delantera y otro en la trasera tras cruzar dos veces la película,
+  así que el segundo se retrasa el doble del espesor, medido en longitudes de onda dentro de la
+  película. Reflejarse en un medio de índice mayor invierte la fase, un desfase de media longitud de
+  onda; reflejarse en uno de índice menor no. En una película de jabón solo se invierte la
+  reflexión delantera, y los haces se refuerzan cuando el retraso más esa media longitud de onda es
+  un número entero de longitudes de onda.
+
+  La fórmula vale para incidencia normal y una sola inversión de fase; con incidencia oblicua el
+  camino cambia. Con una inversión, un retraso de un número entero de longitudes de onda da
+  oscuridad, y una película mucho más delgada que la longitud de onda se ve negra. Cuando
+  se invierten las dos reflexiones o ninguna, como en un recubrimiento cuyo índice está entre el del
+  aire y el del vidrio, las condiciones se intercambian y una capa de un cuarto de onda anula la
+  reflexión.
+
+  Katharine Blodgett patentó el vidrio antirreflectante en 1938. Una película de jabón de índice
+  1.333 refleja con más intensidad la luz roja de 650 nm con un espesor de unos 122 nm.

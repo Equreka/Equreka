@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.locale.schema.json
+name: 'Impedancia'
+description: >-
+  La impedancia es la oposición que un elemento o una red de circuito presentan a una corriente
+  alterna sinusoidal. En su forma completa es una magnitud compleja, el fasor de la tensión
+  dividido entre el fasor de la corriente, cuya parte real es la resistencia y cuya parte
+  imaginaria es la reactancia; su módulo, el valor que suele darse en ohmios, es el cociente entre
+  la amplitud de la tensión y la amplitud de la corriente.
+
+  Su unidad SI coherente es el ohmio, compartido con la resistencia y la reactancia, de modo que su
+  dimensión es longitud al cuadrado por masa dividida entre tiempo al cubo y corriente eléctrica al
+  cuadrado. Su símbolo habitual es $Z$.
+
+  El módulo es un escalar que nunca es negativo. La información de sentido está en el argumento de
+  la impedancia compleja, el ángulo de fase con el que la tensión se adelanta a la corriente:
+  positivo cuando domina la reactancia inductiva, negativo cuando domina la capacitiva y nulo para
+  una resistencia pura. En un circuito en serie, el módulo es la raíz cuadrada de la resistencia al
+  cuadrado más la reactancia neta al cuadrado.
+
+  La impedancia se mide dividiendo la amplitud de la tensión, o la tensión eficaz, en un componente
+  entre la corriente correspondiente a una frecuencia indicada, ya que el valor cambia con la
+  frecuencia. Un circuito en serie de 40.0 ohmios, 3.00 mH y 5.00 microfaradios presenta unos 531
+  ohmios a 60 Hz, 190 ohmios a 10 kHz y solo su resistencia en la resonancia, cerca de 1.30 kHz. El
+  propio espacio vacío tiene una impedancia característica de unos 376.73 ohmios, un valor de
+  CODATA.
+
+  La impedancia generaliza la resistencia: en corriente continua, o en un componente sin
+  reactancia, ambas coinciden. QUDT clasifica la impedancia y la reactancia como clases más
+  específicas de la resistencia, aunque en la forma compleja la resistencia y la reactancia son las
+  dos partes de una impedancia. Oliver Heaviside acuñó en inglés el término impedance, junto
+  con inductance y capacitance.

@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Impedance of a series RLC circuit'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{Z}=\sqrt{\mag{R}^{2}+\left(\var{X_\mathrm{L}}-\var{X_\mathrm{C}}\right)^{2}}'
+terms:
+  Z:
+    kind: 'magnitude'
+    ref: 'impedance'
+  R:
+    kind: 'magnitude'
+    ref: 'electrical-resistance'
+  X_\mathrm{L}:
+    kind: 'symbol'
+    label:
+      en: 'Inductive reactance'
+    unit: 'ohm'
+  X_\mathrm{C}:
+    kind: 'symbol'
+    label:
+      en: 'Capacitive reactance'
+    unit: 'ohm'
+solutions:
+  Z: 'sqrt(R^2 + (X_L - X_C)^2)'
+  R: 'sqrt((Z - (X_L - X_C)) * (Z + (X_L - X_C)))'
+  X_\mathrm{L}:
+    - 'X_C + sqrt((Z - R) * (Z + R))'
+    - 'X_C - sqrt((Z - R) * (Z + R))'
+  X_\mathrm{C}:
+    - 'X_L + sqrt((Z - R) * (Z + R))'
+    - 'X_L - sqrt((Z - R) * (Z + R))'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'RLC impedance'
+  - 'series RLC impedance'
+  - 'LCR circuit impedance'
+  - 'Z = sqrt(R^2 + (XL - XC)^2)'
+  - 'AC Ohm''s law'
+  - 'impedancia de un circuito RLC'
+  - 'impedancia de un circuito RLC en serie'
+references:
+  - title: 'OpenStax, University Physics Volume 2, 15.3 RLC Series Circuits with AC (Equations 15.9 to 15.11, Example 15.2)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/15-3-rlc-series-circuits-with-ac'
+  - title: 'OpenStax, College Physics 2e, 23.12 RLC Series AC Circuits (Equations 23.66, 23.72 and 23.75)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/23-12-rlc-series-ac-circuits'
+  - title: 'Wikidata, impedance (Q179043): Z = R + jX'
+    url: 'https://www.wikidata.org/wiki/Q179043'
+description:
+  en: >-
+    The impedance of a series RLC circuit, a resistor, an inductor and a capacitor in series with an
+    alternating source, is the square root of the resistance squared plus the square of the
+    inductive reactance minus the capacitive reactance. It plays the part of resistance in an AC
+    form of Ohm's law: the current amplitude is the voltage amplitude divided by the impedance.
+
+    $\mag{Z}$ is the impedance in ohms, never negative. $\mag{R}$ is the resistance in ohms.
+    $\var{X_\mathrm{L}}$ and $\var{X_\mathrm{C}}$ are the inductive and the capacitive reactance in
+    ohms, entered as positive sizes as the two reactance formulas give them: the angular frequency
+    times the inductance, and the reciprocal of the angular frequency times the capacitance. Their
+    difference is the net reactance, positive when the circuit behaves inductively and negative
+    when it behaves capacitively.
+
+    The same current flows through all three elements. The voltage across the resistor is in phase
+    with it, the voltage across the inductor leads it by a quarter cycle and the voltage across the
+    capacitor lags by a quarter cycle, so the inductor and capacitor voltages oppose each other and
+    their difference stands at right angles to the resistor voltage. Adding these at right angles
+    gives the formula. The phase angle by which the source voltage leads the current has a tangent
+    equal to the net reactance over the resistance.
+
+    The relation assumes ideal components in series and a steady sinusoidal current. Solving it for
+    one reactance gives two roots, one for an inductive and one for a capacitive circuit; the first
+    root listed is always positive. When the two reactances are equal the circuit is at resonance,
+    the impedance falls to the resistance alone and the current peaks.
+
+    With 4.00 ohms, 3.00 mH and 0.800 mF at 200 Hz, the reactances are 3.77 and 0.995 ohms and the
+    impedance is about 4.87 ohms.

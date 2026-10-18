@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Volt metre'
+symbol:
+  tex: 'V\,m'
+  text: 'V m'
+unitOf:
+  - 'electric-flux'
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'volt'
+      exp: 1
+    - unit: 'metre'
+      exp: 1
+externalIds:
+  wikidata: 'Q83948162'
+  qudt: 'http://qudt.org/vocab/unit/V-M'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'volt meter'
+  - 'volt metres'
+  - 'V·m'
+  - 'V*m'
+  - 'N m2/C'
+  - 'N·m²/C'
+  - 'newton square metre per coulomb'
+  - 'voltio metro'
+references:
+  - title: 'QUDT, unit V-M (Volt Metre): conversion multiplier 1, quantity kind ElectricFlux'
+    url: 'https://qudt.org/vocab/unit/V-M'
+  - title: 'Wikidata, volt metre (Q83948162): unit of electric flux'
+    url: 'https://www.wikidata.org/wiki/Q83948162'
+  - title: 'BIPM, The International System of Units, 9th ed., 2.3.4 Derived units, Table 4, and 5.2 Unit symbols'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, University Physics Volume 2, 6.1 Electric Flux (unit of flux)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/6-1-electric-flux'
+  - title: 'OpenStax, University Physics Volume 2, 6.2 Explaining Gauss''s Law (Example 6.5)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/6-2-explaining-gausss-law'
+description:
+  en: >-
+    The volt metre, symbol $\mathrm{V\,m}$, is the coherent SI derived unit of electric flux, the
+    surface integral of the electric field strength. It is the product of the volt, the unit of
+    electric potential difference, and the metre, and in SI base units it is the kilogram metre
+    cubed per second cubed per ampere. It has no special name.
+
+    The unit follows from the definition of the flux: a field strength in volts per metre
+    multiplied by an area in square metres leaves volts times metres. A uniform field of one volt
+    per metre crossing one square metre at right angles carries a flux of one volt metre.
+
+    Because the volt equals the joule per coulomb and the joule equals the newton metre, the volt
+    metre is identical to the newton square metre per coulomb, the form OpenStax prints for electric flux. It is also the unit of charge divided by permittivity, coulombs over
+    farads per metre, which is why Gauss's law gives the flux out of a closed surface directly in
+    volt metres.
+
+    The volt metre appears almost only in electrostatics, in Gauss's law and the flux calculations
+    built on it. A closed surface around a charge of one microcoulomb carries roughly
+    $1.13\times10^{5}\,\mathrm{V\,m}$ whatever its shape.
+
+    The symbol is written with a space or a half-high dot between the factors, $\mathrm{V\,m}$ or
+    V·m, following the SI rule for products of units. The volt metre is not the voltmeter, the
+    instrument that measures potential difference, although the American spelling makes the two
+    look alike. The plural is volt metres.

@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Future value of an annuity'
+kind: 'formula'
+level: 'intro'
+expression: '\var{\mathrm{FV}}=\var{P}\frac{\left(1+\var{r}\right)^{\var{n}}-1}{\var{r}}'
+terms:
+  \mathrm{FV}:
+    kind: 'symbol'
+    label:
+      en: 'Future value'
+  P:
+    kind: 'symbol'
+    label:
+      en: 'Payment per period'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Interest rate per period'
+    unit: 'unitless'
+  n:
+    kind: 'symbol'
+    integer: true
+    label:
+      en: 'Number of payments'
+solutions:
+  \mathrm{FV}: 'P * ((1 + r)^n - 1) / r'
+  P: 'FV * r / ((1 + r)^n - 1)'
+  n: 'ln(1 + FV * r / P) / ln(1 + r)'
+calculator:
+  enabled: true
+  solveFor: ['\mathrm{FV}', 'P', 'n']
+categories:
+  - 'mathematics'
+branches:
+  - 'arithmetic'
+aliases:
+  - 'annuity future value'
+  - 'future value of an ordinary annuity'
+  - 'savings annuity formula'
+  - 'sinking fund'
+  - 'FV of an annuity'
+  - 'valor futuro de una renta'
+  - 'monto de una anualidad'
+references:
+  - title: 'OpenStax, Contemporary Mathematics, 6.6 Methods of Savings (future value of an ordinary annuity, Example 6.59)'
+    url: 'https://openstax.org/books/contemporary-mathematics/pages/6-6-methods-of-savings'
+  - title: 'D. Lippman, Math in Society, 9.4 Annuities (LibreTexts)'
+    url: 'https://math.libretexts.org/Bookshelves/Applied_Mathematics/Math_in_Society_(Lippman)/09%3A_Finance/9.04%3A_Annuities'
+description:
+  en: >-
+    The future value of an annuity is the balance that a series of equal deposits, made at the end
+    of every period and left to earn compound interest, reaches by the time the last deposit is
+    paid. The formula of the ordinary annuity, also called the savings annuity formula, is the
+    financial mathematics behind retirement plans, college funds and any regular saving scheme.
+
+    In the formula, $\var{\mathrm{FV}}$ is the future value and $\var{P}$ the payment made each
+    period; both are sums of money in the same currency, entered as plain numbers. $\var{r}$ is the
+    interest rate per period as a decimal fraction (0.01 for 1 percent): the annual rate divided by
+    the number of payments per year. $\var{n}$ is the number of payments, a whole number. All four
+    are positive, and the account starts empty.
+
+    The last deposit earns nothing, the one before it earns one period of interest, and the first
+    earns interest for all the remaining periods. Adding these grown deposits gives a geometric
+    series whose ratio is one plus the rate, and its closed sum is the formula. The future value
+    therefore exceeds the total paid in, $\var{n}$ times $\var{P}$, by the interest earned.
+    Logarithms give the number of payments needed to reach a target, while the rate has no
+    elementary closed form and is an input to the calculator.
+
+    The formula assumes a constant rate, equal deposits at the end of each period, and compounding
+    as often as deposits are made. A rate that changes, a missed deposit or a withdrawal breaks it,
+    and taxes and fees are left out. The present value of the same stream of payments is the
+    principal of the loan payment formula.
+
+    Saving 250 at the end of every month for eight years at 3.75 percent a year, compounded
+    monthly, builds a balance of about 27938.20.

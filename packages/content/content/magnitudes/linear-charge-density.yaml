@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Linear charge density'
+symbol:
+  tex: '\lambda'
+  text: 'λ'
+symbolAlt:
+  tex: '\rho_\mathrm{l}'
+  text: 'ρl'
+baseUnit: 'coulomb-per-metre'
+dimension:
+  L: -1
+  T: 1
+  I: 1
+externalIds:
+  wikidata: 'Q77267838'
+  qudt: 'http://qudt.org/vocab/quantitykind/LinearElectricChargeDensity'
+categories:
+  - 'physics'
+branches:
+  - 'electromagnetism'
+aliases:
+  - 'linear density of electric charge'
+  - 'linear electric charge density'
+  - 'lineic charge'
+  - 'lineic electric charge'
+  - 'charge per unit length'
+  - 'densidad lineal de carga'
+  - 'carga por unidad de longitud'
+references:
+  - title: 'QUDT, quantity kind LinearElectricChargeDensity (definition and symbols)'
+    url: 'https://qudt.org/vocab/quantitykind/LinearElectricChargeDensity'
+  - title: 'Wikidata, linear density of electric charge (Q77267838): defining formula and symbols'
+    url: 'https://www.wikidata.org/wiki/Q77267838'
+  - title: 'OpenStax, University Physics Volume 2, 5.5 Calculating Electric Fields of Charge Distributions (Examples 5.5 and 5.6)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/5-5-calculating-electric-fields-of-charge-distributions'
+  - title: 'OpenStax, University Physics Volume 2, 6.3 Applying Gauss''s Law (cylindrical symmetry)'
+    url: 'https://openstax.org/books/university-physics-volume-2/pages/6-3-applying-gausss-law'
+  - title: 'NIST, CODATA 2022 value: vacuum electric permittivity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?ep0'
+description:
+  en: >-
+    Linear charge density is the electric charge carried per unit length of a thin body: the charge
+    on a short piece divided by the length of that piece, in the limit of a vanishing piece. It
+    describes charge spread along wires, filaments, thin rods and beams of particles, bodies whose
+    thickness is negligible next to the distances at which their field is studied.
+
+    Its coherent SI unit is the coulomb per metre, and its dimension is time times electric current
+    divided by length. For a uniformly charged body the value is the total charge divided by the
+    total length.
+
+    It is a signed scalar with the sign of the charge, negative for a wire carrying excess
+    electrons. Along a non-uniform body it changes from point to point, and the total charge is the
+    integral of the linear charge density over the length.
+
+    It is rarely measured directly; it is computed from a known charge and length, or found from
+    the field around a long straight conductor, which falls off as the inverse of the distance and
+    is proportional to the linear charge density. A line carrying one microcoulomb per metre sets up
+    a field of about $1.8\times10^{5}\,\mathrm{V/m}$ at 10 centimetres, using the
+    vacuum electric permittivity of about $8.854\times10^{-12}\,\mathrm{F/m}$.
+
+    Linear charge density is not the linear mass density of a string, in kilograms per metre, nor
+    the surface or volume charge density, in coulombs per square or cubic metre. Its symbol here is $\lambda$, as in OpenStax and in the field formula of an infinite line; QUDT and Wikidata write it rho with a subscript l and also list tau.

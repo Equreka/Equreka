@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=../../dist/schemas/magnitudes.schema.json
+name:
+  en: 'Surface tension'
+symbol:
+  tex: '\gamma'
+  text: 'γ'
+baseUnit: 'newton-per-metre'
+dimension:
+  M: 1
+  T: -2
+nonNegative: true
+externalIds:
+  wikidata: 'Q170749'
+  qudt: 'http://qudt.org/vocab/quantitykind/SurfaceTension'
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'liquid surface tension'
+  - 'coeficiente de tensión superficial'
+  - 'tracción superficial'
+references:
+  - title: 'BIPM, The International System of Units, 9th ed., Table 6 (surface tension, newton per metre)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'QUDT, quantity kind SurfaceTension (symbol, broader kind EnergyPerArea)'
+    url: 'https://qudt.org/vocab/quantitykind/SurfaceTension'
+  - title: 'OpenStax, College Physics 2e, 11.8 Cohesion and Adhesion in Liquids: Surface Tension and Capillary Action (Table 11.3)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/11-8-cohesion-and-adhesion-in-liquids-surface-tension-and-capillary-action'
+  - title: 'R. Nave, HyperPhysics, Surface Tension (values in dynes per centimetre)'
+    url: 'https://hyperphysics.gsu.edu/hbase/surten.html'
+description:
+  en: >-
+    Surface tension is the force per unit length with which the free surface of a liquid pulls along
+    any line drawn on it, acting in the surface and at right angles to the line. Equivalently, it is
+    the work needed to enlarge that surface by one unit of area at constant temperature. In fluid
+    mechanics it explains why drops and bubbles round up, why a needle can rest on water and why
+    liquids climb narrow tubes.
+
+    The SI unit is the newton per metre, which the SI Brochure lists for this quantity and which
+    equals the kilogram per second squared in base units, so the dimension is mass divided by time
+    squared. Since a newton per metre is also a joule per square metre, the same number gives the
+    surface energy of the liquid. The CGS unit, the dyne per centimetre, equals one millinewton per
+    metre.
+
+    Surface tension is a scalar and is positive for every liquid in contact with its vapour or with
+    air. Its symbol is $\gamma$. Molecules at the surface have fewer neighbours than those inside,
+    so the cohesive forces draw the surface layer tight like a stretched membrane; heating weakens
+    the cohesion, and dissolved soap lowers the value sharply.
+
+    It is measured by pulling a thin wire frame out of a liquid film and recording the force, or
+    from the height a liquid climbs in a narrow glass tube. Water has about 0.0756 newtons per metre
+    at 0 degrees Celsius, 0.0728 at 20 degrees and 0.0589 at 100 degrees; typical soapy water about
+    0.037, ethyl alcohol 0.0223 and mercury 0.465. Liquid helium near −269 degrees Celsius has only
+    0.00012, while molten gold at 1070 degrees reaches about 1.000.
+
+    Surface tension is not the tension of a string or cable, which is a force in newtons, nor a
+    pressure; the pressure jump across a curved surface follows from it but grows as the radius of
+    curvature shrinks. QUDT files it as a kind of energy per area.

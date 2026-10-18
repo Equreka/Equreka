@@ -1,0 +1,95 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Stokes terminal velocity'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{v_\mathrm{t}}=\frac{2\var{r}^{2}\left(\var{\rho_\mathrm{o}}-\var{\rho_\mathrm{f}}\right)\var{g}}{9\mag{\eta}}'
+terms:
+  v_\mathrm{t}:
+    kind: 'symbol'
+    label:
+      en: 'Terminal velocity'
+    unit: 'metre-per-second'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Radius of the sphere'
+    unit: 'metre'
+  \rho_\mathrm{o}:
+    kind: 'symbol'
+    label:
+      en: 'Density of the sphere'
+    unit: 'kilogram-per-cubic-metre'
+  \rho_\mathrm{f}:
+    kind: 'symbol'
+    label:
+      en: 'Fluid density'
+    unit: 'kilogram-per-cubic-metre'
+  g:
+    kind: 'symbol'
+    label:
+      en: 'Gravitational acceleration'
+    unit: 'metre-per-second-squared'
+  \eta:
+    kind: 'magnitude'
+    ref: 'dynamic-viscosity'
+solutions:
+  v_\mathrm{t}: '2 * r^2 * (rho_o - rho_f) * g / (9 * eta)'
+  r: 'sqrt(9 * eta * v_t / (2 * (rho_o - rho_f) * g))'
+  \rho_\mathrm{o}: 'rho_f + 9 * eta * v_t / (2 * r^2 * g)'
+  \rho_\mathrm{f}: 'rho_o - 9 * eta * v_t / (2 * r^2 * g)'
+  g: '9 * eta * v_t / (2 * r^2 * (rho_o - rho_f))'
+  \eta: '2 * r^2 * (rho_o - rho_f) * g / (9 * v_t)'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'fluid-mechanics'
+aliases:
+  - 'Stokes settling velocity'
+  - 'settling velocity of a sphere'
+  - 'terminal velocity in Stokes flow'
+  - 'Stokes fall velocity'
+  - 'falling ball viscometer equation'
+  - 'velocidad de sedimentación'
+  - 'velocidad terminal de Stokes'
+references:
+  - title: 'J. Southard, Introduction to Fluid Motions and Sediment Transport (MIT, Geosciences LibreTexts), 3.9 Settling of Spheres (Equation 3.27)'
+    url: 'https://geo.libretexts.org/Bookshelves/Sedimentology/Introduction_to_Fluid_Motions_and_Sediment_Transport_(Southard)/03%3A_Flow_Past_a_Sphere_II_-_Stokes''_Law_The_Bernoulli_Equation_Turbulence_Boundary_Layers_Flow_Separation/3.09%3A_Settling_of_Spheres'
+  - title: 'J. Southard, Introduction to Fluid Motions and Sediment Transport (MIT, Geosciences LibreTexts), 3.2 Flow Past a Sphere at Low Reynolds Numbers'
+    url: 'https://geo.libretexts.org/Bookshelves/Sedimentology/Introduction_to_Fluid_Motions_and_Sediment_Transport_(Southard)/03%3A_Flow_Past_a_Sphere_II_-_Stokes''_Law_The_Bernoulli_Equation_Turbulence_Boundary_Layers_Flow_Separation/3.02%3A_Flow_Past_a_Sphere_at_Low_Reynolds_Numbers'
+  - title: 'OpenStax, University Physics Volume 1, 6.4 Drag Force and Terminal Speed (Stokes'' law)'
+    url: 'https://openstax.org/books/university-physics-volume-1/pages/6-4-drag-force-and-terminal-speed'
+  - title: 'OpenStax, College Physics 2e, 11.2 Density (Table 11.1)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/11-2-density'
+  - title: 'OpenStax, College Physics 2e, 12.4 Viscosity and Laminar Flow; Poiseuille''s Law (Table 12.1)'
+    url: 'https://openstax.org/books/college-physics-2e/pages/12-4-viscosity-and-laminar-flow-poiseuilles-law'
+  - title: 'NIST, CODATA Value: standard acceleration of gravity'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?gn'
+description:
+  en: >-
+    The Stokes terminal velocity is the steady speed at which a small sphere sinks or rises through
+    a viscous fluid once its weight, the buoyant force and the viscous drag balance. It grows with
+    the square of the radius and with the difference between the densities of the sphere and the
+    fluid, and falls with the viscosity, so in fluid mechanics it sets the settling rate of silt,
+    mist droplets and the balls of falling-ball viscometers.
+
+    Here $\var{v_\mathrm{t}}$ is the terminal velocity in metres per second, positive downward; a
+    negative value means the sphere is less dense than the fluid and rises, like a droplet of oil in water. The sign sets it apart from the general terminal speed, entered as a size.
+    $\var{r}$ is the radius of the sphere in metres, $\var{\rho_\mathrm{o}}$ the density of the
+    sphere and $\var{\rho_\mathrm{f}}$ that of the fluid, both in kilograms per cubic metre, and
+    $\mag{\eta}$ the dynamic viscosity of the fluid in pascal seconds. $\var{g}$ is the size of the gravitational acceleration, entered positive; its standard value is 9.80665 metres per second squared, and the local value varies with place and differs on another planet or moon.
+
+    The weight minus the buoyant force is the volume of the sphere times the density difference
+    times $\var{g}$. Setting it equal to the Stokes drag, six pi times the viscosity times the radius
+    times the speed, and solving for the speed gives the formula. A grain half as wide settles four times more slowly.
+
+    The result holds only while the Reynolds number built from the fluid density, the speed and the
+    diameter, divided by the viscosity, stays below about one. Faster or larger spheres shed a wake, and the quadratic drag of the general terminal velocity
+    takes over. The formula also assumes a rigid sphere far from walls and other particles in a
+    fluid otherwise at rest.
+
+    George Gabriel Stokes published the creeping-flow drag on a sphere in 1851. A steel ball 1
+    millimetre across, sinking through glycerine at 20 degrees Celsius, settles at about 2.4
+    millimetres per second, with a Reynolds number near 0.002.

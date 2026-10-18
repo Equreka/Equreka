@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Sum of the squares of the first n positive integers'
+kind: 'formula'
+level: 'intro'
+expression: '\var{S}=\frac{\var{n}\left(\var{n}+1\right)\left(2\var{n}+1\right)}{6}'
+terms:
+  S:
+    kind: 'symbol'
+    label:
+      en: 'Sum of the first n squares'
+  n:
+    kind: 'symbol'
+    integer: true
+    label:
+      en: 'Number of squares'
+solutions:
+  S: 'n * (n + 1) * (2 * n + 1) / 6'
+calculator:
+  enabled: true
+  solveFor: ['S']
+externalIds:
+  wikidata: 'Q18949'
+categories:
+  - 'mathematics'
+branches:
+  - 'algebra'
+aliases:
+  - 'sum of squares'
+  - 'sum of squares formula'
+  - 'square pyramidal number'
+  - 'pyramidal number'
+  - 'sum of the first n squares'
+  - 'suma de cuadrados'
+  - 'número piramidal cuadrado'
+  - 'suma de los primeros n cuadrados'
+references:
+  - title: 'E. W. Weisstein, Square Pyramidal Number, MathWorld'
+    url: 'https://mathworld.wolfram.com/SquarePyramidalNumber.html'
+  - title: 'OpenStax, Calculus Volume 1, 5.1 Approximating Areas (sums and powers of integers, Example 5.2)'
+    url: 'https://openstax.org/books/calculus-volume-1/pages/5-1-approximating-areas'
+description:
+  en: >-
+    The sum of the squares of the first n positive integers, 1 plus 4 plus 9 and so on up to n
+    squared, equals n times n plus one times twice n plus one, divided by six. Its values 1, 5, 14,
+    30, 55, 91 and onward are the square pyramidal numbers of algebra and number theory: the number
+    of balls stacked in a pyramid on a square base with n balls along each edge of the bottom layer.
+
+    Here $\var{S}$ is the sum and $\var{n}$ the number of squares added, a non-negative whole number;
+    with no terms the sum is zero. Both are pure numbers. Among $\var{n}$, $\var{n}$ plus one and
+    twice $\var{n}$ plus one, one factor is always even and one is always a multiple of three, so the
+    division by six always leaves a whole number.
+
+    One short proof adds up the identity that the cube of k plus one, minus the cube of k, equals
+    three k squared plus three k plus one, for every k from 1 to n. The left side telescopes to the
+    cube of n plus one minus one, and the sum of the integers is already known, which leaves the sum
+    of the squares as the only unknown. The result grows like a third of the cube of $\var{n}$, which
+    is why it reappears in calculus when the area under a parabola is approximated by thin
+    rectangles.
+
+    The formula holds for every whole $\var{n}$, and it can also be confirmed by mathematical
+    induction. Solving for $\var{n}$ means solving a cubic equation, so the calculator only computes
+    the sum and takes $\var{n}$ as an input. Sums of squares over other ranges follow by subtraction.
+
+    The mathematician Lucas conjectured in 1875 that a square pyramid of 24 layers, holding 4900 balls, is the
+    only stack beyond a single ball whose balls also fill a square, here 70 by 70; Watson gave
+    the first complete proof in 1918. For n equal to 200, the sum is 2686700.

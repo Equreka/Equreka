@@ -1,0 +1,79 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Volume of a frustum of a cone'
+kind: 'formula'
+level: 'intro'
+expression: '\mag{V}=\frac{\const{\pi}\var{h}}{3}\left(\var{R}^{2}+\var{R}\var{r}+\var{r}^{2}\right)'
+terms:
+  V:
+    kind: 'magnitude'
+    ref: 'volume'
+  \pi:
+    kind: 'constant'
+    ref: 'pi'
+  h:
+    kind: 'symbol'
+    label:
+      en: 'Height'
+    unit: 'metre'
+  R:
+    kind: 'symbol'
+    label:
+      en: 'Radius of the base'
+    unit: 'metre'
+  r:
+    kind: 'symbol'
+    label:
+      en: 'Radius of the top'
+    unit: 'metre'
+solutions:
+  V: 'pi * h * (R^2 + R * r + r^2) / 3'
+  h: '3 * V / (pi * (R^2 + R * r + r^2))'
+  R: '(sqrt(12 * V / (pi * h) - 3 * r^2) - r) / 2'
+  r: '(sqrt(12 * V / (pi * h) - 3 * R^2) - R) / 2'
+calculator:
+  enabled: true
+categories:
+  - 'mathematics'
+branches:
+  - 'geometry'
+aliases:
+  - 'frustum volume'
+  - 'volume of a truncated cone'
+  - 'conical frustum'
+  - 'truncated cone'
+  - 'frustrum of a cone'
+  - 'volumen de un cono truncado'
+  - 'tronco de cono'
+  - 'cono truncado'
+references:
+  - title: 'E. W. Weisstein, Conical Frustum, MathWorld'
+    url: 'https://mathworld.wolfram.com/ConicalFrustum.html'
+  - title: 'MacTutor History of Mathematics, Egyptian Papyri (Moscow papyrus, problem 14)'
+    url: 'https://mathshistory.st-andrews.ac.uk/HistTopics/Egyptian_papyri/'
+description:
+  en: >-
+    The volume of a frustum of a cone, the solid left when a cone is cut by a plane parallel to its
+    base and the top is removed, equals one third of pi times the height times the sum of the square
+    of one radius, the product of the two radii and the square of the other radius. This
+    solid geometry rule gives the capacity of buckets, flower pots, lampshades and many cups, which
+    are truncated cones.
+
+    In the formula, $\mag{V}$ is the volume in cubic metres; $\var{h}$ is the height, the
+    perpendicular distance between the two circular faces; $\var{R}$ is the radius of the base and
+    $\var{r}$ the radius of the top, all three in metres. The constant $\const{\pi}$ is a pure number
+    close to 3.14159. None of the quantities is negative, and the formula is symmetric in the two
+    radii, so it does not matter which face is called the base.
+
+    The frustum is a large cone minus the small cone cut from its tip, and the difference of their
+    volumes, simplified with the similar triangles that relate the two heights, gives the three
+    terms in the bracket. When the top radius is zero the formula becomes the volume of a cone, and
+    when the two radii are equal it becomes the volume of a cylinder. Solving for one radius means
+    solving a quadratic equation; only its positive root is a length.
+
+    The formula holds for a right circular frustum and also for an oblique one with the same height,
+    because the volume depends only on the cross-sections at each level. The faces must be parallel;
+    a slanted cut produces a different solid. A frustum of a square pyramid follows the same pattern, with the sides of the two squares in place of the radii and no factor of pi.
+
+    Problem 14 of the Moscow papyrus, an ancient Egyptian text, computes the volume of a truncated
+    square pyramid with a base of side 4 cubits, a top of side 2 and a height of 6, and obtains 56.

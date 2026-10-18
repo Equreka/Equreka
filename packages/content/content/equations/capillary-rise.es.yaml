@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ascenso capilar'
+terms:
+  h:
+    label: 'Ascenso capilar'
+  g:
+    label: 'Aceleración de la gravedad'
+  r:
+    label: 'Radio del tubo'
+description: >-
+  El ascenso capilar es la altura a la que sube, o baja, un líquido dentro de un tubo estrecho
+  sumergido en él, medida desde el nivel del líquido libre exterior. Conocida como ley de Jurin, la
+  fórmula hace esa altura igual al doble de la tensión superficial por el coseno del ángulo de
+  contacto, dividido entre la densidad, la aceleración de la gravedad y el radio del tubo. En
+  mecánica de fluidos describe la capilaridad en mechas, suelos y papel.
+
+  Aquí $\var{h}$ es el ascenso capilar en metros, positivo cuando el líquido sube y negativo en un
+  descenso capilar. $\mag{\gamma}$ es la tensión superficial del líquido en newtons por metro,
+  $\mag{\rho}$ su densidad en kilogramos por metro cúbico y $\var{r}$ el radio interior del tubo en
+  metros. $\mag{\theta}$ es el ángulo de contacto entre la superficie del líquido y la pared, de 0 a
+  180 grados, con el radián como unidad coherente: unos 0 grados para el agua sobre vidrio limpio y
+  140 para el mercurio sobre vidrio. $\var{g}$ es el módulo de la aceleración de la gravedad, introducido como positivo; su valor normal es 9.80665 metros por segundo al cuadrado, y el valor local varía con el lugar y es distinto en otro planeta o satélite.
+
+  A lo largo de la circunferencia en la que el líquido toca la pared, la tensión superficial tira
+  con una componente vertical igual a la longitud de esa circunferencia por la tensión superficial
+  por el coseno del ángulo de contacto. La columna deja de subir cuando ese tirón iguala el peso del
+  líquido elevado, el área de la sección por la altura por la densidad por $\var{g}$, y despejar el
+  equilibrio da la fórmula. Por encima de 90 grados el coseno se hace negativo y el líquido baja.
+
+  La fórmula supone un tubo estrecho, de un milímetro de diámetro o menos, con la pared limpia y una
+  superficie curva próxima a un casquete esférico; desprecia el pequeño volumen del menisco.
+
+  James Jurin comunicó en las Philosophical Transactions de 1718 y 1719 que el ascenso es
+  inversamente proporcional al radio del tubo. El agua a 20 grados Celsius sube unos 15 centímetros en un tubo de vidrio limpio de 0.1 milímetros de radio, mientras que el mercurio baja
+  unos 5.3.
