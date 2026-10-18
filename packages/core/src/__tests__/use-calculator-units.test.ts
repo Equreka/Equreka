@@ -205,6 +205,42 @@ describe('createCalculatorUnits', () => {
 		]);
 	});
 
+	it('scopes a magnitude-less anchor to the magnitude-less units of its dimension', () => {
+		const rate: CompiledDimension = [-3, 0, -1, 0, 0, 1, 0, 0];
+		const slice: EngineSlice = {
+			...SLICE,
+			magnitudes: {
+				...SLICE.magnitudes,
+				'catalytic-activity-concentration': magnitude(
+					'catalytic-activity-concentration',
+					'katal-per-cubic-metre',
+					rate,
+				),
+			},
+			units: {
+				...SLICE.units,
+				'mole-per-cubic-metre-second': unit('mole-per-cubic-metre-second', [], rate, '1'),
+				'mole-per-litre-second': unit('mole-per-litre-second', [], rate, '1000'),
+				'katal-per-cubic-metre': unit(
+					'katal-per-cubic-metre',
+					['catalytic-activity-concentration'],
+					rate,
+					'1',
+				),
+			},
+		};
+		const rateUnits = createCalculatorUnits(
+			equation('average-reaction-rate', {
+				v: { kind: 'symbol', unit: 'mole-per-cubic-metre-second', identifier: 'v' },
+			}),
+			{ registry: createUnitRegistry(slice), magnitudes: slice.magnitudes },
+		);
+		const scoped = rateUnits.options('v', false);
+		expect(slugs(scoped.units)).toEqual(['mole-per-cubic-metre-second', 'mole-per-litre-second']);
+		expect(scoped.hiddenByKind).toBe(1);
+		expect(slugs(rateUnits.options('v', true).units)).toContain('katal-per-cubic-metre');
+	});
+
 	it('scopes a unit-anchored term by its anchor unit magnitudes', () => {
 		expect(slugs(mixed.options('x', false).units)).toEqual(['calorie', 'erg', 'joule']);
 		const compound = mixed.options('k', false);
