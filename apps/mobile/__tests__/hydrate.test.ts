@@ -5,6 +5,8 @@ import {
 	mathBodySvg,
 } from '@equreka/content/rich-text';
 import { describe, expect, it } from '@jest/globals';
+import { Children, isValidElement, type ReactElement, type ReactNode } from 'react';
+import Svg, { parse } from 'react-native-svg';
 import { getAllMathBodies, getMathAtlas, getMathBody } from '../shared/content/artifact';
 import { EX_PER_FONT_PX, hydrateForSvg } from '../shared/math/hydrate';
 
@@ -62,4 +64,45 @@ describe('hydrateForSvg', () => {
 		const body: MathBody = { svg: '<g></g>', wEx: 1, hEx: 1, dyEx: 0, glyphs: ['MJX-NCM-N-30'] };
 		expect(hydrateForSvg(body, atlas, 16)).toBeNull();
 	});
+
+	it('hands SvgXml every nested viewport positioned by its parent group, never by x or y', () => {
+		const nested = Object.entries(getAllMathBodies()).filter(
+			([, body]) => (mathBodySvg(body).match(/<svg\b/g)?.length ?? 0) > 1,
+		);
+		expect(nested.length).toBeGreaterThan(0);
+		const misplaced = nested.filter(([, body]) => {
+			const root = parse(hydrateForSvg(body, atlas, 16)?.xml ?? '');
+			const viewports = nestedViewports(root?.children ?? []);
+			return (
+				root?.tag !== 'svg' ||
+				viewports.length === 0 ||
+				viewports.some(
+					({ props }) =>
+						props.x !== undefined || props.y !== undefined || props.viewBox === undefined,
+				)
+			);
+		});
+		expect(misplaced.map(([tex]) => tex)).toEqual([]);
+		const control = parse('<svg><g><svg x="1" y="2" viewBox="0 0 1 1"></svg></g></svg>');
+		expect(nestedViewports(control?.children ?? []).map(({ props }) => [props.x, props.y])).toEqual(
+			[[1, 2]],
+		);
+	});
 });
+
+type ParsedElement = ReactElement<Record<string, unknown>>;
+
+/**
+ * Every `Svg` element below the root of a tree react-native-svg's `parse`
+ * built: the nested viewports its native SvgView draws at the parent
+ * group's origin.
+ */
+function nestedViewports(nodes: ReactNode): ParsedElement[] {
+	return Children.toArray(nodes).flatMap((node) => {
+		if (!isValidElement<Record<string, unknown>>(node)) {
+			return [];
+		}
+		const inner = nestedViewports(node.props.children as ReactNode);
+		return node.type === Svg ? [node, ...inner] : inner;
+	});
+}

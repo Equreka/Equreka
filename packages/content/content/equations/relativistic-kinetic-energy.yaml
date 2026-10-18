@@ -3,7 +3,7 @@ name:
   en: 'Relativistic kinetic energy'
 kind: 'formula'
 level: 'intermediate'
-expression: '\mag{E_\mathrm{k}}=\mag{m}\const{c}^{2}\left(\frac{1}{\sqrt{1-\mag{v}^{2}/\const{c}^{2}}}-1\right)'
+expression: '\mag{E_\mathrm{k}}=\mag{m}\const{c}^{2}\left(\frac{1}{\sqrt{1-\frac{\mag{v}^{2}}{\const{c}^{2}}}}-1\right)'
 terms:
   E_\mathrm{k}:
     kind: 'magnitude'

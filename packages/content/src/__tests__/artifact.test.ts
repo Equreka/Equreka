@@ -42,6 +42,7 @@ import {
 	mathBodySvg,
 	mathShardName,
 	mathShardOf,
+	mathSvgRoots,
 	splitRichText,
 } from '../rich-text.js';
 import {
@@ -893,7 +894,11 @@ describe('math artifact', () => {
 		for (const [tex, body] of Object.entries(bodies)) {
 			const svg = mathBodySvg(body);
 			expect(svg.startsWith('<svg'), tex).toBe(true);
-			expect(svg.match(/<svg\b/g)?.length, tex).toBe(1);
+			expect(mathSvgRoots(svg), tex).toEqual({ roots: 1, stray: false });
+			const positioned = (svg.match(/<svg\b[^>]*>/g) ?? [])
+				.slice(1)
+				.filter((tag) => /\s[xy]="/.test(tag));
+			expect(positioned, tex).toEqual([]);
 			expect(svg.includes('<defs>'), tex).toBe(false);
 			expect(svg, tex).not.toMatch(/\sdata-|\srole=|\sfocusable=|\sstyle=/);
 			expect(typeof body.wEx).toBe('number');

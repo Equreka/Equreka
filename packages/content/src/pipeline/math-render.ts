@@ -1,6 +1,11 @@
 import { createRequire } from 'node:module';
 import type { MathJaxAdaptor, MathJaxDocument, MathJaxInstance, MathJaxOutputJax } from 'mathjax';
-import { type MathBody, mathBodyGlyphs } from '../rich-text.js';
+import {
+	type MathBody,
+	mathBodyGlyphs,
+	mathSvgRoots,
+	positionNestedViewports,
+} from '../rich-text.js';
 import { sha256 } from './load.js';
 import { stableStringify } from './stable-json.js';
 
@@ -158,8 +163,8 @@ const UNDEFINED_MACRO_RE = /<g data-mml-node="mtext" fill="red" stroke="red" dat
  * for a zero vertical-align.
  */
 export function normalizeMathBody(raw: string): MathBody {
-	const roots = raw.match(/<svg\b/g)?.length ?? 0;
-	if (roots !== 1 || !raw.startsWith('<svg') || !raw.endsWith('</svg>')) {
+	const { roots, stray } = mathSvgRoots(raw);
+	if (roots !== 1 || stray) {
 		throw new MathRenderError(`expected exactly one <svg> root, got ${roots}`);
 	}
 	const merror = MERROR_RE.exec(raw);
@@ -181,7 +186,9 @@ export function normalizeMathBody(raw: string): MathBody {
 		'vertical-align',
 	);
 	const glyphs = mathBodyGlyphs(raw);
-	const svg = stripPresentationAttributes(raw.replace(/<defs>[\s\S]*?<\/defs>/, ''));
+	const svg = positionNestedViewports(
+		stripPresentationAttributes(raw.replace(/<defs>[\s\S]*?<\/defs>/, '')),
+	);
 	return { svg, wEx, hEx, dyEx, glyphs };
 }
 

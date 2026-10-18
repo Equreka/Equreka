@@ -1,6 +1,6 @@
 # 0005 — Mobile math rendering: MathJax 4.1.3 atlas + bodies
 
-Date: 2026-09-09 · Status: accepted · Amended 2026-10-06 (bodies v2 in hash shards) · Amended by ADR 0015 (hash shared with presentation shards)
+Date: 2026-09-09 · Status: accepted · Amended 2026-10-06 (bodies v2 in hash shards) · Amended by ADR 0015 (hash shared with presentation shards) · Amended 2026-10-17 (nested viewports of stretchy delimiters)
 
 ## Context
 
@@ -126,3 +126,19 @@ The encoding removes redundancy that gzip already removed, so the gain is in raw
 `expo export --platform android`: the Hermes bundle went from 6,210,405 to 5,930,950 bytes (−279,455, −4.5%), and the module count from 1800 to 1815 (16 shards replace one file).
 
 The `--no-bytecode` export also showed that the content JSON was never lazy. `artifact.ts` default-imported every JSON file, and Expo's Babel preset compiles such an import to `_interopDefault(require(…))` at the top of the module. Metro's `inlineRequires` does not move those. So the first accessor call evaluated every presentation slice, the atlas and the bodies at once. Named imports such as `solutions` and the runtime MathJax core were inlined as intended. `artifact.ts` now reaches every JSON file through a literal `require` inside the function that reads it. In the export, each file's require sits inside its accessor or shard loader, so a screen evaluates only the files it reads and a lookup evaluates only its own shard.
+
+## Nested viewports — amendment (2026-10-17)
+
+The one-root rule counted every `<svg` tag, so valid TeX failed the build. A display `\left( \right)` around a tall argument (`\frac{1}{\sqrt{1-\frac{v^{2}}{c^{2}}}}`) is the case found: MathJax draws its extender as a stretched glyph inside a nested `<svg width height x y viewBox>` that clips the glyph to its band. That nested element is part of the root, not a second root. W15 had worked around it by writing the inner ratio inline.
+
+- **Roots, not tags.** `mathSvgRoots` (`@equreka/content/rich-text`) counts top-level `<svg>` elements by nesting depth, and flags any markup outside them. Line-broken output still fails: it has several roots joined by `<mjx-break>` siblings.
+- **Position moved into a translate.** react-native-svg 15.15.4 draws a nested `<svg>` on both platforms, with its clip and viewBox. Its native SvgView has no `x`/`y` props, though: iOS clips to `CGRectMake(0, 0, width, height)` and Android to `RectF(0, 0, width, height)` at the parent's origin. MathJax offsets the extender with `y`. `positionNestedViewports` therefore moves a nested viewport's `x`/`y` into a wrapping `<g transform="translate(x,y)">`. Every renderer honours the translate, and the viewport keeps clipping. A zero offset is simply dropped.
+- **One implementation, both paths.** The pipeline's `normalizeMathBody` and the mobile runtime's `normalizeRuntimeMath` both call the shared functions. A tall solved form in the calculator renders like an atlas body.
+- **Lean form and cache.**
+  - Lean bodies carry the nested markup unchanged, because it contains no `[` or `]`. The byte-identity proof of the lean form still runs.
+  - Bodies without a nested viewport normalize byte for byte as before. Such inputs used to fail and were never cached, so `CONTENT_PIPELINE_VERSION` is unchanged.
+- **Evidence.**
+  - The content tests render the tall delimiter. They assert that no nested tag keeps `x`/`y` and that the translate is present, and they prove the lean round trip.
+  - A mobile test passes every bundled body with a nested viewport through react-native-svg's own `parse` and finds no positioned `Svg` element. A control proves the walk sees `x`/`y` when present.
+  - A runtime test renders the tall form through the on-device core.
+  - Not yet seen on a device; this joins *Unverified on device*.

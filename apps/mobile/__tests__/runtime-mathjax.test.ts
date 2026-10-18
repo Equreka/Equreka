@@ -47,6 +47,15 @@ describe('runtime MathJax', () => {
 		expect(laid.baselineShift).toBeCloseTo(body.dyEx * 16 * EX_PER_FONT_PX);
 	});
 
+	it('renders a tall stretchy delimiter with its nested viewport positioned by a translate', async () => {
+		const math = createRuntimeMath(async () => createRuntimeMathCore(), TEST_BUDGET_MS);
+		const body = await math.render('\\left(\\frac{1}{\\sqrt{1-\\frac{v^{2}}{c^{2}}}}-1\\right)');
+		const nested = body.svg.match(/<svg\b[^>]*>/g)?.slice(1) ?? [];
+		expect(nested.length).toBeGreaterThan(0);
+		expect(nested.filter((tag) => /\s[xy]="/.test(tag))).toEqual([]);
+		expect(body.svg).toMatch(/<g transform="translate\(0,-\d+(?:\.\d+)?\)"><svg width=/);
+	});
+
 	it('boots the core once across renders', async () => {
 		const load = jest.fn(async () => createRuntimeMathCore());
 		const math = createRuntimeMath(load, TEST_BUDGET_MS);
