@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/branches.schema.json
+name:
+  en: 'Chemical equilibrium'
+category: 'chemistry'
+order: 6
+externalIds:
+  wikidata: 'Q189520'
+aliases:
+  - 'chemical equilibria'
+  - 'equilibrium chemistry'
+  - 'ionic equilibria'
+  - 'solubility equilibria'
+  - 'equilibrios químicos'
+  - 'equilibrio iónico'
+description:
+  en: >-
+    Chemical equilibrium is the branch of chemistry that studies reversible reactions once the
+    forward and reverse processes run at the same rate, so that the amounts of reactants and
+    products stop changing although both reactions go on. It asks where a reaction ends up, while
+    chemical kinetics asks how fast it gets there.
+
+    Its central quantity is the equilibrium constant, written from the chemical equation by the law
+    of mass action: the equilibrium concentrations of the products over those of the reactants,
+    each divided by the standard amount concentration and raised to its stoichiometric coefficient. For
+    gases the same constant can be written with partial pressures over the standard pressure, and
+    the two forms are related through the temperature and the change in the amount of gas. Some
+    constants have their own names, such as the solubility product of a sparingly soluble salt and
+    the acid dissociation constant of a weak acid, which the dilution law ties to the fraction of
+    acid that ionizes. The same expression evaluated away from equilibrium is the reaction quotient,
+    which tells in which direction a mixture will react.
+
+    The branch takes concentrations from the study of solutions and partial pressures from that of
+    gases. It shares acid-base equilibria with the branch on acids and bases, meets thermochemistry
+    through the standard Gibbs energy of reaction, which fixes the equilibrium constant, and meets
+    electrochemistry through the standard potential of a cell.

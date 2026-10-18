@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.locale.schema.json
+name: 'Presión estándar'
+description: >-
+  La presión estándar, de símbolo $p^{\circ}$, vale exactamente 100 000 pascales, es decir, 100
+  kilopascales o un bar. Es un valor de referencia elegido por convenio en la química física, no una
+  constante medida, de modo que no tiene incertidumbre. También se llama presión del estado estándar,
+  y su símbolo se escribe además $p^{\ominus}$.
+
+  El valor fija la presión de los estados estándar a los que se refieren las tablas termodinámicas.
+  El estado estándar de un gas es el gas ideal hipotético a esta presión, y el de un líquido o un
+  sólido puros es la propia sustancia sometida a ella; las entalpías estándar de formación y las
+  energías de Gibbs estándar de reacción se tabulan sobre esta base. Nada en la física prohíbe otra
+  presión de referencia, así que un texto que se aparte del bar tiene que declarar la suya.
+
+  Al dividir una presión parcial entre $p^{\circ}$ se obtiene un número puro, que es como un gas
+  entra en una constante de equilibrio: a bajas presiones, la constante escrita con presiones
+  parciales, dividida entre la presión estándar elevada a la variación de la cantidad de gas, se
+  aproxima a la constante de equilibrio estándar adimensional. Es la compañera de la concentración
+  molar estándar, y la relación entre las constantes en función de las presiones y de las
+  concentraciones de una reacción entre gases incluye su cociente a través de la constante molar de
+  los gases, unos 0.08314 por kelvin.
+
+  Las tablas antiguas se construían sobre una atmósfera estándar, 101 325 pascales, y esa cifra
+  sobrevive en muchos libros de texto, entre ellos OpenStax para la temperatura y presión estándar.
+  El bar, más redondo, pasó a ser la base de la IUPAC en 1982, y los datos de la época de la
+  atmósfera se trasladan a él mediante procedimientos de conversión publicados. El propio bar,
+  exactamente 100 000 pascales, es una unidad ajena al SI.

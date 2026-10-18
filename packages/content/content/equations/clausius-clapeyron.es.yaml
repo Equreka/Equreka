@@ -1,0 +1,43 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ecuación de Clausius-Clapeyron'
+terms:
+  p_{1}:
+    label: 'Presión de vapor a la primera temperatura'
+  p_{2}:
+    label: 'Presión de vapor a la segunda temperatura'
+  \Delta_\mathrm{vap}H:
+    label: 'Entalpía molar de vaporización'
+  T_{1}:
+    label: 'Primera temperatura'
+  T_{2}:
+    label: 'Segunda temperatura'
+description: >-
+  La ecuación de Clausius-Clapeyron relaciona las presiones de vapor de un líquido a dos
+  temperaturas con su entalpía molar de vaporización. En fisicoquímica y termoquímica predice cuán
+  deprisa aumenta la presión de vapor con la temperatura, estima el punto de ebullición a presión
+  reducida y obtiene una entalpía de vaporización a partir de dos medidas de presión.
+
+  $\var{p_{1}}$ y $\var{p_{2}}$ son las presiones de vapor a las temperaturas $\var{T_{1}}$ y
+  $\var{T_{2}}$, en pascales; solo entra su cociente, así que sirve cualquier unidad de presión si
+  ambas la comparten. Las temperaturas son absolutas, en kelvin: a una lectura en grados Celsius hay
+  que sumarle 273.15. $\var{\Delta_\mathrm{vap}H}$ es la entalpía molar de vaporización, en julios
+  por mol, positiva porque la evaporación absorbe calor. $\const{R}$ es la constante molar de los
+  gases, de unos 8.314 julios por mol y kelvin.
+
+  El logaritmo de la presión de vapor representado frente al inverso de la temperatura absoluta cae
+  casi sobre una recta, de pendiente igual a menos la entalpía de vaporización entre la constante de
+  los gases; la forma de dos puntos compara dos lugares de esa recta. Una temperatura mayor siempre
+  da una presión de vapor mayor, y un líquido hierve donde su presión de vapor alcanza la presión
+  que soporta.
+
+  La ecuación procede de la relación exacta de Clapeyron, que da la pendiente de la curva de
+  coexistencia como el calor latente entre la temperatura por la variación de volumen. Dos
+  aproximaciones la reducen: el vapor se comporta como un gas ideal y el volumen del líquido es
+  despreciable frente al del vapor. La integración trata después como constante la entalpía de
+  vaporización, lo que vale en intervalos de temperatura moderados.
+
+  Émile Clapeyron dio forma analítica a las ideas de Sadi Carnot sobre el calor en 1834, y la
+  relación lleva su nombre y el de Rudolf Clausius, cuyo artículo de 1850 reconstruyó la teoría del
+  calor sin la hipótesis del calórico. El benceno hierve a 353.3 kelvin bajo 101.3 kilopascales; con
+  30.8 kilojulios por mol, la ecuación sitúa su punto de ebullición bajo 83.4 kilopascales cerca de
+  346.9 kelvin.

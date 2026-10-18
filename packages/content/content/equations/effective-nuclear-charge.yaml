@@ -1,0 +1,77 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Effective nuclear charge'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{Z_\mathrm{eff}}=\var{Z}-\var{S}'
+terms:
+  Z_\mathrm{eff}:
+    kind: 'symbol'
+    label:
+      en: 'Effective nuclear charge'
+  Z:
+    kind: 'symbol'
+    label:
+      en: 'Atomic number'
+    integer: true
+  S:
+    kind: 'symbol'
+    label:
+      en: 'Shielding constant'
+solutions:
+  Z_\mathrm{eff}: 'Z - S'
+  Z: 'Z_eff + S'
+  S: 'Z - Z_eff'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q909960'
+categories:
+  - 'chemistry'
+branches:
+  - 'atomic-structure'
+aliases:
+  - 'Zeff'
+  - 'Z*'
+  - 'Zeff = Z - S'
+  - 'Slater''s rules'
+  - 'screening constant'
+  - 'shielding'
+  - 'carga nuclear efectiva'
+  - 'reglas de Slater'
+  - 'constante de blindaje'
+  - 'efecto pantalla'
+references:
+  - title: 'OpenStax, Chemistry 2e, 6.5 Periodic Variations in Element Properties (effective nuclear charge)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/6-5-periodic-variations-in-element-properties'
+  - title: 'E. V. Eames, General Chemistry Supplement (LibreTexts), Slater''s Rules for Effective Nuclear Charge'
+    url: 'https://chem.libretexts.org/Bookshelves/General_Chemistry/General_Chemistry_Supplement_(Eames)/Periodic_Trends/Slater''s_Rules_for_Effective_Nuclear_Charge'
+  - title: 'University of Wisconsin-Madison, Department of Chemistry, Slater Shielding Constant (S), handout'
+    url: 'https://www2.chem.wisc.edu/deptfiles/genchem/inorganic/handouts/slater.pdf'
+  - title: 'J. C. Slater, Atomic Shielding Constants, Physical Review 36 (1930) 57'
+    url: 'https://doi.org/10.1103/PhysRev.36.57'
+description:
+  en: >-
+    The effective nuclear charge is the net positive charge that one electron of a many-electron
+    atom feels from the nucleus once the repulsion of the other electrons is taken into account. In
+    atomic structure and chemistry it is estimated as the atomic number minus a shielding (or
+    screening) constant, and it explains periodic trends in atomic size and ionization energy.
+
+    $\var{Z_\mathrm{eff}}$ is the effective nuclear charge and $\var{Z}$ the atomic number, the
+    count of protons, both in units of the elementary charge and so pure numbers. $\var{S}$ is the
+    shielding constant, the share of the nuclear charge hidden from the chosen electron by the
+    others; it is positive and smaller than $\var{Z}$, so the effective charge is positive.
+
+    Electrons in inner shells sit mostly between the nucleus and an outer electron and cancel
+    nearly one proton each, while electrons of the same shell screen each other only weakly. Across a
+    period the atomic number grows by one per element while the shielding grows little, so the
+    effective charge on the valence electrons rises and the atoms contract.
+
+    The constant is not measured directly. Slater's rules give it from the electron configuration,
+    written in groups (1s)(2s,2p)(3s,3p)(3d) and so on: for an s or p electron each other electron
+    of its own group adds 0.35 (0.30 inside 1s), each electron one shell lower adds 0.85 and each
+    deeper one adds 1.00; for a d or f electron every electron in a group to its left adds 1.00. The
+    result is an approximation that ignores the detailed shapes of orbitals.
+
+    John C. Slater published these rules in Physical Review in 1930. For the 3s electron of sodium,
+    with atomic number 11, they give a shielding constant of 8.8 and an effective charge of 2.2.

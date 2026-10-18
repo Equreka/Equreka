@@ -1,0 +1,39 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Constante de acidez'
+terms:
+  K_\mathrm{a}:
+    label: 'Constante de acidez'
+  '[\mathrm{H}^{+}]':
+    label: 'Concentración de iones hidrógeno'
+  '[\mathrm{A}^{-}]':
+    label: 'Concentración de la base conjugada'
+  '[\mathrm{HA}]':
+    label: 'Concentración del ácido sin disociar'
+description: >-
+  La constante de acidez, o constante de disociación ácida, es la constante de equilibrio de la
+  cesión de un protón de un ácido débil HA al agua, que da iones hidronio y la base conjugada A−. Es
+  igual a la concentración de iones hidrógeno por la concentración de la base conjugada dividida
+  entre la concentración del ácido que queda intacto, todas en el equilibrio, y mide la fuerza de un
+  ácido en la química ácido-base.
+
+  $\var{K_\mathrm{a}}$ es la constante de acidez, un número puro positivo.
+  $\var{[\mathrm{H}^{+}]}$ es la concentración de iones hidrógeno, presentes como hidronio,
+  $\var{[\mathrm{A}^{-}]}$ la de la base conjugada y $\var{[\mathrm{HA}]}$ la del ácido sin
+  disociar, todas concentraciones de cantidad de sustancia en el equilibrio, que suelen introducirse
+  en moles por litro. $\const{c^{\circ}}$ es la concentración molar estándar, exactamente un mol por
+  litro; dividir entre ella hace la constante adimensional y conserva los valores que dan las
+  tablas.
+
+  Una constante mayor indica un ácido más fuerte, que cede más protones en el equilibrio. Los ácidos
+  débiles tienen constantes muy inferiores a uno, y la constante es fija a una temperatura dada, de
+  modo que diluir el ácido desplaza el equilibrio hacia los iones sin cambiarla. Como los valores
+  abarcan muchas potencias de diez, los químicos suelen dar su logaritmo decimal cambiado de signo,
+  el pKa.
+
+  Las concentraciones sustituyen a las actividades, lo que vale en disoluciones diluidas; a mayor
+  fuerza iónica la constante termodinámica verdadera difiere del cociente de concentraciones. El
+  agua, el disolvente, no aparece en la expresión, y el hidronio de la autoionización del agua se
+  desprecia salvo que el ácido sea muy débil o esté muy diluido.
+
+  En una disolución de ácido acético en equilibrio con 0.0787 moles de ácido y 0.00118 moles de
+  hidronio y de acetato por litro, la constante vale $1.77\times10^{-5}$.

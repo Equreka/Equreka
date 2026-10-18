@@ -1,0 +1,103 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Nernst equation'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{E_\mathrm{cell}}=\var{E^{\circ}_\mathrm{cell}}-\frac{\const{R}\mag{T}}{\var{z}\const{F}}\ln\var{Q}'
+terms:
+  E_\mathrm{cell}:
+    kind: 'symbol'
+    label:
+      en: 'Cell potential'
+    unit: 'volt'
+    identifier: 'E_cell_cond'
+  E^{\circ}_\mathrm{cell}:
+    kind: 'symbol'
+    label:
+      en: 'Standard cell potential'
+    unit: 'volt'
+    identifier: 'E_cell'
+  R:
+    kind: 'constant'
+    ref: 'molar-gas-constant'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+  z:
+    kind: 'symbol'
+    label:
+      en: 'Electrons transferred in the cell reaction'
+    integer: true
+  F:
+    kind: 'constant'
+    ref: 'faraday-constant'
+  Q:
+    kind: 'symbol'
+    label:
+      en: 'Reaction quotient'
+solutions:
+  E_\mathrm{cell}: 'E_cell - R * T / (z * F) * ln(Q)'
+  E^{\circ}_\mathrm{cell}: 'E_cell_cond + R * T / (z * F) * ln(Q)'
+  T: '(E_cell - E_cell_cond) * z * F / (R * ln(Q))'
+  z: 'R * T * ln(Q) / (F * (E_cell - E_cell_cond))'
+  Q: 'exp(z * F * (E_cell - E_cell_cond) / (R * T))'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q751124'
+categories:
+  - 'chemistry'
+branches:
+  - 'electrochemistry'
+aliases:
+  - 'Nernst equation for a cell'
+  - 'cell potential under nonstandard conditions'
+  - 'E = E° - (RT/nF) ln Q'
+  - 'E = E° - (RT/zF) ln Q'
+  - 'Ecell = E°cell - (0.0592/n) log Q'
+  - 'ecuación de Nernst'
+  - 'potencial de la celda en condiciones no estándar'
+references:
+  - title: 'OpenStax, Chemistry 2e, 17.4 Potential, Free Energy, and Equilibrium (Example 17.7)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/17-4-potential-free-energy-and-equilibrium'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.13, notes 15 and 18, and section 2.13.1 (v)'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'The Nobel Prize, Walther Nernst, Biographical (Nobel Lectures, Chemistry 1901-1921)'
+    url: 'https://www.nobelprize.org/prizes/chemistry/1920/nernst/biographical/'
+  - title: 'NIST, CODATA 2022 value: Faraday constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?f'
+  - title: 'NIST, CODATA 2022 value: molar gas constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?r'
+description:
+  en: >-
+    The Nernst equation gives the potential of an electrochemical cell at any composition: the
+    standard cell potential minus RT over zF times the natural logarithm of the reaction quotient.
+    It is the working rule of electrochemistry for cells away from standard conditions, behind
+    concentration cells, the voltage of a cell as its reactants are used up, and the response of
+    pH electrodes.
+
+    $\var{E_\mathrm{cell}}$ is the cell potential, in volts, measured with no current flowing.
+    $\var{E^{\circ}_\mathrm{cell}}$ is the standard cell potential, the cathode's tabulated
+    reduction potential minus the anode's. $\const{R}$ is the molar gas constant and $\const{F}$ the
+    Faraday constant, both exact in the SI. $\mag{T}$ is the thermodynamic temperature, absolute, in
+    kelvin. $\var{z}$ is the number of electrons in the cell reaction as written, a positive whole
+    number. $\var{Q}$ is the reaction quotient, with no unit: the product of the activities of the
+    products over that of the reactants, each raised to its coefficient, concentrations divided by
+    the standard amount concentration of one mole per litre and gas pressures by the standard
+    pressure of 1 bar.
+
+    With every species in its standard state the quotient is one, its logarithm vanishes and the
+    cell potential equals the standard one. As the cell discharges the quotient grows and the
+    potential falls, reaching zero at equilibrium, where the quotient equals the equilibrium
+    constant. Dividing the Gibbs energy relation for any composition by minus zF gives the equation.
+    At 298.15 kelvin RT/F is about 0.02569 volts, and with base-ten logarithms the slope becomes
+    0.05916 volts divided by z per tenfold change in the quotient.
+
+    Concentrations and pressures stand in for activities and fugacities only in dilute solutions and
+    ideal gases. The equation describes the equilibrium potential and neglects junction potentials;
+    a cell delivering current shows less.
+
+    Walther Nernst set out his theory of galvanic cells in 1889. When cobalt metal reduces iron(II)
+    to iron, with a standard potential of −0.17 volts and two electrons, the quotient is the
+    cobalt(II) concentration over the iron(II) one; at 0.15 and 1.94 moles per litre the cell gives
+    about −0.14 volts.

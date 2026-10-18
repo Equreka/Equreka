@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Osmotic pressure of a dilute solution'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{\Pi}=\var{i}\mag{c}\const{R}\mag{T}'
+terms:
+  \Pi:
+    kind: 'magnitude'
+    ref: 'pressure'
+  i:
+    kind: 'symbol'
+    label:
+      en: 'van ''t Hoff factor'
+  c:
+    kind: 'magnitude'
+    ref: 'amount-concentration'
+  R:
+    kind: 'constant'
+    ref: 'molar-gas-constant'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+solutions:
+  \Pi: 'i * c * R * T'
+  i: 'Pi / (c * R * T)'
+  c: 'Pi / (i * R * T)'
+  T: 'Pi / (i * c * R)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q193135'
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'osmotic pressure'
+  - 'osmotic pressure formula'
+  - 'van ''t Hoff equation for osmotic pressure'
+  - 'van ''t Hoff law of osmotic pressure'
+  - 'Pi = iMRT'
+  - 'Pi = MRT'
+  - 'presión osmótica'
+  - 'ecuación de van ''t Hoff de la presión osmótica'
+references:
+  - title: 'OpenStax, Chemistry 2e, 11.4 Colligative Properties (osmosis and osmotic pressure, Example 11.10, Table 11.3)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11 (p. 59), osmotic pressure and notes 23 to 25'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'The Nobel Prize in Chemistry 1901, Jacobus H. van ''t Hoff, facts'
+    url: 'https://www.nobelprize.org/prizes/chemistry/1901/hoff/facts/'
+description:
+  en: >-
+    For a dilute solution, the osmotic pressure is the extra pressure that must act on the solution
+    to stop pure solvent from flowing into it through a membrane that lets the solvent pass but holds
+    back the solute. In the van 't Hoff equation it equals the concentration of dissolved particles
+    times the molar gas constant times the absolute temperature, a colligative property of solutions.
+
+    $\mag{\Pi}$ is the osmotic pressure in pascals, positive for a solution facing pure solvent.
+    $\var{i}$ is the van 't Hoff factor, the number of particles per dissolved formula unit, close
+    to one for sugars and below the full ion count for salts. $\mag{c}$ is the amount concentration of
+    the solute, entered in moles per litre or per cubic metre; $\const{R}$ is the molar gas constant,
+    about 8.314 joules per mole kelvin and exact in the SI, and $\mag{T}$ is the thermodynamic
+    temperature, so Celsius values need 273.15 added.
+
+    The form mirrors the ideal gas law: dissolved particles in a dilute solution push like the
+    molecules of a gas spread through the same volume. Solvent moves from the side where its
+    tendency to escape is higher, the pure solvent, until the extra pressure on the solution
+    balances that difference.
+
+    The equation holds for dilute solutions and ideal membranes; concentrated solutions need the
+    osmotic coefficient or the activity of the solvent, as IUPAC defines the quantity in general.
+    The pressure measured for a known mass of solute gives the molar mass of large molecules such as
+    proteins. Osmosis also explains why red blood cells swell in dilute solutions and shrivel in
+    concentrated ones, and a pressure above the osmotic one drives reverse osmosis in desalination
+    plants.
+
+    Jacobus van 't Hoff received the 1901 Nobel Prize in Chemistry, cited in part for discovering the
+    laws of osmotic pressure in solutions. A 0.30 mol/L glucose solution at 310 K has an osmotic pressure of
+    about 7.6 atmospheres.

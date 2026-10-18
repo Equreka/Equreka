@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Litro por mol y segundo'
+description: >-
+  El litro por mol y segundo, de símbolo $\mathrm{L/(mol\,s)}$, es la unidad en la que los libros de
+  química dan las constantes de velocidad de las reacciones de segundo orden. No es una unidad SI
+  coherente, porque el litro está fuera del SI, aunque el folleto del SI lo recoge en su tabla 8 de unidades no SI.
+
+  La unidad es el litro dividido entre el mol y entre el segundo. El folleto del SI define el litro
+  como el decímetro cúbico, la milésima parte del metro cúbico, de modo que un litro por mol y
+  segundo equivale exactamente a 0.001 metros cúbicos por mol y segundo, la unidad SI coherente de
+  una constante de velocidad de segundo orden. Es la misma unidad que el decímetro cúbico por mol y
+  segundo, que la IUPAC señala como la elección habitual para las constantes de velocidad y los
+  factores preexponenciales de las reacciones de segundo orden.
+
+  Como M es una abreviatura habitual de moles por litro, la unidad también se escribe como el
+  inverso de M por segundo, la forma que usa OpenStax en su resumen de las leyes de velocidad. Las
+  constantes de las reacciones lentas pueden darse por minuto, y un litro por mol y minuto es la
+  sexagésima parte de esta unidad.
+
+  Los laboratorios de cinética y las tablas de constantes la usan. OpenStax
+  obtiene una constante de velocidad de $2.20\times10^{7}$ litros por mol y segundo para la reacción
+  del monóxido de nitrógeno con el ozono a $25\,^{\circ}\mathrm{C}$, que equivale a 22 000 metros
+  cúbicos por mol y segundo. En inglés estadounidense el nombre se escribe liter per mole second, la l minúscula es un símbolo igualmente válido del litro, y el plural es litros por mol y segundo.

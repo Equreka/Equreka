@@ -1,0 +1,117 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Equilibrium constant expression'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{K}=\frac{\left(\frac{\var{c_\mathrm{C}}}{\const{c^{\circ}}}\right)^{\var{\nu_\mathrm{C}}}\left(\frac{\var{c_\mathrm{D}}}{\const{c^{\circ}}}\right)^{\var{\nu_\mathrm{D}}}}{\left(\frac{\var{c_\mathrm{A}}}{\const{c^{\circ}}}\right)^{\var{\nu_\mathrm{A}}}\left(\frac{\var{c_\mathrm{B}}}{\const{c^{\circ}}}\right)^{\var{\nu_\mathrm{B}}}}'
+terms:
+  K:
+    kind: 'symbol'
+    label:
+      en: 'Equilibrium constant'
+  c_\mathrm{A}:
+    kind: 'symbol'
+    label:
+      en: 'Equilibrium concentration of A'
+    unit: 'mole-per-cubic-metre'
+  c_\mathrm{B}:
+    kind: 'symbol'
+    label:
+      en: 'Equilibrium concentration of B'
+    unit: 'mole-per-cubic-metre'
+  c_\mathrm{C}:
+    kind: 'symbol'
+    label:
+      en: 'Equilibrium concentration of C'
+    unit: 'mole-per-cubic-metre'
+  c_\mathrm{D}:
+    kind: 'symbol'
+    label:
+      en: 'Equilibrium concentration of D'
+    unit: 'mole-per-cubic-metre'
+  \nu_\mathrm{A}:
+    kind: 'symbol'
+    label:
+      en: 'Stoichiometric coefficient of A'
+    integer: true
+  \nu_\mathrm{B}:
+    kind: 'symbol'
+    label:
+      en: 'Stoichiometric coefficient of B'
+    integer: true
+  \nu_\mathrm{C}:
+    kind: 'symbol'
+    label:
+      en: 'Stoichiometric coefficient of C'
+    integer: true
+  \nu_\mathrm{D}:
+    kind: 'symbol'
+    label:
+      en: 'Stoichiometric coefficient of D'
+    integer: true
+  c^{\circ}:
+    kind: 'constant'
+    ref: 'standard-amount-concentration'
+    identifier: 'c_std'
+solutions:
+  K: '(c_C / c_std)^nu_C * (c_D / c_std)^nu_D / ((c_A / c_std)^nu_A * (c_B / c_std)^nu_B)'
+  c_\mathrm{A}: 'c_std * ((c_C / c_std)^nu_C * (c_D / c_std)^nu_D / (K * (c_B / c_std)^nu_B))^(1 / nu_A)'
+  c_\mathrm{B}: 'c_std * ((c_C / c_std)^nu_C * (c_D / c_std)^nu_D / (K * (c_A / c_std)^nu_A))^(1 / nu_B)'
+  c_\mathrm{C}: 'c_std * (K * (c_A / c_std)^nu_A * (c_B / c_std)^nu_B / (c_D / c_std)^nu_D)^(1 / nu_C)'
+  c_\mathrm{D}: 'c_std * (K * (c_A / c_std)^nu_A * (c_B / c_std)^nu_B / (c_C / c_std)^nu_C)^(1 / nu_D)'
+calculator:
+  enabled: true
+  solveFor: ['K', 'c_\mathrm{A}', 'c_\mathrm{B}', 'c_\mathrm{C}', 'c_\mathrm{D}']
+externalIds:
+  wikidata: 'Q899494'
+categories:
+  - 'chemistry'
+branches:
+  - 'chemical-equilibrium'
+aliases:
+  - 'law of mass action'
+  - 'equilibrium constant'
+  - 'Kc'
+  - 'equilibrium expression'
+  - 'K = [C]^c[D]^d/([A]^a[B]^b)'
+  - 'mass-action expression'
+  - 'ley de acción de masas'
+  - 'ley de masas'
+  - 'expresión de la constante de equilibrio'
+references:
+  - title: 'OpenStax, Chemistry 2e, 13.2 Equilibrium Constants, Example 13.2 and Homogeneous Equilibria'
+    url: 'https://openstax.org/books/chemistry-2e/pages/13-2-equilibrium-constants'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11, p. 58, notes 18 and 19'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+description:
+  en: >-
+    For a reaction in which a moles of A and b of B form c of C and d of D, the equilibrium
+    constant equals the product of the equilibrium concentrations of the products, each divided by
+    the standard amount concentration and raised to its stoichiometric coefficient, over the same product
+    for the reactants. This is the law of mass action of chemical equilibrium.
+
+    $\var{K}$ is the equilibrium constant, a pure number. $\var{c_\mathrm{A}}$ to
+    $\var{c_\mathrm{D}}$ are the amount concentrations of the four species once equilibrium is
+    reached, in moles per cubic metre with moles per litre offered, and $\var{\nu_\mathrm{A}}$ to
+    $\var{\nu_\mathrm{D}}$ are their whole-number coefficients in the chemical equation.
+    $\const{c^{\circ}}$ is the standard concentration, exactly one mole per litre. The calculator
+    solves for the constant or for any one concentration; the coefficients are read off the
+    equation and entered.
+
+    At a given temperature the constant has the same value whatever the starting mixture. Evaluated
+    with concentrations that are not at equilibrium, the same expression is the reaction quotient,
+    and comparing the two tells whether the reaction will move forward or back. A large constant
+    means products dominate at equilibrium. Pure solids, pure liquids and the solvent do not appear,
+    because their relative activity is one, and a reaction with fewer species is covered by setting
+    the unused coefficients to zero.
+
+    Concentrations stand in for activities, which holds in dilute solutions and, for gases, in the
+    ideal limit; IUPAC calls the dimensionless constant built from activities the standard
+    equilibrium constant. The constant changes with temperature and refers to the equation as
+    written: reversing the equation inverts it, and doubling every coefficient squares it. Written
+    with concentrations it is the Kc of the relation between Kp and Kc, which converts it
+    to the partial-pressure form used for gas reactions.
+
+    When 0.10 moles of nitrogen dioxide are put in a one-litre flask at $25\,^{\circ}\mathrm{C}$, the
+    equilibrium mixture holds 0.016 moles per litre of it and 0.042 of dinitrogen tetroxide, so the
+    constant for the dimerization is about $1.6\times10^{2}$, as OpenStax shows.

@@ -1,0 +1,28 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Metro cúbico por mol y segundo'
+description: >-
+  El metro cúbico por mol y segundo, de símbolo $\mathrm{m^{3}/(mol\,s)}$, es la unidad SI coherente
+  de la constante de velocidad de una reacción de segundo orden, la constante que convierte el
+  cuadrado de una concentración en una velocidad de reacción. Pertenece a la cinética química y no
+  tiene nombre especial.
+
+  La unidad es el cubo del metro dividido entre el mol y entre el segundo, tres unidades básicas del
+  SI, de las que deriva su definición. La IUPAC da como unidad SI de una constante de velocidad de
+  orden global m el metro cúbico por mol elevado a m menos uno, multiplicado por el segundo inverso;
+  para m igual a dos es esta unidad, que sirve también para el factor preexponencial de esas
+  reacciones. QUDT la clasifica bajo la magnitud constante de velocidad de una reacción de segundo
+  orden.
+
+  El folleto del SI define el litro como la milésima parte del metro cúbico, de modo que un litro
+  por mol y segundo equivale exactamente a 0.001 de esta unidad, y un metro cúbico por mol y segundo
+  equivale a 1000 litros por mol y segundo. Una constante expresada por minuto se divide entre 60:
+  los 0.0576 litros por mol y minuto que OpenStax da para la dimerización del butadieno son unos
+  $9.6\times10^{-7}$ de esta unidad.
+
+  Los libros de texto rara vez la usan; prefieren el litro por mol y segundo, que a menudo se
+  escribe como el inverso de la concentración molar por segundo, y el ejemplo de la IUPAC de una
+  constante de segundo orden se da en centímetros cúbicos por mol y segundo. Es la unidad con la que la ley de
+  velocidad integrada de segundo orden cuadra cuando las concentraciones se toman en moles por metro
+  cúbico y los tiempos en segundos. En inglés estadounidense el nombre se escribe cubic meter per
+  mole second, el símbolo puede escribirse m³ mol⁻¹ s⁻¹, y el plural es metros cúbicos por mol y
+  segundo.

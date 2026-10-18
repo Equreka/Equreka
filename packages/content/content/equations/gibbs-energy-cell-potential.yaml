@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Standard Gibbs energy change and cell potential'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{\Delta_\mathrm{r} G^{\circ}}=-\var{z}\const{F}\var{E^{\circ}_\mathrm{cell}}'
+terms:
+  \Delta_\mathrm{r} G^{\circ}:
+    kind: 'symbol'
+    label:
+      en: 'Standard Gibbs energy change of the reaction'
+    unit: 'joule-per-mole'
+    identifier: 'DeltaG_r'
+  z:
+    kind: 'symbol'
+    label:
+      en: 'Electrons transferred in the cell reaction'
+    integer: true
+  F:
+    kind: 'constant'
+    ref: 'faraday-constant'
+  E^{\circ}_\mathrm{cell}:
+    kind: 'symbol'
+    label:
+      en: 'Standard cell potential'
+    unit: 'volt'
+    identifier: 'E_cell'
+solutions:
+  \Delta_\mathrm{r} G^{\circ}: '-z * F * E_cell'
+  z: '-DeltaG_r / (F * E_cell)'
+  E^{\circ}_\mathrm{cell}: '-DeltaG_r / (z * F)'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'electrochemistry'
+aliases:
+  - 'Gibbs energy and cell potential'
+  - 'free energy and cell potential'
+  - 'ΔG° = -nFE°'
+  - 'ΔG° = -zFE°cell'
+  - 'delta G = -nFE'
+  - 'energía de Gibbs y potencial de la celda'
+  - 'energía libre y potencial de la pila'
+references:
+  - title: 'OpenStax, Chemistry 2e, 17.4 Potential, Free Energy, and Equilibrium (Example 17.6)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/17-4-potential-free-energy-and-equilibrium'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.13, notes 15 and 17, and section 2.13.1 (v)'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'NIST, CODATA 2022 value: Faraday constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?f'
+description:
+  en: >-
+    The standard Gibbs energy change of a redox reaction equals minus the number of electrons
+    transferred times the Faraday constant times the standard cell potential. This relation of
+    electrochemistry converts a voltage obtained from a table of reduction potentials into a Gibbs
+    energy, the thermodynamic measure of whether a reaction runs on its own, and converts a Gibbs
+    energy back into the voltage a galvanic cell can supply.
+
+    $\var{\Delta_\mathrm{r} G^{\circ}}$ is the standard Gibbs energy change of the reaction, in
+    joules per mole of reaction as written; tables give it in kilojoules per mole. $\var{z}$ is the
+    number of electrons in the cell reaction as written, a positive whole number. $\const{F}$ is the
+    Faraday constant, the charge of one mole of electrons, about 96 485 coulombs per mole and exact
+    in the SI. $\var{E^{\circ}_\mathrm{cell}}$ is the standard cell potential, in volts, the
+    cathode's reduction potential minus the anode's. A coulomb times a volt is a joule, so the units
+    agree.
+
+    The product of the Faraday constant and the number of electrons is the charge that moves through
+    the circuit per mole of reaction, and the potential is the energy per unit charge, so their
+    product is the electrical energy the reaction delivers per mole when the cell runs reversibly.
+    The minus sign makes a positive potential match a negative Gibbs energy change, a spontaneous
+    reaction. Doubling every coefficient doubles the number of electrons and the Gibbs energy
+    change, while the potential, which does not depend on the amount reacting, stays the same.
+
+    The standard values refer to solutes at one mole per litre and gases at 1 bar. The same form
+    without the standard marks links the Gibbs energy change and the cell potential at any
+    composition, provided no current flows and junction potentials are negligible.
+
+    For silver ions oxidizing iron to iron(II), with two electrons and a standard potential of
+    +1.247 volts, the relation gives about −240.6 kilojoules per mole.

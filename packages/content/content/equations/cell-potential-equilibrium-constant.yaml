@@ -1,0 +1,90 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Standard cell potential and equilibrium constant'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{E^{\circ}_\mathrm{cell}}=\frac{\const{R}\mag{T}}{\var{z}\const{F}}\ln\var{K}'
+terms:
+  E^{\circ}_\mathrm{cell}:
+    kind: 'symbol'
+    label:
+      en: 'Standard cell potential'
+    unit: 'volt'
+    identifier: 'E_cell'
+  R:
+    kind: 'constant'
+    ref: 'molar-gas-constant'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+  z:
+    kind: 'symbol'
+    label:
+      en: 'Electrons transferred in the cell reaction'
+    integer: true
+  F:
+    kind: 'constant'
+    ref: 'faraday-constant'
+  K:
+    kind: 'symbol'
+    label:
+      en: 'Equilibrium constant'
+solutions:
+  E^{\circ}_\mathrm{cell}: 'R * T / (z * F) * ln(K)'
+  T: 'E_cell * z * F / (R * ln(K))'
+  z: 'R * T * ln(K) / (F * E_cell)'
+  K: 'exp(z * F * E_cell / (R * T))'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'electrochemistry'
+  - 'chemical-equilibrium'
+aliases:
+  - 'cell potential and equilibrium constant'
+  - 'equilibrium constant from cell potential'
+  - 'E° = (RT/nF) ln K'
+  - 'E°cell = (0.0592/n) log K'
+  - 'K = exp(nFE°/RT)'
+  - 'potencial de la celda y constante de equilibrio'
+  - 'constante de equilibrio a partir del potencial de la celda'
+references:
+  - title: 'OpenStax, Chemistry 2e, 17.4 Potential, Free Energy, and Equilibrium (Example 17.6)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/17-4-potential-free-energy-and-equilibrium'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11, note 12, and section 2.13, notes 15 and 17'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'NIST, CODATA 2022 value: Faraday constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?f'
+  - title: 'NIST, CODATA 2022 value: molar gas constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?r'
+description:
+  en: >-
+    The standard cell potential of a redox reaction equals RT over zF times the natural logarithm of
+    its equilibrium constant. Joining the Gibbs energy relations of electrochemistry and chemical
+    thermodynamics, it turns a voltage measured on a galvanic cell, or assembled from tabulated
+    reduction potentials, into an equilibrium constant, often one far too large or too small to
+    obtain from measured concentrations.
+
+    $\var{E^{\circ}_\mathrm{cell}}$ is the standard cell potential, in volts, the cathode's reduction
+    potential minus the anode's. $\const{R}$ is the molar gas constant and $\const{F}$ the Faraday
+    constant, both exact in the SI. $\mag{T}$ is the thermodynamic temperature, absolute, in kelvin.
+    $\var{z}$ is the number of electrons in the cell reaction as written, a positive whole number.
+    $\var{K}$ is the standard equilibrium constant of that reaction, with no unit: concentrations in
+    it are divided by the standard amount concentration of one mole per litre and gas pressures by
+    the standard pressure of 1 bar.
+
+    The standard Gibbs energy change equals both minus zF times the standard potential and minus RT
+    times the logarithm of the constant; equating the two gives the relation. The Nernst equation
+    leads to the same result, since at equilibrium the cell potential is zero and the reaction
+    quotient equals the constant. A positive potential means a constant above one, a negative one a
+    constant below one. The dependence is exponential: at 298.15 kelvin every 0.05916 volts divided
+    by z multiplies the constant by ten.
+
+    Concentrations and pressures stand in for activities and fugacities only in dilute solutions and
+    ideal gases. The potential and the constant must refer to the same temperature and to the
+    reaction written with the same coefficients, because doubling them squares the constant while
+    leaving the potential unchanged.
+
+    For silver ions oxidizing iron to iron(II), two electrons and a standard potential of +1.247
+    volts give a constant of order $10^{42}$, so the reaction goes essentially to completion.

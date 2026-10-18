@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ecuación de Arrhenius'
+terms:
+  k:
+    label: 'Constante de velocidad'
+  A:
+    label: 'Factor preexponencial'
+description: >-
+  La ecuación de Arrhenius da la constante de velocidad de una reacción química como un factor
+  preexponencial multiplicado por la exponencial de menos la energía de activación dividida entre la
+  constante molar de los gases y la temperatura absoluta. Es la descripción habitual en la cinética
+  química de cómo crece la velocidad de reacción con la temperatura.
+
+  $\var{k}$ es la constante de velocidad y $\var{A}$ el factor preexponencial, también llamado
+  factor de frecuencia, ambos en segundos inversos. Sirve cualquier orden siempre que los
+  dos compartan una unidad, porque solo interviene su cociente. $\mag{E_\mathrm{a}}$ es la energía de
+  activación en julios por mol, y la calculadora acepta kilojulios por mol. $\const{R}$ es la
+  constante molar de los gases, unos 8.314 julios por mol y kelvin y exacta en el SI, y $\mag{T}$ es
+  la temperatura termodinámica en kelvin; a los grados Celsius se les suma 273.15.
+
+  El factor exponencial mide la proporción de encuentros moleculares con energía suficiente para
+  superar la barrera de activación: una barrera menor o una temperatura mayor lo aumentan y aceleran
+  la reacción. El factor preexponencial refleja con qué frecuencia se encuentran los reactivos con
+  una orientación adecuada. Al tomar logaritmos naturales se obtiene una recta, el logaritmo de la
+  constante frente al inverso de la temperatura, cuya pendiente es menos la energía de activación
+  dividida entre la constante de los gases y cuya ordenada en el origen es el logaritmo del factor.
+
+  La ecuación es empírica. La IUPAC define la energía de activación de Arrhenius a partir de la
+  pendiente de esa recta y señala que tanto ella como el factor pueden depender de la temperatura,
+  por lo que otros ajustes añaden una potencia de la temperatura delante de la exponencial. La
+  energía de activación de esta ley no es lo mismo que la altura de una barrera de energía calculada
+  para un modelo molecular.
+
+  Para la descomposición del yoduro de hidrógeno entre 555 y 781 kelvin, OpenStax obtiene una
+  pendiente de unos $-2.2\times10^{4}$ kelvin y una energía de activación de unos 180 kilojulios por
+  mol; los extremos sin redondear dan 185.

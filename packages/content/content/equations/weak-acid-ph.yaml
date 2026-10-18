@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'pH of a weak acid solution'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{\mathrm{pH}}=\frac{1}{2}\left(\var{\mathrm{p}K_\mathrm{a}}-\log_{10}\left(\frac{\var{c_\mathrm{a}}}{\const{c^{\circ}}}\right)\right)'
+terms:
+  \mathrm{pH}:
+    kind: 'magnitude'
+    ref: 'ph'
+  \mathrm{p}K_\mathrm{a}:
+    kind: 'symbol'
+    label:
+      en: 'pKa of the acid'
+    identifier: 'pK_a'
+  c_\mathrm{a}:
+    kind: 'symbol'
+    label:
+      en: 'Analytical concentration of the acid'
+    unit: 'mole-per-cubic-metre'
+  c^{\circ}:
+    kind: 'constant'
+    ref: 'standard-amount-concentration'
+    identifier: 'c_std'
+solutions:
+  \mathrm{pH}: '(pK_a - log10(c_a / c_std)) / 2'
+  \mathrm{p}K_\mathrm{a}: '2 * pH + log10(c_a / c_std)'
+  c_\mathrm{a}: 'c_std * 10^(pK_a - 2 * pH)'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'acids-and-bases'
+aliases:
+  - 'weak acid pH'
+  - 'pH of a weak acid'
+  - 'pH = 1/2 (pKa - log c)'
+  - '[H+] = sqrt(Ka c)'
+  - 'weak acid approximation'
+  - 'pH de un ácido débil'
+  - 'pH de una disolución de ácido débil'
+references:
+  - title: 'OpenStax, Chemistry 2e, 14.3 Relative Strengths of Acids and Bases (Example 14.12, the 5 percent check)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/14-3-relative-strengths-of-acids-and-bases'
+  - title: 'S. Lower, Chem1 General Chemistry (LibreTexts), 13.3 Finding the pH of weak Acids, Bases, and Salts'
+    url: 'https://chem.libretexts.org/Bookshelves/General_Chemistry/Chem1_(Lower)/13:_Acid-Base_Equilibria/13.03:_Finding_the_pH_of_weak_Acids_Bases_and_Salts'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11.1 (v) (standard concentration)'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+description:
+  en: >-
+    The pH of a weak acid solution follows, to a good approximation, from the pKa of the acid and its
+    concentration: it is half of the pKa minus the base-ten logarithm of the concentration in moles
+    per litre. This shortcut of acid-base chemistry is the logarithmic form of the rule that the
+    hydrogen ion concentration is the square root of the acid dissociation constant times the acid
+    concentration.
+
+    $\mag{\mathrm{pH}}$ is the pH of the solution and $\var{\mathrm{p}K_\mathrm{a}}$ the pKa of the
+    acid, both pure numbers. $\var{c_\mathrm{a}}$ is the analytical concentration of the acid, the
+    amount of acid put into the solution per unit volume whether or not it has ionized, usually
+    entered in moles per litre. $\const{c^{\circ}}$ is the standard amount concentration, exactly one
+    mole per litre, which makes the argument of the logarithm a pure number.
+
+    Each acid molecule that ionizes gives one hydronium ion and one conjugate base ion, so the two
+    concentrations are equal. When only a small share ionizes, the acid left intact is almost the
+    whole analytical concentration, and the acid dissociation constant reduces to the square of the
+    hydronium concentration over that concentration. Taking minus the logarithm of the square root
+    gives the formula: diluting a weak acid tenfold raises its pH by only half a unit.
+
+    The approximation holds while the fraction ionized stays below about 5 percent of the
+    analytical concentration, which is the usual check; beyond that the full quadratic must be
+    solved. It also fails for very weak or very dilute acids, where the hydronium from water itself
+    is no longer negligible, and it assumes concentrations can stand in for activities.
+
+    A 0.534 mol/L solution of formic acid, whose acid dissociation constant is
+    $1.8\times10^{-4}$, has a pH of 2.01.

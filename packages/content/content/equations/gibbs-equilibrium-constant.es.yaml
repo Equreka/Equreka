@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Variación de energía de Gibbs estándar y constante de equilibrio'
+terms:
+  \Delta_\mathrm{r} G^{\circ}:
+    label: 'Variación de energía de Gibbs estándar de la reacción'
+  K:
+    label: 'Constante de equilibrio'
+description: >-
+  La variación de energía de Gibbs estándar de una reacción es igual a menos la constante molar de
+  los gases por la temperatura absoluta por el logaritmo natural de la constante de equilibrio. Esta
+  relación de la termodinámica química vincula las energías de Gibbs tabuladas con la posición del
+  equilibrio químico, y permite predecir una constante de equilibrio solo con datos termoquímicos, sin medir concentraciones.
+
+  $\var{\Delta_\mathrm{r} G^{\circ}}$ es la variación de energía de Gibbs estándar de la reacción,
+  en julios por mol de reacción tal como está escrita; las tablas la dan en kilojulios por mol.
+  $\const{R}$ es la constante molar de los gases, de unos 8.314 julios por mol y kelvin, exacta en
+  el SI. $\mag{T}$ es la temperatura termodinámica en kelvin y debe ser absoluta: una lectura en grados Celsius requiere sumar 273.15. $\var{K}$ es la constante de equilibrio estándar, una
+  magnitud de dimensión uno sin unidad: cada concentración que contiene se divide entre la
+  concentración molar estándar de un mol por litro y cada presión de gas entre la presión estándar de 1 bar.
+
+  Una variación de energía de Gibbs estándar negativa da una constante mayor que uno, y predominan los productos; una positiva da una constante menor que uno, y un valor nulo,
+  exactamente uno. La dependencia es logarítmica: a 298.15 kelvin, cada 5.708 kilojulios por mol
+  cambian la constante en un factor diez. La relación se deduce de la variación de energía de
+  Gibbs para cualquier composición, el valor estándar más RT por el logaritmo del cociente de
+  reacción, que se anula en el equilibrio, donde el cociente es igual a la constante.
+
+  La constante se define mediante actividades. Las concentraciones y las presiones parciales
+  sustituyen a las actividades y fugacidades solo en disoluciones diluidas y gases ideales, por lo
+  que en disoluciones concentradas o gases comprimidos el resultado es aproximado. La variación de
+  energía de Gibbs debe corresponder a la misma temperatura que la constante. Una constante grande
+  indica hasta dónde avanza una reacción, no con qué rapidez.
+
+  Para el cloruro de plata que se disuelve en agua, una variación de energía de Gibbs estándar de
+  55.7 kilojulios por mol a 298.15 kelvin da un producto de solubilidad de unos $1.74\times10^{-10}$.

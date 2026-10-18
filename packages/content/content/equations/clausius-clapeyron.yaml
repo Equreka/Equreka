@@ -1,0 +1,99 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Clausius-Clapeyron equation'
+kind: 'equation'
+level: 'intermediate'
+expression: '\ln\left(\frac{\var{p_{2}}}{\var{p_{1}}}\right)=-\frac{\var{\Delta_\mathrm{vap}H}}{\const{R}}\left(\frac{1}{\var{T_{2}}}-\frac{1}{\var{T_{1}}}\right)'
+terms:
+  p_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Vapour pressure at the first temperature'
+    unit: 'pascal'
+  p_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Vapour pressure at the second temperature'
+    unit: 'pascal'
+  \Delta_\mathrm{vap}H:
+    kind: 'symbol'
+    label:
+      en: 'Molar enthalpy of vaporization'
+    unit: 'joule-per-mole'
+    identifier: 'DeltaH_vap'
+  R:
+    kind: 'constant'
+    ref: 'molar-gas-constant'
+  T_{1}:
+    kind: 'symbol'
+    label:
+      en: 'First temperature'
+    unit: 'kelvin'
+  T_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Second temperature'
+    unit: 'kelvin'
+solutions:
+  p_{2}: 'p_1 * exp(DeltaH_vap * (T_2 - T_1) / (R * T_1 * T_2))'
+  p_{1}: 'p_2 * exp(DeltaH_vap * (T_1 - T_2) / (R * T_1 * T_2))'
+  \Delta_\mathrm{vap}H: 'R * ln(p_2 / p_1) * T_1 * T_2 / (T_2 - T_1)'
+  T_{2}: 'T_1 * DeltaH_vap / (DeltaH_vap - R * T_1 * ln(p_2 / p_1))'
+  T_{1}: 'T_2 * DeltaH_vap / (DeltaH_vap + R * T_2 * ln(p_2 / p_1))'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q745416'
+categories:
+  - 'chemistry'
+branches:
+  - 'thermochemistry'
+aliases:
+  - 'Clausius-Clapeyron relation'
+  - 'Clausius–Clapeyron equation'
+  - 'vapour pressure and temperature'
+  - 'vapor pressure equation'
+  - 'two-point Clausius-Clapeyron equation'
+  - 'ln(p2/p1) = -(ΔHvap/R)(1/T2 - 1/T1)'
+  - 'relación de Clausius-Clapeyron'
+  - 'presión de vapor y temperatura'
+references:
+  - title: 'OpenStax, Chemistry 2e, 10.3 Phase Transitions (Examples 10.7 and 10.8)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/10-3-phase-transitions'
+  - title: 'IIT Kanpur, Thermodynamics, Lecture 33.2: Clapeyron equations'
+    url: 'https://home.iitk.ac.in/~gtm/thermodynamics/lecture33/33_2.htm'
+  - title: 'MacTutor History of Mathematics, Émile Clapeyron'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Clapeyron/'
+  - title: 'MacTutor History of Mathematics, Rudolf Clausius'
+    url: 'https://mathshistory.st-andrews.ac.uk/Biographies/Clausius/'
+description:
+  en: >-
+    The Clausius-Clapeyron equation relates the vapour pressures of a liquid at two temperatures to
+    its molar enthalpy of vaporization. In physical chemistry and thermochemistry it predicts how
+    steeply vapour pressure climbs with temperature, estimates the boiling point under reduced
+    pressure and extracts an enthalpy of vaporization from two pressure measurements.
+
+    $\var{p_{1}}$ and $\var{p_{2}}$ are the vapour pressures at the temperatures
+    $\var{T_{1}}$ and $\var{T_{2}}$, in pascals; only their ratio enters, so any pressure unit works
+    if both share it. The temperatures are absolute, in kelvin: a Celsius reading needs 273.15
+    added. $\var{\Delta_\mathrm{vap}H}$ is the molar enthalpy of vaporization, in joules per mole,
+    positive because evaporation absorbs heat. $\const{R}$ is the molar gas constant, about 8.314
+    joules per mole kelvin.
+
+    The logarithm of the vapour pressure falls on a nearly straight line when plotted against the
+    reciprocal of the absolute temperature, with a slope of minus the enthalpy of vaporization over
+    the gas constant; the two-point form compares two places on that line. A higher temperature
+    always gives a higher vapour pressure, and a liquid boils where its vapour pressure reaches the
+    pressure above it.
+
+    The equation comes from the exact Clapeyron relation, which gives the slope of the coexistence
+    curve as the latent heat over the temperature times the change in volume. Two approximations
+    reduce it: the vapour behaves as an ideal gas, and the volume of the liquid is negligible next to
+    that of the vapour. Integrating then treats the enthalpy of vaporization as constant, which holds
+    over modest temperature ranges.
+
+    Émile Clapeyron gave Sadi Carnot's ideas on heat an analytical form in 1834, and the relation is
+    named after him and after Rudolf Clausius, whose 1850 paper rebuilt the theory of heat without
+    the caloric hypothesis. Benzene boils at 353.3 kelvin under 101.3 kilopascals; with 30.8
+    kilojoules per mole, the equation puts its boiling point under 83.4 kilopascals near 346.9
+    kelvin.

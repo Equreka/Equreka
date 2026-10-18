@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de velocidad'
+terms:
+  v:
+    label: 'Velocidad de reacción'
+  k:
+    label: 'Constante de velocidad'
+  c_\mathrm{A}:
+    label: 'Concentración de A'
+  c_\mathrm{B}:
+    label: 'Concentración de B'
+  m:
+    label: 'Orden respecto de A'
+  n:
+    label: 'Orden respecto de B'
+description: >-
+  La ley de velocidad de una reacción química expresa su velocidad como una constante de velocidad
+  multiplicada por la concentración de cada reactivo elevada a una potencia, el orden de la reacción
+  respecto de ese reactivo. También llamada ecuación cinética, es la relación empírica básica de la
+  cinética química, escrita aquí para dos reactivos, A y B.
+
+  $\var{v}$ es la velocidad de reacción y $\var{k}$ la constante de velocidad, ambas en moles por
+  metro cúbico y segundo, y la calculadora acepta moles por litro y segundo. $\var{c_\mathrm{A}}$ y
+  $\var{c_\mathrm{B}}$ son las concentraciones de cantidad de sustancia de los dos reactivos, cada una
+  dividida entre la concentración molar estándar $\const{c^{\circ}}$, exactamente un mol por litro.
+  $\var{m}$ y $\var{n}$ son los órdenes respecto de A y de B, números puros cuya suma es el orden global.
+
+  Los órdenes se determinan por experimento, no se leen en la ecuación química: medir velocidades
+  iniciales mientras una concentración cambia y la otra se mantiene fija da cada exponente. Suelen
+  ser números enteros pequeños, pero pueden ser cero, fraccionarios o negativos. Con las
+  concentraciones tomadas respecto de un mol por litro, la constante lleva la unidad de la velocidad
+  y es igual a la constante de los libros por la concentración estándar elevada al orden global: en
+  moles por litro y segundo su número coincide con el valor de los libros en litros por mol elevados
+  al orden global menos uno, por segundo, pero solo entra en una ley integrada tras esa conversión.
+
+  La constante depende de la reacción y de la temperatura, pero no de las concentraciones. La IUPAC
+  define un orden solo cuando se cumple una ley de potencias así, y los mecanismos complejos pueden
+  no seguir ninguna. Las concentraciones sustituyen a las actividades, lo que vale en disoluciones
+  diluidas y gases ideales.
+
+  El monóxido de nitrógeno y el ozono reaccionan a $25\,^{\circ}\mathrm{C}$ con una velocidad de
+  primer orden respecto de cada uno: a partir de una velocidad de $6.60\times10^{-5}$ moles por litro
+  y segundo con 1.00 y 3.00 micromoles por litro, OpenStax obtiene una constante de
+  $2.20\times10^{7}$ litros por mol y segundo, el mismo número que esta forma da en moles por litro y
+  segundo.

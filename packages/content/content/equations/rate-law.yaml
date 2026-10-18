@@ -1,0 +1,98 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Rate law'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{v}=\var{k}\left(\frac{\var{c_\mathrm{A}}}{\const{c^{\circ}}}\right)^{\var{m}}\left(\frac{\var{c_\mathrm{B}}}{\const{c^{\circ}}}\right)^{\var{n}}'
+terms:
+  v:
+    kind: 'symbol'
+    label:
+      en: 'Reaction rate'
+    unit: 'mole-per-cubic-metre-second'
+  k:
+    kind: 'symbol'
+    label:
+      en: 'Rate constant'
+    unit: 'mole-per-cubic-metre-second'
+  c_\mathrm{A}:
+    kind: 'symbol'
+    label:
+      en: 'Concentration of A'
+    unit: 'mole-per-cubic-metre'
+  c_\mathrm{B}:
+    kind: 'symbol'
+    label:
+      en: 'Concentration of B'
+    unit: 'mole-per-cubic-metre'
+  m:
+    kind: 'symbol'
+    label:
+      en: 'Order with respect to A'
+  n:
+    kind: 'symbol'
+    label:
+      en: 'Order with respect to B'
+  c^{\circ}:
+    kind: 'constant'
+    ref: 'standard-amount-concentration'
+    identifier: 'c_std'
+solutions:
+  v: 'k * (c_A / c_std)^m * (c_B / c_std)^n'
+  k: 'v / ((c_A / c_std)^m * (c_B / c_std)^n)'
+  c_\mathrm{A}: 'c_std * (v / (k * (c_B / c_std)^n))^(1 / m)'
+  c_\mathrm{B}: 'c_std * (v / (k * (c_A / c_std)^m))^(1 / n)'
+  m: 'ln(v / (k * (c_B / c_std)^n)) / ln(c_A / c_std)'
+  n: 'ln(v / (k * (c_A / c_std)^m)) / ln(c_B / c_std)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q904041'
+categories:
+  - 'chemistry'
+branches:
+  - 'chemical-kinetics'
+aliases:
+  - 'rate equation'
+  - 'differential rate law'
+  - 'rate = k[A]^m[B]^n'
+  - 'order of reaction'
+  - 'reaction order'
+  - 'method of initial rates'
+  - 'ecuación cinética'
+  - 'ecuación de velocidad'
+  - 'ley de tasa'
+references:
+  - title: 'OpenStax, Chemistry 2e, 12.3 Rate Laws, Examples 12.3 and 12.4'
+    url: 'https://openstax.org/books/chemistry-2e/pages/12-3-rate-laws'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.12, p. 63, notes 4 to 6'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+description:
+  en: >-
+    The rate law of a chemical reaction gives its rate as a rate constant multiplied by the
+    concentration of each reactant raised to a power, the order of the reaction with respect to that
+    reactant. Also called the rate equation, it is the basic empirical relation of chemical
+    kinetics, written here for two reactants, A and B.
+
+    $\var{v}$ is the rate of reaction and $\var{k}$ the rate constant, both in moles per cubic metre
+    second, with moles per litre second offered. $\var{c_\mathrm{A}}$ and $\var{c_\mathrm{B}}$ are
+    the amount concentrations of the two reactants, each divided by the standard amount concentration
+    $\const{c^{\circ}}$, exactly one mole per litre. $\var{m}$ and $\var{n}$ are the orders with
+    respect to A and to B, pure numbers whose sum is the overall order.
+
+    The orders are found by experiment, not read off the chemical equation: measuring initial rates
+    while one concentration changes and the other stays fixed gives each exponent. They are
+    usually small whole numbers but may be zero, fractions or negative. With concentrations taken
+    relative to one mole per litre, the constant carries the unit of the rate and equals the
+    textbook constant times the standard concentration raised to the overall order: in moles per
+    litre second its number is the textbook value in litres per mole to the overall order minus
+    one, per second, but it enters an integrated rate law only after that conversion.
+
+    The constant depends on the reaction and on temperature but not on the concentrations. IUPAC
+    defines an order only where such a power law holds, and complex mechanisms may follow none.
+    Concentrations stand in for activities, which holds in dilute solutions and ideal gases.
+
+    Nitrogen monoxide and ozone react at $25\,^{\circ}\mathrm{C}$ with a rate first order in each:
+    from a rate of $6.60\times10^{-5}$ moles per litre second at 1.00 and 3.00 micromoles per litre,
+    OpenStax finds a constant of $2.20\times10^{7}$ litres per mole second, the same number this form
+    gives in moles per litre second.

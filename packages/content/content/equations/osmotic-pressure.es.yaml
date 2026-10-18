@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Presión osmótica de una disolución diluida'
+terms:
+  i:
+    label: 'Factor de van ''t Hoff'
+description: >-
+  La presión osmótica de una disolución diluida es la presión que hay que aplicar a la disolución
+  para impedir que el disolvente puro pase a ella a través de una membrana que deja pasar el
+  disolvente pero retiene el soluto. En la ecuación de van 't Hoff es igual a la concentración de
+  partículas disueltas por la constante molar de los gases por la temperatura absoluta, una
+  propiedad coligativa de las disoluciones.
+
+  $\mag{\Pi}$ es la presión osmótica en pascales, positiva para una disolución enfrentada al
+  disolvente puro. $\var{i}$ es el factor de van 't Hoff, el número de partículas por unidad fórmula
+  disuelta, cercano a uno para los azúcares y por debajo del recuento completo de iones para las
+  sales. $\mag{c}$ es la concentración de cantidad de sustancia del soluto, introducida en moles por
+  litro o por metro cúbico; $\const{R}$ es la constante molar de los gases, de unos 8.314 julios por
+  mol y kelvin y exacta en el SI, y $\mag{T}$ es la temperatura termodinámica, así que a los valores
+  en grados Celsius hay que sumarles 273.15.
+
+  La forma reproduce la ley de los gases ideales: las partículas disueltas en una disolución diluida
+  empujan como las moléculas de un gas repartidas en el mismo volumen. El disolvente se desplaza
+  desde el lado donde su tendencia a escapar es mayor, el del disolvente puro, hasta que la presión
+  adicional sobre la disolución compensa esa diferencia.
+
+  La ecuación vale para disoluciones diluidas y membranas ideales; las disoluciones concentradas
+  requieren el coeficiente osmótico o la actividad del disolvente, como define la IUPAC la magnitud
+  en general. La presión medida para una masa conocida de soluto da la masa molar de moléculas
+  grandes como las proteínas. La ósmosis explica también por qué los glóbulos rojos se hinchan en
+  disoluciones diluidas y se arrugan en las concentradas, y una presión superior a la osmótica
+  impulsa la ósmosis inversa de las plantas desalinizadoras.
+
+  Jacobus van 't Hoff recibió el Premio Nobel de Química de 1901, concedido en parte por descubrir
+  las leyes de la presión osmótica en las disoluciones. Una disolución de glucosa de 0.30 mol/L a
+  310 K tiene una presión osmótica de unas 7.6 atmósferas.

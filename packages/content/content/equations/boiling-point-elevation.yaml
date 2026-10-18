@@ -1,0 +1,80 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Boiling point elevation'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{\Delta T_\mathrm{b}}=\var{i}\var{K_\mathrm{b}}\mag{b}'
+terms:
+  \Delta T_\mathrm{b}:
+    kind: 'symbol'
+    label:
+      en: 'Boiling point elevation'
+    unit: 'kelvin'
+    delta: true
+  i:
+    kind: 'symbol'
+    label:
+      en: 'van ''t Hoff factor'
+  K_\mathrm{b}:
+    kind: 'symbol'
+    label:
+      en: 'Ebullioscopic constant'
+    unit: 'kelvin-kilogram-per-mole'
+  b:
+    kind: 'magnitude'
+    ref: 'molality'
+solutions:
+  \Delta T_\mathrm{b}: 'i * K_b * b'
+  i: 'DeltaT_b / (K_b * b)'
+  K_\mathrm{b}: 'DeltaT_b / (i * b)'
+  b: 'DeltaT_b / (i * K_b)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q913306'
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'boiling-point elevation'
+  - 'ebullioscopy'
+  - 'ebullioscopic constant'
+  - 'Delta Tb = i Kb m'
+  - 'Delta Tb = Kb m'
+  - 'aumento ebulloscópico'
+  - 'ascenso ebulloscópico'
+  - 'elevación del punto de ebullición'
+references:
+  - title: 'OpenStax, Chemistry 2e, 11.4 Colligative Properties (boiling point elevation, Table 11.2, Example 11.7, Table 11.3)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/11-4-colligative-properties'
+  - title: 'UNCuyo, Facultad de Odontología, Propiedades coligativas, clase teórica (2016)'
+    url: 'https://www.fodonto.uncuyo.edu.ar/upload/archivo-12-clase-terica-propiedades-coligativas-2016.pdf'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.10, note 14 (molality, symbol b)'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+description:
+  en: >-
+    Boiling point elevation is the rise in the boiling point of a solvent when a non-volatile
+    solute is dissolved in it. For dilute solutions the rise is proportional to the molality of
+    dissolved particles, with the solvent's ebullioscopic constant as the factor. It is one of the
+    colligative properties of solutions, which depend on how many solute particles are present and
+    not on what they are.
+
+    $\var{\Delta T_\mathrm{b}}$ is the elevation, the boiling point of the solution minus that of the
+    pure solvent, a positive temperature difference in kelvin with the same value in degrees
+    Celsius. $\var{i}$ is the van 't Hoff factor, the number of particles each dissolved formula unit
+    yields: one for a non-electrolyte such as sucrose, close to two for sodium chloride.
+    $\var{K_\mathrm{b}}$ is the ebullioscopic constant, a property of the solvent alone in kelvin
+    kilograms per mole, and $\mag{b}$ is the molality of the solute in moles per kilogram of solvent.
+
+    The solute lowers the vapour pressure of the solvent, so the solution must be heated further
+    before its vapour pressure reaches the surrounding pressure and it boils. Molality is used
+    instead of molarity because it does not change as the solution warms and expands.
+
+    The relation holds for dilute solutions of solutes that do not evaporate. Measured van 't Hoff
+    factors fall below the whole number of ions, because ions attract one another and some pair up:
+    at 0.050 moles per kilogram, magnesium sulfate behaves as 1.3 particles instead of 2. For water
+    the ebullioscopic constant is 0.512 kelvin kilograms per mole.
+
+    A solution of 0.33 moles of a non-electrolyte per kilogram of benzene, whose constant is 2.53,
+    boils 0.83 kelvin above the pure solvent.

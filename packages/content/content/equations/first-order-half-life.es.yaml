@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Semivida de una reacción de primer orden'
+terms:
+  t_{1/2}:
+    label: 'Semivida'
+  k:
+    label: 'Constante de velocidad'
+description: >-
+  La semivida de una reacción de primer orden, el tiempo en el que se consume la mitad del reactivo
+  presente, es igual al logaritmo natural de dos dividido entre la constante de velocidad. En la
+  cinética química es la única semivida que no depende de la cantidad de reactivo inicial.
+
+  $\var{t_{1/2}}$ es la semivida, en segundos, y $\var{k}$ la constante de velocidad de primer
+  orden, en segundos inversos; ambas son positivas. El logaritmo natural de dos vale unos 0.693, así que los
+  libros suelen escribir la semivida como 0.693 dividido entre la constante. Sirven igual minutos,
+  horas o días si la constante se da por minuto, hora o día.
+
+  La fórmula se deduce de la ley de velocidad integrada de primer orden: al igualar la
+  concentración en la semivida a la mitad de la concentración inicial, el valor inicial se cancela y
+  queda un medio igual a la exponencial de menos la constante por la semivida. Cada semivida
+  siguiente reduce a la mitad lo que queda, de modo que tras tres de ellas resta una octava parte del
+  reactivo. Duplicar la constante reduce la semivida a la mitad.
+
+  El resultado solo vale para la cinética de primer orden a temperatura constante. En orden cero la
+  semivida es la concentración inicial dividida entre el doble de la constante, y en segundo orden es
+  uno dividido entre la constante por la concentración inicial, así que una semivida que no cambia
+  mientras transcurre la reacción indica primer orden. La IUPAC la distingue del tiempo de
+  relajación, en el que una perturbación de la concentración baja a 1/e de su valor inicial. Su
+  gemela nuclear es la relación entre la semivida y la constante de desintegración, la misma
+  fórmula escrita con la constante de desintegración de un radionucleido.
+
+  El peróxido de hidrógeno se descompone en agua a $40\,^{\circ}\mathrm{C}$ con una semivida de
+  21 600 segundos, de modo que su constante de velocidad es de unos
+  $3.21\times10^{-5}\,\mathrm{s^{-1}}$, como muestra OpenStax.

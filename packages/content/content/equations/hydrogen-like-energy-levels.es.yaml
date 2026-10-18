@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Niveles de energía de un ion hidrogenoide'
+terms:
+  E_{n}:
+    label: 'Energía del nivel n'
+  Z:
+    label: 'Número atómico'
+  n:
+    label: 'Número cuántico principal'
+description: >-
+  Los niveles de energía de un ion hidrogenoide son las energías permitidas del único electrón de un
+  átomo al que se han arrancado todos los electrones menos uno, como He+ o Li2+. En el modelo de Bohr
+  de la estructura atómica cada nivel es el nivel correspondiente del hidrógeno multiplicado por el
+  cuadrado de la carga nuclear: menos Z al cuadrado por la energía de Rydberg, dividido entre n al
+  cuadrado.
+
+  $\var{E_{n}}$ es la energía del nivel $\var{n}$, en julios, negativa para un electrón ligado y nula
+  para un electrón en reposo lejos del núcleo. $\var{Z}$ es el número atómico y $\var{n}$ el número
+  cuántico principal, un entero desde uno en adelante; ambos son solo datos de entrada, y la
+  calculadora devuelve la energía. Las constantes son la constante de Planck $\const{h}$, la
+  velocidad de la luz $\const{c}$ y la constante de Rydberg $\const{R_{\infty}}$, cuyo producto, la
+  energía de Rydberg, vale $13.605\,693\,122\,990\,\mathrm{eV}$ según CODATA 2022.
+
+  Un núcleo de carga Z atrae al electrón Z veces más a una distancia dada, y las órbitas se reducen
+  en el mismo factor, de modo que la energía de enlace crece con el cuadrado de Z. La separación
+  entre niveles, y con ella la energía de cada fotón emitido, crece en la misma proporción, lo que
+  desplaza los espectros de estos iones hacia el ultravioleta.
+
+  La fórmula trata el núcleo como si tuviera masa infinita. Un ion real requiere la masa reducida del
+  electrón y el núcleo en lugar de la masa del electrón, una corrección de un 0.05 por ciento para el
+  hidrógeno que disminuye con núcleos más pesados. Los desdoblamientos más finos de los niveles
+  quedan fuera del modelo, que además falla en cualquier átomo con dos o más electrones, donde el
+  apantallamiento cambia la carga efectiva.
+
+  El estado fundamental del He+ queda unos 54.4 electronvoltios por debajo del límite de ionización,
+  cuatro veces más profundo que el del hidrógeno.

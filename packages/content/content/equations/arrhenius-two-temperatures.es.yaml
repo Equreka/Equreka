@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ecuación de Arrhenius para dos temperaturas'
+terms:
+  k_{1}:
+    label: 'Constante de velocidad a la primera temperatura'
+  k_{2}:
+    label: 'Constante de velocidad a la segunda temperatura'
+  T_{1}:
+    label: 'Primera temperatura'
+  T_{2}:
+    label: 'Segunda temperatura'
+description: >-
+  La forma de dos puntos de la ecuación de Arrhenius establece que el logaritmo natural del cociente
+  de las constantes de velocidad de una reacción a dos temperaturas es igual a su energía de
+  activación dividida entre la constante molar de los gases, por la diferencia entre los inversos de
+  las temperaturas. En la cinética química da la energía de activación a partir de dos medidas, o
+  predice una constante de velocidad a una temperatura nueva.
+
+  $\var{k_{1}}$ y $\var{k_{2}}$ son las constantes de velocidad a $\var{T_{1}}$ y $\var{T_{2}}$,
+  escritas en segundos inversos; sirve cualquier unidad común a ambas, sea cual sea el orden, porque
+  solo interviene su cociente. $\mag{E_\mathrm{a}}$ es la energía de activación en julios por mol, y
+  la calculadora acepta kilojulios por mol; $\const{R}$ es la constante molar de los gases. Las
+  temperaturas son absolutas, en kelvin; a los grados Celsius se les suma 273.15.
+
+  Al escribir la ecuación de Arrhenius a cada temperatura y dividir una entre otra se cancela el
+  factor preexponencial y queda esta forma. Con una energía de activación positiva, la constante a la
+  temperatura mayor es la más grande, y una energía de activación mayor hace la velocidad más
+  sensible al calentamiento.
+
+  La deducción supone que la energía de activación y el factor preexponencial no cambian entre las
+  dos temperaturas, una hipótesis que conviene comprobar, porque la IUPAC señala que ambos pueden depender de la temperatura. Dos puntos arrastran
+  además todo el error de cada medida, así que un ajuste lineal del logaritmo de la constante frente
+  al inverso de la temperatura con varios puntos suele dar una energía de activación más fiable.
+
+  El pentóxido de dinitrógeno se descompone en fase gaseosa con constantes de 1.66 litros por mol y
+  segundo a 650 kelvin y de 7.39 a 700 kelvin. La forma de dos puntos da una energía de activación
+  de unos 113 kilojulios por mol, que OpenStax redondea a 110.

@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de velocidad integrada de segundo orden'
+terms:
+  c_\mathrm{A}:
+    label: 'Concentración de A en el instante t'
+  c_\mathrm{A,0}:
+    label: 'Concentración inicial de A'
+  k:
+    label: 'Constante de velocidad'
+description: >-
+  En una reacción cuya velocidad es proporcional al cuadrado de la concentración de un solo
+  reactivo, el inverso de esa concentración crece en línea recta con el tiempo: la ley de velocidad
+  integrada suma la constante de velocidad por el tiempo transcurrido al inverso de la concentración
+  inicial. Es la ley integrada de segundo orden de la cinética química.
+
+  $\var{c_\mathrm{A}}$ es la concentración del reactivo A en el instante $\mag{t}$ y
+  $\var{c_\mathrm{A,0}}$ su concentración inicial, ambas en moles por metro cúbico, y la calculadora
+  acepta moles por litro. $\var{k}$ es la constante de velocidad en metros cúbicos por mol y
+  segundo, la unidad SI coherente; la calculadora acepta también litros por mol y segundo, la unidad
+  de los libros, mil veces menor. $\mag{t}$ es el tiempo transcurrido desde el comienzo, en
+  segundos.
+
+  Al integrar la ley de velocidad de segundo orden se obtiene la fórmula; la gráfica del inverso de
+  la concentración frente al tiempo es una recta de pendiente igual a la constante y ordenada en el
+  origen igual al inverso de la concentración inicial. La semivida, uno dividido entre la constante
+  por la concentración inicial, depende del punto de partida de la reacción: dos ensayos que empiezan
+  con concentraciones distintas muestran semividas distintas, y dentro de un mismo ensayo cada
+  reducción a la mitad tarda más que la anterior.
+
+  La ley abarca solo velocidades proporcionales al cuadrado de una concentración, a temperatura y
+  volumen constantes. Una reacción de primer orden respecto de dos reactivos distintos tiene una ley integrada más compleja. La constante describe aquí la
+  rapidez con que desaparece el propio A, como la escriben los libros; si se define en cambio a
+  partir de la velocidad de reacción, la rapidez de desaparición dividida entre un coeficiente
+  estequiométrico de dos, el término pasa a ser el doble de la constante por el tiempo. Sus
+  concentraciones no se dividen entre la concentración molar estándar, así que no es la constante de
+  la ley de velocidad con concentraciones relativas, que es igual a esta por el cuadrado de la
+  concentración estándar.
+
+  El butadieno se dimeriza con una constante de 0.0576 litros por mol y minuto en las condiciones que
+  da OpenStax. Partiendo de 0.200 moles por litro, quedan 0.179 moles por litro al cabo de 10.0
+  minutos, y la primera semivida es de unos 87 minutos.

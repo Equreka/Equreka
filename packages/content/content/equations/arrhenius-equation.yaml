@@ -1,0 +1,84 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Arrhenius equation'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{k}=\var{A}e^{-\frac{\mag{E_\mathrm{a}}}{\const{R}\mag{T}}}'
+terms:
+  k:
+    kind: 'symbol'
+    label:
+      en: 'Rate constant'
+    unit: 'reciprocal-second'
+  A:
+    kind: 'symbol'
+    label:
+      en: 'Pre-exponential factor'
+    unit: 'reciprocal-second'
+  E_\mathrm{a}:
+    kind: 'magnitude'
+    ref: 'molar-energy'
+  R:
+    kind: 'constant'
+    ref: 'molar-gas-constant'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+solutions:
+  k: 'A * exp(-E_a / (R * T))'
+  A: 'k * exp(E_a / (R * T))'
+  E_\mathrm{a}: 'R * T * ln(A / k)'
+  T: 'E_a / (R * ln(A / k))'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q507505'
+categories:
+  - 'chemistry'
+branches:
+  - 'chemical-kinetics'
+aliases:
+  - 'Arrhenius law'
+  - 'Arrhenius function'
+  - 'k = A e^(-Ea/RT)'
+  - 'ln k = ln A - Ea/RT'
+  - 'activation energy equation'
+  - 'frequency factor'
+  - 'ley de Arrhenius'
+  - 'factor de frecuencia'
+  - 'factor pre-exponencial'
+references:
+  - title: 'OpenStax, Chemistry 2e, 12.5 Collision Theory, Activation Energy and the Arrhenius Equation, Example 12.13'
+    url: 'https://openstax.org/books/chemistry-2e/pages/12-5-collision-theory'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.12, p. 64, notes 9 and 10'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'NIST, CODATA 2022 value: molar gas constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?r'
+description:
+  en: >-
+    The Arrhenius equation gives the rate constant of a chemical reaction as a pre-exponential
+    factor multiplied by the exponential of minus the activation energy divided by the molar gas
+    constant and the absolute temperature. It is the usual description in chemical kinetics of how
+    reaction rates rise with temperature.
+
+    $\var{k}$ is the rate constant and $\var{A}$ the pre-exponential factor, also called the
+    frequency factor, both written in reciprocal seconds. Any order works as long as the two share
+    one unit, because only their ratio enters. $\mag{E_\mathrm{a}}$ is the activation energy, stated in joules per mole, with kilojoules per mole offered. $\const{R}$ is the molar gas constant, about
+    8.314 joules per mole kelvin and exact in the SI, and $\mag{T}$ is the thermodynamic temperature
+    in kelvin; a Celsius reading needs 273.15 added.
+
+    The exponential factor measures the share of molecular encounters energetic enough to cross the
+    activation barrier: a lower barrier or a higher temperature raises it and speeds the reaction.
+    The pre-exponential factor reflects how often reactants meet with a suitable orientation. Taking
+    natural logarithms gives a straight line, the logarithm of the constant against the reciprocal
+    temperature, whose slope is minus the activation energy over the gas constant and whose
+    intercept is the logarithm of the factor.
+
+    The equation is empirical. IUPAC defines the Arrhenius activation energy from the slope of that
+    line and notes that both it and the factor may depend on temperature, so other fits add a power
+    of the temperature in front of the exponential. The activation energy of this law is not the
+    same as the height of an energy barrier computed for a molecular model.
+
+    For the decomposition of hydrogen iodide between 555 and 781 kelvin, OpenStax finds a slope of
+    about $-2.2\times10^{4}$ kelvin and an activation energy of about 180 kilojoules per mole; the
+    unrounded endpoints give 185.

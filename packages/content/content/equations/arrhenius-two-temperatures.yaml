@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Arrhenius equation for two temperatures'
+kind: 'equation'
+level: 'intermediate'
+expression: '\ln\left(\frac{\var{k_{2}}}{\var{k_{1}}}\right)=\frac{\mag{E_\mathrm{a}}}{\const{R}}\left(\frac{1}{\var{T_{1}}}-\frac{1}{\var{T_{2}}}\right)'
+terms:
+  k_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Rate constant at the first temperature'
+    unit: 'reciprocal-second'
+  k_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Rate constant at the second temperature'
+    unit: 'reciprocal-second'
+  E_\mathrm{a}:
+    kind: 'magnitude'
+    ref: 'molar-energy'
+  R:
+    kind: 'constant'
+    ref: 'molar-gas-constant'
+  T_{1}:
+    kind: 'symbol'
+    label:
+      en: 'First temperature'
+    unit: 'kelvin'
+  T_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Second temperature'
+    unit: 'kelvin'
+solutions:
+  k_{2}: 'k_1 * exp(E_a * (T_2 - T_1) / (R * T_1 * T_2))'
+  k_{1}: 'k_2 * exp(E_a * (T_1 - T_2) / (R * T_1 * T_2))'
+  E_\mathrm{a}: 'R * ln(k_2 / k_1) * T_1 * T_2 / (T_2 - T_1)'
+  T_{2}: 'T_1 * E_a / (E_a - R * T_1 * ln(k_2 / k_1))'
+  T_{1}: 'T_2 * E_a / (E_a + R * T_2 * ln(k_2 / k_1))'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'chemical-kinetics'
+aliases:
+  - 'Arrhenius two temperatures'
+  - 'two-point Arrhenius equation'
+  - 'two-point form of the Arrhenius equation'
+  - 'ln(k2/k1) = Ea/R (1/T1 - 1/T2)'
+  - 'activation energy from two rate constants'
+  - 'ecuación de Arrhenius de dos puntos'
+references:
+  - title: 'OpenStax, Chemistry 2e, 12.5 Collision Theory, Example 12.13 (alternative approach) and Check Your Learning'
+    url: 'https://openstax.org/books/chemistry-2e/pages/12-5-collision-theory'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.12, p. 64, notes 9 and 10'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+description:
+  en: >-
+    The two-point form of the Arrhenius equation states that the natural logarithm of the ratio of
+    the rate constants of a reaction at two temperatures equals its activation energy divided by the
+    molar gas constant, times the difference between the reciprocal temperatures. In chemical
+    kinetics it gives the activation energy from two measurements, or predicts a rate constant at a
+    new temperature.
+
+    $\var{k_{1}}$ and $\var{k_{2}}$ are the rate constants at $\var{T_{1}}$ and $\var{T_{2}}$, written
+    in reciprocal seconds; any unit common to both serves, whatever the order, because only their
+    ratio enters. $\mag{E_\mathrm{a}}$ is the activation energy, stated in joules per mole, with kilojoules
+    per mole offered, and $\const{R}$ is the molar gas constant. The temperatures are absolute, in
+    kelvin; Celsius readings need 273.15 added before use.
+
+    Writing the Arrhenius equation at each temperature and dividing one by the other cancels the
+    pre-exponential factor and leaves this form. With a positive activation energy, the constant at
+    the higher temperature is the larger one, and a larger activation energy makes the rate more
+    sensitive to heating.
+
+    The derivation assumes that the activation energy and the pre-exponential factor stay the same
+    between the two temperatures, an assumption worth checking, since IUPAC notes that both may depend on temperature. Two points also carry
+    the full error of each measurement, so a straight-line fit of the logarithm of the constant
+    against the reciprocal temperature over several points usually gives a more reliable activation
+    energy.
+
+    Dinitrogen pentoxide decomposes in the gas phase with constants of 1.66 litres per mole second
+    at 650 kelvin and 7.39 at 700 kelvin. The two-point form gives an activation energy of about
+    113 kilojoules per mole, which OpenStax rounds to 110.

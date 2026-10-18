@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Second-order integrated rate law'
+kind: 'equation'
+level: 'intermediate'
+expression: '\frac{1}{\var{c_\mathrm{A}}}=\frac{1}{\var{c_\mathrm{A,0}}}+\var{k}\mag{t}'
+terms:
+  c_\mathrm{A}:
+    kind: 'symbol'
+    label:
+      en: 'Concentration of A at time t'
+    unit: 'mole-per-cubic-metre'
+  c_\mathrm{A,0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial concentration of A'
+    unit: 'mole-per-cubic-metre'
+    identifier: 'c_A0'
+  k:
+    kind: 'symbol'
+    label:
+      en: 'Rate constant'
+    unit: 'cubic-metre-per-mole-second'
+  t:
+    kind: 'magnitude'
+    ref: 'time'
+solutions:
+  c_\mathrm{A}: 'c_A0 / (1 + k * t * c_A0)'
+  c_\mathrm{A,0}: 'c_A / (1 - k * t * c_A)'
+  k: '(c_A0 - c_A) / (c_A * c_A0 * t)'
+  t: '(c_A0 - c_A) / (k * c_A * c_A0)'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'chemical-kinetics'
+aliases:
+  - 'second order integrated rate law'
+  - 'integrated rate law for a second-order reaction'
+  - '1/[A] = 1/[A]0 + kt'
+  - 'second-order kinetics'
+  - 'second-order reaction'
+  - 'ley de tasa integrada de segundo orden'
+  - 'cinética de segundo orden'
+references:
+  - title: 'OpenStax, Chemistry 2e, 12.4 Integrated Rate Laws, Second-Order Reactions, Examples 12.8, 12.9 and 12.12'
+    url: 'https://openstax.org/books/chemistry-2e/pages/12-4-integrated-rate-laws'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.12, pp. 63-64, notes 4 and 6'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+description:
+  en: >-
+    For a reaction whose rate is proportional to the square of the concentration of a single
+    reactant, the reciprocal of that concentration grows in a straight line with time: the
+    integrated rate law adds the rate constant times the elapsed time to the reciprocal of the
+    initial concentration. It is the second-order integrated law of chemical kinetics.
+
+    $\var{c_\mathrm{A}}$ is the concentration of reactant A at time $\mag{t}$ and
+    $\var{c_\mathrm{A,0}}$ its initial concentration, both in moles per cubic metre, with moles per
+    litre offered. $\var{k}$ is the rate constant in cubic metres per mole second, the coherent SI
+    unit; the calculator also takes litres per mole second, the textbook unit, a thousand times
+    smaller. $\mag{t}$ is the time elapsed since the start, in seconds.
+
+    Integrating the second-order rate law gives the formula; a graph of the reciprocal
+    concentration against time is a straight line with slope equal to the constant and intercept
+    the reciprocal of the initial concentration. The half-life, one over the constant times the
+    initial concentration, depends on where the reaction starts: two runs begun at different
+    concentrations show different half-lives, and within one run each halving takes longer than the
+    one before.
+
+    The law covers only rates proportional to the square of one concentration, at constant
+    temperature and volume. A reaction first order in each of two different reactants has a more involved integrated law. The constant here describes
+    the rate at which A itself disappears, as textbooks write it; if it is instead defined from the
+    rate of reaction, the rate of disappearance divided by a stoichiometric coefficient of two, the
+    term becomes twice the constant times the time. Its concentrations are not divided by the
+    standard amount concentration, so it is not the constant of the rate law with relative
+    concentrations, which equals this one times the square of the standard concentration.
+
+    Butadiene dimerizes with a constant of 0.0576 litres per mole minute under the conditions
+    OpenStax gives. Starting from 0.200 moles per litre, 0.179 moles per litre remain after 10.0
+    minutes, and the first half-life is about 87 minutes.

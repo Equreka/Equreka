@@ -1,0 +1,74 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Heat absorbed by a calorimeter'
+kind: 'formula'
+level: 'intermediate'
+expression: '\mag{Q}=\mag{C_\mathrm{cal}}\var{\Delta T}'
+terms:
+  Q:
+    kind: 'magnitude'
+    ref: 'heat'
+  C_\mathrm{cal}:
+    kind: 'magnitude'
+    ref: 'heat-capacity'
+  \Delta T:
+    kind: 'symbol'
+    label:
+      en: 'Temperature change'
+    unit: 'kelvin'
+    delta: true
+solutions:
+  Q: 'C_cal * DeltaT'
+  C_\mathrm{cal}: 'Q / DeltaT'
+  \Delta T: 'Q / C_cal'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'thermochemistry'
+aliases:
+  - 'calorimeter heat'
+  - 'calorimeter constant'
+  - 'bomb calorimetry'
+  - 'heat capacity of the calorimeter'
+  - 'q = CΔT'
+  - 'q_cal = C_cal ΔT'
+  - 'calor absorbido por el calorímetro'
+  - 'constante del calorímetro'
+  - 'calorímetro de bomba'
+references:
+  - title: 'OpenStax, Chemistry 2e, 5.2 Calorimetry (Example 5.7)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/5-2-calorimetry'
+  - title: 'S. Lower, Chem1 General Chemistry (Chemistry LibreTexts), 14.5 Calorimetry (sucrose and biphenyl examples)'
+    url: 'https://chem.libretexts.org/Bookshelves/General_Chemistry/Chem1_(Lower)/14%3A_Thermochemistry/14.05%3A_Calorimetry'
+description:
+  en: >-
+    The heat absorbed by a calorimeter equals the heat capacity of the calorimeter times the
+    temperature change it records. In calorimetry and thermochemistry this formula converts a
+    measured rise or fall in temperature into an amount of heat, and from it the heat released or
+    taken in by a combustion, a neutralization or a dissolution carried out inside the instrument.
+
+    $\mag{Q}$ is the heat absorbed by the calorimeter, in joules. $\mag{C_\mathrm{cal}}$ is the heat
+    capacity of the calorimeter, in joules per kelvin: the heat that warms the whole instrument,
+    vessel, water and thermometer together, by one kelvin, often called the calorimeter constant.
+    $\var{\Delta T}$ is the final temperature minus the initial one. A step of one kelvin is as
+    large as a step of one degree Celsius, so the difference has the same value on both scales.
+
+    The reaction and the calorimeter exchange heat only with each other, so the heat of the
+    reaction is the negative of the heat absorbed, $q_\mathrm{rxn}=-\mag{Q}$. An exothermic reaction
+    warms the instrument and gives a positive heat absorbed; an endothermic one cools it. The heat
+    capacity is found beforehand by calibration, burning a weighed pellet of benzoic acid, whose
+    heat of combustion is known, and recording the temperature change. When the heat capacity is
+    the mass times the specific heat capacity of a single substance, the formula becomes the
+    sensible-heat relation.
+
+    The formula assumes that no heat escapes to the surroundings and that the heat capacity stays
+    constant over the small temperature range. A bomb calorimeter works at constant volume, so it
+    measures the change in internal energy of the reaction; the enthalpy change follows after a
+    correction for the gas produced or consumed. A coffee-cup calorimeter works open to the
+    atmosphere, and in elementary work the heat taken up by the cup itself is treated as negligible.
+
+    Burning 1.150 grams of sucrose in a calorimeter with a heat capacity of 4.90 kilojoules per
+    kelvin raises its temperature by 4.22 kelvin, so the calorimeter absorbs about 20.7 kilojoules,
+    the heat released by the combustion.

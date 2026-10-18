@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Percent ionization'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{\alpha}=\frac{\var{[\mathrm{H}^{+}]}}{\var{c_\mathrm{a}}}'
+terms:
+  \alpha:
+    kind: 'symbol'
+    label:
+      en: 'Fraction ionized'
+    unit: 'unitless'
+  '[\mathrm{H}^{+}]':
+    kind: 'symbol'
+    label:
+      en: 'Hydrogen ion concentration'
+    unit: 'mole-per-cubic-metre'
+    identifier: 'cH'
+  c_\mathrm{a}:
+    kind: 'symbol'
+    label:
+      en: 'Analytical concentration of the acid'
+    unit: 'mole-per-cubic-metre'
+solutions:
+  \alpha: 'cH / c_a'
+  '[\mathrm{H}^{+}]': 'alpha * c_a'
+  c_\mathrm{a}: 'cH / alpha'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q907334'
+categories:
+  - 'chemistry'
+branches:
+  - 'acids-and-bases'
+aliases:
+  - 'percent ionisation'
+  - 'percentage ionization'
+  - 'degree of ionization'
+  - 'degree of dissociation'
+  - 'fraction ionized'
+  - '% ionization = [H3O+]/[HA]0 x 100'
+  - 'porcentaje de ionización'
+  - 'grado de disociación'
+  - 'grado de ionización'
+references:
+  - title: 'OpenStax, Chemistry 2e, 14.3 Relative Strengths of Acids and Bases (percent ionization, Example 14.7)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/14-3-relative-strengths-of-acids-and-bases'
+  - title: 'S. Lower, Chem1 General Chemistry (LibreTexts), 13.3 Finding the pH of weak Acids, Bases, and Salts (degree of dissociation)'
+    url: 'https://chem.libretexts.org/Bookshelves/General_Chemistry/Chem1_(Lower)/13:_Acid-Base_Equilibria/13.03:_Finding_the_pH_of_weak_Acids_Bases_and_Salts'
+description:
+  en: >-
+    Percent ionization measures how much of a weak acid has given up its protons at equilibrium: the
+    hydrogen ion concentration divided by the analytical concentration of the acid, a fraction that
+    is multiplied by 100 to read as a percentage. In acid-base chemistry the same fraction is called
+    the degree of ionization or degree of dissociation, and it complements the acid dissociation
+    constant as a description of acid strength.
+
+    $\var{\alpha}$ is the fraction ionized, a ratio from 0 to 1 that can be entered as a decimal or
+    a percentage; the percent ionization is 100 times it. $\var{[\mathrm{H}^{+}]}$ is the
+    equilibrium concentration of hydrogen ions, present as hydronium, and $\var{c_\mathrm{a}}$ the
+    analytical concentration of the acid, the amount put into the solution per unit volume before
+    any ionization, both usually entered in moles per litre.
+
+    Each molecule that ionizes releases one hydronium ion and one conjugate base ion, so the
+    hydronium concentration also equals the concentration of conjugate base, and the fraction tells
+    what share of the acid molecules exist as ions. Unlike the acid dissociation constant, it is not
+    fixed for a given acid: diluting a weak acid raises its percent ionization, which grows
+    roughly as one over the square root of the concentration while the ionization stays small.
+
+    The formula counts only hydronium that comes from the acid, which holds unless the acid is extremely
+    weak or highly diluted, when the self-ionization of water adds a comparable amount. A percent ionization below about 5 percent is the usual sign that the simple
+    square-root estimate of the pH is valid.
+
+    A 0.125 mol/L solution of nitrous acid with a pH of 2.09 holds 0.0081 mol/L of hydronium, a
+    percent ionization of 6.5 percent.

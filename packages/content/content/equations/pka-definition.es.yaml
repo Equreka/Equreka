@@ -1,0 +1,29 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Definición del pKa'
+terms:
+  \mathrm{p}K_\mathrm{a}:
+    label: 'pKa del ácido'
+  K_\mathrm{a}:
+    label: 'Constante de acidez'
+description: >-
+  La definición del pKa expresa la fuerza de un ácido en una escala logarítmica: el pKa es el
+  logaritmo decimal de la constante de acidez cambiado de signo. Se usa en la química ácido-base, la
+  bioquímica y la química analítica porque las constantes de los ácidos comunes abarcan muchas
+  potencias de diez, mientras que sus valores de pKa caben en un intervalo corto de números
+  ordinarios.
+
+  $\var{\mathrm{p}K_\mathrm{a}}$ es el pKa del ácido, un número puro, y $\var{K_\mathrm{a}}$ la
+  constante de acidez, un número puro positivo definido con cada concentración tomada respecto de un
+  mol por litro. La letra p es un operador que significa menos el logaritmo decimal, el mismo que
+  convierte la concentración de iones hidrógeno en el pH, y la IUPAC la escribe en redonda.
+
+  El signo menos invierte el orden: un pKa menor significa una constante mayor y un ácido más
+  fuerte, y cada unidad de pKa es un factor de diez en la constante. El pKa es además el pH al que
+  el ácido y su base conjugada están presentes en cantidades iguales, por lo que fija el intervalo
+  de trabajo de una disolución amortiguadora.
+
+  Como la propia constante, el pKa depende de la temperatura y del disolvente, y los valores
+  tabulados se refieren a disoluciones acuosas diluidas, donde las concentraciones sustituyen a las
+  actividades. El mismo operador da el pKb de una base y el pKw del agua.
+
+  El ácido acético, con una constante de acidez de $1.8\times10^{-5}$, tiene un pKa de 4.74.

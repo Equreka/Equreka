@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/constants.schema.json
+name:
+  en: 'Standard pressure'
+symbol:
+  tex: 'p^{\circ}'
+  text: 'p°'
+symbolAlt:
+  tex: 'p^{\ominus}'
+  text: 'p⦵'
+value: '100000'
+unit: 'pascal'
+exact: true
+source:
+  name: 'convention'
+  url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  ref: 'IUPAC Green Book, 3rd ed., section 2.11.1 (v), p. 62: standard pressure, 100 kPa (1 bar), recommended since 1982'
+externalIds:
+  wikidata: 'Q9193068'
+categories:
+  - 'chemistry'
+branches:
+  - 'chemical-equilibrium'
+  - 'thermochemistry'
+aliases:
+  - 'standard state pressure'
+  - 'standard-state pressure'
+  - 'IUPAC standard pressure'
+  - 'p°'
+  - '1 bar'
+  - 'presión estándar'
+  - 'presión normal'
+  - 'presión del estado estándar'
+references:
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11.1 (iv) Standard states and (v) Standard pressures, molality, and concentration, pp. 61-62'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11, note 19: Kp and the standard equilibrium constant, p. 58'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (bar) and note (h)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'OpenStax, Chemistry 2e, 9.2 Relating Pressure, Volume, Amount, and Temperature: The Ideal Gas Law, footnote 1'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-2-relating-pressure-volume-amount-and-temperature-the-ideal-gas-law'
+  - title: 'OpenStax, Chemistry 2e, 5.3 Enthalpy (standard state)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/5-3-enthalpy'
+  - title: 'NIST, CODATA 2022 value: molar gas constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?r'
+description:
+  en: >-
+    The standard pressure, symbol $p^{\circ}$, is exactly 100 000 pascals, which is 100 kilopascals
+    or one bar. It is a reference value chosen by convention in physical chemistry, not a measured
+    constant, so it has no uncertainty. It is also called the standard state pressure, and its
+    symbol is also written $p^{\ominus}$.
+
+    The value fixes the pressure of the standard states that thermodynamic tables refer to. The
+    standard state of a gas is the hypothetical ideal gas at this pressure, and that of a pure
+    liquid or solid is the substance itself under it; standard enthalpies of formation and standard
+    Gibbs energies of reaction are tabulated on this basis. Nothing in physics forbids another
+    reference pressure, so a text that departs from the bar has to declare its own.
+
+    Dividing a partial pressure by $p^{\circ}$ gives a pure number, which is how a gas enters an
+    equilibrium constant: at low pressures the constant written with partial pressures, divided by
+    the standard pressure raised to the change in the amount of gas, approximates the dimensionless
+    standard equilibrium constant. It is the companion of the standard amount concentration, and the
+    relation between the pressure-based and concentration-based constants of a gas reaction involves
+    their ratio through the molar gas constant, about 0.08314 per kelvin.
+
+    Older tables were built on one standard atmosphere, 101 325 pascals, and that figure survives in
+    many textbooks, OpenStax among them for standard temperature and pressure. The rounder bar
+    became the IUPAC basis in 1982, and data from the atmosphere era are carried over to it by
+    published conversion procedures. The bar itself, exactly 100 000 pascals, is a unit outside the
+    SI.

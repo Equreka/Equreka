@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Carga nuclear efectiva'
+terms:
+  Z_\mathrm{eff}:
+    label: 'Carga nuclear efectiva'
+  Z:
+    label: 'Número atómico'
+  S:
+    label: 'Constante de apantallamiento'
+description: >-
+  La carga nuclear efectiva designa la carga positiva neta que un electrón de un átomo polielectrónico
+  percibe del núcleo una vez descontada la repulsión de los demás electrones. En la estructura
+  atómica y la química se estima como el número atómico menos una constante de apantallamiento (o
+  de pantalla), y explica las tendencias periódicas del tamaño atómico y de la energía de ionización.
+
+  $\var{Z_\mathrm{eff}}$ es la carga nuclear efectiva y $\var{Z}$ el número atómico, el número de
+  protones, ambos en unidades de la carga elemental y, por tanto, números puros. $\var{S}$ es la
+  constante de apantallamiento, la parte de la carga nuclear que los demás electrones ocultan al
+  electrón elegido; es positiva y menor que $\var{Z}$, así que la carga efectiva es positiva.
+
+  Los electrones de las capas internas se sitúan casi siempre entre el núcleo y un electrón externo
+  y anulan cerca de un protón cada uno, mientras que los electrones de la misma capa se apantallan
+  entre sí solo débilmente. A lo largo de un periodo el número atómico crece en uno por elemento y el
+  apantallamiento apenas aumenta, de modo que la carga efectiva sobre los electrones de valencia
+  sube y los átomos se contraen.
+
+  La constante no se mide directamente. Las reglas de Slater la obtienen de la configuración
+  electrónica, escrita en grupos (1s)(2s,2p)(3s,3p)(3d), etcétera: para un electrón s o p, cada otro
+  electrón de su propio grupo suma 0.35 (0.30 dentro del 1s), cada electrón de la capa inmediatamente
+  inferior suma 0.85 y cada uno más profundo suma 1.00; para un electrón d o f, todo electrón de un
+  grupo situado a su izquierda suma 1.00. El resultado es una aproximación que pasa por alto la forma
+  detallada de los orbitales.
+
+  John C. Slater publicó estas reglas en Physical Review en 1930. Para el electrón 3s del sodio, de
+  número atómico 11, dan una constante de apantallamiento de 8.8 y una carga efectiva de 2.2.

@@ -1,0 +1,42 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Relación entre Kp y Kc'
+terms:
+  K_{p}:
+    label: 'Constante de equilibrio en función de las presiones parciales'
+  K_{c}:
+    label: 'Constante de equilibrio en función de las concentraciones'
+  \Delta n:
+    label: 'Variación de la cantidad de gas, productos menos reactivos'
+description: >-
+  En una reacción entre gases ideales, la constante de equilibrio escrita con presiones parciales es
+  igual a la escrita con concentraciones multiplicada por la concentración molar estándar por la constante
+  molar de los gases por la temperatura dividido entre la presión estándar, todo elevado a la
+  variación de la cantidad de gas. La relación convierte entre las dos formas de una constante de
+  equilibrio en fase gaseosa del equilibrio químico.
+
+  $\var{K_{p}}$ usa cada presión parcial dividida entre la presión estándar $\const{p^{\circ}}$,
+  exactamente 100 kilopascales, y $\var{K_{c}}$ cada concentración dividida entre la concentración
+  estándar $\const{c^{\circ}}$, un mol por litro, de modo que ambas son números puros;
+  $\var{K_{c}}$ es la misma magnitud que la constante de la expresión de la constante de equilibrio.
+  $\const{R}$ es
+  la constante molar de los gases y $\mag{T}$ la temperatura absoluta en kelvin. $\var{\Delta n}$ es
+  la suma de los coeficientes de los productos gaseosos menos la de los reactivos gaseosos; los
+  sólidos y los líquidos no cuentan. El factor $\const{c^{\circ}}\const{R}/\const{p^{\circ}}$ vale
+  unos 0.08314 por kelvin.
+
+  La ley de los gases ideales da cada presión parcial como la concentración por la constante de los
+  gases por la temperatura. Al dividir entre la presión estándar, cada cociente de presión se
+  convierte en el cociente de concentración por el mismo factor, y cada especie lleva ese factor
+  elevado a su coeficiente, lo que deja el factor elevado a la variación de la cantidad de gas.
+  Cuando el número de moléculas de gas no cambia, las dos constantes son iguales.
+
+  La relación supone gases ideales, en los que las presiones y las concentraciones sustituyen a las
+  fugacidades y actividades de la constante termodinámica. Muchos libros, entre ellos OpenStax,
+  siguen tomando una atmósfera como presión estándar, así que su factor es la constante de los gases
+  en litros atmósfera por mol y kelvin, unos 0.0821 por kelvin, y su constante en presiones es igual
+  a la referida al bar multiplicada por 1.01325 elevado a menos la variación de la cantidad de gas.
+
+  El disulfuro de carbono y el hidrógeno forman metano y sulfuro de hidrógeno con una constante en
+  concentraciones de 0.28 a $900\,^{\circ}\mathrm{C}$, donde se pierden dos moles de gas. La
+  constante en presiones vale unos $2.9\times10^{-5}$ con la base de un bar, alrededor de un 3 por
+  ciento menos que el valor que obtiene OpenStax con una atmósfera.
