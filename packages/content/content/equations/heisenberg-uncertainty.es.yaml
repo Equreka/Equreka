@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Principio de incertidumbre de Heisenberg'
+terms:
+  \sigma_{x}:
+    label: 'Desviación típica de la posición'
+  \sigma_{p}:
+    label: 'Desviación típica de la cantidad de movimiento'
+description: >-
+  El principio de incertidumbre de Heisenberg, en su forma exacta para la posición y la cantidad de
+  movimiento, establece que, para una partícula, el producto de la desviación típica de su posición por la de
+  su cantidad de movimiento nunca puede ser menor que la mitad de la constante de Planck reducida.
+  Es un teorema de la mecánica cuántica: ningún estado de una partícula tiene a la vez una posición y
+  una cantidad de movimiento nítidamente definidas a lo largo del mismo eje.
+
+  $\var{\sigma_{x}}$ es la desviación típica, o estándar, de la posición a lo largo de un eje, en
+  metros, y $\var{\sigma_{p}}$ la desviación típica de la componente de la cantidad de
+  movimiento a lo largo de ese mismo eje, en kilogramo metro por segundo; ambas miden la dispersión
+  de las medidas repetidas sobre partículas preparadas igual, y ninguna es negativa. $\const{\hbar}$ es la constante de Planck reducida, la constante de Planck
+  dividida entre dos pi, de unos $1.054\,571\,817\times10^{-34}\,\mathrm{J\,s}$, exacta en el SI.
+
+  La cota procede de la descripción ondulatoria de la materia: un paquete de ondas confinado en una
+  región estrecha requiere muchas longitudes de onda y, por tanto, muchas cantidades de movimiento. Como la constante es diminuta, el límite es irrelevante para los cuerpos
+  cotidianos pero decisivo para los electrones de los átomos, donde fija la escala de la energía del
+  estado fundamental.
+
+  La relación es una desigualdad, no una ecuación que despejar, así que no tiene calculadora. Se
+  refiere a la dispersión estadística de un estado cuántico, no al error de un instrumento concreto.
+  La forma de los libros con delta x por delta p, del orden de h o al menos h barra entre dos, es un
+  enunciado más laxo en el que los deltas son anchuras aproximadas.
+
+  Werner Heisenberg introdujo las relaciones en 1927 con una estimación del orden de h, y E. H.
+  Kennard demostró la desigualdad exacta para las desviaciones típicas ese mismo año. Si la velocidad
+  de un electrón se conoce con un margen de un milímetro por segundo, su posición es incierta en al
+  menos unos 5.8 centímetros.

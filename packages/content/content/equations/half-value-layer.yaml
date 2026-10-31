@@ -1,0 +1,76 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Half-value layer'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{x_{1/2}}=\frac{\ln 2}{\var{\mu}}'
+terms:
+  x_{1/2}:
+    kind: 'symbol'
+    label:
+      en: 'Half-value layer'
+    unit: 'metre'
+  \mu:
+    kind: 'symbol'
+    label:
+      en: 'Linear attenuation coefficient'
+    unit: 'reciprocal-metre'
+solutions:
+  x_{1/2}: 'ln(2) / mu'
+  \mu: 'ln(2) / x_12'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q127526'
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'half-value thickness'
+  - 'half value layer'
+  - 'HVL'
+  - 'HVT'
+  - 'half-thickness'
+  - 'HVL = 0.693/mu'
+  - 'HVL = ln 2 / mu'
+  - 'espesor de medio valor'
+  - 'espesor hemirreductor'
+references:
+  - title: 'IAEA, Radiation Oncology Physics: A Handbook for Teachers and Students (E. B. Podgorsak, ed., 2005), section 1.4.2, Equations 1.67 to 1.70'
+    url: 'https://www-pub.iaea.org/MTCD/Publications/PDF/Pub1196_web.pdf'
+  - title: 'NIST, X-Ray Mass Attenuation Coefficients, Table 3: Lead (Z = 82)'
+    url: 'https://physics.nist.gov/PhysRefData/XrayMassCoef/ElemTab/z82.html'
+  - title: 'NIST, X-Ray Mass Attenuation Coefficients, Table 1: Material constants (density of lead)'
+    url: 'https://physics.nist.gov/PhysRefData/XrayMassCoef/tab1.html'
+  - title: 'V. Delgado and J. de Areba, A vueltas con la capa hemirreductora, Física Médica, Universidad Complutense de Madrid (poster)'
+    url: 'https://indico.ific.uv.es/event/3295/contributions/9450/attachments/6352/7136/PosterCHR.pdf'
+description:
+  en: >-
+    The half-value layer is how much absorber it takes to cut the intensity of a narrow photon beam
+    to half its incident value; for a beam of one energy it equals the natural
+    logarithm of two divided by the linear attenuation coefficient. In nuclear physics, radiation
+    protection and medical imaging it is the common way to state how penetrating a beam of gamma
+    rays or X-rays is, and how effective a shielding material is.
+
+    $\var{x_{1/2}}$ is the half-value layer, in metres, though tables and beam specifications quote
+    it in millimetres or centimetres of a named material such as lead, aluminium or copper.
+    $\var{\mu}$ is the linear attenuation coefficient of that material at the photon energy, in
+    reciprocal metres. Both are positive, and the natural logarithm of two is about 0.693.
+
+    The formula follows from the exponential attenuation law: setting the transmitted fraction equal
+    to one half and taking logarithms leaves the thickness as the logarithm of two over the
+    coefficient. Each further half-value layer halves what remains, so n layers transmit one part in
+    two to the power n. In the same way the tenth-value layer, which cuts the intensity to a tenth,
+    is the natural logarithm of ten over the coefficient, about 3.3 half-value layers.
+
+    The relation is exact only for a narrow, monoenergetic beam. Medical physics usually measures
+    the half-value layer through the air kerma rate instead of the intensity, a definition that goes
+    back to Christen in 1912; the two agree for a single energy but differ for the spread of
+    energies from an X-ray tube. The formula is the attenuation twin of the half-life and decay
+    constant relation.
+
+    At 1 megaelectronvolt, the NIST tables give lead a linear attenuation coefficient of about
+    80.6 per metre, from 0.071 02 square centimetres per gram and 11.35 grams per cubic centimetre,
+    so its half-value layer is about 8.6 millimetres and its tenth-value layer about 2.86
+    centimetres.

@@ -1,0 +1,97 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Van ''t Hoff equation'
+kind: 'equation'
+level: 'intermediate'
+expression: '\ln\left(\frac{\var{K_{2}}}{\var{K_{1}}}\right)=-\frac{\var{\Delta_\mathrm{r} H^{\circ}}}{\const{R}}\left(\frac{1}{\var{T_{2}}}-\frac{1}{\var{T_{1}}}\right)'
+terms:
+  K_{1}:
+    kind: 'symbol'
+    label:
+      en: 'Equilibrium constant at the first temperature'
+  K_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Equilibrium constant at the second temperature'
+  \Delta_\mathrm{r} H^{\circ}:
+    kind: 'symbol'
+    label:
+      en: 'Standard enthalpy of reaction'
+    unit: 'joule-per-mole'
+    identifier: 'DeltaH_r'
+  R:
+    kind: 'constant'
+    ref: 'molar-gas-constant'
+  T_{1}:
+    kind: 'symbol'
+    label:
+      en: 'First temperature'
+    unit: 'kelvin'
+  T_{2}:
+    kind: 'symbol'
+    label:
+      en: 'Second temperature'
+    unit: 'kelvin'
+solutions:
+  K_{2}: 'K_1 * exp(DeltaH_r * (T_2 - T_1) / (R * T_1 * T_2))'
+  K_{1}: 'K_2 * exp(DeltaH_r * (T_1 - T_2) / (R * T_1 * T_2))'
+  \Delta_\mathrm{r} H^{\circ}: 'R * ln(K_2 / K_1) * T_1 * T_2 / (T_2 - T_1)'
+  T_{2}: 'T_1 * DeltaH_r / (DeltaH_r - R * T_1 * ln(K_2 / K_1))'
+  T_{1}: 'T_2 * DeltaH_r / (DeltaH_r + R * T_2 * ln(K_2 / K_1))'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q574862'
+categories:
+  - 'chemistry'
+branches:
+  - 'thermochemistry'
+  - 'chemical-equilibrium'
+aliases:
+  - 'van''t Hoff equation'
+  - 'Van t Hoff equation'
+  - 'temperature dependence of the equilibrium constant'
+  - 'integrated van ''t Hoff equation'
+  - 'ln(K2/K1) = -(ΔH°/R)(1/T2 - 1/T1)'
+  - 'ecuación de van''t Hoff'
+  - 'variación de la constante de equilibrio con la temperatura'
+references:
+  - title: 'LibreTexts Chemistry, R. Peverati, The Live Textbook of Physical Chemistry, 10.2 Temperature Dependence of Keq'
+    url: 'https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/The_Live_Textbook_of_Physical_Chemistry_(Peverati)/10:_Chemical_Equilibrium/10.02:_Temperature_Dependence_of_Keq'
+  - title: 'LibreTexts Chemistry, P. Fleming, Chemical Thermodynamics, 21.1 Temperature Dependence of Equilibrium Constants - the van''t Hoff Equation (Example 1)'
+    url: 'https://chem.libretexts.org/Bookshelves/Physical_and_Theoretical_Chemistry_Textbook_Maps/Chemical_Thermodynamics_(Supplement_to_Shepherd_et_al.)/21%3A_Extension_14_-_Temperature_Dependence_of_Equilibrium/21.01%3A_Temperature_Dependence_of_Equilibrium_Constants_-_the_vant_Hoff_Equation'
+  - title: 'Nobel Prize Outreach, Jacobus H. van ''t Hoff, Biographical (Nobel Prize in Chemistry 1901)'
+    url: 'https://www.nobelprize.org/prizes/chemistry/1901/hoff/biographical/'
+  - title: 'Nobel Prize Outreach, Jacobus H. van ''t Hoff, Facts (Nobel Prize in Chemistry 1901)'
+    url: 'https://www.nobelprize.org/prizes/chemistry/1901/hoff/facts/'
+description:
+  en: >-
+    The van 't Hoff equation relates the equilibrium constants of a reaction at two temperatures to
+    its standard enthalpy of reaction. In thermochemistry and chemical equilibrium it predicts how far
+    heating or cooling shifts an equilibrium, and it extracts a reaction enthalpy from equilibrium
+    constants measured at two temperatures.
+
+    $\var{K_{1}}$ and $\var{K_{2}}$ are the equilibrium constants at the temperatures $\var{T_{1}}$
+    and $\var{T_{2}}$, pure numbers with each concentration taken relative to the standard amount
+    concentration and each pressure relative to the standard pressure; in dilute solutions and ideal
+    gases these stand in for activities and fugacities. The temperatures are absolute, in kelvin, so
+    a Celsius reading needs 273.15 added. $\var{\Delta_\mathrm{r} H^{\circ}}$ is the standard
+    enthalpy of reaction in joules per mole of reaction as written, negative for an exothermic
+    reaction. $\const{R}$ is the molar gas constant, about 8.314 joules per mole kelvin.
+
+    Combining the Gibbs-Helmholtz relation with the link between the standard Gibbs energy and the
+    equilibrium constant gives the slope of the logarithm of K against temperature; integrating it
+    between two temperatures gives this form. Plotted against the reciprocal of the absolute
+    temperature, the logarithm of K falls on a line of slope minus the enthalpy over R. An
+    endothermic reaction has a larger constant when hot, an exothermic one a smaller constant, the
+    quantitative form of Le Chatelier's principle. It is the equilibrium twin of the
+    Clausius-Clapeyron equation for vapour pressure.
+
+    The integration treats the reaction enthalpy as independent of temperature, so the result holds
+    only over a range in which the enthalpy barely changes; the constants themselves must refer to
+    the same standard states at both temperatures.
+
+    Jacobus van 't Hoff set out the relation between the heat of reaction and the shift of
+    equilibrium with temperature in his 1884 Études de dynamique chimique, and received the 1901
+    Nobel Prize in Chemistry. A reaction with a constant of 0.0260 at 25 degrees Celsius
+    and an enthalpy of 32.4 kilojoules per mole has a constant of about 0.0431 at 37 degrees Celsius.

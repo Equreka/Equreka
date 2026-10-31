@@ -1,0 +1,64 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Mole per cubic metre pascal'
+symbol:
+  tex: 'mol/(m^{3}\,Pa)'
+  text: 'mol/(m³·Pa)'
+unitOf: []
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'mole'
+      exp: 1
+    - unit: 'metre'
+      exp: -3
+    - unit: 'pascal'
+      exp: -1
+externalIds:
+  qudt: 'http://qudt.org/vocab/unit/MOL-PER-M3-PA'
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'mole per cubic meter pascal'
+  - 'mole per cubic metre per pascal'
+  - 'mol/(m3 Pa)'
+  - 'mol/(m^3 Pa)'
+  - 'mol m-3 Pa-1'
+  - 'mol/m3/Pa'
+  - 'Hcp unit'
+  - 'mol por metro cúbico y pascal'
+references:
+  - title: 'R. Sander, Compilation of Henry''s law constants (version 5.0.0) for water as solvent, Atmospheric Chemistry and Physics 23 (2023) 10901-12440'
+    url: 'https://doi.org/10.5194/acp-23-10901-2023'
+  - title: 'R. Sander, Henry''s Law Constants (online database, version 5.0.0): symbols, definitions and units'
+    url: 'https://henrys-law.org/henry/'
+  - title: 'R. Sander, W. E. Acree, A. De Visscher, S. E. Schwartz, T. J. Wallington, Henry''s law constants (IUPAC Recommendations 2021), Pure and Applied Chemistry 94 (2022) 71-85'
+    url: 'https://doi.org/10.1515/pac-2020-0302'
+  - title: 'QUDT, unit MOL-PER-M3-PA'
+    url: 'https://qudt.org/vocab/unit/MOL-PER-M3-PA'
+description:
+  en: >-
+    The mole per cubic metre pascal, symbol $\mathrm{mol/(m^{3}\,Pa)}$, is the coherent SI unit of
+    the Henry's law solubility constant, the ratio of the concentration of a gas dissolved in a
+    liquid to the partial pressure of that gas above it. It is a compound unit of solution
+    chemistry with no special name.
+
+    The unit is the mole divided by the cubic metre and by the pascal, so it follows from the
+    definitions of these three SI units. QUDT lists it with the code MOL-PER-M3-PA and assigns it no
+    named quantity kind, and dimensional analysis reduces it to the mole second squared per
+    kilogram square metre.
+
+    Rolf Sander's compilation of Henry's law constants for water, which gathers more than forty
+    thousand values, states every constant in this unit as the solubility constant with the
+    symbol $H^{cp}_{s}$, the aqueous concentration over the gas-phase partial pressure in the limit
+    of infinite dilution. The same constant is often quoted in moles per litre and atmosphere: since
+    a litre is a thousandth of a cubic metre and the standard atmosphere is 101 325 pascals, one
+    mole per cubic metre pascal equals 101.325 moles per litre and atmosphere.
+
+    The IUPAC recommendations on Henry's law constants describe eight variants of the Henry's law constant, some
+    defined as a solubility and others as a volatility, the inverse ratio, which is measured in
+    pascal cubic metres per mole; the unit tells which variant a table uses. Oxygen at
+    298.15 kelvin has $1.3\times10^{-5}$ of this unit in Sander's compilation. The name is spelled
+    mole per cubic meter pascal in American English, and the plural is moles per cubic metre pascal.

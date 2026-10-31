@@ -1,0 +1,83 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Solubility product of a salt of any formula'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{K_\mathrm{sp}}=\left(\frac{\var{x}\var{s}}{\const{c^{\circ}}}\right)^{\var{x}}\left(\frac{\var{y}\var{s}}{\const{c^{\circ}}}\right)^{\var{y}}'
+terms:
+  K_\mathrm{sp}:
+    kind: 'symbol'
+    label:
+      en: 'Solubility product'
+  x:
+    kind: 'symbol'
+    label:
+      en: 'Cations per formula unit'
+    integer: true
+  y:
+    kind: 'symbol'
+    label:
+      en: 'Anions per formula unit'
+    integer: true
+  s:
+    kind: 'symbol'
+    label:
+      en: 'Molar solubility'
+    unit: 'mole-per-cubic-metre'
+  c^{\circ}:
+    kind: 'constant'
+    ref: 'standard-amount-concentration'
+    identifier: 'c_std'
+solutions:
+  K_\mathrm{sp}: '(x * s / c_std)^x * (y * s / c_std)^y'
+  s: 'c_std * (K_sp / (x^x * y^y))^(1 / (x + y))'
+calculator:
+  enabled: true
+  solveFor: ['K_\mathrm{sp}', 's']
+categories:
+  - 'chemistry'
+branches:
+  - 'chemical-equilibrium'
+aliases:
+  - 'solubility product general'
+  - 'general solubility product'
+  - 'Ksp from molar solubility'
+  - 'molar solubility from Ksp'
+  - 'Ksp = (xs)^x (ys)^y'
+  - 'solubility product of MxAy'
+  - 'producto de solubilidad general'
+references:
+  - title: 'OpenStax, Chemistry 2e, 15.1 Precipitation and Dissolution, Solubility Products, Examples 15.2, 15.4 and 15.6'
+    url: 'https://openstax.org/books/chemistry-2e/pages/15-1-precipitation-and-dissolution'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11, p. 59, note 19 (continued): solubility product'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+description:
+  en: >-
+    For a sparingly soluble salt that dissolves into x cations and y anions per formula unit, the
+    solubility product equals the product of each ion concentration, raised to the power of its
+    count, with the concentrations written through the molar solubility and taken relative to the
+    standard amount concentration. In chemical equilibrium it links the equilibrium constant for
+    dissolution to how much of a salt such as calcium fluoride or silver sulfate dissolves.
+
+    $\var{K_\mathrm{sp}}$ is the solubility product, a pure number. $\var{x}$ counts the cations and
+    $\var{y}$ the anions that one formula unit releases, whole numbers with no unit: 1 and 2 for
+    calcium hydroxide, 2 and 1 for silver sulfate. $\var{s}$ is the molar solubility, in moles per
+    cubic metre with moles per litre offered. $\const{c^{\circ}}$ is the standard amount
+    concentration, exactly one mole per litre, so a solubility in moles per litre enters as its
+    plain number.
+
+    When a formula unit dissolves it releases x cations and y anions, so a saturated solution holds
+    x times s of the cation and y times s of the anion. Each appears in the equilibrium constant
+    raised to its stoichiometric coefficient, which gives the expression. Read the other way, the
+    molar solubility is the standard concentration times the (x + y)-th root of the constant
+    divided by x to the x times y to the y; with x and y both one it reduces to the 1:1 formula.
+
+    The relation holds only when dissolving involves nothing but dissociation and solvation, the
+    condition OpenStax sets; ions that pair up or react with water fall outside it. Concentrations
+    stand in for activities, which holds only in dilute solution,
+    and an ion already present lowers the solubility. The constant depends on temperature, and
+    IUPAC writes it Ksol or Ks; Ksp is the textbook symbol. The calculator takes the two counts as
+    inputs.
+
+    Calcium hydroxide has a solubility product of $1.3\times10^{-6}$, so with x = 1 and y = 2 its
+    molar solubility is about $6.9\times10^{-3}$ moles per litre, as OpenStax finds.

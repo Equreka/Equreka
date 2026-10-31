@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Semivida de una reacción de segundo orden'
+terms:
+  t_{1/2}:
+    label: 'Semivida'
+  k:
+    label: 'Constante de velocidad'
+  c_\mathrm{A,0}:
+    label: 'Concentración inicial de A'
+description: >-
+  En una reacción de segundo orden respecto de un único reactivo, la semivida, el tiempo en el que se
+  consume la mitad del reactivo presente al principio, es igual a uno dividido entre la constante de
+  velocidad por la concentración inicial. En la cinética química describe reacciones como la
+  dimerización del butadieno, en las que deben encontrarse dos moléculas de la misma especie.
+
+  $\var{t_{1/2}}$ es la semivida, en segundos. $\var{k}$ es la constante de velocidad de segundo orden,
+  en metros cúbicos por mol y segundo, y la calculadora acepta litros por mol y segundo; describe la
+  desaparición de A. $\var{c_\mathrm{A,0}}$ es la concentración inicial del reactivo A, en moles por
+  metro cúbico, y la calculadora acepta moles por litro. Las tres son positivas.
+
+  La fórmula se deduce de la ley de velocidad integrada de segundo orden, en la que el inverso de la
+  concentración crece en línea recta con el tiempo: cuando la concentración ha bajado a la mitad de su
+  valor inicial, su inverso ha aumentado en uno dividido entre la concentración inicial, que es igual a
+  la constante de velocidad por la semivida. Como el reactivo escasea a medida que avanza la reacción,
+  cada semivida sucesiva dura el doble que la anterior, y la constante de velocidad solo puede
+  obtenerse de una semivida si se conoce la concentración de partida.
+
+  La semivida de primer orden, el logaritmo de dos dividido entre la constante de velocidad, no cambia
+  con la concentración, y la de orden cero crece en proporción a ella; la semivida de segundo orden es
+  inversamente proporcional a la concentración de partida. La fórmula se aplica a las leyes de
+  velocidad en el cuadrado de una sola concentración, a temperatura constante.
+
+  OpenStax da para la dimerización del butadieno una constante de velocidad de 0.0576 litros por mol y
+  minuto; a partir de 0.200 moles por litro, la mitad del butadieno ha desaparecido al cabo de unos
+  86.8 minutos, o 5210 segundos.

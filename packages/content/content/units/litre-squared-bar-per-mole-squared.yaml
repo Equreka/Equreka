@@ -1,0 +1,68 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Litre squared bar per mole squared'
+symbol:
+  tex: 'L^{2}\,bar/mol^{2}'
+  text: 'L²·bar/mol²'
+unitOf: []
+system: 'other'
+compose:
+  of:
+    - unit: 'litre'
+      exp: 2
+    - unit: 'bar'
+      exp: 1
+    - unit: 'mole'
+      exp: -2
+externalIds:
+  wikidata: 'Q97496776'
+categories:
+  - 'chemistry'
+branches:
+  - 'gases'
+aliases:
+  - 'liter squared bar per mole squared'
+  - 'square litre bar per square mole'
+  - 'bar litre squared per mole squared'
+  - 'L2 bar/mol2'
+  - 'L^2 bar/mol^2'
+  - 'bar L2/mol2'
+  - 'bar dm6 mol-2'
+  - 'dm6 bar/mol2'
+  - 'litro cuadrado bar por mol cuadrado'
+references:
+  - title: 'LibreTexts Chemistry, Reference Tables, A8: van der Waal''s Constants for Real Gases'
+    url: 'https://chem.libretexts.org/Ancillary_Materials/Reference/Reference_Tables/Atomic_and_Molecular_Properties/A8%3A_van_der_Waal''s_Constants_for_Real_Gases'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (litre)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: bar'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11, p. 57: van der Waals coefficients'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'Wikidata, square litre bar per square mole (Q97496776)'
+    url: 'https://www.wikidata.org/wiki/Q97496776'
+description:
+  en: >-
+    The litre squared bar per mole squared, symbol $\mathrm{L^{2}\,bar/mol^{2}}$, is the unit in
+    which reference tables give the van der Waals constant a, the measure of how strongly the
+    molecules of a real gas attract one another. It lies outside the SI because both the litre and
+    the bar are non-SI units, although each is defined exactly in SI terms.
+
+    The unit is the square of the litre multiplied by the bar and divided by the square of the
+    mole. The SI Brochure sets the litre equal to the cubic decimetre, a thousandth of a cubic
+    metre, and NIST gives the bar as exactly one hundred thousand pascals. The square of the litre
+    contributes a millionth of the sixth power of the metre, so one litre squared bar per mole
+    squared equals exactly 0.1 pascal cubic metre squared per mole squared, the coherent SI unit of
+    the constant.
+
+    LibreTexts tabulates a in this unit with b in litres per mole, and notes that multiplying by
+    0.986 converts a value to the litre squared atmosphere per mole squared that OpenStax and other
+    general chemistry texts print. Because the bar and the standard atmosphere differ by little
+    more than one percent, values in the two units look alike, and the unit must be checked before
+    a constant is used.
+
+    Carbon dioxide has a = 3.658 in this unit, nitrogen 1.370, water 5.537 and helium 0.0346. The
+    sixth power of the decimetre is the same thing as the square of the litre, so the unit is also
+    written as the bar cubic decimetre squared per mole squared. Wikidata files it as the square
+    litre bar per square mole, and the name is spelled liter squared bar per mole squared in
+    American English.

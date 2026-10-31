@@ -1,0 +1,93 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Van der Waals equation'
+kind: 'equation'
+level: 'intermediate'
+expression: '\left(\mag{p}+\frac{\var{a}\mag{n}^{2}}{\mag{V}^{2}}\right)\left(\mag{V}-\mag{n}\var{b}\right)=\mag{n}\const{R}\mag{T}'
+terms:
+  p:
+    kind: 'magnitude'
+    ref: 'pressure'
+  a:
+    kind: 'symbol'
+    label:
+      en: 'Van der Waals constant a'
+    unit: 'pascal-cubic-metre-squared-per-mole-squared'
+  n:
+    kind: 'magnitude'
+    ref: 'substance'
+  V:
+    kind: 'magnitude'
+    ref: 'volume'
+  b:
+    kind: 'symbol'
+    label:
+      en: 'Van der Waals constant b'
+    unit: 'cubic-metre-per-mole'
+  R:
+    kind: 'constant'
+    ref: 'molar-gas-constant'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+solutions:
+  p: 'n * R * T / (V - n * b) - a * n^2 / V^2'
+  T: '(p + a * n^2 / V^2) * (V - n * b) / (n * R)'
+  a: '(n * R * T / (V - n * b) - p) * V^2 / n^2'
+  b: '(V - n * R * T / (p + a * n^2 / V^2)) / n'
+calculator:
+  enabled: true
+  solveFor: ['p', 'T', 'a', 'b']
+externalIds:
+  wikidata: 'Q254329'
+categories:
+  - 'chemistry'
+branches:
+  - 'gases'
+aliases:
+  - 'van der Waals equation of state'
+  - 'Van der Waals equation for real gases'
+  - 'real gas equation'
+  - '(p + an^2/V^2)(V - nb) = nRT'
+  - '(P + a/Vm^2)(Vm - b) = RT'
+  - 'ecuación de estado de van der Waals'
+  - 'ecuación de los gases reales'
+references:
+  - title: 'OpenStax, Chemistry 2e, 9.6 Non-Ideal Gas Behavior (van der Waals equation, Table 9.3 and Example 9.24)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-6-non-ideal-gas-behavior'
+  - title: 'LibreTexts Chemistry, Reference Tables, A8: van der Waal''s Constants for Real Gases'
+    url: 'https://chem.libretexts.org/Ancillary_Materials/Reference/Reference_Tables/Atomic_and_Molecular_Properties/A8%3A_van_der_Waal''s_Constants_for_Real_Gases'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11, p. 57: van der Waals coefficients'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'Nobel Prize Outreach, Johannes Diderik van der Waals, Biographical (Nobel Prize in Physics 1910)'
+    url: 'https://www.nobelprize.org/prizes/physics/1910/waals/biographical/'
+  - title: 'Nobel Prize Outreach, Johannes Diderik van der Waals, Facts (Nobel Prize in Physics 1910)'
+    url: 'https://www.nobelprize.org/prizes/physics/1910/waals/facts/'
+description:
+  en: >-
+    The van der Waals equation corrects the ideal gas law for two effects the ideal model leaves out,
+    the attraction between molecules and the space the molecules themselves take up, and so gives
+    an equation of state for real gases. In physical chemistry it is the simplest description of a
+    non-ideal gas, and it also covers the liquid state.
+
+    $\mag{p}$ is the absolute pressure in pascals, $\mag{V}$ the volume of the container in cubic
+    metres, $\mag{n}$ the amount of gas in moles and $\mag{T}$ the thermodynamic temperature in
+    kelvin, so a Celsius reading needs 273.15 added. $\const{R}$ is the molar gas constant, about
+    8.314 joules per mole kelvin, exact in the SI. $\var{a}$ measures the strength of the attraction,
+    in pascal cubic metres squared per mole squared, a unit ten times the litre squared bar per mole
+    squared that tables use. $\var{b}$ is the volume excluded by one mole of molecules, in cubic
+    metres per mole, tabulated in litres per mole; both are positive.
+
+    Attraction slows the molecules as they approach a wall, so the pressure they exert is lower than
+    in an ideal gas; the term in a, which grows with the square of the amount per volume, adds that
+    loss back. Subtracting the product of n and b from the volume leaves the free space in which the
+    molecules move. With both constants zero the ideal gas law returns. Solved for the volume
+    or the amount it is a cubic, so the calculator solves only for p, T, a or b.
+
+    Its two constants are fitted to each gas, so the equation improves on the ideal gas law without
+    becoming exact.
+
+    Johannes Diderik van der Waals put forward the equation in his doctoral thesis of 1873, which
+    showed the gaseous and liquid states merging into each other, and won the 1910 Nobel Prize in Physics for this work.
+    With a = 3.658 and b = 0.04286 in table units, 3.46 moles of carbon dioxide in 4.25 litres at
+    229 degrees Celsius exert about 3.28 megapascals, 3.5 percent below the ideal value.

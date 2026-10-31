@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Relativistic velocity addition'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{u}=\frac{\var{u_\mathrm{m}}+\var{v}}{1+\frac{\var{u_\mathrm{m}}\var{v}}{\const{c}^{2}}}'
+terms:
+  u:
+    kind: 'symbol'
+    label:
+      en: 'Velocity of the object in the rest frame'
+    unit: 'metre-per-second'
+  u_\mathrm{m}:
+    kind: 'symbol'
+    label:
+      en: 'Velocity of the object in the moving frame'
+    unit: 'metre-per-second'
+  v:
+    kind: 'symbol'
+    label:
+      en: 'Velocity of the moving frame'
+    unit: 'metre-per-second'
+  c:
+    kind: 'constant'
+    ref: 'speed-of-light'
+solutions:
+  u: '(u_m + v) / (1 + u_m * v / c^2)'
+  u_\mathrm{m}: '(u - v) / (1 - u * v / c^2)'
+  v: '(u - u_m) / (1 - u * u_m / c^2)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q1715792'
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+aliases:
+  - 'velocity-addition formula'
+  - 'relativistic velocity transformation'
+  - 'Einstein velocity addition'
+  - 'relativistic composition of velocities'
+  - 'addition of velocities in special relativity'
+  - 'u = (u'' + v)/(1 + u''v/c^2)'
+  - 'suma relativista de velocidades'
+  - 'transformación relativista de la velocidad'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 5.6 Relativistic Velocity Transformation (Examples 5.9 and 5.10)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/5-6-relativistic-velocity-transformation'
+  - title: 'HyperPhysics, Georgia State University, Einstein Velocity Addition'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/Relativ/einvel.html'
+  - title: 'A. Einstein, Zur Elektrodynamik bewegter Körper, Annalen der Physik 322 (1905) 891-921'
+    url: 'https://doi.org/10.1002/andp.19053221004'
+  - title: 'NIST, CODATA 2022 value: speed of light in vacuum'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?c'
+description:
+  en: >-
+    Relativistic velocity addition gives the velocity of an object in one frame of reference from its
+    velocity in a second frame that moves along the same line. It is the special relativity
+    replacement for the everyday rule of adding velocities, and it guarantees that combining speeds
+    below the speed of light never produces one above it.
+
+    $\var{u}$ is the velocity of the object measured in the frame treated as at rest,
+    $\var{u_\mathrm{m}}$ its velocity measured in the moving frame, and $\var{v}$ the velocity of the
+    moving frame relative to the rest frame, all in metres per second along one common axis.
+    Velocities are positive in the direction in which the moving frame travels and negative against
+    it. $\const{c}$ is the speed of light in vacuum, exactly 299 792 458 metres per second.
+
+    The numerator is the classical sum. For velocities in the same direction the denominator exceeds
+    one and holds the result below that sum; for opposite directions it is below one, and the result
+    is larger in magnitude than the plain sum. When both velocities are small
+    beside the speed of light the product in the denominator is negligible and the result is the
+    familiar sum. If the object moves at the speed of light in the moving frame, the formula returns
+    exactly the speed of light in the rest frame, whatever the frame velocity, which is the constancy
+    of the speed of light. The other two roots reverse the signs, so either frame can serve as the
+    rest frame.
+
+    The relation holds for motion along the direction of the relative velocity; components
+    perpendicular to it transform by a different rule. Every input speed must be below the speed of
+    light. The formula follows from applying the Lorentz transformation of Einstein's 1905 theory
+    to velocities.
+
+    A spaceship approaching Earth at half the speed of light fires a canister ahead of it at 0.75 of
+    that speed relative to the ship; Earth measures the canister at about 0.909 of the speed of
+    light, not the 1.25 a plain sum would give, as OpenStax works out.

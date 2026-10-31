@@ -1,0 +1,83 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Duane-Hunt law'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{\lambda_{\min}}=\frac{\const{h}\const{c}}{\const{e}\mag{V}}'
+terms:
+  \lambda_{\min}:
+    kind: 'symbol'
+    label:
+      en: 'Shortest X-ray wavelength'
+    unit: 'metre'
+  h:
+    kind: 'constant'
+    ref: 'planck-constant'
+  c:
+    kind: 'constant'
+    ref: 'speed-of-light'
+  e:
+    kind: 'constant'
+    ref: 'elementary-charge'
+  V:
+    kind: 'magnitude'
+    ref: 'electric-potential-difference'
+solutions:
+  \lambda_{\min}: 'h * c / (e * V)'
+  V: 'h * c / (e * lambda_min)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q1262682'
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+  - 'optics-and-photometry'
+aliases:
+  - 'Duane–Hunt law'
+  - 'Duane-Hunt relation'
+  - 'Duane-Hunt displacement law'
+  - 'short-wavelength limit of X-rays'
+  - 'cutoff wavelength of bremsstrahlung'
+  - 'X-ray cutoff wavelength'
+  - 'lambda_min = hc/(eV)'
+  - 'ley de Duane-Hunt'
+  - 'longitud de onda de corte de los rayos X'
+references:
+  - title: 'LD Didactic (Leybold), Physics Leaflets P6.3.3.3: Duane-Hunt relation and determination of Planck''s constant'
+    url: 'https://web.mnstate.edu/Lindaas/phys318/Lab/P6333_E.PDF'
+  - title: 'OpenStax, University Physics Volume 3, 8.5 Atomic Spectra and X-rays (braking radiation and its sharp cutoff wavelength)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/8-5-atomic-spectra-and-x-rays'
+  - title: 'On X-Ray Wave-Lengths, Physical Review 6 (1915) 166-172'
+    url: 'https://doi.org/10.1103/PhysRev.6.166'
+  - title: 'NIST, CODATA 2022 value: elementary charge'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?e'
+description:
+  en: >-
+    The Duane-Hunt law gives the shortest wavelength in the X-ray spectrum of a tube as the Planck
+    constant times the speed of light, divided by the elementary charge times the accelerating
+    voltage. In modern physics it explains the sharp short-wavelength edge of the continuous
+    bremsstrahlung spectrum and offers a way to measure the Planck constant.
+
+    $\var{\lambda_{\min}}$ is the shortest X-ray wavelength, also called the cut-off or limit
+    wavelength, in metres. $\mag{V}$ is the accelerating voltage between the cathode and the anode
+    of the tube, in volts. The constants are the Planck constant $\const{h}$, the speed of light
+    $\const{c}$ and the elementary charge $\const{e}$, exactly $1.602\,176\,634\times10^{-19}$
+    coulombs. Both the wavelength and the voltage are positive.
+
+    An electron accelerated through the voltage reaches the anode with a kinetic energy equal to the
+    elementary charge times the voltage. As it decelerates in the target it radiates; the most
+    energetic photon possible takes all of that energy in a single step, and a photon of that
+    energy has the shortest wavelength. Conservation of energy therefore forbids any shorter
+    wavelength, whatever the anode material, so doubling the voltage halves the limit.
+
+    The law fixes only the edge of the continuous spectrum; the characteristic lines of the anode
+    metal sit on top of it at wavelengths set by the atom. Few electrons give up all their energy
+    to one photon, so the intensity near the edge is low, and the measured limit depends on the
+    voltage alone only when that voltage is steady.
+
+    In 1915 William Duane and Franklin L. Hunt found that the shortest wavelength a tube emits varies
+    as the reciprocal of its accelerating voltage. Teaching laboratories still fit the measured limits
+    against the reciprocal voltage to obtain the Planck constant. At 30 kilovolts the shortest
+    wavelength is about 41.3 picometres.

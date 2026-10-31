@@ -1,0 +1,96 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Planck''s radiation law'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{B_{\lambda}}=\frac{2\const{h}\const{c}^{2}}{\mag{\lambda}^{5}}\cdot\frac{1}{e^{\frac{\const{h}\const{c}}{\mag{\lambda}\const{k_\mathrm{B}}\mag{T}}}-1}'
+terms:
+  B_{\lambda}:
+    kind: 'symbol'
+    label:
+      en: 'Spectral radiance'
+    unit: 'watt-per-cubic-metre-steradian'
+  h:
+    kind: 'constant'
+    ref: 'planck-constant'
+  c:
+    kind: 'constant'
+    ref: 'speed-of-light'
+  \lambda:
+    kind: 'magnitude'
+    ref: 'wavelength'
+  k_\mathrm{B}:
+    kind: 'constant'
+    ref: 'boltzmann-constant'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+solutions:
+  B_{\lambda}: '2 * h * c^2 / lambda^5 / (2 * sinh(h * c / (2 * lambda * k_B * T)) * exp(h * c / (2 * lambda * k_B * T)))'
+  T: 'h * c / (lambda * k_B * 2 * atanh((2 * h * c^2 / (lambda^5 * B_lambda)) / (2 + 2 * h * c^2 / (lambda^5 * B_lambda))))'
+calculator:
+  enabled: true
+  solveFor: ['B_{\lambda}', 'T']
+externalIds:
+  wikidata: 'Q212986'
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+  - 'thermodynamics'
+aliases:
+  - 'Planck''s law'
+  - 'Planck law'
+  - 'Planck radiation law'
+  - 'Planck''s law of black-body radiation'
+  - 'blackbody radiation law'
+  - 'black-body spectrum'
+  - 'Planck distribution'
+  - 'ley de Planck'
+  - 'ley de radiación de cuerpo negro de Planck'
+  - 'distribución de Planck'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 6.1 Blackbody Radiation (Equation 6.11)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-1-blackbody-radiation'
+  - title: 'NIST, CODATA 2022 value: first radiation constant for spectral radiance'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?c1l'
+  - title: 'NIST, CODATA 2022 value: second radiation constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?c22ndrc'
+  - title: 'NIST, CODATA 2022 value: Boltzmann constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?k'
+  - title: 'M. Planck, Ueber das Gesetz der Energieverteilung im Normalspectrum, Annalen der Physik 309 (1901) 553-563'
+    url: 'https://doi.org/10.1002/andp.19013090310'
+  - title: 'Nobel Prize Outreach, Max Planck, Facts (Nobel Prize in Physics 1918)'
+    url: 'https://www.nobelprize.org/prizes/physics/1918/planck/facts/'
+description:
+  en: >-
+    Planck's radiation law gives the spectral radiance of a black body, the power it emits for each
+    unit of area, of solid angle and of wavelength interval, as a function of wavelength and
+    absolute temperature. It describes the whole spectrum of thermal radiation, and the energy
+    quanta behind it opened quantum and modern physics.
+
+    $\var{B_{\lambda}}$ is the spectral radiance in watts per cubic metre and steradian. $\mag{\lambda}$
+    is the wavelength in vacuum, in metres, and $\mag{T}$ the thermodynamic temperature of the body,
+    in kelvin; a Celsius reading needs 273.15 added. The constants are the Planck constant
+    $\const{h}$, the speed of light $\const{c}$ and the Boltzmann constant $\const{k_\mathrm{B}}$,
+    $1.380\,649\times10^{-23}\,\mathrm{J/K}$, exact in the SI. NIST lists twice h times the square
+    of c as the first radiation constant for spectral radiance and h times c over the Boltzmann
+    constant as the second radiation constant, about 0.014 39 metre kelvin.
+
+    At long wavelengths the exponential is close to one plus its exponent, and the law reduces to
+    the Rayleigh-Jeans law, a radiance that falls with the fourth power of the wavelength but
+    would grow without bound at short ones, the ultraviolet catastrophe. At short wavelengths the
+    one in the denominator becomes negligible and Wien's approximation remains. The peak follows
+    Wien's displacement law, and integrating over all wavelengths and directions gives the
+    Stefan-Boltzmann law. Written per unit frequency, the radiance is twice h times the cube of the
+    frequency over the square of c, divided by the same exponential term minus one.
+
+    The law describes an ideal black body in thermal equilibrium; real surfaces emit less, by their
+    emissivity. OpenStax states it as the power per unit area leaving a cavity opening, pi times this
+    radiance. The calculator solves for the radiance or the temperature, because the wavelength has
+    no closed form.
+
+    Max Planck solved the black-body problem in 1900 by assuming quantized energies, published the
+    law in 1901 and received the 1918 Nobel Prize in Physics. A black body at 6000 kelvin has a
+    spectral radiance of about $3.03\times10^{13}$ watts per cubic metre and steradian at 560
+    nanometres.

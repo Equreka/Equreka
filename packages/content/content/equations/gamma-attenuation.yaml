@@ -1,0 +1,88 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Attenuation of a gamma-ray beam'
+kind: 'equation'
+level: 'intermediate'
+expression: '\var{I}=\var{I_{0}}e^{-\var{\mu}\var{x}}'
+terms:
+  I:
+    kind: 'symbol'
+    label:
+      en: 'Transmitted intensity'
+    unit: 'watt-per-square-metre'
+  I_{0}:
+    kind: 'symbol'
+    label:
+      en: 'Incident intensity'
+    unit: 'watt-per-square-metre'
+  \mu:
+    kind: 'symbol'
+    label:
+      en: 'Linear attenuation coefficient'
+    unit: 'reciprocal-metre'
+  x:
+    kind: 'symbol'
+    label:
+      en: 'Absorber thickness'
+    unit: 'metre'
+solutions:
+  I: 'I_0 * exp(-mu * x)'
+  I_{0}: 'I * exp(mu * x)'
+  \mu: 'ln(I_0 / I) / x'
+  x: 'ln(I_0 / I) / mu'
+calculator:
+  enabled: true
+categories:
+  - 'physics'
+branches:
+  - 'nuclear-physics'
+aliases:
+  - 'gamma attenuation'
+  - 'gamma-ray attenuation'
+  - 'exponential attenuation law'
+  - 'X-ray attenuation'
+  - 'photon beam attenuation'
+  - 'narrow-beam attenuation'
+  - 'I = I0 e^(-mu x)'
+  - 'atenuación de la radiación gamma'
+  - 'ley de atenuación exponencial'
+references:
+  - title: 'NIST, X-Ray Mass Attenuation Coefficients (J. H. Hubbell and S. M. Seltzer), Section 2: The Mass Attenuation Coefficient'
+    url: 'https://physics.nist.gov/PhysRefData/XrayMassCoef/chap2.html'
+  - title: 'NIST, X-Ray Mass Attenuation Coefficients, Table 3: Lead (Z = 82)'
+    url: 'https://physics.nist.gov/PhysRefData/XrayMassCoef/ElemTab/z82.html'
+  - title: 'NIST, X-Ray Mass Attenuation Coefficients, Table 1: Material constants (density of lead)'
+    url: 'https://physics.nist.gov/PhysRefData/XrayMassCoef/tab1.html'
+  - title: 'IAEA, Radiation Oncology Physics: A Handbook for Teachers and Students (E. B. Podgorsak, ed., 2005), section 1.4.2, Equations 1.67 to 1.70'
+    url: 'https://www-pub.iaea.org/MTCD/Publications/PDF/Pub1196_web.pdf'
+  - title: 'NDE-Ed (Iowa State University), Radiography: Attenuation Coefficient'
+    url: 'https://www.nde-ed.org/Physics/X-Ray/attenuationCoef.xhtml'
+description:
+  en: >-
+    The intensity of a narrow beam of gamma rays or X-rays of a single energy falls exponentially as
+    it crosses an absorber: the transmitted intensity is the incident intensity times the exponential
+    of minus the linear attenuation coefficient times the thickness. In nuclear physics, radiation
+    protection and radiography it is the law behind shielding calculations.
+
+    $\var{I}$ is the intensity that emerges behind the absorber and $\var{I_{0}}$ the intensity that
+    reaches it, both in watts per square metre; only their ratio enters, so any intensity or count
+    rate works if both share it. $\var{\mu}$ is the linear attenuation coefficient of the material
+    at the photon energy, in reciprocal metres, and $\var{x}$ the thickness of the absorber, in
+    metres. Both are positive, and the transmitted intensity never exceeds the incident one.
+
+    Every layer of equal thickness removes the same fraction of the photons that reach it, by
+    absorption or by scattering out of the beam. Writing that the loss in a thin layer is
+    proportional to the intensity and to the thickness, and integrating, gives the exponential. The
+    coefficient is the number of atoms per unit volume times the total cross section per atom;
+    tables list the mass attenuation coefficient, which multiplied by the density gives the linear
+    one. It depends on the photon energy and the atomic number of the absorber.
+
+    The law holds for a monoenergetic, narrow beam in which scattered photons do not reach the
+    detector. In a broad beam, photons scattered towards the detector add to what it records, so the
+    exponential underestimates the transmitted intensity, and a beam with several photon energies
+    needs one coefficient for each. The thickness that halves the intensity is the half-value
+    layer.
+
+    At 1 megaelectronvolt, NIST gives lead a mass attenuation coefficient of 0.071 02 square
+    centimetres per gram and a density of 11.35 grams per cubic centimetre, so $\var{\mu}$ is about
+    80.6 per metre and 5 centimetres of lead transmit about 1.8 percent of the beam.

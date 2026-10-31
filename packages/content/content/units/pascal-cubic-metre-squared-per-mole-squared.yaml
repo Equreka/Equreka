@@ -1,0 +1,63 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Pascal cubic metre squared per mole squared'
+symbol:
+  tex: 'Pa\,m^{6}/mol^{2}'
+  text: 'Pa·m⁶/mol²'
+unitOf: []
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'pascal'
+      exp: 1
+    - unit: 'metre'
+      exp: 6
+    - unit: 'mole'
+      exp: -2
+categories:
+  - 'chemistry'
+branches:
+  - 'gases'
+aliases:
+  - 'pascal cubic meter squared per mole squared'
+  - 'pascal metre to the sixth per mole squared'
+  - 'Pa m6/mol2'
+  - 'Pa m^6/mol^2'
+  - 'Pa m6 mol-2'
+  - 'J m3 mol-2'
+  - 'J m3/mol2'
+  - 'pascal metro cúbico al cuadrado por mol al cuadrado'
+references:
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11, p. 57: van der Waals coefficients'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'LibreTexts Chemistry, Reference Tables, A8: van der Waal''s Constants for Real Gases'
+    url: 'https://chem.libretexts.org/Ancillary_Materials/Reference/Reference_Tables/Atomic_and_Molecular_Properties/A8%3A_van_der_Waal''s_Constants_for_Real_Gases'
+  - title: 'OpenStax, Chemistry 2e, 9.6 Non-Ideal Gas Behavior, Table 9.3'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-6-non-ideal-gas-behavior'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: bar'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+description:
+  en: >-
+    The pascal cubic metre squared per mole squared, symbol $\mathrm{Pa\,m^{6}/mol^{2}}$, is the
+    coherent SI unit of the van der Waals constant a, the coefficient that measures how strongly
+    the molecules of a real gas attract one another. It is a compound unit of the chemistry of
+    gases with no special name.
+
+    The unit is the pascal multiplied by the sixth power of the metre and divided by the square of
+    the mole, so it follows from the definitions of the pascal, the metre and the mole. Because a
+    pascal times a cubic metre is a joule, the same unit can be written as the joule cubic metre
+    per mole squared, the form in which the IUPAC Green Book gives the SI unit of the van der
+    Waals coefficient a.
+
+    The coefficient enters the van der Waals equation through a term that adds a times the square
+    of the amount of gas over the square of the volume to the pressure; with the amount in moles
+    and the volume in cubic metres, that term comes out in pascals only when a carries this unit.
+    Tables of the constant are rarely printed in it: they use the litre squared bar per mole
+    squared, exactly a tenth of this unit, or the litre squared atmosphere per mole squared that
+    OpenStax uses.
+
+    Carbon dioxide has a tabulated a of 3.658 litres squared bar per mole squared, which is 0.3658
+    of this unit; helium, whose atoms attract one another only weakly, has 0.0346 litres squared
+    bar per mole squared. The sixth power of the metre comes from the square of a molar volume, so
+    the unit is also read as cubic metre squared. The name is spelled pascal cubic meter squared
+    per mole squared in American English.

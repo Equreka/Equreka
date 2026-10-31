@@ -1,0 +1,36 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Semivida de una reacción de orden cero'
+terms:
+  t_{1/2}:
+    label: 'Semivida'
+  c_\mathrm{A,0}:
+    label: 'Concentración inicial de A'
+  k:
+    label: 'Constante de velocidad'
+description: >-
+  En una reacción de orden cero, la semivida, el tiempo en el que se consume la mitad del reactivo
+  presente al principio, es igual a la concentración inicial dividida entre el doble de la constante de
+  velocidad. En la cinética química es la semivida de una reacción cuya velocidad no depende de cuánto
+  reactivo queda, como la descomposición del amoníaco sobre tungsteno caliente.
+
+  $\var{t_{1/2}}$ es la semivida, en segundos. $\var{c_\mathrm{A,0}}$ es la concentración inicial del
+  reactivo A, en moles por metro cúbico, y la calculadora acepta moles por litro, y $\var{k}$ la
+  constante de velocidad de orden cero, en moles por metro cúbico y segundo, y la calculadora acepta
+  moles por litro y segundo; describe la desaparición de A. Las tres son positivas.
+
+  La fórmula se deduce de la ley de velocidad integrada de orden cero, en la que la concentración
+  disminuye en línea recta con el tiempo: se ha consumido la mitad de la concentración inicial cuando
+  la constante de velocidad por el tiempo iguala la mitad del valor inicial. La semivida es, por
+  tanto, proporcional a la concentración de partida y se acorta a medida que avanza la reacción, y
+  cada semivida sucesiva dura la mitad que la anterior.
+
+  Esto distingue al orden cero. Una reacción de primer orden tiene una semivida constante, el
+  logaritmo de dos dividido entre la constante de velocidad, independiente de la concentración,
+  mientras que la semivida de segundo orden es inversamente proporcional a ella. Una semivida que
+  crece con la concentración inicial apunta, pues, al orden cero. La cinética de orden cero aparece
+  solo en condiciones concretas: el amoníaco se descompone con orden cero sobre tungsteno pero con
+  primer orden sobre cuarzo, y fuera de esas condiciones la fórmula no se aplica.
+
+  El amoníaco se descompone sobre una superficie de tungsteno caliente con una constante de velocidad
+  de $1.3\times10^{-6}$ moles por litro y segundo, según OpenStax; con una concentración inicial de
+  0.0028 moles por litro, la mitad desaparece al cabo de unos 1080 segundos, unos 18 minutos.

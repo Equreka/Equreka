@@ -1,0 +1,70 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Half-life of a second-order reaction'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{t_{1/2}}=\frac{1}{\var{k}\var{c_\mathrm{A,0}}}'
+terms:
+  t_{1/2}:
+    kind: 'symbol'
+    label:
+      en: 'Half-life'
+    unit: 'second'
+  k:
+    kind: 'symbol'
+    label:
+      en: 'Rate constant'
+    unit: 'cubic-metre-per-mole-second'
+  c_\mathrm{A,0}:
+    kind: 'symbol'
+    label:
+      en: 'Initial concentration of A'
+    unit: 'mole-per-cubic-metre'
+    identifier: 'c_A0'
+solutions:
+  t_{1/2}: '1 / (k * c_A0)'
+  k: '1 / (t_12 * c_A0)'
+  c_\mathrm{A,0}: '1 / (k * t_12)'
+calculator:
+  enabled: true
+categories:
+  - 'chemistry'
+branches:
+  - 'chemical-kinetics'
+aliases:
+  - 'second order half life'
+  - 'second-order half-life'
+  - 't1/2 = 1/(k[A]0)'
+  - 'half-life of a second-order reaction in one reactant'
+  - 'semivida de segundo orden'
+references:
+  - title: 'OpenStax, Chemistry 2e, 12.4 Integrated Rate Laws, Second-Order Reactions, Examples 12.8 and 12.12 and Table 12.2'
+    url: 'https://openstax.org/books/chemistry-2e/pages/12-4-integrated-rate-laws'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.12, p. 64, half life'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+description:
+  en: >-
+    For a reaction that is second order in a single reactant, the half-life, the time in which half
+    of the reactant present at the start is consumed, equals one divided by the rate constant times
+    the initial concentration. In chemical kinetics it describes reactions such as the dimerization
+    of butadiene, in which two molecules of the same species must meet.
+
+    $\var{t_{1/2}}$ is the half-life, in seconds. $\var{k}$ is the second-order rate constant, in
+    cubic metres per mole and second with litres per mole and second offered; it describes the
+    disappearance of A. $\var{c_\mathrm{A,0}}$ is the initial concentration of the reactant A, in
+    moles per cubic metre with moles per litre offered. All three are positive.
+
+    The formula follows from the second-order integrated rate law, in which the reciprocal of the
+    concentration grows in a straight line with time: when the concentration has fallen to half its
+    initial value, its reciprocal has risen by one over the initial concentration, which equals the
+    rate constant times the half-life. Because the reactant thins out as the reaction runs, each
+    successive half-life is twice as long as the one before, and the rate constant can be read from
+    a half-life only if the starting concentration is known.
+
+    The first-order half-life, the logarithm of two over the rate constant, does not change with the
+    concentration at all, and the zero-order one grows in proportion to it; a second-order
+    half-life is inversely proportional to the starting concentration. The formula applies to rate
+    laws in the square of one concentration, at constant temperature.
+
+    OpenStax gives the dimerization of butadiene a rate constant of 0.0576 litres per mole minute;
+    from 0.200 moles per litre, half the butadiene is gone after about 86.8 minutes, or 5210 seconds.

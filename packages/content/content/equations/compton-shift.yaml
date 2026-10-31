@@ -1,0 +1,85 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Compton shift'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{\Delta\lambda}=\frac{\const{h}}{\const{m_\mathrm{e}}\const{c}}\left(1-\cos\mag{\theta}\right)'
+terms:
+  \Delta\lambda:
+    kind: 'symbol'
+    label:
+      en: 'Wavelength shift'
+    unit: 'metre'
+  h:
+    kind: 'constant'
+    ref: 'planck-constant'
+  m_\mathrm{e}:
+    kind: 'constant'
+    ref: 'electron-mass'
+  c:
+    kind: 'constant'
+    ref: 'speed-of-light'
+  \theta:
+    kind: 'magnitude'
+    ref: 'plane-angle'
+solutions:
+  \Delta\lambda: '2 * h / (m_e * c) * sin(theta / 2)^2'
+  \theta: '2 * asin(sqrt(Deltalambda * m_e * c / (2 * h)))'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q171516'
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+  - 'optics-and-photometry'
+aliases:
+  - 'Compton formula'
+  - 'Compton equation'
+  - 'Compton scattering formula'
+  - 'Compton effect'
+  - 'Compton wavelength shift'
+  - 'delta lambda = h/(mc)(1 - cos theta)'
+  - 'efecto Compton'
+  - 'dispersión Compton'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 6.3 The Compton Effect (Equations 6.28 to 6.30 and Example 6.8)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-3-the-compton-effect'
+  - title: 'HyperPhysics, Georgia State University, Compton Scattering'
+    url: 'http://hyperphysics.phy-astr.gsu.edu/hbase/quantum/compton.html'
+  - title: 'NIST, CODATA 2022 value: Compton wavelength'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?ecomwl'
+  - title: 'A. H. Compton, A Quantum Theory of the Scattering of X-rays by Light Elements, Physical Review 21 (1923) 483-502'
+    url: 'https://doi.org/10.1103/PhysRev.21.483'
+  - title: 'Nobel Prize Outreach, Arthur H. Compton, Facts (Nobel Prize in Physics 1927)'
+    url: 'https://www.nobelprize.org/prizes/physics/1927/compton/facts/'
+description:
+  en: >-
+    The Compton shift is the increase in wavelength of an X-ray or gamma-ray photon scattered by a
+    free electron, given by the Compton wavelength of the electron times one minus the cosine of the
+    scattering angle. It describes the Compton effect, the evidence in modern physics that light
+    carries momentum in quanta and scatters off electrons as a particle would.
+
+    $\var{\Delta\lambda}$ is the wavelength of the scattered photon minus that of the incident one,
+    in metres; it is never negative. $\mag{\theta}$ is the scattering angle between the incident and
+    scattered directions, from 0 to 180 degrees. The constants are the Planck constant $\const{h}$,
+    the electron mass $\const{m_\mathrm{e}}$ and the speed of light $\const{c}$. Their combination
+    h over the electron mass times c is the Compton wavelength of the electron, about
+    $2.426\times10^{-12}\,\mathrm{m}$ in the CODATA 2022 value.
+
+    Treating the photon and the electron as colliding particles, with energy and momentum both
+    conserved and the electron at rest at the start, yields the formula. The shift is zero for a
+    photon that continues straight on, one Compton wavelength at 90 degrees and twice that, its
+    largest value, for a photon scattered straight back. The formula holds the angle alone and no trace
+    of the incident wavelength, so the shift stands out only for short wavelengths, where a few
+    picometres are a sizeable fraction.
+
+    The formula assumes a free electron at rest, a good approximation for loosely bound outer
+    electrons. A photon that strikes a tightly bound inner electron in effect collides with the whole
+    atom, whose far larger mass makes the shift negligible, so measured spectra also keep a peak at
+    the original wavelength.
+
+    Arthur Compton observed the effect with X-rays in 1922, published the quantum explanation in
+    1923 and received a share of the Nobel Prize in Physics of 1927 for it. A 71-picometre X-ray scattered
+    by 30 degrees lengthens by about 0.325 picometres.

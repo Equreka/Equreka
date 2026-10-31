@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ecuación de van ''t Hoff'
+terms:
+  K_{1}:
+    label: 'Constante de equilibrio a la primera temperatura'
+  K_{2}:
+    label: 'Constante de equilibrio a la segunda temperatura'
+  \Delta_\mathrm{r} H^{\circ}:
+    label: 'Entalpía estándar de reacción'
+  T_{1}:
+    label: 'Primera temperatura'
+  T_{2}:
+    label: 'Segunda temperatura'
+description: >-
+  La ecuación de van 't Hoff relaciona las constantes de equilibrio de una reacción a dos
+  temperaturas con su entalpía estándar de reacción. En la termoquímica y el equilibrio químico
+  predice cuánto desplaza un equilibrio el calentamiento o el enfriamiento, y obtiene una entalpía de
+  reacción a partir de constantes de equilibrio medidas a dos temperaturas.
+
+  $\var{K_{1}}$ y $\var{K_{2}}$ son las constantes de equilibrio a las temperaturas $\var{T_{1}}$ y
+  $\var{T_{2}}$, números puros en los que cada concentración se toma respecto de la concentración
+  molar estándar y cada presión respecto de la presión estándar; en disoluciones diluidas y gases
+  ideales sustituyen a las actividades y fugacidades. Las temperaturas son absolutas, en kelvin, así
+  que a una lectura en grados Celsius hay que sumarle 273.15. $\var{\Delta_\mathrm{r} H^{\circ}}$ es la
+  entalpía estándar de reacción en julios por mol de reacción tal como está escrita, negativa para
+  una reacción exotérmica. $\const{R}$ es la constante molar de los gases, de unos 8.314 julios por
+  mol y kelvin.
+
+  Al combinar la relación de Gibbs-Helmholtz con el vínculo entre la energía de Gibbs estándar y la
+  constante de equilibrio se obtiene la pendiente del logaritmo de K frente a la temperatura;
+  integrarla entre dos temperaturas da esta forma. Representado frente al inverso de la temperatura
+  absoluta, el logaritmo de K cae sobre una recta de pendiente menos la entalpía entre R. Una
+  reacción endotérmica tiene una constante mayor en caliente y una exotérmica, una menor: es la forma
+  cuantitativa del principio de Le Chatelier. Es la gemela, en el equilibrio, de la ecuación de
+  Clausius-Clapeyron para la presión de vapor.
+
+  La integración trata la entalpía de reacción como independiente de la temperatura, de modo que el
+  resultado solo vale en un intervalo en el que la entalpía apenas cambia; las propias constantes deben
+  referirse a los mismos estados estándar en ambas temperaturas.
+
+  Jacobus van 't Hoff expuso la relación entre el calor de reacción y el desplazamiento del equilibrio
+  con la temperatura en sus Études de dynamique chimique de 1884, y recibió el Premio Nobel de
+  Química de 1901. Una reacción con una constante de 0.0260 a 25 grados Celsius y una entalpía de 32.4
+  kilojulios por mol tiene una constante de unos 0.0431 a 37 grados Celsius.
