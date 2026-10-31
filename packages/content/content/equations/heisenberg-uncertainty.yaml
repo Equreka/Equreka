@@ -1,0 +1,78 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Heisenberg''s uncertainty principle'
+kind: 'equation'
+level: 'intermediate'
+algebraic: false
+expression: '\var{\sigma_{x}}\var{\sigma_{p}}\geq\frac{\const{\hbar}}{2}'
+terms:
+  \sigma_{x}:
+    kind: 'symbol'
+    label:
+      en: 'Standard deviation of position'
+    unit: 'metre'
+  \sigma_{p}:
+    kind: 'symbol'
+    label:
+      en: 'Standard deviation of momentum'
+    unit: 'kilogram-metre-per-second'
+  \hbar:
+    kind: 'constant'
+    ref: 'reduced-planck-constant'
+externalIds:
+  wikidata: 'Q44746'
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+aliases:
+  - 'uncertainty principle'
+  - 'Heisenberg uncertainty principle'
+  - 'Heisenberg uncertainty relation'
+  - 'position-momentum uncertainty relation'
+  - 'indeterminacy principle'
+  - 'Kennard inequality'
+  - 'Δx Δp ≥ ħ/2'
+  - 'dx dp >= hbar/2'
+  - 'principio de incertidumbre'
+  - 'principio de indeterminación de Heisenberg'
+  - 'relación de indeterminación de Heisenberg'
+references:
+  - title: 'OpenStax, University Physics Volume 3, 7.2 The Heisenberg Uncertainty Principle (Equation 7.15, Examples 7.5 and 7.6)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/7-2-the-heisenberg-uncertainty-principle'
+  - title: 'J. Hilgevoord and J. Uffink, The Uncertainty Principle, Stanford Encyclopedia of Philosophy'
+    url: 'https://plato.stanford.edu/entries/qt-uncertainty/'
+  - title: 'W. Heisenberg, Über den anschaulichen Inhalt der quantentheoretischen Kinematik und Mechanik, Zeitschrift für Physik 43 (1927) 172-198'
+    url: 'https://doi.org/10.1007/BF01397280'
+  - title: 'E. H. Kennard, Zur Quantenmechanik einfacher Bewegungstypen, Zeitschrift für Physik 44 (1927) 326-352'
+    url: 'https://doi.org/10.1007/BF01391200'
+  - title: 'NIST, CODATA 2022 value: reduced Planck constant'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?hbar'
+description:
+  en: >-
+    Heisenberg's uncertainty principle, in its exact position-momentum form, states that the
+    product of the standard deviations of the position and the momentum of a particle can never be
+    smaller than half the reduced Planck constant. It is a theorem of quantum mechanics: no state of
+    a particle has both a sharply defined position and a sharply defined momentum along the same
+    axis.
+
+    $\var{\sigma_{x}}$ is the standard deviation of the position along one axis, in metres, and
+    $\var{\sigma_{p}}$ the standard deviation of the momentum component along that same axis, in
+    kilogram metres per second; both are spreads of the results that repeated measurements on
+    identically prepared particles would give, and both are non-negative. $\const{\hbar}$ is the
+    reduced Planck constant, the Planck constant divided by two pi, about
+    $1.054\,571\,817\times10^{-34}\,\mathrm{J\,s}$, exact in the SI.
+
+    The bound comes from the wave description of matter: a wave packet confined to a narrow region
+    must be built from a broad range of wavelengths, and so of momenta. Because the constant is tiny, the limit is irrelevant for everyday bodies but decisive
+    for electrons in atoms, where it sets the scale of the ground-state energy.
+
+    The relation is an inequality, not an equation to solve, so it has no calculator. It concerns
+    the statistical spread of a quantum state, not the error of a particular instrument. The
+    textbook form with a bare Delta x times Delta p, of order h or at least h-bar over two, is a
+    looser statement in which the deltas are rough widths rather than standard deviations.
+
+    Werner Heisenberg introduced the relations in 1927 with an estimate of order h, and E. H.
+    Kennard proved the exact inequality for standard deviations in the same year. If the speed of
+    an electron is known to within one millimetre per second, its position is uncertain by at least
+    about 5.8 centimetres.

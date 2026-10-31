@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Pascal metro cúbico al cuadrado por mol al cuadrado'
+description: >-
+  El pascal metro cúbico al cuadrado por mol al cuadrado, de símbolo $\mathrm{Pa\,m^{6}/mol^{2}}$,
+  es la unidad SI coherente de la constante a de van der Waals, el coeficiente que mide la fuerza
+  con que se atraen las moléculas de un gas real. Es una unidad compuesta de la química de los gases
+  sin nombre especial.
+
+  La unidad es el pascal multiplicado por la sexta potencia del metro y dividido entre el cuadrado
+  del mol, de modo que se deduce de las definiciones del pascal, el metro y el mol. Como un pascal
+  por un metro cúbico es un julio, la misma unidad puede escribirse como julio metro cúbico por mol
+  al cuadrado, la forma en que el Libro Verde de la IUPAC da la unidad SI del coeficiente a de van
+  der Waals.
+
+  El coeficiente entra en la ecuación de van der Waals mediante un término que suma a la presión a
+  por el cuadrado de la cantidad de gas dividido entre el cuadrado del volumen; con la cantidad en
+  moles y el volumen en metros cúbicos, ese término sale en pascales solo si a lleva esta unidad.
+  Las tablas de la constante casi nunca la usan: emplean el litro al cuadrado bar por mol al
+  cuadrado, exactamente la décima parte de esta unidad, o el litro al cuadrado atmósfera por mol al
+  cuadrado que usa OpenStax.
+
+  El dióxido de carbono tiene un valor tabulado de a de 3.658 expresado en litro al cuadrado bar por
+  mol al cuadrado, que equivale a 0.3658 de esta unidad; el helio, cuyos átomos apenas se atraen,
+  tiene 0.0346 en la misma unidad de las tablas. La sexta potencia del metro procede del
+  cuadrado de un volumen molar, por lo que la unidad también se lee como metro cúbico al cuadrado.
+  En inglés estadounidense el nombre se escribe pascal cubic meter squared per mole squared.

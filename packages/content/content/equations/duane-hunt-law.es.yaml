@@ -1,0 +1,32 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de Duane-Hunt'
+terms:
+  \lambda_{\min}:
+    label: 'Longitud de onda mínima de los rayos X'
+description: >-
+  La ley de Duane-Hunt da la longitud de onda más corta del espectro de rayos X de un tubo como la
+  constante de Planck por la velocidad de la luz, dividida entre la carga elemental por la diferencia de
+  potencial, o tensión eléctrica, de aceleración. En la física moderna explica el borde nítido, del lado de las longitudes cortas, del
+  espectro continuo de frenado y permite medir la constante de Planck.
+
+  $\var{\lambda_{\min}}$ es la longitud de onda mínima de los rayos X, o longitud de onda de corte o
+  límite, en metros. $\mag{V}$ es la tensión de aceleración entre el cátodo y el ánodo del
+  tubo, en voltios. Las constantes son la constante de Planck $\const{h}$, la velocidad de la luz
+  $\const{c}$ y la carga elemental $\const{e}$, exactamente $1.602\,176\,634\times10^{-19}$
+  culombios. Tanto la longitud de onda como la tensión son positivas.
+
+  Un electrón acelerado por la tensión llega al ánodo con una energía cinética igual a la carga
+  elemental por la tensión. Al frenarse en el blanco emite radiación; el fotón más energético posible
+  se lleva toda esa energía de una vez y tiene la longitud de onda más corta. La conservación de la
+  energía impide cualquier longitud de onda menor, sea cual sea el ánodo, y duplicar la tensión
+  reduce el límite a la mitad.
+
+  La ley fija solo el borde del espectro continuo; las líneas características del metal del ánodo se
+  superponen a él en longitudes de onda que determina el átomo. Pocos electrones ceden toda su
+  energía a un único fotón, así que la intensidad cerca del borde es baja, y el límite medido depende
+  solo de la tensión cuando esta es estable.
+
+  En 1915 William Duane y Franklin L. Hunt hallaron que la longitud de onda más corta que emite un tubo
+  varía como el inverso de su tensión de aceleración. Los laboratorios docentes ajustan aún los límites
+  medidos frente al inverso de la tensión para obtener la constante de Planck. A 30
+  kilovoltios, la longitud de onda mínima es de unos 41.3 picómetros.

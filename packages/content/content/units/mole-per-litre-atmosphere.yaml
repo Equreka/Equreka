@@ -1,0 +1,61 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Mole per litre atmosphere'
+symbol:
+  tex: 'mol/(L\,atm)'
+  text: 'mol/(L·atm)'
+unitOf: []
+system: 'other'
+compose:
+  of:
+    - unit: 'mole'
+      exp: 1
+    - unit: 'litre'
+      exp: -1
+    - unit: 'standard-atmosphere'
+      exp: -1
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'mole per liter atmosphere'
+  - 'mole per litre per atmosphere'
+  - 'molar per atmosphere'
+  - 'M/atm'
+  - 'mol/(L atm)'
+  - 'mol/L/atm'
+  - 'mol L-1 atm-1'
+  - 'mol por litro y atmósfera'
+references:
+  - title: 'OpenStax, Chemistry 2e, 11.3 Solubility, Henry''s law, Examples 11.1 and 11.2'
+    url: 'https://openstax.org/books/chemistry-2e/pages/11-3-solubility'
+  - title: 'R. Sander, Henry''s Law Constants (online database, version 5.0.0): symbols, definitions, units and converter'
+    url: 'https://henrys-law.org/henry/'
+  - title: 'NIST SP 811, Appendix B.8, Factors for units listed alphabetically: atmosphere, standard'
+    url: 'https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8'
+  - title: 'BIPM, The International System of Units, 9th ed., Table 8 (litre)'
+    url: 'https://www.bipm.org/documents/20126/41483022/SI-Brochure-9-EN.pdf'
+description:
+  en: >-
+    The mole per litre atmosphere, symbol $\mathrm{mol/(L\,atm)}$, is the unit in which chemistry
+    textbooks and many data tables quote Henry's law constants as solubilities: the concentration of
+    a dissolved gas, in moles per litre, for each atmosphere of its partial pressure. It is not an
+    SI unit, because neither the litre nor the standard atmosphere belongs to the SI.
+
+    The unit is the mole divided by the litre and by the standard atmosphere. The SI Brochure sets
+    the litre equal to the cubic decimetre, and NIST gives the standard atmosphere as exactly
+    101 325 pascals, so one mole per litre atmosphere equals exactly 1000/101 325 of a mole per
+    cubic metre pascal, about $9.869\times10^{-3}$ of the coherent SI unit. Both definitions are
+    exact, so the conversion is exact as well.
+
+    Since M is a common shorthand for moles per litre, the unit is often written M/atm, the label
+    Rolf Sander's Henry's law database uses in its converter beside the SI unit. OpenStax writes
+    it as mol/L atm and also works with moles per litre and kilopascal, a unit 101.325 times
+    larger.
+
+    Oxygen in water near room temperature has a Henry's law constant of roughly
+    $1.3\times10^{-3}$ moles per litre and atmosphere, from Sander's value of 1.3 hundred-thousandths
+    in SI units at 298.15 kelvin; OpenStax uses a slightly smaller value at 30 degrees Celsius,
+    where gases dissolve less. The name is spelled mole
+    per liter atmosphere in American English, and the plural is moles per litre atmosphere.

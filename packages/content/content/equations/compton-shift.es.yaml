@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Desplazamiento Compton'
+terms:
+  \Delta\lambda:
+    label: 'Desplazamiento de la longitud de onda'
+description: >-
+  El desplazamiento Compton es el alargamiento que sufre la longitud de onda de un fotón de rayos X o
+  gamma al dispersarse en un electrón libre, dado por la longitud de onda Compton del electrón multiplicada por
+  uno menos el coseno del ángulo de dispersión. Describe el efecto Compton, la prueba en la física
+  moderna de que la luz transporta cantidad de movimiento en cuantos y se dispersa en los electrones
+  como lo haría una partícula.
+
+  $\var{\Delta\lambda}$ resulta de restar a la longitud de onda del fotón dispersado la del incidente,
+  en metros; nunca es negativa. $\mag{\theta}$ es el ángulo de dispersión entre las direcciones incidente
+  y dispersada, de 0 a 180 grados. Las constantes son la constante de Planck $\const{h}$, la masa del
+  electrón $\const{m_\mathrm{e}}$ y la velocidad de la luz $\const{c}$. Su combinación, h dividida
+  entre la masa del electrón por c, es la longitud de onda Compton del electrón, de unos
+  $2.426\times10^{-12}\,\mathrm{m}$ según el valor CODATA 2022.
+
+  Tratar el fotón y el electrón como partículas que chocan, con conservación de la energía y de la
+  cantidad de movimiento y el electrón inicialmente en reposo, conduce a la fórmula. El desplazamiento
+  es nulo para un fotón que sigue de frente, vale una longitud de onda Compton a 90 grados y el doble,
+  su valor máximo, para un fotón dispersado hacia atrás. La fórmula contiene solo el ángulo y ningún
+  rastro de la longitud de onda incidente, así que el desplazamiento solo destaca con longitudes de
+  onda cortas, donde unos pocos picómetros son una fracción apreciable.
+
+  La fórmula supone un electrón libre en reposo, buena aproximación para los electrones externos
+  débilmente ligados. Un fotón que alcanza un electrón interno fuertemente ligado choca en la
+  práctica con el átomo entero, cuya masa mucho mayor hace despreciable el desplazamiento, de modo
+  que los espectros medidos conservan también un pico en la longitud de onda original.
+
+  Arthur Compton observó el efecto con rayos X en 1922, publicó la explicación cuántica en 1923 y
+  compartió el Premio Nobel de Física de 1927 por el efecto. Un rayo X de 71 picómetros dispersado 30
+  grados se alarga unos 0.325 picómetros.

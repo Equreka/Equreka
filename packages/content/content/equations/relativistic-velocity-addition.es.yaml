@@ -1,0 +1,38 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Adición relativista de velocidades'
+terms:
+  u:
+    label: 'Velocidad del objeto en el sistema en reposo'
+  u_\mathrm{m}:
+    label: 'Velocidad del objeto en el sistema móvil'
+  v:
+    label: 'Velocidad del sistema móvil'
+description: >-
+  La adición relativista de velocidades da la velocidad de un objeto en un sistema de referencia a
+  partir de su velocidad en un segundo sistema que se mueve a lo largo de la misma recta. Es la
+  versión de la relatividad especial de la regla cotidiana de sumar velocidades, y garantiza que al
+  combinar rapideces menores que la de la luz nunca se obtiene una mayor.
+
+  $\var{u}$ es la velocidad del objeto medida en el sistema que se toma como en reposo,
+  $\var{u_\mathrm{m}}$ su velocidad medida en el sistema móvil y $\var{v}$ la velocidad del sistema
+  móvil respecto del sistema en reposo, todas en metros por segundo a lo largo de un mismo eje. Las
+  velocidades son positivas en el sentido en que avanza el sistema móvil y negativas en el contrario.
+  $\const{c}$ es la velocidad de la luz en el vacío, exactamente 299 792 458 metros por segundo.
+
+  El numerador es la suma clásica. Para velocidades del mismo sentido el denominador es mayor que uno y
+  mantiene el resultado por debajo de esa suma; para sentidos opuestos es menor que uno, y el
+  resultado es mayor en valor absoluto que la suma sin más. Si ambas velocidades son pequeñas frente a
+  la de la luz, el producto del denominador es despreciable y queda la suma de siempre. Si el objeto
+  se mueve a la velocidad de la luz en el sistema móvil, la fórmula devuelve
+  exactamente la velocidad de la luz en el sistema en reposo, sea cual sea la velocidad del sistema,
+  que es la constancia de la velocidad de la luz. Las otras dos raíces invierten los signos, así que
+  cualquiera de los sistemas puede tomarse en reposo.
+
+  La relación vale para el movimiento en la dirección de la velocidad relativa; las componentes
+  perpendiculares a ella se transforman con otra regla. Toda rapidez de entrada debe ser menor que la
+  de la luz. La fórmula resulta de aplicar a las velocidades la transformación de Lorentz de la
+  teoría de Einstein de 1905.
+
+  Una nave que se acerca a la Tierra a la mitad de la velocidad de la luz dispara hacia delante un
+  contenedor a 0.75 de esa velocidad respecto de la nave; desde la Tierra se mide el contenedor a unos
+  0.909 de la velocidad de la luz, no a los 1.25 que daría una suma sin más, como desarrolla OpenStax.

@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Factor de compresibilidad'
+terms:
+  Z:
+    label: 'Factor de compresibilidad'
+description: >-
+  El factor de compresibilidad, también llamado factor de compresión, mide cuánto se aparta un gas
+  real del comportamiento ideal: es la presión por el volumen molar, dividida entre la constante molar
+  de los gases por la temperatura absoluta. En fisicoquímica y en el estudio de los gases vale uno
+  para un gas ideal, de modo que es la primera prueba de si la ley de los gases ideales sirve en unas
+  condiciones dadas.
+
+  $\var{Z}$ es el factor de compresibilidad, un número puro. $\mag{p}$ es la presión del gas en
+  pascales, absoluta y no manométrica, y $\mag{V_\mathrm{m}}$ su volumen molar, el volumen que ocupa
+  un mol, en metros cúbicos por mol. $\mag{T}$ es la temperatura termodinámica en kelvin, así que a
+  una lectura en grados Celsius hay que sumarle 273.15. $\const{R}$ es la constante molar de los
+  gases, de unos 8.314 julios por mol y kelvin, exacta en el SI.
+
+  Visto de otro modo, el factor es el volumen molar real del gas dividido entre el de un gas ideal a
+  la misma presión y temperatura. Un valor menor que uno significa que la
+  atracción entre las moléculas lleva al gas a ocupar menos espacio que la predicción ideal; un valor
+  mayor que uno indica que domina el tamaño finito de las moléculas, y el gas cuesta más de
+  comprimir que uno ideal.
+
+  En todos los gases el factor tiende a uno cuando la presión baja hacia cero, y por eso la ley de los
+  gases ideales funciona mejor con gases diluidos. OpenStax lo representa hasta unas 1000 atmósferas
+  para el hidrógeno, el nitrógeno, el oxígeno, el metano y el dióxido de carbono: los cuatro últimos
+  bajan primero por debajo de uno, el dióxido de carbono más que ninguno, antes de subir, mientras que
+  el hidrógeno asciende sin parar hasta cerca de 1.7. Las ecuaciones de estado como la de van der
+  Waals predicen el factor a partir de constantes propias de cada gas; el Libro Verde de la IUPAC
+  recoge la magnitud como factor de compresión.
+
+  Para 3.46 moles de dióxido de carbono en 4.25 litros a 229 grados Celsius, las constantes de van der
+  Waals que tabula LibreTexts dan unos 3.28 megapascales frente a 3.40 para un gas ideal, así que el
+  factor queda cerca de 0.965.

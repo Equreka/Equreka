@@ -1,0 +1,24 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Mol por litro y atmósfera'
+description: >-
+  El mol por litro y atmósfera, de símbolo $\mathrm{mol/(L\,atm)}$, es la unidad en que los libros de
+  química y muchas tablas de datos dan las constantes de la ley de Henry como solubilidades: la
+  concentración de un gas disuelto, en moles por litro, por cada atmósfera de su presión parcial. No
+  es una unidad SI, porque ni el litro ni la atmósfera estándar pertenecen al SI.
+
+  La unidad es el mol dividido entre el litro y entre la atmósfera estándar. El folleto del SI fija
+  el litro igual al decímetro cúbico, y el NIST da la atmósfera estándar como exactamente 101 325
+  pascales, de modo que un mol por litro y atmósfera equivale exactamente a 1000/101 325 de un mol
+  por metro cúbico y pascal, unos $9.869\times10^{-3}$ de la unidad SI coherente. Ambas definiciones
+  son exactas, así que la conversión también lo es.
+
+  Como M es una abreviatura habitual de moles por litro, la unidad se escribe a menudo M/atm, la
+  etiqueta que usa la base de datos de la ley de Henry de Rolf Sander en su conversor junto a la
+  unidad SI. OpenStax la escribe mol/L atm y también trabaja con moles por litro y kilopascal, una
+  unidad 101.325 veces mayor.
+
+  El oxígeno en agua cerca de la temperatura ambiente tiene una constante de la ley de Henry de unos
+  $1.3\times10^{-3}$ moles por litro y atmósfera, según el valor de Sander de 1.3 cienmilésimas en
+  unidades SI a 298.15 kelvin; OpenStax usa un valor algo menor a 30 grados Celsius, donde los gases
+  se disuelven menos. En inglés estadounidense el nombre se escribe mole per liter atmosphere,
+  y el plural es moles por litro y atmósfera.

@@ -1,0 +1,81 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Compressibility factor'
+kind: 'formula'
+level: 'intermediate'
+expression: '\var{Z}=\frac{\mag{p}\mag{V_\mathrm{m}}}{\const{R}\mag{T}}'
+terms:
+  Z:
+    kind: 'symbol'
+    label:
+      en: 'Compressibility factor'
+  p:
+    kind: 'magnitude'
+    ref: 'pressure'
+  V_\mathrm{m}:
+    kind: 'magnitude'
+    ref: 'molar-volume'
+  R:
+    kind: 'constant'
+    ref: 'molar-gas-constant'
+  T:
+    kind: 'magnitude'
+    ref: 'thermodynamic-temperature'
+solutions:
+  Z: 'p * V_m / (R * T)'
+  p: 'Z * R * T / V_m'
+  V_\mathrm{m}: 'Z * R * T / p'
+  T: 'p * V_m / (Z * R)'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q736895'
+categories:
+  - 'chemistry'
+branches:
+  - 'gases'
+aliases:
+  - 'compression factor'
+  - 'gas deviation factor'
+  - 'compressibility factor of a real gas'
+  - 'Z factor'
+  - 'Z = pVm/RT'
+  - 'Z = PV/nRT'
+  - 'factor de compresión'
+references:
+  - title: 'OpenStax, Chemistry 2e, 9.6 Non-Ideal Gas Behavior (compressibility factor and Figure 9.35)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/9-6-non-ideal-gas-behavior'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11, p. 57: compression factor'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+  - title: 'LibreTexts Chemistry, Reference Tables, A8: van der Waal''s Constants for Real Gases'
+    url: 'https://chem.libretexts.org/Ancillary_Materials/Reference/Reference_Tables/Atomic_and_Molecular_Properties/A8%3A_van_der_Waal''s_Constants_for_Real_Gases'
+description:
+  en: >-
+    The compressibility factor, also called the compression factor, measures how far a real gas
+    departs from ideal behaviour: it is the pressure times the molar volume, divided by the molar
+    gas constant times the absolute temperature. In physical chemistry and the study of gases it
+    equals one for an ideal gas, so it is the first test of whether the ideal gas law can be
+    trusted under given conditions.
+
+    $\var{Z}$ is the compressibility factor, a pure number. $\mag{p}$ is the pressure of the gas in
+    pascals, absolute rather than gauge, and $\mag{V_\mathrm{m}}$ its molar volume, the volume that
+    one mole occupies, in cubic metres per mole. $\mag{T}$ is the thermodynamic temperature in
+    kelvin, so a Celsius reading needs 273.15 added. $\const{R}$ is the molar gas constant, about
+    8.314 joules per mole kelvin, exact in the SI.
+
+    Read another way, the factor is the molar volume the real gas actually fills divided by the
+    molar volume an ideal gas would fill at the same pressure and temperature. A value below one
+    means the attraction between molecules draws the gas into less space than the ideal prediction;
+    a value above one means the finite size of the molecules dominates, and the gas is harder to
+    compress than an ideal one.
+
+    For every gas the factor approaches one as the pressure falls towards zero, which is why the
+    ideal gas law serves best for dilute gases. OpenStax plots it up to about 1000 atmospheres for
+    hydrogen, nitrogen, oxygen, methane and carbon dioxide: the last four first sink below one, carbon
+    dioxide the furthest, before rising, while hydrogen climbs steadily to about 1.7. Equations of
+    state such as the van der Waals equation predict the factor from constants of each gas; the
+    IUPAC Green Book lists the quantity as the compression factor.
+
+    For 3.46 moles of carbon dioxide in 4.25 litres at 229 degrees Celsius, the van der Waals
+    constants tabulated by LibreTexts give about 3.28 megapascals against 3.40 for an ideal gas,
+    so the factor is close to 0.965.

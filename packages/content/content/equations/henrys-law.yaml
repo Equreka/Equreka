@@ -1,0 +1,87 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.schema.json
+name:
+  en: 'Henry''s law'
+kind: 'equation'
+level: 'intermediate'
+expression: '\mag{c}=\var{k_\mathrm{H}}\var{p_\mathrm{gas}}'
+terms:
+  c:
+    kind: 'magnitude'
+    ref: 'amount-concentration'
+  k_\mathrm{H}:
+    kind: 'symbol'
+    label:
+      en: 'Henry''s law constant'
+    unit: 'mole-per-cubic-metre-pascal'
+  p_\mathrm{gas}:
+    kind: 'symbol'
+    label:
+      en: 'Partial pressure of the gas'
+    unit: 'pascal'
+solutions:
+  c: 'k_H * p_gas'
+  k_\mathrm{H}: 'c / p_gas'
+  p_\mathrm{gas}: 'c / k_H'
+calculator:
+  enabled: true
+externalIds:
+  wikidata: 'Q285804'
+categories:
+  - 'chemistry'
+branches:
+  - 'solutions'
+aliases:
+  - 'Henry law'
+  - 'solubility of gases'
+  - 'gas solubility law'
+  - 'Henry''s law constant'
+  - 'C = kP'
+  - 'c = kH p'
+  - 'ley de Henry'
+  - 'constante de la ley de Henry'
+  - 'solubilidad de los gases'
+references:
+  - title: 'R. Sander, Compilation of Henry''s law constants (version 5.0.0) for water as solvent, Atmospheric Chemistry and Physics 23 (2023) 10901-12440'
+    url: 'https://doi.org/10.5194/acp-23-10901-2023'
+  - title: 'R. Sander, Henry''s Law Constants (online database, version 5.0.0), entry for oxygen'
+    url: 'https://henrys-law.org/henry/casrn/7782-44-7'
+  - title: 'R. Sander, Henry''s Law Constants (online database, version 5.0.0): scientific background, symbols and definitions'
+    url: 'https://henrys-law.org/henry/'
+  - title: 'R. Sander, W. E. Acree, A. De Visscher, S. E. Schwartz, T. J. Wallington, Henry''s law constants (IUPAC Recommendations 2021), Pure and Applied Chemistry 94 (2022) 71-85'
+    url: 'https://doi.org/10.1515/pac-2020-0302'
+  - title: 'W. Henry, Experiments on the quantity of gases absorbed by water, at different temperatures, and under different pressures, Philosophical Transactions of the Royal Society of London 93 (1803) 29-43'
+    url: 'https://doi.org/10.1098/rstl.1803.0004'
+  - title: 'OpenStax, Chemistry 2e, 11.3 Solubility (Henry''s law, Examples 11.1 and 11.2)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/11-3-solubility'
+  - title: 'IUPAC, Quantities, Units and Symbols in Physical Chemistry, 3rd ed. (Green Book), section 2.11, p. 58, Henry''s law constant and note 20'
+    url: 'https://iupac.org/wp-content/uploads/2019/05/IUPAC-GB3-2012-2ndPrinting-PDFsearchable.pdf'
+description:
+  en: >-
+    Henry's law states that the concentration of a gas dissolved in a liquid at equilibrium is
+    proportional to the partial pressure of that gas above the liquid. In solution chemistry and
+    atmospheric science it governs how much oxygen, carbon dioxide or a pollutant a body of water
+    takes up, and how that amount follows the pressure of the gas above it.
+
+    $\mag{c}$ is the amount concentration of the dissolved gas, in moles per cubic metre with moles
+    per litre offered. $\var{p_\mathrm{gas}}$ is the partial pressure of the gas in the phase above
+    the liquid, in pascals. $\var{k_\mathrm{H}}$ is the Henry's law constant in its solubility form,
+    in moles per cubic metre and pascal, with moles per litre and atmosphere offered; it depends on
+    the gas, the solvent and the temperature, and for oxygen it falls as the water warms.
+
+    The constant has several conventions, and their values cannot be compared without them. This
+    form, concentration over pressure, is the one Rolf Sander's compilation uses; many engineering
+    and physical chemistry texts define the inverse, pressure over concentration or over mole
+    fraction, which the IUPAC Green Book calls the Henry's law constant and measures in pascals,
+    and a dimensionless form compares the concentrations in the two phases. A volatility constant
+    is large where a solubility constant is small.
+
+    The law holds in the limit of dilute solutions and for gases that do not react with the
+    solvent; at high pressures or concentrations the proportionality fails. Gases that react with
+    water, such as ammonia, dissolve more than it predicts. Sander's compilation leaves out values
+    obtained well above 1000 hectopascals or above 373 kelvin.
+
+    William Henry reported the measurements behind the law in 1803, from experiments on how much
+    gas water absorbs at different temperatures and pressures. Sander
+    gives oxygen in water at 298.15 kelvin a constant of $1.3\times10^{-5}$ moles per cubic metre
+    and pascal, so an oxygen partial pressure of 20 kilopascals dissolves about 0.26 moles per
+    cubic metre, or $2.6\times10^{-4}$ moles per litre.

@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Litro al cuadrado bar por mol al cuadrado'
+description: >-
+  El litro al cuadrado bar por mol al cuadrado, de símbolo $\mathrm{L^{2}\,bar/mol^{2}}$, es la
+  unidad en que las tablas de referencia dan la constante a de van der Waals, la medida de la fuerza
+  con que se atraen las moléculas de un gas real. Queda fuera del SI porque el litro y el bar son
+  unidades no SI, aunque cada una está definida exactamente en términos del SI.
+
+  La unidad es el cuadrado del litro multiplicado por el bar y dividido entre el cuadrado del mol.
+  El folleto del SI fija el litro igual al decímetro cúbico, la milésima parte del metro cúbico, y el
+  NIST da el bar como exactamente cien mil pascales. El cuadrado del litro aporta una millonésima de
+  la sexta potencia del metro, así que un litro al cuadrado bar por mol al cuadrado equivale
+  exactamente a 0.1 pascal metro cúbico al cuadrado por mol al cuadrado, la unidad SI coherente de
+  la constante.
+
+  LibreTexts tabula a en esta unidad, con b en litros por mol, e indica que multiplicar por 0.986
+  convierte un valor al litro al cuadrado atmósfera por mol al cuadrado que imprimen OpenStax y otros
+  textos de química general. Como el bar y la atmósfera estándar se diferencian en poco más del uno
+  por ciento, los valores en ambas unidades se parecen, y hay que comprobar la unidad antes de usar
+  una constante.
+
+  En esta unidad, el dióxido de carbono tiene a = 3.658, el nitrógeno 1.370, el agua 5.537 y el helio
+  0.0346. La sexta potencia del decímetro es lo mismo que el cuadrado del litro, de modo que la unidad
+  también se escribe como bar decímetro cúbico al cuadrado por mol al cuadrado. Wikidata la registra
+  como litro cuadrado bar por mol cuadrado, y en inglés estadounidense el nombre se escribe liter
+  squared bar per mole squared.

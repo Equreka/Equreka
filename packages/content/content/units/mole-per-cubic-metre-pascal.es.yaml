@@ -1,0 +1,26 @@
+# yaml-language-server: $schema=../../dist/schemas/units.locale.schema.json
+name: 'Mol por metro cúbico y pascal'
+description: >-
+  El mol por metro cúbico y pascal, de símbolo $\mathrm{mol/(m^{3}\,Pa)}$, es la unidad SI coherente
+  de la constante de solubilidad de la ley de Henry, el cociente entre la concentración de un gas
+  disuelto en un líquido y la presión parcial de ese gas sobre él. Es una unidad compuesta de la
+  química de las disoluciones sin nombre especial.
+
+  La unidad es el mol dividido entre el metro cúbico y entre el pascal, de modo que se deduce de las
+  definiciones de esas tres unidades SI. QUDT la registra con el código MOL-PER-M3-PA y no le asigna
+  ninguna magnitud con nombre propio, y el análisis dimensional la reduce al mol segundo al cuadrado
+  por kilogramo y metro cuadrado.
+
+  La recopilación de constantes de la ley de Henry en agua de Rolf Sander, que reúne más de cuarenta
+  mil valores, da cada constante en esta unidad como la constante de solubilidad de símbolo
+  $H^{cp}_{s}$, la concentración acuosa dividida entre la presión parcial en la fase gaseosa en el
+  límite de dilución infinita. La misma constante suele darse en moles por litro y atmósfera: como un
+  litro es la milésima parte de un metro cúbico y la atmósfera estándar vale 101 325 pascales, un mol
+  por metro cúbico y pascal equivale a 101.325 moles por litro y atmósfera.
+
+  Las recomendaciones de la IUPAC sobre las constantes de la ley de Henry describen ocho variantes de
+  la constante, unas definidas como una solubilidad y otras como una volatilidad, el cociente
+  inverso, que se mide en pascal metro cúbico por mol; la unidad indica qué variante usa una tabla.
+  El oxígeno a 298.15 kelvin tiene $1.3\times10^{-5}$ de esta unidad en la recopilación de Sander. En
+  inglés estadounidense el nombre se escribe mole per cubic meter pascal, y el plural es moles por
+  metro cúbico y pascal.

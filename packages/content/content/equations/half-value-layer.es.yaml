@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Capa hemirreductora'
+terms:
+  x_{1/2}:
+    label: 'Capa hemirreductora'
+  \mu:
+    label: 'Coeficiente de atenuación lineal'
+description: >-
+  La capa hemirreductora es el espesor de un absorbente que reduce a la mitad la intensidad de un haz
+  estrecho de fotones; para un haz de una sola energía es igual al logaritmo natural de dos dividido
+  entre el coeficiente de atenuación lineal. En la física nuclear, la protección radiológica y la
+  imagen médica expresa cuán penetrante es un haz de rayos gamma o X y cuán eficaz es un blindaje.
+
+  $\var{x_{1/2}}$ es la capa hemirreductora, en metros, aunque las tablas y las especificaciones de
+  los haces la dan en milímetros o centímetros de un material concreto, como plomo, aluminio o cobre.
+  $\var{\mu}$ es el coeficiente de atenuación lineal de ese material a la energía de los fotones, en
+  metros inversos. Ambos son positivos, y el logaritmo natural de dos vale unos 0.693.
+
+  La fórmula se deduce de la ley de atenuación exponencial: al igualar a un medio la fracción
+  transmitida y tomar logaritmos, el espesor queda como el logaritmo de dos dividido entre el
+  coeficiente. Cada capa hemirreductora adicional reduce a la mitad lo que queda, así que n capas
+  transmiten una parte entre dos elevado a n. Del mismo modo, el espesor que reduce la intensidad a la
+  décima parte, la capa decimorreductora, es el logaritmo natural de diez dividido entre el coeficiente, unas
+  3.3 capas hemirreductoras.
+
+  La relación solo es exacta para un haz estrecho y monoenergético. La física médica suele medir la
+  capa hemirreductora a través de la tasa de kerma en aire en lugar de la intensidad, una definición
+  que se remonta a Christen en 1912; ambas coinciden para una sola energía, pero difieren con el
+  abanico de energías de un tubo de rayos X. La fórmula es la gemela, en la atenuación, de la relación
+  entre la semivida y la constante de desintegración.
+
+  A 1 megaelectronvoltio, las tablas del NIST dan para el plomo un coeficiente de atenuación lineal de
+  unos 80.6 por metro, a partir de 0.071 02 centímetros cuadrados por gramo y 11.35 gramos por
+  centímetro cúbico, de modo que su capa hemirreductora es de unos 8.6 milímetros y su capa
+  decimorreductora de unos 2.86 centímetros.

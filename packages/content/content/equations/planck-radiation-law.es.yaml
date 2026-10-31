@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de radiación de Planck'
+terms:
+  B_{\lambda}:
+    label: 'Radiancia espectral'
+description: >-
+  La ley de radiación de Planck da la radiancia espectral de un cuerpo negro, la potencia que emite
+  por unidad de área, de ángulo sólido y de intervalo de longitud de onda, en función de la longitud
+  de onda y de la temperatura absoluta. Describe todo el espectro de la radiación
+  térmica, y los cuantos de energía en que se apoya abrieron la física cuántica y moderna.
+
+  $\var{B_{\lambda}}$ es la radiancia espectral en vatios por metro cúbico y estereorradián.
+  $\mag{\lambda}$ es la longitud de onda en el vacío, en metros, y $\mag{T}$ la temperatura
+  termodinámica del cuerpo, en kelvin; a una lectura en grados Celsius hay que sumarle 273.15. Las
+  constantes son la constante de Planck $\const{h}$, la velocidad de la luz $\const{c}$ y la
+  constante de Boltzmann $\const{k_\mathrm{B}}$, $1.380\,649\times10^{-23}\,\mathrm{J/K}$, exacta en
+  el SI. El NIST llama al doble de h por el cuadrado de c primera constante de radiación para la
+  radiancia espectral, y a h por c entre la constante de Boltzmann segunda constante de radiación,
+  de unos 0.014 39 metro kelvin.
+
+  A longitudes largas la exponencial se acerca a uno más su exponente y la ley se reduce a la de
+  Rayleigh-Jeans, una radiancia que decrece con la cuarta potencia de la longitud de onda pero que
+  crecería sin límite a longitudes cortas, la catástrofe ultravioleta. A longitudes cortas el uno del
+  denominador es despreciable y queda la aproximación de Wien. El máximo
+  sigue la ley de desplazamiento de Wien, e integrar sobre longitudes de onda y direcciones da la ley de
+  Stefan-Boltzmann. Por unidad de frecuencia, la radiancia es el doble de h por el cubo
+  de la frecuencia entre el cuadrado de c, dividido entre el mismo término exponencial menos uno.
+
+  La ley describe un cuerpo negro ideal en equilibrio térmico; las superficies reales emiten menos,
+  según su emisividad. OpenStax la da como la potencia por unidad de área que sale por la
+  abertura de una cavidad, pi veces esta radiancia. La longitud de onda no tiene forma cerrada, así
+  que la calculadora despeja la radiancia o la temperatura.
+
+  Max Planck resolvió el problema del cuerpo negro en 1900 suponiendo energías cuantizadas, publicó
+  la ley en 1901 y recibió el Premio Nobel de Física de 1918. Un cuerpo negro a 6000 kelvin tiene
+  una radiancia espectral de unos $3.03\times10^{13}$ vatios por metro cúbico y estereorradián a 560
+  nanómetros.

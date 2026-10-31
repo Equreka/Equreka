@@ -1,0 +1,66 @@
+# yaml-language-server: $schema=../../dist/schemas/units.schema.json
+name:
+  en: 'Watt per cubic metre steradian'
+symbol:
+  tex: 'W/(m^{3}\,sr)'
+  text: 'W/(m³·sr)'
+unitOf: []
+system: 'si-derived'
+compose:
+  of:
+    - unit: 'watt'
+      exp: 1
+    - unit: 'metre'
+      exp: -3
+    - unit: 'steradian'
+      exp: -1
+externalIds:
+  qudt: 'http://qudt.org/vocab/unit/W-PER-M2-M-SR'
+categories:
+  - 'physics'
+branches:
+  - 'modern-physics'
+  - 'thermodynamics'
+aliases:
+  - 'watt per cubic meter steradian'
+  - 'watt per square metre metre steradian'
+  - 'watt per square metre per metre per steradian'
+  - 'W/(m3 sr)'
+  - 'W/(m^3 sr)'
+  - 'W m-3 sr-1'
+  - 'W/(m2 m sr)'
+  - 'vatio por metro cúbico y estereorradián'
+references:
+  - title: 'NIST, CODATA 2022 value: first radiation constant for spectral radiance'
+    url: 'https://physics.nist.gov/cgi-bin/cuu/Value?c1l'
+  - title: 'QUDT, unit W-PER-M2-M-SR'
+    url: 'https://qudt.org/vocab/unit/W-PER-M2-M-SR'
+  - title: 'QUDT, quantity kind SpectralRadiance'
+    url: 'https://qudt.org/vocab/quantitykind/SpectralRadiance'
+  - title: 'OpenStax, University Physics Volume 3, 6.1 Blackbody Radiation (Equation 6.11)'
+    url: 'https://openstax.org/books/university-physics-volume-3/pages/6-1-blackbody-radiation'
+description:
+  en: >-
+    The watt per cubic metre steradian, symbol $\mathrm{W/(m^{3}\,sr)}$, is the coherent SI unit of
+    spectral radiance per unit wavelength: the power a surface emits per square metre of its area,
+    per steradian of solid angle and per metre of wavelength interval. It belongs to radiometry and
+    the physics of thermal radiation, and has no special name.
+
+    The unit is the watt divided by the cube of the metre and by the steradian, so it follows from
+    the definitions of the watt, the metre and the steradian. Two of the three metres come from the
+    emitting area and the third from the width of the wavelength band, which is why QUDT records
+    the same unit as the watt per square metre metre steradian, with a conversion factor of one.
+
+    Planck's radiation law gives the spectral radiance of a black body in this unit: NIST lists the
+    first radiation constant for spectral radiance, twice the Planck constant times the square of
+    the speed of light, in watt square metres per steradian, and dividing it by the fifth power of
+    the wavelength leaves watts per cubic metre and steradian. Multiplying by pi steradians turns a
+    radiance into the emitted power per area and wavelength that OpenStax plots, in watts per
+    cubic metre.
+
+    Values are large because a metre is an enormous wavelength interval: a black body at
+    6000 kelvin reaches about $3.03\times10^{13}$ of this unit at 560 nanometres. Spectra are
+    therefore often drawn per square metre, steradian and nanometre or micrometre, units one
+    billion and one million times larger that keep the numbers small; QUDT lists them under its
+    spectral radiance kind. The name is spelled watt per cubic
+    meter steradian in American English, and the plural is watts per cubic metre steradian.

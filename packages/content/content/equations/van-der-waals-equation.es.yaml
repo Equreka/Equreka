@@ -1,0 +1,35 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ecuación de van der Waals'
+terms:
+  a:
+    label: 'Constante a de van der Waals'
+  b:
+    label: 'Constante b de van der Waals'
+description: >-
+  La ecuación de van der Waals corrige la ley de los gases ideales por dos efectos que el modelo ideal
+  omite, la atracción entre las moléculas y el espacio que ocupan las propias moléculas, y da así una
+  ecuación de estado para los gases reales. En fisicoquímica es la descripción más sencilla de un gas
+  no ideal, y abarca también el estado líquido.
+
+  $\mag{p}$ es la presión absoluta en pascales, $\mag{V}$ el volumen del recipiente en metros cúbicos,
+  $\mag{n}$ la cantidad de gas en moles y $\mag{T}$ la temperatura termodinámica en kelvin, así que a
+  una lectura en grados Celsius hay que sumarle 273.15. $\const{R}$ es la constante molar de los
+  gases, de unos 8.314 julios por mol y kelvin, exacta en el SI. $\var{a}$ mide la intensidad de la atracción, en
+  pascal metro cúbico al cuadrado por mol al cuadrado, una unidad diez veces mayor que el litro al
+  cuadrado bar por mol al cuadrado de las tablas. $\var{b}$ es el volumen excluido por un mol de
+  moléculas, en metros cúbicos por mol, tabulado en litros por mol; ambas son positivas.
+
+  La atracción frena las moléculas al acercarse a una pared, de modo que la presión que ejercen es
+  menor que en un gas ideal; el término en a, que crece con el cuadrado de la cantidad por volumen,
+  devuelve esa pérdida. Restar al volumen el producto de n por b deja el espacio libre en que se
+  mueven las moléculas. Con ambas constantes iguales a cero se recupera la ley de los gases ideales.
+  Despejada para el volumen o la cantidad es cúbica, así que la calculadora solo despeja p, T, a o b.
+
+  Sus dos constantes se ajustan a cada gas, de modo que la ecuación mejora la ley de los gases ideales
+  sin llegar a ser exacta.
+
+  Johannes Diderik van der Waals propuso la ecuación en su tesis doctoral de 1873 sobre la continuidad
+  de los estados gaseoso y líquido, y recibió el Premio Nobel de Física de 1910 por este trabajo. Con
+  a = 3.658 y b = 0.04286 en las unidades de las tablas, 3.46 moles de dióxido de carbono en 4.25
+  litros a 229 grados Celsius ejercen unos 3.28 megapascales, alrededor de un 3.5 por ciento menos que
+  el valor ideal.

@@ -1,0 +1,40 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Atenuación de un haz de rayos gamma'
+terms:
+  I:
+    label: 'Intensidad transmitida'
+  I_{0}:
+    label: 'Intensidad incidente'
+  \mu:
+    label: 'Coeficiente de atenuación lineal'
+  x:
+    label: 'Espesor del absorbente'
+description: >-
+  La intensidad de un haz estrecho de rayos gamma o X de una sola energía disminuye de forma
+  exponencial al atravesar un absorbente: la intensidad transmitida es la intensidad incidente por la
+  exponencial de menos el coeficiente de atenuación lineal por el espesor. En la física nuclear, la
+  protección radiológica y la radiografía es la ley en que se basan los cálculos de blindaje.
+
+  $\var{I}$ es la intensidad que sale tras el absorbente e $\var{I_{0}}$ la que llega a él, ambas en
+  vatios por metro cuadrado; solo entra su cociente, así que sirve cualquier intensidad o tasa de
+  recuento si ambas la comparten. $\var{\mu}$ es el coeficiente de atenuación lineal del material a la
+  energía de los fotones, en metros inversos, y $\var{x}$ el espesor del absorbente, en metros. Ambos
+  son positivos, y la intensidad transmitida nunca supera a la incidente.
+
+  Cada capa del mismo espesor elimina la misma fracción de los fotones que le llegan, por absorción o
+  por dispersión fuera del haz. Escribir que la pérdida en una capa delgada es proporcional a la
+  intensidad y al espesor, e integrar, conduce a la exponencial. El coeficiente es el número de átomos
+  por unidad de volumen por la sección eficaz total por átomo; las tablas dan el coeficiente de
+  atenuación másico, que multiplicado por la densidad da el lineal. Depende de la energía de los
+  fotones y del número atómico del absorbente.
+
+  La ley vale para un haz estrecho y monoenergético en el que los fotones dispersados no alcanzan el
+  detector. En un haz ancho, los fotones dispersados hacia el detector se suman a lo que registra, de
+  modo que la exponencial subestima la intensidad transmitida, y un haz con varias energías de fotón
+  necesita un coeficiente para cada una. El espesor que reduce la intensidad a la mitad es la capa
+  hemirreductora.
+
+  A 1 megaelectronvoltio, el NIST da para el plomo un coeficiente de atenuación másico de 0.071 02
+  centímetros cuadrados por gramo y una densidad de 11.35 gramos por centímetro cúbico, así que
+  $\var{\mu}$ vale unos 80.6 por metro y 5 centímetros de plomo transmiten cerca del 1.8 por ciento del
+  haz.

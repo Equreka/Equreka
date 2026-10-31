@@ -1,0 +1,37 @@
+# yaml-language-server: $schema=../../dist/schemas/equations.locale.schema.json
+name: 'Ley de Henry'
+terms:
+  k_\mathrm{H}:
+    label: 'Constante de la ley de Henry'
+  p_\mathrm{gas}:
+    label: 'Presión parcial del gas'
+description: >-
+  La ley de Henry establece que la concentración de un gas disuelto en un líquido en equilibrio es
+  proporcional a la presión parcial de ese gas sobre el líquido. En la química de las disoluciones y
+  en la ciencia atmosférica determina cuánto oxígeno, dióxido de carbono o contaminante absorbe una
+  masa de agua, y cómo esa cantidad sigue a la presión del gas que tiene encima.
+
+  $\mag{c}$ es la concentración de cantidad de sustancia del gas disuelto, en moles por metro cúbico,
+  y la calculadora acepta moles por litro. $\var{p_\mathrm{gas}}$ es la presión parcial del gas en la
+  fase situada sobre el líquido, en pascales. $\var{k_\mathrm{H}}$ es la constante de la ley de Henry
+  en su forma de solubilidad, en moles por metro cúbico y pascal, y la calculadora acepta moles por
+  litro y atmósfera; depende del gas, del disolvente y de la temperatura, y en el caso del oxígeno
+  disminuye al calentarse el agua.
+
+  La constante tiene varias convenciones, y sus valores no pueden compararse sin ellas. Esta forma,
+  concentración entre presión, es la que usa la recopilación de Rolf Sander; muchos textos de
+  ingeniería y de fisicoquímica definen la inversa, presión entre concentración o entre fracción
+  molar, que el Libro Verde de la IUPAC llama constante de la ley de Henry y mide en pascales, y una
+  forma adimensional compara las concentraciones en las dos fases. Una constante de volatilidad es
+  grande donde una de solubilidad es pequeña.
+
+  La ley vale en el límite de las disoluciones diluidas y para gases que no reaccionan con el
+  disolvente; a presiones o concentraciones altas la proporcionalidad falla. Los gases que reaccionan
+  con el agua, como el amoníaco, se disuelven más de lo que predice. La recopilación de Sander deja
+  fuera los valores obtenidos muy por encima de 1000 hectopascales o por encima de 373 kelvin.
+
+  William Henry publicó en 1803 las medidas en que se basa la ley, obtenidas en experimentos sobre
+  cuánto gas absorbe el agua a distintas temperaturas y presiones. Sander da para el oxígeno
+  en agua a 298.15 kelvin una constante de $1.3\times10^{-5}$ moles por metro cúbico y pascal, de modo
+  que una presión parcial de oxígeno de 20 kilopascales disuelve unos 0.26 moles por metro cúbico, o
+  $2.6\times10^{-4}$ moles por litro.
