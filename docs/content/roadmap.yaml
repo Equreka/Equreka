@@ -184,6 +184,12 @@ waves:
       - { id: fields-waves-and-heat, title: 'Waves, heat, electromagnetism and optics', branches: [waves-and-oscillations, thermodynamics, electromagnetism, optics-and-photometry] }
       - { id: quantum-nuclear-and-chemistry, title: 'Modern and nuclear physics, chemistry', branches: [modern-physics, nuclear-physics, gases, solutions, thermochemistry, chemical-kinetics, chemical-equilibrium] }
     paths: []
+  - id: 'E1'
+    title: 'Elements foundation: the periodic-table branch and the period 1 and 2 seed (ADR 0016)'
+    milestone: 1
+    slices:
+      - { id: periodic-table, title: 'Periodic-table branch and elements hydrogen to neon', branches: [periodic-table] }
+    paths: []
 
 entries:
   # W1.1 · mathematics
@@ -1058,3 +1064,16 @@ entries:
   - { collection: units, slug: mole-per-cubic-metre-pascal, action: create, wave: 'W17', slice: quantum-nuclear-and-chemistry, branches: [solutions], milestone: 2, flags: [], name: 'Mole per cubic metre pascal', note: 'compose mole, metre^-3, pascal^-1; the SI anchor of the Henry solubility constant H^cp (Sander compilation); unitOf [] unless QUDT has the exact kind', state: planned }
   - { collection: units, slug: mole-per-litre-atmosphere, action: create, wave: 'W17', slice: quantum-nuclear-and-chemistry, branches: [solutions], milestone: 2, flags: [], name: 'Mole per litre atmosphere', note: 'compose mole, litre^-1, standard-atmosphere^-1; the M/atm in which textbooks quote Henry constants', state: planned }
   - { collection: units, slug: watt-per-cubic-metre-steradian, action: create, wave: 'W17', slice: quantum-nuclear-and-chemistry, branches: [modern-physics], milestone: 2, flags: [], name: 'Watt per cubic metre steradian', note: 'compose watt, metre^-3, steradian^-1; the unit of spectral radiance per wavelength B_lambda in planck-radiation-law; unitOf a magnitude only if QUDT has the exact kind; rename to the QUDT-matching slug if needed and update this entry', state: planned }
+
+  # E1 · periodic-table
+  - { collection: branches, slug: periodic-table, action: create, wave: 'E1', slice: periodic-table, branches: [], milestone: 1, flags: [], name: 'Periodic table', note: 'chemistry, order 9; Wikidata Q10693', state: planned }
+  - { collection: elements, slug: hydrogen, action: create, wave: 'E1', slice: periodic-table, branches: [periodic-table], milestone: 1, flags: [], name: 'Hydrogen', state: planned }
+  - { collection: elements, slug: helium, action: create, wave: 'E1', slice: periodic-table, branches: [periodic-table], milestone: 1, flags: [], name: 'Helium', state: planned }
+  - { collection: elements, slug: lithium, action: create, wave: 'E1', slice: periodic-table, branches: [periodic-table], milestone: 1, flags: [], name: 'Lithium', state: planned }
+  - { collection: elements, slug: beryllium, action: create, wave: 'E1', slice: periodic-table, branches: [periodic-table], milestone: 1, flags: [], name: 'Beryllium', state: planned }
+  - { collection: elements, slug: boron, action: create, wave: 'E1', slice: periodic-table, branches: [periodic-table], milestone: 1, flags: [], name: 'Boron', state: planned }
+  - { collection: elements, slug: carbon, action: create, wave: 'E1', slice: periodic-table, branches: [periodic-table], milestone: 1, flags: [], name: 'Carbon', state: planned }
+  - { collection: elements, slug: nitrogen, action: create, wave: 'E1', slice: periodic-table, branches: [periodic-table], milestone: 1, flags: [], name: 'Nitrogen', state: planned }
+  - { collection: elements, slug: oxygen, action: create, wave: 'E1', slice: periodic-table, branches: [periodic-table], milestone: 1, flags: [], name: 'Oxygen', state: planned }
+  - { collection: elements, slug: fluorine, action: create, wave: 'E1', slice: periodic-table, branches: [periodic-table], milestone: 1, flags: [], name: 'Fluorine', state: planned }
+  - { collection: elements, slug: neon, action: create, wave: 'E1', slice: periodic-table, branches: [periodic-table], milestone: 1, flags: [], name: 'Neon', state: planned }

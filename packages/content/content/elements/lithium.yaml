@@ -1,0 +1,126 @@
+# yaml-language-server: $schema=../../dist/schemas/elements.schema.json
+name:
+  en: 'Lithium'
+symbol: 'Li'
+atomicNumber: 3
+atomicWeight:
+  kind: 'interval'
+  low: '6.938'
+  high: '6.997'
+  abridged:
+    value: '6.94'
+    uncertainty: '0.06'
+    source:
+      name: 'CIAAW, Abridged Standard Atomic Weights 2024'
+      url: 'https://www.ciaaw.org/abridged-atomic-weights.htm'
+      ref: 'Z = 3, lithium'
+  source:
+    name: 'CIAAW, Standard Atomic Weights 2024'
+    url: 'https://www.ciaaw.org/atomic-weights.htm'
+    ref: 'Z = 3, lithium: [6.938, 6.997], note m'
+electronConfiguration:
+  value: '[He] 2s1'
+  source:
+    name: 'NIST Atomic Spectra Database, version 5.12'
+    url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+    ref: 'Li I: ground shells 1s2.2s'
+ionizationEnergies:
+  '1':
+    value: '5.391714996'
+    unit: 'electronvolt'
+    uncertainty: '0.000000022'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'Li I: ionization energy; bibliography L12261'
+  '2':
+    value: '75.6400970'
+    unit: 'electronvolt'
+    uncertainty: '0.0000012'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'Li II: ionization energy in parentheses (ab initio); bibliography L10054'
+  '3':
+    value: '122.45435913'
+    unit: 'electronvolt'
+    uncertainty: '0.00000011'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'Li III: ionization energy in parentheses (ab initio); bibliography L19200'
+covalentRadius:
+  value: '128'
+  unit: 'picometre'
+  source:
+    name: 'Cordero et al., Covalent radii revisited, Dalton Transactions 2008 (21), 2832–2838'
+    url: 'https://doi.org/10.1039/B801115J'
+    via:
+      name: 'Wikidata: lithium (Q568), covalent radius (P14937), statement citing doi:10.1039/B801115J'
+      url: 'https://www.wikidata.org/wiki/Q568#P14937'
+meltingPoint:
+  value: '453.690'
+  unit: 'kelvin'
+  note:
+    en: 'At 100 kPa (1 bar)'
+  source:
+    name: 'NIST-JANAF Thermochemical Tables, 4th ed. (Chase 1998)'
+    url: 'https://janaf.nist.gov/tables/Li-001.html'
+    ref: 'Li (ref): crystal–liquid transition'
+boilingPoint:
+  value: '1620.120'
+  unit: 'kelvin'
+  note:
+    en: 'At 100 kPa (1 bar)'
+  source:
+    name: 'NIST-JANAF Thermochemical Tables, 4th ed. (Chase 1998)'
+    url: 'https://janaf.nist.gov/tables/Li-001.html'
+    ref: 'Li (ref): liquid–ideal gas transition, fugacity 1 bar'
+standardState:
+  value: 'solid'
+  source:
+    name: 'NIST-JANAF Thermochemical Tables, 4th ed. (Chase 1998)'
+    url: 'https://janaf.nist.gov/tables/Li-001.html'
+    ref: 'Li (ref): crystal at 298.15 K, below the crystal–liquid transition'
+categories:
+  - 'chemistry'
+branches:
+  - 'periodic-table'
+externalIds:
+  wikidata: 'Q568'
+references:
+  - title: 'CIAAW, Standard Atomic Weights 2024 and Abridged Standard Atomic Weights 2024'
+    url: 'https://www.ciaaw.org/atomic-weights.htm'
+  - title: 'NIST, Atomic Spectra Database, version 5.12, Ground States and Ionization Energies'
+    url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+  - title: 'NIST-JANAF Thermochemical Tables, Lithium (Li), reference state'
+    url: 'https://janaf.nist.gov/tables/Li-001.html'
+  - title: 'OpenStax, Chemistry 2e, 2.5 The Periodic Table'
+    url: 'https://openstax.org/books/chemistry-2e/pages/2-5-the-periodic-table'
+  - title: 'OpenStax, Chemistry 2e, 6.4 Electronic Structure of Atoms (Electron Configurations)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/6-4-electronic-structure-of-atoms-electron-configurations'
+description:
+  en: >-
+    Lithium, symbol Li, is the chemical element with atomic number 3, the first element of period
+    2 and the lightest of the alkali metals, the group 1 elements other than hydrogen. Its
+    ground-state electron configuration is $[\mathrm{He}]\,2s^{1}$: two core electrons repeat the
+    configuration of helium, and one valence electron starts the second shell in the 2s subshell,
+    which places lithium in the s-block.
+
+    That single valence electron is loosely held. The first ionization energy of lithium is about
+    $5.39\,\mathrm{eV}$, less than a quarter of the value for helium, while the second, which has
+    to break into the helium-like core, is about fourteen times the first. Every alkali metal has
+    this one valence electron, and a shared count of valence electrons is what makes the members of
+    a group react alike: each alkali metal forms a compound with hydrogen that holds one atom of the
+    metal per hydrogen atom.
+
+    CIAAW gives the standard atomic weight of lithium as the interval from 6.938 to 6.997, with
+    6.94 as the abridged value, and warns that lithium sold commercially may have had its isotopic
+    composition altered, so that its atomic weight departs considerably from the tabulated one.
+
+    Lithium is a solid metal at room temperature. The NIST-JANAF tables, whose standard pressure is
+    the bar, a little below atmospheric pressure, put the melting of the crystal at
+    $453.690\,\mathrm{K}$ and the boiling of the liquid at a temperature more than three and a half
+    times higher.

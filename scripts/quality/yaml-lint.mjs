@@ -26,6 +26,8 @@ const DECIMAL_FIELDS = [
 	'input',
 	'num',
 	'den',
+	'low',
+	'high',
 ];
 
 /**

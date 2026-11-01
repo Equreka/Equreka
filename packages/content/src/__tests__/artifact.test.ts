@@ -3,7 +3,13 @@ import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync, statSync } 
 import { tmpdir } from 'node:os';
 import { join, relative, sep } from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { COLLECTIONS, type CollectionName, engineSlice, SCHEMA_VERSION } from '@equreka/schema';
+import {
+	COLLECTIONS,
+	type CollectionName,
+	engineSlice,
+	SCHEMA_VERSION,
+	UNSURFACED_COLLECTIONS,
+} from '@equreka/schema';
 import MiniSearch from 'minisearch';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
 import {
@@ -13,12 +19,14 @@ import {
 	MOBILE_STORAGE_CEILING_BYTES,
 	MOBILE_TRANSFER_BUDGET_BYTES,
 } from '../artifact-budgets.js';
+import { periodicPosition } from '../periodic-table.js';
 import { type CompileReport, compileContent } from '../pipeline/compile.js';
 import {
 	budgetIssue,
 	buildPresentationSlices,
 	mobileBundledBytes,
 	mobileTransferSize,
+	searchDocuments,
 } from '../pipeline/emit.js';
 import { buildMathArtifact } from '../pipeline/math-artifact.js';
 import { stableStringify } from '../pipeline/stable-json.js';
@@ -481,6 +489,51 @@ describe('build over the real corpus', () => {
 		expect(categoriesOf('branches', 'thermodynamics')).toEqual(['physics']);
 		expect(categoriesOf('categories', 'physics')).toEqual([]);
 		expect(catalog.every((row) => Array.isArray(row.categories))).toBe(true);
+	});
+
+	it('derives each element position from its atomic number into the presentation slice', () => {
+		const elements = readSlice<{ atomicNumber: number; position: unknown; symbolText: string }>(
+			'elements',
+		);
+		expect(Object.keys(elements).sort()).toEqual([...report.corpus.elements.keys()].sort());
+		for (const [slug, element] of Object.entries(elements)) {
+			expect(element.position, slug).toEqual(periodicPosition(element.atomicNumber));
+			expect(element.symbolText, slug).toBe(report.corpus.elements.get(slug)?.symbol.text);
+		}
+	});
+
+	it('keeps an unsurfaced collection out of search and the mobile bundle while emitting its slice', () => {
+		expect(UNSURFACED_COLLECTIONS.length).toBeGreaterThan(0);
+		for (const collection of UNSURFACED_COLLECTIONS) {
+			const slice = report.artifacts.find(
+				(artifact) => artifact.relPath === `presentation/${collection}.json`,
+			);
+			expect(slice?.budget?.mobileBundled, collection).toBe(false);
+			for (const locale of SEARCH_LOCALES) {
+				const catalog = readJson<CatalogLiteEntry[]>('search', `catalog-lite.${locale}.json`);
+				const leads = readJson<SearchLeads>('search', `leads.${locale}.json`);
+				expect(catalog.filter((row) => row.collection === collection)).toEqual([]);
+				expect(Object.keys(leads).filter((id) => id.startsWith(`${collection}:`))).toEqual([]);
+			}
+		}
+	});
+
+	it('indexes each element by symbol and localized name for the search it joins once surfaced', () => {
+		for (const locale of SEARCH_LOCALES) {
+			const documents = searchDocuments(report.corpus, locale, ['elements']);
+			expect(documents.map((document) => document.slug)).toEqual(
+				[...report.corpus.elements.keys()].sort(),
+			);
+			for (const document of documents) {
+				const element = report.corpus.elements.get(document.slug);
+				expect(document, document.slug).toMatchObject({
+					id: `elements:${document.slug}`,
+					collection: 'elements',
+					name: element?.name[locale] ?? element?.name.en,
+					symbolText: element?.symbol.text,
+				});
+			}
+		}
 	});
 
 	it('emits a draft-07 authoring JSON Schema per collection for editors', () => {

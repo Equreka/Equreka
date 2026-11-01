@@ -2,6 +2,7 @@ import { readFileSync } from 'node:fs';
 import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { COLLECTIONS } from '@equreka/schema';
+import { checkElements } from './elements.js';
 import { type EmittedArtifact, emitArtifacts } from './emit.js';
 import { checkIntegrity, emptyBranches, orphanMagnitudes } from './integrity.js';
 import { loadContent } from './load.js';
@@ -53,7 +54,8 @@ function defaultPackageRoot(): string {
 /**
  * Orchestrates the pipeline. `check` runs stages 1–4 (load, validate,
  * locale completeness, prefix expansion, integrity, resolve + term anchors +
- * dimensional consistency + verify math + TeX lint + MathJax render) with no
+ * element checks + dimensional consistency + verify math + TeX lint +
+ * MathJax render) with no
  * output; `build` adds stage 5 emission into dist/. Locale completeness and
  * the orphan-magnitude warning read the unexpanded corpus: a generated unit
  * is no authored text to translate, and its unitOf is copied from its base
@@ -95,6 +97,7 @@ export async function compileContent(
 	const resolution = resolveUnits(corpus);
 	issues.push(...resolution.issues);
 	issues.push(...checkTermAnchors(corpus, resolution.resolved));
+	issues.push(...checkElements(corpus, resolution.resolved));
 
 	issues.push(...checkSolutionDimensions(corpus));
 

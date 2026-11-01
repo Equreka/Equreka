@@ -1,0 +1,175 @@
+# yaml-language-server: $schema=../../dist/schemas/elements.schema.json
+name:
+  en: 'Fluorine'
+symbol: 'F'
+atomicNumber: 9
+atomicWeight:
+  kind: 'value'
+  value: '18.998403162'
+  uncertainty: '0.000000005'
+  abridged:
+    value: '18.998'
+    uncertainty: '0.001'
+    source:
+      name: 'CIAAW, Abridged Standard Atomic Weights 2024'
+      url: 'https://www.ciaaw.org/abridged-atomic-weights.htm'
+      ref: 'Z = 9, fluorine'
+  source:
+    name: 'CIAAW, Standard Atomic Weights 2024'
+    url: 'https://www.ciaaw.org/atomic-weights.htm'
+    ref: 'Z = 9, fluorine: 18.998 403 162(5)'
+electronConfiguration:
+  value: '[He] 2s2 2p5'
+  source:
+    name: 'NIST Atomic Spectra Database, version 5.12'
+    url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+    ref: 'F I: ground shells 1s2.2s2.2p5'
+ionizationEnergies:
+  '1':
+    value: '17.42282'
+    unit: 'electronvolt'
+    uncertainty: '0.00005'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'F I: ionization energy; bibliography L7481'
+  '2':
+    value: '34.97081'
+    unit: 'electronvolt'
+    uncertainty: '0.00012'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'F II: ionization energy; bibliography L369'
+  '3':
+    value: '62.70798'
+    unit: 'electronvolt'
+    uncertainty: '0.00025'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'F III: ionization energy in brackets (semi-empirical); bibliography L11770'
+  '4':
+    value: '87.175'
+    unit: 'electronvolt'
+    uncertainty: '0.017'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'F IV: ionization energy in brackets (semi-empirical); bibliography L11770'
+  '5':
+    value: '114.249'
+    unit: 'electronvolt'
+    uncertainty: '0.006'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'F V: ionization energy in brackets (semi-empirical); bibliography L11770'
+  '6':
+    value: '157.16311'
+    unit: 'electronvolt'
+    uncertainty: '0.00025'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'F VI: ionization energy; bibliography L6491'
+  '7':
+    value: '185.1868'
+    unit: 'electronvolt'
+    uncertainty: '0.0006'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'F VII: ionization energy; bibliography L6335'
+  '8':
+    value: '953.8983'
+    unit: 'electronvolt'
+    uncertainty: '0.0003'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'F VIII: ionization energy in parentheses (ab initio); bibliography L21139'
+  '9':
+    value: '1103.1175302'
+    unit: 'electronvolt'
+    uncertainty: '0.0000019'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'F IX: ionization energy in parentheses (ab initio); bibliography L19200'
+covalentRadius:
+  value: '57'
+  unit: 'picometre'
+  source:
+    name: 'Cordero et al., Covalent radii revisited, Dalton Transactions 2008 (21), 2832–2838'
+    url: 'https://doi.org/10.1039/B801115J'
+    via:
+      name: 'Wikidata: fluorine (Q650), covalent radius (P14937), statement citing doi:10.1039/B801115J'
+      url: 'https://www.wikidata.org/wiki/Q650#P14937'
+boilingPoint:
+  value: '85.0368'
+  unit: 'kelvin'
+  source:
+    name: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+    ref: 'Fluorine: normal boiling point; equation of state of de Reuck (1990)'
+density:
+  value: '1.5537'
+  unit: 'kilogram-per-cubic-metre'
+  source:
+    name: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+    ref: 'Fluorine: isothermal data at 298.15 K and 0.101325 MPa'
+standardState:
+  value: 'gas'
+  source:
+    name: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+    ref: 'Fluorine: phase at 298.15 K and 0.101325 MPa, vapor'
+categories:
+  - 'chemistry'
+branches:
+  - 'periodic-table'
+externalIds:
+  wikidata: 'Q650'
+references:
+  - title: 'CIAAW, Standard Atomic Weights 2024 and Abridged Standard Atomic Weights 2024'
+    url: 'https://www.ciaaw.org/atomic-weights.htm'
+  - title: 'CIAAW, Monoisotopic elements'
+    url: 'https://www.ciaaw.org/monoisotopic-elements.htm'
+  - title: 'NIST, Atomic Spectra Database, version 5.12, Ground States and Ionization Energies'
+    url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+  - title: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+  - title: 'NIST-JANAF Thermochemical Tables, Fluorine (F2), reference state'
+    url: 'https://janaf.nist.gov/tables/F-054.html'
+  - title: 'OpenStax, Chemistry 2e, 2.5 The Periodic Table'
+    url: 'https://openstax.org/books/chemistry-2e/pages/2-5-the-periodic-table'
+  - title: 'OpenStax, Chemistry 2e, 6.4 Electronic Structure of Atoms (Electron Configurations)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/6-4-electronic-structure-of-atoms-electron-configurations'
+description:
+  en: >-
+    Fluorine, symbol F, is the chemical element with atomic number 9, the first of the halogens of
+    group 17 and an element of the p-block in period 2. Its ground-state electron configuration is
+    $[\mathrm{He}]\,2s^{2}\,2p^{5}$: seven valence electrons, a single electron short of the filled
+    second shell of neon, leave exactly one 2p orbital with an unpaired electron. The halogens share
+    these seven valence electrons, which is why they behave alike.
+
+    Its first ionization energy, about $17.42\,\mathrm{eV}$, is higher than oxygen's and resumes the
+    rise across the period. NIST lists all nine ionization energies of fluorine: the third, fourth
+    and fifth come from a semi-empirical procedure and the last two from calculation. The values
+    grow while electrons leave the second shell, and the eighth, the first to reach the helium-like
+    core, is more than five times the seventh.
+
+    Fluorine is one of the elements whose standard atomic weight is fixed by a single stable
+    isotope. CIAAW therefore gives it as one value known to great precision, 18.998403162 with an
+    uncertainty of 0.000000005, alongside the abridged value 18.998.
+
+    At room temperature and atmospheric pressure fluorine is a gas of F₂ molecules, its reference
+    state in the NIST-JANAF tables. The reference equation of state that NIST adopts for fluorine
+    places its normal boiling point at $85.0368\,\mathrm{K}$, between those of nitrogen and oxygen.

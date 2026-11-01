@@ -4,6 +4,7 @@ import {
 	RAT_ZERO,
 	rat,
 	ratAdd,
+	ratCompare,
 	ratDiv,
 	ratFromDecimal,
 	ratFromExact,
@@ -78,6 +79,15 @@ describe('rational arithmetic', () => {
 		expect(ratNeg(rat(-5n, 9n))).toEqual(rat(5n, 9n));
 		expect(ratDiv(rat(1n, 2n), rat(-3n, 4n))).toEqual(rat(-2n, 3n));
 		expect(() => ratDiv(RAT_ONE, RAT_ZERO)).toThrow(RangeError);
+	});
+
+	it('orders rationals exactly, where float64 would tie', () => {
+		expect(ratCompare(ratFromDecimal('0.1'), ratFromDecimal('0.2'))).toBe(-1);
+		expect(ratCompare(ratFromDecimal('10.8060'), ratFromDecimal('10.806'))).toBe(0);
+		expect(ratCompare(rat(-1n, 3n), rat(-1n, 2n))).toBe(1);
+		const near = ratFromDecimal('1.00000000000000000001');
+		expect(Number(near.num) / Number(near.den)).toBe(1);
+		expect(ratCompare(near, RAT_ONE)).toBe(1);
 	});
 });
 

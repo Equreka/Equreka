@@ -1,0 +1,185 @@
+# yaml-language-server: $schema=../../dist/schemas/elements.schema.json
+name:
+  en: 'Neon'
+symbol: 'Ne'
+atomicNumber: 10
+atomicWeight:
+  kind: 'value'
+  value: '20.1797'
+  uncertainty: '0.0006'
+  abridged:
+    value: '20.180'
+    uncertainty: '0.001'
+    source:
+      name: 'CIAAW, Abridged Standard Atomic Weights 2024'
+      url: 'https://www.ciaaw.org/abridged-atomic-weights.htm'
+      ref: 'Z = 10, neon'
+  source:
+    name: 'CIAAW, Standard Atomic Weights 2024'
+    url: 'https://www.ciaaw.org/atomic-weights.htm'
+    ref: 'Z = 10, neon: 20.1797(6), notes g and m'
+electronConfiguration:
+  value: '[He] 2s2 2p6'
+  source:
+    name: 'NIST Atomic Spectra Database, version 5.12'
+    url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+    ref: 'Ne I: ground shells 1s2.2s2.2p6'
+ionizationEnergies:
+  '1':
+    value: '21.564541'
+    unit: 'electronvolt'
+    uncertainty: '0.000007'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'Ne I: ionization energy; bibliography L8826'
+  '2':
+    value: '40.96297'
+    unit: 'electronvolt'
+    uncertainty: '0.00004'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'Ne II: ionization energy; bibliography L1406'
+  '3':
+    value: '63.4233'
+    unit: 'electronvolt'
+    uncertainty: '0.0003'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'Ne III: ionization energy; bibliography L9091'
+  '4':
+    value: '97.1900'
+    unit: 'electronvolt'
+    uncertainty: '0.0025'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'Ne IV: ionization energy in brackets (semi-empirical); bibliography L11782'
+  '5':
+    value: '126.247'
+    unit: 'electronvolt'
+    uncertainty: '0.012'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'Ne V: ionization energy; bibliography L11744'
+  '6':
+    value: '157.934'
+    unit: 'electronvolt'
+    uncertainty: '0.005'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'Ne VI: ionization energy; bibliography L9340'
+  '7':
+    value: '207.271'
+    unit: 'electronvolt'
+    uncertainty: '0.012'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'Ne VII: ionization energy; bibliography L9089'
+  '8':
+    value: '239.0970'
+    unit: 'electronvolt'
+    uncertainty: '0.0019'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'Ne VIII: ionization energy in brackets (semi-empirical); bibliography L9090'
+  '9':
+    value: '1195.8082'
+    unit: 'electronvolt'
+    uncertainty: '0.0004'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'Ne IX: ionization energy in parentheses (ab initio); bibliography L21139'
+  '10':
+    value: '1362.199256'
+    unit: 'electronvolt'
+    uncertainty: '0.000004'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'Ne X: ionization energy in parentheses (ab initio); bibliography L19200'
+covalentRadius:
+  value: '58'
+  unit: 'picometre'
+  estimated: true
+  source:
+    name: 'Cordero et al., Covalent radii revisited, Dalton Transactions 2008 (21), 2832–2838'
+    url: 'https://doi.org/10.1039/B801115J'
+    ref: 'abstract: radii of the noble gases interpolated, structural data lacking'
+    via:
+      name: 'Wikidata: neon (Q654), covalent radius (P14937), statement citing doi:10.1039/B801115J'
+      url: 'https://www.wikidata.org/wiki/Q654#P14937'
+boilingPoint:
+  value: '27.1000'
+  unit: 'kelvin'
+  source:
+    name: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+    ref: 'Neon: normal boiling point; equation of state of Thol et al. (2018)'
+density:
+  value: '0.82441'
+  unit: 'kilogram-per-cubic-metre'
+  source:
+    name: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+    ref: 'Neon: isothermal data at 298.15 K and 0.101325 MPa'
+standardState:
+  value: 'gas'
+  source:
+    name: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+    ref: 'Neon: phase at 298.15 K and 0.101325 MPa, vapor'
+categories:
+  - 'chemistry'
+branches:
+  - 'periodic-table'
+externalIds:
+  wikidata: 'Q654'
+references:
+  - title: 'CIAAW, Standard Atomic Weights 2024 and Abridged Standard Atomic Weights 2024'
+    url: 'https://www.ciaaw.org/atomic-weights.htm'
+  - title: 'NIST, Atomic Spectra Database, version 5.12, Ground States and Ionization Energies'
+    url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+  - title: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+  - title: 'NIST-JANAF Thermochemical Tables, Neon (Ne), reference state'
+    url: 'https://janaf.nist.gov/tables/Ne-001.html'
+  - title: 'OpenStax, Chemistry 2e, 2.5 The Periodic Table'
+    url: 'https://openstax.org/books/chemistry-2e/pages/2-5-the-periodic-table'
+  - title: 'OpenStax, Chemistry 2e, 6.4 Electronic Structure of Atoms (Electron Configurations)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/6-4-electronic-structure-of-atoms-electron-configurations'
+description:
+  en: >-
+    Neon, symbol Ne, is the chemical element with atomic number 10, the noble gas that closes
+    period 2 and the second member of group 18, after helium. Its ground-state electron
+    configuration is $[\mathrm{He}]\,2s^{2}\,2p^{6}$: every one of its electrons is paired and the
+    first and second shells are completely filled. That closed arrangement is the [Ne] core with
+    which the configurations of the next period are abbreviated.
+
+    Of all the elements of period 2, neon has the highest first ionization energy, about
+    $21.56\,\mathrm{eV}$, the end point of the rise from lithium. NIST lists all ten of its
+    ionization energies; they increase step by step through the eight electrons of the second
+    shell, and the ninth, which reaches the helium-like core, is about five times the eighth. Two
+    of the second-shell values come from a semi-empirical procedure and the two core values from
+    calculation.
+
+    CIAAW gives the standard atomic weight of neon as a single value, 20.1797 with an uncertainty
+    of 0.0006, and 20.180 as the abridged value. Its notes add that some geological and biological
+    materials hold neon of unusual isotopic composition and that commercially supplied neon may have been
+    isotopically altered.
+
+    At room temperature and atmospheric pressure neon is a gas of single atoms, the reference state
+    the NIST-JANAF tables give it. The reference equation of state that NIST adopts for neon sets
+    its normal boiling point at $27.1000\,\mathrm{K}$, above those of helium and hydrogen but far
+    below those of the other gases of period 2.

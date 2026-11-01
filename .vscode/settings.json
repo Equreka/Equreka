@@ -39,6 +39,10 @@
 			"packages/content/content/paths/*.yaml",
 			"!packages/content/content/paths/*.*.yaml"
 		],
+		"./packages/content/dist/schemas/elements.schema.json": [
+			"packages/content/content/elements/*.yaml",
+			"!packages/content/content/elements/*.*.yaml"
+		],
 		"./packages/content/dist/schemas/categories.locale.schema.json": "packages/content/content/categories/*.*.yaml",
 		"./packages/content/dist/schemas/branches.locale.schema.json": "packages/content/content/branches/*.*.yaml",
 		"./packages/content/dist/schemas/magnitudes.locale.schema.json": "packages/content/content/magnitudes/*.*.yaml",
@@ -47,6 +51,7 @@
 		"./packages/content/dist/schemas/constants.locale.schema.json": "packages/content/content/constants/*.*.yaml",
 		"./packages/content/dist/schemas/variables.locale.schema.json": "packages/content/content/variables/*.*.yaml",
 		"./packages/content/dist/schemas/equations.locale.schema.json": "packages/content/content/equations/*.*.yaml",
-		"./packages/content/dist/schemas/paths.locale.schema.json": "packages/content/content/paths/*.*.yaml"
+		"./packages/content/dist/schemas/paths.locale.schema.json": "packages/content/content/paths/*.*.yaml",
+		"./packages/content/dist/schemas/elements.locale.schema.json": "packages/content/content/elements/*.*.yaml"
 	}
 }

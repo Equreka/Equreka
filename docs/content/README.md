@@ -28,6 +28,7 @@ The plan and the system for growing the corpus from its migrated seed to about 7
 | School | W2–W12 | `level: intro` equations, one learning path per wave |
 | University | W13–W16 | `level: intermediate` equations |
 | Milestone 2 | W17 | Deferred-scope equations |
+| Elements track | E1 onward | The `elements` collection (ADR 0016): E1 lands the pipeline, the `periodic-table` branch and hydrogen to neon; later steps add the pages and the remaining elements by period |
 
 | Wave | Title | Entries |
 | --- | --- | --- |
@@ -54,6 +55,7 @@ The plan and the system for growing the corpus from its migrated seed to about 7
 | W15 | University: electromagnetism, modern and nuclear physics | 26 |
 | W16 | University: chemistry | 32 |
 | W17 | Milestone 2 | 40 |
+| E1 | Elements foundation: the periodic-table branch and hydrogen to neon | 11 |
 
 Live progress: `node scripts/content/roadmap.mjs --status`.
 

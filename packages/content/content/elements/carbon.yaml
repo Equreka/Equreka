@@ -1,0 +1,123 @@
+# yaml-language-server: $schema=../../dist/schemas/elements.schema.json
+name:
+  en: 'Carbon'
+symbol: 'C'
+atomicNumber: 6
+atomicWeight:
+  kind: 'interval'
+  low: '12.0096'
+  high: '12.0116'
+  abridged:
+    value: '12.011'
+    uncertainty: '0.002'
+    source:
+      name: 'CIAAW, Abridged Standard Atomic Weights 2024'
+      url: 'https://www.ciaaw.org/abridged-atomic-weights.htm'
+      ref: 'Z = 6, carbon'
+  source:
+    name: 'CIAAW, Standard Atomic Weights 2024'
+    url: 'https://www.ciaaw.org/atomic-weights.htm'
+    ref: 'Z = 6, carbon: [12.0096, 12.0116]'
+electronConfiguration:
+  value: '[He] 2s2 2p2'
+  source:
+    name: 'NIST Atomic Spectra Database, version 5.12'
+    url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+    ref: 'C I: ground shells 1s2.2s2.2p2'
+ionizationEnergies:
+  '1':
+    value: '11.2602880'
+    unit: 'electronvolt'
+    uncertainty: '0.0000011'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'C I: ionization energy; bibliography L20057'
+  '2':
+    value: '24.383143'
+    unit: 'electronvolt'
+    uncertainty: '0.000012'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'C II: ionization energy; bibliography L22145'
+  '3':
+    value: '47.88778'
+    unit: 'electronvolt'
+    uncertainty: '0.00025'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'C III: ionization energy; bibliography L876c191'
+  '4':
+    value: '64.49352'
+    unit: 'electronvolt'
+    uncertainty: '0.00019'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'C IV: ionization energy; bibliography L11667'
+  '5':
+    value: '392.09056'
+    unit: 'electronvolt'
+    uncertainty: '0.00004'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'C V: ionization energy in parentheses (ab initio); bibliography L21139'
+  '6':
+    value: '489.99320779'
+    unit: 'electronvolt'
+    uncertainty: '0.00000022'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'C VI: ionization energy in parentheses (ab initio); bibliography L19200'
+standardState:
+  value: 'solid'
+  source:
+    name: 'NIST Chemistry WebBook, SRD 69'
+    url: 'https://webbook.nist.gov/cgi/cbook.cgi?ID=C7440440&Mask=2'
+    ref: 'Carbon: condensed phase thermochemistry data, entropy of the solid at standard conditions (1 bar)'
+categories:
+  - 'chemistry'
+branches:
+  - 'periodic-table'
+externalIds:
+  wikidata: 'Q623'
+references:
+  - title: 'CIAAW, Standard Atomic Weights 2024 and Abridged Standard Atomic Weights 2024'
+    url: 'https://www.ciaaw.org/atomic-weights.htm'
+  - title: 'NIST, Atomic Spectra Database, version 5.12, Ground States and Ionization Energies'
+    url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+  - title: 'NIST Chemistry WebBook, SRD 69, Carbon, condensed phase thermochemistry data'
+    url: 'https://webbook.nist.gov/cgi/cbook.cgi?ID=C7440440&Mask=2'
+  - title: 'OpenStax, Chemistry 2e, 6.4 Electronic Structure of Atoms (Electron Configurations)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/6-4-electronic-structure-of-atoms-electron-configurations'
+  - title: 'OpenStax, Chemistry 2e, 6.5 Periodic Variations in Element Properties'
+    url: 'https://openstax.org/books/chemistry-2e/pages/6-5-periodic-variations-in-element-properties'
+description:
+  en: >-
+    Carbon, symbol C, is the chemical element with atomic number 6, the head of group 14 and the
+    second element of the p-block in period 2. Its ground-state electron configuration is
+    $[\mathrm{He}]\,2s^{2}\,2p^{2}$, with four valence electrons in the second shell, halfway to the
+    full shell of neon.
+
+    The two 2p electrons follow Hund's rule: among orbitals of equal energy, the lowest-energy
+    arrangement keeps as many electrons unpaired as possible, so they occupy two different 2p
+    orbitals with the same spin, and the ground-state carbon atom has two unpaired electrons.
+    Carbon's first ionization energy, about $11.26\,\mathrm{eV}$, continues the rise across the
+    period from boron. Its four valence electrons can be removed one after another at a steadily
+    increasing cost, but the fifth ionization energy, which breaks into the helium-like core, is
+    about six times the fourth; NIST gives the last two values from calculation.
+
+    The isotopic composition of carbon varies among natural materials, so CIAAW states its standard
+    atomic weight as the interval from 12.0096 to 12.0116 and gives 12.011 as the abridged value
+    for ordinary use. Unlike several of its neighbours in period 2, carbon carries no CIAAW warning
+    that commercial material may be isotopically modified.
+
+    Carbon is a solid at room temperature and normal pressure: the NIST Chemistry WebBook tabulates
+    its standard entropy for the solid at the standard pressure, the bar, and lists graphite and diamond
+    among the forms of the element.

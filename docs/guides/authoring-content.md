@@ -22,11 +22,11 @@ Run `pnpm --filter @equreka/content build` once so `dist/schemas/*.schema.json` 
 
 ## Universal rules
 
-- **Decimal strings.** Every physical value (`value`, `factor`, `offset`, `uncertainty`, rational `num`/`den`, prefix `value`) is a quoted string: `'0.3048'`, `'6.62607015e-34'`, `num: '5'`. Unquoted numbers are rejected by `scripts/quality/yaml-lint.mjs` and would truncate to float64 at parse time (ADR 0002). Values are parsed exactly once, at the engine's float64 boundary.
+- **Decimal strings.** Every physical value (`value`, `factor`, `offset`, `uncertainty`, rational `num`/`den`, prefix `value`, atomic-weight `low`/`high`) is a quoted string: `'0.3048'`, `'6.62607015e-34'`, `num: '5'`. Unquoted numbers are rejected by `scripts/quality/yaml-lint.mjs` and would truncate to float64 at parse time (ADR 0002). Values are parsed exactly once, at the engine's float64 boundary.
 - **Failsafe parse.** The pipeline parses YAML 1.2 with the failsafe schema: every scalar arrives as a string. Booleans are exactly `true`/`false` (never `yes`/`on`); integers are digit strings; both coerce in the schema.
 - **Quoting.** Single quotes or plain scalars for short values. Never double quotes around TeX: `"\mu"` is an illegal YAML escape. Apostrophes inside single quotes are doubled (`'it''s'`), which is why prose uses block scalars instead.
 - **Prose.** `description.en` uses a folded block scalar `>-` for ordinary wrapped prose: single line breaks fold to spaces, so wrap the source freely, and a blank line is a paragraph break. Use a literal block scalar `|-` only when a hard line break inside a paragraph is intended (no entry needs one today): every newline is kept, so each source line is exactly one rendered line and must not be wrapped. Every description container renders with `white-space: pre-line`, as the original's `.card-information p` did, so a kept newline is a visible break on web, and React Native `Text` breaks on it on mobile. Search indexes only a description's lede (`searchLeadOf`, ADR 0010): its first paragraph, cut to 480 characters at a word boundary. A blank line in the source ends that paragraph in either block style; a `|-` block with no blank line leads with its first line. Indexing folds every whitespace run to one space, so a break never glues two words into one token. Block scalars carry TeX, `#`, and apostrophes byte-literally. Inline math is `$...$` and cannot span a line break; display math is `$$...$$`; every fragment must pass strict KaTeX at build.
-- **Comments.** Only the schema header. Rationale belongs in `description`, sources in `references`, numeric provenance in `toBase.source` (units) or `source` (constants), credits for adapted text in `textSources`.
+- **Comments.** Only the schema header. Rationale belongs in `description`, sources in `references`, numeric provenance in `toBase.source` (units) or `source` (constants and every element datum), credits for adapted text in `textSources`.
 - **License.** Everything in `packages/content/content/` is CC BY-SA 4.0 (`packages/content/content/LICENSE`, ADR 0011). The code beside it is GPL-3.0-or-later. By authoring an entry you license it under CC BY-SA 4.0. Reusers credit "Equreka contributors, https://github.com/Equreka/Equreka".
 - **Originality.** Write every description, label and path step in your own words: explain the concept for a learner, cite the numbers in `references` and `source`, and leave the encyclopedia's phrasing behind. Run the check on what you wrote before you open a PR:
 
@@ -327,6 +327,69 @@ steps:
 - **Localization.** Translate every prose field in the path's sidecar, not only `name`/`description`: step text renders on the page in the reader's locale, and the `locale` stage fails a path whose step prose lacks its Spanish (`steps.<id>.body`). Sidecar step entries are keyed by step `id`, so reordering steps never misattaches a translation.
 - **Progress** is a reader-side concern (completed step ids under a local storage key), so renaming a step `id` resets learners' progress for that step — treat ids as stable.
 
+### elements
+
+One file per chemical element (ADR 0016), slug the English name (`hydrogen`, `aluminium`), filed under `categories: ['chemistry']` and `branches: ['periodic-table']`. The collection is built but not yet surfaced: no page, list or search row shows an element until the element pages land, so check the output with `check` and `build`.
+
+```yaml
+# yaml-language-server: $schema=../../dist/schemas/elements.schema.json
+name:
+  en: 'Oxygen'
+symbol: 'O'
+atomicNumber: 8
+atomicWeight:
+  kind: 'interval'
+  low: '15.99903'
+  high: '15.99977'
+  abridged:
+    value: '15.999'
+    uncertainty: '0.001'
+    source: { name: 'CIAAW, Abridged Standard Atomic Weights 2024', url: '...', ref: 'Z = 8, oxygen' }
+  source: { name: 'CIAAW, Standard Atomic Weights 2024', url: '...', ref: 'Z = 8, oxygen' }
+electronConfiguration:
+  value: '[He] 2s2 2p4'
+  source: { name: 'NIST Atomic Spectra Database, version 5.12', url: '...', ref: 'O I: ground shells' }
+ionizationEnergies:
+  '1':
+    value: '13.618055'
+    unit: 'electronvolt'
+    uncertainty: '0.000007'
+    source: { name: 'NIST Atomic Spectra Database, version 5.12', url: '...', ref: 'O I; bibliography L74' }
+boilingPoint:
+  value: '90.1878'
+  unit: 'kelvin'
+  source: { name: '...', url: '...', ref: 'Oxygen: normal boiling point' }
+standardState:
+  value: 'gas'
+  source: { name: '...', url: '...', ref: 'Oxygen: phase at 298.15 K and 0.101325 MPa' }
+```
+
+- **Never authored: period, group, block, grid cell.** The build derives them from `atomicNumber` (`periodicPosition` in `@equreka/content/periodic-table`) and ships them as `position`. The grid is the conventional long form (ADR 0016): group 3 holds Sc and Y only; the lanthanoids La–Lu and the actinoids Ac–Lr are two fifteen-cell rows below the main body, and all thirty have no group; helium is group 18. `block` follows the filling order, so La–Yb and Ac–No are f-block and Lu and Lr are d-block cells drawn in those rows; helium is s-block.
+- **`symbol`** is the plain IUPAC symbol (`'He'`); the build expands it to upright TeX. **`atomicNumber`** runs from 1 to 118 and must be unique, as must the symbol.
+- **`atomicWeight`** copies the form CIAAW uses: `kind: 'value'` with `value` and its `uncertainty` (CIAAW's `4.002 602(2)` is `value: '4.002602'`, `uncertainty: '0.000002'`), `kind: 'interval'` with `low` below `high`, or `kind: 'mass-number'` with `massNumber` for an element with no standard atomic weight (the bracketed mass number of the IUPAC table). `abridged` holds CIAAW's abridged value and its uncertainty.
+- **`electronConfiguration.value`** is plain text, never TeX: an optional noble-gas core (`[He]`, `[Ne]`, `[Ar]`, `[Kr]`, `[Xe]`, `[Rn]`) and then each subshell as shell, letter and electron count, separated by one space (`[Xe] 4f14 5d1 6s2`, `1s1`). The build parses it and requires its electrons to number `atomicNumber`. Write the ground state the cited source gives, which is not always the filling-order prediction.
+- **`ionizationEnergies`** is keyed by ionization number as a quoted string (`'1'`, `'2'`, …) up to `atomicNumber`; the energies must rise with n. Author every value the source lists and nothing else.
+- **Other properties**, each optional: `paulingElectronegativity` (a number, no unit), `covalentRadius`, `density`, `meltingPoint`, `boilingPoint` (each `{ value, unit, uncertainty? }`) and `standardState` (`'solid' | 'liquid' | 'gas'`). `density` is at 298.15 K and 101.325 kPa, the melting and boiling points at 101.325 kPa and the standard state at 298.15 K; for any other conditions, say so in `note` (`'At 100 kPa (1 bar)'` for the NIST-JANAF tables). Author each quantity in the unit its source uses: the unit must have the property's dimension (energy, length, density, temperature), and the build converts for its checks. The boiling point must exceed the melting point, and the standard state must agree with both at 298.15 K.
+- **Every datum carries its `source`** (`{ name, url?, ref?, via? }`), and `ref` locates the value in it (table, row, spectrum, bibliography code). Cite the source you read the value from, never one a secondary page credits. A value no source you can read gives is omitted: never estimated, never filled from memory.
+- **Second-hand values (`via`).** Covalent radii and Pauling electronegativities come from Wikidata statements citing their primary source, because Allred (1961), Cordero et al. (2008) and the CRC Handbook are closed access. Take a statement only when its reference names a primary or standard work (Allred 1961, Cordero 2008, CRC, Lange's); skip one with no reference, or referenced only to *imported from Wikipedia* or a secondary web page, and omit the field. Cite the work in `name`, `url` (its DOI) and `ref`, and the statement in `via`:
+
+  ```yaml
+  covalentRadius:
+    value: '66'
+    unit: 'picometre'
+    source:
+      name: 'Cordero et al., Covalent radii revisited, Dalton Transactions 2008 (21), 2832–2838'
+      url: 'https://doi.org/10.1039/B801115J'
+      via:
+        name: 'Wikidata: oxygen (Q629), covalent radius (P14937), statement citing doi:10.1039/B801115J'
+        url: 'https://www.wikidata.org/wiki/Q629#P14937'
+  ```
+
+  Covalent radius is Wikidata property P14937 and electronegativity P1108; take a P1108 value as Pauling only when the statement or its cited work says so. A cited value that its work gives in several forms (carbon's radius by hybridization) is taken only with the qualifier that says which.
+- **`estimated: true`** repeats a source's own flag on a calculated, interpolated, extrapolated or predicted value: in the NIST Atomic Spectra Database, a value in parentheses (ab initio) or brackets (semi-empirical). Say which in `ref`. A predicted property of a superheavy element enters only with its citation and this flag.
+- **`note`** is localized text, so each one needs its Spanish in the sidecar (`boilingPoint: { note: 'A 100 kPa (1 bar)' }`, `ionizationEnergies: { '1': { note: '…' } }`).
+- **Sources used so far:** CIAAW (atomic weights), NIST Atomic Spectra Database (configurations, ionization energies), NIST Chemistry WebBook SRD 69 fluid data (boiling point, density and phase of the gases at 298.15 K and 0.101325 MPa), NIST-JANAF tables (phase changes of solids at 1 bar), Wikidata statements citing Cordero et al. (2008) (covalent radii, `via`). The descriptions follow the magnitude lengths of the style guide.
+
 ## Translations
 
 A translation is a sidecar file `<collection>/<slug>.<locale>.yaml` (today the only locale is `es`) holding **only** the localized text of one entity, in the entity's own nesting, with each field's value the translated string itself rather than an `{ en, es }` map:
@@ -368,7 +431,7 @@ Localizable fields are derived from the schema — every `localizedText` or `loc
 ## Checking your work
 
 ```
-pnpm --filter @equreka/content check   # load → validate → locale → expand → integrity → resolve → anchors → dimensions → solutions → tex
+pnpm --filter @equreka/content check   # load → validate → locale → expand → integrity → resolve → anchors → elements → dimensions → solutions → tex
 pnpm quality                            # yaml-lint (raw-text hazards) + catalog drift
 pnpm --filter @equreka/content build    # emits dist/ (engine.json, presentation/*, search/*, schemas/*)
 node scripts/content/originality.mjs <files> --check   # network: prose overlap with Wikipedia and the cited references (see Originality)
@@ -389,6 +452,7 @@ mobile-bundled storage (raw): 5.31 MiB of 16.00 MiB (33.2%)
 
 - A file at 80% of its budget, or a mobile figure at 80% of its limit, is a warning. Over budget is an error.
 - `presentation/equations.json` and `presentation/units.json` are list indexes: each entry's other fields ship in `presentation/<collection>/<shard>.json`, the shard its slug hashes to (`PRESENTATION_SHARDS`, ADR 0015). A shard near its 128 KiB cap means doubling the collection's shard count; an unsharded slice near its 2 MiB cap means sharding it.
+- A collection built ahead of its pages (`UNSURFACED_COLLECTIONS`, today `elements`) emits `presentation/<collection>.json` under its own row, bundled nowhere and left out of search, until the change that ships its pages surfaces it (ADR 0016).
 - A file that matches no pattern is an error: add its row to the table rather than emitting it unbudgeted.
 - The web build holds its derived payloads to their own budgets in `apps/web/src/integrations/equreka-assets.ts`: `data/reader.<locale>.json` 2 MiB (ADR 0013), `data/converter.<locale>.json` 256 KiB, `data/paths.<locale>.json` 128 KiB.
 - The web build then prints the offline install against 6 MiB: the precached shell plus the largest locale's payloads (ADR 0013), for example `offline install: shell 168 URLs 1211.5 KiB + largest locale data (es) = 2568.6 KiB of 6144.0 KiB (41.8%)`. It warns from 80% and fails over the budget.
