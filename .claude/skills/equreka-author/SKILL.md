@@ -51,8 +51,10 @@ Preferred, in order; fetch the page, never cite from memory:
 - Defining documents: BIPM SI Brochure 9th ed. (`https://www.bipm.org/en/publications/si-brochure`; Table 8 for units accepted for use with the SI), CGPM and IAU resolutions.
 - NIST: CODATA 2022 values (`https://physics.nist.gov/cuu/Constants/index.html`, each value page `https://physics.nist.gov/cgi-bin/cuu/Value?<code>`), SP 811 Appendix B.8 (`https://www.nist.gov/pml/special-publication-811/nist-guide-si-appendix-b-conversion-factors/nist-guide-si-appendix-b8`), SP 330.
 - IUPAC Gold Book (`https://goldbook.iupac.org/`) and CIAAW for chemistry; MacTutor (`https://mathshistory.st-andrews.ac.uk/`) for the history of mathematics; original papers by DOI.
-- Open textbooks and university course notes for formula statements, sign conventions and validity limits.
+- Open textbooks and university course notes for formula statements, sign conventions and validity limits, only where the page's own terms allow automated reading.
 - Wikipedia only to find the sources above; never cited, never paraphrased.
+
+**Never open `openstax.org`** (owner ruling, 2026-11-01). OpenStax books are CC BY-NC-SA 4.0 and their terms forbid ingesting them into large language models or AI tooling without written permission. Existing `references` to OpenStax stay as citations, but you do not fetch them, take examples or terms from them, or add new ones; `scripts/content/originality.mjs` reports them as not checkable for that reason. Take worked examples from NIST, IUPAC, university course notes or your own calculation from fetched data, and say which in `openQuestions`. Check the terms of any textbook site before reading it, and treat the same kind of prohibition the same way.
 
 ## Prose
 

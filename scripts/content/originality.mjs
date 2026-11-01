@@ -459,6 +459,33 @@ function writeCachedReference(record) {
 }
 
 /**
+ * Hosts whose terms forbid feeding their pages to AI tooling. The check
+ * never fetches them nor reads a cached copy; the reference stays cited and
+ * reports as not checkable with this reason.
+ */
+const NO_FETCH_HOSTS = new Map([
+	[
+		'openstax.org',
+		'not fetched: OpenStax forbids ingesting its books into AI tooling without written permission',
+	],
+]);
+
+function noFetchReason(url) {
+	let host;
+	try {
+		host = new URL(url).hostname;
+	} catch {
+		return null;
+	}
+	for (const [blocked, reason] of NO_FETCH_HOSTS) {
+		if (host === blocked || host.endsWith(`.${blocked}`)) {
+			return reason;
+		}
+	}
+	return null;
+}
+
+/**
  * `load(url)` resolves a reference to its cache record once per run: from
  * the disk cache unless `--refresh-references`, else by fetching it.
  * `stats` counts both paths over unique URLs.
@@ -468,6 +495,13 @@ function referenceLoader(options, log) {
 	const stats = { fromCache: 0, fetched: 0 };
 	const load = async (url) => {
 		const key = fetchableUrl(url);
+		const refused = noFetchReason(key);
+		if (refused !== null && !records.has(key)) {
+			records.set(
+				key,
+				unreadableRecord({ url: key, fetchedAt: new Date().toISOString() }, refused),
+			);
+		}
 		if (!records.has(key)) {
 			const cached = options.refreshReferences ? null : readCachedReference(key);
 			if (cached === null) {
