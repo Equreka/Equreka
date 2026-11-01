@@ -51,13 +51,13 @@ Then `node scripts/quality/roadmap-check.mjs` and `node scripts/content/roadmap.
 All green, or the wave is not done:
 
 ```sh
-pnpm lint && pnpm typecheck && pnpm test --continue --force && pnpm build
+pnpm lint && pnpm typecheck --affected && pnpm test --affected --continue && pnpm build
 pnpm quality
 pnpm --filter @equreka/content check
 node scripts/content/originality.mjs <every file the wave wrote> --format json --out <scratchpad>/originality.json
 ```
 
-`--continue` keeps turbo from stopping at the first failing package, which would hide the others; `--force` bypasses the task cache.
+`--affected` runs only the packages the branch changed and their dependents, never the whole suite (owner ruling, 2026-11-01); `--continue` keeps turbo from stopping at the first failing package, which would hide the others. The originality check never fetches `openstax.org` (its terms forbid AI ingestion), so OpenStax references report as not checkable by design.
 
 The originality report must show `flagged: false` for every new or rewritten description (legacy entries outside the wave may still flag until W1.5–W1.7 rewrite them). It covers the entry's Wikipedia article, phrase-search hits and every URL in its `references`; run it without `--no-search` or `--no-references`. A flag `via: reference` is never cleared by `textSources`: the description is rewritten. Reference pages are cached in `.cache/originality/` for 30 days, so a rerun after a fix does not refetch them.
 
