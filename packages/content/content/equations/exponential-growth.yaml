@@ -15,8 +15,9 @@ terms:
       en: 'Initial amount'
   r:
     kind: 'symbol'
+    unit: 'unitless'
     label:
-      en: 'Growth rate per period (as a fraction)'
+      en: 'Growth rate per period'
   t:
     kind: 'symbol'
     label:

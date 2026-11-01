@@ -7,8 +7,9 @@ expression: '\var{r}=\frac{\var{V_{f}}-\var{V_{i}}}{\var{V_{i}}}'
 terms:
   r:
     kind: 'symbol'
+    unit: 'unitless'
     label:
-      en: 'Relative change (as a fraction)'
+      en: 'Relative change'
   V_{f}:
     kind: 'symbol'
     label:

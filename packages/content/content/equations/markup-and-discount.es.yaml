@@ -6,9 +6,9 @@ terms:
   c:
     label: 'Costo o precio original'
   m:
-    label: 'Tasa de recargo (como fracción)'
+    label: 'Tasa de recargo'
   d:
-    label: 'Tasa de descuento (como fracción)'
+    label: 'Tasa de descuento'
 description: >-
   El recargo y el descuento son las dos variaciones porcentuales de la fijación de precios en el
   comercio. Un recargo aumenta un costo en una fracción de ese costo para dar un precio de venta, y
@@ -18,7 +18,8 @@ description: >-
 
   En la fórmula, $\var{c}$ es la cantidad de partida: el costo que pagó el vendedor, o el precio
   original cuando solo se aplica un descuento. $\var{m}$ es la tasa de recargo y $\var{d}$ la tasa
-  de descuento, ambas fracciones decimales, de modo que un recargo del 40 por ciento entra como 0.4;
+  de descuento, ambas fracciones decimales, de modo que un recargo del 40 por ciento es 0.4 (la
+  calculadora también las admite en porcentaje);
   $\var{p}$ es el precio final. Todos los precios comparten una moneda, que la fórmula deja abierta,
   y las tasas son números puros. Si $\var{d}$ vale cero queda solo el recargo, y si $\var{m}$ vale
   cero, solo el descuento.

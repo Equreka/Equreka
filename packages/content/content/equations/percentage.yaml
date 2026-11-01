@@ -11,8 +11,9 @@ terms:
       en: 'Part'
   p:
     kind: 'symbol'
+    unit: 'unitless'
     label:
-      en: 'Percentage (as a fraction)'
+      en: 'Percentage'
   b:
     kind: 'symbol'
     label:
@@ -50,7 +51,8 @@ description:
 
     In the formula, $\var{a}$ is the part, sometimes called the amount; $\var{b}$ is the whole or
     base, the reference quantity the part is compared with; and $\var{p}$ is the percentage written
-    as a decimal fraction, so 25 percent enters as 0.25 and 125 percent as 1.25. The part and the
+    as a decimal fraction, so 25 percent is 0.25 and 125 percent is 1.25; the calculator also
+    takes it typed in percent. The part and the
     whole are measured in the same unit, whether money, people or kilograms, and the formula fixes
     none; the percentage itself is a pure number. All three are normally positive, and a percentage
     above 100 percent gives a part larger than the whole.
