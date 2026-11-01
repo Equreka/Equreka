@@ -15,8 +15,9 @@ terms:
       en: 'Principal'
   r:
     kind: 'symbol'
+    unit: 'unitless'
     label:
-      en: 'Annual interest rate (as a fraction)'
+      en: 'Annual interest rate'
   t:
     kind: 'symbol'
     label:
@@ -56,7 +57,7 @@ description:
 
     In the formula, $\var{I}$ is the interest earned or owed; $\var{P}$ is the principal, the sum
     lent, borrowed or deposited; $\var{r}$ is the annual interest rate as a decimal fraction, so 6
-    percent enters as 0.06; and $\var{t}$ is the time in years. The principal and the interest share
+    percent is 0.06 (the calculator also takes it in percent); and $\var{t}$ is the time in years. The principal and the interest share
     one currency, which the formula leaves open, while the rate and the time are pure numbers whose
     periods must match: with a rate per year, 18 months enter as 1.5 and 45 days as 45/365. Some
     lenders count a year as 360 days instead, which raises the interest slightly.

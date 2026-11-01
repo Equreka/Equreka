@@ -15,12 +15,14 @@ terms:
       en: 'Cost or original price'
   m:
     kind: 'symbol'
+    unit: 'unitless'
     label:
-      en: 'Markup rate (as a fraction)'
+      en: 'Markup rate'
   d:
     kind: 'symbol'
+    unit: 'unitless'
     label:
-      en: 'Discount rate (as a fraction)'
+      en: 'Discount rate'
 solutions:
   p: 'c * (1 + m) * (1 - d)'
   c: 'p / ((1 + m) * (1 - d))'
@@ -60,7 +62,8 @@ description:
 
     In the formula, $\var{c}$ is the starting amount: the cost the seller paid, or the original
     price when only a discount applies. $\var{m}$ is the markup rate and $\var{d}$ the discount
-    rate, both decimal fractions, so a 40 percent markup enters as 0.4; $\var{p}$ is the final
+    rate, both decimal fractions, so a 40 percent markup is 0.4 (the calculator also takes both in
+    percent); $\var{p}$ is the final
     price. All prices share one currency, which the formula leaves open, and the rates are pure
     numbers. Setting $\var{d}$ to zero gives a markup alone, and setting $\var{m}$ to zero a
     discount alone.

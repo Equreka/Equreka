@@ -4,7 +4,7 @@ terms:
   a:
     label: 'Parte'
   p:
-    label: 'Porcentaje (como fracción)'
+    label: 'Porcentaje'
   b:
     label: 'Total (base)'
 description: >-
@@ -16,7 +16,8 @@ description: >-
 
   En la fórmula, $\var{a}$ es la parte, a veces llamada cantidad; $\var{b}$ es el total o base, la
   cantidad de referencia con la que se compara la parte; y $\var{p}$ es el porcentaje escrito como
-  fracción decimal, de modo que el 25 por ciento entra como 0.25 y el 125 por ciento como 1.25. La
+  fracción decimal, de modo que el 25 por ciento es 0.25 y el 125 por ciento es 1.25; la calculadora
+  también lo admite escrito en porcentaje. La
   parte y el total se miden en la misma unidad, ya sea dinero, personas o kilogramos, y la fórmula
   no fija ninguna; el porcentaje es un número puro. Las tres son normalmente positivas, y un
   porcentaje mayor que el 100 por ciento da una parte mayor que el total.

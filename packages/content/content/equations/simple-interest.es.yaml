@@ -6,7 +6,7 @@ terms:
   P:
     label: 'Capital'
   r:
-    label: 'Tasa de interés anual (como fracción)'
+    label: 'Tasa de interés anual'
   t:
     label: 'Tiempo en años'
 description: >-
@@ -17,7 +17,8 @@ description: >-
 
   En la fórmula, $\var{I}$ es el interés ganado o adeudado; $\var{P}$ es el capital, la cantidad
   prestada, tomada en préstamo o depositada; $\var{r}$ es la tasa de interés anual como fracción
-  decimal, de modo que el 6 por ciento entra como 0.06; y $\var{t}$ es el tiempo en años. El capital
+  decimal, de modo que el 6 por ciento es 0.06 (la calculadora también la admite en porcentaje); y
+  $\var{t}$ es el tiempo en años. El capital
   y el interés comparten una moneda, que la fórmula deja abierta, mientras que la tasa y el tiempo
   son números puros cuyos periodos deben coincidir: con una tasa anual, 18 meses entran como 1.5 y
   45 días como 45/365. Algunos prestamistas cuentan el año como 360 días, lo que eleva ligeramente
