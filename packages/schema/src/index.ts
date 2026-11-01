@@ -3,6 +3,7 @@ import {
 	branch,
 	category,
 	constant,
+	element,
 	equation,
 	magnitude,
 	path,
@@ -32,6 +33,7 @@ export const collectionSchemas = {
 	variables: variable,
 	equations: equation,
 	paths: path,
+	elements: element,
 } as const;
 
 /**

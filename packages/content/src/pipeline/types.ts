@@ -8,6 +8,7 @@ export type Stage =
 	| 'integrity'
 	| 'resolve'
 	| 'anchors'
+	| 'elements'
 	| 'dimensions'
 	| 'solutions'
 	| 'tex'

@@ -58,6 +58,23 @@ describe('locale trees', () => {
 		});
 	});
 
+	it('localizes the note of every sourced element datum, ionization energies keyed by n', () => {
+		const note = { note: 'text' };
+		expect(outline(collectionLocaleTrees.elements)).toEqual({
+			name: 'text',
+			description: 'prose',
+			atomicWeight: { abridged: note },
+			electronConfiguration: note,
+			ionizationEnergies: { by: 'key', item: note },
+			paulingElectronegativity: note,
+			covalentRadius: note,
+			density: note,
+			meltingPoint: note,
+			boilingPoint: note,
+			standardState: note,
+		});
+	});
+
 	it('refuses union options that disagree on whether a field is prose', () => {
 		const schema = z.union([
 			z.object({ name: localizedText, note: localizedText }),

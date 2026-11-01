@@ -1,4 +1,4 @@
-import { COLLECTIONS, type CollectionName } from '@equreka/schema/collections';
+import { SURFACED_COLLECTIONS, type SurfacedCollection } from '@equreka/schema/collections';
 import type { MessageKey } from './i18n/en';
 
 type Platform = 'web' | 'mobile';
@@ -30,11 +30,11 @@ export const COLLECTION_INFO = {
 	variables: { taxonomy: 'member', listed: false },
 	equations: { taxonomy: 'member', listed: true },
 	paths: { taxonomy: 'member', listed: true },
-} as const satisfies Readonly<Record<CollectionName, CollectionInfo>>;
+} as const satisfies Readonly<Record<SurfacedCollection, CollectionInfo>>;
 
 export type MemberCollection = {
-	[C in CollectionName]: (typeof COLLECTION_INFO)[C]['taxonomy'] extends 'member' ? C : never;
-}[CollectionName];
+	[C in SurfacedCollection]: (typeof COLLECTION_INFO)[C]['taxonomy'] extends 'member' ? C : never;
+}[SurfacedCollection];
 
 /**
  * Resolves to an object type naming every member of `All` that the order `T`
@@ -44,9 +44,9 @@ type Complete<All, T extends readonly All[]> = [Exclude<All, T[number]>] extends
 	? unknown
 	: { readonly missing: Exclude<All, T[number]> };
 
-function completeOrder<const T extends readonly CollectionName[]>(
-	order: T & Complete<CollectionName, T>,
-): readonly CollectionName[] {
+function completeOrder<const T extends readonly SurfacedCollection[]>(
+	order: T & Complete<SurfacedCollection, T>,
+): readonly SurfacedCollection[] {
 	return order;
 }
 
@@ -56,15 +56,22 @@ function completeMemberOrder<const T extends readonly MemberCollection[]>(
 	return order;
 }
 
-export function isCollectionName(value: string): value is CollectionName {
-	return (COLLECTIONS as readonly string[]).includes(value);
+/**
+ * True for the collections a web or mobile surface renders. One the
+ * pipeline builds ahead of its pages (`UNSURFACED_COLLECTIONS`, ADR 0016)
+ * is absent from this registry, so no route, list, search group or
+ * favorite names it: an artifact row or deep link that carries one is
+ * treated as unknown.
+ */
+export function isCollectionName(value: string): value is SurfacedCollection {
+	return (SURFACED_COLLECTIONS as readonly string[]).includes(value);
 }
 
-export function isTaxonomyMember(collection: CollectionName): collection is MemberCollection {
+export function isTaxonomyMember(collection: SurfacedCollection): collection is MemberCollection {
 	return COLLECTION_INFO[collection].taxonomy === 'member';
 }
 
-export function collectionLabelKey(collection: CollectionName): MessageKey {
+export function collectionLabelKey(collection: SurfacedCollection): MessageKey {
 	return `collection.${collection}`;
 }
 
@@ -81,12 +88,12 @@ export function collectionRank(order: readonly string[], collection: string): nu
  * Canonical display order, followed by every list without a surface order
  * of its own below.
  */
-export const COLLECTION_ORDER: readonly CollectionName[] = COLLECTIONS;
+export const COLLECTION_ORDER: readonly SurfacedCollection[] = SURFACED_COLLECTIONS;
 
 export const TAXONOMY_MEMBERS: readonly MemberCollection[] =
 	COLLECTION_ORDER.filter(isTaxonomyMember);
 
-export const LISTED_COLLECTIONS: readonly CollectionName[] = COLLECTION_ORDER.filter(
+export const LISTED_COLLECTIONS: readonly SurfacedCollection[] = COLLECTION_ORDER.filter(
 	(collection) => COLLECTION_INFO[collection].listed,
 );
 
@@ -104,12 +111,12 @@ const LEGACY_TYPE_ORDER = [
 	'prefixes',
 ] as const;
 
-export const SEARCH_GROUP_ORDER: Readonly<Record<Platform, readonly CollectionName[]>> = {
+export const SEARCH_GROUP_ORDER: Readonly<Record<Platform, readonly SurfacedCollection[]>> = {
 	web: completeOrder([...LEGACY_TYPE_ORDER, 'paths', 'categories', 'branches']),
 	mobile: COLLECTION_ORDER,
 };
 
-export const FAVORITE_GROUP_ORDER: Readonly<Record<Platform, readonly CollectionName[]>> = {
+export const FAVORITE_GROUP_ORDER: Readonly<Record<Platform, readonly SurfacedCollection[]>> = {
 	web: completeOrder([...LEGACY_TYPE_ORDER, 'categories', 'branches', 'paths']),
 	mobile: COLLECTION_ORDER,
 };

@@ -1,0 +1,136 @@
+# yaml-language-server: $schema=../../dist/schemas/elements.schema.json
+name:
+  en: 'Beryllium'
+symbol: 'Be'
+atomicNumber: 4
+atomicWeight:
+  kind: 'value'
+  value: '9.0121831'
+  uncertainty: '0.0000005'
+  abridged:
+    value: '9.0122'
+    uncertainty: '0.0001'
+    source:
+      name: 'CIAAW, Abridged Standard Atomic Weights 2024'
+      url: 'https://www.ciaaw.org/abridged-atomic-weights.htm'
+      ref: 'Z = 4, beryllium'
+  source:
+    name: 'CIAAW, Standard Atomic Weights 2024'
+    url: 'https://www.ciaaw.org/atomic-weights.htm'
+    ref: 'Z = 4, beryllium: 9.012 1831(5)'
+electronConfiguration:
+  value: '[He] 2s2'
+  source:
+    name: 'NIST Atomic Spectra Database, version 5.12'
+    url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+    ref: 'Be I: ground shells 1s2.2s2'
+ionizationEnergies:
+  '1':
+    value: '9.322699'
+    unit: 'electronvolt'
+    uncertainty: '0.000007'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'Be I: ionization energy; bibliography L5964'
+  '2':
+    value: '18.21115'
+    unit: 'electronvolt'
+    uncertainty: '0.00004'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'Be II: ionization energy; bibliography L12158'
+  '3':
+    value: '153.896205'
+    unit: 'electronvolt'
+    uncertainty: '0.000004'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'Be III: ionization energy in parentheses (ab initio); bibliography L10054'
+  '4':
+    value: '217.71858459'
+    unit: 'electronvolt'
+    uncertainty: '0.00000010'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'Be IV: ionization energy in parentheses (ab initio); bibliography L19200'
+covalentRadius:
+  value: '96'
+  unit: 'picometre'
+  source:
+    name: 'Cordero et al., Covalent radii revisited, Dalton Transactions 2008 (21), 2832–2838'
+    url: 'https://doi.org/10.1039/B801115J'
+    via:
+      name: 'Wikidata: beryllium (Q569), covalent radius (P14937), statement citing doi:10.1039/B801115J'
+      url: 'https://www.wikidata.org/wiki/Q569#P14937'
+meltingPoint:
+  value: '1560.000'
+  unit: 'kelvin'
+  note:
+    en: 'At 100 kPa (1 bar)'
+  source:
+    name: 'NIST-JANAF Thermochemical Tables, 4th ed. (Chase 1998)'
+    url: 'https://janaf.nist.gov/tables/Be-001.html'
+    ref: 'Be (ref): beta–liquid transition'
+boilingPoint:
+  value: '2741.437'
+  unit: 'kelvin'
+  note:
+    en: 'At 100 kPa (1 bar)'
+  source:
+    name: 'NIST-JANAF Thermochemical Tables, 4th ed. (Chase 1998)'
+    url: 'https://janaf.nist.gov/tables/Be-001.html'
+    ref: 'Be (ref): liquid–ideal gas transition'
+standardState:
+  value: 'solid'
+  source:
+    name: 'NIST-JANAF Thermochemical Tables, 4th ed. (Chase 1998)'
+    url: 'https://janaf.nist.gov/tables/Be-001.html'
+    ref: 'Be (ref): crystal at 298.15 K, below the alpha–beta transition'
+categories:
+  - 'chemistry'
+branches:
+  - 'periodic-table'
+externalIds:
+  wikidata: 'Q569'
+references:
+  - title: 'CIAAW, Standard Atomic Weights 2024 and Abridged Standard Atomic Weights 2024'
+    url: 'https://www.ciaaw.org/atomic-weights.htm'
+  - title: 'CIAAW, Monoisotopic elements'
+    url: 'https://www.ciaaw.org/monoisotopic-elements.htm'
+  - title: 'NIST, Atomic Spectra Database, version 5.12, Ground States and Ionization Energies'
+    url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+  - title: 'NIST-JANAF Thermochemical Tables, Beryllium (Be), reference state'
+    url: 'https://janaf.nist.gov/tables/Be-001.html'
+  - title: 'OpenStax, Chemistry 2e, 2.5 The Periodic Table'
+    url: 'https://openstax.org/books/chemistry-2e/pages/2-5-the-periodic-table'
+  - title: 'OpenStax, Chemistry 2e, 6.5 Periodic Variations in Element Properties'
+    url: 'https://openstax.org/books/chemistry-2e/pages/6-5-periodic-variations-in-element-properties'
+description:
+  en: >-
+    Beryllium, symbol Be, is the chemical element with atomic number 4, the second element of
+    period 2 and the lightest of the alkaline earth metals of group 2. Its ground-state electron
+    configuration is $[\mathrm{He}]\,2s^{2}$: two valence electrons fill the 2s subshell above a
+    helium-like core and complete the s-block of the period. The alkaline earth metals share this
+    pair of s electrons, and each forms a compound with hydrogen that holds two hydrogen atoms per
+    atom of the metal.
+
+    The first ionization energy, about $9.32\,\mathrm{eV}$, exceeds that of lithium, as expected
+    across a period, since the nucleus gains a proton while the new electron joins the same shell.
+    The third value, which has to reach into the helium-like core, is more than eight times the
+    second. Boron, the next element, breaks the rising trend with a lower first ionization energy,
+    because its outermost electron is the first in its period to enter a 2p subshell.
+
+    Beryllium is one of the elements whose standard atomic weight rests on a single stable isotope,
+    and CIAAW accordingly states it as one precise value, 9.0121831 with an uncertainty of
+    0.0000005, and 9.0122 as the abridged value.
+
+    It is a solid metal at room temperature. At the standard pressure of the NIST-JANAF tables, the
+    bar, its crystal changes from the alpha to the beta structure shortly before it melts at
+    $1560.000\,\mathrm{K}$, and the liquid boils at a temperature about 1.76 times the melting
+    point.

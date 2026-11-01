@@ -27,6 +27,7 @@ export function emptyCorpus(): Corpus {
 		variables: new Map(),
 		equations: new Map(),
 		paths: new Map(),
+		elements: new Map(),
 	};
 }
 

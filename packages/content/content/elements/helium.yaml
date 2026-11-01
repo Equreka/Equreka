@@ -1,0 +1,116 @@
+# yaml-language-server: $schema=../../dist/schemas/elements.schema.json
+name:
+  en: 'Helium'
+symbol: 'He'
+atomicNumber: 2
+atomicWeight:
+  kind: 'value'
+  value: '4.002602'
+  uncertainty: '0.000002'
+  abridged:
+    value: '4.0026'
+    uncertainty: '0.0001'
+    source:
+      name: 'CIAAW, Abridged Standard Atomic Weights 2024'
+      url: 'https://www.ciaaw.org/abridged-atomic-weights.htm'
+      ref: 'Z = 2, helium'
+  source:
+    name: 'CIAAW, Standard Atomic Weights 2024'
+    url: 'https://www.ciaaw.org/atomic-weights.htm'
+    ref: 'Z = 2, helium: 4.002 602(2), notes g and r'
+electronConfiguration:
+  value: '1s2'
+  source:
+    name: 'NIST Atomic Spectra Database, version 5.12'
+    url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+    ref: 'He I: ground shells 1s2'
+ionizationEnergies:
+  '1':
+    value: '24.587389011'
+    unit: 'electronvolt'
+    uncertainty: '0.000000025'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'He I: ionization energy; bibliography L17714'
+  '2':
+    value: '54.4177655282'
+    unit: 'electronvolt'
+    uncertainty: '0.0000000010'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'He II: ionization energy in parentheses (ab initio); bibliography L19200'
+covalentRadius:
+  value: '28'
+  unit: 'picometre'
+  estimated: true
+  source:
+    name: 'Cordero et al., Covalent radii revisited, Dalton Transactions 2008 (21), 2832–2838'
+    url: 'https://doi.org/10.1039/B801115J'
+    ref: 'abstract: radii of the noble gases interpolated, structural data lacking'
+    via:
+      name: 'Wikidata: helium (Q560), covalent radius (P14937), statement citing doi:10.1039/B801115J'
+      url: 'https://www.wikidata.org/wiki/Q560#P14937'
+boilingPoint:
+  value: '4.2238'
+  unit: 'kelvin'
+  source:
+    name: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+    ref: 'Helium: normal boiling point; equation of state of Ortiz-Vega et al. (2018)'
+density:
+  value: '0.16352'
+  unit: 'kilogram-per-cubic-metre'
+  source:
+    name: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+    ref: 'Helium: isothermal data at 298.15 K and 0.101325 MPa'
+standardState:
+  value: 'gas'
+  source:
+    name: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+    ref: 'Helium: phase at 298.15 K and 0.101325 MPa, vapor'
+categories:
+  - 'chemistry'
+branches:
+  - 'periodic-table'
+externalIds:
+  wikidata: 'Q560'
+references:
+  - title: 'CIAAW, Standard Atomic Weights 2024 and Abridged Standard Atomic Weights 2024'
+    url: 'https://www.ciaaw.org/atomic-weights.htm'
+  - title: 'NIST, Atomic Spectra Database, version 5.12, Ground States and Ionization Energies'
+    url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+  - title: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+  - title: 'NIST-JANAF Thermochemical Tables, Helium (He), reference state'
+    url: 'https://janaf.nist.gov/tables/He-001.html'
+  - title: 'OpenStax, Chemistry 2e, 2.5 The Periodic Table'
+    url: 'https://openstax.org/books/chemistry-2e/pages/2-5-the-periodic-table'
+  - title: 'OpenStax, Chemistry 2e, 6.4 Electronic Structure of Atoms (Electron Configurations)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/6-4-electronic-structure-of-atoms-electron-configurations'
+description:
+  en: >-
+    Helium, symbol He, is the chemical element with atomic number 2, the second and last element of
+    period 1 and the first of the noble gases. Its two electrons fill the 1s subshell, giving the
+    ground-state electron configuration $1s^{2}$, so by its electrons it belongs to the s-block;
+    periodic tables nonetheless place it in group 18, at the head of the noble gases, whose outer
+    shells are likewise complete.
+
+    A full shell holds on to its electrons. The first ionization energy of helium is about
+    $24.6\,\mathrm{eV}$, close to twice that of hydrogen, and removing the second electron, which
+    leaves the bare nucleus, costs more than twice the first. NIST gives that second value from
+    theory rather than from measurement, as it does for each one-electron ion from helium to neon.
+
+    CIAAW lists the standard atomic weight of helium as one value, 4.002602, with an uncertainty
+    of 0.000002, and 4.0026 as its abridged value. It adds two cautions: some geological and
+    biological materials hold helium whose isotopic make-up lies outside the normal range, and the
+    spread found in normal terrestrial material limits how precisely the value can be stated.
+
+    At room temperature and atmospheric pressure helium is a gas of single atoms, its reference
+    state in the NIST-JANAF tables. Cooling alone turns it liquid only close to absolute zero: the
+    reference equation of state that NIST adopts puts its normal boiling point at
+    $4.2238\,\mathrm{K}$, lower even than that of hydrogen.

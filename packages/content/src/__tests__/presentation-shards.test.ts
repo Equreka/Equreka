@@ -47,6 +47,7 @@ describe('presentation shard configuration', () => {
 			'constants',
 			'variables',
 			'paths',
+			'elements',
 		]);
 		expect(isShardedCollection('constructor')).toBe(false);
 	});

@@ -19,6 +19,7 @@ export const COLLECTIONS = [
 	'variables',
 	'equations',
 	'paths',
+	'elements',
 ];
 
 export const ACTIONS = ['create', 'rewrite', 'edit', 'retire'];
@@ -69,13 +70,18 @@ export const WORD_FLOORS = {
 	variables: 150,
 	equations: 200,
 	paths: 0,
+	elements: 200,
 };
 
 /** Collections whose `slug` an equation must not reuse (style-guide slug rule). */
 export const EQUATION_SLUG_RIVALS = ['magnitudes', 'units', 'constants'];
 
 const SLUG_RE = /^[a-z0-9]+(?:-[a-z0-9]+)*$/;
-const WAVE_ID_RE = /^W\d+(?:\.\d+)?$/;
+/**
+ * A content wave (W2, W1.3) or a step of the elements track (E1), which the
+ * program plan numbers apart from the waves.
+ */
+const WAVE_ID_RE = /^[WE]\d+(?:\.\d+)?$/;
 const ENTRY_KEYS = new Set([
 	'collection',
 	'slug',
@@ -183,7 +189,7 @@ export function validateRoadmap(roadmap, content) {
 	waves.forEach((wave, index) => {
 		const where = `wave[${index}]`;
 		if (typeof wave?.id !== 'string' || !WAVE_ID_RE.test(wave.id)) {
-			fail(where, `id must look like W2 or W1.3, got '${wave?.id}'`);
+			fail(where, `id must look like W2, W1.3 or E1, got '${wave?.id}'`);
 			return;
 		}
 		if (waveIndex.has(wave.id)) fail(wave.id, 'duplicate wave id');

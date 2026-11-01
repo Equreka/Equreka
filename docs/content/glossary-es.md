@@ -518,6 +518,21 @@ Prefix names: *mili* per RAE; *atto* per the DLE entry *atto-* and, with *zetta*
 | compressibility factor, van der Waals constants a and b | factor de compresibilidad (*factor de compresión* in `aliases`; the Wikidata Q736895 `es` label *factor de comprensibilidad* is a misspelling, never used), constante a de van der Waals, constante b de van der Waals (OpenStax: *constantes de van der Waals*) | [OpenStax *Química 2ed*, 9.6](https://openstax.org/books/qu%C3%ADmica-2ed/pages/9-6-comportamiento-no-ideal-de-los-gases) |
 | Henry's law, Henry's law constant | ley de Henry, constante de la ley de Henry | [OpenStax *Química 2ed*, 11.3](https://openstax.org/books/qu%C3%ADmica-2ed/pages/11-3-solubilidad) |
 
+### Periodic table and elements
+
+| English | Spanish | Source |
+| --- | --- | --- |
+| element names | the element's Wikidata `es` label, lowercase in running prose (*hidrógeno*, *flúor*, *neón*); *lawrencio* (Wikidata), never *laurencio* | Wikidata labels, checked 2026-11-01 |
+| periodic table (branch), period, group | Tabla periódica (*tabla periódica de los elementos*, the Wikidata `es` label, in `aliases`), periodo, grupo | [OpenStax *Química 2ed*, 2.5](https://openstax.org/books/qu%C3%ADmica-2ed/pages/2-5-la-tabla-periodica); Wikidata [Q10693](https://www.wikidata.org/wiki/Q10693) |
+| s-block, p-block, d-block, f-block | bloque s, bloque p, bloque d, bloque f | usage |
+| lanthanoids, actinoids | lantánidos, actínidos, the OpenStax forms (English prose keeps the IUPAC *lanthanoids*, *actinoids*) | [OpenStax *Química 2ed*, 2.5](https://openstax.org/books/qu%C3%ADmica-2ed/pages/2-5-la-tabla-periodica) |
+| alkali metals, alkaline earth metals, pnictogens, chalcogens, halogens, noble gases | metales alcalinos, metales alcalinotérreos, pnictógenos, calcógenos, halógenos, gases nobles | [OpenStax *Química 2ed*, 2.5](https://openstax.org/books/qu%C3%ADmica-2ed/pages/2-5-la-tabla-periodica) |
+| electron configuration, ground state, valence shell, subshell | configuración electrónica, estado fundamental, capa de valencia, subcapa | Wikidata [Q53859](https://www.wikidata.org/wiki/Q53859) `es` label; [OpenStax *Química 2ed*, 6.5](https://openstax.org/books/qu%C3%ADmica-2ed/pages/6-5-variaciones-periodicas-de-las-propiedades-de-los-elementos) |
+| first ionization energy, n-th ionization energy | primera energía de ionización, n-ésima energía de ionización (*la segunda*, *la tercera*… in prose) | [OpenStax *Química 2ed*, 6.5](https://openstax.org/books/qu%C3%ADmica-2ed/pages/6-5-variaciones-periodicas-de-las-propiedades-de-los-elementos) |
+| standard atomic weight, abridged standard atomic weight | peso atómico estándar, valor abreviado (Wikidata [Q41377](https://www.wikidata.org/wiki/Q41377) labels the quantity *masa atómica relativa*, alias *peso atómico*) | usage |
+| Hund's rule, unpaired electron, paired electrons | regla de Hund, electrón desapareado, electrones apareados | usage |
+| covalent radius, electronegativity (Pauling scale) | radio covalente, electronegatividad (escala de Pauling). The element values come from Wikidata statements citing their primary source (ADR 0016), because Allred (1961), Cordero et al. (2008) and the CRC Handbook are closed access | Wikidata [Q485360](https://www.wikidata.org/wiki/Q485360), [Q78974](https://www.wikidata.org/wiki/Q78974) `es` labels; *escala de Pauling* usage |
+
 ### Mathematics
 
 | English | Spanish | Source |

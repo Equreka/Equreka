@@ -1,0 +1,106 @@
+# yaml-language-server: $schema=../../dist/schemas/elements.schema.json
+name:
+  en: 'Hydrogen'
+symbol: 'H'
+atomicNumber: 1
+atomicWeight:
+  kind: 'interval'
+  low: '1.00784'
+  high: '1.00811'
+  abridged:
+    value: '1.0080'
+    uncertainty: '0.0002'
+    source:
+      name: 'CIAAW, Abridged Standard Atomic Weights 2024'
+      url: 'https://www.ciaaw.org/abridged-atomic-weights.htm'
+      ref: 'Z = 1, hydrogen'
+  source:
+    name: 'CIAAW, Standard Atomic Weights 2024'
+    url: 'https://www.ciaaw.org/atomic-weights.htm'
+    ref: 'Z = 1, hydrogen'
+electronConfiguration:
+  value: '1s1'
+  source:
+    name: 'NIST Atomic Spectra Database, version 5.12'
+    url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+    ref: 'H I: ground shells 1s'
+ionizationEnergies:
+  '1':
+    value: '13.598434599702'
+    unit: 'electronvolt'
+    uncertainty: '0.000000000012'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'H I: ionization energy in parentheses (ab initio); bibliography HDEL'
+covalentRadius:
+  value: '31'
+  unit: 'picometre'
+  source:
+    name: 'Cordero et al., Covalent radii revisited, Dalton Transactions 2008 (21), 2832–2838'
+    url: 'https://doi.org/10.1039/B801115J'
+    via:
+      name: 'Wikidata: hydrogen (Q556), covalent radius (P14937), statement citing doi:10.1039/B801115J'
+      url: 'https://www.wikidata.org/wiki/Q556#P14937'
+boilingPoint:
+  value: '20.369'
+  unit: 'kelvin'
+  source:
+    name: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+    ref: 'Hydrogen (normal): normal boiling point; equation of state of Leachman et al. (2009)'
+density:
+  value: '0.082348'
+  unit: 'kilogram-per-cubic-metre'
+  source:
+    name: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+    ref: 'Hydrogen (normal): isothermal data at 298.15 K and 0.101325 MPa'
+standardState:
+  value: 'gas'
+  source:
+    name: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+    ref: 'Hydrogen (normal): phase at 298.15 K and 0.101325 MPa, vapor'
+categories:
+  - 'chemistry'
+branches:
+  - 'periodic-table'
+externalIds:
+  wikidata: 'Q556'
+references:
+  - title: 'CIAAW, Standard Atomic Weights 2024 and Abridged Standard Atomic Weights 2024'
+    url: 'https://www.ciaaw.org/atomic-weights.htm'
+  - title: 'NIST, Atomic Spectra Database, version 5.12, Ground States and Ionization Energies'
+    url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+  - title: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+  - title: 'NIST-JANAF Thermochemical Tables, Hydrogen (H2), reference state'
+    url: 'https://janaf.nist.gov/tables/H-050.html'
+  - title: 'OpenStax, Chemistry 2e, 2.5 The Periodic Table'
+    url: 'https://openstax.org/books/chemistry-2e/pages/2-5-the-periodic-table'
+  - title: 'OpenStax, Chemistry 2e, 6.4 Electronic Structure of Atoms (Electron Configurations)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/6-4-electronic-structure-of-atoms-electron-configurations'
+description:
+  en: >-
+    Hydrogen, symbol H, is the chemical element with atomic number 1 and the simplest of all: its
+    atom consists of one proton and one electron. It opens period 1 of the periodic table and heads
+    group 1 in the s-block, yet it is a nonmetal whose chemistry also resembles that of the halogens
+    in group 17, so periodic tables print it above group 1, above both groups, or set apart.
+
+    Its ground-state electron configuration is $1s^{1}$. The lone electron occupies the lowest
+    subshell, which a second electron would complete, as happens in helium. Stripping that electron
+    away takes about $13.6\,\mathrm{eV}$; it is the only ionization energy hydrogen has, and what
+    remains is the bare nucleus, a single proton.
+
+    Hydrogen has no single atomic weight. Because its isotopic composition varies from one normal
+    terrestrial material to another, CIAAW states its standard atomic weight as the interval from
+    1.00784 to 1.00811 instead of as one value with an uncertainty, and lists 1.0080 as the shorter
+    abridged value for everyday calculation.
+
+    At room temperature and atmospheric pressure the element is a gas of H₂ molecules, the form
+    that the NIST-JANAF tables take as its thermochemical reference state. The gas liquefies only
+    when cooled far below room temperature: the reference equation of state that NIST adopts for
+    normal hydrogen places its normal boiling point, at standard atmospheric pressure, at
+    $20.369\,\mathrm{K}$.

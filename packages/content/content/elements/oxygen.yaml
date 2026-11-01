@@ -1,0 +1,167 @@
+# yaml-language-server: $schema=../../dist/schemas/elements.schema.json
+name:
+  en: 'Oxygen'
+symbol: 'O'
+atomicNumber: 8
+atomicWeight:
+  kind: 'interval'
+  low: '15.99903'
+  high: '15.99977'
+  abridged:
+    value: '15.999'
+    uncertainty: '0.001'
+    source:
+      name: 'CIAAW, Abridged Standard Atomic Weights 2024'
+      url: 'https://www.ciaaw.org/abridged-atomic-weights.htm'
+      ref: 'Z = 8, oxygen'
+  source:
+    name: 'CIAAW, Standard Atomic Weights 2024'
+    url: 'https://www.ciaaw.org/atomic-weights.htm'
+    ref: 'Z = 8, oxygen: [15.999 03, 15.999 77], note m'
+electronConfiguration:
+  value: '[He] 2s2 2p4'
+  source:
+    name: 'NIST Atomic Spectra Database, version 5.12'
+    url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+    ref: 'O I: ground shells 1s2.2s2.2p4'
+ionizationEnergies:
+  '1':
+    value: '13.618055'
+    unit: 'electronvolt'
+    uncertainty: '0.000007'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'O I: ionization energy; bibliography L74'
+  '2':
+    value: '35.12112'
+    unit: 'electronvolt'
+    uncertainty: '0.00006'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'O II: ionization energy; bibliography L11267'
+  '3':
+    value: '54.93554'
+    unit: 'electronvolt'
+    uncertainty: '0.00012'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'O III: ionization energy in brackets (semi-empirical); bibliography L11770'
+  '4':
+    value: '77.41350'
+    unit: 'electronvolt'
+    uncertainty: '0.00025'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'O IV: ionization energy; bibliography L648'
+  '5':
+    value: '113.8990'
+    unit: 'electronvolt'
+    uncertainty: '0.0005'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'O V: ionization energy; bibliography L7288'
+  '6':
+    value: '138.1189'
+    unit: 'electronvolt'
+    uncertainty: '0.0021'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'O VI: ionization energy in brackets (semi-empirical); bibliography L4713'
+  '7':
+    value: '739.32697'
+    unit: 'electronvolt'
+    uncertainty: '0.00015'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'O VII: ionization energy in parentheses (ab initio); bibliography L21139'
+  '8':
+    value: '871.4099138'
+    unit: 'electronvolt'
+    uncertainty: '0.0000012'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'O VIII: ionization energy in parentheses (ab initio); bibliography L19200'
+covalentRadius:
+  value: '66'
+  unit: 'picometre'
+  source:
+    name: 'Cordero et al., Covalent radii revisited, Dalton Transactions 2008 (21), 2832–2838'
+    url: 'https://doi.org/10.1039/B801115J'
+    via:
+      name: 'Wikidata: oxygen (Q629), covalent radius (P14937), statement citing doi:10.1039/B801115J'
+      url: 'https://www.wikidata.org/wiki/Q629#P14937'
+boilingPoint:
+  value: '90.1878'
+  unit: 'kelvin'
+  source:
+    name: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+    ref: 'Oxygen: normal boiling point; equation of state of Schmidt and Wagner (1985)'
+density:
+  value: '1.3088'
+  unit: 'kilogram-per-cubic-metre'
+  source:
+    name: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+    ref: 'Oxygen: isothermal data at 298.15 K and 0.101325 MPa'
+standardState:
+  value: 'gas'
+  source:
+    name: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+    ref: 'Oxygen: phase at 298.15 K and 0.101325 MPa, vapor'
+categories:
+  - 'chemistry'
+branches:
+  - 'periodic-table'
+externalIds:
+  wikidata: 'Q629'
+references:
+  - title: 'CIAAW, Standard Atomic Weights 2024 and Abridged Standard Atomic Weights 2024'
+    url: 'https://www.ciaaw.org/atomic-weights.htm'
+  - title: 'NIST, Atomic Spectra Database, version 5.12, Ground States and Ionization Energies'
+    url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+  - title: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+  - title: 'NIST-JANAF Thermochemical Tables, Oxygen (O2), reference state'
+    url: 'https://janaf.nist.gov/tables/O-029.html'
+  - title: 'OpenStax, Chemistry 2e, 2.5 The Periodic Table'
+    url: 'https://openstax.org/books/chemistry-2e/pages/2-5-the-periodic-table'
+  - title: 'OpenStax, Chemistry 2e, 6.5 Periodic Variations in Element Properties'
+    url: 'https://openstax.org/books/chemistry-2e/pages/6-5-periodic-variations-in-element-properties'
+description:
+  en: >-
+    Oxygen, symbol O, is the chemical element with atomic number 8, the head of group 16, the
+    chalcogens, also called the oxygen family, and an element of the p-block in period 2. Its
+    ground-state electron configuration is $[\mathrm{He}]\,2s^{2}\,2p^{4}$: one 2p orbital holds a
+    pair of electrons with opposite spins and the other two hold one electron each, so the atom has
+    two unpaired electrons.
+
+    That paired electron lowers the first ionization energy of oxygen, about
+    $13.62\,\mathrm{eV}$, slightly below nitrogen's, against the general rise across the period:
+    taking it away removes the repulsion between the pair and leaves a half-filled 2p subshell.
+    Oxygen holds eight electrons in all, and NIST lists an ionization energy for each. They climb
+    steadily while the second shell empties, then jump once the helium-like core is reached: the
+    seventh value is more than five times the sixth.
+
+    CIAAW gives the standard atomic weight of oxygen as the interval from 15.99903 to 15.99977,
+    reflecting variation in its isotopic composition among normal materials, and 15.999 as the
+    abridged value. It also warns that oxygen sold commercially may carry an altered isotopic
+    composition.
+
+    At room temperature and atmospheric pressure oxygen is a gas of O₂ molecules, the form that the
+    NIST-JANAF tables use as its reference state. The reference equation of state that NIST adopts
+    for oxygen puts its normal boiling point at $90.1878\,\mathrm{K}$, a little above those of
+    nitrogen and fluorine, its neighbours in the period.

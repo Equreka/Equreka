@@ -1,7 +1,15 @@
 import { z } from 'zod';
 import type { CollectionName } from './collections.js';
 
-export { COLLECTIONS, type CollectionName } from './collections.js';
+export {
+	COLLECTIONS,
+	type CollectionName,
+	isSurfacedCollection,
+	SURFACED_COLLECTIONS,
+	type SurfacedCollection,
+	UNSURFACED_COLLECTIONS,
+	type UnsurfacedCollection,
+} from './collections.js';
 
 /**
  * Kebab-case identifier; the filename (minus extension) is the slug and is
@@ -12,8 +20,9 @@ export const slug = z.string().regex(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, 'slug must be
 /**
  * Slug reference to another collection. The `ref:<collection>` description
  * only surfaces as an editor hint in the emitted JSON Schemas; nothing reads
- * it back. The integrity stage checks each reference field explicitly, so a
- * new `ref()` field also needs its check in `integrity.ts`.
+ * it back. A pipeline stage checks each reference field explicitly
+ * (`integrity.ts`; the `elements` stage for the units of element
+ * properties), so a new `ref()` field also needs its check there.
  */
 export const ref = (collection: CollectionName) => slug.describe(`ref:${collection}`);
 
@@ -103,14 +112,73 @@ export const reference = z.object({
  * locator inside it (`ref`: table, section or entry, e.g. 'B.8'), and an
  * optional link. `name: 'convention'` marks a value fixed by customary
  * definition rather than by a standards body; `ref` then states the rule.
+ * `via` names the page the value was read from when that page is not the
+ * cited work itself (a Wikidata statement that cites the work), so a
+ * reader sees the value is second-hand.
  */
 export const valueSource = z
 	.object({
 		name: z.string().min(1),
 		url: z.url().optional(),
 		ref: z.string().min(1).optional(),
+		via: z
+			.object({
+				name: z.string().min(1),
+				url: z.url(),
+			})
+			.strict()
+			.optional(),
 	})
 	.strict();
+
+/**
+ * A measured or defined amount: a decimal `value` in `unit`, with an
+ * optional standard `uncertainty` in the same unit. The position that holds
+ * a quantity fixes its dimension, and the pipeline checks the unit against
+ * it.
+ */
+export const quantity = z
+	.object({
+		value: decimalString,
+		unit: ref('units'),
+		uncertainty: decimalString.optional(),
+	})
+	.strict();
+
+/**
+ * Where one authored datum comes from. `estimated` repeats the source's own
+ * flag on a value it does not give as an evaluated measurement: calculated,
+ * interpolated, extrapolated or predicted. `note` qualifies the datum for
+ * readers (an allotrope, a pressure other than the standard one) and is
+ * translated like any other localized text.
+ */
+const provenance = {
+	estimated: strictBool.default(false),
+	note: localizedText.optional(),
+	source: valueSource,
+};
+
+/**
+ * A sourced pure number, such as an electronegativity or a relative atomic
+ * mass.
+ */
+export const sourcedValue = z
+	.object({
+		value: decimalString,
+		uncertainty: decimalString.optional(),
+		...provenance,
+	})
+	.strict();
+
+export const sourcedQuantity = z.object({ ...quantity.shape, ...provenance }).strict();
+
+/**
+ * A sourced datum that is not a number: an electron configuration, a state
+ * of matter.
+ */
+export function sourcedDatum<T extends z.ZodType>(value: T) {
+	return z.object({ value, ...provenance }).strict();
+}
 
 /**
  * Editorial state: `reviewed` asserts a human checked the entry's numbers
@@ -196,6 +264,9 @@ export type LocalizedText = z.infer<typeof localizedText>;
 export type Symbol = z.infer<typeof symbol>;
 export type Reference = z.infer<typeof reference>;
 export type ValueSource = z.infer<typeof valueSource>;
+export type Quantity = z.infer<typeof quantity>;
+export type SourcedValue = z.infer<typeof sourcedValue>;
+export type SourcedQuantity = z.infer<typeof sourcedQuantity>;
 export type EditorialStatus = z.infer<typeof editorialStatus>;
 export type ExternalIds = z.infer<typeof externalIds>;
 export type TextSourceLicense = z.infer<typeof textSourceLicense>;

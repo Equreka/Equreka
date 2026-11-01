@@ -1,4 +1,4 @@
-import { COLLECTIONS } from '@equreka/schema';
+import { COLLECTIONS, SURFACED_COLLECTIONS, UNSURFACED_COLLECTIONS } from '@equreka/schema';
 import { isShardedCollection, SHARDED_COLLECTIONS } from './presentation-shards.js';
 import { SEARCH_LOCALES } from './search-options.js';
 
@@ -21,8 +21,9 @@ export interface ArtifactBudget {
 
 /**
  * Every file the build may emit, keyed by path pattern: `<collection>`
- * matches a COLLECTIONS name, `<sharded>` one in PRESENTATION_SHARDS and
- * `<whole>` one outside it, `<locale>` a SEARCH_LOCALES code, `<shard>`
+ * matches a COLLECTIONS name, `<sharded>` one in PRESENTATION_SHARDS,
+ * `<whole>` a surfaced one outside it, `<unsurfaced>` one in
+ * UNSURFACED_COLLECTIONS, `<locale>` a SEARCH_LOCALES code, `<shard>`
  * a lowercase hex shard id, `<equation>` an equation slug. A file that
  * matches no pattern, or several, fails the build, so no artifact ships
  * unbudgeted. `mobileBundled` must equal whether
@@ -71,6 +72,12 @@ export const ARTIFACT_BUDGETS: Readonly<Record<string, ArtifactBudget>> = {
 		mobileBundled: true,
 		protects:
 			'mobile bundle; one JSON parse on the first screen of the collection; nearing the cap means sharding it in PRESENTATION_SHARDS',
+	},
+	'presentation/<unsurfaced>.json': {
+		maxBytes: 2 * MIB,
+		mobileBundled: false,
+		protects:
+			'nothing ships it yet: a collection built ahead of its pages (ADR 0016) moves to its <whole> or <sharded> row, and into the mobile bundle, with its screens',
 	},
 	'presentation/<sharded>.json': {
 		maxBytes: 256 * KIB,
@@ -153,7 +160,8 @@ export const BUDGET_WARN_RATIO = 0.8;
 const PATTERN_PLACEHOLDERS: Readonly<Record<string, string>> = {
 	collection: COLLECTIONS.join('|'),
 	sharded: SHARDED_COLLECTIONS.join('|'),
-	whole: COLLECTIONS.filter((collection) => !isShardedCollection(collection)).join('|'),
+	whole: SURFACED_COLLECTIONS.filter((collection) => !isShardedCollection(collection)).join('|'),
+	unsurfaced: UNSURFACED_COLLECTIONS.join('|'),
 	locale: SEARCH_LOCALES.join('|'),
 	shard: '[0-9a-f]+',
 	equation: '(?!index\\.)[a-z0-9]+(?:-[a-z0-9]+)*',

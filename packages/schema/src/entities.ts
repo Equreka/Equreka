@@ -9,6 +9,9 @@ import {
 	localizedText,
 	ref,
 	slug,
+	sourcedDatum,
+	sourcedQuantity,
+	sourcedValue,
 	strictBool,
 	symbol,
 	textSources,
@@ -499,6 +502,102 @@ export const path = entityBase
 		}
 	});
 
+/**
+ * The seventh period ends at oganesson; no periodic position is defined
+ * beyond it.
+ */
+export const MAX_ATOMIC_NUMBER = 118;
+
+/**
+ * Authored as IUPAC writes it, one capital letter and up to two lowercase
+ * ones, and expanded to the shared symbol shape (upright TeX), so every
+ * symbol consumer reads an element like any other entry.
+ */
+export const elementSymbol = z
+	.string()
+	.regex(
+		/^[A-Z][a-z]{0,2}$/,
+		'element symbol: a capital letter, then up to two lowercase letters, like "He"',
+	)
+	.transform((text) => ({ tex: `\\mathrm{${text}}`, text }));
+
+/**
+ * The standard atomic weight in the form CIAAW states it: a `value` with
+ * its uncertainty; an `interval` for an element whose isotopic composition
+ * varies across normal materials; or, for an element with no characteristic
+ * terrestrial isotopic composition, the `mass-number` of its nuclide with
+ * the longest confirmed half-life, which periodic tables print in brackets.
+ * `abridged` is CIAAW's shortened value with its uncertainty, the figure a
+ * table cell prints. The `elements` stage requires `low` below `high`.
+ */
+export const atomicWeight = z.discriminatedUnion('kind', [
+	z
+		.object({
+			kind: z.literal('value'),
+			value: decimalString,
+			uncertainty: decimalString,
+			abridged: sourcedValue.optional(),
+			source: valueSource,
+		})
+		.strict(),
+	z
+		.object({
+			kind: z.literal('interval'),
+			low: decimalString,
+			high: decimalString,
+			abridged: sourcedValue.optional(),
+			source: valueSource,
+		})
+		.strict(),
+	z
+		.object({
+			kind: z.literal('mass-number'),
+			massNumber: intFromString.refine((value) => value > 0, 'massNumber must be positive'),
+			source: valueSource,
+		})
+		.strict(),
+]);
+
+export const ionizationNumber = z
+	.string()
+	.regex(/^[1-9]\d*$/, 'ionization number: a positive integer like "1"');
+
+export const stateOfMatter = z.enum(['solid', 'liquid', 'gas']);
+
+/**
+ * A chemical element (ADR 0016). Its period, group, block and grid cell are
+ * derived from `atomicNumber` at build time, never authored. Every property
+ * is sourced value by value and omitted when no cited source gives it.
+ * `electronConfiguration` is the ground state in plain notation, an optional
+ * noble-gas core and then subshells with their electron counts
+ * (`[He] 2s2 2p4`). `ionizationEnergies` maps n to the energy that removes
+ * the n-th electron. `density` holds at 298.15 K and 101.325 kPa,
+ * `meltingPoint` and `boilingPoint` at 101.325 kPa, and `standardState` at
+ * 298.15 K, unless a `note` states other conditions. The `elements` stage
+ * checks what one file cannot: unique atomic numbers and symbols, the
+ * configuration's electron count, every unit's dimension, ionization
+ * energies rising with n up to `atomicNumber`, a boiling point above the
+ * melting point, and a standard state that agrees with both.
+ */
+export const element = entityBase
+	.extend({
+		symbol: elementSymbol,
+		atomicNumber: intFromString.refine(
+			(value) => value >= 1 && value <= MAX_ATOMIC_NUMBER,
+			`atomicNumber must be between 1 and ${MAX_ATOMIC_NUMBER}`,
+		),
+		atomicWeight,
+		electronConfiguration: sourcedDatum(z.string().min(1)).optional(),
+		ionizationEnergies: z.record(ionizationNumber, sourcedQuantity).default({}),
+		paulingElectronegativity: sourcedValue.optional(),
+		covalentRadius: sourcedQuantity.optional(),
+		density: sourcedQuantity.optional(),
+		meltingPoint: sourcedQuantity.optional(),
+		boilingPoint: sourcedQuantity.optional(),
+		standardState: sourcedDatum(stateOfMatter).optional(),
+	})
+	.strict();
+
 export type Category = z.infer<typeof category>;
 export type Branch = z.infer<typeof branch>;
 export type DimensionVector = z.infer<typeof dimensionVector>;
@@ -518,3 +617,6 @@ export type PathEntryRef = z.infer<typeof pathEntryRef>;
 export type ContentLevel = z.infer<typeof contentLevel>;
 export type PathStep = z.infer<typeof pathStep>;
 export type Path = z.infer<typeof path>;
+export type AtomicWeight = z.infer<typeof atomicWeight>;
+export type StateOfMatter = z.infer<typeof stateOfMatter>;
+export type Element = z.infer<typeof element>;

@@ -1,0 +1,141 @@
+# yaml-language-server: $schema=../../dist/schemas/elements.schema.json
+name:
+  en: 'Boron'
+symbol: 'B'
+atomicNumber: 5
+atomicWeight:
+  kind: 'interval'
+  low: '10.806'
+  high: '10.821'
+  abridged:
+    value: '10.81'
+    uncertainty: '0.02'
+    source:
+      name: 'CIAAW, Abridged Standard Atomic Weights 2024'
+      url: 'https://www.ciaaw.org/abridged-atomic-weights.htm'
+      ref: 'Z = 5, boron'
+  source:
+    name: 'CIAAW, Standard Atomic Weights 2024'
+    url: 'https://www.ciaaw.org/atomic-weights.htm'
+    ref: 'Z = 5, boron: [10.806, 10.821], note m'
+electronConfiguration:
+  value: '[He] 2s2 2p1'
+  source:
+    name: 'NIST Atomic Spectra Database, version 5.12'
+    url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+    ref: 'B I: ground shells 1s2.2s2.2p'
+ionizationEnergies:
+  '1':
+    value: '8.298019'
+    unit: 'electronvolt'
+    uncertainty: '0.000003'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'B I: ionization energy; bibliography L12312'
+  '2':
+    value: '25.15483'
+    unit: 'electronvolt'
+    uncertainty: '0.00005'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'B II: ionization energy; bibliography L12120'
+  '3':
+    value: '37.93059'
+    unit: 'electronvolt'
+    uncertainty: '0.00007'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'B III: ionization energy; bibliography L12547'
+  '4':
+    value: '259.374379'
+    unit: 'electronvolt'
+    uncertainty: '0.000009'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'B IV: ionization energy in parentheses (ab initio); bibliography L10054'
+  '5':
+    value: '340.2260225'
+    unit: 'electronvolt'
+    uncertainty: '0.0000006'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'B V: ionization energy in parentheses (ab initio); bibliography L19200'
+covalentRadius:
+  value: '84'
+  unit: 'picometre'
+  source:
+    name: 'Cordero et al., Covalent radii revisited, Dalton Transactions 2008 (21), 2832–2838'
+    url: 'https://doi.org/10.1039/B801115J'
+    via:
+      name: 'Wikidata: boron (Q618), covalent radius (P14937), statement citing doi:10.1039/B801115J'
+      url: 'https://www.wikidata.org/wiki/Q618#P14937'
+meltingPoint:
+  value: '2350.000'
+  unit: 'kelvin'
+  note:
+    en: 'At 100 kPa (1 bar)'
+  source:
+    name: 'NIST-JANAF Thermochemical Tables, 4th ed. (Chase 1998)'
+    url: 'https://janaf.nist.gov/tables/B-001.html'
+    ref: 'B (ref): beta–liquid transition'
+boilingPoint:
+  value: '4139.449'
+  unit: 'kelvin'
+  note:
+    en: 'At 100 kPa (1 bar)'
+  source:
+    name: 'NIST-JANAF Thermochemical Tables, 4th ed. (Chase 1998)'
+    url: 'https://janaf.nist.gov/tables/B-001.html'
+    ref: 'B (ref): liquid–ideal gas transition'
+standardState:
+  value: 'solid'
+  source:
+    name: 'NIST-JANAF Thermochemical Tables, 4th ed. (Chase 1998)'
+    url: 'https://janaf.nist.gov/tables/B-001.html'
+    ref: 'B (ref): crystal at 298.15 K, below the beta–liquid transition'
+categories:
+  - 'chemistry'
+branches:
+  - 'periodic-table'
+externalIds:
+  wikidata: 'Q618'
+references:
+  - title: 'CIAAW, Standard Atomic Weights 2024 and Abridged Standard Atomic Weights 2024'
+    url: 'https://www.ciaaw.org/atomic-weights.htm'
+  - title: 'NIST, Atomic Spectra Database, version 5.12, Ground States and Ionization Energies'
+    url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+  - title: 'NIST-JANAF Thermochemical Tables, Boron (B), reference state'
+    url: 'https://janaf.nist.gov/tables/B-001.html'
+  - title: 'OpenStax, Chemistry 2e, 6.4 Electronic Structure of Atoms (Electron Configurations)'
+    url: 'https://openstax.org/books/chemistry-2e/pages/6-4-electronic-structure-of-atoms-electron-configurations'
+  - title: 'OpenStax, Chemistry 2e, 6.5 Periodic Variations in Element Properties'
+    url: 'https://openstax.org/books/chemistry-2e/pages/6-5-periodic-variations-in-element-properties'
+description:
+  en: >-
+    Boron, symbol B, is the chemical element with atomic number 5, the first element of group 13
+    and the first of the p-block in period 2. Its ground-state electron configuration is
+    $[\mathrm{He}]\,2s^{2}\,2p^{1}$: three valence electrons occupy the second shell, two paired in
+    the 2s subshell and one alone in a 2p orbital.
+
+    That lone 2p electron sets boron apart from beryllium. Within a shell, a p electron lies higher
+    in energy than an s electron and is easier to pull away, so the first ionization energy of
+    boron, about $8.30\,\mathrm{eV}$, is lower than beryllium's although the boron nucleus carries
+    one more proton. The three valence electrons come off at moderate cost, but the fourth
+    ionization energy, which reaches the helium-like core, is almost seven times the third, a jump
+    that marks where the valence electrons run out.
+
+    CIAAW gives the standard atomic weight of boron as the interval from 10.806 to 10.821, with
+    10.81 as the abridged value, since the proportions of its isotopes vary among normal materials.
+    It also warns that boron on the market may have been isotopically altered, which can shift its
+    atomic weight well outside the tabulated range.
+
+    Boron is a solid at room temperature. At the bar, the standard pressure of the NIST-JANAF
+    tables, it melts at $2350.000\,\mathrm{K}$, and the liquid boils at a temperature about 1.76
+    times higher.

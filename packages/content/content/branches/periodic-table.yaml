@@ -1,0 +1,34 @@
+# yaml-language-server: $schema=../../dist/schemas/branches.schema.json
+name:
+  en: 'Periodic table'
+category: 'chemistry'
+order: 9
+externalIds:
+  wikidata: 'Q10693'
+aliases:
+  - 'periodic table of the elements'
+  - 'periodic system'
+  - 'chemical elements'
+  - 'tabla periódica'
+  - 'elementos químicos'
+description:
+  en: >-
+    The periodic table is the branch of chemistry that orders the chemical elements by atomic
+    number, the count of protons in the nucleus, and lays them out so that elements with alike
+    chemistry share a column. Each of its entries is an element, described by its symbol, its
+    standard atomic weight, its ground-state electron configuration and measured properties such
+    as ionization energies, boiling point and density.
+
+    The layout follows how electrons fill an atom. Seven horizontal rows, the periods, each begin
+    with a new electron shell and end with a noble gas, whose shells are complete. Eighteen
+    vertical columns, the groups, collect elements whose atoms carry equal counts of valence
+    electrons: groups 1 and 2 and helium make up the s-block, groups 13 to 18 the p-block, and
+    groups 3 to 12 the d-block. Two rows of fifteen, the lanthanoids from lanthanum to lutetium and
+    the actinoids from actinium to lawrencium, sit beneath the main body in place of the group 3
+    cells of periods 6 and 7, so group 3 itself holds only scandium and yttrium. Which members of
+    the two series continue group 3 is still debated, and this layout takes no side.
+
+    Position predicts behaviour: across a period the first ionization energy tends to rise, and
+    down a group it tends to fall. The branch builds on atomic structure, which explains the shells
+    and subshells behind the layout, and supplies the atomic weights that amount of substance turns
+    into molar masses.

@@ -3,7 +3,9 @@ import {
 	branch,
 	category,
 	constant,
+	element,
 	equation,
+	MAX_ATOMIC_NUMBER,
 	magnitude,
 	path,
 	prefix,
@@ -889,5 +891,124 @@ describe('branch', () => {
 		expect(prefix.parse(base).branches).toEqual([]);
 		expect(prefix.parse({ ...base, branches: ['si-system'] }).branches).toEqual(['si-system']);
 		expect(prefix.safeParse({ ...base, branches: ['SI System'] }).success).toBe(false);
+	});
+});
+
+describe('element', () => {
+	const source = { name: 'CIAAW', ref: 'Z = 2' };
+	const helium = {
+		name: { en: 'Helium' },
+		symbol: 'He',
+		atomicNumber: '2',
+		atomicWeight: { kind: 'value', value: '4.002602', uncertainty: '0.000002', source },
+	};
+
+	it('expands the authored symbol to upright TeX and keeps the text', () => {
+		const parsed = element.parse(helium);
+		expect(parsed.symbol).toEqual({ tex: '\\mathrm{He}', text: 'He' });
+		expect(parsed.atomicNumber).toBe(2);
+		expect(parsed.ionizationEnergies).toEqual({});
+		expect(parsed.status).toBe('draft');
+	});
+
+	it('rejects a symbol that is not one capital and up to two lowercase letters', () => {
+		for (const symbol of ['he', 'HE', 'Heli', '', 'H2']) {
+			expect(element.safeParse({ ...helium, symbol }).success, symbol).toBe(false);
+		}
+	});
+
+	it('bounds the atomic number to the periodic table', () => {
+		for (const atomicNumber of ['0', String(MAX_ATOMIC_NUMBER + 1), '-1', '2.5']) {
+			expect(element.safeParse({ ...helium, atomicNumber }).success, atomicNumber).toBe(false);
+		}
+		expect(element.safeParse({ ...helium, atomicNumber: String(MAX_ATOMIC_NUMBER) }).success).toBe(
+			true,
+		);
+	});
+
+	it('takes an atomic weight as a value, an interval or a mass number, each sourced', () => {
+		const weights = [
+			{ kind: 'interval', low: '1.00784', high: '1.00811', source },
+			{
+				kind: 'interval',
+				low: '1.00784',
+				high: '1.00811',
+				abridged: { value: '1.0080', uncertainty: '0.0002', source },
+				source,
+			},
+			{ kind: 'mass-number', massNumber: '98', source },
+		];
+		for (const atomicWeight of weights) {
+			expect(element.safeParse({ ...helium, atomicWeight }).success, atomicWeight.kind).toBe(true);
+		}
+		const rejected = [
+			{ kind: 'value', value: '4.002602', source },
+			{ kind: 'interval', low: '1.00784', source },
+			{ kind: 'mass-number', massNumber: '0', source },
+			{ kind: 'mass-number', massNumber: '98', abridged: { value: '98', source }, source },
+			{ kind: 'interval', low: 1.00784, high: '1.00811', source },
+			{ kind: 'value', value: '4.002602', uncertainty: '0.000002' },
+		];
+		for (const atomicWeight of rejected) {
+			expect(
+				element.safeParse({ ...helium, atomicWeight }).success,
+				JSON.stringify(atomicWeight),
+			).toBe(false);
+		}
+	});
+
+	it('takes sourced properties with a unit, an estimated flag and a localized note', () => {
+		const parsed = element.parse({
+			...helium,
+			ionizationEnergies: {
+				'1': { value: '24.587389011', unit: 'electronvolt', uncertainty: '0.000000025', source },
+				'2': { value: '54.4177655282', unit: 'electronvolt', estimated: 'true', source },
+			},
+			boilingPoint: {
+				value: '4.2238',
+				unit: 'kelvin',
+				note: { en: 'At 101.325 kPa' },
+				source,
+			},
+			standardState: { value: 'gas', source },
+			electronConfiguration: { value: '1s2', source },
+		});
+		expect(parsed.ionizationEnergies['2']?.estimated).toBe(true);
+		expect(parsed.ionizationEnergies['1']?.estimated).toBe(false);
+		expect(parsed.boilingPoint?.note).toEqual({ en: 'At 101.325 kPa' });
+		const invalid: Record<string, unknown>[] = [
+			{ ionizationEnergies: { '0': { value: '1', unit: 'electronvolt', source } } },
+			{ ionizationEnergies: { first: { value: '1', unit: 'electronvolt', source } } },
+			{ boilingPoint: { value: '4.2238', unit: 'kelvin' } },
+			{ boilingPoint: { value: '4.2238', source } },
+			{ density: { value: 4.2, unit: 'kilogram-per-cubic-metre', source } },
+			{ standardState: { value: 'plasma', source } },
+			{ paulingElectronegativity: { value: '2.20', unit: 'unitless', source } },
+			{ meltingPoint: { value: '14', unit: 'kelvin', estimated: 'yes', source } },
+		];
+		for (const fields of invalid) {
+			expect(element.safeParse({ ...helium, ...fields }).success, JSON.stringify(fields)).toBe(
+				false,
+			);
+		}
+	});
+
+	it('records a value read second-hand with the page it was read from beside the cited work', () => {
+		const cited = { name: 'Cordero et al. 2008', url: 'https://doi.org/10.1039/B801115J' };
+		const via = { name: 'Wikidata: helium (Q560)', url: 'https://www.wikidata.org/wiki/Q560' };
+		const parsed = element.parse({
+			...helium,
+			covalentRadius: { value: '28', unit: 'picometre', source: { ...cited, via } },
+		});
+		expect(parsed.covalentRadius?.source.via).toEqual(via);
+		for (const bad of [{ name: 'Wikidata' }, { ...via, ref: 'P14937' }, { url: via.url }]) {
+			expect(
+				element.safeParse({
+					...helium,
+					covalentRadius: { value: '28', unit: 'picometre', source: { ...cited, via: bad } },
+				}).success,
+				JSON.stringify(bad),
+			).toBe(false);
+		}
 	});
 });

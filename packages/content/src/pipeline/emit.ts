@@ -11,6 +11,7 @@ import {
 	engineSlice,
 	localeSidecarSchemas,
 	SCHEMA_VERSION,
+	SURFACED_COLLECTIONS,
 } from '@equreka/schema';
 import MiniSearch from 'minisearch';
 import { z } from 'zod';
@@ -22,6 +23,7 @@ import {
 	MOBILE_STORAGE_CEILING_BYTES,
 	MOBILE_TRANSFER_BUDGET_BYTES,
 } from '../artifact-budgets.js';
+import { periodicPosition } from '../periodic-table.js';
 import {
 	isShardedCollection,
 	type PresentationRecord,
@@ -361,6 +363,14 @@ export function buildPresentationSlices(
 				};
 			}
 		}
+		if (collection === 'elements') {
+			for (const [slug, element] of corpus.elements) {
+				record[slug] = {
+					...record[slug],
+					position: periodicPosition(element.atomicNumber),
+				};
+			}
+		}
 		slices[collection] = record;
 	}
 	return slices;
@@ -519,9 +529,18 @@ function presentationOf(entity: Record<string, unknown>): Record<string, unknown
 	};
 }
 
-function searchDocuments(corpus: Corpus, locale: SearchLocale): SearchDocument[] {
+/**
+ * The documents of `collections`, by default every collection a surface
+ * renders: a search row for an unsurfaced collection would link to a page
+ * that does not exist yet (ADR 0016).
+ */
+export function searchDocuments(
+	corpus: Corpus,
+	locale: SearchLocale,
+	collections: readonly CollectionName[] = SURFACED_COLLECTIONS,
+): SearchDocument[] {
 	const documents: SearchDocument[] = [];
-	for (const collection of COLLECTIONS) {
+	for (const collection of collections) {
 		const slugs = [...(corpus[collection] as Map<string, unknown>).keys()].sort();
 		for (const slug of slugs) {
 			const entity = (corpus[collection] as Map<string, Record<string, unknown>>).get(slug);

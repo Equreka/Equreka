@@ -1,0 +1,159 @@
+# yaml-language-server: $schema=../../dist/schemas/elements.schema.json
+name:
+  en: 'Nitrogen'
+symbol: 'N'
+atomicNumber: 7
+atomicWeight:
+  kind: 'interval'
+  low: '14.00643'
+  high: '14.00728'
+  abridged:
+    value: '14.007'
+    uncertainty: '0.001'
+    source:
+      name: 'CIAAW, Abridged Standard Atomic Weights 2024'
+      url: 'https://www.ciaaw.org/abridged-atomic-weights.htm'
+      ref: 'Z = 7, nitrogen'
+  source:
+    name: 'CIAAW, Standard Atomic Weights 2024'
+    url: 'https://www.ciaaw.org/atomic-weights.htm'
+    ref: 'Z = 7, nitrogen: [14.006 43, 14.007 28], note m'
+electronConfiguration:
+  value: '[He] 2s2 2p3'
+  source:
+    name: 'NIST Atomic Spectra Database, version 5.12'
+    url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+    ref: 'N I: ground shells 1s2.2s2.2p3'
+ionizationEnergies:
+  '1':
+    value: '14.53413'
+    unit: 'electronvolt'
+    uncertainty: '0.00004'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'N I: ionization energy; bibliography L1411'
+  '2':
+    value: '29.60125'
+    unit: 'electronvolt'
+    uncertainty: '0.00009'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'N II: ionization energy in brackets (semi-empirical); bibliography L11770'
+  '3':
+    value: '47.4453'
+    unit: 'electronvolt'
+    uncertainty: '0.0025'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'N III: ionization energy in brackets (semi-empirical); bibliography L11770'
+  '4':
+    value: '77.4735'
+    unit: 'electronvolt'
+    uncertainty: '0.0004'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'N IV: ionization energy; bibliography L7288'
+  '5':
+    value: '97.8901'
+    unit: 'electronvolt'
+    uncertainty: '0.0004'
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'N V: ionization energy; bibliography L4829'
+  '6':
+    value: '552.06741'
+    unit: 'electronvolt'
+    uncertainty: '0.00008'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'N VI: ionization energy in parentheses (ab initio); bibliography L21139'
+  '7':
+    value: '667.0461377'
+    unit: 'electronvolt'
+    uncertainty: '0.0000007'
+    estimated: true
+    source:
+      name: 'NIST Atomic Spectra Database, version 5.12'
+      url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+      ref: 'N VII: ionization energy in parentheses (ab initio); bibliography L19200'
+covalentRadius:
+  value: '71'
+  unit: 'picometre'
+  source:
+    name: 'Cordero et al., Covalent radii revisited, Dalton Transactions 2008 (21), 2832–2838'
+    url: 'https://doi.org/10.1039/B801115J'
+    via:
+      name: 'Wikidata: nitrogen (Q627), covalent radius (P14937), statement citing doi:10.1039/B801115J'
+      url: 'https://www.wikidata.org/wiki/Q627#P14937'
+boilingPoint:
+  value: '77.355'
+  unit: 'kelvin'
+  source:
+    name: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+    ref: 'Nitrogen: normal boiling point; equation of state of Span et al. (2000)'
+density:
+  value: '1.1452'
+  unit: 'kilogram-per-cubic-metre'
+  source:
+    name: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+    ref: 'Nitrogen: isothermal data at 298.15 K and 0.101325 MPa'
+standardState:
+  value: 'gas'
+  source:
+    name: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+    ref: 'Nitrogen: phase at 298.15 K and 0.101325 MPa, vapor'
+categories:
+  - 'chemistry'
+branches:
+  - 'periodic-table'
+externalIds:
+  wikidata: 'Q627'
+references:
+  - title: 'CIAAW, Standard Atomic Weights 2024 and Abridged Standard Atomic Weights 2024'
+    url: 'https://www.ciaaw.org/atomic-weights.htm'
+  - title: 'NIST, Atomic Spectra Database, version 5.12, Ground States and Ionization Energies'
+    url: 'https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html'
+  - title: 'NIST Chemistry WebBook, SRD 69, Thermophysical Properties of Fluid Systems'
+    url: 'https://webbook.nist.gov/chemistry/fluid/'
+  - title: 'NIST-JANAF Thermochemical Tables, Nitrogen (N2), reference state'
+    url: 'https://janaf.nist.gov/tables/N-023.html'
+  - title: 'OpenStax, Chemistry 2e, 2.5 The Periodic Table'
+    url: 'https://openstax.org/books/chemistry-2e/pages/2-5-the-periodic-table'
+  - title: 'OpenStax, Chemistry 2e, 6.5 Periodic Variations in Element Properties'
+    url: 'https://openstax.org/books/chemistry-2e/pages/6-5-periodic-variations-in-element-properties'
+description:
+  en: >-
+    Nitrogen, symbol N, is the chemical element with atomic number 7, the head of group 15, whose
+    members are called the pnictogens, and an element of the p-block in period 2. Its ground-state
+    electron configuration is $[\mathrm{He}]\,2s^{2}\,2p^{3}$: by Hund's rule each of the three 2p
+    electrons takes an orbital of its own, all with the same spin, so the 2p subshell is exactly
+    half full.
+
+    A half-filled subshell is a comparatively stable arrangement, and the ionization energies show
+    it. The first ionization energy of nitrogen, about $14.53\,\mathrm{eV}$, is higher than that of
+    oxygen, the next element, even though oxygen has one more proton. In oxygen the fourth 2p
+    electron has to share an orbital, and losing it relieves the repulsion between the paired
+    electrons. NIST derives the second and third ionization energies of nitrogen by a
+    semi-empirical procedure and the last two from calculation; the sixth, which reaches the
+    helium-like core, is more than five times the fifth.
+
+    The isotopic composition of nitrogen varies among normal materials, so CIAAW states its
+    standard atomic weight as the interval from 14.00643 to 14.00728, with 14.007 as the abridged
+    value, and notes that commercial nitrogen may have been isotopically modified.
+
+    At room temperature and atmospheric pressure nitrogen is a gas of N₂ molecules, the reference
+    state that the NIST-JANAF tables assign to the element. According to the reference equation of
+    state that NIST adopts, the gas condenses to a liquid at standard atmospheric pressure at
+    $77.355\,\mathrm{K}$.

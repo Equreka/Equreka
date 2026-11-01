@@ -100,6 +100,15 @@ export function ratEq(a: Rat, b: Rat): boolean {
 	return a.num === b.num && a.den === b.den;
 }
 
+/**
+ * The sign of a − b: -1, 0 or 1. Denominators are positive, so cross
+ * multiplication keeps the order.
+ */
+export function ratCompare(a: Rat, b: Rat): -1 | 0 | 1 {
+	const difference = a.num * b.den - b.num * a.den;
+	return difference < 0n ? -1 : difference > 0n ? 1 : 0;
+}
+
 export interface DecimalRendering {
 	text: string;
 	exact: boolean;

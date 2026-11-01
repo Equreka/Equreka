@@ -156,6 +156,13 @@ const CASES = [
 		expect: /unknown wave 'W99'/,
 	},
 	{
+		name: 'wave id outside the content waves and the elements track',
+		mutate: ({ roadmap }) => {
+			roadmap.waves[1].id = 'X2';
+		},
+		expect: /id must look like W2, W1\.3 or E1, got 'X2'/,
+	},
+	{
 		name: 'slice of another wave',
 		mutate: ({ roadmap }) => {
 			roadmap.entries[3].slice = 'mathematics';
